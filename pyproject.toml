@@ -1,0 +1,27 @@
+[tool.poetry]
+name        = "riskmandate-ai"
+version     = "v0.1.2"
+description = "RiskMandate.ai website"
+readme      = "README.md"
+license     = "Apache-2.0"
+authors     = ["Risk-FS"]
+keywords    = ["risk", "risk-fs"]
+homepage    = "https://github.com/Risk-Mandate/riskmandate.ai"
+repository  = "https://github.com/Risk-Mandate/riskmandate.ai"
+classifiers = [
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12"
+]
+
+[tool.poetry.dependencies]
+python       = ">=3.11"
+osbot-utils  = "*"
+
+[tool.poetry.group.dev.dependencies]
+pytest       = ">=8.0"
+pytest-cov   = ">=5.0"
+
+[build-system]
+requires      = ["poetry-core>=1.9.1"]
+build-backend = "poetry.core.masonry.api"
