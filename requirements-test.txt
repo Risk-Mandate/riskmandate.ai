@@ -1,0 +1,6 @@
+# core
+osbot-utils
+
+# for pytest
+pytest
+pytest-cov
