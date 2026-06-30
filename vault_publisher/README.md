@@ -66,8 +66,26 @@ python vault_publisher/publish.py                 # regenerates .public-generate
 Options:
 
 - `--config PATH` — use a different config file.
-- `--keep-clone` — keep the temporary vault clone for inspection.
-- `SGIT_BIN=/path/to/sgit` — use a specific `sgit` binary (e.g. from a venv).
+- `--clone-dir DIR` — where to clone the vault (default `./.vault-clone`).
+- `--keep-clone` — keep the vault clone for inspection instead of deleting it.
+
+### Choosing which `sgit` to run (first match wins)
+
+- `SGIT="<command>"` — a **full command**; use this when `sgit` is a shell
+  **alias** or runs in a **container** (aliases aren't visible to scripts),
+  e.g. `SGIT="container exec sgit-box sgit"`.
+- `SGIT_BIN=/path/to/sgit` — a path to the binary.
+- `sgit` on `PATH` — the default.
+
+The clone uses the explicit `--read-key` form (vault-id positional + key flag),
+which is stable across sgit-ai versions.
+
+### Where the vault is cloned
+
+Into `./.vault-clone/<vaultId>/` (repo-local and gitignored, **not** system
+temp) so a containerised/aliased `sgit` can reach it via the repo mount. It's
+deleted after each build unless `--keep-clone` is passed. Override the location
+with `--clone-dir` or `clone_dir` in the config.
 
 ## Config
 
@@ -78,6 +96,7 @@ Options:
 | `base_url`   | API base URL; `null` uses the sgit-ai default.                 |
 | `output_dir` | Static-site output dir, relative to the repo root.            |
 | `publish`    | Allowlist of vault paths copied verbatim into `output_dir`.    |
+| `clone_dir`  | Optional — where to clone (default `.vault-clone`).            |
 
 ## Deploying
 

@@ -12,11 +12,15 @@
 #   http://localhost:PORT      ✅  (localhost is treated as secure)
 #   http://127.0.0.1:PORT      ❌  (not a secure context — Web Crypto disabled)
 #
-# Requires: python3, and `sgit` (pip install sgit-ai). If sgit isn't on PATH or
-# in $SGIT_BIN, this script provisions it into a local ./.venv automatically.
+# Requires: python3, and `sgit` (pip install sgit-ai). sgit is resolved as:
+#   $SGIT      a full command (use this for an alias / container wrapper), or
+#   $SGIT_BIN  a path to the binary, or
+#   sgit       on PATH, or
+#   a local ./.venv this script auto-provisions as a last resort.
 #
 # Usage:
 #   bash scripts/run-locally__riskmandate_ai.sh [PORT]      # default PORT 10070
+#   SGIT="container exec sgit-box sgit" bash scripts/run-locally__riskmandate_ai.sh
 # ---------------------------------------------------------------------------
 set -euo pipefail
 
@@ -26,20 +30,35 @@ REPO_ROOT="$(dirname "$SCRIPT_DIR")"
 SERVE_DIR="$REPO_ROOT/.public-generated-files"
 
 # ─── Resolve sgit (publish.py shells out to it) ────────────────────────────
-if [ -n "${SGIT_BIN:-}" ] && [ -x "${SGIT_BIN:-}" ]; then
-    :
+# Precedence: $SGIT (full command — e.g. a container/alias wrapper) > $SGIT_BIN
+# (path) > sgit on PATH > a repo-local ./.venv (auto-provisioned, last resort).
+#
+# NOTE: if your `sgit` is a shell ALIAS (e.g. it runs inside a container), this
+# script cannot see it — aliases aren't exported to scripts. Pass the underlying
+# command via SGIT instead, e.g.:
+#   SGIT="container exec sgit-box sgit" bash scripts/run-locally__riskmandate_ai.sh
+if [ -n "${SGIT:-}" ]; then
+    export SGIT
+    echo "  sgit: (SGIT) $SGIT"
+elif [ -n "${SGIT_BIN:-}" ] && [ -x "${SGIT_BIN:-}" ]; then
+    echo "  sgit: $SGIT_BIN"
 elif command -v sgit >/dev/null 2>&1; then
     export SGIT_BIN="$(command -v sgit)"
+    echo "  sgit: $SGIT_BIN"
 elif [ -x "$REPO_ROOT/.venv/bin/sgit" ]; then
     export SGIT_BIN="$REPO_ROOT/.venv/bin/sgit"
+    echo "  sgit: $SGIT_BIN"
 else
-    echo "sgit not found — provisioning into $REPO_ROOT/.venv (one-off) ..."
+    echo "sgit not found on PATH."
+    echo "  If you run sgit via an alias/container, re-run with SGIT set, e.g.:"
+    echo "    SGIT=\"container exec sgit-box sgit\" $0"
+    echo "  Otherwise provisioning a local copy into $REPO_ROOT/.venv (one-off) ..."
     python3 -m venv "$REPO_ROOT/.venv"
     "$REPO_ROOT/.venv/bin/pip" install -q --upgrade pip
     "$REPO_ROOT/.venv/bin/pip" install -q -r "$REPO_ROOT/vault_publisher/requirements.txt"
     export SGIT_BIN="$REPO_ROOT/.venv/bin/sgit"
+    echo "  sgit: $SGIT_BIN"
 fi
-echo "  sgit: $SGIT_BIN"
 
 # ─── Generate the static tree (the CI build, locally) ──────────────────────
 echo "Generating static site → $SERVE_DIR ..."
