@@ -99,7 +99,10 @@ def clone_vault(cfg: dict, dest: Path) -> None:
     print(f"  ▸ cloning vault {cfg['vault_id']} (read-only) → {dest}")
     print(f"    using: {' '.join(shlex.quote(c) for c in sgit_cmd())}")
     try:
-        subprocess.run(cmd, check=True)
+        # Run from clone_root so any stray relative artifact a buggy sgit writes
+        # (e.g. a literal "None" dir from the Python-3.14 read-only-clone bug)
+        # lands inside .vault-clone and gets cleaned up — not in the repo root.
+        subprocess.run(cmd, check=True, cwd=str(clone_root))
     except FileNotFoundError:
         sys.exit(
             f"error: sgit not found (tried: {' '.join(sgit_cmd())}). Install it with "
