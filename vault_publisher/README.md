@@ -1,7 +1,7 @@
 # vault_publisher
 
 A small, **standalone** module that pulls published content out of an SG/Vault
-and writes a clean, deployable **static site** into `public/`.
+and writes a clean, deployable **static site** into `.public-generated-files/`.
 
 It is deliberately self-contained and config-driven so it can be lifted out of
 this repo and reused in other projects later — point `vault.config.json` at a
@@ -12,15 +12,37 @@ different vault and it works the same way.
 1. Reads `vault.config.json` (vault id, **read-only** key, and the allowlist of
    files to publish).
 2. Performs a **read-only clone** of the vault with `sgit-ai`.
-3. Copies only the allowlisted files into the output directory (`public/`),
+3. Copies only the allowlisted files into the output directory
+   (`.public-generated-files/`),
    so vault internals (`.sg_vault/`, `.vault/`, host-only `app.json`, …) never
    reach the public site.
 
-The Risk Mandate vault already holds a **fully self-contained** `index.html`
-(inline CSS/JS/SVG). Its only runtime dependencies are relative fetches of
-`version.json` (footer version) and `CHANGELOG.md` (the `/changelog.html`
-page) — both with inline fallbacks. So for this MVP no client-side decryption
-is needed: publishing is just a build-time sync of plaintext-in-vault files.
+The Risk Mandate vault holds a `src/` → `build.js` → **self-contained**
+`index.html` build (maintained by the vault team — do not edit `index.html`
+by hand). At runtime that page reads a few vault files via `content.js`, which
+uses `sg.vfs.readText` in the SG/App host and falls back to a **relative
+`fetch()`** on the static domain — so the same code runs on the vault and on
+GitHub Pages with no knowledge of where it is.
+
+The allowlist therefore mirrors exactly what the page fetches at runtime:
+
+| Published | Why |
+|-----------|-----|
+| `index.html` | the built page |
+| `version`    | footer version stamp (`content.version()`) |
+| `dev/`       | `dev/releases.json` + `dev/releases/*.md`, rendered by `rm-dev-releases` |
+
+Build-only inputs (`src/`, `build.js`, `test/`) and SG/App host metadata
+(`app.json`) are deliberately **not** published — they aren't fetched by the
+static site.
+
+## Overlay (`overlay_dir`)
+
+After the vault files are written, the publisher copies a repo-held
+`overlay_dir` (default `web_overlay/`) on top of the output — repo files win on
+conflict. This is for static pages that live in the **repo**, not the vault.
+Currently it ships the MVP vault-host page at `web_overlay/app/` → `/app/`
+(see `../docs/hosting-mvp.md`).
 
 > Future direction: the sgraph.ai library renders content that stays
 > **encrypted at rest** by fetching ciphertext and decrypting in the browser
@@ -38,7 +60,7 @@ Write keys are never stored here.
 
 ```bash
 pip install -r vault_publisher/requirements.txt   # installs the `sgit` CLI
-python vault_publisher/publish.py                 # regenerates public/
+python vault_publisher/publish.py                 # regenerates .public-generated-files/
 ```
 
 Options:
@@ -59,6 +81,6 @@ Options:
 
 ## Deploying
 
-`public/` is the deploy root — point any static host at it (S3 + CloudFront,
-Cloudflare Pages, GitHub Pages, etc.). To refresh after a content change in the
-vault, re-run `publish.py` and redeploy `public/`.
+`.public-generated-files/` is the deploy root — point any static host at it
+(S3 + CloudFront, Cloudflare Pages, GitHub Pages, etc.). To refresh after a
+content change in the vault, re-run `publish.py` and redeploy it.

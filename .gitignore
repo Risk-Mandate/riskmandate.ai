@@ -216,3 +216,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Generated static site — built from the vault by vault_publisher in CI.
+# Not committed: the vault is the source of truth (see vault_publisher/README.md).
+.public-generated-files/

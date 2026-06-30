@@ -76,16 +76,39 @@ def publish(cfg: dict, clone_dir: Path) -> Path:
     copied = []
     for rel in cfg["publish"]:
         src = clone_dir / rel
-        if not src.is_file():
-            sys.exit(f"error: '{rel}' is in the allowlist but not present in the vault")
         dst = out_dir / rel
-        dst.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(src, dst)
-        copied.append(rel)
+        if src.is_dir():
+            # Allowlisted directory → copy the whole subtree (e.g. dev/ release notes).
+            if dst.exists():
+                shutil.rmtree(dst)
+            shutil.copytree(src, dst)
+            copied.append(rel + "/")
+        elif src.is_file():
+            dst.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(src, dst)
+            copied.append(rel)
+        else:
+            sys.exit(f"error: '{rel}' is in the allowlist but not present in the vault")
 
-    print(f"  ▸ published {len(copied)} file(s) to {out_dir.relative_to(REPO_ROOT)}/")
+    print(f"  ▸ published {len(copied)} entr(y/ies) to {out_dir.relative_to(REPO_ROOT)}/")
     for rel in copied:
         print(f"      • {rel}")
+
+    # Optional repo-held overlay (host pages, etc.) copied on top of the vault
+    # output. Repo files win on conflict. Used for the static-vault-hosting host
+    # page at /app/, which lives in the repo (not the vault).
+    overlay = cfg.get("overlay_dir")
+    if overlay:
+        overlay_path = Path(overlay)
+        if not overlay_path.is_absolute():
+            overlay_path = REPO_ROOT / overlay_path
+        if overlay_path.is_dir():
+            shutil.copytree(overlay_path, out_dir, dirs_exist_ok=True)
+            n = sum(1 for _ in overlay_path.rglob("*") if _.is_file())
+            print(f"  ▸ overlaid {n} file(s) from {overlay}/")
+        else:
+            print(f"  ▸ overlay_dir '{overlay}' not found — skipping")
+
     return out_dir
 
 

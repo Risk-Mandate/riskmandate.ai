@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Risk Mandate — vault app (MVP host)</title>
+<meta name="robots" content="noindex">
+<!--
+  MVP host page (Step 1 of the static-vault-hosting model).
+
+  Goal: serve the Risk Mandate website *vault app* (vault 7rfetjwz) from
+  riskmandate.ai with ZERO code changes to the vault app. The app only talks to
+  window.sg; the SG app-shell injects that bridge and decrypts everything in the
+  browser.
+
+  Step 1 (this page): embed the proven SG app-shell, opened READ-ONLY (read key
+  only, no access token -> sg.app.writable === false). All encrypted objects are
+  read from the live dev API at dev.send.sgraph.ai and decrypted client-side.
+  The bytes on the wire are ciphertext; this page holds only the public read key.
+
+  Step 2 (later, tracked separately): export the vault's encrypted bare/ tree to
+  GitHub Pages at /api/vault/read/<vaultId>/bare/... and set window.SG_STATIC=true
+  so there is no backend at all. See HOSTINGONSTATICSTORAGE.md.
+
+  NOTE: the read key below is PUBLIC by design (read-only capability for a public
+  marketing site). The write key/passphrase is never placed here.
+-->
+<style>
+  html, body { margin: 0; height: 100%; background: #0A0A09; }
+  iframe { border: 0; width: 100vw; height: 100vh; display: block; }
+  .fallback { color: #A8A59E; font: 15px/1.6 system-ui, sans-serif; padding: 24px; max-width: 640px; }
+  .fallback a { color: #22c55e; }
+</style>
+</head>
+<body>
+<script>
+  // ---- configuration -------------------------------------------------------
+  // The vault to open and the credential to open it with. The credential is the
+  // READ key (read-only) — opening without an access token yields a read-only
+  // mount (sg.app.writable === false), so the same app HTML runs unmodified.
+  var VAULT_ID = '7rfetjwz';
+
+  // Read key. The dev vault browser accepts the credential as provided; we use
+  // the hex form here (the form supplied for this vault). If the app-shell's
+  // crypto expects base64url instead, swap to READ_KEY_B64URL below — both
+  // decode to the same 32 bytes.
+  var READ_KEY        = '92bd6fa7e47d3692e7300cd7441dd478c9cd28f871f9041ad28c55c222fcb2bd';
+  var READ_KEY_B64URL = 'kr1vp-R9NpLnMAzXRB3UeMnNKPhx-QQa0oxVwiL8sr0'; // alternate form
+
+  // The SG vault host. It boots the app-shell, opens the vault, reads encrypted
+  // objects from dev.send.sgraph.ai, and renders the vault's index.html app.
+  var HOST = 'https://dev.vault.sgraph.ai';
+
+  // Share-link form: HOST/#<credential>:<vaultId>  (same shape as a clone link).
+  var src = HOST + '/#' + READ_KEY + ':' + VAULT_ID;
+
+  var iframe = document.createElement('iframe');
+  iframe.setAttribute('title', 'Risk Mandate');
+  iframe.setAttribute('allow', 'clipboard-read; clipboard-write');
+  iframe.src = src;
+  document.body.appendChild(iframe);
+</script>
+<noscript>
+  <div class="fallback">
+    This page hosts the Risk Mandate vault app and requires JavaScript.
+    Open it directly:
+    <a href="https://dev.vault.sgraph.ai/#92bd6fa7e47d3692e7300cd7441dd478c9cd28f871f9041ad28c55c222fcb2bd:7rfetjwz">launch the vault app</a>.
+  </div>
+</noscript>
+</body>
+</html>
