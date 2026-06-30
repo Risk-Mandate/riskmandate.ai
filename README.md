@@ -9,25 +9,31 @@ output.
 ## Layout
 
 ```
-vault_publisher/     Standalone module — clones the vault (read-only via sgit-ai)
-                     and emits a clean static site. Config-driven and reusable;
-                     intended to be refactored out into its own package later.
-public/              Generated static site (the deploy root). NOT committed
-                     (gitignored) — CI rebuilds it from the vault on each deploy,
-                     so the vault is the single source of truth.
+vault_publisher/         Standalone module — clones the vault (read-only via sgit-ai)
+                         and emits a clean static site. Config-driven and reusable;
+                         intended to be refactored out into its own package later.
+web_overlay/             Repo-held static pages overlaid onto the output (e.g. the
+                         /app/ vault-host page). See docs/hosting-mvp.md.
+scripts/                 Dev tooling (run-locally__riskmandate_ai.sh).
+.public-generated-files/ Generated static site (the deploy root). NOT committed
+                         (gitignored) — CI rebuilds it from the vault on each deploy,
+                         so the vault is the single source of truth.
 ```
 
 ## Quick start
 
+Run the whole thing locally (generate the static tree from the vault, then serve
+it on localhost):
+
 ```bash
-pip install -r vault_publisher/requirements.txt
-python vault_publisher/publish.py     # regenerates public/ from the vault
+bash scripts/run-locally__riskmandate_ai.sh        # → http://localhost:10070/
 ```
 
-Then serve / deploy `public/`:
+Or just regenerate the deploy tree:
 
 ```bash
-python -m http.server -d public 8099  # local preview at http://127.0.0.1:8099
+pip install -r vault_publisher/requirements.txt
+python vault_publisher/publish.py     # regenerates .public-generated-files/ from the vault
 ```
 
 See [`vault_publisher/README.md`](vault_publisher/README.md) for details on the

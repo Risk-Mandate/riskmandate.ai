@@ -1,7 +1,7 @@
 # vault_publisher
 
 A small, **standalone** module that pulls published content out of an SG/Vault
-and writes a clean, deployable **static site** into `public/`.
+and writes a clean, deployable **static site** into `.public-generated-files/`.
 
 It is deliberately self-contained and config-driven so it can be lifted out of
 this repo and reused in other projects later — point `vault.config.json` at a
@@ -12,7 +12,8 @@ different vault and it works the same way.
 1. Reads `vault.config.json` (vault id, **read-only** key, and the allowlist of
    files to publish).
 2. Performs a **read-only clone** of the vault with `sgit-ai`.
-3. Copies only the allowlisted files into the output directory (`public/`),
+3. Copies only the allowlisted files into the output directory
+   (`.public-generated-files/`),
    so vault internals (`.sg_vault/`, `.vault/`, host-only `app.json`, …) never
    reach the public site.
 
@@ -59,7 +60,7 @@ Write keys are never stored here.
 
 ```bash
 pip install -r vault_publisher/requirements.txt   # installs the `sgit` CLI
-python vault_publisher/publish.py                 # regenerates public/
+python vault_publisher/publish.py                 # regenerates .public-generated-files/
 ```
 
 Options:
@@ -80,6 +81,6 @@ Options:
 
 ## Deploying
 
-`public/` is the deploy root — point any static host at it (S3 + CloudFront,
-Cloudflare Pages, GitHub Pages, etc.). To refresh after a content change in the
-vault, re-run `publish.py` and redeploy `public/`.
+`.public-generated-files/` is the deploy root — point any static host at it
+(S3 + CloudFront, Cloudflare Pages, GitHub Pages, etc.). To refresh after a
+content change in the vault, re-run `publish.py` and redeploy it.

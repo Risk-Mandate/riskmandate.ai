@@ -34,16 +34,16 @@ jobs:
       - name: Install publisher dependencies
         run: pip install -r vault_publisher/requirements.txt
 
-      - name: Publish vault → public/
+      - name: Publish vault → .public-generated-files/
         run: python vault_publisher/publish.py
 
       - name: Disable Jekyll processing
-        run: touch public/.nojekyll
+        run: touch .public-generated-files/.nojekyll
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: public
+          path: .public-generated-files
 
   deploy:
     name: Deploy to GitHub Pages

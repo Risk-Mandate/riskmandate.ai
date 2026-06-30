@@ -14,7 +14,7 @@ GitHub Pages / S3" guide (`SGSend.staticMode`).
   All encrypted objects are read from the live dev API **`dev.send.sgraph.ai`**
   and decrypted client-side. The page holds only the **public read key**;
   the bytes on the wire are ciphertext.
-  - Source: `web_overlay/app/index.html` (deployed to `public/app/` by the
+  - Source: `web_overlay/app/index.html` (deployed to `.public-generated-files/app/` by the
     publisher's overlay step; see `vault_publisher/`).
   - Lives at a subpath so the existing root (the plaintext-extracted site) keeps
     working while we verify the vault-hosted path.
