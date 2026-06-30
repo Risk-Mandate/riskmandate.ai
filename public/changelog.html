@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Risk Mandate — Changelog</title>
+<style>
+  :root{--canvas:#0A0A09;--panel:#131210;--line:rgba(247,246,242,.10);--fg:#F7F6F2;--fg-2:#A8A59E;--fg-3:#6E6B64;
+    --green:#1A7F5A;--green-2:#22c55e;--mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+    --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--canvas);color:var(--fg);font-family:var(--sans);line-height:1.62}
+  a{color:var(--green)}
+  .top{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(10,10,9,.85);backdrop-filter:blur(10px)}
+  .top .wrap{max-width:820px;margin:0 auto;padding:16px 26px;display:flex;align-items:center;gap:11px}
+  .rm{width:26px;height:26px;border-radius:6px;background:var(--green);display:grid;place-items:center;color:#04130d;font-family:var(--mono);font-weight:700;font-size:11px}
+  .top a{color:var(--fg);text-decoration:none;font-weight:800;letter-spacing:-.02em}
+  .top .back{margin-left:auto;font-family:var(--mono);font-size:12.5px;color:var(--fg-2)}
+  .wrap{max-width:820px;margin:0 auto;padding:48px 26px 90px}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--green)}
+  .md h1{font-size:34px;letter-spacing:-.02em;margin:6px 0 0}
+  .md h2{font-size:18px;font-family:var(--mono);color:var(--fg);letter-spacing:.01em;margin:38px 0 4px;padding-top:20px;border-top:1px solid var(--line)}
+  .md h3{font-size:15px;margin:22px 0 4px}
+  .md p{color:var(--fg-2);margin:12px 0}
+  .md ul{margin:12px 0;padding-left:20px;color:var(--fg-2)} .md li{margin:7px 0}
+  .md em{color:var(--fg);font-style:italic} .md strong{color:var(--fg);font-weight:600}
+  .md hr{border:0;border-top:1px solid var(--line);margin:22px 0}
+  .md code{font-family:var(--mono);font-size:.88em;background:var(--panel);padding:2px 6px;border-radius:5px;color:#cfcabf}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><span class="rm">RM</span><a href="/index.html">Risk Mandate</a><span class="back"><a href="/index.html" style="color:var(--fg-2)">← back to site</a></span></div></header>
+<main class="wrap">
+  <p class="eyebrow">Dev · version log</p>
+  <article class="md" id="md">Loading…</article>
+</main>
+<script>
+  var FALLBACK = "# Risk Mandate — Website · Changelog\n\nVersioning: **v0.{major}.{minor}**. **Every commit increases the minor.** v0.1.0 is the baseline.\n\n## v0.1.0 — Baseline\n\n- Rebased on the partner's Risk Mandate site (Category · Trifecta · Acceptance · Certs · Pricing).\n- Interactive risk queue, Lethal Trifecta, Four Pillars, Hope vs Enforce, Capability Certificates, pricing.\n- Versioning system: version file, changelog, footer version, this page.";
+
+  function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+  function inline(s){return esc(s)
+    .replace(/`([^`]+)`/g,'<code>$1</code>')
+    .replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>')
+    .replace(/\*([^*]+)\*/g,'<em>$1</em>');}
+  function mdToHtml(md){
+    var out=[], lines=md.split('\n'), i=0;
+    while(i<lines.length){
+      var l=lines[i];
+      if(/^---\s*$/.test(l)){out.push('<hr>');i++;continue;}
+      if(/^###\s+/.test(l)){out.push('<h3>'+inline(l.replace(/^###\s+/,''))+'</h3>');i++;continue;}
+      if(/^##\s+/.test(l)){out.push('<h2>'+inline(l.replace(/^##\s+/,''))+'</h2>');i++;continue;}
+      if(/^#\s+/.test(l)){out.push('<h1>'+inline(l.replace(/^#\s+/,''))+'</h1>');i++;continue;}
+      if(/^[-*]\s+/.test(l)){
+        var items=[];
+        while(i<lines.length && /^[-*]\s+/.test(lines[i])){items.push('<li>'+inline(lines[i].replace(/^[-*]\s+/,''))+'</li>');i++;}
+        out.push('<ul>'+items.join('')+'</ul>');continue;
+      }
+      if(l.trim()===''){i++;continue;}
+      out.push('<p>'+inline(l)+'</p>');i++;
+    }
+    return out.join('\n');
+  }
+  function render(md){document.getElementById('md').innerHTML=mdToHtml(md);}
+
+  var SG=window.sg;
+  var read = SG&&SG.vfs ? SG.vfs.readText('/CHANGELOG.md') : fetch('CHANGELOG.md',{cache:'no-store'}).then(function(r){return r.text();});
+  Promise.resolve(read).then(function(t){render(t&&t.trim()?t:FALLBACK);}).catch(function(){render(FALLBACK);});
+  try{window.parent&&window.parent.postMessage({type:'sg-app-ready'},'*');}catch(e){}
+</script>
+</body>
+</html>

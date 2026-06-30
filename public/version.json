@@ -1,0 +1,7 @@
+{
+  "name": "Risk Mandate — Website",
+  "version": "0.1.0",
+  "scheme": "v0.{major}.{minor}",
+  "policy": "Every commit to this vault increases the minor. v0.1.0 is the baseline.",
+  "updated": "2026-06-29"
+}

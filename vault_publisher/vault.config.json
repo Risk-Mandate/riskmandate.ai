@@ -1,0 +1,13 @@
+{
+  "vault_name": "Risk Mandate — Website",
+  "vault_id": "7rfetjwz",
+  "read_key": "92bd6fa7e47d3692e7300cd7441dd478c9cd28f871f9041ad28c55c222fcb2bd",
+  "base_url": null,
+  "output_dir": "public",
+  "publish": [
+    "index.html",
+    "changelog.html",
+    "version.json",
+    "CHANGELOG.md"
+  ]
+}
