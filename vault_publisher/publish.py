@@ -72,9 +72,23 @@ def clone_vault(cfg: dict, dest: Path) -> None:
     than the `<key>:<id>` shorthand — it's unambiguous and stable across
     sgit-ai versions.
     """
+    # Clear the target ourselves and clone into a guaranteed-fresh path. We do
+    # NOT use sgit's --force: its "delete existing dir" step has been seen to
+    # fail with "Directory is not empty" on a leftover clone (e.g. from an
+    # earlier aborted run, or files written by a containerised sgit).
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    if dest.exists():
+        shutil.rmtree(dest, ignore_errors=True)
+    if dest.exists():
+        sys.exit(
+            f"error: could not clear the existing clone dir {dest} "
+            "(a permission issue — e.g. files written by a containerised sgit "
+            "under a different uid). Remove it manually and retry."
+        )
+
     cmd = sgit_cmd() + [
         "clone", cfg["vault_id"], str(dest),
-        "--read-key", cfg["read_key"], "--force",
+        "--read-key", cfg["read_key"],
     ]
     if cfg.get("base_url"):
         cmd += ["--base-url", cfg["base_url"]]
