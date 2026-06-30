@@ -93,6 +93,22 @@ def publish(cfg: dict, clone_dir: Path) -> Path:
     print(f"  ▸ published {len(copied)} entr(y/ies) to {out_dir.relative_to(REPO_ROOT)}/")
     for rel in copied:
         print(f"      • {rel}")
+
+    # Optional repo-held overlay (host pages, etc.) copied on top of the vault
+    # output. Repo files win on conflict. Used for the static-vault-hosting host
+    # page at /app/, which lives in the repo (not the vault).
+    overlay = cfg.get("overlay_dir")
+    if overlay:
+        overlay_path = Path(overlay)
+        if not overlay_path.is_absolute():
+            overlay_path = REPO_ROOT / overlay_path
+        if overlay_path.is_dir():
+            shutil.copytree(overlay_path, out_dir, dirs_exist_ok=True)
+            n = sum(1 for _ in overlay_path.rglob("*") if _.is_file())
+            print(f"  ▸ overlaid {n} file(s) from {overlay}/")
+        else:
+            print(f"  ▸ overlay_dir '{overlay}' not found — skipping")
+
     return out_dir
 
 

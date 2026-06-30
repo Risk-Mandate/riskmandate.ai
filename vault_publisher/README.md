@@ -35,6 +35,14 @@ Build-only inputs (`src/`, `build.js`, `test/`) and SG/App host metadata
 (`app.json`) are deliberately **not** published — they aren't fetched by the
 static site.
 
+## Overlay (`overlay_dir`)
+
+After the vault files are written, the publisher copies a repo-held
+`overlay_dir` (default `web_overlay/`) on top of the output — repo files win on
+conflict. This is for static pages that live in the **repo**, not the vault.
+Currently it ships the MVP vault-host page at `web_overlay/app/` → `/app/`
+(see `../docs/hosting-mvp.md`).
+
 > Future direction: the sgraph.ai library renders content that stays
 > **encrypted at rest** by fetching ciphertext and decrypting in the browser
 > via the Web Crypto API (AES-256-GCM). This module is the seam where that

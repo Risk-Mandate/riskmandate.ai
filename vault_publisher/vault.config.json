@@ -8,5 +8,6 @@
     "index.html",
     "version",
     "dev"
-  ]
+  ],
+  "overlay_dir": "web_overlay"
 }
