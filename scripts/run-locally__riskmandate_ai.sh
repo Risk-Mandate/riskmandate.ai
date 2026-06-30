@@ -37,6 +37,16 @@ SERVE_DIR="$REPO_ROOT/.public-generated-files"
 # script cannot see it — aliases aren't exported to scripts. Pass the underlying
 # command via SGIT instead, e.g.:
 #   SGIT="container exec sgit-box sgit" bash scripts/run-locally__riskmandate_ai.sh
+
+# A Python is OK for sgit-ai iff it isn't 3.14+ (those misparse the clone args:
+# the directory positional is consumed as the key -> "non-hexadecimal ...
+# fromhex" + a stray "None" folder).
+py_ok() {
+    local v
+    v="$("$1" -c 'import sys;print("%d.%d"%sys.version_info[:2])' 2>/dev/null)" || return 1
+    case "$v" in 3.14|3.15|3.16|"") return 1 ;; *) return 0 ;; esac
+}
+
 if [ -n "${SGIT:-}" ]; then
     export SGIT
     echo "  sgit: (SGIT) $SGIT"
@@ -45,15 +55,29 @@ elif [ -n "${SGIT_BIN:-}" ] && [ -x "${SGIT_BIN:-}" ]; then
 elif command -v sgit >/dev/null 2>&1; then
     export SGIT_BIN="$(command -v sgit)"
     echo "  sgit: $SGIT_BIN"
-elif [ -x "$REPO_ROOT/.venv/bin/sgit" ]; then
+elif [ -x "$REPO_ROOT/.venv/bin/sgit" ] && py_ok "$REPO_ROOT/.venv/bin/python"; then
     export SGIT_BIN="$REPO_ROOT/.venv/bin/sgit"
     echo "  sgit: $SGIT_BIN"
 else
-    echo "sgit not found on PATH."
+    echo "sgit not found (or existing .venv uses an incompatible Python)."
     echo "  If you run sgit via an alias/container, re-run with SGIT set, e.g.:"
     echo "    SGIT=\"container exec sgit-box sgit\" $0"
     echo "  Otherwise provisioning a local copy into $REPO_ROOT/.venv (one-off) ..."
-    python3 -m venv "$REPO_ROOT/.venv"
+
+    # Pick a known-good Python for the venv (avoid 3.14+; see py_ok above).
+    VENV_PY=""
+    for cand in python3.12 python3.11 python3.13 python3.10 python3; do
+        command -v "$cand" >/dev/null 2>&1 || continue
+        if py_ok "$cand"; then VENV_PY="$cand"; break; fi
+    done
+    if [ -z "$VENV_PY" ]; then
+        echo "  WARNING: no Python <3.14 found — sgit-ai misparses on 3.14+."
+        echo "  Strongly prefer your own sgit:  SGIT=\"<your sgit command>\" $0"
+        VENV_PY=python3
+    fi
+    echo "  using $VENV_PY ($("$VENV_PY" --version 2>&1)) for the venv"
+    rm -rf "$REPO_ROOT/.venv"          # clear any previous (possibly bad) venv
+    "$VENV_PY" -m venv "$REPO_ROOT/.venv"
     "$REPO_ROOT/.venv/bin/pip" install -q --upgrade pip
     "$REPO_ROOT/.venv/bin/pip" install -q -r "$REPO_ROOT/vault_publisher/requirements.txt"
     export SGIT_BIN="$REPO_ROOT/.venv/bin/sgit"

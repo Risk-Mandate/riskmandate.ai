@@ -76,7 +76,8 @@ def clone_vault(cfg: dict, dest: Path) -> None:
     # NOT use sgit's --force: its "delete existing dir" step has been seen to
     # fail with "Directory is not empty" on a leftover clone (e.g. from an
     # earlier aborted run, or files written by a containerised sgit).
-    dest.parent.mkdir(parents=True, exist_ok=True)
+    clone_root = dest.parent
+    clone_root.mkdir(parents=True, exist_ok=True)
     if dest.exists():
         shutil.rmtree(dest, ignore_errors=True)
     if dest.exists():
@@ -86,10 +87,13 @@ def clone_vault(cfg: dict, dest: Path) -> None:
             "under a different uid). Remove it manually and retry."
         )
 
-    cmd = sgit_cmd() + [
-        "clone", cfg["vault_id"], str(dest),
-        "--read-key", cfg["read_key"],
-    ]
+    # Clone with the "<read_key_hex>:<vault_id>" shorthand positional plus an
+    # explicit destination path. This is the form that works on a correct sgit.
+    # (A misparse of these args — directory consumed as the key, "non-hexadecimal
+    # ... fromhex" on the path, and a literal "None" destination folder — has been
+    # seen only on a Python 3.14 sgit-ai build; the dest guard below catches it.)
+    vault_key = f"{cfg['read_key']}:{cfg['vault_id']}"
+    cmd = sgit_cmd() + ["clone", vault_key, str(dest)]
     if cfg.get("base_url"):
         cmd += ["--base-url", cfg["base_url"]]
     print(f"  ▸ cloning vault {cfg['vault_id']} (read-only) → {dest}")
@@ -104,6 +108,17 @@ def clone_vault(cfg: dict, dest: Path) -> None:
         )
     except subprocess.CalledProcessError as exc:
         sys.exit(f"error: sgit clone failed (exit {exc.returncode})")
+
+    # Guard against the "None"-folder misparse: confirm the clone landed at dest.
+    if not dest.is_dir():
+        stray = clone_root / "None"
+        hint = f" (found a stray '{stray}' instead)" if stray.exists() else ""
+        sys.exit(
+            f"error: sgit did not create {dest}{hint}. This usually means the "
+            "installed sgit-ai misparsed the clone arguments (seen on some "
+            "Python 3.14 builds). Use a working sgit via SGIT=... (e.g. your "
+            "container wrapper), or a Python 3.11/3.12 venv."
+        )
 
 
 def publish(cfg: dict, clone_dir: Path) -> Path:
