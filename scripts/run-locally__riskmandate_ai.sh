@@ -71,9 +71,19 @@ else
         if py_ok "$cand"; then VENV_PY="$cand"; break; fi
     done
     if [ -z "$VENV_PY" ]; then
-        echo "  WARNING: no Python <3.14 found — sgit-ai misparses on 3.14+."
-        echo "  Strongly prefer your own sgit:  SGIT=\"<your sgit command>\" $0"
-        VENV_PY=python3
+        echo ""
+        echo "ERROR: no Python 3.11–3.13 found, and sgit-ai 0.14.27's read-only"
+        echo "clone is broken on Python 3.14 (an sgit-ai bug — it calls"
+        echo "fromhex(\"None\") internally; that's also the stray 'None/' folder)."
+        echo ""
+        echo "Pick one:"
+        echo "  1. Install a 3.11–3.13 Python, then re-run. e.g.:"
+        echo "       brew install python@3.12"
+        echo "  2. Use your own sgit (e.g. your container), which runs a"
+        echo "     compatible Python:"
+        echo "       SGIT=\"<your sgit command>\" $0"
+        echo "     (run 'type sgit' / 'alias sgit' to see what to put there)"
+        exit 1
     fi
     echo "  using $VENV_PY ($("$VENV_PY" --version 2>&1)) for the venv"
     rm -rf "$REPO_ROOT/.venv"          # clear any previous (possibly bad) venv
