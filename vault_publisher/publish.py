@@ -201,12 +201,29 @@ def main() -> None:
                     help="where to clone the vault (default: ./.vault-clone, or "
                          "'clone_dir' in the config). A predictable, repo-local "
                          "path so a containerised sgit can mount it.")
+    ap.add_argument("--from-clone", metavar="DIR",
+                    help="publish from an EXISTING vault clone at DIR; skip the "
+                         "clone step entirely and never delete DIR. Use this when "
+                         "you cloned the vault yourself (e.g. with a container "
+                         "sgit) and just want to build the site from it.")
     ap.add_argument("--keep-clone", action="store_true",
                     help="keep the vault clone instead of deleting it after publish")
     args = ap.parse_args()
 
     cfg = load_config(Path(args.config))
     print(f"Publishing: {cfg.get('vault_name', cfg['vault_id'])}")
+
+    # --- publish from an existing clone the caller manages (no clone, no delete)
+    if args.from_clone:
+        clone_dir = Path(args.from_clone)
+        if not clone_dir.is_absolute():
+            clone_dir = Path.cwd() / clone_dir
+        if not clone_dir.is_dir():
+            sys.exit(f"error: --from-clone dir not found: {clone_dir}")
+        print(f"  ▸ using existing clone at {clone_dir} (skipping clone; will not delete it)")
+        out_dir = publish(cfg, clone_dir)
+        print(f"Done. Deploy root: {out_dir}")
+        return
 
     # Clone into a predictable, repo-local dir (not system temp): findable, and
     # a containerised/aliased sgit can mount the repo to reach it.
