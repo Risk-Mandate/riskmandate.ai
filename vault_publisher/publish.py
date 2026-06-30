@@ -14,26 +14,34 @@ for now the published HTML is plaintext in the vault, so a build-time sync is
 all that is needed.
 
 Usage:
-    python vault_publisher/publish.py [--config PATH] [--keep-clone]
+    python vault_publisher/publish.py [--config PATH] [--clone-dir DIR] [--keep-clone]
 
 Requirements:
     pip install sgit-ai          (provides the `sgit` CLI)
 
-The `sgit` binary is discovered on PATH, or via the SGIT_BIN env var.
+Choosing which sgit to run (first match wins):
+    SGIT="<command>"   — a full command, e.g. an alias/container wrapper:
+                         SGIT="container exec sgit-box sgit"
+    SGIT_BIN=<path>    — a path to the sgit binary
+    sgit on PATH       — the default
+
+This matters when your `sgit` is a shell alias (aliases are NOT visible to
+scripts) — set SGIT to the underlying command instead.
 """
 from __future__ import annotations
 
 import argparse
 import json
 import os
+import shlex
 import shutil
 import subprocess
 import sys
-import tempfile
 from pathlib import Path
 
 MODULE_DIR = Path(__file__).resolve().parent
 REPO_ROOT = MODULE_DIR.parent
+DEFAULT_CLONE_DIR = REPO_ROOT / ".vault-clone"
 
 
 def load_config(path: Path) -> dict:
@@ -45,23 +53,40 @@ def load_config(path: Path) -> dict:
     return cfg
 
 
-def sgit_bin() -> str:
-    return os.environ.get("SGIT_BIN") or shutil.which("sgit") or "sgit"
+def sgit_cmd() -> list[str]:
+    """The sgit invocation as a token list.
+
+    Supports a multi-token command via $SGIT (for aliases / container wrappers),
+    a binary path via $SGIT_BIN, or plain `sgit` on PATH.
+    """
+    cmd = os.environ.get("SGIT")
+    if cmd:
+        return shlex.split(cmd)
+    return [os.environ.get("SGIT_BIN") or shutil.which("sgit") or "sgit"]
 
 
 def clone_vault(cfg: dict, dest: Path) -> None:
-    """Read-only clone of the vault into `dest` using sgit-ai."""
-    vault_key = f"{cfg['read_key']}:{cfg['vault_id']}"
-    cmd = [sgit_bin(), "clone", vault_key, str(dest), "--force"]
+    """Read-only clone of the vault into `dest` using sgit-ai.
+
+    Uses the explicit `--read-key` form (vault id positional + key flag) rather
+    than the `<key>:<id>` shorthand — it's unambiguous and stable across
+    sgit-ai versions.
+    """
+    cmd = sgit_cmd() + [
+        "clone", cfg["vault_id"], str(dest),
+        "--read-key", cfg["read_key"], "--force",
+    ]
     if cfg.get("base_url"):
         cmd += ["--base-url", cfg["base_url"]]
-    print(f"  ▸ cloning vault {cfg['vault_id']} (read-only)")
+    print(f"  ▸ cloning vault {cfg['vault_id']} (read-only) → {dest}")
+    print(f"    using: {' '.join(shlex.quote(c) for c in sgit_cmd())}")
     try:
         subprocess.run(cmd, check=True)
     except FileNotFoundError:
         sys.exit(
-            "error: `sgit` not found. Install it with `pip install sgit-ai`, "
-            "or set SGIT_BIN to its path."
+            f"error: sgit not found (tried: {' '.join(sgit_cmd())}). Install it with "
+            "`pip install sgit-ai`, set SGIT_BIN to its path, or set SGIT to a "
+            "command (e.g. a container wrapper)."
         )
     except subprocess.CalledProcessError as exc:
         sys.exit(f"error: sgit clone failed (exit {exc.returncode})")
@@ -116,15 +141,25 @@ def main() -> None:
     ap = argparse.ArgumentParser(description="Publish an SG/Vault to a static site directory.")
     ap.add_argument("--config", default=str(MODULE_DIR / "vault.config.json"),
                     help="path to vault.config.json")
+    ap.add_argument("--clone-dir",
+                    help="where to clone the vault (default: ./.vault-clone, or "
+                         "'clone_dir' in the config). A predictable, repo-local "
+                         "path so a containerised sgit can mount it.")
     ap.add_argument("--keep-clone", action="store_true",
-                    help="keep the temporary vault clone instead of deleting it")
+                    help="keep the vault clone instead of deleting it after publish")
     args = ap.parse_args()
 
     cfg = load_config(Path(args.config))
     print(f"Publishing: {cfg.get('vault_name', cfg['vault_id'])}")
 
-    tmp = Path(tempfile.mkdtemp(prefix="vault-clone-"))
-    clone_dir = tmp / cfg["vault_id"]
+    # Clone into a predictable, repo-local dir (not system temp): findable, and
+    # a containerised/aliased sgit can mount the repo to reach it.
+    clone_root = args.clone_dir or cfg.get("clone_dir") or DEFAULT_CLONE_DIR
+    clone_root = Path(clone_root)
+    if not clone_root.is_absolute():
+        clone_root = REPO_ROOT / clone_root
+    clone_dir = clone_root / cfg["vault_id"]
+
     try:
         clone_vault(cfg, clone_dir)
         out_dir = publish(cfg, clone_dir)
@@ -132,7 +167,7 @@ def main() -> None:
         if args.keep_clone:
             print(f"  ▸ clone kept at {clone_dir}")
         else:
-            shutil.rmtree(tmp, ignore_errors=True)
+            shutil.rmtree(clone_root, ignore_errors=True)
 
     print(f"Done. Deploy root: {out_dir}")
 
