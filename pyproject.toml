@@ -4,18 +4,16 @@ version     = "v0.1.4"
 description = "RiskMandate.ai website"
 readme      = "README.md"
 license     = "Apache-2.0"
-authors     = ["Risk-FS"]
-keywords    = ["risk", "risk-fs"]
+authors     = ["Risk-Mandate"]
+keywords    = ["risk", "risk-mandate"]
 homepage    = "https://github.com/Risk-Mandate/riskmandate.ai"
 repository  = "https://github.com/Risk-Mandate/riskmandate.ai"
 classifiers = [
     "Intended Audience :: Developers",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12"
 ]
 
 [tool.poetry.dependencies]
-python       = ">=3.11"
+python       = ">=3.14"
 osbot-utils  = "*"
 
 [tool.poetry.group.dev.dependencies]
