@@ -1,0 +1,58 @@
+name: Deploy to GitHub Pages
+
+# Publishes the static site (from the SG/Vault, via vault_publisher) to GitHub Pages.
+#   - push to main        → production deploy (riskmandate.ai)
+#   - workflow_dispatch   → manual deploy, runnable against any branch
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+# Least-privilege permissions required by the GitHub Pages deploy flow.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One Pages deploy at a time; don't cancel an in-flight production deploy.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build site from vault
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install publisher dependencies
+        run: pip install -r vault_publisher/requirements.txt
+
+      - name: Publish vault → public/
+        run: python vault_publisher/publish.py
+
+      - name: Disable Jekyll processing
+        run: touch public/.nojekyll
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
