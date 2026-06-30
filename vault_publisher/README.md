@@ -16,11 +16,24 @@ different vault and it works the same way.
    so vault internals (`.sg_vault/`, `.vault/`, host-only `app.json`, …) never
    reach the public site.
 
-The Risk Mandate vault already holds a **fully self-contained** `index.html`
-(inline CSS/JS/SVG). Its only runtime dependencies are relative fetches of
-`version.json` (footer version) and `CHANGELOG.md` (the `/changelog.html`
-page) — both with inline fallbacks. So for this MVP no client-side decryption
-is needed: publishing is just a build-time sync of plaintext-in-vault files.
+The Risk Mandate vault holds a `src/` → `build.js` → **self-contained**
+`index.html` build (maintained by the vault team — do not edit `index.html`
+by hand). At runtime that page reads a few vault files via `content.js`, which
+uses `sg.vfs.readText` in the SG/App host and falls back to a **relative
+`fetch()`** on the static domain — so the same code runs on the vault and on
+GitHub Pages with no knowledge of where it is.
+
+The allowlist therefore mirrors exactly what the page fetches at runtime:
+
+| Published | Why |
+|-----------|-----|
+| `index.html` | the built page |
+| `version`    | footer version stamp (`content.version()`) |
+| `dev/`       | `dev/releases.json` + `dev/releases/*.md`, rendered by `rm-dev-releases` |
+
+Build-only inputs (`src/`, `build.js`, `test/`) and SG/App host metadata
+(`app.json`) are deliberately **not** published — they aren't fetched by the
+static site.
 
 > Future direction: the sgraph.ai library renders content that stays
 > **encrypted at rest** by fetching ciphertext and decrypting in the browser
