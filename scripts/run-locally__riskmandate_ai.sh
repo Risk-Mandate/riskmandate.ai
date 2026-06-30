@@ -79,10 +79,13 @@ else
         echo "Pick one:"
         echo "  1. Install a 3.11–3.13 Python, then re-run. e.g.:"
         echo "       brew install python@3.12"
-        echo "  2. Use your own sgit (e.g. your container), which runs a"
-        echo "     compatible Python:"
-        echo "       SGIT=\"<your sgit command>\" $0"
-        echo "     (run 'type sgit' / 'alias sgit' to see what to put there)"
+        echo "  2. Use your own sgit (e.g. a container), which runs a compatible"
+        echo "     Python. Pass it via SGIT (single-quoted). A container wrapper"
+        echo "     that mounts the repo works — \$(pwd) is evaluated at the repo"
+        echo "     root and the clone dest is repo-relative. Drop -it (no TTY):"
+        echo "       SGIT='container run --rm -v \"\$(pwd):/vault\" -v /tmp:/tmp <your-sgit-image>' \\"
+        echo "         $0"
+        echo "     (run 'type sgit' to see the image + flags your alias uses)"
         exit 1
     fi
     echo "  using $VENV_PY ($("$VENV_PY" --version 2>&1)) for the venv"

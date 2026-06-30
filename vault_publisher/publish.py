@@ -20,13 +20,18 @@ Requirements:
     pip install sgit-ai          (provides the `sgit` CLI)
 
 Choosing which sgit to run (first match wins):
-    SGIT="<command>"   — a full command, e.g. an alias/container wrapper:
-                         SGIT="container exec sgit-box sgit"
+    SGIT="<command>"   — a full command, e.g. a container wrapper:
+                         SGIT='container run --rm -v "$(pwd):/vault" -v /tmp:/tmp diniscruz/sgit-ai:latest'
     SGIT_BIN=<path>    — a path to the sgit binary
     sgit on PATH       — the default
 
-This matters when your `sgit` is a shell alias (aliases are NOT visible to
-scripts) — set SGIT to the underlying command instead.
+This matters when your `sgit` is a shell alias/function (those are NOT visible
+to scripts) — set SGIT to the underlying command instead.
+
+When SGIT is set it is run THROUGH A SHELL with cwd = the repo root, so a
+container wrapper's `$(pwd)` mount resolves to the repo and the clone dest is
+passed repo-relative — i.e. `-v "$(pwd):/vault"` maps the clone back to
+./.vault-clone/ here. Drop any `-it` from the wrapper (no TTY in a script).
 """
 from __future__ import annotations
 
@@ -87,22 +92,41 @@ def clone_vault(cfg: dict, dest: Path) -> None:
             "under a different uid). Remove it manually and retry."
         )
 
-    # Clone with the "<read_key_hex>:<vault_id>" shorthand positional plus an
-    # explicit destination path. This is the form that works on a correct sgit.
-    # (A misparse of these args — directory consumed as the key, "non-hexadecimal
-    # ... fromhex" on the path, and a literal "None" destination folder — has been
-    # seen only on a Python 3.14 sgit-ai build; the dest guard below catches it.)
+    # Clone with the "<read_key_hex>:<vault_id>" shorthand positional plus a
+    # destination path.
     vault_key = f"{cfg['read_key']}:{cfg['vault_id']}"
-    cmd = sgit_cmd() + ["clone", vault_key, str(dest)]
-    if cfg.get("base_url"):
-        cmd += ["--base-url", cfg["base_url"]]
+    base_url = cfg.get("base_url")
+
+    if os.environ.get("SGIT"):
+        # $SGIT is a (possibly containerised) wrapper, e.g.
+        #   container run --rm -v "$(pwd):/vault" ... diniscruz/sgit-ai:latest
+        # Run it through a SHELL so constructs like $(pwd) resolve, with
+        # cwd = repo root (the mount source), and pass a repo-RELATIVE dest so a
+        # "-v $(pwd):/vault" mount maps it to the same files we read back here.
+        try:
+            dest_arg = str(dest.relative_to(REPO_ROOT))
+        except ValueError:
+            dest_arg = str(dest)   # clone dir outside the repo — won't map into a mount
+        parts = [os.environ["SGIT"], "clone", shlex.quote(vault_key), shlex.quote(dest_arg)]
+        if base_url:
+            parts += ["--base-url", shlex.quote(base_url)]
+        cmd, run_kw = " ".join(parts), dict(shell=True, cwd=str(REPO_ROOT))
+        shown = os.environ["SGIT"]
+    else:
+        # Plain binary on PATH / $SGIT_BIN. Absolute dest; run from clone_root so
+        # any stray relative artifact a buggy sgit writes (e.g. a literal "None"
+        # dir from the Python-3.14 read-only-clone bug) lands inside .vault-clone
+        # and gets cleaned up — not in the repo root.
+        cmd = sgit_cmd() + ["clone", vault_key, str(dest)]
+        if base_url:
+            cmd += ["--base-url", base_url]
+        run_kw = dict(cwd=str(clone_root))
+        shown = " ".join(shlex.quote(c) for c in sgit_cmd())
+
     print(f"  ▸ cloning vault {cfg['vault_id']} (read-only) → {dest}")
-    print(f"    using: {' '.join(shlex.quote(c) for c in sgit_cmd())}")
+    print(f"    using: {shown}")
     try:
-        # Run from clone_root so any stray relative artifact a buggy sgit writes
-        # (e.g. a literal "None" dir from the Python-3.14 read-only-clone bug)
-        # lands inside .vault-clone and gets cleaned up — not in the repo root.
-        subprocess.run(cmd, check=True, cwd=str(clone_root))
+        subprocess.run(cmd, check=True, **run_kw)
     except FileNotFoundError:
         sys.exit(
             f"error: sgit not found (tried: {' '.join(sgit_cmd())}). Install it with "
