@@ -1,1 +1,6 @@
 sgit-ai
+
+# osbot-utils 3.75.0 fixes a Python-3.14 Type_Safe None->"None" bug that broke
+# sgit-ai's read-only clone (fromhex("None") + a stray "None/" folder). Pin the
+# floor so provisioned venvs get the fix even on Python 3.14.
+osbot-utils>=3.75.0

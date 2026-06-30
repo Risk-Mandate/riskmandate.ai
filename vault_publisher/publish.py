@@ -136,15 +136,16 @@ def clone_vault(cfg: dict, dest: Path) -> None:
     except subprocess.CalledProcessError as exc:
         sys.exit(f"error: sgit clone failed (exit {exc.returncode})")
 
-    # Guard against the "None"-folder misparse: confirm the clone landed at dest.
+    # Guard: confirm the clone landed at dest. A stray "None/" here is the
+    # signature of the osbot-utils <3.75.0 Type_Safe bug on Python 3.14 (fixed
+    # upstream) — surfaced clearly in case an old sgit env is still in use.
     if not dest.is_dir():
         stray = clone_root / "None"
         hint = f" (found a stray '{stray}' instead)" if stray.exists() else ""
         sys.exit(
-            f"error: sgit did not create {dest}{hint}. This usually means the "
-            "installed sgit-ai misparsed the clone arguments (seen on some "
-            "Python 3.14 builds). Use a working sgit via SGIT=... (e.g. your "
-            "container wrapper), or a Python 3.11/3.12 venv."
+            f"error: sgit did not create {dest}{hint}. If you see a 'None' folder, "
+            "your sgit env has osbot-utils < 3.75.0 on Python 3.14 — upgrade it "
+            "(`pip install -U 'osbot-utils>=3.75.0'`) or use a working sgit via SGIT=..."
         )
 
 
