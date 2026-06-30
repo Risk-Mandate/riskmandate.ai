@@ -68,6 +68,14 @@ Options:
 - `--config PATH` — use a different config file.
 - `--clone-dir DIR` — where to clone the vault (default `./.vault-clone`).
 - `--keep-clone` — keep the vault clone for inspection instead of deleting it.
+- `--from-clone DIR` — publish from an **existing** clone at `DIR`; skip cloning
+  and never delete it. Use this when you cloned the vault yourself (e.g. with a
+  container sgit):
+
+  ```bash
+  sgit clone <read_key_hex>:<vault_id> ./myclone
+  python vault_publisher/publish.py --from-clone ./myclone
+  ```
 
 ### Choosing which `sgit` to run (first match wins)
 
