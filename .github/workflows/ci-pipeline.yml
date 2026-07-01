@@ -1,64 +1,80 @@
-name: CI Pipeline (Base)
+name: CI Pipeline
 
+# One pipeline: bump the version tag, THEN build the site from the vault and
+# deploy it to GitHub Pages — so the deploy always happens after the tag commit.
+#   push to dev   → minor tag bump, then deploy
+#   push to main  → major tag bump, then deploy
+#   workflow_dispatch → deploy only (no tag bump), runnable against any branch
 on:
-  workflow_call:
-    inputs:
-      git_branch:
-        required: true
-        type: string
-      release_type:
-        required: false
-        type: string
-        default: ""
-      should_increment_tag:
-        required: false
-        type: boolean
-        default: false
-      should_publish_pypi:
-        required: false
-        type: boolean
-        default: false
+  push:
+    branches:
+      - dev
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write     # git__increment-tag commits the version bump + tag
+  pages: write        # deploy to GitHub Pages
+  id-token: write     # deploy to GitHub Pages
 
 env:
-  PACKAGE_NAME: 'riskmandate_ai'
-  GIT__BRANCH : ${{ inputs.git_branch }}
+  PACKAGE_NAME: 'riskmandate_ai'          # where git__increment-tag reads/writes `version`
+  GIT__BRANCH : ${{ github.ref_name }}
+
+# One Pages deploy at a time; don't cancel an in-flight deploy.
+concurrency:
+  group: pages
+  cancel-in-progress: false
 
 jobs:
-  run-tests:
-    name: "Run Unit Tests"
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: "run-tests"
-        uses: owasp-sbot/OSBot-GitHub-Actions/.github/actions/pytest__run-tests@dev
-        with:
-          test_target: "tests/unit"
-
-
   increment-tag:
     name: Increment Tag
     runs-on: ubuntu-latest
-    needs: [run-tests]
     steps:
       - uses: actions/checkout@v4
 
+      # main → major, dev → minor. Skipped on manual dispatch (deploy-only).
       - name: Increment Tag
-        if: inputs.should_increment_tag
+        if: github.event_name == 'push'
         uses: owasp-sbot/OSBot-GitHub-Actions/.github/actions/git__increment-tag@dev
         with:
-          release_type: ${{ inputs.release_type }}
+          release_type: ${{ github.ref_name == 'main' && 'major' || 'minor' }}
 
-#  publish-to-pypi:
-#    if: inputs.should_publish_pypi && needs.increment-tag.result == 'success'
-#    name: "Publish to: PYPI"
-#    permissions:
-#      id-token: write
-#    runs-on: ubuntu-latest
-#    needs: [increment-tag]
-#    steps:
-#      - uses: actions/checkout@v4
-#      - name: Git Update Current Branch
-#        uses: owasp-sbot/OSBot-GitHub-Actions/.github/actions/git__update_branch@dev
-#      - name: publish-to-pypi
-#        uses: owasp-sbot/OSBot-GitHub-Actions/.github/actions/pypi__publish@dev
+  build:
+    name: Build site from vault
+    runs-on: ubuntu-latest
+    needs: [increment-tag]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}      # branch tip, incl. the tag-bump commit
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install publisher dependencies
+        run: pip install -r vault_publisher/requirements.txt
+
+      - name: Publish vault → .public-generated-files/
+        run: python vault_publisher/publish.py
+
+      - name: Disable Jekyll processing
+        run: touch .public-generated-files/.nojekyll
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .public-generated-files
+
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    needs: [build]
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
