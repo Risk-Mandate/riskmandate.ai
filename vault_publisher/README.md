@@ -9,32 +9,28 @@ different vault and it works the same way.
 
 ## How it works
 
-1. Reads `vault.config.json` (vault id, **read-only** key, and the allowlist of
-   files to publish).
-2. Performs a **read-only clone** of the vault with `sgit-ai`.
-3. Copies only the allowlisted files into the output directory
-   (`.public-generated-files/`),
-   so vault internals (`.sg_vault/`, `.vault/`, host-only `app.json`, …) never
-   reach the public site.
+1. Reads `vault.config.json` (vault id, **read-only** key, `exclude` list).
+2. Keeps a **read-only clone** of the vault at `./.vault-clone/<id>` — cloned the
+   first time, then updated with `sgit pull` on later runs (not re-cloned).
+3. Copies the vault's web content into the output dir
+   (`.public-generated-files/`): **everything except** dotfiles/vault internals
+   (`.sg_vault/`, `.vault/`) and the configured `exclude` entries (build inputs
+   and host metadata). New content the vault team adds is published
+   automatically.
+4. Overlays the repo's `overlay_dir` on top (repo wins) — see below.
 
-The Risk Mandate vault holds a `src/` → `build.js` → **self-contained**
-`index.html` build (maintained by the vault team — do not edit `index.html`
-by hand). At runtime that page reads a few vault files via `content.js`, which
-uses `sg.vfs.readText` in the SG/App host and falls back to a **relative
-`fetch()`** on the static domain — so the same code runs on the vault and on
-GitHub Pages with no knowledge of where it is.
+The Risk Mandate vault holds a `src/` → `build.js` → built site (maintained by
+the vault team — do not edit the built files by hand). At runtime the pages read
+vault files via `content.js`, which uses `sg.vfs.readText` in the SG/App host and
+falls back to a **relative `fetch()`** on the static domain — so the same code
+runs on the vault and on GitHub Pages with no knowledge of where it is. The
+publisher just mirrors the vault's files, so those relative fetches resolve.
 
-The allowlist therefore mirrors exactly what the page fetches at runtime:
-
-| Published | Why |
-|-----------|-----|
-| `index.html` | the built page |
-| `version`    | footer version stamp (`content.version()`) |
-| `dev/`       | `dev/releases.json` + `dev/releases/*.md`, rendered by `rm-dev-releases` |
-
-Build-only inputs (`src/`, `build.js`, `test/`) and SG/App host metadata
-(`app.json`) are deliberately **not** published — they aren't fetched by the
-static site.
+> Why a denylist, not an allowlist: the vault has been restructured several
+> times (self-contained page → `src/` build → `dev/` → IFD-versioned `v0/…`).
+> Publishing everything-except-build-inputs is robust to that churn; an allowlist
+> kept 404ing whenever new files appeared. The vault is a public marketing site,
+> so there's nothing secret to withhold — only build inputs to trim.
 
 ## Overlay (`overlay_dir`)
 
@@ -66,11 +62,11 @@ python vault_publisher/publish.py                 # regenerates .public-generate
 Options:
 
 - `--config PATH` — use a different config file.
-- `--clone-dir DIR` — where to clone the vault (default `./.vault-clone`).
-- `--keep-clone` — keep the vault clone for inspection instead of deleting it.
-- `--from-clone DIR` — publish from an **existing** clone at `DIR`; skip cloning
-  and never delete it. Use this when you cloned the vault yourself (e.g. with a
-  container sgit):
+- `--clone-dir DIR` — where to keep the vault clone (default `./.vault-clone`).
+- `--fresh` — delete and re-clone instead of updating an existing clone.
+- `--from-clone DIR` — publish from an **existing** clone at `DIR`; skip
+  clone/update entirely and never delete it. Use this when you cloned the vault
+  yourself (e.g. with a container sgit):
 
   ```bash
   sgit clone <read_key_hex>:<vault_id> ./myclone
@@ -80,31 +76,34 @@ Options:
 ### Choosing which `sgit` to run (first match wins)
 
 - `SGIT="<command>"` — a **full command**; use this when `sgit` is a shell
-  **alias** or runs in a **container** (aliases aren't visible to scripts),
-  e.g. `SGIT="container exec sgit-box sgit"`.
+  **alias/function** or runs in a **container** (those aren't visible to
+  scripts), e.g.
+  `SGIT='container run --rm -v "$(pwd):/vault" -v /tmp:/tmp diniscruz/sgit-ai:latest'`.
+  A container wrapper is run through a shell with `cwd` set to the mount source,
+  so `$(pwd)` resolves and paths are passed relative to it; drop any `-it`
+  (no TTY in a script).
 - `SGIT_BIN=/path/to/sgit` — a path to the binary.
 - `sgit` on `PATH` — the default.
-
-The clone uses the explicit `--read-key` form (vault-id positional + key flag),
-which is stable across sgit-ai versions.
 
 ### Where the vault is cloned
 
 Into `./.vault-clone/<vaultId>/` (repo-local and gitignored, **not** system
 temp) so a containerised/aliased `sgit` can reach it via the repo mount. It's
-deleted after each build unless `--keep-clone` is passed. Override the location
-with `--clone-dir` or `clone_dir` in the config.
+**persistent** — updated in place with `sgit pull` each run and kept between
+runs. Override the location with `--clone-dir` or `clone_dir` in the config;
+force a clean re-clone with `--fresh`.
 
 ## Config
 
-| key          | meaning                                                        |
-|--------------|----------------------------------------------------------------|
-| `vault_id`   | SG/Vault id to clone.                                           |
-| `read_key`   | 64-hex read-only AES key (public, read-only).                  |
-| `base_url`   | API base URL; `null` uses the sgit-ai default.                 |
-| `output_dir` | Static-site output dir, relative to the repo root.            |
-| `publish`    | Allowlist of vault paths copied verbatim into `output_dir`.    |
-| `clone_dir`  | Optional — where to clone (default `.vault-clone`).            |
+| key          | meaning                                                          |
+|--------------|------------------------------------------------------------------|
+| `vault_id`   | SG/Vault id to clone.                                             |
+| `read_key`   | 64-hex read-only AES key (public, read-only).                    |
+| `base_url`   | API base URL; `null` uses the sgit-ai default.                   |
+| `output_dir` | Static-site output dir, relative to the repo root.               |
+| `exclude`    | Top-level vault entries NOT to publish (build inputs, metadata). |
+| `overlay_dir`| Optional — repo dir overlaid on the output (default `web_overlay`).|
+| `clone_dir`  | Optional — where to keep the clone (default `.vault-clone`).      |
 
 ## Deploying
 

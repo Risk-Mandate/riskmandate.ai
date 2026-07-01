@@ -4,10 +4,12 @@
   "read_key": "92bd6fa7e47d3692e7300cd7441dd478c9cd28f871f9041ad28c55c222fcb2bd",
   "base_url": null,
   "output_dir": ".public-generated-files",
-  "publish": [
-    "index.html",
-    "version",
-    "dev"
+  "exclude": [
+    "src",
+    "build.js",
+    "test",
+    "app.json",
+    "README.md"
   ],
   "overlay_dir": "web_overlay"
 }

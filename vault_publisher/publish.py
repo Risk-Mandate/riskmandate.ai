@@ -2,22 +2,20 @@
 """
 vault_publisher — pull published content out of an SG/Vault into a static site.
 
-MVP scope: the vault already holds self-contained, ready-to-serve HTML (inline
-CSS/JS/SVG). This module performs a read-only clone of the vault via `sgit-ai`
-and copies an *allowlisted* set of files into the output directory, so the
-result is a clean, deployable static site with no vault internals leaking out.
+It keeps a read-only working clone of the vault (default ./.vault-clone/<id>),
+updating it with `sgit pull` on subsequent runs rather than re-cloning, and
+copies the vault's web content into the output dir (default
+./.public-generated-files) — everything except build inputs / metadata /
+internals (see `exclude` + the built-in skips), plus an optional repo `overlay`.
 
-This is intentionally generic — point `vault.config.json` at a different vault
-to reuse it in another project. Later versions can grow client-side decryption
-(the sgraph.ai library pattern) for content that should stay encrypted at rest;
-for now the published HTML is plaintext in the vault, so a build-time sync is
-all that is needed.
+Point `vault.config.json` at a different vault to reuse it elsewhere.
 
 Usage:
-    python vault_publisher/publish.py [--config PATH] [--clone-dir DIR] [--keep-clone]
+    python vault_publisher/publish.py [--config PATH] [--clone-dir DIR]
+                                      [--fresh] [--from-clone DIR]
 
 Requirements:
-    pip install sgit-ai          (provides the `sgit` CLI)
+    pip install -r vault_publisher/requirements.txt   (sgit-ai; osbot-utils>=3.75.0)
 
 Choosing which sgit to run (first match wins):
     SGIT="<command>"   — a full command, e.g. a container wrapper:
@@ -28,10 +26,10 @@ Choosing which sgit to run (first match wins):
 This matters when your `sgit` is a shell alias/function (those are NOT visible
 to scripts) — set SGIT to the underlying command instead.
 
-When SGIT is set it is run THROUGH A SHELL with cwd = the repo root, so a
-container wrapper's `$(pwd)` mount resolves to the repo and the clone dest is
-passed repo-relative — i.e. `-v "$(pwd):/vault"` maps the clone back to
-./.vault-clone/ here. Drop any `-it` from the wrapper (no TTY in a script).
+When SGIT is set it is run THROUGH A SHELL with cwd = the mount source (the repo
+root for clone, the clone dir for pull), so a container wrapper's `$(pwd)` mount
+resolves and any path arg is passed relative to that cwd — i.e.
+`-v "$(pwd):/vault"` maps the operation to the right files here.
 """
 from __future__ import annotations
 
@@ -48,41 +46,59 @@ MODULE_DIR = Path(__file__).resolve().parent
 REPO_ROOT = MODULE_DIR.parent
 DEFAULT_CLONE_DIR = REPO_ROOT / ".vault-clone"
 
+# Never published: sgit/vault internals (also caught by the dotfile skip) and
+# the usual build inputs / host metadata. Extend via `exclude` in the config.
+ALWAYS_SKIP = {".sg_vault", ".vault"}
+
 
 def load_config(path: Path) -> dict:
     with path.open(encoding="utf-8") as fh:
         cfg = json.load(fh)
-    for key in ("vault_id", "read_key", "output_dir", "publish"):
+    for key in ("vault_id", "read_key", "output_dir"):
         if not cfg.get(key):
             sys.exit(f"error: '{key}' missing from {path}")
     return cfg
 
 
 def sgit_cmd() -> list[str]:
-    """The sgit invocation as a token list.
-
-    Supports a multi-token command via $SGIT (for aliases / container wrappers),
-    a binary path via $SGIT_BIN, or plain `sgit` on PATH.
-    """
-    cmd = os.environ.get("SGIT")
-    if cmd:
-        return shlex.split(cmd)
+    """The sgit invocation as a token list ($SGIT_BIN or `sgit` on PATH)."""
     return [os.environ.get("SGIT_BIN") or shutil.which("sgit") or "sgit"]
 
 
-def clone_vault(cfg: dict, dest: Path) -> None:
-    """Read-only clone of the vault into `dest` using sgit-ai.
+def run_sgit(args: list[str], cwd: Path) -> None:
+    """Run `sgit <args...>` from `cwd`. Raises CalledProcessError on failure.
 
-    Uses the explicit `--read-key` form (vault id positional + key flag) rather
-    than the `<key>:<id>` shorthand — it's unambiguous and stable across
-    sgit-ai versions.
+    Honours a container-style $SGIT wrapper by running it through a shell (so
+    `$(pwd)` resolves to `cwd`). Any path args must therefore be relative to
+    `cwd` so a `-v "$(pwd):/vault"` mount maps them correctly.
     """
-    # Clear the target ourselves and clone into a guaranteed-fresh path. We do
-    # NOT use sgit's --force: its "delete existing dir" step has been seen to
-    # fail with "Directory is not empty" on a leftover clone (e.g. from an
-    # earlier aborted run, or files written by a containerised sgit).
-    clone_root = dest.parent
-    clone_root.mkdir(parents=True, exist_ok=True)
+    sgit = os.environ.get("SGIT")
+    try:
+        if sgit:
+            line = " ".join([sgit] + [shlex.quote(a) for a in args])
+            print(f"    using: {sgit}  (cwd: {cwd})")
+            subprocess.run(line, shell=True, check=True, cwd=str(cwd))
+        else:
+            print(f"    using: {' '.join(shlex.quote(c) for c in sgit_cmd())}")
+            subprocess.run(sgit_cmd() + args, check=True, cwd=str(cwd))
+    except FileNotFoundError:
+        sys.exit(
+            f"error: sgit not found (tried: {' '.join(sgit_cmd())}). Install it with "
+            "`pip install -r vault_publisher/requirements.txt`, set SGIT_BIN to its "
+            "path, or set SGIT to a command (e.g. a container wrapper)."
+        )
+
+
+def rel_to_repo(p: Path) -> str:
+    try:
+        return str(p.relative_to(REPO_ROOT))
+    except ValueError:
+        return str(p)   # outside the repo — won't map into a container mount
+
+
+def clone_fresh(cfg: dict, dest: Path) -> None:
+    """Read-only clone of the vault into `dest` (clearing it first)."""
+    dest.parent.mkdir(parents=True, exist_ok=True)
     if dest.exists():
         shutil.rmtree(dest, ignore_errors=True)
     if dest.exists():
@@ -91,56 +107,17 @@ def clone_vault(cfg: dict, dest: Path) -> None:
             "(a permission issue — e.g. files written by a containerised sgit "
             "under a different uid). Remove it manually and retry."
         )
-
-    # Clone with the "<read_key_hex>:<vault_id>" shorthand positional plus a
-    # destination path.
     vault_key = f"{cfg['read_key']}:{cfg['vault_id']}"
-    base_url = cfg.get("base_url")
-
-    if os.environ.get("SGIT"):
-        # $SGIT is a (possibly containerised) wrapper, e.g.
-        #   container run --rm -v "$(pwd):/vault" ... diniscruz/sgit-ai:latest
-        # Run it through a SHELL so constructs like $(pwd) resolve, with
-        # cwd = repo root (the mount source), and pass a repo-RELATIVE dest so a
-        # "-v $(pwd):/vault" mount maps it to the same files we read back here.
-        try:
-            dest_arg = str(dest.relative_to(REPO_ROOT))
-        except ValueError:
-            dest_arg = str(dest)   # clone dir outside the repo — won't map into a mount
-        parts = [os.environ["SGIT"], "clone", shlex.quote(vault_key), shlex.quote(dest_arg)]
-        if base_url:
-            parts += ["--base-url", shlex.quote(base_url)]
-        cmd, run_kw = " ".join(parts), dict(shell=True, cwd=str(REPO_ROOT))
-        shown = os.environ["SGIT"]
-    else:
-        # Plain binary on PATH / $SGIT_BIN. Absolute dest; run from clone_root so
-        # any stray relative artifact a buggy sgit writes (e.g. a literal "None"
-        # dir from the Python-3.14 read-only-clone bug) lands inside .vault-clone
-        # and gets cleaned up — not in the repo root.
-        cmd = sgit_cmd() + ["clone", vault_key, str(dest)]
-        if base_url:
-            cmd += ["--base-url", base_url]
-        run_kw = dict(cwd=str(clone_root))
-        shown = " ".join(shlex.quote(c) for c in sgit_cmd())
-
+    args = ["clone", vault_key, rel_to_repo(dest)]
+    if cfg.get("base_url"):
+        args += ["--base-url", cfg["base_url"]]
     print(f"  ▸ cloning vault {cfg['vault_id']} (read-only) → {dest}")
-    print(f"    using: {shown}")
     try:
-        subprocess.run(cmd, check=True, **run_kw)
-    except FileNotFoundError:
-        sys.exit(
-            f"error: sgit not found (tried: {' '.join(sgit_cmd())}). Install it with "
-            "`pip install sgit-ai`, set SGIT_BIN to its path, or set SGIT to a "
-            "command (e.g. a container wrapper)."
-        )
+        run_sgit(args, cwd=REPO_ROOT)
     except subprocess.CalledProcessError as exc:
         sys.exit(f"error: sgit clone failed (exit {exc.returncode})")
-
-    # Guard: confirm the clone landed at dest. A stray "None/" here is the
-    # signature of the osbot-utils <3.75.0 Type_Safe bug on Python 3.14 (fixed
-    # upstream) — surfaced clearly in case an old sgit env is still in use.
     if not dest.is_dir():
-        stray = clone_root / "None"
+        stray = dest.parent / "None"
         hint = f" (found a stray '{stray}' instead)" if stray.exists() else ""
         sys.exit(
             f"error: sgit did not create {dest}{hint}. If you see a 'None' folder, "
@@ -149,36 +126,54 @@ def clone_vault(cfg: dict, dest: Path) -> None:
         )
 
 
+def update_or_clone(cfg: dict, dest: Path, fresh: bool) -> None:
+    """Update an existing clone with `sgit pull`; clone fresh the first time
+    (or when --fresh, or if pull fails)."""
+    if not fresh and (dest / ".sg_vault").is_dir():
+        args = ["pull"]
+        if cfg.get("base_url"):
+            args += ["--base-url", cfg["base_url"]]
+        print(f"  ▸ updating existing clone → {dest} (sgit pull)")
+        try:
+            run_sgit(args, cwd=dest)
+            return
+        except subprocess.CalledProcessError as exc:
+            print(f"  ▸ sgit pull failed (exit {exc.returncode}) — re-cloning fresh")
+    clone_fresh(cfg, dest)
+
+
 def publish(cfg: dict, clone_dir: Path) -> Path:
     out_dir = Path(cfg["output_dir"])
     if not out_dir.is_absolute():
         out_dir = REPO_ROOT / out_dir
+
+    # Start clean so files removed from the vault don't linger in the output.
+    if out_dir.exists():
+        shutil.rmtree(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
 
+    # Denylist: publish every top-level vault entry except internals (dotfiles,
+    # ALWAYS_SKIP) and the configured build inputs / metadata. Robust to the
+    # vault being restructured — new content is picked up automatically.
+    exclude = set(cfg.get("exclude", [])) | ALWAYS_SKIP
     copied = []
-    for rel in cfg["publish"]:
-        src = clone_dir / rel
-        dst = out_dir / rel
-        if src.is_dir():
-            # Allowlisted directory → copy the whole subtree (e.g. dev/ release notes).
-            if dst.exists():
-                shutil.rmtree(dst)
-            shutil.copytree(src, dst)
-            copied.append(rel + "/")
-        elif src.is_file():
-            dst.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(src, dst)
-            copied.append(rel)
+    for entry in sorted(clone_dir.iterdir()):
+        name = entry.name
+        if name.startswith(".") or name in exclude:
+            continue
+        dst = out_dir / name
+        if entry.is_dir():
+            shutil.copytree(entry, dst)
+            copied.append(name + "/")
         else:
-            sys.exit(f"error: '{rel}' is in the allowlist but not present in the vault")
+            shutil.copy2(entry, dst)
+            copied.append(name)
 
     print(f"  ▸ published {len(copied)} entr(y/ies) to {out_dir.relative_to(REPO_ROOT)}/")
     for rel in copied:
         print(f"      • {rel}")
 
-    # Optional repo-held overlay (host pages, etc.) copied on top of the vault
-    # output. Repo files win on conflict. Used for the static-vault-hosting host
-    # page at /app/, which lives in the repo (not the vault).
+    # Optional repo-held overlay (host pages, etc.) copied on top — repo wins.
     overlay = cfg.get("overlay_dir")
     if overlay:
         overlay_path = Path(overlay)
@@ -199,51 +194,41 @@ def main() -> None:
     ap.add_argument("--config", default=str(MODULE_DIR / "vault.config.json"),
                     help="path to vault.config.json")
     ap.add_argument("--clone-dir",
-                    help="where to clone the vault (default: ./.vault-clone, or "
-                         "'clone_dir' in the config). A predictable, repo-local "
-                         "path so a containerised sgit can mount it.")
+                    help="where to keep the vault clone (default: ./.vault-clone, or "
+                         "'clone_dir' in the config). Persistent + repo-local so a "
+                         "containerised sgit can mount it and updates are incremental.")
+    ap.add_argument("--fresh", action="store_true",
+                    help="delete and re-clone instead of updating an existing clone")
     ap.add_argument("--from-clone", metavar="DIR",
-                    help="publish from an EXISTING vault clone at DIR; skip the "
-                         "clone step entirely and never delete DIR. Use this when "
-                         "you cloned the vault yourself (e.g. with a container "
-                         "sgit) and just want to build the site from it.")
-    ap.add_argument("--keep-clone", action="store_true",
-                    help="keep the vault clone instead of deleting it after publish")
+                    help="publish from an EXISTING clone at DIR; skip clone/update "
+                         "entirely and never delete DIR (you manage the clone).")
     args = ap.parse_args()
 
     cfg = load_config(Path(args.config))
     print(f"Publishing: {cfg.get('vault_name', cfg['vault_id'])}")
 
-    # --- publish from an existing clone the caller manages (no clone, no delete)
+    # Publish from a caller-managed clone (no clone, no update, no delete).
     if args.from_clone:
         clone_dir = Path(args.from_clone)
         if not clone_dir.is_absolute():
             clone_dir = Path.cwd() / clone_dir
         if not clone_dir.is_dir():
             sys.exit(f"error: --from-clone dir not found: {clone_dir}")
-        print(f"  ▸ using existing clone at {clone_dir} (skipping clone; will not delete it)")
+        print(f"  ▸ using existing clone at {clone_dir} (skipping clone/update)")
         out_dir = publish(cfg, clone_dir)
         print(f"Done. Deploy root: {out_dir}")
         return
 
-    # Clone into a predictable, repo-local dir (not system temp): findable, and
-    # a containerised/aliased sgit can mount the repo to reach it.
+    # Persistent, repo-local clone: clone once, then `sgit pull` on later runs.
     clone_root = args.clone_dir or cfg.get("clone_dir") or DEFAULT_CLONE_DIR
     clone_root = Path(clone_root)
     if not clone_root.is_absolute():
         clone_root = REPO_ROOT / clone_root
     clone_dir = clone_root / cfg["vault_id"]
 
-    try:
-        clone_vault(cfg, clone_dir)
-        out_dir = publish(cfg, clone_dir)
-    finally:
-        if args.keep_clone:
-            print(f"  ▸ clone kept at {clone_dir}")
-        else:
-            shutil.rmtree(clone_root, ignore_errors=True)
-
-    print(f"Done. Deploy root: {out_dir}")
+    update_or_clone(cfg, clone_dir, args.fresh)
+    out_dir = publish(cfg, clone_dir)
+    print(f"Done. Deploy root: {out_dir}  (clone kept at {clone_dir})")
 
 
 if __name__ == "__main__":
