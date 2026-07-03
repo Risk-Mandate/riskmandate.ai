@@ -1,8 +1,9 @@
 # How riskmandate.ai actually works
 
 The load sequence, the file layout, and the integration with the SG/Vault.
-(Written against vault v0.4.2 — the IFD-versioned host-shell structure. Where
-this doc drifts from the vault, the vault wins.)
+(Updated against vault v0.5.1 — the IFD **immutable-delta-chain** structure.
+Where this doc drifts from the vault, the vault wins; the vault's own README
+is the authoritative build/authoring contract.)
 
 ## The one-paragraph version
 
@@ -59,7 +60,11 @@ browser GET https://riskmandate.ai/
        {type:'rm-back'}                        → host reloads the last version page
   5. the version switcher in the page header is the same mechanism:
        it rm-nav's to v0/v0.3/v0.3.0/index.html, etc. (registry: versions.json)
-  6. host.js posts {type:'sg-app-ready'} to window.parent —
+  6. after each load the host posts a NAV MANIFEST (versions, pages, current
+     file) into the frame; menus/switchers re-render from it — this is how a
+     FROZEN version page built long ago can still list versions and pages
+     added later, without ever being rebuilt (its inlined data is the fallback)
+  7. host.js posts {type:'sg-app-ready'} to window.parent —
        meaningful in the SG/App host, harmless no-op on the static domain
 ```
 
@@ -108,10 +113,38 @@ Same HTML, two backends.
   and in `/app/index.html`): encryption here provides integrity and a uniform
   storage model, not confidentiality — this is a public marketing site. The
   **write key is never in this repo**.
-- Inside the vault: `src/` (authoring: core logic, components, styles, page
-  sources per version) + `build.js` (assembles, inlines, gates) → the built
-  artifacts listed in §2. **Built files are never hand-edited**; the vault
-  team owns that loop. `sgit ls` / `sgit cat` / `sgit pull` work read-only.
+- Inside the vault: `src/` (authoring) + `build.js` (assembles, inlines,
+  gates) → the built artifacts listed in §2. **Built files are never
+  hand-edited**; the vault team owns that loop. `sgit ls` / `sgit cat` /
+  `sgit pull` work read-only.
+
+### Version independence — the IFD immutable delta chain (since v0.4.5)
+
+Versions are deliberately independent of each other. Source lives in an
+ordered chain of **immutable delta folders**:
+
+```
+src/v0/v0.3/v0.3.0/   ← chain base (shared/** + site/** as of the chain epoch)
+src/v0/v0.4/v0.4.0/   ← delta: only what the v0.4 redesign added/changed
+src/v0/v0.4/v0.4.2/   ← delta: literally one file
+src/v0/v0.5/v0.5.0/   ← delta: the risk-acceptance redesign (+ _removes.json)
+```
+
+Building version V layers all folders ≤ V (later wins; `_removes.json`
+deletes inherited files). Consequences:
+
+- **A version's input set is frozen by construction** — changing shared code
+  means adding a *new* delta folder, never editing a shipped one, so
+  rebuilding an old version is byte-stable forever.
+- **`frozen.json`** pins each shipped version output's sha256; the build
+  *fails* on any drift (re-pin intentionally with `node build.js --pin`).
+  One documented exception so far: scrubbing the "FedRAMP Ready" claim from
+  already-shipped versions (a false certification claim can't stay public).
+- Frozen pages still stay current in the UI via the host's runtime **nav
+  manifest** (§2 step 6) — old pages list new versions without rebuilds.
+- Top-level pages (`src/pages/<name>/` → `<name>.html`) and the host shell
+  are **HEAD singletons**, always built from the full chain and
+  auto-discovered by the build.
 
 ## 5. How the vault becomes riskmandate.ai (the publish pipeline)
 
