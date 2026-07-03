@@ -36,6 +36,12 @@ pip install -r vault_publisher/requirements.txt
 python vault_publisher/publish.py     # regenerates .public-generated-files/ from the vault
 ```
 
-See [`vault_publisher/README.md`](vault_publisher/README.md) for details on the
-publishing model, the (public, read-only) vault key, and where client-side
-decryption would slot in for future encrypted content.
+## Docs
+
+- [`docs/how-the-website-works.md`](docs/how-the-website-works.md) — **start
+  here**: the load sequence (host shell → versioned pages → `rm-nav`
+  messages), the SG/Vault integration, and the publish pipeline end to end.
+- [`vault_publisher/README.md`](vault_publisher/README.md) — the publishing
+  model, the (public, read-only) vault key, and the denylist rationale.
+- [`docs/hosting-mvp.md`](docs/hosting-mvp.md) — the `/app/` embedded
+  vault-app page and the path to fully-static encrypted hosting.
