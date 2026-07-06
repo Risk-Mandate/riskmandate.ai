@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Risk Mandate — How long will you accept this risk?</title>
+<meta name="description" content="Four situations you'd refuse on instinct — each already accepted the moment an agent runs. The only real question is the interval.">
+<!--
+  Standalone Scenarios page — the first decoupled content area (pilot).
+  Structure (this page + engine) lives in the riskmandate.ai repo, shipped by
+  CI. Content lives in the rm-scenarios SG/Vault, fetched as ciphertext and
+  decrypted in this browser at page load — a content publish needs no deploy.
+  See docs/briefs/implementation__scenarios-pilot.md.
+  Markup mirrors the vault's scenarios page template; styles are the built
+  page's stylesheet (visual parity with the current site design).
+-->
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body id="top">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><span class="rm">RM</span> Risk Mandate</a>
+    <nav class="navlinks">
+      <a href="/partners.html">Partners</a>
+      <a href="/ramm.html">RAMM</a>
+      <a href="/scenarios/" aria-current="page">Scenarios</a>
+      <a href="/statics.html">Statics</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/library.html">Library</a>
+      <a href="/dev.html">Dev</a>
+    </nav>
+    <a class="demo" href="/">Book a demo</a>
+  </div>
+</header>
+
+<main class="shero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> A short series</span>
+    <h1>How long will you accept <span class="it">this risk?</span></h1>
+    <p class="sub">Not <em>whether</em>. Four situations you'd refuse on instinct — each already accepted the moment an agent runs. The only real question is the interval.</p>
+    <div class="cta-row"><a class="btn btn-green" href="#scenarios">Start the first scenario ↓</a><a class="btn btn-ghost" href="#why">Why this matters</a></div>
+  </div>
+</main>
+
+<div class="paper">
+
+  <section class="ssection" id="scenarios">
+    <div class="wrap">
+      <div class="shead center">
+        <span class="tag">Four scenarios</span>
+        <h2>You'll say no. <span class="g">Then check the record.</span></h2>
+        <p>Each card asks a question with an obvious answer, offers you a way out, and then closes it. Your decisions are stamped into the card as you go — that's the point.</p>
+      </div>
+      <div id="scenarios-mount">
+        <div class="rm-shell-status">loading scenarios — fetching and decrypting from the vault…</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ssection alt" id="why">
+    <div class="wrap">
+      <div class="shead center">
+        <span class="tag">Why the question is the interval</span>
+        <h2>Whether is a dodge. <span class="g">How long is a commitment.</span></h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-card"><p class="why-h">The risk already exists</p><p class="why-d">For a deployed agent, the grant has been made and the authority is live. "No" describes a world that has already ended; acceptance just makes the implicit explicit.</p></div>
+        <div class="why-card"><p class="why-h">No deny — only accept</p><p class="why-d">A real risk can't be denied, only accepted: in a direction, by an owner, and for an interval. That's the mechanic these cards rehearse on your own instincts.</p></div>
+        <div class="why-card"><p class="why-h">The interval is the decision</p><p class="why-d">An hour means revoke now. Six months means an explicit, visible, expiring deferral. Naming the interval is what turns a worry into an owned decision.</p></div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<section class="final" id="done">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> The reveal behind the reveal</span>
+    <h2>You just did <span class="it">the product.</span></h2>
+    <p>Every card ended the same way: an owned, time-boxed acceptance with a record behind it. That's the whole mechanic — mapped to your agents, underwritten to your board.</p>
+    <div id="record-mount"></div>
+    <div class="cta-row"><a class="btn btn-green" href="/">Book a demo →</a><a class="btn btn-ghost" href="/statics.html">See the post images</a><a class="btn btn-ghost" href="/library.html">Explore the concepts</a></div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>© 2026 Risk Mandate · Autonomous Risk Management</span>
+    <span>Not whether — how long. Accept for an interval, with your name on it.</span>
+  </div>
+</footer>
+
+<script src="./rm-dom.js"></script>
+<script src="./rm-scenarios.js"></script>
+<script type="module" src="./rm-scenarios-loader.js"></script>
+</body>
+</html>

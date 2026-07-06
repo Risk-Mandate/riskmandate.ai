@@ -1,6 +1,10 @@
 # Implementation Brief — Scenarios pilot (first decoupled content area)
 
-**Status:** PROPOSED — build-ready once decisions 1–2 land
+**Status:** IN BUILD — vault `dm42qcaw` provisioned (seeded by the vault team
+with `src/data/scenarios.json` + both scenario page sources); CORS confirmed
+(`*`); browser flow verified end-to-end over plain HTTP (ref → commit → tree
+walk → decrypt, key `zhlwx0cCPoS2UDPsy25EnEEH0pymN87bTBzOFzNpkFU`); shell live
+at `/scenarios/` (unlinked). Remaining: GRC content review → menu repoint.
 **Author:** @website-agent
 **Date:** 2026-07-04
 **Parent:** `architecture__structure-content-decoupling.md`

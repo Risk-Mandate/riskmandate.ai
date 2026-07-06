@@ -1,0 +1,86 @@
+{
+  "series": {
+    "title": "How long will you accept this risk?",
+    "buttons": { "no": "No, obviously not", "yes": "Sure, why not", "deflect": "Not relevant to me", "admit": "It might be" },
+    "intervals": [
+      { "id": "1h", "sev": "Catastrophic", "tone": "red",   "desc": "Revoke access immediately." },
+      { "id": "4h", "sev": "P0",           "tone": "red",   "desc": "Same-day resolution required." },
+      { "id": "1d", "sev": "Sprint",       "tone": "gold",  "desc": "Engineering sprint to fix." },
+      { "id": "1w", "sev": "Project",      "tone": "gold",  "desc": "Funded project with an owner." },
+      { "id": "1m", "sev": "Program",      "tone": "blue",  "desc": "Cross-team program required." },
+      { "id": "6m", "sev": "Deferred",     "tone": "green", "desc": "Explicit deferral — visible, owned, expiring." }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "oauth-token", "n": 5, "live": true, "domain": "Identity", "title": "The OAuth token",
+      "hook": "Would you sign a blank power of attorney and hand it to a vendor you've never audited?",
+      "escape": "Obviously not. And you'd never delegate account authority like that… right?",
+      "act": "clicked “Authorize” on an OAuth consent screen",
+      "reveal": "A token is delegated authority that outlives the click. It doesn't ask for your password and it isn't stopped by your second factor — MFA guards the front door; the token is already inside."
+    },
+    {
+      "id": "company-card", "n": 4, "live": true, "domain": "Finance", "title": "The company card",
+      "hook": "Would you give a brand-new hire an unlimited company card on day one — unsupervised, overnight?",
+      "escape": "Never. But nothing in your stack holds payment authority… right?",
+      "act": "given an agent access to a billing or payment API",
+      "reveal": "An agent with payment-API scope is a new hire with the card — minus the probation period, the working hours, and the manager. The authority is real, continuous, and exercised at machine speed."
+    },
+    {
+      "id": "customer-tokens", "n": 9, "live": true, "domain": "Third-party", "title": "A database of customers' passwords",
+      "hook": "Would you keep a database whose contents are, in effect, your customers' passwords?",
+      "escape": "Of course not — you hash passwords. And you store nothing equivalent… right?",
+      "act": "stored customer OAuth tokens to power an integration",
+      "reveal": "A stored customer token is a working credential to that customer's systems — it doesn't need cracking, it needs copying. That's the pattern behind the reported Klue breach: not passwords lost, but delegated authority held in one place."
+    },
+    {
+      "id": "every-email", "n": 1, "live": true, "domain": "Email", "title": "Every email you own",
+      "hook": "Would you hand a stranger the keys to every email account you've ever registered?",
+      "escape": "You wouldn't. And you don't hand out inbox access anyway… right?",
+      "act": "given an assistant access to your inbox",
+      "reveal": "An agent with inbox access holds more than your mail. Every password reset for every account you own lands in that inbox — so the grant is, in effect, the keys to everything downstream."
+    },
+    {
+      "id": "calendar", "n": 2, "live": false, "domain": "Calendar", "title": "Your calendar",
+      "hook": "Would you let someone quietly rearrange or delete your entire calendar?",
+      "escape": "Of course not. But nothing you run can write to your calendar… right?",
+      "act": "connected an assistant with calendar write access",
+      "reveal": "Calendar write scope is one API call away from every event you have. The same permission that adds a meeting can move or remove all of them — there is no smaller unit of trust on offer."
+    },
+    {
+      "id": "private-messages", "n": 3, "live": false, "domain": "Messaging", "title": "Your private messages",
+      "hook": "Would you let an app forward every private message you've ever sent to anyone it chooses?",
+      "escape": "No. But your integrations only read messages to be helpful… right?",
+      "act": "connected a tool that can read your messages",
+      "reveal": "Read access plus any outbound channel is forwarding capability. The permission doesn't distinguish “summarise my chats” from “send my chats elsewhere” — both are the same grant exercised."
+    },
+    {
+      "id": "all-repos", "n": 6, "live": false, "domain": "Code", "title": "All your repositories",
+      "hook": "Would you let a bot rewrite or delete every one of your code repositories?",
+      "escape": "No chance. But your coding agent only touches the repo it's working on… right?",
+      "act": "authorised an agent against your account rather than one repository",
+      "reveal": "Account-scoped write access doesn't know which repo “the task” meant. Every repository the account can reach, the agent can reach — the scope is the account, not the intention."
+    },
+    {
+      "id": "prod-database", "n": 7, "live": false, "domain": "Data", "title": "The production database",
+      "hook": "Would you give an unsupervised script write access to your production database, with no undo?",
+      "escape": "That's a firing offence. Nothing you run has prod credentials… right?",
+      "act": "given an agent a connection string to get a task done",
+      "reveal": "A connection string is not a task description. Write access granted for one query is write access for any query — and a wrong UPDATE has no confirmation dialog."
+    },
+    {
+      "id": "unlocked-laptop", "n": 8, "live": false, "domain": "Endpoint", "title": "Your unlocked laptop",
+      "hook": "Would you invite a stranger to sit at your unlocked laptop while you make coffee?",
+      "escape": "You lock your screen. And nothing else acts on your machine while you're away… right?",
+      "act": "run a local agent that reads content from the internet",
+      "reveal": "A local agent that reads untrusted content and then acts on your machine is a guest at the keyboard. What it reads decides what it types — and it is your session it types into."
+    },
+    {
+      "id": "tenant-crossing", "n": 10, "live": false, "domain": "Tenancy", "title": "One customer reaching another",
+      "hook": "Would you let one customer's request reach into another customer's data?",
+      "escape": "That's the one line you never cross. And nothing in your product could… right?",
+      "act": "given an agent access that spans more than one tenant",
+      "reveal": "An agent whose scope spans tenants makes isolation a matter of prompt discipline instead of permission. One poisoned input, and a request from tenant A is exercising authority in tenant B."
+    }
+  ]
+}
