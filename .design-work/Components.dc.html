@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
+    a { color: #1A7F5A; } a:hover { color: #146349; }
+    .mono { font-family: ui-monospace, "SF Mono", "JetBrains Mono", "Roboto Mono", Menlo, Consolas, monospace; }
+    .cap { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; }
+    .btn { border: 0; border-radius: 8px; font-family: inherit; font-size: 13px; font-weight: 600; padding: 9px 16px; cursor: pointer; }
+  </style>
+</helmet>
+
+<div style="width: 1000px; height: 720px; background: #F7F6F2; color: #1A1917; box-sizing: border-box; display: flex; flex-direction: column;">
+
+  <div style="padding: 30px 36px 20px; border-bottom: 1px solid #E2DFD8; display: flex; flex-direction: column; gap: 7px;">
+    <div class="mono cap" style="color: #1A7F5A;">Brand guidelines · 04</div>
+    <div style="font-size: 27px; font-weight: 700; letter-spacing: -0.02em;">Components</div>
+    <div style="font-size: 13px; color: #4A4845;">Radii 10px (surfaces) and 8px (controls). One primary action per view — green is a promise, not a decoration.</div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); flex-grow: 1;">
+
+    <div style="padding: 26px 36px; display: flex; flex-direction: column; gap: 24px; border-right: 1px solid #E2DFD8;">
+
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div class="mono cap" style="color: #8A8780;">Buttons · document surface</div>
+        <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+          <button class="btn" style="background: #1A7F5A; color: #FFFFFF;">Get your Index</button>
+          <button class="btn" style="background: transparent; color: #1A1917; border: 1px solid #E2DFD8;">How it works</button>
+          <button class="btn" style="background: transparent; color: #4A4845; padding-left: 4px; padding-right: 4px;">Read the brief →</button>
+        </div>
+        <div style="font-size: 12px; color: #4A4845; line-height: 1.5;">Primary · secondary · quiet. Never two primaries in one view.</div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div class="mono cap" style="color: #8A8780;">Tags</div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <span class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; background: #EBF5F0; color: #1A7F5A; border-radius: 999px; padding: 5px 11px;">In mandate</span>
+          <span class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; background: #FDF3E7; color: #B45309; border-radius: 999px; padding: 5px 11px;">Expiring</span>
+          <span class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; background: #FBEBE9; color: #C0392B; border-radius: 999px; padding: 5px 11px;">Out of mandate</span>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div class="mono cap" style="color: #8A8780;">Card · document</div>
+        <div style="background: #FFFFFF; border: 1px solid #E2DFD8; border-radius: 10px; padding: 18px 20px; display: flex; flex-direction: column; gap: 9px;">
+          <div class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: #1A7F5A;">Insurability Index</div>
+          <div style="font-size: 17px; font-weight: 700;">Your agents score 62 of 100</div>
+          <div style="font-size: 12.5px; color: #4A4845; line-height: 1.5;">Eleven agents hold standing grants with no expiry. Naming an interval on each moves the score to 78.</div>
+          <div style="display: flex; gap: 4px; margin-top: 2px;">
+            <div style="height: 6px; flex-grow: 1; background: #1A7F5A; border-radius: 3px;"></div>
+            <div style="height: 6px; flex-grow: 1; background: #1A7F5A; border-radius: 3px;"></div>
+            <div style="height: 6px; flex-grow: 1; background: #1A7F5A; border-radius: 3px;"></div>
+            <div style="height: 6px; flex-grow: 1; background: #E2DFD8; border-radius: 3px;"></div>
+            <div style="height: 6px; flex-grow: 1; background: #E2DFD8; border-radius: 3px;"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="padding: 26px 36px; display: flex; flex-direction: column; gap: 24px; background: #0A0A09; color: #F7F6F2;">
+
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div class="mono cap" style="color: rgba(247,246,242,.32);">Buttons · hero surface</div>
+        <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+          <button class="btn" style="background: #1A7F5A; color: #FFFFFF;">Book a demo</button>
+          <button class="btn" style="background: transparent; color: #F7F6F2; border: 1px solid rgba(247,246,242,.18);">See the demos</button>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div class="mono cap" style="color: rgba(247,246,242,.32);">Card · hero</div>
+        <div style="background: #0D0D0C; border: 1px solid rgba(247,246,242,.10); border-radius: 10px; padding: 18px 20px; display: flex; flex-direction: column; gap: 9px;">
+          <div class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: #1A7F5A;">No deny button</div>
+          <div style="font-size: 17px; font-weight: 700;">You cannot refuse a live risk</div>
+          <div style="font-size: 12.5px; color: rgba(247,246,242,.55); line-height: 1.5;">The grant has been made and the authority is live. Acceptance only makes the implicit explicit — and gives it an expiry.</div>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div class="mono cap" style="color: rgba(247,246,242,.32);">Acceptance window · the signature control</div>
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px;">
+          <div style="border: 1px solid #C0392B; border-radius: 8px; padding: 10px; display: flex; flex-direction: column; gap: 3px; background: rgba(192,57,43,.08);">
+            <span class="mono" style="font-size: 14px; font-weight: 700; color: #C0392B;">1h</span>
+            <span style="font-size: 10.5px; color: rgba(247,246,242,.55);">Catastrophic</span>
+          </div>
+          <div style="border: 1px solid rgba(247,246,242,.18); border-radius: 8px; padding: 10px; display: flex; flex-direction: column; gap: 3px;">
+            <span class="mono" style="font-size: 14px; font-weight: 700; color: #B45309;">30d</span>
+            <span style="font-size: 10.5px; color: rgba(247,246,242,.55);">Material</span>
+          </div>
+          <div style="border: 1px solid rgba(247,246,242,.18); border-radius: 8px; padding: 10px; display: flex; flex-direction: column; gap: 3px;">
+            <span class="mono" style="font-size: 14px; font-weight: 700; color: #1A7F5A;">6m</span>
+            <span style="font-size: 10.5px; color: rgba(247,246,242,.55);">Deferred</span>
+          </div>
+        </div>
+        <div style="font-size: 12px; color: rgba(247,246,242,.55); line-height: 1.5;">Selected state carries the severity colour; unselected stay neutral. This control appears on the site, in the product and on the booth screen — keep it identical everywhere.</div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

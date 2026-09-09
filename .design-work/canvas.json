@@ -1,0 +1,31 @@
+{
+  "pages": [
+    { "id": "page-1", "name": "Logo concepts" },
+    { "id": "page-2", "name": "Brand guidelines" }
+  ],
+  "artboards": [
+    { "file": "Main.dc.html",     "page": "page-1", "x": 0,    "y": 0,    "w": 1240, "h": 760 },
+
+    { "file": "ConceptA.dc.html", "page": "page-1", "x": 0,    "y": 880,  "w": 860,  "h": 680 },
+    { "file": "ConceptB.dc.html", "page": "page-1", "x": 940,  "y": 880,  "w": 860,  "h": 680 },
+    { "file": "ConceptC.dc.html", "page": "page-1", "x": 1880, "y": 880,  "w": 860,  "h": 680 },
+    { "file": "ConceptD.dc.html", "page": "page-1", "x": 2820, "y": 880,  "w": 860,  "h": 680 },
+
+    { "file": "ConceptE.dc.html", "page": "page-1", "x": 0,    "y": 1680, "w": 860,  "h": 680 },
+    { "file": "ConceptF.dc.html", "page": "page-1", "x": 940,  "y": 1680, "w": 860,  "h": 680 },
+    { "file": "ConceptG.dc.html", "page": "page-1", "x": 1880, "y": 1680, "w": 860,  "h": 680 },
+    { "file": "ConceptH.dc.html", "page": "page-1", "x": 2820, "y": 1680, "w": 860,  "h": 680 },
+
+    { "file": "LogoUsage.dc.html",  "page": "page-2", "x": 0,    "y": 0,   "w": 1000, "h": 720 },
+    { "file": "Palette.dc.html",    "page": "page-2", "x": 1080, "y": 0,   "w": 1000, "h": 720 },
+    { "file": "Typography.dc.html", "page": "page-2", "x": 2160, "y": 0,   "w": 1000, "h": 760 },
+    { "file": "Components.dc.html", "page": "page-2", "x": 0,    "y": 880, "w": 1000, "h": 720 },
+    { "file": "Voice.dc.html",      "page": "page-2", "x": 1080, "y": 880, "w": 1000, "h": 700 },
+    { "file": "Collateral.dc.html", "page": "page-2", "x": 2160, "y": 880, "w": 1180, "h": 740 }
+  ],
+  "annotations": [
+    { "id": "pick-one", "page": "page-1", "x": 1300, "y": 120, "w": 300, "text": "Pick a direction here.\n\nEach sheet below shows the same mark as a lockup, an app icon, a knockout on dark, and at 16px — the sizes that actually decide whether a logo works." },
+    { "id": "swap-mark", "page": "page-2", "x": 0, "y": -150, "w": 340, "text": "These pages use concept B as a stand-in so the system is complete.\n\nEvery rule holds whichever mark wins — swap the glyph and nothing else changes." }
+  ],
+  "launch": { "view": "canvas", "page": "page-1" }
+}

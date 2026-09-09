@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
+    a { color: #1A7F5A; } a:hover { color: #146349; }
+    .mono { font-family: ui-monospace, "SF Mono", "JetBrains Mono", "Roboto Mono", Menlo, Consolas, monospace; }
+    .cap { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; }
+    .sw { border-radius: 8px; height: 72px; border: 1px solid rgba(13,13,12,.08); }
+    .row { display: flex; flex-direction: column; gap: 7px; }
+    .hex { font-size: 11.5px; letter-spacing: 0.02em; }
+    .role { font-size: 11.5px; color: #4A4845; line-height: 1.4; }
+    .name { font-size: 13px; font-weight: 700; }
+  </style>
+</helmet>
+
+<div style="width: 1000px; height: 720px; background: #F7F6F2; color: #1A1917; box-sizing: border-box; display: flex; flex-direction: column;">
+
+  <div style="padding: 30px 36px 20px; border-bottom: 1px solid #E2DFD8; display: flex; flex-direction: column; gap: 7px;">
+    <div class="mono cap" style="color: #1A7F5A;">Brand guidelines · 02</div>
+    <div style="font-size: 27px; font-weight: 700; letter-spacing: -0.02em;">Colour</div>
+    <div style="font-size: 13px; color: #4A4845;">Two grounds carry the brand: ink is where you make the argument, off-white is where you show the record. Green is the only accent that means "accepted".</div>
+  </div>
+
+  <div style="padding: 26px 36px; display: flex; flex-direction: column; gap: 24px; flex-grow: 1;">
+
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <div class="mono cap" style="color: #8A8780;">Grounds</div>
+      <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px;">
+        <div class="row"><div class="sw" style="background: #0A0A09;"></div><div class="name">Canvas</div><div class="mono hex" style="color:#4A4845;">#0A0A09</div><div class="role">The hero surface. Full-bleed sections, booth panels, the deck.</div></div>
+        <div class="row"><div class="sw" style="background: #0D0D0C;"></div><div class="name">Ink</div><div class="mono hex" style="color:#4A4845;">#0D0D0C</div><div class="role">Cards and the mark's container on dark. Also body type on light.</div></div>
+        <div class="row"><div class="sw" style="background: #F7F6F2;"></div><div class="name">Document</div><div class="mono hex" style="color:#4A4845;">#F7F6F2</div><div class="role">The reading surface — long copy, guidelines, one-pagers.</div></div>
+        <div class="row"><div class="sw" style="background: #EFEDE7;"></div><div class="name">Document alt</div><div class="mono hex" style="color:#4A4845;">#EFEDE7</div><div class="role">Banded sections that need separation without a border.</div></div>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <div class="mono cap" style="color: #8A8780;">Accent — use sparingly and only with meaning</div>
+      <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px;">
+        <div class="row"><div class="sw" style="background: #1A7F5A;"></div><div class="name">Green</div><div class="mono hex" style="color:#4A4845;">#1A7F5A</div><div class="role">Primary. Accepted, owned, in-mandate. Buttons and the mark.</div></div>
+        <div class="row"><div class="sw" style="background: #22c55e;"></div><div class="name">Green bright</div><div class="mono hex" style="color:#4A4845;">#22c55e</div><div class="role">On ink only, where #1A7F5A is too quiet. Never as a fill on light.</div></div>
+        <div class="row"><div class="sw" style="background: #EBF5F0;"></div><div class="name">Green wash</div><div class="mono hex" style="color:#4A4845;">#EBF5F0</div><div class="role">Tag and callout grounds on the document surface.</div></div>
+        <div class="row"><div class="sw" style="background: #FFFFFF;"></div><div class="name">Card</div><div class="mono hex" style="color:#4A4845;">#FFFFFF</div><div class="role">Raised surfaces on the document ground.</div></div>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <div class="mono cap" style="color: #8A8780;">Status — semantic, never decorative</div>
+      <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px;">
+        <div class="row"><div class="sw" style="background: #B45309; height: 52px;"></div><div class="name">Gold</div><div class="mono hex" style="color:#4A4845;">#B45309</div><div class="role">Expiring. A window about to close.</div></div>
+        <div class="row"><div class="sw" style="background: #C0392B; height: 52px;"></div><div class="name">Red</div><div class="mono hex" style="color:#4A4845;">#C0392B</div><div class="role">Catastrophic interval, or a breach of policy.</div></div>
+        <div class="row"><div class="sw" style="background: #1D4ED8; height: 52px;"></div><div class="name">Blue</div><div class="mono hex" style="color:#4A4845;">#1D4ED8</div><div class="role">Reference and provenance links only.</div></div>
+        <div class="row"><div class="sw" style="background: #E2DFD8; height: 52px;"></div><div class="name">Border</div><div class="mono hex" style="color:#4A4845;">#E2DFD8</div><div class="role">Hairlines on the document surface.</div></div>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: auto;">
+      <div style="background: #0A0A09; border-radius: 10px; padding: 18px 20px; display: flex; flex-direction: column; gap: 8px;">
+        <div class="mono cap" style="color: rgba(247,246,242,.32);">Type on ink</div>
+        <div style="color: #F7F6F2; font-size: 14px;">Primary <span class="mono" style="font-size:11.5px; color: rgba(247,246,242,.55);">#F7F6F2</span></div>
+        <div style="color: rgba(247,246,242,.55); font-size: 14px;">Secondary <span class="mono" style="font-size:11.5px;">55%</span></div>
+        <div style="color: rgba(247,246,242,.32); font-size: 14px;">Tertiary <span class="mono" style="font-size:11.5px;">32%</span></div>
+        <div style="height: 1px; background: rgba(247,246,242,.10); margin-top: 4px;"></div>
+        <div class="mono" style="font-size: 11px; color: rgba(247,246,242,.32);">hairline · rgba(247,246,242,.10)</div>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #E2DFD8; border-radius: 10px; padding: 18px 20px; display: flex; flex-direction: column; gap: 8px;">
+        <div class="mono cap" style="color: #8A8780;">Type on document</div>
+        <div style="color: #1A1917; font-size: 14px;">Primary <span class="mono" style="font-size:11.5px; color:#8A8780;">#1A1917</span></div>
+        <div style="color: #4A4845; font-size: 14px;">Muted <span class="mono" style="font-size:11.5px; color:#8A8780;">#4A4845</span></div>
+        <div style="color: #8A8780; font-size: 14px;">Faint <span class="mono" style="font-size:11.5px;">#8A8780</span></div>
+        <div style="height: 1px; background: #E2DFD8; margin-top: 4px;"></div>
+        <div class="mono" style="font-size: 11px; color: #8A8780;">hairline · #E2DFD8</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

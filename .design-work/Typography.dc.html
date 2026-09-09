@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
+    a { color: #1A7F5A; } a:hover { color: #146349; }
+    .mono { font-family: ui-monospace, "SF Mono", "JetBrains Mono", "Roboto Mono", Menlo, Consolas, monospace; }
+    .cap { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; }
+    .spec { font-size: 10.5px; color: #8A8780; }
+  </style>
+</helmet>
+
+<div style="width: 1000px; height: 760px; background: #F7F6F2; color: #1A1917; box-sizing: border-box; display: flex; flex-direction: column;">
+
+  <div style="padding: 30px 36px 20px; border-bottom: 1px solid #E2DFD8; display: flex; flex-direction: column; gap: 7px;">
+    <div class="mono cap" style="color: #1A7F5A;">Brand guidelines · 03</div>
+    <div style="font-size: 27px; font-weight: 700; letter-spacing: -0.02em;">Typography</div>
+    <div style="font-size: 13px; color: #4A4845;">System sans for argument, mono for evidence. The mono face is the brand's signature — it is what makes the product read as a record rather than a pitch.</div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: 1.45fr 1fr; flex-grow: 1;">
+
+    <div style="padding: 26px 36px; display: flex; flex-direction: column; gap: 18px; border-right: 1px solid #E2DFD8;">
+      <div class="mono cap" style="color: #8A8780;">Scale</div>
+
+      <div style="display: flex; flex-direction: column; gap: 3px;">
+        <div style="font-size: 40px; font-weight: 700; letter-spacing: -0.025em; line-height: 1.1;">Make your agents insurable.</div>
+        <div class="mono spec">DISPLAY · 40/44 · 700 · -0.025em</div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 3px;">
+        <div style="font-size: 27px; font-weight: 700; letter-spacing: -0.02em;">The grant is not the mandate</div>
+        <div class="mono spec">H2 · 27/32 · 700 · -0.02em</div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 3px;">
+        <div style="font-size: 18px; font-weight: 700;">Accept for an interval</div>
+        <div class="mono spec">H3 · 18/24 · 700</div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 3px;">
+        <div style="font-size: 14px; line-height: 1.55; max-width: 480px; color: #1A1917;">A real risk cannot be denied, only accepted — in a direction, by an owner, for an interval. The interval is the decision; naming it turns a worry into something a board can carry.</div>
+        <div class="mono spec">BODY · 14/22 · 400 · max 66ch</div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 3px;">
+        <div style="font-size: 12.5px; color: #4A4845; line-height: 1.5; max-width: 460px;">Secondary copy sits at muted. Use it for the sentence after the claim, never for the claim itself.</div>
+        <div class="mono spec">SMALL · 12.5/19 · 400 · #4A4845</div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 4px;">
+        <div class="mono" style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #1A7F5A;">Eyebrow · mono</div>
+        <div class="mono spec">EYEBROW · 11 · 0.14em tracking · uppercase · green</div>
+      </div>
+
+      <div style="margin-top: auto; background: #FFFFFF; border: 1px solid #E2DFD8; border-radius: 8px; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px;">
+        <div class="mono cap" style="color: #8A8780;">Stacks</div>
+        <div class="mono" style="font-size: 11px; color: #4A4845; line-height: 1.6;">--sans: ui-sans-serif, system-ui, -apple-system,<br>&nbsp;&nbsp;"Segoe UI", Roboto, Helvetica, Arial, sans-serif<br>--mono: ui-monospace, "SF Mono", "JetBrains Mono",<br>&nbsp;&nbsp;"Roboto Mono", Menlo, Consolas, monospace</div>
+        <div style="font-size: 12px; color: #4A4845; line-height: 1.5;">System stacks are deliberate: nothing to load, nothing to licence, and the site renders natively on the reviewer's own machine.</div>
+      </div>
+    </div>
+
+    <div style="padding: 26px 30px; display: flex; flex-direction: column; gap: 18px; background: #0A0A09; color: #F7F6F2;">
+      <div class="mono cap" style="color: rgba(247,246,242,.32);">Where mono carries meaning</div>
+
+      <div style="display: flex; flex-direction: column; gap: 9px;">
+        <div style="font-size: 12px; color: rgba(247,246,242,.55);">Eyebrows and section tags</div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <span class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: #1A7F5A; border: 1px solid rgba(26,127,90,.4); border-radius: 999px; padding: 4px 10px;">Insurability</span>
+          <span class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(247,246,242,.55); border: 1px solid rgba(247,246,242,.18); border-radius: 999px; padding: 4px 10px;">RAMM L3</span>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 9px;">
+        <div style="font-size: 12px; color: rgba(247,246,242,.55);">Intervals and severities</div>
+        <div style="display: flex; gap: 8px;">
+          <div style="border: 1px solid rgba(247,246,242,.18); border-radius: 8px; padding: 8px 11px; display: flex; flex-direction: column; gap: 3px;">
+            <span class="mono" style="font-size: 13px; font-weight: 700; color: #C0392B;">1h</span>
+            <span style="font-size: 10.5px; color: rgba(247,246,242,.55);">Catastrophic</span>
+          </div>
+          <div style="border: 1px solid rgba(247,246,242,.18); border-radius: 8px; padding: 8px 11px; display: flex; flex-direction: column; gap: 3px;">
+            <span class="mono" style="font-size: 13px; font-weight: 700; color: #B45309;">30d</span>
+            <span style="font-size: 10.5px; color: rgba(247,246,242,.55);">Material</span>
+          </div>
+          <div style="border: 1px solid rgba(247,246,242,.18); border-radius: 8px; padding: 8px 11px; display: flex; flex-direction: column; gap: 3px;">
+            <span class="mono" style="font-size: 13px; font-weight: 700; color: #1A7F5A;">6m</span>
+            <span style="font-size: 10.5px; color: rgba(247,246,242,.55);">Deferred</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 9px;">
+        <div style="font-size: 12px; color: rgba(247,246,242,.55);">The record line</div>
+        <div style="border: 1px solid rgba(247,246,242,.10); border-radius: 8px; padding: 11px 13px; display: flex; flex-direction: column; gap: 5px;">
+          <span class="mono" style="font-size: 9.5px; letter-spacing: 0.12em; color: rgba(247,246,242,.32);">RECORD</span>
+          <span class="mono" style="font-size: 11.5px; color: rgba(247,246,242,.72); line-height: 1.5;"><span style="color:#1A7F5A;">14:25:07</span> accepted · 30d<br><span style="color:#1A7F5A;">14:25:09</span> owner · head of risk</span>
+        </div>
+      </div>
+
+      <div style="margin-top: auto; font-size: 12px; color: rgba(247,246,242,.55); line-height: 1.55; border-top: 1px solid rgba(247,246,242,.10); padding-top: 14px;">Rule of thumb: if a reader could audit it, set it in mono. If a reader has to be persuaded by it, set it in sans.</div>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+</body>
+</html>
