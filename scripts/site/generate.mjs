@@ -155,28 +155,36 @@ const robots = () => [
   ``
 ].join('\n');
 
-// llms.txt: the same list, for something reading rather than rendering. Each
-// page's markdown twin is what we point at, not the page.
-const llms = (ps, latest) => [
-  `# RiskMandate`,
+// llms.txt: the site for something reading rather than rendering. The summary
+// and the concepts come from the agent-content manifest so the two cannot
+// disagree; the page list comes from the pages.
+const llms = (ps, latest, manifest) => [
+  `# RiskMandate — ${manifest.site.oneLine}`,
   ``,
-  `> ${ps[0].desc}`,
+  `> ${manifest.site.tagline}`,
   ``,
-  `The insurability layer for agentic AI. Site version v${latest}; the full version`,
-  `record is at ${ORIGIN}/versions.html, and its index at ${ORIGIN}/versions/index.json.`,
+  manifest.site.summary,
   ``,
-  `Every page below is a plain HTML document served at its own URL. The \`.md\` link`,
-  `is that page's markdown twin — the same prose, without the markup. Anything a`,
-  `page renders at runtime from data (the demo cards, the library, the scenarios)`,
-  `is in the page, not the twin.`,
+  `Site version v${latest}. The version record is at ${ORIGIN}/versions.html and its`,
+  `index at ${ORIGIN}/versions/index.json.`,
+  ``,
+  `## Core concepts`,
+  ``,
+  ...manifest.concepts.map(c => `- **${c.title}**: ${c.blurb}`),
   ``,
   `## Pages`,
   ``,
-  ...ps.map(p => `- [${p.title}](${url(p.file)}): ${p.desc || 'No description.'} — markdown: ${ORIGIN}/${p.file.replace(/\.html$/, '.md')}`),
+  `Each is a plain HTML document at its own URL, with a markdown twin at the same`,
+  `path. Anything a page renders at runtime from data — the demo cards, the`,
+  `library, the scenarios — is in the page, not the twin.`,
   ``,
-  `## Longer form`,
+  ...ps.map(p => `- [${p.title}](${url(p.file)}) · [md](${ORIGIN}/${p.file.replace(/\.html$/, '.md')}): ${p.desc || 'No description.'}`),
   ``,
-  `- [Full site text](${ORIGIN}/llms-full.txt): every page's prose in one file.`,
+  `## Machine-readable`,
+  ``,
+  `- [Full text](${ORIGIN}/llms-full.txt): the entire site as one markdown document`,
+  `- [Content manifest](${ORIGIN}/.well-known/agent-content.json): structured JSON`,
+  `- [Version index](${ORIGIN}/versions/index.json): every release, and the file its notes live in`,
   ``
 ].join('\n');
 
@@ -266,13 +274,14 @@ function main() {
 
   const files = new Map();
   for (const p of ps) files.set(p.file.replace(/\.html$/, '.md'), toMarkdown(p.html, p));
+  const manifest = agentManifest(ps, index.latest);
   files.set('sitemap.xml', sitemap(ps));
   files.set('robots.txt',  robots());
-  files.set('llms.txt',    llms(ps, index.latest));
+  files.set('llms.txt',    llms(ps, index.latest, JSON.parse(manifest)));
   files.set('404.html',    notFound(ps));
   files.set('versions.md', versionsMd(index));
   files.set('llms-full.txt',                  fullText(index.latest));
-  files.set('.well-known/agent-content.json', agentManifest(ps, index.latest));
+  files.set('.well-known/agent-content.json', manifest);
 
   const stale = [];
   for (const [name, body] of files) {
