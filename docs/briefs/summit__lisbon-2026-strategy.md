@@ -5,6 +5,13 @@
 **Written:** 2026-09-09 — **eight days out**
 **Author:** @website-agent · **Companion:** `vaults__what-to-add-to-the-site.md`
 
+> **Partly superseded, 11 September.** The Agent Behaviour Policy is now a named,
+> published artefact with a checkout behind it, which changes what happens at the booth:
+> the conversation ends in a £10 purchase rather than a business card. **§1, §2, §3 and
+> §5 below are replaced by `summit__lisbon-2026-messaging.md`**, and the reason for the
+> change is in `direction__abp-at-the-centre.md`. §4 (the summit graph vault), §6 (the
+> two days) and §7 (after) stand as written.
+
 > I have worked from the public site. Check §5 against the actual exhibitor pack
 > you received — deadlines and asset specs there override anything here.
 
