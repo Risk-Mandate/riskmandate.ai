@@ -9,6 +9,14 @@ at `/scenarios/` (unlinked). Remaining: GRC content review → menu repoint.
 **Date:** 2026-07-04
 **Parent:** `architecture__structure-content-decoupling.md`
 
+> **As built, since v1.0.0.** The pilot lives at `site/scenarios/` — it moved
+> with the rest of `web_overlay/` when the vault publisher was removed and
+> `site/` became the deployed tree. The file names below were the plan; what
+> shipped is `index.html`, `rm-dom.js`, `rm-scenarios.js`, `rm-scenarios-loader.js`,
+> `rm-scenarios-schema.js` and `styles.css`, all in that one directory, with the
+> tests at `tests/site/test_scenarios_schema.mjs`. Everything else in this brief
+> — the vault, the branch-as-environment model, the runtime flow — is unchanged.
+
 ---
 
 ## 0. Scope & success criteria

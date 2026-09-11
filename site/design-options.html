@@ -1,0 +1,927 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RiskMandate — Design options (internal)</title>
+<meta name="description" content="The eight logo concepts explored for RiskMandate, preserved as a design record with the reasoning for and against each. Concept E, the Seal, was selected.">
+<link rel="canonical" href="https://riskmandate.ai/design-options.html">
+<link rel="alternate" type="text/markdown" href="design-options.md" title="This page as markdown">
+<link rel="icon" href="assets/brand/riskmandate-favicon-32.png" sizes="32x32">
+<link rel="icon" href="assets/brand/riskmandate-mark.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RiskMandate">
+<meta property="og:url" content="https://riskmandate.ai/design-options.html">
+<meta property="og:title" content="RiskMandate — Design options (internal)">
+<meta property="og:description" content="The eight logo concepts explored for RiskMandate, preserved as a design record with the reasoning for and against each. Concept E, the Seal, was selected.">
+<meta property="og:image" content="https://riskmandate.ai/assets/brand/riskmandate-lockup-light.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- v1.0.0. Reconstructed from SG/Vault 7rfetjwz at v0.14.0;
+     see versions/1.0.0.md. Edited directly from here on — there is no build step. -->
+<style>
+/* design-options.css - canonical shell (tokens, header, dropdowns, mobile drawer)
+   plus the shared sections for the brand page group. */
+:root{
+  --bg:#F7F6F2; --bg2:#EFEDE7; --card:#FFFFFF; --ink:#0D0D0C; --canvas:#0A0A09;
+  --text:#1A1917; --muted:#4A4845; --faint:#8A8780; --border:#E2DFD8;
+  --green:#1A7F5A; --green-2:#22c55e; --greenBg:#EBF5F0;
+  --gold:#B45309; --red:#C0392B; --blue:#1D4ED8;
+  --fg:#F7F6F2; --fg-2:rgba(247,246,242,.55); --fg-3:rgba(247,246,242,.32);
+  --line:rgba(247,246,242,.10); --line-2:rgba(247,246,242,.18);
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","JetBrains Mono","Roboto Mono",Menlo,Consolas,monospace;
+  --wrap:1000px; --r:10px; --r-sm:8px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth} @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+
+/* header — light theme, identical to the version pages (one look everywhere) */
+.top{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.top .wrap{display:flex;align-items:center;gap:22px;height:56px;max-width:1100px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:15px;color:var(--text);cursor:pointer;white-space:nowrap}
+.brand:hover{color:var(--text)}
+.rm{width:26px;height:26px;flex:none;display:block}
+.rm svg{width:100%;height:100%;display:block}
+.navlinks{display:flex;align-items:center;gap:22px;margin-left:auto}
+rm-menu{display:contents}
+.navlinks button{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap}
+.navlinks button:hover{color:var(--text)}
+.pagelink.active{color:var(--text);font-weight:600}
+
+/* nav dropdowns (desktop) — must match the other pages; the mobile drawer
+   below restyles these for narrow viewports. */
+.navgroup{position:relative;display:inline-flex;align-items:center}
+.navgroup::after{content:"";position:absolute;top:100%;left:0;right:0;height:10px}
+.navgroup-btn{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;display:inline-flex;align-items:center;gap:5px}
+.navgroup-btn:hover,.navgroup:hover .navgroup-btn,.navgroup.open .navgroup-btn,.navgroup.active .navgroup-btn{color:var(--text)}
+.navgroup-car{font-size:8px;line-height:1;opacity:.6;transition:transform .15s}
+.navgroup:hover .navgroup-car,.navgroup.open .navgroup-car{transform:rotate(180deg)}
+.navmenu{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);min-width:184px;background:var(--card);border:1px solid var(--border);border-radius:10px;box-shadow:0 10px 34px rgba(13,13,12,.14);padding:6px;display:none;flex-direction:column;gap:2px;z-index:70}
+.navgroup:hover .navmenu,.navgroup.open .navmenu{display:flex}
+.navmenu .navchild{justify-content:flex-start;text-align:left;width:100%;padding:8px 12px;border-radius:7px;font-size:13.5px;color:var(--muted);white-space:nowrap}
+.navmenu .navchild:hover{background:var(--bg2,#EFEDE7);color:var(--text)}
+.navmenu .navchild.active{color:var(--green);font-weight:600;background:var(--greenBg,#EBF5F0)}
+.vs-select{font-family:var(--mono);font-size:12px;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:7px;padding:5px 8px;cursor:pointer}
+.vs-select:disabled{cursor:default;opacity:.8}
+.demo{background:var(--green);color:#fff;font-weight:600;font-size:13px;border:0;border-radius:8px;padding:8px 16px;cursor:pointer;transition:background .15s;font-family:var(--sans);white-space:nowrap}
+.demo:hover{background:#16704f}
+@media (max-width:880px){.navlinks{display:none}.vs-select{display:none}}
+
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+h1,h2{margin:0;font-weight:800;letter-spacing:-.03em;line-height:1.04}
+h2{font-size:clamp(26px,3.6vw,40px);font-weight:700;letter-spacing:-.02em}
+h3{margin:0;font-weight:700}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+:focus-visible{outline:2px solid var(--green-2);outline-offset:3px;border-radius:4px}
+.tag{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+.g{color:var(--green)} .it{font-style:italic;color:var(--green)}
+em{font-style:italic}
+.lnk{background:none;border:0;padding:0;font:inherit;color:var(--green);font-weight:600;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.lnk:hover{color:#16704f}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;padding:12px 22px;border-radius:var(--r-sm);cursor:pointer;border:1px solid transparent;font-family:var(--sans)}
+.btn-green{background:var(--green);color:#fff} .btn-green:hover{background:#16704f}
+.btn-ghost{background:transparent;color:var(--fg);border-color:var(--line-2)} .btn-ghost:hover{border-color:var(--fg-2)}
+.btn-ghost-dark{background:transparent;color:var(--text);border-color:var(--border)} .btn-ghost-dark:hover{border-color:var(--green);color:var(--green)}
+
+
+/* ===== shared hero + sections for the brand / options / feedback pages ===== */
+.bhero {
+    background: var(--ink);
+    color:      var(--fg);
+    padding:    80px 24px 84px;
+}
+.bhero .wrap { max-width: 840px; }
+.bhero h1 {
+    font-size:      clamp(36px, 5.2vw, 60px);
+    letter-spacing: -.04em;
+    line-height:    1.03;
+    margin:         26px 0 0;
+    color:          var(--fg);
+}
+.bhero .sub { color: var(--fg-2); font-size: 16.5px; line-height: 1.75; max-width: 700px; margin-top: 22px; }
+.bhero .sub strong { color: var(--fg); }
+.eyebrow {
+    display:       inline-flex;
+    align-items:   center;
+    gap:           8px;
+    font-family:   var(--mono);
+    font-size:     11px;
+    font-weight:   700;
+    color:         var(--green-2);
+    background:    rgba(26,127,90,.18);
+    border:        1px solid rgba(26,127,90,.4);
+    border-radius: 999px;
+    padding:       5px 12px;
+}
+.eyebrow .d { width: 6px; height: 6px; border-radius: 50%; background: var(--green-2); }
+.it { font-style: italic; color: var(--green-2); }
+.g  { color: var(--green); }
+.cta-row { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 30px; }
+.btn {
+    display:       inline-flex;
+    align-items:   center;
+    gap:           8px;
+    font-size:     14px;
+    font-weight:   600;
+    padding:       12px 22px;
+    border-radius: var(--r-sm);
+    cursor:        pointer;
+    border:        1px solid transparent;
+    font-family:   var(--sans);
+}
+.btn-green { background: var(--green); color: var(--card); }
+.btn-green:hover { filter: brightness(1.12); }
+.btn-green:disabled { opacity: .5; cursor: default; filter: none; }
+.btn-ghost { background: transparent; color: var(--fg); border-color: var(--line-2); }
+.btn-ghost:hover { border-color: var(--fg-2); }
+
+.paper { background: var(--bg); }
+.bsection { padding: 74px 0; border-bottom: 1px solid var(--border); }
+.bsection.alt { background: var(--bg2); }
+.shead { max-width: 700px; }
+.shead h2 { color: var(--text); }
+.shead p  { color: var(--muted); margin-top: 15px; font-size: 15px; line-height: 1.72; }
+h2 { font-size: clamp(26px, 3.6vw, 42px); font-weight: 700; letter-spacing: -.03em; line-height: 1.06; margin: 0; }
+h3 { margin: 0; font-weight: 700; }
+p  { margin: 0; }
+.tag {
+    display:        inline-block;
+    font-family:    var(--mono);
+    font-size:      10px;
+    font-weight:    700;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color:          var(--green);
+    margin-bottom:  14px;
+}
+.callout {
+    margin-top:    32px;
+    background:    var(--greenBg);
+    border:        1px solid rgba(26,127,90,.28);
+    border-left:   3px solid var(--green);
+    border-radius: var(--r);
+    padding:       20px 24px;
+    font-size:     14.5px;
+    line-height:   1.7;
+    color:         var(--text);
+}
+.callout .g { font-weight: 700; }
+
+/* ===== the marks ===== */
+.mk-grid {
+    display:               grid;
+    grid-template-columns:  repeat(3, 1fr);
+    gap:                   18px;
+    margin-top:            34px;
+}
+@media (max-width: 900px) { .mk-grid { grid-template-columns: 1fr; } }
+.mk-card { border: 1px solid var(--border); border-radius: var(--r); padding: 24px; }
+.mk-card.light { background: var(--card); }
+.mk-card.dark  { background: var(--ink); border-color: var(--ink); }
+.mk-label {
+    display:        block;
+    font-family:    var(--mono);
+    font-size:      10px;
+    font-weight:    700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color:          var(--faint);
+    margin-bottom:  18px;
+}
+.mk-card.dark .mk-label { color: var(--green-2); }
+.mk-sizes { display: flex; align-items: flex-end; gap: 20px; flex-wrap: wrap; }
+.mk-size { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.mk-size span { font-family: var(--mono); font-size: 10px; color: var(--faint); }
+.mk-note { font-size: 13.5px; color: var(--muted); line-height: 1.6; margin-top: 20px; }
+.mk-card.dark .mk-note { color: var(--fg-2); }
+.mk-lockups { margin-top: 18px; }
+.lk-row { display: flex; gap: 18px; flex-wrap: wrap; }
+.lk {
+    display:       flex;
+    align-items:   center;
+    gap:           12px;
+    padding:       20px 26px;
+    border-radius: var(--r);
+    border:        1px solid var(--border);
+    flex:          1 1 260px;
+}
+.lk.light { background: var(--card); }
+.lk.dark  { background: var(--ink); border-color: var(--ink); }
+.lk-word { font-size: 22px; font-weight: 700; letter-spacing: -.03em; color: var(--text); }
+.lk.dark .lk-word { color: var(--fg); }
+
+/* ===== rules ===== */
+.rules {
+    display:               grid;
+    grid-template-columns:  repeat(2, 1fr);
+    gap:                   16px;
+    margin-top:            32px;
+}
+@media (max-width: 820px) { .rules { grid-template-columns: 1fr; } }
+.rule { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--red); border-radius: var(--r); padding: 20px 22px; }
+.rule h3 { font-size: 15.5px; color: var(--text); margin-bottom: 8px; }
+.rule p  { font-size: 13.5px; color: var(--muted); line-height: 1.65; }
+.rule code { font-family: var(--mono); font-size: 12.5px; color: var(--green); }
+
+/* ===== colour swatches ===== */
+.sw-grid {
+    display:               grid;
+    grid-template-columns:  repeat(2, 1fr);
+    gap:                   10px;
+    margin-top:            32px;
+}
+@media (max-width: 820px) { .sw-grid { grid-template-columns: 1fr; } }
+.sw {
+    display:               grid;
+    grid-template-columns:  38px 118px 84px 1fr;
+    align-items:           center;
+    gap:                   14px;
+    background:            var(--card);
+    border:                1px solid var(--border);
+    border-radius:         var(--r-sm);
+    padding:               10px 14px;
+}
+@media (max-width: 620px) { .sw { grid-template-columns: 32px 1fr; row-gap: 4px; } .sw-u { grid-column: 1 / -1; } }
+.sw-chip { width: 34px; height: 34px; border-radius: 7px; border: 1px solid var(--border); display: block; }
+.sw-n { font-family: var(--mono); font-size: 12px; color: var(--text); font-weight: 700; }
+.sw-v { font-family: var(--mono); font-size: 12px; color: var(--faint); }
+.sw-u { font-size: 13px; color: var(--muted); line-height: 1.45; }
+
+/* ===== typography specimens ===== */
+.typespec { display: flex; flex-direction: column; gap: 14px; margin-top: 32px; }
+.ts { background: var(--card); border: 1px solid var(--border); border-radius: var(--r); padding: 22px 24px; }
+.tsk {
+    display:        block;
+    font-family:    var(--mono);
+    font-size:      10px;
+    font-weight:    700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color:          var(--faint);
+    margin-bottom:  12px;
+}
+.tsd { font-size: clamp(28px, 3.8vw, 46px); font-weight: 700; letter-spacing: -.03em; color: var(--text); line-height: 1.06; }
+.tsb { font-size: 15.5px; color: var(--text); line-height: 1.7; max-width: 60ch; }
+.tsl { font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: .2em; color: var(--green); }
+.tsm { display: block; font-family: var(--mono); font-size: 11px; color: var(--faint); margin-top: 12px; }
+
+/* ===== downloads ===== */
+.dl-grid {
+    display:               grid;
+    grid-template-columns:  repeat(3, 1fr);
+    gap:                   14px;
+    margin-top:            32px;
+}
+@media (max-width: 900px) { .dl-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .dl-grid { grid-template-columns: 1fr; } }
+.dl {
+    display:         flex;
+    flex-direction:  column;
+    gap:             6px;
+    background:      var(--card);
+    border:          1px solid var(--border);
+    border-radius:   var(--r);
+    padding:         18px 20px;
+    text-decoration: none;
+    transition:      border-color .15s, transform .15s;
+}
+.dl:hover { border-color: var(--green); transform: translateY(-2px); }
+.dl-t {
+    align-self:     flex-start;
+    font-family:    var(--mono);
+    font-size:      9.5px;
+    font-weight:    700;
+    letter-spacing: .12em;
+    color:          var(--green);
+    background:     var(--greenBg);
+    border-radius:  999px;
+    padding:        3px 9px;
+}
+.dl-n  { font-size: 14.5px; font-weight: 700; color: var(--text); margin-top: 4px; }
+.dl-d  { font-size: 13px; color: var(--muted); line-height: 1.5; }
+.dl-go { font-family: var(--mono); font-size: 11px; color: var(--green); margin-top: 6px; }
+
+/* ===== design options ===== */
+.op-grid {
+    display:               grid;
+    grid-template-columns:  repeat(2, 1fr);
+    gap:                   18px;
+}
+@media (max-width: 900px) { .op-grid { grid-template-columns: 1fr; } }
+.op { background: var(--card); border: 1px solid var(--border); border-radius: var(--r); padding: 24px 26px; }
+.op.chosen { border-color: var(--green); box-shadow: 0 0 0 1px rgba(26,127,90,.2); }
+.op-head { display: flex; gap: 18px; align-items: flex-start; }
+.op-mark { flex: none; line-height: 0; }
+.op-l {
+    display:        block;
+    font-family:    var(--mono);
+    font-size:      10px;
+    font-weight:    700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color:          var(--faint);
+}
+.op.chosen .op-l { color: var(--green); }
+.op-head h3  { font-size: 19px; color: var(--text); margin: 7px 0 5px; letter-spacing: -.02em; }
+.op-tag      { font-size: 14px; color: var(--muted); }
+.op-args     { margin-top: 18px; display: flex; flex-direction: column; gap: 12px; }
+.op-args span {
+    display:        block;
+    font-family:    var(--mono);
+    font-size:      9.5px;
+    font-weight:    700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    margin-bottom:  5px;
+}
+.op-why span   { color: var(--green); }
+.op-watch span { color: var(--gold); }
+.op-args p     { font-size: 13.5px; color: var(--muted); line-height: 1.6; }
+.src-note { margin-top: 26px; font-size: 13px; color: var(--faint); }
+.src-note a { color: var(--green); }
+
+/* ===== feedback ===== */
+.loopfig { margin: 32px 0 0; }
+.loopfig img {
+    display:       block;
+    width:         100%;
+    max-width:     760px;
+    height:        auto;
+    border:        1px solid var(--border);
+    border-radius: var(--r);
+    background:    var(--card);
+}
+.loopfig figcaption { margin-top: 12px; font-size: 13px; color: var(--faint); }
+.loopfig a { color: var(--green); }
+.pr-bar {
+    display:         flex;
+    align-items:     center;
+    justify-content: space-between;
+    gap:             14px;
+    flex-wrap:       wrap;
+    margin-top:      30px;
+}
+.pr-k {
+    font-family:    var(--mono);
+    font-size:      10px;
+    font-weight:    700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color:          var(--faint);
+}
+.pr-text {
+    margin:        12px 0 0;
+    background:    var(--ink);
+    color:         var(--fg-2);
+    border-radius: var(--r);
+    padding:       22px 24px;
+    font-family:   var(--mono);
+    font-size:     12px;
+    line-height:   1.65;
+    max-height:    460px;
+    overflow:      auto;
+    white-space:   pre-wrap;
+    word-break:    break-word;
+}
+.expect {
+    display:               grid;
+    grid-template-columns:  repeat(2, 1fr);
+    gap:                   16px;
+    margin-top:            32px;
+}
+@media (max-width: 820px) { .expect { grid-template-columns: 1fr; } }
+.ex { background: var(--card); border: 1px solid var(--border); border-radius: var(--r); padding: 22px 24px; }
+.ex h3 { font-size: 15.5px; color: var(--text); margin-bottom: 8px; }
+.ex p  { font-size: 13.5px; color: var(--muted); line-height: 1.65; }
+
+/* ===== cta + footer ===== */
+.bcta { background: var(--ink); color: var(--fg); text-align: center; padding: 84px 24px; }
+.bcta .wrap { max-width: 660px; }
+.bcta h2 { font-size: clamp(26px, 4vw, 42px); color: var(--fg); letter-spacing: -.03em; }
+.bcta p  { color: var(--fg-2); margin-top: 15px; font-size: 15.5px; line-height: 1.7; }
+.bcta .cta-row { justify-content: center; }
+.foot { background: var(--canvas); border-top: 1px solid var(--line); padding: 30px 24px; }
+.foot .wrap {
+    display:         flex;
+    justify-content: space-between;
+    flex-wrap:       wrap;
+    gap:             10px;
+    font-family:     var(--mono);
+    font-size:       10px;
+    color:           var(--fg-3);
+}
+.footlink {
+    background:            none;
+    border:                0;
+    padding:               0;
+    font:                  inherit;
+    color:                 var(--fg-3);
+    cursor:                pointer;
+    text-decoration:       underline;
+    text-underline-offset: 2px;
+}
+.footlink:hover { color: var(--fg-2); }
+
+/* ===== mobile nav — hamburger drawer. Toggle injected by nav.js; .top.nav-open opens it. ===== */
+.navtoggle{display:none;margin-left:auto;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;padding:0;background:none;border:0;cursor:pointer}
+.navtoggle span{display:block;width:20px;height:2px;margin:0 auto;background:var(--text,#1A1917);border-radius:2px;transition:transform .2s,opacity .2s}
+.top.nav-open .navtoggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.top.nav-open .navtoggle span:nth-child(2){opacity:0}
+.top.nav-open .navtoggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media (max-width:880px){
+  .navtoggle{display:flex}
+  .top .wrap{position:relative}
+  .navlinks{position:absolute;left:0;right:0;top:calc(100% + 1px);flex-direction:column;align-items:stretch;gap:0;margin:0;padding:8px;background:var(--card,#fff);border-bottom:1px solid var(--border,#E2DFD8);box-shadow:0 14px 34px rgba(13,13,12,.14);max-height:calc(100vh - 56px);overflow:auto}
+  .top.nav-open .navlinks{display:flex}
+  .navlinks button,.navlinks .pagelink,.navlinks .navgroup-btn{width:100%;text-align:left;justify-content:flex-start;padding:12px 16px;font-size:15px;border-radius:8px}
+  .navlinks button:hover,.navlinks .pagelink:hover{background:var(--bg2,#EFEDE7)}
+  .navgroup{display:block;width:100%;position:static}
+  .navgroup::after{display:none}
+  .navgroup-btn{display:flex}
+  .navgroup-car{margin-left:auto}
+  .navmenu{position:static;transform:none;display:flex;flex-direction:column;min-width:0;padding:2px 0 8px 14px;background:transparent;border:0;box-shadow:none}
+  .navmenu .navchild{padding:10px 14px;font-size:14px}
+}
+.footlink{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.footlink:hover{color:var(--fg-2)}
+
+
+/* v1.0.0 — navigation is real links now, so the header rules that targeted
+   <button> have to reach <a> too, and the version switcher is a link. */
+.brand{text-decoration:none}
+.navlinks a{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;text-decoration:none;display:inline-flex;align-items:center}
+.navlinks a:hover{color:var(--text)}
+.navlinks a.active{color:var(--text);font-weight:600}
+.version{font-family:var(--mono);font-size:12px;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:7px;padding:5px 8px;text-decoration:none;white-space:nowrap;transition:color .15s,border-color .15s}
+.version:hover{color:var(--text);border-color:var(--faint)}
+a.btn{text-decoration:none}
+a.ds{display:block;text-decoration:none;color:inherit}
+@media (max-width:880px){
+  .version{display:none}
+  .navlinks a{width:100%;text-align:left;justify-content:flex-start;padding:12px 16px;font-size:15px;border-radius:8px}
+  .navlinks a:hover{background:var(--bg2,#EFEDE7)}
+}
+</style>
+</head>
+<body id="top">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
+    <nav class="navlinks"><rm-menu></rm-menu></nav>
+    <a class="version" href="versions.html" title="What shipped in v1.0.0">v1.0.0</a>
+    <button class="demo" data-demo>Book a demo</button>
+  </div>
+</header>
+
+<main class="bhero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> Internal · design record</span>
+    <h1>Eight marks. <span class="it">One chosen.</span></h1>
+    <p class="sub">The full set of logo concepts explored for RiskMandate, kept as a record of what was considered and why. <strong>Concept E, the Seal, was selected</strong> and is now the live mark. The others are preserved here with the reasoning that argued for and against each — including the arguments against the one we picked.</p>
+  </div>
+</main>
+
+<div class="paper">
+  <section class="bsection">
+    <div class="wrap">
+      <rm-design-options></rm-design-options>
+      <div class="callout"><span class="g">Why the Seal won.</span> It is the most institutional of the eight, and it signals counter-signature and provenance immediately to a GRC or insurance audience — which is exactly who reads our output. The cost is real and stated: it skews traditional, and it needs a simplified cut below 24px. We took that trade knowingly.</div>
+      <p class="src-note">The original interactive concept sheet, as produced, is preserved verbatim: <a href="assets/brand/brand-concepts-source.html" target="_blank" rel="noopener noreferrer">open the source sheet ↗</a></p>
+    </div>
+  </section>
+</div>
+
+<section class="bcta" id="demo">
+  <div class="wrap">
+    <h2>The record is the point.</h2>
+    <p>Design decisions age badly when only the winner survives. This page keeps the alternatives and the arguments so the choice can be revisited on evidence rather than memory.</p>
+    <div class="cta-row"><a class="btn btn-ghost" href="brand.html">The brand guidelines</a></div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>© 2026 RiskMandate · Autonomous Risk Management</span>
+    <span><a class="footlink" href="versions.html">Versions</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+var RM={core:{},services:{},components:{},data:{}};
+RM.data.currentPage="design-options";RM.data.pages=[{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"The problem"},{"name":"acceptable","label":"Accepted is not acceptable","file":"acceptable.html","group":"The problem"},{"name":"acceptance","label":"You own the risk","file":"acceptance.html","group":"The problem"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"The problem"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"The model"},{"name":"agents","label":"Agents","file":"agents.html","group":"The model"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"The model"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"The model"},{"name":"statics","label":"Static scenarios","file":"statics.html","group":"The model"},{"name":"demos","label":"All demos","file":"demos.html","group":"Live demos"},{"name":"demo-licence-to-operate","label":"Licence to Operate","file":"demo-licence-to-operate.html","group":"Live demos"},{"name":"demo-risk-graph-explorer","label":"RiskGraph Explorer","file":"demo-risk-graph-explorer.html","group":"Live demos"},{"name":"demo-agentic-browser-isolation","label":"Agentic Browser Isolation","file":"demo-agentic-browser-isolation.html","group":"Live demos"},{"name":"demo-risk-mandate-field","label":"RiskMandate field demo","file":"demo-risk-mandate-field.html","group":"Live demos"},{"name":"demo-file-security","label":"File security walk","file":"demo-file-security.html","group":"Live demos"},{"name":"demo-agent-permission-games","label":"Permission games","file":"demo-agent-permission-games.html","group":"Live demos"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"library","label":"Library","file":"library.html"},{"name":"partners","label":"Partners","file":"partners.html"},{"name":"feedback","label":"Give feedback","file":"feedback.html"},{"name":"brand","label":"Brand","file":"brand.html"}];RM.data.sections=[];RM.data.concepts=[
+  {
+    "letter": "A",
+    "name": "RM Refined",
+    "mark": "<rect width=\"64\" height=\"64\" rx=\"17\" fill=\"#161615\"/><text x=\"32\" y=\"41\" text-anchor=\"middle\" font-family=\"ui-monospace, SF Mono, Menlo, monospace\" font-size=\"23\" font-weight=\"700\" fill=\"#1A7F5A\" letter-spacing=\"-1\">RM</text>",
+    "why": "Nothing to re-learn. Every asset you already have stays valid, and the mono letterforms carry the product’s record-keeping feel.",
+    "watch": "It is a two-letter box — the least ownable shape in software. It will not be remembered from across a summit hall.",
+    "tagline": "The existing monogram, optically tightened."
+  },
+  {
+    "letter": "B",
+    "name": "Interval",
+    "mark": "<rect width=\"64\" height=\"64\" rx=\"17\" fill=\"#161615\"/><path d=\"M22 19 h-7 v26 h7\" stroke=\"#1A7F5A\" stroke-width=\"3\" fill=\"none\"/><path d=\"M42 19 h7 v26 h-7\" stroke=\"#1A7F5A\" stroke-width=\"3\" fill=\"none\"/><rect x=\"23\" y=\"30\" width=\"12\" height=\"4\" fill=\"#F7F6F2\"/><rect x=\"35\" y=\"30\" width=\"7\" height=\"4\" fill=\"rgba(247,246,242,.26)\"/>",
+    "why": "This is the product in one glyph: acceptance is bracketed and it expires. The brackets also echo the mono voice used throughout the site.",
+    "watch": "Brackets are common in developer tooling; the meaning needs the tagline beside it the first few times.",
+    "tagline": "Brackets around a part-elapsed bar."
+  },
+  {
+    "letter": "C",
+    "name": "Aperture",
+    "mark": "<rect width=\"64\" height=\"64\" rx=\"17\" fill=\"#161615\"/><path d=\"M13 21 L31 32 L13 43\" stroke=\"#1A7F5A\" stroke-width=\"3.2\" fill=\"none\" stroke-linejoin=\"round\"/><path d=\"M51 21 L33 32 L51 43\" stroke=\"rgba(247,246,242,.62)\" stroke-width=\"3.2\" fill=\"none\" stroke-linejoin=\"round\"/>",
+    "why": "Motion built in — the acceptance window is closing. Reads at any size and animates naturally for the site and booth loop.",
+    "watch": "Converging chevrons can read as “compress” or “merge”. Directionally ambiguous without context.",
+    "tagline": "Two blades closing on a window."
+  },
+  {
+    "letter": "D",
+    "name": "Index",
+    "mark": "<rect width=\"64\" height=\"64\" rx=\"17\" fill=\"#161615\"/><rect x=\"13\" y=\"38\" width=\"6\" height=\"9\" fill=\"rgba(247,246,242,.24)\"/><rect x=\"22\" y=\"32\" width=\"6\" height=\"15\" fill=\"rgba(247,246,242,.34)\"/><rect x=\"31\" y=\"26\" width=\"6\" height=\"21\" fill=\"rgba(247,246,242,.46)\"/><rect x=\"40\" y=\"20\" width=\"6\" height=\"27\" fill=\"#1A7F5A\"/><rect x=\"49\" y=\"14\" width=\"6\" height=\"33\" fill=\"#1A7F5A\"/>",
+    "why": "Maps directly onto RAMM’s five levels and the Insurability Index. It borrows the posture of a ratings agency, which is exactly the category you are claiming.",
+    "watch": "Ascending bars are the most common chart-shape in the sector. Distinctiveness has to come from the exact rhythm and the two-tone cut.",
+    "tagline": "Five ascending levels."
+  },
+  {
+    "letter": "E",
+    "name": "Seal",
+    "mark": "<rect width=\"64\" height=\"64\" rx=\"17\" fill=\"#161615\"/><circle cx=\"32\" cy=\"32\" r=\"19\" stroke=\"#1A7F5A\" stroke-width=\"2.6\" fill=\"none\"/><circle cx=\"32\" cy=\"32\" r=\"13.5\" stroke=\"rgba(247,246,242,.22)\" stroke-width=\"1\" fill=\"none\"/><g stroke=\"#1A7F5A\" stroke-width=\"2\"><line x1=\"32\" y1=\"9\" x2=\"32\" y2=\"14\"/><line x1=\"32\" y1=\"50\" x2=\"32\" y2=\"55\"/><line x1=\"9\" y1=\"32\" x2=\"14\" y2=\"32\"/><line x1=\"50\" y1=\"32\" x2=\"55\" y2=\"32\"/></g><text x=\"32\" y=\"37\" text-anchor=\"middle\" font-family=\"ui-monospace, SF Mono, Menlo, monospace\" font-size=\"13\" font-weight=\"700\" fill=\"#F7F6F2\" letter-spacing=\"-0.5\">RM</text>",
+    "why": "The most institutional option. It signals counter-signature and provenance immediately to a GRC or insurance audience.",
+    "watch": "Detail dies below 24px, and seals skew traditional — it can make a young company look like a compliance vendor.",
+    "tagline": "An underwriter’s stamp."
+  },
+  {
+    "letter": "F",
+    "name": "Containment",
+    "mark": "<rect width=\"64\" height=\"64\" rx=\"17\" fill=\"#161615\"/><circle cx=\"32\" cy=\"32\" r=\"5\" fill=\"#1A7F5A\"/><circle cx=\"32\" cy=\"32\" r=\"12.5\" stroke=\"rgba(247,246,242,.30)\" stroke-width=\"1.6\" fill=\"none\"/><circle cx=\"32\" cy=\"32\" r=\"20\" stroke=\"#1A7F5A\" stroke-width=\"2.6\" fill=\"none\"/>",
+    "why": "Blast radius made visible: the agent acts, and the mandate bounds it. Strong at every size and easy to extend into diagrams.",
+    "watch": "Concentric circles are heavily used in security branding — the closest to generic of the eight.",
+    "tagline": "A core, its reach, and a hard boundary."
+  },
+  {
+    "letter": "G",
+    "name": "Countersign",
+    "mark": "<rect width=\"64\" height=\"64\" rx=\"17\" fill=\"#161615\"/><path d=\"M14 37 C21 21, 27 41, 34 27 S 45 31, 50 23\" stroke=\"#1A7F5A\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><line x1=\"13\" y1=\"46\" x2=\"51\" y2=\"46\" stroke=\"rgba(247,246,242,.55)\" stroke-width=\"2\"/>",
+    "why": "The only option with a human in it. Someone accepts, someone signs, someone owns it — the emotional core of the pitch.",
+    "watch": "The most fragile at small sizes and the least reproducible in one colour or embroidery. Needs a simplified 16px variant.",
+    "tagline": "A signature over a rule."
+  },
+  {
+    "letter": "H",
+    "name": "Record",
+    "mark": "<rect width=\"64\" height=\"64\" rx=\"17\" fill=\"#161615\"/><rect x=\"13\" y=\"19\" width=\"9\" height=\"9\" rx=\"2\" fill=\"#1A7F5A\"/><rect x=\"26\" y=\"21\" width=\"25\" height=\"4.5\" rx=\"2\" fill=\"#F7F6F2\"/><rect x=\"13\" y=\"34\" width=\"38\" height=\"3.5\" rx=\"1.75\" fill=\"rgba(247,246,242,.30)\"/><rect x=\"13\" y=\"43\" width=\"24\" height=\"3.5\" rx=\"1.75\" fill=\"rgba(247,246,242,.30)\"/>",
+    "why": "Quiet and very ownable. It says the output of the product is an auditable record, and it sits naturally beside the mono type.",
+    "watch": "Abstract without the name attached; it earns meaning over time rather than on first sight. Brand guidelines These pages use concept B as a stand-in so the system is complete. Every rule holds whichever mark wins — swap the glyph and nothing else changes.",
+    "tagline": "The receipt an acceptance leaves behind."
+  }
+];
+
+'use strict';
+// components/dom.js — tiny DOM helpers shared by components. `el` builds an
+// element with attributes and children; text children always go in via
+// textContent. `renderMarkdownInto` turns core/markdown tokens into real DOM
+// nodes (never an HTML string), so fetched release notes cannot inject markup.
+
+RM.components.dom = (function () {
+  // A link in a markdown note may only go somewhere harmless: same-document,
+  // same-origin relative, https, or mailto. Anything else — javascript:, data:,
+  // a protocol-relative host — renders as the text it was, and goes nowhere.
+  var SAFE = /^(?:https:\/\/|mailto:|#|[^:/?#]*(?:[/?#]|$))/i;
+
+  /**
+   * @param {string} tag
+   * @param {Object<string,string>} [attrs]
+   * @param {Array<Node|string>} [children]
+   * @returns {HTMLElement}
+   */
+  function el(tag, attrs, children) {
+    var node = document.createElement(tag);
+    if (attrs) Object.keys(attrs).forEach(function (k) {
+      if (attrs[k] != null) node.setAttribute(k, attrs[k]);
+    });
+    (children || []).forEach(function (c) {
+      node.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
+    });
+    return node;
+  }
+
+  /** Render inline runs into a parent element. */
+  function appendRuns(parent, runs) {
+    runs.forEach(function (run) {
+      if      (run.t === 'strong') parent.appendChild(el('strong', null, [run.v]));
+      else if (run.t === 'em')     parent.appendChild(el('em',     null, [run.v]));
+      else if (run.t === 'code')   parent.appendChild(el('code',   null, [run.v]));
+      else if (run.t === 'link')   parent.appendChild(SAFE.test(run.href)
+        ? el('a', { href: run.href }, [run.v])
+        : document.createTextNode(run.v));
+      else parent.appendChild(document.createTextNode(run.v));
+    });
+  }
+
+  /**
+   * Render markdown block tokens into a container as DOM nodes.
+   * @param {HTMLElement} container
+   * @param {Array} blocks  output of RM.core.markdown.parse
+   */
+  function renderMarkdownInto(container, blocks) {
+    blocks.forEach(function (b) {
+      if (b.type === 'heading') {
+        var h = el('h' + (b.level + 1)); // ## release title -> h3, etc.
+        appendRuns(h, b.runs);
+        container.appendChild(h);
+      } else if (b.type === 'list') {
+        var ul = el('ul');
+        b.items.forEach(function (runs) {
+          var li = el('li');
+          appendRuns(li, runs);
+          ul.appendChild(li);
+        });
+        container.appendChild(ul);
+      } else {
+        var p = el('p');
+        appendRuns(p, b.runs);
+        container.appendChild(p);
+      }
+    });
+  }
+
+  return { el: el, appendRuns: appendRuns, renderMarkdownInto: renderMarkdownInto };
+})();
+
+
+'use strict';
+// components/nav.js — the behaviour on a page that is *not* a link.
+//   [data-to]   → smooth in-page scroll to an element id (no hash routing).
+//   [data-demo] → open a pre-filled demo enquiry email.
+//
+// v1.0.0 removed everything else that used to live here. Up to v0.14 the site
+// ran inside a host <iframe> and every navigation was a postMessage — rm-nav,
+// rm-back, rm-manifest, rm-read. A <button> is not a link, so nothing could be
+// deep-linked, bookmarked, opened in a new tab, or crawled. Now each page is
+// the document the server sent and each navigation is an <a href>, so the only
+// things left to wire are the two that genuinely are not navigation.
+//
+// The mobile drawer is still injected rather than templated: one file gives
+// every page a working menu below the header breakpoint, where .navlinks is
+// hidden by CSS.
+
+RM.components.nav = (function () {
+  // Every "Book a demo" control opens a mail client with a subject and a
+  // starting message. One place to change when booking becomes a real form.
+  var DEMO = {
+    to     : 'nrparekh@gmail.com',
+    subject: 'RiskMandate — demo request',
+    body   : [
+      'Hi,',
+      '',
+      'I would like to see a plug profile for one of the agents we already run.',
+      '',
+      'A little about us:',
+      '  • Organisation:',
+      '  • Roughly how many agents we are running:',
+      '  • The agent we would want to look at first:',
+      '  • Anything already in place (register, IdP, detection tooling):',
+      '',
+      'Thanks,'
+    ].join('\n')
+  };
+
+  function demoHref() {
+    return 'mailto:' + DEMO.to +
+      '?subject=' + encodeURIComponent(DEMO.subject) +
+      '&body='    + encodeURIComponent(DEMO.body);
+  }
+
+  function openDemo() { window.location.href = demoHref(); }
+
+  function scrollTo(doc, id) {
+    var t = doc.getElementById(id);
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Inject the hamburger toggle and wire the drawer open/close. Idempotent.
+  function wireMobileNav(doc) {
+    var top = doc.querySelector('.top');
+    if (!top) return;
+    var wrap  = top.querySelector('.wrap');
+    var links = top.querySelector('.navlinks');
+    if (!wrap || !links || top.querySelector('.navtoggle')) return;
+
+    var burger = doc.createElement('button');
+    burger.className = 'navtoggle';
+    burger.setAttribute('type', 'button');
+    burger.setAttribute('aria-label', 'Toggle navigation');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-controls', 'sitenav');
+    for (var i = 0; i < 3; i++) burger.appendChild(doc.createElement('span'));
+    links.id = links.id || 'sitenav';
+    var demo = wrap.querySelector('.demo');
+    if (demo) wrap.insertBefore(burger, demo); else wrap.appendChild(burger);
+
+    function set(open) {
+      top.classList.toggle('nav-open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    burger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      set(!top.classList.contains('nav-open'));
+    });
+    // Following a real nav link closes the drawer; the group header does not.
+    links.addEventListener('click', function (e) {
+      var b = e.target.closest('button, a');
+      if (b && !b.classList.contains('navgroup-btn')) set(false);
+    });
+    doc.addEventListener('click', function (e) {
+      if (top.classList.contains('nav-open') && !top.contains(e.target)) set(false);
+    });
+    doc.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+    var view = doc.defaultView || window;
+    view.addEventListener('resize', function () { if (view.innerWidth > 880) set(false); });
+  }
+
+  /** @param {Document} doc */
+  function wire(doc) {
+    doc.querySelectorAll('[data-to]').forEach(function (elm) {
+      elm.addEventListener('click', function () { scrollTo(doc, elm.getAttribute('data-to')); });
+    });
+    doc.querySelectorAll('[data-demo], .demo').forEach(function (elm) {
+      elm.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); openDemo(); });
+    });
+    wireMobileNav(doc);
+  }
+
+  return { wire: wire, scrollTo: scrollTo, demoHref: demoHref, openDemo: openDemo };
+})();
+
+
+'use strict';
+// components/menu.js — <rm-menu>. The one shared header menu, on every page, so
+// the nav is built by a single piece of code. Renders the homepage's section
+// links first, then the top-level pages, marking the current page active.
+//
+// A run of contiguous pages sharing a `group` string collapses into one entry:
+// a hover/click dropdown labelled by the group, with the members as children. A
+// single-member group renders flat — no dropdown for one item.
+//
+// v1.0.0: every entry is an <a href>. The old menu emitted <button> elements
+// that asked a host frame to swap an iframe's srcdoc, which meant the links did
+// not exist as far as a crawler, a bookmark or a middle-click was concerned.
+// The group header stays a <button> because it opens a panel rather than going
+// anywhere — that is the one control here that is genuinely not a link.
+
+(function () {
+  var dom = RM.components.dom;
+
+  RM.components.Menu = class extends HTMLElement {
+    connectedCallback() {
+      var self = this;
+      this._onDocClick = function (e) {
+        self.querySelectorAll('.navgroup.open').forEach(function (g) {
+          if (!g.contains(e.target)) g.classList.remove('open');
+        });
+      };
+      document.addEventListener('click', this._onDocClick);
+      this._render();
+    }
+    disconnectedCallback() {
+      document.removeEventListener('click', this._onDocClick);
+    }
+
+    // On the homepage a section link scrolls; on any other page it is a link
+    // back to the homepage at that anchor. Same markup either way.
+    _section(s) {
+      var home = !(RM.data && RM.data.currentPage);
+      var a = dom.el('a', { class: 'seclink', href: home ? '#' + s.to : 'index.html#' + s.to }, [s.label]);
+      if (home) a.addEventListener('click', function (e) {
+        e.preventDefault();
+        RM.components.nav.scrollTo(document, s.to);
+      });
+      return a;
+    }
+
+    _pagelink(p, extra) {
+      var active = p.name === (RM.data && RM.data.currentPage);
+      var attrs  = { class: 'pagelink' + (extra ? ' ' + extra : '') + (active ? ' active' : ''), href: p.file };
+      if (active) attrs['aria-current'] = 'page';
+      return dom.el('a', attrs, [p.label]);
+    }
+
+    _group(name, members) {
+      var self    = this;
+      var current = RM.data && RM.data.currentPage;
+      var active  = members.some(function (m) { return m.name === current; });
+      var car     = dom.el('span',   { class: 'navgroup-car', 'aria-hidden': 'true' }, ['▾']);
+      var btn     = dom.el('button', { class: 'navgroup-btn' + (active ? ' active' : ''), type: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false' }, [name, car]);
+      var panel   = dom.el('div',    { class: 'navmenu' }, members.map(function (m) { return self._pagelink(m, 'navchild'); }));
+      var wrap    = dom.el('span',   { class: 'navgroup' + (active ? ' active' : '') }, [btn, panel]);
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = wrap.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      return wrap;
+    }
+
+    _render() {
+      var sections = (RM.data && RM.data.sections) || [];
+      var pages    = (RM.data && RM.data.pages)    || [];
+      var self     = this;
+      this.textContent = '';
+      sections.forEach(function (s) { self.appendChild(self._section(s)); });
+      var i = 0;
+      while (i < pages.length) {
+        var p = pages[i];
+        if (!p.group) { self.appendChild(self._pagelink(p)); i++; continue; }
+        var g = p.group, members = [];
+        while (i < pages.length && pages[i].group === g) { members.push(pages[i]); i++; }
+        if (members.length === 1) self.appendChild(self._pagelink(members[0]));
+        else                      self.appendChild(self._group(g, members));
+      }
+    }
+  };
+
+  customElements.define('rm-menu', RM.components.Menu);
+})();
+
+
+'use strict';
+// components/options.js — <rm-design-options>. The eight logo concepts explored,
+// each with the argument for and against it. Data is inlined at build from
+// src/pages/design-options/concepts.json (the marks are SVG fragments lifted
+// verbatim from the original concept sheet, so this page shows the real
+// artwork rather than a redrawing of it).
+
+(function () {
+  var dom = RM.components.dom;
+  var SVG = 'http://www.w3.org/2000/svg';
+  var CHOSEN = 'E';
+
+  RM.components.DesignOptions = class extends HTMLElement {
+    connectedCallback() {
+      var self = this;
+      var list = (RM.data && RM.data.concepts) || [];
+      var wrap = dom.el('div', { class: 'op-grid' });
+      list.forEach(function (c) { wrap.appendChild(self._card(c)); });
+      this.appendChild(wrap);
+    }
+
+    _card(c) {
+      var chosen = c.letter === CHOSEN;
+      // The mark markup comes from our own build data, not user input; it is
+      // parsed as SVG rather than assigned as HTML so it cannot carry script.
+      var holder = dom.el('div', { class: 'op-mark' });
+      try {
+        var doc = new DOMParser().parseFromString(
+          '<svg xmlns="' + SVG + '" viewBox="0 0 64 64" width="72" height="72">' + c.mark + '</svg>',
+          'image/svg+xml');
+        var node = doc.documentElement;
+        if (node && node.nodeName.toLowerCase() === 'svg') {
+          node.querySelectorAll('script').forEach(function (s) { s.remove(); });
+          node.setAttribute('aria-hidden', 'true');
+          holder.appendChild(document.importNode(node, true));
+        }
+      } catch (e) { /* a missing mark simply renders as an empty tile */ }
+
+      return dom.el('article', { class: 'op' + (chosen ? ' chosen' : '') }, [
+        dom.el('div', { class: 'op-head' }, [
+          holder,
+          dom.el('div', null, [
+            dom.el('span', { class: 'op-l' }, ['Concept ' + c.letter + (chosen ? ' · selected' : '')]),
+            dom.el('h3', null, [c.name]),
+            dom.el('p', { class: 'op-tag' }, [c.tagline || ''])
+          ])
+        ]),
+        dom.el('div', { class: 'op-args' }, [
+          dom.el('div', { class: 'op-why' }, [dom.el('span', null, ['Why']), dom.el('p', null, [c.why || ''])]),
+          dom.el('div', { class: 'op-watch' }, [dom.el('span', null, ['Watch-out']), dom.el('p', null, [c.watch || ''])])
+        ])
+      ]);
+    }
+  };
+
+  customElements.define('rm-design-options', RM.components.DesignOptions);
+})();
+
+
+'use strict';
+// boot.js — inner-page composition root (version builds and dev.html). Custom
+// elements self-register on load; here we wire document-level nav behaviour.
+// The page runs inside the host's stage frame, so the host (not this page) signals
+// the SG/App host that the app is ready.
+
+(function () {
+  function start() { RM.components.nav.wire(document); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
+})();
+
+})();
+</script>
+</body>
+</html>

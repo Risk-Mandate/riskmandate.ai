@@ -1,0 +1,1672 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RiskMandate — the insurability layer for agentic AI</title>
+<meta name="description" content="Carriers are filing to exclude AI. RiskMandate measures what your agents can actually reach, evidences the controls, prices the exposure, and produces the record an underwriter will accept. Read-only, never in the request path.">
+<link rel="canonical" href="https://riskmandate.ai/">
+<link rel="alternate" type="text/markdown" href="index.md" title="This page as markdown">
+<link rel="icon" href="assets/brand/riskmandate-favicon-32.png" sizes="32x32">
+<link rel="icon" href="assets/brand/riskmandate-mark.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RiskMandate">
+<meta property="og:url" content="https://riskmandate.ai/">
+<meta property="og:title" content="RiskMandate — the insurability layer for agentic AI">
+<meta property="og:description" content="Carriers are filing to exclude AI. RiskMandate measures what your agents can actually reach, evidences the controls, prices the exposure, and produces the record an underwriter will accept. Read-only, never in the request path.">
+<meta property="og:image" content="https://riskmandate.ai/assets/brand/riskmandate-lockup-light.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- v1.0.0. Reconstructed from SG/Vault 7rfetjwz at v0.14.0;
+     see versions/1.0.0.md. Edited directly from here on — there is no build step. -->
+<style>
+/* home.css - v0.12.0 homepage, the insurability layer. Self-contained:
+   site tokens, the canonical shared header (desktop dropdowns + mobile
+   drawer) and this design's sections. Colours are tokens only. */
+:root{
+  --bg:#F7F6F2; --bg2:#EFEDE7; --card:#FFFFFF; --ink:#0D0D0C; --canvas:#0A0A09;
+  --text:#1A1917; --muted:#4A4845; --faint:#8A8780; --border:#E2DFD8;
+  --green:#1A7F5A; --green-2:#22c55e; --greenBg:#EBF5F0;
+  --gold:#B45309; --red:#C0392B; --blue:#1D4ED8;
+  --fg:#F7F6F2; --fg-2:rgba(247,246,242,.55); --fg-3:rgba(247,246,242,.32);
+  --line:rgba(247,246,242,.10); --line-2:rgba(247,246,242,.18);
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","JetBrains Mono","Roboto Mono",Menlo,Consolas,monospace;
+  --wrap:1000px; --r:10px; --r-sm:8px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth} @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+
+/* header — light theme, identical to the version pages (one look everywhere) */
+.top{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.top .wrap{display:flex;align-items:center;gap:22px;height:56px;max-width:1100px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:15px;color:var(--text);cursor:pointer;white-space:nowrap}
+.brand:hover{color:var(--text)}
+.rm{width:26px;height:26px;flex:none;display:block}
+.rm svg{width:100%;height:100%;display:block}
+.navlinks{display:flex;align-items:center;gap:22px;margin-left:auto}
+rm-menu{display:contents}
+.navlinks button{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap}
+.navlinks button:hover{color:var(--text)}
+.pagelink.active{color:var(--text);font-weight:600}
+
+/* nav dropdowns (desktop) — must match the other pages; the mobile drawer
+   below restyles these for narrow viewports. */
+.navgroup{position:relative;display:inline-flex;align-items:center}
+.navgroup::after{content:"";position:absolute;top:100%;left:0;right:0;height:10px}
+.navgroup-btn{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;display:inline-flex;align-items:center;gap:5px}
+.navgroup-btn:hover,.navgroup:hover .navgroup-btn,.navgroup.open .navgroup-btn,.navgroup.active .navgroup-btn{color:var(--text)}
+.navgroup-car{font-size:8px;line-height:1;opacity:.6;transition:transform .15s}
+.navgroup:hover .navgroup-car,.navgroup.open .navgroup-car{transform:rotate(180deg)}
+.navmenu{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);min-width:184px;background:var(--card);border:1px solid var(--border);border-radius:10px;box-shadow:0 10px 34px rgba(13,13,12,.14);padding:6px;display:none;flex-direction:column;gap:2px;z-index:70}
+.navgroup:hover .navmenu,.navgroup.open .navmenu{display:flex}
+.navmenu .navchild{justify-content:flex-start;text-align:left;width:100%;padding:8px 12px;border-radius:7px;font-size:13.5px;color:var(--muted);white-space:nowrap}
+.navmenu .navchild:hover{background:var(--bg2,#EFEDE7);color:var(--text)}
+.navmenu .navchild.active{color:var(--green);font-weight:600;background:var(--greenBg,#EBF5F0)}
+.vs-select{font-family:var(--mono);font-size:12px;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:7px;padding:5px 8px;cursor:pointer}
+.vs-select:disabled{cursor:default;opacity:.8}
+.demo{background:var(--green);color:#fff;font-weight:600;font-size:13px;border:0;border-radius:8px;padding:8px 16px;cursor:pointer;transition:background .15s;font-family:var(--sans);white-space:nowrap}
+.demo:hover{background:#16704f}
+@media (max-width:880px){.navlinks{display:none}.vs-select{display:none}}
+
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+h1,h2{margin:0;font-weight:800;letter-spacing:-.03em;line-height:1.04}
+h2{font-size:clamp(26px,3.6vw,40px);font-weight:700;letter-spacing:-.02em}
+h3{margin:0;font-weight:700}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+:focus-visible{outline:2px solid var(--green-2);outline-offset:3px;border-radius:4px}
+.tag{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+.g{color:var(--green)} .it{font-style:italic;color:var(--green)}
+em{font-style:italic}
+.lnk{background:none;border:0;padding:0;font:inherit;color:var(--green);font-weight:600;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.lnk:hover{color:#16704f}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;padding:12px 22px;border-radius:var(--r-sm);cursor:pointer;border:1px solid transparent;font-family:var(--sans)}
+.btn-green{background:var(--green);color:#fff} .btn-green:hover{background:#16704f}
+.btn-ghost{background:transparent;color:var(--fg);border-color:var(--line-2)} .btn-ghost:hover{border-color:var(--fg-2)}
+.btn-ghost-dark{background:transparent;color:var(--text);border-color:var(--border)} .btn-ghost-dark:hover{border-color:var(--green);color:var(--green)}
+
+
+/* Tokens added by this design. Every colour below is a token; no literal hex
+   appears outside this block, per the house CSS rule. */
+:root {
+    --lad-0:  #6B6560;
+    --lad-1:  #96442C;
+    --lad-2:  #8A6011;
+    --lad-3:  #2E7A4C;
+    --lad-4:  #147A4A;
+    --lad-5:  #39BE7F;
+    --redBg:  #FBEDEA;
+    --goldBg: #FCF7EA;
+}
+
+[hidden] { display: none !important; }
+
+/* ===== hero ===== */
+.ins-hero {
+    background: var(--ink);
+    color:      var(--fg);
+    padding:    74px 24px 0;
+}
+.ins-hero-grid {
+    display:               grid;
+    grid-template-columns:  1.06fr .94fr;
+    gap:                   56px;
+    align-items:           center;
+    max-width:             1100px;
+    margin:                0 auto;
+}
+@media (max-width: 940px) { .ins-hero-grid { grid-template-columns: 1fr; gap: 46px; } }
+.ins-hero h1 {
+    font-size:      clamp(40px, 5.6vw, 68px);
+    letter-spacing: -.045em;
+    line-height:    1.0;
+    margin:         26px 0 0;
+    color:          var(--fg);
+}
+.ins-hero .sub {
+    color:       var(--fg-2);
+    font-size:   17.5px;
+    line-height: 1.65;
+    max-width:   52ch;
+    margin-top:  22px;
+}
+.eyebrow {
+    display:       inline-flex;
+    align-items:   center;
+    gap:           8px;
+    font-family:   var(--mono);
+    font-size:     11px;
+    font-weight:   700;
+    color:         var(--green-2);
+    background:    rgba(26,127,90,.18);
+    border:        1px solid rgba(26,127,90,.4);
+    border-radius: 999px;
+    padding:       5px 12px;
+}
+.eyebrow .d { width: 6px; height: 6px; border-radius: 50%; background: var(--green-2); }
+.it { font-style: italic; color: var(--green-2); }
+.g  { color: var(--green); }
+.cta-row { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 32px; }
+.btn {
+    display:       inline-flex;
+    align-items:   center;
+    gap:           8px;
+    font-size:     14px;
+    font-weight:   600;
+    padding:       12px 22px;
+    border-radius: var(--r-sm);
+    cursor:        pointer;
+    border:        1px solid transparent;
+    font-family:   var(--sans);
+}
+.btn-green { background: var(--green); color: var(--card); }
+.btn-green:hover { background: var(--green); filter: brightness(1.12); }
+.btn-ghost { background: transparent; color: var(--fg); border-color: var(--line-2); }
+.btn-ghost:hover { border-color: var(--fg-2); }
+.btn-ghost-dark { background: transparent; color: var(--text); border-color: var(--border); }
+
+/* ===== the sample Index card ===== */
+rm-index-card { display: block; }
+.ic-card {
+    background:    var(--card);
+    border-radius: 16px;
+    padding:       26px 28px 24px;
+    box-shadow:    0 30px 70px -30px rgba(0,0,0,.55);
+}
+.ic-head {
+    display:         flex;
+    justify-content: space-between;
+    align-items:     flex-start;
+    gap:             14px;
+}
+.ic-org  { display: block; font-size: 16.5px; font-weight: 700; color: var(--text); letter-spacing: -.01em; }
+.ic-meta { display: block; font-family: var(--mono); font-size: 11px; color: var(--faint); margin-top: 4px; }
+.ic-flag {
+    flex:          none;
+    font-family:   var(--mono);
+    font-size:     11px;
+    padding:       6px 10px;
+    border-radius: 999px;
+    background:    var(--redBg);
+    color:         var(--red);
+    white-space:   nowrap;
+}
+.ic-score { display: flex; align-items: baseline; gap: 11px; margin: 22px 0 4px; }
+.ic-num {
+    font-size:      68px;
+    line-height:    .88;
+    font-weight:    800;
+    letter-spacing: -.05em;
+    color:          var(--text);
+    font-variant-numeric: tabular-nums;
+}
+.ic-den   { font-family: var(--mono); font-size: 15px; color: var(--faint); }
+.ic-level { font-size: 14.5px; color: var(--muted); margin-bottom: 22px; }
+.ic-level b { color: var(--text); font-weight: 700; }
+.ic-dims {
+    display:        flex;
+    flex-direction: column;
+    gap:            10px;
+    padding-top:    20px;
+    border-top:     1px solid var(--border);
+}
+.ic-dim {
+    display:               grid;
+    grid-template-columns:  1fr 78px 30px;
+    align-items:           center;
+    gap:                   12px;
+}
+.ic-dk { font-size: 13px; color: var(--muted); }
+.ic-track {
+    display:       block;
+    height:        6px;
+    border-radius: 999px;
+    background:    var(--bg2);
+    overflow:      hidden;
+}
+.ic-fill {
+    display:       block;
+    height:        100%;
+    width:         0;
+    border-radius: 999px;
+    background:    var(--green);
+    transition:    width .9s cubic-bezier(.22,.9,.3,1);
+}
+.ic-dv { font-family: var(--mono); font-size: 12px; color: var(--text); text-align: right; }
+.ic-doors {
+    display:     flex;
+    gap:         8px;
+    margin-top:  22px;
+    padding-top: 20px;
+    border-top:  1px solid var(--border);
+}
+.ic-door {
+    flex:          1;
+    text-align:    center;
+    font-family:   var(--mono);
+    font-size:     11px;
+    padding:       9px 4px;
+    border-radius: var(--r-sm);
+    border:        1px solid var(--border);
+    color:         var(--faint);
+}
+.ic-door.on { background: var(--green); border-color: var(--green); color: var(--card); }
+
+/* ===== standards strip ===== */
+.ins-standards {
+    display:     flex;
+    flex-wrap:   wrap;
+    align-items: center;
+    gap:         10px 26px;
+    border-top:  1px solid var(--line);
+    margin:      58px auto 0;
+    padding:     18px 24px;
+    max-width:   1100px;
+}
+.ins-standards span {
+    font-family:    var(--mono);
+    font-size:      10.5px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color:          var(--faint);
+}
+.ins-standards em { font-style: normal; font-size: 14px; font-weight: 700; color: var(--fg-2); }
+
+/* ===== sections ===== */
+.paper { background: var(--bg); }
+.ins-section { padding: 82px 0; border-bottom: 1px solid var(--border); }
+.ins-section.alt { background: var(--bg2); }
+.shead { max-width: 700px; }
+.shead h2 { color: var(--text); }
+.shead p  { color: var(--muted); margin-top: 16px; font-size: 15.5px; line-height: 1.72; }
+h2 {
+    font-size:      clamp(28px, 3.8vw, 46px);
+    font-weight:    700;
+    letter-spacing: -.03em;
+    line-height:    1.05;
+    margin:         0;
+}
+h3 { margin: 0; font-weight: 700; }
+p  { margin: 0; }
+.tag {
+    display:        inline-block;
+    font-family:    var(--mono);
+    font-size:      10px;
+    font-weight:    700;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color:          var(--green);
+    margin-bottom:  14px;
+}
+.ins-note {
+    margin-top:  26px;
+    font-size:   13px;
+    color:       var(--faint);
+    line-height: 1.65;
+    max-width:   82ch;
+    font-style:  italic;
+}
+
+/* ===== metrics ===== */
+.ins-metrics {
+    display:               grid;
+    grid-template-columns:  repeat(3, 1fr);
+    gap:                   0;
+    margin-top:            38px;
+    border:                1px solid var(--border);
+    border-radius:         var(--r);
+    overflow:              hidden;
+    background:            var(--card);
+}
+@media (max-width: 860px) { .ins-metrics { grid-template-columns: 1fr; } }
+.metric { padding: 30px 28px; border-right: 1px solid var(--border); }
+.metric:last-child { border-right: 0; }
+@media (max-width: 860px) {
+    .metric { border-right: 0; border-bottom: 1px solid var(--border); }
+    .metric:last-child { border-bottom: 0; }
+}
+.mk {
+    display:        block;
+    font-family:    var(--mono);
+    font-size:      11px;
+    color:          var(--faint);
+    margin-bottom:  14px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+.mn {
+    display:        block;
+    font-size:      44px;
+    font-weight:    800;
+    letter-spacing: -.04em;
+    line-height:    1;
+    margin-bottom:  14px;
+}
+.mn.warn { color: var(--gold); }
+.mn.go   { color: var(--green); }
+.metric h3 { font-size: 16.5px; color: var(--text); margin-bottom: 9px; }
+.metric p  { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+/* ===== comparison ===== */
+.cmp {
+    margin-top:    38px;
+    border:        1px solid var(--border);
+    border-radius: var(--r);
+    overflow:      hidden;
+    background:    var(--card);
+}
+.cmp-row {
+    display:               grid;
+    grid-template-columns:  190px 1fr 1fr;
+    border-bottom:         1px solid var(--border);
+}
+.cmp-row:last-child { border-bottom: 0; }
+.cmp-row > span { padding: 20px 24px; border-right: 1px solid var(--border); font-size: 14px; line-height: 1.6; }
+.cmp-row > span:last-child { border-right: 0; }
+.cmp-head { background: var(--bg2); }
+.cmp-head > span {
+    font-family:    var(--mono);
+    font-size:      10.5px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color:          var(--faint);
+    padding-top:    14px;
+    padding-bottom: 14px;
+}
+.cmp-head .q { color: var(--red); }
+.cmp-head .e { color: var(--green); }
+.cmp-k { font-weight: 700; color: var(--text); }
+.cmp-q { background: var(--redBg);   color: var(--muted); }
+.cmp-e { background: var(--greenBg); color: var(--muted); }
+.cmp-row b { display: block; color: var(--text); margin-bottom: 6px; }
+@media (max-width: 760px) {
+    .cmp-head { display: none; }
+    .cmp-row  { grid-template-columns: 1fr; }
+    .cmp-row > span { border-right: 0; border-bottom: 1px solid var(--border); }
+}
+
+/* ===== the ladder ===== */
+rm-index-ladder { display: block; margin-top: 38px; }
+.lad-rungs {
+    display:               grid;
+    grid-template-columns:  repeat(6, 1fr);
+    gap:                   10px;
+    align-items:           end;
+    margin-bottom:         14px;
+}
+@media (max-width: 860px) { .lad-rungs { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 560px) { .lad-rungs { grid-template-columns: repeat(2, 1fr); } }
+.lad-rung {
+    position:        relative;
+    text-align:      left;
+    border-radius:   var(--r);
+    padding:         15px;
+    border:          1px solid transparent;
+    color:           var(--fg);
+    display:         flex;
+    flex-direction:  column;
+    justify-content: flex-end;
+    cursor:          pointer;
+    font-family:     var(--sans);
+    transition:      transform .18s ease;
+}
+.lad-rung:hover { transform: translateY(-3px); }
+.lad-rung.on { box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--text); }
+.lad-code { font-family: var(--mono); font-size: 12px; font-weight: 600; margin-bottom: 6px; opacity: .95; }
+.lad-name { font-size: 15px; font-weight: 700; line-height: 1.2; letter-spacing: -.02em; }
+.lad-band { font-family: var(--mono); font-size: 11px; margin-top: 6px; opacity: .88; }
+.lad-rung.r0 { background: var(--lad-0); height: 104px; }
+.lad-rung.r1 { background: var(--lad-1); height: 128px; }
+.lad-rung.r2 { background: var(--lad-2); height: 152px; }
+.lad-rung.r3 { background: var(--lad-3); height: 176px; }
+.lad-rung.r4 { background: var(--lad-4); height: 200px; }
+.lad-rung.r5 { background: var(--lad-5); height: 224px; color: var(--ink); }
+@media (max-width: 860px) { .lad-rung { height: auto !important; min-height: 112px; } }
+.lad-detail {
+    background:            var(--card);
+    border:                1px solid var(--border);
+    border-radius:         var(--r);
+    padding:               30px 32px;
+    display:               grid;
+    grid-template-columns:  1fr 1.3fr;
+    gap:                   44px;
+}
+@media (max-width: 860px) { .lad-detail { grid-template-columns: 1fr; gap: 26px; } }
+.lad-dcode { display: block; font-family: var(--mono); font-size: 12px; color: var(--green); margin-bottom: 10px; }
+.lad-detail h3 { font-size: 26px; color: var(--text); margin-bottom: 13px; letter-spacing: -.02em; }
+.lad-desc  { font-size: 15px; color: var(--muted); line-height: 1.65; }
+.lad-right { display: flex; flex-direction: column; gap: 24px; }
+.lad-lab {
+    display:        block;
+    font-family:    var(--mono);
+    font-size:      10.5px;
+    color:          var(--faint);
+    margin-bottom:  9px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+.lad-out  { font-size: 15px; color: var(--text); line-height: 1.65; }
+.lad-arts { display: flex; flex-wrap: wrap; gap: 8px; }
+.lad-arts span {
+    font-family:   var(--mono);
+    font-size:     11.5px;
+    padding:       6px 11px;
+    border-radius: 999px;
+    background:    var(--bg2);
+    color:         var(--muted);
+    border:        1px solid var(--border);
+}
+
+/* ===== dimensions ===== */
+.dims {
+    display:               grid;
+    grid-template-columns:  repeat(5, 1fr);
+    gap:                   16px;
+    margin-top:            38px;
+}
+@media (max-width: 1000px) { .dims { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width:  700px) { .dims { grid-template-columns: 1fr; } }
+.dim {
+    background:      var(--card);
+    border:          1px solid var(--border);
+    border-radius:   var(--r);
+    padding:         24px;
+    display:         flex;
+    flex-direction:  column;
+}
+.dw { font-family: var(--mono); font-size: 12.5px; color: var(--green); font-weight: 700; margin-bottom: 16px; }
+.dim h3 { font-size: 16px; color: var(--text); margin-bottom: 10px; line-height: 1.22; }
+.dim p  { font-size: 13.5px; color: var(--muted); line-height: 1.55; }
+.dr {
+    margin-top:  auto;
+    padding-top: 18px;
+    font-family: var(--mono);
+    font-size:   11px;
+    color:       var(--faint);
+}
+
+/* ===== audiences ===== */
+.aud {
+    display:               grid;
+    grid-template-columns:  1fr 1fr;
+    gap:                   20px;
+    margin-top:            38px;
+}
+@media (max-width: 860px) { .aud { grid-template-columns: 1fr; } }
+.acard {
+    background:      var(--card);
+    border:          1px solid var(--border);
+    border-radius:   var(--r);
+    padding:         32px;
+    display:         flex;
+    flex-direction:  column;
+}
+.atag {
+    display:        inline-block;
+    align-self:     flex-start;
+    font-family:    var(--mono);
+    font-size:      11px;
+    padding:        6px 11px;
+    border-radius:  999px;
+    margin-bottom:  16px;
+    background:     var(--greenBg);
+    color:          var(--green);
+}
+.atag.alt { background: var(--bg2); color: var(--muted); }
+.acard h3 { font-size: 25px; color: var(--text); margin-bottom: 12px; letter-spacing: -.02em; }
+.acard > p { font-size: 15px; color: var(--muted); line-height: 1.6; }
+.acard ul {
+    list-style:      none;
+    padding:         0;
+    margin:          22px 0 24px;
+    display:         flex;
+    flex-direction:  column;
+    gap:             12px;
+}
+.acard li {
+    font-size:    14.5px;
+    line-height:  1.5;
+    color:        var(--text);
+    padding-left: 20px;
+    position:     relative;
+}
+.acard li::before {
+    content:       '';
+    position:      absolute;
+    left:          0;
+    top:           8px;
+    width:         6px;
+    height:        6px;
+    border-radius: 50%;
+    background:    var(--green);
+}
+.afoot {
+    margin-top:  auto;
+    padding-top: 20px;
+    border-top:  1px solid var(--border);
+    font-size:   13.5px;
+    color:       var(--faint);
+    font-style:  normal;
+}
+
+/* ===== the mechanic ===== */
+.ins-mech {
+    display:               grid;
+    grid-template-columns:  .9fr 1.1fr;
+    gap:                   56px;
+    align-items:           center;
+}
+@media (max-width: 940px) { .ins-mech { grid-template-columns: 1fr; gap: 38px; } }
+.doors {
+    display:               grid;
+    grid-template-columns:  repeat(3, 1fr);
+    gap:                   14px;
+}
+@media (max-width: 620px) { .doors { grid-template-columns: 1fr; } }
+.door { border: 1px solid var(--border); border-radius: var(--r); padding: 22px; }
+.dk { display: block; font-family: var(--mono); font-size: 11px; margin-bottom: 12px; font-weight: 700; }
+.door h3 { font-size: 17px; color: var(--text); margin-bottom: 9px; }
+.door p  { font-size: 13.5px; color: var(--muted); line-height: 1.55; }
+.door.accept { background: var(--greenBg); } .door.accept .dk { color: var(--green); }
+.door.fund   { background: var(--goldBg); }  .door.fund   .dk { color: var(--gold); }
+.door.fix    { background: var(--redBg); }   .door.fix    .dk { color: var(--red); }
+.nodoor {
+    margin-top:    16px;
+    border:        1px dashed var(--border);
+    border-radius: var(--r);
+    padding:       18px 22px;
+    display:       flex;
+    align-items:   center;
+    gap:           15px;
+    flex-wrap:     wrap;
+}
+.nodoor s    { color: var(--faint); font-size: 15px; }
+.nodoor span { font-size: 14.5px; color: var(--muted); }
+
+/* ===== faq ===== */
+.faq { margin-top: 34px; max-width: 840px; }
+.faq details { border-bottom: 1px solid var(--border); padding: 6px 0; }
+.faq summary {
+    cursor:       pointer;
+    font-size:    17px;
+    font-weight:  700;
+    color:        var(--text);
+    padding:      18px 0;
+    list-style:   none;
+    position:     relative;
+    padding-right: 32px;
+    letter-spacing: -.015em;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+    content:   '+';
+    position:  absolute;
+    right:     4px;
+    top:       50%;
+    transform: translateY(-50%);
+    color:     var(--faint);
+    font-size: 20px;
+    font-family: var(--mono);
+}
+.faq details[open] summary::after { content: '\2013'; }
+.faq details p {
+    font-size:   14.5px;
+    color:       var(--muted);
+    line-height: 1.7;
+    padding:     0 0 20px;
+    max-width:   80ch;
+}
+
+/* ===== CTA + footer ===== */
+.ins-cta {
+    background: var(--ink);
+    color:      var(--fg);
+    text-align: center;
+    padding:    96px 24px;
+}
+.ins-cta .wrap { max-width: 680px; }
+.ins-cta h2 {
+    font-size:      clamp(34px, 5.2vw, 58px);
+    color:          var(--fg);
+    margin-top:     20px;
+    letter-spacing: -.035em;
+}
+.ins-cta p { color: var(--fg-2); margin-top: 16px; font-size: 16.5px; line-height: 1.65; }
+.ins-cta .cta-row { justify-content: center; }
+.foot {
+    background: var(--canvas);
+    border-top: 1px solid var(--line);
+    padding:    32px 24px;
+}
+.foot .wrap {
+    display:         flex;
+    justify-content: space-between;
+    flex-wrap:       wrap;
+    gap:             10px;
+    font-family:     var(--mono);
+    font-size:       10px;
+    color:           var(--fg-3);
+    max-width:       1100px;
+}
+.footlink {
+    background:            none;
+    border:                0;
+    padding:               0;
+    font:                  inherit;
+    color:                 var(--fg-3);
+    cursor:                pointer;
+    text-decoration:       underline;
+    text-underline-offset: 2px;
+}
+.footlink:hover { color: var(--fg-2); }
+
+@media (prefers-reduced-motion: reduce) {
+    .lad-rung, .ic-fill { transition: none !important; }
+}
+
+/* ===== mobile nav — hamburger drawer. Toggle injected by nav.js; .top.nav-open opens it. ===== */
+.navtoggle{display:none;margin-left:auto;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;padding:0;background:none;border:0;cursor:pointer}
+.navtoggle span{display:block;width:20px;height:2px;margin:0 auto;background:var(--text,var(--text));border-radius:2px;transition:transform .2s,opacity .2s}
+.top.nav-open .navtoggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.top.nav-open .navtoggle span:nth-child(2){opacity:0}
+.top.nav-open .navtoggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media (max-width:880px){
+  .navtoggle{display:flex}
+  .top .wrap{position:relative}
+  .navlinks{position:absolute;left:0;right:0;top:calc(100% + 1px);flex-direction:column;align-items:stretch;gap:0;margin:0;padding:8px;background:var(--card,var(--card));border-bottom:1px solid var(--border,var(--border));box-shadow:0 14px 34px rgba(13,13,12,.14);max-height:calc(100vh - 56px);overflow:auto}
+  .top.nav-open .navlinks{display:flex}
+  .navlinks button,.navlinks .pagelink,.navlinks .navgroup-btn{width:100%;text-align:left;justify-content:flex-start;padding:12px 16px;font-size:15px;border-radius:8px}
+  .navlinks button:hover,.navlinks .pagelink:hover{background:var(--bg2,var(--bg2))}
+  .navgroup{display:block;width:100%;position:static}
+  .navgroup::after{display:none}
+  .navgroup-btn{display:flex}
+  .navgroup-car{margin-left:auto}
+  .navmenu{position:static;transform:none;display:flex;flex-direction:column;min-width:0;padding:2px 0 8px 14px;background:transparent;border:0;box-shadow:none}
+  .navmenu .navchild{padding:10px 14px;font-size:14px}
+}
+.footlink{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.footlink:hover{color:var(--fg-2)}
+
+/* nav-dropdown.css — 0.6.0: the homepage now layers the v0.5.2 dropdown menu
+   component (grouped top-level pages, e.g. Risk Scenarios), so it needs the same
+   dropdown styling the top-level pages carry. Scoped to this snapshot forward;
+   older frozen snapshots use the pre-dropdown menu and never see this file. */
+.navgroup{position:relative;display:inline-flex;align-items:center}
+.navgroup::after{content:"";position:absolute;top:100%;left:0;right:0;height:10px}
+.navgroup-btn{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;display:inline-flex;align-items:center;gap:5px}
+.navgroup-btn:hover,.navgroup:hover .navgroup-btn,.navgroup.open .navgroup-btn,.navgroup.active .navgroup-btn{color:var(--text)}
+.navgroup-car{font-size:8px;line-height:1;opacity:.6;transition:transform .15s}
+.navgroup:hover .navgroup-car,.navgroup.open .navgroup-car{transform:rotate(180deg)}
+.navmenu{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);min-width:184px;background:var(--card);border:1px solid var(--border);border-radius:10px;box-shadow:0 10px 34px rgba(13,13,12,.14);padding:6px;display:none;flex-direction:column;gap:2px;z-index:70}
+.navgroup:hover .navmenu,.navgroup.open .navmenu{display:flex}
+.navmenu .navchild{justify-content:flex-start;text-align:left;width:100%;padding:8px 12px;border-radius:7px;font-size:13.5px;color:var(--muted);white-space:nowrap}
+.navmenu .navchild:hover{background:var(--bg2,#EFEDE7);color:var(--text)}
+.navmenu .navchild.active{color:var(--green);font-weight:600;background:var(--greenBg,#EBF5F0)}
+
+
+/* ===== mobile nav — hamburger drawer (fix: nav bar was hidden with no
+   replacement below 880px). Toggle injected by nav.js; .top.nav-open opens it. ===== */
+.navtoggle{display:none;margin-left:auto;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;padding:0;background:none;border:0;cursor:pointer}
+.navtoggle span{display:block;width:20px;height:2px;margin:0 auto;background:var(--text,#1A1917);border-radius:2px;transition:transform .2s,opacity .2s}
+.top.nav-open .navtoggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.top.nav-open .navtoggle span:nth-child(2){opacity:0}
+.top.nav-open .navtoggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media (max-width:880px){
+  .navtoggle{display:flex}
+  .top .wrap{position:relative}
+  .navlinks{position:absolute;left:0;right:0;top:calc(100% + 1px);flex-direction:column;align-items:stretch;gap:0;margin:0;padding:8px;background:var(--card,#fff);border-bottom:1px solid var(--border,#E2DFD8);box-shadow:0 14px 34px rgba(13,13,12,.14);max-height:calc(100vh - 56px);overflow:auto}
+  .top.nav-open .navlinks{display:flex}
+  .navlinks button,.navlinks .pagelink,.navlinks .navgroup-btn{width:100%;text-align:left;justify-content:flex-start;padding:12px 16px;font-size:15px;border-radius:8px}
+  .navlinks button:hover,.navlinks .pagelink:hover{background:var(--bg2,#EFEDE7)}
+  /* the Risk Scenarios group expands inline inside the drawer (no hover dropdown) */
+  .navgroup{display:block;width:100%;position:static}
+  .navgroup::after{display:none}
+  .navgroup-btn{display:flex}
+  .navgroup-car{margin-left:auto}
+  .navmenu{position:static;transform:none;display:flex;flex-direction:column;min-width:0;padding:2px 0 8px 14px;background:transparent;border:0;box-shadow:none}
+  .navmenu .navchild{padding:10px 14px;font-size:14px}
+}
+
+
+/* v1.0.0 — navigation is real links now, so the header rules that targeted
+   <button> have to reach <a> too, and the version switcher is a link. */
+.brand{text-decoration:none}
+.navlinks a{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;text-decoration:none;display:inline-flex;align-items:center}
+.navlinks a:hover{color:var(--text)}
+.navlinks a.active{color:var(--text);font-weight:600}
+.version{font-family:var(--mono);font-size:12px;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:7px;padding:5px 8px;text-decoration:none;white-space:nowrap;transition:color .15s,border-color .15s}
+.version:hover{color:var(--text);border-color:var(--faint)}
+a.btn{text-decoration:none}
+a.ds{display:block;text-decoration:none;color:inherit}
+@media (max-width:880px){
+  .version{display:none}
+  .navlinks a{width:100%;text-align:left;justify-content:flex-start;padding:12px 16px;font-size:15px;border-radius:8px}
+  .navlinks a:hover{background:var(--bg2,#EFEDE7)}
+}
+</style>
+</head>
+<body id="top">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
+    <nav class="navlinks"><rm-menu></rm-menu></nav>
+    <a class="version" href="versions.html" title="What shipped in v1.0.0">v1.0.0</a>
+    <button class="demo" data-demo>Get your Index</button>
+  </div>
+</header>
+
+<main class="ins-hero">
+  <div class="wrap ins-hero-grid">
+    <div class="ins-hero-copy">
+      <span class="eyebrow"><span class="d"></span> The insurability layer for agentic AI</span>
+      <h1>Make your agents <span class="it">insurable.</span></h1>
+      <p class="sub">Carriers are filing to exclude AI. RiskMandate measures what your agents can actually reach, evidences the controls that contain them, prices the exposure, and produces the record an underwriter will accept.</p>
+      <div class="cta-row">
+        <button class="btn btn-green" data-demo>Get your Insurability Index →</button>
+        <button class="btn btn-ghost" data-to="levels">See the six levels</button>
+      </div>
+    </div>
+    <rm-index-card></rm-index-card>
+  </div>
+  <div class="wrap ins-standards">
+    <span>Measured against the standards underwriters are adopting</span>
+    <em>ISO/IEC 42001</em><em>OWASP Agentic Top 10</em><em>NIST AI RMF</em><em>ISO/IEC 27001</em>
+  </div>
+</main>
+
+<div class="paper">
+
+  <!-- the problem -->
+  <section class="ins-section" id="problem">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">The problem</span>
+        <h2>Cover is being withdrawn. <span class="g">Evidence buys it back.</span></h2>
+        <p>Exclusions are attaching at renewal faster than teams can respond. Affirmative cover exists, but every carrier writing it asks the same question — and most teams cannot answer it in writing.</p>
+      </div>
+      <div class="ins-metrics">
+        <div class="metric">
+          <span class="mk">Filings</span>
+          <span class="mn warn">Many</span>
+          <h3>P&amp;C groups have filed to exclude AI</h3>
+          <p>Standardised AI exclusion endorsements are now in circulation, and some exclusions on D&amp;O and E&amp;O lines are absolute rather than partial.</p>
+        </div>
+        <div class="metric">
+          <span class="mk">Approvals</span>
+          <span class="mn warn">Most</span>
+          <h3>of those filings have cleared review</h3>
+          <p>Whether AI is covered is decided policy by policy, jurisdiction by jurisdiction, at each renewal date — not once, centrally.</p>
+        </div>
+        <div class="metric">
+          <span class="mk">The gate</span>
+          <span class="mn go">1</span>
+          <h3>question decides the outcome</h3>
+          <p>Can you show what your agents can reach, and evidence that the controls hold? Everything else follows from that answer.</p>
+        </div>
+      </div>
+      <p class="ins-note">Figures on this page describe a market in motion and are stated qualitatively on purpose; we cite specific filings and form numbers in the assessment itself, dated, rather than on a page that ages.</p>
+    </div>
+  </section>
+
+  <!-- the difference -->
+  <section class="ins-section alt">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">The difference</span>
+        <h2>Questionnaires describe. <span class="g">Evidence prices.</span></h2>
+        <p>Underwriting agentic risk today runs on self-reported answers. The same three questions produce very different outcomes depending on where the answer comes from.</p>
+      </div>
+      <div class="cmp">
+        <div class="cmp-row cmp-head">
+          <span></span><span class="q">Questionnaire</span><span class="e">RiskMandate</span>
+        </div>
+        <div class="cmp-row">
+          <span class="cmp-k">Where the answer comes from</span>
+          <span class="cmp-q"><b>Someone's recollection.</b> A security lead fills in a form once a year, from memory and a spreadsheet that was last accurate in March.</span>
+          <span class="cmp-e"><b>Your environment.</b> Read-only connectors derive what each agent can actually reach, refreshed as permissions and deployments change.</span>
+        </div>
+        <div class="cmp-row">
+          <span class="cmp-k">What the underwriter gets</span>
+          <span class="cmp-q"><b>A yes or no.</b> No severity, no aggregation, no way to tell a contained agent from one holding standing production access.</span>
+          <span class="cmp-e"><b>A priced exposure.</b> Loss bands per agent, aggregate across the fleet, and concentration in shared models and vendors.</span>
+        </div>
+        <div class="cmp-row">
+          <span class="cmp-k">What happens at claim</span>
+          <span class="cmp-q"><b>The answers get tested.</b> Application warranties are examined after the loss. This is where cover is most often lost.</span>
+          <span class="cmp-e"><b>The record holds.</b> Timestamped control state, containment tests and an immutable action log, assembled before anything went wrong.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- the index -->
+  <section class="ins-section" id="levels">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">The Insurability Index</span>
+        <h2>Six levels. <span class="g">One number.</span></h2>
+        <p>Every agent estate sits somewhere on this ladder. Your level determines what an underwriter will offer, and the gap to the next one is your work order. Select a level to see what it buys.</p>
+      </div>
+      <rm-index-ladder></rm-index-ladder>
+      <p class="ins-note">The Index is a composite of five dimensions, weighted by how much each one moves a price. It is derived from your environment through read-only connectors, never from a self-assessment. Weights are set by underwriting judgement today and re-fit as loss experience accumulates — we say so rather than implying an actuarial precision that does not yet exist.</p>
+    </div>
+  </section>
+
+  <!-- dimensions -->
+  <section class="ins-section alt">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">What gets measured</span>
+        <h2>Five dimensions, <span class="g">weighted by price impact.</span></h2>
+      </div>
+      <div class="dims">
+        <div class="dim"><span class="dw">30%</span><h3>Exposure containment</h3><p>How bad one agent can get. Reachable actions, systems touched, the value of the authority it holds, and whether the damage is reversible.</p><span class="dr">Drives severity</span></div>
+        <div class="dim"><span class="dw">20%</span><h3>Authority definition</h3><p>Whether every agent has a written mandate: purpose, permitted actions, data scope, and the points where a human must intervene.</p><span class="dr">Drives frequency</span></div>
+        <div class="dim"><span class="dw">20%</span><h3>Attestation integrity</h3><p>Whether control state is evidenced continuously rather than asserted once a year, with logs and revocation tests that hold up under examination.</p><span class="dr">Drives warranty credibility</span></div>
+        <div class="dim"><span class="dw">20%</span><h3>Loss quantification</h3><p>Expected loss per agent expressed as a range, not a point. A wide range is itself a finding — it means getting clarity is the next thing to fund.</p><span class="dr">Drives pricing</span></div>
+        <div class="dim"><span class="dw">10%</span><h3>Accountability</h3><p>Who owns each accepted risk, for how long, and at what retention. Acceptance without a named owner and an expiry date is not acceptance.</p><span class="dr">Drives legal standing</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- who it is for -->
+  <section class="ins-section" id="who">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Who it is for</span>
+        <h2>One score. <span class="g">Both sides of the renewal.</span></h2>
+      </div>
+      <div class="aud">
+        <div class="acard">
+          <span class="atag">For enterprises and mid-market</span>
+          <h3>Mandate</h3>
+          <p>Map every agent's blast radius, evidence the controls that contain it, and walk into your renewal with an evidence pack instead of a questionnaire.</p>
+          <ul>
+            <li>Agent discovery and blast-radius measurement through read-only connectors</li>
+            <li>A written mandate per agent, generated from what the agent can actually reach</li>
+            <li>Continuous attestation mapped to ISO 42001 and the OWASP Agentic Top 10</li>
+            <li>A renewal report your broker can submit without rewriting</li>
+          </ul>
+          <p class="afoot">Sits on top of your existing identity and posture tools. We read; we are never in the request path.</p>
+        </div>
+        <div class="acard">
+          <span class="atag alt">For brokers, carriers and MGAs</span>
+          <h3>Ledger</h3>
+          <p>Price agentic risk from what is actually deployed in the insured's environment, and see where the same exposure repeats across your book.</p>
+          <ul>
+            <li>Submission triage scored on evidence rather than self-reported answers</li>
+            <li>Exposure derived from the environment, with the derivation shown</li>
+            <li>Concentration view across shared models and vendors in a portfolio</li>
+            <li>An acceptance ledger that maps cleanly onto a policy period</li>
+          </ul>
+          <p class="afoot">Carrier-neutral by design. We score the risk; you set appetite and price.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- the mechanic -->
+  <section class="ins-section alt">
+    <div class="wrap ins-mech">
+      <div class="shead">
+        <span class="tag">The mechanic</span>
+        <h2>Every risk gets an owner <span class="g">and an expiry.</span></h2>
+        <p>A finding sitting in a backlog is not a decision, and an underwriter cannot price it. RiskMandate puts each risk through one of three doors, assigned to a named person for a stated interval. When the interval ends, the decision comes back.</p>
+      </div>
+      <div>
+        <div class="doors">
+          <div class="door accept"><span class="dk">Accept</span><h3>Own it</h3><p>A named executive holds this exposure for a set interval, with the amount written down.</p></div>
+          <div class="door fund"><span class="dk">Fund</span><h3>Pay to reduce it</h3><p>The exposure justifies budget. The number is what makes the case.</p></div>
+          <div class="door fix"><span class="dk">Fix</span><h3>Remove it</h3><p>Narrow the mandate or revoke the access, and the radius closes.</p></div>
+        </div>
+        <div class="nodoor">
+          <s>Revisit next quarter</s>
+          <span>There is no fourth door. Silence is not a decision anyone can underwrite.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- faq -->
+  <section class="ins-section">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Questions</span>
+        <h2>What people <span class="g">ask first.</span></h2>
+      </div>
+      <div class="faq">
+        <details open><summary>Is RiskMandate an insurance policy?</summary><p>No. We are not a carrier, a broker or an MGA, and we do not sell or place cover. RiskMandate measures insurability and produces the evidence that underwriters price against. Your broker and carrier relationships stay exactly as they are.</p></details>
+        <details><summary>Do you sit in the runtime path?</summary><p>Never. All connectors are read-only and out of band. A governance layer that can take your agents down is a new source of the risk it was bought to measure.</p></details>
+        <details><summary>Does this replace our agent security tooling?</summary><p>No, and it is not meant to. We connect to what you already run — identity providers, cloud IAM, agent posture and access-governance tools — and translate their output into exposure an underwriter can read. If you have no controls at all, we will tell you that before you buy anything.</p></details>
+        <details><summary>How is the Index calculated, and can we see the working?</summary><p>It is a weighted composite of five dimensions, each derived from environment telemetry rather than a questionnaire. Every score decomposes to the evidence behind it, and the methodology is published. Weights are set by underwriting judgement today and re-fit as loss experience accumulates.</p></details>
+        <details><summary>How long does a first assessment take?</summary><p>Connector setup is typically under a day. A first Index and gap list land inside two weeks, which is deliberately shorter than most renewal windows.</p></details>
+        <details><summary>Where does our data go?</summary><p>Metadata about agent scope and permissions, not the contents of what your agents process. Self-hosted and sovereign deployments are available where the data cannot leave your boundary.</p></details>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<section class="ins-cta" id="demo">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> Before your carrier does</span>
+    <h2>Know your <span class="it">number.</span></h2>
+    <p>A first assessment returns your Insurability Index, the gap list to the next level, and a renewal report written for an underwriter rather than a security team.</p>
+    <div class="cta-row">
+      <button class="btn btn-green" data-demo>Get your Insurability Index →</button>
+      <a class="btn btn-ghost" href="demos.html">See the live demos</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>© 2026 RiskMandate · Know the risk. Name the owner. Own the mandate.</span>
+    <span><a class="footlink" href="versions.html">Versions</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+var RM={core:{},services:{},components:{},data:{}};
+RM.data.pages=[{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"The problem"},{"name":"acceptable","label":"Accepted is not acceptable","file":"acceptable.html","group":"The problem"},{"name":"acceptance","label":"You own the risk","file":"acceptance.html","group":"The problem"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"The problem"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"The model"},{"name":"agents","label":"Agents","file":"agents.html","group":"The model"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"The model"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"The model"},{"name":"statics","label":"Static scenarios","file":"statics.html","group":"The model"},{"name":"demos","label":"All demos","file":"demos.html","group":"Live demos"},{"name":"demo-licence-to-operate","label":"Licence to Operate","file":"demo-licence-to-operate.html","group":"Live demos"},{"name":"demo-risk-graph-explorer","label":"RiskGraph Explorer","file":"demo-risk-graph-explorer.html","group":"Live demos"},{"name":"demo-agentic-browser-isolation","label":"Agentic Browser Isolation","file":"demo-agentic-browser-isolation.html","group":"Live demos"},{"name":"demo-risk-mandate-field","label":"RiskMandate field demo","file":"demo-risk-mandate-field.html","group":"Live demos"},{"name":"demo-file-security","label":"File security walk","file":"demo-file-security.html","group":"Live demos"},{"name":"demo-agent-permission-games","label":"Permission games","file":"demo-agent-permission-games.html","group":"Live demos"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"library","label":"Library","file":"library.html"},{"name":"partners","label":"Partners","file":"partners.html"},{"name":"feedback","label":"Give feedback","file":"feedback.html"},{"name":"brand","label":"Brand","file":"brand.html"}];RM.data.sections=[];
+
+'use strict';
+// core/risk-queue.js — pure risk-queue domain logic: status init, counts,
+// risk score, per-row view-model, and the accept/info state transition.
+// Zero DOM, zero IO. Dependency: none. Consumed by components/risk-queue.js.
+
+RM.core.riskQueue = (function () {
+  /**
+   * Build the initial status map from the risk records.
+   * @param {Array<{id:string,init:string}>} risks
+   * @returns {Object<string,string>} id -> status
+   */
+  function initialStatus(risks) {
+    var status = {};
+    risks.forEach(function (r) { status[r.id] = r.init; });
+    return status;
+  }
+
+  /**
+   * Tally statuses.
+   * @param {Array<{id:string}>} risks
+   * @param {Object<string,string>} status
+   * @returns {{unaddressed:number,info:number,accepted:number}}
+   */
+  function counts(risks, status) {
+    var c = { unaddressed: 0, info: 0, accepted: 0 };
+    risks.forEach(function (r) {
+      var s = status[r.id];
+      if (s === 'unaddressed') c.unaddressed++;
+      else if (s === 'info_requested') c.info++;
+      else if (s === 'accepted') c.accepted++;
+    });
+    return c;
+  }
+
+  /**
+   * Derived risk score. Known-answer: 1 unaddressed -> 74, 0 -> 38.
+   * @param {{unaddressed:number}} c
+   * @returns {number}
+   */
+  function riskScore(c) { return 38 + 36 * c.unaddressed; }
+
+  /**
+   * View-model for one risk row's meta line: a label string plus the
+   * semantic class applied to the status token. No HTML is produced here.
+   * @param {{tri:string,age:string}} risk
+   * @param {string} status
+   * @returns {{tri:string, statusText:string, statusClass:string, age:(string|null)}}
+   */
+  function rowMeta(risk, status) {
+    if (status === 'info_requested') {
+      return { tri: risk.tri, statusText: 'Info requested', statusClass: 'info', age: null };
+    }
+    if (status === 'accepted') {
+      return { tri: risk.tri, statusText: 'Accepted · 1w', statusClass: 'ok', age: risk.age };
+    }
+    return { tri: risk.tri, statusText: 'Unaddressed', statusClass: 'bad', age: risk.age };
+  }
+
+  /**
+   * Apply an action to a risk, returning a NEW status map (pure — no mutation),
+   * plus the id that should become selected (next unaddressed, else unchanged).
+   * @param {Array<{id:string}>} risks
+   * @param {Object<string,string>} status
+   * @param {string} id
+   * @param {('accepted'|'info_requested')} to
+   * @param {string} currentSel
+   * @returns {{status:Object<string,string>, sel:string}}
+   */
+  function applyAction(risks, status, id, to, currentSel) {
+    var next = Object.assign({}, status);
+    next[id] = to;
+    var nextUn = risks.find(function (r) { return next[r.id] === 'unaddressed'; });
+    return { status: next, sel: nextUn ? nextUn.id : currentSel };
+  }
+
+  return {
+    initialStatus: initialStatus,
+    counts: counts,
+    riskScore: riskScore,
+    rowMeta: rowMeta,
+    applyAction: applyAction
+  };
+})();
+
+
+'use strict';
+// data.js — static app data for the risk-queue demo. App configuration, not
+// fetched content; inlined at build time.
+
+RM.data.risks = [
+  { id: 'RM-001', name: 'agent.invoice-processing', level: 'Critical', tri: '3/3', init: 'unaddressed', age: '72h exposed',
+    ai: 'AGT-003 active 72h with no mandate. Full trifecta. Assign an owner now — this is your highest-priority risk.' },
+  { id: 'RM-002', name: 'agent.erp-procurement', level: 'Critical', tri: '3/3', init: 'accepted', age: '6d remaining',
+    ai: 'Generate a Capability Certificate before the 1w window expires. Remove ERP Write and Payment Auth from scope.' },
+  { id: 'RM-003', name: 'agent.supplier-review', level: 'High', tri: '2/3', init: 'accepted', age: '22d remaining',
+    ai: '2/3 trifecta — no exfiltration path. Risk appropriately managed. Review at next mandate renewal.' }
+];
+
+RM.data.levelColor = { Critical: 'var(--red)', High: 'var(--gold)' };
+
+
+'use strict';
+// components/dom.js — tiny DOM helpers shared by components. `el` builds an
+// element with attributes and children; text children always go in via
+// textContent. `renderMarkdownInto` turns core/markdown tokens into real DOM
+// nodes (never an HTML string), so fetched release notes cannot inject markup.
+
+RM.components.dom = (function () {
+  // A link in a markdown note may only go somewhere harmless: same-document,
+  // same-origin relative, https, or mailto. Anything else — javascript:, data:,
+  // a protocol-relative host — renders as the text it was, and goes nowhere.
+  var SAFE = /^(?:https:\/\/|mailto:|#|[^:/?#]*(?:[/?#]|$))/i;
+
+  /**
+   * @param {string} tag
+   * @param {Object<string,string>} [attrs]
+   * @param {Array<Node|string>} [children]
+   * @returns {HTMLElement}
+   */
+  function el(tag, attrs, children) {
+    var node = document.createElement(tag);
+    if (attrs) Object.keys(attrs).forEach(function (k) {
+      if (attrs[k] != null) node.setAttribute(k, attrs[k]);
+    });
+    (children || []).forEach(function (c) {
+      node.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
+    });
+    return node;
+  }
+
+  /** Render inline runs into a parent element. */
+  function appendRuns(parent, runs) {
+    runs.forEach(function (run) {
+      if      (run.t === 'strong') parent.appendChild(el('strong', null, [run.v]));
+      else if (run.t === 'em')     parent.appendChild(el('em',     null, [run.v]));
+      else if (run.t === 'code')   parent.appendChild(el('code',   null, [run.v]));
+      else if (run.t === 'link')   parent.appendChild(SAFE.test(run.href)
+        ? el('a', { href: run.href }, [run.v])
+        : document.createTextNode(run.v));
+      else parent.appendChild(document.createTextNode(run.v));
+    });
+  }
+
+  /**
+   * Render markdown block tokens into a container as DOM nodes.
+   * @param {HTMLElement} container
+   * @param {Array} blocks  output of RM.core.markdown.parse
+   */
+  function renderMarkdownInto(container, blocks) {
+    blocks.forEach(function (b) {
+      if (b.type === 'heading') {
+        var h = el('h' + (b.level + 1)); // ## release title -> h3, etc.
+        appendRuns(h, b.runs);
+        container.appendChild(h);
+      } else if (b.type === 'list') {
+        var ul = el('ul');
+        b.items.forEach(function (runs) {
+          var li = el('li');
+          appendRuns(li, runs);
+          ul.appendChild(li);
+        });
+        container.appendChild(ul);
+      } else {
+        var p = el('p');
+        appendRuns(p, b.runs);
+        container.appendChild(p);
+      }
+    });
+  }
+
+  return { el: el, appendRuns: appendRuns, renderMarkdownInto: renderMarkdownInto };
+})();
+
+
+'use strict';
+// components/nav.js — the behaviour on a page that is *not* a link.
+//   [data-to]   → smooth in-page scroll to an element id (no hash routing).
+//   [data-demo] → open a pre-filled demo enquiry email.
+//
+// v1.0.0 removed everything else that used to live here. Up to v0.14 the site
+// ran inside a host <iframe> and every navigation was a postMessage — rm-nav,
+// rm-back, rm-manifest, rm-read. A <button> is not a link, so nothing could be
+// deep-linked, bookmarked, opened in a new tab, or crawled. Now each page is
+// the document the server sent and each navigation is an <a href>, so the only
+// things left to wire are the two that genuinely are not navigation.
+//
+// The mobile drawer is still injected rather than templated: one file gives
+// every page a working menu below the header breakpoint, where .navlinks is
+// hidden by CSS.
+
+RM.components.nav = (function () {
+  // Every "Book a demo" control opens a mail client with a subject and a
+  // starting message. One place to change when booking becomes a real form.
+  var DEMO = {
+    to     : 'nrparekh@gmail.com',
+    subject: 'RiskMandate — demo request',
+    body   : [
+      'Hi,',
+      '',
+      'I would like to see a plug profile for one of the agents we already run.',
+      '',
+      'A little about us:',
+      '  • Organisation:',
+      '  • Roughly how many agents we are running:',
+      '  • The agent we would want to look at first:',
+      '  • Anything already in place (register, IdP, detection tooling):',
+      '',
+      'Thanks,'
+    ].join('\n')
+  };
+
+  function demoHref() {
+    return 'mailto:' + DEMO.to +
+      '?subject=' + encodeURIComponent(DEMO.subject) +
+      '&body='    + encodeURIComponent(DEMO.body);
+  }
+
+  function openDemo() { window.location.href = demoHref(); }
+
+  function scrollTo(doc, id) {
+    var t = doc.getElementById(id);
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Inject the hamburger toggle and wire the drawer open/close. Idempotent.
+  function wireMobileNav(doc) {
+    var top = doc.querySelector('.top');
+    if (!top) return;
+    var wrap  = top.querySelector('.wrap');
+    var links = top.querySelector('.navlinks');
+    if (!wrap || !links || top.querySelector('.navtoggle')) return;
+
+    var burger = doc.createElement('button');
+    burger.className = 'navtoggle';
+    burger.setAttribute('type', 'button');
+    burger.setAttribute('aria-label', 'Toggle navigation');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-controls', 'sitenav');
+    for (var i = 0; i < 3; i++) burger.appendChild(doc.createElement('span'));
+    links.id = links.id || 'sitenav';
+    var demo = wrap.querySelector('.demo');
+    if (demo) wrap.insertBefore(burger, demo); else wrap.appendChild(burger);
+
+    function set(open) {
+      top.classList.toggle('nav-open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    burger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      set(!top.classList.contains('nav-open'));
+    });
+    // Following a real nav link closes the drawer; the group header does not.
+    links.addEventListener('click', function (e) {
+      var b = e.target.closest('button, a');
+      if (b && !b.classList.contains('navgroup-btn')) set(false);
+    });
+    doc.addEventListener('click', function (e) {
+      if (top.classList.contains('nav-open') && !top.contains(e.target)) set(false);
+    });
+    doc.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+    var view = doc.defaultView || window;
+    view.addEventListener('resize', function () { if (view.innerWidth > 880) set(false); });
+  }
+
+  /** @param {Document} doc */
+  function wire(doc) {
+    doc.querySelectorAll('[data-to]').forEach(function (elm) {
+      elm.addEventListener('click', function () { scrollTo(doc, elm.getAttribute('data-to')); });
+    });
+    doc.querySelectorAll('[data-demo], .demo').forEach(function (elm) {
+      elm.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); openDemo(); });
+    });
+    wireMobileNav(doc);
+  }
+
+  return { wire: wire, scrollTo: scrollTo, demoHref: demoHref, openDemo: openDemo };
+})();
+
+
+'use strict';
+// components/menu.js — <rm-menu>. The one shared header menu, on every page, so
+// the nav is built by a single piece of code. Renders the homepage's section
+// links first, then the top-level pages, marking the current page active.
+//
+// A run of contiguous pages sharing a `group` string collapses into one entry:
+// a hover/click dropdown labelled by the group, with the members as children. A
+// single-member group renders flat — no dropdown for one item.
+//
+// v1.0.0: every entry is an <a href>. The old menu emitted <button> elements
+// that asked a host frame to swap an iframe's srcdoc, which meant the links did
+// not exist as far as a crawler, a bookmark or a middle-click was concerned.
+// The group header stays a <button> because it opens a panel rather than going
+// anywhere — that is the one control here that is genuinely not a link.
+
+(function () {
+  var dom = RM.components.dom;
+
+  RM.components.Menu = class extends HTMLElement {
+    connectedCallback() {
+      var self = this;
+      this._onDocClick = function (e) {
+        self.querySelectorAll('.navgroup.open').forEach(function (g) {
+          if (!g.contains(e.target)) g.classList.remove('open');
+        });
+      };
+      document.addEventListener('click', this._onDocClick);
+      this._render();
+    }
+    disconnectedCallback() {
+      document.removeEventListener('click', this._onDocClick);
+    }
+
+    // On the homepage a section link scrolls; on any other page it is a link
+    // back to the homepage at that anchor. Same markup either way.
+    _section(s) {
+      var home = !(RM.data && RM.data.currentPage);
+      var a = dom.el('a', { class: 'seclink', href: home ? '#' + s.to : 'index.html#' + s.to }, [s.label]);
+      if (home) a.addEventListener('click', function (e) {
+        e.preventDefault();
+        RM.components.nav.scrollTo(document, s.to);
+      });
+      return a;
+    }
+
+    _pagelink(p, extra) {
+      var active = p.name === (RM.data && RM.data.currentPage);
+      var attrs  = { class: 'pagelink' + (extra ? ' ' + extra : '') + (active ? ' active' : ''), href: p.file };
+      if (active) attrs['aria-current'] = 'page';
+      return dom.el('a', attrs, [p.label]);
+    }
+
+    _group(name, members) {
+      var self    = this;
+      var current = RM.data && RM.data.currentPage;
+      var active  = members.some(function (m) { return m.name === current; });
+      var car     = dom.el('span',   { class: 'navgroup-car', 'aria-hidden': 'true' }, ['▾']);
+      var btn     = dom.el('button', { class: 'navgroup-btn' + (active ? ' active' : ''), type: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false' }, [name, car]);
+      var panel   = dom.el('div',    { class: 'navmenu' }, members.map(function (m) { return self._pagelink(m, 'navchild'); }));
+      var wrap    = dom.el('span',   { class: 'navgroup' + (active ? ' active' : '') }, [btn, panel]);
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = wrap.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      return wrap;
+    }
+
+    _render() {
+      var sections = (RM.data && RM.data.sections) || [];
+      var pages    = (RM.data && RM.data.pages)    || [];
+      var self     = this;
+      this.textContent = '';
+      sections.forEach(function (s) { self.appendChild(self._section(s)); });
+      var i = 0;
+      while (i < pages.length) {
+        var p = pages[i];
+        if (!p.group) { self.appendChild(self._pagelink(p)); i++; continue; }
+        var g = p.group, members = [];
+        while (i < pages.length && pages[i].group === g) { members.push(pages[i]); i++; }
+        if (members.length === 1) self.appendChild(self._pagelink(members[0]));
+        else                      self.appendChild(self._group(g, members));
+      }
+    }
+  };
+
+  customElements.define('rm-menu', RM.components.Menu);
+})();
+
+
+'use strict';
+// components/risk-queue.js — <rm-risk-queue>. The interactive hero terminal.
+// Holds instance state (status map, selection, busy latch); renders rows and
+// the action panel from the pure RM.core.riskQueue selectors. Light DOM so the
+// existing .term/.row CSS applies. Delegated handleEvent; listener removed in
+// disconnectedCallback.
+
+(function () {
+  var dom = RM.components.dom;
+  var core = RM.core.riskQueue;
+
+  RM.components.RiskQueue = class extends HTMLElement {
+    connectedCallback() {
+      this._risks = RM.data.risks;
+      this._levelColor = RM.data.levelColor;
+      this._status = core.initialStatus(this._risks);
+      this._sel = this._risks.length ? this._risks[0].id : null;
+      this._busy = false;
+      this._build();
+      this._render();
+      this.addEventListener('click', this);
+    }
+    disconnectedCallback() { this.removeEventListener('click', this); }
+
+    _build() {
+      var el = dom.el;
+      var bar = el('div', { class: 'term-bar' }, [
+        el('span', { class: 'lights' }, [el('i', { class: 'l1' }), el('i', { class: 'l2' }), el('i', { class: 'l3' })]),
+        el('span', { class: 'ttl' }, ['risk-mandate · risk-queue']),
+        el('span', { class: 'live' }, [el('i'), ' LIVE'])
+      ]);
+      var defs = [['un', 'Unaddressed', 'var(--red)'], ['info', 'Info Req.', 'var(--gold)'],
+                  ['acc', 'Accepted', 'var(--green-2)'], ['score', 'Risk score', '#5b9dff']];
+      this._stat = {};
+      var stats = el('div', { class: 'stats' }, defs.map(function (d) {
+        var num = el('div', { class: 'num', style: 'color:' + d[2] }, ['0']);
+        this._stat[d[0]] = num;
+        return el('div', { class: 'stat' }, [num, el('div', { class: 'lab' }, [d[1]])]);
+      }, this));
+      this._qhead = el('div', { class: 'qhead' }, ['']);
+      this._rows = el('div', { class: 'rows' });
+      this._action = el('div', { class: 'action' });
+      var term = el('section', { class: 'term', 'aria-label': 'Risk queue (interactive)' },
+        [bar, stats, this._qhead, this._rows, this._action]);
+      this.appendChild(term);
+    }
+
+    _render() {
+      var c = core.counts(this._risks, this._status);
+      this._stat.un.textContent = c.unaddressed;
+      this._stat.info.textContent = c.info;
+      this._stat.acc.textContent = c.accepted;
+      this._stat.score.textContent = core.riskScore(c);
+      this._qhead.textContent = 'RISK QUEUE · ' + c.unaddressed + ' UNADDRESSED';
+
+      this._rows.textContent = '';
+      var self = this;
+      this._risks.forEach(function (r) {
+        var meta = core.rowMeta(r, self._status[r.id]);
+        var metaEl = dom.el('div', { class: 'meta' }, [meta.tri + ' trifecta · ']);
+        metaEl.appendChild(dom.el('span', { class: meta.statusClass }, [meta.statusText]));
+        if (meta.age) metaEl.appendChild(document.createTextNode(' · ' + meta.age));
+        var dotColor = self._status[r.id] === 'unaddressed' ? 'var(--red)' : 'var(--green-2)';
+        var row = dom.el('div', { class: 'row' + (r.id === self._sel ? ' sel' : ''), 'data-id': r.id }, [
+          dom.el('span', { class: 'dot', style: 'background:' + dotColor }),
+          dom.el('div', { class: 'rbody' }, [dom.el('div', { class: 'name' }, [r.name]), metaEl]),
+          dom.el('span', { class: 'lvl', style: 'color:' + (self._levelColor[r.level] || 'var(--fg-2)') }, [r.level])
+        ]);
+        self._rows.appendChild(row);
+      });
+
+      this._action.textContent = '';
+      if (c.unaddressed === 0) {
+        this._action.appendChild(dom.el('div', { class: 'cleared' }, [
+          dom.el('div', { class: 'big' }, ['✓ Risk queue cleared']),
+          dom.el('div', { class: 'sm' }, ['Every agent has an owner and a decision. Review on expiry.'])
+        ]));
+        return;
+      }
+      var r = this._risks.find(function (x) { return x.id === self._sel; });
+      var actionable = this._status[this._sel] === 'unaddressed';
+      this._action.appendChild(dom.el('div', { class: 'ai' }, [
+        dom.el('div', { class: 'lab' }, ['✦ AI RECOMMENDATION']),
+        dom.el('p', null, [r ? r.ai : ''])
+      ]));
+      var accept = dom.el('button', { class: 'accept' }, ['Accept for 1 Week']);
+      var info = dom.el('button', { class: 'info' }, ['Request Info']);
+      if (!actionable) { accept.disabled = true; info.disabled = true; }
+      this._action.appendChild(dom.el('div', { class: 'acts' }, [accept, info]));
+    }
+
+    handleEvent(e) {
+      if (this._busy) return;
+      var btn = e.target.closest('.accept, .info');
+      if (btn && !btn.disabled) {
+        this._act(this._sel, btn.classList.contains('accept') ? 'accepted' : 'info_requested');
+        return;
+      }
+      var row = e.target.closest('.row');
+      if (row) { this._sel = row.getAttribute('data-id'); this._render(); }
+    }
+
+    _act(id, to) {
+      this._busy = true;
+      var res = core.applyAction(this._risks, this._status, id, to, this._sel);
+      this._status = res.status;
+      this._sel = res.sel;
+      var self = this;
+      setTimeout(function () { self._busy = false; self._render(); }, 420);
+      this._render();
+    }
+  };
+
+  customElements.define('rm-risk-queue', RM.components.RiskQueue);
+})();
+
+
+'use strict';
+// site/components/insurability.js — <rm-index-card> and <rm-index-ladder>.
+//
+// Two pieces of the insurability homepage that need behaviour rather than
+// markup: the sample Index card (score counts up when it scrolls into view)
+// and the six-level ladder (select a rung, read what it buys).
+//
+// House rules followed: native custom elements, no framework, no bundler;
+// every node built through dom.el rather than innerHTML; data-* as the
+// behaviour hook; reduced-motion respected; the whole thing works with
+// JavaScript disabled down to static, readable content.
+
+(function () {
+  var dom = RM.components.dom;
+
+  var reduced = function () {
+    try { return window.matchMedia('(prefers-reduced-motion: reduce)').matches; }
+    catch (e) { return false; }
+  };
+
+  // ---- the sample Index card -------------------------------------------
+  var CARD = {
+    org:    'Northgate Financial',
+    meta:   '47 agents in production \u00b7 assessed 12 Aug',
+    flag:   'Renewal in 38d',
+    score:  62,
+    level:  'L3 \u2014 Attested.',
+    offer:  'Standalone AI liability available.',
+    dims:   [
+      { k: 'Exposure containment', v: 74 },
+      { k: 'Authority definition', v: 81 },
+      { k: 'Attestation integrity', v: 66 },
+      { k: 'Loss quantification', v: 41 },
+      { k: 'Accountability', v: 88 }
+    ],
+    doors:  ['Accept', 'Fund', 'Fix']
+  };
+
+  RM.components.IndexCard = class extends HTMLElement {
+    connectedCallback() {
+      var self = this;
+      this.setAttribute('aria-label', 'A sample Insurability Index, illustrative');
+
+      var num = dom.el('span', { class: 'ic-num' }, ['0']);
+      var head = dom.el('div', { class: 'ic-head' }, [
+        dom.el('div', null, [
+          dom.el('span', { class: 'ic-org' }, [CARD.org]),
+          dom.el('span', { class: 'ic-meta' }, [CARD.meta])
+        ]),
+        dom.el('span', { class: 'ic-flag' }, [CARD.flag])
+      ]);
+
+      var score = dom.el('div', { class: 'ic-score' }, [num, dom.el('span', { class: 'ic-den' }, ['/ 100'])]);
+      var level = dom.el('p', { class: 'ic-level' }, [
+        'Level ', dom.el('b', null, [CARD.level]), ' ' + CARD.offer
+      ]);
+
+      var fills = [];
+      var dims = dom.el('div', { class: 'ic-dims' });
+      CARD.dims.forEach(function (d) {
+        var fill = dom.el('span', { class: 'ic-fill' });
+        fills.push({ node: fill, v: d.v });
+        dims.appendChild(dom.el('div', { class: 'ic-dim' }, [
+          dom.el('span', { class: 'ic-dk' }, [d.k]),
+          dom.el('span', { class: 'ic-track' }, [fill]),
+          dom.el('span', { class: 'ic-dv' }, [String(d.v)])
+        ]));
+      });
+
+      var doors = dom.el('div', { class: 'ic-doors' });
+      CARD.doors.forEach(function (label, i) {
+        doors.appendChild(dom.el('span', { class: 'ic-door' + (i === 0 ? ' on' : '') }, [label]));
+      });
+
+      this.appendChild(dom.el('div', { class: 'ic-card' }, [head, score, level, dims, doors]));
+
+      var painted = false;
+      function paint() {
+        if (painted) return;
+        painted = true;
+        fills.forEach(function (f) { f.node.style.width = f.v + '%'; });
+        if (reduced()) { num.textContent = String(CARD.score); return; }
+        var t0 = null;
+        function step(ts) {
+          if (!t0) t0 = ts;
+          var p = Math.min((ts - t0) / 900, 1);
+          num.textContent = String(Math.round(CARD.score * (1 - Math.pow(1 - p, 3))));
+          if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      }
+
+      if (typeof IntersectionObserver === 'function') {
+        var io = new IntersectionObserver(function (entries) {
+          if (entries[0].isIntersecting) { paint(); io.disconnect(); }
+        }, { threshold: 0.3 });
+        io.observe(this);
+      } else {
+        paint();
+      }
+    }
+  };
+
+  // ---- the six-level ladder --------------------------------------------
+  var LEVELS = [
+    { code: 'L0', band: '0\u201315', name: 'Unmapped',
+      desc: 'No agent inventory. Shadow deployments are unknown, and nobody can name an owner for what is already running in production.',
+      offer: 'Declination, or an AI exclusion attaches at renewal. There is nothing here for an underwriter to assess.',
+      arts: ['Nothing on file'] },
+    { code: 'L1', band: '16\u201335', name: 'Inventoried',
+      desc: 'An agent register exists and covers sanctioned deployments. Ownership is partial, and what sits outside the register is still unmeasured.',
+      offer: 'Silent cover only. Standard AI exclusions attach at renewal and no affirmative grant is available.',
+      arts: ['Agent register', 'Model and vendor inventory', 'Named owners'] },
+    { code: 'L2', band: '36\u201355', name: 'Scoped',
+      desc: 'Every production agent has a written mandate and a measured blast radius: what it can reach, what authority it holds, and whether the damage is reversible.',
+      offer: 'An affirmative AI endorsement at a low sub-limit with high retention. This is the first point at which a broker can market the risk at all.',
+      arts: ['Mandate per agent', 'Blast-radius map', 'Reversibility classes', 'Privilege inventory'] },
+    { code: 'L3', band: '56\u201372', name: 'Attested',
+      desc: 'Control state is evidenced continuously rather than asserted annually. Revocation and stop behaviour is tested and timestamped, and action logs are immutable.',
+      offer: 'Standalone AI liability becomes available and retention drops materially. Your application warranties will survive a forensic audit, which is where cover is most often lost.',
+      arts: ['Evidence graph', 'Containment test records', 'Immutable action log', 'ISO 42001 mapping'] },
+    { code: 'L4', band: '73\u201388', name: 'Quantified',
+      desc: 'Expected loss per agent is expressed as a range with aggregate exposure across the fleet, and concentration in shared models and vendors is mapped.',
+      offer: 'Priced on your own data rather than class rates. Limits scale and coinsurance falls.',
+      arts: ['Loss bands per agent', 'Aggregate exposure curve', 'Concentration map', 'Scenario set'] },
+    { code: 'L5', band: '89\u2013100', name: 'Underwritten',
+      desc: 'Correlation across the estate is modelled and tested against real loss experience. The acceptance ledger functions as a policy period, with every risk owned for a stated interval.',
+      offer: 'Captive-eligible, with parametric triggers becoming constructible. At this level the risk is legible to reinsurance.',
+      arts: ['Correlation model', 'Full acceptance ledger', 'Capital allocation memo'] }
+  ];
+
+  var START = 3;
+
+  RM.components.IndexLadder = class extends HTMLElement {
+    connectedCallback() {
+      var self = this;
+      this._rungs = [];
+
+      var rungs = dom.el('div', { class: 'lad-rungs', role: 'group', 'aria-label': 'Insurability levels' });
+      LEVELS.forEach(function (L, i) {
+        var b = dom.el('button', { class: 'lad-rung r' + i, type: 'button', 'aria-pressed': 'false' }, [
+          dom.el('span', { class: 'lad-code' }, [L.code]),
+          dom.el('span', { class: 'lad-name' }, [L.name]),
+          dom.el('span', { class: 'lad-band' }, [L.band])
+        ]);
+        b.addEventListener('click', function () { self.select(i); });
+        self._rungs.push(b);
+        rungs.appendChild(b);
+      });
+
+      this._code = dom.el('span', { class: 'lad-dcode' });
+      this._name = dom.el('h3', null, []);
+      this._desc = dom.el('p', { class: 'lad-desc' }, []);
+      this._offer = dom.el('p', { class: 'lad-out' }, []);
+      this._arts = dom.el('div', { class: 'lad-arts' });
+
+      var detail = dom.el('div', { class: 'lad-detail', 'aria-live': 'polite' }, [
+        dom.el('div', null, [this._code, this._name, this._desc]),
+        dom.el('div', { class: 'lad-right' }, [
+          dom.el('div', null, [dom.el('span', { class: 'lad-lab' }, ['What an underwriter offers']), this._offer]),
+          dom.el('div', null, [dom.el('span', { class: 'lad-lab' }, ['Evidence you need']), this._arts])
+        ])
+      ]);
+
+      this.appendChild(rungs);
+      this.appendChild(detail);
+      this.select(START);
+    }
+
+    select(i) {
+      var L = LEVELS[i];
+      if (!L) return;
+      this._rungs.forEach(function (b, j) {
+        var on = j === i;
+        b.classList.toggle('on', on);
+        b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+      this._code.textContent = L.code + ' \u00b7 ' + L.band;
+      this._name.textContent = L.name;
+      this._desc.textContent = L.desc;
+      this._offer.textContent = L.offer;
+      this._arts.textContent = '';
+      var arts = this._arts;
+      L.arts.forEach(function (a) { arts.appendChild(dom.el('span', null, [a])); });
+    }
+  };
+
+  customElements.define('rm-index-card', RM.components.IndexCard);
+  customElements.define('rm-index-ladder', RM.components.IndexLadder);
+})();
+
+
+'use strict';
+// boot.js — inner-page composition root (version builds and dev.html). Custom
+// elements self-register on load; here we wire document-level nav behaviour.
+// The page runs inside the host's stage frame, so the host (not this page) signals
+// the SG/App host that the app is ready.
+
+(function () {
+  function start() { RM.components.nav.wire(document); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
+})();
+
+})();
+</script>
+</body>
+</html>

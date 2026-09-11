@@ -2,107 +2,63 @@
 # ---------------------------------------------------------------------------
 # Local dev server for riskmandate.ai
 #
-# Simulates the GitHub Pages deploy locally:
-#   1. runs vault_publisher/publish.py  → clones the website vault (read-only)
-#      and writes the deploy tree to ./.public-generated-files  (what CI ships)
-#   2. serves ./.public-generated-files with a no-cache static server on localhost
+# Serves ./site — the same tree CI uploads to GitHub Pages, byte for byte.
+# Since v1.0.0 there is no build step and no vault to clone: what you see here
+# is what ships. The only thing this script does before serving is refresh the
+# generated files (markdown twins, sitemap, llms.txt, 404), so a page you just
+# edited shows up with its twin in step.
 #
-# The /app/ host page embeds the SG vault app, which decrypts content with the
-# Web Crypto API (AES-256-GCM). Web Crypto only runs in a secure context, so use
+# /scenarios/ reads an SG/Vault in the browser and decrypts with the Web Crypto
+# API, which only runs in a secure context. Use:
 #   http://localhost:PORT      ✅  (localhost is treated as secure)
 #   http://127.0.0.1:PORT      ❌  (not a secure context — Web Crypto disabled)
 #
-# Requires: python3, and `sgit` (pip install sgit-ai). sgit is resolved as:
-#   $SGIT      a full command (use this for an alias / container wrapper), or
-#   $SGIT_BIN  a path to the binary, or
-#   sgit       on PATH, or
-#   a local ./.venv this script auto-provisions as a last resort.
+# Requires: python3, node (for the generator; skipped with --no-generate).
 #
 # Usage:
-#   bash scripts/run-locally__riskmandate_ai.sh [PORT]      # default PORT 10070
-#   SGIT="container exec sgit-box sgit" bash scripts/run-locally__riskmandate_ai.sh
+#   bash scripts/run-locally__riskmandate_ai.sh [PORT] [--no-generate]
 # ---------------------------------------------------------------------------
 set -euo pipefail
 
-PORT="${1:-10070}"
+PORT="10070"
+GENERATE="yes"
+for arg in "$@"; do
+    case "$arg" in
+        --no-generate) GENERATE="no" ;;
+        *[!0-9]*)      echo "unknown argument: $arg" >&2; exit 2 ;;
+        *)             PORT="$arg" ;;
+    esac
+done
+
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 REPO_ROOT="$(dirname "$SCRIPT_DIR")"
-SERVE_DIR="$REPO_ROOT/.public-generated-files"
+SERVE_DIR="$REPO_ROOT/site"
 
-# ─── Resolve sgit (publish.py shells out to it) ────────────────────────────
-# Precedence: $SGIT (full command — e.g. a container/alias wrapper) > $SGIT_BIN
-# (path) > sgit on PATH > a repo-local ./.venv (auto-provisioned, last resort).
-#
-# NOTE: if your `sgit` is a shell ALIAS/function (e.g. it runs inside a
-# container), this script cannot see it — those aren't exported to scripts.
-# Pass the underlying command via SGIT instead, e.g.:
-#   SGIT='container run --rm -v "$(pwd):/vault" -v /tmp:/tmp <image>' \
-#     bash scripts/run-locally__riskmandate_ai.sh
-
-# The provisioned venv needs osbot-utils >= 3.75.0 (earlier versions break
-# read-only clones on Python 3.14 — fixed upstream). Reject a stale venv so it
-# gets rebuilt with the fix.
-venv_osbot_ok() {
-    "$1/bin/python" - <<'PY' 2>/dev/null
-import sys
-try:
-    import importlib.metadata as m
-    a, b = (int(x) for x in m.version("osbot-utils").split(".")[:2])
-except Exception:
-    sys.exit(1)
-sys.exit(0 if (a, b) >= (3, 75) else 1)
-PY
-}
-
-if [ -n "${SGIT:-}" ]; then
-    export SGIT
-    echo "  sgit: (SGIT) $SGIT"
-elif [ -n "${SGIT_BIN:-}" ] && [ -x "${SGIT_BIN:-}" ]; then
-    echo "  sgit: $SGIT_BIN"
-elif command -v sgit >/dev/null 2>&1; then
-    export SGIT_BIN="$(command -v sgit)"
-    echo "  sgit: $SGIT_BIN"
-elif [ -x "$REPO_ROOT/.venv/bin/sgit" ] && venv_osbot_ok "$REPO_ROOT/.venv"; then
-    export SGIT_BIN="$REPO_ROOT/.venv/bin/sgit"
-    echo "  sgit: $SGIT_BIN"
-else
-    echo "sgit not found (or existing .venv has an outdated osbot-utils)."
-    echo "  If you run sgit via an alias/container, re-run with SGIT set, e.g.:"
-    echo "    SGIT='container run --rm -v \"\$(pwd):/vault\" -v /tmp:/tmp <image>' $0"
-    echo "  Otherwise provisioning a local copy into $REPO_ROOT/.venv (one-off) ..."
-    rm -rf "$REPO_ROOT/.venv"          # clear any previous (possibly stale) venv
-    python3 -m venv "$REPO_ROOT/.venv"
-    "$REPO_ROOT/.venv/bin/pip" install -q --upgrade pip
-    "$REPO_ROOT/.venv/bin/pip" install -q -r "$REPO_ROOT/vault_publisher/requirements.txt"
-    export SGIT_BIN="$REPO_ROOT/.venv/bin/sgit"
-    echo "  sgit: $SGIT_BIN ($("$REPO_ROOT/.venv/bin/python" --version 2>&1))"
+if [ "$GENERATE" = "yes" ]; then
+    if command -v node >/dev/null 2>&1; then
+        echo "Refreshing generated files ..."
+        node "$REPO_ROOT/scripts/site/generate.mjs"
+    else
+        echo "node not found — serving site/ as it stands (run with --no-generate to silence)."
+    fi
 fi
 
-# ─── Generate the static tree (the CI build, locally) ──────────────────────
-echo "Generating static site → $SERVE_DIR ..."
-rm -rf "$SERVE_DIR"
-python3 "$REPO_ROOT/vault_publisher/publish.py" || {
-    echo ""
-    echo "ERROR: publish.py failed — server not started."
-    exit 1
-}
-
-# ─── Serve ─────────────────────────────────────────────────────────────────
 echo ""
 echo "Starting riskmandate.ai local server..."
 echo "  Root: $SERVE_DIR"
 echo ""
 echo "  URLs:"
-echo "    Site (home):    http://localhost:$PORT/"
-echo "    Vault app MVP:  http://localhost:$PORT/app/"
+echo "    Site (home):     http://localhost:$PORT/"
+echo "    Version record:  http://localhost:$PORT/versions.html"
+echo "    Scenarios pilot: http://localhost:$PORT/scenarios/"
 echo ""
-echo "  IMPORTANT: use 'localhost', not '127.0.0.1' — the /app/ vault app needs a"
-echo "  secure context for Web Crypto."
+echo "  IMPORTANT: use 'localhost', not '127.0.0.1' — /scenarios/ needs a secure"
+echo "  context for Web Crypto."
 echo ""
 
 PORT="$PORT" SERVE_DIR="$SERVE_DIR" python3 << 'PYEOF'
 import http.server, os
-PORT = int(os.environ['PORT'])
+PORT      = int(os.environ['PORT'])
 SERVE_DIR = os.environ['SERVE_DIR']
 
 class NoCacheHandler(http.server.SimpleHTTPRequestHandler):
@@ -111,6 +67,20 @@ class NoCacheHandler(http.server.SimpleHTTPRequestHandler):
         self.send_header('Cache-Control', 'no-store, no-cache, must-revalidate')
         self.send_header('Pragma', 'no-cache')
         super().end_headers()
+
+    # GitHub Pages serves 404.html for anything missing; match that locally so a
+    # broken link looks the same here as it will in production.
+    def send_error(self, code, message=None, explain=None):
+        page = os.path.join(SERVE_DIR, '404.html')
+        if code != 404 or not os.path.exists(page):
+            return super().send_error(code, message, explain)
+        body = open(page, 'rb').read()
+        self.send_response(404, message)
+        self.send_header('Content-Type', 'text/html;charset=utf-8')
+        self.send_header('Content-Length', str(len(body)))
+        self.end_headers()
+        if self.command != 'HEAD':
+            self.wfile.write(body)
 
 os.chdir(SERVE_DIR)
 print(f"Serving {SERVE_DIR} at http://localhost:{PORT}/  (Ctrl+C to stop)")

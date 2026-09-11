@@ -1,0 +1,29 @@
+{
+  "talks": {
+    "title": "Talks",
+    "blurb": "Recorded walk-throughs of the thinking behind RiskMandate — the plug question, risk acceptance, and the agent-authorisation model. Published as an open playlist.",
+    "playlist": "PLQcxxoxvbiNI",
+    "playlistUrl": "https://www.youtube.com/playlist?list=PLQcxxoxvbiNI",
+    "videos": [
+      {
+        "id": "SvOXyOrf_jA",
+        "title": "Who can pull the plug?",
+        "blurb": "The question every board asks in a sentence — and the five-dimension profile that is the real answer."
+      }
+    ]
+  },
+  "papers": {
+    "title": "The proposition",
+    "blurb": "The full value proposition in deck form — the gap, the plug profile, the core mechanic, the regulatory hook, and the commercial model.",
+    "items": [
+      {
+        "file": "assets/proposition/riskmandate-value-proposition-v0.7.pdf",
+        "title": "RiskMandate — Value Proposition",
+        "meta": "v0.7 · 31 July 2026 · 12 slides · CC BY-SA",
+        "blurb": "Who can pull the plug, accepted-is-not-acceptable, the Act as a measure, and how the model is priced. Illustrative models throughout; traction to be inserted.",
+        "slides": 12,
+        "slideBase": "assets/proposition/slides/"
+      }
+    ]
+  }
+}

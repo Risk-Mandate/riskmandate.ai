@@ -1,204 +1,215 @@
 # How riskmandate.ai actually works
 
-The load sequence, the file layout, and the integration with the SG/Vault.
-(Updated against vault v0.5.1 — the IFD **immutable-delta-chain** structure.
-Where this doc drifts from the vault, the vault wins; the vault's own README
-is the authoritative build/authoring contract.)
+How a page is put together, what happens when the browser loads one, and where
+each thing lives. Current as of **v1.0.0**.
 
 ## The one-paragraph version
 
-The website's **content lives in an SG/Vault** (`7rfetjwz`), not in this repo.
-The vault team authors under `src/` and runs `node build.js`, which emits
-self-contained HTML pages into the vault. This repo only **publishes** those
-pages: CI clones the vault read-only, copies everything except build inputs
-into `.public-generated-files/`, and deploys that to GitHub Pages behind
-riskmandate.ai. The same vault HTML also runs unmodified inside the SG/App
-host and the vault browser preview — it never knows which host it's on.
+`site/` is the website. GitHub Pages serves that directory byte for byte —
+there is no build step, no framework, no bundler and no server. Each page is a
+single self-contained HTML document: its own `<style>`, its own `<script>`, its
+own data inlined at the top. Open one with `file://` and it renders. Navigation
+between pages is `<a href>`; the shared header is drawn by one small custom
+element that every page carries a copy of. Four pages fetch something at
+runtime, and only from the same origin.
+
+Before v1.0.0 all of this lived in an SG/Vault and was served through a host
+`<iframe>`. [`site/versions/1.0.0.md`](../site/versions/1.0.0.md) is the record
+of that change.
 
 ---
 
-## 1. The three places the same HTML runs
+## 1. What the browser does
 
-| Context | Served by | How pages read files |
+```
+GET https://riskmandate.ai/plug.html
+  └─ Pages serves site/plug.html — one document, ~58KB, nothing else required
+       <style>   the whole page's CSS, tokens first
+       <body>    the markup, including <rm-menu> and any page components
+       <script>  one IIFE: RM.data (inlined), then each component, then boot
+
+  1. custom elements self-register as the script runs
+  2. boot.js calls RM.components.nav.wire(document)
+  3. <rm-menu> renders the header from RM.data.pages  → <a href> per page
+  4. page components render their own content
+```
+
+No page waits on anything to become readable: the prose is in the document the
+server sent. Components add the interactive parts on top.
+
+## 2. The anatomy of a page
+
+Every page is the same five things in the same order.
+
+| | What | Why it is inline |
 |---|---|---|
-| **SG/App host** (`dev.vault.sgraph.ai/#<key>:<id>`) | app-shell kernel, decrypting the encrypted vault in-browser | `window.sg` bridge → `sg.vfs.readText(path)` |
-| **Vault browser preview** | send-browse viewer | `fetch()` fallback |
-| **riskmandate.ai** (GitHub Pages) | plain static files (this repo's publish) | `fetch()` fallback, relative paths |
+| `<head>` | title, description, canonical URL, Open Graph, favicon, and a `<link rel="alternate">` to the page's markdown twin | crawlers and link unfurls read the document, not a manifest |
+| `<style>` | design tokens on `:root`, then the shared header rules, then this page's own | one request per page; a page can't render half-styled |
+| `<body>` | `<header class="top">` with `<rm-menu>` and the version link, the content, the footer | — |
+| `<script>` | `RM.data` — this page's name and the site's page list, as JSON | the menu is identical everywhere and needs no fetch |
+| | the components, then `boot.js` | plain concatenation, source order matters |
 
-The portability trick is one small IO seam, `content.js` (built into the
-pages):
+### Design tokens
 
-```js
-function readText(path) {
-  if (window.sg && sg.vfs) return sg.vfs.readText(path);   // App Mode
-  return fetch(path.replace(/^\//,''), {cache:'no-store'}) // preview / static
-         .then(r => r.text());
-}
-```
-
-Everything above that seam is identical in all three contexts. This is the
-core design principle: **the vault app has no knowledge of where it runs.**
-
-## 2. Load sequence on riskmandate.ai (static)
+Declared on `:root` in every page, identical everywhere:
 
 ```
-browser GET https://riskmandate.ai/
-  └─ GitHub Pages serves index.html          ← the HOST SHELL (built file)
-       shell = a full-bleed <iframe id="stage"> + ~80 lines of JS
-       RM.data.latestFile = "v0/v0.4/v0.4.0/index.html"   (baked in by build.js)
-
-  1. host.js calls content.readText(latestFile)
-       → fetch("v0/v0.4/v0.4.0/index.html")               (relative GET)
-  2. response HTML is injected into the iframe via `srcdoc`
-       → each page runs in its own document with its own custom-element
-         registry, so switching versions can never collide
-  3. the inner page renders — it is fully SELF-CONTAINED
-       (inline CSS/JS/data; it fetches nothing at runtime)
-  4. navigation: inner pages post messages to the host —
-       {type:'rm-nav', file:'dev.html'}        → host loads that file into the stage
-       {type:'rm-nav', file:'partners.html'}   → same mechanism, any top-level page
-       {type:'rm-back'}                        → host reloads the last version page
-  5. the version switcher in the page header is the same mechanism:
-       it rm-nav's to v0/v0.3/v0.3.0/index.html, etc. (registry: versions.json)
-  6. after each load the host posts a NAV MANIFEST (versions, pages, current
-     file) into the frame; menus/switchers re-render from it — this is how a
-     FROZEN version page built long ago can still list versions and pages
-     added later, without ever being rebuilt (its inlined data is the fallback)
-  7. host.js posts {type:'sg-app-ready'} to window.parent —
-       meaningful in the SG/App host, harmless no-op on the static domain
+--bg #F7F6F2   --bg2 #EFEDE7   --card #FFFFFF  --ink #0D0D0C   --canvas #0A0A09
+--text #1A1917 --muted #4A4845 --faint #8A8780 --border #E2DFD8
+--green #1A7F5A --green-2 #22c55e --greenBg #EBF5F0
+--gold #B45309 --red #C0392B --blue #1D4ED8
+--wrap 1000px  --r 10px  --r-sm 8px
 ```
 
-So on the static site only **two GETs** happen for the main page: the shell,
-then the selected version page. `dev.html` / `partners.html` load on demand
-through the same `readText` seam.
+Colours in a page are tokens. A literal hex outside `:root` is a bug, except
+inside the brand SVG, which is a fixed artwork.
 
-### Files that must exist on the static host (and why)
+## 3. The components
 
-| Path | Role |
-|---|---|
-| `index.html` | host shell (iframe + loader + nav message handling) |
-| `v0/v0.<maj>/v0.<maj>.<min>/index.html` | the versioned marketing pages (self-contained) |
-| `dev.html` | the Dev/release-log page (self-contained; data baked in at build) |
-| `partners.html` | example of a top-level page (v0.4.1's "top-level page system") |
-| `versions.json` | version registry — `latest` + the switcher's list |
-| `version` | bare current version (e.g. `0.4.2`) |
-| `dev/releases.json`, `dev/releases/*.md` | release-notes source of truth (authored in the vault) |
-| `app/index.html` | repo-owned overlay: the MVP embedded-vault-app page (see §5) |
+Four are on every page. The rest are on the one or two pages that need them.
 
-## 3. Load sequence in the SG/App host (the vault-native path)
+**On all 24 pages**
 
-```
-browser → https://dev.vault.sgraph.ai/#<readKey>:<vaultId>
-  1. vault-loader routes the hash → /en-gb/app (the app-shell page)
-  2. app-shell boots: sg-send transport + sg-vault crypto (AES-256-GCM,
-     content-addressed objects) — all decryption happens IN THE BROWSER;
-     the server only ever stores/serves ciphertext
-  3. it reads the vault's app.json → { entry: "index.html", auto_open: true }
-  4. it injects the `window.sg` bridge and runs the vault's index.html
-     in a sandboxed frame
-  5. the same host shell runs — but now content.readText goes through
-     sg.vfs.readText (decrypted vault reads) instead of fetch
-```
+- `components/dom.js` — `el()` builds an element with attributes and children;
+  text always goes in through `textContent`. `renderMarkdownInto()` turns
+  markdown tokens into DOM nodes, never an HTML string, so fetched content
+  cannot inject markup. Links are scheme-checked before they become `<a href>`.
+- `components/nav.js` — the two behaviours that are not links: `[data-to]`
+  scrolls in-page, `[data-demo]` opens a pre-filled mailto. It also injects the
+  mobile drawer, so every page gets a working menu under 880px from one file.
+- `components/menu.js` — `<rm-menu>`. Renders the header from `RM.data.pages`:
+  an `<a>` per page, contiguous pages sharing a `group` collapsing into a
+  dropdown. The group header is the only `<button>` in the menu, because it
+  opens a panel rather than going anywhere.
+- `boot.js` — `nav.wire(document)`, on DOMContentLoaded.
 
-Opened without an access token the vault is **read-only**
-(`sg.app.writable === false`); with a write token the same app is writable.
-Same HTML, two backends.
+**Where needed**
 
-## 4. The vault itself (SG/Vault `7rfetjwz`)
+| Component | Pages | What it does |
+|---|---|---|
+| `registry`, `vault-demos`, `vault-page` | the 6 demo pages + `demos.html` | the demo catalogue and the embed that opens each demo's own SG/Vault with its own public read key |
+| `risk-queue`, `data` | `index`, `acceptance`, `grant-gap` | the acceptance-queue figure |
+| `io` | `feedback`, `library`, `versions` | `RM.services.siteIo` — a same-origin `fetch`, and the only runtime IO in the site |
+| `markdown`, `version`, `versions` | `versions` | the version record |
+| `library`, `media` | `library` | articles from `assets/library/library.json`, talks and the deck from `assets/media/media.json` |
+| `insurability` | `index` | the Insurability Index card |
+| `plug-profile`, `state-grid`, `scenarios`, `statics`, `ramm-figure`, `ramm-pyramid`, `brand`, `options`, `loop`, `prompt`, `window-picker` | one page each | that page's figure or interaction |
 
-- A **content-addressed, encrypted, git-like store** ("sgit") served by
-  `https://dev.send.sgraph.ai`. Objects are AES-256-GCM blobs named by content
-  hash (`obj-cas-imm-…`); refs/commits/trees work like git.
-- The **read key is public by design** (it's in `vault_publisher/vault.config.json`
-  and in `/app/index.html`): encryption here provides integrity and a uniform
-  storage model, not confidentiality — this is a public marketing site. The
-  **write key is never in this repo**.
-- Inside the vault: `src/` (authoring) + `build.js` (assembles, inlines,
-  gates) → the built artifacts listed in §2. **Built files are never
-  hand-edited**; the vault team owns that loop. `sgit ls` / `sgit cat` /
-  `sgit pull` work read-only.
+Components never use `innerHTML`. Everything is built with `dom.el` and
+`textContent` — which is what makes it safe to render a markdown file that was
+fetched at runtime.
 
-### Version independence — the IFD immutable delta chain (since v0.4.5)
+## 4. The four pages that fetch
 
-Versions are deliberately independent of each other. Source lives in an
-ordered chain of **immutable delta folders**:
+Everything else is complete in the document. These four are not, and each has a
+reason:
 
-```
-src/v0/v0.3/v0.3.0/   ← chain base (shared/** + site/** as of the chain epoch)
-src/v0/v0.4/v0.4.0/   ← delta: only what the v0.4 redesign added/changed
-src/v0/v0.4/v0.4.2/   ← delta: literally one file
-src/v0/v0.5/v0.5.0/   ← delta: the risk-acceptance redesign (+ _removes.json)
-```
+- **`library.html`** — articles and their artwork come from `assets/library/`,
+  so the copy can change without touching the page. Images load lazily as cards
+  scroll in.
+- **`versions.html`** — reads `versions/index.json`, then each release's notes
+  on demand. Inlining 36 notes would make a 100KB page whose contents you could
+  only read by reading the page; this way every entry links to the bytes it was
+  rendered from.
+- **`feedback.html`** — its interview prompt lives in `assets/`.
+- **`/scenarios/`** — the pilot. Unlike the rest of the site it reads an
+  **SG/Vault** (`dm42qcaw`) directly in the browser, decrypting with Web Crypto.
+  That needs a secure context, which is why local development uses `localhost`
+  and not `127.0.0.1`. See `docs/briefs/implementation__scenarios-pilot.md`.
 
-Building version V layers all folders ≤ V (later wins; `_removes.json`
-deletes inherited files). Consequences:
+The live demos also load vaults — but in their own `<iframe>`, from
+`dev.vault.sgraph.ai`, each with its own published read key. Those keys are
+public by design. No write credential of any kind belongs in `site/`, and a
+test asserts none is there.
 
-- **A version's input set is frozen by construction** — changing shared code
-  means adding a *new* delta folder, never editing a shipped one, so
-  rebuilding an old version is byte-stable forever.
-- **`frozen.json`** pins each shipped version output's sha256; the build
-  *fails* on any drift (re-pin intentionally with `node build.js --pin`).
-  One documented exception so far: scrubbing the "FedRAMP Ready" claim from
-  already-shipped versions (a false certification claim can't stay public).
-- Frozen pages still stay current in the UI via the host's runtime **nav
-  manifest** (§2 step 6) — old pages list new versions without rebuilds.
-- Top-level pages (`src/pages/<name>/` → `<name>.html`) and the host shell
-  are **HEAD singletons**, always built from the full chain and
-  auto-discovered by the build.
+## 5. Versions
 
-## 5. How the vault becomes riskmandate.ai (the publish pipeline)
+The number in the header is the site version. It links to `versions.html`,
+which renders `versions/index.json` plus one markdown note per release —
+36 of them, 35 carried over from the vault and flagged `reconstructed` because
+the builds they describe are not in this repository.
 
-```
-SG/Vault 7rfetjwz  ──sgit clone/pull──►  vault_publisher/publish.py
-   (encrypted, remote)                      │  keeps a persistent clone in ./.vault-clone/
-                                            │  copies EVERYTHING except:
-                                            │    dotfiles, .sg_vault/, .vault/   (internals)
-                                            │    src/ build.js test/ app.json README.md  (build inputs)
-                                            │  then overlays web_overlay/  (repo-owned pages, e.g. /app/)
-                                            ▼
-                                 .public-generated-files/        (gitignored build artifact)
-                                            │
-                              GitHub Actions (CI Pipeline)
-                                 tag bump → build → deploy
-                                            ▼
-                              GitHub Pages  →  https://riskmandate.ai/
-```
-
-Key properties:
-
-- **Denylist, not allowlist**: new vault pages (e.g. `partners.html` in v0.4.1)
-  go live automatically, with no publisher change. The vault has restructured
-  several times; this survives it.
-- **Sync semantics**: deploys are triggered by **GitHub events** (push to
-  `dev`/`main`, or manual `workflow_dispatch`) — *not* by vault pushes. A
-  vault-only edit reaches the live site on the next CI run. Every CI run
-  rebuilds from the vault's current HEAD, so each deploy is a full re-sync.
-- The `/app/` page (from `web_overlay/`) is the exception to "content lives in
-  the vault": it's a repo-owned host page that embeds the **SG app-shell**
-  read-only, so riskmandate.ai/app serves the *encrypted-at-rest* vault app
-  with client-side decryption — the same app as §3, framed. See
-  `docs/hosting-mvp.md` for that model (and the future step: hosting the
-  encrypted `bare/` tree itself on Pages with `SG_STATIC=true`).
-
-## 6. Local development
+Cutting a release is deliberate:
 
 ```bash
-./scripts/run-locally__riskmandate_ai.sh     # → http://localhost:10070/
+node scripts/site/release.mjs 1.0.1 "What changed, in a line"
+# writes site/versions/1.0.1.md, updates index.json, restamps every page's
+# version chip, and updates riskmandate_ai/version
 ```
 
-Replicates the CI build locally: resolves an `sgit` (env `SGIT` command /
-`SGIT_BIN` path / PATH / auto-provisioned `.venv`), clones-or-pulls the vault
-into `./.vault-clone/`, publishes to `./.public-generated-files/`, and serves
-it with no-cache headers on **localhost** (not 127.0.0.1 — the `/app/` page
-needs a secure context for Web Crypto).
+Then write the notes, commit, push. CI checks the three places agree, tags that
+commit `v1.0.1`, and deploys. Nothing increments the version on your behalf — a
+release is a note somebody wrote, and the tag is what lets `versions/index.json`
+name the commit each release was built from.
 
-## 7. Related docs
+## 6. Generated files
 
-- `vault_publisher/README.md` — the publisher in detail (config, sgit
-  resolution, denylist rationale).
-- `docs/hosting-mvp.md` — the `/app/` embedded-vault-app MVP and the roadmap
-  to fully-static encrypted hosting.
-- The vault's own `README.md` (in the vault, not this repo) — the authoring
-  and build contract (`src/` → `build.js`, version lockstep gates).
-- The sgraph.ai library (`https://sgraph.ai/en-gb/library/building-on-sgraph.md`)
-  — the general pattern this site follows.
+`node scripts/site/generate.mjs` rebuilds everything in `site/` that is derived
+from something else:
+
+| File | Derived from |
+|---|---|
+| `<page>.md` | that page's prose. Anything a component renders at runtime is in the page, not the twin. |
+| `sitemap.xml`, `404.html` | the page list in `index.html` |
+| `llms.txt` | the page list plus each page's title and description |
+| `robots.txt` | fixed |
+| `versions.md` | `versions/index.json` |
+
+They are committed, not built at deploy time — `site/` is served exactly as it
+is in the repository. `generate.mjs --check` fails if any of them is stale, and
+runs as a CI gate, so a page cannot ship with a twin that contradicts it.
+
+## 7. The pipeline
+
+`.github/workflows/ci-pipeline.yml`, on push to `qa`/`dev`/`main` or manual
+dispatch:
+
+```
+check          node --test tests/site/*.mjs
+               node scripts/site/generate.mjs --check
+   ↓
+tag            tag this commit v<versions/index.json:latest>, if not already tagged
+   ↓
+build          touch site/.nojekyll, upload site/ as the Pages artifact
+   ↓
+deploy         actions/deploy-pages
+```
+
+The deploy always follows the tag, so the live site never claims a version that
+resolves to nothing.
+
+## 8. Tests
+
+`node --test tests/site/*.mjs` — 17 checks, no dependencies:
+
+- every page is a whole document with a title and description
+- no page talks to a parent window (the host frame is gone and stays gone)
+- every internal link resolves to a file that exists
+- every page has a canonical URL and a markdown twin, and the twin is there
+- every page shows the same version, and it matches `versions/index.json` and
+  `riskmandate_ai/version`
+- the menu is the same list everywhere and every entry is a real page
+- the version record is newest-first, every entry has its notes and names its
+  source, and vault-era entries are labelled reconstructed
+- the sitemap lists every page and nothing else
+- no write credential ships in `site/`
+- the scenarios content contract (6 checks against a real vault fixture)
+
+## 9. What is not here any more
+
+- **`vault_publisher/`** — cloned `7rfetjwz` and published it. Nothing publishes
+  from a vault now.
+- **`web_overlay/`** — pages overlaid onto the publisher's output. `site/` is
+  the output; there is nothing to overlay onto. The scenarios pilot moved to
+  `site/scenarios/`.
+- **`site/v0/`** — twelve frozen design snapshots, ~759KB, reachable through a
+  dropdown. They are in vault `7rfetjwz`, which is kept.
+- **the host shell** — a 9KB `index.html` that loaded a version page into an
+  `<iframe srcdoc>` and routed navigation over `postMessage`. It gave the whole
+  site one URL. Deep links, bookmarks, opening in a new tab and search indexing
+  all now work because it is gone.
+
+`scripts/migrate/collapse-to-v1.mjs` is the one-off that did the conversion. It
+is kept as the statement of what "reconstructed" means for v1.0.0 — run it
+against a fresh clone of the vault and it reproduces the snapshot. Nothing in
+CI runs it.

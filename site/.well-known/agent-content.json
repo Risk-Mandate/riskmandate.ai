@@ -1,0 +1,299 @@
+{
+  "site": {
+    "name": "RiskMandate",
+    "domain": "riskmandate.ai",
+    "url": "https://riskmandate.ai",
+    "tagline": "Make your agents insurable.",
+    "oneLine": "The insurability layer for agentic AI.",
+    "summary": "Carriers are filing to exclude AI from cover, and the way back is evidence an underwriter will accept. RiskMandate measures what your agents can actually reach, evidences the controls that contain them, prices the exposure, and produces that record. Underneath the insurance framing is a risk model: a grant is what a credential technically permits, a mandate is what the holder is authorised and expected to do, and the gap between them is exposure nobody ever accepted. A deployed agent already has access, so a real risk cannot be denied — only accepted, by a named owner, for an interval, with an expiry that brings the decision back. RiskMandate is read-only and never in the request path: it defines the mandate and measures the gap; it does not enforce it. It is built on SG/Vault — zero-knowledge, PKI, provenance, no database — so you hold the keys.",
+    "throughLine": "Measure what the agents can reach, name who owns it, evidence that the controls hold, and let the acceptance expire so the decision comes back.",
+    "version": "1.0.0"
+  },
+  "artifacts": {
+    "index": "https://riskmandate.ai/llms.txt",
+    "fullText": "https://riskmandate.ai/llms-full.txt",
+    "manifest": "https://riskmandate.ai/.well-known/agent-content.json"
+  },
+  "concepts": [
+    {
+      "id": "insurability",
+      "title": "The insurability layer",
+      "blurb": "carriers are moving to exclude AI, and affirmative cover now turns on evidence rather than a questionnaire; we produce the record an underwriter will accept.",
+      "body": "Cover is being withdrawn faster than teams can respond, and where affirmative cover exists every carrier writing it asks the same question: can you show what your agents can reach, and evidence that the controls hold? Most organisations cannot answer that in writing. Questionnaires describe — someone's recollection, once a year, a yes or a no. Evidence prices: exposure derived from the environment through read-only connectors, refreshed as permissions change, with the derivation shown. The difference matters most at claim, when application warranties get tested and cover is most often lost."
+    },
+    {
+      "id": "insurability-index",
+      "title": "The Insurability Index",
+      "blurb": "a 0–100 score over five weighted dimensions, derived from your environment rather than a self-assessment, with six levels from Unmapped to Underwritten.",
+      "body": "The Index is a composite of five dimensions weighted by how much each moves a price: exposure containment (30%, drives severity), authority definition (20%, drives frequency), attestation integrity (20%, drives warranty credibility), loss quantification (20%, drives pricing) and accountability (10%, drives legal standing). Six levels sit on that score — L0 Unmapped, L1 Inventoried, L2 Scoped, L3 Attested, L4 Quantified, L5 Underwritten — and each says what an underwriter will offer and what evidence it requires. The gap to the next level is the work order. Weights are set by underwriting judgement today and re-fit as loss experience accumulates; we say so rather than implying an actuarial precision that does not yet exist."
+    },
+    {
+      "id": "grant-is-not-mandate",
+      "title": "The grant is not the mandate",
+      "blurb": "a grant is what a credential technically permits; a mandate is what the holder is authorised to do; the difference is excess authority nobody accepted.",
+      "body": "A grant is what the credential technically allows. A mandate is what the holder is allowed and expected to do. In practice the first is very much larger than the second, and the measurable difference — excess authority — is blast radius read from the other end: not what a compromise could reach, but what was handed over beyond what was needed. It is unaccepted by construction, because nobody wrote it down, so nobody could accept it; and unaccepted risk defaults to critical and escalates without anybody escalating it. A register row saying an agent has code-host access is not informative. One saying the grant covers forty-one repositories, the mandate covered one, with no acceptor, for six weeks, is a finding with a number in it. A mandate needs five fields — issuer, subject, scope, interval, revocation path — and a mandate with no clock is just a grant."
+    },
+    {
+      "id": "no-deny",
+      "title": "The signature mechanic: no deny button",
+      "blurb": "a deployed agent already has access, so a real risk cannot be denied — only accepted, by a named owner, for an interval, with an expiry that returns the decision.",
+      "body": "Ask someone to accept a risk and they will do neither; treat acceptance as a choice and you hand them a third door, which is to do nothing. The risk is already on the books, so acceptance is not a decision to take it on — it is an acknowledgement that you already have. What remains are three doors with a name against each: accept it for a stated interval, fund the reduction, or fix it. There is no fourth door, and silence is not a decision anyone can underwrite. Every acceptance expires, and when it does the same decision lands back on the same desk with the risk still there and the evidence attached."
+    },
+    {
+      "id": "never-in-line",
+      "title": "Never in the request path",
+      "blurb": "read-only by design — no runtime decisions, no enforcement point, nothing in line that can slow an agent down or break it.",
+      "body": "Authorisation already happened: it was conferred the moment capability was, and what an agent can actually do is the union of every route to that capability. So the exposure can be derived by modelling what exists rather than by intercepting anything. Read-only digital twins model the primitives that matter, so coverage does not require a connector into every system, and telemetry is consumed to detect mapping error rather than to police traffic. A governance layer that can take your agents down is a new source of the risk it was bought to measure. The trade is stated plainly: we define the mandate and map the gap, and we do not enforce it — a declared mandate is instrumentation, not a control. Instrument before you enforce."
+    },
+    {
+      "id": "accepted-vs-acceptable",
+      "title": "Accepted is not acceptable",
+      "blurb": "accepted is an act somebody performs; acceptable is the level at which the business stops funding remediation; they are orthogonal, giving four real states.",
+      "body": "Accepted is an act: somebody with standing says they carry this, attached to a named role, a date and an interval. Acceptable is a threshold: the level at which the business is content to stop funding remediation — a property of the business, not of the risk. They are orthogonal rather than sequential, which gives four real states: unowned and above the line is the dangerous one, owned and above the line is the normal state of a live programme, below the line but unowned cannot be relied upon, and owned and below the line is where remediation can stop. Missing acceptance is an ownership problem; a missing acceptable line is a governance problem. The EU AI Act requires residual risk to be judged acceptable without defining the word anywhere — the obligation is imposed, the standard is not supplied. Factual, not legal advice."
+    },
+    {
+      "id": "foundation",
+      "title": "The foundation: SG/Vault",
+      "blurb": "a semantic graph on a zero-knowledge vault — PKI, provenance, no database — that is agentic-native rather than agentic-retrofitted; you hold the keys.",
+      "body": "RiskMandate is built on SG/Vault: zero-knowledge, PKI-backed, provenance-carrying, with no database. The consequence for a buyer is that keys stay with the customer rather than the vendor, and a finished register can be handed to an auditor, a broker or a board as a read-only artefact rather than an export. Three live demonstrations run this way on the site today, each opened with a deliberately published read-only key."
+    },
+    {
+      "id": "positioning",
+      "title": "Positioning",
+      "blurb": "the wedge is agentic risk and the renewal conversation; complementary to GRC, identity and posture tooling rather than a replacement for any of them.",
+      "body": "RiskMandate is not a carrier, a broker or an MGA, and does not sell or place cover; it measures insurability and produces the evidence underwriters price against. It is not a GRC platform either — those record risk, and this is the layer that makes the decision on a risk explicit, owned and expiring. It connects to identity providers, cloud IAM, agent posture and access governance rather than replacing them, and translates their output into exposure an underwriter can read. Two audiences, one score: enterprises walking into a renewal with an evidence pack, and brokers, carriers and MGAs pricing agentic risk from what is actually deployed."
+    }
+  ],
+  "pricing": {
+    "note": "Three tiers, split by value. Every tier runs the same product on the same zero-knowledge foundation; what changes per tier is how it is operated — its maintainability, scalability, and security posture — not which features are gated. Sovereignty is the floor, not the premium.",
+    "tiers": [
+      {
+        "name": "Community",
+        "price": "Free (open source)",
+        "maintain": "Open source, files and folders, no database to operate — no lock-in.",
+        "scale": "Adopt incrementally, as much or as little as fits your stack, at your pace.",
+        "secure": "Zero-knowledge vault on your own infrastructure — your keys, your data."
+      },
+      {
+        "name": "Consumption",
+        "price": "Token-based (metered by usage)",
+        "maintain": "Managed runtime — versioned, provenance on every change, agent-operable.",
+        "scale": "Grows with usage; pre-approval against risk profiles keeps acceptance scaling without nagging.",
+        "secure": "Same zero-knowledge foundation — plaintext never leaves your endpoints."
+      },
+      {
+        "name": "Enterprise",
+        "price": "Custom (talk to us)",
+        "maintain": "SLAs, support, and guided upgrades across the version chain.",
+        "scale": "The underwriting chain org-wide — acceptance propagated level by level to a board view.",
+        "secure": "Sovereign deployment: your region, your keys; NIST / ISO / EU AI Act alignment."
+      }
+    ]
+  },
+  "partners": {
+    "summary": "RiskMandate is complementary by design: it does not detect and does not remediate. It is the risk-acceptance layer above the agent-detection ecosystem. Partners keep their client relationships and the detection and remediation RiskMandate does not want; RiskMandate sends partners new business through referral and strengthens the case for the products they already sell by deepening the risk analysis. A partner's finding, on its own a line in a report, becomes a decision the business will fund. Recommendations are curated for fit, never pay-to-play."
+  },
+  "pages": [
+    {
+      "name": "home",
+      "label": "Home",
+      "url": "https://riskmandate.ai/"
+    },
+    {
+      "name": "plug",
+      "label": "Who can pull the plug",
+      "url": "https://riskmandate.ai/plug.html"
+    },
+    {
+      "name": "acceptable",
+      "label": "Accepted is not acceptable",
+      "url": "https://riskmandate.ai/acceptable.html"
+    },
+    {
+      "name": "acceptance",
+      "label": "You own the risk",
+      "url": "https://riskmandate.ai/acceptance.html"
+    },
+    {
+      "name": "grant-gap",
+      "label": "The grant is not the mandate",
+      "url": "https://riskmandate.ai/grant-gap.html"
+    },
+    {
+      "name": "how-it-works",
+      "label": "How it works",
+      "url": "https://riskmandate.ai/how-it-works.html"
+    },
+    {
+      "name": "agents",
+      "label": "Agents",
+      "url": "https://riskmandate.ai/agents.html"
+    },
+    {
+      "name": "ramm",
+      "label": "RAMM — acceptance maturity",
+      "url": "https://riskmandate.ai/ramm.html"
+    },
+    {
+      "name": "scenarios",
+      "label": "Risk scenarios",
+      "url": "https://riskmandate.ai/scenarios.html"
+    },
+    {
+      "name": "statics",
+      "label": "Static scenarios",
+      "url": "https://riskmandate.ai/statics.html"
+    },
+    {
+      "name": "demos",
+      "label": "All demos",
+      "url": "https://riskmandate.ai/demos.html"
+    },
+    {
+      "name": "demo-licence-to-operate",
+      "label": "Licence to Operate",
+      "url": "https://riskmandate.ai/demo-licence-to-operate.html"
+    },
+    {
+      "name": "demo-risk-graph-explorer",
+      "label": "RiskGraph Explorer",
+      "url": "https://riskmandate.ai/demo-risk-graph-explorer.html"
+    },
+    {
+      "name": "demo-agentic-browser-isolation",
+      "label": "Agentic Browser Isolation",
+      "url": "https://riskmandate.ai/demo-agentic-browser-isolation.html"
+    },
+    {
+      "name": "demo-risk-mandate-field",
+      "label": "RiskMandate field demo",
+      "url": "https://riskmandate.ai/demo-risk-mandate-field.html"
+    },
+    {
+      "name": "demo-file-security",
+      "label": "File security walk",
+      "url": "https://riskmandate.ai/demo-file-security.html"
+    },
+    {
+      "name": "demo-agent-permission-games",
+      "label": "Permission games",
+      "url": "https://riskmandate.ai/demo-agent-permission-games.html"
+    },
+    {
+      "name": "pricing",
+      "label": "Pricing",
+      "url": "https://riskmandate.ai/pricing.html"
+    },
+    {
+      "name": "library",
+      "label": "Library",
+      "url": "https://riskmandate.ai/library.html"
+    },
+    {
+      "name": "partners",
+      "label": "Partners",
+      "url": "https://riskmandate.ai/partners.html"
+    },
+    {
+      "name": "feedback",
+      "label": "Give feedback",
+      "url": "https://riskmandate.ai/feedback.html"
+    },
+    {
+      "name": "brand",
+      "label": "Brand",
+      "url": "https://riskmandate.ai/brand.html"
+    }
+  ],
+  "library": {
+    "tagline": "The concepts and the approach behind autonomous risk management.",
+    "articles": [
+      {
+        "n": 1,
+        "slug": "agent-authorisation-blast-radius",
+        "title": "The blast radius",
+        "dek": "What your agent can do — not what it did.",
+        "theme": "core"
+      },
+      {
+        "n": 2,
+        "slug": "naming-the-mandate",
+        "title": "The mandate",
+        "dek": "Why the bundle is a mandate, not a passport.",
+        "theme": "core"
+      },
+      {
+        "n": 3,
+        "slug": "permission-granularity",
+        "title": "Permission granularity",
+        "dek": "Skills are code — and OAuth is not enough.",
+        "theme": "scope"
+      },
+      {
+        "n": 4,
+        "slug": "permissions-bom",
+        "title": "The permissions bill of materials",
+        "dek": "An SBOM, but for permissions — because permissions gate exploitability.",
+        "theme": "scope"
+      },
+      {
+        "n": 5,
+        "slug": "framing-the-sla",
+        "title": "The terms you already accepted",
+        "dek": "The blast radius is the SLA — made explicit.",
+        "theme": "decision"
+      },
+      {
+        "n": 6,
+        "slug": "risk-acceptance",
+        "title": "Risk acceptance",
+        "dek": "You underwrite the blast radius. You do not predict it.",
+        "theme": "decision"
+      },
+      {
+        "n": 7,
+        "slug": "side-effects",
+        "title": "Second- and third-order effects",
+        "dek": "Follow the reach, and speak the owner's language.",
+        "theme": "model"
+      },
+      {
+        "n": 8,
+        "slug": "graphs-of-graphs",
+        "title": "Graphs of graphs",
+        "dek": "Mapping reality, not complexity.",
+        "theme": "model"
+      },
+      {
+        "n": 9,
+        "slug": "wardley-maps",
+        "title": "Wardley maps",
+        "dek": "Productising and commoditising — and why we are in Explorer.",
+        "theme": "approach"
+      },
+      {
+        "n": 10,
+        "slug": "open-source-strategy",
+        "title": "Open by default",
+        "dek": "Everything open. The line is at the customer.",
+        "theme": "approach"
+      },
+      {
+        "n": 11,
+        "slug": "recoverability",
+        "title": "Recoverability",
+        "dek": "The one dimension money cannot buy back — and the reason two risks with identical impact scores are not the same object.",
+        "theme": "decision"
+      },
+      {
+        "n": 12,
+        "slug": "accepted-is-not-acceptable",
+        "title": "Accepted is not acceptable",
+        "dek": "One is an act somebody performs. The other is a line the business draws. They are orthogonal — which gives four real states, not two.",
+        "theme": "decision"
+      }
+    ]
+  },
+  "licence": "CC BY 4.0 (library content)",
+  "generated": "v1.0.0"
+}

@@ -1,0 +1,1089 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Risk Mandate — agents act, and someone has to own the risk</title>
+<meta name="description" content="Risk Mandate begins where security stops — acceptance, funding, and ownership. No risk can be denied, only accepted for an interval and underwritten to the board.">
+<link rel="canonical" href="https://riskmandate.ai/acceptance.html">
+<link rel="alternate" type="text/markdown" href="acceptance.md" title="This page as markdown">
+<link rel="icon" href="assets/brand/riskmandate-favicon-32.png" sizes="32x32">
+<link rel="icon" href="assets/brand/riskmandate-mark.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RiskMandate">
+<meta property="og:url" content="https://riskmandate.ai/acceptance.html">
+<meta property="og:title" content="Risk Mandate — agents act, and someone has to own the risk">
+<meta property="og:description" content="Risk Mandate begins where security stops — acceptance, funding, and ownership. No risk can be denied, only accepted for an interval and underwritten to the board.">
+<meta property="og:image" content="https://riskmandate.ai/assets/brand/riskmandate-lockup-light.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- v1.0.0. Reconstructed from SG/Vault 7rfetjwz at v0.14.0;
+     see versions/1.0.0.md. Edited directly from here on — there is no build step. -->
+<style>
+/* tokens.css — v0.4 palette (lighter, editorial; from the redesign). */
+:root{
+  --bg:#F7F6F2; --bg2:#EFEDE7; --card:#FFFFFF; --ink:#0D0D0C; --canvas:#0A0A09;
+  --text:#1A1917; --muted:#4A4845; --faint:#8A8780; --border:#E2DFD8;
+  --green:#1A7F5A; --green-2:#22c55e; --greenBg:#EBF5F0;
+  --gold:#B45309; --goldBg:#FFFBEB; --red:#C0392B; --redBg:#FDF2F1;
+  --blue:#1D4ED8; --blueBg:#EFF6FF;
+  --fg:#F7F6F2; --fg-2:rgba(247,246,242,.55); --fg-3:rgba(247,246,242,.32);
+  --line:rgba(247,246,242,.10); --line-2:rgba(247,246,242,.18);
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","JetBrains Mono","Roboto Mono",Menlo,Consolas,monospace;
+  --wrap:1100px; --r:10px; --r-sm:8px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth} @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+h1,h2,h3{margin:0;font-weight:700;letter-spacing:-.02em;line-height:1.05}
+h2{font-size:clamp(28px,4vw,46px)}
+p{margin:0}
+:focus-visible{outline:2px solid var(--green-2);outline-offset:3px;border-radius:4px}
+.tag{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+.tag.red{color:var(--red)}
+
+/* base.css — header, nav, buttons, section scaffolding, section headings. */
+.top{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.top .wrap{display:flex;align-items:center;gap:22px;height:56px;max-width:1100px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:15px;color:var(--text)}
+.rm{width:26px;height:26px;border-radius:7px;background:var(--ink);display:grid;place-items:center;color:var(--green);font-family:var(--mono);font-weight:700;font-size:10px;flex:none}
+.navlinks{display:flex;gap:22px;margin-left:auto}
+.navlinks button{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;transition:color .15s}
+.navlinks button:hover{color:var(--text)}
+.vs-select{font-family:var(--mono);font-size:12px;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:7px;padding:5px 8px;cursor:pointer}
+.vs-select:disabled{cursor:default;opacity:.8}
+.demo{background:var(--green);color:#fff;font-weight:600;font-size:13px;border:0;border-radius:var(--r-sm);padding:8px 16px;cursor:pointer;transition:background .15s}
+.demo:hover{background:#16704f}
+@media (max-width:880px){.navlinks{display:none}.vs-select{display:none}}
+
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;padding:12px 22px;border-radius:var(--r-sm);cursor:pointer;border:1px solid transparent;transition:transform .12s,background .15s,border-color .15s}
+.btn:active{transform:translateY(1px)}
+.btn-green{background:var(--green);color:#fff} .btn-green:hover{background:#16704f}
+.btn-ghost{background:transparent;color:var(--fg);border-color:var(--line-2)} .btn-ghost:hover{border-color:var(--fg-2)}
+
+.paper{background:var(--bg)}
+.section{padding:88px 0;border-bottom:1px solid var(--border)}
+.section.alt{background:var(--bg2)}
+.shead{max-width:520px}
+.shead .tag,.shead-row .tag{color:var(--green)}
+.shead h2{color:var(--text)} .shead h2 .g{color:var(--green)}
+.shead p{color:var(--muted);margin-top:16px;font-size:15px;line-height:1.75}
+.shead.wide{max-width:560px;margin-bottom:44px}
+.shead-row{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:24px;margin-bottom:30px}
+.shead-row h2{color:var(--text)} .shead-row h2 .g{color:var(--green)}
+.shead-aside{max-width:360px;color:var(--muted);font-size:15px;line-height:1.7;padding-bottom:4px}
+.side{display:grid;grid-template-columns:1fr 420px;gap:56px;align-items:center}
+.side-r{display:grid;grid-template-columns:420px 1fr;gap:56px;align-items:center}
+@media (max-width:980px){.side,.side-r{grid-template-columns:1fr;gap:36px}}
+.chip{display:inline-flex;padding:2px 9px;border-radius:999px;font-size:10px;font-weight:700;font-family:var(--mono)}
+.chip.green{background:rgba(26,127,90,.12);color:var(--green)} .chip.red{background:rgba(192,57,43,.12);color:var(--red)} .chip.faint{background:rgba(138,135,128,.15);color:var(--faint)}
+rm-menu{display:contents}
+.pagelink{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s}
+.pagelink:hover{color:var(--text)} .pagelink.active{color:var(--text);font-weight:600}
+
+/* hero.css — dark hero + the interactive risk-queue terminal. */
+.hero{background:var(--ink);color:var(--fg);border-bottom:1px solid var(--line)}
+.hero .wrap{display:flex;flex-wrap:wrap;gap:56px;align-items:flex-start;padding:80px 24px 84px}
+.hero-copy{flex:1 1 320px;min-width:0}
+.hero-card{flex:1 1 420px;min-width:0;max-width:520px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.04em;font-weight:700;
+  color:var(--green);background:rgba(26,127,90,.18);border:1px solid rgba(26,127,90,.4);border-radius:999px;padding:5px 12px}
+.eyebrow .d{width:6px;height:6px;border-radius:50%;background:var(--green-2)}
+.hero h1{font-size:clamp(48px,5.8vw,82px);font-weight:800;letter-spacing:-.04em;line-height:.96;margin:28px 0 0}
+.hero h1 .it{font-style:italic;color:var(--green)}
+.hero .sub{color:var(--fg-2);font-size:16px;line-height:1.7;max-width:400px;margin-top:26px}
+.cta-row{display:flex;flex-wrap:wrap;gap:11px;margin-top:30px}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px}
+.badges span{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.04em;color:var(--fg-3);border:1px solid var(--line);border-radius:5px;padding:4px 9px}
+@media (max-width:980px){.hero .wrap{padding-top:56px}}
+
+/* risk-queue terminal */
+rm-risk-queue{display:block}
+.term{background:#131210;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 32px 80px -40px #000}
+.term-bar{display:flex;align-items:center;gap:9px;padding:11px 16px;border-bottom:1px solid var(--line);background:var(--canvas)}
+.lights{display:flex;gap:5px} .lights i{width:10px;height:10px;border-radius:50%}
+.l1{background:#FF5F56}.l2{background:#FFBD2E}.l3{background:#27C93F}
+.term-bar .ttl{font-family:var(--mono);font-size:11px;color:var(--fg-3);margin-left:6px}
+.term-bar .live{margin-left:auto;font-family:var(--mono);font-size:10px;font-weight:700;color:var(--green-2);display:flex;align-items:center;gap:6px}
+.term-bar .live i{width:6px;height:6px;border-radius:50%;background:var(--green-2);box-shadow:0 0 0 3px rgba(34,197,94,.18)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line);background:#0D0D0C}
+.stat{padding:12px;text-align:center;border-right:1px solid var(--line)} .stat:last-child{border-right:0}
+.stat .num{font-family:var(--sans);font-size:20px;font-weight:800;line-height:1}
+.stat .lab{font-family:var(--mono);font-size:9px;letter-spacing:.04em;color:var(--fg-3);margin-top:5px}
+.qhead{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.16em;color:var(--fg-3);padding:10px 16px 5px}
+.row{display:flex;align-items:flex-start;gap:12px;padding:12px 16px;border-top:1px solid var(--line);cursor:pointer;transition:background .12s;border-left:2px solid transparent}
+.row:hover{background:rgba(247,246,242,.03)}
+.row.sel{background:rgba(26,127,90,.09);border-left-color:var(--green)}
+.row .dot{width:8px;height:8px;border-radius:50%;margin-top:6px;flex:none}
+.row .rbody{flex:1;min-width:0}
+.row .name{font-family:var(--mono);font-size:13.5px;color:var(--fg)}
+.row .meta{font-family:var(--mono);font-size:11px;color:var(--fg-3);margin-top:3px}
+.row .meta .ok{color:var(--green-2)} .row .meta .bad{color:var(--red)} .row .meta .info{color:var(--gold)}
+.row .lvl{font-family:var(--mono);font-size:11px;font-weight:600;white-space:nowrap}
+.ai{padding:13px 16px;border-top:1px solid rgba(26,127,90,.18);background:rgba(26,127,90,.06)}
+.ai .lab{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.14em;color:var(--green);margin-bottom:7px}
+.ai p{font-size:12.5px;color:var(--fg-2);line-height:1.6}
+.acts{display:flex;gap:8px;padding:12px 16px;border-top:1px solid var(--line);background:#0D0D0C}
+.acts button{flex:1;font-family:var(--sans);font-size:12px;font-weight:700;padding:10px;border-radius:6px;cursor:pointer;border:1px solid transparent;transition:opacity .15s,background .15s}
+.acts .accept{background:var(--green);color:#fff} .acts .accept:hover{background:#16704f}
+.acts .info{flex:0 0 auto;background:transparent;color:var(--gold);border-color:rgba(180,83,9,.5)} .acts .info:hover{background:rgba(180,83,9,.1)}
+.acts button:disabled{opacity:.5;cursor:default}
+.cleared{padding:24px 16px;text-align:center;border-top:1px solid var(--line)}
+.cleared .big{font-family:var(--sans);color:var(--green-2);font-size:14px;font-weight:700}
+.cleared .sm{font-size:12px;color:var(--fg-3);margin-top:6px}
+
+/* sections.css — v0.5: the problem grid, the no-deny mechanic chain, the
+   risk-acceptance window picker, the mandate definition card, the SG/Vault
+   foundation rows. */
+
+/* the problem: four questions */
+.qgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.q{padding:18px 16px;border-radius:var(--r);border:1px solid var(--border);background:var(--card);box-shadow:0 1px 4px rgba(0,0,0,.05)}
+.q-n{font-family:var(--mono);font-size:10px;font-weight:700;color:var(--green);margin-bottom:8px}
+.q-t{font-size:15px;font-weight:600;color:var(--text);line-height:1.35}
+.ln{margin-top:24px;font-size:15px;color:var(--muted);line-height:1.7;max-width:640px}
+.ln b{color:var(--text)}
+@media (max-width:880px){.qgrid{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.qgrid{grid-template-columns:1fr}}
+
+/* no-deny mechanic chain */
+.mech{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr auto 1fr auto 1fr;gap:8px;align-items:stretch}
+.mstep{padding:16px 14px;border-radius:var(--r);border:1px solid var(--border);background:var(--card)}
+.mstep.last{border-color:rgba(26,127,90,.45);background:var(--greenBg)}
+.ms-k{font-size:13px;font-weight:700;color:var(--text);margin-bottom:6px}
+.mstep.last .ms-k{color:var(--green)}
+.ms-d{font-size:11px;color:var(--muted);line-height:1.55}
+.marrow{align-self:center;font-family:var(--mono);font-size:13px;color:var(--faint)}
+.mnotes{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.mn{padding:13px 16px;border-radius:var(--r);border:1px dashed var(--border);background:rgba(0,0,0,.02);font-size:12.5px;color:var(--muted);line-height:1.6}
+.mn-k{display:block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:4px}
+@media (max-width:1060px){.mech{grid-template-columns:1fr 1fr} .marrow{display:none}}
+@media (max-width:600px){.mech{grid-template-columns:1fr}.mnotes{grid-template-columns:1fr}}
+
+/* window picker */
+rm-window-picker{display:block}
+.wp{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.wp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.wp-opt{padding:12px 6px;text-align:center;border-radius:var(--r);border:2px solid var(--border);background:var(--card);cursor:pointer;transition:all .15s;display:flex;flex-direction:column;gap:3px}
+.wp-id{font-family:var(--mono);font-size:18px;font-weight:700;line-height:1}
+.wp-sev{font-size:10px;color:var(--muted)}
+.wp-opt.tone-red .wp-id{color:var(--red)} .wp-opt.tone-gold .wp-id{color:var(--gold)} .wp-opt.tone-blue .wp-id{color:var(--blue)} .wp-opt.tone-green .wp-id{color:var(--green)}
+.wp-opt.sel.tone-red{border-color:var(--red);background:rgba(192,57,43,.06)} .wp-opt.sel.tone-gold{border-color:var(--gold);background:rgba(180,83,9,.06)} .wp-opt.sel.tone-blue{border-color:var(--blue);background:rgba(29,78,216,.06)} .wp-opt.sel.tone-green{border-color:var(--green);background:rgba(26,127,90,.06)}
+.wp-detail{padding:20px;border-radius:var(--r);border:2px solid var(--border)}
+.wp-detail.tone-red{border-color:rgba(192,57,43,.27);background:rgba(192,57,43,.04)} .wp-detail.tone-gold{border-color:rgba(180,83,9,.27);background:rgba(180,83,9,.04)} .wp-detail.tone-blue{border-color:rgba(29,78,216,.27);background:rgba(29,78,216,.04)} .wp-detail.tone-green{border-color:rgba(26,127,90,.27);background:rgba(26,127,90,.04)}
+.wp-title{font-size:21px;font-weight:600;margin-bottom:8px}
+.wp-detail.tone-red .wp-title{color:var(--red)} .wp-detail.tone-gold .wp-title{color:var(--gold)} .wp-detail.tone-blue .wp-title{color:var(--blue)} .wp-detail.tone-green .wp-title{color:var(--green)}
+.wp-desc{font-size:14px;color:var(--muted);line-height:1.65;margin-bottom:14px}
+.wp-creates{padding:10px 12px;border-radius:6px;background:rgba(0,0,0,.03);border:1px solid var(--border)}
+.wp-k{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--muted);margin-bottom:2px}
+.wp-v{font-size:12px;color:var(--muted)}
+.accept-note{margin-top:24px;padding:14px 18px;border-radius:var(--r);border:1px solid rgba(26,127,90,.27);background:var(--greenBg);font-size:13px;font-weight:500;color:var(--green)}
+@media (max-width:600px){.wp{grid-template-columns:1fr}}
+
+/* mandate definition card */
+.shead p + p{margin-top:12px}
+.defcard{border-radius:var(--r);border:1.5px solid rgba(26,127,90,.4);background:var(--card);box-shadow:0 8px 32px rgba(0,0,0,.10);overflow:hidden}
+.dc-head{display:flex;align-items:baseline;gap:10px;padding:18px 20px 0}
+.dc-word{font-size:26px;font-weight:800;letter-spacing:-.02em;color:var(--text)}
+.dc-pos{font-size:13px;font-style:italic;color:var(--faint)}
+.dc-def{padding:8px 20px 16px;font-size:14px;color:var(--muted);line-height:1.6;border-bottom:1px solid var(--border)}
+.dc-rows{padding:8px 0}
+.dc-row{display:grid;grid-template-columns:110px 1fr;gap:12px;padding:9px 20px;align-items:baseline}
+.dc-row + .dc-row{border-top:1px dashed var(--border)}
+.dc-k{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--green)}
+.dc-v{font-size:13px;color:var(--text)}
+
+/* foundation rows */
+.fnd{display:flex;flex-direction:column;gap:9px}
+.fnd-row{display:flex;gap:12px;align-items:baseline;padding:13px 16px;border-radius:var(--r);border:1px solid var(--border);background:var(--card);font-size:13.5px;color:var(--text);line-height:1.55}
+.fnd-c{font-family:var(--mono);font-weight:700;color:var(--green);flex:none}
+
+/* pricing.css — v0.5.1: three tiers split by value (free / consumption / custom).
+   Bullets are the maintainability · scalability · security properties of each
+   tier, labelled per axis — not feature gates. */
+.prices{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px}
+.price{border:1.5px solid var(--border);border-radius:var(--r);overflow:hidden;background:var(--card);box-shadow:0 1px 4px rgba(0,0,0,.06);display:flex;flex-direction:column}
+.price.feat{border-color:rgba(180,83,9,.5);box-shadow:0 0 0 1px rgba(180,83,9,.13),0 8px 32px rgba(0,0,0,.12)}
+.price .ptier{display:inline-flex;align-self:flex-start;padding:2px 9px;border-radius:999px;font-size:10px;font-weight:700;font-family:var(--mono);margin:18px 18px 0}
+.ptier.green{background:rgba(26,127,90,.12);color:var(--green)} .ptier.blue{background:rgba(29,78,216,.12);color:var(--blue)} .ptier.gold{background:rgba(180,83,9,.12);color:var(--gold)}
+.pamt{font-size:20px;font-weight:600;margin:8px 18px 16px;color:var(--text)}
+.price.feat .pamt{color:var(--gold)}
+.psub{display:block;font-size:11px;font-weight:400;color:var(--muted);font-family:var(--mono);margin-top:3px;letter-spacing:.02em}
+.price ul{list-style:none;padding:14px 18px;margin:0;border-top:1px solid var(--border);display:flex;flex-direction:column}
+.price li{display:flex;gap:10px;align-items:baseline;font-size:12px;color:var(--text);line-height:1.55;padding:8px 0;border-bottom:1px solid var(--border)}
+.price li:last-child{border-bottom:0}
+.ax{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.08em;color:var(--green);flex:none;width:62px}
+.pnote{margin-top:20px;font-size:13px;color:var(--muted);max-width:640px;line-height:1.7}
+@media (max-width:767px){.prices{grid-template-columns:1fr}}
+
+/* footer.css — dark final CTA + 4-column footer. */
+.final{background:var(--ink);color:var(--fg);text-align:center;padding:96px 24px}
+.final .wrap{max-width:640px}
+.final .eyebrow{margin-bottom:6px}
+.final h2{font-size:clamp(38px,6.5vw,72px);color:var(--fg);line-height:1.02;margin:22px 0 0;font-weight:700}
+.final h2 .it{font-style:italic;color:var(--green)}
+.final p{color:var(--fg-2);margin-top:18px;font-size:16px;line-height:1.7}
+.final .cta-row{justify-content:center;margin-top:30px}
+.foot{background:var(--canvas);border-top:1px solid var(--line);padding:48px 24px;color:var(--fg-3)}
+.foot-cols{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
+.foot-brand .brand{color:var(--fg-2)} .foot-brand .rm{background:rgba(26,127,90,.18);border:1px solid rgba(26,127,90,.4)}
+.foot-brand p{font-size:12px;color:var(--fg-3);line-height:1.6;margin-top:12px;max-width:24ch}
+.foot-h{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.16em;color:var(--fg-3);margin-bottom:14px}
+.foot-col span,.foot-col .link{display:block;font-size:12px;color:var(--fg-2);margin-bottom:8px;background:none;border:0;padding:0;cursor:pointer;text-align:left;font-family:var(--sans)}
+.foot-col .link:hover{color:var(--green)}
+.foot-bar{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-top:28px;padding-top:20px;border-top:1px solid var(--line);font-family:var(--mono);font-size:10px;color:var(--fg-3)}
+@media (max-width:767px){.foot-cols{grid-template-columns:1fr 1fr}}
+
+/* nav-dropdown.css — 0.6.0: the homepage now layers the v0.5.2 dropdown menu
+   component (grouped top-level pages, e.g. Risk Scenarios), so it needs the same
+   dropdown styling the top-level pages carry. Scoped to this snapshot forward;
+   older frozen snapshots use the pre-dropdown menu and never see this file. */
+.navgroup{position:relative;display:inline-flex;align-items:center}
+.navgroup::after{content:"";position:absolute;top:100%;left:0;right:0;height:10px}
+.navgroup-btn{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;display:inline-flex;align-items:center;gap:5px}
+.navgroup-btn:hover,.navgroup:hover .navgroup-btn,.navgroup.open .navgroup-btn,.navgroup.active .navgroup-btn{color:var(--text)}
+.navgroup-car{font-size:8px;line-height:1;opacity:.6;transition:transform .15s}
+.navgroup:hover .navgroup-car,.navgroup.open .navgroup-car{transform:rotate(180deg)}
+.navmenu{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);min-width:184px;background:var(--card);border:1px solid var(--border);border-radius:10px;box-shadow:0 10px 34px rgba(13,13,12,.14);padding:6px;display:none;flex-direction:column;gap:2px;z-index:70}
+.navgroup:hover .navmenu,.navgroup.open .navmenu{display:flex}
+.navmenu .navchild{justify-content:flex-start;text-align:left;width:100%;padding:8px 12px;border-radius:7px;font-size:13.5px;color:var(--muted);white-space:nowrap}
+.navmenu .navchild:hover{background:var(--bg2,#EFEDE7);color:var(--text)}
+.navmenu .navchild.active{color:var(--green);font-weight:600;background:var(--greenBg,#EBF5F0)}
+
+
+/* ===== mobile nav — hamburger drawer (fix: nav bar was hidden with no
+   replacement below 880px). Toggle injected by nav.js; .top.nav-open opens it. ===== */
+.navtoggle{display:none;margin-left:auto;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;padding:0;background:none;border:0;cursor:pointer}
+.navtoggle span{display:block;width:20px;height:2px;margin:0 auto;background:var(--text,#1A1917);border-radius:2px;transition:transform .2s,opacity .2s}
+.top.nav-open .navtoggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.top.nav-open .navtoggle span:nth-child(2){opacity:0}
+.top.nav-open .navtoggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media (max-width:880px){
+  .navtoggle{display:flex}
+  .top .wrap{position:relative}
+  .navlinks{position:absolute;left:0;right:0;top:calc(100% + 1px);flex-direction:column;align-items:stretch;gap:0;margin:0;padding:8px;background:var(--card,#fff);border-bottom:1px solid var(--border,#E2DFD8);box-shadow:0 14px 34px rgba(13,13,12,.14);max-height:calc(100vh - 56px);overflow:auto}
+  .top.nav-open .navlinks{display:flex}
+  .navlinks button,.navlinks .pagelink,.navlinks .navgroup-btn{width:100%;text-align:left;justify-content:flex-start;padding:12px 16px;font-size:15px;border-radius:8px}
+  .navlinks button:hover,.navlinks .pagelink:hover{background:var(--bg2,#EFEDE7)}
+  /* the Risk Scenarios group expands inline inside the drawer (no hover dropdown) */
+  .navgroup{display:block;width:100%;position:static}
+  .navgroup::after{display:none}
+  .navgroup-btn{display:flex}
+  .navgroup-car{margin-left:auto}
+  .navmenu{position:static;transform:none;display:flex;flex-direction:column;min-width:0;padding:2px 0 8px 14px;background:transparent;border:0;box-shadow:none}
+  .navmenu .navchild{padding:10px 14px;font-size:14px}
+}
+
+/* ramm-band.css — 0.7.0: the homepage RAMM feature band. Introduces the maturity
+   model and links to the RAMM page (and its interactive pyramid). Scoped to this
+   snapshot forward; older frozen snapshots never carry it. */
+.ramm-strip{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;margin:36px auto 4px;max-width:780px}
+.rlvl{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--text);background:var(--card);border:1px solid var(--border);border-radius:999px;padding:7px 15px}
+.rlvl b{font-family:var(--mono);font-size:11px;font-weight:700;width:19px;height:19px;border-radius:50%;display:grid;place-items:center;color:#fff}
+.rlvl.r1 b{background:var(--red)} .rlvl.r2 b{background:var(--gold)} .rlvl.r3 b{background:var(--blue)} .rlvl.r4 b{background:#0E6F8A} .rlvl.r5 b{background:var(--green)}
+.rlvl.r5{border-color:var(--green);background:var(--greenBg)}
+.rarrow{color:var(--faint);font-size:13px;font-family:var(--mono)}
+@media (max-width:640px){.rarrow{display:none}.ramm-strip{gap:6px}}
+
+
+/* v1.0.0 — navigation is real links now, so the header rules that targeted
+   <button> have to reach <a> too, and the version switcher is a link. */
+.brand{text-decoration:none}
+.navlinks a{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;text-decoration:none;display:inline-flex;align-items:center}
+.navlinks a:hover{color:var(--text)}
+.navlinks a.active{color:var(--text);font-weight:600}
+.version{font-family:var(--mono);font-size:12px;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:7px;padding:5px 8px;text-decoration:none;white-space:nowrap;transition:color .15s,border-color .15s}
+.version:hover{color:var(--text);border-color:var(--faint)}
+a.btn{text-decoration:none}
+a.ds{display:block;text-decoration:none;color:inherit}
+@media (max-width:880px){
+  .version{display:none}
+  .navlinks a{width:100%;text-align:left;justify-content:flex-start;padding:12px 16px;font-size:15px;border-radius:8px}
+  .navlinks a:hover{background:var(--bg2,#EFEDE7)}
+}
+</style>
+</head>
+<body id="top">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="rm">RM</span> Risk Mandate</a>
+    <nav class="navlinks"><rm-menu></rm-menu></nav>
+    <a class="version" href="versions.html" title="What shipped in v1.0.0">v1.0.0</a>
+    <button class="demo" data-to="demo">Book a demo</button>
+  </div>
+</header>
+
+<main class="hero">
+  <div class="wrap">
+    <div class="hero-copy">
+      <span class="eyebrow"><span class="d"></span> Autonomous Risk Management</span>
+      <h1>Agents act.<br>You own<br><span class="it">the risk.</span></h1>
+      <p class="sub">Security stops at the vulnerability. Risk Mandate begins where security stops — surfacing each risk so clearly, and routing it so precisely to the person who owns it, that the business funds the fix.</p>
+      <div class="cta-row">
+        <button class="btn btn-green" data-to="demo">Book a demo →</button>
+        <button class="btn btn-ghost" data-to="no-deny">How it works ↓</button>
+      </div>
+      <div class="badges"><span>No deny button</span><span>Time-boxed acceptance</span><span>Underwritten to the board</span><span>Zero-knowledge vault</span></div>
+    </div>
+    <div class="hero-card"><rm-risk-queue id="queue"></rm-risk-queue></div>
+  </div>
+</main>
+
+<div class="paper">
+
+  <!-- The problem: security stops at the vulnerability -->
+  <section class="section" id="stops">
+    <div class="wrap">
+      <div class="shead wide">
+        <span class="tag">The problem</span>
+        <h2>Security stops at the vulnerability. <span class="g">We begin where security stops.</span></h2>
+        <p>Security tools are very good at finding issues. Then the trail goes cold — because the questions that decide the outcome live in a different world entirely: budgets, ownership, accountability, escalation.</p>
+      </div>
+      <div class="qgrid">
+        <div class="q"><div class="q-n">01</div><div class="q-t">Who accepts this risk?</div></div>
+        <div class="q"><div class="q-n">02</div><div class="q-t">Who funds the fix?</div></div>
+        <div class="q"><div class="q-n">03</div><div class="q-t">Who owns the consequence?</div></div>
+        <div class="q"><div class="q-n">04</div><div class="q-t">What can it actually reach?</div></div>
+      </div>
+      <p class="ln">That gap is where the real damage lives. Risk Mandate is the layer for what comes after the finding: <b>acceptance, funding, and ownership.</b></p>
+    </div>
+  </section>
+
+  <!-- Signature mechanic: no deny -->
+  <section class="section alt" id="no-deny">
+    <div class="wrap">
+      <div class="shead wide">
+        <span class="tag red">Signature mechanic</span>
+        <h2>There is <span class="g">no deny button.</span></h2>
+        <p>For a deployed system, the agent already has access. You cannot deny a risk that has already materialised — pretending you can is how risk registers quietly drift into fiction. So we removed the deny button.</p>
+      </div>
+      <div class="mech">
+        <div class="mstep"><div class="ms-k">Real vulnerability</div><div class="ms-d">A fact that exists — not a hypothetical.</div></div>
+        <div class="marrow">→</div>
+        <div class="mstep"><div class="ms-k">Real risk</div><div class="ms-d">Once the vulnerability exists, the risk exists.</div></div>
+        <div class="marrow">→</div>
+        <div class="mstep"><div class="ms-k">Accepted, in a direction</div><div class="ms-d">Get more data · reduce · increase · hold.</div></div>
+        <div class="marrow">→</div>
+        <div class="mstep"><div class="ms-k">For an interval</div><div class="ms-d">1h · 4h · 1d · 1w · 1m · 6m — set by urgency and cost of fix.</div></div>
+        <div class="marrow">→</div>
+        <div class="mstep"><div class="ms-k">Underwritten</div><div class="ms-d">Technical owner + security + GRC. No executive accepts alone.</div></div>
+        <div class="marrow">→</div>
+        <div class="mstep last"><div class="ms-k">Up to the board</div><div class="ms-d">Propagates level by level into one consolidated view.</div></div>
+      </div>
+      <div class="mnotes">
+        <div class="mn"><span class="mn-k">Scales without nagging</span> Repeat instances are pre-approved against a risk profile.</div>
+        <div class="mn"><span class="mn-k">The only escape</span> An impossible risk has one exit — the nuclear option: cease the activity.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Risk acceptance: the decision + window picker -->
+  <section class="section" id="acceptance">
+    <div class="wrap side">
+      <div class="shead">
+        <span class="tag">Risk acceptance</span>
+        <h2>Accept or deny isn't the decision. <span class="g">How long, who owns it, what's funded.</span></h2>
+        <p>The interval is the mandate and the priority: sign off for an hour and it's fixed within the hour. In the product it looks like a queue you work — trifecta status, exposure clock, a time-bound decision on every item.</p>
+      </div>
+      <rm-window-picker></rm-window-picker>
+    </div>
+    <div class="wrap">
+      <div class="accept-note">Every acceptance creates: attention · accountability · funding pressure · ownership · expiry · escalation</div>
+      <div class="cta-row" style="justify-content:center;margin-top:22px"><a class="btn btn-green" href="scenarios.html">How long would you accept it? Try the scenarios →</a></div>
+    </div>
+  </section>
+
+  <!-- The mandate -->
+  <section class="section alt" id="mandate">
+    <div class="wrap side">
+      <div class="shead">
+        <span class="tag">The mandate</span>
+        <h2>A mandate is <span class="g">the right to act.</span></h2>
+        <p>Every agent acts on delegated authority — what it may do, who granted it, and for how long. That delegation is a mandate. Agents now read untrusted content, reach the internet, and take actions on their own — the lethal trifecta — while the governance tooling that exists was built for software that does not act.</p>
+        <p>Governing the right to act — capturing the moment of authorisation, computing the blast radius, binding it to an owner — is the work of the next decade of security.</p>
+      </div>
+      <div class="defcard">
+        <div class="dc-head"><span class="dc-word">mandate</span><span class="dc-pos">noun</span></div>
+        <div class="dc-def">The right to act, delegated to a system that acts on your behalf.</div>
+        <div class="dc-rows">
+          <div class="dc-row"><span class="dc-k">GRANTED BY</span><span class="dc-v">a named, accountable owner</span></div>
+          <div class="dc-row"><span class="dc-k">SCOPE</span><span class="dc-v">what it may do — and what it may reach</span></div>
+          <div class="dc-row"><span class="dc-k">EXPIRY</span><span class="dc-v">time-bound, always — never standing</span></div>
+          <div class="dc-row"><span class="dc-k">RISK</span><span class="dc-v">accepted for an interval, underwritten upward</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Foundation: SG/Vault -->
+  <section class="section" id="foundation">
+    <div class="wrap side">
+      <div class="shead">
+        <span class="tag">Foundation</span>
+        <h2>You hold the keys, <span class="g">not us.</span></h2>
+        <p>The register is not a spreadsheet. It is a semantic graph — facts only, so everything in it is real — where every change cascades to the top and the picture is never silently stale.</p>
+        <p>All of it stands on SG/Vault: sovereignty, no lock-in, and a foundation that is agentic-native rather than agentic-retrofitted.</p>
+      </div>
+      <div class="fnd">
+        <div class="fnd-row"><span class="fnd-c">✓</span> Zero-knowledge, client-side encryption — only the endpoints see the data.</div>
+        <div class="fnd-row"><span class="fnd-c">✓</span> PKI for confidentiality, integrity, and attribution.</div>
+        <div class="fnd-row"><span class="fnd-c">✓</span> Provenance on every change — versioned, always.</div>
+        <div class="fnd-row"><span class="fnd-c">✓</span> Folders and files, no database — yet fully queryable.</div>
+        <div class="fnd-row"><span class="fnd-c">✓</span> Agent-operable through the CLI.</div>
+        <div class="fnd-row"><span class="fnd-c">✓</span> Sovereignty and no lock-in — hold the keys, not the storage.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RAMM: the maturity model — links to the RAMM page -->
+  <section class="section" id="ramm">
+    <div class="wrap">
+      <div class="shead wide">
+        <span class="tag">Risk Acceptance Maturity Model</span>
+        <h2>Maturity you <span class="g">compute, not claim.</span></h2>
+        <p>Every acceptance you make here is a durable graph decision — owned, evidenced, time-boxed, appetite-bound. That's not just good hygiene: it's measurable. RAMM turns the five maturity levels into queries your acceptance graph either satisfies or doesn't, so using Risk Mandate is how you climb them.</p>
+      </div>
+      <div class="ramm-strip">
+        <span class="rlvl r1"><b>1</b> Ad hoc</span>
+        <span class="rarrow">→</span>
+        <span class="rlvl r2"><b>2</b> Repeatable</span>
+        <span class="rarrow">→</span>
+        <span class="rlvl r3"><b>3</b> Defined</span>
+        <span class="rarrow">→</span>
+        <span class="rlvl r4"><b>4</b> Managed</span>
+        <span class="rarrow">→</span>
+        <span class="rlvl r5"><b>5</b> Optimized</span>
+      </div>
+      <p class="ln">Each level is a Node Type Formula — a path-pattern over the acceptance graph, tested by query, not asserted in a questionnaire.</p>
+      <div class="cta-row" style="justify-content:center;margin-top:8px"><a class="btn btn-green" href="ramm.html">Explore RAMM &amp; the live pyramid →</a></div>
+    </div>
+  </section>
+
+  <!-- Pricing: split by value, properties per tier (not feature gates) -->
+  <section class="section alt" id="pricing">
+    <div class="wrap">
+      <div class="shead wide">
+        <span class="tag">Pricing</span>
+        <h2>Split by value. <span class="g">Free, consumption, custom.</span></h2>
+        <p>Every tier runs the same product on the same zero-knowledge foundation. What changes per tier is how it's operated — its maintainability, scalability, and security posture — not which features are gated.</p>
+      </div>
+      <div class="prices">
+        <div class="price"><div class="ptier green">Community</div><div class="pamt">Free<span class="psub">open source</span></div>
+          <ul>
+            <li><span class="ax">MAINTAIN</span>Open source, files and folders, no database to operate — no lock-in.</li>
+            <li><span class="ax">SCALE</span>Adopt incrementally: as much or as little as fits your stack, at your pace.</li>
+            <li><span class="ax">SECURE</span>Zero-knowledge vault on your own infrastructure — your keys, your data.</li>
+          </ul></div>
+        <div class="price"><div class="ptier blue">Consumption</div><div class="pamt">Token-based<span class="psub">metered by usage</span></div>
+          <ul>
+            <li><span class="ax">MAINTAIN</span>Managed runtime — versioned, provenance on every change, agent-operable.</li>
+            <li><span class="ax">SCALE</span>Grows with usage; pre-approval against risk profiles keeps acceptance scaling without nagging.</li>
+            <li><span class="ax">SECURE</span>Same zero-knowledge foundation — plaintext never leaves your endpoints.</li>
+          </ul></div>
+        <div class="price feat"><div class="ptier gold">Enterprise</div><div class="pamt">Custom<span class="psub">talk to us</span></div>
+          <ul>
+            <li><span class="ax">MAINTAIN</span>SLAs, support, and guided upgrades across the version chain.</li>
+            <li><span class="ax">SCALE</span>The underwriting chain org-wide — acceptance propagated level by level to a board view.</li>
+            <li><span class="ax">SECURE</span>Sovereign deployment: your region, your keys; NIST / ISO / EU AI Act alignment.</li>
+          </ul></div>
+      </div>
+      <p class="pnote">Value grows up the ladder; the security model does not change. Sovereignty is the floor, not the premium.</p>
+    </div>
+  </section>
+
+</div>
+
+<section class="final" id="demo">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> Risk register live</span>
+    <h2>Lower the probability of <span class="it">catastrophic outcomes.</span></h2>
+    <p>Map your autonomous risk. Accept what exists. Fund what matters. Prove you're getting safer.</p>
+    <div class="cta-row"><button class="btn btn-green" data-to="top">Book a demo →</button></div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-cols">
+      <div class="foot-brand">
+        <div class="brand"><span class="rm">RM</span> Risk Mandate</div>
+        <p>Autonomous risk management for systems that act.</p>
+      </div>
+      <div class="foot-col"><p class="foot-h">PRODUCT</p><span>Risk Acceptance</span><span>The Mandate</span><span>Risk Register</span></div>
+      <div class="foot-col"><p class="foot-h">RESOURCES</p><a class="link" href="partners.html">Partners</a><a class="link" href="library.html">Library</a><a class="link" href="versions.html">Release log</a></div>
+    </div>
+    <div class="foot-bar">
+      <span>© 2026 Risk Mandate · Autonomous risk management for systems that act</span>
+      <span>Surface the risk. Accept it for an interval. Underwrite it to the board.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+var RM={core:{},services:{},components:{},data:{}};
+RM.data.currentPage="acceptance";RM.data.pages=[{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"The problem"},{"name":"acceptable","label":"Accepted is not acceptable","file":"acceptable.html","group":"The problem"},{"name":"acceptance","label":"You own the risk","file":"acceptance.html","group":"The problem"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"The problem"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"The model"},{"name":"agents","label":"Agents","file":"agents.html","group":"The model"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"The model"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"The model"},{"name":"statics","label":"Static scenarios","file":"statics.html","group":"The model"},{"name":"demos","label":"All demos","file":"demos.html","group":"Live demos"},{"name":"demo-licence-to-operate","label":"Licence to Operate","file":"demo-licence-to-operate.html","group":"Live demos"},{"name":"demo-risk-graph-explorer","label":"RiskGraph Explorer","file":"demo-risk-graph-explorer.html","group":"Live demos"},{"name":"demo-agentic-browser-isolation","label":"Agentic Browser Isolation","file":"demo-agentic-browser-isolation.html","group":"Live demos"},{"name":"demo-risk-mandate-field","label":"RiskMandate field demo","file":"demo-risk-mandate-field.html","group":"Live demos"},{"name":"demo-file-security","label":"File security walk","file":"demo-file-security.html","group":"Live demos"},{"name":"demo-agent-permission-games","label":"Permission games","file":"demo-agent-permission-games.html","group":"Live demos"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"library","label":"Library","file":"library.html"},{"name":"partners","label":"Partners","file":"partners.html"},{"name":"feedback","label":"Give feedback","file":"feedback.html"},{"name":"brand","label":"Brand","file":"brand.html"}];RM.data.sections=[];
+
+'use strict';
+// core/risk-queue.js — pure risk-queue domain logic: status init, counts,
+// risk score, per-row view-model, and the accept/info state transition.
+// Zero DOM, zero IO. Dependency: none. Consumed by components/risk-queue.js.
+
+RM.core.riskQueue = (function () {
+  /**
+   * Build the initial status map from the risk records.
+   * @param {Array<{id:string,init:string}>} risks
+   * @returns {Object<string,string>} id -> status
+   */
+  function initialStatus(risks) {
+    var status = {};
+    risks.forEach(function (r) { status[r.id] = r.init; });
+    return status;
+  }
+
+  /**
+   * Tally statuses.
+   * @param {Array<{id:string}>} risks
+   * @param {Object<string,string>} status
+   * @returns {{unaddressed:number,info:number,accepted:number}}
+   */
+  function counts(risks, status) {
+    var c = { unaddressed: 0, info: 0, accepted: 0 };
+    risks.forEach(function (r) {
+      var s = status[r.id];
+      if (s === 'unaddressed') c.unaddressed++;
+      else if (s === 'info_requested') c.info++;
+      else if (s === 'accepted') c.accepted++;
+    });
+    return c;
+  }
+
+  /**
+   * Derived risk score. Known-answer: 1 unaddressed -> 74, 0 -> 38.
+   * @param {{unaddressed:number}} c
+   * @returns {number}
+   */
+  function riskScore(c) { return 38 + 36 * c.unaddressed; }
+
+  /**
+   * View-model for one risk row's meta line: a label string plus the
+   * semantic class applied to the status token. No HTML is produced here.
+   * @param {{tri:string,age:string}} risk
+   * @param {string} status
+   * @returns {{tri:string, statusText:string, statusClass:string, age:(string|null)}}
+   */
+  function rowMeta(risk, status) {
+    if (status === 'info_requested') {
+      return { tri: risk.tri, statusText: 'Info requested', statusClass: 'info', age: null };
+    }
+    if (status === 'accepted') {
+      return { tri: risk.tri, statusText: 'Accepted · 1w', statusClass: 'ok', age: risk.age };
+    }
+    return { tri: risk.tri, statusText: 'Unaddressed', statusClass: 'bad', age: risk.age };
+  }
+
+  /**
+   * Apply an action to a risk, returning a NEW status map (pure — no mutation),
+   * plus the id that should become selected (next unaddressed, else unchanged).
+   * @param {Array<{id:string}>} risks
+   * @param {Object<string,string>} status
+   * @param {string} id
+   * @param {('accepted'|'info_requested')} to
+   * @param {string} currentSel
+   * @returns {{status:Object<string,string>, sel:string}}
+   */
+  function applyAction(risks, status, id, to, currentSel) {
+    var next = Object.assign({}, status);
+    next[id] = to;
+    var nextUn = risks.find(function (r) { return next[r.id] === 'unaddressed'; });
+    return { status: next, sel: nextUn ? nextUn.id : currentSel };
+  }
+
+  return {
+    initialStatus: initialStatus,
+    counts: counts,
+    riskScore: riskScore,
+    rowMeta: rowMeta,
+    applyAction: applyAction
+  };
+})();
+
+
+'use strict';
+// data.js — static app data for the risk-queue demo. App configuration, not
+// fetched content; inlined at build time.
+
+RM.data.risks = [
+  { id: 'RM-001', name: 'agent.invoice-processing', level: 'Critical', tri: '3/3', init: 'unaddressed', age: '72h exposed',
+    ai: 'AGT-003 active 72h with no mandate. Full trifecta. Assign an owner now — this is your highest-priority risk.' },
+  { id: 'RM-002', name: 'agent.erp-procurement', level: 'Critical', tri: '3/3', init: 'accepted', age: '6d remaining',
+    ai: 'Generate a Capability Certificate before the 1w window expires. Remove ERP Write and Payment Auth from scope.' },
+  { id: 'RM-003', name: 'agent.supplier-review', level: 'High', tri: '2/3', init: 'accepted', age: '22d remaining',
+    ai: '2/3 trifecta — no exfiltration path. Risk appropriately managed. Review at next mandate renewal.' }
+];
+
+RM.data.levelColor = { Critical: 'var(--red)', High: 'var(--gold)' };
+
+
+'use strict';
+// components/dom.js — tiny DOM helpers shared by components. `el` builds an
+// element with attributes and children; text children always go in via
+// textContent. `renderMarkdownInto` turns core/markdown tokens into real DOM
+// nodes (never an HTML string), so fetched release notes cannot inject markup.
+
+RM.components.dom = (function () {
+  // A link in a markdown note may only go somewhere harmless: same-document,
+  // same-origin relative, https, or mailto. Anything else — javascript:, data:,
+  // a protocol-relative host — renders as the text it was, and goes nowhere.
+  var SAFE = /^(?:https:\/\/|mailto:|#|[^:/?#]*(?:[/?#]|$))/i;
+
+  /**
+   * @param {string} tag
+   * @param {Object<string,string>} [attrs]
+   * @param {Array<Node|string>} [children]
+   * @returns {HTMLElement}
+   */
+  function el(tag, attrs, children) {
+    var node = document.createElement(tag);
+    if (attrs) Object.keys(attrs).forEach(function (k) {
+      if (attrs[k] != null) node.setAttribute(k, attrs[k]);
+    });
+    (children || []).forEach(function (c) {
+      node.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
+    });
+    return node;
+  }
+
+  /** Render inline runs into a parent element. */
+  function appendRuns(parent, runs) {
+    runs.forEach(function (run) {
+      if      (run.t === 'strong') parent.appendChild(el('strong', null, [run.v]));
+      else if (run.t === 'em')     parent.appendChild(el('em',     null, [run.v]));
+      else if (run.t === 'code')   parent.appendChild(el('code',   null, [run.v]));
+      else if (run.t === 'link')   parent.appendChild(SAFE.test(run.href)
+        ? el('a', { href: run.href }, [run.v])
+        : document.createTextNode(run.v));
+      else parent.appendChild(document.createTextNode(run.v));
+    });
+  }
+
+  /**
+   * Render markdown block tokens into a container as DOM nodes.
+   * @param {HTMLElement} container
+   * @param {Array} blocks  output of RM.core.markdown.parse
+   */
+  function renderMarkdownInto(container, blocks) {
+    blocks.forEach(function (b) {
+      if (b.type === 'heading') {
+        var h = el('h' + (b.level + 1)); // ## release title -> h3, etc.
+        appendRuns(h, b.runs);
+        container.appendChild(h);
+      } else if (b.type === 'list') {
+        var ul = el('ul');
+        b.items.forEach(function (runs) {
+          var li = el('li');
+          appendRuns(li, runs);
+          ul.appendChild(li);
+        });
+        container.appendChild(ul);
+      } else {
+        var p = el('p');
+        appendRuns(p, b.runs);
+        container.appendChild(p);
+      }
+    });
+  }
+
+  return { el: el, appendRuns: appendRuns, renderMarkdownInto: renderMarkdownInto };
+})();
+
+
+'use strict';
+// components/nav.js — the behaviour on a page that is *not* a link.
+//   [data-to]   → smooth in-page scroll to an element id (no hash routing).
+//   [data-demo] → open a pre-filled demo enquiry email.
+//
+// v1.0.0 removed everything else that used to live here. Up to v0.14 the site
+// ran inside a host <iframe> and every navigation was a postMessage — rm-nav,
+// rm-back, rm-manifest, rm-read. A <button> is not a link, so nothing could be
+// deep-linked, bookmarked, opened in a new tab, or crawled. Now each page is
+// the document the server sent and each navigation is an <a href>, so the only
+// things left to wire are the two that genuinely are not navigation.
+//
+// The mobile drawer is still injected rather than templated: one file gives
+// every page a working menu below the header breakpoint, where .navlinks is
+// hidden by CSS.
+
+RM.components.nav = (function () {
+  // Every "Book a demo" control opens a mail client with a subject and a
+  // starting message. One place to change when booking becomes a real form.
+  var DEMO = {
+    to     : 'nrparekh@gmail.com',
+    subject: 'RiskMandate — demo request',
+    body   : [
+      'Hi,',
+      '',
+      'I would like to see a plug profile for one of the agents we already run.',
+      '',
+      'A little about us:',
+      '  • Organisation:',
+      '  • Roughly how many agents we are running:',
+      '  • The agent we would want to look at first:',
+      '  • Anything already in place (register, IdP, detection tooling):',
+      '',
+      'Thanks,'
+    ].join('\n')
+  };
+
+  function demoHref() {
+    return 'mailto:' + DEMO.to +
+      '?subject=' + encodeURIComponent(DEMO.subject) +
+      '&body='    + encodeURIComponent(DEMO.body);
+  }
+
+  function openDemo() { window.location.href = demoHref(); }
+
+  function scrollTo(doc, id) {
+    var t = doc.getElementById(id);
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Inject the hamburger toggle and wire the drawer open/close. Idempotent.
+  function wireMobileNav(doc) {
+    var top = doc.querySelector('.top');
+    if (!top) return;
+    var wrap  = top.querySelector('.wrap');
+    var links = top.querySelector('.navlinks');
+    if (!wrap || !links || top.querySelector('.navtoggle')) return;
+
+    var burger = doc.createElement('button');
+    burger.className = 'navtoggle';
+    burger.setAttribute('type', 'button');
+    burger.setAttribute('aria-label', 'Toggle navigation');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-controls', 'sitenav');
+    for (var i = 0; i < 3; i++) burger.appendChild(doc.createElement('span'));
+    links.id = links.id || 'sitenav';
+    var demo = wrap.querySelector('.demo');
+    if (demo) wrap.insertBefore(burger, demo); else wrap.appendChild(burger);
+
+    function set(open) {
+      top.classList.toggle('nav-open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    burger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      set(!top.classList.contains('nav-open'));
+    });
+    // Following a real nav link closes the drawer; the group header does not.
+    links.addEventListener('click', function (e) {
+      var b = e.target.closest('button, a');
+      if (b && !b.classList.contains('navgroup-btn')) set(false);
+    });
+    doc.addEventListener('click', function (e) {
+      if (top.classList.contains('nav-open') && !top.contains(e.target)) set(false);
+    });
+    doc.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+    var view = doc.defaultView || window;
+    view.addEventListener('resize', function () { if (view.innerWidth > 880) set(false); });
+  }
+
+  /** @param {Document} doc */
+  function wire(doc) {
+    doc.querySelectorAll('[data-to]').forEach(function (elm) {
+      elm.addEventListener('click', function () { scrollTo(doc, elm.getAttribute('data-to')); });
+    });
+    doc.querySelectorAll('[data-demo], .demo').forEach(function (elm) {
+      elm.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); openDemo(); });
+    });
+    wireMobileNav(doc);
+  }
+
+  return { wire: wire, scrollTo: scrollTo, demoHref: demoHref, openDemo: openDemo };
+})();
+
+
+'use strict';
+// components/menu.js — <rm-menu>. The one shared header menu, on every page, so
+// the nav is built by a single piece of code. Renders the homepage's section
+// links first, then the top-level pages, marking the current page active.
+//
+// A run of contiguous pages sharing a `group` string collapses into one entry:
+// a hover/click dropdown labelled by the group, with the members as children. A
+// single-member group renders flat — no dropdown for one item.
+//
+// v1.0.0: every entry is an <a href>. The old menu emitted <button> elements
+// that asked a host frame to swap an iframe's srcdoc, which meant the links did
+// not exist as far as a crawler, a bookmark or a middle-click was concerned.
+// The group header stays a <button> because it opens a panel rather than going
+// anywhere — that is the one control here that is genuinely not a link.
+
+(function () {
+  var dom = RM.components.dom;
+
+  RM.components.Menu = class extends HTMLElement {
+    connectedCallback() {
+      var self = this;
+      this._onDocClick = function (e) {
+        self.querySelectorAll('.navgroup.open').forEach(function (g) {
+          if (!g.contains(e.target)) g.classList.remove('open');
+        });
+      };
+      document.addEventListener('click', this._onDocClick);
+      this._render();
+    }
+    disconnectedCallback() {
+      document.removeEventListener('click', this._onDocClick);
+    }
+
+    // On the homepage a section link scrolls; on any other page it is a link
+    // back to the homepage at that anchor. Same markup either way.
+    _section(s) {
+      var home = !(RM.data && RM.data.currentPage);
+      var a = dom.el('a', { class: 'seclink', href: home ? '#' + s.to : 'index.html#' + s.to }, [s.label]);
+      if (home) a.addEventListener('click', function (e) {
+        e.preventDefault();
+        RM.components.nav.scrollTo(document, s.to);
+      });
+      return a;
+    }
+
+    _pagelink(p, extra) {
+      var active = p.name === (RM.data && RM.data.currentPage);
+      var attrs  = { class: 'pagelink' + (extra ? ' ' + extra : '') + (active ? ' active' : ''), href: p.file };
+      if (active) attrs['aria-current'] = 'page';
+      return dom.el('a', attrs, [p.label]);
+    }
+
+    _group(name, members) {
+      var self    = this;
+      var current = RM.data && RM.data.currentPage;
+      var active  = members.some(function (m) { return m.name === current; });
+      var car     = dom.el('span',   { class: 'navgroup-car', 'aria-hidden': 'true' }, ['▾']);
+      var btn     = dom.el('button', { class: 'navgroup-btn' + (active ? ' active' : ''), type: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false' }, [name, car]);
+      var panel   = dom.el('div',    { class: 'navmenu' }, members.map(function (m) { return self._pagelink(m, 'navchild'); }));
+      var wrap    = dom.el('span',   { class: 'navgroup' + (active ? ' active' : '') }, [btn, panel]);
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = wrap.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      return wrap;
+    }
+
+    _render() {
+      var sections = (RM.data && RM.data.sections) || [];
+      var pages    = (RM.data && RM.data.pages)    || [];
+      var self     = this;
+      this.textContent = '';
+      sections.forEach(function (s) { self.appendChild(self._section(s)); });
+      var i = 0;
+      while (i < pages.length) {
+        var p = pages[i];
+        if (!p.group) { self.appendChild(self._pagelink(p)); i++; continue; }
+        var g = p.group, members = [];
+        while (i < pages.length && pages[i].group === g) { members.push(pages[i]); i++; }
+        if (members.length === 1) self.appendChild(self._pagelink(members[0]));
+        else                      self.appendChild(self._group(g, members));
+      }
+    }
+  };
+
+  customElements.define('rm-menu', RM.components.Menu);
+})();
+
+
+'use strict';
+// components/risk-queue.js — <rm-risk-queue>. The interactive hero terminal.
+// Holds instance state (status map, selection, busy latch); renders rows and
+// the action panel from the pure RM.core.riskQueue selectors. Light DOM so the
+// existing .term/.row CSS applies. Delegated handleEvent; listener removed in
+// disconnectedCallback.
+
+(function () {
+  var dom = RM.components.dom;
+  var core = RM.core.riskQueue;
+
+  RM.components.RiskQueue = class extends HTMLElement {
+    connectedCallback() {
+      this._risks = RM.data.risks;
+      this._levelColor = RM.data.levelColor;
+      this._status = core.initialStatus(this._risks);
+      this._sel = this._risks.length ? this._risks[0].id : null;
+      this._busy = false;
+      this._build();
+      this._render();
+      this.addEventListener('click', this);
+    }
+    disconnectedCallback() { this.removeEventListener('click', this); }
+
+    _build() {
+      var el = dom.el;
+      var bar = el('div', { class: 'term-bar' }, [
+        el('span', { class: 'lights' }, [el('i', { class: 'l1' }), el('i', { class: 'l2' }), el('i', { class: 'l3' })]),
+        el('span', { class: 'ttl' }, ['risk-mandate · risk-queue']),
+        el('span', { class: 'live' }, [el('i'), ' LIVE'])
+      ]);
+      var defs = [['un', 'Unaddressed', 'var(--red)'], ['info', 'Info Req.', 'var(--gold)'],
+                  ['acc', 'Accepted', 'var(--green-2)'], ['score', 'Risk score', '#5b9dff']];
+      this._stat = {};
+      var stats = el('div', { class: 'stats' }, defs.map(function (d) {
+        var num = el('div', { class: 'num', style: 'color:' + d[2] }, ['0']);
+        this._stat[d[0]] = num;
+        return el('div', { class: 'stat' }, [num, el('div', { class: 'lab' }, [d[1]])]);
+      }, this));
+      this._qhead = el('div', { class: 'qhead' }, ['']);
+      this._rows = el('div', { class: 'rows' });
+      this._action = el('div', { class: 'action' });
+      var term = el('section', { class: 'term', 'aria-label': 'Risk queue (interactive)' },
+        [bar, stats, this._qhead, this._rows, this._action]);
+      this.appendChild(term);
+    }
+
+    _render() {
+      var c = core.counts(this._risks, this._status);
+      this._stat.un.textContent = c.unaddressed;
+      this._stat.info.textContent = c.info;
+      this._stat.acc.textContent = c.accepted;
+      this._stat.score.textContent = core.riskScore(c);
+      this._qhead.textContent = 'RISK QUEUE · ' + c.unaddressed + ' UNADDRESSED';
+
+      this._rows.textContent = '';
+      var self = this;
+      this._risks.forEach(function (r) {
+        var meta = core.rowMeta(r, self._status[r.id]);
+        var metaEl = dom.el('div', { class: 'meta' }, [meta.tri + ' trifecta · ']);
+        metaEl.appendChild(dom.el('span', { class: meta.statusClass }, [meta.statusText]));
+        if (meta.age) metaEl.appendChild(document.createTextNode(' · ' + meta.age));
+        var dotColor = self._status[r.id] === 'unaddressed' ? 'var(--red)' : 'var(--green-2)';
+        var row = dom.el('div', { class: 'row' + (r.id === self._sel ? ' sel' : ''), 'data-id': r.id }, [
+          dom.el('span', { class: 'dot', style: 'background:' + dotColor }),
+          dom.el('div', { class: 'rbody' }, [dom.el('div', { class: 'name' }, [r.name]), metaEl]),
+          dom.el('span', { class: 'lvl', style: 'color:' + (self._levelColor[r.level] || 'var(--fg-2)') }, [r.level])
+        ]);
+        self._rows.appendChild(row);
+      });
+
+      this._action.textContent = '';
+      if (c.unaddressed === 0) {
+        this._action.appendChild(dom.el('div', { class: 'cleared' }, [
+          dom.el('div', { class: 'big' }, ['✓ Risk queue cleared']),
+          dom.el('div', { class: 'sm' }, ['Every agent has an owner and a decision. Review on expiry.'])
+        ]));
+        return;
+      }
+      var r = this._risks.find(function (x) { return x.id === self._sel; });
+      var actionable = this._status[this._sel] === 'unaddressed';
+      this._action.appendChild(dom.el('div', { class: 'ai' }, [
+        dom.el('div', { class: 'lab' }, ['✦ AI RECOMMENDATION']),
+        dom.el('p', null, [r ? r.ai : ''])
+      ]));
+      var accept = dom.el('button', { class: 'accept' }, ['Accept for 1 Week']);
+      var info = dom.el('button', { class: 'info' }, ['Request Info']);
+      if (!actionable) { accept.disabled = true; info.disabled = true; }
+      this._action.appendChild(dom.el('div', { class: 'acts' }, [accept, info]));
+    }
+
+    handleEvent(e) {
+      if (this._busy) return;
+      var btn = e.target.closest('.accept, .info');
+      if (btn && !btn.disabled) {
+        this._act(this._sel, btn.classList.contains('accept') ? 'accepted' : 'info_requested');
+        return;
+      }
+      var row = e.target.closest('.row');
+      if (row) { this._sel = row.getAttribute('data-id'); this._render(); }
+    }
+
+    _act(id, to) {
+      this._busy = true;
+      var res = core.applyAction(this._risks, this._status, id, to, this._sel);
+      this._status = res.status;
+      this._sel = res.sel;
+      var self = this;
+      setTimeout(function () { self._busy = false; self._render(); }, 420);
+      this._render();
+    }
+  };
+
+  customElements.define('rm-risk-queue', RM.components.RiskQueue);
+})();
+
+
+'use strict';
+// components/window-picker.js — <rm-window-picker>. Risk-acceptance window
+// selector (from the v0.4 redesign): pick a window length and see the severity
+// framing it implies and what the acceptance creates. Light DOM, instance state.
+
+(function () {
+  var dom = RM.components.dom;
+  var WINDOWS = [
+    { id: '1h', sev: 'Catastrophic', tone: 'red',  desc: 'Revoke access immediately.' },
+    { id: '4h', sev: 'P0',           tone: 'red',  desc: 'Same-day resolution required.' },
+    { id: '1d', sev: 'Sprint',       tone: 'gold', desc: 'Engineering sprint to fix.' },
+    { id: '1w', sev: 'Project',      tone: 'gold', desc: 'Funded project with an owner.' },
+    { id: '1m', sev: 'Program',      tone: 'blue', desc: 'Cross-team program required.' },
+    { id: '6m', sev: 'Deferred',     tone: 'green', desc: 'Explicit deferral — visible, owned, expiring.' }
+  ];
+
+  RM.components.WindowPicker = class extends HTMLElement {
+    connectedCallback() {
+      this._sel = '1w';
+      this._grid = dom.el('div', { class: 'wp-grid' });
+      this._detail = dom.el('div', { class: 'wp-detail' });
+      this.appendChild(dom.el('div', { class: 'wp' }, [this._grid, this._detail]));
+      this._render();
+      this.addEventListener('click', this);
+    }
+    disconnectedCallback() { this.removeEventListener('click', this); }
+
+    _render() {
+      var self = this;
+      this._grid.textContent = '';
+      WINDOWS.forEach(function (w) {
+        var btn = dom.el('button', {
+          class: 'wp-opt tone-' + w.tone + (w.id === self._sel ? ' sel' : ''),
+          'data-id': w.id, type: 'button'
+        }, [dom.el('span', { class: 'wp-id' }, [w.id]), dom.el('span', { class: 'wp-sev' }, [w.sev])]);
+        self._grid.appendChild(btn);
+      });
+      var w = WINDOWS.find(function (x) { return x.id === self._sel; });
+      this._detail.textContent = '';
+      this._detail.className = 'wp-detail tone-' + w.tone;
+      this._detail.appendChild(dom.el('p', { class: 'wp-title' }, [w.sev + ' window']));
+      this._detail.appendChild(dom.el('p', { class: 'wp-desc' }, [w.desc]));
+      this._detail.appendChild(dom.el('div', { class: 'wp-creates' }, [
+        dom.el('p', { class: 'wp-k' }, ['CREATES']),
+        dom.el('p', { class: 'wp-v' }, ['Owner · Justification · Expiry · Funding'])
+      ]));
+    }
+    handleEvent(e) {
+      var opt = e.target.closest('.wp-opt');
+      if (opt) { this._sel = opt.getAttribute('data-id'); this._render(); }
+    }
+  };
+
+  customElements.define('rm-window-picker', RM.components.WindowPicker);
+})();
+
+
+'use strict';
+// boot.js — inner-page composition root (version builds and dev.html). Custom
+// elements self-register on load; here we wire document-level nav behaviour.
+// The page runs inside the host's stage frame, so the host (not this page) signals
+// the SG/App host that the app is ready.
+
+(function () {
+  function start() { RM.components.nav.wire(document); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
+})();
+
+})();
+</script>
+</body>
+</html>

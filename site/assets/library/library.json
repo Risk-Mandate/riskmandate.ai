@@ -1,0 +1,415 @@
+{
+  "library": {
+    "title": "RiskMandate — Library",
+    "tagline": "The concepts and the approach behind autonomous risk management.",
+    "intro": "A working set of the ideas RiskMandate is built on — what an agent is authorised to do, how that authority is scoped and owned, how the residual risk is accepted, and how the whole picture is modelled. Each piece is a short read with the original infographic. Start at the top; the pieces build on each other.",
+    "version": "0.1.0"
+  },
+  "themes": [
+    {
+      "id": "core",
+      "title": "The core idea",
+      "blurb": "What an agent can do — and why that is the thing to measure."
+    },
+    {
+      "id": "scope",
+      "title": "Scoping authority",
+      "blurb": "Making the grant precise, declared, and inspectable."
+    },
+    {
+      "id": "decision",
+      "title": "The risk decision",
+      "blurb": "Turning the blast radius into a time-bound choice someone owns."
+    },
+    {
+      "id": "model",
+      "title": "Modelling reality",
+      "blurb": "How the picture stays faithful to a real business."
+    },
+    {
+      "id": "approach",
+      "title": "The approach",
+      "blurb": "Where this sits, and how it is built."
+    }
+  ],
+  "articles": [
+    {
+      "id": 1,
+      "n": 1,
+      "slug": "agent-authorisation-blast-radius",
+      "theme": "core",
+      "title": "The blast radius",
+      "tag": "Concept",
+      "dek": "What your agent can do — not what it did.",
+      "infographic": "agent-authorisation-blast-radius.png",
+      "sections": [
+        {
+          "h": "A different question",
+          "p": "Most tooling tells you what an agent <em>did</em> — a log, after the fact. That is the wrong unit for risk. The question that actually matters is what an agent <em>can</em> do: the entire universe of outcomes its permissions make possible, whether or not it has exercised them yet."
+        },
+        {
+          "h": "The blast radius",
+          "p": "That universe is the blast radius — the reach of an agent's authority, from cannot-do-anything to can-go-nuclear. It is set the moment the permissions are granted, not the moment something goes wrong. Map it, and you are looking at risk before an incident rather than reading about it after one."
+        },
+        {
+          "h": "Why it is the right unit",
+          "p": "An agent with database write, payment authority, and an outbound network path is a critical exposure on day one — silent, but real. Measuring the blast radius makes that exposure visible while it can still be scoped, owned, or removed."
+        }
+      ],
+      "related": [
+        "naming-the-mandate",
+        "framing-the-sla",
+        "risk-acceptance"
+      ],
+      "source": "foundations/briefs/agentic-permissions/…agent-authorisation-blast-radius"
+    },
+    {
+      "id": 2,
+      "n": 2,
+      "slug": "naming-the-mandate",
+      "theme": "core",
+      "title": "The mandate",
+      "tag": "Concept",
+      "dek": "Why the bundle is a mandate, not a passport.",
+      "infographic": "naming-the-mandate.png",
+      "sections": [
+        {
+          "h": "The bundle",
+          "p": "An agent's authority is not one thing. It is the union of its identities, its credentials, and its capabilities — everything it can be and everything it can do, taken together. Reason about those separately and you miss the exposure that only exists in the combination."
+        },
+        {
+          "h": "Why “mandate”",
+          "p": "A passport is singular, static, and about proving who you are — authentication. What an agent holds is plural, dynamic, and about what it is permitted to do — authorisation. That is a mandate: a granted authority to act, of a defined scope, on someone's behalf."
+        },
+        {
+          "h": "What the name unlocks",
+          "p": "Once the bundle is a mandate, it becomes a thing you can scope, assign an owner to, put an expiry on, and revoke — the vocabulary every other risk discipline already uses. Naming it correctly is what lets the rest of the model work."
+        }
+      ],
+      "related": [
+        "agent-authorisation-blast-radius",
+        "permission-granularity"
+      ],
+      "source": "foundations/briefs/agentic-permissions/…naming-the-agent-authorisation-bundle"
+    },
+    {
+      "id": 3,
+      "n": 3,
+      "slug": "permission-granularity",
+      "theme": "scope",
+      "title": "Permission granularity",
+      "tag": "Concept",
+      "dek": "Skills are code — and OAuth is not enough.",
+      "infographic": "permission-granularity.png",
+      "sections": [
+        {
+          "h": "Skills are code",
+          "p": "Agent skills have become extraordinarily powerful because they are code — and English is code now too. Any unit that powerful has to declare the permissions it needs, or it runs riot. That applies to the package, the skill, the agent, and the tool alike."
+        },
+        {
+          "h": "Why OAuth falls short",
+          "p": "OAuth grants access at the scope of an application — coarse, and blind to what happens after the token is issued. It cannot express “this skill may read these records for four hours and nothing else.” Capability-level granularity is a different resolution of the same problem."
+        },
+        {
+          "h": "Every unit declares its needs",
+          "p": "The fix is a permissions manifest travelling with each unit of execution: what it needs, why, and for how long. Minimum required access, made explicit, becomes something you can check rather than hope for."
+        }
+      ],
+      "related": [
+        "permissions-bom",
+        "naming-the-mandate"
+      ],
+      "source": "foundations/briefs/agentic-permissions/…skills-as-code-permission-granularity"
+    },
+    {
+      "id": 4,
+      "n": 4,
+      "slug": "permissions-bom",
+      "theme": "scope",
+      "title": "The permissions bill of materials",
+      "tag": "Concept",
+      "dek": "An SBOM, but for permissions — because permissions gate exploitability.",
+      "infographic": "permissions-bom.png",
+      "sections": [
+        {
+          "h": "SBOM worked",
+          "p": "The software bill of materials was a dramatic success: knowing exactly what is inside a system changed how it could be secured. The criticisms of SBOM are about implementation — too coarse, not real-time, not interconnected — not about the idea."
+        },
+        {
+          "h": "The same idea, for permissions",
+          "p": "A permissions bill of materials applies that proven concept to authority. Permissions are what gate exploitability: a vulnerability you cannot reach is not a live risk, and a permission you never needed is one. Inventory them the way SBOM inventories components."
+        },
+        {
+          "h": "Fixing the known gaps",
+          "p": "Built right, a PSBOM is real-time, graphical, interconnected, and reachability-aware — the things SBOM was criticised for lacking. It becomes the raw material for the blast radius rather than a static list nobody reads."
+        }
+      ],
+      "related": [
+        "permission-granularity",
+        "graphs-of-graphs"
+      ],
+      "source": "foundations/briefs/agentic-permissions/…permissions-bill-of-materials"
+    },
+    {
+      "id": 5,
+      "n": 5,
+      "slug": "framing-the-sla",
+      "theme": "decision",
+      "title": "The terms you already accepted",
+      "tag": "Concept",
+      "dek": "The blast radius is the SLA — made explicit.",
+      "infographic": "framing-the-sla.png",
+      "sections": [
+        {
+          "h": "Click-accept, unread",
+          "p": "Every time an agent is given access, someone accepts an enormous set of terms — and nobody reads them. The authority to corrupt a database, delete it, move money, or send mail to the outside world is granted with a single click."
+        },
+        {
+          "h": "Make it the SLA",
+          "p": "RiskMandate turns that implicit acceptance into an explicit one: the blast radius <em>is</em> the service-level agreement you accept when you grant access. Not buried in a contract — laid out as the plain list of what you are authorising."
+        },
+        {
+          "h": "Deliberately legible",
+          "p": "Written out, the list is often alarming, and that is the point. You cannot decide to accept, fund, or reduce a risk you were never shown. Legibility is the precondition for a real decision."
+        }
+      ],
+      "related": [
+        "agent-authorisation-blast-radius",
+        "risk-acceptance"
+      ],
+      "source": "foundations/briefs/agentic-permissions/…framing-the-sla"
+    },
+    {
+      "id": 6,
+      "n": 6,
+      "slug": "risk-acceptance",
+      "theme": "decision",
+      "title": "Risk acceptance",
+      "tag": "Concept",
+      "dek": "You underwrite the blast radius. You do not predict it.",
+      "infographic": "risk-acceptance.png",
+      "sections": [
+        {
+          "h": "Underwrite, don’t predict",
+          "p": "The pillar that makes the whole model work is acceptance. You are not forecasting the probability of something going wrong — you are asking an accountable owner to underwrite the exposure, insurance-style. The executive is accountable, so accepting is underwriting."
+        },
+        {
+          "h": "The risk already exists",
+          "p": "The exposure is created the instant the permission is provisioned, not when it is used. So the real variable is not <em>whether</em> — it is <em>how long</em>: how long the owner accepts this mandate before it must be re-assessed."
+        },
+        {
+          "h": "Accept, fund, or fix",
+          "p": "Every mandate gets a time-bound decision from a named owner: accept the residual risk for a defined window, fund the work to reduce it, or fix it now. There is no deny button — accept, and revisit on expiry. Acceptance is what manufactures the budget and the ownership to actually reduce risk."
+        }
+      ],
+      "related": [
+        "framing-the-sla",
+        "agent-authorisation-blast-radius",
+        "side-effects"
+      ],
+      "source": "foundations/briefs/agentic-permissions/…risk-acceptance-underwriting"
+    },
+    {
+      "id": 7,
+      "n": 7,
+      "slug": "side-effects",
+      "theme": "model",
+      "title": "Second- and third-order effects",
+      "tag": "Concept",
+      "dek": "Follow the reach, and speak the owner's language.",
+      "infographic": "side-effects.png",
+      "sections": [
+        {
+          "h": "Beyond the first hop",
+          "p": "A permission's real impact is rarely one step away. Connect the blast radius to the risks it creates and to the people who own the affected assets, and the second- and third-order effects — a downstream system, a supplier, a regulated record — come into view."
+        },
+        {
+          "h": "In the recipient’s language",
+          "p": "Those owners are accountable for assets a third party can now affect, and they each live in a different world: supply chain, finance, HR, strategy, regulation. The same exposure has to be described in the language, role, and culture of whoever must accept it."
+        },
+        {
+          "h": "Fact-driven",
+          "p": "None of this is speculation. Each claimed effect is tied to evidence — a real permission, a real reachable asset — so the conversation is about facts and certainty, not fear."
+        }
+      ],
+      "related": [
+        "graphs-of-graphs",
+        "agent-authorisation-blast-radius"
+      ],
+      "source": "foundations/briefs/agentic-permissions/…second-third-order-side-effects"
+    },
+    {
+      "id": 8,
+      "n": 8,
+      "slug": "graphs-of-graphs",
+      "theme": "model",
+      "title": "Graphs of graphs",
+      "tag": "Concept",
+      "dek": "Mapping reality, not complexity.",
+      "infographic": "graphs-of-graphs.png",
+      "sections": [
+        {
+          "h": "Reality is nested",
+          "p": "Mapping what an agent can do means mapping reality — and reality is graphs of graphs, ontologies of ontologies. The moment you add business context, every company and every division has its own taxonomies and its own graphs; a node in one is a whole graph in another."
+        },
+        {
+          "h": "Not complexity for its own sake",
+          "p": "This is not modelling complexity because it is clever; it is refusing to flatten a picture that is genuinely nested. A single, flat list cannot hold “this capability, in this system, owned by this team, touching this regulated data.” A fractal graph can."
+        },
+        {
+          "h": "The substrate",
+          "p": "Graphs of graphs are the substrate the whole model rests on: the blast radius, the permissions inventory, the owners, and the risk decisions are all nodes and edges in one connected picture that stays faithful to the business it describes."
+        }
+      ],
+      "related": [
+        "side-effects",
+        "permissions-bom"
+      ],
+      "source": "foundations/briefs/agentic-permissions/…graphs-of-graphs"
+    },
+    {
+      "id": 9,
+      "n": 9,
+      "slug": "wardley-maps",
+      "theme": "approach",
+      "title": "Wardley maps",
+      "tag": "Approach",
+      "dek": "Productising and commoditising — and why we are in Explorer.",
+      "infographic": "wardley-maps.png",
+      "sections": [
+        {
+          "h": "Situational awareness first",
+          "p": "Before deciding what to build, map the landscape. A Wardley map of the current permissions-and-risk terrain shows what is worth productising and what is worth commoditising — the single most useful strategic exercise for a new category."
+        },
+        {
+          "h": "Today: genesis and custom-built",
+          "p": "Map it and the picture is stark: agent permissions and risk are handled today at genesis-stage maturity, custom-built per company, with hope-driven development in plain view. Low maturity everywhere the map is drawn."
+        },
+        {
+          "h": "The move",
+          "p": "The strategy is to commoditise the map itself — a standard way to see agent authority and its blast radius — and compete on the value built on top, not on locking up the primitive. That is why the work is deliberately in the Explorer stage."
+        }
+      ],
+      "related": [
+        "open-source-strategy",
+        "risk-acceptance"
+      ],
+      "source": "foundations/briefs/2026-06-19/…wardley-maps"
+    },
+    {
+      "id": 10,
+      "n": 10,
+      "slug": "open-source-strategy",
+      "theme": "approach",
+      "title": "Open by default",
+      "tag": "Approach",
+      "dek": "Everything open. The line is at the customer.",
+      "infographic": "open-source-strategy.png",
+      "sections": [
+        {
+          "h": "No proprietary core",
+          "p": "The code, the logic, the functionality, and the schemas are open source. There is no hidden core and no bait model where the best features are locked away. A standard for seeing agent risk only works if the standard is open."
+        },
+        {
+          "h": "The line at the customer",
+          "p": "The one boundary is the customer edge: a customer's own customisations, their data, their schemas, and anything under a privacy or commercial agreement stay private to them. Everything up to that line is shared."
+        },
+        {
+          "h": "Why it is the strategy",
+          "p": "Trust and adoption compound when nobody has to take the tool on faith. Think of it as OpenTelemetry for agent risk: an open, common substrate everyone can inspect, with the value competed for in what gets built on top."
+        }
+      ],
+      "related": [
+        "wardley-maps",
+        "framing-the-sla"
+      ],
+      "source": "foundations/briefs/agentic-permissions/…open-source-strategy"
+    },
+    {
+      "n": 11,
+      "slug": "recoverability",
+      "theme": "decision",
+      "img": false,
+      "title": "Recoverability",
+      "tag": "The hard limit",
+      "dek": "The one dimension money cannot buy back — and the reason two risks with identical impact scores are not the same object.",
+      "sections": [
+        {
+          "h": "Four dimensions describe stopping. The fifth describes what stopping cannot fix.",
+          "p": "When you ask what it costs to stop an agent, four of the answers are about the act of stopping: who can do it, what else goes down, how fast it can happen, and what the stop itself breaks. Recoverability is different in kind. It asks how much of the damage comes back afterwards, and it should be read <em>first</em>, because it decides how much the other four are worth."
+        },
+        {
+          "h": "Most risk is quietly recoverable",
+          "p": "You stop the thing, clean up, restore from backup, refund the customer. With enough time and money the state is repaired. This is the ordinary case, and it is why organisations have been able to run on impact scores for as long as they have: when everything can be undone, severity really is the whole story."
+        },
+        {
+          "h": "A serious class is not",
+          "p": "Data that has left the boundary cannot be un-sent. Destroyed data with no clean backup does not come back. A payment that cleared, a message that reached a customer, a physical or environmental event — none of these can be recalled at any price. For this class, all of the plug's value is spent <em>before</em> the event, because afterwards pulling it changes nothing that already happened."
+        },
+        {
+          "h": "It reorders the queue",
+          "p": "Here is the consequence people find uncomfortable: for irreversible risk, recoverability outranks likelihood and impact. A catastrophic-but-fully-recoverable risk and a smaller irreversible one are different objects, and treating them as equivalent because their impact scores match is the most common and most expensive error in the discipline. A register sorted by severity will keep producing decisions that feel wrong to the people who have to sign them, and this is why."
+        },
+        {
+          "h": "What it changes in practice",
+          "p": "Two things. First, the spend moves: where recoverability is zero, prevention is the only lever that works, and money spent on faster detection buys less than it appears to. Second, the interval shortens — you cannot reasonably carry an irreversible exposure for six months on the grounds that it is unlikely."
+        },
+        {
+          "h": "The question to take away",
+          "p": "Ask it of one agent already running in production: <em>if this does the wrong thing, how much of it can we undo?</em> If the answer is not known, that is the finding. If the answer is none, you have just identified the risk that should have been at the top of the register all along."
+        }
+      ],
+      "related": [
+        "risk-acceptance",
+        "side-effects",
+        "agent-authorisation-blast-radius"
+      ],
+      "source": "who-can-pull-the-plug series — what money cannot buy back"
+    },
+    {
+      "n": 12,
+      "slug": "accepted-is-not-acceptable",
+      "theme": "decision",
+      "img": false,
+      "title": "Accepted is not acceptable",
+      "tag": "The distinction",
+      "dek": "One is an act somebody performs. The other is a line the business draws. They are orthogonal — which gives four real states, not two.",
+      "sections": [
+        {
+          "h": "Two words, used interchangeably, meaning different things",
+          "p": "<em>Accepted</em> is an act: somebody with the standing to do it says they carry this risk. It attaches to a named role, carries a date, and runs for an interval. <em>Acceptable</em> is a threshold: the level at which the business is content to stop funding remediation. One is an event, the other is a line."
+        },
+        {
+          "h": "Why that definition of acceptable is the useful one",
+          "p": "Defining acceptable as the point where the business stops funding remediation is better than any textbook version for one reason: it is falsifiable. An organisation that cannot say when it would stop spending has not defined an acceptable level, whatever its policy documents claim. You can test the claim in a single question."
+        },
+        {
+          "h": "They are orthogonal, not sequential",
+          "p": "The common error is to treat these as two points on one line — work the risk down until it becomes acceptable, then accept it. They are independent properties, and all four combinations occur constantly. Unowned and above the line is the dangerous state. Owned and above the line is the normal state of a live programme. Below the line but unowned looks finished and cannot be relied upon. Owned and below the line is the end state, and the only one in which stopping is defensible."
+        },
+        {
+          "h": "Different failures, different fixes",
+          "p": "This is the practical payoff of separating them. A missing acceptance is an <em>ownership</em> problem — somebody needs to put their name to it. A missing acceptable line is a <em>governance</em> problem — the business has never said where enough is enough. They look similar on a register and they are fixed by completely different people."
+        },
+        {
+          "h": "Acceptable is risk appetite under a more useful name",
+          "p": "\"We have a low appetite for operational risk\" cannot be acted on: nobody knows what it forbids and no piece of work stops because of it. \"Below this level, we stop funding remediation\" can be acted on today. Naming appetite as an acceptable level turns a sentiment into the instruction that stops work — which is the only kind of instruction that actually frees budget."
+        },
+        {
+          "h": "The regulation mandates the judgement, not the word",
+          "p": "The EU AI Act requires that residual risk be judged acceptable, and requires testing against thresholds defined in advance — while never defining <em>acceptable</em> anywhere in its own definitions. The obligation is imposed; the standard is not supplied. So you must decide your line and show that you decided, and never having defined it is itself a first-class risk: a risk about your own risk management. (Factual, not legal advice.)"
+        },
+        {
+          "h": "The probe that needs no tooling",
+          "p": "Compare the line you declare with where remediation actually stopped last year. The gap between declared and revealed appetite is answerable from decisions you have already made, and it is almost never answered. It is the fastest honest read on whether a risk function is doing what it says."
+        }
+      ],
+      "related": [
+        "risk-acceptance",
+        "recoverability",
+        "naming-the-mandate"
+      ],
+      "source": "accepted-is-not-acceptable — orthogonal axes, appetite renamed"
+    }
+  ]
+}

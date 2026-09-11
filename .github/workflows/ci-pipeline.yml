@@ -1,10 +1,17 @@
 name: CI Pipeline
 
-# One pipeline: bump the version tag, THEN build the site from the vault and
-# deploy it to GitHub Pages — so the deploy always happens after the tag commit.
-#   push to dev   → minor tag bump, then deploy
-#   push to main  → major tag bump, then deploy
-#   workflow_dispatch → deploy only (no tag bump), runnable against any branch
+# One pipeline: check the site, tag the release, then deploy — so the deploy
+# always happens after the tag.
+#
+# Since v1.0.0 the version is DECLARED, not incremented. Every change to the
+# site ships as a release someone wrote notes for (`node scripts/site/release.mjs
+# <version> "<title>"`), so CI has nothing to bump: it checks that the version in
+# the pages, in site/versions/index.json and in riskmandate_ai/version all agree,
+# tags that commit v<version> if the tag does not exist yet, and deploys.
+#
+# There is also no build step and no vault in the path: site/ is what gets
+# served, byte for byte. The only thing CI asks of it is that its generated
+# files (the markdown twins, sitemap, llms.txt, 404) are current.
 on:
   push:
     branches:
@@ -14,13 +21,9 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write     # git__increment-tag commits the version bump + tag
-  pages: write        # deploy to GitHub Pages
+  contents: write     # push the release tag
+  pages   : write     # deploy to GitHub Pages
   id-token: write     # deploy to GitHub Pages
-
-env:
-  PACKAGE_NAME: 'riskmandate_ai'          # where git__increment-tag reads/writes `version`
-  GIT__BRANCH : ${{ github.ref_name }}
 
 # One Pages deploy at a time; don't cancel an in-flight deploy.
 concurrency:
@@ -28,45 +31,65 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  increment-tag:
-    name: Increment Tag
+  check:
+    name: Check site
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      # main → major, dev → minor. Skipped on manual dispatch (deploy-only).
-      - name: Increment Tag
-        if: github.event_name == 'push'
-        uses: owasp-sbot/OSBot-GitHub-Actions/.github/actions/git__increment-tag@dev
+      - uses: actions/setup-node@v4
         with:
-          release_type: ${{ github.ref_name == 'main' && 'major' || 'minor' }}
+          node-version: '22'
+
+      - name: Site checks
+        run: node --test tests/site/*.mjs
+
+      - name: Generated files are current
+        run: node scripts/site/generate.mjs --check
+
+  tag:
+    name: Tag release
+    runs-on: ubuntu-latest
+    needs: [check]
+    if: github.event_name == 'push'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # The tag names the commit each release was built from — which is what
+      # site/versions/index.json points at. Already tagged is not a failure:
+      # several pushes can land on one release while the notes are edited.
+      - name: Tag this commit with the declared version
+        run: |
+          VERSION=$(node -p "require('./site/versions/index.json').latest")
+          if git rev-parse -q --verify "refs/tags/v$VERSION" >/dev/null; then
+            echo "v$VERSION already tagged — nothing to do."
+          else
+            git config user.name  "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git tag -a "v$VERSION" -m "v$VERSION"
+            git push origin "v$VERSION"
+          fi
 
   build:
-    name: Build site from vault
+    name: Package site
     runs-on: ubuntu-latest
-    needs: [increment-tag]
+    # After the tag, always — a deploy that beat its own tag would leave the
+    # live site claiming a version with nothing to resolve it to. `tag` is
+    # skipped on manual dispatch, which is not a reason to skip the deploy.
+    needs: [check, tag]
+    if: always() && needs.check.result == 'success' && needs.tag.result != 'failure'
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.ref_name }}      # branch tip, incl. the tag-bump commit
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-
-      - name: Install publisher dependencies
-        run: pip install -r vault_publisher/requirements.txt
-
-      - name: Publish vault → .public-generated-files/
-        run: python vault_publisher/publish.py
 
       - name: Disable Jekyll processing
-        run: touch .public-generated-files/.nojekyll
+        run: touch site/.nojekyll
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .public-generated-files
+          path: site
 
   deploy:
     name: Deploy to GitHub Pages
@@ -74,7 +97,7 @@ jobs:
     needs: [build]
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url : ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy
         id: deployment

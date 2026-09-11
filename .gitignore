@@ -165,7 +165,8 @@ venv.bak/
 .ropeproject
 
 # mkdocs documentation
-/site
+# (the Python template ignores /site here — this repo's site/ IS the website,
+#  and is committed. There is no mkdocs.)
 
 # mypy
 .mypy_cache/
@@ -217,11 +218,9 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
-# Generated static site — built from the vault by vault_publisher in CI.
-# Not committed: the vault is the source of truth (see vault_publisher/README.md).
+# Left over from before v1.0.0, when CI built the site by cloning an SG/Vault.
+# site/ is the deployed tree now and IS committed; nothing generates it.
 .public-generated-files/
-
-# Working clone of the vault, created by vault_publisher during a build.
 .vault-clone/
 
 # Seeded design-canvas payload — generated, embeds the editor (~2.6MB).

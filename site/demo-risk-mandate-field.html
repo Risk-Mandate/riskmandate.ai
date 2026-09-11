@@ -1,0 +1,1076 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RiskMandate — the field demo, live</title>
+<meta name="description" content="Eight questions to a risk register, built to be handed to a stranger on an iPad — and an app that uses an LLM without ever holding the API key. Live in this page with a published read-only key.">
+<link rel="canonical" href="https://riskmandate.ai/demo-risk-mandate-field.html">
+<link rel="alternate" type="text/markdown" href="demo-risk-mandate-field.md" title="This page as markdown">
+<link rel="icon" href="assets/brand/riskmandate-favicon-32.png" sizes="32x32">
+<link rel="icon" href="assets/brand/riskmandate-mark.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RiskMandate">
+<meta property="og:url" content="https://riskmandate.ai/demo-risk-mandate-field.html">
+<meta property="og:title" content="RiskMandate — the field demo, live">
+<meta property="og:description" content="Eight questions to a risk register, built to be handed to a stranger on an iPad — and an app that uses an LLM without ever holding the API key. Live in this page with a published read-only key.">
+<meta property="og:image" content="https://riskmandate.ai/assets/brand/riskmandate-lockup-light.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- v1.0.0. Reconstructed from SG/Vault 7rfetjwz at v0.14.0;
+     see versions/1.0.0.md. Edited directly from here on — there is no build step. -->
+<style>
+/* demos.css - live vault demos page. Canonical shell (tokens, header, dropdowns,
+   mobile drawer) plus the embed cards. */
+:root{
+  --bg:#F7F6F2; --bg2:#EFEDE7; --card:#FFFFFF; --ink:#0D0D0C; --canvas:#0A0A09;
+  --text:#1A1917; --muted:#4A4845; --faint:#8A8780; --border:#E2DFD8;
+  --green:#1A7F5A; --green-2:#22c55e; --greenBg:#EBF5F0;
+  --gold:#B45309; --red:#C0392B; --blue:#1D4ED8;
+  --fg:#F7F6F2; --fg-2:rgba(247,246,242,.55); --fg-3:rgba(247,246,242,.32);
+  --line:rgba(247,246,242,.10); --line-2:rgba(247,246,242,.18);
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","JetBrains Mono","Roboto Mono",Menlo,Consolas,monospace;
+  --wrap:1000px; --r:10px; --r-sm:8px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth} @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+
+/* header — light theme, identical to the version pages (one look everywhere) */
+.top{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.top .wrap{display:flex;align-items:center;gap:22px;height:56px;max-width:1100px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:15px;color:var(--text);cursor:pointer;white-space:nowrap}
+.brand:hover{color:var(--text)}
+.rm{width:26px;height:26px;flex:none;display:block}
+.rm svg{width:100%;height:100%;display:block}
+.navlinks{display:flex;align-items:center;gap:22px;margin-left:auto}
+rm-menu{display:contents}
+.navlinks button{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap}
+.navlinks button:hover{color:var(--text)}
+.pagelink.active{color:var(--text);font-weight:600}
+
+/* nav dropdowns (desktop) — must match the other pages; the mobile drawer
+   below restyles these for narrow viewports. */
+.navgroup{position:relative;display:inline-flex;align-items:center}
+.navgroup::after{content:"";position:absolute;top:100%;left:0;right:0;height:10px}
+.navgroup-btn{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;display:inline-flex;align-items:center;gap:5px}
+.navgroup-btn:hover,.navgroup:hover .navgroup-btn,.navgroup.open .navgroup-btn,.navgroup.active .navgroup-btn{color:var(--text)}
+.navgroup-car{font-size:8px;line-height:1;opacity:.6;transition:transform .15s}
+.navgroup:hover .navgroup-car,.navgroup.open .navgroup-car{transform:rotate(180deg)}
+.navmenu{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);min-width:184px;background:var(--card);border:1px solid var(--border);border-radius:10px;box-shadow:0 10px 34px rgba(13,13,12,.14);padding:6px;display:none;flex-direction:column;gap:2px;z-index:70}
+.navgroup:hover .navmenu,.navgroup.open .navmenu{display:flex}
+.navmenu .navchild{justify-content:flex-start;text-align:left;width:100%;padding:8px 12px;border-radius:7px;font-size:13.5px;color:var(--muted);white-space:nowrap}
+.navmenu .navchild:hover{background:var(--bg2,#EFEDE7);color:var(--text)}
+.navmenu .navchild.active{color:var(--green);font-weight:600;background:var(--greenBg,#EBF5F0)}
+.vs-select{font-family:var(--mono);font-size:12px;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:7px;padding:5px 8px;cursor:pointer}
+.vs-select:disabled{cursor:default;opacity:.8}
+.demo{background:var(--green);color:#fff;font-weight:600;font-size:13px;border:0;border-radius:8px;padding:8px 16px;cursor:pointer;transition:background .15s;font-family:var(--sans);white-space:nowrap}
+.demo:hover{background:#16704f}
+@media (max-width:880px){.navlinks{display:none}.vs-select{display:none}}
+
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+h1,h2{margin:0;font-weight:800;letter-spacing:-.03em;line-height:1.04}
+h2{font-size:clamp(26px,3.6vw,40px);font-weight:700;letter-spacing:-.02em}
+h3{margin:0;font-weight:700}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+:focus-visible{outline:2px solid var(--green-2);outline-offset:3px;border-radius:4px}
+.tag{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+.g{color:var(--green)} .it{font-style:italic;color:var(--green)}
+em{font-style:italic}
+.lnk{background:none;border:0;padding:0;font:inherit;color:var(--green);font-weight:600;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.lnk:hover{color:#16704f}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;padding:12px 22px;border-radius:var(--r-sm);cursor:pointer;border:1px solid transparent;font-family:var(--sans)}
+.btn-green{background:var(--green);color:#fff} .btn-green:hover{background:#16704f}
+.btn-ghost{background:transparent;color:var(--fg);border-color:var(--line-2)} .btn-ghost:hover{border-color:var(--fg-2)}
+.btn-ghost-dark{background:transparent;color:var(--text);border-color:var(--border)} .btn-ghost-dark:hover{border-color:var(--green);color:var(--green)}
+
+
+/* ===== hero ===== */
+.dhero{background:var(--ink);color:var(--fg);padding:80px 24px 84px}
+.dhero .wrap{max-width:820px}
+.dhero h1{font-size:clamp(36px,5.2vw,60px);letter-spacing:-.04em;line-height:1.03;margin:26px 0 0;color:var(--fg)}
+.dhero .sub{color:var(--fg-2);font-size:16.5px;line-height:1.75;max-width:680px;margin-top:22px}
+.dhero .sub strong{color:var(--fg)}
+
+/* ===== cards ===== */
+.dsection{padding:70px 0}
+rm-vault-demos{display:flex;flex-direction:column;gap:34px}
+.vd-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:30px 32px}
+.vd-card.best{border-color:var(--green);box-shadow:0 0 0 1px rgba(26,127,90,.2)}
+.vd-best{display:inline-block;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--green);background:var(--greenBg);border-radius:999px;padding:4px 10px;margin-bottom:10px}
+.vd-head{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap}
+.vd-head h2{font-size:clamp(21px,2.6vw,27px);color:var(--text);letter-spacing:-.02em;margin:0}
+.vd-strap{font-size:14px;color:var(--green);font-weight:600;margin-top:5px}
+.vd-open{flex:none;font-size:13px;font-weight:600;color:var(--green);text-decoration:none;border:1px solid var(--border);border-radius:var(--r-sm);padding:9px 14px}
+.vd-open:hover{border-color:var(--green)}
+.vd-body{font-size:14.5px;color:var(--muted);line-height:1.72;margin-top:16px;max-width:78ch}
+.vd-facts{margin:16px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:8px 22px}
+@media (max-width:700px){.vd-facts{grid-template-columns:1fr}}
+.vd-facts li{font-size:13px;color:var(--muted);padding-left:20px;position:relative;line-height:1.5}
+.vd-facts li::before{content:'\2713';position:absolute;left:0;color:var(--green);font-weight:700}
+.vd-stage{margin-top:22px;background:var(--ink);border-radius:var(--r);overflow:hidden;aspect-ratio:16/10}
+.vd-status{flex:none;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;border-radius:999px;padding:4px 10px}
+.vd-status.wait{color:var(--faint);background:var(--bg2);border:1px solid var(--border)}
+.vd-status.opening{color:var(--green);background:var(--greenBg);border:1px solid rgba(26,127,90,.3)}
+.vd-status.live{color:#fff;background:var(--green);border:1px solid var(--green)}
+.vd-status.stall{color:var(--red);background:#FBEDEA;border:1px solid rgba(192,57,43,.3)}
+.vd-frame{display:block;width:100%;height:100%;border:0;background:#0A0A09}
+.vd-keyrow{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-top:14px}
+.vd-keylabel{flex:none;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+.vd-key{font-family:var(--mono);font-size:11px;color:var(--muted);word-break:break-all;background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:6px 10px}
+.callout{margin-top:38px;background:var(--greenBg);border:1px solid rgba(26,127,90,.28);border-left:3px solid var(--green);border-radius:var(--r);padding:20px 24px;font-size:14.5px;line-height:1.7;color:var(--text)}
+.callout .g{color:var(--green);font-weight:700}
+
+/* ===== CTA ===== */
+.dcta{background:var(--ink);color:var(--fg);text-align:center;padding:88px 24px}
+.dcta .wrap{max-width:680px}
+.dcta h2{font-size:clamp(28px,4.4vw,46px);color:var(--fg);margin-top:20px;letter-spacing:-.03em}
+.dcta .it{font-style:italic;color:var(--green-2)}
+.dcta p{color:var(--fg-2);margin-top:16px;font-size:15.5px;line-height:1.7}
+.dcta .cta-row{justify-content:center}
+.footlink{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+
+/* ===== mobile nav — hamburger drawer. Toggle injected by nav.js; .top.nav-open opens it. ===== */
+.navtoggle{display:none;margin-left:auto;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;padding:0;background:none;border:0;cursor:pointer}
+.navtoggle span{display:block;width:20px;height:2px;margin:0 auto;background:var(--text,#1A1917);border-radius:2px;transition:transform .2s,opacity .2s}
+.top.nav-open .navtoggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.top.nav-open .navtoggle span:nth-child(2){opacity:0}
+.top.nav-open .navtoggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media (max-width:880px){
+  .navtoggle{display:flex}
+  .top .wrap{position:relative}
+  .navlinks{position:absolute;left:0;right:0;top:calc(100% + 1px);flex-direction:column;align-items:stretch;gap:0;margin:0;padding:8px;background:var(--card,#fff);border-bottom:1px solid var(--border,#E2DFD8);box-shadow:0 14px 34px rgba(13,13,12,.14);max-height:calc(100vh - 56px);overflow:auto}
+  .top.nav-open .navlinks{display:flex}
+  .navlinks button,.navlinks .pagelink,.navlinks .navgroup-btn{width:100%;text-align:left;justify-content:flex-start;padding:12px 16px;font-size:15px;border-radius:8px}
+  .navlinks button:hover,.navlinks .pagelink:hover{background:var(--bg2,#EFEDE7)}
+  .navgroup{display:block;width:100%;position:static}
+  .navgroup::after{display:none}
+  .navgroup-btn{display:flex}
+  .navgroup-car{margin-left:auto}
+  .navmenu{position:static;transform:none;display:flex;flex-direction:column;min-width:0;padding:2px 0 8px 14px;background:transparent;border:0;box-shadow:none}
+  .navmenu .navchild{padding:10px 14px;font-size:14px}
+}
+.footlink{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.footlink:hover{color:var(--fg-2)}
+
+/* ===== per-vault pages ===== */
+.dhero rm-vault-hero{display:block}
+.vp-embed{margin-bottom:8px}
+.vp-block{margin-top:64px}
+.vp-block h2{color:var(--text)}
+.vp-try{margin:26px 0 0;padding-left:22px;display:flex;flex-direction:column;gap:13px;max-width:76ch}
+.vp-try li{font-size:14.5px;color:var(--muted);line-height:1.7;padding-left:6px}
+.vp-try li::marker{color:var(--green);font-family:var(--mono);font-weight:700}
+.vp-deep{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:28px}
+@media (max-width:820px){.vp-deep{grid-template-columns:1fr}}
+.vp-dcard{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:24px 26px}
+.vp-dcard h3{font-size:16.5px;color:var(--text);margin-bottom:9px}
+.vp-dcard p{font-size:14px;color:var(--muted);line-height:1.7}
+.vp-block .vd-facts{margin-top:24px}
+.vp-others{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+@media (max-width:860px){.vp-others{grid-template-columns:1fr}}
+.ds{text-align:left;background:var(--ink);border:1px solid var(--ink);border-radius:var(--r);padding:20px 22px;cursor:pointer;font-family:var(--sans);transition:transform .14s,box-shadow .14s}
+.ds:hover{transform:translateY(-2px);box-shadow:0 18px 40px -24px rgba(13,13,12,.5)}
+.ds-k{display:block;font-family:var(--mono);font-size:12.5px;font-weight:700;color:var(--green-2);letter-spacing:.04em}
+.ds-v{display:block;font-size:13px;color:var(--fg-2);line-height:1.55;margin-top:7px}
+.vd-headlinks{display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+@media (max-width:700px){.vd-headlinks{flex-direction:row;align-items:center}}
+.vd-full{background:var(--green);border:1px solid var(--green);color:#fff;font-size:13px;font-weight:600;border-radius:var(--r-sm);padding:9px 14px;cursor:pointer;font-family:var(--sans)}
+.vd-full:hover{background:#16704f}
+
+/* Shared section vocabulary used by this page's markup. Found missing by the
+   class-coverage gate. */
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--green);background:rgba(26,127,90,.18);border:1px solid rgba(26,127,90,.4);border-radius:999px;padding:5px 12px}
+.eyebrow .d{width:6px;height:6px;border-radius:50%;background:var(--green-2)}
+.paper{background:var(--bg)}
+.foot{background:var(--canvas);border-top:1px solid var(--line);padding:32px 24px}
+.foot .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-family:var(--mono);font-size:10px;color:var(--fg-3);max-width:1100px}
+
+/* ===== deferred loading for large vaults, and the privacy statement ===== */
+.vd-stage.idle { display: grid; place-items: center; aspect-ratio: auto; min-height: 190px; }
+.vd-stage.error { display: grid; place-items: center; aspect-ratio: auto; min-height: 150px; padding: 26px; }
+.vd-stage.error p { color: var(--fg-2); font-size: 14px; line-height: 1.65; max-width: 60ch; text-align: center; }
+.vd-load {
+    background:    transparent;
+    border:        1px dashed var(--line-2);
+    border-radius: var(--r-sm);
+    color:         var(--fg);
+    cursor:        pointer;
+    padding:       26px 34px;
+    font-family:   var(--sans);
+    margin:        26px;
+    transition:    border-color .15s;
+}
+.vd-load:hover { border-color: var(--green-2); }
+.vd-load-big   { display: block; font-size: 15.5px; font-weight: 700; color: var(--green-2); }
+.vd-load-small { display: block; font-size: 12.5px; color: var(--fg-2); margin-top: 7px; max-width: 46ch; }
+.vd-status.idle { color: var(--muted); background: var(--bg2); border: 1px solid var(--border); }
+.vp-privacy {
+    margin-top:    26px;
+    border:        1px solid var(--border);
+    border-left:   3px solid var(--green);
+    border-radius: var(--r);
+    padding:       18px 22px;
+    background:    var(--card);
+}
+.vp-privacy.sends { border-left-color: var(--gold); }
+.vpp-k {
+    display:        block;
+    font-family:    var(--mono);
+    font-size:      10px;
+    font-weight:    700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color:          var(--green);
+    margin-bottom:  7px;
+}
+.vp-privacy.sends .vpp-k { color: var(--gold); }
+.vp-privacy p { font-size: 13.5px; color: var(--muted); line-height: 1.65; }
+
+
+/* v1.0.0 — navigation is real links now, so the header rules that targeted
+   <button> have to reach <a> too, and the version switcher is a link. */
+.brand{text-decoration:none}
+.navlinks a{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;text-decoration:none;display:inline-flex;align-items:center}
+.navlinks a:hover{color:var(--text)}
+.navlinks a.active{color:var(--text);font-weight:600}
+.version{font-family:var(--mono);font-size:12px;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:7px;padding:5px 8px;text-decoration:none;white-space:nowrap;transition:color .15s,border-color .15s}
+.version:hover{color:var(--text);border-color:var(--faint)}
+a.btn{text-decoration:none}
+a.ds{display:block;text-decoration:none;color:inherit}
+@media (max-width:880px){
+  .version{display:none}
+  .navlinks a{width:100%;text-align:left;justify-content:flex-start;padding:12px 16px;font-size:15px;border-radius:8px}
+  .navlinks a:hover{background:var(--bg2,#EFEDE7)}
+}
+</style>
+</head>
+<body id="top">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
+    <nav class="navlinks"><rm-menu></rm-menu></nav>
+    <a class="version" href="versions.html" title="What shipped in v1.0.0">v1.0.0</a>
+    <button class="demo" data-demo>Book a demo</button>
+  </div>
+</header>
+
+<main class="dhero">
+  <div class="wrap"><rm-vault-hero></rm-vault-hero></div>
+</main>
+
+<div class="paper">
+  <section class="dsection">
+    <div class="wrap">
+      <rm-vault-page></rm-vault-page>
+      <rm-vault-privacy></rm-vault-privacy>
+      <div class="callout">
+        <span class="g">The key on this page is published on purpose.</span> It is a one-way, read-only derivation of the vault's own key — it grants read and nothing else, and it is handed to the embedded vault over a same-page handshake rather than a URL. Anyone can open the demo, clone the vault, and check what we say against what is actually there. The same property is how a finished register gets handed to an auditor or a board.
+      </div>
+    </div>
+  </section>
+</div>
+
+<section class="dcta" id="demo">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> Then do it with your own estate</span>
+    <h2>The demo uses an invented estate. <span class="it">Yours is more interesting.</span></h2>
+    <p>Pick one agent already in production. We will state its mandate, map the grant behind it, and show you the gap — with a number on it.</p>
+    <div class="cta-row"><button class="btn btn-green" data-demo>Book a demo →</button><a class="btn btn-ghost" href="how-it-works.html">How it works</a></div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>© 2026 RiskMandate · Autonomous Risk Management</span>
+    <span><a class="footlink" href="versions.html">Versions</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+var RM={core:{},services:{},components:{},data:{}};
+RM.data.currentPage="demo-risk-mandate-field";RM.data.pages=[{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"The problem"},{"name":"acceptable","label":"Accepted is not acceptable","file":"acceptable.html","group":"The problem"},{"name":"acceptance","label":"You own the risk","file":"acceptance.html","group":"The problem"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"The problem"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"The model"},{"name":"agents","label":"Agents","file":"agents.html","group":"The model"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"The model"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"The model"},{"name":"statics","label":"Static scenarios","file":"statics.html","group":"The model"},{"name":"demos","label":"All demos","file":"demos.html","group":"Live demos"},{"name":"demo-licence-to-operate","label":"Licence to Operate","file":"demo-licence-to-operate.html","group":"Live demos"},{"name":"demo-risk-graph-explorer","label":"RiskGraph Explorer","file":"demo-risk-graph-explorer.html","group":"Live demos"},{"name":"demo-agentic-browser-isolation","label":"Agentic Browser Isolation","file":"demo-agentic-browser-isolation.html","group":"Live demos"},{"name":"demo-risk-mandate-field","label":"RiskMandate field demo","file":"demo-risk-mandate-field.html","group":"Live demos"},{"name":"demo-file-security","label":"File security walk","file":"demo-file-security.html","group":"Live demos"},{"name":"demo-agent-permission-games","label":"Permission games","file":"demo-agent-permission-games.html","group":"Live demos"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"library","label":"Library","file":"library.html"},{"name":"partners","label":"Partners","file":"partners.html"},{"name":"feedback","label":"Give feedback","file":"feedback.html"},{"name":"brand","label":"Brand","file":"brand.html"}];RM.data.sections=[];RM.data.demoVault="risk-mandate-field";
+
+'use strict';
+// components/dom.js — tiny DOM helpers shared by components. `el` builds an
+// element with attributes and children; text children always go in via
+// textContent. `renderMarkdownInto` turns core/markdown tokens into real DOM
+// nodes (never an HTML string), so fetched release notes cannot inject markup.
+
+RM.components.dom = (function () {
+  // A link in a markdown note may only go somewhere harmless: same-document,
+  // same-origin relative, https, or mailto. Anything else — javascript:, data:,
+  // a protocol-relative host — renders as the text it was, and goes nowhere.
+  var SAFE = /^(?:https:\/\/|mailto:|#|[^:/?#]*(?:[/?#]|$))/i;
+
+  /**
+   * @param {string} tag
+   * @param {Object<string,string>} [attrs]
+   * @param {Array<Node|string>} [children]
+   * @returns {HTMLElement}
+   */
+  function el(tag, attrs, children) {
+    var node = document.createElement(tag);
+    if (attrs) Object.keys(attrs).forEach(function (k) {
+      if (attrs[k] != null) node.setAttribute(k, attrs[k]);
+    });
+    (children || []).forEach(function (c) {
+      node.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
+    });
+    return node;
+  }
+
+  /** Render inline runs into a parent element. */
+  function appendRuns(parent, runs) {
+    runs.forEach(function (run) {
+      if      (run.t === 'strong') parent.appendChild(el('strong', null, [run.v]));
+      else if (run.t === 'em')     parent.appendChild(el('em',     null, [run.v]));
+      else if (run.t === 'code')   parent.appendChild(el('code',   null, [run.v]));
+      else if (run.t === 'link')   parent.appendChild(SAFE.test(run.href)
+        ? el('a', { href: run.href }, [run.v])
+        : document.createTextNode(run.v));
+      else parent.appendChild(document.createTextNode(run.v));
+    });
+  }
+
+  /**
+   * Render markdown block tokens into a container as DOM nodes.
+   * @param {HTMLElement} container
+   * @param {Array} blocks  output of RM.core.markdown.parse
+   */
+  function renderMarkdownInto(container, blocks) {
+    blocks.forEach(function (b) {
+      if (b.type === 'heading') {
+        var h = el('h' + (b.level + 1)); // ## release title -> h3, etc.
+        appendRuns(h, b.runs);
+        container.appendChild(h);
+      } else if (b.type === 'list') {
+        var ul = el('ul');
+        b.items.forEach(function (runs) {
+          var li = el('li');
+          appendRuns(li, runs);
+          ul.appendChild(li);
+        });
+        container.appendChild(ul);
+      } else {
+        var p = el('p');
+        appendRuns(p, b.runs);
+        container.appendChild(p);
+      }
+    });
+  }
+
+  return { el: el, appendRuns: appendRuns, renderMarkdownInto: renderMarkdownInto };
+})();
+
+
+'use strict';
+// components/nav.js — the behaviour on a page that is *not* a link.
+//   [data-to]   → smooth in-page scroll to an element id (no hash routing).
+//   [data-demo] → open a pre-filled demo enquiry email.
+//
+// v1.0.0 removed everything else that used to live here. Up to v0.14 the site
+// ran inside a host <iframe> and every navigation was a postMessage — rm-nav,
+// rm-back, rm-manifest, rm-read. A <button> is not a link, so nothing could be
+// deep-linked, bookmarked, opened in a new tab, or crawled. Now each page is
+// the document the server sent and each navigation is an <a href>, so the only
+// things left to wire are the two that genuinely are not navigation.
+//
+// The mobile drawer is still injected rather than templated: one file gives
+// every page a working menu below the header breakpoint, where .navlinks is
+// hidden by CSS.
+
+RM.components.nav = (function () {
+  // Every "Book a demo" control opens a mail client with a subject and a
+  // starting message. One place to change when booking becomes a real form.
+  var DEMO = {
+    to     : 'nrparekh@gmail.com',
+    subject: 'RiskMandate — demo request',
+    body   : [
+      'Hi,',
+      '',
+      'I would like to see a plug profile for one of the agents we already run.',
+      '',
+      'A little about us:',
+      '  • Organisation:',
+      '  • Roughly how many agents we are running:',
+      '  • The agent we would want to look at first:',
+      '  • Anything already in place (register, IdP, detection tooling):',
+      '',
+      'Thanks,'
+    ].join('\n')
+  };
+
+  function demoHref() {
+    return 'mailto:' + DEMO.to +
+      '?subject=' + encodeURIComponent(DEMO.subject) +
+      '&body='    + encodeURIComponent(DEMO.body);
+  }
+
+  function openDemo() { window.location.href = demoHref(); }
+
+  function scrollTo(doc, id) {
+    var t = doc.getElementById(id);
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Inject the hamburger toggle and wire the drawer open/close. Idempotent.
+  function wireMobileNav(doc) {
+    var top = doc.querySelector('.top');
+    if (!top) return;
+    var wrap  = top.querySelector('.wrap');
+    var links = top.querySelector('.navlinks');
+    if (!wrap || !links || top.querySelector('.navtoggle')) return;
+
+    var burger = doc.createElement('button');
+    burger.className = 'navtoggle';
+    burger.setAttribute('type', 'button');
+    burger.setAttribute('aria-label', 'Toggle navigation');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-controls', 'sitenav');
+    for (var i = 0; i < 3; i++) burger.appendChild(doc.createElement('span'));
+    links.id = links.id || 'sitenav';
+    var demo = wrap.querySelector('.demo');
+    if (demo) wrap.insertBefore(burger, demo); else wrap.appendChild(burger);
+
+    function set(open) {
+      top.classList.toggle('nav-open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    burger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      set(!top.classList.contains('nav-open'));
+    });
+    // Following a real nav link closes the drawer; the group header does not.
+    links.addEventListener('click', function (e) {
+      var b = e.target.closest('button, a');
+      if (b && !b.classList.contains('navgroup-btn')) set(false);
+    });
+    doc.addEventListener('click', function (e) {
+      if (top.classList.contains('nav-open') && !top.contains(e.target)) set(false);
+    });
+    doc.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+    var view = doc.defaultView || window;
+    view.addEventListener('resize', function () { if (view.innerWidth > 880) set(false); });
+  }
+
+  /** @param {Document} doc */
+  function wire(doc) {
+    doc.querySelectorAll('[data-to]').forEach(function (elm) {
+      elm.addEventListener('click', function () { scrollTo(doc, elm.getAttribute('data-to')); });
+    });
+    doc.querySelectorAll('[data-demo], .demo').forEach(function (elm) {
+      elm.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); openDemo(); });
+    });
+    wireMobileNav(doc);
+  }
+
+  return { wire: wire, scrollTo: scrollTo, demoHref: demoHref, openDemo: openDemo };
+})();
+
+
+'use strict';
+// components/menu.js — <rm-menu>. The one shared header menu, on every page, so
+// the nav is built by a single piece of code. Renders the homepage's section
+// links first, then the top-level pages, marking the current page active.
+//
+// A run of contiguous pages sharing a `group` string collapses into one entry:
+// a hover/click dropdown labelled by the group, with the members as children. A
+// single-member group renders flat — no dropdown for one item.
+//
+// v1.0.0: every entry is an <a href>. The old menu emitted <button> elements
+// that asked a host frame to swap an iframe's srcdoc, which meant the links did
+// not exist as far as a crawler, a bookmark or a middle-click was concerned.
+// The group header stays a <button> because it opens a panel rather than going
+// anywhere — that is the one control here that is genuinely not a link.
+
+(function () {
+  var dom = RM.components.dom;
+
+  RM.components.Menu = class extends HTMLElement {
+    connectedCallback() {
+      var self = this;
+      this._onDocClick = function (e) {
+        self.querySelectorAll('.navgroup.open').forEach(function (g) {
+          if (!g.contains(e.target)) g.classList.remove('open');
+        });
+      };
+      document.addEventListener('click', this._onDocClick);
+      this._render();
+    }
+    disconnectedCallback() {
+      document.removeEventListener('click', this._onDocClick);
+    }
+
+    // On the homepage a section link scrolls; on any other page it is a link
+    // back to the homepage at that anchor. Same markup either way.
+    _section(s) {
+      var home = !(RM.data && RM.data.currentPage);
+      var a = dom.el('a', { class: 'seclink', href: home ? '#' + s.to : 'index.html#' + s.to }, [s.label]);
+      if (home) a.addEventListener('click', function (e) {
+        e.preventDefault();
+        RM.components.nav.scrollTo(document, s.to);
+      });
+      return a;
+    }
+
+    _pagelink(p, extra) {
+      var active = p.name === (RM.data && RM.data.currentPage);
+      var attrs  = { class: 'pagelink' + (extra ? ' ' + extra : '') + (active ? ' active' : ''), href: p.file };
+      if (active) attrs['aria-current'] = 'page';
+      return dom.el('a', attrs, [p.label]);
+    }
+
+    _group(name, members) {
+      var self    = this;
+      var current = RM.data && RM.data.currentPage;
+      var active  = members.some(function (m) { return m.name === current; });
+      var car     = dom.el('span',   { class: 'navgroup-car', 'aria-hidden': 'true' }, ['▾']);
+      var btn     = dom.el('button', { class: 'navgroup-btn' + (active ? ' active' : ''), type: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false' }, [name, car]);
+      var panel   = dom.el('div',    { class: 'navmenu' }, members.map(function (m) { return self._pagelink(m, 'navchild'); }));
+      var wrap    = dom.el('span',   { class: 'navgroup' + (active ? ' active' : '') }, [btn, panel]);
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = wrap.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      return wrap;
+    }
+
+    _render() {
+      var sections = (RM.data && RM.data.sections) || [];
+      var pages    = (RM.data && RM.data.pages)    || [];
+      var self     = this;
+      this.textContent = '';
+      sections.forEach(function (s) { self.appendChild(self._section(s)); });
+      var i = 0;
+      while (i < pages.length) {
+        var p = pages[i];
+        if (!p.group) { self.appendChild(self._pagelink(p)); i++; continue; }
+        var g = p.group, members = [];
+        while (i < pages.length && pages[i].group === g) { members.push(pages[i]); i++; }
+        if (members.length === 1) self.appendChild(self._pagelink(members[0]));
+        else                      self.appendChild(self._group(g, members));
+      }
+    }
+  };
+
+  customElements.define('rm-menu', RM.components.Menu);
+})();
+
+
+'use strict';
+// components/registry.js — RM.services.vaultDemos. The three published vaults'
+// data, page mapping, and the embed engine both demo surfaces share (the
+// overview renders all three; each per-vault page renders one).
+//
+// Embedding uses the SG/Vault host's embed protocol (?embed=1), not the URL
+// fragment: the fragment flow saves the key to localStorage and redirects, and
+// storage at the vault host is PARTITIONED by top-level origin inside a
+// cross-site iframe — the key is lost and the visitor sees the entry form.
+// The protocol instead does a postMessage handshake:
+//     vault iframe → { sg: 'vault-embed-ready', v: 1 }
+//     parent      → { sg: 'vault-open', key, mode: 'auto' }
+//     vault iframe → { sg: 'vault-ready', vaultName, fileCount, hasApp }
+// so the key stays in memory, out of the URL and out of storage. Embeds open
+// automatically with the page; `loading="lazy"` keeps below-the-fold frames
+// idle until scrolled near.
+
+RM.services.vaultDemos = (function () {
+  var dom = RM.components.dom;
+  var HOST_ORIGIN = 'https://dev.vault.sgraph.ai';
+  var EMBED_URL = HOST_ORIGIN + '/en-gb/app/?embed=1';
+
+  // Three read-key formats are in circulation across the published catalogue:
+  //   bare            <64 hex>:<vault id>          (the newest vaults)
+  //   sgit_rk1_       sgit_rk1_<64 hex>:<vault id> (most)
+  //   sgit_private_read_  … same shape, one vault
+  // The prefix is the host's business, so keys are passed through as published;
+  // what we do here is check the SHAPE, because a malformed key otherwise
+  // produces a silent empty frame that looks like a slow load.
+  var KEY_RE = /^(?:sgit_rk1_|sgit_private_read_)?[0-9a-f]{64}:[a-z0-9]+$/i;
+  function keyLooksValid(k) { return typeof k === 'string' && KEY_RE.test(k.trim()); }
+
+  // Anything at or above this loads on click rather than on arrival. The small
+  // vaults are a few hundred KB to ~2.6 MB and are fine eagerly; the large ones
+  // are 13 MB and 43 MB, which is not something to inflict on a phone on
+  // conference wifi without being asked.
+  var EAGER_MAX_MB = 3;
+
+  var VAULTS = [
+    {
+      id: 'licence-to-operate',
+      vid: 'posrhzp3',
+      page: 'demo-licence-to-operate.html',
+      name: 'Licence to Operate',
+      strap: 'The homepage argument, made executable',
+      key: 'd990a52efb9af32c8463e2962f3ca5ccf92b3b6e8ea788e55009073c29b4da29:posrhzp3',
+      sizeMb: 13, sizeLabel: '13 MB', files: 121,
+      body: 'An insurance policy for an agent, simulated. It states the grant \u2014 what the credential technically permits \u2014 then the mandate the agent was actually given, then the delta between them: the exposure no policy covers because nobody wrote it down. This is the argument the homepage makes, running as something you can operate rather than read.',
+      facts: ['Grant, mandate, and the delta nothing covers', 'A simulated policy over a real agent estate', 'The insurability argument as an artefact', 'Read-only, opened with a published key'],
+      best: true,
+      tryFirst: [
+        'Read the grant first, then the mandate, then the delta \u2014 in that order. The delta is the number the rest of the site is about.',
+        'Look for what the policy does not cover, and ask who accepted that. In most estates the answer is nobody, which is the point.',
+        'Change the agent\u2019s scope and watch the uncovered delta move. Excess authority is not a fixed property; it is a consequence of choices.',
+        'Read it as an underwriter would: what here would you price, and what would you refuse to price without more evidence?'
+      ],
+      deep: [
+        { h: 'A policy is a mandate with money attached',
+          p: 'An insurance policy states what is covered, under what conditions, for how long, and who carries the rest. That is the same shape as a mandate: scope, conditions, interval, and a named party holding the remainder. This vault makes that correspondence concrete rather than rhetorical.' },
+        { h: 'The delta is the product',
+          p: 'Grant minus mandate is excess authority. Expressed as insurance, it is the exposure sitting outside the policy \u2014 held, unaccepted, and priced by nobody. Seeing the three quantities side by side is the fastest way to understand why we say the gap is the exposure.' },
+        { h: 'Simulated, and labelled as such',
+          p: 'The policy here is a simulation over an invented estate. No carrier has underwritten it and we are not selling cover. What is real is the derivation: how the numbers follow from what the agent can reach.' }
+      ]
+    },
+    /* HELD PENDING CONFIRMATION — AIUC-1 conformance layer.
+       Its read key carries a `sgit_private_read_` prefix, unlike every other key
+       in the published catalogue. A credential with "private" in its name does not
+       go into a public bundle on an assumption — note that inlining it here would
+       ship it in the page source even if no card rendered it. The entry below is
+       complete and was built and tested; uncomment it, and restore the
+       demo-aiuc-1-conformance entry in build.js, once the vault owner confirms the
+       key is intended to be public.
+
+       {
+       // HELD PENDING CONFIRMATION. This vault's read key carries a
+       // `sgit_private_read_` prefix — unlike every other key in the published
+       // catalogue — and the word "private" in a credential is not something to
+       // publish on a marketing site on an assumption. The entry and its page are
+       // complete; delete `pending: true` to ship it once the vault owner has
+       // confirmed the key is intended to be public.
+       pending: true,
+       id: 'aiuc-1-conformance',
+       vid: '2wzct4k7',
+       page: 'demo-aiuc-1-conformance.html',
+       name: 'AIUC-1 conformance layer',
+       strap: 'The Index, computed against a real standard',
+       key: <the sgit_private_read_ key from the sgit.ai catalogue>,
+       sizeMb: 43, sizeLabel: '43 MB', files: 649,
+       body: 'The AIUC-1 standard parsed into a graph, with a conformance layer computed on top of it. This is the answer to the first objection anyone serious raises about the Insurability Index \u2014 that a 0\u2013100 score is a metaphor dressed as a measurement. Here the score decomposes, control by control, into a published standard you can read alongside it.',
+       facts: ['A published standard as a navigable graph', 'Conformance computed, not asserted', 'Every score decomposes to its evidence', '649 files, opened read-only'],
+       tryFirst: [
+       'Pick a single control and walk from the score back to the clause it derives from. Nothing in the chain should require you to trust us.',
+       'Find a control where conformance is partial, and read what the layer says is missing \u2014 that is what a gap list actually looks like.',
+       'Compare two areas of the standard and notice how differently they weigh; a composite score hides that, and the graph does not.',
+       'Ask the question a GRC buyer asks: could I hand this derivation to an auditor? That is the bar it is built to.'
+       ],
+       deep: [
+       { h: 'The objection this answers',
+       p: 'A single number for insurability invites one response: where did it come from? If the honest answer is a workshop, the number is an opinion with a decimal point. This vault exists so the answer can be: from these controls, in this published standard, with the derivation attached.' },
+       { h: 'Computed, not asserted',
+       p: 'The conformance layer derives its position from the graph rather than from a self-assessment questionnaire. That is the same discipline the rest of the product claims, applied to a standard somebody else wrote \u2014 which is a harder test than applying it to our own model.' },
+       { h: 'Weights are judgement, and we say so',
+       p: 'How much each dimension moves a price is set by underwriting judgement today and re-fit as loss experience accumulates. The graph makes the inputs inspectable; it does not pretend the weighting is actuarial yet.' }
+       ]
+       },
+    */
+    {
+      id: 'risk-graph-explorer',
+      page: 'demo-risk-graph-explorer.html',
+      name: 'RiskGraph Explorer',
+      strap: 'The whole approach, in one graph',
+      key: 'sgit_rk1_1c1b95f5903e35850a9bc0541ffa09c6b5d4017cbf18817d2ad6f894127e5638:3simlnqe',
+      body: 'Answer questions about one agent and watch the register assemble: an answer becomes a fact, facts combine into risks, risks are assigned to a role and chain upward to the corporate register, a role accepts what it holds, and acceptance produces what happens next. Seven views over the same graph — and no risk is ever orphaned, because every path terminates at the board.',
+      facts: ['Seven views over one fact graph', 'Every risk assigned; every path reaches the board', 'Nobody can accept on anybody else\u2019s behalf', 'Presets: typical \u00b7 governed \u00b7 exposed'],
+      best: true,
+      tryFirst: [
+        'Switch the preset from typical to governed and watch the role risk map — the org chart does not change, only what is true about the agent, and the weight arriving at the board drops.',
+        'In the estate view, leave a question unanswered — it draws as a ghosted absence, not a silent pass. A "no" is still a fact.',
+        'Open the role risk map and read the counts: assigned is what a role personally holds; through is what arrives because the graph says it must.',
+        'Pick any register row and walk it backwards through the risk chains — every entry resolves to the specific answers that produced it.'
+      ],
+      deep: [
+        { h: 'One spine, seven altitudes',
+          p: 'Every view is the same spine cut at a different angle: an answer becomes a fact; facts combine into risks; risks are assigned to a role and chain upward to the corporate register; a role accepts what it holds; acceptance produces what happens next. Change one answer and all seven views move — which is the point.' },
+        { h: 'No risk is orphaned',
+          p: 'Every risk is assigned to somebody, and every path terminates at the board. Assigned is distinguished from inherited, so a CISO can see fourteen held personally and fourteen arriving from below — two very different conversations. Nothing can sit in a register held by nobody.' },
+        { h: 'Disagreement becomes "which fact is wrong"',
+          p: 'Acceptance is per role, personal, and cannot be delegated — and the pushback that produces is the feature, not a failure. Because every risk is fact-derived, an argument about a risk resolves into an argument about a specific answer, with the evidence attached, rather than about whose judgement wins.' },
+        { h: 'A register that scales with exposure',
+          p: 'The context view weighs the same technical answers against what is at stake — decides about a person, in production, money at risk. Nothing at stake yields a short register. That is what separates a register from a checklist: it is a picture of what you are carrying, and it changes when the controls change.' }
+      ]
+    },
+    {
+      id: 'agentic-browser-isolation',
+      page: 'demo-agentic-browser-isolation.html',
+      name: 'Agentic Browser Isolation',
+      strap: 'A living register, one altitude at a time',
+      key: 'sgit_rk1_92cad4cea8f58c55f59b686c71c935225a1ba7c41ecb6922a8aa570467604f6e:0610gsp9',
+      body: 'One consequential question — does an AI agent browse with your logged-in sessions, or inside an isolated identity? — worked as a full risk graph: seventeen entry points, a page per stakeholder altitude from IT to the board, and acceptance-gated escalation. A risk sits pending until its named owner accepts it personally, and only an accepted risk climbs. There is no deny button.',
+      facts: ['A page per altitude: IT \u2192 CISO \u2192 CFO \u2192 CEO \u2192 Board', 'Acceptance-gated escalation, no deny door', 'Evidence cited to primary sources', 'The app requests no write capability at all'],
+      tryFirst: [
+        'Start at the IT altitude and climb — the same estate reads completely differently one level up, because each role holds different risks in its own language.',
+        'Find a pending risk and notice what you cannot do: there is no deny. The only doors are acceptance with an interval, or escalation.',
+        'Follow one risk from the operator page to the board page and watch its language change while its identity stays fixed.',
+        'Check the app\u2019s own manifest: it requests no write capability at all — a register you can hand to anyone precisely because it can touch nothing.'
+      ],
+      deep: [
+        { h: 'The fractal register, running',
+          p: 'The corpus argues for one register per accepting role, in that role\u2019s own language, with derived views of the registers above. This vault is that argument as a working artefact: a page per stakeholder altitude, each holding what that role holds, with escalation gated on acceptance rather than on a workflow.' },
+        { h: 'No deny door',
+          p: 'A risk cannot be declined into nonexistence — it is already on the books. It sits pending until its named owner accepts it for an interval, and only an accepted risk climbs to the next altitude. Silence does not make it somebody else\u2019s problem; it makes it visibly yours.' },
+        { h: 'An app that practises least authority',
+          p: 'The vault\u2019s app requests no write capability at all — the strongest scoped credential is none. It is a register you can hand to a vendor, an auditor or a board member with a read key and total confidence, because there is nothing it could do to the vault even if it wanted to.' }
+      ]
+    },
+    {
+      id: 'risk-mandate-field',
+      page: 'demo-risk-mandate-field.html',
+      name: 'RiskMandate field demo',
+      strap: 'Eight questions to a register',
+      key: 'sgit_rk1_a702fba803faac4369eb5d5a320b4dfa017af62bd2425fb298aac4b99e95c0ae:4zf6pf2z',
+      body: 'The demo built to be handed to a stranger on an iPad: pick a scenario, answer eight questions, and a risk register assembles beside you — readable as an operator, a CISO, or a board. Underneath it is a real software project developed inside the vault: 98 commits, a test suite, pinned releases. And it practises what this site preaches about authority: the app is granted the use of an LLM while the API key stays sealed under the vault key, unreadable even to holders of this published key.',
+      facts: ['Runs offline once loaded \u2014 nothing leaves the device', 'Uses an LLM without ever holding the API key', '98 commits, pinned releases, a real project', 'Write access scoped to one workspace folder'],
+      tryFirst: [
+        'Pick a scenario and answer the eight questions honestly for an agent you actually run — the register that assembles is about you, and it never leaves the page.',
+        'Switch the reading level between operator, CISO and board — same facts, three languages.',
+        'Use the AI explanation on any risk, then note what just happened: the app used an LLM, and the API key it used is sealed under the vault key you do not hold.',
+        'Go offline and keep working. Everything the demo needs arrived with the vault.'
+      ],
+      deep: [
+        { h: 'A grant smaller than its job looks',
+          p: 'This vault is the grant-vs-mandate argument applied to ourselves. The app\u2019s write access is scoped to a single workspace folder; the LLM capability is granted as use-only, with the key sealed under the vault key. A holder of this published read key can watch the app use an LLM it cannot steal — excess authority engineered to zero for the capability that matters most.' },
+        { h: 'A real project, not a mock',
+          p: 'Underneath the demo is a working software project developed inside the vault itself: 98 commits, eight entry points, a test suite, pinned releases you can select. The register it produces is generated by real code you can read with the same key that opened the demo.' },
+        { h: 'Built to travel',
+          p: 'Once loaded, it runs offline — the whole application arrived as vault content. Handing somebody this demo is handing them a read key, and nothing else: no account, no install, no server-side anything to trust.' }
+      ]
+    },
+    {
+      id: 'file-security',
+      vid: 'wu365g94',
+      page: 'demo-file-security.html',
+      name: 'RiskMandate \u00b7 File security',
+      strap: 'The workflow, not the concept',
+      key: 'sgit_rk1_e8a1e664b9f984b0d8df442f463231077d455d7cbaa3e336610b14f9a1e1dc77:wu365g94',
+      sizeMb: 2.7, sizeLabel: '2.7 MB', files: 71,
+      body: 'An eleven-step risk-acceptance walk over a file-security estate, running SQLite in the browser. Where the other demos show the model, this one shows the work: the sequence somebody actually moves through to get from a finding to an accepted, owned, expiring decision.',
+      facts: ['Eleven steps from finding to accepted decision', 'SQLite running in the browser, no server', 'Already RiskMandate-branded', 'Shows the workflow rather than the model'],
+      tryFirst: [
+        'Walk all eleven steps once without skipping. The sequence is the argument \u2014 each step is a thing somebody has to actually do.',
+        'Notice where the walk asks for a name and an interval, and how early it asks. Ownership comes before remediation, deliberately.',
+        'Look for the deny button. There is not one, and the walk is built so you feel its absence rather than being told about it.',
+        'It is running a real database in your browser tab \u2014 which is the substrate point: the application arrived with the vault.'
+      ],
+      deep: [
+        { h: 'Sequence is the missing piece',
+          p: 'Most risk tooling shows you a state and leaves the transition implicit. This walk makes the transition the subject: what happens, in order, between somebody finding an exposure and somebody carrying it. The steps are dull individually, which is rather the point \u2014 a process nobody can follow is a process nobody follows.' },
+        { h: 'A database, in a tab, from a vault',
+          p: 'SQLite runs in the browser against data that arrived as vault content. There is no server holding your answers and nothing to sign up for; the whole application is a file somebody handed you a read key to.' }
+      ]
+    },
+    {
+      id: 'agent-permission-games',
+      vid: '4evnlwrj',
+      page: 'demo-agent-permission-games.html',
+      name: 'Agent permission games',
+      strap: 'Two games about grants and mandates',
+      key: 'f94c8b1d42352d95703ac3d39032735d9b4e388d16ab5b87c948928d8e111118:4evnlwrj',
+      sizeMb: 2.6, sizeLabel: '2.6 MB', files: 68,
+      // The only demo here that sends anything anywhere. Declared as data so the
+      // page states it rather than relying on anyone remembering to write it.
+      phonesHome: true,
+      body: 'Two short games about what an agent is actually permitted to do. The first \u2014 five minutes, forty questions, no sign-up \u2014 asks you to guess what a given agent can reach, then scores how close you were. Most people are surprised by their own estate, which is the entire argument of this site delivered as a result rather than a claim.',
+      facts: ['Five minutes, forty questions, no sign-up', 'Scores how well you know your own agents', 'Two games: what-can-it-do, and mandates', 'Sends scores to keep a leaderboard \u2014 see below'],
+      tryFirst: [
+        'Play the what-can-it-do game before reading anything else on this page. Guess first; the gap between your guess and the answer is the finding.',
+        'Play it for an agent you actually run, not the example. The uncomfortable version is the useful one.',
+        'Notice which questions you cannot answer at all \u2014 those are the ones worth taking back to your team.',
+        'Then read Licence to Operate, which turns the same gap into a priced exposure.'
+      ],
+      deep: [
+        { h: 'A result lands harder than a claim',
+          p: 'We can tell you that grants exceed mandates, or you can guess your own agent\u2019s reach and be scored on it. The second changes minds in a way the first does not, because the number is about you rather than about us.' },
+        { h: 'Where the funnel goes next',
+          p: 'The game\u2019s own \u201cwhat next\u201d is Licence to Operate \u2014 the same gap, expressed as an insurance policy and the delta it does not cover. Playing one and then opening the other is the shortest honest path through the whole argument.' }
+      ]
+    },
+  ];
+
+  // ---- embed engine: one listener serves every registered frame ----
+  var registry = [];
+  var listening = false;
+
+  function listen() {
+    if (listening) return;
+    listening = true;
+    window.addEventListener('message', function (e) {
+      var d = e.data || {};
+      if (e.origin && e.origin !== HOST_ORIGIN) return;
+      var entry = null;
+      for (var i = 0; i < registry.length; i++) {
+        try { if (registry[i].frame.contentWindow === e.source) { entry = registry[i]; break; } }
+        catch (err) { /* detached frame */ }
+      }
+      if (!entry || !e.source) return;
+      if (d.sg === 'vault-embed-ready') {
+        e.source.postMessage({ sg: 'vault-open', key: entry.vault.key, mode: 'auto' }, HOST_ORIGIN);
+        entry.setStatus('opening', 'Opening the vault\u2026');
+      } else if (d.sg === 'vault-ready') {
+        var meta = [];
+        if (d.vaultName) meta.push(d.vaultName);
+        if (d.fileCount) meta.push(d.fileCount + ' files');
+        entry.setStatus('live', 'Live \u00b7 read-only' + (meta.length ? ' \u00b7 ' + meta.join(' \u00b7 ') : ''));
+      }
+    });
+  }
+
+  // Build an auto-opening embed for one vault. Returns { stage, status } nodes.
+  function embed(v) {
+    listen();
+
+    if (!keyLooksValid(v.key)) {
+      // Loud, on the page, naming the vault — not a blank rectangle.
+      var bad = dom.el('div', { class: 'vd-stage error' }, [
+        dom.el('p', null, ['This demo is misconfigured: the read key for \u201c' + v.name +
+          '\u201d is not a recognised format, so the vault cannot be opened. ' +
+          'The other demos are unaffected.'])
+      ]);
+      if (window.console) console.error('vault demo: unrecognised read key format for', v.id, v.key);
+      return { stage: bad, status: dom.el('span', { class: 'vd-status stall' }, ['Misconfigured']) };
+    }
+    var status = dom.el('span', { class: 'vd-status wait' }, ['Connecting\u2026']);
+    var frame = dom.el('iframe', {
+      class: 'vd-frame', title: v.name + ' \u2014 live vault, read-only',
+      sandbox: 'allow-scripts allow-same-origin allow-popups allow-forms',
+      loading: 'lazy', referrerpolicy: 'no-referrer'
+    });
+    frame.src = EMBED_URL; // no key in the URL — it travels over the handshake
+    var entry = {
+      vault: v, frame: frame,
+      setStatus: function (cls, text) { status.className = 'vd-status ' + cls; status.textContent = text; }
+    };
+    registry.push(entry);
+
+    var stage = dom.el('div', { class: 'vd-stage on' });
+    var heavy = (v.sizeMb || 0) >= EAGER_MAX_MB;
+
+    function start() {
+      stage.textContent = '';
+      stage.appendChild(frame);
+      setTimeout(function () {
+        if (status.classList.contains('wait')) {
+          entry.setStatus('stall', 'Not loading here? Use \u201copen in its own tab\u201d \u2197');
+        }
+      }, 20000);
+    }
+
+    if (heavy) {
+      // Large vault: say how large, and let the visitor decide.
+      entry.setStatus('idle', v.sizeLabel + ' \u00b7 loads on request');
+      var btn = dom.el('button', { class: 'vd-load', type: 'button' }, [
+        dom.el('span', { class: 'vd-load-big' }, ['Load the live vault']),
+        dom.el('span', { class: 'vd-load-small' }, [
+          v.sizeLabel + ' \u00b7 ' + (v.files ? v.files + ' files \u00b7 ' : '') +
+          'not fetched until you ask, so this page stays light on mobile data'])
+      ]);
+      btn.addEventListener('click', function () { entry.setStatus('wait', 'Connecting\u2026'); start(); });
+      stage.appendChild(btn);
+      stage.classList.add('idle');
+    } else {
+      start();
+    }
+    return { stage: stage, status: status };
+  }
+
+  var LIVE = VAULTS.filter(function (v) { return !v.pending; });
+
+  return {
+    VAULTS: LIVE,
+    ALL: VAULTS,
+    byId: function (id) { return LIVE.filter(function (v) { return v.id === id; })[0] || null; },
+    embed: embed,
+    tabUrl: function (key) { return HOST_ORIGIN + '/#' + String(key).replace(/:/g, '%3A'); },
+    keyLooksValid: keyLooksValid
+  };
+})();
+
+
+'use strict';
+// components/vault-demos.js — <rm-vault-demos>. The overview: all three vaults,
+// each with its auto-opening embed and a link to its own full page. Data and
+// the embed engine live in registry.js.
+
+(function () {
+  var dom = RM.components.dom;
+  var svc = RM.services.vaultDemos;
+
+  RM.components.VaultDemos = class extends HTMLElement {
+    connectedCallback() {
+      var self = this;
+      svc.VAULTS.forEach(function (v) { self.appendChild(self._card(v)); });
+    }
+
+    _card(v) {
+      var em = svc.embed(v);
+      var facts = dom.el('ul', { class: 'vd-facts' });
+      v.facts.forEach(function (f) { facts.appendChild(dom.el('li', null, [f])); });
+
+      var full = dom.el('button', { class: 'vd-full', type: 'button', 'data-nav': v.page }, ['Full walkthrough \u2192']);
+
+      return dom.el('article', { class: 'vd-card' + (v.best ? ' best' : ''), id: v.id }, [
+        dom.el('div', { class: 'vd-head' }, [
+          dom.el('div', null, [
+            v.best ? dom.el('span', { class: 'vd-best' }, ['The one to start with']) : '',
+            dom.el('h2', null, [v.name]),
+            dom.el('p', { class: 'vd-strap' }, [v.strap])
+          ]),
+          dom.el('div', { class: 'vd-headlinks' }, [
+            full,
+            dom.el('a', { class: 'vd-open', href: svc.tabUrl(v.key), target: '_blank', rel: 'noopener noreferrer' }, ['Open in its own tab \u2197'])
+          ])
+        ]),
+        dom.el('p', { class: 'vd-body' }, [v.body]),
+        facts,
+        em.stage,
+        dom.el('div', { class: 'vd-keyrow' }, [
+          em.status,
+          dom.el('span', { class: 'vd-keylabel' }, ['Published read key']),
+          dom.el('code', { class: 'vd-key' }, [v.key])
+        ])
+      ]);
+    }
+  };
+
+  customElements.define('rm-vault-demos', RM.components.VaultDemos);
+})();
+
+
+'use strict';
+// components/vault-page.js — <rm-vault-hero> and <rm-vault-page>. The per-vault
+// demo pages: one shared template (vault.template.html) rendered per vault from
+// RM.data.demoVault, using registry.js for the data and the embed engine.
+
+(function () {
+  var dom = RM.components.dom;
+  var svc = RM.services.vaultDemos;
+
+  function vault() { return svc.byId(RM.data.demoVault); }
+
+  RM.components.VaultHero = class extends HTMLElement {
+    connectedCallback() {
+      var v = vault();
+      if (!v) return;
+      this.appendChild(dom.el('span', { class: 'eyebrow' }, [dom.el('span', { class: 'd' }), ' Live demo \u00b7 read-only \u00b7 published key']));
+      this.appendChild(dom.el('h1', null, [v.name + ' \u2014 ', dom.el('span', { class: 'it' }, [v.strap.toLowerCase() + '.'])]));
+      this.appendChild(dom.el('p', { class: 'sub' }, [v.body]));
+    }
+  };
+
+  RM.components.VaultPage = class extends HTMLElement {
+    connectedCallback() {
+      var v = vault();
+      if (!v) return;
+      var em = svc.embed(v);
+
+      var facts = dom.el('ul', { class: 'vd-facts' });
+      v.facts.forEach(function (f) { facts.appendChild(dom.el('li', null, [f])); });
+
+      // the vault itself, front and centre
+      this.appendChild(dom.el('div', { class: 'vp-embed' }, [
+        em.stage,
+        dom.el('div', { class: 'vd-keyrow' }, [
+          em.status,
+          dom.el('a', { class: 'vd-open', href: svc.tabUrl(v.key), target: '_blank', rel: 'noopener noreferrer' }, ['Open in its own tab \u2197']),
+          dom.el('span', { class: 'vd-keylabel' }, ['Published read key']),
+          dom.el('code', { class: 'vd-key' }, [v.key])
+        ])
+      ]));
+
+      // what to try first
+      var tries = dom.el('ol', { class: 'vp-try' });
+      (v.tryFirst || []).forEach(function (t) { tries.appendChild(dom.el('li', null, [t])); });
+      this.appendChild(dom.el('section', { class: 'vp-block' }, [
+        dom.el('span', { class: 'tag' }, ['What to try first']),
+        dom.el('h2', null, ['Four things worth doing ', dom.el('span', { class: 'g' }, ['in your first five minutes.'])]),
+        tries
+      ]));
+
+      // the walkthrough
+      var deepWrap = dom.el('div', { class: 'vp-deep' });
+      (v.deep || []).forEach(function (d) {
+        deepWrap.appendChild(dom.el('div', { class: 'vp-dcard' }, [
+          dom.el('h3', null, [d.h]),
+          dom.el('p', null, [d.p])
+        ]));
+      });
+      this.appendChild(dom.el('section', { class: 'vp-block' }, [
+        dom.el('span', { class: 'tag' }, ['Why it is shaped this way']),
+        dom.el('h2', null, ['What this vault ', dom.el('span', { class: 'g' }, ['demonstrates.'])]),
+        deepWrap,
+        facts
+      ]));
+
+      // the other two demos
+      var others = dom.el('div', { class: 'vp-others' });
+      svc.VAULTS.forEach(function (o) {
+        if (o.id === v.id) return;
+        others.appendChild(dom.el('button', { class: 'ds', type: 'button', 'data-nav': o.page }, [
+          dom.el('span', { class: 'ds-k' }, [o.name]),
+          dom.el('span', { class: 'ds-v' }, [o.strap])
+        ]));
+      });
+      others.appendChild(dom.el('button', { class: 'ds', type: 'button', 'data-nav': 'demos.html' }, [
+        dom.el('span', { class: 'ds-k' }, ['All three, side by side']),
+        dom.el('span', { class: 'ds-v' }, ['The demos overview'])
+      ]));
+      this.appendChild(dom.el('section', { class: 'vp-block' }, [
+        dom.el('span', { class: 'tag' }, ['Keep going']),
+        dom.el('h2', null, ['The other ', dom.el('span', { class: 'g' }, ['two.'])]),
+        others
+      ]));
+    }
+  };
+
+  customElements.define('rm-vault-hero', RM.components.VaultHero);
+  customElements.define('rm-vault-page', RM.components.VaultPage);
+})();
+
+// A per-vault statement of what, if anything, leaves the visitor's device.
+// Driven by the `phonesHome` flag in the registry rather than written by hand,
+// so a vault that sends data cannot be added without the page saying so.
+(function () {
+  var dom = RM.components.dom;
+  var svc = RM.services.vaultDemos;
+
+  RM.components.VaultPrivacy = class extends HTMLElement {
+    connectedCallback() {
+      var v = svc.byId(RM.data.demoVault);
+      if (!v) return;
+      var sends = !!v.phonesHome;
+      this.appendChild(dom.el('div', { class: 'vp-privacy' + (sends ? ' sends' : '') }, [
+        dom.el('span', { class: 'vpp-k' }, [sends ? 'This demo sends data' : 'Nothing leaves your device']),
+        dom.el('p', null, [sends
+          ? 'Unlike the other demos here, this one sends your score to keep a leaderboard. That is the only thing it transmits, and it is why it is called out separately \u2014 a claim we cannot make of every demo is not a claim we will make of any.'
+          : 'The vault is decrypted in your browser with the published read key. What you do inside the demo stays on your device: there is no account, no server-side state, and nothing is transmitted back.'])
+      ]));
+    }
+  };
+  customElements.define('rm-vault-privacy', RM.components.VaultPrivacy);
+})();
+
+
+'use strict';
+// boot.js — inner-page composition root (version builds and dev.html). Custom
+// elements self-register on load; here we wire document-level nav behaviour.
+// The page runs inside the host's stage frame, so the host (not this page) signals
+// the SG/App host that the app is ready.
+
+(function () {
+  function start() { RM.components.nav.wire(document); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
+})();
+
+})();
+</script>
+</body>
+</html>

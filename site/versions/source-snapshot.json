@@ -1,0 +1,32 @@
+{
+  "vault": "7rfetjwz",
+  "branch": "current",
+  "sourceVersion": "0.14.0",
+  "snapshotDate": "2026-09-11",
+  "files": {
+    "v0/v0.13/v0.13.0/index.html": "451b12f054193ed9ac87245f40c790d19403b42c790b5fad0da8436adfccf6e0",
+    "plug.html": "6537e339e6443654b84a779696dbd7954e26f4e2efb57c70ef1579729a9d1e1a",
+    "acceptable.html": "94d9eddf7963445488c38aecaf8ec663805a01afcff70afdedc64912de592f13",
+    "v0/v0.10/v0.10.0/index.html": "a6e6c62e55efc964b34e3a298ae8194977826847fe76aab9506a8dd9edb674e7",
+    "v0/v0.11/v0.11.0/index.html": "c6063a22e74cdb892edb5c9adbe1ad485bce80b26bd6824a55a802589dec4872",
+    "how-it-works.html": "4541020408222e0f3df5eed9bebc94ba6f9efe3bd419aa1b9c923a5533cb71ab",
+    "agents.html": "c3aee8d5f9b325ef2d7adca0153cf9e9e98ace4628c6e4346238b7340dbd271d",
+    "ramm.html": "8766479b8c8bc94bdd1290c7149420c569f8304628c8d49d65c5183556327fa0",
+    "scenarios.html": "56daab65102dc78de3bed21e65e1e31348c0f10855e1a3dcb641e772887d5817",
+    "statics.html": "1087dbf5aa6ce32dc40d54c30138151f56a588bf78b6e9e58531a2f44a67337f",
+    "demos.html": "04aa6ee51739572d716c49124a97a8ec458dc09db2d620b5eef8a4bac0796a3c",
+    "demo-licence-to-operate.html": "8f06c0222a026d21027d10b188dc2c22a7180c153b50634d91e6fa059fb8f0ee",
+    "demo-risk-graph-explorer.html": "b01e1841cd7248f4266581ddec5194ced6749bfb3649e49f4e80349ae9ffbfec",
+    "demo-agentic-browser-isolation.html": "443029f36b918a0bee725311ced30518a11d5f6803afda1bd7333af4f02a2e0c",
+    "demo-risk-mandate-field.html": "a1401a042d1c8124720971781ee2e8372b739abb61420153eb14b6e383bb2f9b",
+    "demo-file-security.html": "7e0e2a693a38475daced3d09cd8093365dbd7b0ecd6eac4cb1ff152f287a34e3",
+    "demo-agent-permission-games.html": "88b1be9153ae348e3376797c4ca964e7eb3843a77e6c38e5e562effa41dc85fe",
+    "pricing.html": "f0a2ca4eaba7f2faa70dbe6f5105d9b26e46c1efbe0490ebaf02abade92f874c",
+    "library.html": "ae83590ea3aad836a3335aa3bb521d37b1085dab1923d4a5b01bfdbe359f847a",
+    "partners.html": "8ebcaddd07ddbbb8edb0386da79156a4b88b655970a2f64d49521e0ea7648016",
+    "feedback.html": "446652be97997600a0168715a98c556c3aca5fa198c6438dc4e878156491a06a",
+    "brand.html": "3302193d6838d03d4900fb220674458c3096d4df01c24c9e17d163b34af2abb2",
+    "dev.html": "a3c7ea1d45b23a0506daff7ec8e82d9eda218a66e3b8faf8aeb8220f1cd88152",
+    "design-options.html": "ff07146002f4ee63233512e7801dac3b14bceb1cf4a48c56aaf1d828061a2d8a"
+  }
+}

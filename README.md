@@ -2,46 +2,59 @@
 
 The public marketing website for **Risk Mandate.ai**, served at **riskmandate.ai**.
 
-Content lives in an **SG/Vault** (id `7rfetjwz`). This repo holds the tooling
-that publishes that vault into a deployable static site, plus the generated
-output.
+Since **v1.0.0** the site lives here. `site/` is the deployed tree: what is in
+that directory is what GitHub Pages serves, byte for byte. There is no build
+step, no framework, and nothing to install to work on it — open a page in a
+browser and it works.
+
+Before v1.0.0 the content lived in an SG/Vault (`7rfetjwz`) and this repo held
+the tooling that published it. That vault is frozen and kept as the historical
+record, including the twelve design snapshots the site used to serve at once.
+[`site/versions/1.0.0.md`](site/versions/1.0.0.md) says exactly what changed and
+[`site/versions/source-snapshot.json`](site/versions/source-snapshot.json) carries
+a SHA-256 digest of every file the snapshot was taken from, so the copy is
+checkable against a fresh clone of the vault.
 
 ## Layout
 
 ```
-vault_publisher/         Standalone module — clones the vault (read-only via sgit-ai)
-                         and emits a clean static site. Config-driven and reusable;
-                         intended to be refactored out into its own package later.
-web_overlay/             Repo-held static pages overlaid onto the output (e.g. the
-                         /app/ vault-host page). See docs/hosting-mvp.md.
-scripts/                 Dev tooling (run-locally__riskmandate_ai.sh).
-.public-generated-files/ Generated static site (the deploy root). NOT committed
-                         (gitignored) — CI rebuilds it from the vault on each deploy,
-                         so the vault is the single source of truth.
+site/                    The deployed tree. One HTML document per page, each with
+                         its own URL, its own inline CSS and JS, and a markdown twin.
+site/versions/           The version record: index.json plus one note per release.
+site/scenarios/          The decoupled-content pilot — reads SG/Vault `dm42qcaw`
+                         in the browser (see docs/briefs/).
+site/assets/             Images, the library data, the proposition deck.
+scripts/site/            generate.mjs (derived files) and release.mjs (cut a version).
+scripts/migrate/         The one-off that produced v1.0.0 from the vault. History.
+tests/site/              Structural checks over site/. Run with `node --test`.
 ```
 
 ## Quick start
-
-Run the whole thing locally (generate the static tree from the vault, then serve
-it on localhost):
 
 ```bash
 bash scripts/run-locally__riskmandate_ai.sh        # → http://localhost:10070/
 ```
 
-Or just regenerate the deploy tree:
+Use `localhost`, not `127.0.0.1` — `/scenarios/` decrypts vault content with the
+Web Crypto API, which needs a secure context.
 
-```bash
-pip install -r vault_publisher/requirements.txt
-python vault_publisher/publish.py     # regenerates .public-generated-files/ from the vault
-```
+## Making a change
+
+1. Edit the page in `site/`. It is a plain HTML document; there is nothing to rebuild.
+2. `node scripts/site/generate.mjs` — refreshes the derived files (each page's
+   markdown twin, `sitemap.xml`, `robots.txt`, `llms.txt`, `404.html`).
+3. `node --test tests/site/*.mjs` — structural checks.
+4. Cutting a release: `node scripts/site/release.mjs 1.0.1 "What changed, in a line"`,
+   then write the notes it stubs out at `site/versions/1.0.1.md`.
+
+CI runs steps 2 and 3 as gates, tags the commit with the version declared in
+`site/versions/index.json`, and deploys `site/`. Nothing bumps the version for
+you: a release is a note somebody wrote.
 
 ## Docs
 
 - [`docs/how-the-website-works.md`](docs/how-the-website-works.md) — **start
-  here**: the load sequence (host shell → versioned pages → `rm-nav`
-  messages), the SG/Vault integration, and the publish pipeline end to end.
-- [`vault_publisher/README.md`](vault_publisher/README.md) — the publishing
-  model, the (public, read-only) vault key, and the denylist rationale.
-- [`docs/hosting-mvp.md`](docs/hosting-mvp.md) — the `/app/` embedded
-  vault-app page and the path to fully-static encrypted hosting.
+  here**: how a page is put together, how the shared header is built, and what
+  each component does.
+- [`docs/briefs/`](docs/briefs/) — the structure/content decoupling brief and the
+  scenarios pilot it produced.
