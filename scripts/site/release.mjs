@@ -10,6 +10,7 @@
 //   2. site/versions/index.json        the new entry, newest first
 //   3. site/*.html                     the version shown in every page's chrome
 //   4. riskmandate_ai/version          the tag CI reads
+//   5. pyproject.toml                  the package version, kept equal to it
 //
 // Then: write the note, commit, push. CI checks the three agree, tags that
 // commit `v<version>`, and deploys. The release's `source` is that tag, which is
@@ -61,10 +62,12 @@ function cut(version, title) {
 
   const touched = setVersionInPages(index().releases[1].version, version);
   writeFileSync(join(ROOT, 'riskmandate_ai/version'), `v${version}\n`);
+  writeFileSync(join(ROOT, 'pyproject.toml'),
+    read(join(ROOT, 'pyproject.toml')).replace(/^(version\s*=\s*)"v[\d.]+"/m, `$1"v${version}"`));
 
   console.log(`v${version} — ${title}`);
   console.log(`  site/versions/${notes}   write the notes here`);
-  console.log(`  ${touched} pages restamped, riskmandate_ai/version updated`);
+  console.log(`  ${touched} pages restamped, riskmandate_ai/version and pyproject.toml updated`);
   console.log(`  then: node scripts/site/generate.mjs && git commit`);
 }
 

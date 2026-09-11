@@ -61,9 +61,12 @@ test('every page shows the current version and links it to the record', () => {
   }
 });
 
-test('the pages, the record and the tag file name the same version', () => {
-  const tag = readFileSync(join(SITE, '../riskmandate_ai/version'), 'utf8').trim();
+test('every place that names a version names the same one', () => {
+  const at  = (p) => readFileSync(join(SITE, '..', p), 'utf8');
+  const tag = at('riskmandate_ai/version').trim();
+  const pkg = at('pyproject.toml').match(/^version\s*=\s*"(v[\d.]+)"/m)?.[1];
   assert.equal(tag, `v${index.latest}`, 'riskmandate_ai/version disagrees with versions/index.json');
+  assert.equal(pkg, `v${index.latest}`, 'pyproject.toml disagrees with versions/index.json');
 });
 
 test('the menu is the same list on every page, and every entry is a real page', () => {
