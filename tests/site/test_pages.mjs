@@ -13,8 +13,15 @@ import { fileURLToPath }                         from 'node:url';
 const SITE  = join(dirname(fileURLToPath(import.meta.url)), '../../site');
 const read  = (f) => readFileSync(join(SITE, f), 'utf8');
 const html  = readdirSync(SITE).filter(f => f.endsWith('.html'));
-const pages = html.filter(f => f !== '404.html');
 const index = JSON.parse(read('versions/index.json'));
+const listed = JSON.parse(read('pages.json')).pages;
+
+// `private` pages are working pages for us: no markdown twin, nothing that
+// advertises them. They are still real pages and still have to hold together,
+// so every other check below applies to them.
+const secret = new Set(listed.filter(p => p.private).map(p => p.file));
+const pages  = html.filter(f => f !== '404.html');
+const pub    = pages.filter(f => !secret.has(f));
 
 test('every page is a whole document, not a fragment loaded into a frame', () => {
   for (const f of pages) {
@@ -34,23 +41,43 @@ test('the host frame is gone — no page talks to a parent window', () => {
   }
 });
 
-test('every internal link resolves to a file that exists', () => {
+test('every internal link resolves — the file, and the anchor if it names one', () => {
   const misses = [];
+  const ids    = new Map();   // file → the ids it defines
+  const idsOf  = (f) => {
+    if (!ids.has(f)) ids.set(f, new Set([...read(f).matchAll(/\sid="([^"]+)"/g)].map(m => m[1])));
+    return ids.get(f);
+  };
   for (const f of html) {
     for (const [, href] of read(f).matchAll(/href="([^"#:][^":]*)"/g)) {
-      if (!existsSync(join(SITE, href))) misses.push(`${f} → ${href}`);
+      const [path, anchor] = href.split('#');
+      if (!existsSync(join(SITE, path))) { misses.push(`${f} → ${href} (no such file)`); continue; }
+      // an anchor into another page only works if that page defines the id
+      if (anchor && path.endsWith('.html') && !idsOf(path).has(anchor)) {
+        misses.push(`${f} → ${href} (${path} has no id="${anchor}")`);
+      }
     }
   }
   assert.deepEqual(misses, []);
 });
 
-test('every page carries a canonical URL, a markdown twin, and the twin exists', () => {
-  for (const f of pages) {
+test('every published page carries a canonical URL and a markdown twin', () => {
+  for (const f of pub) {
     const s    = read(f);
     const twin = f.replace(/\.html$/, '.md');
     assert.match(s, /<link rel="canonical" href="https:\/\/riskmandate\.ai\//, `${f} has no canonical URL`);
     assert.match(s, new RegExp(`<link rel="alternate" type="text/markdown" href="${twin}"`), `${f} does not link its twin`);
     assert.ok(existsSync(join(SITE, twin)), `${twin} is missing`);
+  }
+});
+
+test('a private page is marked noindex, has no twin, and is disallowed in robots', () => {
+  const robots = read('robots.txt');
+  for (const f of secret) {
+    assert.match(read(f), /<meta name="robots" content="noindex,nofollow">/, `${f} is not noindex`);
+    assert.ok(!existsSync(join(SITE, f.replace(/\.html$/, '.md'))), `${f} should have no markdown twin`);
+    assert.match(robots, new RegExp(`^Disallow: /${f.replace('.', '\\.')}$`, 'm'), `robots.txt does not disallow ${f}`);
+    assert.doesNotMatch(read('llms.txt'), new RegExp(f.replace('.', '\\.')), `llms.txt names ${f}`);
   }
 });
 
@@ -96,10 +123,14 @@ test('releases carried over from the vault are labelled reconstructed', () => {
   }
 });
 
-test('the sitemap lists every page and nothing that is not one', () => {
-  const listed = [...read('sitemap.xml').matchAll(/<loc>https:\/\/riskmandate\.ai\/([^<]*)<\/loc>/g)]
+test('the sitemap lists every published page and nothing that is not one', () => {
+  const inMap = [...read('sitemap.xml').matchAll(/<loc>https:\/\/riskmandate\.ai\/([^<]*)<\/loc>/g)]
     .map(m => m[1] || 'index.html');
-  assert.deepEqual([...listed].sort(), [...pages].sort());
+  assert.deepEqual(inMap.sort(), [...pub].sort());
+});
+
+test('pages.json accounts for every page in site/, and vice versa', () => {
+  assert.deepEqual(listed.map(p => p.file).sort(), [...pages].sort());
 });
 
 test('no write credential ships in the deployed tree', () => {

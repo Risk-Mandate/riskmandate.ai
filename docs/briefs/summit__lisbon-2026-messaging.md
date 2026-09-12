@@ -7,13 +7,33 @@
 
 ---
 
+> **Corrected 12 September, against the organiser's Startup Booth Guide** (authored
+> 21 August, received 12 September; reproduced with our own action list at
+> [`/summit-booth.html`](https://riskmandate.ai/summit-booth.html), an internal page).
+> Three things in this brief were wrong:
+>
+> 1. **The roll-up banner is off the list.** The guide puts large roll-up banners on
+>    the check-with-us list twice and argues against the whole instinct. §5 is revised.
+> 2. **The logo goes through the exhibitor portal, not to Adriano by email.** The guide:
+>    *“Please do not email your logo separately if you can upload it through the portal.”*
+> 3. **Power is not automatic** and must be requested through the portal, which they use
+>    to plan booth positions. The aisle-facing screen depends on it. This was not in any
+>    earlier brief and it is now the second blocking item.
+>
+> Also confirmed: the booth is **1000 × 400 × 1000mm MDF**, built and logo-printed by the
+> organiser, with an internal shelf; the venue is **Unicorn Factory Lisboa**; and booth
+> numbers are assigned later, so there is nothing to chase.
+
 ## 0. Read this first — two deadlines are now
 
-- **Exhibitor logo and exact company name: Tuesday 15 September** (Adriano Wagner, CMO).
-  Four calendar days.
-- **Print lead time: today.** The 9 September brief put the order-by date at Friday 11
-  September, which is today. **Whatever gets printed has to be decided in this session
-  or it does not exist at the booth.** §5 says what I would print and what I would drop.
+- **Logo and exact company name into the exhibitor portal: Tuesday 15 September.**
+  Adriano Wagner (CMO) asked for these; the guide says the portal is the route, so
+  upload first and reply telling him it is there.
+- **Power request: before the floor plan closes.** No date given, which means as soon
+  as possible — they allocate booth positions using it.
+- **Print: the draft-policy cards only.** The 9 September brief put the order-by date at
+  Friday 11 September. The banner is dropped, which removes the long-lead item; the cards
+  are small-format and still orderable. §5 says what to print.
 
 ## 1. The change, in one paragraph
 
@@ -158,12 +178,18 @@ clause can be checked by the buyer.
 **The card is the product.** For tier 1 the printed draft ABP *is* the thing being
 sold, so it is the one print item that cannot be dropped.
 
+**The booth is 1000mm wide and 400mm deep**, which settles the format before taste
+does: a laptop, a small card holder and a QR stand fill the top surface. Nothing that
+needs floor space is worth the approval round-trip five days out.
+
 | | Item | Status |
 |---|---|---|
 | **P0** | **Draft ABP cards — five deployment shapes**, one per card, conservative on purpose, with the `t1` code and `store.sgit.ai/d/t1/` on the back | The five worked examples are **already published and derived** on `abp.sgit.ai`: chat in the browser with nothing connected; a coding CLI on your own machine with confirmations on; the same with confirmations off; a browser extension with broad host permissions; a CI job on a hosted runner under a service account. **The content exists. Only the layout does not.** |
-| **P0** | **Roll-up banner** — *"Do you know what your AI agent can actually do?"* | Wording settled. Needs the Seal, not concept B |
+| **P0** | **Small tabletop sign** — *"Do you know what your AI agent can actually do?"* | Explicitly allowed with no approval, and it fits the 40cm depth. This is where the aisle line lives now |
 | **P1** | Business cards with the `t1` code | Cheapest possible fallback if the draft cards miss the print window |
-| **P2** | One-pager | Drop it. The draft card does its job better |
+| ~~P0~~ | ~~Roll-up banner~~ | **Dropped.** On the organiser's check-first list, discouraged at length, and the room is being designed without them |
+| ~~P2~~ | ~~One-pager~~ | Dropped. No depth for a stack, and the draft card does its job better |
+| — | Side-panel vinyl | My recommendation is to skip it: 400mm deep is nearly invisible in an aisle, and it is the one item that would need approval *and* print in five days |
 
 **The two-documents pair is the demo, and it prints on one side of one card.** Same
 product, same machine, same account, one setting changed:
@@ -182,7 +208,9 @@ agent's own account could flip. That is the entire enforcer test in one table, a
 is the most convincing thing we own for a technical audience.
 
 **Blocked, and it blocks print:** the collateral artboards in `.design-work/` still use
-concept B. The Seal was selected. **Nothing goes to print with concept B on it.**
+concept B. The Seal was selected. **Nothing goes to print with concept B on it.** (The
+banner being dropped removes most of the exposure here — the cards are the remaining
+artboard that needs the Seal.)
 
 ## 6. The two days
 
@@ -206,8 +234,13 @@ of a deck.
 1. **Behaviour or behavior.** Blocks print. Recommendation: *behaviour*.
 2. **Which five shapes get a printed draft?** The five published examples are the
    obvious answer and I would not invent a sixth this week.
-3. **Company name and logo for Adriano — Tuesday.** Still outstanding. Name is
-   **RiskMandate**, one word, two capitals. Mark is the Seal.
+3. **Logo and name into the portal — Tuesday.** Artwork is built and waiting at
+   [`/summit-booth.html`](https://riskmandate.ai/summit-booth.html): a 200×200mm vector
+   PDF with outlines embedded, which is the format the guide prefers. Name is
+   **RiskMandate**, one word, two capitals. Mark is the Seal, sent as the lockup rather
+   than the mark alone so a stranger can ask for us by name.
+3a. **Laptop or a monitor?** A laptop needs no approval; a monitor needs declaring, and
+   the answer changes the power request. Decide before messaging them once.
 4. **Does the `t1` checkout work end to end today?** The ABP brief records that the
    August application tier 1 depends on has not been located, and that the fallback is
    a questions page with a printed output. **If the code on the card leads nowhere, the

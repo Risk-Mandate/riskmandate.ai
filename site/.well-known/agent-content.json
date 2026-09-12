@@ -120,6 +120,11 @@
       "url": "https://riskmandate.ai/grant-gap.html"
     },
     {
+      "name": "abp",
+      "label": "Agent Behaviour Policy",
+      "url": "https://riskmandate.ai/abp.html"
+    },
+    {
       "name": "how-it-works",
       "label": "How it works",
       "url": "https://riskmandate.ai/how-it-works.html"
@@ -178,6 +183,11 @@
       "name": "demo-agent-permission-games",
       "label": "Permission games",
       "url": "https://riskmandate.ai/demo-agent-permission-games.html"
+    },
+    {
+      "name": "summit",
+      "label": "Lisbon 2026",
+      "url": "https://riskmandate.ai/summit.html"
     },
     {
       "name": "pricing",

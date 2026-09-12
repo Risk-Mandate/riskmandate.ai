@@ -1,5 +1,7 @@
-# riskmandate.ai — everything here is public.
+# riskmandate.ai — everything here is public except the working pages below,
+# which are ours rather than yours and carry noindex as well.
 User-agent: *
+Disallow: /summit-booth.html
 Allow: /
 
 Sitemap: https://riskmandate.ai/sitemap.xml

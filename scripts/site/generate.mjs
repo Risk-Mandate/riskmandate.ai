@@ -120,18 +120,31 @@ function toMarkdown(html, page) {
 
 // --------------------------------------------------------------- the page list
 
-// The menu is the site's own list of its pages, inlined in every page. Read it
-// back rather than keeping a second copy here.
+// site/pages.json is the site's own list of its pages, and the only place it
+// lives. Until v1.0.1 the menu was inlined in all 24 pages with nothing keeping
+// them in step — a test could see them disagree but nothing could fix it, and
+// adding a page meant editing every page. Now the JSON is the source and the
+// inlined copy is injected from it.
 function pages() {
-  const home = readFileSync(join(SITE, 'index.html'), 'utf8');
-  const menu = JSON.parse(home.match(/RM\.data\.pages=(\[[\s\S]*?\]);/)[1]);
-  const extra = ['versions.html', 'design-options.html']
-    .filter(f => existsSync(join(SITE, f)))
-    .map(f => ({ name: f.replace(/\.html$/, ''), label: null, file: f }));
-  return [{ name: 'home', label: 'Home', file: 'index.html' }, ...menu, ...extra]
-    .map(p => ({ ...p, html: readFileSync(join(SITE, p.file), 'utf8') }))
+  const listed = JSON.parse(read('pages.json')).pages;
+  for (const p of listed) {
+    if (!existsSync(join(SITE, p.file))) throw new Error(`pages.json names a missing page: ${p.file}`);
+  }
+  return listed.map(p => ({ ...p, html: read(p.file) }))
     .map(p => ({ ...p, title: decode(p.html.match(/<title>([\s\S]*?)<\/title>/)?.[1] ?? p.file),
                        desc : decode(p.html.match(/<meta name="description" content="([^"]*)"/)?.[1] ?? '') }));
+}
+
+// The two regions of a page that are injected rather than authored: the menu
+// data, and the name the menu marks active. Everything else in site/*.html is
+// written by hand and left alone.
+function withMenu(page, listed) {
+  const menu = listed.filter(p => !p.unlisted)
+                     .map(p => ({ name: p.name, label: p.label, file: p.file, ...(p.group ? { group: p.group } : {}) }));
+  const current = page.name === 'home' ? '' : `RM.data.currentPage=${JSON.stringify(page.name)};`;
+  return page.html
+    .replace(/RM\.data\.currentPage="[^"]*";/, '')
+    .replace(/RM\.data\.pages=\[[\s\S]*?\];/, current + `RM.data.pages=${JSON.stringify(menu)};`);
 }
 
 // --------------------------------------------------------------- the artefacts
@@ -146,9 +159,11 @@ const sitemap = (ps) => [
   ``
 ].join('\n');
 
-const robots = () => [
-  `# riskmandate.ai — everything here is public.`,
+const robots = (ps) => [
+  `# riskmandate.ai — everything here is public except the working pages below,`,
+  `# which are ours rather than yours and carry noindex as well.`,
   `User-agent: *`,
+  ...ps.filter(p => p.private).map(p => `Disallow: /${p.file}`),
   `Allow: /`,
   ``,
   `Sitemap: ${ORIGIN}/sitemap.xml`,
@@ -273,12 +288,21 @@ function main() {
   const index = JSON.parse(readFileSync(join(SITE, 'versions/index.json'), 'utf8'));
 
   const files = new Map();
-  for (const p of ps) files.set(p.file.replace(/\.html$/, '.md'), toMarkdown(p.html, p));
-  const manifest = agentManifest(ps, index.latest);
-  files.set('sitemap.xml', sitemap(ps));
-  files.set('robots.txt',  robots());
-  files.set('llms.txt',    llms(ps, index.latest, JSON.parse(manifest)));
-  files.set('404.html',    notFound(ps));
+  // the pages first: the injected menu lands before the twins are taken from them
+  for (const p of ps) {
+    const html = withMenu(p, ps);
+    if (html !== p.html) { p.html = html; files.set(p.file, html); }
+  }
+  // `private` pages are ours to work from, not ours to publish: no twin, and
+  // nothing that advertises them. site/ is a public web root, so this makes
+  // them unadvertised rather than protected.
+  const pub = ps.filter(p => !p.private);
+  for (const p of pub) files.set(p.file.replace(/\.html$/, '.md'), toMarkdown(p.html, p));
+  const manifest = agentManifest(pub, index.latest);
+  files.set('sitemap.xml', sitemap(pub));
+  files.set('robots.txt',  robots(ps));
+  files.set('llms.txt',    llms(pub, index.latest, JSON.parse(manifest)));
+  files.set('404.html',    notFound(pub));
   files.set('versions.md', versionsMd(index));
   files.set('llms-full.txt',                  fullText(index.latest));
   files.set('.well-known/agent-content.json', manifest);

@@ -1,0 +1,163 @@
+{
+  "note": "The site's own list of its pages. generate.mjs injects the menu entries into every page as RM.data.pages, so this file is the only place the list lives. `unlisted` pages are real pages with their own URL that the header menu does not show. `private` pages are additionally kept out of the sitemap, llms.txt and the 404 list, carry noindex, and get no markdown twin — they are working pages for us, not published ones, and site/ is a public web root so they are reachable by anyone who has the URL. Keep at most 7 top-level entries (a group counts as one) — the header bar is capped at 1100px and overflows past that.",
+  "pages": [
+    {
+      "name": "home",
+      "file": "index.html",
+      "label": "Home",
+      "unlisted": true
+    },
+    {
+      "name": "plug",
+      "label": "Who can pull the plug",
+      "file": "plug.html",
+      "group": "The problem"
+    },
+    {
+      "name": "acceptable",
+      "label": "Accepted is not acceptable",
+      "file": "acceptable.html",
+      "group": "The problem"
+    },
+    {
+      "name": "acceptance",
+      "label": "You own the risk",
+      "file": "acceptance.html",
+      "group": "The problem"
+    },
+    {
+      "name": "grant-gap",
+      "label": "The grant is not the mandate",
+      "file": "grant-gap.html",
+      "group": "The problem"
+    },
+    {
+      "name": "abp",
+      "label": "Agent Behaviour Policy",
+      "file": "abp.html",
+      "group": "The model"
+    },
+    {
+      "name": "how-it-works",
+      "label": "How it works",
+      "file": "how-it-works.html",
+      "group": "The model"
+    },
+    {
+      "name": "agents",
+      "label": "Agents",
+      "file": "agents.html",
+      "group": "The model"
+    },
+    {
+      "name": "ramm",
+      "label": "RAMM — acceptance maturity",
+      "file": "ramm.html",
+      "group": "The model"
+    },
+    {
+      "name": "scenarios",
+      "label": "Risk scenarios",
+      "file": "scenarios.html",
+      "group": "The model"
+    },
+    {
+      "name": "statics",
+      "label": "Static scenarios",
+      "file": "statics.html",
+      "group": "The model"
+    },
+    {
+      "name": "demos",
+      "label": "All demos",
+      "file": "demos.html",
+      "group": "Live demos"
+    },
+    {
+      "name": "demo-licence-to-operate",
+      "label": "Licence to Operate",
+      "file": "demo-licence-to-operate.html",
+      "group": "Live demos"
+    },
+    {
+      "name": "demo-risk-graph-explorer",
+      "label": "RiskGraph Explorer",
+      "file": "demo-risk-graph-explorer.html",
+      "group": "Live demos"
+    },
+    {
+      "name": "demo-agentic-browser-isolation",
+      "label": "Agentic Browser Isolation",
+      "file": "demo-agentic-browser-isolation.html",
+      "group": "Live demos"
+    },
+    {
+      "name": "demo-risk-mandate-field",
+      "label": "RiskMandate field demo",
+      "file": "demo-risk-mandate-field.html",
+      "group": "Live demos"
+    },
+    {
+      "name": "demo-file-security",
+      "label": "File security walk",
+      "file": "demo-file-security.html",
+      "group": "Live demos"
+    },
+    {
+      "name": "demo-agent-permission-games",
+      "label": "Permission games",
+      "file": "demo-agent-permission-games.html",
+      "group": "Live demos"
+    },
+    {
+      "name": "summit",
+      "label": "Lisbon 2026",
+      "file": "summit.html"
+    },
+    {
+      "name": "pricing",
+      "label": "Pricing",
+      "file": "pricing.html"
+    },
+    {
+      "name": "library",
+      "label": "Library",
+      "file": "library.html",
+      "group": "More"
+    },
+    {
+      "name": "partners",
+      "label": "Partners",
+      "file": "partners.html",
+      "group": "More"
+    },
+    {
+      "name": "feedback",
+      "label": "Give feedback",
+      "file": "feedback.html",
+      "group": "More"
+    },
+    {
+      "name": "brand",
+      "label": "Brand",
+      "file": "brand.html",
+      "group": "More"
+    },
+    {
+      "name": "versions",
+      "file": "versions.html",
+      "unlisted": true
+    },
+    {
+      "name": "design-options",
+      "file": "design-options.html",
+      "unlisted": true
+    },
+    {
+      "name": "summit-booth",
+      "file": "summit-booth.html",
+      "unlisted": true,
+      "private": true
+    }
+  ]
+}

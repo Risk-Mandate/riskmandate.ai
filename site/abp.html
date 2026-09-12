@@ -1,0 +1,682 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RiskMandate — the Agent Behaviour Policy</title>
+<meta name="description" content="An Agent Behaviour Policy is a written description, for one agent in one deployment, of everything it can do, what you authorised it to do, the gap between them, and what actually stands in the way. It describes and it does not judge, so it carries no score.">
+<link rel="canonical" href="https://riskmandate.ai/abp.html">
+<link rel="alternate" type="text/markdown" href="abp.md" title="This page as markdown">
+<link rel="icon" href="assets/brand/riskmandate-favicon-32.png" sizes="32x32">
+<link rel="icon" href="assets/brand/riskmandate-mark.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RiskMandate">
+<meta property="og:url" content="https://riskmandate.ai/abp.html">
+<meta property="og:title" content="RiskMandate — the Agent Behaviour Policy">
+<meta property="og:description" content="An Agent Behaviour Policy is a written description, for one agent in one deployment, of everything it can do, what you authorised it to do, the gap between them, and what actually stands in the way. It describes and it does not judge, so it carries no score.">
+<meta property="og:image" content="https://riskmandate.ai/assets/brand/riskmandate-lockup-light.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Scaffolded by scripts/site/new-page.mjs. Hand-edited from here on — there is no build step. -->
+<style>
+/* abp.css — self-contained: the shared chrome, then this page's own. */
+:root{
+  --bg:#F7F6F2; --bg2:#EFEDE7; --card:#FFFFFF; --ink:#0D0D0C; --canvas:#0A0A09;
+  --text:#1A1917; --muted:#4A4845; --faint:#8A8780; --border:#E2DFD8;
+  --green:#1A7F5A; --green-2:#22c55e; --greenBg:#EBF5F0;
+  --gold:#B45309; --red:#C0392B; --blue:#1D4ED8;
+  --fg:#F7F6F2; --fg-2:rgba(247,246,242,.55); --fg-3:rgba(247,246,242,.32);
+  --line:rgba(247,246,242,.10); --line-2:rgba(247,246,242,.18);
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","JetBrains Mono","Roboto Mono",Menlo,Consolas,monospace;
+  --wrap:1000px; --r:10px; --r-sm:8px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth} @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+h1,h2{margin:0;font-weight:800;letter-spacing:-.03em;line-height:1.04}
+h2{font-size:clamp(26px,3.6vw,40px);font-weight:700;letter-spacing:-.02em}
+p{margin:0}
+:focus-visible{outline:2px solid var(--green-2);outline-offset:3px;border-radius:4px}
+.tag{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+.g{color:var(--green)} .it{font-style:italic;color:var(--green)}
+
+/* header */
+.top{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.top .wrap{display:flex;align-items:center;gap:22px;height:56px;max-width:1100px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:15px;color:var(--text);white-space:nowrap;text-decoration:none}
+.rm{width:26px;height:26px;flex:none;display:block}
+.rm svg{width:100%;height:100%;display:block}
+.navlinks{display:flex;align-items:center;gap:22px;margin-left:auto}
+rm-menu{display:contents}
+.navlinks a{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;text-decoration:none;display:inline-flex;align-items:center}
+.navlinks a:hover{color:var(--text)}
+.navlinks a.active{color:var(--text);font-weight:600}
+.version{font-family:var(--mono);font-size:12px;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:7px;padding:5px 8px;text-decoration:none;white-space:nowrap;transition:color .15s,border-color .15s}
+.version:hover{color:var(--text);border-color:var(--faint)}
+.demo{background:var(--green);color:#fff;font-weight:600;font-size:13px;border:0;border-radius:8px;padding:8px 16px;cursor:pointer;transition:background .15s;font-family:var(--sans);white-space:nowrap}
+.demo:hover{background:#16704f}
+
+/* nav dropdowns */
+.navgroup{position:relative;display:inline-flex;align-items:center}
+.navgroup::after{content:"";position:absolute;top:100%;left:0;right:0;height:10px}
+.navgroup-btn{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;display:inline-flex;align-items:center;gap:5px}
+.navgroup-btn:hover,.navgroup:hover .navgroup-btn,.navgroup.open .navgroup-btn,.navgroup.active .navgroup-btn{color:var(--text)}
+.navgroup-car{font-size:8px;line-height:1;opacity:.6;transition:transform .15s}
+.navgroup:hover .navgroup-car,.navgroup.open .navgroup-car{transform:rotate(180deg)}
+.navmenu{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);min-width:184px;background:var(--card);border:1px solid var(--border);border-radius:10px;box-shadow:0 10px 34px rgba(13,13,12,.14);padding:6px;display:none;flex-direction:column;gap:2px;z-index:70}
+.navgroup:hover .navmenu,.navgroup.open .navmenu{display:flex}
+.navmenu .navchild{justify-content:flex-start;text-align:left;width:100%;padding:8px 12px;border-radius:7px;font-size:13.5px;color:var(--muted);white-space:nowrap}
+.navmenu .navchild:hover{background:var(--bg2);color:var(--text)}
+.navmenu .navchild.active{color:var(--green);font-weight:600;background:var(--greenBg)}
+
+/* mobile drawer — the toggle is injected by nav.js; .top.nav-open opens it */
+.navtoggle{display:none;margin-left:auto;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;padding:0;background:none;border:0;cursor:pointer}
+.navtoggle span{display:block;width:20px;height:2px;margin:0 auto;background:var(--text);border-radius:2px;transition:transform .2s,opacity .2s}
+.top.nav-open .navtoggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.top.nav-open .navtoggle span:nth-child(2){opacity:0}
+.top.nav-open .navtoggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media (max-width:980px){
+  .navtoggle{display:flex}
+  .top .wrap{position:relative}
+  .version{display:none}
+  .navlinks{display:none;position:absolute;left:0;right:0;top:calc(100% + 1px);flex-direction:column;align-items:stretch;gap:0;margin:0;padding:8px;background:var(--card);border-bottom:1px solid var(--border);box-shadow:0 14px 34px rgba(13,13,12,.14);max-height:calc(100vh - 56px);overflow:auto}
+  .top.nav-open .navlinks{display:flex}
+  .navlinks a,.navlinks .navgroup-btn{width:100%;text-align:left;justify-content:flex-start;padding:12px 16px;font-size:15px;border-radius:8px}
+  .navlinks a:hover{background:var(--bg2)}
+  .navgroup{display:block;width:100%;position:static}
+  .navgroup::after{display:none}
+  .navgroup-btn{display:flex}
+  .navgroup-car{margin-left:auto}
+  .navmenu{position:static;transform:none;display:flex;flex-direction:column;min-width:0;padding:2px 0 8px 14px;background:transparent;border:0;box-shadow:none}
+  .navmenu .navchild{padding:10px 14px;font-size:14px}
+}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;padding:12px 22px;border-radius:var(--r-sm);cursor:pointer;border:1px solid transparent;font-family:var(--sans);text-decoration:none}
+.btn-green{background:var(--green);color:#fff} .btn-green:hover{background:#16704f}
+.btn-ghost{background:transparent;color:var(--fg);border-color:var(--line-2)} .btn-ghost:hover{border-color:var(--fg-2)}
+.btn-ghost-dark{background:transparent;color:var(--text);border-color:var(--border)} .btn-ghost-dark:hover{border-color:var(--green);color:var(--green)}
+
+/* dark hero */
+.phero{background:var(--ink);color:var(--fg);padding:88px 24px 84px}
+.phero .wrap{max-width:var(--wrap)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--green);background:rgba(26,127,90,.18);border:1px solid rgba(26,127,90,.4);border-radius:999px;padding:5px 12px}
+.eyebrow .d{width:6px;height:6px;border-radius:50%;background:var(--green-2)}
+.phero h1{font-size:clamp(34px,5.2vw,60px);letter-spacing:-.04em;line-height:1.02;margin:26px 0 0;color:var(--fg);max-width:900px}
+.phero .sub{color:var(--fg-2);font-size:17px;line-height:1.7;max-width:640px;margin-top:24px}
+.cta-row{display:flex;flex-wrap:wrap;gap:11px;margin-top:30px}
+
+/* paper sections */
+.paper{background:var(--bg)}
+.psection{padding:80px 0;border-bottom:1px solid var(--border)}
+.psection.alt{background:var(--bg2)}
+.shead{max-width:680px} .shead.center{max-width:720px;margin:0 auto;text-align:center}
+.shead h2{color:var(--text)} .shead p{color:var(--muted);margin-top:16px;font-size:15px;line-height:1.75}
+
+/* closing panel + footer */
+.pcta{background:var(--ink);padding:80px 24px;text-align:center}
+.pcta .wrap{max-width:720px;padding:0}
+.pcta h2{font-size:clamp(28px,4.4vw,48px);color:var(--fg);margin-top:20px;font-weight:700;letter-spacing:-.03em}
+.pcta p{color:var(--fg-2);margin-top:16px;font-size:16px;line-height:1.7}
+.pcta .cta-row{justify-content:center}
+.foot{background:var(--canvas);border-top:1px solid var(--line);padding:32px 24px}
+.foot .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-family:var(--mono);font-size:10px;color:var(--fg-3);max-width:1100px}
+.footlink{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.footlink:hover{color:var(--fg-2)}
+/* tables — the model is mostly tabular, so the table is the main figure here */
+.t-wrap{overflow-x:auto;margin-top:34px;border:1px solid var(--border);border-radius:var(--r);background:var(--card)}
+table.m{width:100%;border-collapse:collapse;font-size:14px;min-width:560px}
+table.m th{text-align:left;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);padding:14px 18px;border-bottom:1px solid var(--border);white-space:nowrap}
+table.m td{padding:15px 18px;border-bottom:1px solid var(--border);color:var(--muted);line-height:1.55;vertical-align:top}
+table.m tr:last-child td{border-bottom:0}
+table.m td.k{color:var(--text);font-weight:700;white-space:nowrap}
+table.m td.n{font-family:var(--mono);font-size:15px;color:var(--text);text-align:right;white-space:nowrap}
+table.m code{font-family:var(--mono);font-size:12.5px;background:var(--bg2);padding:1px 6px;border-radius:5px;color:var(--text)}
+table.m .yes{color:var(--green);font-weight:700}
+table.m .no{color:var(--faint)}
+.glyph{font-size:15px;color:var(--green);width:1px;padding-right:0;text-align:center}
+
+/* the rule callouts — one claim, stated once, in a box */
+.rule{margin-top:32px;border-left:3px solid var(--green);background:var(--greenBg);border-radius:0 var(--r-sm) var(--r-sm) 0;padding:20px 24px;max-width:680px}
+.rule p{color:var(--text);font-size:16px;line-height:1.6;font-weight:600}
+.rule p + p{margin-top:10px;font-weight:400;font-size:14.5px;color:var(--muted)}
+.rule.dark{background:rgba(26,127,90,.10);border-left-color:var(--green-2)}
+.rule.dark p{color:var(--fg)} .rule.dark p + p{color:var(--fg-2)}
+
+/* the inventory / finding pair */
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:32px}
+@media (max-width:760px){.pair{grid-template-columns:1fr}}
+.pcard{border:1px solid var(--border);border-radius:var(--r);padding:22px 24px;background:var(--card)}
+.pcard.win{border:2px solid var(--green);background:var(--greenBg)}
+.pcard .lab{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+.pcard.win .lab{color:var(--green)}
+.pcard .said{font-size:17px;line-height:1.5;margin-top:12px;color:var(--text);font-weight:600}
+.pcard .why{font-size:13.5px;color:var(--muted);margin-top:10px;line-height:1.6}
+
+/* the three-rung ladder */
+.rungs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:36px}
+@media (max-width:860px){.rungs{grid-template-columns:1fr}}
+.rung{border:1px solid var(--border);border-radius:var(--r);background:var(--card);padding:24px;display:flex;flex-direction:column;gap:10px}
+.rung.here{border:2px solid var(--green);background:var(--greenBg)}
+.rung .n{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+.rung.here .n{color:var(--green)}
+.rung h3{margin:0;font-size:19px;font-weight:700;letter-spacing:-.01em;color:var(--text)}
+.rung p{font-size:13.5px;color:var(--muted);line-height:1.6}
+.rung .meta{margin-top:auto;padding-top:12px;border-top:1px solid var(--border);font-family:var(--mono);font-size:11px;color:var(--faint);display:flex;flex-direction:column;gap:3px}
+
+/* source-bytes strip — every figure on this page comes from somewhere */
+.src{margin-top:28px;font-family:var(--mono);font-size:11.5px;color:var(--faint);line-height:1.7}
+.src a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+
+/* prose list */
+.plist{margin:26px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;max-width:680px}
+.plist li{position:relative;padding-left:22px;font-size:15px;color:var(--muted);line-height:1.7}
+.plist li::before{content:"";position:absolute;left:2px;top:10px;width:6px;height:6px;border-radius:50%;background:var(--green)}
+.plist strong{color:var(--text)}
+.shead code,.plist code,.rule code{font-family:var(--mono);font-size:13px;background:var(--bg2);padding:1px 6px;border-radius:5px;color:var(--text)}
+.psection.alt .plist code,.psection.alt .shead code{background:var(--card)}
+</style>
+</head>
+<body id="top">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
+    <nav class="navlinks"><rm-menu></rm-menu></nav>
+    <a class="version" href="versions.html" title="What shipped in v1.0.0">v1.0.0</a>
+    <button class="demo" data-demo>Get your Index</button>
+  </div>
+</header>
+
+<main class="phero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> The primitive</span>
+    <h1>You know what you asked for. <span class="it">You do not know what it can do.</span></h1>
+    <p class="sub">An <strong>Agent Behaviour Policy</strong> is a written description, for one agent in one deployment, of everything it can do, what you authorised it to do, the gap between the two, and what actually stands in the way. It is derived from your deployment rather than copied from a template. It describes and it does not judge, so it carries no score.</p>
+    <div class="cta-row">
+      <button class="btn btn-green" data-to="objects">See the four objects ↓</button>
+      <a class="btn btn-ghost" href="https://abp.sgit.ai/" target="_blank" rel="noopener">The published model and data ↗</a>
+    </div>
+  </div>
+</main>
+
+<div class="paper">
+
+  <!-- 01 — the four objects -->
+  <section class="psection" id="objects">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">The model</span>
+        <h2>Four objects. <span class="g">The order they are produced in matters.</span></h2>
+        <p>A behaviour policy is not a single list. The mandate is cheap, because you already know it. The grant is the work. The delta falls out of the two and is never written by hand.</p>
+      </div>
+      <div class="t-wrap">
+        <table class="m">
+          <thead><tr><th>Object</th><th>What it is</th><th>How it is obtained</th></tr></thead>
+          <tbody>
+            <tr><td class="k">The mandate</td><td>What the agent is authorised and expected to do</td><td><strong>Elicited.</strong> In minutes, because you already know it</td></tr>
+            <tr><td class="k">The grant</td><td>Everything the agent can do</td><td><strong>Measured.</strong> From the deployment shape, the account and the credentials</td></tr>
+            <tr><td class="k">The delta</td><td>Excess where it can and you did not ask; shortfall where you asked and it cannot</td><td><strong>Derived.</strong> Recomputed whenever the grant or the mandate moves, stored with the versions of both, never edited</td></tr>
+            <tr><td class="k">The barrier</td><td>What stands between the agent and each capability</td><td><strong>Recorded</strong> per capability, from one of four kinds</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="pair">
+        <div class="pcard">
+          <span class="lab">An inventory</span>
+          <p class="said">“Your agent can do 340 things.”</p>
+          <p class="why">A shrug. Nobody acts on an inventory, and the length of the list looks like a maintenance problem rather than a finding.</p>
+        </div>
+        <div class="pcard win">
+          <span class="lab">A finding</span>
+          <p class="said">“Your agent can do 340 things and you authorised 12.”</p>
+          <p class="why">The mandate is the edge that gives the enumeration a shape. It is the cheapest object to capture and the one that makes the other three mean something.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 — the barrier -->
+  <section class="psection alt">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">The barrier</span>
+        <h2>Only one kind of thing is <span class="g">actually in the way.</span></h2>
+        <p>For every capability in the grant, a behaviour policy records what stands between the agent and it. There are four kinds, and three of them bound nothing. That is not an opinion — it follows from what each one is.</p>
+      </div>
+      <div class="t-wrap">
+        <table class="m">
+          <thead><tr><th></th><th>Barrier</th><th>What stands in the way</th><th>Is it a control</th></tr></thead>
+          <tbody>
+            <tr><td class="glyph">●</td><td class="k">none</td><td>nothing in the way</td><td class="no">no</td></tr>
+            <tr><td class="glyph">◉</td><td class="k">expectation</td><td>a rule in prose, enforced by nobody</td><td class="no">no</td></tr>
+            <tr><td class="glyph">◐</td><td class="k">setting</td><td>a switch the agent's own account can flip</td><td class="no">no</td></tr>
+            <tr><td class="glyph">○</td><td class="k">boundary</td><td>enforced above the grant, out of the agent's reach</td><td class="yes">yes</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="rule">
+        <p>A control bounds a grant only if it is enforced by something the grant does not include.</p>
+        <p>Read the third and fourth rows together and the test falls out of them. A setting the agent's own account could change is not a control, because the grant includes the ability to remove the bound. A boundary enforced above it, that it cannot reach, is a control — because it does not.</p>
+      </div>
+      <p class="src">Every prohibition we render carries its barrier. One shown without it is a claim we cannot support, and it manufactures assurance. For most deployments today the honest answer is the second row. · <a href="https://abp.sgit.ai/model/barriers/" target="_blank" rel="noopener">The barrier, in full</a> · <a href="https://abp.sgit.ai/data/barriers.json" target="_blank" rel="noopener">as JSON</a></p>
+    </div>
+  </section>
+
+  <!-- 03 — one setting, two documents -->
+  <section class="psection">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Worked example</span>
+        <h2>One setting. <span class="g">Two documents.</span></h2>
+        <p>The clearest way to see what a behaviour policy does is to change one setting and watch the document change. A coding agent on a developer's own machine, profiled twice — once with confirmation prompts enabled, once with them disabled. Same product, same machine, same account.</p>
+      </div>
+      <div class="t-wrap">
+        <table class="m">
+          <thead><tr><th></th><th style="text-align:right">Confirmations on</th><th style="text-align:right">Confirmations off</th></tr></thead>
+          <tbody>
+            <tr><td class="k">Grant</td><td class="n">16</td><td class="n">16</td></tr>
+            <tr><td class="k">Mandate</td><td class="n">5</td><td class="n">5</td></tr>
+            <tr><td class="k">Excess</td><td class="n">12</td><td class="n">12</td></tr>
+            <tr><td class="k">Unbounded excess</td><td class="n">12</td><td class="n">12</td></tr>
+            <tr><td class="k">Barrier on <code>execute.process.host</code></td><td class="n">setting — not a control</td><td class="n">none — not a control</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="rule">
+        <p>One barrier moved, and not one number did.</p>
+        <p>The confirmation prompt was the only thing standing between an authorised capability and the whole of the machine — and it was a switch the agent's own account could flip, which is the third row and not the fourth. A behaviour policy is about the deployment, not about the product.</p>
+      </div>
+      <p class="src">Both documents are derived from published data rather than authored, and each states which of its rows were measured. · <a href="https://abp.sgit.ai/examples/claude-code-cli-confirmations-enabled/" target="_blank" rel="noopener">confirmations on</a> · <a href="https://abp.sgit.ai/examples/claude-code-cli-confirmations-disabled/" target="_blank" rel="noopener">confirmations off</a> · <a href="https://abp.sgit.ai/examples/" target="_blank" rel="noopener">all five examples</a></p>
+    </div>
+  </section>
+
+  <!-- 04 — no score -->
+  <section class="psection alt" id="no-score">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">The hard rule</span>
+        <h2>It describes. <span class="g">It does not judge.</span></h2>
+        <p>The same behaviour policy is dangerous in one deployment and harmless in another, and nothing about the document changed. The most permissive grant imaginable, running where there are no assets and nothing reachable, is a low risk. The same grant with a production database attached tomorrow is a high one.</p>
+      </div>
+      <div class="rule">
+        <p>A policy cannot be dangerous. A deployment can.</p>
+        <p>So there is no rating on a behaviour policy, no traffic light and no risk level — not on this page, not in the data. Risk is a function of the policy, the assets, the consequences and the date, and the policy is the one input that does not move.</p>
+      </div>
+      <ul class="plist">
+        <li><strong>The Insurability Index scores the deployment, never the behaviour policy.</strong> The Index knows the assets, so it can score; the policy does not, so it cannot. That is not a product preference — it is where the information is.</li>
+        <li><strong>Every behaviour policy carries a validity statement.</strong> <em>This describes the deployment shape as at this date. If the risk changed, the deployment changed — not this document.</em></li>
+        <li><strong>A document with a visible clock can be re-sold. A verdict cannot.</strong> A description of a grant rots on a known clock: the product's releases and the deployment's changes. A verdict rots on an unknown one.</li>
+        <li><strong>We call it the ABP or the behaviour policy, never “the policy”.</strong> In our own <a href="demo-licence-to-operate.html">Licence to Operate</a> demonstration, <em>policy</em> is the insurance instrument. Two different things cannot share one word on a site that publishes both.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 05 — where it sits -->
+  <section class="psection">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Where it sits</span>
+        <h2>The label, the record, <span class="g">and the prescription.</span></h2>
+        <p>A label describes a substance and never says <em>this is safe for you</em>. A patient record supplies the context. A prescribing decision combines the two, and a named professional signs it and carries the responsibility. Three things, and only the third can hold a number.</p>
+      </div>
+      <div class="rungs">
+        <div class="rung">
+          <span class="n">The label</span>
+          <h3>The behaviour policy</h3>
+          <p>What the agent can do, what you authorised, the gap, and what is in the way. Context-free, so it is the same document wherever the agent runs.</p>
+          <span class="meta"><span>no score</span><span>nobody signs it</span></span>
+        </div>
+        <div class="rung">
+          <span class="n">The patient record</span>
+          <h3>The twin</h3>
+          <p>A read-only model of the environment the agent is actually in: the assets, the tools, the data, what is connected to what. This is where the grant stops being a deployment shape and becomes yours.</p>
+          <span class="meta"><span>derived from reality</span><span>never in the request path</span></span>
+        </div>
+        <div class="rung here">
+          <span class="n">The prescription</span>
+          <h3>The Index, and the acceptance</h3>
+          <p>The two combined, dated, with a named owner and an expiry — so the decision comes back. This is what RiskMandate is, and it is the only rung with a score on it.</p>
+          <span class="meta"><span>scored</span><span>signed by a named professional</span></span>
+        </div>
+      </div>
+      <p class="src">The people who sell do not sign, which is why the label and the prescription are separate products rather than two sections of one.</p>
+    </div>
+  </section>
+
+  <!-- 06 — the control business case -->
+  <section class="psection alt">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">For whoever sells a control</span>
+        <h2>The business case for a control, <span class="g">with no verdict in it.</span></h2>
+        <p>Unbounded excess is the only number on a behaviour policy that anybody can move. Every real control shifts one capability out of the agent's reach and into the fourth row, and the number falls.</p>
+      </div>
+      <ul class="plist">
+        <li><strong>The gap between excess and unbounded excess is the business case</strong> — computed, sourced, and containing no claim about whether anything is acceptable.</li>
+        <li><strong>It is checkable, clause by clause.</strong> <em>This provision requires X. The agent's current grant does not bound X. A control of type Y, enforced at layer Z, would bound X.</em> Each of those three can be checked against the provision, the grant and the control.</li>
+        <li><strong>It is not a compliance assessment</strong> and it never concludes that you are compliant. It names the provision, the gap and the remedy, and stops.</li>
+        <li><strong>Most prohibitions today sit in the second row</strong> — a rule somebody wrote down, enforced by nobody. Moving one to the fourth row is a real change, and it is countable.</li>
+      </ul>
+      <p class="src">If you sell a control and want the count for your product against the five published deployment shapes, <a href="partners.html">that is what the partner conversation is</a>.</p>
+    </div>
+  </section>
+
+</div>
+
+<section class="pcta">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> Start here</span>
+    <h2>Start with a draft. Then correct it.</h2>
+    <p>You do not need to give us access to anything. A draft behaviour policy is derived from a deployment shape — which agent, running where, with which class of credentials — and handed to you. Correcting it is how you state your mandate, and the correction is usually upward.</p>
+    <div class="cta-row">
+      <a class="btn btn-green" href="https://store.sgit.ai/d/t1/" target="_blank" rel="noopener">Get a draft — £10 ↗</a>
+      <a class="btn btn-ghost" href="summit.html">We will do this with you in Lisbon →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>© 2026 RiskMandate · Autonomous Risk Management</span>
+    <span>The insurability layer for agentic AI. · <a class="footlink" href="versions.html">Versions</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+var RM={core:{},services:{},components:{},data:{}};
+RM.data.currentPage="abp";RM.data.pages=[{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"The problem"},{"name":"acceptable","label":"Accepted is not acceptable","file":"acceptable.html","group":"The problem"},{"name":"acceptance","label":"You own the risk","file":"acceptance.html","group":"The problem"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"The problem"},{"name":"abp","label":"Agent Behaviour Policy","file":"abp.html","group":"The model"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"The model"},{"name":"agents","label":"Agents","file":"agents.html","group":"The model"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"The model"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"The model"},{"name":"statics","label":"Static scenarios","file":"statics.html","group":"The model"},{"name":"demos","label":"All demos","file":"demos.html","group":"Live demos"},{"name":"demo-licence-to-operate","label":"Licence to Operate","file":"demo-licence-to-operate.html","group":"Live demos"},{"name":"demo-risk-graph-explorer","label":"RiskGraph Explorer","file":"demo-risk-graph-explorer.html","group":"Live demos"},{"name":"demo-agentic-browser-isolation","label":"Agentic Browser Isolation","file":"demo-agentic-browser-isolation.html","group":"Live demos"},{"name":"demo-risk-mandate-field","label":"RiskMandate field demo","file":"demo-risk-mandate-field.html","group":"Live demos"},{"name":"demo-file-security","label":"File security walk","file":"demo-file-security.html","group":"Live demos"},{"name":"demo-agent-permission-games","label":"Permission games","file":"demo-agent-permission-games.html","group":"Live demos"},{"name":"summit","label":"Lisbon 2026","file":"summit.html"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"}];RM.data.sections=[];
+
+'use strict';
+// components/dom.js — tiny DOM helpers shared by components. `el` builds an
+// element with attributes and children; text children always go in via
+// textContent. `renderMarkdownInto` turns core/markdown tokens into real DOM
+// nodes (never an HTML string), so fetched release notes cannot inject markup.
+
+RM.components.dom = (function () {
+  // A link in a markdown note may only go somewhere harmless: same-document,
+  // same-origin relative, https, or mailto. Anything else — javascript:, data:,
+  // a protocol-relative host — renders as the text it was, and goes nowhere.
+  var SAFE = /^(?:https:\/\/|mailto:|#|[^:/?#]*(?:[/?#]|$))/i;
+
+  /**
+   * @param {string} tag
+   * @param {Object<string,string>} [attrs]
+   * @param {Array<Node|string>} [children]
+   * @returns {HTMLElement}
+   */
+  function el(tag, attrs, children) {
+    var node = document.createElement(tag);
+    if (attrs) Object.keys(attrs).forEach(function (k) {
+      if (attrs[k] != null) node.setAttribute(k, attrs[k]);
+    });
+    (children || []).forEach(function (c) {
+      node.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
+    });
+    return node;
+  }
+
+  /** Render inline runs into a parent element. */
+  function appendRuns(parent, runs) {
+    runs.forEach(function (run) {
+      if      (run.t === 'strong') parent.appendChild(el('strong', null, [run.v]));
+      else if (run.t === 'em')     parent.appendChild(el('em',     null, [run.v]));
+      else if (run.t === 'code')   parent.appendChild(el('code',   null, [run.v]));
+      else if (run.t === 'link')   parent.appendChild(SAFE.test(run.href)
+        ? el('a', { href: run.href }, [run.v])
+        : document.createTextNode(run.v));
+      else parent.appendChild(document.createTextNode(run.v));
+    });
+  }
+
+  /**
+   * Render markdown block tokens into a container as DOM nodes.
+   * @param {HTMLElement} container
+   * @param {Array} blocks  output of RM.core.markdown.parse
+   */
+  function renderMarkdownInto(container, blocks) {
+    blocks.forEach(function (b) {
+      if (b.type === 'heading') {
+        var h = el('h' + (b.level + 1)); // ## release title -> h3, etc.
+        appendRuns(h, b.runs);
+        container.appendChild(h);
+      } else if (b.type === 'list') {
+        var ul = el('ul');
+        b.items.forEach(function (runs) {
+          var li = el('li');
+          appendRuns(li, runs);
+          ul.appendChild(li);
+        });
+        container.appendChild(ul);
+      } else {
+        var p = el('p');
+        appendRuns(p, b.runs);
+        container.appendChild(p);
+      }
+    });
+  }
+
+  return { el: el, appendRuns: appendRuns, renderMarkdownInto: renderMarkdownInto };
+})();
+
+
+'use strict';
+// components/nav.js — the behaviour on a page that is *not* a link.
+//   [data-to]   → smooth in-page scroll to an element id (no hash routing).
+//   [data-demo] → open a pre-filled demo enquiry email.
+//
+// v1.0.0 removed everything else that used to live here. Up to v0.14 the site
+// ran inside a host <iframe> and every navigation was a postMessage — rm-nav,
+// rm-back, rm-manifest, rm-read. A <button> is not a link, so nothing could be
+// deep-linked, bookmarked, opened in a new tab, or crawled. Now each page is
+// the document the server sent and each navigation is an <a href>, so the only
+// things left to wire are the two that genuinely are not navigation.
+//
+// The mobile drawer is still injected rather than templated: one file gives
+// every page a working menu below the header breakpoint, where .navlinks is
+// hidden by CSS.
+
+RM.components.nav = (function () {
+  // Every "Book a demo" control opens a mail client with a subject and a
+  // starting message. One place to change when booking becomes a real form.
+  var DEMO = {
+    to     : 'nrparekh@gmail.com',
+    subject: 'RiskMandate — demo request',
+    body   : [
+      'Hi,',
+      '',
+      'I would like to see a plug profile for one of the agents we already run.',
+      '',
+      'A little about us:',
+      '  • Organisation:',
+      '  • Roughly how many agents we are running:',
+      '  • The agent we would want to look at first:',
+      '  • Anything already in place (register, IdP, detection tooling):',
+      '',
+      'Thanks,'
+    ].join('\n')
+  };
+
+  function demoHref() {
+    return 'mailto:' + DEMO.to +
+      '?subject=' + encodeURIComponent(DEMO.subject) +
+      '&body='    + encodeURIComponent(DEMO.body);
+  }
+
+  function openDemo() { window.location.href = demoHref(); }
+
+  function scrollTo(doc, id) {
+    var t = doc.getElementById(id);
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Inject the hamburger toggle and wire the drawer open/close. Idempotent.
+  function wireMobileNav(doc) {
+    var top = doc.querySelector('.top');
+    if (!top) return;
+    var wrap  = top.querySelector('.wrap');
+    var links = top.querySelector('.navlinks');
+    if (!wrap || !links || top.querySelector('.navtoggle')) return;
+
+    var burger = doc.createElement('button');
+    burger.className = 'navtoggle';
+    burger.setAttribute('type', 'button');
+    burger.setAttribute('aria-label', 'Toggle navigation');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-controls', 'sitenav');
+    for (var i = 0; i < 3; i++) burger.appendChild(doc.createElement('span'));
+    links.id = links.id || 'sitenav';
+    var demo = wrap.querySelector('.demo');
+    if (demo) wrap.insertBefore(burger, demo); else wrap.appendChild(burger);
+
+    function set(open) {
+      top.classList.toggle('nav-open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    burger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      set(!top.classList.contains('nav-open'));
+    });
+    // Following a real nav link closes the drawer; the group header does not.
+    links.addEventListener('click', function (e) {
+      var b = e.target.closest('button, a');
+      if (b && !b.classList.contains('navgroup-btn')) set(false);
+    });
+    doc.addEventListener('click', function (e) {
+      if (top.classList.contains('nav-open') && !top.contains(e.target)) set(false);
+    });
+    doc.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+    var view = doc.defaultView || window;
+    view.addEventListener('resize', function () { if (view.innerWidth > 980) set(false); });
+  }
+
+  /** @param {Document} doc */
+  function wire(doc) {
+    doc.querySelectorAll('[data-to]').forEach(function (elm) {
+      elm.addEventListener('click', function () { scrollTo(doc, elm.getAttribute('data-to')); });
+    });
+    doc.querySelectorAll('[data-demo], .demo').forEach(function (elm) {
+      elm.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); openDemo(); });
+    });
+    wireMobileNav(doc);
+  }
+
+  return { wire: wire, scrollTo: scrollTo, demoHref: demoHref, openDemo: openDemo };
+})();
+
+
+'use strict';
+// components/menu.js — <rm-menu>. The one shared header menu, on every page, so
+// the nav is built by a single piece of code. Renders the homepage's section
+// links first, then the top-level pages, marking the current page active.
+//
+// A run of contiguous pages sharing a `group` string collapses into one entry:
+// a hover/click dropdown labelled by the group, with the members as children. A
+// single-member group renders flat — no dropdown for one item.
+//
+// v1.0.0: every entry is an <a href>. The old menu emitted <button> elements
+// that asked a host frame to swap an iframe's srcdoc, which meant the links did
+// not exist as far as a crawler, a bookmark or a middle-click was concerned.
+// The group header stays a <button> because it opens a panel rather than going
+// anywhere — that is the one control here that is genuinely not a link.
+
+(function () {
+  var dom = RM.components.dom;
+
+  RM.components.Menu = class extends HTMLElement {
+    connectedCallback() {
+      var self = this;
+      this._onDocClick = function (e) {
+        self.querySelectorAll('.navgroup.open').forEach(function (g) {
+          if (!g.contains(e.target)) g.classList.remove('open');
+        });
+      };
+      document.addEventListener('click', this._onDocClick);
+      this._render();
+    }
+    disconnectedCallback() {
+      document.removeEventListener('click', this._onDocClick);
+    }
+
+    // On the homepage a section link scrolls; on any other page it is a link
+    // back to the homepage at that anchor. Same markup either way.
+    _section(s) {
+      var home = !(RM.data && RM.data.currentPage);
+      var a = dom.el('a', { class: 'seclink', href: home ? '#' + s.to : 'index.html#' + s.to }, [s.label]);
+      if (home) a.addEventListener('click', function (e) {
+        e.preventDefault();
+        RM.components.nav.scrollTo(document, s.to);
+      });
+      return a;
+    }
+
+    _pagelink(p, extra) {
+      var active = p.name === (RM.data && RM.data.currentPage);
+      var attrs  = { class: 'pagelink' + (extra ? ' ' + extra : '') + (active ? ' active' : ''), href: p.file };
+      if (active) attrs['aria-current'] = 'page';
+      return dom.el('a', attrs, [p.label]);
+    }
+
+    _group(name, members) {
+      var self    = this;
+      var current = RM.data && RM.data.currentPage;
+      var active  = members.some(function (m) { return m.name === current; });
+      var car     = dom.el('span',   { class: 'navgroup-car', 'aria-hidden': 'true' }, ['▾']);
+      var btn     = dom.el('button', { class: 'navgroup-btn' + (active ? ' active' : ''), type: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false' }, [name, car]);
+      var panel   = dom.el('div',    { class: 'navmenu' }, members.map(function (m) { return self._pagelink(m, 'navchild'); }));
+      var wrap    = dom.el('span',   { class: 'navgroup' + (active ? ' active' : '') }, [btn, panel]);
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = wrap.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      return wrap;
+    }
+
+    _render() {
+      var sections = (RM.data && RM.data.sections) || [];
+      var pages    = (RM.data && RM.data.pages)    || [];
+      var self     = this;
+      this.textContent = '';
+      sections.forEach(function (s) { self.appendChild(self._section(s)); });
+      var i = 0;
+      while (i < pages.length) {
+        var p = pages[i];
+        if (!p.group) { self.appendChild(self._pagelink(p)); i++; continue; }
+        var g = p.group, members = [];
+        while (i < pages.length && pages[i].group === g) { members.push(pages[i]); i++; }
+        if (members.length === 1) self.appendChild(self._pagelink(members[0]));
+        else                      self.appendChild(self._group(g, members));
+      }
+    }
+  };
+
+  customElements.define('rm-menu', RM.components.Menu);
+})();
+
+
+'use strict';
+// boot.js — inner-page composition root (version builds and dev.html). Custom
+// elements self-register on load; here we wire document-level nav behaviour.
+// The page runs inside the host's stage frame, so the host (not this page) signals
+// the SG/App host that the app is ready.
+
+(function () {
+  function start() { RM.components.nav.wire(document); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
+})();
+
+})();
+</script>
+</body>
+</html>
+
+
+})();
+</script>
+</body>
+</html>

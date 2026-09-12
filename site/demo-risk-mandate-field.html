@@ -66,7 +66,7 @@ rm-menu{display:contents}
 .vs-select:disabled{cursor:default;opacity:.8}
 .demo{background:var(--green);color:#fff;font-weight:600;font-size:13px;border:0;border-radius:8px;padding:8px 16px;cursor:pointer;transition:background .15s;font-family:var(--sans);white-space:nowrap}
 .demo:hover{background:#16704f}
-@media (max-width:880px){.navlinks{display:none}.vs-select{display:none}}
+@media (max-width:980px){.navlinks{display:none}.vs-select{display:none}}
 
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
 h1,h2{margin:0;font-weight:800;letter-spacing:-.03em;line-height:1.04}
@@ -139,7 +139,7 @@ rm-vault-demos{display:flex;flex-direction:column;gap:34px}
 .top.nav-open .navtoggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .top.nav-open .navtoggle span:nth-child(2){opacity:0}
 .top.nav-open .navtoggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-@media (max-width:880px){
+@media (max-width:980px){
   .navtoggle{display:flex}
   .top .wrap{position:relative}
   .navlinks{position:absolute;left:0;right:0;top:calc(100% + 1px);flex-direction:column;align-items:stretch;gap:0;margin:0;padding:8px;background:var(--card,#fff);border-bottom:1px solid var(--border,#E2DFD8);box-shadow:0 14px 34px rgba(13,13,12,.14);max-height:calc(100vh - 56px);overflow:auto}
@@ -241,7 +241,7 @@ rm-vault-demos{display:flex;flex-direction:column;gap:34px}
 .version:hover{color:var(--text);border-color:var(--faint)}
 a.btn{text-decoration:none}
 a.ds{display:block;text-decoration:none;color:inherit}
-@media (max-width:880px){
+@media (max-width:980px){
   .version{display:none}
   .navlinks a{width:100%;text-align:left;justify-content:flex-start;padding:12px 16px;font-size:15px;border-radius:8px}
   .navlinks a:hover{background:var(--bg2,#EFEDE7)}
@@ -295,7 +295,7 @@ a.ds{display:block;text-decoration:none;color:inherit}
 (function(){
 'use strict';
 var RM={core:{},services:{},components:{},data:{}};
-RM.data.currentPage="demo-risk-mandate-field";RM.data.pages=[{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"The problem"},{"name":"acceptable","label":"Accepted is not acceptable","file":"acceptable.html","group":"The problem"},{"name":"acceptance","label":"You own the risk","file":"acceptance.html","group":"The problem"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"The problem"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"The model"},{"name":"agents","label":"Agents","file":"agents.html","group":"The model"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"The model"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"The model"},{"name":"statics","label":"Static scenarios","file":"statics.html","group":"The model"},{"name":"demos","label":"All demos","file":"demos.html","group":"Live demos"},{"name":"demo-licence-to-operate","label":"Licence to Operate","file":"demo-licence-to-operate.html","group":"Live demos"},{"name":"demo-risk-graph-explorer","label":"RiskGraph Explorer","file":"demo-risk-graph-explorer.html","group":"Live demos"},{"name":"demo-agentic-browser-isolation","label":"Agentic Browser Isolation","file":"demo-agentic-browser-isolation.html","group":"Live demos"},{"name":"demo-risk-mandate-field","label":"RiskMandate field demo","file":"demo-risk-mandate-field.html","group":"Live demos"},{"name":"demo-file-security","label":"File security walk","file":"demo-file-security.html","group":"Live demos"},{"name":"demo-agent-permission-games","label":"Permission games","file":"demo-agent-permission-games.html","group":"Live demos"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"library","label":"Library","file":"library.html"},{"name":"partners","label":"Partners","file":"partners.html"},{"name":"feedback","label":"Give feedback","file":"feedback.html"},{"name":"brand","label":"Brand","file":"brand.html"}];RM.data.sections=[];RM.data.demoVault="risk-mandate-field";
+RM.data.currentPage="demo-risk-mandate-field";RM.data.pages=[{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"The problem"},{"name":"acceptable","label":"Accepted is not acceptable","file":"acceptable.html","group":"The problem"},{"name":"acceptance","label":"You own the risk","file":"acceptance.html","group":"The problem"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"The problem"},{"name":"abp","label":"Agent Behaviour Policy","file":"abp.html","group":"The model"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"The model"},{"name":"agents","label":"Agents","file":"agents.html","group":"The model"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"The model"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"The model"},{"name":"statics","label":"Static scenarios","file":"statics.html","group":"The model"},{"name":"demos","label":"All demos","file":"demos.html","group":"Live demos"},{"name":"demo-licence-to-operate","label":"Licence to Operate","file":"demo-licence-to-operate.html","group":"Live demos"},{"name":"demo-risk-graph-explorer","label":"RiskGraph Explorer","file":"demo-risk-graph-explorer.html","group":"Live demos"},{"name":"demo-agentic-browser-isolation","label":"Agentic Browser Isolation","file":"demo-agentic-browser-isolation.html","group":"Live demos"},{"name":"demo-risk-mandate-field","label":"RiskMandate field demo","file":"demo-risk-mandate-field.html","group":"Live demos"},{"name":"demo-file-security","label":"File security walk","file":"demo-file-security.html","group":"Live demos"},{"name":"demo-agent-permission-games","label":"Permission games","file":"demo-agent-permission-games.html","group":"Live demos"},{"name":"summit","label":"Lisbon 2026","file":"summit.html"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"}];RM.data.sections=[];RM.data.demoVault="risk-mandate-field";
 
 'use strict';
 // components/dom.js — tiny DOM helpers shared by components. `el` builds an
@@ -457,7 +457,7 @@ RM.components.nav = (function () {
     });
     doc.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
     var view = doc.defaultView || window;
-    view.addEventListener('resize', function () { if (view.innerWidth > 880) set(false); });
+    view.addEventListener('resize', function () { if (view.innerWidth > 980) set(false); });
   }
 
   /** @param {Document} doc */
