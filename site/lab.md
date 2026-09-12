@@ -14,7 +14,7 @@ We work out the product in public. This is where the research, the interface moc
 
 ## Everything currently open.
 
-Newest first. Each entry says what state it is in, because a finding and a mockup are not the same kind of claim and should not be read as though they were.
+In reading order rather than by date — the finding comes first because everything after it leans on it. Each entry says what state it is in, because a finding and a mockup are not the same kind of claim and should not be read as though they were.
 
 ### The grant is user-shaped, not data-shaped
 
@@ -27,6 +27,10 @@ Twelve stages from the first question a stranger reads to a delivered, recomputi
 ### Changes we are asking of the behaviour-policy site
 
 The model and its data live on a separate site, maintained by somebody else. This is our open request list against it: one new property for the capability grammar, four deployment shapes we would like published, and the provenance conventions we would need in order to render any of it. Published rather than emailed, so the reasoning is checkable and the answer can be public too.
+
+### Seven things to build, and one word we have not earned
+
+The build specification for the first thing anybody will ever use: a page that asks what you run, computes what you granted, and hands you the gap. Three tools, two vaults, two documents — and the arithmetic that decides what may leave the browser. A twenty-connector multi-select carries about 20 bits, which is more entropy than a well-known browser-fingerprint study measured in a whole fingerprint, so the full shape is computed locally and only bands and categories are ever submitted.
 
 ## Four states, and they mean different things.
 
@@ -55,7 +59,7 @@ The rest of this site says only what we can defend. The Lab is looser on purpose
 
 Every entry is also cut as a dated PDF, and the old ones are kept. Send the file rather than the link when what matters is what we thought _then_ — a link shows the reader whatever the page says by the time they arrive.
 
-All 3 entries, in reading order, as a single PDF, 22 pages. This is the one to attach when you want somebody to follow the whole journey rather than land in the middle of it.
+All 4 entries, in reading order, as a single PDF, 41 pages. This is the one to attach when you want somebody to follow the whole journey rather than land in the middle of it.
 
 Digests for every edition are in [lab-editions.json](lab-editions.json), so a PDF somebody was sent can be checked against this list.
 

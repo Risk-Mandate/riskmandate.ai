@@ -162,8 +162,16 @@ function sharedModules(donor) {
   const src   = readFileSync(join(SITE, donor), 'utf8');
   const parts = src.split(/^(?='use strict';\n\/\/ [\w/.\-]+ )/m);
   const byName = new Map();
+  // The donor's last module runs to the end of its document, so its block also
+  // carries the donor's page-closing sequence: the wrapper IIFE's `})();`, then
+  // </script></body></html>. Cut from there — the template below supplies its
+  // own. Left in, every scaffolded page ended up with two </html> and a stray
+  // `})();` after the second, which the parser reparents into <body> as visible
+  // text.
+  const DONOR_TAIL = /\n\}\)\(\);\s*<\/script>[\s\S]*$/;
   for (const block of parts.slice(1)) {
-    byName.set(block.match(/^'use strict';\n\/\/ ([\w/.\-]+) /)[1], block.trimEnd() + '\n\n\n');
+    const name = block.match(/^'use strict';\n\/\/ ([\w/.\-]+) /)[1];
+    byName.set(name, block.replace(DONOR_TAIL, '').trimEnd() + '\n\n\n');
   }
   const missing = SHARED.filter(n => !byName.has(n));
   if (missing.length) throw new Error(`${donor} is missing ${missing.join(', ')}`);

@@ -1,0 +1,1272 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RiskMandate — Lab 04 · the shape collector</title>
+<meta name="description" content="A build specification: the collector that asks somebody what they run, the schema no standard supplies, the write-only lane that cannot correlate — and the arithmetic showing why a twenty-connector question is not anonymous.">
+<link rel="canonical" href="https://riskmandate.ai/lab-shape-collector.html">
+<link rel="alternate" type="text/markdown" href="lab-shape-collector.md" title="This page as markdown">
+<link rel="icon" href="assets/brand/riskmandate-favicon-32.png" sizes="32x32">
+<link rel="icon" href="assets/brand/riskmandate-mark.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RiskMandate">
+<meta property="og:url" content="https://riskmandate.ai/lab-shape-collector.html">
+<meta property="og:title" content="RiskMandate — Lab 04 · the shape collector">
+<meta property="og:description" content="A build specification: the collector that asks somebody what they run, the schema no standard supplies, the write-only lane that cannot correlate — and the arithmetic showing why a twenty-connector question is not anonymous.">
+<meta property="og:image" content="https://riskmandate.ai/assets/brand/riskmandate-lockup-light.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Scaffolded by scripts/site/new-page.mjs. Hand-edited from here on — there is no build step. -->
+<style>
+/* lab-shape-collector.css — self-contained: the shared chrome, then this page's own. */
+:root{
+  --bg:#F7F6F2; --bg2:#EFEDE7; --card:#FFFFFF; --ink:#0D0D0C; --canvas:#0A0A09;
+  --text:#1A1917; --muted:#4A4845; --faint:#8A8780; --border:#E2DFD8;
+  --green:#1A7F5A; --green-2:#22c55e; --greenBg:#EBF5F0;
+  --gold:#B45309; --red:#C0392B; --blue:#1D4ED8;
+  --fg:#F7F6F2; --fg-2:rgba(247,246,242,.55); --fg-3:rgba(247,246,242,.32);
+  --line:rgba(247,246,242,.10); --line-2:rgba(247,246,242,.18);
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","JetBrains Mono","Roboto Mono",Menlo,Consolas,monospace;
+  --wrap:1000px; --r:10px; --r-sm:8px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth} @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+h1,h2{margin:0;font-weight:800;letter-spacing:-.03em;line-height:1.04}
+h2{font-size:clamp(26px,3.6vw,40px);font-weight:700;letter-spacing:-.02em}
+p{margin:0}
+:focus-visible{outline:2px solid var(--green-2);outline-offset:3px;border-radius:4px}
+.tag{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+.g{color:var(--green)} .it{font-style:italic;color:var(--green)}
+
+/* header */
+.top{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.top .wrap{display:flex;align-items:center;gap:22px;height:56px;max-width:1100px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:15px;color:var(--text);white-space:nowrap;text-decoration:none}
+.rm{width:26px;height:26px;flex:none;display:block}
+.rm svg{width:100%;height:100%;display:block}
+.navlinks{display:flex;align-items:center;gap:22px;margin-left:auto}
+rm-menu{display:contents}
+.navlinks a{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;text-decoration:none;display:inline-flex;align-items:center}
+.navlinks a:hover{color:var(--text)}
+.navlinks a.active{color:var(--text);font-weight:600}
+.version{font-family:var(--mono);font-size:12px;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:7px;padding:5px 8px;text-decoration:none;white-space:nowrap;transition:color .15s,border-color .15s}
+.version:hover{color:var(--text);border-color:var(--faint)}
+.demo{background:var(--green);color:#fff;font-weight:600;font-size:13px;border:0;border-radius:8px;padding:8px 16px;cursor:pointer;transition:background .15s;font-family:var(--sans);white-space:nowrap}
+.demo:hover{background:#16704f}
+
+/* nav dropdowns */
+.navgroup{position:relative;display:inline-flex;align-items:center}
+.navgroup::after{content:"";position:absolute;top:100%;left:0;right:0;height:10px}
+.navgroup-btn{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;display:inline-flex;align-items:center;gap:5px}
+.navgroup-btn:hover,.navgroup:hover .navgroup-btn,.navgroup.open .navgroup-btn,.navgroup.active .navgroup-btn{color:var(--text)}
+.navgroup-car{font-size:8px;line-height:1;opacity:.6;transition:transform .15s}
+.navgroup:hover .navgroup-car,.navgroup.open .navgroup-car{transform:rotate(180deg)}
+.navmenu{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);min-width:184px;background:var(--card);border:1px solid var(--border);border-radius:10px;box-shadow:0 10px 34px rgba(13,13,12,.14);padding:6px;display:none;flex-direction:column;gap:2px;z-index:70}
+.navgroup:hover .navmenu,.navgroup.open .navmenu{display:flex}
+.navmenu .navchild{justify-content:flex-start;text-align:left;width:100%;padding:8px 12px;border-radius:7px;font-size:13.5px;color:var(--muted);white-space:nowrap}
+.navmenu .navchild:hover{background:var(--bg2);color:var(--text)}
+.navmenu .navchild.active{color:var(--green);font-weight:600;background:var(--greenBg)}
+
+/* mobile drawer — the toggle is injected by nav.js; .top.nav-open opens it */
+.navtoggle{display:none;margin-left:auto;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;padding:0;background:none;border:0;cursor:pointer}
+.navtoggle span{display:block;width:20px;height:2px;margin:0 auto;background:var(--text);border-radius:2px;transition:transform .2s,opacity .2s}
+.top.nav-open .navtoggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.top.nav-open .navtoggle span:nth-child(2){opacity:0}
+.top.nav-open .navtoggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media (max-width:980px){
+  .navtoggle{display:flex}
+  .top .wrap{position:relative}
+  .version{display:none}
+  .navlinks{display:none;position:absolute;left:0;right:0;top:calc(100% + 1px);flex-direction:column;align-items:stretch;gap:0;margin:0;padding:8px;background:var(--card);border-bottom:1px solid var(--border);box-shadow:0 14px 34px rgba(13,13,12,.14);max-height:calc(100vh - 56px);overflow:auto}
+  .top.nav-open .navlinks{display:flex}
+  .navlinks a,.navlinks .navgroup-btn{width:100%;text-align:left;justify-content:flex-start;padding:12px 16px;font-size:15px;border-radius:8px}
+  .navlinks a:hover{background:var(--bg2)}
+  .navgroup{display:block;width:100%;position:static}
+  .navgroup::after{display:none}
+  .navgroup-btn{display:flex}
+  .navgroup-car{margin-left:auto}
+  .navmenu{position:static;transform:none;display:flex;flex-direction:column;min-width:0;padding:2px 0 8px 14px;background:transparent;border:0;box-shadow:none}
+  .navmenu .navchild{padding:10px 14px;font-size:14px}
+}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;padding:12px 22px;border-radius:var(--r-sm);cursor:pointer;border:1px solid transparent;font-family:var(--sans);text-decoration:none}
+.btn-green{background:var(--green);color:#fff} .btn-green:hover{background:#16704f}
+.btn-ghost{background:transparent;color:var(--fg);border-color:var(--line-2)} .btn-ghost:hover{border-color:var(--fg-2)}
+.btn-ghost-dark{background:transparent;color:var(--text);border-color:var(--border)} .btn-ghost-dark:hover{border-color:var(--green);color:var(--green)}
+
+/* dark hero */
+.phero{background:var(--ink);color:var(--fg);padding:88px 24px 84px}
+.phero .wrap{max-width:var(--wrap)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--green);background:rgba(26,127,90,.18);border:1px solid rgba(26,127,90,.4);border-radius:999px;padding:5px 12px}
+.eyebrow .d{width:6px;height:6px;border-radius:50%;background:var(--green-2)}
+.phero h1{font-size:clamp(34px,5.2vw,60px);letter-spacing:-.04em;line-height:1.02;margin:26px 0 0;color:var(--fg);max-width:900px}
+.phero .sub{color:var(--fg-2);font-size:17px;line-height:1.7;max-width:640px;margin-top:24px}
+.cta-row{display:flex;flex-wrap:wrap;gap:11px;margin-top:30px}
+
+/* paper sections */
+.paper{background:var(--bg)}
+.psection{padding:80px 0;border-bottom:1px solid var(--border)}
+.psection.alt{background:var(--bg2)}
+.shead{max-width:680px} .shead.center{max-width:720px;margin:0 auto;text-align:center}
+.shead h2{color:var(--text)} .shead p{color:var(--muted);margin-top:16px;font-size:15px;line-height:1.75}
+
+/* closing panel + footer */
+.pcta{background:var(--ink);padding:80px 24px;text-align:center}
+.pcta .wrap{max-width:720px;padding:0}
+.pcta h2{font-size:clamp(28px,4.4vw,48px);color:var(--fg);margin-top:20px;font-weight:700;letter-spacing:-.03em}
+.pcta p{color:var(--fg-2);margin-top:16px;font-size:16px;line-height:1.7}
+.pcta .cta-row{justify-content:center}
+.foot{background:var(--canvas);border-top:1px solid var(--line);padding:32px 24px}
+.foot .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-family:var(--mono);font-size:10px;color:var(--fg-3);max-width:1100px}
+.footlink{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.footlink:hover{color:var(--fg-2)}
+/* ── lab chrome ──────────────────────────────────────────────────────────── */
+.labstrip{background:var(--bg2);border-bottom:1px solid var(--border);padding:9px 24px;font-family:var(--mono);font-size:11px;color:var(--muted);text-align:center}
+.labstrip b{color:var(--text)} .labstrip a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+
+/* status pill — every lab entry says what state it is in */
+.state{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:999px;padding:4px 10px;white-space:nowrap}
+.state::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.state.finding{color:var(--green);background:var(--greenBg);border:1px solid rgba(26,127,90,.3)}
+.state.mockup {color:var(--blue);background:#EEF2FF;border:1px solid rgba(29,78,216,.25)}
+.state.proposal{color:var(--gold);background:#FDF6EC;border:1px solid rgba(180,83,9,.25)}
+.state.open   {color:var(--muted);background:var(--bg2);border:1px solid var(--border)}
+
+/* the index of entries */
+.entries{display:flex;flex-direction:column;gap:14px;margin-top:36px}
+.entry{display:block;border:1px solid var(--border);border-radius:var(--r);background:var(--card);padding:24px 26px;text-decoration:none;transition:border-color .15s,transform .15s}
+.entry:hover{border-color:var(--green);transform:translateY(-1px)}
+.entry .head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.entry .n{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--faint)}
+.entry h3{margin:0;font-size:20px;font-weight:700;letter-spacing:-.015em;color:var(--text);flex:1 1 auto;min-width:240px}
+.entry p{font-size:14px;color:var(--muted);line-height:1.65;margin-top:10px;max-width:720px}
+.entry .meta{margin-top:14px;padding-top:12px;border-top:1px solid var(--border);font-family:var(--mono);font-size:11px;color:var(--faint);display:flex;gap:18px;flex-wrap:wrap}
+
+/* ── mockups: a fake browser around a fake screen ───────────────────────── */
+.mock{margin:34px 0 0;border:1px solid var(--border);border-radius:var(--r);overflow:hidden;background:var(--card);box-shadow:0 14px 40px -28px rgba(13,13,12,.4)}
+.mock-bar{display:flex;align-items:center;gap:12px;padding:10px 14px;background:var(--bg2);border-bottom:1px solid var(--border)}
+.mock-bar .dots{display:flex;gap:5px;flex:none}
+.mock-bar .dots i{width:9px;height:9px;border-radius:50%;background:#D6D2C9;display:block}
+.mock-bar .url{font-family:var(--mono);font-size:11px;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:6px;padding:4px 10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1 1 auto}
+.mock-body{padding:28px 30px}
+.mock-body.dark{background:var(--ink);color:var(--fg)}
+.mock cap,figcaption{display:block;padding:14px 18px;border-top:1px solid var(--border);background:var(--bg2);font-size:13px;color:var(--muted);line-height:1.6}
+figcaption b{color:var(--text)}
+
+/* pieces used inside the mocked screens */
+.m-eyebrow{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--green)}
+.m-h{font-size:26px;font-weight:800;letter-spacing:-.025em;line-height:1.1;margin:10px 0 0;color:var(--text)}
+.mock-body.dark .m-h{color:var(--fg)}
+.m-sub{font-size:14px;color:var(--muted);line-height:1.65;margin-top:12px;max-width:620px}
+.mock-body.dark .m-sub{color:var(--fg-2)}
+.m-btn{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;padding:10px 18px;border-radius:var(--r-sm);border:1px solid transparent;font-family:var(--sans)}
+.m-btn.p{background:var(--green);color:#fff}
+.m-btn.s{background:transparent;color:var(--text);border-color:var(--border)}
+.mock-body.dark .m-btn.s{color:var(--fg);border-color:var(--line-2)}
+.m-row{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+
+/* shape picker */
+.shapes{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:22px}
+@media (max-width:760px){.shapes{grid-template-columns:1fr}}
+.shape{border:1px solid var(--border);border-radius:var(--r-sm);padding:16px 18px;background:var(--card);display:flex;flex-direction:column;gap:6px}
+.shape.sel{border:2px solid var(--green);background:var(--greenBg)}
+.shape .t{font-size:14.5px;font-weight:700;color:var(--text)}
+.shape .d{font-size:12.5px;color:var(--muted);line-height:1.5}
+.shape .c{font-family:var(--mono);font-size:10.5px;color:var(--faint);margin-top:4px}
+.shape.sel .c{color:var(--green)}
+
+/* the four-object counter row */
+.counts{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--r-sm);overflow:hidden;margin-top:20px}
+@media (max-width:620px){.counts{grid-template-columns:repeat(2,1fr)}}
+.count{background:var(--card);padding:16px 18px}
+.count .k{display:block;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+.count .v{display:block;font-family:var(--mono);font-size:26px;font-weight:700;color:var(--text);line-height:1;margin-top:8px}
+.count.warn .v{color:var(--gold)}
+
+/* capability / contradiction tables */
+.tw{overflow-x:auto;margin-top:22px;border:1px solid var(--border);border-radius:var(--r-sm);background:var(--card)}
+table.t{width:100%;border-collapse:collapse;font-size:13px;min-width:600px}
+table.t th{text-align:left;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);padding:12px 14px;border-bottom:1px solid var(--border);white-space:nowrap}
+table.t td{padding:12px 14px;border-bottom:1px solid var(--border);color:var(--muted);line-height:1.5;vertical-align:top}
+table.t tr:last-child td{border-bottom:0}
+table.t td.k{color:var(--text);font-family:var(--mono);font-size:12px;white-space:nowrap}
+table.t code{font-family:var(--mono);font-size:11.5px;background:var(--bg2);padding:1px 5px;border-radius:4px;color:var(--text)}
+.gl{font-size:13px;text-align:center;width:1px}
+.mat{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:4px;padding:2px 6px;white-space:nowrap}
+.mat.mixed{color:var(--red);background:#FDF3F2}
+.mat.third{color:var(--red);background:#FDF3F2}
+.mat.org{color:var(--gold);background:#FDF6EC}
+.mat.own{color:var(--green);background:var(--greenBg)}
+
+/* correction UI */
+.corr{border:1px solid var(--border);border-radius:var(--r-sm);background:var(--card);margin-top:20px;overflow:hidden}
+.corr-row{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;padding:14px 16px;border-bottom:1px solid var(--border)}
+.corr-row:last-child{border-bottom:0}
+.corr-row.fixed{background:var(--greenBg)}
+.corr-q{font-size:13.5px;color:var(--text)}
+.corr-q span{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.corr-a{display:flex;gap:6px;flex:none}
+.pill{font-family:var(--mono);font-size:10.5px;font-weight:700;border:1px solid var(--border);border-radius:6px;padding:5px 9px;color:var(--muted);background:var(--card);white-space:nowrap}
+.pill.on{border-color:var(--green);color:var(--green);background:var(--greenBg)}
+.pill.off{border-color:var(--red);color:var(--red);background:#FDF3F2}
+.corr-note{padding:14px 16px;background:var(--bg2);border-top:1px solid var(--border);font-size:13px;color:var(--muted);line-height:1.6}
+.corr-note b{color:var(--text)}
+
+/* read key / delivery */
+.key{font-family:var(--mono);font-size:12px;background:var(--ink);color:var(--green-2);border-radius:var(--r-sm);padding:14px 16px;margin-top:18px;word-break:break-all;line-height:1.6}
+.key .lab2{display:block;color:var(--fg-3);font-size:10px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:7px}
+.vfiles{margin:20px 0 0;padding:0;list-style:none;font-family:var(--mono);font-size:12.5px;border:1px solid var(--border);border-radius:var(--r-sm);overflow:hidden}
+.vfiles li{padding:10px 14px;border-bottom:1px solid var(--border);background:var(--card);display:flex;justify-content:space-between;gap:14px;color:var(--text)}
+.vfiles li:last-child{border-bottom:0}
+.vfiles li span:last-child{color:var(--faint);font-size:11px}
+.vfiles li.auth{background:var(--greenBg)}
+
+/* twelve-stage table */
+.stages{overflow-x:auto;margin-top:34px;border:1px solid var(--border);border-radius:var(--r);background:var(--card)}
+table.st{width:100%;border-collapse:collapse;font-size:13.5px;min-width:680px}
+table.st th{text-align:left;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);padding:13px 16px;border-bottom:1px solid var(--border)}
+table.st td{padding:13px 16px;border-bottom:1px solid var(--border);color:var(--muted);line-height:1.55;vertical-align:top}
+table.st tr:last-child td{border-bottom:0}
+table.st td.n{font-family:var(--mono);color:var(--faint);width:1px}
+table.st td.s{color:var(--text);font-weight:700;white-space:nowrap}
+table.st tr.week td{background:var(--greenBg)}
+table.st tr.week td.s{color:var(--green)}
+table.st td.w{font-family:var(--mono);font-size:11px;white-space:nowrap}
+
+/* rules and notes */
+.rule{margin-top:30px;border-left:3px solid var(--green);background:var(--greenBg);border-radius:0 var(--r-sm) var(--r-sm) 0;padding:20px 24px;max-width:700px}
+.rule p{color:var(--text);font-size:16px;line-height:1.6;font-weight:600}
+.rule p + p{margin-top:10px;font-weight:400;font-size:14.5px;color:var(--muted)}
+.notice{margin-top:28px;border:1px dashed var(--faint);border-radius:var(--r-sm);padding:16px 20px;font-size:13.5px;color:var(--muted);line-height:1.65;max-width:780px}
+.notice strong{color:var(--text)}
+.notice a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+.src{margin-top:26px;font-family:var(--mono);font-size:11.5px;color:var(--faint);line-height:1.75}
+.src a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+.plist{margin:26px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;max-width:720px}
+.plist li{position:relative;padding-left:22px;font-size:15px;color:var(--muted);line-height:1.7}
+.plist li::before{content:"";position:absolute;left:2px;top:10px;width:6px;height:6px;border-radius:50%;background:var(--green)}
+.plist strong{color:var(--text)}
+.plist code,.shead code,.rule code,.notice code{font-family:var(--mono);font-size:13px;background:var(--bg2);padding:1px 6px;border-radius:5px;color:var(--text)}
+.psection.alt .plist code,.psection.alt .shead code{background:var(--card)}
+blockquote.q{margin:22px 0 0;border-left:3px solid var(--border);padding:4px 0 4px 20px;font-size:15px;color:var(--text);line-height:1.7;max-width:700px}
+blockquote.q cite{display:block;font-style:normal;font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:10px}
+blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+
+/* ── editions list — the dated PDFs behind a page that changes ──────────── */
+.editions .shead{margin-bottom:6px}
+.edwhole{margin-top:26px;border:2px solid var(--green);background:var(--greenBg);border-radius:var(--r);padding:24px 26px}
+.edwhole .ed-t{font-size:17px}
+.ed-p{font-size:13.5px;color:var(--muted);line-height:1.65;margin:0 0 4px;max-width:560px}
+.edwhole .ed{background:var(--card)}
+.edgroup{margin-top:26px}
+.ed-t{display:block;font-size:15px;font-weight:700;color:var(--text);margin-bottom:10px}
+.edlist{display:flex;flex-direction:column;gap:8px;margin-top:20px;max-width:560px}
+.edgroup .edlist{margin-top:0}
+.ed{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:baseline;
+  border:1px solid var(--border);border-radius:var(--r-sm);background:var(--card);
+  padding:13px 16px;text-decoration:none;transition:border-color .15s}
+.ed:hover{border-color:var(--green)}
+.ed-v{font-family:var(--mono);font-size:12.5px;font-weight:700;color:var(--green);white-space:nowrap}
+.ed-d{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.ed-s{font-family:var(--mono);font-size:11px;color:var(--faint);white-space:nowrap}
+.ed-n{grid-column:1/-1;font-size:12px;color:var(--muted);line-height:1.5;margin-top:2px}
+@media print{.editions{display:none}}
+
+
+/* ── lab 04: the collector ───────────────────────────────────────────────── */
+
+/* the entropy comparison — two bars, one obviously longer */
+.bits{display:flex;flex-direction:column;gap:14px;margin-top:26px;max-width:720px}
+.bit{display:grid;grid-template-columns:1fr;gap:7px}
+.bit .bl{display:flex;justify-content:space-between;gap:14px;align-items:baseline}
+.bit .bn{font-size:14px;color:var(--text);font-weight:600}
+.bit .bv{font-family:var(--mono);font-size:12px;color:var(--muted);white-space:nowrap}
+.bit .bar{height:12px;border-radius:999px;background:var(--bg2);border:1px solid var(--border);overflow:hidden}
+.bit .bar i{display:block;height:100%;background:var(--faint)}
+.bit.ours .bn{color:var(--green)}
+.bit.ours .bar i{background:var(--green)}
+.bit .bnote{font-size:12.5px;color:var(--faint);line-height:1.5}
+
+/* the two-lane diagram: what stays, what leaves */
+.lanes{display:grid;grid-template-columns:1fr auto 1fr;gap:0;margin-top:28px;
+  border:1px solid var(--border);border-radius:var(--r);overflow:hidden;background:var(--card)}
+@media (max-width:760px){.lanes{grid-template-columns:1fr}}
+.lane{padding:22px 24px}
+.lane + .lane{border-left:1px solid var(--border)}
+@media (max-width:760px){.lane + .lane{border-left:0;border-top:1px solid var(--border)}}
+.lane.local{background:var(--greenBg)}
+.lane .lk{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--faint)}
+.lane.local .lk{color:var(--green)}
+.lane .lh{font-size:16px;font-weight:700;color:var(--text);margin:8px 0 0;letter-spacing:-.015em}
+.lane .ld{font-size:13px;color:var(--muted);line-height:1.6;margin-top:8px}
+.lane ul{margin:12px 0 0;padding:0;list-style:none;font-family:var(--mono);font-size:11.5px;
+  color:var(--muted);line-height:1.9}
+.lane ul b{color:var(--text);font-weight:700}
+.gate{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  padding:22px 18px;background:var(--ink);border-left:1px solid var(--border);
+  border-right:1px solid var(--border)}
+@media (max-width:760px){.gate{border-left:0;border-right:0;border-top:1px solid var(--border);
+  flex-direction:row;padding:14px 18px}}
+.gate .ga{font-size:20px;color:var(--green-2);line-height:1}
+.gate .gt{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--fg-2);text-align:center}
+
+/* the build list: one card per tool or vault to create */
+.speclist{display:flex;flex-direction:column;gap:14px;margin-top:32px}
+.spec{border:1px solid var(--border);border-radius:var(--r);background:var(--card);
+  padding:24px 26px}
+.spec.vault{border-left:3px solid var(--green)}
+.spec .sh{display:flex;align-items:baseline;gap:13px;flex-wrap:wrap}
+.spec .sn{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--faint)}
+.spec h3{margin:0;font-size:19px;font-weight:700;letter-spacing:-.015em;color:var(--text);
+  flex:1 1 auto;min-width:220px}
+.spec .kind{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;border-radius:4px;padding:3px 7px;white-space:nowrap;
+  color:var(--muted);background:var(--bg2);border:1px solid var(--border)}
+.spec .kind.v{color:var(--green);background:var(--greenBg);border-color:rgba(26,127,90,.3)}
+.spec > p{font-size:14px;color:var(--muted);line-height:1.7;margin-top:12px;max-width:760px}
+.spec dl{margin:16px 0 0;display:grid;grid-template-columns:auto 1fr;gap:8px 18px;
+  font-size:13px;align-items:baseline}
+@media (max-width:620px){.spec dl{grid-template-columns:1fr;gap:2px 0}}
+.spec dt{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--faint);white-space:nowrap;padding-top:2px}
+.spec dd{margin:0;color:var(--muted);line-height:1.6}
+@media (max-width:620px){.spec dd{margin-bottom:10px}}
+.spec dd b{color:var(--text)}
+.spec code{font-family:var(--mono);font-size:11.5px;background:var(--bg2);padding:1px 5px;
+  border-radius:4px;color:var(--text)}
+.spec dd.no{color:var(--red)}
+
+/* the questionnaire budget — a screen count that has to add up */
+.budget{margin-top:26px;border:1px solid var(--border);border-radius:var(--r-sm);
+  background:var(--card);overflow:hidden;max-width:680px}
+.budget .brow{display:grid;grid-template-columns:1fr auto;gap:6px 16px;align-items:baseline;
+  padding:12px 16px;border-bottom:1px solid var(--border);font-size:13.5px;color:var(--muted);
+  line-height:1.55}
+.budget .brow b{color:var(--text)}
+.budget .brow .bc{font-family:var(--mono);font-size:12px;color:var(--text);white-space:nowrap;
+  text-align:right}
+.budget .brow.total{background:var(--greenBg);border-bottom:0}
+.budget .brow.total b,.budget .brow.total .bc{color:var(--green)}
+
+/* the word we are not allowed to use yet */
+.gate-word{margin-top:28px;border:1px solid var(--red);border-radius:var(--r-sm);
+  background:#FDF3F2;padding:20px 24px;max-width:720px}
+.gate-word p{font-size:15px;color:var(--text);line-height:1.6;font-weight:600}
+.gate-word ol{margin:12px 0 0;padding-left:22px;font-size:14px;color:var(--muted);line-height:1.75}
+.gate-word ol b{color:var(--text)}
+/* ── print ────────────────────────────────────────────────────────────────
+   A Lab page is also a PDF edition: a dated, immutable copy of the thinking
+   as it stood, so the journey survives the page moving on. Rendered by
+   scripts/site/render-lab-pdfs.mjs, which is why this block matters more than
+   print CSS usually does — it is the layout of a published artefact, not a
+   courtesy for somebody's printer. */
+@media print {
+  :root{ --wrap:100% }
+  html,body{ background:#fff }
+  body{ font-size:10.5pt; line-height:1.5 }
+  *{ -webkit-print-color-adjust:exact; print-color-adjust:exact }
+
+  /* chrome that means nothing on paper */
+  .top,.navtoggle,.labstrip,.pcta .cta-row,.entry .meta,.phero{ display:none !important }
+  .pdfcover{ display:block !important }
+
+  .wrap{ max-width:100%; padding:0 }
+  .phero{ padding:0 0 18pt; background:#fff; color:var(--text);
+          border-bottom:1.5pt solid var(--green); break-after:avoid }
+  .phero h1{ color:var(--text); font-size:22pt; line-height:1.1; margin:10pt 0 0 }
+  .phero .sub{ color:var(--muted); font-size:11pt; max-width:100% }
+  .phero .it{ color:var(--green) }
+  .eyebrow{ background:none; border:0; padding:0; color:var(--green) }
+
+  .psection{ padding:16pt 0; border-bottom:0.75pt solid var(--border); break-inside:auto }
+  .psection.alt{ background:#fff }
+  .shead{ max-width:100% } .shead h2{ font-size:15pt; break-after:avoid }
+  .shead p{ font-size:10.5pt; margin-top:8pt }
+  h2,h3{ break-after:avoid }
+
+  /* nothing that is one idea may be split down the middle */
+  .mock,.entry,.rule,.notice,blockquote.q,.tw,.t-wrap,.stages,.up,.saytable,
+  figure,figcaption,.oitem,.wcard,.boiler,.rung,.shape,.count,.corr,.vfiles,
+  .fact,.col,.pcard,.ti,.key,.spec,.bit,.lanes,.budget,.gate-word{ break-inside:avoid }
+  .plist li{ break-inside:avoid }
+  table.t,table.st,table.m,table.say,table.up-t{ font-size:8.5pt }
+  table thead{ display:table-header-group }
+
+  .mock{ box-shadow:none; margin-top:14pt }
+  .mock-bar{ padding:5pt 8pt }
+  .mock-body{ padding:14pt 16pt }
+  .mock-body.dark{ background:var(--ink) }
+  figcaption{ font-size:9pt; padding:9pt 12pt }
+
+  .pcta{ background:#fff; padding:18pt 0 0; text-align:left;
+         border-top:1.5pt solid var(--green) }
+  .pcta .wrap{ max-width:100% } .pcta h2{ color:var(--text); font-size:15pt }
+  .pcta p{ color:var(--muted); font-size:10.5pt }
+  .pcta .eyebrow{ color:var(--green) }
+  .foot{ display:none }
+
+  a{ color:var(--green); text-decoration:none }
+  .src,blockquote.q cite{ font-size:8.5pt }
+}
+
+/* ── the PDF cover — print only ──────────────────────────────────────────── */
+.pdfcover{ display:none }
+@media print {
+  .pdfcover{ break-after:page; padding:0 0 24pt }
+  .pdfcover .pc-mark{ display:flex; align-items:center; gap:9pt; margin-bottom:96pt }
+  .pdfcover .pc-mark svg{ width:30pt; height:30pt; display:block }
+  .pdfcover .pc-mark b{ font-size:15pt; letter-spacing:-0.02em }
+  .pdfcover .pc-kicker{ font-family:var(--mono); font-size:9pt; font-weight:700;
+    letter-spacing:.18em; text-transform:uppercase; color:var(--green) }
+  .pdfcover h1{ font-size:30pt; font-weight:800; letter-spacing:-.03em;
+    line-height:1.06; margin:14pt 0 0; color:var(--text) }
+  .pdfcover h1 .it{ font-style:italic; color:var(--green) }
+  .pdfcover .pc-stand{ font-size:12pt; line-height:1.6; color:var(--muted);
+    margin-top:18pt; max-width:150mm }
+  .pdfcover .pc-meta{ margin-top:96pt; border-top:1.5pt solid var(--green);
+    padding-top:12pt; font-family:var(--mono); font-size:9pt; color:var(--muted);
+    display:flex; flex-direction:column; gap:4pt }
+  .pdfcover .pc-meta b{ color:var(--text) }
+  .pdfcover .pc-warn{ margin-top:14pt; font-size:9.5pt; line-height:1.6;
+    color:var(--muted); max-width:150mm; font-family:var(--sans) }
+  .pdfcover .pc-warn b{ color:var(--text) }
+}
+</style>
+</head>
+<body id="top">
+
+<section class="pdfcover">
+  <div class="pc-mark"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg><b>RiskMandate</b></div>
+  <div class="pc-kicker">The Lab · entry 04 · Proposal</div>
+  <h1>Seven things to build, and <span class="it">one word we have not earned.</span></h1>
+  <p class="pc-stand">The first thing anybody will ever use is a page that asks what they run, computes what they granted, and hands them the gap. This is its build specification: three tools, two vaults, two documents — and the arithmetic that says a twenty-connector question is not anonymous, which changes what may leave the browser.</p>
+  <div class="pc-meta">
+    <span><b>Edition</b> <span class="pc-edition">— see the stamp in the footer of every page</span></span>
+    <span><b>Live page</b> riskmandate.ai/lab-shape-collector.html</span>
+    <span><b>Published by</b> RiskMandate · CC BY 4.0</span>
+  </div>
+  <p class="pc-warn"><b>This is a dated edition of a page that changes.</b> The Lab holds our
+  current thinking, and current thinking moves. This PDF does not: it is what we thought on the
+  date stamped below, kept so the reasoning can be followed rather than only its conclusion. The
+  live page may since have been corrected, extended or withdrawn — and if it has, the edition
+  list on it will say so.</p>
+</section>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
+    <nav class="navlinks"><rm-menu></rm-menu></nav>
+    <a class="version" href="versions.html" title="What shipped in v1.5.0">v1.5.0</a>
+    <button class="demo" data-demo>Get in touch</button>
+  </div>
+</header>
+
+<div class="labstrip"><b>Lab 04</b> · <span class="state proposal">Proposal</span> · A build specification. Nothing in here exists yet, and the arithmetic in it is ours rather than a citation. <a href="lab.html">Back to the Lab</a></div>
+
+<main class="phero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> Lab 04 · proposal</span>
+    <h1>Seven things to build, and <span class="it">one word we have not earned.</span></h1>
+    <p class="sub">The first thing anybody will ever use is a page that asks what they run, computes what they granted, and hands them the gap. This is its build specification: three tools, two vaults, two documents — and the arithmetic that says a twenty-connector question is not anonymous, which changes what may leave the browser.</p>
+    <div class="cta-row">
+      <button class="btn btn-green" data-to="build">The seven things ↓</button>
+      <a class="btn btn-ghost" href="lab-abp-flow.html">The flow this sits inside →</a>
+    </div>
+  </div>
+</main>
+
+<div class="paper">
+
+  <section class="psection" id="what">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">What this is</span>
+        <h2>The cheapest product we have, <span class="g">and it asks one thing.</span></h2>
+        <p>Every other route into what an agent can do requires something to be installed. This one asks. Somebody says which assistants they use, on which surfaces, with which connectors switched on; the page works out what that grants; and it hands back the difference between that and what they would have said they intended. No install, no administrator, no procurement.</p>
+      </div>
+      <ul class="plist">
+        <li><strong>It is stages two to four of the flow next door, collapsed into one screen.</strong> <a href="lab-abp-flow.html">Lab 02</a> draws twelve stages from a stranger's first question to a delivered policy. Self-select, draft and correct are three of them, and the finding here is that they are not three conversations — they are one page where the picture on the right changes as the answers on the left do, and correcting it is done by changing an answer rather than by writing to us.</li>
+        <li><strong>The output already has a name.</strong> It is <em>the shape</em> — the deployment shape, which is the noun the model site already uses for a configuration somebody actually runs. The collector produces a shape record and the grant is derived from it. No new noun.</li>
+        <li><strong>It is also the whole of the smallest paid thing.</strong> Their answers, their measured grant, the delta between them, as a file they keep. That is what the first tier on <a href="pricing.html">the pricing page</a> describes, and until now it has been a questions page waiting for a tool.</li>
+        <li><strong>And it is honest about what it is not.</strong> This finds what people will tell you. That is a different thing from what is on the network, and neither one is complete. That sentence belongs on the product, not in a footnote — see <a href="#market">below</a> for why nobody else says it.</li>
+      </ul>
+      <div class="rule">
+        <p>The collector asks the shape, computes the grant, and returns the delta.</p>
+        <p>Everything on this page after that sentence is about one question: what, if anything, is allowed to leave the browser.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="psection alt" id="bits">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">The arithmetic</span>
+        <h2>A twenty-connector question is <span class="g">not anonymous.</span></h2>
+        <p>The instinct is that answers like these are harmless in bulk, so they can simply be collected. That instinct is wrong, and it is wrong measurably rather than arguably — which is the good case, because it means the fix is arithmetic rather than judgement.</p>
+      </div>
+
+      <div class="bits">
+        <div class="bit">
+          <div class="bl"><span class="bn">The connector question, as a named multi-select of twenty</span><span class="bv">≈ 20 bits</span></div>
+          <div class="bar"><i style="width:48%"></i></div>
+          <p class="bnote">2²⁰ — about a million distinct answers to one question.</p>
+        </div>
+        <div class="bit ours">
+          <div class="bl"><span class="bn">The same question, as a count band plus five categories</span><span class="bv">≈ 7 bits</span></div>
+          <div class="bar"><i style="width:17%"></i></div>
+          <p class="bnote">4 bands × 2⁵ category combinations = 128 answers. A reduction of about 8,000×, and the research loses almost nothing — the interesting finding is <em>how many</em> and <em>of what kind</em>, not which brand.</p>
+        </div>
+      </div>
+
+      <div class="notice">
+        <strong>One benchmark makes the first bar concrete.</strong> A browser-uniqueness study of 470,000 samples measured about 18 bits across a whole fingerprint — user agent, plugins, fonts, screen, timezone, the lot — and found 83.6% of visitors instantaneously unique on it. <strong>Our connector question, on its own, carries more entropy than that entire fingerprint.</strong>
+      </div>
+
+      <div class="tw">
+        <table class="t">
+          <thead><tr><th>Responses</th><th>Cells that could hold a group of five</th><th>Realistic outcome</th></tr></thead>
+          <tbody>
+            <tr><td class="k">100</td><td>at most 20</td><td><strong>Effectively every respondent unique</strong></td></tr>
+            <tr><td class="k">500</td><td>at most 100</td><td><strong>Effectively every respondent unique</strong></td></tr>
+            <tr><td class="k">5,000</td><td>at most 1,000</td><td>Common shapes reach a group of five. <strong>Every interesting shape does not</strong></td></tr>
+            <tr><td class="k">50,000</td><td>at most 10,000</td><td>The head is safe and the tail still singles out</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul class="plist">
+        <li><strong>The nominal space is around five trillion cells</strong> once assistants, surfaces, role and company size are multiplied in — roughly 42 bits. Real distributions are skewed, so far fewer cells are ever occupied. The comparison that decides the question is not with the space, it is with the number of respondents, and at any sample we will plausibly reach, the respondents lose.</li>
+        <li><strong>The regulator's test is singling out</strong> — the ability to isolate the records relating to one person — assessed against a motivated intruder assumed reasonably competent with ordinary resources, and it cites groups of five as strong protection. Nothing in the table above reaches that.</li>
+        <li><strong>A second anchor, from outside our field entirely.</strong> Three low-cardinality fields — postcode, gender and date of birth — uniquely identify about 87% of a national population. A configuration is a fingerprint in the literal sense, and fingerprints do not become less identifying because the person typed them in themselves.</li>
+        <li><strong>So the submissions are personal data and must be handled as such.</strong> That is not an argument against building it. It is an argument for building it the way described next, which costs almost nothing and makes the product better.</li>
+      </ul>
+      <div class="notice">
+        <strong>Where the banding lands us, honestly.</strong> Applied across every field, the banding cuts the nominal space from about 42 bits to about 20 — a factor of roughly four million, and the single largest reduction available to us. It also leaves a banded submission at <em>approximately the entropy of that browser fingerprint</em>. Banding is therefore the necessary first move and not the whole answer: the submission only stops singling people out once <a href="#build">suppression on output</a> and <a href="#word">a written assessment</a> exist alongside it. This paragraph is our own arithmetic, derived from assumptions we have shown rather than measured from data we do not have.
+      </div>
+    </div>
+  </section>
+
+  <section class="psection" id="local">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">The resolution</span>
+        <h2>Compute locally in full. <span class="g">Submit banded.</span></h2>
+        <p>This keeps everything the product needs and gives up nothing the user wants. The full configuration is computed in the browser and never leaves it; what crosses the wire, and only if somebody presses submit, is a banded record.</p>
+      </div>
+
+      <div class="lanes">
+        <div class="lane local">
+          <span class="lk">Stays on the machine</span>
+          <p class="lh">The full shape, and everything derived from it</p>
+          <p class="ld">Every connector by name, every surface, every assistant. The grant is computed from the full shape, the delta derived, the label and the leaflet rendered. The user sees all of it. It is their configuration.</p>
+          <ul>
+            <li><b>named</b> connectors, assistants, surfaces</li>
+            <li><b>computed</b> grant, delta, barriers</li>
+            <li><b>typed</b> anything written freely</li>
+            <li><b>kept</b> in this browser, to be resumed</li>
+          </ul>
+        </div>
+        <div class="gate">
+          <span class="ga">▸</span>
+          <span class="gt">explicit<br>submit<br>only</span>
+        </div>
+        <div class="lane">
+          <span class="lk">May cross the wire</span>
+          <p class="lh">Bands and categories. Nothing else.</p>
+          <p class="ld">A record with no names in it, no identifier of any kind attached to it, and nothing recorded about the request that carried it.</p>
+          <ul>
+            <li><b>band</b> connector count, 4 values</li>
+            <li><b>categories</b> mail, files, calendar, code, chat</li>
+            <li><b>coarse</b> desktop, web, editor, command line</li>
+            <li><b>bands</b> role (3–4), company size (3)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tw">
+        <table class="t">
+          <thead><tr><th>Field</th><th>Full, local</th><th>Submitted</th></tr></thead>
+          <tbody>
+            <tr><td class="k">connectors</td><td>The named list of twenty</td><td><strong>A count band</strong> — none, 1–2, 3–5, 6+ — <strong>plus categories</strong>: mail, files, calendar, code, chat</td></tr>
+            <tr><td class="k">assistants</td><td>The named list</td><td>A count band and the categories</td></tr>
+            <tr><td class="k">surfaces</td><td>Each one</td><td>Coarse — desktop, web, editor, command line</td></tr>
+            <tr><td class="k">role</td><td>Free choice</td><td><strong>Three or four bands</strong></td></tr>
+            <tr><td class="k">company size</td><td>Exact</td><td><strong>Three bands</strong></td></tr>
+            <tr><td class="k">free text</td><td>Shown back to them</td><td class="no"><strong>Never submitted.</strong> Free text cannot be anonymised</td></tr>
+            <tr><td class="k">address, user agent, precise time</td><td>Not needed</td><td class="no"><strong>Never recorded</strong> — each one independently defeats the banding</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="rule">
+        <p>A collector that cannot read back cannot correlate.</p>
+        <p>That is the estate's own enforcer test — a control bounds a grant only if it is enforced by something the grant does not include — applied to our own product. A promise not to correlate is bounded only by something the collector does not have, and here that something is read access. It is a structural claim rather than a policy, which is the only kind worth publishing.</p>
+      </div>
+      <ul class="plist">
+        <li><strong>The write-only lane between two vaults is therefore not a platform demonstration.</strong> It is the correct privacy architecture for this specific job, and saying so turns a capability into an argument. The submitting side holds a write credential and no read key; it cannot join a submission to an earlier one, cannot read across respondents at the point of collection, and cannot reconstruct a session — because it cannot read anything at all.</li>
+        <li><strong>One hard rule follows, and it goes in the build rather than in a policy.</strong> A submission carries <em>no stable identifier of any kind</em>. Not a session token, not an install identifier, not a hash of anything, not a salted hash, not a "random" value that persists past the page. The pattern to copy is the install counter that refuses identifiers outright and buckets by week.</li>
+        <li><strong>Suppress on output, and check the subtraction.</strong> Never render a published cell backed by fewer than five submissions, and verify that a suppressed cell cannot be recovered by subtracting the ones around it from a total. The second half is the part that gets forgotten.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="psection alt" id="build">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">What has to be built</span>
+        <h2>Three tools, two vaults, <span class="g">two documents.</span></h2>
+        <p>Nothing below exists. Each card says what the thing is, where it runs, what it holds, what it must never do, and what has to be decided before it can be started. The two documents are on this list because without them the product cannot use the word it wants to use.</p>
+      </div>
+
+      <div class="speclist">
+
+        <div class="spec">
+          <div class="sh"><span class="sn">T1</span><h3>The shape collector</h3><span class="kind">Tool · browser</span></div>
+          <p>The page itself: under fifteen questions, one item per screen on a phone, an honest stated duration, a picture that accumulates on the right as the answers come in on the left, one guess screen before the reveal, and a result the user can keep. Everything it computes, it computes locally.</p>
+          <dl>
+            <dt>Runs</dt><dd>Entirely in the browser. Static page, no build step, works from a file on disk — the same constraint as every page on this site.</dd>
+            <dt>Holds</dt><dd>In-progress answers in local storage, so a half-finished assessment survives a reload. <b>Strictly necessary</b> — see <a href="#law">the two regimes</a> — so no banner.</dd>
+            <dt>Produces</dt><dd>A shape record (T2), the grant derived from it, the delta, and a file the user keeps.</dd>
+            <dt>Never</dt><dd class="no">Sends anything on its own. Submission is a separate, explicit, unticked act on its own screen.</dd>
+            <dt>Blocked on</dt><dd>Open questions <a href="#open">1, 2 and 3</a> — the exact question count, whether connectors are one multi-select or category-then-count, and what the guess screen asks.</dd>
+          </dl>
+        </div>
+
+        <div class="spec">
+          <div class="sh"><span class="sn">T2</span><h3>The shape record schema</h3><span class="kind">Document · open data</span></div>
+          <p>A closed, controlled vocabulary for a <em>deployed configuration</em>: which assistant, on which surface, with which connectors granted which scopes — and the mapping from that to the capability primitives it grants. Twice this month the answer to "do we need to build this" has been "it already exists". Not this time.</p>
+          <dl>
+            <dt>Why</dt><dd>Every standard in the area describes the <b>artefact</b> and none describes the <b>deployment</b>. The machine-learning component bill of materials, standardised as an international specification in December 2025, describes a model: parameters, task, architecture family, datasets, inputs, outputs, considerations. The other bill-of-materials family has an equivalent profile. <b>Neither says which assistant a person runs, on which surface, with which connectors.</b> That is a genuine gap.</dd>
+            <dt>Reuses</dt><dd>The published capability grammar — verb, object, reach — from <a href="https://abp.sgit.ai/" target="_blank" rel="noopener">abp.sgit.ai</a>. The schema's whole job is to map a configuration to a set of those primitives, and nothing more.</dd>
+            <dt>Discipline</dt><dd><b>Derive rather than assert.</b> Every row from a connector to the capabilities it grants carries a source, a date, and whether it was measured or derived. That material is the research in <a href="lab-connector-grants.html">Lab 01</a>, and the per-row provenance field it needs is <a href="lab-abp-requests.html">Request 3 on the model site</a>.</dd>
+            <dt>Never</dt><dd class="no">Gets called an ontology. The value is the closed vocabulary, not the formalism around it.</dd>
+            <dt>Blocked on</dt><dd>Open question <a href="#open">7</a> — whether this publishes early and invites correction, or stays internal until enough policies exist to know its shape.</dd>
+          </dl>
+        </div>
+
+        <div class="spec vault">
+          <div class="sh"><span class="sn">V1</span><h3>The submitting vault</h3><span class="kind v">Vault · write-only</span></div>
+          <p>The lane the browser hands a banded record to. It holds a write credential for V2 and no read key for anything, which is what makes the privacy claim structural instead of promissory.</p>
+          <dl>
+            <dt>Can</dt><dd>Write one banded record into the collection vault.</dd>
+            <dt>Cannot</dt><dd class="no">Read. Not its own writes, not V2, not a previous submission. This is enforced by the absence of a read key rather than by code we wrote.</dd>
+            <dt>Carries</dt><dd>The banded record and a week bucket. <b>No stable identifier of any kind.</b></dd>
+            <dt>Records</dt><dd class="no">No address, no user agent, no precise timestamp. Each of those independently defeats the banding, which makes them a build rule rather than a preference.</dd>
+            <dt>Blocked on</dt><dd>Nothing. This one can be provisioned today, and is the smallest piece of the seven.</dd>
+          </dl>
+        </div>
+
+        <div class="spec vault">
+          <div class="sh"><span class="sn">V2</span><h3>The collection vault</h3><span class="kind v">Vault · append-only</span></div>
+          <p>Where banded records accumulate. Read access sits with us and not with the collector, which is the entire point of splitting it from V1.</p>
+          <dl>
+            <dt>Holds</dt><dd>Banded records, one per submission, bucketed by week. Nothing that could be joined to a person, a session, or another record.</dd>
+            <dt>Versioned</dt><dd>By the vault, so the corpus has a history rather than a current state — the same discipline the rest of the estate claims.</dd>
+            <dt>Never</dt><dd class="no">Holds free text. Not in a notes field, not in an "other" box, not in a bug report pasted into it later.</dd>
+            <dt>Blocked on</dt><dd>Open question <a href="#open">6</a> — the suppression threshold, which is a property of what we publish from here rather than of the vault itself, but which should be decided before anything lands in it.</dd>
+          </dl>
+        </div>
+
+        <div class="spec">
+          <div class="sh"><span class="sn">T3</span><h3>The aggregator</h3><span class="kind">Tool · ours</span></div>
+          <p>The thing that turns a collection vault into something publishable, and the only place the suppression rule can actually be enforced. It is listed separately because a rule that lives in prose is not a rule.</p>
+          <dl>
+            <dt>Enforces</dt><dd>No published cell backed by fewer than five submissions — and a check that a suppressed cell cannot be recovered by subtracting its neighbours from a published total.</dd>
+            <dt>Publishes</dt><dd>Cells, bands, and counts. Where the threshold bites, it says a cell was suppressed rather than showing a zero, because a silent zero is a lie about the data.</dd>
+            <dt>Never</dt><dd class="no">Returns a row. Not to us on a dashboard, not to a customer, not in an export. There is no legitimate use for an individual banded row that a suppressed cell does not serve better.</dd>
+            <dt>Blocked on</dt><dd>Open question <a href="#open">6</a>, and on V2 holding enough that suppression does not simply hide everything — which it will, early on, and the page should say so rather than wait.</dd>
+          </dl>
+        </div>
+
+        <div class="spec">
+          <div class="sh"><span class="sn">D1</span><h3>The motivated-intruder assessment</h3><span class="kind">Document · short</span></div>
+          <p>A short written assessment naming who the motivated intruder would be, what they would already know, and what the banded corpus would add to it. The obligation is not to reduce the risk to zero; it is to make a reasoned assessment and record it.</p>
+          <dl>
+            <dt>Why it is on the build list</dt><dd>Because it is a <b>precondition for a word</b>, not a compliance chore. Until it exists, the product may not say <em>anonymous</em> — see <a href="#word">below</a>.</dd>
+            <dt>Names</dt><dd>For the public mode: somebody who reads the published cells and wants to identify a respondent. For the employer mode: <b>the buyer</b>, which is an uncomfortable sentence and the correct one.</dd>
+            <dt>Lives</dt><dd>Published, on this site, dated, and revised when the instrument changes. An assessment nobody can read is indistinguishable from one nobody wrote.</dd>
+            <dt>Blocked on</dt><dd>Open question <a href="#open">4</a> — who writes it. It is a short document and it gates the language on the product, which makes it the highest ratio of consequence to effort on this page.</dd>
+          </dl>
+        </div>
+
+        <div class="spec">
+          <div class="sh"><span class="sn">T4</span><h3>The employer instrument</h3><span class="kind">Tool · second product</span></div>
+          <p>The same questions, sent by an employer to its own staff, to find out how many agents are in use. It is a real second product and it is <em>not the same product</em>, because the law changes when the employer sends the link. Detail in <a href="#employer">its own section</a>.</p>
+          <dl>
+            <dt>Differs by</dt><dd>Lawful basis, an impact assessment, and the output. Probably not by the instrument — same questions is cheaper, and the consent problem does not care which questions are asked.</dd>
+            <dt>Never</dt><dd class="no">Returns an individual row to the employer. Only cells above the suppression threshold, only bands — and the page the employee sees says so <b>before</b> they answer.</dd>
+            <dt>Requires</dt><dd>Its own impact assessment before it runs. That is a piece of work, not a paragraph, and it is not D1 with the names changed.</dd>
+            <dt>Blocked on</dt><dd>Open question <a href="#open">5</a>, and on T1 existing. This is fourth in order and first in revenue, which is a tension worth naming rather than resolving early.</dd>
+          </dl>
+        </div>
+
+      </div>
+
+      <div class="notice">
+        <strong>Order, if only some of it happens.</strong> V1 and V2 are hours and unblock the honest version of everything else. T1 is the product. D1 is a short document that decides what T1 is allowed to say, so it should not trail the build. T3 can wait until there is anything to aggregate, but its rule has to be agreed before T1 ships or the first publication will breach it. T2 is the largest piece and the one with outside value. T4 is the largest revenue and the largest legal surface, and it should not be started while T1 is still moving.
+      </div>
+    </div>
+  </section>
+
+  <section class="psection" id="law">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Two regimes</span>
+        <h2>Storing the answers is one thing. <span class="g">Sending them is another.</span></h2>
+        <p>The analysis splits cleanly, and the design should follow the split rather than cover the whole tool with one consent banner. Three of these four rows need no banner at all. The fourth needs more than a banner.</p>
+      </div>
+      <div class="tw">
+        <table class="t">
+          <thead><tr><th>Operation</th><th>Regime</th><th>Position</th></tr></thead>
+          <tbody>
+            <tr><td class="k">storing in-progress answers</td><td>Storage rules, in scope</td><td><strong>Strictly necessary.</strong> Assessed from the user's point of view, and somebody who starts a self-assessment plainly wants their answers to persist. <strong>No banner</strong></td></tr>
+            <tr><td class="k">reading them back</td><td>Storage rules, in scope</td><td>Same exception, same reasoning</td></tr>
+            <tr><td class="k">analytics about the tool</td><td>Storage rules, in scope</td><td>Drop-off point, device class, which question loses people. <strong>The statistical-purposes exception fits</strong>, with clear information and a simple free means to object — a toggle defaulted on. <strong>Browser settings are not sufficient</strong></td></tr>
+            <tr><td class="k">submitting the answers</td><td>Not the storage rules. Data protection only</td><td><strong>An explicit, separate, unticked act.</strong> The answers are the content the user produced, not statistics about how the service is used</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="rule">
+        <p>The statistical exception covers <em>how</em> a service is used. It does not cover <em>what</em> the user told it.</p>
+        <p>Those are different things and only the first is exempt. The regulator is explicit that the exception is not a broad one covering all analytics — which means the submit screen is a real screen, with its own unticked control, and not a line in a footer.</p>
+      </div>
+      <div class="notice">
+        <strong>This is research, not legal advice.</strong> The split above is read off the regulator's own published guidance, on a stated date, and the citations are at the bottom of this page. An impact assessment for the employer mode is a piece of work rather than a paragraph, and nothing here substitutes for it.
+      </div>
+    </div>
+  </section>
+
+  <section class="psection alt" id="finish">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Completion</span>
+        <h2>Do not design it as a game. <span class="g">Design it to finish.</span></h2>
+        <p>The instinct that the game framing carries over from the teaching work is wrong, and the evidence that applies here is a different literature. This is a data-collection instrument, not a teaching artefact: what matters is completion, and that literature is well developed and mostly contradicts the folklore.</p>
+      </div>
+
+      <div class="tw">
+        <table class="t">
+          <thead><tr><th>Progress indicator</th><th>Effect on dropping out</th></tr></thead>
+          <tbody>
+            <tr><td class="k">constant speed — an honest linear bar</td><td><strong>No significant effect</strong></td></tr>
+            <tr><td class="k">fast at first, then slowing</td><td>Drop-off odds multiplied by about <strong>0.80</strong></td></tr>
+            <tr><td class="k">slow at first, then speeding up</td><td><strong>Drop-off odds up by 56%</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul class="plist">
+        <li><strong>The harmful pattern is exactly what this tool produces by accident.</strong> A short introductory section followed by a long connector-by-connector section makes the bar stall in the middle — which is the slow-then-fast shape, the one that raises drop-off odds by more than half. The meta-analysis behind the table covers nineteen studies and thirty-two experiments and concludes that its findings question the common belief that progress indicators reduce drop-off at all.</li>
+        <li><strong>One question per screen does not reliably buy completion either.</strong> A controlled comparison of a conversational form against an ordinary one found 89.8% against 91.4% completion — no significant difference — and the conversational version took <strong>53% longer</strong>. A 2026 field experiment found it rated more original and more entertaining, harder to navigate, and with no practical data-quality advantage.</li>
+        <li><strong>And the widely quoted commercial figure does not survive inspection.</strong> A conversational-form vendor claims 47.3% completion against a stated industry average of 21.5%, with no methodology, no denominator definition and no independent verification. Its companion claim about rich media is an uncontrolled correlation between finishing a form and how much effort somebody put into building it.</li>
+      </ul>
+
+      <div class="tw">
+        <table class="t">
+          <thead><tr><th>Rank</th><th>Lever</th><th>Evidence</th></tr></thead>
+          <tbody>
+            <tr><td class="k">1</td><td><strong>Fewer questions</strong></td><td>The only lever with both randomised and large observational support, and the observational data shows a cliff above roughly fifteen</td></tr>
+            <tr><td class="k">2</td><td><strong>An honest, short stated duration</strong></td><td>Randomised and replicated. <strong>The announcement is itself a treatment</strong>, and an indicator only helped when the task was promised short and actually was</td></tr>
+            <tr><td class="k">3</td><td><strong>Works on a phone, one item at a time, no grids</strong></td><td>Strong on quality, good on completion. Most responses will be mobile</td></tr>
+            <tr><td class="k">4</td><td>A high-value question early</td><td>One clean experiment, one large observational study. Modest but real</td></tr>
+            <tr><td class="k">5</td><td>Showing partial results</td><td><strong>Satisfaction significantly higher, completion roughly unchanged.</strong> Treat as an untested hypothesis</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul class="plist">
+        <li><strong>The accumulating picture is still worth building, for the honest reason.</strong> It makes the thing feel worth finishing and it makes the output legible. It is <em>not</em> evidenced as a completion mechanism, so it should be measured rather than assumed — which is the fifth row of the table above, not the first.</li>
+        <li><strong>One game mechanic earns its place, and it is the estate's own.</strong> Before revealing what the selected connectors grant, ask the user to guess the number. Stating a belief before being shown the answer is the mechanic the games site is built on; it costs one screen; and it is what makes the result land rather than scroll past. It is also what turns a form into the experience the game instinct was reaching for, without the 53% time penalty of a conversational interface.</li>
+      </ul>
+
+      <div class="budget">
+        <div class="brow"><span class="bt"><b>Which assistants</b> — multi-select, one screen</span><span class="bc">1</span></div>
+        <div class="brow"><span class="bt"><b>Which surfaces</b> — coarse, four options</span><span class="bc">1</span></div>
+        <div class="brow"><span class="bt"><b>Which connector categories</b> — mail, files, calendar, code, chat</span><span class="bc">1</span></div>
+        <div class="brow"><span class="bt"><b>How many in each selected category</b> — a band per category</span><span class="bc">2 typical · 5 worst</span></div>
+        <div class="brow"><span class="bt"><b>Role</b> — three or four bands</span><span class="bc">1</span></div>
+        <div class="brow"><span class="bt"><b>Company size</b> — three bands</span><span class="bc">1</span></div>
+        <div class="brow"><span class="bt"><b>The guess</b> — a belief stated before the reveal, not a data question</span><span class="bc">1</span></div>
+        <div class="brow"><span class="bt"><b>Submit</b> — an explicit unticked act, not a question</span><span class="bc">1</span></div>
+        <div class="brow total"><span class="bt"><b>Screens before the result</b></span><span class="bc">9 typical · 12 worst case</span></div>
+      </div>
+      <div class="notice">
+        <strong>That is the budget, and it is the constraint everything else negotiates against.</strong> Under fifteen, an honest stated duration, one item per screen on mobile, a front-loaded progress indicator or none at all, and one guess screen before the reveal. Every feature proposed after this page has to say which screen it is taking, or which one it replaces.
+      </div>
+    </div>
+  </section>
+
+  <section class="psection" id="employer">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">The second product</span>
+        <h2>When the employer sends the link, <span class="g">the law changes.</span></h2>
+        <p>The same instrument, circulated inside a company to find out how many agents are actually in use, is a real product and a different one. Three things move, and the third is the one that decides the design.</p>
+      </div>
+      <ul class="plist">
+        <li><strong>Consent stops working.</strong> The regulator's guidance on monitoring workers says consent is not usually appropriate in the employment context because of the imbalance of power, and that it must be freely given and withdrawable without detriment. A survey circulated by an employer, whose answers could reveal a policy breach, is close to the worst case for freely given consent. The realistic basis is legitimate interests with a documented assessment.</li>
+        <li><strong>An impact assessment is likely required before it runs.</strong> One must be carried out before processing likely to cause high risk to workers' interests, and a tool that inventories which systems an individual employee uses, on which devices, with which data connectors, is systematic monitoring of workers.</li>
+        <li><strong>And the employer holds the identifying context we do not.</strong> The regulator recognises relative anonymity explicitly: information can be personal data in one organisation's hands and anonymous in the hands of another that lacks the context. The employer has the organisation chart, the device fleet and the sign-on logs.</li>
+      </ul>
+      <div class="rule">
+        <p>"One product person on a desktop assistant with mail, files and code connectors" is anonymous to us and a name to them.</p>
+        <p>So the employer mode never returns an individual row. Only cells above the suppression threshold, only bands, and the product says so on the page the employee sees before they answer.</p>
+      </div>
+      <div class="notice">
+        <strong>The privacy constraint and the data-quality constraint are the same constraint.</strong> A version that could return a row is also the version an employee answers carefully rather than honestly. Suppression is not a concession extracted from the product here — it is the only reason the answers would be worth collecting.
+      </div>
+    </div>
+  </section>
+
+  <section class="psection alt" id="market">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">The market</span>
+        <h2>Nobody else asks. <span class="g">That is the opening and the problem.</span></h2>
+        <p>A ten-vendor comparison of the discovery market, published 7 September 2026, found that all ten discover through technical telemetry — browser extensions, endpoint agents, network inspection, API integrations, sign-on logs — and none through self-report. One free assessment tool disparages self-report explicitly and recommends usage telemetry instead. Both halves of that matter.</p>
+      </div>
+      <div class="lanes">
+        <div class="lane local">
+          <span class="lk">The opening</span>
+          <p class="lh">Self-report reaches what telemetry cannot</p>
+          <p class="ld">A personal device, a personal account and a locally run server are all invisible to every method on that list, and all three are where the interesting deployments are. One of the larger vendors implicitly concedes the gap by selling desktop agents to close it.</p>
+          <ul>
+            <li><b>no</b> procurement</li>
+            <li><b>no</b> installation</li>
+            <li><b>no</b> administrator</li>
+          </ul>
+        </div>
+        <div class="gate">
+          <span class="ga">◦</span>
+          <span class="gt">same<br>fact</span>
+        </div>
+        <div class="lane">
+          <span class="lk">The problem</span>
+          <p class="lh">There is no vocabulary of trust for it</p>
+          <p class="ld">No incumbent treats survey data as a legitimate discovery source, so the burden of explaining why it counts falls entirely on us — and it cannot be met by claiming more than the method delivers.</p>
+          <ul>
+            <li><b>says</b> what people will tell you</li>
+            <li><b>not</b> what is on the network</li>
+            <li><b>neither</b> one is complete</li>
+          </ul>
+        </div>
+      </div>
+      <ul class="plist">
+        <li><strong>The completion standard to beat is a free seven-question organisational assessment</strong> taking about two minutes, with no email gate. That is the bar, and our budget above is nine screens — so the honest stated duration has to be honest.</li>
+        <li><strong>And nothing we found asks an individual which assistants and connectors they personally use and returns them a result.</strong> That is the specific thing being built, and it is the reason this is worth doing at all.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="psection" id="word">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Language</span>
+        <h2>The honest word, until then, <span class="g">is banded.</span></h2>
+        <p>One sentence of product copy is doing more damage than any missing feature on this page, and it is the one that says the data is anonymous. It is a claim with a defined test behind it, and we do not currently pass the test.</p>
+      </div>
+      <div class="gate-word">
+        <p>The word <em>anonymous</em> may not appear in this product until all three of these exist:</p>
+        <ol>
+          <li><b>The banding</b> — no named connector list, no free text, no address, no user agent, no precise time, no stable identifier. <em>Specified above; not built.</em></li>
+          <li><b>The suppression</b> — no published cell below five, and the subtraction check alongside it. <em>Specified above; not built.</em></li>
+          <li><b>The assessment</b> — written down, naming the motivated intruder, published and dated. <em>Not written.</em></li>
+        </ol>
+      </div>
+      <ul class="plist">
+        <li><strong>Until then the product says <em>banded</em></strong>, and explains what that means in a sentence: we ask how many and of what kind, never which brand, and never anything you typed. That is a claim we can currently support, which is the only kind this site publishes.</li>
+        <li><strong>This is the same rule the rest of the site runs on.</strong> No claim about a third party without a source and a date; no score without stated inputs; no capability asserted without saying whether it was measured or derived. A privacy claim is not exempt from the discipline just because it is about us.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="psection alt" id="open">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Open questions</span>
+        <h2>Seven things we <span class="g">cannot settle alone.</span></h2>
+        <p>These are real rather than rhetorical, and four of the seven block a card in the build list above. If you have an opinion on any of them, that is more useful to us today than agreement with the rest of the page.</p>
+      </div>
+      <div class="tw">
+        <table class="t">
+          <thead><tr><th>#</th><th>Question</th><th>Blocks</th></tr></thead>
+          <tbody>
+            <tr><td class="k">1</td><td><strong>How many questions, exactly?</strong> The cliff is around fifteen and the connector question alone could be twenty items if built carelessly</td><td class="k">T1</td></tr>
+            <tr><td class="k">2</td><td><strong>Is the connector question one multi-select, or a category then a count?</strong> The second is the banding made native, and it may lose people who want to see their own tool named</td><td class="k">T1</td></tr>
+            <tr><td class="k">3</td><td><strong>What does the guess screen ask?</strong> One number, or one number per category</td><td class="k">T1</td></tr>
+            <tr><td class="k">4</td><td><strong>Who writes the motivated-intruder assessment, and where does it live?</strong> It is a short document and it is a precondition for a word</td><td class="k">D1</td></tr>
+            <tr><td class="k">5</td><td><strong>Does the employer mode need a different instrument, or the same one with a different output?</strong> Same instrument is cheaper, and the consent problem does not care</td><td class="k">T4</td></tr>
+            <tr><td class="k">6</td><td><strong>What is the suppression threshold?</strong> Five is the cited standard, and a small early sample will suppress nearly everything</td><td class="k">T3 · V2</td></tr>
+            <tr><td class="k">7</td><td><strong>Does the shape schema become the published vocabulary, or stay internal until the fifth policy?</strong> Publishing early invites correction and locks a shape too soon</td><td class="k">T2</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="shead" style="margin-top:44px">
+        <span class="tag">Honest tensions</span>
+        <h2>And seven we are <span class="g">choosing to live with.</span></h2>
+      </div>
+      <div class="tw">
+        <table class="t">
+          <thead><tr><th>Tension</th><th>Both halves are true</th></tr></thead>
+          <tbody>
+            <tr><td class="k">banding the submission</td><td>It is what makes the data lawful to hold, and it throws away the brand-level detail that would be the most interesting thing to publish</td></tr>
+            <tr><td class="k">computing locally</td><td>It is the strongest privacy position available, and it means we learn nothing at all unless somebody presses submit</td></tr>
+            <tr><td class="k">not designing it as a game</td><td>The evidence is about completion rather than enjoyment, and the instinct about feel is what will make people start</td></tr>
+            <tr><td class="k">the guess screen</td><td>It is the one mechanic with a published argument behind it, and it adds a screen to an instrument whose main lever is fewer screens</td></tr>
+            <tr><td class="k">employer mode</td><td>It is a real second product, and it carries an impact assessment, a weak lawful basis, and an intruder who is the buyer</td></tr>
+            <tr><td class="k">self-report</td><td>It reaches what telemetry cannot, and no incumbent treats it as legitimate</td></tr>
+            <tr><td class="k">building the schema</td><td>It is a genuine gap, and it is the third schema this estate has taken on in a fortnight</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="notice">
+        <strong>What this page deliberately is not.</strong> It is not a schema — the gap is established and the disciplines are named, but no field is defined. It is not a design — question count, ordering and the accumulating picture are constrained by evidence, and nothing is drawn. It is not legal advice. It is not a privacy claim, for the reason in <a href="#word">the section above</a>. And it is not a completion promise: the evidence constrains the design and predicts nothing whatsoever about our numbers.
+      </div>
+      <p class="src">Written 12 September 2026 from a dev brief of the same date. Sources, all read 12 September 2026 — <strong>completion:</strong> the progress-indicator meta-analysis of 19 studies and 32 experiments, Villar, Callegaro and Yang 2013, <em>Social Science Computer Review</em> 31(6); the expectation-matching result, Yan, Conrad, Tourangeau and Couper 2011, <em>IJPOR</em> 23(2); the conversational comparison, Kim, Lee and Gweon 2019, CHI; the 2026 field experiment, Cavusoglu Deveci, Fuchs and Metzler, <em>BMS</em> 169-170(1), 6 March 2026; the item-by-item finding, Revilla, Toninelli and Ochoa 2015; the personalised-feedback trial, Kühne and Kroh 2018, <em>SSCR</em> 36(6); vendor completion claims at <a href="https://www.typeform.com" target="_blank" rel="noopener">typeform.com</a>, treated as marketing with no methodology. <strong>Schemas:</strong> <a href="https://cyclonedx.org/" target="_blank" rel="noopener">cyclonedx.org</a>, machine-learning component bill of materials v1.7, standardised as an international specification December 2025; the alternative family's profile at <a href="https://spdx.github.io/spdx-spec/" target="_blank" rel="noopener">spdx.github.io/spdx-spec</a>. Neither describes a deployed configuration. <strong>Identifiability:</strong> the regulator on effective anonymisation, the singling-out test, the motivated-intruder test and groups of five, at <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/data-sharing/anonymisation/how-do-we-ensure-anonymisation-is-effective/" target="_blank" rel="noopener">ico.org.uk</a>; Sweeney on postcode, gender and date of birth; Eckersley 2010 on 470,000 browser samples and 83.6% instantaneous uniqueness. <strong>Storage and submission:</strong> the guidance on storage and access technologies, published 29 April 2026, at <a href="https://ico.org.uk/for-organisations/direct-marketing-and-privacy-and-electronic-communications/guidance-on-the-use-of-storage-and-access-technologies/" target="_blank" rel="noopener">ico.org.uk</a>, including the strictly-necessary test assessed from the user's point of view, the statistical-purposes conditions, the objection mechanism that may not be a browser setting, and the statement that the exception is not a broad one covering all analytics. <strong>Employment:</strong> the regulator on monitoring workers, October 2023 and last updated 16 June 2026, at <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/employment/monitoring-workers/" target="_blank" rel="noopener">ico.org.uk</a>. <strong>The market:</strong> a ten-vendor comparison published 7 September 2026; <a href="https://www.nudgesecurity.com" target="_blank" rel="noopener">nudgesecurity.com</a> for the one transparent price found; the free seven-question assessment at <a href="https://aona.ai/tools/shadow-ai-risk-assessment" target="_blank" rel="noopener">aona.ai</a>, which recommends telemetry over self-report. <strong>Inside the estate:</strong> the capability map and its 23 primitives at <a href="https://what-can-it-do.games.sgit.ai/map/index.html" target="_blank" rel="noopener">what-can-it-do.games.sgit.ai</a>; the belief-before-answer mechanic at <a href="https://games.sgit.ai/" target="_blank" rel="noopener">games.sgit.ai</a>. The entropy arithmetic in <a href="#bits">the second section</a> is ours, derived from stated assumptions rather than measured.</p>
+    </div>
+  </section>
+
+
+  <!-- editions:start -->
+  <section class="psection editions">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Editions</span>
+        <h2>The journey, <span class="g">kept as files.</span></h2>
+        <p>This page holds current thinking, and it will change. Each edition below is a dated,
+       immutable copy of what it said on the day, with its own digest. Nothing is rewritten;
+       the list only grows.</p>
+      </div>
+      <div class="edlist">
+        <a class="ed" href="assets/lab/lab-shape-collector--v1--2026-09-12.pdf">
+          <span class="ed-v">v1 · current</span>
+          <span class="ed-d">2026-09-12</span>
+          <span class="ed-s">PDF · 466KB</span>
+        </a></div>
+      <p class="src">Digests for every edition are in <a href="lab-editions.json">lab-editions.json</a>,
+      so a PDF somebody was sent can be checked against this list.</p>
+    </div>
+  </section><!-- editions:end -->
+</div>
+
+<section class="pcta">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> Lab 04</span>
+    <h2>Two vaults are hours. One word is a document.</h2>
+    <p>The write-only lane can be provisioned today and it is what makes the privacy claim structural rather than promissory. The assessment is a short piece of writing and it decides what the product is allowed to say. Neither is the hard part, and both are ahead of the hard part.</p>
+    <div class="cta-row">
+      <a class="btn btn-green" href="lab.html">Back to the Lab</a>
+      <a class="btn btn-ghost" href="lab-abp-flow.html">The twelve-stage flow →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>© 2026 RiskMandate · Autonomous Risk Management</span>
+    <span>The insurability layer for agentic AI. · <a class="footlink" href="versions.html">Versions</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+var RM={core:{},services:{},components:{},data:{}};
+RM.data.currentPage="lab-shape-collector";RM.data.pages=[{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"The problem"},{"name":"acceptable","label":"Accepted is not acceptable","file":"acceptable.html","group":"The problem"},{"name":"acceptance","label":"You own the risk","file":"acceptance.html","group":"The problem"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"The problem"},{"name":"abp","label":"Agent Behaviour Policy","file":"abp.html","group":"The model"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"The model"},{"name":"agents","label":"Agents","file":"agents.html","group":"The model"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"The model"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"The model"},{"name":"statics","label":"Static scenarios","file":"statics.html","group":"The model"},{"name":"demos","label":"All demos","file":"demos.html","group":"Live demos"},{"name":"demo-licence-to-operate","label":"Licence to Operate","file":"demo-licence-to-operate.html","group":"Live demos"},{"name":"demo-risk-graph-explorer","label":"RiskGraph Explorer","file":"demo-risk-graph-explorer.html","group":"Live demos"},{"name":"demo-agentic-browser-isolation","label":"Agentic Browser Isolation","file":"demo-agentic-browser-isolation.html","group":"Live demos"},{"name":"demo-risk-mandate-field","label":"RiskMandate field demo","file":"demo-risk-mandate-field.html","group":"Live demos"},{"name":"demo-file-security","label":"File security walk","file":"demo-file-security.html","group":"Live demos"},{"name":"demo-agent-permission-games","label":"Permission games","file":"demo-agent-permission-games.html","group":"Live demos"},{"name":"lab","label":"Lab","file":"lab.html"},{"name":"summit","label":"Lisbon 2026","file":"summit.html"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"work","label":"Working with us","file":"work.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"}];RM.data.sections=[];
+
+'use strict';
+// components/dom.js — tiny DOM helpers shared by components. `el` builds an
+// element with attributes and children; text children always go in via
+// textContent. `renderMarkdownInto` turns core/markdown tokens into real DOM
+// nodes (never an HTML string), so fetched release notes cannot inject markup.
+
+RM.components.dom = (function () {
+  // A link in a markdown note may only go somewhere harmless: same-document,
+  // same-origin relative, https, or mailto. Anything else — javascript:, data:,
+  // a protocol-relative host — renders as the text it was, and goes nowhere.
+  var SAFE = /^(?:https:\/\/|mailto:|#|[^:/?#]*(?:[/?#]|$))/i;
+
+  /**
+   * @param {string} tag
+   * @param {Object<string,string>} [attrs]
+   * @param {Array<Node|string>} [children]
+   * @returns {HTMLElement}
+   */
+  function el(tag, attrs, children) {
+    var node = document.createElement(tag);
+    if (attrs) Object.keys(attrs).forEach(function (k) {
+      if (attrs[k] != null) node.setAttribute(k, attrs[k]);
+    });
+    (children || []).forEach(function (c) {
+      node.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
+    });
+    return node;
+  }
+
+  /**
+   * Render inline runs into a parent element. Emphasis runs carry child runs
+   * rather than a string, so a link or a code span inside **bold** renders as
+   * itself instead of as its own markdown source — hence the recursion.
+   */
+  function appendRuns(parent, runs) {
+    runs.forEach(function (run) {
+      if (run.t === 'strong' || run.t === 'em') {
+        var node = el(run.t);
+        if (run.runs) appendRuns(node, run.runs);
+        else          node.appendChild(document.createTextNode(run.v));
+        parent.appendChild(node);
+      }
+      else if (run.t === 'code') parent.appendChild(el('code', null, [run.v]));
+      else if (run.t === 'link') parent.appendChild(SAFE.test(run.href)
+        ? el('a', { href: run.href }, [run.v])
+        : document.createTextNode(run.v));
+      else parent.appendChild(document.createTextNode(run.v));
+    });
+  }
+
+  /**
+   * Render markdown block tokens into a container as DOM nodes.
+   * @param {HTMLElement} container
+   * @param {Array} blocks  output of RM.core.markdown.parse
+   */
+  function renderMarkdownInto(container, blocks) {
+    blocks.forEach(function (b) {
+      if (b.type === 'heading') {
+        var h = el('h' + (b.level + 1)); // ## release title -> h3, etc.
+        appendRuns(h, b.runs);
+        container.appendChild(h);
+      } else if (b.type === 'list') {
+        var ul = el('ul');
+        b.items.forEach(function (runs) {
+          var li = el('li');
+          appendRuns(li, runs);
+          ul.appendChild(li);
+        });
+        container.appendChild(ul);
+      } else {
+        var p = el('p');
+        appendRuns(p, b.runs);
+        container.appendChild(p);
+      }
+    });
+  }
+
+  return { el: el, appendRuns: appendRuns, renderMarkdownInto: renderMarkdownInto };
+})();
+
+
+'use strict';
+// components/nav.js — the behaviour on a page that is *not* a link.
+//   [data-to]   → smooth in-page scroll to an element id (no hash routing).
+//   [data-demo] → open a pre-filled demo enquiry email.
+//
+// v1.0.0 removed everything else that used to live here. Up to v0.14 the site
+// ran inside a host <iframe> and every navigation was a postMessage — rm-nav,
+// rm-back, rm-manifest, rm-read. A <button> is not a link, so nothing could be
+// deep-linked, bookmarked, opened in a new tab, or crawled. Now each page is
+// the document the server sent and each navigation is an <a href>, so the only
+// things left to wire are the two that genuinely are not navigation.
+//
+// The mobile drawer is still injected rather than templated: one file gives
+// every page a working menu below the header breakpoint, where .navlinks is
+// hidden by CSS.
+
+RM.components.nav = (function () {
+  // Every "Book a demo" control opens a mail client with a subject and a
+  // starting message. One place to change when booking becomes a real form.
+  var DEMO = {
+    to     : 'nrparekh@gmail.com',
+    subject: 'RiskMandate — demo request',
+    body   : [
+      'Hi,',
+      '',
+      'I would like to see a plug profile for one of the agents we already run.',
+      '',
+      'A little about us:',
+      '  • Organisation:',
+      '  • Roughly how many agents we are running:',
+      '  • The agent we would want to look at first:',
+      '  • Anything already in place (register, IdP, detection tooling):',
+      '',
+      'Thanks,'
+    ].join('\n')
+  };
+
+  function demoHref() {
+    return 'mailto:' + DEMO.to +
+      '?subject=' + encodeURIComponent(DEMO.subject) +
+      '&body='    + encodeURIComponent(DEMO.body);
+  }
+
+  function openDemo() { window.location.href = demoHref(); }
+
+  function scrollTo(doc, id) {
+    var t = doc.getElementById(id);
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Inject the hamburger toggle and wire the drawer open/close. Idempotent.
+  function wireMobileNav(doc) {
+    var top = doc.querySelector('.top');
+    if (!top) return;
+    var wrap  = top.querySelector('.wrap');
+    var links = top.querySelector('.navlinks');
+    if (!wrap || !links || top.querySelector('.navtoggle')) return;
+
+    var burger = doc.createElement('button');
+    burger.className = 'navtoggle';
+    burger.setAttribute('type', 'button');
+    burger.setAttribute('aria-label', 'Toggle navigation');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-controls', 'sitenav');
+    for (var i = 0; i < 3; i++) burger.appendChild(doc.createElement('span'));
+    links.id = links.id || 'sitenav';
+    var demo = wrap.querySelector('.demo');
+    if (demo) wrap.insertBefore(burger, demo); else wrap.appendChild(burger);
+
+    function set(open) {
+      top.classList.toggle('nav-open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    burger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      set(!top.classList.contains('nav-open'));
+    });
+    // Following a real nav link closes the drawer; the group header does not.
+    links.addEventListener('click', function (e) {
+      var b = e.target.closest('button, a');
+      if (b && !b.classList.contains('navgroup-btn')) set(false);
+    });
+    doc.addEventListener('click', function (e) {
+      if (top.classList.contains('nav-open') && !top.contains(e.target)) set(false);
+    });
+    doc.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+    var view = doc.defaultView || window;
+    view.addEventListener('resize', function () { if (view.innerWidth > 980) set(false); });
+  }
+
+  /** @param {Document} doc */
+  function wire(doc) {
+    doc.querySelectorAll('[data-to]').forEach(function (elm) {
+      elm.addEventListener('click', function () { scrollTo(doc, elm.getAttribute('data-to')); });
+    });
+    doc.querySelectorAll('[data-demo], .demo').forEach(function (elm) {
+      elm.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); openDemo(); });
+    });
+    wireMobileNav(doc);
+  }
+
+  return { wire: wire, scrollTo: scrollTo, demoHref: demoHref, openDemo: openDemo };
+})();
+
+
+'use strict';
+// components/menu.js — <rm-menu>. The one shared header menu, on every page, so
+// the nav is built by a single piece of code. Renders the homepage's section
+// links first, then the top-level pages, marking the current page active.
+//
+// A run of contiguous pages sharing a `group` string collapses into one entry:
+// a hover/click dropdown labelled by the group, with the members as children. A
+// single-member group renders flat — no dropdown for one item.
+//
+// v1.0.0: every entry is an <a href>. The old menu emitted <button> elements
+// that asked a host frame to swap an iframe's srcdoc, which meant the links did
+// not exist as far as a crawler, a bookmark or a middle-click was concerned.
+// The group header stays a <button> because it opens a panel rather than going
+// anywhere — that is the one control here that is genuinely not a link.
+
+(function () {
+  var dom = RM.components.dom;
+
+  RM.components.Menu = class extends HTMLElement {
+    connectedCallback() {
+      var self = this;
+      this._onDocClick = function (e) {
+        self.querySelectorAll('.navgroup.open').forEach(function (g) {
+          if (!g.contains(e.target)) g.classList.remove('open');
+        });
+      };
+      document.addEventListener('click', this._onDocClick);
+      this._render();
+    }
+    disconnectedCallback() {
+      document.removeEventListener('click', this._onDocClick);
+    }
+
+    // On the homepage a section link scrolls; on any other page it is a link
+    // back to the homepage at that anchor. Same markup either way.
+    _section(s) {
+      var home = !(RM.data && RM.data.currentPage);
+      var a = dom.el('a', { class: 'seclink', href: home ? '#' + s.to : 'index.html#' + s.to }, [s.label]);
+      if (home) a.addEventListener('click', function (e) {
+        e.preventDefault();
+        RM.components.nav.scrollTo(document, s.to);
+      });
+      return a;
+    }
+
+    _pagelink(p, extra) {
+      var active = p.name === (RM.data && RM.data.currentPage);
+      var attrs  = { class: 'pagelink' + (extra ? ' ' + extra : '') + (active ? ' active' : ''), href: p.file };
+      if (active) attrs['aria-current'] = 'page';
+      return dom.el('a', attrs, [p.label]);
+    }
+
+    _group(name, members) {
+      var self    = this;
+      var current = RM.data && RM.data.currentPage;
+      var active  = members.some(function (m) { return m.name === current; });
+      var car     = dom.el('span',   { class: 'navgroup-car', 'aria-hidden': 'true' }, ['▾']);
+      var btn     = dom.el('button', { class: 'navgroup-btn' + (active ? ' active' : ''), type: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false' }, [name, car]);
+      var panel   = dom.el('div',    { class: 'navmenu' }, members.map(function (m) { return self._pagelink(m, 'navchild'); }));
+      var wrap    = dom.el('span',   { class: 'navgroup' + (active ? ' active' : '') }, [btn, panel]);
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = wrap.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      return wrap;
+    }
+
+    _render() {
+      var sections = (RM.data && RM.data.sections) || [];
+      var pages    = (RM.data && RM.data.pages)    || [];
+      var self     = this;
+      this.textContent = '';
+      sections.forEach(function (s) { self.appendChild(self._section(s)); });
+      var i = 0;
+      while (i < pages.length) {
+        var p = pages[i];
+        if (!p.group) { self.appendChild(self._pagelink(p)); i++; continue; }
+        var g = p.group, members = [];
+        while (i < pages.length && pages[i].group === g) { members.push(pages[i]); i++; }
+        if (members.length === 1) self.appendChild(self._pagelink(members[0]));
+        else                      self.appendChild(self._group(g, members));
+      }
+    }
+  };
+
+  customElements.define('rm-menu', RM.components.Menu);
+})();
+
+
+'use strict';
+// boot.js — inner-page composition root (version builds and dev.html). Custom
+// elements self-register on load; here we wire document-level nav behaviour.
+// The page runs inside the host's stage frame, so the host (not this page) signals
+// the SG/App host that the app is ready.
+
+(function () {
+  function start() { RM.components.nav.wire(document); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
+})();
+
+
+})();
+</script>
+</body>
+</html>

@@ -33,6 +33,18 @@ test('every page is a whole document, not a fragment loaded into a frame', () =>
   }
 });
 
+test('every page ends once — nothing trails the document close', () => {
+  // The scaffolder used to copy the donor page's own closing sequence in with
+  // its last JS module, so pages shipped with two </html> and a stray `})();`
+  // between them. Text after </html> is not ignored: the parser reparents it
+  // into <body>, which put a line of JavaScript at the foot of nine pages.
+  for (const f of pages) {
+    const s = read(f);
+    assert.equal(s.split('</html>').length - 1, 1, `${f} closes the document more than once`);
+    assert.match(s, /<\/html>\s*$/,                `${f} has content after </html>`);
+  }
+});
+
 test('the host frame is gone — no page talks to a parent window', () => {
   const banned = [/data-nav="/, /data-back[\s>]/, /<rm-version-switcher/, /type:\s*'rm-nav'/, /type:\s*'rm-back'/,
                   /postMessage\(\s*\{\s*type:\s*'rm-/, /<iframe id="stage"/];

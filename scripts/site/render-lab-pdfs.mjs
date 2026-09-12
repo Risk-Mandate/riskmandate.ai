@@ -43,14 +43,18 @@ const read = (p) => readFileSync(p, 'utf8');
 const sha  = (s) => createHash('sha256').update(s).digest('hex');
 const today = () => new Date().toISOString().slice(0, 10);
 
-// The content of a Lab page for hashing purposes: its body, without the
-// injected regions that move for reasons unrelated to the thinking (the menu,
-// the version chip, the edition list itself).
+// The content of a Lab page for hashing purposes: the markup between <body and
+// </html>, without the script block or the injected regions. Everything removed
+// here moves for reasons unrelated to the thinking — the menu, the version
+// chip, the edition list itself, and the shared JS modules, which a
+// sync-modules run rewrites on every page at once. Leave any of it in and a
+// chrome change mints an edition on all four entries the same afternoon,
+// implying four arguments moved when none did.
 function contentHash(html) {
-  const body = html.slice(html.indexOf('<body'));
-  return sha(body
-    .replace(/RM\.data\.pages=\[[\s\S]*?\];/, '')
-    .replace(/RM\.data\.currentPage="[^"]*";/, '')
+  const start = html.indexOf('<body');
+  const end   = html.indexOf('</html>');
+  return sha(html.slice(start, end < 0 ? undefined : end)
+    .replace(/<script[\s\S]*?<\/script>/g, '')
     .replace(/<a class="version"[\s\S]*?<\/a>/, '')
     .replace(/<!-- editions:start -->[\s\S]*?<!-- editions:end -->/, ''));
 }

@@ -273,6 +273,7 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
 .ed-v{font-family:var(--mono);font-size:12.5px;font-weight:700;color:var(--green);white-space:nowrap}
 .ed-d{font-family:var(--mono);font-size:12px;color:var(--muted)}
 .ed-s{font-family:var(--mono);font-size:11px;color:var(--faint);white-space:nowrap}
+.ed-n{grid-column:1/-1;font-size:12px;color:var(--muted);line-height:1.5;margin-top:2px}
 @media print{.editions{display:none}}
 
 /* ── print ────────────────────────────────────────────────────────────────
@@ -377,7 +378,7 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
   <div class="wrap">
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
-    <a class="version" href="versions.html" title="What shipped in v1.4.0">v1.4.0</a>
+    <a class="version" href="versions.html" title="What shipped in v1.5.0">v1.5.0</a>
     <button class="demo" data-demo>Get in touch</button>
   </div>
 </header>
@@ -403,7 +404,7 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
       <div class="shead">
         <span class="tag">The lab</span>
         <h2>Everything currently open.</h2>
-        <p>Newest first. Each entry says what state it is in, because a finding and a mockup are not the same kind of claim and should not be read as though they were.</p>
+        <p>In reading order rather than by date — the finding comes first because everything after it leans on it. Each entry says what state it is in, because a finding and a mockup are not the same kind of claim and should not be read as though they were.</p>
       </div>
       <div class="entries">
 
@@ -435,6 +436,16 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
           </div>
           <p>The model and its data live on a separate site, maintained by somebody else. This is our open request list against it: one new property for the capability grammar, four deployment shapes we would like published, and the provenance conventions we would need in order to render any of it. Published rather than emailed, so the reasoning is checkable and the answer can be public too.</p>
           <div class="meta"><span>12 September 2026</span><span>3 requests</span><span>Awaiting a reply</span></div>
+        </a>
+
+        <a class="entry" href="lab-shape-collector.html">
+          <div class="head">
+            <span class="n">04</span>
+            <h3>Seven things to build, and one word we have not earned</h3>
+            <span class="state proposal">Proposal</span>
+          </div>
+          <p>The build specification for the first thing anybody will ever use: a page that asks what you run, computes what you granted, and hands you the gap. Three tools, two vaults, two documents — and the arithmetic that decides what may leave the browser. A twenty-connector multi-select carries about 20 bits, which is more entropy than a well-known browser-fingerprint study measured in a whole fingerprint, so the full shape is computed locally and only bands and categories are ever submitted.</p>
+          <div class="meta"><span>12 September 2026</span><span>7 things to create</span><span>Nothing built</span></div>
         </a>
 
       </div>
@@ -481,7 +492,7 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
         <li><strong>The reverse also holds:</strong> anything in here that stays unbuilt for months is telling us something, in public, that a private backlog would have hidden.</li>
       </ul>
       <div class="notice">
-        <strong>Want to work on one of these?</strong> All three current entries have open questions at the bottom, and the questions are real rather than rhetorical. Use the button in the header — say which entry and which question.
+        <strong>Want to work on one of these?</strong> Every current entry has open questions at the bottom, and the questions are real rather than rhetorical — the newest one has seven, four of which block something we would otherwise start this week. Use the button in the header, and say which entry and which question.
       </div>
     </div>
   </section>
@@ -500,12 +511,18 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
       
       <div class="edwhole">
         <span class="ed-t">Everything, in one file</span>
-        <p class="ed-p">All 3 entries, in reading order, as a single PDF, 22 pages.
+        <p class="ed-p">All 4 entries, in reading order, as a single PDF, 41 pages.
         This is the one to attach when you want somebody to follow the whole journey rather than
         land in the middle of it.</p>
         <div class="edlist">
+        <a class="ed" href="assets/lab/lab--the-whole-lab--v2--2026-09-12.pdf">
+          <span class="ed-v">v2 · current</span>
+          <span class="ed-d">2026-09-12</span>
+          <span class="ed-s">PDF · 1018KB</span>
+          <span class="ed-n">Adds entry 04, the shape-collector build specification. The first three entries are unchanged from v1 apart from the stray-text repair noted against each.</span>
+        </a>
         <a class="ed" href="assets/lab/lab--the-whole-lab--v1--2026-09-12.pdf">
-          <span class="ed-v">v1 · current</span>
+          <span class="ed-v">v1</span>
           <span class="ed-d">2026-09-12</span>
           <span class="ed-s">PDF · 581KB</span>
         </a></div>
@@ -513,8 +530,14 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
       <div class="edgroup">
         <span class="ed-t">The grant is user-shaped, not data-shaped</span>
         <div class="edlist">
+        <a class="ed" href="assets/lab/lab-connector-grants--v2--2026-09-12.pdf">
+          <span class="ed-v">v2 · current</span>
+          <span class="ed-d">2026-09-12</span>
+          <span class="ed-s">PDF · 187KB</span>
+          <span class="ed-n">Identical argument to v1. Re-cut only to remove a line of stray script text that the page was rendering onto its last page.</span>
+        </a>
         <a class="ed" href="assets/lab/lab-connector-grants--v1--2026-09-12.pdf">
-          <span class="ed-v">v1 · current</span>
+          <span class="ed-v">v1</span>
           <span class="ed-d">2026-09-12</span>
           <span class="ed-s">PDF · 188KB</span>
         </a></div>
@@ -522,8 +545,14 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
       <div class="edgroup">
         <span class="ed-t">What buying a behaviour policy would look like</span>
         <div class="edlist">
+        <a class="ed" href="assets/lab/lab-abp-flow--v2--2026-09-12.pdf">
+          <span class="ed-v">v2 · current</span>
+          <span class="ed-d">2026-09-12</span>
+          <span class="ed-s">PDF · 251KB</span>
+          <span class="ed-n">Identical argument to v1. Re-cut only to remove a line of stray script text that the page was rendering onto its last page.</span>
+        </a>
         <a class="ed" href="assets/lab/lab-abp-flow--v1--2026-09-12.pdf">
-          <span class="ed-v">v1 · current</span>
+          <span class="ed-v">v1</span>
           <span class="ed-d">2026-09-12</span>
           <span class="ed-s">PDF · 252KB</span>
         </a></div>
@@ -531,10 +560,25 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
       <div class="edgroup">
         <span class="ed-t">Changes we are asking of the behaviour-policy site</span>
         <div class="edlist">
+        <a class="ed" href="assets/lab/lab-abp-requests--v2--2026-09-12.pdf">
+          <span class="ed-v">v2 · current</span>
+          <span class="ed-d">2026-09-12</span>
+          <span class="ed-s">PDF · 187KB</span>
+          <span class="ed-n">Identical argument to v1. Re-cut only to remove a line of stray script text that the page was rendering onto its last page.</span>
+        </a>
         <a class="ed" href="assets/lab/lab-abp-requests--v1--2026-09-12.pdf">
-          <span class="ed-v">v1 · current</span>
+          <span class="ed-v">v1</span>
           <span class="ed-d">2026-09-12</span>
           <span class="ed-s">PDF · 191KB</span>
+        </a></div>
+      </div>
+      <div class="edgroup">
+        <span class="ed-t">RiskMandate — Lab 04 · the shape collector</span>
+        <div class="edlist">
+        <a class="ed" href="assets/lab/lab-shape-collector--v1--2026-09-12.pdf">
+          <span class="ed-v">v1 · current</span>
+          <span class="ed-d">2026-09-12</span>
+          <span class="ed-s">PDF · 466KB</span>
         </a></div>
       </div>
       <p class="src">Digests for every edition are in <a href="lab-editions.json">lab-editions.json</a>,
@@ -855,12 +899,6 @@ RM.components.nav = (function () {
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
   else start();
 })();
-
-})();
-</script>
-</body>
-</html>
-
 
 })();
 </script>

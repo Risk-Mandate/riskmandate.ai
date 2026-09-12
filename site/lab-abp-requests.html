@@ -273,6 +273,7 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
 .ed-v{font-family:var(--mono);font-size:12.5px;font-weight:700;color:var(--green);white-space:nowrap}
 .ed-d{font-family:var(--mono);font-size:12px;color:var(--muted)}
 .ed-s{font-family:var(--mono);font-size:11px;color:var(--faint);white-space:nowrap}
+.ed-n{grid-column:1/-1;font-size:12px;color:var(--muted);line-height:1.5;margin-top:2px}
 @media print{.editions{display:none}}
 
 /* ── print ────────────────────────────────────────────────────────────────
@@ -377,7 +378,7 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
   <div class="wrap">
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
-    <a class="version" href="versions.html" title="What shipped in v1.4.0">v1.4.0</a>
+    <a class="version" href="versions.html" title="What shipped in v1.5.0">v1.5.0</a>
     <button class="demo" data-demo>Get in touch</button>
   </div>
 </header>
@@ -500,8 +501,14 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
        the list only grows.</p>
       </div>
       <div class="edlist">
+        <a class="ed" href="assets/lab/lab-abp-requests--v2--2026-09-12.pdf">
+          <span class="ed-v">v2 · current</span>
+          <span class="ed-d">2026-09-12</span>
+          <span class="ed-s">PDF · 187KB</span>
+          <span class="ed-n">Identical argument to v1. Re-cut only to remove a line of stray script text that the page was rendering onto its last page.</span>
+        </a>
         <a class="ed" href="assets/lab/lab-abp-requests--v1--2026-09-12.pdf">
-          <span class="ed-v">v1 · current</span>
+          <span class="ed-v">v1</span>
           <span class="ed-d">2026-09-12</span>
           <span class="ed-s">PDF · 191KB</span>
         </a></div>
@@ -823,12 +830,6 @@ RM.components.nav = (function () {
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
   else start();
 })();
-
-})();
-</script>
-</body>
-</html>
-
 
 })();
 </script>

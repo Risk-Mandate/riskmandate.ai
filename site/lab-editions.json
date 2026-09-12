@@ -1,5 +1,5 @@
 {
-  "note": "Every PDF edition ever cut of a Lab page. A Lab page holds current thinking and changes; an edition is a dated, immutable copy of what it said on the day, so the reasoning can be followed and not only its conclusion. Editions are never edited or removed — the list only grows. `content` is the sha256 of the page body the edition was cut from, which is how the renderer knows whether anything actually changed; `sha256` is the digest of the PDF itself, so a file somebody was sent can be checked against this list.",
+  "note": "Every PDF edition ever cut of a Lab page. A Lab page holds current thinking and changes; an edition is a dated, immutable copy of what it said on the day, so the reasoning can be followed and not only its conclusion. Editions are never edited or removed — the list only grows. `content` is the sha256 of the page body the edition was cut from, which is how the renderer knows whether anything actually changed; `sha256` is the digest of the PDF itself, so a file somebody was sent can be checked against this list. `note`, where present, says what separates an edition from the one before it — two editions a day apart otherwise read as two states of an argument, and sometimes one of them is only a repair.",
   "entries": [
     {
       "slug": "lab",
@@ -19,6 +19,22 @@
             "assets/lab/lab-abp-flow--v1--2026-09-12.pdf",
             "assets/lab/lab-abp-requests--v1--2026-09-12.pdf"
           ]
+        },
+        {
+          "v": 2,
+          "date": "2026-09-12",
+          "file": "assets/lab/lab--the-whole-lab--v2--2026-09-12.pdf",
+          "bytes": 1042181,
+          "sha256": "80ac49a464106c469c7865adb6f09c0c888f5590225a974ae8a040da73066b4a",
+          "content": "546e7c1ebc7d8bd20c2d3c5cde3dc6ab8a7e4f5ba3eae99fd541e07faec91018",
+          "pages": 41,
+          "combines": [
+            "assets/lab/lab-connector-grants--v2--2026-09-12.pdf",
+            "assets/lab/lab-abp-flow--v2--2026-09-12.pdf",
+            "assets/lab/lab-abp-requests--v2--2026-09-12.pdf",
+            "assets/lab/lab-shape-collector--v1--2026-09-12.pdf"
+          ],
+          "note": "Adds entry 04, the shape-collector build specification. The first three entries are unchanged from v1 apart from the stray-text repair noted against each."
         }
       ]
     },
@@ -34,6 +50,15 @@
           "bytes": 257814,
           "sha256": "1bb8e4176917f5d81fba6ca760d8062fc2e8204f304abd893f99438bb06621d7",
           "content": "6e8e24fd5a28805c56c023f34a810f70b66f0a287ae8f634aca50083c9fe26b6"
+        },
+        {
+          "v": 2,
+          "date": "2026-09-12",
+          "file": "assets/lab/lab-abp-flow--v2--2026-09-12.pdf",
+          "bytes": 256701,
+          "sha256": "c55f7b9832df010a2e41ec912392e2b001508f31e4677fef0c7f85d4128c2c6e",
+          "content": "dd36d39f2c6948b2f7b92ceff8f98255dce1dce87aecc4faaeb7e635f945e9d4",
+          "note": "Identical argument to v1. Re-cut only to remove a line of stray script text that the page was rendering onto its last page."
         }
       ]
     },
@@ -49,6 +74,15 @@
           "bytes": 195675,
           "sha256": "d613ab37d7bb373c10a69bfba4ac405d41ab416dbe33b94a007685395c12f4c8",
           "content": "1e15ddb7d9f18afa151665abf7f29c7dc84b097d1b469f1214f9aa0bc6c7a393"
+        },
+        {
+          "v": 2,
+          "date": "2026-09-12",
+          "file": "assets/lab/lab-abp-requests--v2--2026-09-12.pdf",
+          "bytes": 191299,
+          "sha256": "aa172f14066bcea1e989285782e77a9f28a160ea5b0ce8004198e50e4009243b",
+          "content": "742c8565e6ba3642fa08b93a23689286c8d9d36d3c135d9f1778a4b67ff6f6af",
+          "note": "Identical argument to v1. Re-cut only to remove a line of stray script text that the page was rendering onto its last page."
         }
       ]
     },
@@ -64,6 +98,30 @@
           "bytes": 192295,
           "sha256": "b8872ace204cb9da05e4de40db390e52dbe7d9e8ef173be535de82b03f0c636c",
           "content": "61747f279ec2ce4935d098e2796ed6a4548ee641cea90e53b3fd9917ca0d354e"
+        },
+        {
+          "v": 2,
+          "date": "2026-09-12",
+          "file": "assets/lab/lab-connector-grants--v2--2026-09-12.pdf",
+          "bytes": 191738,
+          "sha256": "bd32b602d7e9d1fc1b87c12df4a11923e7812689958a207cba8ddc8fd2def8c3",
+          "content": "7516bcf780fdbd8b252e2e4072b71f639b00ac3cb39f8fe94f73695000fb4c56",
+          "note": "Identical argument to v1. Re-cut only to remove a line of stray script text that the page was rendering onto its last page."
+        }
+      ]
+    },
+    {
+      "slug": "lab-shape-collector",
+      "file": "lab-shape-collector.html",
+      "title": "RiskMandate — Lab 04 · the shape collector",
+      "editions": [
+        {
+          "v": 1,
+          "date": "2026-09-12",
+          "file": "assets/lab/lab-shape-collector--v1--2026-09-12.pdf",
+          "bytes": 477597,
+          "sha256": "eeb5da3fdba77648d4c94f17418f9ec08617f31668ba62d31f1dbc1c443b1131",
+          "content": "f0a0dac8a703b6bde43ccba377a9b5e5f68f51aecdb91134435520f484ced969"
         }
       ]
     }

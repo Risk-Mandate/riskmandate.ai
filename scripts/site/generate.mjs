@@ -200,11 +200,15 @@ function editionsBlock(page, all, listed) {
   const rank = new Map(listed.map((p, i) => [p.name, i]));
   all = all.slice().sort((a, b) => (rank.get(a.slug) ?? 99) - (rank.get(b.slug) ?? 99));
   const mine = all.find(e => e.slug === page.name);
+  // An edition may carry a `note` saying what separates it from the one before.
+  // Two editions a day apart otherwise read as two states of the argument, and
+  // sometimes one of them is only a repair.
   const rows = (eds, slug) => eds.slice().reverse().map((ed, i) => `
         <a class="ed" href="${ed.file}">
           <span class="ed-v">v${ed.v}${i === 0 ? ' · current' : ''}</span>
           <span class="ed-d">${ed.date}</span>
-          <span class="ed-s">PDF · ${kb(ed.bytes)}</span>
+          <span class="ed-s">PDF · ${kb(ed.bytes)}</span>${ed.note ? `
+          <span class="ed-n">${ed.note}</span>` : ''}
         </a>`).join('');
 
   // The index leads with the combined edition — the whole Lab in one file, which

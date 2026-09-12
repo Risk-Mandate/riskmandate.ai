@@ -170,6 +170,11 @@
       "unlisted": true
     },
     {
+      "name": "lab-shape-collector",
+      "file": "lab-shape-collector.html",
+      "unlisted": true
+    },
+    {
       "name": "work-abp-power-user",
       "file": "work-abp-power-user.html",
       "unlisted": true

@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.5.0** · 2026-09-12 — Lab 04: the shape collector, and a stray line of script removed from nine pages
+  Notes: https://riskmandate.ai/versions/1.5.0.md · Source: `git:v1.5.0`
 - **v1.4.0** · 2026-09-12 — A section for collaborators and their agents, and the markdown twins stop dropping things
   Notes: https://riskmandate.ai/versions/1.4.0.md · Source: `git:v1.4.0`
 - **v1.3.0** · 2026-09-12 — Every Lab page is also a dated PDF, and the whole Lab is one file you can send
