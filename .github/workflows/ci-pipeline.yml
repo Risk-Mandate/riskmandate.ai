@@ -50,6 +50,12 @@ jobs:
       - name: Shared modules are in step across every page
         run: node scripts/site/sync-modules.mjs --check
 
+      # The Lab's PDF editions are the only artefacts here that somebody may
+      # already have been sent, so a missing or altered file is a broken promise
+      # rather than a stale build. This checks every digest in the register.
+      - name: Lab editions are present and unaltered
+        run: node scripts/site/render-lab-pdfs.mjs --check
+
   tag:
     name: Tag release
     runs-on: ubuntu-latest

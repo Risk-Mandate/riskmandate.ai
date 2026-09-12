@@ -7,6 +7,7 @@
 import { test }                                  from 'node:test';
 import assert                                    from 'node:assert/strict';
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
+import { createHash }                                from 'node:crypto';
 import { join, dirname }                         from 'node:path';
 import { fileURLToPath }                         from 'node:url';
 
@@ -131,6 +132,30 @@ test('the sitemap lists every published page and nothing that is not one', () =>
 
 test('pages.json accounts for every page in site/, and vice versa', () => {
   assert.deepEqual(listed.map(p => p.file).sort(), [...pages].sort());
+});
+
+test('every Lab edition exists, matches its digest, and is listed on its page', () => {
+  // The editions are the point of the Lab: a page holds current thinking and
+  // changes, and the dated PDFs are what survives that. A register entry
+  // pointing at a missing or altered file would break the only promise these
+  // artefacts make.
+  const reg = JSON.parse(read('lab-editions.json')).entries;
+  assert.ok(reg.length, 'no Lab editions recorded');
+  for (const entry of reg) {
+    assert.ok(existsSync(join(SITE, entry.file)), `${entry.file} is in the edition register and not in site/`);
+    const page = read(entry.file);
+    let last = 0;
+    for (const ed of entry.editions) {
+      const path = join(SITE, ed.file);
+      assert.ok(existsSync(path), `${ed.file} is registered and not on disk`);
+      assert.equal(createHash('sha256').update(readFileSync(path)).digest('hex'), ed.sha256,
+                   `${ed.file} does not match its recorded digest`);
+      assert.equal(ed.v, last + 1, `${entry.slug} edition numbers are not consecutive`);
+      last = ed.v;
+      assert.match(page, new RegExp(ed.file.replace(/[.+]/g, '\\$&')),
+                   `${entry.file} does not link its own edition ${ed.file}`);
+    }
+  }
 });
 
 test('a Lab mockup never carries a real read key', () => {

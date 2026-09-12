@@ -255,15 +255,129 @@ table.st td.w{font-family:var(--mono);font-size:11px;white-space:nowrap}
 blockquote.q{margin:22px 0 0;border-left:3px solid var(--border);padding:4px 0 4px 20px;font-size:15px;color:var(--text);line-height:1.7;max-width:700px}
 blockquote.q cite{display:block;font-style:normal;font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:10px}
 blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+
+/* ── editions list — the dated PDFs behind a page that changes ──────────── */
+.editions .shead{margin-bottom:6px}
+.edwhole{margin-top:26px;border:2px solid var(--green);background:var(--greenBg);border-radius:var(--r);padding:24px 26px}
+.edwhole .ed-t{font-size:17px}
+.ed-p{font-size:13.5px;color:var(--muted);line-height:1.65;margin:0 0 4px;max-width:560px}
+.edwhole .ed{background:var(--card)}
+.edgroup{margin-top:26px}
+.ed-t{display:block;font-size:15px;font-weight:700;color:var(--text);margin-bottom:10px}
+.edlist{display:flex;flex-direction:column;gap:8px;margin-top:20px;max-width:560px}
+.edgroup .edlist{margin-top:0}
+.ed{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:baseline;
+  border:1px solid var(--border);border-radius:var(--r-sm);background:var(--card);
+  padding:13px 16px;text-decoration:none;transition:border-color .15s}
+.ed:hover{border-color:var(--green)}
+.ed-v{font-family:var(--mono);font-size:12.5px;font-weight:700;color:var(--green);white-space:nowrap}
+.ed-d{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.ed-s{font-family:var(--mono);font-size:11px;color:var(--faint);white-space:nowrap}
+@media print{.editions{display:none}}
+
+/* ── print ────────────────────────────────────────────────────────────────
+   A Lab page is also a PDF edition: a dated, immutable copy of the thinking
+   as it stood, so the journey survives the page moving on. Rendered by
+   scripts/site/render-lab-pdfs.mjs, which is why this block matters more than
+   print CSS usually does — it is the layout of a published artefact, not a
+   courtesy for somebody's printer. */
+@media print {
+  :root{ --wrap:100% }
+  html,body{ background:#fff }
+  body{ font-size:10.5pt; line-height:1.5 }
+  *{ -webkit-print-color-adjust:exact; print-color-adjust:exact }
+
+  /* chrome that means nothing on paper */
+  .top,.navtoggle,.labstrip,.pcta .cta-row,.entry .meta,.phero{ display:none !important }
+  .pdfcover{ display:block !important }
+
+  .wrap{ max-width:100%; padding:0 }
+  .phero{ padding:0 0 18pt; background:#fff; color:var(--text);
+          border-bottom:1.5pt solid var(--green); break-after:avoid }
+  .phero h1{ color:var(--text); font-size:22pt; line-height:1.1; margin:10pt 0 0 }
+  .phero .sub{ color:var(--muted); font-size:11pt; max-width:100% }
+  .phero .it{ color:var(--green) }
+  .eyebrow{ background:none; border:0; padding:0; color:var(--green) }
+
+  .psection{ padding:16pt 0; border-bottom:0.75pt solid var(--border); break-inside:auto }
+  .psection.alt{ background:#fff }
+  .shead{ max-width:100% } .shead h2{ font-size:15pt; break-after:avoid }
+  .shead p{ font-size:10.5pt; margin-top:8pt }
+  h2,h3{ break-after:avoid }
+
+  /* nothing that is one idea may be split down the middle */
+  .mock,.entry,.rule,.notice,blockquote.q,.tw,.t-wrap,.stages,.up,.saytable,
+  figure,figcaption,.oitem,.wcard,.boiler,.rung,.shape,.count,.corr,.vfiles,
+  .fact,.col,.pcard,.ti,.key,.speclist{ break-inside:avoid }
+  .plist li{ break-inside:avoid }
+  table.t,table.st,table.m,table.say,table.up-t{ font-size:8.5pt }
+  table thead{ display:table-header-group }
+
+  .mock{ box-shadow:none; margin-top:14pt }
+  .mock-bar{ padding:5pt 8pt }
+  .mock-body{ padding:14pt 16pt }
+  .mock-body.dark{ background:var(--ink) }
+  figcaption{ font-size:9pt; padding:9pt 12pt }
+
+  .pcta{ background:#fff; padding:18pt 0 0; text-align:left;
+         border-top:1.5pt solid var(--green) }
+  .pcta .wrap{ max-width:100% } .pcta h2{ color:var(--text); font-size:15pt }
+  .pcta p{ color:var(--muted); font-size:10.5pt }
+  .pcta .eyebrow{ color:var(--green) }
+  .foot{ display:none }
+
+  a{ color:var(--green); text-decoration:none }
+  .src,blockquote.q cite{ font-size:8.5pt }
+}
+
+/* ── the PDF cover — print only ──────────────────────────────────────────── */
+.pdfcover{ display:none }
+@media print {
+  .pdfcover{ break-after:page; padding:0 0 24pt }
+  .pdfcover .pc-mark{ display:flex; align-items:center; gap:9pt; margin-bottom:96pt }
+  .pdfcover .pc-mark svg{ width:30pt; height:30pt; display:block }
+  .pdfcover .pc-mark b{ font-size:15pt; letter-spacing:-0.02em }
+  .pdfcover .pc-kicker{ font-family:var(--mono); font-size:9pt; font-weight:700;
+    letter-spacing:.18em; text-transform:uppercase; color:var(--green) }
+  .pdfcover h1{ font-size:30pt; font-weight:800; letter-spacing:-.03em;
+    line-height:1.06; margin:14pt 0 0; color:var(--text) }
+  .pdfcover h1 .it{ font-style:italic; color:var(--green) }
+  .pdfcover .pc-stand{ font-size:12pt; line-height:1.6; color:var(--muted);
+    margin-top:18pt; max-width:150mm }
+  .pdfcover .pc-meta{ margin-top:96pt; border-top:1.5pt solid var(--green);
+    padding-top:12pt; font-family:var(--mono); font-size:9pt; color:var(--muted);
+    display:flex; flex-direction:column; gap:4pt }
+  .pdfcover .pc-meta b{ color:var(--text) }
+  .pdfcover .pc-warn{ margin-top:14pt; font-size:9.5pt; line-height:1.6;
+    color:var(--muted); max-width:150mm; font-family:var(--sans) }
+  .pdfcover .pc-warn b{ color:var(--text) }
+}
 </style>
 </head>
 <body id="top">
+
+<section class="pdfcover">
+  <div class="pc-mark"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg><b>RiskMandate</b></div>
+  <div class="pc-kicker">The Lab · entry 03 · Proposal</div>
+  <h1>What we need from <span class="it">the model site.</span></h1>
+  <p class="pc-stand">The Agent Behaviour Policy model, its capability grammar and its data live at <strong>abp.sgit.ai</strong>, which is a separate site with a separate maintainer. We render against it. These are the three things we need in order to ship the flow next door — published here rather than emailed, so the reasoning is checkable and the answer can be public too.</p>
+  <div class="pc-meta">
+    <span><b>Edition</b> <span class="pc-edition">— see the stamp in the footer of every page</span></span>
+    <span><b>Live page</b> riskmandate.ai/lab-abp-requests.html</span>
+    <span><b>Published by</b> RiskMandate · CC BY 4.0</span>
+  </div>
+  <p class="pc-warn"><b>This is a dated edition of a page that changes.</b> The Lab holds our
+  current thinking, and current thinking moves. This PDF does not: it is what we thought on the
+  date stamped below, kept so the reasoning can be followed rather than only its conclusion. The
+  live page may since have been corrected, extended or withdrawn — and if it has, the edition
+  list on it will say so.</p>
+</section>
 
 <header class="top">
   <div class="wrap">
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
-    <a class="version" href="versions.html" title="What shipped in v1.2.1">v1.2.1</a>
+    <a class="version" href="versions.html" title="What shipped in v1.3.0">v1.3.0</a>
     <button class="demo" data-demo>Get in touch</button>
   </div>
 </header>
@@ -374,6 +488,27 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
     </div>
   </section>
 
+
+  <!-- editions:start -->
+  <section class="psection editions">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Editions</span>
+        <h2>The journey, <span class="g">kept as files.</span></h2>
+        <p>This page holds current thinking, and it will change. Each edition below is a dated,
+       immutable copy of what it said on the day, with its own digest. Nothing is rewritten;
+       the list only grows.</p>
+      </div>
+      <div class="edlist">
+        <a class="ed" href="assets/lab/lab-abp-requests--v1--2026-09-12.pdf">
+          <span class="ed-v">v1 · current</span>
+          <span class="ed-d">2026-09-12</span>
+          <span class="ed-s">PDF · 191KB</span>
+        </a></div>
+      <p class="src">Digests for every edition are in <a href="lab-editions.json">lab-editions.json</a>,
+      so a PDF somebody was sent can be checked against this list.</p>
+    </div>
+  </section><!-- editions:end -->
 </div>
 
 <section class="pcta">

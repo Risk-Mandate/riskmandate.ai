@@ -226,3 +226,6 @@ __marimo__/
 # Seeded design-canvas payload — generated, embeds the editor (~2.6MB).
 # Re-seed from the .dc.html sources; see .design-work/README.md
 .design-work/riskmandate-brand.html
+
+# Tooling dependency for the maintenance scripts. The site itself has none.
+node_modules/

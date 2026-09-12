@@ -1,0 +1,14 @@
+{
+  "name": "riskmandate-ai",
+  "private": true,
+  "description": "Tooling for riskmandate.ai. The SITE has no dependencies — site/ is plain HTML and is deployed unchanged. This file exists only for the maintenance scripts under scripts/site/.",
+  "scripts": {
+    "generate": "node scripts/site/generate.mjs",
+    "check": "node --test tests/site/*.mjs && node scripts/site/generate.mjs --check && node scripts/site/sync-modules.mjs --check && node scripts/site/render-lab-pdfs.mjs --check",
+    "editions": "node scripts/site/render-lab-pdfs.mjs && node scripts/site/generate.mjs",
+    "serve": "bash scripts/run-locally__riskmandate_ai.sh"
+  },
+  "devDependencies": {
+    "pdf-lib": "^1.17.1"
+  }
+}

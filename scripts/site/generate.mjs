@@ -135,16 +135,92 @@ function pages() {
                        desc : decode(p.html.match(/<meta name="description" content="([^"]*)"/)?.[1] ?? '') }));
 }
 
-// The two regions of a page that are injected rather than authored: the menu
-// data, and the name the menu marks active. Everything else in site/*.html is
-// written by hand and left alone.
+// ------------------------------------------------------------- lab editions
+//
+// A Lab page holds current thinking and changes; every meaningful state of it
+// is cut as a dated PDF and kept, so the reasoning can be followed and not only
+// its conclusion. The list of those editions belongs ON the page — that is what
+// tells a reader the page has moved and where the earlier version went — and it
+// is generated from the register rather than maintained by hand.
+
+const editions = () => existsSync(join(SITE, 'lab-editions.json'))
+  ? JSON.parse(read('lab-editions.json')).entries
+  : [];
+
+const kb = (n) => `${Math.round(n / 1024)}KB`;
+
+function editionsBlock(page, all, listed) {
+  // Reading order from pages.json. The register sorts by slug, which puts
+  // entry 02 first and would hand a reader the journey out of sequence.
+  const rank = new Map(listed.map((p, i) => [p.name, i]));
+  all = all.slice().sort((a, b) => (rank.get(a.slug) ?? 99) - (rank.get(b.slug) ?? 99));
+  const mine = all.find(e => e.slug === page.name);
+  const rows = (eds, slug) => eds.slice().reverse().map((ed, i) => `
+        <a class="ed" href="${ed.file}">
+          <span class="ed-v">v${ed.v}${i === 0 ? ' · current' : ''}</span>
+          <span class="ed-d">${ed.date}</span>
+          <span class="ed-s">PDF · ${kb(ed.bytes)}</span>
+        </a>`).join('');
+
+  // The index leads with the combined edition — the whole Lab in one file, which
+  // is the artefact somebody actually sends — then lists each entry's own.
+  const whole = all.find(e => e.slug === 'lab');
+  const wholeEd = whole?.editions?.[whole.editions.length - 1];
+  const wholePages = wholeEd?.pages ? `${wholeEd.pages}` : '';
+  const body = page.name === 'lab'
+    ? (whole ? `
+      <div class="edwhole">
+        <span class="ed-t">Everything, in one file</span>
+        <p class="ed-p">All ${all.length - 1} entries, in reading order, as a single PDF${wholePages ? `, ${wholePages} pages` : ''}.
+        This is the one to attach when you want somebody to follow the whole journey rather than
+        land in the middle of it.</p>
+        <div class="edlist">${rows(whole.editions, 'lab')}</div>
+      </div>` : '') + all.filter(e => e.slug !== 'lab').map(e => `
+      <div class="edgroup">
+        <span class="ed-t">${e.title.replace(/ — RiskMandate Lab \d+$/, '')}</span>
+        <div class="edlist">${rows(e.editions, e.slug)}</div>
+      </div>`).join('')
+    : (mine ? `<div class="edlist">${rows(mine.editions, mine.slug)}</div>` : '');
+
+  if (!body.trim()) return '';
+  const lede = page.name === 'lab'
+    ? `Every entry is also cut as a dated PDF, and the old ones are kept. Send the file rather
+       than the link when what matters is what we thought <em>then</em> — a link shows the reader
+       whatever the page says by the time they arrive.`
+    : `This page holds current thinking, and it will change. Each edition below is a dated,
+       immutable copy of what it said on the day, with its own digest. Nothing is rewritten;
+       the list only grows.`;
+
+  return `
+  <section class="psection editions">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Editions</span>
+        <h2>The journey, <span class="g">kept as files.</span></h2>
+        <p>${lede}</p>
+      </div>
+      ${body}
+      <p class="src">Digests for every edition are in <a href="lab-editions.json">lab-editions.json</a>,
+      so a PDF somebody was sent can be checked against this list.</p>
+    </div>
+  </section>`;
+}
+
+// The regions of a page that are injected rather than authored: the menu data,
+// the name the menu marks active, and the Lab edition list. Everything else in
+// site/*.html is written by hand and left alone.
 function withMenu(page, listed) {
   const menu = listed.filter(p => !p.unlisted)
                      .map(p => ({ name: p.name, label: p.label, file: p.file, ...(p.group ? { group: p.group } : {}) }));
   const current = page.name === 'home' ? '' : `RM.data.currentPage=${JSON.stringify(page.name)};`;
-  return page.html
+  let html = page.html
     .replace(/RM\.data\.currentPage="[^"]*";/, '')
     .replace(/RM\.data\.pages=\[[\s\S]*?\];/, current + `RM.data.pages=${JSON.stringify(menu)};`);
+  if (html.includes('<!-- editions:start -->')) {
+    html = html.replace(/<!-- editions:start -->[\s\S]*?<!-- editions:end -->/,
+      `<!-- editions:start -->${editionsBlock(page, editions(), listed)}<!-- editions:end -->`);
+  }
+  return html;
 }
 
 // --------------------------------------------------------------- the artefacts

@@ -1,7 +1,14 @@
 {
-  "latest": "1.2.1",
+  "latest": "1.3.0",
   "note": "One entry per release, newest first. `file` is that release's notes, beside this file. `source` names what the release was built from: a commit in this repository from v1.0.0 onward, and the SG/Vault it was published from before that. `reconstructed: true` means the notes were carried over from that vault and the build they describe is not in this repository — read them as a record, not as something you can check out.",
   "releases": [
+    {
+      "version": "1.3.0",
+      "date": "2026-09-12",
+      "title": "Every Lab page is also a dated PDF, and the whole Lab is one file you can send",
+      "file": "1.3.0.md",
+      "source": "git:v1.3.0"
+    },
     {
       "version": "1.2.1",
       "date": "2026-09-12",

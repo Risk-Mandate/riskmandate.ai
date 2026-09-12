@@ -12,6 +12,12 @@ Source: https://riskmandate.ai/lab-abp-requests.html
 
 The Agent Behaviour Policy model, its capability grammar and its data live at **abp.sgit.ai**, which is a separate site with a separate maintainer. We render against it. These are the three things we need in order to ship the flow next door — published here rather than emailed, so the reasoning is checkable and the answer can be public too.
 
+**This is a dated edition of a page that changes.** The Lab holds our current thinking, and current thinking moves. This PDF does not: it is what we thought on the date stamped below, kept so the reasoning can be followed rather than only its conclusion. The live page may since have been corrected, extended or withdrawn — and if it has, the edition list on it will say so.
+
+# What we need from the model site.
+
+The Agent Behaviour Policy model, its capability grammar and its data live at **abp.sgit.ai**, which is a separate site with a separate maintainer. We render against it. These are the three things we need in order to ship the flow next door — published here rather than emailed, so the reasoning is checkable and the answer can be public too.
+
 ## A `material` property, because reach does not answer whose.
 
 The 23 primitives each carry a reach — `project`, `host`, `tenant`, `world`, `self` — and an undo class. For a connector shape that is not the interesting question. `read.record.mailbox` says the agent can read a mailbox. It does not say the mailbox is full of other people's correspondence.
@@ -58,6 +64,12 @@ This page is the fastest thing to link, which is why it exists. It is probably n
 - **Against it:** it needs a vault provisioned and a key exchanged, which is minutes of work neither of us has done yet, and this page is linkable now. **Our suggestion:** use this page for this round, and if there is a second round, move to a vault and keep this page as a pointer to it.
 
 Written 12 September 2026 against abp.sgit.ai v0.2.0 and store.sgit.ai v0.1.1, both read the same day. The brief these requests come out of is a dev brief dated 12 September 2026; the findings behind Request 1 are in [Lab 01](lab-connector-grants.html) and the flow they unblock is in [Lab 02](lab-abp-flow.html).
+
+## The journey, kept as files.
+
+This page holds current thinking, and it will change. Each edition below is a dated, immutable copy of what it said on the day, with its own digest. Nothing is rewritten; the list only grows.
+
+Digests for every edition are in [lab-editions.json](lab-editions.json), so a PDF somebody was sent can be checked against this list.
 
 ## Three requests, one of them small.
 

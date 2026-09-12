@@ -46,6 +46,11 @@ Web Crypto API, which needs a secure context.
 3. `node --test tests/site/*.mjs` — structural checks.
 4. Cutting a release: `node scripts/site/release.mjs 1.0.1 "What changed, in a line"`,
    then write the notes it stubs out at `site/versions/1.0.1.md`.
+5. Changed a Lab page? `node scripts/site/render-lab-pdfs.mjs` cuts a new dated PDF
+   edition and records its digest, then `generate.mjs` lists it on the page. Editions
+   are never edited or removed — the list only grows, so the earlier thinking survives.
+6. Changed a shared JS module? Edit it in `scripts/site/modules/` and run
+   `node scripts/site/sync-modules.mjs` to push it into every page that carries a copy.
 
 CI runs steps 2 and 3 as gates, tags the commit with the version declared in
 `site/versions/index.json`, and deploys `site/`. Nothing bumps the version for

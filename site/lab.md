@@ -12,6 +12,12 @@ Source: https://riskmandate.ai/lab.html
 
 We work out the product in public. This is where the research, the interface mockups and the open proposals live, before any of it is a feature. If you want to argue with us, this is the surface to argue with — and the arguing is the point.
 
+**This is a dated edition of a page that changes.** The Lab holds our current thinking, and current thinking moves. This PDF does not: it is what we thought on the date stamped below, kept so the reasoning can be followed rather than only its conclusion. The live page may since have been corrected, extended or withdrawn — and if it has, the edition list on it will say so.
+
+# Findings, mockups and things we have not built yet.
+
+We work out the product in public. This is where the research, the interface mockups and the open proposals live, before any of it is a feature. If you want to argue with us, this is the surface to argue with — and the arguing is the point.
+
 ## Everything currently open.
 
 Newest first. Each entry says what state it is in, because a finding and a mockup are not the same kind of claim and should not be read as though they were.
@@ -50,6 +56,14 @@ The rest of this site says only what we can defend. The Lab is looser on purpose
 - **It finds collaborators faster than a pitch does.** Somebody who reads a finding and disagrees with it is more useful than somebody who reads a landing page and nods.
 - **It dates our work.** Publishing a finding with a date is how a claim earns a clock. Anything undated rots invisibly.
 - **The reverse also holds:** anything in here that stays unbuilt for months is telling us something, in public, that a private backlog would have hidden.
+
+## The journey, kept as files.
+
+Every entry is also cut as a dated PDF, and the old ones are kept. Send the file rather than the link when what matters is what we thought _then_ — a link shows the reader whatever the page says by the time they arrive.
+
+All 3 entries, in reading order, as a single PDF, 22 pages. This is the one to attach when you want somebody to follow the whole journey rather than land in the middle of it.
+
+Digests for every edition are in [lab-editions.json](lab-editions.json), so a PDF somebody was sent can be checked against this list.
 
 ## Argue with the earliest version.
 

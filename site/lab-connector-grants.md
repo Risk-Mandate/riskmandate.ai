@@ -12,6 +12,12 @@ Source: https://riskmandate.ai/lab-connector-grants.html
 
 Connect an assistant to your mailbox and the narrowest permission that lets it read one message lets it read every message. Connect it to your drive and the default search corpus is, in the publisher's own words, files _owned by or shared to_ you. There is no supported way to say _my files, except the folder the legal team shared with me_. The unit of restriction is the application. It is never the data.
 
+**This is a dated edition of a page that changes.** The Lab holds our current thinking, and current thinking moves. This PDF does not: it is what we thought on the date stamped below, kept so the reasoning can be followed rather than only its conclusion. The live page may since have been corrected, extended or withdrawn — and if it has, the edition list on it will say so.
+
+# The grant is user-shaped, not data-shaped.
+
+Connect an assistant to your mailbox and the narrowest permission that lets it read one message lets it read every message. Connect it to your drive and the default search corpus is, in the publisher's own words, files _owned by or shared to_ you. There is no supported way to say _my files, except the folder the legal team shared with me_. The unit of restriction is the application. It is never the data.
+
 ## Four scopes, in their publishers' own words.
 
 Each of these was read on 12 September 2026 from the linked page, and quoted rather than paraphrased. Nothing below required an account, a test or a request to anybody's system.
@@ -88,6 +94,12 @@ Real questions, published so nobody has to rediscover them. If you know the answ
 - **Does `material` belong in the shared capability data or in the policy?** It is a property of a capability _in a context_, which argues for the policy. It is reusable across every policy of the same shape, which argues for the data.
 - **What does the mandate elicitation look like for a connector?** For a coding agent the mandate is a job. For a mailbox it is closer to a relationship, and nobody has drafted those questions.
 - **Who replies if a vendor disputes one of the four contradictions?** The sourcing is theirs and the publication is ours.
+
+## The journey, kept as files.
+
+This page holds current thinking, and it will change. Each edition below is a dated, immutable copy of what it said on the day, with its own digest. Nothing is rewritten; the list only grows.
+
+Digests for every edition are in [lab-editions.json](lab-editions.json), so a PDF somebody was sent can be checked against this list.
 
 ## This is what the first five policies are for.
 

@@ -1,0 +1,71 @@
+{
+  "note": "Every PDF edition ever cut of a Lab page. A Lab page holds current thinking and changes; an edition is a dated, immutable copy of what it said on the day, so the reasoning can be followed and not only its conclusion. Editions are never edited or removed — the list only grows. `content` is the sha256 of the page body the edition was cut from, which is how the renderer knows whether anything actually changed; `sha256` is the digest of the PDF itself, so a file somebody was sent can be checked against this list.",
+  "entries": [
+    {
+      "slug": "lab",
+      "file": "lab.html",
+      "title": "The Lab — everything so far",
+      "editions": [
+        {
+          "v": 1,
+          "date": "2026-09-12",
+          "file": "assets/lab/lab--the-whole-lab--v1--2026-09-12.pdf",
+          "bytes": 595406,
+          "sha256": "92adb9d607209580f86aeb7ac6967c6f69f5856e810c35e59a00ce8f204f426e",
+          "content": "ef6d596fc89c558913455e5ff6811c80b6b8d0ebb80fc583a55ae90921e57126",
+          "pages": 22,
+          "combines": [
+            "assets/lab/lab-connector-grants--v1--2026-09-12.pdf",
+            "assets/lab/lab-abp-flow--v1--2026-09-12.pdf",
+            "assets/lab/lab-abp-requests--v1--2026-09-12.pdf"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "lab-abp-flow",
+      "file": "lab-abp-flow.html",
+      "title": "What buying a behaviour policy would look like — RiskMandate Lab 02",
+      "editions": [
+        {
+          "v": 1,
+          "date": "2026-09-12",
+          "file": "assets/lab/lab-abp-flow--v1--2026-09-12.pdf",
+          "bytes": 257814,
+          "sha256": "1bb8e4176917f5d81fba6ca760d8062fc2e8204f304abd893f99438bb06621d7",
+          "content": "6e8e24fd5a28805c56c023f34a810f70b66f0a287ae8f634aca50083c9fe26b6"
+        }
+      ]
+    },
+    {
+      "slug": "lab-abp-requests",
+      "file": "lab-abp-requests.html",
+      "title": "Changes we are asking of the behaviour-policy site — RiskMandate Lab 03",
+      "editions": [
+        {
+          "v": 1,
+          "date": "2026-09-12",
+          "file": "assets/lab/lab-abp-requests--v1--2026-09-12.pdf",
+          "bytes": 195675,
+          "sha256": "d613ab37d7bb373c10a69bfba4ac405d41ab416dbe33b94a007685395c12f4c8",
+          "content": "1e15ddb7d9f18afa151665abf7f29c7dc84b097d1b469f1214f9aa0bc6c7a393"
+        }
+      ]
+    },
+    {
+      "slug": "lab-connector-grants",
+      "file": "lab-connector-grants.html",
+      "title": "The grant is user-shaped, not data-shaped — RiskMandate Lab 01",
+      "editions": [
+        {
+          "v": 1,
+          "date": "2026-09-12",
+          "file": "assets/lab/lab-connector-grants--v1--2026-09-12.pdf",
+          "bytes": 192295,
+          "sha256": "b8872ace204cb9da05e4de40db390e52dbe7d9e8ef173be535de82b03f0c636c",
+          "content": "61747f279ec2ce4935d098e2796ed6a4548ee641cea90e53b3fd9917ca0d354e"
+        }
+      ]
+    }
+  ]
+}
