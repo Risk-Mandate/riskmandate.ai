@@ -133,6 +133,17 @@ test('pages.json accounts for every page in site/, and vice versa', () => {
   assert.deepEqual(listed.map(p => p.file).sort(), [...pages].sort());
 });
 
+test('a Lab mockup never carries a real read key', () => {
+  // A mockup that needed a key once got filled in with a real published one —
+  // the Licence to Operate vault's — paired with an invented vault id. Public
+  // or not, sample data must be obviously sample data, so key-shaped strings
+  // are allowed only on the pages that genuinely open a vault.
+  const keyish = /\b[0-9a-f]{64}\b/;
+  for (const f of pages.filter(f => f.startsWith('lab'))) {
+    assert.doesNotMatch(read(f), keyish, `${f} contains something shaped like a read key`);
+  }
+});
+
 test('no write credential ships in the deployed tree', () => {
   // Demo read keys are public by design and are meant to be here. A write token,
   // passphrase or private key is not — the vault embedded one at

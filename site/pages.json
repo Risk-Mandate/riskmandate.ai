@@ -110,6 +110,11 @@
       "group": "Live demos"
     },
     {
+      "name": "lab",
+      "label": "Lab",
+      "file": "lab.html"
+    },
+    {
       "name": "summit",
       "label": "Lisbon 2026",
       "file": "summit.html"
@@ -142,6 +147,21 @@
       "label": "Brand",
       "file": "brand.html",
       "group": "More"
+    },
+    {
+      "name": "lab-connector-grants",
+      "file": "lab-connector-grants.html",
+      "unlisted": true
+    },
+    {
+      "name": "lab-abp-flow",
+      "file": "lab-abp-flow.html",
+      "unlisted": true
+    },
+    {
+      "name": "lab-abp-requests",
+      "file": "lab-abp-requests.html",
+      "unlisted": true
     },
     {
       "name": "versions",

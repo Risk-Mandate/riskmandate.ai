@@ -3,22 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>RiskMandate — the Agent Behaviour Policy</title>
-<meta name="description" content="An Agent Behaviour Policy is a written description, for one agent in one deployment, of everything it can do, what you authorised it to do, the gap between them, and what actually stands in the way. It describes and it does not judge, so it carries no score.">
-<link rel="canonical" href="https://riskmandate.ai/abp.html">
-<link rel="alternate" type="text/markdown" href="abp.md" title="This page as markdown">
+<title>RiskMandate — the Lab</title>
+<meta name="description" content="Findings, interface mockups and open proposals, published as they happen. Work in progress rather than product claims — some of it will turn out to be wrong, and the arguing is the point.">
+<link rel="canonical" href="https://riskmandate.ai/lab.html">
+<link rel="alternate" type="text/markdown" href="lab.md" title="This page as markdown">
 <link rel="icon" href="assets/brand/riskmandate-favicon-32.png" sizes="32x32">
 <link rel="icon" href="assets/brand/riskmandate-mark.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="RiskMandate">
-<meta property="og:url" content="https://riskmandate.ai/abp.html">
-<meta property="og:title" content="RiskMandate — the Agent Behaviour Policy">
-<meta property="og:description" content="An Agent Behaviour Policy is a written description, for one agent in one deployment, of everything it can do, what you authorised it to do, the gap between them, and what actually stands in the way. It describes and it does not judge, so it carries no score.">
+<meta property="og:url" content="https://riskmandate.ai/lab.html">
+<meta property="og:title" content="RiskMandate — the Lab">
+<meta property="og:description" content="Findings, interface mockups and open proposals, published as they happen. Work in progress rather than product claims — some of it will turn out to be wrong, and the arguing is the point.">
 <meta property="og:image" content="https://riskmandate.ai/assets/brand/riskmandate-lockup-light.png">
 <meta name="twitter:card" content="summary_large_image">
 <!-- Scaffolded by scripts/site/new-page.mjs. Hand-edited from here on — there is no build step. -->
 <style>
-/* abp.css — self-contained: the shared chrome, then this page's own. */
+/* lab.css — self-contained: the shared chrome, then this page's own. */
 :root{
   --bg:#F7F6F2; --bg2:#EFEDE7; --card:#FFFFFF; --ink:#0D0D0C; --canvas:#0A0A09;
   --text:#1A1917; --muted:#4A4845; --faint:#8A8780; --border:#E2DFD8;
@@ -124,58 +124,137 @@ rm-menu{display:contents}
 .foot .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-family:var(--mono);font-size:10px;color:var(--fg-3);max-width:1100px}
 .footlink{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
 .footlink:hover{color:var(--fg-2)}
-/* tables — the model is mostly tabular, so the table is the main figure here */
-.t-wrap{overflow-x:auto;margin-top:34px;border:1px solid var(--border);border-radius:var(--r);background:var(--card)}
-table.m{width:100%;border-collapse:collapse;font-size:14px;min-width:560px}
-table.m th{text-align:left;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);padding:14px 18px;border-bottom:1px solid var(--border);white-space:nowrap}
-table.m td{padding:15px 18px;border-bottom:1px solid var(--border);color:var(--muted);line-height:1.55;vertical-align:top}
-table.m tr:last-child td{border-bottom:0}
-table.m td.k{color:var(--text);font-weight:700;white-space:nowrap}
-table.m td.n{font-family:var(--mono);font-size:15px;color:var(--text);text-align:right;white-space:nowrap}
-table.m code{font-family:var(--mono);font-size:12.5px;background:var(--bg2);padding:1px 6px;border-radius:5px;color:var(--text)}
-table.m .yes{color:var(--green);font-weight:700}
-table.m .no{color:var(--faint)}
-.glyph{font-size:15px;color:var(--green);width:1px;padding-right:0;text-align:center}
+/* ── lab chrome ──────────────────────────────────────────────────────────── */
+.labstrip{background:var(--bg2);border-bottom:1px solid var(--border);padding:9px 24px;font-family:var(--mono);font-size:11px;color:var(--muted);text-align:center}
+.labstrip b{color:var(--text)} .labstrip a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
 
-/* the rule callouts — one claim, stated once, in a box */
-.rule{margin-top:32px;border-left:3px solid var(--green);background:var(--greenBg);border-radius:0 var(--r-sm) var(--r-sm) 0;padding:20px 24px;max-width:680px}
+/* status pill — every lab entry says what state it is in */
+.state{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:999px;padding:4px 10px;white-space:nowrap}
+.state::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.state.finding{color:var(--green);background:var(--greenBg);border:1px solid rgba(26,127,90,.3)}
+.state.mockup {color:var(--blue);background:#EEF2FF;border:1px solid rgba(29,78,216,.25)}
+.state.proposal{color:var(--gold);background:#FDF6EC;border:1px solid rgba(180,83,9,.25)}
+.state.open   {color:var(--muted);background:var(--bg2);border:1px solid var(--border)}
+
+/* the index of entries */
+.entries{display:flex;flex-direction:column;gap:14px;margin-top:36px}
+.entry{display:block;border:1px solid var(--border);border-radius:var(--r);background:var(--card);padding:24px 26px;text-decoration:none;transition:border-color .15s,transform .15s}
+.entry:hover{border-color:var(--green);transform:translateY(-1px)}
+.entry .head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.entry .n{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--faint)}
+.entry h3{margin:0;font-size:20px;font-weight:700;letter-spacing:-.015em;color:var(--text);flex:1 1 auto;min-width:240px}
+.entry p{font-size:14px;color:var(--muted);line-height:1.65;margin-top:10px;max-width:720px}
+.entry .meta{margin-top:14px;padding-top:12px;border-top:1px solid var(--border);font-family:var(--mono);font-size:11px;color:var(--faint);display:flex;gap:18px;flex-wrap:wrap}
+
+/* ── mockups: a fake browser around a fake screen ───────────────────────── */
+.mock{margin:34px 0 0;border:1px solid var(--border);border-radius:var(--r);overflow:hidden;background:var(--card);box-shadow:0 14px 40px -28px rgba(13,13,12,.4)}
+.mock-bar{display:flex;align-items:center;gap:12px;padding:10px 14px;background:var(--bg2);border-bottom:1px solid var(--border)}
+.mock-bar .dots{display:flex;gap:5px;flex:none}
+.mock-bar .dots i{width:9px;height:9px;border-radius:50%;background:#D6D2C9;display:block}
+.mock-bar .url{font-family:var(--mono);font-size:11px;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:6px;padding:4px 10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1 1 auto}
+.mock-body{padding:28px 30px}
+.mock-body.dark{background:var(--ink);color:var(--fg)}
+.mock cap,figcaption{display:block;padding:14px 18px;border-top:1px solid var(--border);background:var(--bg2);font-size:13px;color:var(--muted);line-height:1.6}
+figcaption b{color:var(--text)}
+
+/* pieces used inside the mocked screens */
+.m-eyebrow{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--green)}
+.m-h{font-size:26px;font-weight:800;letter-spacing:-.025em;line-height:1.1;margin:10px 0 0;color:var(--text)}
+.mock-body.dark .m-h{color:var(--fg)}
+.m-sub{font-size:14px;color:var(--muted);line-height:1.65;margin-top:12px;max-width:620px}
+.mock-body.dark .m-sub{color:var(--fg-2)}
+.m-btn{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;padding:10px 18px;border-radius:var(--r-sm);border:1px solid transparent;font-family:var(--sans)}
+.m-btn.p{background:var(--green);color:#fff}
+.m-btn.s{background:transparent;color:var(--text);border-color:var(--border)}
+.mock-body.dark .m-btn.s{color:var(--fg);border-color:var(--line-2)}
+.m-row{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+
+/* shape picker */
+.shapes{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:22px}
+@media (max-width:760px){.shapes{grid-template-columns:1fr}}
+.shape{border:1px solid var(--border);border-radius:var(--r-sm);padding:16px 18px;background:var(--card);display:flex;flex-direction:column;gap:6px}
+.shape.sel{border:2px solid var(--green);background:var(--greenBg)}
+.shape .t{font-size:14.5px;font-weight:700;color:var(--text)}
+.shape .d{font-size:12.5px;color:var(--muted);line-height:1.5}
+.shape .c{font-family:var(--mono);font-size:10.5px;color:var(--faint);margin-top:4px}
+.shape.sel .c{color:var(--green)}
+
+/* the four-object counter row */
+.counts{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--r-sm);overflow:hidden;margin-top:20px}
+@media (max-width:620px){.counts{grid-template-columns:repeat(2,1fr)}}
+.count{background:var(--card);padding:16px 18px}
+.count .k{display:block;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+.count .v{display:block;font-family:var(--mono);font-size:26px;font-weight:700;color:var(--text);line-height:1;margin-top:8px}
+.count.warn .v{color:var(--gold)}
+
+/* capability / contradiction tables */
+.tw{overflow-x:auto;margin-top:22px;border:1px solid var(--border);border-radius:var(--r-sm);background:var(--card)}
+table.t{width:100%;border-collapse:collapse;font-size:13px;min-width:600px}
+table.t th{text-align:left;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);padding:12px 14px;border-bottom:1px solid var(--border);white-space:nowrap}
+table.t td{padding:12px 14px;border-bottom:1px solid var(--border);color:var(--muted);line-height:1.5;vertical-align:top}
+table.t tr:last-child td{border-bottom:0}
+table.t td.k{color:var(--text);font-family:var(--mono);font-size:12px;white-space:nowrap}
+table.t code{font-family:var(--mono);font-size:11.5px;background:var(--bg2);padding:1px 5px;border-radius:4px;color:var(--text)}
+.gl{font-size:13px;text-align:center;width:1px}
+.mat{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:4px;padding:2px 6px;white-space:nowrap}
+.mat.mixed{color:var(--red);background:#FDF3F2}
+.mat.third{color:var(--red);background:#FDF3F2}
+.mat.org{color:var(--gold);background:#FDF6EC}
+.mat.own{color:var(--green);background:var(--greenBg)}
+
+/* correction UI */
+.corr{border:1px solid var(--border);border-radius:var(--r-sm);background:var(--card);margin-top:20px;overflow:hidden}
+.corr-row{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;padding:14px 16px;border-bottom:1px solid var(--border)}
+.corr-row:last-child{border-bottom:0}
+.corr-row.fixed{background:var(--greenBg)}
+.corr-q{font-size:13.5px;color:var(--text)}
+.corr-q span{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.corr-a{display:flex;gap:6px;flex:none}
+.pill{font-family:var(--mono);font-size:10.5px;font-weight:700;border:1px solid var(--border);border-radius:6px;padding:5px 9px;color:var(--muted);background:var(--card);white-space:nowrap}
+.pill.on{border-color:var(--green);color:var(--green);background:var(--greenBg)}
+.pill.off{border-color:var(--red);color:var(--red);background:#FDF3F2}
+.corr-note{padding:14px 16px;background:var(--bg2);border-top:1px solid var(--border);font-size:13px;color:var(--muted);line-height:1.6}
+.corr-note b{color:var(--text)}
+
+/* read key / delivery */
+.key{font-family:var(--mono);font-size:12px;background:var(--ink);color:var(--green-2);border-radius:var(--r-sm);padding:14px 16px;margin-top:18px;word-break:break-all;line-height:1.6}
+.key .lab2{display:block;color:var(--fg-3);font-size:10px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:7px}
+.vfiles{margin:20px 0 0;padding:0;list-style:none;font-family:var(--mono);font-size:12.5px;border:1px solid var(--border);border-radius:var(--r-sm);overflow:hidden}
+.vfiles li{padding:10px 14px;border-bottom:1px solid var(--border);background:var(--card);display:flex;justify-content:space-between;gap:14px;color:var(--text)}
+.vfiles li:last-child{border-bottom:0}
+.vfiles li span:last-child{color:var(--faint);font-size:11px}
+.vfiles li.auth{background:var(--greenBg)}
+
+/* twelve-stage table */
+.stages{overflow-x:auto;margin-top:34px;border:1px solid var(--border);border-radius:var(--r);background:var(--card)}
+table.st{width:100%;border-collapse:collapse;font-size:13.5px;min-width:680px}
+table.st th{text-align:left;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);padding:13px 16px;border-bottom:1px solid var(--border)}
+table.st td{padding:13px 16px;border-bottom:1px solid var(--border);color:var(--muted);line-height:1.55;vertical-align:top}
+table.st tr:last-child td{border-bottom:0}
+table.st td.n{font-family:var(--mono);color:var(--faint);width:1px}
+table.st td.s{color:var(--text);font-weight:700;white-space:nowrap}
+table.st tr.week td{background:var(--greenBg)}
+table.st tr.week td.s{color:var(--green)}
+table.st td.w{font-family:var(--mono);font-size:11px;white-space:nowrap}
+
+/* rules and notes */
+.rule{margin-top:30px;border-left:3px solid var(--green);background:var(--greenBg);border-radius:0 var(--r-sm) var(--r-sm) 0;padding:20px 24px;max-width:700px}
 .rule p{color:var(--text);font-size:16px;line-height:1.6;font-weight:600}
 .rule p + p{margin-top:10px;font-weight:400;font-size:14.5px;color:var(--muted)}
-.rule.dark{background:rgba(26,127,90,.10);border-left-color:var(--green-2)}
-.rule.dark p{color:var(--fg)} .rule.dark p + p{color:var(--fg-2)}
-
-/* the inventory / finding pair */
-.pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:32px}
-@media (max-width:760px){.pair{grid-template-columns:1fr}}
-.pcard{border:1px solid var(--border);border-radius:var(--r);padding:22px 24px;background:var(--card)}
-.pcard.win{border:2px solid var(--green);background:var(--greenBg)}
-.pcard .lab{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
-.pcard.win .lab{color:var(--green)}
-.pcard .said{font-size:17px;line-height:1.5;margin-top:12px;color:var(--text);font-weight:600}
-.pcard .why{font-size:13.5px;color:var(--muted);margin-top:10px;line-height:1.6}
-
-/* the three-rung ladder */
-.rungs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:36px}
-@media (max-width:860px){.rungs{grid-template-columns:1fr}}
-.rung{border:1px solid var(--border);border-radius:var(--r);background:var(--card);padding:24px;display:flex;flex-direction:column;gap:10px}
-.rung.here{border:2px solid var(--green);background:var(--greenBg)}
-.rung .n{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
-.rung.here .n{color:var(--green)}
-.rung h3{margin:0;font-size:19px;font-weight:700;letter-spacing:-.01em;color:var(--text)}
-.rung p{font-size:13.5px;color:var(--muted);line-height:1.6}
-.rung .meta{margin-top:auto;padding-top:12px;border-top:1px solid var(--border);font-family:var(--mono);font-size:11px;color:var(--faint);display:flex;flex-direction:column;gap:3px}
-
-/* source-bytes strip — every figure on this page comes from somewhere */
-.src{margin-top:28px;font-family:var(--mono);font-size:11.5px;color:var(--faint);line-height:1.7}
+.notice{margin-top:28px;border:1px dashed var(--faint);border-radius:var(--r-sm);padding:16px 20px;font-size:13.5px;color:var(--muted);line-height:1.65;max-width:780px}
+.notice strong{color:var(--text)}
+.notice a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+.src{margin-top:26px;font-family:var(--mono);font-size:11.5px;color:var(--faint);line-height:1.75}
 .src a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
-
-/* prose list */
-.plist{margin:26px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;max-width:680px}
+.plist{margin:26px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;max-width:720px}
 .plist li{position:relative;padding-left:22px;font-size:15px;color:var(--muted);line-height:1.7}
 .plist li::before{content:"";position:absolute;left:2px;top:10px;width:6px;height:6px;border-radius:50%;background:var(--green)}
 .plist strong{color:var(--text)}
-.shead code,.plist code,.rule code{font-family:var(--mono);font-size:13px;background:var(--bg2);padding:1px 6px;border-radius:5px;color:var(--text)}
+.plist code,.shead code,.rule code,.notice code{font-family:var(--mono);font-size:13px;background:var(--bg2);padding:1px 6px;border-radius:5px;color:var(--text)}
 .psection.alt .plist code,.psection.alt .shead code{background:var(--card)}
+blockquote.q{margin:22px 0 0;border-left:3px solid var(--border);padding:4px 0 4px 20px;font-size:15px;color:var(--text);line-height:1.7;max-width:700px}
+blockquote.q cite{display:block;font-style:normal;font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:10px}
+blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
 </style>
 </head>
 <body id="top">
@@ -185,181 +264,111 @@ table.m .no{color:var(--faint)}
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
     <a class="version" href="versions.html" title="What shipped in v1.2.0">v1.2.0</a>
-    <button class="demo" data-demo>Get your Index</button>
+    <button class="demo" data-demo>Get in touch</button>
   </div>
 </header>
 
+<div class="labstrip"><b>The Lab</b> — work in progress, published as it happens. Nothing here is a product claim, and some of it will turn out to be wrong. <a href="#how">How to read it</a></div>
+
 <main class="phero">
   <div class="wrap">
-    <span class="eyebrow"><span class="d"></span> The primitive</span>
-    <h1>You know what you asked for. <span class="it">You do not know what it can do.</span></h1>
-    <p class="sub">An <strong>Agent Behaviour Policy</strong> is a written description, for one agent in one deployment, of everything it can do, what you authorised it to do, the gap between the two, and what actually stands in the way. It is derived from your deployment rather than copied from a template. It describes and it does not judge, so it carries no score.</p>
+    <span class="eyebrow"><span class="d"></span> Working in the open</span>
+    <h1>Findings, mockups and <span class="it">things we have not built yet.</span></h1>
+    <p class="sub">We work out the product in public. This is where the research, the interface mockups and the open proposals live, before any of it is a feature. If you want to argue with us, this is the surface to argue with — and the arguing is the point.</p>
     <div class="cta-row">
-      <button class="btn btn-green" data-to="objects">See the four objects ↓</button>
-      <a class="btn btn-ghost" href="https://abp.sgit.ai/" target="_blank" rel="noopener">The published model and data ↗</a>
+      <button class="btn btn-green" data-to="entries">See what is in here ↓</button>
+      <a class="btn btn-ghost" href="abp.html">The model it all sits on →</a>
     </div>
   </div>
 </main>
 
 <div class="paper">
 
-  <!-- 01 — the four objects -->
-  <section class="psection" id="objects">
+  <section class="psection" id="entries">
     <div class="wrap">
       <div class="shead">
-        <span class="tag">The model</span>
-        <h2>Four objects. <span class="g">The order they are produced in matters.</span></h2>
-        <p>A behaviour policy is not a single list. The mandate is cheap, because you already know it. The grant is the work. The delta falls out of the two and is never written by hand.</p>
+        <span class="tag">The lab</span>
+        <h2>Everything currently open.</h2>
+        <p>Newest first. Each entry says what state it is in, because a finding and a mockup are not the same kind of claim and should not be read as though they were.</p>
       </div>
-      <div class="t-wrap">
-        <table class="m">
-          <thead><tr><th>Object</th><th>What it is</th><th>How it is obtained</th></tr></thead>
-          <tbody>
-            <tr><td class="k">The mandate</td><td>What the agent is authorised and expected to do</td><td><strong>Elicited.</strong> In minutes, because you already know it</td></tr>
-            <tr><td class="k">The grant</td><td>Everything the agent can do</td><td><strong>Measured.</strong> From the deployment shape, the account and the credentials</td></tr>
-            <tr><td class="k">The delta</td><td>Excess where it can and you did not ask; shortfall where you asked and it cannot</td><td><strong>Derived.</strong> Recomputed whenever the grant or the mandate moves, stored with the versions of both, never edited</td></tr>
-            <tr><td class="k">The barrier</td><td>What stands between the agent and each capability</td><td><strong>Recorded</strong> per capability, from one of four kinds</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="pair">
-        <div class="pcard">
-          <span class="lab">An inventory</span>
-          <p class="said">“Your agent can do 340 things.”</p>
-          <p class="why">A shrug. Nobody acts on an inventory, and the length of the list looks like a maintenance problem rather than a finding.</p>
-        </div>
-        <div class="pcard win">
-          <span class="lab">A finding</span>
-          <p class="said">“Your agent can do 340 things and you authorised 12.”</p>
-          <p class="why">The mandate is the edge that gives the enumeration a shape. It is the cheapest object to capture and the one that makes the other three mean something.</p>
-        </div>
+      <div class="entries">
+
+        <a class="entry" href="lab-connector-grants.html">
+          <div class="head">
+            <span class="n">01</span>
+            <h3>The grant is user-shaped, not data-shaped</h3>
+            <span class="state finding">Finding</span>
+          </div>
+          <p>When somebody connects an assistant to their mailbox or their drive, what do they actually grant it? We read four vendors' own documentation and the answer is consistent: the unit of restriction is the application, never the data. The narrowest mail scope that can read a message reads every message. The default file corpus is, in the publisher's own words, files <em>owned by or shared to</em> the user. And in four places a vendor's own marketing and their own scope list disagree with each other.</p>
+          <div class="meta"><span>12 September 2026</span><span>4 sources, quoted verbatim</span><span>Nothing tested</span></div>
+        </a>
+
+        <a class="entry" href="lab-abp-flow.html">
+          <div class="head">
+            <span class="n">02</span>
+            <h3>What buying a behaviour policy would actually look like</h3>
+            <span class="state mockup">Mockup</span>
+          </div>
+          <p>Twelve stages from the first question a stranger reads to a delivered, recomputing vault with a read key they can hand to an underwriter. Five of those stages are drawn here as interface mockups, including the one that matters most: what a draft policy looks like, and what correcting it feels like. None of this is built. The mockups exist so the flow can be argued with before it is written.</p>
+          <div class="meta"><span>12 September 2026</span><span>5 screens</span><span>Not built</span></div>
+        </a>
+
+        <a class="entry" href="lab-abp-requests.html">
+          <div class="head">
+            <span class="n">03</span>
+            <h3>Changes we are asking of the behaviour-policy site</h3>
+            <span class="state proposal">Proposal</span>
+          </div>
+          <p>The model and its data live on a separate site, maintained by somebody else. This is our open request list against it: one new property for the capability grammar, four deployment shapes we would like published, and the provenance conventions we would need in order to render any of it. Published rather than emailed, so the reasoning is checkable and the answer can be public too.</p>
+          <div class="meta"><span>12 September 2026</span><span>3 requests</span><span>Awaiting a reply</span></div>
+        </a>
+
       </div>
     </div>
   </section>
 
-  <!-- 02 — the barrier -->
-  <section class="psection alt">
+  <section class="psection alt" id="how">
     <div class="wrap">
       <div class="shead">
-        <span class="tag">The barrier</span>
-        <h2>Only one kind of thing is <span class="g">actually in the way.</span></h2>
-        <p>For every capability in the grant, a behaviour policy records what stands between the agent and it. There are four kinds, and three of them bound nothing. That is not an opinion — it follows from what each one is.</p>
+        <span class="tag">How to read this section</span>
+        <h2>Four states, and they mean <span class="g">different things.</span></h2>
+        <p>The rest of this site says only what we can defend. The Lab is looser on purpose — but only about <em>status</em>, never about sourcing. A guess here is labelled a guess; a quote is still a quote with a link and a date.</p>
       </div>
-      <div class="t-wrap">
-        <table class="m">
-          <thead><tr><th></th><th>Barrier</th><th>What stands in the way</th><th>Is it a control</th></tr></thead>
+      <div class="tw">
+        <table class="t">
+          <thead><tr><th></th><th>State</th><th>What it means</th><th>How much to trust it</th></tr></thead>
           <tbody>
-            <tr><td class="glyph">●</td><td class="k">none</td><td>nothing in the way</td><td class="no">no</td></tr>
-            <tr><td class="glyph">◉</td><td class="k">expectation</td><td>a rule in prose, enforced by nobody</td><td class="no">no</td></tr>
-            <tr><td class="glyph">◐</td><td class="k">setting</td><td>a switch the agent's own account can flip</td><td class="no">no</td></tr>
-            <tr><td class="glyph">○</td><td class="k">boundary</td><td>enforced above the grant, out of the agent's reach</td><td class="yes">yes</td></tr>
+            <tr><td class="gl"><span class="state finding">Finding</span></td><td class="k">finding</td><td>Something we read in a primary source and can quote</td><td>As much as the source. Every claim links to it, with the date it was read</td></tr>
+            <tr><td class="gl"><span class="state mockup">Mockup</span></td><td class="k">mockup</td><td>An interface or a flow drawn to be argued with. Not built</td><td>As a proposal. If it looks like a screenshot, it is not one</td></tr>
+            <tr><td class="gl"><span class="state proposal">Proposal</span></td><td class="k">proposal</td><td>A change we are asking somebody else to make</td><td>As our opinion, with the reasoning attached</td></tr>
+            <tr><td class="gl"><span class="state open">Open</span></td><td class="k">open</td><td>A question we cannot currently answer</td><td>Not at all. It is here so nobody has to rediscover it</td></tr>
           </tbody>
         </table>
-      </div>
-      <div class="rule">
-        <p>A control bounds a grant only if it is enforced by something the grant does not include.</p>
-        <p>Read the third and fourth rows together and the test falls out of them. A setting the agent's own account could change is not a control, because the grant includes the ability to remove the bound. A boundary enforced above it, that it cannot reach, is a control — because it does not.</p>
-      </div>
-      <p class="src">Every prohibition we render carries its barrier. One shown without it is a claim we cannot support, and it manufactures assurance. For most deployments today the honest answer is the second row. · <a href="https://abp.sgit.ai/model/barriers/" target="_blank" rel="noopener">The barrier, in full</a> · <a href="https://abp.sgit.ai/data/barriers.json" target="_blank" rel="noopener">as JSON</a></p>
-    </div>
-  </section>
-
-  <!-- 03 — one setting, two documents -->
-  <section class="psection">
-    <div class="wrap">
-      <div class="shead">
-        <span class="tag">Worked example</span>
-        <h2>One setting. <span class="g">Two documents.</span></h2>
-        <p>The clearest way to see what a behaviour policy does is to change one setting and watch the document change. A coding agent on a developer's own machine, profiled twice — once with confirmation prompts enabled, once with them disabled. Same product, same machine, same account.</p>
-      </div>
-      <div class="t-wrap">
-        <table class="m">
-          <thead><tr><th></th><th style="text-align:right">Confirmations on</th><th style="text-align:right">Confirmations off</th></tr></thead>
-          <tbody>
-            <tr><td class="k">Grant</td><td class="n">16</td><td class="n">16</td></tr>
-            <tr><td class="k">Mandate</td><td class="n">5</td><td class="n">5</td></tr>
-            <tr><td class="k">Excess</td><td class="n">12</td><td class="n">12</td></tr>
-            <tr><td class="k">Unbounded excess</td><td class="n">12</td><td class="n">12</td></tr>
-            <tr><td class="k">Barrier on <code>execute.process.host</code></td><td class="n">setting — not a control</td><td class="n">none — not a control</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="rule">
-        <p>One barrier moved, and not one number did.</p>
-        <p>The confirmation prompt was the only thing standing between an authorised capability and the whole of the machine — and it was a switch the agent's own account could flip, which is the third row and not the fourth. A behaviour policy is about the deployment, not about the product.</p>
-      </div>
-      <p class="src">Both documents are derived from published data rather than authored, and each states which of its rows were measured. · <a href="https://abp.sgit.ai/examples/claude-code-cli-confirmations-enabled/" target="_blank" rel="noopener">confirmations on</a> · <a href="https://abp.sgit.ai/examples/claude-code-cli-confirmations-disabled/" target="_blank" rel="noopener">confirmations off</a> · <a href="https://abp.sgit.ai/examples/" target="_blank" rel="noopener">all five examples</a></p>
-    </div>
-  </section>
-
-  <!-- 04 — no score -->
-  <section class="psection alt" id="no-score">
-    <div class="wrap">
-      <div class="shead">
-        <span class="tag">The hard rule</span>
-        <h2>It describes. <span class="g">It does not judge.</span></h2>
-        <p>The same behaviour policy is dangerous in one deployment and harmless in another, and nothing about the document changed. The most permissive grant imaginable, running where there are no assets and nothing reachable, is a low risk. The same grant with a production database attached tomorrow is a high one.</p>
-      </div>
-      <div class="rule">
-        <p>A policy cannot be dangerous. A deployment can.</p>
-        <p>So there is no rating on a behaviour policy, no traffic light and no risk level — not on this page, not in the data. Risk is a function of the policy, the assets, the consequences and the date, and the policy is the one input that does not move.</p>
       </div>
       <ul class="plist">
-        <li><strong>The Insurability Index scores the deployment, never the behaviour policy.</strong> The Index knows the assets, so it can score; the policy does not, so it cannot. That is not a product preference — it is where the information is.</li>
-        <li><strong>Every behaviour policy carries a validity statement.</strong> <em>This describes the deployment shape as at this date. If the risk changed, the deployment changed — not this document.</em></li>
-        <li><strong>A document with a visible clock can be re-sold. A verdict cannot.</strong> A description of a grant rots on a known clock: the product's releases and the deployment's changes. A verdict rots on an unknown one.</li>
-        <li><strong>We call it the ABP or the behaviour policy, never “the policy”.</strong> In our own <a href="demo-licence-to-operate.html">Licence to Operate</a> demonstration, <em>policy</em> is the insurance instrument. Two different things cannot share one word on a site that publishes both.</li>
+        <li><strong>Nothing here is tested against anybody's system.</strong> Every claim about a third party's product comes from that party's own published documentation, read on a stated date. Probing somebody else's service to find out what it does is out of bounds, so where a vendor's own pages contradict each other we publish the contradiction unresolved rather than settle it by experiment.</li>
+        <li><strong>No verdicts about named third parties.</strong> Where a vendor is named, it carries a source, a date and no adjective. Nobody in these pages is accused of anything; marketing copy and scope lists are maintained by different people and nothing reconciles them, which is the whole point.</li>
+        <li><strong>A mockup is not a roadmap.</strong> Drawing a screen is the cheapest way to find out that a flow is wrong. Some of these will be discarded, and the discarding will be published too.</li>
+        <li><strong>Corrections are welcome and get published.</strong> If something here is wrong — especially if it is your product we have described — tell us and the page changes with a note saying what changed and why.</li>
       </ul>
     </div>
   </section>
 
-  <!-- 05 — where it sits -->
   <section class="psection">
     <div class="wrap">
       <div class="shead">
-        <span class="tag">Where it sits</span>
-        <h2>The label, the record, <span class="g">and the prescription.</span></h2>
-        <p>A label describes a substance and never says <em>this is safe for you</em>. A patient record supplies the context. A prescribing decision combines the two, and a named professional signs it and carries the responsibility. Three things, and only the third can hold a number.</p>
-      </div>
-      <div class="rungs">
-        <div class="rung">
-          <span class="n">The label</span>
-          <h3>The behaviour policy</h3>
-          <p>What the agent can do, what you authorised, the gap, and what is in the way. Context-free, so it is the same document wherever the agent runs.</p>
-          <span class="meta"><span>no score</span><span>nobody signs it</span></span>
-        </div>
-        <div class="rung">
-          <span class="n">The patient record</span>
-          <h3>The twin</h3>
-          <p>A read-only model of the environment the agent is actually in: the assets, the tools, the data, what is connected to what. This is where the grant stops being a deployment shape and becomes yours.</p>
-          <span class="meta"><span>derived from reality</span><span>never in the request path</span></span>
-        </div>
-        <div class="rung here">
-          <span class="n">The prescription</span>
-          <h3>The Index, and the acceptance</h3>
-          <p>The two combined, dated, with a named owner and an expiry — so the decision comes back. This is what RiskMandate is, and it is the only rung with a score on it.</p>
-          <span class="meta"><span>scored</span><span>signed by a named professional</span></span>
-        </div>
-      </div>
-      <p class="src">The people who sell do not sign, which is why the label and the prescription are separate products rather than two sections of one.</p>
-    </div>
-  </section>
-
-  <!-- 06 — the control business case -->
-  <section class="psection alt">
-    <div class="wrap">
-      <div class="shead">
-        <span class="tag">For whoever sells a control</span>
-        <h2>The business case for a control, <span class="g">with no verdict in it.</span></h2>
-        <p>Unbounded excess is the only number on a behaviour policy that anybody can move. Every real control shifts one capability out of the agent's reach and into the fourth row, and the number falls.</p>
+        <span class="tag">Why in the open</span>
+        <h2>Because the alternative is <span class="g">a demo nobody can check.</span></h2>
       </div>
       <ul class="plist">
-        <li><strong>The gap between excess and unbounded excess is the business case</strong> — computed, sourced, and containing no claim about whether anything is acceptable.</li>
-        <li><strong>It is checkable, clause by clause.</strong> <em>This provision requires X. The agent's current grant does not bound X. A control of type Y, enforced at layer Z, would bound X.</em> Each of those three can be checked against the provision, the grant and the control.</li>
-        <li><strong>It is not a compliance assessment</strong> and it never concludes that you are compliant. It names the provision, the gap and the remedy, and stops.</li>
-        <li><strong>Most prohibitions today sit in the second row</strong> — a rule somebody wrote down, enforced by nobody. Moving one to the fourth row is a real change, and it is countable.</li>
+        <li><strong>It is the same discipline as the product.</strong> A behaviour policy is worth something because every row names where it came from. A research page that cannot be checked would be the opposite of the thing we sell.</li>
+        <li><strong>It finds collaborators faster than a pitch does.</strong> Somebody who reads a finding and disagrees with it is more useful than somebody who reads a landing page and nods.</li>
+        <li><strong>It dates our work.</strong> Publishing a finding with a date is how a claim earns a clock. Anything undated rots invisibly.</li>
+        <li><strong>The reverse also holds:</strong> anything in here that stays unbuilt for months is telling us something, in public, that a private backlog would have hidden.</li>
       </ul>
-      <p class="src">If you sell a control and want the count for your product against the five published deployment shapes, <a href="partners.html">that is what the partner conversation is</a>.</p>
+      <div class="notice">
+        <strong>Want to work on one of these?</strong> All three current entries have open questions at the bottom, and the questions are real rather than rhetorical. Use the button in the header — say which entry and which question.
+      </div>
     </div>
   </section>
 
@@ -367,12 +376,12 @@ table.m .no{color:var(--faint)}
 
 <section class="pcta">
   <div class="wrap">
-    <span class="eyebrow"><span class="d"></span> Start here</span>
-    <h2>Start with a draft. Then correct it.</h2>
-    <p>You do not need to give us access to anything. A draft behaviour policy is derived from a deployment shape — which agent, running where, with which class of credentials — and handed to you. Correcting it is how you state your mandate, and the correction is usually upward.</p>
+    <span class="eyebrow"><span class="d"></span> The Lab</span>
+    <h2>Argue with the earliest version.</h2>
+    <p>Everything here is cheaper to change now than after it ships. If a finding is wrong, a mockup is unusable, or a proposal is misguided, that is the most useful thing you could tell us today.</p>
     <div class="cta-row">
-      <a class="btn btn-green" href="https://store.sgit.ai/d/t1/" target="_blank" rel="noopener">Get a draft — £10 ↗</a>
-      <a class="btn btn-ghost" href="summit.html">We will do this with you in Lisbon →</a>
+      <a class="btn btn-green" href="lab-connector-grants.html">Start with the finding →</a>
+      <a class="btn btn-ghost" href="abp.html">Or read the model first</a>
     </div>
   </div>
 </section>
@@ -388,7 +397,7 @@ table.m .no{color:var(--faint)}
 (function(){
 'use strict';
 var RM={core:{},services:{},components:{},data:{}};
-RM.data.currentPage="abp";RM.data.pages=[{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"The problem"},{"name":"acceptable","label":"Accepted is not acceptable","file":"acceptable.html","group":"The problem"},{"name":"acceptance","label":"You own the risk","file":"acceptance.html","group":"The problem"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"The problem"},{"name":"abp","label":"Agent Behaviour Policy","file":"abp.html","group":"The model"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"The model"},{"name":"agents","label":"Agents","file":"agents.html","group":"The model"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"The model"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"The model"},{"name":"statics","label":"Static scenarios","file":"statics.html","group":"The model"},{"name":"demos","label":"All demos","file":"demos.html","group":"Live demos"},{"name":"demo-licence-to-operate","label":"Licence to Operate","file":"demo-licence-to-operate.html","group":"Live demos"},{"name":"demo-risk-graph-explorer","label":"RiskGraph Explorer","file":"demo-risk-graph-explorer.html","group":"Live demos"},{"name":"demo-agentic-browser-isolation","label":"Agentic Browser Isolation","file":"demo-agentic-browser-isolation.html","group":"Live demos"},{"name":"demo-risk-mandate-field","label":"RiskMandate field demo","file":"demo-risk-mandate-field.html","group":"Live demos"},{"name":"demo-file-security","label":"File security walk","file":"demo-file-security.html","group":"Live demos"},{"name":"demo-agent-permission-games","label":"Permission games","file":"demo-agent-permission-games.html","group":"Live demos"},{"name":"lab","label":"Lab","file":"lab.html"},{"name":"summit","label":"Lisbon 2026","file":"summit.html"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"}];RM.data.sections=[];
+RM.data.currentPage="lab";RM.data.pages=[{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"The problem"},{"name":"acceptable","label":"Accepted is not acceptable","file":"acceptable.html","group":"The problem"},{"name":"acceptance","label":"You own the risk","file":"acceptance.html","group":"The problem"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"The problem"},{"name":"abp","label":"Agent Behaviour Policy","file":"abp.html","group":"The model"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"The model"},{"name":"agents","label":"Agents","file":"agents.html","group":"The model"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"The model"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"The model"},{"name":"statics","label":"Static scenarios","file":"statics.html","group":"The model"},{"name":"demos","label":"All demos","file":"demos.html","group":"Live demos"},{"name":"demo-licence-to-operate","label":"Licence to Operate","file":"demo-licence-to-operate.html","group":"Live demos"},{"name":"demo-risk-graph-explorer","label":"RiskGraph Explorer","file":"demo-risk-graph-explorer.html","group":"Live demos"},{"name":"demo-agentic-browser-isolation","label":"Agentic Browser Isolation","file":"demo-agentic-browser-isolation.html","group":"Live demos"},{"name":"demo-risk-mandate-field","label":"RiskMandate field demo","file":"demo-risk-mandate-field.html","group":"Live demos"},{"name":"demo-file-security","label":"File security walk","file":"demo-file-security.html","group":"Live demos"},{"name":"demo-agent-permission-games","label":"Permission games","file":"demo-agent-permission-games.html","group":"Live demos"},{"name":"lab","label":"Lab","file":"lab.html"},{"name":"summit","label":"Lisbon 2026","file":"summit.html"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"}];RM.data.sections=[];
 
 'use strict';
 // components/dom.js — tiny DOM helpers shared by components. `el` builds an
