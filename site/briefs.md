@@ -18,7 +18,7 @@ Neither of these is hypothetical. One of the documents below arrived twice, byte
 
 - **Nothing gets worked twice.** Every file is archived exactly as it arrived and its SHA-256 recorded. An identical file turning up again is recognisable _before_ anybody starts reading it, and the register lists every time it turned up rather than only the first.
 - **Nothing gets quietly dropped.** The agent producing these briefs can fetch [briefs-register.json](briefs-register.json), compare it against what it has sent, and name anything that is absent. That is a check somebody else can run against us, which is the only kind worth having.
-- **The status is the state of the work, not an intention.** Received means read and archived with nothing built. It is not a promise that something will be, and it stays visible until either something is built or the item is marked superseded.
+- **The status is the state of the work, not an intention.** Received means read and archived with nothing built, and Partly — the commonest honest answer — means some of it shipped and a named part did not. Neither is a promise that the rest will follow.
 - **And what was _not_ done is recorded beside what was.** A register that lists only outputs flatters the work. Every entry below carries both columns, and the right-hand one is usually longer.
 
 |  | Status | What it means |
@@ -58,24 +58,25 @@ Each one is linked in full, as received, with nothing edited. Where a brief and 
 
 **sha256** b54eddae92bc88d8133c1e544c339433972ef6cf8cf8656ac4771b7ffbce7ccd
 
-**Read in full, nothing built yet.** Its central finding is the strongest single example in the corpus and is checkable in one command: the author name and address on a commit are free text, the reference documentation says in terms that the name has no effect on authentication, and the code host links the commit to whichever account owns the address with no consent step and no notification. Exactly one thing prevents it, and it is not a prompt.
+**The finding and the prompt are built; the experiment is not.** All six load-bearing quotations were fetched and checked against their sources rather than relayed — which produced two corrections to this brief, both stated on the page it became: the _partially verified_ state additionally requires the author to have **enabled vigilant mode**, and the claim that the attribution renders a profile picture and a profile link could not be found on the page cited.
 
-- Nothing yet.
-- **A Lab entry** for the commit-author finding, the eight-line prompt with its _enforced by_ column, and the six-incident table
-- **The comparison experiment**: fixed task, twenty runs an arm, violations counted as repository queries, one adversarial arm against our own repository only
-- **Provider and connector pages** mapped onto the four layers
+- [Lab 05 — your agent can commit as you, and no instruction stops it](lab-commit-author.html), with the eight-line prompt and its _enforced by_ column
+- The [free/paid line](pricing.html), which now sends a reader to Lab 05's four free settings before asking them for money
+- **The comparison experiment.** Lab 05 specifies it — three arms, twenty runs each, violations counted as repository queries — and no repository has been set up to run it against
+- **A signed-commits rule on our own repository.** Lab 05 says in as many words that the argument is demonstrated and not adopted until that is on
+- **Provider and connector pages** mapped onto the four layers, and the community incident repository behind them
 
 ### The Urgency Is Not A Deadline But A State: You Already Connected It, And A Distributed Skill Cannot Carry A Control
 
 **sha256** af73131b6a72bb5f6d8aad1563f124a016040833310df0fb8be717ec44bb0e56
 
-**Read in full, nothing built yet.** It rules against two things we might otherwise have done — selling the behaviour policy as an agent skill, and running the price survey as proposed — and it supplies the only two dated answers to _why this year_. It also settles the awkward question at the centre of the entry product: a prompt reduces accidents and does not stop an attacker, and the page carrying a price has to say so.
+**Both of its rulings are now on the site.** The entry product says it reduces accidents and does not stop an attacker, in those words, on the page carrying a price — and the behaviour policy is not sold as a skill, because the portable part of that format cannot carry a constraint. The word for the narrowing cover does not appear on the pricing page at all; the authorise question stands in its place.
 
-- Nothing yet.
-- **The urgency section** — three sourced vendor sentences with dates and no adjective, on the front page
-- **The mistakes-not-attacks label** on anything carrying a price
-- **The free-and-paid ladder** on [pricing](pricing.html), which still points at the old tiers
-- **The price experiment as redesigned** — charge one price and count, with a certainty question after
+- The urgency section on [the front page](index.html) — three vendor sentences with dates and no adjective, then the two dated changes of this year
+- The [free/paid line](pricing.html), with the honest label and the authorise question
+- **The price experiment as redesigned** — charge one price and count, with a certainty question after. The page states the approach; no price is set and nothing is charged
+- **The generic prompt as an installable artefact.** The pricing page says it is free and published in the open; the file does not exist yet
+- **The early access group** — a dozen people running one of the five shapes, used for objections rather than numbers. No list exists
 
 ### Startup Summit 2026 — exhibitor booth guide
 
@@ -134,7 +135,7 @@ sha256sum my-brief.md
 
 A register that only lists what was done is a press release.
 
-Every entry above carries what it asked for and did not get, and on four of the nine that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.
+Every entry above carries what it asked for and did not get, and on most of the nine that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.
 
 - **The file is the record, not this page.** [briefs-register.json](briefs-register.json) is what a program should read; this page renders it for people. If the two ever disagree, the file is right and the page is stale.
 - **Every archived document is byte-identical to what arrived.** Nothing is edited, reformatted or trimmed — including the parts we think are wrong. Where we disagree with a brief, the disagreement is published on the page it produced and marked as ours.
@@ -143,6 +144,6 @@ Every entry above carries what it asked for and did not get, and on four of the 
 
 Register maintained by hand alongside the work, and checked in CI: every document listed must exist at the path given and match its recorded digest, and every file in `assets/briefs/` must appear in the register. Last reconciled 12 September 2026.
 
-## Nine items. Two of them arrived today and are still untouched.
+## Nine items. None untouched, and none finished.
 
-Both of those are on the list precisely so that saying so costs us something. The commit-author finding is the best single example this estate has, and it has been read and not built — which this page will keep saying until it has been.
+Every item now names something it produced and something it did not. Four of the nine are marked _partly_, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.

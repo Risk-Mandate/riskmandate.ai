@@ -140,6 +140,12 @@
       "group": "Lab"
     },
     {
+      "name": "lab-commit-author",
+      "label": "05 · The commit author",
+      "file": "lab-commit-author.html",
+      "group": "Lab"
+    },
+    {
       "name": "summit",
       "label": "Lisbon 2026",
       "file": "summit.html"

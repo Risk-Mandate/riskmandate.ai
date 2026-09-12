@@ -32,6 +32,10 @@ The model and its data live on a separate site, maintained by somebody else. Thi
 
 The build specification for the first thing anybody will ever use: a page that asks what you run, computes what you granted, and hands you the gap. Three tools, two vaults, two documents — and the arithmetic that decides what may leave the browser. A twenty-connector multi-select carries about 20 bits, which is more entropy than a well-known browser-fingerprint study measured in a whole fingerprint, so the full shape is computed locally and only bands and categories are ever submitted.
 
+### Your agent can commit as you, and no instruction stops it
+
+The author name and address on a commit are free text — git's own reference says the name has no effect on authentication, the code host's write interface takes both as parameters needing only contents write, and the host attributes the result to whoever owns that address with no consent step and no notification. Exactly one thing prevents it, and it is a repository setting. Alongside the finding: the eight-line prompt we would ship, with every line marked by what actually enforces it, and six documented incidents whose fixes have one thing in common.
+
 ## Four states, and they mean different things.
 
 The rest of this site says only what we can defend. The Lab is looser on purpose — but only about _status_, never about sourcing. A guess here is labelled a guess; a quote is still a quote with a link and a date.
@@ -59,7 +63,7 @@ The rest of this site says only what we can defend. The Lab is looser on purpose
 
 Every entry is also cut as a dated PDF, and the old ones are kept. Send the file rather than the link when what matters is what we thought _then_ — a link shows the reader whatever the page says by the time they arrive.
 
-All 4 entries, in reading order, as a single PDF, 41 pages. This is the one to attach when you want somebody to follow the whole journey rather than land in the middle of it.
+All 5 entries, in reading order, as a single PDF, 55 pages. This is the one to attach when you want somebody to follow the whole journey rather than land in the middle of it.
 
 Digests for every edition are in [lab-editions.json](lab-editions.json), so a PDF somebody was sent can be checked against this list.
 

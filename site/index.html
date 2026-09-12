@@ -757,6 +757,36 @@ a.ds{display:block;text-decoration:none;color:inherit}
   .rm{width:24px;height:24px}
   .demo{padding:8px 12px;font-size:12.5px}
 }
+
+/* ── the grant you did not enumerate — v1.7.0 ──────────────────────────────
+   The urgency on this page is a state rather than a deadline: the exposure was
+   created when somebody enabled a connector, and it has never been enumerated.
+   So this section quotes three vendor pages with dates and attaches no
+   adjective to any of them, and the reader supplies the conclusion. The rule
+   it obeys is the estate's oldest: publish the record, never the verdict. */
+.grants{display:flex;flex-direction:column;gap:14px;margin-top:36px}
+.gq{border:1px solid var(--border);border-radius:var(--r);background:var(--card);
+  padding:24px 26px;border-left:3px solid var(--green)}
+.gq .gqk{display:block;font-family:var(--mono);font-size:9.5px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:12px}
+.gq blockquote{margin:0;font-size:16.5px;line-height:1.6;color:var(--text);font-weight:600;
+  max-width:760px}
+.gq .gqs{display:block;margin-top:14px;font-family:var(--mono);font-size:11px;color:var(--faint);
+  line-height:1.65}
+.gq .gqs a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+.dated{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);
+  border:1px solid var(--border);border-radius:var(--r-sm);overflow:hidden;margin-top:30px}
+@media (max-width:760px){.dated{grid-template-columns:1fr}}
+.dated > div{background:var(--card);padding:22px 24px}
+.dated .dk{display:block;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--green);
+  letter-spacing:.06em}
+.dated .dt{display:block;font-size:16px;font-weight:700;color:var(--text);margin-top:9px;
+  letter-spacing:-.015em}
+.dated .dd{font-size:14px;color:var(--muted);line-height:1.65;margin-top:9px}
+.gstate{margin-top:32px;border-left:3px solid var(--green);background:var(--greenBg);
+  border-radius:0 var(--r-sm) var(--r-sm) 0;padding:22px 26px;max-width:760px}
+.gstate p{color:var(--text);font-size:17px;line-height:1.6;font-weight:600}
+.gstate p + p{margin-top:11px;font-weight:400;font-size:15px;color:var(--muted)}
 </style>
 </head>
 <body id="top">
@@ -765,7 +795,7 @@ a.ds{display:block;text-decoration:none;color:inherit}
   <div class="wrap">
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
-    <a class="version" href="versions.html" title="What shipped in v1.6.0">v1.6.0</a>
+    <a class="version" href="versions.html" title="What shipped in v1.7.0">v1.7.0</a>
     <button class="demo" data-demo>Get your Index</button>
   </div>
 </header>
@@ -778,6 +808,7 @@ a.ds{display:block;text-decoration:none;color:inherit}
       <p class="sub">Carriers are filing to exclude AI. RiskMandate measures what your agents can actually reach, evidences the controls that contain them, prices the exposure, and produces the record an underwriter will accept.</p>
       <div class="cta-row">
         <button class="btn btn-green" data-demo>Get your Insurability Index →</button>
+        <button class="btn btn-ghost" data-to="grant">What did you already authorise?</button>
         <button class="btn btn-ghost" data-to="levels">See the six levels</button>
       </div>
     </div>
@@ -823,8 +854,62 @@ a.ds{display:block;text-decoration:none;color:inherit}
     </div>
   </section>
 
+
+  <!-- the grant you did not enumerate -->
+  <section class="ins-section alt" id="grant">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">The state you are already in</span>
+        <h2>Nothing is coming. <span class="g">You already connected it.</span></h2>
+        <p>There is no deadline here, and we are not going to invent one. The exposure was created the moment somebody clicked authorise — last month, probably, on a mailbox or a drive — and it has never been enumerated. Below are three sentences from three vendors' own documentation, with the dates we read them. We have attached no adjective to any of them.</p>
+      </div>
+
+      <div class="grants">
+        <div class="gq">
+          <span class="gqk">Mail</span>
+          <blockquote>The only scope that lets anything read a message reads every message in the mailbox. There is no scope that filters by sender, by label or by date.</blockquote>
+          <span class="gqs">Derived from the publisher's own scope definitions at <a href="https://developers.google.com/workspace/gmail/api/auth/scopes" target="_blank" rel="noopener">developers.google.com</a>, read 12 September 2026. Quoted in full, with the scope names, in <a href="lab-connector-grants.html">Lab 01</a>.</span>
+        </div>
+        <div class="gq">
+          <span class="gqk">Files</span>
+          <blockquote>The default file-search corpus is defined by its own publisher as files owned by <em>or shared to</em> the user.</blockquote>
+          <span class="gqs">The <code>corpora</code> default at <a href="https://developers.google.com/workspace/drive/api/reference/rest/v3/files/list" target="_blank" rel="noopener">developers.google.com</a>, read 12 September 2026. So everything a colleague, client or counterparty ever shared with that person is inside the default search on day one, without anybody choosing it.</span>
+        </div>
+        <div class="gq">
+          <span class="gqk">The corporate file estate</span>
+          <blockquote>Site-specific permissioning is not supported because the underlying search is tenant-wide.</blockquote>
+          <span class="gqs">A vendor's own connector security guide, read 12 September 2026 — a published statement that the intended narrowing mechanism is unavailable, leaving revocation as the only remaining lever.</span>
+        </div>
+      </div>
+
+      <div class="gstate">
+        <p>The grant is user-shaped, not data-shaped.</p>
+        <p>The unit of restriction is the application, never the material. There is no supported way to say <em>this assistant may read my files except the folder the legal team shared with me</em>, or <em>my inbox except messages from outside the company</em>. Which means the only honest question is not whether to allow it. It is what, exactly, was allowed — and nobody has written that down.</p>
+      </div>
+
+      <div class="shead" style="margin-top:64px">
+        <span class="tag">Why this year rather than last</span>
+        <h2>Two things changed, <span class="g">and neither of them was us.</span></h2>
+        <p>If the state has always been like this, the fair question is what is different now. There are two dated answers and we did not write either of them.</p>
+      </div>
+      <div class="dated">
+        <div>
+          <span class="dk">1 January 2026</span>
+          <span class="dt">A standard exclusion took effect</span>
+          <p class="dd">The standard liability forms much of one large market runs on acquired a generative-AI exclusion, announced 21 October 2025 and effective on that date, and several carriers have filed their own — one of them absolute. The market replacing that cover prices on a description of what the agent is permitted to do. Something a business thought it had is being withdrawn on a date, and the thing replacing it asks a question most cannot currently answer.</p>
+        </div>
+        <div>
+          <span class="dk">9 March 2026</span>
+          <span class="dt">Responsibility was assigned</span>
+          <p class="dd">A national consumer regulator published that if an agent a business uses does something illegal, the business is responsible — and that businesses should be clear about what tasks an agent is allowed to perform, what data it can access, and what constraints apply. That is a regulator describing this document without naming it. It is current, and it is domestic.</p>
+        </div>
+      </div>
+      <p class="ins-note">Both are cited by date rather than characterised, and both are somebody else's publication. If your agent does something you did not authorise, the question you will be asked is what you <em>did</em> authorise — and that is the document this site exists to produce.</p>
+    </div>
+  </section>
+
   <!-- the difference -->
-  <section class="ins-section alt">
+  <section class="ins-section">
     <div class="wrap">
       <div class="shead">
         <span class="tag">The difference</span>
@@ -855,7 +940,7 @@ a.ds{display:block;text-decoration:none;color:inherit}
   </section>
 
   <!-- the index -->
-  <section class="ins-section" id="levels">
+  <section class="ins-section alt" id="levels">
     <div class="wrap">
       <div class="shead">
         <span class="tag">The Insurability Index</span>
@@ -868,7 +953,7 @@ a.ds{display:block;text-decoration:none;color:inherit}
   </section>
 
   <!-- dimensions -->
-  <section class="ins-section alt">
+  <section class="ins-section">
     <div class="wrap">
       <div class="shead">
         <span class="tag">What gets measured</span>
@@ -885,7 +970,7 @@ a.ds{display:block;text-decoration:none;color:inherit}
   </section>
 
   <!-- who it is for -->
-  <section class="ins-section" id="who">
+  <section class="ins-section alt" id="who">
     <div class="wrap">
       <div class="shead">
         <span class="tag">Who it is for</span>
@@ -921,7 +1006,7 @@ a.ds{display:block;text-decoration:none;color:inherit}
   </section>
 
   <!-- the mechanic -->
-  <section class="ins-section alt">
+  <section class="ins-section">
     <div class="wrap ins-mech">
       <div class="shead">
         <span class="tag">The mechanic</span>
@@ -943,7 +1028,7 @@ a.ds{display:block;text-decoration:none;color:inherit}
   </section>
 
   <!-- faq -->
-  <section class="ins-section">
+  <section class="ins-section alt">
     <div class="wrap">
       <div class="shead">
         <span class="tag">Questions</span>
@@ -985,7 +1070,7 @@ a.ds{display:block;text-decoration:none;color:inherit}
 (function(){
 'use strict';
 var RM={core:{},services:{},components:{},data:{}};
-RM.data.pages=[{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"The problem"},{"name":"acceptable","label":"Accepted is not acceptable","file":"acceptable.html","group":"The problem"},{"name":"acceptance","label":"You own the risk","file":"acceptance.html","group":"The problem"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"The problem"},{"name":"abp","label":"Agent Behaviour Policy","file":"abp.html","group":"The model"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"The model"},{"name":"agents","label":"Agents","file":"agents.html","group":"The model"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"The model"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"The model"},{"name":"statics","label":"Static scenarios","file":"statics.html","group":"The model"},{"name":"demos","label":"All demos","file":"demos.html","group":"Live demos"},{"name":"demo-licence-to-operate","label":"Licence to Operate","file":"demo-licence-to-operate.html","group":"Live demos"},{"name":"demo-risk-graph-explorer","label":"RiskGraph Explorer","file":"demo-risk-graph-explorer.html","group":"Live demos"},{"name":"demo-agentic-browser-isolation","label":"Agentic Browser Isolation","file":"demo-agentic-browser-isolation.html","group":"Live demos"},{"name":"demo-risk-mandate-field","label":"RiskMandate field demo","file":"demo-risk-mandate-field.html","group":"Live demos"},{"name":"demo-file-security","label":"File security walk","file":"demo-file-security.html","group":"Live demos"},{"name":"demo-agent-permission-games","label":"Permission games","file":"demo-agent-permission-games.html","group":"Live demos"},{"name":"lab","label":"All entries","file":"lab.html","group":"Lab"},{"name":"lab-connector-grants","label":"01 · The grant is user-shaped","file":"lab-connector-grants.html","group":"Lab"},{"name":"lab-abp-flow","label":"02 · Buying a behaviour policy","file":"lab-abp-flow.html","group":"Lab"},{"name":"lab-abp-requests","label":"03 · Requests to abp.sgit.ai","file":"lab-abp-requests.html","group":"Lab"},{"name":"lab-shape-collector","label":"04 · The shape collector","file":"lab-shape-collector.html","group":"Lab"},{"name":"summit","label":"Lisbon 2026","file":"summit.html"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"briefs","label":"Brief register","file":"briefs.html","group":"More"},{"name":"work","label":"Working with us","file":"work.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"}];RM.data.sections=[];
+RM.data.pages=[{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"The problem"},{"name":"acceptable","label":"Accepted is not acceptable","file":"acceptable.html","group":"The problem"},{"name":"acceptance","label":"You own the risk","file":"acceptance.html","group":"The problem"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"The problem"},{"name":"abp","label":"Agent Behaviour Policy","file":"abp.html","group":"The model"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"The model"},{"name":"agents","label":"Agents","file":"agents.html","group":"The model"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"The model"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"The model"},{"name":"statics","label":"Static scenarios","file":"statics.html","group":"The model"},{"name":"demos","label":"All demos","file":"demos.html","group":"Live demos"},{"name":"demo-licence-to-operate","label":"Licence to Operate","file":"demo-licence-to-operate.html","group":"Live demos"},{"name":"demo-risk-graph-explorer","label":"RiskGraph Explorer","file":"demo-risk-graph-explorer.html","group":"Live demos"},{"name":"demo-agentic-browser-isolation","label":"Agentic Browser Isolation","file":"demo-agentic-browser-isolation.html","group":"Live demos"},{"name":"demo-risk-mandate-field","label":"RiskMandate field demo","file":"demo-risk-mandate-field.html","group":"Live demos"},{"name":"demo-file-security","label":"File security walk","file":"demo-file-security.html","group":"Live demos"},{"name":"demo-agent-permission-games","label":"Permission games","file":"demo-agent-permission-games.html","group":"Live demos"},{"name":"lab","label":"All entries","file":"lab.html","group":"Lab"},{"name":"lab-connector-grants","label":"01 · The grant is user-shaped","file":"lab-connector-grants.html","group":"Lab"},{"name":"lab-abp-flow","label":"02 · Buying a behaviour policy","file":"lab-abp-flow.html","group":"Lab"},{"name":"lab-abp-requests","label":"03 · Requests to abp.sgit.ai","file":"lab-abp-requests.html","group":"Lab"},{"name":"lab-shape-collector","label":"04 · The shape collector","file":"lab-shape-collector.html","group":"Lab"},{"name":"lab-commit-author","label":"05 · The commit author","file":"lab-commit-author.html","group":"Lab"},{"name":"summit","label":"Lisbon 2026","file":"summit.html"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"briefs","label":"Brief register","file":"briefs.html","group":"More"},{"name":"work","label":"Working with us","file":"work.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"}];RM.data.sections=[];
 
 'use strict';
 // core/risk-queue.js — pure risk-queue domain logic: status init, counts,

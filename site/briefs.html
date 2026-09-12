@@ -261,7 +261,7 @@ table.t code{font-family:var(--mono);font-size:11.5px;background:var(--bg2);padd
   <div class="wrap">
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
-    <a class="version" href="versions.html" title="What shipped in v1.6.0">v1.6.0</a>
+    <a class="version" href="versions.html" title="What shipped in v1.7.0">v1.7.0</a>
     <button class="demo" data-demo>Get in touch</button>
   </div>
 </header>
@@ -292,7 +292,7 @@ table.t code{font-family:var(--mono);font-size:11.5px;background:var(--bg2);padd
       <ul class="plist">
         <li><strong>Nothing gets worked twice.</strong> Every file is archived exactly as it arrived and its SHA-256 recorded. An identical file turning up again is recognisable <em>before</em> anybody starts reading it, and the register lists every time it turned up rather than only the first.</li>
         <li><strong>Nothing gets quietly dropped.</strong> The agent producing these briefs can fetch <a href="briefs-register.json">briefs-register.json</a>, compare it against what it has sent, and name anything that is absent. That is a check somebody else can run against us, which is the only kind worth having.</li>
-        <li><strong>The status is the state of the work, not an intention.</strong> <span class="st received">Received</span> means read and archived with nothing built. It is not a promise that something will be, and it stays visible until either something is built or the item is marked superseded.</li>
+        <li><strong>The status is the state of the work, not an intention.</strong> <span class="st received">Received</span> means read and archived with nothing built, and <span class="st partly">Partly</span> — the commonest honest answer — means some of it shipped and a named part did not. Neither is a promise that the rest will follow.</li>
         <li><strong>And what was <em>not</em> done is recorded beside what was.</strong> A register that lists only outputs flatters the work. Every entry below carries both columns, and the right-hand one is usually longer.</li>
       </ul>
       <div class="tw">
@@ -383,11 +383,11 @@ table.t code{font-family:var(--mono);font-size:11.5px;background:var(--bg2);padd
           <a class="dfile" href="assets/briefs/v0.33.70__dev-brief__this-is-the-tier-one-application-nobody-could-find.md"><b>Read it in full</b> markdown · 31KB</a>
         </div>
 
-        <div class="doc pending">
+        <div class="doc">
           <div class="dh">
             <span class="did">D3</span>
             <h3>The Commit Author Is A Free Text Field: A Prompt Shifts The Odds, And Every Documented Fix Was Architectural</h3>
-            <span class="st received">Received</span>
+            <span class="st partly">Partly</span>
           </div>
           <div class="dmeta">
             <span><b>type</b> dev brief</span><span><b>version</b> v0.33.70</span>
@@ -395,29 +395,32 @@ table.t code{font-family:var(--mono);font-size:11.5px;background:var(--bg2);padd
             <span><b>34,370 bytes</b></span>
           </div>
           <p class="dig"><b>sha256</b> b54eddae92bc88d8133c1e544c339433972ef6cf8cf8656ac4771b7ffbce7ccd</p>
-          <p class="dnote"><b>Read in full, nothing built yet.</b> Its central finding is the strongest single example in the corpus and is checkable in one command: the author name and address on a commit are free text, the reference documentation says in terms that the name has no effect on authentication, and the code host links the commit to whichever account owns the address with no consent step and no notification. Exactly one thing prevents it, and it is not a prompt.</p>
+          <p class="dnote"><b>The finding and the prompt are built; the experiment is not.</b> All six load-bearing quotations were fetched and checked against their sources rather than relayed — which produced two corrections to this brief, both stated on the page it became: the <em>partially verified</em> state additionally requires the author to have <b>enabled vigilant mode</b>, and the claim that the attribution renders a profile picture and a profile link could not be found on the page cited.</p>
           <div class="out">
             <div class="ok">
               <span class="k">What it produced</span>
-              <ul><li class="none">Nothing yet.</li></ul>
+              <ul>
+                <li><a href="lab-commit-author.html">Lab 05 — your agent can commit as you, and no instruction stops it</a>, with the eight-line prompt and its <em>enforced by</em> column</li>
+                <li>The <a href="pricing.html">free/paid line</a>, which now sends a reader to Lab 05's four free settings before asking them for money</li>
+              </ul>
             </div>
             <div>
-              <span class="k">What it asks for</span>
+              <span class="k">What it asked for and has not got</span>
               <ul>
-                <li><strong>A Lab entry</strong> for the commit-author finding, the eight-line prompt with its <em>enforced by</em> column, and the six-incident table</li>
-                <li><strong>The comparison experiment</strong>: fixed task, twenty runs an arm, violations counted as repository queries, one adversarial arm against our own repository only</li>
-                <li><strong>Provider and connector pages</strong> mapped onto the four layers</li>
+                <li><strong>The comparison experiment.</strong> Lab 05 specifies it — three arms, twenty runs each, violations counted as repository queries — and no repository has been set up to run it against</li>
+                <li><strong>A signed-commits rule on our own repository.</strong> Lab 05 says in as many words that the argument is demonstrated and not adopted until that is on</li>
+                <li><strong>Provider and connector pages</strong> mapped onto the four layers, and the community incident repository behind them</li>
               </ul>
             </div>
           </div>
           <a class="dfile" href="assets/briefs/v0.33.70__dev-brief__the-commit-author-is-a-free-text-field.md"><b>Read it in full</b> markdown · 34KB</a>
         </div>
 
-        <div class="doc pending">
+        <div class="doc">
           <div class="dh">
             <span class="did">D4</span>
             <h3>The Urgency Is Not A Deadline But A State: You Already Connected It, And A Distributed Skill Cannot Carry A Control</h3>
-            <span class="st received">Received</span>
+            <span class="st partly">Partly</span>
           </div>
           <div class="dmeta">
             <span><b>type</b> strategy brief</span><span><b>version</b> v0.33.70</span>
@@ -425,19 +428,21 @@ table.t code{font-family:var(--mono);font-size:11.5px;background:var(--bg2);padd
             <span><b>29,897 bytes</b></span>
           </div>
           <p class="dig"><b>sha256</b> af73131b6a72bb5f6d8aad1563f124a016040833310df0fb8be717ec44bb0e56</p>
-          <p class="dnote"><b>Read in full, nothing built yet.</b> It rules against two things we might otherwise have done — selling the behaviour policy as an agent skill, and running the price survey as proposed — and it supplies the only two dated answers to <em>why this year</em>. It also settles the awkward question at the centre of the entry product: a prompt reduces accidents and does not stop an attacker, and the page carrying a price has to say so.</p>
+          <p class="dnote"><b>Both of its rulings are now on the site.</b> The entry product says it reduces accidents and does not stop an attacker, in those words, on the page carrying a price — and the behaviour policy is not sold as a skill, because the portable part of that format cannot carry a constraint. The word for the narrowing cover does not appear on the pricing page at all; the authorise question stands in its place.</p>
           <div class="out">
             <div class="ok">
               <span class="k">What it produced</span>
-              <ul><li class="none">Nothing yet.</li></ul>
+              <ul>
+                <li>The urgency section on <a href="index.html">the front page</a> — three vendor sentences with dates and no adjective, then the two dated changes of this year</li>
+                <li>The <a href="pricing.html">free/paid line</a>, with the honest label and the authorise question</li>
+              </ul>
             </div>
             <div>
-              <span class="k">What it asks for</span>
+              <span class="k">What it asked for and has not got</span>
               <ul>
-                <li><strong>The urgency section</strong> — three sourced vendor sentences with dates and no adjective, on the front page</li>
-                <li><strong>The mistakes-not-attacks label</strong> on anything carrying a price</li>
-                <li><strong>The free-and-paid ladder</strong> on <a href="pricing.html">pricing</a>, which still points at the old tiers</li>
-                <li><strong>The price experiment as redesigned</strong> — charge one price and count, with a certainty question after</li>
+                <li><strong>The price experiment as redesigned</strong> — charge one price and count, with a certainty question after. The page states the approach; no price is set and nothing is charged</li>
+                <li><strong>The generic prompt as an installable artefact.</strong> The pricing page says it is free and published in the open; the file does not exist yet</li>
+                <li><strong>The early access group</strong> — a dozen people running one of the five shapes, used for objections rather than numbers. No list exists</li>
               </ul>
             </div>
           </div>
@@ -602,7 +607,7 @@ sha256sum my-brief.md
       </div>
       <div class="rule">
         <p>A register that only lists what was done is a press release.</p>
-        <p>Every entry above carries what it asked for and did not get, and on four of the nine that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.</p>
+        <p>Every entry above carries what it asked for and did not get, and on most of the nine that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.</p>
       </div>
       <ul class="plist">
         <li><strong>The file is the record, not this page.</strong> <a href="briefs-register.json">briefs-register.json</a> is what a program should read; this page renders it for people. If the two ever disagree, the file is right and the page is stale.</li>
@@ -619,8 +624,8 @@ sha256sum my-brief.md
 <section class="pcta">
   <div class="wrap">
     <span class="eyebrow"><span class="d"></span> The register</span>
-    <h2>Nine items. Two of them arrived today and are still untouched.</h2>
-    <p>Both of those are on the list precisely so that saying so costs us something. The commit-author finding is the best single example this estate has, and it has been read and not built — which this page will keep saying until it has been.</p>
+    <h2>Nine items. None untouched, and none finished.</h2>
+    <p>Every item now names something it produced and something it did not. Four of the nine are marked <em>partly</em>, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.</p>
     <div class="cta-row">
       <a class="btn btn-green" href="lab.html">See what did get built →</a>
       <a class="btn btn-ghost" href="briefs-register.json">The register as JSON</a>
@@ -639,7 +644,7 @@ sha256sum my-brief.md
 (function(){
 'use strict';
 var RM={core:{},services:{},components:{},data:{}};
-RM.data.currentPage="briefs";RM.data.pages=[{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"The problem"},{"name":"acceptable","label":"Accepted is not acceptable","file":"acceptable.html","group":"The problem"},{"name":"acceptance","label":"You own the risk","file":"acceptance.html","group":"The problem"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"The problem"},{"name":"abp","label":"Agent Behaviour Policy","file":"abp.html","group":"The model"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"The model"},{"name":"agents","label":"Agents","file":"agents.html","group":"The model"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"The model"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"The model"},{"name":"statics","label":"Static scenarios","file":"statics.html","group":"The model"},{"name":"demos","label":"All demos","file":"demos.html","group":"Live demos"},{"name":"demo-licence-to-operate","label":"Licence to Operate","file":"demo-licence-to-operate.html","group":"Live demos"},{"name":"demo-risk-graph-explorer","label":"RiskGraph Explorer","file":"demo-risk-graph-explorer.html","group":"Live demos"},{"name":"demo-agentic-browser-isolation","label":"Agentic Browser Isolation","file":"demo-agentic-browser-isolation.html","group":"Live demos"},{"name":"demo-risk-mandate-field","label":"RiskMandate field demo","file":"demo-risk-mandate-field.html","group":"Live demos"},{"name":"demo-file-security","label":"File security walk","file":"demo-file-security.html","group":"Live demos"},{"name":"demo-agent-permission-games","label":"Permission games","file":"demo-agent-permission-games.html","group":"Live demos"},{"name":"lab","label":"All entries","file":"lab.html","group":"Lab"},{"name":"lab-connector-grants","label":"01 · The grant is user-shaped","file":"lab-connector-grants.html","group":"Lab"},{"name":"lab-abp-flow","label":"02 · Buying a behaviour policy","file":"lab-abp-flow.html","group":"Lab"},{"name":"lab-abp-requests","label":"03 · Requests to abp.sgit.ai","file":"lab-abp-requests.html","group":"Lab"},{"name":"lab-shape-collector","label":"04 · The shape collector","file":"lab-shape-collector.html","group":"Lab"},{"name":"summit","label":"Lisbon 2026","file":"summit.html"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"briefs","label":"Brief register","file":"briefs.html","group":"More"},{"name":"work","label":"Working with us","file":"work.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"}];RM.data.sections=[];
+RM.data.currentPage="briefs";RM.data.pages=[{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"The problem"},{"name":"acceptable","label":"Accepted is not acceptable","file":"acceptable.html","group":"The problem"},{"name":"acceptance","label":"You own the risk","file":"acceptance.html","group":"The problem"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"The problem"},{"name":"abp","label":"Agent Behaviour Policy","file":"abp.html","group":"The model"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"The model"},{"name":"agents","label":"Agents","file":"agents.html","group":"The model"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"The model"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"The model"},{"name":"statics","label":"Static scenarios","file":"statics.html","group":"The model"},{"name":"demos","label":"All demos","file":"demos.html","group":"Live demos"},{"name":"demo-licence-to-operate","label":"Licence to Operate","file":"demo-licence-to-operate.html","group":"Live demos"},{"name":"demo-risk-graph-explorer","label":"RiskGraph Explorer","file":"demo-risk-graph-explorer.html","group":"Live demos"},{"name":"demo-agentic-browser-isolation","label":"Agentic Browser Isolation","file":"demo-agentic-browser-isolation.html","group":"Live demos"},{"name":"demo-risk-mandate-field","label":"RiskMandate field demo","file":"demo-risk-mandate-field.html","group":"Live demos"},{"name":"demo-file-security","label":"File security walk","file":"demo-file-security.html","group":"Live demos"},{"name":"demo-agent-permission-games","label":"Permission games","file":"demo-agent-permission-games.html","group":"Live demos"},{"name":"lab","label":"All entries","file":"lab.html","group":"Lab"},{"name":"lab-connector-grants","label":"01 · The grant is user-shaped","file":"lab-connector-grants.html","group":"Lab"},{"name":"lab-abp-flow","label":"02 · Buying a behaviour policy","file":"lab-abp-flow.html","group":"Lab"},{"name":"lab-abp-requests","label":"03 · Requests to abp.sgit.ai","file":"lab-abp-requests.html","group":"Lab"},{"name":"lab-shape-collector","label":"04 · The shape collector","file":"lab-shape-collector.html","group":"Lab"},{"name":"lab-commit-author","label":"05 · The commit author","file":"lab-commit-author.html","group":"Lab"},{"name":"summit","label":"Lisbon 2026","file":"summit.html"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"briefs","label":"Brief register","file":"briefs.html","group":"More"},{"name":"work","label":"Working with us","file":"work.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"}];RM.data.sections=[];
 
 'use strict';
 // components/dom.js — tiny DOM helpers shared by components. `el` builds an

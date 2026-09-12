@@ -20,13 +20,25 @@
       "file": "assets/briefs/v0.33.70__dev-brief__the-grant-is-user-shaped-and-not-data-shaped.md",
       "bytes": 29886,
       "sha256": "1b2dfa45d228be6b0f6eb6a420090da160e979fe0b347048588565441a9f6e38",
-      "received": ["2026-09-12T12:52Z", "2026-09-12T18:07Z"],
+      "received": [
+        "2026-09-12T12:52Z",
+        "2026-09-12T18:07Z"
+      ],
       "duplicate_of": null,
       "status": "processed",
       "produced": [
-        { "what": "Lab 01 — the grant is user-shaped, not data-shaped", "url": "lab-connector-grants.html" },
-        { "what": "Lab 02 — what buying a behaviour policy would look like, including the twelve-stage flow", "url": "lab-abp-flow.html" },
-        { "what": "Lab 03 — the request list against abp.sgit.ai, including the proposed `material` property", "url": "lab-abp-requests.html" }
+        {
+          "what": "Lab 01 — the grant is user-shaped, not data-shaped",
+          "url": "lab-connector-grants.html"
+        },
+        {
+          "what": "Lab 02 — what buying a behaviour policy would look like, including the twelve-stage flow",
+          "url": "lab-abp-flow.html"
+        },
+        {
+          "what": "Lab 03 — the request list against abp.sgit.ai, including the proposed `material` property",
+          "url": "lab-abp-requests.html"
+        }
       ],
       "not_done": [
         "The five first policies themselves. Lab 01 documents the grants; no policy document exists for any of the five shapes.",
@@ -44,11 +56,16 @@
       "file": "assets/briefs/v0.33.70__dev-brief__this-is-the-tier-one-application-nobody-could-find.md",
       "bytes": 31387,
       "sha256": "11ff8f5f9eebb9200d30694381ff27c7e53a59417dd92f1a0461bbfe1b65ad89",
-      "received": ["2026-09-12T17:22Z"],
+      "received": [
+        "2026-09-12T17:22Z"
+      ],
       "duplicate_of": null,
       "status": "processed",
       "produced": [
-        { "what": "Lab 04 — seven things to build, and one word we have not earned", "url": "lab-shape-collector.html" }
+        {
+          "what": "Lab 04 — seven things to build, and one word we have not earned",
+          "url": "lab-shape-collector.html"
+        }
       ],
       "not_done": [
         "All seven items on Lab 04's own build list. The page is the specification; none of it is built."
@@ -64,16 +81,27 @@
       "file": "assets/briefs/v0.33.70__dev-brief__the-commit-author-is-a-free-text-field.md",
       "bytes": 34370,
       "sha256": "b54eddae92bc88d8133c1e544c339433972ef6cf8cf8656ac4771b7ffbce7ccd",
-      "received": ["2026-09-12T18:07Z"],
-      "duplicate_of": null,
-      "status": "received",
-      "produced": [],
-      "not_done": [
-        "A Lab entry for the commit-author finding, the eight-line prompt with its enforced-by column, and the six-incident table.",
-        "The comparison experiment: fixed task, twenty runs an arm, violations counted as repository queries, one adversarial arm against our own repository only.",
-        "The provider and connector pages the brief maps onto the four layers."
+      "received": [
+        "2026-09-12T18:07Z"
       ],
-      "notes": "Read in full, not yet built. Its central finding is checkable in one command and is the strongest single example in the corpus."
+      "duplicate_of": null,
+      "status": "partly",
+      "produced": [
+        {
+          "what": "Lab 05 — your agent can commit as you, and no instruction stops it",
+          "url": "lab-commit-author.html"
+        },
+        {
+          "what": "The free/paid line on the pricing page, which now sends a reader to Lab 05's four free settings before asking for money",
+          "url": "pricing.html"
+        }
+      ],
+      "not_done": [
+        "The comparison experiment. Lab 05 specifies it — three arms, twenty runs each, violations counted as repository queries — and nobody has set up a repository to run it against.",
+        "A signed-commits rule on this site's own repository. Lab 05 says in as many words that the argument is demonstrated and not adopted until that is on.",
+        "The provider and connector pages the brief maps onto the four layers, and the community incident repository behind them."
+      ],
+      "notes": "Read in full; the finding and the prompt are built, the experiment is not. All six load-bearing quotations were fetched and checked against their sources rather than relayed, which produced two corrections to the brief that are stated on the page: the partially-verified state additionally requires the author to have enabled vigilant mode, and the claim that the attribution renders a profile picture and link could not be found on the page cited."
     },
     {
       "id": "D4",
@@ -84,17 +112,27 @@
       "file": "assets/briefs/v0.33.70__strategy-brief__the-urgency-is-not-a-deadline-but-a-state.md",
       "bytes": 29897,
       "sha256": "af73131b6a72bb5f6d8aad1563f124a016040833310df0fb8be717ec44bb0e56",
-      "received": ["2026-09-12T18:07Z"],
-      "duplicate_of": null,
-      "status": "received",
-      "produced": [],
-      "not_done": [
-        "The urgency section: three sourced vendor sentences with dates and no adjective, on the front page.",
-        "The mistakes-not-attacks label on anything carrying a price.",
-        "The free-and-paid ladder on pricing.html, which still points at the old tiers.",
-        "The price experiment as redesigned — charge one price and count, with a certainty question after."
+      "received": [
+        "2026-09-12T18:07Z"
       ],
-      "notes": "Read in full, not yet built. It rules against selling the ABP as a skill and against the price survey as originally proposed, and it contains the only two dated answers to \"why this year\"."
+      "duplicate_of": null,
+      "status": "partly",
+      "produced": [
+        {
+          "what": "The urgency section on the front page — three vendor sentences with dates and no adjective, and the two dated changes of this year",
+          "url": "index.html"
+        },
+        {
+          "what": "The free/paid line on the pricing page, with the mistakes-not-attacks label and the authorise question in place of the insurance word",
+          "url": "pricing.html"
+        }
+      ],
+      "not_done": [
+        "The price experiment as redesigned — charge one price and count, with a certainty question after. The pricing page states the approach; no price is set and nothing is charged.",
+        "The generic prompt as a published, installable artefact. The pricing page says it is free and open; the file does not exist yet.",
+        "The early access group: a dozen people running one of the five shapes, used for objections rather than numbers. No list exists."
+      ],
+      "notes": "Read in full. Its two rulings are now on the site: the entry product says it reduces accidents and does not stop an attacker, and the behaviour policy is not sold as a skill — the skill is the free half, because the portable frontmatter cannot carry a constraint. The word for the narrowing cover does not appear on the page carrying a price; the authorise question stands in its place."
     },
     {
       "id": "D5",
@@ -105,12 +143,20 @@
       "file": "assets/summit/startup-booth-guide.pdf",
       "bytes": 2490263,
       "sha256": "d13e3f08729fa8ffaab7f4e1d247535fb0782c5182df67e365ef61d52ca0cf3d",
-      "received": ["2026-09-12T11:56Z"],
+      "received": [
+        "2026-09-12T11:56Z"
+      ],
       "duplicate_of": null,
       "status": "processed",
       "produced": [
-        { "what": "The booth working page, with the guide embedded and the materials to hand over", "url": "summit-booth.html" },
-        { "what": "Three corrections to the Lisbon messaging brief: no banner, the portal rather than email, and power must be requested", "url": "summit.html" }
+        {
+          "what": "The booth working page, with the guide embedded and the materials to hand over",
+          "url": "summit-booth.html"
+        },
+        {
+          "what": "Three corrections to the Lisbon messaging brief: no banner, the portal rather than email, and power must be requested",
+          "url": "summit.html"
+        }
       ],
       "not_done": [
         "Logo and name into the exhibitor portal — the organisers' own deadline was 15 September.",
@@ -127,8 +173,14 @@
       "dated": "2026-09-12",
       "status": "partly",
       "produced": [
-        { "what": "The direction brief", "url": "https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/briefs/direction__abp-at-the-centre.md" },
-        { "what": "The Agent Behaviour Policy page", "url": "abp.html" }
+        {
+          "what": "The direction brief",
+          "url": "https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/briefs/direction__abp-at-the-centre.md"
+        },
+        {
+          "what": "The Agent Behaviour Policy page",
+          "url": "abp.html"
+        }
       ],
       "not_done": [
         "The homepage's second panel, which should become \"the grant you did not enumerate\" and still does not.",
@@ -142,8 +194,14 @@
       "dated": "2026-09-11",
       "status": "processed",
       "produced": [
-        { "what": "The Lisbon 2026 page", "url": "summit.html" },
-        { "what": "The messaging and strategy briefs", "url": "https://github.com/Risk-Mandate/riskmandate.ai/tree/dev/docs/briefs" }
+        {
+          "what": "The Lisbon 2026 page",
+          "url": "summit.html"
+        },
+        {
+          "what": "The messaging and strategy briefs",
+          "url": "https://github.com/Risk-Mandate/riskmandate.ai/tree/dev/docs/briefs"
+        }
       ],
       "not_done": []
     },
@@ -154,8 +212,14 @@
       "dated": "2026-09-12",
       "status": "processed",
       "produced": [
-        { "what": "Working with us", "url": "work.html" },
-        { "what": "Brief B1 — power user and tester of Agent Behaviour Policies", "url": "work-abp-power-user.html" }
+        {
+          "what": "Working with us",
+          "url": "work.html"
+        },
+        {
+          "what": "Brief B1 — power user and tester of Agent Behaviour Policies",
+          "url": "work-abp-power-user.html"
+        }
       ],
       "not_done": [
         "Rate, hours, start date, escalation route, publication rules and repository access — deliberately absent because the page is public, and listed on it as owed."
@@ -168,8 +232,14 @@
       "dated": "2026-09-12",
       "status": "processed",
       "produced": [
-        { "what": "Dated PDF editions of every Lab entry, and the whole Lab as one file", "url": "lab.html" },
-        { "what": "The edition register", "url": "lab-editions.json" }
+        {
+          "what": "Dated PDF editions of every Lab entry, and the whole Lab as one file",
+          "url": "lab.html"
+        },
+        {
+          "what": "The edition register",
+          "url": "lab-editions.json"
+        }
       ],
       "not_done": []
     }

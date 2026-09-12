@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.7.0** · 2026-09-12 — Lab 05: the commit author is a free text field, and the front page stops implying a deadline
+  Notes: https://riskmandate.ai/versions/1.7.0.md · Source: `git:v1.7.0`
 - **v1.6.0** · 2026-09-12 — The Lab gets a submenu, and every brief the site was built from gets a register
   Notes: https://riskmandate.ai/versions/1.6.0.md · Source: `git:v1.6.0`
 - **v1.5.0** · 2026-09-12 — Lab 04: the shape collector, and a stray line of script removed from nine pages

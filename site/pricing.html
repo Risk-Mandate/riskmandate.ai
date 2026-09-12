@@ -181,6 +181,52 @@ a.ds{display:block;text-decoration:none;color:inherit}
   .rm{width:24px;height:24px}
   .demo{padding:8px 12px;font-size:12.5px}
 }
+
+/* ── the free/paid line — v1.7.0 ───────────────────────────────────────────
+   What is being sold right now is a behaviour policy, not the platform, and
+   the line between the free library and the paid instance is the 26 August
+   ruling: the library is the argument and the instance is yours. This section
+   states it as two columns, because a ladder whose first rung is genuinely
+   useful is the whole sales motion. The honest label below it is not a
+   disclaimer — a prompt reduces accidents and does not stop an attacker, and
+   a page carrying a price is exactly where that has to be said. */
+.ladder{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);
+  border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-top:36px}
+@media (max-width:760px){.ladder{grid-template-columns:1fr}}
+.ladder .lh{background:var(--bg2);padding:15px 22px;font-family:var(--mono);font-size:9.5px;
+  font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--faint)}
+.ladder .lh.paid{color:var(--green)}
+.ladder .lc{background:var(--card);padding:20px 22px;font-size:14.5px;color:var(--muted);
+  line-height:1.65}
+.ladder .lc.paid{background:var(--greenBg)}
+.ladder .lc b{color:var(--text)}
+.ladder .lc.paid b{color:var(--green)}
+.honest{margin-top:34px;border:2px solid var(--gold);background:#FDF6EC;border-radius:var(--r);
+  padding:24px 26px;max-width:800px}
+.honest .hk{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--gold)}
+.honest p{margin-top:12px;font-size:16.5px;color:var(--text);line-height:1.6;font-weight:600}
+.honest p + p{margin-top:12px;font-size:14.5px;color:var(--muted);font-weight:400}
+.honest b{color:var(--text)}
+.honest a{color:var(--gold);text-decoration:underline;text-underline-offset:2px}
+.fmt{overflow-x:auto;margin-top:30px;border:1px solid var(--border);border-radius:var(--r-sm);
+  background:var(--card)}
+table.f{width:100%;border-collapse:collapse;font-size:13px;min-width:480px}
+table.f th{text-align:left;font-family:var(--mono);font-size:9.5px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--faint);padding:12px 15px;
+  border-bottom:1px solid var(--border)}
+table.f td{padding:12px 15px;border-bottom:1px solid var(--border);color:var(--muted);
+  line-height:1.5}
+table.f tr:last-child td{border-bottom:0}
+table.f td.amt{font-family:var(--mono);font-size:12.5px;color:var(--text);white-space:nowrap}
+.plist{margin:26px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;
+  max-width:760px}
+.plist li{position:relative;padding-left:22px;font-size:15px;color:var(--muted);line-height:1.7}
+.plist li::before{content:"";position:absolute;left:2px;top:10px;width:6px;height:6px;
+  border-radius:50%;background:var(--green)}
+.plist strong{color:var(--text)}
+.plist code,.honest code{font-family:var(--mono);font-size:13px;background:var(--bg2);
+  padding:1px 6px;border-radius:5px;color:var(--text)}
 </style>
 </head>
 <body id="top">
@@ -189,7 +235,7 @@ a.ds{display:block;text-decoration:none;color:inherit}
   <div class="wrap">
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
-    <a class="version" href="versions.html" title="What shipped in v1.6.0">v1.6.0</a>
+    <a class="version" href="versions.html" title="What shipped in v1.7.0">v1.7.0</a>
     <button class="demo" data-demo>Book a demo</button>
   </div>
 </header>
@@ -197,21 +243,61 @@ a.ds{display:block;text-decoration:none;color:inherit}
 <main class="phero">
   <div class="wrap">
     <span class="eyebrow"><span class="d"></span> Pricing</span>
-    <h1>Split by value. <span class="it">Free, consumption, custom.</span></h1>
-    <p class="sub">Every tier runs the same product on the same zero-knowledge foundation. What changes per tier is how it's operated — its maintainability, scalability, and security posture — not which features are gated. Sovereignty is the floor, not the premium.</p>
-    <div class="cta-row"><button class="btn btn-green" data-to="tiers">See the tiers ↓</button><a class="btn btn-ghost" href="index.html">Back to the site</a></div>
+    <h1>The library is free. <span class="it">Your own is not.</span></h1>
+    <p class="sub">What is for sale today is one document: a behaviour policy for the deployment you actually run, derived rather than authored, with every row's provenance attached. Everything we use to argue for it — the worked examples, the capability data, the draft for your shape — is free and needs no account. Below is exactly where that line falls, and what the paid side buys that the free side cannot.</p>
+    <div class="cta-row"><button class="btn btn-green" data-to="line">Where the line falls ↓</button><a class="btn btn-ghost" href="abp.html">What a policy is</a><a class="btn btn-ghost" href="index.html">Back to the site</a></div>
   </div>
 </main>
 
 <div class="paper">
 
-  <!-- Tiers -->
-  <section class="psection" id="tiers">
+
+  <!-- the free/paid line -->
+  <section class="psection" id="line">
     <div class="wrap">
       <div class="shead wide">
-        <span class="tag">Three tiers</span>
+        <span class="tag">Free and paid</span>
+        <h2>The library is the argument. <span class="g">The instance is yours.</span></h2>
+        <p>If the free thing is not genuinely useful nobody arrives, and if it is too useful nobody pays. So the split is not by feature: it is that everything describing <em>a</em> deployment is free, and the document describing <em>your</em> deployment is not.</p>
+      </div>
+      <div class="ladder">
+        <div class="lh">Free, on this site, no account</div>
+        <div class="lh paid">Paid</div>
+
+        <div class="lc">The worked example policies, <b>in full</b>, with their provenance</div>
+        <div class="lc paid"><b>Yours, not a shape's.</b> Derived from the deployment you actually run</div>
+
+        <div class="lc">The capability map and its data, as data</div>
+        <div class="lc paid"><b>A vault you can hand to somebody</b>, with a read key — shareable proof that needs no account and no copy that immediately goes stale</div>
+
+        <div class="lc">A draft for your shape, <b>instantly</b>, no account</div>
+        <div class="lc paid"><b>It recomputes</b> when the grant or the mandate moves, and it keeps the history</div>
+
+        <div class="lc">The generic prompt, published in the open, readable before you install it</div>
+        <div class="lc paid"><b>Somebody looked at it</b> — and at the higher tier, signed something</div>
+      </div>
+      <ul class="plist">
+        <li><strong>The free draft is the top of the sales motion rather than a giveaway.</strong> Correcting our draft is how you tell us what you actually intended, and the intent is the one input we cannot derive. So the free tier and the elicitation are the same step, and that is by design.</li>
+        <li><strong>The prompt is free on purpose, and it is not sold as a skill.</strong> The portable part of the agent-skill format carries six fields, and the ones that would actually constrain an agent are not among them — so a skill distributed to somebody else can carry instructions and <em>cannot</em> carry a constraint. That is a field list rather than an opinion, and it is why the document that bounds nothing is the free one.</li>
+        <li><strong>And the format sets the price more than the content does.</strong> The same argument sells for a few pounds bundled as a skill, around eighty as a document pack, and into four figures as a toolkit. Nothing about the content explains that spread; the container does. We would rather sell the vault, which is the only container that recomputes.</li>
+      </ul>
+      <div class="honest">
+        <span class="hk">What this does and does not do</span>
+        <p>A behaviour policy reduces accidents. It does not stop an attacker. Here is what would.</p>
+        <p>A rule somebody wrote down is not enforced by anything the agent does not already control, so it shapes what an agent <b>tends</b> to do rather than what it is capable of doing — the model provider's own words, and we would rather quote them than talk around them. That is worth money when the failure mode is tendency, and most of what goes wrong is not an attack: it is an agent doing something reasonable that nobody wanted, because nobody told it. What bounds a grant is a setting, a scope or a gateway, and <a href="lab-commit-author.html">Lab 05</a> works one case all the way through — including the four free settings you should turn on before paying us anything.</p>
+        <p><b>And if your agent does something you did not authorise, the question you will be asked is what you <em>did</em> authorise.</b> That document is the thing on the paid side of the line above.</p>
+      </div>
+      <p class="pnote">A floor of ten pounds stands on card-fee arithmetic rather than on positioning, and no price above it is settled. We would rather charge one price and count than ask thirty people what they would pay — stated willingness to pay overstates the real thing by between one and three times, and naming a number before the question is what produces the answer to it.</p>
+    </div>
+  </section>
+
+  <!-- Tiers -->
+  <section class="psection alt" id="tiers">
+    <div class="wrap">
+      <div class="shead wide">
+        <span class="tag">The platform underneath</span>
         <h2>Value grows up the ladder. <span class="g">The security model does not change.</span></h2>
-        <p>Each bullet is a maintainability, scalability, or security property of the tier — labelled per axis — not a feature behind a paywall.</p>
+        <p>Separately from the document above, the platform a policy lives in is itself operated at three tiers. Each bullet is a maintainability, scalability, or security property — labelled per axis — not a feature behind a paywall.</p>
       </div>
       <div class="prices">
         <div class="price"><div class="ptier green">Community</div><div class="pamt">Free<span class="psub">open source</span></div>
@@ -238,7 +324,7 @@ a.ds{display:block;text-decoration:none;color:inherit}
   </section>
 
   <!-- What changes across tiers -->
-  <section class="psection alt">
+  <section class="psection">
     <div class="wrap">
       <div class="shead">
         <span class="tag">What changes</span>
@@ -259,17 +345,17 @@ a.ds{display:block;text-decoration:none;color:inherit}
 
 <section class="pcta" id="demo">
   <div class="wrap">
-    <span class="eyebrow"><span class="d"></span> Sovereignty is the floor</span>
-    <h2>Start free. <span class="it">Grow into the ladder.</span></h2>
-    <p>Run the open-source vault today, or talk to us about the consumption and enterprise tiers — same product, same foundation, operated to fit.</p>
-    <div class="cta-row"><button class="btn btn-green" data-demo>Book a demo →</button></div>
+    <span class="eyebrow"><span class="d"></span> The library is free</span>
+    <h2>Read the free half first. <span class="it">Then decide.</span></h2>
+    <p>The worked examples, the capability data and the draft for your own shape cost nothing and need no account — and four of the settings that actually bound an agent are free too, on your own repository. Come back when you want the document that says what <em>you</em> authorised.</p>
+    <div class="cta-row"><a class="btn btn-green" href="abp.html">What a policy is →</a><a class="btn btn-ghost" href="lab-commit-author.html">The free settings first</a><button class="btn btn-ghost" data-demo>Talk to us</button></div>
   </div>
 </section>
 
 <footer class="foot">
   <div class="wrap">
     <span>© 2026 RiskMandate · Autonomous Risk Management</span>
-    <span>Split by value. The security model does not change. · <a class="footlink" href="versions.html">Versions</a></span>
+    <span>The library is the argument; the instance is yours. · <a class="footlink" href="versions.html">Versions</a></span>
   </div>
 </footer>
 
@@ -277,7 +363,7 @@ a.ds{display:block;text-decoration:none;color:inherit}
 (function(){
 'use strict';
 var RM={core:{},services:{},components:{},data:{}};
-RM.data.currentPage="pricing";RM.data.pages=[{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"The problem"},{"name":"acceptable","label":"Accepted is not acceptable","file":"acceptable.html","group":"The problem"},{"name":"acceptance","label":"You own the risk","file":"acceptance.html","group":"The problem"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"The problem"},{"name":"abp","label":"Agent Behaviour Policy","file":"abp.html","group":"The model"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"The model"},{"name":"agents","label":"Agents","file":"agents.html","group":"The model"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"The model"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"The model"},{"name":"statics","label":"Static scenarios","file":"statics.html","group":"The model"},{"name":"demos","label":"All demos","file":"demos.html","group":"Live demos"},{"name":"demo-licence-to-operate","label":"Licence to Operate","file":"demo-licence-to-operate.html","group":"Live demos"},{"name":"demo-risk-graph-explorer","label":"RiskGraph Explorer","file":"demo-risk-graph-explorer.html","group":"Live demos"},{"name":"demo-agentic-browser-isolation","label":"Agentic Browser Isolation","file":"demo-agentic-browser-isolation.html","group":"Live demos"},{"name":"demo-risk-mandate-field","label":"RiskMandate field demo","file":"demo-risk-mandate-field.html","group":"Live demos"},{"name":"demo-file-security","label":"File security walk","file":"demo-file-security.html","group":"Live demos"},{"name":"demo-agent-permission-games","label":"Permission games","file":"demo-agent-permission-games.html","group":"Live demos"},{"name":"lab","label":"All entries","file":"lab.html","group":"Lab"},{"name":"lab-connector-grants","label":"01 · The grant is user-shaped","file":"lab-connector-grants.html","group":"Lab"},{"name":"lab-abp-flow","label":"02 · Buying a behaviour policy","file":"lab-abp-flow.html","group":"Lab"},{"name":"lab-abp-requests","label":"03 · Requests to abp.sgit.ai","file":"lab-abp-requests.html","group":"Lab"},{"name":"lab-shape-collector","label":"04 · The shape collector","file":"lab-shape-collector.html","group":"Lab"},{"name":"summit","label":"Lisbon 2026","file":"summit.html"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"briefs","label":"Brief register","file":"briefs.html","group":"More"},{"name":"work","label":"Working with us","file":"work.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"}];RM.data.sections=[];
+RM.data.currentPage="pricing";RM.data.pages=[{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"The problem"},{"name":"acceptable","label":"Accepted is not acceptable","file":"acceptable.html","group":"The problem"},{"name":"acceptance","label":"You own the risk","file":"acceptance.html","group":"The problem"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"The problem"},{"name":"abp","label":"Agent Behaviour Policy","file":"abp.html","group":"The model"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"The model"},{"name":"agents","label":"Agents","file":"agents.html","group":"The model"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"The model"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"The model"},{"name":"statics","label":"Static scenarios","file":"statics.html","group":"The model"},{"name":"demos","label":"All demos","file":"demos.html","group":"Live demos"},{"name":"demo-licence-to-operate","label":"Licence to Operate","file":"demo-licence-to-operate.html","group":"Live demos"},{"name":"demo-risk-graph-explorer","label":"RiskGraph Explorer","file":"demo-risk-graph-explorer.html","group":"Live demos"},{"name":"demo-agentic-browser-isolation","label":"Agentic Browser Isolation","file":"demo-agentic-browser-isolation.html","group":"Live demos"},{"name":"demo-risk-mandate-field","label":"RiskMandate field demo","file":"demo-risk-mandate-field.html","group":"Live demos"},{"name":"demo-file-security","label":"File security walk","file":"demo-file-security.html","group":"Live demos"},{"name":"demo-agent-permission-games","label":"Permission games","file":"demo-agent-permission-games.html","group":"Live demos"},{"name":"lab","label":"All entries","file":"lab.html","group":"Lab"},{"name":"lab-connector-grants","label":"01 · The grant is user-shaped","file":"lab-connector-grants.html","group":"Lab"},{"name":"lab-abp-flow","label":"02 · Buying a behaviour policy","file":"lab-abp-flow.html","group":"Lab"},{"name":"lab-abp-requests","label":"03 · Requests to abp.sgit.ai","file":"lab-abp-requests.html","group":"Lab"},{"name":"lab-shape-collector","label":"04 · The shape collector","file":"lab-shape-collector.html","group":"Lab"},{"name":"lab-commit-author","label":"05 · The commit author","file":"lab-commit-author.html","group":"Lab"},{"name":"summit","label":"Lisbon 2026","file":"summit.html"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"briefs","label":"Brief register","file":"briefs.html","group":"More"},{"name":"work","label":"Working with us","file":"work.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"}];RM.data.sections=[];
 
 'use strict';
 // components/dom.js — tiny DOM helpers shared by components. `el` builds an

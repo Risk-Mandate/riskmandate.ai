@@ -35,6 +35,23 @@
             "assets/lab/lab-shape-collector--v1--2026-09-12.pdf"
           ],
           "note": "Adds entry 04, the shape-collector build specification. The first three entries are unchanged from v1 apart from the stray-text repair noted against each."
+        },
+        {
+          "v": 3,
+          "date": "2026-09-12",
+          "file": "assets/lab/lab--the-whole-lab--v3--2026-09-12.pdf",
+          "bytes": 1369090,
+          "sha256": "ab98520262d3dc4c535eb80b2a40c00ceffafb61a5c57e46856cd68db78d1301",
+          "content": "18c92cfafaaab991ebc2de0f3e3e6223c835d10ce46adcb855d7ccddd885d29a",
+          "pages": 55,
+          "combines": [
+            "assets/lab/lab-connector-grants--v2--2026-09-12.pdf",
+            "assets/lab/lab-abp-flow--v2--2026-09-12.pdf",
+            "assets/lab/lab-abp-requests--v2--2026-09-12.pdf",
+            "assets/lab/lab-shape-collector--v1--2026-09-12.pdf",
+            "assets/lab/lab-commit-author--v1--2026-09-12.pdf"
+          ],
+          "note": "Adds entry 05, the commit-author finding. Entries 01 to 04 are unchanged from v2."
         }
       ]
     },
@@ -83,6 +100,21 @@
           "sha256": "aa172f14066bcea1e989285782e77a9f28a160ea5b0ce8004198e50e4009243b",
           "content": "742c8565e6ba3642fa08b93a23689286c8d9d36d3c135d9f1778a4b67ff6f6af",
           "note": "Identical argument to v1. Re-cut only to remove a line of stray script text that the page was rendering onto its last page."
+        }
+      ]
+    },
+    {
+      "slug": "lab-commit-author",
+      "file": "lab-commit-author.html",
+      "title": "RiskMandate — Lab 05 · the commit author is a free text field",
+      "editions": [
+        {
+          "v": 1,
+          "date": "2026-09-12",
+          "file": "assets/lab/lab-commit-author--v1--2026-09-12.pdf",
+          "bytes": 350719,
+          "sha256": "a8cd4f1efae9ba5d1a0582be7f6c137f8208aca4807bc39c3e0d820882114d13",
+          "content": "bdc154607f29940ff5a8985f0715bec6970f5e7ec1e8162040166bdd262840ef"
         }
       ]
     },
