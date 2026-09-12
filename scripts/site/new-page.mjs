@@ -89,7 +89,7 @@ rm-menu{display:contents}
 .top.nav-open .navtoggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .top.nav-open .navtoggle span:nth-child(2){opacity:0}
 .top.nav-open .navtoggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-@media (max-width:980px){
+@media (max-width:1040px){
   .navtoggle{display:flex}
   .top .wrap{position:relative}
   .version{display:none}
@@ -136,7 +136,18 @@ rm-menu{display:contents}
 .foot{background:var(--canvas);border-top:1px solid var(--line);padding:32px 24px}
 .foot .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-family:var(--mono);font-size:10px;color:var(--fg-3);max-width:1100px}
 .footlink{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
-.footlink:hover{color:var(--fg-2)}`;
+.footlink:hover{color:var(--fg-2)}
+/* narrow phones — at 360px the brand, the burger and the call to action stop
+   fitting on one line, and the header was the last thing on this site that
+   scrolled sideways. Tighten the gutter, the gap and the button rather than
+   drop any of them: all three are load-bearing at this width. */
+@media (max-width:420px){
+  .top .wrap{gap:12px;padding:0 16px}
+  .brand{font-size:14px;gap:7px}
+  .rm{width:24px;height:24px}
+  .demo{padding:8px 12px;font-size:12.5px}
+}
+`;
 
 const MARK = '<svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg>';
 

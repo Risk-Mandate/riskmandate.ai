@@ -40,7 +40,7 @@ rm-version-switcher{display:inline-flex;align-items:center}
 .vs-select:disabled{cursor:default;opacity:.8}
 .demo{background:var(--green);color:#fff;font-weight:600;font-size:13px;border:0;border-radius:8px;padding:8px 16px;cursor:pointer;transition:background .15s;font-family:var(--sans);white-space:nowrap}
 .demo:hover{background:#16704f}
-@media (max-width:880px){.navlinks{display:none}.vs-select{display:none}}
+@media (max-width:940px){.navlinks{display:none}.vs-select{display:none}}
 
 /* buttons */
 .btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;padding:12px 22px;border-radius:var(--r-sm);cursor:pointer;border:1px solid transparent;font-family:var(--sans)}
@@ -169,3 +169,13 @@ a.demo{text-decoration:none;display:inline-block}
 @media (max-width:880px){.version{display:none}}
 .rm-shell-status{max-width:720px;margin:26px auto;padding:22px 26px;border:1px solid var(--line,#e2dfd8);border-radius:12px;font-family:var(--mono);font-size:13px;color:var(--muted)}
 .rm-shell-status.err{border-color:#C0392B;color:#C0392B}
+/* narrow phones — at 360px the brand, the burger and the call to action stop
+   fitting on one line, and the header was the last thing on this site that
+   scrolled sideways. Tighten the gutter, the gap and the button rather than
+   drop any of them: all three are load-bearing at this width. */
+@media (max-width:420px){
+  .top .wrap{gap:12px;padding:0 16px}
+  .brand{font-size:14px;gap:7px}
+  .rm{width:24px;height:24px}
+  .demo{padding:8px 12px;font-size:12.5px}
+}

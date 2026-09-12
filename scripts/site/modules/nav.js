@@ -85,7 +85,7 @@ RM.components.nav = (function () {
     });
     doc.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
     var view = doc.defaultView || window;
-    view.addEventListener('resize', function () { if (view.innerWidth > 980) set(false); });
+    view.addEventListener('resize', function () { if (view.innerWidth > 1040) set(false); });
   }
 
   /** @param {Document} doc */

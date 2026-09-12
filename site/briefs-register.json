@@ -1,0 +1,177 @@
+{
+  "note": "Every document, brief and instruction this site was built from, in the order it arrived. It exists for two jobs. First, nothing gets worked twice: `sha256` is the digest of the file exactly as received, so an identical file arriving again is recognisable before anybody starts reading it — `received` lists every time it turned up. Second, nothing gets missed: an agent producing these briefs can fetch this file, compare it against what it has sent, and name anything absent. `status` is the honest state of the work, not an intention. `produced` names what exists because of the item, with URLs that can be checked. Items given as speech, chat text or a link have no digest and are recorded under `informal` — they are the ones most easily lost, which is why they are in here at all.",
+  "site": "https://riskmandate.ai",
+  "register": "https://riskmandate.ai/briefs-register.json",
+  "page": "https://riskmandate.ai/briefs.html",
+  "maintained_by": "RiskMandate. Corrections and omissions: use the contact control on the page.",
+  "statuses": {
+    "processed": "Read in full, and something on this site exists because of it.",
+    "partly": "Read in full; some of it is built and a named part is not.",
+    "received": "Archived and read, and nothing has been built from it yet.",
+    "superseded": "Later material replaced it. Kept because the reasoning is still the record."
+  },
+  "documents": [
+    {
+      "id": "D1",
+      "title": "The Grant Is User Shaped And Not Data Shaped: Start With The Connectors, And The Template Vault Is The Product",
+      "version": "v0.33.70",
+      "type": "dev brief",
+      "dated": "2026-09-12",
+      "file": "assets/briefs/v0.33.70__dev-brief__the-grant-is-user-shaped-and-not-data-shaped.md",
+      "bytes": 29886,
+      "sha256": "1b2dfa45d228be6b0f6eb6a420090da160e979fe0b347048588565441a9f6e38",
+      "received": ["2026-09-12T12:52Z", "2026-09-12T18:07Z"],
+      "duplicate_of": null,
+      "status": "processed",
+      "produced": [
+        { "what": "Lab 01 — the grant is user-shaped, not data-shaped", "url": "lab-connector-grants.html" },
+        { "what": "Lab 02 — what buying a behaviour policy would look like, including the twelve-stage flow", "url": "lab-abp-flow.html" },
+        { "what": "Lab 03 — the request list against abp.sgit.ai, including the proposed `material` property", "url": "lab-abp-requests.html" }
+      ],
+      "not_done": [
+        "The five first policies themselves. Lab 01 documents the grants; no policy document exists for any of the five shapes.",
+        "The template vault and the shape library — named in the brief as the actual product, and not started.",
+        "The instrumentation table timing the first five, which the brief calls the only pricing input anybody will have."
+      ],
+      "notes": "Uploaded twice, byte-identical. The second arrival was in the same message as D3 and D4 and was not reprocessed."
+    },
+    {
+      "id": "D2",
+      "title": "This Is The Tier One Application Nobody Could Find: The Connector List Alone Is Twenty Bits, So Compute Locally And Submit Banded",
+      "version": "v0.33.70",
+      "type": "dev brief",
+      "dated": "2026-09-12",
+      "file": "assets/briefs/v0.33.70__dev-brief__this-is-the-tier-one-application-nobody-could-find.md",
+      "bytes": 31387,
+      "sha256": "11ff8f5f9eebb9200d30694381ff27c7e53a59417dd92f1a0461bbfe1b65ad89",
+      "received": ["2026-09-12T17:22Z"],
+      "duplicate_of": null,
+      "status": "processed",
+      "produced": [
+        { "what": "Lab 04 — seven things to build, and one word we have not earned", "url": "lab-shape-collector.html" }
+      ],
+      "not_done": [
+        "All seven items on Lab 04's own build list. The page is the specification; none of it is built."
+      ],
+      "notes": "One correction to the brief is stated on the page and marked as ours: banding is the necessary first move and not the whole answer, because a banded submission still carries roughly the entropy of the fingerprint study the brief benchmarks against."
+    },
+    {
+      "id": "D3",
+      "title": "The Commit Author Is A Free Text Field: A Prompt Shifts The Odds, And Every Documented Fix Was Architectural",
+      "version": "v0.33.70",
+      "type": "dev brief",
+      "dated": "2026-09-12",
+      "file": "assets/briefs/v0.33.70__dev-brief__the-commit-author-is-a-free-text-field.md",
+      "bytes": 34370,
+      "sha256": "b54eddae92bc88d8133c1e544c339433972ef6cf8cf8656ac4771b7ffbce7ccd",
+      "received": ["2026-09-12T18:07Z"],
+      "duplicate_of": null,
+      "status": "received",
+      "produced": [],
+      "not_done": [
+        "A Lab entry for the commit-author finding, the eight-line prompt with its enforced-by column, and the six-incident table.",
+        "The comparison experiment: fixed task, twenty runs an arm, violations counted as repository queries, one adversarial arm against our own repository only.",
+        "The provider and connector pages the brief maps onto the four layers."
+      ],
+      "notes": "Read in full, not yet built. Its central finding is checkable in one command and is the strongest single example in the corpus."
+    },
+    {
+      "id": "D4",
+      "title": "The Urgency Is Not A Deadline But A State: You Already Connected It, And A Distributed Skill Cannot Carry A Control",
+      "version": "v0.33.70",
+      "type": "strategy brief",
+      "dated": "2026-09-12",
+      "file": "assets/briefs/v0.33.70__strategy-brief__the-urgency-is-not-a-deadline-but-a-state.md",
+      "bytes": 29897,
+      "sha256": "af73131b6a72bb5f6d8aad1563f124a016040833310df0fb8be717ec44bb0e56",
+      "received": ["2026-09-12T18:07Z"],
+      "duplicate_of": null,
+      "status": "received",
+      "produced": [],
+      "not_done": [
+        "The urgency section: three sourced vendor sentences with dates and no adjective, on the front page.",
+        "The mistakes-not-attacks label on anything carrying a price.",
+        "The free-and-paid ladder on pricing.html, which still points at the old tiers.",
+        "The price experiment as redesigned — charge one price and count, with a certainty question after."
+      ],
+      "notes": "Read in full, not yet built. It rules against selling the ABP as a skill and against the price survey as originally proposed, and it contains the only two dated answers to \"why this year\"."
+    },
+    {
+      "id": "D5",
+      "title": "Startup Summit 2026 — exhibitor booth guide",
+      "version": null,
+      "type": "organiser document",
+      "dated": "2026-09-12",
+      "file": "assets/summit/startup-booth-guide.pdf",
+      "bytes": 2490263,
+      "sha256": "d13e3f08729fa8ffaab7f4e1d247535fb0782c5182df67e365ef61d52ca0cf3d",
+      "received": ["2026-09-12T11:56Z"],
+      "duplicate_of": null,
+      "status": "processed",
+      "produced": [
+        { "what": "The booth working page, with the guide embedded and the materials to hand over", "url": "summit-booth.html" },
+        { "what": "Three corrections to the Lisbon messaging brief: no banner, the portal rather than email, and power must be requested", "url": "summit.html" }
+      ],
+      "not_done": [
+        "Logo and name into the exhibitor portal — the organisers' own deadline was 15 September.",
+        "The power request, which goes through the portal and not by email."
+      ],
+      "notes": "Third-party material, republished on a working page rather than a public one. Whether it stays fetchable under site/ is an open decision."
+    }
+  ],
+  "informal": [
+    {
+      "id": "I1",
+      "what": "Voice memo: put the Agent Behaviour Policy at the centre of the site. The ABP is the fundamental primitive; the grant is calculated from reality via digital twins; RiskMandate drives the sale of ABPs; corporate users, investors and founders are the audiences; and a security vendor whose controls reduce the delta has a business case we can make for them.",
+      "how": "voice memo, transcribed in the thread",
+      "dated": "2026-09-12",
+      "status": "partly",
+      "produced": [
+        { "what": "The direction brief", "url": "https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/briefs/direction__abp-at-the-centre.md" },
+        { "what": "The Agent Behaviour Policy page", "url": "abp.html" }
+      ],
+      "not_done": [
+        "The homepage's second panel, which should become \"the grant you did not enumerate\" and still does not.",
+        "pricing.html repointed at the store tiers."
+      ]
+    },
+    {
+      "id": "I2",
+      "what": "The Startup Summit exhibitor pack and the event site, for a strategy document and the materials to submit.",
+      "how": "link, in the thread",
+      "dated": "2026-09-11",
+      "status": "processed",
+      "produced": [
+        { "what": "The Lisbon 2026 page", "url": "summit.html" },
+        { "what": "The messaging and strategy briefs", "url": "https://github.com/Risk-Mandate/riskmandate.ai/tree/dev/docs/briefs" }
+      ],
+      "not_done": []
+    },
+    {
+      "id": "I3",
+      "what": "Hire a freelancer who also works through agents; give them a page and a first prompt focused on sales online and at Lisbon, and make their first task being a power user and tester of ABPs.",
+      "how": "chat instruction",
+      "dated": "2026-09-12",
+      "status": "processed",
+      "produced": [
+        { "what": "Working with us", "url": "work.html" },
+        { "what": "Brief B1 — power user and tester of Agent Behaviour Policies", "url": "work-abp-power-user.html" }
+      ],
+      "not_done": [
+        "Rate, hours, start date, escalation route, publication rules and repository access — deliberately absent because the page is public, and listed on it as owed."
+      ]
+    },
+    {
+      "id": "I4",
+      "what": "Preserve the Lab's thinking as it changes, and publish it as PDFs that can be sent through a chat app rather than linked.",
+      "how": "chat instruction",
+      "dated": "2026-09-12",
+      "status": "processed",
+      "produced": [
+        { "what": "Dated PDF editions of every Lab entry, and the whole Lab as one file", "url": "lab.html" },
+        { "what": "The edition register", "url": "lab-editions.json" }
+      ],
+      "not_done": []
+    }
+  ]
+}

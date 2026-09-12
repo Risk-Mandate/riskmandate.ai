@@ -111,8 +111,33 @@
     },
     {
       "name": "lab",
-      "label": "Lab",
-      "file": "lab.html"
+      "label": "All entries",
+      "file": "lab.html",
+      "group": "Lab"
+    },
+    {
+      "name": "lab-connector-grants",
+      "label": "01 · The grant is user-shaped",
+      "file": "lab-connector-grants.html",
+      "group": "Lab"
+    },
+    {
+      "name": "lab-abp-flow",
+      "label": "02 · Buying a behaviour policy",
+      "file": "lab-abp-flow.html",
+      "group": "Lab"
+    },
+    {
+      "name": "lab-abp-requests",
+      "label": "03 · Requests to abp.sgit.ai",
+      "file": "lab-abp-requests.html",
+      "group": "Lab"
+    },
+    {
+      "name": "lab-shape-collector",
+      "label": "04 · The shape collector",
+      "file": "lab-shape-collector.html",
+      "group": "Lab"
     },
     {
       "name": "summit",
@@ -123,6 +148,12 @@
       "name": "pricing",
       "label": "Pricing",
       "file": "pricing.html"
+    },
+    {
+      "name": "briefs",
+      "label": "Brief register",
+      "file": "briefs.html",
+      "group": "More"
     },
     {
       "name": "work",
@@ -153,26 +184,6 @@
       "label": "Brand",
       "file": "brand.html",
       "group": "More"
-    },
-    {
-      "name": "lab-connector-grants",
-      "file": "lab-connector-grants.html",
-      "unlisted": true
-    },
-    {
-      "name": "lab-abp-flow",
-      "file": "lab-abp-flow.html",
-      "unlisted": true
-    },
-    {
-      "name": "lab-abp-requests",
-      "file": "lab-abp-requests.html",
-      "unlisted": true
-    },
-    {
-      "name": "lab-shape-collector",
-      "file": "lab-shape-collector.html",
-      "unlisted": true
     },
     {
       "name": "work-abp-power-user",

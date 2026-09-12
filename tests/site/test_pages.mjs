@@ -170,6 +170,48 @@ test('every Lab edition exists, matches its digest, and is listed on its page', 
   }
 });
 
+test('the brief register accounts for every archived document, by digest', () => {
+  // The register's whole value is that somebody else can check it: an agent that
+  // produced a brief hashes its copy and looks for the digest. A register entry
+  // pointing at a missing or altered file, or a file sitting in assets/briefs/
+  // that no entry mentions, is the one failure that would make it worthless.
+  //
+  // (The 64-hex strings on briefs.html are these digests, not read keys — which
+  // is why the read-key test below is scoped to the Lab pages.)
+  const reg  = JSON.parse(read('briefs-register.json'));
+  const page = read('briefs.html');
+  assert.ok(reg.documents.length, 'no documents recorded');
+
+  const listedFiles = new Set();
+  for (const d of reg.documents) {
+    const path = join(SITE, d.file);
+    assert.ok(existsSync(path), `${d.id} names ${d.file}, which is not in site/`);
+    const bytes = readFileSync(path);
+    assert.equal(createHash('sha256').update(bytes).digest('hex'), d.sha256,
+                 `${d.id} does not match its recorded digest — the archived copy has changed`);
+    assert.equal(bytes.length, d.bytes, `${d.id} does not match its recorded size`);
+    assert.ok(reg.statuses[d.status], `${d.id} has status "${d.status}", which is not defined`);
+    assert.ok(d.received?.length, `${d.id} does not say when it arrived`);
+    assert.match(page, new RegExp(d.sha256), `briefs.html does not show ${d.id}'s digest`);
+    // A processed document must name something that exists; a received one must not.
+    for (const p of d.produced) {
+      if (/^https?:/.test(p.url)) continue;
+      assert.ok(existsSync(join(SITE, p.url.split('#')[0])), `${d.id} claims ${p.url}, which does not exist`);
+    }
+    if (d.status === 'received') assert.equal(d.produced.length, 0,
+      `${d.id} is marked received and names outputs — it is processed or partly`);
+    if (d.status === 'processed') assert.ok(d.produced.length,
+      `${d.id} is marked processed and names no output`);
+    listedFiles.add(d.file);
+  }
+
+  // Nothing may sit in the archive unaccounted for.
+  for (const f of readdirSync(join(SITE, 'assets/briefs'))) {
+    assert.ok(listedFiles.has(`assets/briefs/${f}`),
+              `assets/briefs/${f} is archived and not in the register`);
+  }
+});
+
 test('a Lab mockup never carries a real read key', () => {
   // A mockup that needed a key once got filled in with a real published one —
   // the Licence to Operate vault's — paired with an invented vault id. Public

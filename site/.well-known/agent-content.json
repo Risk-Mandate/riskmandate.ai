@@ -7,7 +7,7 @@
     "oneLine": "The insurability layer for agentic AI.",
     "summary": "Carriers are filing to exclude AI from cover, and the way back is evidence an underwriter will accept. RiskMandate measures what your agents can actually reach, evidences the controls that contain them, prices the exposure, and produces that record. Underneath the insurance framing is a risk model: a grant is what a credential technically permits, a mandate is what the holder is authorised and expected to do, and the gap between them is exposure nobody ever accepted. A deployed agent already has access, so a real risk cannot be denied — only accepted, by a named owner, for an interval, with an expiry that brings the decision back. RiskMandate is read-only and never in the request path: it defines the mandate and measures the gap; it does not enforce it. It is built on SG/Vault — zero-knowledge, PKI, provenance, no database — so you hold the keys.",
     "throughLine": "Measure what the agents can reach, name who owns it, evidence that the controls hold, and let the acceptance expire so the decision comes back.",
-    "version": "1.5.0"
+    "version": "1.6.0"
   },
   "artifacts": {
     "index": "https://riskmandate.ai/llms.txt",
@@ -186,8 +186,28 @@
     },
     {
       "name": "lab",
-      "label": "Lab",
+      "label": "All entries",
       "url": "https://riskmandate.ai/lab.html"
+    },
+    {
+      "name": "lab-connector-grants",
+      "label": "01 · The grant is user-shaped",
+      "url": "https://riskmandate.ai/lab-connector-grants.html"
+    },
+    {
+      "name": "lab-abp-flow",
+      "label": "02 · Buying a behaviour policy",
+      "url": "https://riskmandate.ai/lab-abp-flow.html"
+    },
+    {
+      "name": "lab-abp-requests",
+      "label": "03 · Requests to abp.sgit.ai",
+      "url": "https://riskmandate.ai/lab-abp-requests.html"
+    },
+    {
+      "name": "lab-shape-collector",
+      "label": "04 · The shape collector",
+      "url": "https://riskmandate.ai/lab-shape-collector.html"
     },
     {
       "name": "summit",
@@ -198,6 +218,11 @@
       "name": "pricing",
       "label": "Pricing",
       "url": "https://riskmandate.ai/pricing.html"
+    },
+    {
+      "name": "briefs",
+      "label": "Brief register",
+      "url": "https://riskmandate.ai/briefs.html"
     },
     {
       "name": "work",
@@ -315,5 +340,5 @@
     ]
   },
   "licence": "CC BY 4.0 (library content)",
-  "generated": "v1.5.0"
+  "generated": "v1.6.0"
 }

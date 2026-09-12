@@ -1,0 +1,936 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RiskMandate — the brief register</title>
+<meta name="description" content="Every document this site was built from, what it produced, and what it did not. Kept with a digest per file so nothing is worked twice and nothing is quietly dropped.">
+<link rel="canonical" href="https://riskmandate.ai/briefs.html">
+<link rel="alternate" type="text/markdown" href="briefs.md" title="This page as markdown">
+<link rel="icon" href="assets/brand/riskmandate-favicon-32.png" sizes="32x32">
+<link rel="icon" href="assets/brand/riskmandate-mark.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RiskMandate">
+<meta property="og:url" content="https://riskmandate.ai/briefs.html">
+<meta property="og:title" content="RiskMandate — the brief register">
+<meta property="og:description" content="Every document this site was built from, what it produced, and what it did not. Kept with a digest per file so nothing is worked twice and nothing is quietly dropped.">
+<meta property="og:image" content="https://riskmandate.ai/assets/brand/riskmandate-lockup-light.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Scaffolded by scripts/site/new-page.mjs. Hand-edited from here on — there is no build step. -->
+<style>
+/* briefs.css — self-contained: the shared chrome, then this page's own. */
+:root{
+  --bg:#F7F6F2; --bg2:#EFEDE7; --card:#FFFFFF; --ink:#0D0D0C; --canvas:#0A0A09;
+  --text:#1A1917; --muted:#4A4845; --faint:#8A8780; --border:#E2DFD8;
+  --green:#1A7F5A; --green-2:#22c55e; --greenBg:#EBF5F0;
+  --gold:#B45309; --red:#C0392B; --blue:#1D4ED8;
+  --fg:#F7F6F2; --fg-2:rgba(247,246,242,.55); --fg-3:rgba(247,246,242,.32);
+  --line:rgba(247,246,242,.10); --line-2:rgba(247,246,242,.18);
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","JetBrains Mono","Roboto Mono",Menlo,Consolas,monospace;
+  --wrap:1000px; --r:10px; --r-sm:8px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth} @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+h1,h2{margin:0;font-weight:800;letter-spacing:-.03em;line-height:1.04}
+h2{font-size:clamp(26px,3.6vw,40px);font-weight:700;letter-spacing:-.02em}
+p{margin:0}
+:focus-visible{outline:2px solid var(--green-2);outline-offset:3px;border-radius:4px}
+.tag{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+.g{color:var(--green)} .it{font-style:italic;color:var(--green)}
+
+/* header */
+.top{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.top .wrap{display:flex;align-items:center;gap:22px;height:56px;max-width:1100px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:15px;color:var(--text);white-space:nowrap;text-decoration:none}
+.rm{width:26px;height:26px;flex:none;display:block}
+.rm svg{width:100%;height:100%;display:block}
+.navlinks{display:flex;align-items:center;gap:22px;margin-left:auto}
+rm-menu{display:contents}
+.navlinks a{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;text-decoration:none;display:inline-flex;align-items:center}
+.navlinks a:hover{color:var(--text)}
+.navlinks a.active{color:var(--text);font-weight:600}
+.version{font-family:var(--mono);font-size:12px;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:7px;padding:5px 8px;text-decoration:none;white-space:nowrap;transition:color .15s,border-color .15s}
+.version:hover{color:var(--text);border-color:var(--faint)}
+.demo{background:var(--green);color:#fff;font-weight:600;font-size:13px;border:0;border-radius:8px;padding:8px 16px;cursor:pointer;transition:background .15s;font-family:var(--sans);white-space:nowrap}
+.demo:hover{background:#16704f}
+
+/* nav dropdowns */
+.navgroup{position:relative;display:inline-flex;align-items:center}
+.navgroup::after{content:"";position:absolute;top:100%;left:0;right:0;height:10px}
+.navgroup-btn{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;display:inline-flex;align-items:center;gap:5px}
+.navgroup-btn:hover,.navgroup:hover .navgroup-btn,.navgroup.open .navgroup-btn,.navgroup.active .navgroup-btn{color:var(--text)}
+.navgroup-car{font-size:8px;line-height:1;opacity:.6;transition:transform .15s}
+.navgroup:hover .navgroup-car,.navgroup.open .navgroup-car{transform:rotate(180deg)}
+.navmenu{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);min-width:184px;background:var(--card);border:1px solid var(--border);border-radius:10px;box-shadow:0 10px 34px rgba(13,13,12,.14);padding:6px;display:none;flex-direction:column;gap:2px;z-index:70}
+.navgroup:hover .navmenu,.navgroup.open .navmenu{display:flex}
+.navmenu .navchild{justify-content:flex-start;text-align:left;width:100%;padding:8px 12px;border-radius:7px;font-size:13.5px;color:var(--muted);white-space:nowrap}
+.navmenu .navchild:hover{background:var(--bg2);color:var(--text)}
+.navmenu .navchild.active{color:var(--green);font-weight:600;background:var(--greenBg)}
+
+/* mobile drawer — the toggle is injected by nav.js; .top.nav-open opens it */
+.navtoggle{display:none;margin-left:auto;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;padding:0;background:none;border:0;cursor:pointer}
+.navtoggle span{display:block;width:20px;height:2px;margin:0 auto;background:var(--text);border-radius:2px;transition:transform .2s,opacity .2s}
+.top.nav-open .navtoggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.top.nav-open .navtoggle span:nth-child(2){opacity:0}
+.top.nav-open .navtoggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media (max-width:1040px){
+  .navtoggle{display:flex}
+  .top .wrap{position:relative}
+  .version{display:none}
+  .navlinks{display:none;position:absolute;left:0;right:0;top:calc(100% + 1px);flex-direction:column;align-items:stretch;gap:0;margin:0;padding:8px;background:var(--card);border-bottom:1px solid var(--border);box-shadow:0 14px 34px rgba(13,13,12,.14);max-height:calc(100vh - 56px);overflow:auto}
+  .top.nav-open .navlinks{display:flex}
+  .navlinks a,.navlinks .navgroup-btn{width:100%;text-align:left;justify-content:flex-start;padding:12px 16px;font-size:15px;border-radius:8px}
+  .navlinks a:hover{background:var(--bg2)}
+  .navgroup{display:block;width:100%;position:static}
+  .navgroup::after{display:none}
+  .navgroup-btn{display:flex}
+  .navgroup-car{margin-left:auto}
+  .navmenu{position:static;transform:none;display:flex;flex-direction:column;min-width:0;padding:2px 0 8px 14px;background:transparent;border:0;box-shadow:none}
+  .navmenu .navchild{padding:10px 14px;font-size:14px}
+}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;padding:12px 22px;border-radius:var(--r-sm);cursor:pointer;border:1px solid transparent;font-family:var(--sans);text-decoration:none}
+.btn-green{background:var(--green);color:#fff} .btn-green:hover{background:#16704f}
+.btn-ghost{background:transparent;color:var(--fg);border-color:var(--line-2)} .btn-ghost:hover{border-color:var(--fg-2)}
+.btn-ghost-dark{background:transparent;color:var(--text);border-color:var(--border)} .btn-ghost-dark:hover{border-color:var(--green);color:var(--green)}
+
+/* dark hero */
+.phero{background:var(--ink);color:var(--fg);padding:88px 24px 84px}
+.phero .wrap{max-width:var(--wrap)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--green);background:rgba(26,127,90,.18);border:1px solid rgba(26,127,90,.4);border-radius:999px;padding:5px 12px}
+.eyebrow .d{width:6px;height:6px;border-radius:50%;background:var(--green-2)}
+.phero h1{font-size:clamp(34px,5.2vw,60px);letter-spacing:-.04em;line-height:1.02;margin:26px 0 0;color:var(--fg);max-width:900px}
+.phero .sub{color:var(--fg-2);font-size:17px;line-height:1.7;max-width:640px;margin-top:24px}
+.cta-row{display:flex;flex-wrap:wrap;gap:11px;margin-top:30px}
+
+/* paper sections */
+.paper{background:var(--bg)}
+.psection{padding:80px 0;border-bottom:1px solid var(--border)}
+.psection.alt{background:var(--bg2)}
+.shead{max-width:680px} .shead.center{max-width:720px;margin:0 auto;text-align:center}
+.shead h2{color:var(--text)} .shead p{color:var(--muted);margin-top:16px;font-size:15px;line-height:1.75}
+
+/* closing panel + footer */
+.pcta{background:var(--ink);padding:80px 24px;text-align:center}
+.pcta .wrap{max-width:720px;padding:0}
+.pcta h2{font-size:clamp(28px,4.4vw,48px);color:var(--fg);margin-top:20px;font-weight:700;letter-spacing:-.03em}
+.pcta p{color:var(--fg-2);margin-top:16px;font-size:16px;line-height:1.7}
+.pcta .cta-row{justify-content:center}
+.foot{background:var(--canvas);border-top:1px solid var(--line);padding:32px 24px}
+.foot .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-family:var(--mono);font-size:10px;color:var(--fg-3);max-width:1100px}
+.footlink{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.footlink:hover{color:var(--fg-2)}
+/* ── the register ─────────────────────────────────────────────────────────── */
+.regstrip{background:var(--bg2);border-bottom:1px solid var(--border);padding:9px 24px;
+  font-family:var(--mono);font-size:11px;color:var(--muted);text-align:center}
+.regstrip b{color:var(--text)}
+.regstrip a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+
+/* status — four values, and they mean different things */
+.st{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10px;
+  font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:999px;
+  padding:4px 10px;white-space:nowrap}
+.st::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.st.processed {color:var(--green);background:var(--greenBg);border:1px solid rgba(26,127,90,.3)}
+.st.partly    {color:var(--gold);background:#FDF6EC;border:1px solid rgba(180,83,9,.25)}
+.st.received  {color:var(--blue);background:#EEF2FF;border:1px solid rgba(29,78,216,.25)}
+.st.superseded{color:var(--muted);background:var(--bg2);border:1px solid var(--border)}
+
+/* one card per document received */
+.docs{display:flex;flex-direction:column;gap:16px;margin-top:36px}
+.doc{border:1px solid var(--border);border-radius:var(--r);background:var(--card);
+  padding:26px 28px}
+.doc.pending{border-left:3px solid var(--blue)}
+.doc .dh{display:flex;align-items:baseline;gap:13px;flex-wrap:wrap}
+.doc .did{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.14em;
+  color:var(--faint)}
+.doc h3{margin:0;font-size:18.5px;font-weight:700;letter-spacing:-.015em;color:var(--text);
+  line-height:1.3;flex:1 1 auto;min-width:240px}
+.doc .dmeta{margin-top:14px;display:flex;gap:8px 18px;flex-wrap:wrap;font-family:var(--mono);
+  font-size:11px;color:var(--faint)}
+.doc .dmeta b{color:var(--muted);font-weight:400}
+.doc .dig{font-family:var(--mono);font-size:11px;color:var(--faint);word-break:break-all;
+  margin-top:10px;line-height:1.5}
+.doc .dig b{color:var(--muted);font-weight:400}
+.doc .dnote{margin-top:16px;font-size:14px;color:var(--muted);line-height:1.7;max-width:760px}
+.doc .dnote b{color:var(--text)}
+
+/* what came out of it, and what did not */
+.out{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);
+  border:1px solid var(--border);border-radius:var(--r-sm);overflow:hidden}
+@media (max-width:760px){.out{grid-template-columns:1fr}}
+.out > div{background:var(--card);padding:16px 18px}
+.out .ok{background:var(--greenBg)}
+.out .k{display:block;font-family:var(--mono);font-size:9.5px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:10px}
+.out .ok .k{color:var(--green)}
+.out ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px}
+.out li{font-size:13.5px;color:var(--muted);line-height:1.55;padding-left:18px;position:relative}
+.out li::before{content:"";position:absolute;left:2px;top:7px;width:5px;height:5px;
+  border-radius:50%;background:var(--faint)}
+.out .ok li::before{background:var(--green)}
+.out .ok li a{color:var(--text);text-decoration:underline;text-underline-offset:2px;
+  text-decoration-color:rgba(26,127,90,.5)}
+.out .ok li a:hover{color:var(--green)}
+.out .none{font-size:13.5px;color:var(--faint);font-style:italic}
+
+/* the file link */
+.dfile{display:inline-flex;align-items:baseline;gap:9px;margin-top:18px;font-family:var(--mono);
+  font-size:12px;text-decoration:none;border:1px solid var(--border);border-radius:var(--r-sm);
+  padding:9px 13px;background:var(--bg2);color:var(--muted);transition:border-color .15s}
+.dfile:hover{border-color:var(--green);color:var(--text)}
+.dfile b{color:var(--text)}
+
+/* items that arrived as speech, chat or a link — no digest to check */
+.inf{margin-top:32px;display:flex;flex-direction:column;gap:12px}
+.ii{border:1px dashed var(--faint);border-radius:var(--r-sm);background:var(--card);
+  padding:20px 22px}
+.ii .ih{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.ii .did{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.14em;
+  color:var(--faint)}
+.ii .how{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--faint)}
+.ii > p{font-size:14px;color:var(--muted);line-height:1.7;max-width:760px}
+.ii > p b{color:var(--text)}
+.ii .out{margin-top:14px}
+
+/* the agent block */
+.agent{margin-top:28px;border-radius:var(--r);background:var(--ink);padding:26px 28px;
+  max-width:820px}
+.agent .k{display:block;font-family:var(--mono);font-size:9.5px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--green-2);margin-bottom:12px}
+.agent p{color:var(--fg-2);font-size:14px;line-height:1.7}
+.agent p b{color:var(--fg)}
+.agent pre{margin:16px 0 0;font-family:var(--mono);font-size:12px;line-height:1.8;
+  color:var(--green-2);overflow-x:auto;white-space:pre}
+.agent pre b{color:var(--fg-3);font-weight:400}
+
+/* tables, rules, notes, lists — the same kit the rest of the site uses */
+.tw{overflow-x:auto;margin-top:22px;border:1px solid var(--border);border-radius:var(--r-sm);
+  background:var(--card)}
+table.t{width:100%;border-collapse:collapse;font-size:13px;min-width:560px}
+table.t th{text-align:left;font-family:var(--mono);font-size:9.5px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--faint);padding:12px 14px;
+  border-bottom:1px solid var(--border);white-space:nowrap}
+table.t td{padding:12px 14px;border-bottom:1px solid var(--border);color:var(--muted);
+  line-height:1.5;vertical-align:top}
+table.t tr:last-child td{border-bottom:0}
+table.t td.k{color:var(--text);font-family:var(--mono);font-size:12px;white-space:nowrap}
+table.t code{font-family:var(--mono);font-size:11.5px;background:var(--bg2);padding:1px 5px;
+  border-radius:4px;color:var(--text)}
+.gl{text-align:center;width:1px}
+.rule{margin-top:30px;border-left:3px solid var(--green);background:var(--greenBg);
+  border-radius:0 var(--r-sm) var(--r-sm) 0;padding:20px 24px;max-width:720px}
+.rule p{color:var(--text);font-size:16px;line-height:1.6;font-weight:600}
+.rule p + p{margin-top:10px;font-weight:400;font-size:14.5px;color:var(--muted)}
+.notice{margin-top:28px;border:1px dashed var(--faint);border-radius:var(--r-sm);
+  padding:16px 20px;font-size:13.5px;color:var(--muted);line-height:1.65;max-width:800px}
+.notice strong{color:var(--text)}
+.notice a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+.plist{margin:26px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;
+  max-width:760px}
+.plist li{position:relative;padding-left:22px;font-size:15px;color:var(--muted);line-height:1.7}
+.plist li::before{content:"";position:absolute;left:2px;top:10px;width:6px;height:6px;
+  border-radius:50%;background:var(--green)}
+.plist strong{color:var(--text)}
+.plist code,.shead code,.rule code,.notice code{font-family:var(--mono);font-size:13px;
+  background:var(--bg2);padding:1px 6px;border-radius:5px;color:var(--text)}
+.psection.alt .plist code,.psection.alt .shead code{background:var(--card)}
+.src{margin-top:26px;font-family:var(--mono);font-size:11.5px;color:var(--faint);line-height:1.75}
+.src a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+
+/* narrow phones — at 360px the brand, the burger and the call to action stop
+   fitting on one line, and the header was the last thing on this site that
+   scrolled sideways. Tighten the gutter, the gap and the button rather than
+   drop any of them: all three are load-bearing at this width. */
+@media (max-width:420px){
+  .top .wrap{gap:12px;padding:0 16px}
+  .brand{font-size:14px;gap:7px}
+  .rm{width:24px;height:24px}
+  .demo{padding:8px 12px;font-size:12.5px}
+}
+</style>
+</head>
+<body id="top">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
+    <nav class="navlinks"><rm-menu></rm-menu></nav>
+    <a class="version" href="versions.html" title="What shipped in v1.6.0">v1.6.0</a>
+    <button class="demo" data-demo>Get in touch</button>
+  </div>
+</header>
+
+<div class="regstrip"><b>The register</b> — every document this site was built from, what it produced, and what it did not. Kept so nothing is worked twice and nothing is quietly dropped. <a href="briefs-register.json">briefs-register.json</a></div>
+
+<main class="phero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> Working record</span>
+    <h1>Everything we were given, and <span class="it">what came of it.</span></h1>
+    <p class="sub">This site is built from briefs written elsewhere. Two things go wrong with that arrangement: the same document gets worked twice, and a document arrives and is never worked at all. Both failures are invisible unless somebody keeps a list — so here is the list, with the digest of every file as it was received and an honest status against each one.</p>
+    <div class="cta-row">
+      <button class="btn btn-green" data-to="documents">The documents ↓</button>
+      <a class="btn btn-ghost" href="briefs-register.json">The register as JSON →</a>
+    </div>
+  </div>
+</main>
+
+<div class="paper">
+
+  <section class="psection" id="how">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Why this exists</span>
+        <h2>Two failures, <span class="g">one list.</span></h2>
+        <p>Neither of these is hypothetical. One of the documents below arrived twice, byte-identical, six hours apart — and three Lab entries had already been written from it. Without a digest to compare, the only thing standing between that and a wasted afternoon is somebody's memory of a filename.</p>
+      </div>
+      <ul class="plist">
+        <li><strong>Nothing gets worked twice.</strong> Every file is archived exactly as it arrived and its SHA-256 recorded. An identical file turning up again is recognisable <em>before</em> anybody starts reading it, and the register lists every time it turned up rather than only the first.</li>
+        <li><strong>Nothing gets quietly dropped.</strong> The agent producing these briefs can fetch <a href="briefs-register.json">briefs-register.json</a>, compare it against what it has sent, and name anything that is absent. That is a check somebody else can run against us, which is the only kind worth having.</li>
+        <li><strong>The status is the state of the work, not an intention.</strong> <span class="st received">Received</span> means read and archived with nothing built. It is not a promise that something will be, and it stays visible until either something is built or the item is marked superseded.</li>
+        <li><strong>And what was <em>not</em> done is recorded beside what was.</strong> A register that lists only outputs flatters the work. Every entry below carries both columns, and the right-hand one is usually longer.</li>
+      </ul>
+      <div class="tw">
+        <table class="t">
+          <thead><tr><th></th><th>Status</th><th>What it means</th></tr></thead>
+          <tbody>
+            <tr><td class="gl"><span class="st processed">Processed</span></td><td class="k">processed</td><td>Read in full, and something on this site exists because of it</td></tr>
+            <tr><td class="gl"><span class="st partly">Partly</span></td><td class="k">partly</td><td>Read in full; some of it is built and a named part is not</td></tr>
+            <tr><td class="gl"><span class="st received">Received</span></td><td class="k">received</td><td>Archived and read, and nothing has been built from it yet</td></tr>
+            <tr><td class="gl"><span class="st superseded">Superseded</span></td><td class="k">superseded</td><td>Later material replaced it. Kept, because the reasoning is still the record</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="psection alt" id="documents">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Documents received</span>
+        <h2>Five files, <span class="g">in the order they arrived.</span></h2>
+        <p>Each one is linked in full, as received, with nothing edited. Where a brief and this site disagree, the brief is what we were given and the site is what we concluded — and where we corrected a brief, the correction is on the page rather than in the file.</p>
+      </div>
+
+      <div class="docs">
+
+        <div class="doc">
+          <div class="dh">
+            <span class="did">D1</span>
+            <h3>The Grant Is User Shaped And Not Data Shaped: Start With The Connectors, And The Template Vault Is The Product</h3>
+            <span class="st processed">Processed</span>
+          </div>
+          <div class="dmeta">
+            <span><b>type</b> dev brief</span><span><b>version</b> v0.33.70</span>
+            <span><b>dated</b> 12 Sept 2026</span><span><b>received</b> 12 Sept 12:52 <em>and again</em> 18:07</span>
+            <span><b>29,886 bytes</b></span>
+          </div>
+          <p class="dig"><b>sha256</b> 1b2dfa45d228be6b0f6eb6a420090da160e979fe0b347048588565441a9f6e38</p>
+          <p class="dnote"><b>This is the one that arrived twice.</b> Byte-identical both times, and the second arrival came in the same message as D3 and D4. It was not reprocessed — the three Lab entries below were already written from the first copy. This entry is the reason the register exists.</p>
+          <div class="out">
+            <div class="ok">
+              <span class="k">What it produced</span>
+              <ul>
+                <li><a href="lab-connector-grants.html">Lab 01 — the grant is user-shaped, not data-shaped</a>, with four vendor quotes verbatim</li>
+                <li><a href="lab-abp-flow.html">Lab 02 — what buying a behaviour policy would look like</a>, including the twelve-stage flow</li>
+                <li><a href="lab-abp-requests.html">Lab 03 — requests against abp.sgit.ai</a>, including the proposed <code>material</code> property</li>
+              </ul>
+            </div>
+            <div>
+              <span class="k">What it asked for and has not got</span>
+              <ul>
+                <li><strong>The five first policies themselves.</strong> Lab 01 documents the grants; no policy document exists for any of the five shapes</li>
+                <li><strong>The template vault and the shape library</strong> — named in the brief as the actual product, and not started</li>
+                <li><strong>The instrumentation table</strong> timing the first five, which the brief calls the only pricing input anybody will have</li>
+              </ul>
+            </div>
+          </div>
+          <a class="dfile" href="assets/briefs/v0.33.70__dev-brief__the-grant-is-user-shaped-and-not-data-shaped.md"><b>Read it in full</b> markdown · 30KB</a>
+        </div>
+
+        <div class="doc">
+          <div class="dh">
+            <span class="did">D2</span>
+            <h3>This Is The Tier One Application Nobody Could Find: The Connector List Alone Is Twenty Bits, So Compute Locally And Submit Banded</h3>
+            <span class="st processed">Processed</span>
+          </div>
+          <div class="dmeta">
+            <span><b>type</b> dev brief</span><span><b>version</b> v0.33.70</span>
+            <span><b>dated</b> 12 Sept 2026</span><span><b>received</b> 12 Sept 17:22</span>
+            <span><b>31,387 bytes</b></span>
+          </div>
+          <p class="dig"><b>sha256</b> 11ff8f5f9eebb9200d30694381ff27c7e53a59417dd92f1a0461bbfe1b65ad89</p>
+          <p class="dnote"><b>One correction to this brief is stated on the page it produced, and marked as ours.</b> The brief treats banding as the fix. Worked through, banding is the necessary first move and not the whole answer, because a banded submission still carries roughly the entropy of the fingerprint study the brief benchmarks against. The page shows the assumptions so somebody can check the arithmetic.</p>
+          <div class="out">
+            <div class="ok">
+              <span class="k">What it produced</span>
+              <ul>
+                <li><a href="lab-shape-collector.html">Lab 04 — seven things to build, and one word we have not earned</a></li>
+              </ul>
+            </div>
+            <div>
+              <span class="k">What it asked for and has not got</span>
+              <ul>
+                <li><strong>All seven items on Lab 04's own build list.</strong> The page is the specification; none of it is built</li>
+              </ul>
+            </div>
+          </div>
+          <a class="dfile" href="assets/briefs/v0.33.70__dev-brief__this-is-the-tier-one-application-nobody-could-find.md"><b>Read it in full</b> markdown · 31KB</a>
+        </div>
+
+        <div class="doc pending">
+          <div class="dh">
+            <span class="did">D3</span>
+            <h3>The Commit Author Is A Free Text Field: A Prompt Shifts The Odds, And Every Documented Fix Was Architectural</h3>
+            <span class="st received">Received</span>
+          </div>
+          <div class="dmeta">
+            <span><b>type</b> dev brief</span><span><b>version</b> v0.33.70</span>
+            <span><b>dated</b> 12 Sept 2026</span><span><b>received</b> 12 Sept 18:07</span>
+            <span><b>34,370 bytes</b></span>
+          </div>
+          <p class="dig"><b>sha256</b> b54eddae92bc88d8133c1e544c339433972ef6cf8cf8656ac4771b7ffbce7ccd</p>
+          <p class="dnote"><b>Read in full, nothing built yet.</b> Its central finding is the strongest single example in the corpus and is checkable in one command: the author name and address on a commit are free text, the reference documentation says in terms that the name has no effect on authentication, and the code host links the commit to whichever account owns the address with no consent step and no notification. Exactly one thing prevents it, and it is not a prompt.</p>
+          <div class="out">
+            <div class="ok">
+              <span class="k">What it produced</span>
+              <ul><li class="none">Nothing yet.</li></ul>
+            </div>
+            <div>
+              <span class="k">What it asks for</span>
+              <ul>
+                <li><strong>A Lab entry</strong> for the commit-author finding, the eight-line prompt with its <em>enforced by</em> column, and the six-incident table</li>
+                <li><strong>The comparison experiment</strong>: fixed task, twenty runs an arm, violations counted as repository queries, one adversarial arm against our own repository only</li>
+                <li><strong>Provider and connector pages</strong> mapped onto the four layers</li>
+              </ul>
+            </div>
+          </div>
+          <a class="dfile" href="assets/briefs/v0.33.70__dev-brief__the-commit-author-is-a-free-text-field.md"><b>Read it in full</b> markdown · 34KB</a>
+        </div>
+
+        <div class="doc pending">
+          <div class="dh">
+            <span class="did">D4</span>
+            <h3>The Urgency Is Not A Deadline But A State: You Already Connected It, And A Distributed Skill Cannot Carry A Control</h3>
+            <span class="st received">Received</span>
+          </div>
+          <div class="dmeta">
+            <span><b>type</b> strategy brief</span><span><b>version</b> v0.33.70</span>
+            <span><b>dated</b> 12 Sept 2026</span><span><b>received</b> 12 Sept 18:07</span>
+            <span><b>29,897 bytes</b></span>
+          </div>
+          <p class="dig"><b>sha256</b> af73131b6a72bb5f6d8aad1563f124a016040833310df0fb8be717ec44bb0e56</p>
+          <p class="dnote"><b>Read in full, nothing built yet.</b> It rules against two things we might otherwise have done — selling the behaviour policy as an agent skill, and running the price survey as proposed — and it supplies the only two dated answers to <em>why this year</em>. It also settles the awkward question at the centre of the entry product: a prompt reduces accidents and does not stop an attacker, and the page carrying a price has to say so.</p>
+          <div class="out">
+            <div class="ok">
+              <span class="k">What it produced</span>
+              <ul><li class="none">Nothing yet.</li></ul>
+            </div>
+            <div>
+              <span class="k">What it asks for</span>
+              <ul>
+                <li><strong>The urgency section</strong> — three sourced vendor sentences with dates and no adjective, on the front page</li>
+                <li><strong>The mistakes-not-attacks label</strong> on anything carrying a price</li>
+                <li><strong>The free-and-paid ladder</strong> on <a href="pricing.html">pricing</a>, which still points at the old tiers</li>
+                <li><strong>The price experiment as redesigned</strong> — charge one price and count, with a certainty question after</li>
+              </ul>
+            </div>
+          </div>
+          <a class="dfile" href="assets/briefs/v0.33.70__strategy-brief__the-urgency-is-not-a-deadline-but-a-state.md"><b>Read it in full</b> markdown · 30KB</a>
+        </div>
+
+        <div class="doc">
+          <div class="dh">
+            <span class="did">D5</span>
+            <h3>Startup Summit 2026 — exhibitor booth guide</h3>
+            <span class="st processed">Processed</span>
+          </div>
+          <div class="dmeta">
+            <span><b>type</b> organiser document</span><span><b>dated</b> 12 Sept 2026</span>
+            <span><b>received</b> 12 Sept 11:56</span><span><b>2,490,263 bytes</b></span>
+          </div>
+          <p class="dig"><b>sha256</b> d13e3f08729fa8ffaab7f4e1d247535fb0782c5182df67e365ef61d52ca0cf3d</p>
+          <p class="dnote"><b>Third-party material, and it corrected three of our own planning assumptions</b> — the banner is not permitted, submissions go through the exhibitor portal rather than by email, and power has to be requested rather than assumed. Kept on a working page rather than a public one; whether it stays fetchable here at all is an open decision.</p>
+          <div class="out">
+            <div class="ok">
+              <span class="k">What it produced</span>
+              <ul>
+                <li><a href="summit-booth.html">The booth working page</a>, with the guide embedded and the materials to hand over</li>
+                <li>Three corrections to <a href="summit.html">the Lisbon page</a> and the messaging brief behind it</li>
+              </ul>
+            </div>
+            <div>
+              <span class="k">What it asked for and has not got</span>
+              <ul>
+                <li><strong>Logo and name into the exhibitor portal.</strong> The organisers' own deadline was 15 September</li>
+                <li><strong>The power request</strong>, which goes through the portal and not by email</li>
+              </ul>
+            </div>
+          </div>
+          <a class="dfile" href="assets/summit/startup-booth-guide.pdf"><b>Read it in full</b> PDF · 2.4MB</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="psection" id="informal">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">No file, no digest</span>
+        <h2>And the instructions that arrived <span class="g">as speech or a sentence.</span></h2>
+        <p>These have no digest to check, which makes them the ones most easily lost — a voice memo that changed the direction of the whole site leaves no artefact at all unless somebody writes it down. So they are recorded here in the same list, with the same two columns.</p>
+      </div>
+
+      <div class="inf">
+
+        <div class="ii">
+          <div class="ih">
+            <span class="did">I1</span><span class="how">voice memo · 12 Sept</span>
+            <span class="st partly">Partly</span>
+          </div>
+          <p><b>Put the Agent Behaviour Policy at the centre of the site.</b> The ABP is the fundamental primitive; the grant is calculated from reality via digital twins; RiskMandate drives the sale of ABPs, and those are the first batch of customers; the audiences are corporate users, investors and founders; and a security vendor whose controls reduce the delta has a business case we can make for them.</p>
+          <div class="out">
+            <div class="ok">
+              <span class="k">What it produced</span>
+              <ul>
+                <li><a href="abp.html">The Agent Behaviour Policy page</a></li>
+                <li>The direction brief, in the repository under <code>docs/briefs/</code></li>
+              </ul>
+            </div>
+            <div>
+              <span class="k">Still outstanding</span>
+              <ul>
+                <li>The homepage's second panel, which should become <em>the grant you did not enumerate</em> and still does not</li>
+                <li><a href="pricing.html">Pricing</a> repointed at the store tiers</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="ii">
+          <div class="ih">
+            <span class="did">I2</span><span class="how">link · 11 Sept</span>
+            <span class="st processed">Processed</span>
+          </div>
+          <p><b>The Startup Summit exhibitor pack and the event site</b>, for a strategy document and the materials we need to submit.</p>
+          <div class="out">
+            <div class="ok">
+              <span class="k">What it produced</span>
+              <ul>
+                <li><a href="summit.html">The Lisbon 2026 page</a></li>
+                <li>The messaging and strategy briefs, in the repository under <code>docs/briefs/</code></li>
+              </ul>
+            </div>
+            <div>
+              <span class="k">Still outstanding</span>
+              <ul><li class="none">Nothing, other than what D5 corrected.</li></ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="ii">
+          <div class="ih">
+            <span class="did">I3</span><span class="how">chat instruction · 12 Sept</span>
+            <span class="st processed">Processed</span>
+          </div>
+          <p><b>Hire a freelancer who also works through agents.</b> Give them a page and a first prompt focused on making sales online and at Lisbon, and make their first task being a power user and tester of behaviour policies.</p>
+          <div class="out">
+            <div class="ok">
+              <span class="k">What it produced</span>
+              <ul>
+                <li><a href="work.html">Working with us</a></li>
+                <li><a href="work-abp-power-user.html">Brief B1 — power user and tester of Agent Behaviour Policies</a></li>
+              </ul>
+            </div>
+            <div>
+              <span class="k">Still outstanding</span>
+              <ul>
+                <li>Rate, hours, start date, escalation route, publication rules and repository access — deliberately absent because that page is public, and listed on it as owed</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="ii">
+          <div class="ih">
+            <span class="did">I4</span><span class="how">chat instruction · 12 Sept</span>
+            <span class="st processed">Processed</span>
+          </div>
+          <p><b>Preserve the Lab's thinking as it changes</b>, and publish it as files that can be sent through a chat app — because by the time a reader follows a link, the page has moved on.</p>
+          <div class="out">
+            <div class="ok">
+              <span class="k">What it produced</span>
+              <ul>
+                <li>Dated PDF editions of every <a href="lab.html">Lab</a> entry, and the whole Lab as one file</li>
+                <li><a href="lab-editions.json">The edition register</a>, with a digest per file</li>
+              </ul>
+            </div>
+            <div>
+              <span class="k">Still outstanding</span>
+              <ul><li class="none">Nothing.</li></ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="psection alt" id="agents">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">For the agent writing the briefs</span>
+        <h2>Check us, <span class="g">rather than trusting us.</span></h2>
+        <p>The whole point of a digest is that somebody else can compute it. If you produce these documents, you do not have to take this page's word for what arrived — hash what you sent and compare.</p>
+      </div>
+      <div class="agent">
+        <span class="k">The check</span>
+        <p><b>Every document is recorded by the SHA-256 of the file exactly as we received it.</b> Hash your copy, look for the digest in the register, and anything that is not there did not reach us — or reached us and was not archived, which is our bug and worth telling us about.</p>
+        <pre><b># what did we actually receive?</b>
+curl -s https://riskmandate.ai/briefs-register.json \
+  | jq -r '.documents[] | "\(.sha256)  \(.status)  \(.title)"'
+
+<b># is the brief I just sent in there?</b>
+sha256sum my-brief.md
+</pre>
+      </div>
+      <div class="rule">
+        <p>A register that only lists what was done is a press release.</p>
+        <p>Every entry above carries what it asked for and did not get, and on four of the nine that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.</p>
+      </div>
+      <ul class="plist">
+        <li><strong>The file is the record, not this page.</strong> <a href="briefs-register.json">briefs-register.json</a> is what a program should read; this page renders it for people. If the two ever disagree, the file is right and the page is stale.</li>
+        <li><strong>Every archived document is byte-identical to what arrived.</strong> Nothing is edited, reformatted or trimmed — including the parts we think are wrong. Where we disagree with a brief, the disagreement is published on the page it produced and marked as ours.</li>
+        <li><strong>Statuses go stale in one direction only.</strong> An item marked <em>received</em> can become <em>processed</em>. Nothing moves the other way, and nothing is deleted from the list once it is on it.</li>
+        <li><strong>If something is missing, that is the most useful thing you could tell us.</strong> Use the contact control in the header and name the digest.</li>
+      </ul>
+      <p class="src">Register maintained by hand alongside the work, and checked in CI: every document listed must exist at the path given and match its recorded digest, and every file in <code>assets/briefs/</code> must appear in the register. Last reconciled 12 September 2026.</p>
+    </div>
+  </section>
+
+</div>
+
+<section class="pcta">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> The register</span>
+    <h2>Nine items. Two of them arrived today and are still untouched.</h2>
+    <p>Both of those are on the list precisely so that saying so costs us something. The commit-author finding is the best single example this estate has, and it has been read and not built — which this page will keep saying until it has been.</p>
+    <div class="cta-row">
+      <a class="btn btn-green" href="lab.html">See what did get built →</a>
+      <a class="btn btn-ghost" href="briefs-register.json">The register as JSON</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>© 2026 RiskMandate · Autonomous Risk Management</span>
+    <span>The insurability layer for agentic AI. · <a class="footlink" href="versions.html">Versions</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+var RM={core:{},services:{},components:{},data:{}};
+RM.data.currentPage="briefs";RM.data.pages=[{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"The problem"},{"name":"acceptable","label":"Accepted is not acceptable","file":"acceptable.html","group":"The problem"},{"name":"acceptance","label":"You own the risk","file":"acceptance.html","group":"The problem"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"The problem"},{"name":"abp","label":"Agent Behaviour Policy","file":"abp.html","group":"The model"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"The model"},{"name":"agents","label":"Agents","file":"agents.html","group":"The model"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"The model"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"The model"},{"name":"statics","label":"Static scenarios","file":"statics.html","group":"The model"},{"name":"demos","label":"All demos","file":"demos.html","group":"Live demos"},{"name":"demo-licence-to-operate","label":"Licence to Operate","file":"demo-licence-to-operate.html","group":"Live demos"},{"name":"demo-risk-graph-explorer","label":"RiskGraph Explorer","file":"demo-risk-graph-explorer.html","group":"Live demos"},{"name":"demo-agentic-browser-isolation","label":"Agentic Browser Isolation","file":"demo-agentic-browser-isolation.html","group":"Live demos"},{"name":"demo-risk-mandate-field","label":"RiskMandate field demo","file":"demo-risk-mandate-field.html","group":"Live demos"},{"name":"demo-file-security","label":"File security walk","file":"demo-file-security.html","group":"Live demos"},{"name":"demo-agent-permission-games","label":"Permission games","file":"demo-agent-permission-games.html","group":"Live demos"},{"name":"lab","label":"All entries","file":"lab.html","group":"Lab"},{"name":"lab-connector-grants","label":"01 · The grant is user-shaped","file":"lab-connector-grants.html","group":"Lab"},{"name":"lab-abp-flow","label":"02 · Buying a behaviour policy","file":"lab-abp-flow.html","group":"Lab"},{"name":"lab-abp-requests","label":"03 · Requests to abp.sgit.ai","file":"lab-abp-requests.html","group":"Lab"},{"name":"lab-shape-collector","label":"04 · The shape collector","file":"lab-shape-collector.html","group":"Lab"},{"name":"summit","label":"Lisbon 2026","file":"summit.html"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"briefs","label":"Brief register","file":"briefs.html","group":"More"},{"name":"work","label":"Working with us","file":"work.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"}];RM.data.sections=[];
+
+'use strict';
+// components/dom.js — tiny DOM helpers shared by components. `el` builds an
+// element with attributes and children; text children always go in via
+// textContent. `renderMarkdownInto` turns core/markdown tokens into real DOM
+// nodes (never an HTML string), so fetched release notes cannot inject markup.
+
+RM.components.dom = (function () {
+  // A link in a markdown note may only go somewhere harmless: same-document,
+  // same-origin relative, https, or mailto. Anything else — javascript:, data:,
+  // a protocol-relative host — renders as the text it was, and goes nowhere.
+  var SAFE = /^(?:https:\/\/|mailto:|#|[^:/?#]*(?:[/?#]|$))/i;
+
+  /**
+   * @param {string} tag
+   * @param {Object<string,string>} [attrs]
+   * @param {Array<Node|string>} [children]
+   * @returns {HTMLElement}
+   */
+  function el(tag, attrs, children) {
+    var node = document.createElement(tag);
+    if (attrs) Object.keys(attrs).forEach(function (k) {
+      if (attrs[k] != null) node.setAttribute(k, attrs[k]);
+    });
+    (children || []).forEach(function (c) {
+      node.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
+    });
+    return node;
+  }
+
+  /**
+   * Render inline runs into a parent element. Emphasis runs carry child runs
+   * rather than a string, so a link or a code span inside **bold** renders as
+   * itself instead of as its own markdown source — hence the recursion.
+   */
+  function appendRuns(parent, runs) {
+    runs.forEach(function (run) {
+      if (run.t === 'strong' || run.t === 'em') {
+        var node = el(run.t);
+        if (run.runs) appendRuns(node, run.runs);
+        else          node.appendChild(document.createTextNode(run.v));
+        parent.appendChild(node);
+      }
+      else if (run.t === 'code') parent.appendChild(el('code', null, [run.v]));
+      else if (run.t === 'link') parent.appendChild(SAFE.test(run.href)
+        ? el('a', { href: run.href }, [run.v])
+        : document.createTextNode(run.v));
+      else parent.appendChild(document.createTextNode(run.v));
+    });
+  }
+
+  /**
+   * Render markdown block tokens into a container as DOM nodes.
+   * @param {HTMLElement} container
+   * @param {Array} blocks  output of RM.core.markdown.parse
+   */
+  function renderMarkdownInto(container, blocks) {
+    blocks.forEach(function (b) {
+      if (b.type === 'heading') {
+        var h = el('h' + (b.level + 1)); // ## release title -> h3, etc.
+        appendRuns(h, b.runs);
+        container.appendChild(h);
+      } else if (b.type === 'list') {
+        var ul = el('ul');
+        b.items.forEach(function (runs) {
+          var li = el('li');
+          appendRuns(li, runs);
+          ul.appendChild(li);
+        });
+        container.appendChild(ul);
+      } else {
+        var p = el('p');
+        appendRuns(p, b.runs);
+        container.appendChild(p);
+      }
+    });
+  }
+
+  return { el: el, appendRuns: appendRuns, renderMarkdownInto: renderMarkdownInto };
+})();
+
+
+'use strict';
+// components/nav.js — the behaviour on a page that is *not* a link.
+//   [data-to]   → smooth in-page scroll to an element id (no hash routing).
+//   [data-demo] → open a pre-filled demo enquiry email.
+//
+// v1.0.0 removed everything else that used to live here. Up to v0.14 the site
+// ran inside a host <iframe> and every navigation was a postMessage — rm-nav,
+// rm-back, rm-manifest, rm-read. A <button> is not a link, so nothing could be
+// deep-linked, bookmarked, opened in a new tab, or crawled. Now each page is
+// the document the server sent and each navigation is an <a href>, so the only
+// things left to wire are the two that genuinely are not navigation.
+//
+// The mobile drawer is still injected rather than templated: one file gives
+// every page a working menu below the header breakpoint, where .navlinks is
+// hidden by CSS.
+
+RM.components.nav = (function () {
+  // Every "Book a demo" control opens a mail client with a subject and a
+  // starting message. One place to change when booking becomes a real form.
+  var DEMO = {
+    to     : 'nrparekh@gmail.com',
+    subject: 'RiskMandate — demo request',
+    body   : [
+      'Hi,',
+      '',
+      'I would like to see a plug profile for one of the agents we already run.',
+      '',
+      'A little about us:',
+      '  • Organisation:',
+      '  • Roughly how many agents we are running:',
+      '  • The agent we would want to look at first:',
+      '  • Anything already in place (register, IdP, detection tooling):',
+      '',
+      'Thanks,'
+    ].join('\n')
+  };
+
+  function demoHref() {
+    return 'mailto:' + DEMO.to +
+      '?subject=' + encodeURIComponent(DEMO.subject) +
+      '&body='    + encodeURIComponent(DEMO.body);
+  }
+
+  function openDemo() { window.location.href = demoHref(); }
+
+  function scrollTo(doc, id) {
+    var t = doc.getElementById(id);
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Inject the hamburger toggle and wire the drawer open/close. Idempotent.
+  function wireMobileNav(doc) {
+    var top = doc.querySelector('.top');
+    if (!top) return;
+    var wrap  = top.querySelector('.wrap');
+    var links = top.querySelector('.navlinks');
+    if (!wrap || !links || top.querySelector('.navtoggle')) return;
+
+    var burger = doc.createElement('button');
+    burger.className = 'navtoggle';
+    burger.setAttribute('type', 'button');
+    burger.setAttribute('aria-label', 'Toggle navigation');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-controls', 'sitenav');
+    for (var i = 0; i < 3; i++) burger.appendChild(doc.createElement('span'));
+    links.id = links.id || 'sitenav';
+    var demo = wrap.querySelector('.demo');
+    if (demo) wrap.insertBefore(burger, demo); else wrap.appendChild(burger);
+
+    function set(open) {
+      top.classList.toggle('nav-open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    burger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      set(!top.classList.contains('nav-open'));
+    });
+    // Following a real nav link closes the drawer; the group header does not.
+    links.addEventListener('click', function (e) {
+      var b = e.target.closest('button, a');
+      if (b && !b.classList.contains('navgroup-btn')) set(false);
+    });
+    doc.addEventListener('click', function (e) {
+      if (top.classList.contains('nav-open') && !top.contains(e.target)) set(false);
+    });
+    doc.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+    var view = doc.defaultView || window;
+    view.addEventListener('resize', function () { if (view.innerWidth > 1040) set(false); });
+  }
+
+  /** @param {Document} doc */
+  function wire(doc) {
+    doc.querySelectorAll('[data-to]').forEach(function (elm) {
+      elm.addEventListener('click', function () { scrollTo(doc, elm.getAttribute('data-to')); });
+    });
+    doc.querySelectorAll('[data-demo], .demo').forEach(function (elm) {
+      elm.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); openDemo(); });
+    });
+    wireMobileNav(doc);
+  }
+
+  return { wire: wire, scrollTo: scrollTo, demoHref: demoHref, openDemo: openDemo };
+})();
+
+
+'use strict';
+// components/menu.js — <rm-menu>. The one shared header menu, on every page, so
+// the nav is built by a single piece of code. Renders the homepage's section
+// links first, then the top-level pages, marking the current page active.
+//
+// A run of contiguous pages sharing a `group` string collapses into one entry:
+// a hover/click dropdown labelled by the group, with the members as children. A
+// single-member group renders flat — no dropdown for one item.
+//
+// v1.0.0: every entry is an <a href>. The old menu emitted <button> elements
+// that asked a host frame to swap an iframe's srcdoc, which meant the links did
+// not exist as far as a crawler, a bookmark or a middle-click was concerned.
+// The group header stays a <button> because it opens a panel rather than going
+// anywhere — that is the one control here that is genuinely not a link.
+
+(function () {
+  var dom = RM.components.dom;
+
+  RM.components.Menu = class extends HTMLElement {
+    connectedCallback() {
+      var self = this;
+      this._onDocClick = function (e) {
+        self.querySelectorAll('.navgroup.open').forEach(function (g) {
+          if (!g.contains(e.target)) g.classList.remove('open');
+        });
+      };
+      document.addEventListener('click', this._onDocClick);
+      this._render();
+    }
+    disconnectedCallback() {
+      document.removeEventListener('click', this._onDocClick);
+    }
+
+    // On the homepage a section link scrolls; on any other page it is a link
+    // back to the homepage at that anchor. Same markup either way.
+    _section(s) {
+      var home = !(RM.data && RM.data.currentPage);
+      var a = dom.el('a', { class: 'seclink', href: home ? '#' + s.to : 'index.html#' + s.to }, [s.label]);
+      if (home) a.addEventListener('click', function (e) {
+        e.preventDefault();
+        RM.components.nav.scrollTo(document, s.to);
+      });
+      return a;
+    }
+
+    _pagelink(p, extra) {
+      var active = p.name === (RM.data && RM.data.currentPage);
+      var attrs  = { class: 'pagelink' + (extra ? ' ' + extra : '') + (active ? ' active' : ''), href: p.file };
+      if (active) attrs['aria-current'] = 'page';
+      return dom.el('a', attrs, [p.label]);
+    }
+
+    _group(name, members) {
+      var self    = this;
+      var current = RM.data && RM.data.currentPage;
+      var active  = members.some(function (m) { return m.name === current; });
+      var car     = dom.el('span',   { class: 'navgroup-car', 'aria-hidden': 'true' }, ['▾']);
+      var btn     = dom.el('button', { class: 'navgroup-btn' + (active ? ' active' : ''), type: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false' }, [name, car]);
+      var panel   = dom.el('div',    { class: 'navmenu' }, members.map(function (m) { return self._pagelink(m, 'navchild'); }));
+      var wrap    = dom.el('span',   { class: 'navgroup' + (active ? ' active' : '') }, [btn, panel]);
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = wrap.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      return wrap;
+    }
+
+    _render() {
+      var sections = (RM.data && RM.data.sections) || [];
+      var pages    = (RM.data && RM.data.pages)    || [];
+      var self     = this;
+      this.textContent = '';
+      sections.forEach(function (s) { self.appendChild(self._section(s)); });
+      var i = 0;
+      while (i < pages.length) {
+        var p = pages[i];
+        if (!p.group) { self.appendChild(self._pagelink(p)); i++; continue; }
+        var g = p.group, members = [];
+        while (i < pages.length && pages[i].group === g) { members.push(pages[i]); i++; }
+        if (members.length === 1) self.appendChild(self._pagelink(members[0]));
+        else                      self.appendChild(self._group(g, members));
+      }
+    }
+  };
+
+  customElements.define('rm-menu', RM.components.Menu);
+})();
+
+
+'use strict';
+// boot.js — inner-page composition root (version builds and dev.html). Custom
+// elements self-register on load; here we wire document-level nav behaviour.
+// The page runs inside the host's stage frame, so the host (not this page) signals
+// the SG/App host that the app is ready.
+
+(function () {
+  function start() { RM.components.nav.wire(document); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
+})();
+
+
+})();
+</script>
+</body>
+</html>
