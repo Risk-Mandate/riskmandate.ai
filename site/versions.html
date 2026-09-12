@@ -19,12 +19,15 @@
 <!-- v1.0.0. Reconstructed from SG/Vault 7rfetjwz at v0.14.0;
      see versions/1.0.0.md. Edited directly from here on — there is no build step. -->
 <style>
-/* dev-page.css — standalone styling for dev.html (the release log). Carries its
-   own tokens so it is independent of any single site version. */
+/* versions.css — the version record. Inherited the dark theme of the dev page
+   it used to be; turned over to the site's paper theme in v1.2.1, because a
+   long document of release notes is the wrong thing to read knocked out of
+   black. Every rule on this page routes through the tokens below, so the whole
+   page turns over by changing their values and nothing else. */
 :root{
-  --canvas:#0A0A09; --panel:#131210; --panel-2:#1B1A17;
-  --line:rgba(247,246,242,.10); --line-2:rgba(247,246,242,.18);
-  --fg:#F7F6F2; --fg-2:#A8A59E; --fg-3:#6E6B64; --green:#1A7F5A; --green-2:#22c55e;
+  --canvas:#F7F6F2; --panel:#FFFFFF; --panel-2:#EFEDE7;
+  --line:#E2DFD8; --line-2:#D9D5CC;
+  --fg:#1A1917; --fg-2:#4A4845; --fg-3:#8A8780; --green:#1A7F5A; --green-2:#1A7F5A;
   --mono:ui-monospace,"SF Mono","JetBrains Mono","Roboto Mono",Menlo,Consolas,monospace;
   --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   --r:14px;
@@ -60,7 +63,7 @@ a,button.link{color:inherit}
 .head h1{margin:18px 0 0;font-size:clamp(30px,5vw,46px);font-weight:800;letter-spacing:-.022em;line-height:1.05}
 .head h1 .g{color:var(--green)}
 .head p{color:var(--fg-2);margin-top:16px;max-width:60ch}
-.head code{font-family:var(--mono);font-size:13px;background:rgba(247,246,242,.08);padding:1px 6px;border-radius:5px}
+.head code{font-family:var(--mono);font-size:13px;background:#EFEDE7;padding:1px 6px;border-radius:5px}
 
 .rel-list{display:flex;flex-direction:column;gap:14px;color:var(--fg-2);font-family:var(--mono);font-size:13px}
 .rel{border:1px solid var(--line);border-radius:var(--r);background:var(--panel);padding:24px 26px}
@@ -73,7 +76,7 @@ a,button.link{color:inherit}
 .rel-body ul{margin:8px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:7px}
 .rel-body li{color:var(--fg-2);font-size:14px;line-height:1.5}
 .rel-body strong{color:var(--fg);font-weight:700}
-.rel-body code{font-family:var(--mono);font-size:12.5px;background:rgba(247,246,242,.08);color:var(--fg);padding:1px 6px;border-radius:5px}
+.rel-body code{font-family:var(--mono);font-size:12.5px;background:#EFEDE7;color:var(--fg);padding:1px 6px;border-radius:5px}
 
 /* top-level page nav */
 
@@ -158,7 +161,7 @@ rm-versions{display:block;margin:34px 0 96px}
   <div class="wrap">
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
-    <a class="version" href="versions.html" title="What shipped in v1.2.0">v1.2.0</a>
+    <a class="version" href="versions.html" title="What shipped in v1.2.1">v1.2.1</a>
     <button class="demo" data-demo>Book a demo</button>
   </div>
 </header>
@@ -208,13 +211,21 @@ RM.components.dom = (function () {
     return node;
   }
 
-  /** Render inline runs into a parent element. */
+  /**
+   * Render inline runs into a parent element. Emphasis runs carry child runs
+   * rather than a string, so a link or a code span inside **bold** renders as
+   * itself instead of as its own markdown source — hence the recursion.
+   */
   function appendRuns(parent, runs) {
     runs.forEach(function (run) {
-      if      (run.t === 'strong') parent.appendChild(el('strong', null, [run.v]));
-      else if (run.t === 'em')     parent.appendChild(el('em',     null, [run.v]));
-      else if (run.t === 'code')   parent.appendChild(el('code',   null, [run.v]));
-      else if (run.t === 'link')   parent.appendChild(SAFE.test(run.href)
+      if (run.t === 'strong' || run.t === 'em') {
+        var node = el(run.t);
+        if (run.runs) appendRuns(node, run.runs);
+        else          node.appendChild(document.createTextNode(run.v));
+        parent.appendChild(node);
+      }
+      else if (run.t === 'code') parent.appendChild(el('code', null, [run.v]));
+      else if (run.t === 'link') parent.appendChild(SAFE.test(run.href)
         ? el('a', { href: run.href }, [run.v])
         : document.createTextNode(run.v));
       else parent.appendChild(document.createTextNode(run.v));
@@ -470,34 +481,47 @@ RM.core.version = (function () {
 // notes. Returns a block-token tree; it NEVER emits HTML. Rendering to DOM is
 // done by the component via createElement + textContent, so no markup in the
 // source can ever be interpreted — injection is impossible by construction.
-// Supports: #/##/### headings, - / * bullet lists, **bold**, _italic_, `code`,
-// [links](url), and paragraphs separated by blank lines.
+// Supports: #/##/### headings, - / * bullet lists, **bold**, _italic_ and
+// *italic*, `code`, [links](url), and paragraphs separated by blank lines.
 //
 // v1.0.0 fixed a wrapping bug and added links. A list item written across
 // several lines — which is how every release note in this repository is written
 // — used to end the list at the first continuation line and render the rest of
 // the item as a paragraph. Continuation lines now fold into the item they
 // belong to, which is what the source always meant.
+//
+// v1.2.1 made the inline runs nest. Emphasis carried a flat string, so a link
+// or a code span inside **bold** was never parsed and a reader saw the markdown
+// source — brackets, parentheses and all — on a published page. Emphasis now
+// carries child runs and the parser recurses into them.
 
 RM.core.markdown = (function () {
-  var CONT = /^\s+\S/;           // an indented continuation of the line above
-  var ITEM = /^\s*[-*]\s+/;      // a bullet
+  var CONT  = /^\s+\S/;          // an indented continuation of the line above
+  var ITEM  = /^\s*[-*]\s+/;     // a bullet
+  var DEPTH = 4;                 // emphasis inside emphasis inside emphasis is nobody's release note
 
   /**
-   * Split a single line into inline runs.
+   * Split a single line into inline runs. Emphasis runs carry `runs` (parsed
+   * children); code, link and text runs carry `v` (a literal string).
    * @param {string} line
-   * @returns {Array<{t:('text'|'strong'|'em'|'code'|'link'), v:string, href?:string}>}
+   * @param {number} [depth]
+   * @returns {Array<{t:('text'|'strong'|'em'|'code'|'link'), v?:string, runs?:Array, href?:string}>}
    */
-  function inline(line) {
+  function inline(line, depth) {
+    var d = depth || 0;
     var runs = [];
-    var re = /(\*\*([^*]+)\*\*|`([^`]+)`|\[([^\]]+)\]\(([^)\s]+)\)|_([^_]+)_)/g;
+    var re = /(\*\*([\s\S]+?)\*\*|`([^`]+)`|\[([^\]]+)\]\(([^)\s]+)\)|_([^_]+)_|\*([^*\n]+)\*)/g;
     var last = 0, m;
     while ((m = re.exec(line)) !== null) {
       if (m.index > last) runs.push({ t: 'text', v: line.slice(last, m.index) });
-      if      (m[2] !== undefined) runs.push({ t: 'strong', v: m[2] });
-      else if (m[3] !== undefined) runs.push({ t: 'code',   v: m[3] });
-      else if (m[4] !== undefined) runs.push({ t: 'link',   v: m[4], href: m[5] });
-      else                         runs.push({ t: 'em',     v: m[6] });
+      if      (m[3] !== undefined) runs.push({ t: 'code', v: m[3] });
+      else if (m[4] !== undefined) runs.push({ t: 'link', v: m[4], href: m[5] });
+      else {
+        // emphasis: recurse, so a link or a code span inside it is still parsed
+        var inner = m[2] !== undefined ? m[2] : (m[6] !== undefined ? m[6] : m[7]);
+        var kind  = m[2] !== undefined ? 'strong' : 'em';
+        runs.push(d < DEPTH ? { t: kind, runs: inline(inner, d + 1) } : { t: kind, v: inner });
+      }
       last = re.lastIndex;
     }
     if (last < line.length) runs.push({ t: 'text', v: line.slice(last) });
@@ -531,7 +555,7 @@ RM.core.markdown = (function () {
           else items[items.length - 1] += ' ' + lines[i].trim();
           i++;
         }
-        blocks.push({ type: 'list', items: items.map(inline) });
+        blocks.push({ type: 'list', items: items.map(function (x) { return inline(x); }) });
         continue;
       }
 

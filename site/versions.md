@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.2.1** · 2026-09-12 — The version record turns light, and markdown emphasis stops eating its own links
+  Notes: https://riskmandate.ai/versions/1.2.1.md · Source: `git:v1.2.1`
 - **v1.2.0** · 2026-09-12 — The Lab: findings, interface mockups and open proposals, published as they happen
   Notes: https://riskmandate.ai/versions/1.2.0.md · Source: `git:v1.2.0`
 - **v1.1.0** · 2026-09-12 — The Agent Behaviour Policy becomes a page, and Lisbon gets a landing page

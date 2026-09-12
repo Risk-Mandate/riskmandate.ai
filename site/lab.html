@@ -263,7 +263,7 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
   <div class="wrap">
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
-    <a class="version" href="versions.html" title="What shipped in v1.2.0">v1.2.0</a>
+    <a class="version" href="versions.html" title="What shipped in v1.2.1">v1.2.1</a>
     <button class="demo" data-demo>Get in touch</button>
   </div>
 </header>
@@ -428,13 +428,21 @@ RM.components.dom = (function () {
     return node;
   }
 
-  /** Render inline runs into a parent element. */
+  /**
+   * Render inline runs into a parent element. Emphasis runs carry child runs
+   * rather than a string, so a link or a code span inside **bold** renders as
+   * itself instead of as its own markdown source — hence the recursion.
+   */
   function appendRuns(parent, runs) {
     runs.forEach(function (run) {
-      if      (run.t === 'strong') parent.appendChild(el('strong', null, [run.v]));
-      else if (run.t === 'em')     parent.appendChild(el('em',     null, [run.v]));
-      else if (run.t === 'code')   parent.appendChild(el('code',   null, [run.v]));
-      else if (run.t === 'link')   parent.appendChild(SAFE.test(run.href)
+      if (run.t === 'strong' || run.t === 'em') {
+        var node = el(run.t);
+        if (run.runs) appendRuns(node, run.runs);
+        else          node.appendChild(document.createTextNode(run.v));
+        parent.appendChild(node);
+      }
+      else if (run.t === 'code') parent.appendChild(el('code', null, [run.v]));
+      else if (run.t === 'link') parent.appendChild(SAFE.test(run.href)
         ? el('a', { href: run.href }, [run.v])
         : document.createTextNode(run.v));
       else parent.appendChild(document.createTextNode(run.v));

@@ -47,6 +47,9 @@ jobs:
       - name: Generated files are current
         run: node scripts/site/generate.mjs --check
 
+      - name: Shared modules are in step across every page
+        run: node scripts/site/sync-modules.mjs --check
+
   tag:
     name: Tag release
     runs-on: ubuntu-latest

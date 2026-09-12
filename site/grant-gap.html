@@ -334,7 +334,7 @@ a.ds{display:block;text-decoration:none;color:inherit}
   <div class="wrap">
     <a class="brand" href="index.html"><span class="rm">RM</span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
-    <a class="version" href="versions.html" title="What shipped in v1.2.0">v1.2.0</a>
+    <a class="version" href="versions.html" title="What shipped in v1.2.1">v1.2.1</a>
     <button class="demo" data-demo>Book a demo</button>
   </div>
 </header>
@@ -732,13 +732,21 @@ RM.components.dom = (function () {
     return node;
   }
 
-  /** Render inline runs into a parent element. */
+  /**
+   * Render inline runs into a parent element. Emphasis runs carry child runs
+   * rather than a string, so a link or a code span inside **bold** renders as
+   * itself instead of as its own markdown source — hence the recursion.
+   */
   function appendRuns(parent, runs) {
     runs.forEach(function (run) {
-      if      (run.t === 'strong') parent.appendChild(el('strong', null, [run.v]));
-      else if (run.t === 'em')     parent.appendChild(el('em',     null, [run.v]));
-      else if (run.t === 'code')   parent.appendChild(el('code',   null, [run.v]));
-      else if (run.t === 'link')   parent.appendChild(SAFE.test(run.href)
+      if (run.t === 'strong' || run.t === 'em') {
+        var node = el(run.t);
+        if (run.runs) appendRuns(node, run.runs);
+        else          node.appendChild(document.createTextNode(run.v));
+        parent.appendChild(node);
+      }
+      else if (run.t === 'code') parent.appendChild(el('code', null, [run.v]));
+      else if (run.t === 'link') parent.appendChild(SAFE.test(run.href)
         ? el('a', { href: run.href }, [run.v])
         : document.createTextNode(run.v));
       else parent.appendChild(document.createTextNode(run.v));
