@@ -261,7 +261,7 @@ table.t code{font-family:var(--mono);font-size:11.5px;background:var(--bg2);padd
   <div class="wrap">
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
-    <a class="version" href="versions.html" title="What shipped in v1.7.0">v1.7.0</a>
+    <a class="version" href="versions.html" title="What shipped in v1.8.0">v1.8.0</a>
     <button class="demo" data-demo>Get in touch</button>
   </div>
 </header>
@@ -313,7 +313,7 @@ table.t code{font-family:var(--mono);font-size:11.5px;background:var(--bg2);padd
     <div class="wrap">
       <div class="shead">
         <span class="tag">Documents received</span>
-        <h2>Five files, <span class="g">in the order they arrived.</span></h2>
+        <h2>Six files, <span class="g">in the order they arrived.</span></h2>
         <p>Each one is linked in full, as received, with nothing edited. Where a brief and this site disagree, the brief is what we were given and the site is what we concluded — and where we corrected a brief, the correction is on the page rather than in the file.</p>
       </div>
 
@@ -479,6 +479,38 @@ table.t code{font-family:var(--mono);font-size:11.5px;background:var(--bg2);padd
           </div>
           <a class="dfile" href="assets/summit/startup-booth-guide.pdf"><b>Read it in full</b> PDF · 2.4MB</a>
         </div>
+        <div class="doc">
+          <div class="dh">
+            <span class="did">D6</span>
+            <h3>Every Routable Address Is In The Grant: Do Not Attack Anyone Is The One Rule Everybody Signs, And It Is The One With No Barrier</h3>
+            <span class="st partly">Partly</span>
+          </div>
+          <div class="dmeta">
+            <span><b>type</b> dev brief</span><span><b>version</b> v0.33.70</span>
+            <span><b>dated</b> 12 Sept 2026</span><span><b>received</b> 12 Sept 19:05</span>
+            <span><b>69,590 bytes</b></span>
+          </div>
+          <p class="dig"><b>sha256</b> b85fdbcb235b352150d5b806e58b4d525414a8c0a7ac11382a697f2f78127eb7</p>
+          <p class="dnote"><b>Seven load-bearing quotations were fetched and checked rather than relayed</b>, including the reference container's firewall script. Two departures from the brief are stated on the page it became. It reports observing an agent's two egress paths <em>diverge</em> in one session; in ours they did not — both reached every host tried — so the finding rests on the vendor's own sentences rather than on that observation. And we published a measurement of this machine's own egress instead, which found a raw outbound socket to an arbitrary public address and working name resolution, with no allow list standing in either path.</p>
+          <div class="out">
+            <div class="ok">
+              <span class="k">What it produced</span>
+              <ul>
+                <li><a href="lab-network-reach.html">Lab 06 — every routable address is in the grant</a>, with the egress-path matrix and the four things the published reference firewall permits</li>
+              </ul>
+            </div>
+            <div>
+              <span class="k">What it asked for and has not got</span>
+              <ul>
+                <li><strong>Two proposals to the model site</strong> — the barrier's companion fields, and the six composition rules. Lab 06 states them; they are not yet on <a href="lab-abp-requests.html">the request list</a></li>
+                <li><strong>The provider comparison table</strong>, which the brief says writes itself from the sources</li>
+                <li><strong>The reconciliation tool</strong> between an agent's several destination lists — possibly the smallest useful thing we could ship on this capability</li>
+                <li><strong>The generic pasteable document</strong> as an artefact rather than a table</li>
+              </ul>
+            </div>
+          </div>
+          <a class="dfile" href="assets/briefs/v0.33.70__dev-brief__every-routable-address-is-in-the-grant.md"><b>Read it in full</b> markdown · 68KB</a>
+        </div>
 
       </div>
     </div>
@@ -607,7 +639,7 @@ sha256sum my-brief.md
       </div>
       <div class="rule">
         <p>A register that only lists what was done is a press release.</p>
-        <p>Every entry above carries what it asked for and did not get, and on most of the nine that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.</p>
+        <p>Every entry above carries what it asked for and did not get, and on most of the ten that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.</p>
       </div>
       <ul class="plist">
         <li><strong>The file is the record, not this page.</strong> <a href="briefs-register.json">briefs-register.json</a> is what a program should read; this page renders it for people. If the two ever disagree, the file is right and the page is stale.</li>
@@ -624,8 +656,8 @@ sha256sum my-brief.md
 <section class="pcta">
   <div class="wrap">
     <span class="eyebrow"><span class="d"></span> The register</span>
-    <h2>Nine items. None untouched, and none finished.</h2>
-    <p>Every item now names something it produced and something it did not. Four of the nine are marked <em>partly</em>, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.</p>
+    <h2>Ten items. None untouched, and none finished.</h2>
+    <p>Every item now names something it produced and something it did not. Five of the ten are marked <em>partly</em>, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.</p>
     <div class="cta-row">
       <a class="btn btn-green" href="lab.html">See what did get built →</a>
       <a class="btn btn-ghost" href="briefs-register.json">The register as JSON</a>
@@ -644,7 +676,7 @@ sha256sum my-brief.md
 (function(){
 'use strict';
 var RM={core:{},services:{},components:{},data:{}};
-RM.data.currentPage="briefs";RM.data.pages=[{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"The problem"},{"name":"acceptable","label":"Accepted is not acceptable","file":"acceptable.html","group":"The problem"},{"name":"acceptance","label":"You own the risk","file":"acceptance.html","group":"The problem"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"The problem"},{"name":"abp","label":"Agent Behaviour Policy","file":"abp.html","group":"The model"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"The model"},{"name":"agents","label":"Agents","file":"agents.html","group":"The model"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"The model"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"The model"},{"name":"statics","label":"Static scenarios","file":"statics.html","group":"The model"},{"name":"demos","label":"All demos","file":"demos.html","group":"Live demos"},{"name":"demo-licence-to-operate","label":"Licence to Operate","file":"demo-licence-to-operate.html","group":"Live demos"},{"name":"demo-risk-graph-explorer","label":"RiskGraph Explorer","file":"demo-risk-graph-explorer.html","group":"Live demos"},{"name":"demo-agentic-browser-isolation","label":"Agentic Browser Isolation","file":"demo-agentic-browser-isolation.html","group":"Live demos"},{"name":"demo-risk-mandate-field","label":"RiskMandate field demo","file":"demo-risk-mandate-field.html","group":"Live demos"},{"name":"demo-file-security","label":"File security walk","file":"demo-file-security.html","group":"Live demos"},{"name":"demo-agent-permission-games","label":"Permission games","file":"demo-agent-permission-games.html","group":"Live demos"},{"name":"lab","label":"All entries","file":"lab.html","group":"Lab"},{"name":"lab-connector-grants","label":"01 · The grant is user-shaped","file":"lab-connector-grants.html","group":"Lab"},{"name":"lab-abp-flow","label":"02 · Buying a behaviour policy","file":"lab-abp-flow.html","group":"Lab"},{"name":"lab-abp-requests","label":"03 · Requests to abp.sgit.ai","file":"lab-abp-requests.html","group":"Lab"},{"name":"lab-shape-collector","label":"04 · The shape collector","file":"lab-shape-collector.html","group":"Lab"},{"name":"lab-commit-author","label":"05 · The commit author","file":"lab-commit-author.html","group":"Lab"},{"name":"summit","label":"Lisbon 2026","file":"summit.html"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"briefs","label":"Brief register","file":"briefs.html","group":"More"},{"name":"work","label":"Working with us","file":"work.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"}];RM.data.sections=[];
+RM.data.currentPage="briefs";RM.data.pages=[{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"The problem"},{"name":"acceptable","label":"Accepted is not acceptable","file":"acceptable.html","group":"The problem"},{"name":"acceptance","label":"You own the risk","file":"acceptance.html","group":"The problem"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"The problem"},{"name":"abp","label":"Agent Behaviour Policy","file":"abp.html","group":"The model"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"The model"},{"name":"agents","label":"Agents","file":"agents.html","group":"The model"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"The model"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"The model"},{"name":"statics","label":"Static scenarios","file":"statics.html","group":"The model"},{"name":"demos","label":"All demos","file":"demos.html","group":"Live demos"},{"name":"demo-licence-to-operate","label":"Licence to Operate","file":"demo-licence-to-operate.html","group":"Live demos"},{"name":"demo-risk-graph-explorer","label":"RiskGraph Explorer","file":"demo-risk-graph-explorer.html","group":"Live demos"},{"name":"demo-agentic-browser-isolation","label":"Agentic Browser Isolation","file":"demo-agentic-browser-isolation.html","group":"Live demos"},{"name":"demo-risk-mandate-field","label":"RiskMandate field demo","file":"demo-risk-mandate-field.html","group":"Live demos"},{"name":"demo-file-security","label":"File security walk","file":"demo-file-security.html","group":"Live demos"},{"name":"demo-agent-permission-games","label":"Permission games","file":"demo-agent-permission-games.html","group":"Live demos"},{"name":"lab","label":"All entries","file":"lab.html","group":"Lab"},{"name":"lab-connector-grants","label":"01 · The grant is user-shaped","file":"lab-connector-grants.html","group":"Lab"},{"name":"lab-abp-flow","label":"02 · Buying a behaviour policy","file":"lab-abp-flow.html","group":"Lab"},{"name":"lab-abp-requests","label":"03 · Requests to abp.sgit.ai","file":"lab-abp-requests.html","group":"Lab"},{"name":"lab-shape-collector","label":"04 · The shape collector","file":"lab-shape-collector.html","group":"Lab"},{"name":"lab-commit-author","label":"05 · The commit author","file":"lab-commit-author.html","group":"Lab"},{"name":"lab-network-reach","label":"06 · Every routable address","file":"lab-network-reach.html","group":"Lab"},{"name":"summit","label":"Lisbon 2026","file":"summit.html"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"briefs","label":"Brief register","file":"briefs.html","group":"More"},{"name":"work","label":"Working with us","file":"work.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"}];RM.data.sections=[];
 
 'use strict';
 // components/dom.js — tiny DOM helpers shared by components. `el` builds an

@@ -163,6 +163,34 @@
         "The power request, which goes through the portal and not by email."
       ],
       "notes": "Third-party material, republished on a working page rather than a public one. Whether it stays fetchable under site/ is an open decision."
+    },
+    {
+      "id": "D6",
+      "title": "Every Routable Address Is In The Grant: Do Not Attack Anyone Is The One Rule Everybody Signs, And It Is The One With No Barrier",
+      "version": "v0.33.70",
+      "type": "dev brief",
+      "dated": "2026-09-12",
+      "file": "assets/briefs/v0.33.70__dev-brief__every-routable-address-is-in-the-grant.md",
+      "bytes": 69590,
+      "sha256": "b85fdbcb235b352150d5b806e58b4d525414a8c0a7ac11382a697f2f78127eb7",
+      "received": [
+        "2026-09-12T19:05Z"
+      ],
+      "duplicate_of": null,
+      "status": "partly",
+      "produced": [
+        {
+          "what": "Lab 06 — every routable address is in the grant, and the one rule everybody signs has no barrier",
+          "url": "lab-network-reach.html"
+        }
+      ],
+      "not_done": [
+        "The two proposals to the model site — the barrier's companion fields (above whom, deterministic, what voids it, evidenceable) and the six composition rules. Lab 06 states them; they are not yet on the request list in Lab 03.",
+        "The provider comparison table, which the brief says writes itself from the sources: network on by default locally and hosted, allow list present, all egress paths or one, survives being written into a repository, fails open or closed, resolution covered, and a log the operator can read.",
+        "The reconciliation tool between an agent's several destination lists — open question 3, and possibly the smallest useful thing we could ship on this capability.",
+        "The generic pasteable document as an artefact. Lab 06 drafts it in a table; open question 4 is whether it should be published before the custom generator exists."
+      ],
+      "notes": "Seven load-bearing quotations were fetched and checked rather than relayed, including the reference container's firewall script. Two departures from the brief are stated on the page: the brief reports observing the two egress paths diverge in one session, and in ours they did not — both reached every host tried — so the finding rests on the vendor's own sentences rather than on that observation; and we published our own measurement of this machine's egress instead, which found a raw outbound socket to an arbitrary public address and working name resolution with no allow list in either path."
     }
   ],
   "informal": [

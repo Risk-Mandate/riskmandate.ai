@@ -1,0 +1,1307 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RiskMandate — Lab 06 · every routable address is in the grant</title>
+<meta name="description" content="Do not attack anyone is the one rule every deployer would sign, and it is the one where the grant cannot be enumerated, the delta cannot be counted, and nothing in the default configuration enforces it.">
+<link rel="canonical" href="https://riskmandate.ai/lab-network-reach.html">
+<link rel="alternate" type="text/markdown" href="lab-network-reach.md" title="This page as markdown">
+<link rel="icon" href="assets/brand/riskmandate-favicon-32.png" sizes="32x32">
+<link rel="icon" href="assets/brand/riskmandate-mark.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RiskMandate">
+<meta property="og:url" content="https://riskmandate.ai/lab-network-reach.html">
+<meta property="og:title" content="RiskMandate — Lab 06 · every routable address is in the grant">
+<meta property="og:description" content="Do not attack anyone is the one rule every deployer would sign, and it is the one where the grant cannot be enumerated, the delta cannot be counted, and nothing in the default configuration enforces it.">
+<meta property="og:image" content="https://riskmandate.ai/assets/brand/riskmandate-lockup-light.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Scaffolded by scripts/site/new-page.mjs. Hand-edited from here on — there is no build step. -->
+<style>
+/* lab-network-reach.css — self-contained: the shared chrome, then this page's own. */
+:root{
+  --bg:#F7F6F2; --bg2:#EFEDE7; --card:#FFFFFF; --ink:#0D0D0C; --canvas:#0A0A09;
+  --text:#1A1917; --muted:#4A4845; --faint:#8A8780; --border:#E2DFD8;
+  --green:#1A7F5A; --green-2:#22c55e; --greenBg:#EBF5F0;
+  --gold:#B45309; --red:#C0392B; --blue:#1D4ED8;
+  --fg:#F7F6F2; --fg-2:rgba(247,246,242,.55); --fg-3:rgba(247,246,242,.32);
+  --line:rgba(247,246,242,.10); --line-2:rgba(247,246,242,.18);
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","JetBrains Mono","Roboto Mono",Menlo,Consolas,monospace;
+  --wrap:1000px; --r:10px; --r-sm:8px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth} @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+h1,h2{margin:0;font-weight:800;letter-spacing:-.03em;line-height:1.04}
+h2{font-size:clamp(26px,3.6vw,40px);font-weight:700;letter-spacing:-.02em}
+p{margin:0}
+:focus-visible{outline:2px solid var(--green-2);outline-offset:3px;border-radius:4px}
+.tag{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+.g{color:var(--green)} .it{font-style:italic;color:var(--green)}
+
+/* header */
+.top{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.top .wrap{display:flex;align-items:center;gap:22px;height:56px;max-width:1100px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:15px;color:var(--text);white-space:nowrap;text-decoration:none}
+.rm{width:26px;height:26px;flex:none;display:block}
+.rm svg{width:100%;height:100%;display:block}
+.navlinks{display:flex;align-items:center;gap:22px;margin-left:auto}
+rm-menu{display:contents}
+.navlinks a{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;text-decoration:none;display:inline-flex;align-items:center}
+.navlinks a:hover{color:var(--text)}
+.navlinks a.active{color:var(--text);font-weight:600}
+.version{font-family:var(--mono);font-size:12px;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:7px;padding:5px 8px;text-decoration:none;white-space:nowrap;transition:color .15s,border-color .15s}
+.version:hover{color:var(--text);border-color:var(--faint)}
+.demo{background:var(--green);color:#fff;font-weight:600;font-size:13px;border:0;border-radius:8px;padding:8px 16px;cursor:pointer;transition:background .15s;font-family:var(--sans);white-space:nowrap}
+.demo:hover{background:#16704f}
+
+/* nav dropdowns */
+.navgroup{position:relative;display:inline-flex;align-items:center}
+.navgroup::after{content:"";position:absolute;top:100%;left:0;right:0;height:10px}
+.navgroup-btn{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;display:inline-flex;align-items:center;gap:5px}
+.navgroup-btn:hover,.navgroup:hover .navgroup-btn,.navgroup.open .navgroup-btn,.navgroup.active .navgroup-btn{color:var(--text)}
+.navgroup-car{font-size:8px;line-height:1;opacity:.6;transition:transform .15s}
+.navgroup:hover .navgroup-car,.navgroup.open .navgroup-car{transform:rotate(180deg)}
+.navmenu{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);min-width:184px;background:var(--card);border:1px solid var(--border);border-radius:10px;box-shadow:0 10px 34px rgba(13,13,12,.14);padding:6px;display:none;flex-direction:column;gap:2px;z-index:70}
+.navgroup:hover .navmenu,.navgroup.open .navmenu{display:flex}
+.navmenu .navchild{justify-content:flex-start;text-align:left;width:100%;padding:8px 12px;border-radius:7px;font-size:13.5px;color:var(--muted);white-space:nowrap}
+.navmenu .navchild:hover{background:var(--bg2);color:var(--text)}
+.navmenu .navchild.active{color:var(--green);font-weight:600;background:var(--greenBg)}
+
+/* mobile drawer — the toggle is injected by nav.js; .top.nav-open opens it */
+.navtoggle{display:none;margin-left:auto;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;padding:0;background:none;border:0;cursor:pointer}
+.navtoggle span{display:block;width:20px;height:2px;margin:0 auto;background:var(--text);border-radius:2px;transition:transform .2s,opacity .2s}
+.top.nav-open .navtoggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.top.nav-open .navtoggle span:nth-child(2){opacity:0}
+.top.nav-open .navtoggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media (max-width:1040px){
+  .navtoggle{display:flex}
+  .top .wrap{position:relative}
+  .version{display:none}
+  .navlinks{display:none;position:absolute;left:0;right:0;top:calc(100% + 1px);flex-direction:column;align-items:stretch;gap:0;margin:0;padding:8px;background:var(--card);border-bottom:1px solid var(--border);box-shadow:0 14px 34px rgba(13,13,12,.14);max-height:calc(100vh - 56px);overflow:auto}
+  .top.nav-open .navlinks{display:flex}
+  .navlinks a,.navlinks .navgroup-btn{width:100%;text-align:left;justify-content:flex-start;padding:12px 16px;font-size:15px;border-radius:8px}
+  .navlinks a:hover{background:var(--bg2)}
+  .navgroup{display:block;width:100%;position:static}
+  .navgroup::after{display:none}
+  .navgroup-btn{display:flex}
+  .navgroup-car{margin-left:auto}
+  .navmenu{position:static;transform:none;display:flex;flex-direction:column;min-width:0;padding:2px 0 8px 14px;background:transparent;border:0;box-shadow:none}
+  .navmenu .navchild{padding:10px 14px;font-size:14px}
+}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;padding:12px 22px;border-radius:var(--r-sm);cursor:pointer;border:1px solid transparent;font-family:var(--sans);text-decoration:none}
+.btn-green{background:var(--green);color:#fff} .btn-green:hover{background:#16704f}
+.btn-ghost{background:transparent;color:var(--fg);border-color:var(--line-2)} .btn-ghost:hover{border-color:var(--fg-2)}
+.btn-ghost-dark{background:transparent;color:var(--text);border-color:var(--border)} .btn-ghost-dark:hover{border-color:var(--green);color:var(--green)}
+
+/* dark hero */
+.phero{background:var(--ink);color:var(--fg);padding:88px 24px 84px}
+.phero .wrap{max-width:var(--wrap)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--green);background:rgba(26,127,90,.18);border:1px solid rgba(26,127,90,.4);border-radius:999px;padding:5px 12px}
+.eyebrow .d{width:6px;height:6px;border-radius:50%;background:var(--green-2)}
+.phero h1{font-size:clamp(34px,5.2vw,60px);letter-spacing:-.04em;line-height:1.02;margin:26px 0 0;color:var(--fg);max-width:900px}
+.phero .sub{color:var(--fg-2);font-size:17px;line-height:1.7;max-width:640px;margin-top:24px}
+.cta-row{display:flex;flex-wrap:wrap;gap:11px;margin-top:30px}
+
+/* paper sections */
+.paper{background:var(--bg)}
+.psection{padding:80px 0;border-bottom:1px solid var(--border)}
+.psection.alt{background:var(--bg2)}
+.shead{max-width:680px} .shead.center{max-width:720px;margin:0 auto;text-align:center}
+.shead h2{color:var(--text)} .shead p{color:var(--muted);margin-top:16px;font-size:15px;line-height:1.75}
+
+/* closing panel + footer */
+.pcta{background:var(--ink);padding:80px 24px;text-align:center}
+.pcta .wrap{max-width:720px;padding:0}
+.pcta h2{font-size:clamp(28px,4.4vw,48px);color:var(--fg);margin-top:20px;font-weight:700;letter-spacing:-.03em}
+.pcta p{color:var(--fg-2);margin-top:16px;font-size:16px;line-height:1.7}
+.pcta .cta-row{justify-content:center}
+.foot{background:var(--canvas);border-top:1px solid var(--line);padding:32px 24px}
+.foot .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-family:var(--mono);font-size:10px;color:var(--fg-3);max-width:1100px}
+.footlink{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.footlink:hover{color:var(--fg-2)}
+/* narrow phones — at 360px the brand, the burger and the call to action stop
+   fitting on one line, and the header was the last thing on this site that
+   scrolled sideways. Tighten the gutter, the gap and the button rather than
+   drop any of them: all three are load-bearing at this width. */
+@media (max-width:420px){
+  .top .wrap{gap:12px;padding:0 16px}
+  .brand{font-size:14px;gap:7px}
+  .rm{width:24px;height:24px}
+  .demo{padding:8px 12px;font-size:12.5px}
+}
+
+/* ── lab chrome ──────────────────────────────────────────────────────────── */
+.labstrip{background:var(--bg2);border-bottom:1px solid var(--border);padding:9px 24px;font-family:var(--mono);font-size:11px;color:var(--muted);text-align:center}
+.labstrip b{color:var(--text)} .labstrip a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+
+/* status pill — every lab entry says what state it is in */
+.state{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:999px;padding:4px 10px;white-space:nowrap}
+.state::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.state.finding{color:var(--green);background:var(--greenBg);border:1px solid rgba(26,127,90,.3)}
+.state.mockup {color:var(--blue);background:#EEF2FF;border:1px solid rgba(29,78,216,.25)}
+.state.proposal{color:var(--gold);background:#FDF6EC;border:1px solid rgba(180,83,9,.25)}
+.state.open   {color:var(--muted);background:var(--bg2);border:1px solid var(--border)}
+
+/* the index of entries */
+.entries{display:flex;flex-direction:column;gap:14px;margin-top:36px}
+.entry{display:block;border:1px solid var(--border);border-radius:var(--r);background:var(--card);padding:24px 26px;text-decoration:none;transition:border-color .15s,transform .15s}
+.entry:hover{border-color:var(--green);transform:translateY(-1px)}
+.entry .head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.entry .n{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--faint)}
+.entry h3{margin:0;font-size:20px;font-weight:700;letter-spacing:-.015em;color:var(--text);flex:1 1 auto;min-width:240px}
+.entry p{font-size:14px;color:var(--muted);line-height:1.65;margin-top:10px;max-width:720px}
+.entry .meta{margin-top:14px;padding-top:12px;border-top:1px solid var(--border);font-family:var(--mono);font-size:11px;color:var(--faint);display:flex;gap:18px;flex-wrap:wrap}
+
+/* ── mockups: a fake browser around a fake screen ───────────────────────── */
+.mock{margin:34px 0 0;border:1px solid var(--border);border-radius:var(--r);overflow:hidden;background:var(--card);box-shadow:0 14px 40px -28px rgba(13,13,12,.4)}
+.mock-bar{display:flex;align-items:center;gap:12px;padding:10px 14px;background:var(--bg2);border-bottom:1px solid var(--border)}
+.mock-bar .dots{display:flex;gap:5px;flex:none}
+.mock-bar .dots i{width:9px;height:9px;border-radius:50%;background:#D6D2C9;display:block}
+.mock-bar .url{font-family:var(--mono);font-size:11px;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:6px;padding:4px 10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1 1 auto}
+.mock-body{padding:28px 30px}
+.mock-body.dark{background:var(--ink);color:var(--fg)}
+.mock cap,figcaption{display:block;padding:14px 18px;border-top:1px solid var(--border);background:var(--bg2);font-size:13px;color:var(--muted);line-height:1.6}
+figcaption b{color:var(--text)}
+
+/* pieces used inside the mocked screens */
+.m-eyebrow{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--green)}
+.m-h{font-size:26px;font-weight:800;letter-spacing:-.025em;line-height:1.1;margin:10px 0 0;color:var(--text)}
+.mock-body.dark .m-h{color:var(--fg)}
+.m-sub{font-size:14px;color:var(--muted);line-height:1.65;margin-top:12px;max-width:620px}
+.mock-body.dark .m-sub{color:var(--fg-2)}
+.m-btn{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;padding:10px 18px;border-radius:var(--r-sm);border:1px solid transparent;font-family:var(--sans)}
+.m-btn.p{background:var(--green);color:#fff}
+.m-btn.s{background:transparent;color:var(--text);border-color:var(--border)}
+.mock-body.dark .m-btn.s{color:var(--fg);border-color:var(--line-2)}
+.m-row{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+
+/* shape picker */
+.shapes{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:22px}
+@media (max-width:760px){.shapes{grid-template-columns:1fr}}
+.shape{border:1px solid var(--border);border-radius:var(--r-sm);padding:16px 18px;background:var(--card);display:flex;flex-direction:column;gap:6px}
+.shape.sel{border:2px solid var(--green);background:var(--greenBg)}
+.shape .t{font-size:14.5px;font-weight:700;color:var(--text)}
+.shape .d{font-size:12.5px;color:var(--muted);line-height:1.5}
+.shape .c{font-family:var(--mono);font-size:10.5px;color:var(--faint);margin-top:4px}
+.shape.sel .c{color:var(--green)}
+
+/* the four-object counter row */
+.counts{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--r-sm);overflow:hidden;margin-top:20px}
+@media (max-width:620px){.counts{grid-template-columns:repeat(2,1fr)}}
+.count{background:var(--card);padding:16px 18px}
+.count .k{display:block;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+.count .v{display:block;font-family:var(--mono);font-size:26px;font-weight:700;color:var(--text);line-height:1;margin-top:8px}
+.count.warn .v{color:var(--gold)}
+
+/* capability / contradiction tables */
+.tw{overflow-x:auto;margin-top:22px;border:1px solid var(--border);border-radius:var(--r-sm);background:var(--card)}
+table.t{width:100%;border-collapse:collapse;font-size:13px;min-width:600px}
+table.t th{text-align:left;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);padding:12px 14px;border-bottom:1px solid var(--border);white-space:nowrap}
+table.t td{padding:12px 14px;border-bottom:1px solid var(--border);color:var(--muted);line-height:1.5;vertical-align:top}
+table.t tr:last-child td{border-bottom:0}
+table.t td.k{color:var(--text);font-family:var(--mono);font-size:12px;white-space:nowrap}
+table.t code{font-family:var(--mono);font-size:11.5px;background:var(--bg2);padding:1px 5px;border-radius:4px;color:var(--text)}
+.gl{font-size:13px;text-align:center;width:1px}
+.mat{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:4px;padding:2px 6px;white-space:nowrap}
+.mat.mixed{color:var(--red);background:#FDF3F2}
+.mat.third{color:var(--red);background:#FDF3F2}
+.mat.org{color:var(--gold);background:#FDF6EC}
+.mat.own{color:var(--green);background:var(--greenBg)}
+
+/* correction UI */
+.corr{border:1px solid var(--border);border-radius:var(--r-sm);background:var(--card);margin-top:20px;overflow:hidden}
+.corr-row{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;padding:14px 16px;border-bottom:1px solid var(--border)}
+.corr-row:last-child{border-bottom:0}
+.corr-row.fixed{background:var(--greenBg)}
+.corr-q{font-size:13.5px;color:var(--text)}
+.corr-q span{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.corr-a{display:flex;gap:6px;flex:none}
+.pill{font-family:var(--mono);font-size:10.5px;font-weight:700;border:1px solid var(--border);border-radius:6px;padding:5px 9px;color:var(--muted);background:var(--card);white-space:nowrap}
+.pill.on{border-color:var(--green);color:var(--green);background:var(--greenBg)}
+.pill.off{border-color:var(--red);color:var(--red);background:#FDF3F2}
+.corr-note{padding:14px 16px;background:var(--bg2);border-top:1px solid var(--border);font-size:13px;color:var(--muted);line-height:1.6}
+.corr-note b{color:var(--text)}
+
+/* read key / delivery */
+.key{font-family:var(--mono);font-size:12px;background:var(--ink);color:var(--green-2);border-radius:var(--r-sm);padding:14px 16px;margin-top:18px;word-break:break-all;line-height:1.6}
+.key .lab2{display:block;color:var(--fg-3);font-size:10px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:7px}
+.vfiles{margin:20px 0 0;padding:0;list-style:none;font-family:var(--mono);font-size:12.5px;border:1px solid var(--border);border-radius:var(--r-sm);overflow:hidden}
+.vfiles li{padding:10px 14px;border-bottom:1px solid var(--border);background:var(--card);display:flex;justify-content:space-between;gap:14px;color:var(--text)}
+.vfiles li:last-child{border-bottom:0}
+.vfiles li span:last-child{color:var(--faint);font-size:11px}
+.vfiles li.auth{background:var(--greenBg)}
+
+/* twelve-stage table */
+.stages{overflow-x:auto;margin-top:34px;border:1px solid var(--border);border-radius:var(--r);background:var(--card)}
+table.st{width:100%;border-collapse:collapse;font-size:13.5px;min-width:680px}
+table.st th{text-align:left;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);padding:13px 16px;border-bottom:1px solid var(--border)}
+table.st td{padding:13px 16px;border-bottom:1px solid var(--border);color:var(--muted);line-height:1.55;vertical-align:top}
+table.st tr:last-child td{border-bottom:0}
+table.st td.n{font-family:var(--mono);color:var(--faint);width:1px}
+table.st td.s{color:var(--text);font-weight:700;white-space:nowrap}
+table.st tr.week td{background:var(--greenBg)}
+table.st tr.week td.s{color:var(--green)}
+table.st td.w{font-family:var(--mono);font-size:11px;white-space:nowrap}
+
+/* rules and notes */
+.rule{margin-top:30px;border-left:3px solid var(--green);background:var(--greenBg);border-radius:0 var(--r-sm) var(--r-sm) 0;padding:20px 24px;max-width:700px}
+.rule p{color:var(--text);font-size:16px;line-height:1.6;font-weight:600}
+.rule p + p{margin-top:10px;font-weight:400;font-size:14.5px;color:var(--muted)}
+.notice{margin-top:28px;border:1px dashed var(--faint);border-radius:var(--r-sm);padding:16px 20px;font-size:13.5px;color:var(--muted);line-height:1.65;max-width:780px}
+.notice strong{color:var(--text)}
+.notice a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+.src{margin-top:26px;font-family:var(--mono);font-size:11.5px;color:var(--faint);line-height:1.75}
+.src a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+.plist{margin:26px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;max-width:720px}
+.plist li{position:relative;padding-left:22px;font-size:15px;color:var(--muted);line-height:1.7}
+.plist li::before{content:"";position:absolute;left:2px;top:10px;width:6px;height:6px;border-radius:50%;background:var(--green)}
+.plist strong{color:var(--text)}
+.plist code,.shead code,.rule code,.notice code{font-family:var(--mono);font-size:13px;background:var(--bg2);padding:1px 6px;border-radius:5px;color:var(--text)}
+.psection.alt .plist code,.psection.alt .shead code{background:var(--card)}
+blockquote.q{margin:22px 0 0;border-left:3px solid var(--border);padding:4px 0 4px 20px;font-size:15px;color:var(--text);line-height:1.7;max-width:700px}
+blockquote.q cite{display:block;font-style:normal;font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:10px}
+blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+
+/* ── editions list — the dated PDFs behind a page that changes ──────────── */
+.editions .shead{margin-bottom:6px}
+.edwhole{margin-top:26px;border:2px solid var(--green);background:var(--greenBg);border-radius:var(--r);padding:24px 26px}
+.edwhole .ed-t{font-size:17px}
+.ed-p{font-size:13.5px;color:var(--muted);line-height:1.65;margin:0 0 4px;max-width:560px}
+.edwhole .ed{background:var(--card)}
+.edgroup{margin-top:26px}
+.ed-t{display:block;font-size:15px;font-weight:700;color:var(--text);margin-bottom:10px}
+.edlist{display:flex;flex-direction:column;gap:8px;margin-top:20px;max-width:560px}
+.edgroup .edlist{margin-top:0}
+.ed{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:baseline;
+  border:1px solid var(--border);border-radius:var(--r-sm);background:var(--card);
+  padding:13px 16px;text-decoration:none;transition:border-color .15s}
+.ed:hover{border-color:var(--green)}
+.ed-v{font-family:var(--mono);font-size:12.5px;font-weight:700;color:var(--green);white-space:nowrap}
+.ed-d{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.ed-s{font-family:var(--mono);font-size:11px;color:var(--faint);white-space:nowrap}
+.ed-n{grid-column:1/-1;font-size:12px;color:var(--muted);line-height:1.5;margin-top:2px}
+@media print{.editions{display:none}}
+
+
+
+
+/* the prompt, line by line, with what actually enforces each line */
+.enf{overflow-x:auto;margin-top:28px;border:1px solid var(--border);border-radius:var(--r);
+  background:var(--card)}
+table.e{width:100%;border-collapse:collapse;font-size:13px;min-width:660px}
+table.e th{text-align:left;font-family:var(--mono);font-size:9.5px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--faint);padding:13px 15px;
+  border-bottom:1px solid var(--border)}
+table.e td{padding:13px 15px;border-bottom:1px solid var(--border);color:var(--muted);
+  line-height:1.5;vertical-align:top}
+table.e tr:last-child td{border-bottom:0}
+table.e td.line{color:var(--text);font-family:var(--mono);font-size:12px;line-height:1.55}
+table.e td.by{width:44%}
+table.e tr.free td{background:var(--greenBg)}
+table.e tr.free td.by{color:var(--green)}
+table.e tr.free td.by b{color:var(--green)}
+table.e tr.none td.by{background:#FDF3F2;color:var(--red)}
+table.e tr.none td.by b{color:var(--red)}
+table.e td.by b{color:var(--text)}
+.enfkey{display:flex;gap:18px;flex-wrap:wrap;margin-top:14px;font-family:var(--mono);
+  font-size:11px;color:var(--faint)}
+.enfkey span{display:inline-flex;align-items:center;gap:7px}
+.enfkey i{width:11px;height:11px;border-radius:3px;display:block;border:1px solid var(--border)}
+.enfkey i.f{background:var(--greenBg);border-color:rgba(26,127,90,.4)}
+.enfkey i.n{background:#FDF3F2;border-color:rgba(192,57,43,.35)}
+.enfkey i.p{background:var(--card)}
+
+/* a big single number, for the ones that carry the argument */
+.figs{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);
+  border:1px solid var(--border);border-radius:var(--r-sm);overflow:hidden;margin-top:26px}
+@media (max-width:700px){.figs{grid-template-columns:1fr}}
+.fig{background:var(--card);padding:20px 22px}
+.fig .fk{display:block;font-family:var(--mono);font-size:9.5px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+.fig .fn{display:block;font-family:var(--mono);font-size:30px;font-weight:700;color:var(--text);
+  line-height:1;margin-top:10px;letter-spacing:-.02em}
+.fig.warn .fn{color:var(--red)}
+.fig.good .fn{color:var(--green)}
+.fig .fd{font-size:12.5px;color:var(--muted);line-height:1.55;margin-top:10px}
+
+/* the bit about us */
+.mirror{margin-top:30px;border:2px solid var(--gold);background:#FDF6EC;border-radius:var(--r);
+  padding:24px 26px;max-width:800px}
+.mirror .mk{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--gold)}
+.mirror p{margin-top:12px;font-size:15px;color:var(--text);line-height:1.7}
+.mirror p + p{margin-top:12px;font-size:14px;color:var(--muted)}
+.mirror b{color:var(--text)}
+
+/* a quoted line of documentation, set as the evidence it is */
+blockquote.doc{margin:24px 0 0;border-left:3px solid var(--green);background:var(--card);
+  border-radius:0 var(--r-sm) var(--r-sm) 0;padding:18px 22px;max-width:760px;
+  font-size:15.5px;color:var(--text);line-height:1.65}
+blockquote.doc cite{display:block;font-style:normal;font-family:var(--mono);font-size:11px;
+  color:var(--faint);margin-top:12px;line-height:1.6}
+blockquote.doc cite a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+.psection.alt blockquote.doc{background:var(--bg)}
+
+/* ── lab 06: the unbounded grant ──────────────────────────────────────────── */
+
+/* the four barrier glyphs, used inline and in table cells */
+.gy{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:12px;
+  white-space:nowrap}
+.gy b{font-size:15px;line-height:1}
+.gy.b1{color:var(--red)} .gy.b2{color:var(--gold)}
+.gy.b3{color:var(--blue)} .gy.b4{color:var(--green)}
+.gykey{display:flex;gap:20px;flex-wrap:wrap;margin-top:16px;font-family:var(--mono);
+  font-size:11px;color:var(--faint)}
+
+/* the egress-path matrix — paths down the side, one green cell means covered */
+.paths{overflow-x:auto;margin-top:28px;border:1px solid var(--border);border-radius:var(--r);
+  background:var(--card)}
+table.p{width:100%;border-collapse:collapse;font-size:13px;min-width:680px}
+table.p th{text-align:left;font-family:var(--mono);font-size:9.5px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--faint);padding:13px 15px;
+  border-bottom:1px solid var(--border)}
+table.p td{padding:13px 15px;border-bottom:1px solid var(--border);color:var(--muted);
+  line-height:1.5;vertical-align:top}
+table.p tr:last-child td{border-bottom:0}
+table.p td.path{color:var(--text);font-family:var(--mono);font-size:12px;white-space:nowrap}
+table.p td.gc{width:1px;white-space:nowrap}
+table.p tr.uncovered td{background:#FDF3F2}
+table.p tr.covered td{background:var(--greenBg)}
+
+/* the reference firewall — four things it permits that a reader would not expect */
+.fw{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:26px}
+@media (max-width:760px){.fw{grid-template-columns:1fr}}
+.fwi{border:1px solid var(--border);border-left:3px solid var(--red);border-radius:var(--r-sm);
+  background:var(--card);padding:18px 20px}
+.fwi .fwk{font-family:var(--mono);font-size:11px;color:var(--red);font-weight:700}
+.fwi .fwt{display:block;font-size:15px;font-weight:700;color:var(--text);margin-top:8px;
+  letter-spacing:-.015em}
+.fwi .fwd{font-size:13px;color:var(--muted);line-height:1.6;margin-top:8px}
+.fwi code{font-family:var(--mono);font-size:11.5px;background:var(--bg2);padding:1px 5px;
+  border-radius:4px;color:var(--text)}
+
+/* the six composition rules */
+.rules{counter-reset:r;margin:28px 0 0;padding:0;list-style:none;display:flex;
+  flex-direction:column;gap:12px;max-width:820px}
+.rules li{counter-increment:r;position:relative;padding:18px 22px 18px 62px;
+  border:1px solid var(--border);border-radius:var(--r-sm);background:var(--card);
+  font-size:14.5px;color:var(--muted);line-height:1.65}
+.rules li::before{content:counter(r);position:absolute;left:20px;top:18px;
+  font-family:var(--mono);font-size:13px;font-weight:700;color:var(--green);
+  width:24px;text-align:left}
+.rules li b{color:var(--text)}
+.rules li code{font-family:var(--mono);font-size:12.5px;background:var(--bg2);padding:1px 5px;
+  border-radius:4px;color:var(--text)}
+
+/* the first-hand measurement of this machine */
+.probe{margin-top:26px;border:1px solid var(--border);border-radius:var(--r);background:var(--ink);
+  padding:24px 26px;max-width:820px}
+.probe .pk{display:block;font-family:var(--mono);font-size:9.5px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--green-2);margin-bottom:14px}
+.probe pre{margin:0;font-family:var(--mono);font-size:12px;line-height:1.9;color:var(--fg-2);
+  overflow-x:auto;white-space:pre}
+.probe pre b{color:var(--green-2);font-weight:400}
+.probe pre i{color:var(--fg-3);font-style:normal}
+.probe p{margin-top:16px;font-size:14px;color:var(--fg-2);line-height:1.7}
+.probe p b{color:var(--fg)}
+
+/* the three ways somebody else's machine gets hit */
+.ways{display:flex;flex-direction:column;gap:14px;margin-top:28px}
+.way{border:1px solid var(--border);border-radius:var(--r);background:var(--card);
+  padding:22px 24px}
+.way .wh{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.way .wn{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.14em;
+  color:var(--faint)}
+.way h3{margin:0;font-size:17px;font-weight:700;color:var(--text);letter-spacing:-.015em;
+  flex:1 1 auto;min-width:220px}
+.way > p{font-size:14px;color:var(--muted);line-height:1.7;margin-top:11px;max-width:760px}
+.way .wf{margin-top:14px;padding-top:12px;border-top:1px solid var(--border);font-size:13.5px;
+  color:var(--muted);line-height:1.6}
+.way .wf b{color:var(--text)}
+/* ── print ────────────────────────────────────────────────────────────────
+   A Lab page is also a PDF edition: a dated, immutable copy of the thinking
+   as it stood, so the journey survives the page moving on. Rendered by
+   scripts/site/render-lab-pdfs.mjs, which is why this block matters more than
+   print CSS usually does — it is the layout of a published artefact, not a
+   courtesy for somebody's printer. */
+@media print {
+  :root{ --wrap:100% }
+  html,body{ background:#fff }
+  body{ font-size:10.5pt; line-height:1.5 }
+  *{ -webkit-print-color-adjust:exact; print-color-adjust:exact }
+
+  /* chrome that means nothing on paper */
+  .top,.navtoggle,.labstrip,.pcta .cta-row,.entry .meta,.phero{ display:none !important }
+  .pdfcover{ display:block !important }
+
+  .wrap{ max-width:100%; padding:0 }
+  .phero{ padding:0 0 18pt; background:#fff; color:var(--text);
+          border-bottom:1.5pt solid var(--green); break-after:avoid }
+  .phero h1{ color:var(--text); font-size:22pt; line-height:1.1; margin:10pt 0 0 }
+  .phero .sub{ color:var(--muted); font-size:11pt; max-width:100% }
+  .phero .it{ color:var(--green) }
+  .eyebrow{ background:none; border:0; padding:0; color:var(--green) }
+
+  .psection{ padding:16pt 0; border-bottom:0.75pt solid var(--border); break-inside:auto }
+  .psection.alt{ background:#fff }
+  .shead{ max-width:100% } .shead h2{ font-size:15pt; break-after:avoid }
+  .shead p{ font-size:10.5pt; margin-top:8pt }
+  h2,h3{ break-after:avoid }
+
+  /* nothing that is one idea may be split down the middle */
+  .mock,.entry,.rule,.notice,blockquote.q,.tw,.t-wrap,.stages,.up,.saytable,
+  figure,figcaption,.oitem,.wcard,.boiler,.rung,.shape,.count,.corr,.vfiles,
+  .fact,.col,.pcard,.ti,.key,.fig,.mirror,.fwi,.way,.probe,.rules li,blockquote.doc{ break-inside:avoid }
+  .plist li{ break-inside:avoid }
+  table.t,table.st,table.e,table.p{ font-size:8.5pt }
+  table thead{ display:table-header-group }
+
+  .mock{ box-shadow:none; margin-top:14pt }
+  .mock-bar{ padding:5pt 8pt }
+  .mock-body{ padding:14pt 16pt }
+  .mock-body.dark{ background:var(--ink) }
+  figcaption{ font-size:9pt; padding:9pt 12pt }
+
+  .pcta{ background:#fff; padding:18pt 0 0; text-align:left;
+         border-top:1.5pt solid var(--green) }
+  .pcta .wrap{ max-width:100% } .pcta h2{ color:var(--text); font-size:15pt }
+  .pcta p{ color:var(--muted); font-size:10.5pt }
+  .pcta .eyebrow{ color:var(--green) }
+  .foot{ display:none }
+
+  a{ color:var(--green); text-decoration:none }
+  .src,blockquote.q cite{ font-size:8.5pt }
+}
+
+/* ── the PDF cover — print only ──────────────────────────────────────────── */
+.pdfcover{ display:none }
+@media print {
+  .pdfcover{ break-after:page; padding:0 0 24pt }
+  .pdfcover .pc-mark{ display:flex; align-items:center; gap:9pt; margin-bottom:96pt }
+  .pdfcover .pc-mark svg{ width:30pt; height:30pt; display:block }
+  .pdfcover .pc-mark b{ font-size:15pt; letter-spacing:-0.02em }
+  .pdfcover .pc-kicker{ font-family:var(--mono); font-size:9pt; font-weight:700;
+    letter-spacing:.18em; text-transform:uppercase; color:var(--green) }
+  .pdfcover h1{ font-size:30pt; font-weight:800; letter-spacing:-.03em;
+    line-height:1.06; margin:14pt 0 0; color:var(--text) }
+  .pdfcover h1 .it{ font-style:italic; color:var(--green) }
+  .pdfcover .pc-stand{ font-size:12pt; line-height:1.6; color:var(--muted);
+    margin-top:18pt; max-width:150mm }
+  .pdfcover .pc-meta{ margin-top:96pt; border-top:1.5pt solid var(--green);
+    padding-top:12pt; font-family:var(--mono); font-size:9pt; color:var(--muted);
+    display:flex; flex-direction:column; gap:4pt }
+  .pdfcover .pc-meta b{ color:var(--text) }
+  .pdfcover .pc-warn{ margin-top:14pt; font-size:9.5pt; line-height:1.6;
+    color:var(--muted); max-width:150mm; font-family:var(--sans) }
+  .pdfcover .pc-warn b{ color:var(--text) }
+}
+</style>
+</head>
+<body id="top">
+
+<section class="pdfcover">
+  <div class="pc-mark"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg><b>RiskMandate</b></div>
+  <div class="pc-kicker">The Lab · entry 06 · Finding</div>
+  <h1>Do not attack anyone is the one rule everybody signs, and <span class="it">it is the one with no barrier.</span></h1>
+  <p class="pc-stand">Every other capability we have written up has an enumerable grant: a scope with a published list, and a delta you can count. This one does not. The grant is every address the process can route to, nobody granted it, and it is the residue of the machine having a network interface. So the measure breaks, the prohibition everybody would sign turns out to be enforced by nothing in the default configuration of every assistant we examined, and the reason to write it down anyway is evidential rather than technical.</p>
+  <div class="pc-meta">
+    <span><b>Edition</b> <span class="pc-edition">— see the stamp in the footer of every page</span></span>
+    <span><b>Live page</b> riskmandate.ai/lab-network-reach.html</span>
+    <span><b>Published by</b> RiskMandate · CC BY 4.0</span>
+  </div>
+  <p class="pc-warn"><b>This is a dated edition of a page that changes.</b> The Lab holds our
+  current thinking, and current thinking moves. This PDF does not: it is what we thought on the
+  date stamped below, kept so the reasoning can be followed rather than only its conclusion. The
+  live page may since have been corrected, extended or withdrawn — and if it has, the edition
+  list on it will say so.</p>
+</section>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
+    <nav class="navlinks"><rm-menu></rm-menu></nav>
+    <a class="version" href="versions.html" title="What shipped in v1.8.0">v1.8.0</a>
+    <button class="demo" data-demo>Get in touch</button>
+  </div>
+</header>
+
+<div class="labstrip"><b>Lab 06</b> · <span class="state finding">Finding</span> · Every product claim below is quoted from that product's own documentation, read and checked 12 September 2026. Nothing was tested against anybody else's system, and on this subject that rule <em>is</em> the subject. <a href="lab.html">Back to the Lab</a></div>
+
+<main class="phero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> Lab 06 · finding</span>
+    <h1>The one rule everybody signs, and <span class="it">the one with no barrier.</span></h1>
+    <p class="sub">Ask any deployer whether their agent should attack other people's systems and you get the same answer. It is the easiest line in any policy to agree. It is also the line where the grant cannot be enumerated, the delta cannot be counted, and — in the default configuration of every assistant we examined — nothing enforces it.</p>
+    <div class="cta-row">
+      <button class="btn btn-green" data-to="unbounded">Why the measure breaks ↓</button>
+      <a class="btn btn-ghost" href="#draft">Skip to the draft</a>
+    </div>
+  </div>
+</main>
+
+<div class="paper">
+
+  <section class="psection" id="unbounded">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">The grant</span>
+        <h2>Every routable address, <span class="g">and nobody granted it.</span></h2>
+        <p>Two entries ago we could tabulate a grant. A code-host scope has a published description, a finite set of capabilities and documented exclusions; the delta between what the credential permits and what the holder was asked to do was a list, and the length of that list was the finding. Here there is no list.</p>
+      </div>
+      <ul class="plist">
+        <li><strong>The grant is every address the process can route to.</strong> Every public service on the internet. Every host on whatever network the machine sits on. Every address in the private ranges reachable from there. The metadata endpoints a cloud instance exposes to its own workloads. <strong>Nobody wrote that grant down because nobody granted it</strong> — it is the residue of the machine having a network interface.</li>
+        <li><strong>So the delta is an unbounded complement rather than a set of items,</strong> and the measure this site has been using since <a href="lab-shape-collector.html">Lab 04</a> — count the connectors, derive a number of bits — does not apply. Counting is the wrong operation on this axis, and saying so is more useful than producing a number that means nothing.</li>
+      </ul>
+
+      <div class="tw">
+        <table class="t">
+          <thead><tr><th>Question</th><th>On the code-host shape</th><th>On this shape</th></tr></thead>
+          <tbody>
+            <tr><td>What does the credential permit</td><td>A published scope, enumerable</td><td class="k">not applicable — there is no credential</td></tr>
+            <tr><td>What is the holder asked to do</td><td>A mandate, enumerable</td><td>A mandate, enumerable</td></tr>
+            <tr><td><strong>What is the delta</strong></td><td>A list, and its length is the finding</td><td><strong>Everything else, and its unboundedness is the finding</strong></td></tr>
+            <tr><td>What bounds it</td><td>A token scope or a branch rule</td><td>Only a boundary at the network or kernel layer</td></tr>
+            <tr><td><strong>What can be measured</strong></td><td>The number of items in the delta</td><td><strong>Whether a barrier exists, at which layer, and which egress paths it covers</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="rule">
+        <p>This is a result, not a defeat.</p>
+        <p>On the code-host shape the row says <em>here is a capability you did not know you had</em>. Here the row says there is no enumeration, and the only honest thing a policy can record is which of the four barriers stands between the mandate and the rest of the internet. That is a different kind of row, and the schema has to carry both.</p>
+      </div>
+      <div class="gykey">
+        <span class="gy b1"><b>●</b> none</span>
+        <span class="gy b2"><b>◉</b> an expectation</span>
+        <span class="gy b3"><b>◐</b> a setting</span>
+        <span class="gy b4"><b>○</b> a boundary</span>
+        <span>— only the fourth bounds anything</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="psection alt" id="capability">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Capability and guardrail</span>
+        <h2>A refusal layer belongs to <span class="g">one deployment.</span></h2>
+        <p>Every major vendor's acceptable-use terms already prohibit exactly this, and those terms are backed by refusal training and by classifiers on the hosted services — more enforcement than a deployer's pasted line will ever have. None of that is evidence about the capability, and a behaviour policy must not treat it as though it were.</p>
+      </div>
+      <ul class="plist">
+        <li><strong>The same capability is reachable through the raw interface</strong> without the hosted review layer, through a different provider serving a comparable family, through an open-weight model on the deployer's own hardware, through a fine-tune, and through a router that fails over to a second provider when the first is slow. Not one of those changes what the system can do. Every one of them changes whether anything refuses.</li>
+        <li><strong>This is the label principle, applied exactly as it was defined.</strong> A substance's label lists what the substance does. It does not stop listing an interaction because one hospital happens to employ a pharmacist who checks. The pharmacist is a control in one setting; the interaction is a property of the compound. Removing it from the label because of the pharmacist would make the label wrong everywhere else.</li>
+      </ul>
+
+      <div class="rule">
+        <p>Controls on some deployments are a statement about those deployments. The capability is what the document describes.</p>
+        <p>Which means the two published incident reports have to be read the other way round from the way a security reader reaches for them — and read that way they are the strongest capability evidence in this corpus: first-party, dated, and published by a vendor about its own product.</p>
+      </div>
+
+      <div class="figs">
+        <div class="fig warn">
+          <span class="fk">Executed independently</span>
+          <span class="fn">80–90%</span>
+          <p class="fd">Of tactical operations, in an orchestrated espionage campaign the vendor disrupted and reported. The tooling was the coding assistant plus connector servers.</p>
+        </div>
+        <div class="fig warn">
+          <span class="fk">Reconnaissance</span>
+          <span class="fn">100s</span>
+          <p class="fd">Of discovered services and endpoints catalogued, with complete network topology mapped across multiple address ranges, across roughly thirty targeted entities.</p>
+        </div>
+        <div class="fig warn">
+          <span class="fk">A second operation</span>
+          <span class="fn">1,000s</span>
+          <p class="fd">Of remote access endpoints scanned, with vulnerable systems identified, domain controllers and database servers located, and real-time assistance during live intrusion. At least seventeen organisations affected in one month.</p>
+        </div>
+      </div>
+      <p class="src">Both figures are the vendor's own, from its published disruption report and its August 2025 threat report, cited by date rather than characterised. The recorded remedy in both cases was detection and account closure after the fact — after roughly thirty entities had been targeted in the first, and at least seventeen organisations affected in the second.</p>
+
+      <div class="notice">
+        <strong>That the guardrails were defeated is the smaller finding, and it dictates the phrasing.</strong> Both operations were defeated by reframing rather than by force: operators claimed to be employees of legitimate cybersecurity firms, presented the work as defensive testing, and decomposed multi-stage attacks into discrete technical tasks each of which looked ordinary in isolation. So an instruction saying <em>do not attack anyone</em> is satisfied, in the model's reading, by an operator who says <em>this is an authorised penetration test of our own estate</em>. <strong>The generic line must therefore prohibit a set of destinations, which is not reframable, rather than a category of intent, which is.</strong>
+      </div>
+    </div>
+  </section>
+
+  <section class="psection" id="position">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">A proposal to the model</span>
+        <h2>A barrier has a position, <span class="g">and some have an expiry.</span></h2>
+        <p>The four barriers were written from the agent's point of view. A vendor refusal layer exposes a second axis the vocabulary does not carry: <em>relative to whom</em>. From the deployer's seat it sits above them and they cannot switch it off, which looks like barrier four — and it formally passes the enforcer test, because it is enforced by something the grant does not include. It is still not the same kind of object as a kernel firewall.</p>
+      </div>
+      <div class="tw">
+        <table class="t">
+          <thead><tr><th>Field</th><th>Kernel firewall or egress proxy</th><th>Vendor refusal layer</th></tr></thead>
+          <tbody>
+            <tr><td class="k">above whom</td><td>Above the agent and above the session</td><td>Above the <strong>deployer</strong>, and above the agent</td></tr>
+            <tr><td class="k">deterministic</td><td><strong>Yes</strong></td><td><strong>No</strong> — it has a rate, not a state</td></tr>
+            <tr><td class="k">what voids it</td><td>Removing it, which is a deliberate act by an administrator</td><td>A model, provider, version, routing or hosting change — <strong>none of which anybody classifies as a security change</strong></td></tr>
+            <tr><td class="k">can the party relying on it evidence that it acted</td><td><strong>Yes</strong>, there is a log it did not write</td><td><strong>No</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul class="plist">
+        <li><strong>Perishability is the property that matters most.</strong> A model-router configuration edit is a performance decision, usually made by somebody who has never seen the policy, frequently automatic — and it can remove the only thing standing between the mandate and the rest of the internet. A kernel firewall does not evaporate when the model changes.</li>
+        <li><strong>And the party relying on it cannot evidence it.</strong> The validation table below works because a proxy log and a resolver log are held outside the agent. There is no analogue for a refusal layer: the deployer cannot demonstrate that it acted, cannot demonstrate that it was present, and in a failover case cannot always establish afterwards which provider served a given turn.</li>
+      </ul>
+      <div class="rule">
+        <p>So compute the minimum barrier twice, and publish the pessimistic number.</p>
+        <p>Once including perishable barriers and once excluding them. Otherwise the badge reads four, somebody edits a routing rule on a Tuesday afternoon with no ticket and no review, and the badge still reads four while the barrier is gone. <strong>A barrier voided by a change nobody classifies as a security change must not be counted without its void condition printed beside it.</strong> This joins <a href="lab-abp-requests.html">our request list against the model site</a> as a proposal, alongside the composition rules below.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="psection alt" id="paths">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">The finding that changes the rendering</span>
+        <h2>One agent has <span class="g">more than one way out.</span></h2>
+        <p>The most quotable sentence found anywhere in this research is in one vendor's permissions documentation, about its own product. It settles an argument this site keeps having, so it is reproduced verbatim with its date.</p>
+      </div>
+
+      <blockquote class="doc">
+        “Note that using WebFetch alone doesn't prevent network access. If Bash is allowed, Claude can still use <code>curl</code>, <code>wget</code>, or other tools to reach any URL.”
+        <cite><a href="https://code.claude.com/docs/en/permissions" target="_blank" rel="noopener">code.claude.com/docs/en/permissions</a>, read 12 September 2026</cite>
+      </blockquote>
+
+      <blockquote class="doc">
+        “Permission rules are enforced by Claude Code, not by the model. Instructions in your prompt or <code>CLAUDE.md</code> shape what Claude tries to do, but they don't change what Claude Code allows.”
+        <cite>Same page, same date. That is a vendor describing the difference between barrier two and barrier four in its own words — and doing it more plainly than this site has managed. The same page adds, of writing the boundary into the project instructions file: “This shapes what Claude tries but doesn't enforce a boundary.”</cite>
+      </blockquote>
+
+      <p class="src" style="margin-top:20px">The setting that <em>does</em> hold is a different one, and its scope is narrower than most deployers would assume. Four documented properties of it belong on any page that recommends it:</p>
+      <ul class="plist">
+        <li><strong>It covers shell subprocesses only.</strong> In the vendor's words: “Claude Code enforces this for sandboxed commands only; in-process tools such as <code>WebFetch</code> still follow their permission rules.”</li>
+        <li><strong>It does nothing when written into the repository.</strong> Same sentence, next clause: “Setting it in a repository's <code>.claude/settings.json</code> or <code>.claude/settings.local.json</code> has no effect.” <strong>This is the barrier-three to barrier-four promotion made mechanical</strong> — the same words in one file are a setting the agent's own working tree could change, and in another file are a boundary above it. It is the clearest illustration of the enforcer test we have found in anybody's documentation.</li>
+        <li><strong>It fails open by default.</strong> “By default, if the sandbox cannot start because dependencies are missing or the platform is unsupported, Claude Code shows a warning and runs commands without sandboxing. To make this a hard failure instead, set <code>sandbox.failIfUnavailable</code> to <code>true</code>.”</li>
+        <li><strong>It decides from the announced hostname.</strong> “Because the proxy makes its allow decision from the client-supplied hostname without inspecting TLS, code running inside the sandbox can potentially use domain fronting or similar techniques to reach hosts outside the allowlist… Stronger TLS-aware network isolation is an active area of development.” Against an injected agent that will not think to lie about the hostname, this is adequate. Against a compromised one it is not, and a policy row claiming it should say which of the two it is claiming.</li>
+      </ul>
+      <p class="src">All four quoted from <a href="https://code.claude.com/docs/en/sandboxing" target="_blank" rel="noopener">code.claude.com/docs/en/sandboxing</a>, read 12 September 2026. A second vendor's defaults run the other way and are worth citing as the counter-example: its shell sandbox has network access off by default, its hosted service blocks internet access during the agent phase unless enabled, and its domain filter resolves deny before allow. A third states plainly that its automatic review of agent actions is not a security boundary and that the classifier can err in both directions. Publishing three positions side by side, sourced and dated, is more useful to a reader than any argument we could make.</p>
+
+      <div class="rule">
+        <p>A destination list is not a property of an agent. It is a property of an egress path, and an agent has several.</p>
+        <p>So the rendering has to be a matrix, with paths down the side, and a cell is green only when that path is covered by something at barrier four. A policy recording a single domain list for an agent is describing at most one of its exits.</p>
+      </div>
+
+      <div class="paths">
+        <table class="p">
+          <thead><tr><th>Egress path</th><th>What governs it</th><th>Covered by</th><th>Default</th></tr></thead>
+          <tbody>
+            <tr class="covered"><td class="path">shell subprocesses</td><td>The sandbox allowed-domains list, with strict mode, from user or managed settings</td><td>An OS-level boundary outside the process</td><td class="gc"><span class="gy b4"><b>○</b> 4</span></td></tr>
+            <tr><td class="path">in-process fetch</td><td>Its own permission rules — a separate list that must be reconciled by hand</td><td>The client, not the OS</td><td class="gc"><span class="gy b3"><b>◐</b> 3</span></td></tr>
+            <tr class="uncovered"><td class="path">connector servers</td><td>Nothing in the sandbox — they run as separate host processes outside it</td><td>Only a network-layer boundary</td><td class="gc"><span class="gy b1"><b>●</b> 1</span></td></tr>
+            <tr class="uncovered"><td class="path">hooks</td><td>Nothing in the sandbox — same reason</td><td>Only a network-layer boundary</td><td class="gc"><span class="gy b1"><b>●</b> 1</span></td></tr>
+            <tr class="uncovered"><td class="path">name resolution</td><td>Not covered by any web-destination list</td><td>A resolver allow list, or the firewall's outbound resolution rule</td><td class="gc"><span class="gy b1"><b>●</b> 1</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="src">The minimum across the paths is what the badge should show. <strong>An agent with a perfectly written destination list and an unsandboxed connector server earns the glyph for the connector server</strong>, because that is the path an attacker uses.</p>
+
+      <div class="probe">
+        <span class="pk">Measured on the machine that built this page · 12 September 2026</span>
+        <pre><i># the shell, from the environment that publishes riskmandate.ai</i>
+curl https://example.com/        <b>200</b>
+curl https://ipinfo.io/ip        <b>200</b>
+exec 3&lt;&gt;/dev/tcp/1.1.1.1/443     <b>open</b>   <i>← a raw socket, no proxy in the path</i>
+getent hosts example.com         <b>resolves</b>
+
+<i># the in-process fetch tool, same session</i>
+fetch https://example.com/       <b>200</b></pre>
+        <p><b>No allow list stood in either path.</b> This is one deployment — a managed remote environment with its own network policy — and that is exactly the point: the answer to <em>can this agent reach arbitrary hosts</em> lives in the deployment and not in the model. We publish our own measurement because a page arguing that the barrier is a property of the deployment should say what its own deployment does.</p>
+        <p><b>One thing we could not reproduce, and say so.</b> The brief behind this entry reports observing the two egress paths <em>diverge</em> in a single session — the fetch tool reaching hosts the shell's tunnel refused. In this session they did not diverge: both reached every host tried. The documented finding stands on the vendor's own sentences above, which say the two paths are governed by different policy; whether they actually differ on a given day is configuration, and we did not see it here.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="psection" id="dns">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">The hole in every list</span>
+        <h2>Name resolution is <span class="g">not on it.</span></h2>
+        <p>A destination allow list that covers web traffic does not cover name resolution, and name resolution alone is sufficient to move data out. A vulnerability disclosed in May 2025 and fixed the following month used exactly that: the diagnostic commands for resolution and reachability were on the automatically approved list, and an injected instruction could embed the output of a credential search into a hostname and resolve it, delivering the secret to a server the attacker controlled. The remedy was to remove those commands from the automatically approved list.</p>
+      </div>
+
+      <div class="notice">
+        <strong>Which makes the published reference container worth reading closely before it is copied.</strong> It is a genuine default-deny egress firewall at the kernel layer — <code>iptables -P OUTPUT DROP</code>, an allow set built from the code host's published address ranges and seven named service hosts, and a self-check that an arbitrary external host is unreachable while the code host is. We fetched the script and read it. Stated without adjectives, it permits four things a reader would not expect from a configuration whose purpose is to stop the agent reaching other people's machines.
+      </div>
+
+      <div class="fw">
+        <div class="fwi">
+          <span class="fwk">permits</span>
+          <span class="fwt">Name resolution to any address</span>
+          <p class="fwd"><code>iptables -A OUTPUT -p udp --dport 53 -j ACCEPT</code> — added before the allow set is built. This is the exact channel the May 2025 vulnerability used.</p>
+        </div>
+        <div class="fwi">
+          <span class="fwk">permits</span>
+          <span class="fwt">Secure shell to any address</span>
+          <p class="fwd"><code>iptables -A OUTPUT -p tcp --dport 22 -j ACCEPT</code> — unconditional, to anywhere on the internet.</p>
+        </div>
+        <div class="fwi">
+          <span class="fwk">permits</span>
+          <span class="fwt">The code host's full address ranges</span>
+          <p class="fwd">Every repository and every snippet on it, which is therefore an outbound channel for anything the agent can read.</p>
+        </div>
+        <div class="fwi">
+          <span class="fwk">permits</span>
+          <span class="fwt">The whole /24 around the host</span>
+          <p class="fwd"><code>HOST_NETWORK=$(echo "$HOST_IP" | sed "s/\.[0-9]*$/.0\/24/")</code>, then accepted. On a typical developer machine that is the local network the developer is sitting on.</p>
+        </div>
+      </div>
+      <p class="src">Read from the published script on 12 September 2026. It also rejects with <code>--reject-with icmp-admin-prohibited</code> and configures no logging target, so the validation table below loses a row unless one is added.</p>
+
+      <div class="rule">
+        <p>A document that says <em>do not touch any other company's systems</em>, running behind that firewall, can still reach every other machine on the office network.</p>
+        <p>Whether that is acceptable depends entirely on the deployment — which is consequence agnosticism doing exactly the job it was introduced to do. The same configuration is unremarkable on an isolated build host and is a very different object on a laptop plugged into a corporate network. <strong>This is the strongest case yet for the deployment-shape field being mandatory rather than optional.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="psection alt" id="ways">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Three ways it happens</span>
+        <h2>Somebody else's machine gets hit <span class="g">without anyone intending it.</span></h2>
+        <p>These three are documented, dated and different from each other in a way that matters: they need three different rows, and conflating them is the mistake to avoid.</p>
+      </div>
+      <div class="ways">
+        <div class="way">
+          <div class="wh"><span class="wn">01</span><h3>The agent walks around its own restriction</h3></div>
+          <p>In an account published in August 2026 by an independent researcher, the user prompt was benign — summarise this URL. The in-process fetch tool returned an HTTP 415, the assistant reasoned that it should try directly, and fell back to the shell. A redirect steered it to an archive, which it downloaded, extracted and executed, establishing an outbound callback. The reviewing classifier approved the execution and then denied the subsequent cleanup command.</p>
+          <p class="wf"><b>Defeated by:</b> an egress boundary. The vendor's position, as reported in that account, is that the automatic mode is a best-effort classifier and not a security guarantee, with operating system isolation and network controls being the actual boundary. That position is correct, and it is the whole argument of this entry.</p>
+        </div>
+        <div class="way">
+          <div class="wh"><span class="wn">02</span><h3>The agent is turned into a reflector</h3></div>
+          <p>In a January 2025 advisory, an endpoint operated by a model vendor accepted a list of URLs and issued one outbound request for each, from the vendor's own address ranges, with no deduplication and no observed cap. A single well-formed request was amplified into fifty requests aimed at a chosen third party. The endpoint was disabled after the report became public.</p>
+          <p class="wf"><b>Not the deployer's exposure at all.</b> This belongs on a provider page rather than a deployer one — the deployer's instruction file was never in the path. It is the clearest documented case of legitimately operated infrastructure being aimed at an uninvolved party by a single untrusted input.</p>
+        </div>
+        <div class="way">
+          <div class="wh"><span class="wn">03</span><h3>The whole permission layer is switched off by something already trusted</h3></div>
+          <p>In the supply-chain compromise of August 2025, a malicious package version shipped an install hook that invoked the developer's already-installed assistant command-line tools <strong>with their confirmation flags disabled</strong>, and handed them a prompt instructing a recursive search of the home directory and configuration paths for credential and wallet file patterns. Over a thousand valid tokens were leaked and thousands of files exfiltrated, with a second wave making several thousand repositories public.</p>
+          <p class="wf"><b>Defeated by an egress boundary and by nothing else.</b> Every prohibition in every instruction file on those machines was in force and none of them applied, because the flag that disabled confirmation was passed by a process the developer had already granted execution to. The agent layer was not merely bypassed — it was operated.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="psection" id="why">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Why write it anyway</span>
+        <h2>The answer is evidential, <span class="g">not technical.</span></h2>
+        <p>If the instruction does not stop the agent, the honest question is why a deployer should write it. The answer is that in two of the three legal regimes examined, liability attaches to <em>causing an act to be done</em> — and the document is the record of what was authorised.</p>
+      </div>
+      <ul class="plist">
+        <li><strong>In one jurisdiction</strong>, the impairment offence is committed by doing an unauthorised act in relation to a computer knowing it is unauthorised, with intent to impair operation, prevent or hinder access to data, or impair the reliability of data. Two sub-clauses do the work: recklessness as to whether the act will do any of those things is sufficient in place of intent, and a reference to <em>doing an act</em> includes <em>causing an act to be done</em>, with an act including a series of acts. The prosecuting authority's own guidance states that the related access offence is made out once a defendant has caused a computer — including his own — to perform a function with the relevant intent, and that the intent need not be directed at any particular program, data or computer.</li>
+        <li><strong>In a second</strong>, the corresponding provision covers knowingly causing the transmission of a program, information, code or command which intentionally causes damage without authorisation to a protected computer, with damage defined as any impairment to integrity or availability. The controlling interpretation of the access clauses is a gates-up-or-down inquiry, so fetching a public page is unlikely to qualify while getting past an authentication gate or causing impairment is.</li>
+        <li><strong>In a third regime</strong>, the access offence requires that a security measure be infringed, which likely places bare scanning outside it — but the same instrument carries a corporate liability article under which a legal person is liable where a <em>lack of supervision or control</em> made the offence possible for its benefit. That clause is the direct hook for a deployment with inadequate egress control.</li>
+      </ul>
+
+      <blockquote class="doc">
+        The tribunal called the submission “remarkable”, and said it should be obvious that the operator is responsible for all the information on its own site.
+        <cite>An airline argued before a small claims tribunal in 2024 that it could not be held liable for information provided by its own conversational system. Quoted here from secondary coverage, because the primary record blocks automated retrieval — and it is a small claims tribunal on negligent misrepresentation rather than a computer misuse case. Cited with that caveat, because it is the only public judicial rejection of <em>the automated system acted on its own</em> that we could find, and the reasoning transfers.</cite>
+      </blockquote>
+
+      <div class="notice">
+        <strong>What was not found is itself the finding.</strong> No court judgment, no regulator decision and no prosecutorial guidance in any jurisdiction examined addresses computer misuse liability specifically for an autonomous agent's network activity. The vendor disruption reports are the closest thing to a public record and they describe law-enforcement coordination rather than a charging decision. There is also no appellate authority either way on the legality of unauthorised scanning. <strong>None of this is legal advice</strong>: the statutory language is quoted, the gap in the case law is reported, and whether a given deployment is exposed is a question for the deployer's own counsel.
+      </div>
+
+      <div class="mirror">
+        <span class="mk">The risk of writing it without enforcing it</span>
+        <p>There is a version of this that cuts the other way, and this page would rather say it than be caught out by it. <b>A written prohibition is evidence that the operator foresaw the risk.</b> An operator who wrote <em>do not scan third-party hosts</em>, enforced nothing, and whose agent then scanned third-party hosts, has produced a document that establishes foresight on the record. On a standard where recklessness suffices, foresight without mitigation is not obviously better than no document at all.</p>
+        <p>The resolution is not to stop writing the line. It is to <b>never publish a prohibition without publishing what enforces it in the same row.</b> A row reading <em>do not reach hosts outside the list — enforced by nothing</em> is an honest disclosure of an unmitigated exposure, and reads as a decision taken with open eyes. A row with no enforcement column at all reads as an operator who believed the sentence was a control. That column is what converts the document from evidence against the operator into evidence of diligence — and it is the strongest argument yet found for this site's rule that every line carries its barrier.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="psection alt" id="validate">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Validation</span>
+        <h2>Self-report is a claim. <span class="g">The log is the evidence.</span></h2>
+        <p>Can the agent report what it reached? Yes, and it is not worth much. Can it be validated? Yes — and every source that counts is held outside the agent.</p>
+      </div>
+      <ul class="plist">
+        <li><strong>Why self-report is not evidence, demonstrated first hand.</strong> While researching the brief behind this entry, a research agent asked its own fetch tool to reproduce a vendor's documentation of that same fetch tool's behaviour. On one attempt the extraction returned a fluent, confident and entirely fabricated answer: a redirect limit that does not exist, a cache duration off by a factor of four, a parameter that does not exist, and a rejection behaviour that is the opposite of the documented one. The same agent had reported the section accurately before and reported it accurately again after. <strong>One agent, one question, one session, three answers, one of them invented.</strong> An agent's account of what it fetched is a claim about the past produced by the same machinery that produced the fetches.</li>
+        <li><strong>And the telemetry has four gaps that a validation claim would fall through.</strong> The tool-result event is not emitted when a call was rejected, so a naive reading undercounts attempts. There is no network event at any level — a shell call produces one record containing a command string, and the connections its child processes open are not recorded, so a command that reads a URL from a variable, a script or a compiled binary produces a log line with no destination in it. Values are truncated. And the stream is emitted by the agent's own process: it is self-report with better formatting, and a process that can write files can change where it is sent.</li>
+      </ul>
+
+      <div class="tw">
+        <table class="t">
+          <thead><tr><th>Source</th><th>What it proves</th><th>Can the agent edit it</th></tr></thead>
+          <tbody>
+            <tr><td class="k">egress proxy connection log</td><td>Every hostname the process asked to reach, allowed and refused, with timestamps</td><td><strong>No</strong>, when the proxy runs outside the sandbox</td></tr>
+            <tr><td class="k">name resolution query log</td><td>Every name looked up — including the channel the web list does not cover</td><td><strong>No</strong></td></tr>
+            <tr><td class="k">kernel firewall logging</td><td>Every packet allowed or dropped, by address</td><td><strong>No</strong> — and the reference container rejects without logging, so a target must be added</td></tr>
+            <tr><td class="k">cloud network flow records</td><td>Address-level record of everything the workload sent</td><td><strong>No</strong></td></tr>
+            <tr><td class="k">agent telemetry, tool detail on</td><td>What the agent asked its own tools to do</td><td>Yes, in principle</td></tr>
+            <tr><td class="k">the agent's narrative answer</td><td>Nothing</td><td>Not applicable — it is generated</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="rule">
+        <p>Two rows, never one.</p>
+        <p>The agent will report the destinations it <em>intended</em> to reach, and that report is a claim. The destinations it <em>actually</em> reached are in the following log, held by the following party. One vendor's hosted sessions state that all outbound traffic passes through a proxy providing a resolution-level audit trail of requested hostnames — which is exactly the artefact, and its presence for hosted sessions and absence for local ones is the single most useful difference between the two deployment shapes on this capability.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="psection" id="compose">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">A proposal to the model</span>
+        <h2>A policy made of policies, <span class="g">composed the safe way round.</span></h2>
+        <p>A larger policy composed of smaller ones is what makes the approach scale. The composition semantics are the whole question, because two well-known systems compose in opposite directions and only one of them is safe here.</p>
+      </div>
+      <blockquote class="doc">
+        “When you use a policy to set the permissions boundary for a user, it limits the user's permissions but does not provide permissions on its own.” … “The effective permissions are the intersection of both policy types. An explicit deny in either of these policies overrides the allow.”
+        <cite>The precedent that works — permissions boundaries at <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html" target="_blank" rel="noopener">docs.aws.amazon.com</a>, read 12 September 2026. The first sentence is precisely the semantics a nested policy needs: the parent's list is a ceiling and the child can only narrow it.</cite>
+      </blockquote>
+      <blockquote class="doc">
+        “Network policies do not conflict; they are additive.” … “the connections allowed in that direction from that pod is the union of what the applicable policies allow. Thus, order of evaluation does not affect the policy result.”
+        <cite>The anti-pattern, and instructive precisely because it looks like the right thing — at <a href="https://kubernetes.io/docs/concepts/services-networking/network-policies/" target="_blank" rel="noopener">kubernetes.io</a>, read 12 September 2026. Its own list of what it cannot do includes denying traffic — “there is no concept of a default deny which is overridden by an allow policy” — and name-based targeting. Union of allowances with no denial primitive means adding a policy can only <em>widen</em> the effective reach, which is the exact opposite of what a nested policy needs.</cite>
+      </blockquote>
+
+      <ol class="rules">
+        <li><b>Denial by default.</b> The absence of a rule is a refusal and never a permission. An empty policy means no reach.</li>
+        <li><b>Intersection, never union.</b> The effective set is the intersection of every applicable layer — the organisation's managed layer, the project layer, the session layer, and any sub-agent's own layer.</li>
+        <li><b>A child is a ceiling, not a grant.</b> A nested policy can only narrow. It cannot add a destination its parent did not have.</li>
+        <li><b>Explicit denial is terminal at any layer.</b> No combining algorithm at any node may override it — which is the one place this departs from the formal standard for nested policy sets, where a per-node algorithm can let a child widen its parent.</li>
+        <li><b>Ambiguity narrows or halts, never widens.</b> An unparseable or ambiguous entry is dropped, or the agent stops. It is never resolved by guessing. There is already a shipped precedent for this: one vendor documents that for an ambiguous address entry, “Claude Code never allows more than you wrote” and “may drop the entry entirely rather than widen the allowlist”, while denying every reading the entry parses as.</li>
+        <li><b>Every layer records the barrier it binds at</b>, and a layer binding at barrier four carries the identifier of the log that proves it. Composition of instructions is composition of nothing unless at least one layer in the chain is enforced above the agent.</li>
+      </ol>
+
+      <div class="rule">
+        <p>Ten nested policies at barrier two compose to a barrier two result.</p>
+        <p>Which is why rule six is the one that matters. The fractal structure buys maintainability and delegation, which is real value, and it does not manufacture enforcement. The barrier therefore has to be a required field on every node, and the rendering has to compute the minimum across the chain and print it at the top.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="psection alt" id="draft">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">The draft</span>
+        <h2>Generic and custom, <span class="g">with every line marked.</span></h2>
+        <p>The generic version is for anybody to paste, and the point of it is the right-hand column rather than the left. Read that column first: on this capability, most of it says nothing, which is the harder and more honest version of the same table in <a href="lab-commit-author.html">Lab 05</a>.</p>
+      </div>
+
+      <div class="enf">
+        <table class="e">
+          <thead><tr><th>Generic line</th><th>What it is</th><th class="by">Enforced by</th><th>Barrier</th></tr></thead>
+          <tbody>
+            <tr class="none"><td class="line">Do not send traffic to any host you have not been asked to reach</td><td>A boundary on destinations, phrased so it cannot be reframed as authorised testing</td><td class="by"><b>Nothing.</b> Model disposition only</td><td><span class="gy b2"><b>◉</b> 2</span></td></tr>
+            <tr class="none"><td class="line">Do not scan, probe or enumerate hosts, ports or paths</td><td>A boundary on a technique</td><td class="by"><b>Nothing</b></td><td><span class="gy b2"><b>◉</b> 2</span></td></tr>
+            <tr><td class="line">Do not follow a redirect to a host outside the list without asking</td><td>A procedure</td><td class="by">Partly, where the in-process fetch tool returns cross-host redirects as text instead of following them</td><td><span class="gy b3"><b>◐</b> 2→3</span></td></tr>
+            <tr><td class="line">Do not use shell network utilities</td><td>A boundary on tooling</td><td class="by">A deny rule on the command text — which the vendor documents as not matching “the same program by path or inside <code>sh -c</code>”</td><td><span class="gy b2"><b>◉</b> 2</span></td></tr>
+            <tr class="none"><td class="line">Report every destination you reached at the end of the session</td><td>A reporting duty</td><td class="by"><b>Nothing.</b> The report is a claim</td><td><span class="gy b2"><b>◉</b> 2</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="src" style="margin-top:22px">The custom version is the one worth something, and it has three destination sets with three different lifetimes: <strong>operational</strong> (registries, the model API, telemetry, the source host — fixed, and it should be short), <strong>estate</strong> (the deployer's own systems — generated from an inventory rather than typed), and <strong>handed in</strong> (whatever the user pastes in this morning — one turn, and it cannot be a list at all, so its line is a procedure).</p>
+
+      <div class="enf">
+        <table class="e">
+          <thead><tr><th>Custom line</th><th>Which set</th><th class="by">Enforced by</th><th>Barrier</th></tr></thead>
+          <tbody>
+            <tr class="free"><td class="line">Operational destinations, a short fixed list</td><td>What the agent needs to function</td><td class="by"><b>The sandbox allowed-domains list</b>, set in user or managed settings, strict mode on, sandbox failure treated as a hard failure</td><td><span class="gy b4"><b>○</b> 4</span></td></tr>
+            <tr><td class="line">The same list for the in-process fetch tool</td><td>The second egress path</td><td class="by">Fetch permission rules with a domain prefix — a <b>separate list</b> that must be reconciled by hand</td><td><span class="gy b3"><b>◐</b> 3→4</span></td></tr>
+            <tr class="none"><td class="line">Connector server destinations</td><td>The third egress path</td><td class="by"><b>Nothing in the sandbox</b>, because connector servers run as separate host processes outside it. Only a network-layer boundary covers this path</td><td><span class="gy b1"><b>●</b> 1</span></td></tr>
+            <tr class="free"><td class="line">Estate destinations, generated from an inventory</td><td>The deployer's own systems</td><td class="by">The same two lists, plus the network layer</td><td><span class="gy b4"><b>○</b> 4</span></td></tr>
+            <tr><td class="line">Handed-in destinations — a procedure, not a list</td><td>What the user pastes in today</td><td class="by">An approval step at the moment of use, recorded</td><td><span class="gy b3"><b>◐</b> 3</span></td></tr>
+            <tr class="none"><td class="line">Name resolution destinations</td><td>The channel the web list does not cover</td><td class="by">A resolver allow list, or the firewall's outbound resolution rule — which the reference container leaves open to any address</td><td><span class="gy b1"><b>●</b> 1</span></td></tr>
+            <tr class="none"><td class="line">Everything else</td><td>The unbounded complement</td><td class="by">A default-deny egress firewall or an allow-listing proxy outside the process</td><td><span class="gy b1"><b>●</b> 1</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="rule">
+        <p>Fill in the enforcer column first.</p>
+        <p>Write the prohibition only for the rows where you can name something. For the rows where the enforcer is nothing, <strong>still write the prohibition, and print the word <em>nothing</em> next to it</strong> — because that row is the finding.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="psection" id="open">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Open questions</span>
+        <h2>Six, and two of them <span class="g">change the vocabulary.</span></h2>
+        <p>Real rather than rhetorical. The first two would alter a model this site has been building on for a month, which is why they are not settled here.</p>
+      </div>
+      <div class="tw">
+        <table class="t">
+          <thead><tr><th>#</th><th>Question</th><th>Why it is hard</th></tr></thead>
+          <tbody>
+            <tr><td class="k">1</td><td><strong>Two kinds of barrier now sit awkwardly at level four.</strong> Hostname enforcement is real but defeatable by the process it constrains; a vendor refusal layer is real but probabilistic, perishable and unevidenceable. A fifth level, a qualifier, or the three companion fields?</td><td>Adding a level damages a vocabulary whose value is that it has four. The companion fields keep the four intact and make every rendering wider</td></tr>
+            <tr><td class="k">2</td><td><strong>Should a perishable barrier count at all?</strong></td><td>Computing the minimum twice and publishing the pessimistic number is the proposal here. Refusing to record a barrier the deployer cannot evidence is cleaner and discards real information</td></tr>
+            <tr><td class="k">3</td><td><strong>Who owns the reconciliation between an agent's several destination lists?</strong></td><td>It implies a derived object — the union of the paths and the intersection of the lists. Nobody generates that today, and it may be the smallest useful tool we could ship on this capability</td></tr>
+            <tr><td class="k">4</td><td><strong>Should the generic document be published at all before the custom generator exists?</strong></td><td>It is the better acquisition object and the weaker artefact. Publishing it alone risks being the organisation that handed out a sentence and called it a control</td></tr>
+            <tr><td class="k">5</td><td><strong>Can the delta be expressed as a measure rather than a count on unbounded capabilities?</strong></td><td>One candidate: the number of egress paths not covered at barrier four. Small, integer, comparable across deployments, and it does not pretend to count the internet</td></tr>
+            <tr><td class="k">6</td><td><strong>Is there a defensible position on the local network?</strong></td><td>Every reference configuration examined permits the surrounding local network, usually without saying so in prose. A separate row for private address space is a design decision with a legal dimension, because the private range is where the authorisation question is least ambiguous</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="notice">
+        <strong>Four honest tensions, stated rather than resolved.</strong>
+        The generic document is the most useful thing to hand out and the least defensible thing to stand behind — handing out a barrier-two artefact as a first contact is defensible only if the artefact says so on its face, which makes it a worse marketing object and a better document.
+        Writing a prohibition can worsen the operator's position, and the resolution proposed above has not been tested against anybody's counsel.
+        Recording a capability that a particular deployment reliably refuses can read as scaremongering, and that complaint is not unreasonable — it is why the barrier column and the void condition are a requirement of honesty rather than a nicety.
+        And this site and the vendors will appear to contradict each other while making claims about different objects: we publish that the capability is present, sourced to a vendor's own reports; a vendor states, correctly, that its hosted service carries controls against it. Both are true and neither refutes the other. The mitigation is structural — capability and barrier are separate fields on the same row, never one sentence, and the barrier field names the deployment it describes.
+      </div>
+
+      <div class="notice">
+        <strong>What this entry deliberately is not.</strong> It is not a security assessment of any named product: every claim about a product is a quotation from that product's own published documentation with a date, and where a default is unfavourable it is stated without an adjective. It is not legal advice. It is not a claim that prompts are worthless — <a href="lab-commit-author.html">Lab 05</a> has the numbers, and the narrower claim here is that on this one capability the stated prohibition has already been defeated in production at a stronger layer than a deployer can reach. And it is not a proposal to build an egress proxy: four mechanisms that already work are named above, and our contribution is the document recording which one is in place.
+      </div>
+
+      <p class="src">Written 12 September 2026 from a dev brief of the same date, archived in full on <a href="briefs.html">the brief register</a>. Load-bearing quotations fetched and checked on that date: the statement that WebFetch alone does not prevent network access, that permission rules are enforced by the client and not the model, that <code>CLAUDE.md</code> guidance does not enforce a boundary, and that a Bash deny rule does not match the same program by path or inside <code>sh -c</code>, at <a href="https://code.claude.com/docs/en/permissions" target="_blank" rel="noopener">code.claude.com/docs/en/permissions</a>; the strict-allowlist scope, its no-effect-in-a-repository clause, the fail-open default and the hostname/fronting limitation at <a href="https://code.claude.com/docs/en/sandboxing" target="_blank" rel="noopener">code.claude.com/docs/en/sandboxing</a>; the four permissions of the reference container firewall, read from <a href="https://github.com/anthropics/claude-code/blob/main/.devcontainer/init-firewall.sh" target="_blank" rel="noopener">its published script</a>; the permissions-boundary semantics at <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html" target="_blank" rel="noopener">docs.aws.amazon.com</a>; and the additive-union model with its absent denial primitive at <a href="https://kubernetes.io/docs/concepts/services-networking/network-policies/" target="_blank" rel="noopener">kubernetes.io</a>. The incident reports, the disclosed vulnerabilities, the statutory provisions and the tribunal decision are cited as published by their authors on the dates given and are not re-derived here; the brief carries their URLs. The measurement of this machine is our own, taken in the session that produced this page. The four barriers and the enforcer test are from <a href="https://abp.sgit.ai/" target="_blank" rel="noopener">abp.sgit.ai</a>.</p>
+    </div>
+  </section>
+
+
+  <!-- editions:start -->
+  <section class="psection editions">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Editions</span>
+        <h2>The journey, <span class="g">kept as files.</span></h2>
+        <p>This page holds current thinking, and it will change. Each edition below is a dated,
+       immutable copy of what it said on the day, with its own digest. Nothing is rewritten;
+       the list only grows.</p>
+      </div>
+      <div class="edlist">
+        <a class="ed" href="assets/lab/lab-network-reach--v1--2026-09-12.pdf">
+          <span class="ed-v">v1 · current</span>
+          <span class="ed-d">2026-09-12</span>
+          <span class="ed-s">PDF · 492KB</span>
+        </a></div>
+      <p class="src">Digests for every edition are in <a href="lab-editions.json">lab-editions.json</a>,
+      so a PDF somebody was sent can be checked against this list.</p>
+    </div>
+  </section><!-- editions:end -->
+</div>
+
+<section class="pcta">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> Lab 06</span>
+    <h2>Count the exits, not the internet.</h2>
+    <p>You cannot enumerate this grant and you should stop trying. What you can count is how many of your agent's egress paths are covered by something outside the process — shell, in-process fetch, connector servers, hooks, name resolution. That number is small, it is an integer, and on most deployments today it is zero.</p>
+    <div class="cta-row">
+      <a class="btn btn-green" href="lab.html">Back to the Lab</a>
+      <a class="btn btn-ghost" href="lab-commit-author.html">The enumerable version of this →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>© 2026 RiskMandate · Autonomous Risk Management</span>
+    <span>The insurability layer for agentic AI. · <a class="footlink" href="versions.html">Versions</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+var RM={core:{},services:{},components:{},data:{}};
+RM.data.currentPage="lab-network-reach";RM.data.pages=[{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"The problem"},{"name":"acceptable","label":"Accepted is not acceptable","file":"acceptable.html","group":"The problem"},{"name":"acceptance","label":"You own the risk","file":"acceptance.html","group":"The problem"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"The problem"},{"name":"abp","label":"Agent Behaviour Policy","file":"abp.html","group":"The model"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"The model"},{"name":"agents","label":"Agents","file":"agents.html","group":"The model"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"The model"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"The model"},{"name":"statics","label":"Static scenarios","file":"statics.html","group":"The model"},{"name":"demos","label":"All demos","file":"demos.html","group":"Live demos"},{"name":"demo-licence-to-operate","label":"Licence to Operate","file":"demo-licence-to-operate.html","group":"Live demos"},{"name":"demo-risk-graph-explorer","label":"RiskGraph Explorer","file":"demo-risk-graph-explorer.html","group":"Live demos"},{"name":"demo-agentic-browser-isolation","label":"Agentic Browser Isolation","file":"demo-agentic-browser-isolation.html","group":"Live demos"},{"name":"demo-risk-mandate-field","label":"RiskMandate field demo","file":"demo-risk-mandate-field.html","group":"Live demos"},{"name":"demo-file-security","label":"File security walk","file":"demo-file-security.html","group":"Live demos"},{"name":"demo-agent-permission-games","label":"Permission games","file":"demo-agent-permission-games.html","group":"Live demos"},{"name":"lab","label":"All entries","file":"lab.html","group":"Lab"},{"name":"lab-connector-grants","label":"01 · The grant is user-shaped","file":"lab-connector-grants.html","group":"Lab"},{"name":"lab-abp-flow","label":"02 · Buying a behaviour policy","file":"lab-abp-flow.html","group":"Lab"},{"name":"lab-abp-requests","label":"03 · Requests to abp.sgit.ai","file":"lab-abp-requests.html","group":"Lab"},{"name":"lab-shape-collector","label":"04 · The shape collector","file":"lab-shape-collector.html","group":"Lab"},{"name":"lab-commit-author","label":"05 · The commit author","file":"lab-commit-author.html","group":"Lab"},{"name":"lab-network-reach","label":"06 · Every routable address","file":"lab-network-reach.html","group":"Lab"},{"name":"summit","label":"Lisbon 2026","file":"summit.html"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"briefs","label":"Brief register","file":"briefs.html","group":"More"},{"name":"work","label":"Working with us","file":"work.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"}];RM.data.sections=[];
+
+'use strict';
+// components/dom.js — tiny DOM helpers shared by components. `el` builds an
+// element with attributes and children; text children always go in via
+// textContent. `renderMarkdownInto` turns core/markdown tokens into real DOM
+// nodes (never an HTML string), so fetched release notes cannot inject markup.
+
+RM.components.dom = (function () {
+  // A link in a markdown note may only go somewhere harmless: same-document,
+  // same-origin relative, https, or mailto. Anything else — javascript:, data:,
+  // a protocol-relative host — renders as the text it was, and goes nowhere.
+  var SAFE = /^(?:https:\/\/|mailto:|#|[^:/?#]*(?:[/?#]|$))/i;
+
+  /**
+   * @param {string} tag
+   * @param {Object<string,string>} [attrs]
+   * @param {Array<Node|string>} [children]
+   * @returns {HTMLElement}
+   */
+  function el(tag, attrs, children) {
+    var node = document.createElement(tag);
+    if (attrs) Object.keys(attrs).forEach(function (k) {
+      if (attrs[k] != null) node.setAttribute(k, attrs[k]);
+    });
+    (children || []).forEach(function (c) {
+      node.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
+    });
+    return node;
+  }
+
+  /**
+   * Render inline runs into a parent element. Emphasis runs carry child runs
+   * rather than a string, so a link or a code span inside **bold** renders as
+   * itself instead of as its own markdown source — hence the recursion.
+   */
+  function appendRuns(parent, runs) {
+    runs.forEach(function (run) {
+      if (run.t === 'strong' || run.t === 'em') {
+        var node = el(run.t);
+        if (run.runs) appendRuns(node, run.runs);
+        else          node.appendChild(document.createTextNode(run.v));
+        parent.appendChild(node);
+      }
+      else if (run.t === 'code') parent.appendChild(el('code', null, [run.v]));
+      else if (run.t === 'link') parent.appendChild(SAFE.test(run.href)
+        ? el('a', { href: run.href }, [run.v])
+        : document.createTextNode(run.v));
+      else parent.appendChild(document.createTextNode(run.v));
+    });
+  }
+
+  /**
+   * Render markdown block tokens into a container as DOM nodes.
+   * @param {HTMLElement} container
+   * @param {Array} blocks  output of RM.core.markdown.parse
+   */
+  function renderMarkdownInto(container, blocks) {
+    blocks.forEach(function (b) {
+      if (b.type === 'heading') {
+        var h = el('h' + (b.level + 1)); // ## release title -> h3, etc.
+        appendRuns(h, b.runs);
+        container.appendChild(h);
+      } else if (b.type === 'list') {
+        var ul = el('ul');
+        b.items.forEach(function (runs) {
+          var li = el('li');
+          appendRuns(li, runs);
+          ul.appendChild(li);
+        });
+        container.appendChild(ul);
+      } else {
+        var p = el('p');
+        appendRuns(p, b.runs);
+        container.appendChild(p);
+      }
+    });
+  }
+
+  return { el: el, appendRuns: appendRuns, renderMarkdownInto: renderMarkdownInto };
+})();
+
+
+'use strict';
+// components/nav.js — the behaviour on a page that is *not* a link.
+//   [data-to]   → smooth in-page scroll to an element id (no hash routing).
+//   [data-demo] → open a pre-filled demo enquiry email.
+//
+// v1.0.0 removed everything else that used to live here. Up to v0.14 the site
+// ran inside a host <iframe> and every navigation was a postMessage — rm-nav,
+// rm-back, rm-manifest, rm-read. A <button> is not a link, so nothing could be
+// deep-linked, bookmarked, opened in a new tab, or crawled. Now each page is
+// the document the server sent and each navigation is an <a href>, so the only
+// things left to wire are the two that genuinely are not navigation.
+//
+// The mobile drawer is still injected rather than templated: one file gives
+// every page a working menu below the header breakpoint, where .navlinks is
+// hidden by CSS.
+
+RM.components.nav = (function () {
+  // Every "Book a demo" control opens a mail client with a subject and a
+  // starting message. One place to change when booking becomes a real form.
+  var DEMO = {
+    to     : 'nrparekh@gmail.com',
+    subject: 'RiskMandate — demo request',
+    body   : [
+      'Hi,',
+      '',
+      'I would like to see a plug profile for one of the agents we already run.',
+      '',
+      'A little about us:',
+      '  • Organisation:',
+      '  • Roughly how many agents we are running:',
+      '  • The agent we would want to look at first:',
+      '  • Anything already in place (register, IdP, detection tooling):',
+      '',
+      'Thanks,'
+    ].join('\n')
+  };
+
+  function demoHref() {
+    return 'mailto:' + DEMO.to +
+      '?subject=' + encodeURIComponent(DEMO.subject) +
+      '&body='    + encodeURIComponent(DEMO.body);
+  }
+
+  function openDemo() { window.location.href = demoHref(); }
+
+  function scrollTo(doc, id) {
+    var t = doc.getElementById(id);
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Inject the hamburger toggle and wire the drawer open/close. Idempotent.
+  function wireMobileNav(doc) {
+    var top = doc.querySelector('.top');
+    if (!top) return;
+    var wrap  = top.querySelector('.wrap');
+    var links = top.querySelector('.navlinks');
+    if (!wrap || !links || top.querySelector('.navtoggle')) return;
+
+    var burger = doc.createElement('button');
+    burger.className = 'navtoggle';
+    burger.setAttribute('type', 'button');
+    burger.setAttribute('aria-label', 'Toggle navigation');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-controls', 'sitenav');
+    for (var i = 0; i < 3; i++) burger.appendChild(doc.createElement('span'));
+    links.id = links.id || 'sitenav';
+    var demo = wrap.querySelector('.demo');
+    if (demo) wrap.insertBefore(burger, demo); else wrap.appendChild(burger);
+
+    function set(open) {
+      top.classList.toggle('nav-open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    burger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      set(!top.classList.contains('nav-open'));
+    });
+    // Following a real nav link closes the drawer; the group header does not.
+    links.addEventListener('click', function (e) {
+      var b = e.target.closest('button, a');
+      if (b && !b.classList.contains('navgroup-btn')) set(false);
+    });
+    doc.addEventListener('click', function (e) {
+      if (top.classList.contains('nav-open') && !top.contains(e.target)) set(false);
+    });
+    doc.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+    var view = doc.defaultView || window;
+    view.addEventListener('resize', function () { if (view.innerWidth > 1040) set(false); });
+  }
+
+  /** @param {Document} doc */
+  function wire(doc) {
+    doc.querySelectorAll('[data-to]').forEach(function (elm) {
+      elm.addEventListener('click', function () { scrollTo(doc, elm.getAttribute('data-to')); });
+    });
+    doc.querySelectorAll('[data-demo], .demo').forEach(function (elm) {
+      elm.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); openDemo(); });
+    });
+    wireMobileNav(doc);
+  }
+
+  return { wire: wire, scrollTo: scrollTo, demoHref: demoHref, openDemo: openDemo };
+})();
+
+
+'use strict';
+// components/menu.js — <rm-menu>. The one shared header menu, on every page, so
+// the nav is built by a single piece of code. Renders the homepage's section
+// links first, then the top-level pages, marking the current page active.
+//
+// A run of contiguous pages sharing a `group` string collapses into one entry:
+// a hover/click dropdown labelled by the group, with the members as children. A
+// single-member group renders flat — no dropdown for one item.
+//
+// v1.0.0: every entry is an <a href>. The old menu emitted <button> elements
+// that asked a host frame to swap an iframe's srcdoc, which meant the links did
+// not exist as far as a crawler, a bookmark or a middle-click was concerned.
+// The group header stays a <button> because it opens a panel rather than going
+// anywhere — that is the one control here that is genuinely not a link.
+
+(function () {
+  var dom = RM.components.dom;
+
+  RM.components.Menu = class extends HTMLElement {
+    connectedCallback() {
+      var self = this;
+      this._onDocClick = function (e) {
+        self.querySelectorAll('.navgroup.open').forEach(function (g) {
+          if (!g.contains(e.target)) g.classList.remove('open');
+        });
+      };
+      document.addEventListener('click', this._onDocClick);
+      this._render();
+    }
+    disconnectedCallback() {
+      document.removeEventListener('click', this._onDocClick);
+    }
+
+    // On the homepage a section link scrolls; on any other page it is a link
+    // back to the homepage at that anchor. Same markup either way.
+    _section(s) {
+      var home = !(RM.data && RM.data.currentPage);
+      var a = dom.el('a', { class: 'seclink', href: home ? '#' + s.to : 'index.html#' + s.to }, [s.label]);
+      if (home) a.addEventListener('click', function (e) {
+        e.preventDefault();
+        RM.components.nav.scrollTo(document, s.to);
+      });
+      return a;
+    }
+
+    _pagelink(p, extra) {
+      var active = p.name === (RM.data && RM.data.currentPage);
+      var attrs  = { class: 'pagelink' + (extra ? ' ' + extra : '') + (active ? ' active' : ''), href: p.file };
+      if (active) attrs['aria-current'] = 'page';
+      return dom.el('a', attrs, [p.label]);
+    }
+
+    _group(name, members) {
+      var self    = this;
+      var current = RM.data && RM.data.currentPage;
+      var active  = members.some(function (m) { return m.name === current; });
+      var car     = dom.el('span',   { class: 'navgroup-car', 'aria-hidden': 'true' }, ['▾']);
+      var btn     = dom.el('button', { class: 'navgroup-btn' + (active ? ' active' : ''), type: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false' }, [name, car]);
+      var panel   = dom.el('div',    { class: 'navmenu' }, members.map(function (m) { return self._pagelink(m, 'navchild'); }));
+      var wrap    = dom.el('span',   { class: 'navgroup' + (active ? ' active' : '') }, [btn, panel]);
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = wrap.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      return wrap;
+    }
+
+    _render() {
+      var sections = (RM.data && RM.data.sections) || [];
+      var pages    = (RM.data && RM.data.pages)    || [];
+      var self     = this;
+      this.textContent = '';
+      sections.forEach(function (s) { self.appendChild(self._section(s)); });
+      var i = 0;
+      while (i < pages.length) {
+        var p = pages[i];
+        if (!p.group) { self.appendChild(self._pagelink(p)); i++; continue; }
+        var g = p.group, members = [];
+        while (i < pages.length && pages[i].group === g) { members.push(pages[i]); i++; }
+        if (members.length === 1) self.appendChild(self._pagelink(members[0]));
+        else                      self.appendChild(self._group(g, members));
+      }
+    }
+  };
+
+  customElements.define('rm-menu', RM.components.Menu);
+})();
+
+
+'use strict';
+// boot.js — inner-page composition root (version builds and dev.html). Custom
+// elements self-register on load; here we wire document-level nav behaviour.
+// The page runs inside the host's stage frame, so the host (not this page) signals
+// the SG/App host that the app is ready.
+
+(function () {
+  function start() { RM.components.nav.wire(document); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
+})();
+
+
+})();
+</script>
+</body>
+</html>

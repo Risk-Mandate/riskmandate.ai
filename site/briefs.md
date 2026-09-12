@@ -28,7 +28,7 @@ Neither of these is hypothetical. One of the documents below arrived twice, byte
 | Received | received | Archived and read, and nothing has been built from it yet |
 | Superseded | superseded | Later material replaced it. Kept, because the reasoning is still the record |
 
-## Five files, in the order they arrived.
+## Six files, in the order they arrived.
 
 Each one is linked in full, as received, with nothing edited. Where a brief and this site disagree, the brief is what we were given and the site is what we concluded — and where we corrected a brief, the correction is on the page rather than in the file.
 
@@ -89,6 +89,18 @@ Each one is linked in full, as received, with nothing edited. Where a brief and 
 - **Logo and name into the exhibitor portal.** The organisers' own deadline was 15 September
 - **The power request**, which goes through the portal and not by email
 
+### Every Routable Address Is In The Grant: Do Not Attack Anyone Is The One Rule Everybody Signs, And It Is The One With No Barrier
+
+**sha256** b85fdbcb235b352150d5b806e58b4d525414a8c0a7ac11382a697f2f78127eb7
+
+**Seven load-bearing quotations were fetched and checked rather than relayed**, including the reference container's firewall script. Two departures from the brief are stated on the page it became. It reports observing an agent's two egress paths _diverge_ in one session; in ours they did not — both reached every host tried — so the finding rests on the vendor's own sentences rather than on that observation. And we published a measurement of this machine's own egress instead, which found a raw outbound socket to an arbitrary public address and working name resolution, with no allow list standing in either path.
+
+- [Lab 06 — every routable address is in the grant](lab-network-reach.html), with the egress-path matrix and the four things the published reference firewall permits
+- **Two proposals to the model site** — the barrier's companion fields, and the six composition rules. Lab 06 states them; they are not yet on [the request list](lab-abp-requests.html)
+- **The provider comparison table**, which the brief says writes itself from the sources
+- **The reconciliation tool** between an agent's several destination lists — possibly the smallest useful thing we could ship on this capability
+- **The generic pasteable document** as an artefact rather than a table
+
 ## And the instructions that arrived as speech or a sentence.
 
 These have no digest to check, which makes them the ones most easily lost — a voice memo that changed the direction of the whole site leaves no artefact at all unless somebody writes it down. So they are recorded here in the same list, with the same two columns.
@@ -135,7 +147,7 @@ sha256sum my-brief.md
 
 A register that only lists what was done is a press release.
 
-Every entry above carries what it asked for and did not get, and on most of the nine that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.
+Every entry above carries what it asked for and did not get, and on most of the ten that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.
 
 - **The file is the record, not this page.** [briefs-register.json](briefs-register.json) is what a program should read; this page renders it for people. If the two ever disagree, the file is right and the page is stale.
 - **Every archived document is byte-identical to what arrived.** Nothing is edited, reformatted or trimmed — including the parts we think are wrong. Where we disagree with a brief, the disagreement is published on the page it produced and marked as ours.
@@ -144,6 +156,6 @@ Every entry above carries what it asked for and did not get, and on most of the 
 
 Register maintained by hand alongside the work, and checked in CI: every document listed must exist at the path given and match its recorded digest, and every file in `assets/briefs/` must appear in the register. Last reconciled 12 September 2026.
 
-## Nine items. None untouched, and none finished.
+## Ten items. None untouched, and none finished.
 
-Every item now names something it produced and something it did not. Four of the nine are marked _partly_, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.
+Every item now names something it produced and something it did not. Five of the ten are marked _partly_, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.

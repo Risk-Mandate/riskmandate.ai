@@ -36,6 +36,10 @@ The build specification for the first thing anybody will ever use: a page that a
 
 The author name and address on a commit are free text — git's own reference says the name has no effect on authentication, the code host's write interface takes both as parameters needing only contents write, and the host attributes the result to whoever owns that address with no consent step and no notification. Exactly one thing prevents it, and it is a repository setting. Alongside the finding: the eight-line prompt we would ship, with every line marked by what actually enforces it, and six documented incidents whose fixes have one thing in common.
 
+### Every routable address is in the grant, and the one rule everybody signs has no barrier
+
+Ask any deployer whether their agent should attack other people's systems and you get the same answer — it is the easiest line in any policy to agree. It is also the one where the grant cannot be enumerated at all: it is every address the process can route to, nobody granted it, and the measure we have been using since Lab 04 does not apply. A vendor's own documentation says the fetch allow list does not prevent network access because the shell can reach any URL; the setting that does hold covers shell subprocesses only, does nothing when written into a repository, and fails open. Includes what the machine that published this page can reach, measured.
+
 ## Four states, and they mean different things.
 
 The rest of this site says only what we can defend. The Lab is looser on purpose — but only about _status_, never about sourcing. A guess here is labelled a guess; a quote is still a quote with a link and a date.
@@ -63,7 +67,7 @@ The rest of this site says only what we can defend. The Lab is looser on purpose
 
 Every entry is also cut as a dated PDF, and the old ones are kept. Send the file rather than the link when what matters is what we thought _then_ — a link shows the reader whatever the page says by the time they arrive.
 
-All 5 entries, in reading order, as a single PDF, 55 pages. This is the one to attach when you want somebody to follow the whole journey rather than land in the middle of it.
+All 6 entries, in reading order, as a single PDF, 76 pages. This is the one to attach when you want somebody to follow the whole journey rather than land in the middle of it.
 
 Digests for every edition are in [lab-editions.json](lab-editions.json), so a PDF somebody was sent can be checked against this list.
 

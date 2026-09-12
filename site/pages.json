@@ -146,6 +146,12 @@
       "group": "Lab"
     },
     {
+      "name": "lab-network-reach",
+      "label": "06 · Every routable address",
+      "file": "lab-network-reach.html",
+      "group": "Lab"
+    },
+    {
       "name": "summit",
       "label": "Lisbon 2026",
       "file": "summit.html"

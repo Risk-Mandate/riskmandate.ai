@@ -52,6 +52,24 @@
             "assets/lab/lab-commit-author--v1--2026-09-12.pdf"
           ],
           "note": "Adds entry 05, the commit-author finding. Entries 01 to 04 are unchanged from v2."
+        },
+        {
+          "v": 4,
+          "date": "2026-09-12",
+          "file": "assets/lab/lab--the-whole-lab--v4--2026-09-12.pdf",
+          "bytes": 1841377,
+          "sha256": "512c13f6652146dca29cb11f78dfd2ae44d1f10bc79ccfd0cb6c15ce58cf0221",
+          "content": "0cc623e2db1fa019c54e4108a7329a6d50bbc7412d8771a1b1e52f4edb3bf920",
+          "pages": 76,
+          "combines": [
+            "assets/lab/lab-connector-grants--v2--2026-09-12.pdf",
+            "assets/lab/lab-abp-flow--v2--2026-09-12.pdf",
+            "assets/lab/lab-abp-requests--v2--2026-09-12.pdf",
+            "assets/lab/lab-shape-collector--v1--2026-09-12.pdf",
+            "assets/lab/lab-commit-author--v1--2026-09-12.pdf",
+            "assets/lab/lab-network-reach--v1--2026-09-12.pdf"
+          ],
+          "note": "Adds entry 06, the unbounded network grant. Entries 01 to 05 are unchanged from v3."
         }
       ]
     },
@@ -139,6 +157,21 @@
           "sha256": "bd32b602d7e9d1fc1b87c12df4a11923e7812689958a207cba8ddc8fd2def8c3",
           "content": "7516bcf780fdbd8b252e2e4072b71f639b00ac3cb39f8fe94f73695000fb4c56",
           "note": "Identical argument to v1. Re-cut only to remove a line of stray script text that the page was rendering onto its last page."
+        }
+      ]
+    },
+    {
+      "slug": "lab-network-reach",
+      "file": "lab-network-reach.html",
+      "title": "RiskMandate — Lab 06 · every routable address is in the grant",
+      "editions": [
+        {
+          "v": 1,
+          "date": "2026-09-12",
+          "file": "assets/lab/lab-network-reach--v1--2026-09-12.pdf",
+          "bytes": 503380,
+          "sha256": "ad8287423d2f3d0b94f98231a1094933a3a4ea06d22f908b765cd13ef121b2f9",
+          "content": "4a95e5ed6f17d13876b47679d164e09bfbb89541ed0cf90af0ad49c16682cc55"
         }
       ]
     },
