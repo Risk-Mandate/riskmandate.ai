@@ -1,0 +1,871 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Brief B1 — power user and tester of Agent Behaviour Policies</title>
+<meta name="description" content="The first task for a freelance collaborator: make Agent Behaviour Policies for real deployments, find where the model breaks, and time it. Opens with a prompt written to paste straight into an agent, plus the full reading list across riskmandate.ai, abp.sgit.ai and the rest of the estate.">
+<link rel="canonical" href="https://riskmandate.ai/work-abp-power-user.html">
+<link rel="alternate" type="text/markdown" href="work-abp-power-user.md" title="This page as markdown">
+<link rel="icon" href="assets/brand/riskmandate-favicon-32.png" sizes="32x32">
+<link rel="icon" href="assets/brand/riskmandate-mark.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RiskMandate">
+<meta property="og:url" content="https://riskmandate.ai/work-abp-power-user.html">
+<meta property="og:title" content="Brief B1 — power user and tester of Agent Behaviour Policies">
+<meta property="og:description" content="The first task for a freelance collaborator: make Agent Behaviour Policies for real deployments, find where the model breaks, and time it. Opens with a prompt written to paste straight into an agent, plus the full reading list across riskmandate.ai, abp.sgit.ai and the rest of the estate.">
+<meta property="og:image" content="https://riskmandate.ai/assets/brand/riskmandate-lockup-light.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Scaffolded by scripts/site/new-page.mjs. Hand-edited from here on — there is no build step. -->
+<style>
+/* work-abp-power-user.css — self-contained: the shared chrome, then this page's own. */
+:root{
+  --bg:#F7F6F2; --bg2:#EFEDE7; --card:#FFFFFF; --ink:#0D0D0C; --canvas:#0A0A09;
+  --text:#1A1917; --muted:#4A4845; --faint:#8A8780; --border:#E2DFD8;
+  --green:#1A7F5A; --green-2:#22c55e; --greenBg:#EBF5F0;
+  --gold:#B45309; --red:#C0392B; --blue:#1D4ED8;
+  --fg:#F7F6F2; --fg-2:rgba(247,246,242,.55); --fg-3:rgba(247,246,242,.32);
+  --line:rgba(247,246,242,.10); --line-2:rgba(247,246,242,.18);
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","JetBrains Mono","Roboto Mono",Menlo,Consolas,monospace;
+  --wrap:1000px; --r:10px; --r-sm:8px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth} @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+h1,h2{margin:0;font-weight:800;letter-spacing:-.03em;line-height:1.04}
+h2{font-size:clamp(26px,3.6vw,40px);font-weight:700;letter-spacing:-.02em}
+p{margin:0}
+:focus-visible{outline:2px solid var(--green-2);outline-offset:3px;border-radius:4px}
+.tag{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+.g{color:var(--green)} .it{font-style:italic;color:var(--green)}
+
+/* header */
+.top{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.top .wrap{display:flex;align-items:center;gap:22px;height:56px;max-width:1100px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:15px;color:var(--text);white-space:nowrap;text-decoration:none}
+.rm{width:26px;height:26px;flex:none;display:block}
+.rm svg{width:100%;height:100%;display:block}
+.navlinks{display:flex;align-items:center;gap:22px;margin-left:auto}
+rm-menu{display:contents}
+.navlinks a{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;text-decoration:none;display:inline-flex;align-items:center}
+.navlinks a:hover{color:var(--text)}
+.navlinks a.active{color:var(--text);font-weight:600}
+.version{font-family:var(--mono);font-size:12px;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:7px;padding:5px 8px;text-decoration:none;white-space:nowrap;transition:color .15s,border-color .15s}
+.version:hover{color:var(--text);border-color:var(--faint)}
+.demo{background:var(--green);color:#fff;font-weight:600;font-size:13px;border:0;border-radius:8px;padding:8px 16px;cursor:pointer;transition:background .15s;font-family:var(--sans);white-space:nowrap}
+.demo:hover{background:#16704f}
+
+/* nav dropdowns */
+.navgroup{position:relative;display:inline-flex;align-items:center}
+.navgroup::after{content:"";position:absolute;top:100%;left:0;right:0;height:10px}
+.navgroup-btn{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;display:inline-flex;align-items:center;gap:5px}
+.navgroup-btn:hover,.navgroup:hover .navgroup-btn,.navgroup.open .navgroup-btn,.navgroup.active .navgroup-btn{color:var(--text)}
+.navgroup-car{font-size:8px;line-height:1;opacity:.6;transition:transform .15s}
+.navgroup:hover .navgroup-car,.navgroup.open .navgroup-car{transform:rotate(180deg)}
+.navmenu{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);min-width:184px;background:var(--card);border:1px solid var(--border);border-radius:10px;box-shadow:0 10px 34px rgba(13,13,12,.14);padding:6px;display:none;flex-direction:column;gap:2px;z-index:70}
+.navgroup:hover .navmenu,.navgroup.open .navmenu{display:flex}
+.navmenu .navchild{justify-content:flex-start;text-align:left;width:100%;padding:8px 12px;border-radius:7px;font-size:13.5px;color:var(--muted);white-space:nowrap}
+.navmenu .navchild:hover{background:var(--bg2);color:var(--text)}
+.navmenu .navchild.active{color:var(--green);font-weight:600;background:var(--greenBg)}
+
+/* mobile drawer — the toggle is injected by nav.js; .top.nav-open opens it */
+.navtoggle{display:none;margin-left:auto;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;padding:0;background:none;border:0;cursor:pointer}
+.navtoggle span{display:block;width:20px;height:2px;margin:0 auto;background:var(--text);border-radius:2px;transition:transform .2s,opacity .2s}
+.top.nav-open .navtoggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.top.nav-open .navtoggle span:nth-child(2){opacity:0}
+.top.nav-open .navtoggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media (max-width:980px){
+  .navtoggle{display:flex}
+  .top .wrap{position:relative}
+  .version{display:none}
+  .navlinks{display:none;position:absolute;left:0;right:0;top:calc(100% + 1px);flex-direction:column;align-items:stretch;gap:0;margin:0;padding:8px;background:var(--card);border-bottom:1px solid var(--border);box-shadow:0 14px 34px rgba(13,13,12,.14);max-height:calc(100vh - 56px);overflow:auto}
+  .top.nav-open .navlinks{display:flex}
+  .navlinks a,.navlinks .navgroup-btn{width:100%;text-align:left;justify-content:flex-start;padding:12px 16px;font-size:15px;border-radius:8px}
+  .navlinks a:hover{background:var(--bg2)}
+  .navgroup{display:block;width:100%;position:static}
+  .navgroup::after{display:none}
+  .navgroup-btn{display:flex}
+  .navgroup-car{margin-left:auto}
+  .navmenu{position:static;transform:none;display:flex;flex-direction:column;min-width:0;padding:2px 0 8px 14px;background:transparent;border:0;box-shadow:none}
+  .navmenu .navchild{padding:10px 14px;font-size:14px}
+}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;padding:12px 22px;border-radius:var(--r-sm);cursor:pointer;border:1px solid transparent;font-family:var(--sans);text-decoration:none}
+.btn-green{background:var(--green);color:#fff} .btn-green:hover{background:#16704f}
+.btn-ghost{background:transparent;color:var(--fg);border-color:var(--line-2)} .btn-ghost:hover{border-color:var(--fg-2)}
+.btn-ghost-dark{background:transparent;color:var(--text);border-color:var(--border)} .btn-ghost-dark:hover{border-color:var(--green);color:var(--green)}
+
+/* dark hero */
+.phero{background:var(--ink);color:var(--fg);padding:88px 24px 84px}
+.phero .wrap{max-width:var(--wrap)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--green);background:rgba(26,127,90,.18);border:1px solid rgba(26,127,90,.4);border-radius:999px;padding:5px 12px}
+.eyebrow .d{width:6px;height:6px;border-radius:50%;background:var(--green-2)}
+.phero h1{font-size:clamp(34px,5.2vw,60px);letter-spacing:-.04em;line-height:1.02;margin:26px 0 0;color:var(--fg);max-width:900px}
+.phero .sub{color:var(--fg-2);font-size:17px;line-height:1.7;max-width:640px;margin-top:24px}
+.cta-row{display:flex;flex-wrap:wrap;gap:11px;margin-top:30px}
+
+/* paper sections */
+.paper{background:var(--bg)}
+.psection{padding:80px 0;border-bottom:1px solid var(--border)}
+.psection.alt{background:var(--bg2)}
+.shead{max-width:680px} .shead.center{max-width:720px;margin:0 auto;text-align:center}
+.shead h2{color:var(--text)} .shead p{color:var(--muted);margin-top:16px;font-size:15px;line-height:1.75}
+
+/* closing panel + footer */
+.pcta{background:var(--ink);padding:80px 24px;text-align:center}
+.pcta .wrap{max-width:720px;padding:0}
+.pcta h2{font-size:clamp(28px,4.4vw,48px);color:var(--fg);margin-top:20px;font-weight:700;letter-spacing:-.03em}
+.pcta p{color:var(--fg-2);margin-top:16px;font-size:16px;line-height:1.7}
+.pcta .cta-row{justify-content:center}
+.foot{background:var(--canvas);border-top:1px solid var(--line);padding:32px 24px}
+.foot .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-family:var(--mono);font-size:10px;color:var(--fg-3);max-width:1100px}
+.footlink{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.footlink:hover{color:var(--fg-2)}
+/* ── working-section chrome ─────────────────────────────────────────────── */
+.workstrip{background:var(--bg2);border-bottom:1px solid var(--border);padding:9px 24px;font-family:var(--mono);font-size:11px;color:var(--muted);text-align:center}
+.workstrip b{color:var(--text)} .workstrip a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+
+/* brief cards on the index */
+.briefs{display:flex;flex-direction:column;gap:14px;margin-top:36px}
+.brief{display:block;border:1px solid var(--border);border-radius:var(--r);background:var(--card);padding:24px 26px;text-decoration:none;transition:border-color .15s,transform .15s}
+.brief:hover{border-color:var(--green);transform:translateY(-1px)}
+.brief .head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.brief .n{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--faint)}
+.brief h3{margin:0;font-size:20px;font-weight:700;letter-spacing:-.015em;color:var(--text);flex:1 1 auto;min-width:240px}
+.brief p{font-size:14px;color:var(--muted);line-height:1.65;margin-top:10px;max-width:720px}
+.brief .meta{margin-top:14px;padding-top:12px;border-top:1px solid var(--border);font-family:var(--mono);font-size:11px;color:var(--faint);display:flex;gap:18px;flex-wrap:wrap}
+.state{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:999px;padding:4px 10px;white-space:nowrap}
+.state::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.state.open{color:var(--green);background:var(--greenBg);border:1px solid rgba(26,127,90,.3)}
+.state.waiting{color:var(--gold);background:#FDF6EC;border:1px solid rgba(180,83,9,.25)}
+.state.done{color:var(--muted);background:var(--bg2);border:1px solid var(--border)}
+
+/* the copyable prompt block — the whole point of the brief page */
+.prompt{margin-top:30px;border:2px solid var(--green);border-radius:var(--r);overflow:hidden;background:var(--card)}
+.prompt-bar{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;
+  padding:12px 18px;background:var(--greenBg);border-bottom:1px solid var(--border);
+  font-family:var(--mono);font-size:11.5px;color:var(--green);font-weight:700;letter-spacing:.04em}
+.prompt-bar span:last-child{font-weight:400;color:var(--muted);letter-spacing:0}
+.prompt-body{margin:0;padding:24px 26px;font-family:var(--mono);font-size:12.5px;line-height:1.7;
+  color:var(--text);white-space:pre-wrap;overflow-x:auto}
+.prompt-body b{font-weight:700}
+
+/* reading list */
+.reading{margin-top:30px;border:1px solid var(--border);border-radius:var(--r);background:var(--card);overflow:hidden}
+.rgroup{border-bottom:1px solid var(--border)}
+.rgroup:last-child{border-bottom:0}
+.rgroup-h{padding:12px 18px;background:var(--bg2);font-family:var(--mono);font-size:10px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+.ritem{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:baseline;padding:13px 18px;border-top:1px solid var(--border)}
+.ritem:first-of-type{border-top:0}
+.ritem a{font-family:var(--mono);font-size:12.5px;color:var(--green);text-decoration:underline;text-underline-offset:2px;word-break:break-all}
+.ritem .why{font-size:13px;color:var(--muted);line-height:1.55;grid-column:1/-1;margin-top:2px}
+.ritem .must{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--red);white-space:nowrap}
+.ritem .opt{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);white-space:nowrap}
+
+/* numbered steps */
+.steps{margin:34px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px}
+.step{display:grid;grid-template-columns:40px 1fr;gap:18px;align-items:start;border:1px solid var(--border);
+  border-radius:var(--r);background:var(--card);padding:22px 24px}
+.step .num{font-family:var(--mono);font-size:20px;font-weight:700;color:var(--green);line-height:1}
+.step h3{margin:0;font-size:18px;font-weight:700;letter-spacing:-.01em;color:var(--text)}
+.step p{font-size:14px;color:var(--muted);line-height:1.65;margin-top:8px}
+.step ul{margin:10px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px}
+.step li{font-size:13.5px;color:var(--muted);line-height:1.55;padding-left:16px;position:relative}
+.step li::before{content:"▸";position:absolute;left:0;font-size:9px;top:3px;color:var(--green)}
+.step code{font-family:var(--mono);font-size:12.5px;background:var(--bg2);padding:1px 6px;border-radius:5px;color:var(--text)}
+
+/* the rules table — what must not be broken */
+.tw{overflow-x:auto;margin-top:30px;border:1px solid var(--border);border-radius:var(--r);background:var(--card)}
+table.t{width:100%;border-collapse:collapse;font-size:13.5px;min-width:560px}
+table.t th{text-align:left;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--faint);padding:13px 16px;border-bottom:1px solid var(--border)}
+table.t td{padding:13px 16px;border-bottom:1px solid var(--border);color:var(--muted);line-height:1.55;vertical-align:top}
+table.t tr:last-child td{border-bottom:0}
+table.t td.k{color:var(--text);font-weight:700;white-space:nowrap}
+table.t code{font-family:var(--mono);font-size:12px;background:var(--bg2);padding:1px 5px;border-radius:4px;color:var(--text)}
+
+/* deliverable table shape */
+.deliv{overflow-x:auto;margin-top:28px;border:1px solid var(--border);border-radius:var(--r);background:var(--card)}
+table.d{width:100%;border-collapse:collapse;font-size:12.5px;min-width:640px;font-family:var(--mono)}
+table.d th{text-align:left;font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--faint);padding:12px 14px;border-bottom:1px solid var(--border);white-space:nowrap}
+table.d td{padding:11px 14px;border-bottom:1px solid var(--border);color:var(--muted)}
+table.d tr:last-child td{border-bottom:0}
+table.d td.k{color:var(--text)}
+
+/* needs-your-input callout */
+.todo{margin-top:28px;border:2px dashed var(--gold);border-radius:var(--r);background:#FDF6EC;padding:20px 24px;max-width:760px}
+.todo .k{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.todo ul{margin:12px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.todo li{font-size:14px;color:var(--muted);line-height:1.6;padding-left:18px;position:relative}
+.todo li::before{content:"☐";position:absolute;left:0;color:var(--gold);font-size:12px}
+.todo b{color:var(--text)}
+
+.rule{margin-top:30px;border-left:3px solid var(--green);background:var(--greenBg);border-radius:0 var(--r-sm) var(--r-sm) 0;padding:20px 24px;max-width:700px}
+.rule p{color:var(--text);font-size:16px;line-height:1.6;font-weight:600}
+.rule p + p{margin-top:10px;font-weight:400;font-size:14.5px;color:var(--muted)}
+.notice{margin-top:28px;border:1px dashed var(--faint);border-radius:var(--r-sm);padding:16px 20px;font-size:13.5px;color:var(--muted);line-height:1.65;max-width:780px}
+.notice strong{color:var(--text)} .notice a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+.src{margin-top:26px;font-family:var(--mono);font-size:11.5px;color:var(--faint);line-height:1.75}
+.src a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+.plist{margin:26px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;max-width:720px}
+.plist li{position:relative;padding-left:22px;font-size:15px;color:var(--muted);line-height:1.7}
+.plist li::before{content:"";position:absolute;left:2px;top:10px;width:6px;height:6px;border-radius:50%;background:var(--green)}
+.plist strong{color:var(--text)}
+.plist code,.shead code,.rule code,.notice code{font-family:var(--mono);font-size:13px;background:var(--bg2);padding:1px 6px;border-radius:5px;color:var(--text)}
+.psection.alt .plist code,.psection.alt .shead code{background:var(--card)}
+</style>
+</head>
+<body id="top">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
+    <nav class="navlinks"><rm-menu></rm-menu></nav>
+    <a class="version" href="versions.html" title="What shipped in v1.4.0">v1.4.0</a>
+    <button class="demo" data-demo>Get in touch</button>
+  </div>
+</header>
+
+<div class="workstrip"><b>Brief B1</b> · <span class="state open">Open</span> · Written 12 September 2026 · <a href="work.html">Back to the briefs</a> · <a href="work-abp-power-user.md">this page as markdown</a></div>
+
+<main class="phero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> Brief B1 · first task</span>
+    <h1>Be the first power user of <span class="it">Agent Behaviour Policies.</span></h1>
+    <p class="sub">We have a published model, five worked examples, and a claim that the second policy of a known deployment shape should take minutes rather than days. Nobody has tested that. Your job is to make these things for real, find out where the model breaks, and time it — because that measurement is the only honest input to pricing anything, and we are five days from a conference where we intend to sell it.</p>
+    <div class="cta-row">
+      <button class="btn btn-green" data-to="prompt">The prompt to paste ↓</button>
+      <a class="btn btn-ghost" href="#task">Straight to the task</a>
+    </div>
+  </div>
+</main>
+
+<div class="paper">
+
+  <!-- the prompt -->
+  <section class="psection" id="prompt">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Start here</span>
+        <h2>The prompt. <span class="g">Paste this into your agent.</span></h2>
+        <p>Written to be handed over whole. It orients your agent on what we are doing, what we are trying to sell and by when, and what the first task is. Everything after this section on this page is the detail behind it.</p>
+      </div>
+
+      <div class="prompt">
+        <div class="prompt-bar"><span>Prompt · copy from here</span><span>or fetch riskmandate.ai/work-abp-power-user.md</span></div>
+        <pre class="prompt-body">You are helping a freelance collaborator working with RiskMandate. Read this whole
+prompt, then fetch the reading list before doing anything else.
+
+<b>WHO WE ARE.</b> RiskMandate sells the insurability layer for AI agents. The argument:
+an agent's <b>grant</b> (everything a credential technically permits) is far larger than
+its <b>mandate</b> (what somebody actually authorised it to do), and the gap between
+them is authority nobody scoped, time-boxed or signed for. We make that gap
+explicit, name an owner, and turn a standing grant into an acceptance with an
+expiry. We are read-only and never in the request path.
+
+<b>WHAT WE ARE SELLING RIGHT NOW.</b> One artefact: an <b>Agent Behaviour Policy</b> (ABP).
+For one agent in one deployment, it states everything it can do, what it was
+authorised to do, the delta, and what actually stands in the way of each
+capability. It <b>describes and does not judge, so it carries no score</b> — that rule
+is absolute and is explained in the reading list.
+
+The sales motion is <b>draft and correct</b>: we hand somebody a pre-computed draft
+policy for a deployment shape resembling theirs, deliberately understated, and
+they correct it. Correcting it IS stating their mandate, and the correction goes
+upward — which is the moment they realise the grant is bigger than they thought.
+It needs no access to anything of theirs, so it is legal and fast with a
+stranger. Tiers run from GBP 10 (their own answers and the delta, as a file they
+keep) to GBP 5,000-10,000 (an assessment by security professionals).
+
+<b>THE TWO DEADLINES THAT SHAPE EVERYTHING.</b>
+  1. <b>Startup Summit Lisbon, 17-18 September 2026.</b> We are exhibiting on a
+     1m x 0.4m booth. The plan is to run draft-and-correct on paper with
+     founders and investors, in about five minutes per conversation.
+  2. <b>Selling online</b>, through a store that already has payment rails and
+     printed codes, and a funnel that currently dead-ends before the checkout.
+
+<b>YOUR FIRST TASK.</b> Be the first real power user and tester of ABPs. Concretely:
+create them for deployments you actually run, work out where the model breaks,
+and <b>instrument the whole thing</b> — time per policy, how many rows you could
+measure versus derive, how many questions needed a human, which stage was
+slowest. We claim the second policy of a known shape takes minutes rather than
+days. Nobody has checked. Your table is the answer, and it decides whether any
+of this can be priced.
+
+<b>SEVEN HARD RULES.</b> These are not style preferences. Breaking any of them
+produces output we cannot use:
+  1. <b>Never test somebody else's system.</b> Read vendors' published documentation.
+     Where their own pages contradict each other, publish the contradiction
+     unresolved, with both sources and the date. Do not settle it by trying it.
+  2. <b>Never put a score on an ABP</b> — no rating, traffic light or risk level,
+     anywhere, including in data. The same policy is dangerous in one deployment
+     and harmless in another.
+  3. <b>Never write "ADP"</b>. It is a registered mark of a major payroll processor.
+     The acronym is ABP, spelled out at first use.
+  4. <b>Never say "the policy"</b> for an ABP — in our own demo, "policy" is the
+     insurance instrument. Say "the ABP" or "the behaviour policy".
+  5. <b>No conformity language</b>: not certified, compliant, conformant, accredited.
+     Nothing here is a compliance assessment.
+  6. <b>No verdict about a named third party.</b> Publish the record — facts, dates,
+     sources — never the judgement, and no adjective against anybody's name.
+  7. <b>Do not reproduce a standards body's text.</b> Titles only. The EU regulation
+     is expressly reusable; the international management standards are not.
+
+<b>HOW TO READ OUR MATERIAL.</b> Every page on riskmandate.ai and abp.sgit.ai has a
+markdown twin: swap .html for .md, or fetch /index.md on a directory URL. Use
+those. /llms.txt on either site is the index. Read in this order:
+
+  1. https://abp.sgit.ai/index.md            what an ABP is — the model itself
+  2. https://abp.sgit.ai/model/index.md      23 capability primitives, 4 barriers, 3 undo classes
+  3. https://abp.sgit.ai/examples/index.md   the five worked examples, derived not authored
+  4. https://riskmandate.ai/abp.md           how we present it commercially
+  5. https://riskmandate.ai/lab-connector-grants.md   the finding the first policies exist to show
+  6. https://riskmandate.ai/lab-abp-flow.md   the twelve-stage flow and the interface mockups
+  7. https://store.sgit.ai/offers/           what is actually for sale, and at what price
+  8. https://riskmandate.ai/summit.md        the Lisbon plan
+
+<b>WHAT GOOD OUTPUT LOOKS LIKE.</b> One markdown file. Dated. What you did, what you
+found, what you could not answer, and the instrumentation table. Include the
+things that went wrong — a brief that only produces good news has told us
+nothing. If part of this brief will not survive contact with reality, say so
+before doing it rather than after.
+
+The full brief, with the deliverable format and the open questions, is at
+https://riskmandate.ai/work-abp-power-user.md</pre>
+      </div>
+
+      <p class="src">The prompt is also the top of this page's markdown twin, so an agent that fetches
+      <a href="work-abp-power-user.md">work-abp-power-user.md</a> gets the prompt and the detail in one go.</p>
+    </div>
+  </section>
+
+  <!-- the reading list -->
+  <section class="psection alt" id="reading">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Reading list</span>
+        <h2>Ordered by what you need first, <span class="g">not by what we are proudest of.</span></h2>
+        <p>Four sites, one game and one repository. Everything is public; nothing needs an account. The <code>.md</code> address is the one to hand an agent — same content, no markup.</p>
+      </div>
+
+      <div class="reading">
+        <div class="rgroup">
+          <div class="rgroup-h">The model — read this first</div>
+          <div class="ritem"><a href="https://abp.sgit.ai/" target="_blank" rel="noopener">abp.sgit.ai</a><span class="must">must</span>
+            <span class="why">What an Agent Behaviour Policy is: the four objects, the four barriers and the enforcer test, the rule that it carries no score. This is the model we are all working against, and it is not ours — it has a separate maintainer.</span></div>
+          <div class="ritem"><a href="https://abp.sgit.ai/model/" target="_blank" rel="noopener">abp.sgit.ai/model/</a><span class="must">must</span>
+            <span class="why">The 23 capability primitives, the four barrier kinds, the three undo classes, the graph rules and the schema. The vocabulary every policy is written in.</span></div>
+          <div class="ritem"><a href="https://abp.sgit.ai/examples/" target="_blank" rel="noopener">abp.sgit.ai/examples/</a><span class="must">must</span>
+            <span class="why">Five worked examples, derived from published data rather than authored, each stating how many of its rows were measured. Your starting templates — and the thing you are testing.</span></div>
+          <div class="ritem"><a href="https://abp.sgit.ai/data/index.json" target="_blank" rel="noopener">abp.sgit.ai/data/index.json</a><span class="opt">reference</span>
+            <span class="why">The published vocabulary as JSON at stable addresses with cross-origin access. 21 of 99 rows measured, and it says so.</span></div>
+        </div>
+
+        <div class="rgroup">
+          <div class="rgroup-h">What we are selling, and to whom</div>
+          <div class="ritem"><a href="abp.html">riskmandate.ai/abp.html</a><span class="must">must</span>
+            <span class="why">How we present the model commercially, including the boundary that is easiest to get wrong: the Insurability Index scores the deployment, never the behaviour policy.</span></div>
+          <div class="ritem"><a href="https://store.sgit.ai/offers/" target="_blank" rel="noopener">store.sgit.ai/offers/</a><span class="must">must</span>
+            <span class="why">The four tiers and two add-ons, with prices and printed payment codes. Note the honesty column — two of the six say on their own row that they do not exist yet.</span></div>
+          <div class="ritem"><a href="summit.html">riskmandate.ai/summit.html</a><span class="must">must</span>
+            <span class="why">The Lisbon plan: what we are showing, the four conversations with one ask each, and the press material. The event is 17–18 September.</span></div>
+          <div class="ritem"><a href="pricing.html">riskmandate.ai/pricing.html</a><span class="opt">context</span>
+            <span class="why">The platform tiers. Be aware these and the store's tiers are two different offers, and nothing on this site yet reaches the store — that gap is known.</span></div>
+        </div>
+
+        <div class="rgroup">
+          <div class="rgroup-h">Our current thinking, and where it is going</div>
+          <div class="ritem"><a href="lab-connector-grants.html">riskmandate.ai/lab-connector-grants.html</a><span class="must">must</span>
+            <span class="why">The finding the first policies exist to demonstrate: the grant a connector creates is user-shaped, not data-shaped. Four verbatim vendor quotes and the four places their own pages disagree with themselves.</span></div>
+          <div class="ritem"><a href="lab-abp-flow.html">riskmandate.ai/lab-abp-flow.html</a><span class="must">must</span>
+            <span class="why">The twelve-stage flow from a stranger's first question to a delivered vault, with five stages drawn as interface mockups. Stages 1–4 are meant to ship without any build.</span></div>
+          <div class="ritem"><a href="lab.html">riskmandate.ai/lab.html</a><span class="opt">orientation</span>
+            <span class="why">How we publish work in progress, and the four state labels. Also where the dated PDF editions live, if you want the thinking as it stood rather than as it stands.</span></div>
+          <div class="ritem"><a href="https://risks.sgit.ai/" target="_blank" rel="noopener">risks.sgit.ai</a><span class="opt">background</span>
+            <span class="why">The research home for the risk model above the ABP — no deny button, the interval is the decision, unaccepted is rated critical. Read its own warning about what is and is not implemented.</span></div>
+        </div>
+
+        <div class="rgroup">
+          <div class="rgroup-h">Useful, and quick</div>
+          <div class="ritem"><a href="https://what-can-it-do.games.sgit.ai/" target="_blank" rel="noopener">what-can-it-do.games.sgit.ai</a><span class="opt">do this</span>
+            <span class="why">Five minutes, forty questions, no sign-up. Guess what an agent can reach, then get scored on how well you knew. The fastest way to feel the problem rather than read about it — and its <a href="https://what-can-it-do.games.sgit.ai/map/index.html" target="_blank" rel="noopener">capability map</a> is where the barrier glyphs came from.</span></div>
+          <div class="ritem"><a href="https://sgit.ai/llms.txt" target="_blank" rel="noopener">sgit.ai/llms.txt</a><span class="opt">reference</span>
+            <span class="why">The platform this is all built on: content-addressed encrypted vaults with read keys. Twenty-six public vaults you can open in a browser.</span></div>
+          <div class="ritem"><a href="https://coding.sgit.ai/llms.txt" target="_blank" rel="noopener">coding.sgit.ai/llms.txt</a><span class="opt">only if coding</span>
+            <span class="why">The conventions the code follows, derived by counting the code rather than asserted. Read it before touching the repository, not before making policies.</span></div>
+          <div class="ritem"><a href="https://sgit.ai/docs/guidance/index.html" target="_blank" rel="noopener">sgit.ai/docs/guidance/</a><span class="opt">only if building</span>
+            <span class="why">Five rules for building on the platform — pick the surface first, don't rebuild what exists, publish a read key never a vault key, version everything, keep what is rendered one click from the bytes.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- the task -->
+  <section class="psection" id="task">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">The task</span>
+        <h2>Five steps, and the fourth is <span class="g">the one we are paying for.</span></h2>
+        <p>Steps one to three exist to get you to step four with an informed opinion. Step five is what happens if there is time.</p>
+      </div>
+
+      <ol class="steps">
+        <li class="step">
+          <span class="num">1</span>
+          <div>
+            <h3>Read, and play the game before the docs</h3>
+            <p>Do the forty questions first. It takes five minutes and it gives you the intuition the documents assume. Then read the model, then how we sell it.</p>
+            <ul>
+              <li>Write down, before you read the examples, how many of the 23 primitives you think your own coding agent has, and how many you asked for. Keep that number — it is the same mechanic we sell.</li>
+              <li>Then read in the order in the list above.</li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="step">
+          <span class="num">2</span>
+          <div>
+            <h3>Reproduce one of the five published examples</h3>
+            <p>Take the coding-agent example — confirmations on and off — and rebuild it from the published vocabulary without copying the finished document. It is the cheapest possible test of whether the model can be used by somebody who did not write it.</p>
+            <ul>
+              <li>Where did you have to guess? Where was the published data silent?</li>
+              <li>Did you get the same numbers? If not, is the example wrong or is the vocabulary ambiguous?</li>
+              <li>Time it. This is your baseline for “a policy for a shape that already exists”.</li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="step">
+          <span class="num">3</span>
+          <div>
+            <h3>Make three policies for things you actually run</h3>
+            <p>Your own deployments, not hypotheticals — the whole point is that a real one surfaces problems an invented one hides. Good candidates: your coding agent, an assistant you have connected to a mailbox or a drive, and a CI job.</p>
+            <ul>
+              <li><strong>Elicit your own mandate first</strong>, in writing, before you measure the grant. Notice how long that takes and how sure you are.</li>
+              <li><strong>Measure the grant from documentation</strong>, never by probing. Record the source URL and the date for every row.</li>
+              <li><strong>Mark every row measured or derived.</strong> Derived is fine and is most of it; unmarked is not.</li>
+              <li><strong>Record the barrier per capability</strong> — none, expectation, setting or boundary — and be strict: a switch your own account can flip is a setting, not a control.</li>
+              <li><strong>Try the proposed <code>material</code> property</strong> — own, organisation, third_party, mixed. Does it survive contact with a real deployment, or does it need a fifth value?</li>
+              <li>Add a validity statement and no score. If you feel the urge to add a score, note where that urge came from — that is useful data about every buyer we will meet.</li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="step">
+          <span class="num">4</span>
+          <div>
+            <h3>Instrument it, and publish the table</h3>
+            <p>This is the deliverable. The claim under test is that the second policy of a shape already in the library takes minutes rather than days. If it does not, the library is not doing its job and nothing should be priced until it does.</p>
+            <ul>
+              <li>Time per policy, split by stage: eliciting the mandate, measuring the grant, computing the delta, writing it up.</li>
+              <li>Rows measured versus derived, per policy.</li>
+              <li>How many questions you could not answer without a human.</li>
+              <li>Which stage was slowest, and whether a shape library would have removed it.</li>
+              <li>First policy of a shape versus second policy of the same shape. That ratio is the finding.</li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="step">
+          <span class="num">5</span>
+          <div>
+            <h3>If there is time: break it on purpose</h3>
+            <p>Find the deployment the model cannot describe. We already know of one and would like more.</p>
+            <ul>
+              <li><strong>The known one:</strong> a connector that exists and is switched off is not in the grant today and is one click from being in it. Neither the barrier model nor the label has a place for that, and it is probably the most common state in any real estate.</li>
+              <li>What about an agent that can create other agents? A scheduled job that outlives the person who made it? A shared machine?</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- deliverable -->
+  <section class="psection alt">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">The deliverable</span>
+        <h2>One markdown file, <span class="g">and a table in it.</span></h2>
+        <p>Not a deck, not a summary. The working, because the working is what we can act on. Everything below is a suggested shape rather than a form to fill in.</p>
+      </div>
+      <div class="deliv">
+        <table class="d">
+          <thead><tr><th>Section</th><th>What goes in it</th></tr></thead>
+          <tbody>
+            <tr><td class="k">date, and what you read</td><td>so a reader knows what your view was based on and when</td></tr>
+            <tr><td class="k">your pre-reading guess</td><td>the two numbers from step 1, and how wrong they turned out to be</td></tr>
+            <tr><td class="k">the reproduction</td><td>did you get the same numbers as the published example, and where did you guess</td></tr>
+            <tr><td class="k">the three policies</td><td>as actual ABPs, with every row marked measured or derived and sourced</td></tr>
+            <tr><td class="k">the instrumentation table</td><td><strong>the point of the exercise</strong> — times, ratios, and the first-versus-second finding</td></tr>
+            <tr><td class="k">where the model broke</td><td>anything you could not express, with the deployment that broke it</td></tr>
+            <tr><td class="k">what you could not answer</td><td>open questions, unresolved contradictions, things needing somebody else</td></tr>
+            <tr><td class="k">what you would change</td><td>about the model, the flow, the brief, or this page</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="rule">
+        <p>Include what went wrong. A report that only contains good news has told us nothing.</p>
+        <p>The most valuable possible outcome of this brief is “the second policy took just as long as the first, and here is why” — because that would stop us pricing something that does not work yet. Finding that out costs days. Finding it out after we have sold it costs considerably more.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- open -->
+  <section class="psection">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Open</span>
+        <h2>What we do not know, <span class="g">and what we still owe you.</span></h2>
+      </div>
+      <ul class="plist">
+        <li><strong>What does mandate elicitation look like for a connector?</strong> For a coding agent the mandate is a job. For a mailbox it is closer to a relationship, and nobody has drafted those questions. If step 3 produces a usable question set, that is worth more than the table.</li>
+        <li><strong>Does <code>material</code> belong in the shared vocabulary or in each policy?</strong> It is a property of a capability <em>in a context</em>, which argues for the policy; it is identical across every policy of the same shape, which argues for the vocabulary. We lean to the vocabulary with a per-policy override and are not confident.</li>
+        <li><strong>Which of the five shapes should a stranger meet first?</strong> The work mailbox and the corporate file estate are what somebody buys; the personal mailbox and the personal drive are what somebody understands. This decides the front page.</li>
+        <li><strong>Can a vault read key be revoked?</strong> The whole “hand an underwriter a key” story depends on it and we have not checked. If you get to this before we do, tell us.</li>
+      </ul>
+
+      <div class="todo">
+        <span class="k">Not written yet — needs the engagement owner, not the agent</span>
+        <ul>
+          <li><b>Rate, hours and duration.</b> Deliberately absent: this page is public, and those are between the two of you.</li>
+          <li><b>Start date and when the table is wanted by.</b> The Lisbon event is 17–18 September, which is the only fixed date on our side.</li>
+          <li><b>Who to ask when blocked</b>, and how fast a reply is reasonable.</li>
+          <li><b>Whether the output is published.</b> Our default is that it is — this whole section is public — but that is a decision to make explicitly before the work starts rather than after.</li>
+          <li><b>Repository access</b>, if any of the work becomes site changes rather than policies.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<section class="pcta">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> Brief B1</span>
+    <h2>Tell us the brief is wrong before you do it.</h2>
+    <p>This was written by somebody who has not done the task, five days before a conference, from a model nobody has stress-tested. The most useful first message you can send is which part of it will not survive contact with reality.</p>
+    <div class="cta-row">
+      <a class="btn btn-green" href="work-abp-power-user.md">This page as markdown →</a>
+      <a class="btn btn-ghost" href="work.html">The rules, and the other briefs</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>© 2026 RiskMandate · Autonomous Risk Management</span>
+    <span>The insurability layer for agentic AI. · <a class="footlink" href="versions.html">Versions</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+var RM={core:{},services:{},components:{},data:{}};
+RM.data.currentPage="work-abp-power-user";RM.data.pages=[{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"The problem"},{"name":"acceptable","label":"Accepted is not acceptable","file":"acceptable.html","group":"The problem"},{"name":"acceptance","label":"You own the risk","file":"acceptance.html","group":"The problem"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"The problem"},{"name":"abp","label":"Agent Behaviour Policy","file":"abp.html","group":"The model"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"The model"},{"name":"agents","label":"Agents","file":"agents.html","group":"The model"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"The model"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"The model"},{"name":"statics","label":"Static scenarios","file":"statics.html","group":"The model"},{"name":"demos","label":"All demos","file":"demos.html","group":"Live demos"},{"name":"demo-licence-to-operate","label":"Licence to Operate","file":"demo-licence-to-operate.html","group":"Live demos"},{"name":"demo-risk-graph-explorer","label":"RiskGraph Explorer","file":"demo-risk-graph-explorer.html","group":"Live demos"},{"name":"demo-agentic-browser-isolation","label":"Agentic Browser Isolation","file":"demo-agentic-browser-isolation.html","group":"Live demos"},{"name":"demo-risk-mandate-field","label":"RiskMandate field demo","file":"demo-risk-mandate-field.html","group":"Live demos"},{"name":"demo-file-security","label":"File security walk","file":"demo-file-security.html","group":"Live demos"},{"name":"demo-agent-permission-games","label":"Permission games","file":"demo-agent-permission-games.html","group":"Live demos"},{"name":"lab","label":"Lab","file":"lab.html"},{"name":"summit","label":"Lisbon 2026","file":"summit.html"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"work","label":"Working with us","file":"work.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"}];RM.data.sections=[];
+
+'use strict';
+// components/dom.js — tiny DOM helpers shared by components. `el` builds an
+// element with attributes and children; text children always go in via
+// textContent. `renderMarkdownInto` turns core/markdown tokens into real DOM
+// nodes (never an HTML string), so fetched release notes cannot inject markup.
+
+RM.components.dom = (function () {
+  // A link in a markdown note may only go somewhere harmless: same-document,
+  // same-origin relative, https, or mailto. Anything else — javascript:, data:,
+  // a protocol-relative host — renders as the text it was, and goes nowhere.
+  var SAFE = /^(?:https:\/\/|mailto:|#|[^:/?#]*(?:[/?#]|$))/i;
+
+  /**
+   * @param {string} tag
+   * @param {Object<string,string>} [attrs]
+   * @param {Array<Node|string>} [children]
+   * @returns {HTMLElement}
+   */
+  function el(tag, attrs, children) {
+    var node = document.createElement(tag);
+    if (attrs) Object.keys(attrs).forEach(function (k) {
+      if (attrs[k] != null) node.setAttribute(k, attrs[k]);
+    });
+    (children || []).forEach(function (c) {
+      node.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
+    });
+    return node;
+  }
+
+  /**
+   * Render inline runs into a parent element. Emphasis runs carry child runs
+   * rather than a string, so a link or a code span inside **bold** renders as
+   * itself instead of as its own markdown source — hence the recursion.
+   */
+  function appendRuns(parent, runs) {
+    runs.forEach(function (run) {
+      if (run.t === 'strong' || run.t === 'em') {
+        var node = el(run.t);
+        if (run.runs) appendRuns(node, run.runs);
+        else          node.appendChild(document.createTextNode(run.v));
+        parent.appendChild(node);
+      }
+      else if (run.t === 'code') parent.appendChild(el('code', null, [run.v]));
+      else if (run.t === 'link') parent.appendChild(SAFE.test(run.href)
+        ? el('a', { href: run.href }, [run.v])
+        : document.createTextNode(run.v));
+      else parent.appendChild(document.createTextNode(run.v));
+    });
+  }
+
+  /**
+   * Render markdown block tokens into a container as DOM nodes.
+   * @param {HTMLElement} container
+   * @param {Array} blocks  output of RM.core.markdown.parse
+   */
+  function renderMarkdownInto(container, blocks) {
+    blocks.forEach(function (b) {
+      if (b.type === 'heading') {
+        var h = el('h' + (b.level + 1)); // ## release title -> h3, etc.
+        appendRuns(h, b.runs);
+        container.appendChild(h);
+      } else if (b.type === 'list') {
+        var ul = el('ul');
+        b.items.forEach(function (runs) {
+          var li = el('li');
+          appendRuns(li, runs);
+          ul.appendChild(li);
+        });
+        container.appendChild(ul);
+      } else {
+        var p = el('p');
+        appendRuns(p, b.runs);
+        container.appendChild(p);
+      }
+    });
+  }
+
+  return { el: el, appendRuns: appendRuns, renderMarkdownInto: renderMarkdownInto };
+})();
+
+
+'use strict';
+// components/nav.js — the behaviour on a page that is *not* a link.
+//   [data-to]   → smooth in-page scroll to an element id (no hash routing).
+//   [data-demo] → open a pre-filled demo enquiry email.
+//
+// v1.0.0 removed everything else that used to live here. Up to v0.14 the site
+// ran inside a host <iframe> and every navigation was a postMessage — rm-nav,
+// rm-back, rm-manifest, rm-read. A <button> is not a link, so nothing could be
+// deep-linked, bookmarked, opened in a new tab, or crawled. Now each page is
+// the document the server sent and each navigation is an <a href>, so the only
+// things left to wire are the two that genuinely are not navigation.
+//
+// The mobile drawer is still injected rather than templated: one file gives
+// every page a working menu below the header breakpoint, where .navlinks is
+// hidden by CSS.
+
+RM.components.nav = (function () {
+  // Every "Book a demo" control opens a mail client with a subject and a
+  // starting message. One place to change when booking becomes a real form.
+  var DEMO = {
+    to     : 'nrparekh@gmail.com',
+    subject: 'RiskMandate — demo request',
+    body   : [
+      'Hi,',
+      '',
+      'I would like to see a plug profile for one of the agents we already run.',
+      '',
+      'A little about us:',
+      '  • Organisation:',
+      '  • Roughly how many agents we are running:',
+      '  • The agent we would want to look at first:',
+      '  • Anything already in place (register, IdP, detection tooling):',
+      '',
+      'Thanks,'
+    ].join('\n')
+  };
+
+  function demoHref() {
+    return 'mailto:' + DEMO.to +
+      '?subject=' + encodeURIComponent(DEMO.subject) +
+      '&body='    + encodeURIComponent(DEMO.body);
+  }
+
+  function openDemo() { window.location.href = demoHref(); }
+
+  function scrollTo(doc, id) {
+    var t = doc.getElementById(id);
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Inject the hamburger toggle and wire the drawer open/close. Idempotent.
+  function wireMobileNav(doc) {
+    var top = doc.querySelector('.top');
+    if (!top) return;
+    var wrap  = top.querySelector('.wrap');
+    var links = top.querySelector('.navlinks');
+    if (!wrap || !links || top.querySelector('.navtoggle')) return;
+
+    var burger = doc.createElement('button');
+    burger.className = 'navtoggle';
+    burger.setAttribute('type', 'button');
+    burger.setAttribute('aria-label', 'Toggle navigation');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-controls', 'sitenav');
+    for (var i = 0; i < 3; i++) burger.appendChild(doc.createElement('span'));
+    links.id = links.id || 'sitenav';
+    var demo = wrap.querySelector('.demo');
+    if (demo) wrap.insertBefore(burger, demo); else wrap.appendChild(burger);
+
+    function set(open) {
+      top.classList.toggle('nav-open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    burger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      set(!top.classList.contains('nav-open'));
+    });
+    // Following a real nav link closes the drawer; the group header does not.
+    links.addEventListener('click', function (e) {
+      var b = e.target.closest('button, a');
+      if (b && !b.classList.contains('navgroup-btn')) set(false);
+    });
+    doc.addEventListener('click', function (e) {
+      if (top.classList.contains('nav-open') && !top.contains(e.target)) set(false);
+    });
+    doc.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+    var view = doc.defaultView || window;
+    view.addEventListener('resize', function () { if (view.innerWidth > 980) set(false); });
+  }
+
+  /** @param {Document} doc */
+  function wire(doc) {
+    doc.querySelectorAll('[data-to]').forEach(function (elm) {
+      elm.addEventListener('click', function () { scrollTo(doc, elm.getAttribute('data-to')); });
+    });
+    doc.querySelectorAll('[data-demo], .demo').forEach(function (elm) {
+      elm.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); openDemo(); });
+    });
+    wireMobileNav(doc);
+  }
+
+  return { wire: wire, scrollTo: scrollTo, demoHref: demoHref, openDemo: openDemo };
+})();
+
+
+'use strict';
+// components/menu.js — <rm-menu>. The one shared header menu, on every page, so
+// the nav is built by a single piece of code. Renders the homepage's section
+// links first, then the top-level pages, marking the current page active.
+//
+// A run of contiguous pages sharing a `group` string collapses into one entry:
+// a hover/click dropdown labelled by the group, with the members as children. A
+// single-member group renders flat — no dropdown for one item.
+//
+// v1.0.0: every entry is an <a href>. The old menu emitted <button> elements
+// that asked a host frame to swap an iframe's srcdoc, which meant the links did
+// not exist as far as a crawler, a bookmark or a middle-click was concerned.
+// The group header stays a <button> because it opens a panel rather than going
+// anywhere — that is the one control here that is genuinely not a link.
+
+(function () {
+  var dom = RM.components.dom;
+
+  RM.components.Menu = class extends HTMLElement {
+    connectedCallback() {
+      var self = this;
+      this._onDocClick = function (e) {
+        self.querySelectorAll('.navgroup.open').forEach(function (g) {
+          if (!g.contains(e.target)) g.classList.remove('open');
+        });
+      };
+      document.addEventListener('click', this._onDocClick);
+      this._render();
+    }
+    disconnectedCallback() {
+      document.removeEventListener('click', this._onDocClick);
+    }
+
+    // On the homepage a section link scrolls; on any other page it is a link
+    // back to the homepage at that anchor. Same markup either way.
+    _section(s) {
+      var home = !(RM.data && RM.data.currentPage);
+      var a = dom.el('a', { class: 'seclink', href: home ? '#' + s.to : 'index.html#' + s.to }, [s.label]);
+      if (home) a.addEventListener('click', function (e) {
+        e.preventDefault();
+        RM.components.nav.scrollTo(document, s.to);
+      });
+      return a;
+    }
+
+    _pagelink(p, extra) {
+      var active = p.name === (RM.data && RM.data.currentPage);
+      var attrs  = { class: 'pagelink' + (extra ? ' ' + extra : '') + (active ? ' active' : ''), href: p.file };
+      if (active) attrs['aria-current'] = 'page';
+      return dom.el('a', attrs, [p.label]);
+    }
+
+    _group(name, members) {
+      var self    = this;
+      var current = RM.data && RM.data.currentPage;
+      var active  = members.some(function (m) { return m.name === current; });
+      var car     = dom.el('span',   { class: 'navgroup-car', 'aria-hidden': 'true' }, ['▾']);
+      var btn     = dom.el('button', { class: 'navgroup-btn' + (active ? ' active' : ''), type: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false' }, [name, car]);
+      var panel   = dom.el('div',    { class: 'navmenu' }, members.map(function (m) { return self._pagelink(m, 'navchild'); }));
+      var wrap    = dom.el('span',   { class: 'navgroup' + (active ? ' active' : '') }, [btn, panel]);
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = wrap.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      return wrap;
+    }
+
+    _render() {
+      var sections = (RM.data && RM.data.sections) || [];
+      var pages    = (RM.data && RM.data.pages)    || [];
+      var self     = this;
+      this.textContent = '';
+      sections.forEach(function (s) { self.appendChild(self._section(s)); });
+      var i = 0;
+      while (i < pages.length) {
+        var p = pages[i];
+        if (!p.group) { self.appendChild(self._pagelink(p)); i++; continue; }
+        var g = p.group, members = [];
+        while (i < pages.length && pages[i].group === g) { members.push(pages[i]); i++; }
+        if (members.length === 1) self.appendChild(self._pagelink(members[0]));
+        else                      self.appendChild(self._group(g, members));
+      }
+    }
+  };
+
+  customElements.define('rm-menu', RM.components.Menu);
+})();
+
+
+'use strict';
+// boot.js — inner-page composition root (version builds and dev.html). Custom
+// elements self-register on load; here we wire document-level nav behaviour.
+// The page runs inside the host's stage frame, so the host (not this page) signals
+// the SG/App host that the app is ready.
+
+(function () {
+  function start() { RM.components.nav.wire(document); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
+})();
+
+})();
+</script>
+</body>
+</html>
+
+
+})();
+</script>
+</body>
+</html>

@@ -12,12 +12,6 @@ Source: https://riskmandate.ai/lab.html
 
 We work out the product in public. This is where the research, the interface mockups and the open proposals live, before any of it is a feature. If you want to argue with us, this is the surface to argue with — and the arguing is the point.
 
-**This is a dated edition of a page that changes.** The Lab holds our current thinking, and current thinking moves. This PDF does not: it is what we thought on the date stamped below, kept so the reasoning can be followed rather than only its conclusion. The live page may since have been corrected, extended or withdrawn — and if it has, the edition list on it will say so.
-
-# Findings, mockups and things we have not built yet.
-
-We work out the product in public. This is where the research, the interface mockups and the open proposals live, before any of it is a feature. If you want to argue with us, this is the surface to argue with — and the arguing is the point.
-
 ## Everything currently open.
 
 Newest first. Each entry says what state it is in, because a finding and a mockup are not the same kind of claim and should not be read as though they were.

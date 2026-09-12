@@ -125,6 +125,12 @@
       "file": "pricing.html"
     },
     {
+      "name": "work",
+      "label": "Working with us",
+      "file": "work.html",
+      "group": "More"
+    },
+    {
       "name": "library",
       "label": "Library",
       "file": "library.html",
@@ -161,6 +167,11 @@
     {
       "name": "lab-abp-requests",
       "file": "lab-abp-requests.html",
+      "unlisted": true
+    },
+    {
+      "name": "work-abp-power-user",
+      "file": "work-abp-power-user.html",
       "unlisted": true
     },
     {

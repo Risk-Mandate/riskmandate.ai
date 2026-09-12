@@ -20,6 +20,17 @@ All three are generated from the same content at build time, so they never drift
 
 The rendered pages carry no crawlable content. Point your agent at the text artifacts instead.
 
+```
+# 1. The index — cheap, orients the agent
+curl -s https://riskmandate.ai/llms.txt
+
+# 2. Everything, as one Markdown document
+curl -s https://riskmandate.ai/llms-full.txt
+
+# 3. Structured, for deterministic parsing
+curl -s https://riskmandate.ai/.well-known/agent-content.json | jq .
+```
+
 Content licence: the concept library is CC BY 4.0 — reuse it, attribute RiskMandate. The artifacts are regenerated on every release, so a cached copy is a point-in-time snapshot; re-fetch for the current version.
 
 ## The access surface is the point.

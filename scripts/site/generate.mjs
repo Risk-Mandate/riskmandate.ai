@@ -62,6 +62,25 @@ function rows(table) {
   return [head, rule, ...out.slice(1).map(r => `| ${r.join(' | ')} |`)].join('\n');
 }
 
+const BLOCKS = 'h1|h2|h3|h4|p|li|blockquote|figcaption|table|pre';
+const OPEN   = new RegExp(`<(${BLOCKS})\\b[^>]*>`, 'gi');
+
+// Find the close tag that actually matches an open tag, counting nesting. The
+// previous version used a non-greedy regex, which for a list item containing
+// its own sub-list stopped at the FIRST </li> — swallowing the item's heading
+// and prose into one bullet and then emitting the rest of the sub-list as
+// siblings. Anything with nested structure came out scrambled.
+function closeOf(html, tag, from) {
+  const re = new RegExp(`<(/?)${tag}\\b[^>]*>`, 'gi');
+  re.lastIndex = from;
+  let depth = 0, m;
+  while ((m = re.exec(html)) !== null) {
+    if (m[1] === '/') { if (depth === 0) return { inner: [from, m.index], end: re.lastIndex }; depth--; }
+    else depth++;
+  }
+  return { inner: [from, html.length], end: html.length };
+}
+
 // Pull the prose out of a page. Anything a component renders at runtime is not
 // here — the twin covers what the document actually contains, and says so.
 function toMarkdown(html, page) {
@@ -71,24 +90,50 @@ function toMarkdown(html, page) {
     .replace(/<style[\s\S]*?<\/style>/gi,   '')
     .replace(/<svg[\s\S]*?<\/svg>/gi,       '')
     .replace(/<header[\s\S]*?<\/header>/i,  '')
+    // print-only chrome: the PDF cover restates the page's own headline and
+    // standfirst, which a twin would otherwise carry twice
+    .replace(/<section class="pdfcover">[\s\S]*?<\/section>/i, '')
     .replace(/<!--[\s\S]*?-->/g,            '');
 
   const blocks = [];
-  const re = /<(h1|h2|h3|h4|p|li|blockquote|figcaption|table)\b[^>]*>([\s\S]*?)<\/\1>/gi;
-  for (const m of body.matchAll(re)) {
-    const [, tag, raw] = m;
-    if (tag.toLowerCase() === 'table') { const t = rows(raw); if (t) blocks.push(t); continue; }
-    const text = inline(raw);
-    if (!text) continue;
-    switch (tag.toLowerCase()) {
-      case 'h1': blocks.push(`# ${text}`);          break;
-      case 'h2': blocks.push(`## ${text}`);         break;
-      case 'h3': blocks.push(`### ${text}`);        break;
-      case 'h4': blocks.push(`#### ${text}`);       break;
-      case 'li': blocks.push(`- ${text}`);          break;
-      case 'blockquote':  blocks.push(`> ${text}`); break;
-      case 'figcaption':  blocks.push(`_${text}_`); break;
-      default:   blocks.push(text);
+  scan(body, blocks);
+
+  // Walk block elements in document order, descending into any that contain
+  // block children of their own rather than flattening them into one line.
+  function scan(src, out) {
+    OPEN.lastIndex = 0;
+    const re = new RegExp(OPEN.source, 'gi');
+    let m;
+    while ((m = re.exec(src)) !== null) {
+      const tag = m[1].toLowerCase();
+      const { inner, end } = closeOf(src, tag, re.lastIndex);
+      const raw = src.slice(inner[0], inner[1]);
+      re.lastIndex = end;
+
+      if (tag === 'table') { const t = rows(raw); if (t) out.push(t); continue; }
+      // <pre> is verbatim: it is the one thing on these pages whose whitespace
+      // carries meaning (the collaborator prompt is a <pre>), so it becomes a
+      // fenced block rather than being collapsed into a paragraph.
+      if (tag === 'pre') {
+        const txt = decode(raw.replace(/<[^>]+>/g, '')).replace(/^\n+|\s+$/g, '');
+        if (txt) out.push('```\n' + txt + '\n```');
+        continue;
+      }
+      // a container rather than a leaf: emit its children, not a squashed line
+      if (new RegExp(`<(?:${BLOCKS})\\b`, 'i').test(raw)) { scan(raw, out); continue; }
+
+      const text = inline(raw);
+      if (!text) continue;
+      switch (tag) {
+        case 'h1': out.push(`# ${text}`);          break;
+        case 'h2': out.push(`## ${text}`);         break;
+        case 'h3': out.push(`### ${text}`);        break;
+        case 'h4': out.push(`#### ${text}`);       break;
+        case 'li': out.push(`- ${text}`);          break;
+        case 'blockquote':  out.push(`> ${text}`); break;
+        case 'figcaption':  out.push(`_${text}_`); break;
+        default:   out.push(text);
+      }
     }
   }
 

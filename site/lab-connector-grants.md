@@ -12,12 +12,6 @@ Source: https://riskmandate.ai/lab-connector-grants.html
 
 Connect an assistant to your mailbox and the narrowest permission that lets it read one message lets it read every message. Connect it to your drive and the default search corpus is, in the publisher's own words, files _owned by or shared to_ you. There is no supported way to say _my files, except the folder the legal team shared with me_. The unit of restriction is the application. It is never the data.
 
-**This is a dated edition of a page that changes.** The Lab holds our current thinking, and current thinking moves. This PDF does not: it is what we thought on the date stamped below, kept so the reasoning can be followed rather than only its conclusion. The live page may since have been corrected, extended or withdrawn — and if it has, the edition list on it will say so.
-
-# The grant is user-shaped, not data-shaped.
-
-Connect an assistant to your mailbox and the narrowest permission that lets it read one message lets it read every message. Connect it to your drive and the default search corpus is, in the publisher's own words, files _owned by or shared to_ you. There is no supported way to say _my files, except the folder the legal team shared with me_. The unit of restriction is the application. It is never the data.
-
 ## Four scopes, in their publishers' own words.
 
 Each of these was read on 12 September 2026 from the linked page, and quoted rather than paraphrased. Nothing below required an account, a test or a request to anybody's system.

@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.4.0** · 2026-09-12 — A section for collaborators and their agents, and the markdown twins stop dropping things
+  Notes: https://riskmandate.ai/versions/1.4.0.md · Source: `git:v1.4.0`
 - **v1.3.0** · 2026-09-12 — Every Lab page is also a dated PDF, and the whole Lab is one file you can send
   Notes: https://riskmandate.ai/versions/1.3.0.md · Source: `git:v1.3.0`
 - **v1.2.1** · 2026-09-12 — The version record turns light, and markdown emphasis stops eating its own links

@@ -20,10 +20,21 @@ Two days at the Unicorn Factory Lisboa, in the Beato Innovation District. We are
 
 Everything below already exists and is public. You can run all of it before you arrive, on your own machine, without talking to us — which is rather the point.
 
-- 01 A draft Agent Behaviour Policy, on paper, for an agent you run Tell us which agent and roughly where it runs. We hand you a printed draft: everything it can do, what we think you authorised, the gap, and what is actually standing in the way. Then you correct it — and the correction is usually upward, which is the finding. Nothing is sent anywhere and we need no access to anything of yours, because a draft is about a _deployment shape_ rather than about your estate. [What an Agent Behaviour Policy is](abp.html) [Five worked examples ↗](https://abp.sgit.ai/examples/)
-- 02 The permission game — five minutes, forty questions, no sign-up Guess what an agent can reach, then find out, then get scored on how well you knew. It runs on the screen facing the aisle all day and needs nobody to operate it. Play it now if you like; it is the fastest way to understand what we do. [Play it ↗](https://what-can-it-do.games.sgit.ai/) [About this demo](demo-agent-permission-games.html)
-- 03 Licence to Operate — an insurance policy for an agent, simulated The grant, the mandate, and the delta that nothing covers. It is the argument made operable: the prohibitions an agent needs are the exclusions an insurer would write, and an underwriter cannot exclude what nobody enumerated. [Open the demo](demo-licence-to-operate.html)
-- 04 The Insurability Index — the number, and where it is allowed to live A score over five weighted dimensions, derived from your environment rather than a self-assessment, with six levels from Unmapped to Underwritten. It scores the _deployment_. It never scores the behaviour policy, because the same policy is dangerous in one deployment and harmless in another. [How the Index works](index.html) [Why the policy carries no score](abp.html#no-score)
+### A draft Agent Behaviour Policy, on paper, for an agent you run
+
+Tell us which agent and roughly where it runs. We hand you a printed draft: everything it can do, what we think you authorised, the gap, and what is actually standing in the way. Then you correct it — and the correction is usually upward, which is the finding. Nothing is sent anywhere and we need no access to anything of yours, because a draft is about a _deployment shape_ rather than about your estate.
+
+### The permission game — five minutes, forty questions, no sign-up
+
+Guess what an agent can reach, then find out, then get scored on how well you knew. It runs on the screen facing the aisle all day and needs nobody to operate it. Play it now if you like; it is the fastest way to understand what we do.
+
+### Licence to Operate — an insurance policy for an agent, simulated
+
+The grant, the mandate, and the delta that nothing covers. It is the argument made operable: the prohibitions an agent needs are the exclusions an insurer would write, and an underwriter cannot exclude what nobody enumerated.
+
+### The Insurability Index — the number, and where it is allowed to live
+
+A score over five weighted dimensions, derived from your environment rather than a self-assessment, with six levels from Unmapped to Underwritten. It scores the _deployment_. It never scores the behaviour policy, because the same policy is dangerous in one deployment and harmless in another.
 
 ## Four conversations. One ask each.
 

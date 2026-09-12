@@ -12,12 +12,6 @@ Source: https://riskmandate.ai/lab-abp-flow.html
 
 Twelve stages. The first four need no account, no integration and no access to anybody's environment — they are five documents and a page. The rest is one engineering build, and it is the same build every time, which is the only reason any of this could be a business.
 
-**This is a dated edition of a page that changes.** The Lab holds our current thinking, and current thinking moves. This PDF does not: it is what we thought on the date stamped below, kept so the reasoning can be followed rather than only its conclusion. The live page may since have been corrected, extended or withdrawn — and if it has, the edition list on it will say so.
-
-# From a stranger's first question to a key they can hand an underwriter.
-
-Twelve stages. The first four need no account, no integration and no access to anybody's environment — they are five documents and a page. The rest is one engineering build, and it is the same build every time, which is the only reason any of this could be a business.
-
 ## Twelve stages. Four of them are documents.
 
 Stages one to four are the whole sales motion and they are shippable now. Stages six to ten are a single build — a template vault that gets cloned per customer — and that build is the product even though nothing on this site sells it.
