@@ -270,6 +270,22 @@
         }
       ],
       "not_done": []
+    },
+    {
+      "id": "I5",
+      "what": "Add a section answering the questions people actually ask in public — with the standing rule that the site never names who asked. Answers that outgrow a section get their own page.",
+      "how": "chat instruction, with two public comments supplied as the first two questions",
+      "dated": "2026-09-13",
+      "status": "processed",
+      "produced": [
+        {
+          "what": "Questions — real questions, answered with a date and no name attached",
+          "url": "questions.html"
+        }
+      ],
+      "not_done": [
+        "A third-party screenshot convention. The instruction anticipated detailed examples and screenshots; screenshots of our own demos are fine, and screenshots of anybody else's product run into the no-probing and no-verdicts rules, so the Lab's drawn mockups remain the pattern until that is decided."
+      ]
     }
   ]
 }

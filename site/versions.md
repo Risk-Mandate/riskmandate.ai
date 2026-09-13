@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.9.0** · 2026-09-13 — A Questions section: real questions from public conversations, answered without naming who asked
+  Notes: https://riskmandate.ai/versions/1.9.0.md · Source: `git:v1.9.0`
 - **v1.8.0** · 2026-09-12 — Lab 06: the grant that cannot be enumerated, and the one rule with no barrier
   Notes: https://riskmandate.ai/versions/1.8.0.md · Source: `git:v1.8.0`
 - **v1.7.0** · 2026-09-12 — Lab 05: the commit author is a free text field, and the front page stops implying a deadline

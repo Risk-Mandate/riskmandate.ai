@@ -162,6 +162,12 @@
       "file": "pricing.html"
     },
     {
+      "name": "questions",
+      "label": "Questions",
+      "file": "questions.html",
+      "group": "More"
+    },
+    {
       "name": "briefs",
       "label": "Brief register",
       "file": "briefs.html",

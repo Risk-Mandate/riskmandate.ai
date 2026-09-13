@@ -130,6 +130,11 @@ These have no digest to check, which makes them the ones most easily lost — a 
 - [The edition register](lab-editions.json), with a digest per file
 - Nothing.
 
+**Answer the questions people actually ask in public**, with the standing rule that the site never names who asked. Two public comments were supplied as the first two questions, and answers that outgrow a section get their own page.
+
+- [Questions](questions.html) — real questions, answered with a date and no name attached, and both current answers containing a _no_
+- A convention for screenshots. Our own demos are fine; anybody else's product runs into the no-probing and no-verdicts rules, so the Lab's drawn mockups remain the pattern until that is decided
+
 ## Check us, rather than trusting us.
 
 The whole point of a digest is that somebody else can compute it. If you produce these documents, you do not have to take this page's word for what arrived — hash what you sent and compare.
@@ -147,7 +152,7 @@ sha256sum my-brief.md
 
 A register that only lists what was done is a press release.
 
-Every entry above carries what it asked for and did not get, and on most of the ten that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.
+Every entry above carries what it asked for and did not get, and on most of the eleven that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.
 
 - **The file is the record, not this page.** [briefs-register.json](briefs-register.json) is what a program should read; this page renders it for people. If the two ever disagree, the file is right and the page is stale.
 - **Every archived document is byte-identical to what arrived.** Nothing is edited, reformatted or trimmed — including the parts we think are wrong. Where we disagree with a brief, the disagreement is published on the page it produced and marked as ours.
@@ -156,6 +161,6 @@ Every entry above carries what it asked for and did not get, and on most of the 
 
 Register maintained by hand alongside the work, and checked in CI: every document listed must exist at the path given and match its recorded digest, and every file in `assets/briefs/` must appear in the register. Last reconciled 12 September 2026.
 
-## Ten items. None untouched, and none finished.
+## Eleven items. None untouched, and none finished.
 
-Every item now names something it produced and something it did not. Five of the ten are marked _partly_, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.
+Every item now names something it produced and something it did not. Five of the eleven are marked _partly_, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.

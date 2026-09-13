@@ -1,0 +1,765 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RiskMandate — questions we were asked</title>
+<meta name="description" content="Real questions put to us in public, answered here with a date and without naming the asker. Where the answer is that we do not do the thing, that is the first line rather than a caveat at the bottom.">
+<link rel="canonical" href="https://riskmandate.ai/questions.html">
+<link rel="alternate" type="text/markdown" href="questions.md" title="This page as markdown">
+<link rel="icon" href="assets/brand/riskmandate-favicon-32.png" sizes="32x32">
+<link rel="icon" href="assets/brand/riskmandate-mark.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RiskMandate">
+<meta property="og:url" content="https://riskmandate.ai/questions.html">
+<meta property="og:title" content="RiskMandate — questions we were asked">
+<meta property="og:description" content="Real questions put to us in public, answered here with a date and without naming the asker. Where the answer is that we do not do the thing, that is the first line rather than a caveat at the bottom.">
+<meta property="og:image" content="https://riskmandate.ai/assets/brand/riskmandate-lockup-light.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Scaffolded by scripts/site/new-page.mjs. Hand-edited from here on — there is no build step. -->
+<style>
+/* questions.css — self-contained: the shared chrome, then this page's own. */
+:root{
+  --bg:#F7F6F2; --bg2:#EFEDE7; --card:#FFFFFF; --ink:#0D0D0C; --canvas:#0A0A09;
+  --text:#1A1917; --muted:#4A4845; --faint:#8A8780; --border:#E2DFD8;
+  --green:#1A7F5A; --green-2:#22c55e; --greenBg:#EBF5F0;
+  --gold:#B45309; --red:#C0392B; --blue:#1D4ED8;
+  --fg:#F7F6F2; --fg-2:rgba(247,246,242,.55); --fg-3:rgba(247,246,242,.32);
+  --line:rgba(247,246,242,.10); --line-2:rgba(247,246,242,.18);
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","JetBrains Mono","Roboto Mono",Menlo,Consolas,monospace;
+  --wrap:1000px; --r:10px; --r-sm:8px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth} @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+h1,h2{margin:0;font-weight:800;letter-spacing:-.03em;line-height:1.04}
+h2{font-size:clamp(26px,3.6vw,40px);font-weight:700;letter-spacing:-.02em}
+p{margin:0}
+:focus-visible{outline:2px solid var(--green-2);outline-offset:3px;border-radius:4px}
+.tag{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+.g{color:var(--green)} .it{font-style:italic;color:var(--green)}
+
+/* header */
+.top{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.top .wrap{display:flex;align-items:center;gap:22px;height:56px;max-width:1100px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:15px;color:var(--text);white-space:nowrap;text-decoration:none}
+.rm{width:26px;height:26px;flex:none;display:block}
+.rm svg{width:100%;height:100%;display:block}
+.navlinks{display:flex;align-items:center;gap:22px;margin-left:auto}
+rm-menu{display:contents}
+.navlinks a{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;text-decoration:none;display:inline-flex;align-items:center}
+.navlinks a:hover{color:var(--text)}
+.navlinks a.active{color:var(--text);font-weight:600}
+.version{font-family:var(--mono);font-size:12px;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:7px;padding:5px 8px;text-decoration:none;white-space:nowrap;transition:color .15s,border-color .15s}
+.version:hover{color:var(--text);border-color:var(--faint)}
+.demo{background:var(--green);color:#fff;font-weight:600;font-size:13px;border:0;border-radius:8px;padding:8px 16px;cursor:pointer;transition:background .15s;font-family:var(--sans);white-space:nowrap}
+.demo:hover{background:#16704f}
+
+/* nav dropdowns */
+.navgroup{position:relative;display:inline-flex;align-items:center}
+.navgroup::after{content:"";position:absolute;top:100%;left:0;right:0;height:10px}
+.navgroup-btn{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;display:inline-flex;align-items:center;gap:5px}
+.navgroup-btn:hover,.navgroup:hover .navgroup-btn,.navgroup.open .navgroup-btn,.navgroup.active .navgroup-btn{color:var(--text)}
+.navgroup-car{font-size:8px;line-height:1;opacity:.6;transition:transform .15s}
+.navgroup:hover .navgroup-car,.navgroup.open .navgroup-car{transform:rotate(180deg)}
+.navmenu{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);min-width:184px;background:var(--card);border:1px solid var(--border);border-radius:10px;box-shadow:0 10px 34px rgba(13,13,12,.14);padding:6px;display:none;flex-direction:column;gap:2px;z-index:70}
+.navgroup:hover .navmenu,.navgroup.open .navmenu{display:flex}
+.navmenu .navchild{justify-content:flex-start;text-align:left;width:100%;padding:8px 12px;border-radius:7px;font-size:13.5px;color:var(--muted);white-space:nowrap}
+.navmenu .navchild:hover{background:var(--bg2);color:var(--text)}
+.navmenu .navchild.active{color:var(--green);font-weight:600;background:var(--greenBg)}
+
+/* mobile drawer — the toggle is injected by nav.js; .top.nav-open opens it */
+.navtoggle{display:none;margin-left:auto;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;padding:0;background:none;border:0;cursor:pointer}
+.navtoggle span{display:block;width:20px;height:2px;margin:0 auto;background:var(--text);border-radius:2px;transition:transform .2s,opacity .2s}
+.top.nav-open .navtoggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.top.nav-open .navtoggle span:nth-child(2){opacity:0}
+.top.nav-open .navtoggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media (max-width:1040px){
+  .navtoggle{display:flex}
+  .top .wrap{position:relative}
+  .version{display:none}
+  .navlinks{display:none;position:absolute;left:0;right:0;top:calc(100% + 1px);flex-direction:column;align-items:stretch;gap:0;margin:0;padding:8px;background:var(--card);border-bottom:1px solid var(--border);box-shadow:0 14px 34px rgba(13,13,12,.14);max-height:calc(100vh - 56px);overflow:auto}
+  .top.nav-open .navlinks{display:flex}
+  .navlinks a,.navlinks .navgroup-btn{width:100%;text-align:left;justify-content:flex-start;padding:12px 16px;font-size:15px;border-radius:8px}
+  .navlinks a:hover{background:var(--bg2)}
+  .navgroup{display:block;width:100%;position:static}
+  .navgroup::after{display:none}
+  .navgroup-btn{display:flex}
+  .navgroup-car{margin-left:auto}
+  .navmenu{position:static;transform:none;display:flex;flex-direction:column;min-width:0;padding:2px 0 8px 14px;background:transparent;border:0;box-shadow:none}
+  .navmenu .navchild{padding:10px 14px;font-size:14px}
+}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;padding:12px 22px;border-radius:var(--r-sm);cursor:pointer;border:1px solid transparent;font-family:var(--sans);text-decoration:none}
+.btn-green{background:var(--green);color:#fff} .btn-green:hover{background:#16704f}
+.btn-ghost{background:transparent;color:var(--fg);border-color:var(--line-2)} .btn-ghost:hover{border-color:var(--fg-2)}
+.btn-ghost-dark{background:transparent;color:var(--text);border-color:var(--border)} .btn-ghost-dark:hover{border-color:var(--green);color:var(--green)}
+
+/* dark hero */
+.phero{background:var(--ink);color:var(--fg);padding:88px 24px 84px}
+.phero .wrap{max-width:var(--wrap)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--green);background:rgba(26,127,90,.18);border:1px solid rgba(26,127,90,.4);border-radius:999px;padding:5px 12px}
+.eyebrow .d{width:6px;height:6px;border-radius:50%;background:var(--green-2)}
+.phero h1{font-size:clamp(34px,5.2vw,60px);letter-spacing:-.04em;line-height:1.02;margin:26px 0 0;color:var(--fg);max-width:900px}
+.phero .sub{color:var(--fg-2);font-size:17px;line-height:1.7;max-width:640px;margin-top:24px}
+.cta-row{display:flex;flex-wrap:wrap;gap:11px;margin-top:30px}
+
+/* paper sections */
+.paper{background:var(--bg)}
+.psection{padding:80px 0;border-bottom:1px solid var(--border)}
+.psection.alt{background:var(--bg2)}
+.shead{max-width:680px} .shead.center{max-width:720px;margin:0 auto;text-align:center}
+.shead h2{color:var(--text)} .shead p{color:var(--muted);margin-top:16px;font-size:15px;line-height:1.75}
+
+/* closing panel + footer */
+.pcta{background:var(--ink);padding:80px 24px;text-align:center}
+.pcta .wrap{max-width:720px;padding:0}
+.pcta h2{font-size:clamp(28px,4.4vw,48px);color:var(--fg);margin-top:20px;font-weight:700;letter-spacing:-.03em}
+.pcta p{color:var(--fg-2);margin-top:16px;font-size:16px;line-height:1.7}
+.pcta .cta-row{justify-content:center}
+.foot{background:var(--canvas);border-top:1px solid var(--line);padding:32px 24px}
+.foot .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-family:var(--mono);font-size:10px;color:var(--fg-3);max-width:1100px}
+.footlink{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.footlink:hover{color:var(--fg-2)}
+/* narrow phones — at 360px the brand, the burger and the call to action stop
+   fitting on one line, and the header was the last thing on this site that
+   scrolled sideways. Tighten the gutter, the gap and the button rather than
+   drop any of them: all three are load-bearing at this width. */
+@media (max-width:420px){
+  .top .wrap{gap:12px;padding:0 16px}
+  .brand{font-size:14px;gap:7px}
+  .rm{width:24px;height:24px}
+  .demo{padding:8px 12px;font-size:12.5px}
+}
+
+/* ── questions ────────────────────────────────────────────────────────────── */
+.qstrip{background:var(--bg2);border-bottom:1px solid var(--border);padding:9px 24px;
+  font-family:var(--mono);font-size:11px;color:var(--muted);text-align:center}
+.qstrip b{color:var(--text)}
+.qstrip a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+
+.st{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10px;
+  font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:999px;
+  padding:4px 10px;white-space:nowrap}
+.st::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.st.answered{color:var(--green);background:var(--greenBg);border:1px solid rgba(26,127,90,.3)}
+.st.open    {color:var(--muted);background:var(--bg2);border:1px solid var(--border)}
+
+/* one question */
+.q{border:1px solid var(--border);border-radius:var(--r);background:var(--card);
+  padding:30px 32px;margin-top:20px}
+@media (max-width:620px){.q{padding:24px 22px}}
+.q .qh{display:flex;align-items:baseline;gap:13px;flex-wrap:wrap;margin-bottom:16px}
+.q .qn{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.14em;
+  color:var(--faint)}
+.q .qwhen{font-family:var(--mono);font-size:11px;color:var(--faint);margin-left:auto}
+.q h3{margin:0;font-size:21px;font-weight:700;letter-spacing:-.02em;color:var(--text);
+  line-height:1.35;max-width:800px}
+.q .asked{margin-top:14px;border-left:3px solid var(--border);padding:3px 0 3px 18px;
+  font-size:15px;color:var(--muted);line-height:1.7;max-width:780px}
+.q .asked em{color:var(--text);font-style:normal;font-weight:600}
+
+/* the short answer, before the long one */
+.short{margin-top:24px;border-left:3px solid var(--green);background:var(--greenBg);
+  border-radius:0 var(--r-sm) var(--r-sm) 0;padding:20px 24px;max-width:780px}
+.short .sk{display:block;font-family:var(--mono);font-size:9.5px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:10px}
+.short p{font-size:16px;color:var(--text);line-height:1.62;font-weight:600}
+.short p + p{margin-top:10px;font-size:14.5px;color:var(--muted);font-weight:400}
+.short.no{border-left-color:var(--red);background:#FDF3F2}
+.short.no .sk{color:var(--red)}
+
+.qbody{margin-top:26px}
+.qbody h4{margin:30px 0 0;font-size:16.5px;font-weight:700;color:var(--text);
+  letter-spacing:-.015em}
+.qbody h4:first-child{margin-top:0}
+.qbody > p{font-size:15px;color:var(--muted);line-height:1.75;margin-top:12px;max-width:800px}
+.qbody > p b,.qbody > p strong{color:var(--text)}
+.qbody code{font-family:var(--mono);font-size:13px;background:var(--bg2);padding:1px 6px;
+  border-radius:5px;color:var(--text)}
+.qbody a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+
+/* the five-question answer grid */
+.five{margin-top:20px;border:1px solid var(--border);border-radius:var(--r-sm);
+  background:var(--card);overflow:hidden}
+.five .fr{display:grid;grid-template-columns:minmax(180px,1fr) 2fr;gap:0;
+  border-bottom:1px solid var(--border)}
+@media (max-width:720px){.five .fr{grid-template-columns:1fr}}
+.five .fr:last-child{border-bottom:0}
+.five .fq{padding:17px 20px;font-size:14.5px;font-weight:700;color:var(--text);
+  line-height:1.5;border-right:1px solid var(--border);background:var(--bg2)}
+@media (max-width:720px){.five .fq{border-right:0;padding-bottom:6px}}
+.five .fa{padding:17px 20px;font-size:14px;color:var(--muted);line-height:1.65}
+.five .fa b{color:var(--text)}
+.five .fa a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+.five .fa code{font-family:var(--mono);font-size:12px;background:var(--bg2);padding:1px 5px;
+  border-radius:4px;color:var(--text)}
+
+/* the stress-case table — his own test, run */
+.stress{overflow-x:auto;margin-top:22px;border:1px solid var(--border);border-radius:var(--r);
+  background:var(--card)}
+table.s{width:100%;border-collapse:collapse;font-size:13px;min-width:700px}
+table.s th{text-align:left;font-family:var(--mono);font-size:9.5px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--faint);padding:13px 15px;
+  border-bottom:1px solid var(--border)}
+table.s td{padding:14px 15px;border-bottom:1px solid var(--border);color:var(--muted);
+  line-height:1.55;vertical-align:top}
+table.s tr:last-child td{border-bottom:0}
+table.s td.case{color:var(--text);font-weight:600;width:26%}
+table.s td.ours{background:var(--greenBg);color:var(--text)}
+table.s td.div{width:1px;white-space:nowrap;font-family:var(--mono);font-size:12px;
+  font-weight:700;color:var(--green);text-align:center}
+
+/* generic kit */
+.tw{overflow-x:auto;margin-top:22px;border:1px solid var(--border);border-radius:var(--r-sm);
+  background:var(--card)}
+table.t{width:100%;border-collapse:collapse;font-size:13px;min-width:520px}
+table.t th{text-align:left;font-family:var(--mono);font-size:9.5px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--faint);padding:12px 14px;
+  border-bottom:1px solid var(--border);white-space:nowrap}
+table.t td{padding:12px 14px;border-bottom:1px solid var(--border);color:var(--muted);
+  line-height:1.5;vertical-align:top}
+table.t tr:last-child td{border-bottom:0}
+table.t td.k{color:var(--text);font-family:var(--mono);font-size:12px;white-space:nowrap}
+table.t code{font-family:var(--mono);font-size:11.5px;background:var(--bg2);padding:1px 5px;
+  border-radius:4px;color:var(--text)}
+.gl{text-align:center;width:1px}
+.plist{margin:22px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:13px;
+  max-width:800px}
+.plist li{position:relative;padding-left:22px;font-size:15px;color:var(--muted);line-height:1.7}
+.plist li::before{content:"";position:absolute;left:2px;top:10px;width:6px;height:6px;
+  border-radius:50%;background:var(--green)}
+.plist strong{color:var(--text)}
+.plist code{font-family:var(--mono);font-size:13px;background:var(--bg2);padding:1px 6px;
+  border-radius:5px;color:var(--text)}
+.plist a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+.notice{margin-top:26px;border:1px dashed var(--faint);border-radius:var(--r-sm);
+  padding:16px 20px;font-size:13.5px;color:var(--muted);line-height:1.65;max-width:820px}
+.notice strong{color:var(--text)}
+.notice a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+.src{margin-top:24px;font-family:var(--mono);font-size:11.5px;color:var(--faint);line-height:1.75}
+.src a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+.rule{margin-top:28px;border-left:3px solid var(--green);background:var(--greenBg);
+  border-radius:0 var(--r-sm) var(--r-sm) 0;padding:20px 24px;max-width:760px}
+.rule p{color:var(--text);font-size:16px;line-height:1.6;font-weight:600}
+.rule p + p{margin-top:10px;font-weight:400;font-size:14.5px;color:var(--muted)}
+</style>
+</head>
+<body id="top">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
+    <nav class="navlinks"><rm-menu></rm-menu></nav>
+    <a class="version" href="versions.html" title="What shipped in v1.9.0">v1.9.0</a>
+    <button class="demo" data-demo>Get in touch</button>
+  </div>
+</header>
+
+<div class="qstrip"><b>Questions</b> — real ones, asked in public, answered here with a date. <b>We never name who asked.</b> Where the answer is that we do not do the thing, that is the first line rather than a caveat at the bottom. <a href="#how">How this page works</a></div>
+
+<main class="phero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> Asked and answered</span>
+    <h1>The questions people actually ask, <span class="it">including the awkward ones.</span></h1>
+    <p class="sub">This is not a list of questions we wish we were asked. Every entry below was put to us by somebody outside this company, in public, and is reproduced here as the question rather than as a prompt for a pitch. Several of the answers are partly <em>no</em>, and those are the ones worth reading.</p>
+    <div class="cta-row">
+      <button class="btn btn-green" data-to="q1">Start with the first ↓</button>
+      <a class="btn btn-ghost" href="lab.html">The research behind the answers →</a>
+    </div>
+  </div>
+</main>
+
+<div class="paper">
+
+  <section class="psection" id="q1">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Question 01</span>
+        <h2>What happens when one authority path is revoked <span class="g">and another survives?</span></h2>
+      </div>
+
+      <div class="q">
+        <div class="qh">
+          <span class="qn">Q01</span>
+          <span class="st answered">Answered</span>
+          <span class="qwhen">asked in public · 12 September 2026</span>
+        </div>
+        <h3>How does the graph handle a revoked relationship when another legitimate authority path survives — and how does that result reach enforcement before the action commits?</h3>
+        <p class="asked">Paraphrased from a public comment. The asker's point was that a grant and a mandate need to stay connected <em>without the task expanding the permission</em>, and that the interesting case is the one where revoking a relationship leaves another route intact.</p>
+
+        <div class="short">
+          <span class="sk">The short answer, first half</span>
+          <p>We do not model revocation as removing an edge. The recorded object is the <em>authorisation closure</em> — the union of everything reachable, not the nominal grant.</p>
+          <p>So revoking one relationship while another legitimate path survives produces exactly the result the question is probing for: the nominal grant shrinks and the closure does not move. That non-movement is the finding, and it is what gets recorded.</p>
+        </div>
+
+        <div class="short no">
+          <span class="sk">The short answer, second half — and it is a no</span>
+          <p>Nothing we produce intervenes before the action commits.</p>
+          <p>RiskMandate produces the record, not the decision point. What intervenes before an action commits is a boundary somebody else operates — a token scope, a branch rule, an egress proxy, a kernel firewall. Our contribution is the document that says which one is in place, computed rather than asserted, and printed next to every line it applies to.</p>
+        </div>
+
+        <div class="qbody">
+          <h4>Why closure rather than the nominal grant</h4>
+          <p>A nominal grant is what somebody thinks they authorised. A closure is what is reachable. The two diverge whenever a capability has more than one route to it, which is most of the time — and the divergence is the entire reason the document is worth anything. <a href="ramm.html">RAMM's agentic overlay</a> carries it as a named entity, defined as <em>the union of everything reachable, not the nominal grant — the real blast radius</em>.</p>
+
+          <h4>A worked example, checkable in one command</h4>
+          <p>The author on a git commit is a free text field. Git's own reference says of the author name that it <b>“has no effect on authentication”</b>, and a code host's file-contents endpoint accepts <code>author</code> and <code>committer</code> as parameters requiring only contents-write. Two independent authority paths reach the same capability.</p>
+          <div class="tw">
+            <table class="t">
+              <thead><tr><th></th><th>Revoke the keys and the git config</th><th>Revoke the contents-write token</th></tr></thead>
+              <tbody>
+                <tr><td class="k">nominal grant</td><td>Shrinks — the local client can no longer commit as anybody</td><td>Shrinks</td></tr>
+                <tr><td class="k">closure</td><td><strong>Unchanged.</strong> The API path still sets any author it likes</td><td><strong>Unchanged.</strong> The local client still does</td></tr>
+                <tr><td class="k">what the row says</td><td colspan="2">The capability is still present, the delta has not moved, and the barrier column still reads what it read before</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>That is the behaviour the question is asking about, and it is deliberately unflattering: a revocation that looks like progress on a permissions dashboard produces no change at all in the record. If it did produce a change, the record would be measuring the wrong object.</p>
+
+          <h4>What does reach enforcement before the action commits</h4>
+          <p>In that same example, exactly one thing does: <b>a branch rule requiring signed commits</b>. In the host's own words, with it enabled, <em>“contributors and bots can only push commits that have been signed and verified to the branch”</em> — a server-side check at push time, before the reference moves. The feature most people reach for instead marks the commit with a verification status <em>after</em> it exists, which is a label rather than a refusal.</p>
+          <p>So the honest architecture is two layers with a clean split: <b>a boundary that somebody else operates and that acts before the commit</b>, and <b>a record that says which boundary that is, where it sits, and what would void it</b>. We build the second and refuse to imply we are the first.</p>
+
+          <h4>The trap underneath the question</h4>
+          <p>If policy layers combine by <em>union</em>, a revocation cannot bind at all, because a surviving allow re-widens it. That is not hypothetical — a widely used orchestrator documents its network policies as <em>“additive”</em> with the result being <em>“the union of what the applicable policies allow”</em> and no denial primitive at all. The semantics that work are the ones a large cloud provider uses for permissions boundaries: <b>intersection, with an explicit denial terminal at every layer, and a child policy that can only narrow its parent</b>.</p>
+          <div class="rule">
+            <p>Revoking a path is only meaningful in a system that composes by intersection.</p>
+            <p>In a system that composes by union, revocation is a gesture. That is a behavioural difference rather than a vocabulary one, and it can be tested in an afternoon.</p>
+          </div>
+          <p class="src">Sources and the full working: <a href="lab-commit-author.html">Lab 05 — the commit author is a free text field</a> for the two authority paths and the signed-commits rule, and <a href="lab-network-reach.html">Lab 06 — every routable address is in the grant</a> for the composition rules and the union/intersection precedents. Every quotation on both pages was fetched and checked against its source on 12 September 2026.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="psection alt" id="q2">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Question 02</span>
+        <h2>Once everyone shares the vocabulary, <span class="g">what is actually enforced?</span></h2>
+      </div>
+
+      <div class="q">
+        <div class="qh">
+          <span class="qn">Q02</span>
+          <span class="st answered">Answered</span>
+          <span class="qwhen">asked in public · 13 September 2026</span>
+        </div>
+        <h3>Once the language converges around mandates, grants, evidence, risk and runtime standing, the differentiator can no longer be vocabulary. What is actually enforced, where is the boundary, what changes at runtime, what evidence is preserved, and what happens when the state changes after the original grant?</h3>
+        <p class="asked">Paraphrased from a public comment, which closed with the right test: <em>if two architectures use different terms but produce the same behaviour under the same stress case, the distinction is linguistic. If the behaviour diverges under pressure, that is where a real architectural distinction may begin.</em></p>
+
+        <div class="short">
+          <span class="sk">The short answer</span>
+          <p>Agreed, and the premise is not conceded reluctantly — vocabulary stops being a differentiator the moment it is adopted, which is the outcome we want.</p>
+          <p>Below are direct answers to all five, and then the test run as stated: three stress cases where the behaviour diverges rather than the terminology. Each one is cheap to run and one of them can be run against a repository this afternoon.</p>
+        </div>
+
+        <div class="qbody">
+          <h4>The five, answered</h4>
+          <div class="five">
+            <div class="fr">
+              <div class="fq">What is actually enforced?</div>
+              <div class="fa">Enforcement is a <b>required column on every row</b>, and it very often reads <b>nothing</b>. The test applied to fill it in: <em>a control bounds a grant only if it is enforced by something the grant does not include.</em> On a worked eight-line agent prompt, four lines had a free setting behind them, two had nothing at all — including the line people care most about. <b>A row reading “enforced by nothing” is the product working</b>, not the product failing: it is an honest disclosure of an unmitigated exposure, where a row with no enforcement column at all reads as an operator who believed the sentence was a control.</div>
+            </div>
+            <div class="fr">
+              <div class="fq">Where is the boundary?</div>
+              <div class="fa">There is not one. <b>A boundary is a property of an egress path, and an agent has several</b> — shell subprocesses, in-process fetch, connector servers, hooks, name resolution. The badge is the minimum across them, so a perfect domain list plus an unsandboxed connector server scores as the connector server, because that is the path an attacker uses. Sometimes the boundary is literally a file path: one vendor documents that the same strict setting <em>“has no effect”</em> in a repository's own config but binds from user or managed settings. Same words, different barrier, decided by which file they are in.</div>
+            </div>
+            <div class="fr">
+              <div class="fq">What changes at runtime?</div>
+              <div class="fa">The part nobody classifies as a change. A model, provider, version, hosting or routing edit <b>voids a vendor refusal layer</b>, and not one of those goes through security review — a router config change is a performance decision, often automatic, frequently made by somebody who has never seen the policy. So the minimum barrier is <b>computed twice</b>, once including perishable barriers and once excluding them, and the pessimistic number is the one published. Also runtime: the set of destinations a user hands in at prompt time, which lasts one turn and therefore cannot be a list at all — its line is a procedure.</div>
+            </div>
+            <div class="fr">
+              <div class="fq">What evidence is preserved?</div>
+              <div class="fa">Only what the agent cannot edit. <b>Proxy connection log, resolver query log, kernel firewall log, cloud flow records</b> — held by a party that is not the agent. Agent telemetry is self-report with better formatting, and a process that can write files can change where it is sent. The agent's own narrative account of what it reached proves <b>nothing</b>. So the record carries two rows and never one: the destinations it intended, which is a claim, and the destinations it reached, which is a log held by a named party.</div>
+            </div>
+            <div class="fr">
+              <div class="fq">What happens after the original grant?</div>
+              <div class="fa">The delta is <b>stored with both inputs pinned</b> and recomputed when either moves, so it can say <em>what changed</em> rather than only what is true now. The moment of authorisation is its own entity — when the grant was made, against which capability and in which context — and acceptance is <b>for an interval, in a direction, with an owner</b>, so it expires rather than persisting silently. What it does <b>not</b> do is re-decide the action; it re-derives the record and dates the change.</div>
+            </div>
+          </div>
+
+          <h4>The test, run</h4>
+          <p>Three stress cases. In each, a system whose distinction is only vocabulary produces one behaviour and this one produces another — which is the bar the question sets, and it is the right bar.</p>
+          <div class="stress">
+            <table class="s">
+              <thead><tr><th>Stress case</th><th>If the distinction is only vocabulary</th><th>What happens here</th><th class="div">Diverges</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td class="case">Revoke one authority path while another survives</td>
+                  <td>The recorded permission shrinks and the document looks better. Progress on a dashboard</td>
+                  <td class="ours">Closure is unchanged, the delta does not move, and the row says so in as many words</td>
+                  <td class="div">yes</td>
+                </tr>
+                <tr>
+                  <td class="case">Change the model router on a Tuesday afternoon</td>
+                  <td>The badge is unchanged, because the vendor refusal layer still counts as a control</td>
+                  <td class="ours">The pessimistic minimum drops, because a perishable barrier is not counted without its void condition printed beside it</td>
+                  <td class="div">yes</td>
+                </tr>
+                <tr>
+                  <td class="case">Add a policy layer</td>
+                  <td>Additive union: adding a policy can only <em>widen</em> the effective reach, and a revocation cannot bind</td>
+                  <td class="ours">Intersection with a terminal explicit denial: a child can only narrow, and ambiguity narrows or halts rather than widening</td>
+                  <td class="div">yes</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>The first of those is runnable against any repository with two authority paths to the same capability, which is most of them. If it does not diverge, the distinction really was linguistic and we would rather find that out in public.</p>
+
+          <h4>The part that is a no</h4>
+          <p><b>None of the above intervenes before the action commits.</b> What acts in the path is a boundary somebody else operates. We compute the record, we say which boundary is in place, where it sits relative to the deployer, and what would void it — and we are explicit that a document is not a policy decision point. That is a smaller claim than the market makes, and it is the one that survives being checked.</p>
+          <div class="notice">
+            <strong>Two of these answers are true about us and not yet adopted by us.</strong> The site is maintained through an agent holding a contents-write path to its own repository, whose branches carry no signed-commits rule; and the machine that publishes it has a raw outbound socket to arbitrary public addresses with no allow list in either egress path. Both are measured and published on <a href="lab-commit-author.html">Lab 05</a> and <a href="lab-network-reach.html">Lab 06</a> rather than quietly fixed first, because the gap between what we recommend and what we run should be visible while it exists.
+          </div>
+          <p class="src">Full working, with every quotation fetched and checked against its source on 12 September 2026: <a href="lab-commit-author.html">Lab 05</a> for the enforcement column and the eight-line prompt; <a href="lab-network-reach.html">Lab 06</a> for the egress-path matrix, the perishable-barrier fields, the evidence table and the six composition rules; <a href="abp.html">the model</a> for the four barriers and the enforcer test; and <a href="ramm.html">RAMM</a> for authorisation closure, the moment of authorisation and the acceptance lifecycle.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="psection" id="how">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">How this page works</span>
+        <h2>Real questions, <span class="g">no names.</span></h2>
+        <p>An FAQ is a list of questions somebody wished they had been asked. This is the other thing: questions put to us by people outside this company, in public, reproduced as they were meant rather than as a prompt for a pitch.</p>
+      </div>
+      <ul class="plist">
+        <li><strong>We never name the asker.</strong> Every question here is paraphrased and dated, and the person who asked it is not identified. They asked in a conversation, not for a marketing page, and the answer is useful without the name attached.</li>
+        <li><strong>If the answer is that we do not do the thing, that is the first line.</strong> Not a caveat at the bottom, not a redirect to something adjacent that we do. Both answers currently on this page contain a <em>no</em>, and in both cases it is in a red panel near the top.</li>
+        <li><strong>Every answer points at where it can be checked.</strong> The reasoning lives in <a href="lab.html">the Lab</a>, with sources and dates; this page gives the direct answer and the link. Where a claim is ours rather than a citation, it says so.</li>
+        <li><strong>An answer that outgrows a section gets its own page</strong>, and this one keeps the summary and the link. Nothing is duplicated, and nothing is quietly rewritten — if an answer changes because we were wrong, the change is noted with its date.</li>
+      </ul>
+      <div class="notice">
+        <strong>Asked something that is not here?</strong> Use the button in the header. Hard questions are more useful to us than agreement, and the ones that make this page are the ones we could not answer in a sentence.
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<section class="pcta">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> Questions</span>
+    <h2>Both answers so far contain a no.</h2>
+    <p>Neither question had a comfortable answer available, and giving the comfortable one would have been found out in the next message. If you have a question of the same kind, it is worth more to us than a good review — and it will end up on this page, without your name on it.</p>
+    <div class="cta-row">
+      <button class="btn btn-green" data-demo>Ask us something →</button>
+      <a class="btn btn-ghost" href="lab.html">The research behind the answers</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>© 2026 RiskMandate · Autonomous Risk Management</span>
+    <span>The insurability layer for agentic AI. · <a class="footlink" href="versions.html">Versions</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+var RM={core:{},services:{},components:{},data:{}};
+RM.data.currentPage="questions";RM.data.pages=[{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"The problem"},{"name":"acceptable","label":"Accepted is not acceptable","file":"acceptable.html","group":"The problem"},{"name":"acceptance","label":"You own the risk","file":"acceptance.html","group":"The problem"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"The problem"},{"name":"abp","label":"Agent Behaviour Policy","file":"abp.html","group":"The model"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"The model"},{"name":"agents","label":"Agents","file":"agents.html","group":"The model"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"The model"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"The model"},{"name":"statics","label":"Static scenarios","file":"statics.html","group":"The model"},{"name":"demos","label":"All demos","file":"demos.html","group":"Live demos"},{"name":"demo-licence-to-operate","label":"Licence to Operate","file":"demo-licence-to-operate.html","group":"Live demos"},{"name":"demo-risk-graph-explorer","label":"RiskGraph Explorer","file":"demo-risk-graph-explorer.html","group":"Live demos"},{"name":"demo-agentic-browser-isolation","label":"Agentic Browser Isolation","file":"demo-agentic-browser-isolation.html","group":"Live demos"},{"name":"demo-risk-mandate-field","label":"RiskMandate field demo","file":"demo-risk-mandate-field.html","group":"Live demos"},{"name":"demo-file-security","label":"File security walk","file":"demo-file-security.html","group":"Live demos"},{"name":"demo-agent-permission-games","label":"Permission games","file":"demo-agent-permission-games.html","group":"Live demos"},{"name":"lab","label":"All entries","file":"lab.html","group":"Lab"},{"name":"lab-connector-grants","label":"01 · The grant is user-shaped","file":"lab-connector-grants.html","group":"Lab"},{"name":"lab-abp-flow","label":"02 · Buying a behaviour policy","file":"lab-abp-flow.html","group":"Lab"},{"name":"lab-abp-requests","label":"03 · Requests to abp.sgit.ai","file":"lab-abp-requests.html","group":"Lab"},{"name":"lab-shape-collector","label":"04 · The shape collector","file":"lab-shape-collector.html","group":"Lab"},{"name":"lab-commit-author","label":"05 · The commit author","file":"lab-commit-author.html","group":"Lab"},{"name":"lab-network-reach","label":"06 · Every routable address","file":"lab-network-reach.html","group":"Lab"},{"name":"summit","label":"Lisbon 2026","file":"summit.html"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"briefs","label":"Brief register","file":"briefs.html","group":"More"},{"name":"work","label":"Working with us","file":"work.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"}];RM.data.sections=[];
+
+'use strict';
+// components/dom.js — tiny DOM helpers shared by components. `el` builds an
+// element with attributes and children; text children always go in via
+// textContent. `renderMarkdownInto` turns core/markdown tokens into real DOM
+// nodes (never an HTML string), so fetched release notes cannot inject markup.
+
+RM.components.dom = (function () {
+  // A link in a markdown note may only go somewhere harmless: same-document,
+  // same-origin relative, https, or mailto. Anything else — javascript:, data:,
+  // a protocol-relative host — renders as the text it was, and goes nowhere.
+  var SAFE = /^(?:https:\/\/|mailto:|#|[^:/?#]*(?:[/?#]|$))/i;
+
+  /**
+   * @param {string} tag
+   * @param {Object<string,string>} [attrs]
+   * @param {Array<Node|string>} [children]
+   * @returns {HTMLElement}
+   */
+  function el(tag, attrs, children) {
+    var node = document.createElement(tag);
+    if (attrs) Object.keys(attrs).forEach(function (k) {
+      if (attrs[k] != null) node.setAttribute(k, attrs[k]);
+    });
+    (children || []).forEach(function (c) {
+      node.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
+    });
+    return node;
+  }
+
+  /**
+   * Render inline runs into a parent element. Emphasis runs carry child runs
+   * rather than a string, so a link or a code span inside **bold** renders as
+   * itself instead of as its own markdown source — hence the recursion.
+   */
+  function appendRuns(parent, runs) {
+    runs.forEach(function (run) {
+      if (run.t === 'strong' || run.t === 'em') {
+        var node = el(run.t);
+        if (run.runs) appendRuns(node, run.runs);
+        else          node.appendChild(document.createTextNode(run.v));
+        parent.appendChild(node);
+      }
+      else if (run.t === 'code') parent.appendChild(el('code', null, [run.v]));
+      else if (run.t === 'link') parent.appendChild(SAFE.test(run.href)
+        ? el('a', { href: run.href }, [run.v])
+        : document.createTextNode(run.v));
+      else parent.appendChild(document.createTextNode(run.v));
+    });
+  }
+
+  /**
+   * Render markdown block tokens into a container as DOM nodes.
+   * @param {HTMLElement} container
+   * @param {Array} blocks  output of RM.core.markdown.parse
+   */
+  function renderMarkdownInto(container, blocks) {
+    blocks.forEach(function (b) {
+      if (b.type === 'heading') {
+        var h = el('h' + (b.level + 1)); // ## release title -> h3, etc.
+        appendRuns(h, b.runs);
+        container.appendChild(h);
+      } else if (b.type === 'list') {
+        var ul = el('ul');
+        b.items.forEach(function (runs) {
+          var li = el('li');
+          appendRuns(li, runs);
+          ul.appendChild(li);
+        });
+        container.appendChild(ul);
+      } else {
+        var p = el('p');
+        appendRuns(p, b.runs);
+        container.appendChild(p);
+      }
+    });
+  }
+
+  return { el: el, appendRuns: appendRuns, renderMarkdownInto: renderMarkdownInto };
+})();
+
+
+'use strict';
+// components/nav.js — the behaviour on a page that is *not* a link.
+//   [data-to]   → smooth in-page scroll to an element id (no hash routing).
+//   [data-demo] → open a pre-filled demo enquiry email.
+//
+// v1.0.0 removed everything else that used to live here. Up to v0.14 the site
+// ran inside a host <iframe> and every navigation was a postMessage — rm-nav,
+// rm-back, rm-manifest, rm-read. A <button> is not a link, so nothing could be
+// deep-linked, bookmarked, opened in a new tab, or crawled. Now each page is
+// the document the server sent and each navigation is an <a href>, so the only
+// things left to wire are the two that genuinely are not navigation.
+//
+// The mobile drawer is still injected rather than templated: one file gives
+// every page a working menu below the header breakpoint, where .navlinks is
+// hidden by CSS.
+
+RM.components.nav = (function () {
+  // Every "Book a demo" control opens a mail client with a subject and a
+  // starting message. One place to change when booking becomes a real form.
+  var DEMO = {
+    to     : 'nrparekh@gmail.com',
+    subject: 'RiskMandate — demo request',
+    body   : [
+      'Hi,',
+      '',
+      'I would like to see a plug profile for one of the agents we already run.',
+      '',
+      'A little about us:',
+      '  • Organisation:',
+      '  • Roughly how many agents we are running:',
+      '  • The agent we would want to look at first:',
+      '  • Anything already in place (register, IdP, detection tooling):',
+      '',
+      'Thanks,'
+    ].join('\n')
+  };
+
+  function demoHref() {
+    return 'mailto:' + DEMO.to +
+      '?subject=' + encodeURIComponent(DEMO.subject) +
+      '&body='    + encodeURIComponent(DEMO.body);
+  }
+
+  function openDemo() { window.location.href = demoHref(); }
+
+  function scrollTo(doc, id) {
+    var t = doc.getElementById(id);
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Inject the hamburger toggle and wire the drawer open/close. Idempotent.
+  function wireMobileNav(doc) {
+    var top = doc.querySelector('.top');
+    if (!top) return;
+    var wrap  = top.querySelector('.wrap');
+    var links = top.querySelector('.navlinks');
+    if (!wrap || !links || top.querySelector('.navtoggle')) return;
+
+    var burger = doc.createElement('button');
+    burger.className = 'navtoggle';
+    burger.setAttribute('type', 'button');
+    burger.setAttribute('aria-label', 'Toggle navigation');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-controls', 'sitenav');
+    for (var i = 0; i < 3; i++) burger.appendChild(doc.createElement('span'));
+    links.id = links.id || 'sitenav';
+    var demo = wrap.querySelector('.demo');
+    if (demo) wrap.insertBefore(burger, demo); else wrap.appendChild(burger);
+
+    function set(open) {
+      top.classList.toggle('nav-open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    burger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      set(!top.classList.contains('nav-open'));
+    });
+    // Following a real nav link closes the drawer; the group header does not.
+    links.addEventListener('click', function (e) {
+      var b = e.target.closest('button, a');
+      if (b && !b.classList.contains('navgroup-btn')) set(false);
+    });
+    doc.addEventListener('click', function (e) {
+      if (top.classList.contains('nav-open') && !top.contains(e.target)) set(false);
+    });
+    doc.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+    var view = doc.defaultView || window;
+    view.addEventListener('resize', function () { if (view.innerWidth > 1040) set(false); });
+  }
+
+  /** @param {Document} doc */
+  function wire(doc) {
+    doc.querySelectorAll('[data-to]').forEach(function (elm) {
+      elm.addEventListener('click', function () { scrollTo(doc, elm.getAttribute('data-to')); });
+    });
+    doc.querySelectorAll('[data-demo], .demo').forEach(function (elm) {
+      elm.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); openDemo(); });
+    });
+    wireMobileNav(doc);
+  }
+
+  return { wire: wire, scrollTo: scrollTo, demoHref: demoHref, openDemo: openDemo };
+})();
+
+
+'use strict';
+// components/menu.js — <rm-menu>. The one shared header menu, on every page, so
+// the nav is built by a single piece of code. Renders the homepage's section
+// links first, then the top-level pages, marking the current page active.
+//
+// A run of contiguous pages sharing a `group` string collapses into one entry:
+// a hover/click dropdown labelled by the group, with the members as children. A
+// single-member group renders flat — no dropdown for one item.
+//
+// v1.0.0: every entry is an <a href>. The old menu emitted <button> elements
+// that asked a host frame to swap an iframe's srcdoc, which meant the links did
+// not exist as far as a crawler, a bookmark or a middle-click was concerned.
+// The group header stays a <button> because it opens a panel rather than going
+// anywhere — that is the one control here that is genuinely not a link.
+
+(function () {
+  var dom = RM.components.dom;
+
+  RM.components.Menu = class extends HTMLElement {
+    connectedCallback() {
+      var self = this;
+      this._onDocClick = function (e) {
+        self.querySelectorAll('.navgroup.open').forEach(function (g) {
+          if (!g.contains(e.target)) g.classList.remove('open');
+        });
+      };
+      document.addEventListener('click', this._onDocClick);
+      this._render();
+    }
+    disconnectedCallback() {
+      document.removeEventListener('click', this._onDocClick);
+    }
+
+    // On the homepage a section link scrolls; on any other page it is a link
+    // back to the homepage at that anchor. Same markup either way.
+    _section(s) {
+      var home = !(RM.data && RM.data.currentPage);
+      var a = dom.el('a', { class: 'seclink', href: home ? '#' + s.to : 'index.html#' + s.to }, [s.label]);
+      if (home) a.addEventListener('click', function (e) {
+        e.preventDefault();
+        RM.components.nav.scrollTo(document, s.to);
+      });
+      return a;
+    }
+
+    _pagelink(p, extra) {
+      var active = p.name === (RM.data && RM.data.currentPage);
+      var attrs  = { class: 'pagelink' + (extra ? ' ' + extra : '') + (active ? ' active' : ''), href: p.file };
+      if (active) attrs['aria-current'] = 'page';
+      return dom.el('a', attrs, [p.label]);
+    }
+
+    _group(name, members) {
+      var self    = this;
+      var current = RM.data && RM.data.currentPage;
+      var active  = members.some(function (m) { return m.name === current; });
+      var car     = dom.el('span',   { class: 'navgroup-car', 'aria-hidden': 'true' }, ['▾']);
+      var btn     = dom.el('button', { class: 'navgroup-btn' + (active ? ' active' : ''), type: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false' }, [name, car]);
+      var panel   = dom.el('div',    { class: 'navmenu' }, members.map(function (m) { return self._pagelink(m, 'navchild'); }));
+      var wrap    = dom.el('span',   { class: 'navgroup' + (active ? ' active' : '') }, [btn, panel]);
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = wrap.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      return wrap;
+    }
+
+    _render() {
+      var sections = (RM.data && RM.data.sections) || [];
+      var pages    = (RM.data && RM.data.pages)    || [];
+      var self     = this;
+      this.textContent = '';
+      sections.forEach(function (s) { self.appendChild(self._section(s)); });
+      var i = 0;
+      while (i < pages.length) {
+        var p = pages[i];
+        if (!p.group) { self.appendChild(self._pagelink(p)); i++; continue; }
+        var g = p.group, members = [];
+        while (i < pages.length && pages[i].group === g) { members.push(pages[i]); i++; }
+        if (members.length === 1) self.appendChild(self._pagelink(members[0]));
+        else                      self.appendChild(self._group(g, members));
+      }
+    }
+  };
+
+  customElements.define('rm-menu', RM.components.Menu);
+})();
+
+
+'use strict';
+// boot.js — inner-page composition root (version builds and dev.html). Custom
+// elements self-register on load; here we wire document-level nav behaviour.
+// The page runs inside the host's stage frame, so the host (not this page) signals
+// the SG/App host that the app is ready.
+
+(function () {
+  function start() { RM.components.nav.wire(document); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
+})();
+
+
+})();
+</script>
+</body>
+</html>
