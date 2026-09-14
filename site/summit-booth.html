@@ -131,14 +131,16 @@ rm-menu{display:contents}
 .todo{margin:34px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px}
 .ti{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:start;border:1px solid var(--border);border-radius:var(--r);background:var(--card);padding:20px 22px}
 @media (max-width:760px){.ti{grid-template-columns:auto 1fr;gap:12px}.ti .due{grid-column:2}}
-.ti.now{border:2px solid var(--red);background:#FDF3F2}
 .ti.soon{border-left:3px solid var(--gold)}
+.ti.done{border-left:3px solid var(--green);background:var(--card)}
+.ti.done h3{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--faint)}
+.ti.done .box{color:var(--green)}
+.ti.done .due{color:var(--green)}
 .ti .box{font-family:var(--mono);font-size:15px;color:var(--faint);line-height:1.2;padding-top:2px}
 .ti h3{margin:0;font-size:16.5px;font-weight:700;color:var(--text);letter-spacing:-.01em}
 .ti p{font-size:13.5px;color:var(--muted);line-height:1.65;margin-top:7px}
 .ti p a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
 .ti .due{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);white-space:nowrap;padding-top:4px}
-.ti.now .due{color:var(--red)}
 .ti.soon .due{color:var(--gold)}
 
 /* copy-ready blocks — meant to be selected and pasted, so no decoration inside */
@@ -217,10 +219,12 @@ table.up-t .pref{color:var(--green);font-weight:700}
   .demo{padding:8px 12px;font-size:12.5px}
 }
 
-.warn{margin-top:22px;border:2px solid var(--red);background:#FDF3F2;border-radius:var(--r);
+.spec-note{margin-top:22px;border:1px solid var(--border);background:var(--card);border-radius:var(--r);
   padding:20px 24px;font-size:14px;color:var(--muted);line-height:1.7;max-width:840px}
-.warn b{color:var(--red)}
-.warn a{color:var(--red);text-decoration:underline;text-underline-offset:2px}
+.spec-note p + p{margin-top:14px}
+.spec-note b{color:var(--text)}
+.spec-note .src{font-size:13px;color:var(--faint)}
+.spec-note a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
 table.up-t td.bad{color:var(--red);font-weight:700;white-space:nowrap}
 </style>
 </head>
@@ -260,24 +264,24 @@ table.up-t td.bad{color:var(--red);font-weight:700;white-space:nowrap}
         <p>The guide is explicit: <em>“Please do not email your logo separately if you can upload it through the portal.”</em> Everything below goes to <code>startupsummit.io/exhibitor/portal</code>, on the account attached to the booking.</p>
       </div>
       <ul class="todo">
-        <li class="ti now">
-          <span class="box">☐</span>
+        <li class="ti done">
+          <span class="box">☑</span>
           <div>
             <h3>Upload the logo — and check the company name on the account</h3>
             <p>They print it centrally on the front panel. Artwork is ready below. The name must read <strong>RiskMandate</strong> — one word, two capitals. Adriano Wagner asked for the logo and exact name by Tuesday; the guide says the portal is the route, so <strong>upload first, then reply to him saying it is in the portal</strong> rather than attaching it.</p>
           </div>
-          <span class="due">Due Tue 15 Sept</span>
+          <span class="due">Uploaded</span>
         </li>
-        <li class="ti now">
+        <li class="ti soon">
           <span class="box">☐</span>
           <div>
             <h3>Paste the exhibitor description — and settle whose profile it is</h3>
-            <p>Not in the booth guide; it came by email on 14 September. <em>“The description should be placed on your exhibitor profile… if you prefer, just send me the description and I'll update the OWASP profile right away.”</em> Three drafts are <a href="#blurb">below</a>, at three lengths, because the portal's field limit is unknown and the guide does not state one. Do it in the portal if the field is findable; the offer to paste it internally is the fallback, not the plan.</p>
+            <p>Not in the booth guide; it came by email on 14 September. <em>“The description should be placed on your exhibitor profile… if you prefer, just send me the description and I'll update the OWASP profile right away.”</em> Four drafts are <a href="#blurb">below</a>, at four lengths, because the portal's field limit is unknown and the guide does not state one. The same four are on the public <a href="brand.html">brand page</a>, so they can be linked rather than pasted. Do it in the portal if the field is findable; the offer to paste it internally is the fallback, not the plan.</p>
             <p><strong>One thing to settle first.</strong> He calls it <em>the OWASP profile</em>, so the exhibitor entry is booked under OWASP — but the front panel is going up as <strong>RiskMandate</strong> and the drafts below describe RiskMandate. Either the profile name changes to match the panel, or the description has to open by saying what the relationship is. That is a decision, not a wording problem, and it is the same decision as the company name on the logo upload above.</p>
           </div>
           <span class="due">Replied to, now</span>
         </li>
-        <li class="ti now">
+        <li class="ti soon">
           <span class="box">☐</span>
           <div>
             <h3>Request power</h3>
@@ -484,40 +488,26 @@ The question it answers is not what model somebody bought. It is what the agent 
         <h2>The artwork, <span class="g">in the formats they asked for.</span></h2>
         <p>Preferred: SVG, AI, EPS or a print-quality PDF. A high-resolution PNG is also accepted. Upload one file — the PDF. <b>“booth-panel” is the panel design; “lockup” and “mark” are the logo</b>, and the two are different requests.</p>
       </div>
-      <div class="warn">
-        <b>The portal, not the guide, is the authority on the artboard &mdash; and it is not square.</b>
-        It states a PNG minimum of <b>5906 &times; 4724 px, which is 50 &times; 40 cm at 300 dpi</b>,
-        with SVG or PDF preferred and a file between 10 KB and 50 MB. The guide describes a
-        1000mm-wide front panel, so that 50 &times; 40 is the printed area inside it. A square
-        artboard is rejected by the form before a human sees it, which is what happened to the first
-        attempt. Everything is 5:4 landscape now and both files are checked against those exact
-        numbers.
-        <br><br>
-        <b>Send the PDF</b> &mdash; it is vector, which the portal prefers, and it is
-        500 &times; 400mm. The PNG is there at exactly the stated minimum in case they ask for a
-        raster.
-        <br><br>
-        <b>It is a design rather than a logo, so say so.</b> The panel reads
-        <em>Buy an Agent Behaviour Policy here</em>. Send one line with it &mdash; <em>&ldquo;this is
-        our front-panel artwork rather than a bare logo&rdquo;</em> &mdash; rather than letting them
-        find out at the press. If they would rather have a plain logo,
-        <a href="assets/brand/panel-options/panel-a-logo.png">A</a> and
-        <a href="assets/brand/panel-options/panel-b-descriptor.png">B</a> are rendered to the same
-        dimensions and ready to send instead.
-        <br><br>
-        <b>The statement moves to the tabletop sign.</b> <em>You know what you asked for. You don't
-        know what it can do.</em> asks for more attention than an aisle gives it. At eye level, where
-        somebody has already stopped, it is the better line &mdash; kept as
-        <a href="assets/brand/panel-options/panel-c-statement.png">option C</a> for the sign, the
-        slides and the social card.
-        <br><br>
-        <b>Three clipping bugs fixed getting here, and each one taught the check something.</b> The
-        first file set the artwork in absolute millimetres, about 240mm of content on a 200mm board.
-        The second was proportional but still clipped, because <code>page.pdf()</code> re-lays the
-        page out at the paper size while the board was fixed in pixels. The third was this headline,
-        too wide for a landscape board &mdash; and that one was caught by the check rather than by a
-        human looking at it, which is the point. The check now runs against the <b>print</b> layout
-        at the real paper size, so the artefact being verified is the artefact being sent.
+      <div class="spec-note">
+        <p><b>The portal, not the guide, was the authority on the artboard, and it is not square.</b>
+        It states a PNG minimum of <b>5906 &times; 4724&nbsp;px, which is 50 &times; 40&nbsp;cm at
+        300&nbsp;dpi</b>, SVG or PDF preferred, between 10&nbsp;KB and 50&nbsp;MB. The guide describes
+        a 1000mm-wide front panel, so the 50 &times; 40 is the printed area inside it. Everything below
+        is 5:4 landscape and checked against those exact numbers.</p>
+        <p><b>The PDF is the file to send</b> — vector, 500 &times; 400mm. The PNG sits beside it at
+        exactly the stated minimum in case a raster is asked for. <b>&ldquo;booth-panel&rdquo; is the
+        panel design; &ldquo;lockup&rdquo; and &ldquo;mark&rdquo; are the logo</b>, and the two are
+        different requests. The panel reads <i>Buy an Agent Behaviour Policy here</i>, so it is a
+        design rather than a bare logo; if a plain logo is ever wanted instead, A and B are rendered
+        to the same dimensions.</p>
+        <p class="src" style="margin-top:14px">Three clipping bugs were fixed getting here and each
+        one taught the check something. The first file set the artwork in absolute millimetres, about
+        240mm of content on a 200mm board. The second was proportional but still clipped, because
+        <code>page.pdf()</code> re-lays the page out at paper size while the board was fixed in
+        pixels. The third was a headline too wide for a landscape board, and that one was caught by
+        the check rather than by somebody looking at it, which is the point. The check now runs
+        against the <b>print</b> layout at real paper size, so the artefact being verified is the
+        artefact being sent.</p>
       </div>
       <div class="up">
         <table class="up-t">
