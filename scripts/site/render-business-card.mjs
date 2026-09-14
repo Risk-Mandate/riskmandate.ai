@@ -50,26 +50,26 @@ const mm = (n) => `${n}mm`;
 // The person. Nothing here is invented: pass them in, and until they are passed
 // the card prints visible placeholders rather than a plausible-looking guess at
 // somebody's name and address.
-const NAME  = arg('--name',  '[ YOUR NAME ]');
-const ROLE  = arg('--role',  '[ ROLE ]');
-const EMAIL = arg('--email', '[ EMAIL ]');
+const NAME = arg('--name', 'Dinis Cruz');
+const ROLE = arg('--role', 'Founder');
+const SITE = 'RiskMandate.ai';
 
 // ── front ──────────────────────────────────────────────────────────────────
 //
 // The reference card quotes a beta user. We have no customer quote and are not
-// going to write one, so the quote is our own line, marked as ours. A card is
-// the one place a fabricated testimonial would never be checked, which is
-// exactly why it is not going on one.
+// writing one, so the quote is our own line and the attribution says so. A
+// business card is the one place a fabricated testimonial would never be
+// checked, which is why there isn't one on it.
 const front = `<div class="card" style="background:${PAPER};padding:${mm(SAFE)};box-sizing:border-box;
     display:flex;flex-direction:column;justify-content:space-between">
   <div>
     <div style="font-family:Georgia,'Times New Roman',serif;font-size:${mm(9)};line-height:0.7;
                 color:${GREEN};height:${mm(5)}">&ldquo;</div>
-    <div style="font-family:${SANS};font-size:${mm(3.4)};line-height:1.45;color:${INK};
-                font-style:italic;margin-top:${mm(1.4)};max-width:${mm(66)}">
+    <div style="font-family:${SANS};font-size:${mm(3.5)};line-height:1.42;color:${INK};
+                font-style:italic;margin-top:${mm(1.2)};max-width:${mm(68)}">
       You know what you asked for.<br>You don&rsquo;t know what it can do.
     </div>
-    <div style="font-family:${SANS};font-size:${mm(2.1)};color:${FAINT};margin-top:${mm(2.6)}">
+    <div style="font-family:${SANS};font-size:${mm(2.1)};color:${FAINT};margin-top:${mm(2.4)}">
       &mdash; the gap an Agent Behaviour Policy measures
     </div>
   </div>
@@ -80,46 +80,55 @@ const front = `<div class="card" style="background:${PAPER};padding:${mm(SAFE)};
         <div style="font-family:${SANS};font-size:${mm(4.2)};font-weight:700;letter-spacing:-0.03em;
                     color:${INK};line-height:1;white-space:nowrap">RiskMandate</div>
       </div>
-      <div style="font-family:${SANS};font-size:${mm(2.3)};color:${INK};font-weight:600;
+      <div style="font-family:${SANS};font-size:${mm(2.4)};color:${INK};font-weight:600;
                   margin-top:${mm(2.2)};white-space:nowrap">${NAME}</div>
       <div style="font-family:${SANS};font-size:${mm(2.1)};color:${MUTED};margin-top:${mm(0.5)};
                   white-space:nowrap">${ROLE}</div>
     </div>
-    <div style="text-align:right">
-      <div style="font-family:${MONO};font-size:${mm(2.1)};color:${MUTED};white-space:nowrap">${EMAIL}</div>
-      <div style="font-family:${SANS};font-size:${mm(2.6)};font-weight:600;color:${GREEN};
-                  margin-top:${mm(0.8)};white-space:nowrap">riskmandate.ai</div>
-    </div>
+    <div style="font-family:${SANS};font-size:${mm(2.9)};font-weight:700;color:${GREEN};
+                white-space:nowrap">${SITE}</div>
   </div>
 </div>`;
 
 // ── back ───────────────────────────────────────────────────────────────────
 //
-// The write-on rule is the best thing in the reference format: at a stand you
-// write the one specific thing you just discussed, and the card stops being
-// generic. Relabel it in one word if the conversation at the booth turns out to
-// be about something else.
+// The four objects, because the whole product is the difference between them
+// and a card is where somebody meets those words for the first time. The verb
+// on each row is the part that does the work: only one of the four is written
+// by a person.
+//
+// They are BARRIERS, not blockers. The model, the data at abp.sgit.ai and every
+// page on the site use that word, and a printed artefact is the worst place to
+// introduce a second name for the same thing.
+const row = (term, what, verb) => `
+  <div style="display:grid;grid-template-columns:${mm(15)} 1fr auto;gap:${mm(1.6)};align-items:baseline">
+    <div style="font-family:${MONO};font-size:${mm(2.15)};font-weight:700;color:${GREEN};
+                text-transform:uppercase;letter-spacing:0.04em">${term}</div>
+    <div style="font-family:${SANS};font-size:${mm(2.3)};color:${INK};line-height:1.3">${what}</div>
+    <div style="font-family:${SANS};font-size:${mm(1.9)};color:${FAINT};font-style:italic">${verb}</div>
+  </div>`;
+
 const back = `<div class="card" style="background:${BG2};padding:${mm(SAFE)};box-sizing:border-box;
     display:flex;flex-direction:column;justify-content:space-between">
   <div>
-    <div style="font-family:${SANS};font-size:${mm(2.4)};font-weight:700;letter-spacing:0.14em;
-                text-transform:uppercase;color:${INK}">Agent Behaviour Policy</div>
-    <div style="font-family:${SANS};font-size:${mm(2.5)};line-height:1.5;color:${MUTED};
-                margin-top:${mm(2.4)};max-width:${mm(68)}">
-      Everything one agent can do, what you authorised it to do, and the gap
-      between the two &mdash; with what actually stands in the way of each one.
-      Derived from your deployment rather than copied from a template.
+    <div style="font-family:${SANS};font-size:${mm(2.3)};font-weight:700;letter-spacing:0.13em;
+                text-transform:uppercase;color:${INK}">Know what your agents can actually do</div>
+    <div style="font-family:${SANS};font-size:${mm(2.25)};line-height:1.45;color:${MUTED};
+                margin-top:${mm(1.6)};max-width:${mm(70)}">
+      One agent, one deployment, four things &mdash; and only the second is written by a person.
     </div>
-    <div style="font-family:${SANS};font-size:${mm(2.5)};font-weight:600;color:${INK};
-                margin-top:${mm(2.6)}">No score. It describes, it does not judge.</div>
+    <div style="display:flex;flex-direction:column;gap:${mm(1.5)};margin-top:${mm(2.6)}">
+      ${row('Grant',   'Everything it can reach',        'measured')}
+      ${row('Mandate', 'What you authorised it to do',   'elicited')}
+      ${row('Delta',   'The gap between the two',        'derived')}
+      ${row('Barrier', 'What actually stands in the way','recorded')}
+    </div>
   </div>
-  <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:${mm(4)}">
-    <div style="flex:1">
-      <div style="font-family:${SANS};font-size:${mm(1.9)};font-weight:700;letter-spacing:0.18em;
-                  text-transform:uppercase;color:${FAINT}">Your draft policy</div>
-      <div style="height:${mm(5.5)};border-bottom:${mm(0.35)} solid ${INK};margin-right:${mm(6)}"></div>
-    </div>
-    <div style="width:${mm(7)};height:${mm(7)};flex:none;opacity:0.28">${markSvg}</div>
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:${mm(3)}">
+    <div style="background:${GREEN};border-radius:${mm(1)};padding:${mm(1.9)} ${mm(3)};
+                font-family:${SANS};font-size:${mm(2.5)};font-weight:700;color:${PAPER};
+                white-space:nowrap">Buy one &middot; ${SITE}</div>
+    <div style="width:${mm(6.6)};height:${mm(6.6)};flex:none;opacity:0.3">${markSvg}</div>
   </div>
 </div>`;
 
