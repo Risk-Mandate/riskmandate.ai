@@ -52,12 +52,29 @@ const jobs = [
     body: `<div style="width:1128px;height:191px;display:flex;align-items:center;padding-left:300px;box-sizing:border-box">
              ${lockup(72, '#F7F6F2')}</div>` },
 
-  // The booth front panel is 1000×1000mm and the organiser prints it, so give
-  // them a square artboard with the lockup centred. 2000px over 1m is ~50dpi —
-  // ample at a metre's viewing distance, and the vector PDF beside it is what a
-  // printer should actually use.
-  { out: 'riskmandate-booth-panel-2000.png', w: 2000, h: 2000, bg: 'transparent',
-    body: centred(lockup(230, "#1A1917"), 2000, 2000) },
+];
+
+// The booth panel used to be made here, as a 200×200mm square. It is not any
+// more: scripts/site/render-booth-panel.mjs owns it, and the portal turned out
+// to want 500×400mm at 5906×4724. Those jobs wrote to the SAME filenames the
+// new generator uses, so running this script would have quietly replaced the
+// panel that was actually uploaded with the old wrong-shaped one. Removed
+// rather than renamed — two scripts claiming one deliverable is the bug.
+
+// ── the lockups ────────────────────────────────────────────────────────────
+//
+// These two PNGs are the og:image for every page on the site and the file
+// anybody uploads when a form asks for a logo, and BOTH WERE CLIPPED: 780×192
+// is 4.06:1 rendered out of artwork that is 5:1, so the renderer cropped the
+// sides and took the last letter of the wordmark with it.
+//
+// The fix is not a wider canvas. It is to stop declaring a canvas at all: the
+// lockup is composed in HTML, screenshotted by its own bounding box, and comes
+// out whatever size the type actually needs. Clear space is half the mark's
+// height, per the brand rule, and it is padding on that same box.
+const lockups = [
+  { out: 'riskmandate-lockup-light.png', ink: '#1A1917', bg: 'transparent' },
+  { out: 'riskmandate-lockup-dark.png',  ink: '#F7F6F2', bg: 'transparent' },
 ];
 
 const b = await chromium.launch({ args: ['--no-sandbox'] });
@@ -70,23 +87,29 @@ for (const j of jobs) {
   await pg.close();
 }
 
-// Print-quality vector PDF for the portal: 200×200mm square artboard (the front
-// panel's proportions), lockup 140mm wide, glyph outlines embedded by Chromium.
-const pdf = await b.newPage();
-await pdf.setContent(`<!doctype html><meta charset="utf-8">
-<style>@page{size:200mm 200mm;margin:0}
- html,body{margin:0;padding:0;width:200mm;height:200mm}
- svg{width:100%;height:100%;display:block}
- .c{width:200mm;height:200mm;display:flex;align-items:center;justify-content:center}</style>
-<div class="c">
-  <div style="display:flex;align-items:center;gap:14mm">
-    <div style="width:40mm;height:40mm;flex:none">${fill(svg('riskmandate-mark.svg'))}</div>
-    <div style="font-family:${SANS};font-size:29mm;font-weight:700;letter-spacing:-0.03em;
-                color:#1A1917;line-height:1;white-space:nowrap">RiskMandate</div>
-  </div>
-</div>`, { waitUntil: 'load' });
-await pdf.pdf({ path: `${OUT}/riskmandate-booth-panel.pdf`, width: '200mm', height: '200mm',
-                printBackground: true, pageRanges: '1' });
-console.log('  riskmandate-booth-panel.pdf  200×200mm vector, outlines embedded');
-await pdf.close();
+const MARK = 200;                       // sets the scale; everything follows it
+const PAD  = Math.round(MARK / 2);      // clear space = half the mark's height
+
+for (const j of lockups) {
+  const pg = await b.newPage({ viewport: { width: 2400, height: 800 }, deviceScaleFactor: 2 });
+  await pg.setContent(page(
+    `<div class="lk" style="display:inline-flex;padding:${PAD}px">${lockup(MARK, j.ink)}</div>`,
+    2400, 800, 'transparent'), { waitUntil: 'load' });
+  await pg.waitForTimeout(300);
+
+  // The same measured check the card and the panel needed. A wordmark whose box
+  // fits while its ink does not is invisible until somebody prints it, or until
+  // it is the logo on an exhibitor listing.
+  const bad = await pg.evaluate(() => {
+    const w = document.querySelector('.lk div:last-child');
+    return w.scrollWidth > w.clientWidth + 1
+      ? `wordmark ink ${w.scrollWidth}px in a ${w.clientWidth}px box` : null;
+  });
+  const box = await pg.locator('.lk').boundingBox();
+  await pg.locator('.lk').screenshot({ path: `${OUT}/${j.out}`, omitBackground: true });
+  console.log(`  ${j.out}  ${Math.round(box.width * 2)}×${Math.round(box.height * 2)}  ` +
+              `transparent  ${bad ? `OVERFLOWS — ${bad}` : 'fits'}`);
+  await pg.close();
+}
+
 await b.close();
