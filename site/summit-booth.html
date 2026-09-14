@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Exhibitor operations — Startup Summit Lisbon (internal)</title>
-<meta name="description" content="Internal working page: the organiser's Startup Booth Guide, what it changes about our plan, what we owe them through the portal, and the artwork ready to upload.">
-<meta name="robots" content="noindex,nofollow">
+<title>Startup Summit Lisbon 2026 — RiskMandate materials</title>
+<meta name="description" content="Everything Startup Summit needs from RiskMandate in one place: the name, the description at four lengths, every version of the logo, and the booth panel artwork.">
 <link rel="canonical" href="https://riskmandate.ai/summit-booth.html">
+<link rel="alternate" type="text/markdown" href="summit-booth.md" title="This page as markdown">
 <link rel="icon" href="assets/brand/riskmandate-favicon-32.png" sizes="32x32">
 <link rel="icon" href="assets/brand/riskmandate-mark.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="RiskMandate">
 <meta property="og:url" content="https://riskmandate.ai/summit-booth.html">
-<meta property="og:title" content="Exhibitor operations — Startup Summit Lisbon (internal)">
-<meta property="og:description" content="Internal working page: the organiser's Startup Booth Guide, what it changes about our plan, what we owe them through the portal, and the artwork ready to upload.">
+<meta property="og:title" content="Startup Summit Lisbon 2026 — RiskMandate materials">
+<meta property="og:description" content="Everything Startup Summit needs from RiskMandate in one place: the name, the description at four lengths, every version of the logo, and the booth panel artwork.">
 <meta property="og:image" content="https://riskmandate.ai/assets/brand/riskmandate-lockup-light.png">
 <meta name="twitter:card" content="summary_large_image">
 <!-- Scaffolded by scripts/site/new-page.mjs. Hand-edited from here on — there is no build step. -->
@@ -131,6 +131,31 @@ rm-menu{display:contents}
 .todo{margin:34px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px}
 .ti{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:start;border:1px solid var(--border);border-radius:var(--r);background:var(--card);padding:20px 22px}
 @media (max-width:760px){.ti{grid-template-columns:auto 1fr;gap:12px}.ti .due{grid-column:2}}
+/* the logo grid */
+.logos{margin-top:34px;display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+@media (max-width:760px){.logos{grid-template-columns:1fr}}
+.lg{margin:0;border:1px solid var(--border);border-radius:var(--r);background:var(--card);overflow:hidden}
+.lgi{padding:30px 26px;display:flex;align-items:center;justify-content:center;min-height:150px}
+.lgi.light{background:#FFFFFF}
+.lgi.dark,.lgi.ink{background:var(--ink)}
+.lgi img{max-width:100%;height:auto;display:block;max-height:78px}
+.lgi img.sq{height:108px;width:auto;max-width:100%}
+.lgi{min-height:186px}
+.lg figcaption{border-top:1px solid var(--border);padding:16px 20px 18px;font-size:13.5px;
+  color:var(--muted);line-height:1.6}
+.lg figcaption b{display:block;color:var(--text);font-size:14px;margin-bottom:4px}
+.dl{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.dl a{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.04em;color:var(--green);
+  background:var(--greenBg);border:1px solid rgba(26,127,90,.22);border-radius:6px;padding:5px 10px;
+  text-decoration:none;white-space:nowrap}
+.dl a:hover{background:var(--green);color:#fff;border-color:var(--green)}
+
+/* the panel */
+.panelfig{margin:34px 0 0;border:1px solid var(--border);border-radius:var(--r);background:var(--card);
+  padding:22px;overflow:hidden}
+.panelfig img{width:100%;height:auto;display:block;border-radius:var(--r-sm)}
+.panelfig figcaption{margin-top:14px;font-family:var(--mono);font-size:11px;color:var(--faint);
+  text-align:center;line-height:1.7}
 .ti.soon{border-left:3px solid var(--gold)}
 .ti.done{border-left:3px solid var(--green);background:var(--card)}
 .ti.done h3{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--faint)}
@@ -239,96 +264,51 @@ table.up-t td.bad{color:var(--red);font-weight:700;white-space:nowrap}
   </div>
 </header>
 
-<div class="internal">Internal working page · not linked from the site, not indexed · the guide below is the organiser's document</div>
 
 <main class="phero">
   <div class="wrap">
-    <span class="eyebrow"><span class="d"></span> Exhibitor operations · Startup Summit Lisbon</span>
-    <h1>The booth, <span class="it">and what we owe them.</span></h1>
-    <p class="sub">The organiser's Startup Booth Guide, what it changes about our plan, the four things we have to send through their portal, and the artwork ready to upload. One page so nothing is decided twice.</p>
+    <span class="eyebrow"><span class="d"></span> Startup Summit Lisbon &middot; 17&ndash;18 September 2026</span>
+    <h1>RiskMandate, <span class="it">in one page.</span></h1>
+    <p class="sub">Everything Startup Summit needs from us: how the name is written, the description at four lengths, every version of the logo, and the booth panel artwork. Take what you need from here rather than waiting on an email.</p>
     <div class="cta-row">
-      <button class="btn btn-green" data-to="actions">What we still owe them ↓</button>
-      <a class="btn btn-ghost" href="assets/summit/startup-booth-guide.pdf">The guide (PDF, 2.5MB) ↗</a>
+      <button class="btn btn-green" data-to="words">The description &darr;</button>
+      <button class="btn btn-ghost" data-to="logo">The logo &darr;</button>
+      <a class="btn btn-ghost" href="https://riskmandate.ai">riskmandate.ai &nearr;</a>
     </div>
   </div>
 </main>
 
 <div class="paper">
 
-  <!-- 01 — what we owe them -->
-  <section class="psection" id="actions">
+  <!-- 01 — the basics -->
+  <section class="psection" id="basics">
     <div class="wrap">
       <div class="shead">
-        <span class="tag">Open actions</span>
-        <h2>Five things go through the portal. <span class="g">Not by email.</span></h2>
-        <p>The guide is explicit: <em>“Please do not email your logo separately if you can upload it through the portal.”</em> Everything below goes to <code>startupsummit.io/exhibitor/portal</code>, on the account attached to the booking.</p>
+        <span class="tag">The basics</span>
+        <h2>The name, <span class="g">and how it is written.</span></h2>
+        <p>The one thing worth getting exactly right, because it is printed and it is how somebody asks for us by name on the floor.</p>
       </div>
-      <ul class="todo">
-        <li class="ti done">
-          <span class="box">☑</span>
-          <div>
-            <h3>Upload the logo — and check the company name on the account</h3>
-            <p>They print it centrally on the front panel. Artwork is ready below. The name must read <strong>RiskMandate</strong> — one word, two capitals. Adriano Wagner asked for the logo and exact name by Tuesday; the guide says the portal is the route, so <strong>upload first, then reply to him saying it is in the portal</strong> rather than attaching it.</p>
-          </div>
-          <span class="due">Uploaded</span>
-        </li>
-        <li class="ti soon">
-          <span class="box">☐</span>
-          <div>
-            <h3>Paste the exhibitor description — and settle whose profile it is</h3>
-            <p>Not in the booth guide; it came by email on 14 September. <em>“The description should be placed on your exhibitor profile… if you prefer, just send me the description and I'll update the OWASP profile right away.”</em> Four drafts are <a href="#blurb">below</a>, at four lengths, because the portal's field limit is unknown and the guide does not state one. The same four are on the public <a href="brand.html">brand page</a>, so they can be linked rather than pasted. Do it in the portal if the field is findable; the offer to paste it internally is the fallback, not the plan.</p>
-            <p><strong>One thing to settle first.</strong> He calls it <em>the OWASP profile</em>, so the exhibitor entry is booked under OWASP — but the front panel is going up as <strong>RiskMandate</strong> and the drafts below describe RiskMandate. Either the profile name changes to match the panel, or the description has to open by saying what the relationship is. That is a decision, not a wording problem, and it is the same decision as the company name on the logo upload above.</p>
-          </div>
-          <span class="due">Replied to, now</span>
-        </li>
-        <li class="ti soon">
-          <span class="box">☐</span>
-          <div>
-            <h3>Request power</h3>
-            <p><em>“Power will not automatically be available at every single booth position.”</em> The permission game is meant to run on a screen facing the aisle for two days, which needs continuous mains. They use this to plan booth positions, so late is the same as never.</p>
-          </div>
-          <span class="due">Before the floor plan closes</span>
-        </li>
-        <li class="ti soon">
-          <span class="box">☐</span>
-          <div>
-            <h3>Declare the screen, if it is bigger than a laptop</h3>
-            <p>A laptop or tablet needs no permission. Anything larger needs telling so they can check space and power. Decide which it is <em>before</em> asking, because the answer changes the power request too.</p>
-          </div>
-          <span class="due">Same message as power</span>
-        </li>
-        <li class="ti soon">
-          <span class="box">☐</span>
-          <div>
-            <h3>Decide on side-panel branding — and only then produce anything</h3>
-            <p>Approx. 1000mm high × 400mm deep per side. Allowed subject to approval, and it must be removable, professionally produced, leave no damage, and stay inside our footprint. <em>“Tell us through your portal so our team can approve it before the event.”</em> My view: skip it. A 40cm-deep side panel is nearly invisible in an aisle and it is the one item that could miss the print window.</p>
-          </div>
-          <span class="due">Before ordering print</span>
-        </li>
+      <ul class="speclist" style="margin-top:30px">
+        <li><span><b>Name</b></span><span><b>RiskMandate</b> &mdash; one word, two capitals, no space and no hyphen</span></li>
+        <li><span><b>Website</b></span><span><a href="https://riskmandate.ai">riskmandate.ai</a></span></li>
+        <li><span><b>What we do, in four words</b></span><span>Agent Behaviour Policies</span></li>
+        <li><span><b>Category</b></span><span>Cybersecurity</span></li>
+        <li><span><b>Dates</b></span><span>17&ndash;18 September 2026, Beato Innovation District</span></li>
       </ul>
-      <p class="src">Booth number, exhibitor access time and final setup instructions come later, by email and through the portal. Nothing to chase — <em>“if you haven't received your booth number yet, you haven't missed anything.”</em></p>
     </div>
   </section>
 
-  <!-- 01b — the exhibitor description -->
-  <section class="psection alt" id="blurb">
+  <!-- 02 — the description -->
+  <section class="psection alt" id="words">
     <div class="wrap">
       <div class="shead">
-        <span class="tag">Exhibitor profile</span>
+        <span class="tag">The description</span>
         <h2>The description, <span class="it">at four lengths.</span></h2>
-        <p>The organiser asked for a description and did not say how long it may be — the Startup Booth Guide does not mention an exhibitor description at all, so there is no stated limit to work to. Rather than guess, here are four, one of them sized for the public directory. Paste the longest one the field accepts. All three say the same thing in the same order, so cutting between them loses detail and never changes the claim. None of them contains a dash.</p>
+        <p>Four versions of the same thing, so there is one that fits whatever field it is going into. They say the same thing in the same order, so choosing a shorter one loses detail and never changes the claim. Use the longest that fits.</p>
       </div>
-
       <div class="drafts">
-
         <div class="draft">
-          <header><b>Directory listing</b> <span>45 words · 258 characters · Meet the Startups</span></header>
-          <div class="body">RiskMandate creates and sells Agent Behaviour Policies. For one agent in one deployment, a portable record of everything it can actually reach, what you authorised it to do, and the gap between the two, fitted to a twin of the deployment it actually runs in.</div>
-          <div class="why">For the <a href="https://startupsummit.io/exhibitors" target="_blank" rel="noopener">Meet the Startups</a> directory, where the description appears in the panel that opens when somebody taps the logo. Sized against what is already published there rather than a stated limit: one exhibitor runs 33 words and another runs six across two lines, so the field takes line breaks and short does not look unfinished. Longer versions are for the exhibitor profile behind the portal, which is a different field.</div>
-        </div>
-
-        <div class="draft">
-          <header><b>Long</b> <span>269 words · 1491 characters · profile body</span></header>
+          <header><b>Long</b> <span>269 words &middot; 1491 characters &middot; profile or about page</span></header>
           <div class="body">RiskMandate creates and sells Agent Behaviour Policies.
 
 An Agent Behaviour Policy is a working record, for one agent in one deployment, of four things: everything it can actually reach, what you authorised it to do, the gap between those two, and what stands in the way. Three of the four can be written down by the people who run the agent. The fourth, the gap, is worked out from the first two, and it is usually the one nobody has looked at.
@@ -338,237 +318,109 @@ It is a portable vault rather than a document, because four audiences need diffe
 A policy is a draft, and it is meant to be argued with. It goes to the people who built the agent, the people who own what it touches and the people accountable for it, and each corrects the part they know. It is never finished, because the agent is not finished.
 
 The question it answers is not what model somebody bought. It is what the agent can do that nobody in the business has fully understood yet. That is not a property of the model. It is a property of this deployment, so a policy is fitted to a twin of the environment the agent is actually in. That is where a generic shape stops being generic and becomes yours, and it is the only point at which the exposure means anything.</div>
-          <div class="why">Five paragraphs. The third is what is actually being sold and not a description of it: the vault, the views, the owner, the versions. The last is the one that matters most and was missing entirely until now. No dash anywhere in it.</div>
+          <div class="why">The full version, for a page with room. Five paragraphs that degrade from the bottom: cut the last and what is left still stands.</div>
         </div>
-
         <div class="draft">
-          <header><b>Medium</b> <span>85 words · 462 characters · listing entry</span></header>
+          <header><b>Medium</b> <span>85 words &middot; 462 characters &middot; directory or listing entry</span></header>
           <div class="body">RiskMandate creates and sells Agent Behaviour Policies: for one agent in one deployment, a working record of everything it can actually reach, what you authorised it to do, and the gap between the two. It comes as a portable vault rather than a document, with a view for each audience, a named owner and every version kept. Risk is not a property of the model but of this deployment, so the record is fitted to a twin of the environment the agent is actually in.</div>
-          <div class="why">The version to send if no field limit is visible. Safe under almost any cap and reads as finished rather than truncated.</div>
+          <div class="why">The one to use when no length is specified. Safe under almost any limit and reads as finished rather than cut off.</div>
         </div>
-
         <div class="draft">
-          <header><b>Short</b> <span>31 words · 180 characters · one line, badge or app</span></header>
+          <header><b>Short</b> <span>45 words &middot; 258 characters &middot; a card, a tile, a panel</span></header>
+          <div class="body">RiskMandate creates and sells Agent Behaviour Policies. For one agent in one deployment, a portable record of everything it can actually reach, what you authorised it to do, and the gap between the two, fitted to a twin of the deployment it actually runs in.</div>
+          <div class="why">Where there is room for a sentence and no more.</div>
+        </div>
+        <div class="draft">
+          <header><b>One line</b> <span>31 words &middot; 180 characters &middot; strapline or badge</span></header>
           <div class="body">RiskMandate creates and sells Agent Behaviour Policies: for one agent in one deployment, what it can actually reach, what you authorised it to do, and the gap nobody has looked at.</div>
-          <div class="why">For a strapline field. It gives up the drafting and the stakeholders and keeps the three objects that make the point.</div>
-        </div>
-
-      </div>
-
-      <div class="draft" style="margin-top:16px">
-        <header><b>The rest of the listing</b> <span>five fields beside the text</span></header>
-        <div class="why" style="padding-top:16px">
-          <p style="margin-bottom:10px">Tapping a logo in <b>Meet the Startups</b> opens a panel with the logo, the name, three tags and the description. The tags are what somebody scanning the floor filters on, and two exhibitors on that page have left them at the default, which reads as an unfinished entry.</p>
-          <ul style="margin:0;padding-left:20px;line-height:1.85">
-            <li><b>Logo</b> &mdash; <code>riskmandate-lockup-light.png</code>. It sits on white in both the grid tile and the panel, so the transparent dark-ink lockup is the right one. Re-rendered today at 2948&times;800; the file that was on the site until this morning was cropped and lost the last letter of the wordmark.</li>
-            <li><b>Category</b> &mdash; <b>Cybersecurity</b>, spelled as one word, because that is the spelling already in their taxonomy. It is where somebody looking for this would look, even though the work sits between security and governance.</li>
-            <li><b>Stage</b> &mdash; yours to set. One exhibitor shows <em>Pr&eacute;-Seed</em>, so the field is a free-text tag rather than a fixed list.</li>
-            <li><b>Country</b> &mdash; yours to set, and it should be wherever the entity actually is. Nothing on this site records that, so I have not guessed it.</li>
-            <li><b>Website</b> &mdash; <code>https://riskmandate.ai</code>, which is the same domain as the card and the panel.</li>
-          </ul>
+          <div class="why">A strapline field. Nothing shorter than this, because below it the sentence stops being a claim and becomes a category.</div>
         </div>
       </div>
-
-      <p class="src">What is deliberately not in any of them: no customer, no logo wall, no funding, no claim about what insurers are doing, and no adjective attached to anybody else's product. Every sentence here is either a definition of our own term or a statement about our own work, which is the only kind of sentence that cannot be wrong about a third party. British spelling throughout, to match the rest of the estate and the audience.</p>
+      <p class="src">None of these names a customer, a funder or an insurer, and none attaches an adjective to anybody else&rsquo;s product. British spelling throughout. The same four are on our <a href="brand.html#boilerplate">brand page</a> if you would rather link than paste.</p>
     </div>
   </section>
 
-  <!-- 02 — the booth -->
-  <section class="psection">
+  <!-- 03 — the logo -->
+  <section class="psection" id="logo">
     <div class="wrap">
       <div class="shead">
-        <span class="tag">The booth</span>
-        <h2>One metre wide. <span class="g">Forty centimetres deep.</span></h2>
-        <p>Freestanding MDF, built and branded by the organiser. We bring the startup, not the stand. The depth is the number that matters: 40cm of usable top surface decides everything about what we print.</p>
+        <span class="tag">The logo</span>
+        <h2>The lockup, <span class="g">and the mark alone.</span></h2>
+        <p>Two things, and the difference matters. The <b>lockup</b> is the mark plus the word RiskMandate, and it is what to use almost everywhere. The <b>mark</b> is the square seal on its own, for a place where only a square will fit.</p>
       </div>
-      <div class="spec">
-        <div class="boothfig">
-          <svg class="draw" viewBox="0 0 200 210" role="img" aria-label="Booth: 1000mm wide, 400mm deep, 1000mm high, with an internal shelf at the back">
-            <!-- top surface, in perspective -->
-            <path d="M20 60 L170 60 L150 44 L40 44 Z" fill="#EFEDE7" stroke="#8A8780" stroke-width="1.2"/>
-            <!-- front panel -->
-            <rect x="20" y="60" width="150" height="120" fill="#FFFFFF" stroke="#8A8780" stroke-width="1.2"/>
-            <!-- logo on the front, centred -->
-            <rect x="72" y="104" width="46" height="32" rx="7" fill="#161615"/>
-            <circle cx="95" cy="120" r="10" stroke="#1A7F5A" stroke-width="1.6" fill="none"/>
-            <text x="95" y="123.5" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="6.5" font-weight="700" fill="#F7F6F2">RM</text>
-            <!-- internal shelf, dashed, at the back -->
-            <line x1="40" y1="150" x2="150" y2="150" stroke="#8A8780" stroke-width="1" stroke-dasharray="3 3"/>
-            <text x="95" y="146" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="6" fill="#8A8780">internal shelf</text>
-            <!-- dimensions -->
-            <line x1="20" y1="194" x2="170" y2="194" stroke="#1A7F5A" stroke-width="1"/>
-            <text x="95" y="206" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="8" fill="#1A7F5A">1000 mm</text>
-            <line x1="182" y1="60" x2="182" y2="180" stroke="#1A7F5A" stroke-width="1"/>
-            <text x="186" y="124" font-family="ui-monospace,Menlo,monospace" font-size="8" fill="#1A7F5A" transform="rotate(90 186 124)">1000 mm</text>
-            <line x1="170" y1="56" x2="150" y2="40" stroke="#1A7F5A" stroke-width="1"/>
-            <text x="150" y="30" font-family="ui-monospace,Menlo,monospace" font-size="8" fill="#1A7F5A">400 mm deep</text>
-          </svg>
-          <span class="cap">Redrawn from the guide's dimensions.<br>Not the organiser's artwork.</span>
-        </div>
-        <ul class="speclist">
-          <li><span><b>Dimensions</b></span><span>1000 W × 400 D × 1000 H mm</span></li>
-          <li><span><b>Material</b></span><span>MDF, freestanding</span></li>
-          <li><span><b>Front panel</b></span><span>our logo, centred, printed by them</span></li>
-          <li><span><b>Storage</b></span><span>internal shelf at the back</span></li>
-          <li><span><b>Side panels</b></span><span>1000 H × 400 D mm · approval needed</span></li>
-          <li><span><b>Power</b></span><span>not automatic · must be requested</span></li>
-          <li><span><b>Booth number</b></span><span>assigned later</span></li>
-          <li><span><b>Venue</b></span><span>Unicorn Factory Lisboa, Beato</span></li>
-          <li><span><b>Dates</b></span><span>17–18 September 2026</span></li>
-        </ul>
-      </div>
-    </div>
-  </section>
 
-  <!-- 03 — what changes -->
-  <section class="psection alt">
-    <div class="wrap">
-      <div class="shead">
-        <span class="tag">What this changes</span>
-        <h2>The roll-up banner <span class="g">comes off the list.</span></h2>
-        <p>Our 9 September plan had a pull-up banner as a P0 print item. The guide puts large roll-up banners on the check-with-us list twice, and spends a page arguing against exactly that instinct: <em>“You really don't need to build another Web Summit stand.”</em> Three consequences.</p>
+      <div class="logos">
+        <figure class="lg">
+          <div class="lgi light"><img src="assets/brand/riskmandate-lockup-light.png" alt="RiskMandate lockup, dark ink"></div>
+          <figcaption><b>Lockup &mdash; for light backgrounds</b> The default. Use this one unless the background is dark.
+            <span class="dl"><a href="assets/brand/riskmandate-lockup-light.svg">SVG</a><a href="assets/brand/riskmandate-lockup-light.png">PNG &middot; 2948&times;800</a></span>
+          </figcaption>
+        </figure>
+        <figure class="lg">
+          <div class="lgi dark"><img src="assets/brand/riskmandate-lockup-dark.png" alt="RiskMandate lockup, light ink"></div>
+          <figcaption><b>Lockup &mdash; for dark backgrounds</b> The same lockup in the light ink, for a dark ground.
+            <span class="dl"><a href="assets/brand/riskmandate-lockup-dark.svg">SVG</a><a href="assets/brand/riskmandate-lockup-dark.png">PNG &middot; 2948&times;800</a></span>
+          </figcaption>
+        </figure>
+        <figure class="lg">
+          <div class="lgi light"><img class="sq" src="assets/brand/riskmandate-mark-512.png" alt="RiskMandate mark"></div>
+          <figcaption><b>Mark &mdash; square</b> For an avatar, an app tile, or any slot that is square.
+            <span class="dl"><a href="assets/brand/riskmandate-mark.svg">SVG</a><a href="assets/brand/riskmandate-mark-512.png">512px</a><a href="assets/brand/riskmandate-mark-300.png">300px</a><a href="assets/brand/riskmandate-mark-128.png">128px</a></span>
+          </figcaption>
+        </figure>
+        <figure class="lg">
+          <div class="lgi ink"><img class="sq" src="assets/brand/riskmandate-mark-knockout.svg" alt="RiskMandate mark, knockout"></div>
+          <figcaption><b>Mark &mdash; knockout</b> A single-colour cut, for one-colour printing or an embroidered surface.
+            <span class="dl"><a href="assets/brand/riskmandate-mark-knockout.svg">SVG</a><a href="assets/brand/riskmandate-mark-small.svg">Simplified SVG</a></span>
+          </figcaption>
+        </figure>
       </div>
-      <ul class="plist">
-        <li><strong>Drop the banner.</strong> It needs approval, it may not be granted, it would have to be ordered today to arrive, and the room is being designed to not have them. The printed draft policies and the cards are the print order.</li>
-        <li><strong>40cm of depth sets the format.</strong> A laptop plus a small card holder plus a QR stand fills the top. A one-pager stack does not fit and would not be read — the draft card replaces it, which is what the Lisbon brief already argued on other grounds.</li>
-        <li><strong>Small tabletop signage is explicitly fine</strong> and needs no approval. That is where the aisle line goes: <em>“Do you know what your AI agent can actually do?”</em> — one small sign, no structure.</li>
+
+      <ul class="plist" style="margin-top:34px">
+        <li><strong>Use the lockup, not the mark alone, anywhere a stranger will see it.</strong> The mark is recognisable to people who already know us. The word is what lets somebody ask for us by name.</li>
+        <li><strong>SVG wherever it scales, PNG where a raster is required.</strong> Every PNG here is transparent, so it sits on whatever ground it lands on.</li>
+        <li><strong>Ink and green only.</strong> Never recoloured, never stretched, never set on a busy photograph, and the detailed cut never below 24px &mdash; below that use the simplified one. <a href="brand.html">The full brand page</a> has the rest.</li>
       </ul>
-      <div class="threecol">
-        <div class="col ok">
-          <h3>Bring it</h3>
-          <span class="sub">no approval needed</span>
-          <ul>
-            <li class="mine">Laptop or tablet</li>
-            <li class="mine">Printed draft policy cards</li>
-            <li class="mine">Business cards</li>
-            <li class="mine">QR code stand</li>
-            <li class="mine">Small tabletop signage</li>
-            <li>Your product or live demo</li>
-            <li>Small product samples</li>
-            <li>Flyers or leaflets</li>
-            <li>Small branded materials</li>
-          </ul>
-        </div>
-        <div class="col ask">
-          <h3>Check first</h3>
-          <span class="sub">through the portal</span>
-          <ul>
-            <li class="mine">A monitor larger than a laptop</li>
-            <li class="mine">Side-panel vinyl</li>
-            <li class="mine">Mains power</li>
-            <li>Additional printed signage</li>
-            <li>Larger product displays</li>
-            <li>Freestanding banners</li>
-            <li>Additional furniture</li>
-            <li>Anything beside or behind the booth</li>
-          </ul>
-        </div>
-        <div class="col no">
-          <h3>Do not</h3>
-          <span class="sub">no exceptions</span>
-          <ul>
-            <li>Drill or screw into the booth</li>
-            <li>Use adhesives that damage MDF</li>
-            <li>Block walkways</li>
-            <li>Extend into the aisle</li>
-            <li>Extend into a neighbour's space</li>
-            <li>Play loud audio</li>
-          </ul>
-        </div>
-      </div>
-      <p class="src">Items marked ▸ are ours; the rest is the guide's list, kept so nobody re-reads the PDF to check.</p>
     </div>
   </section>
 
-  <!-- 04 — the artwork -->
-  <section class="psection">
+  <!-- 04 — the booth panel -->
+  <section class="psection alt" id="panel">
     <div class="wrap">
       <div class="shead">
-        <span class="tag">Ready to upload</span>
-        <h2>The artwork, <span class="g">in the formats they asked for.</span></h2>
-        <p>Preferred: SVG, AI, EPS or a print-quality PDF. A high-resolution PNG is also accepted. Upload one file — the PDF. <b>“booth-panel” is the panel design; “lockup” and “mark” are the logo</b>, and the two are different requests.</p>
+        <span class="tag">The booth panel</span>
+        <h2>The front panel artwork, <span class="g">already uploaded.</span></h2>
+        <p>This is a <b>design</b> rather than a bare logo: it carries the wordmark and a line of our own. It is in the portal already; it is here so it can be checked, re-sent, or handed to a printer without going back through the form.</p>
       </div>
-      <div class="spec-note">
-        <p><b>The portal, not the guide, was the authority on the artboard, and it is not square.</b>
-        It states a PNG minimum of <b>5906 &times; 4724&nbsp;px, which is 50 &times; 40&nbsp;cm at
-        300&nbsp;dpi</b>, SVG or PDF preferred, between 10&nbsp;KB and 50&nbsp;MB. The guide describes
-        a 1000mm-wide front panel, so the 50 &times; 40 is the printed area inside it. Everything below
-        is 5:4 landscape and checked against those exact numbers.</p>
-        <p><b>The PDF is the file to send</b> — vector, 500 &times; 400mm. The PNG sits beside it at
-        exactly the stated minimum in case a raster is asked for. <b>&ldquo;booth-panel&rdquo; is the
-        panel design; &ldquo;lockup&rdquo; and &ldquo;mark&rdquo; are the logo</b>, and the two are
-        different requests. The panel reads <i>Buy an Agent Behaviour Policy here</i>, so it is a
-        design rather than a bare logo; if a plain logo is ever wanted instead, A and B are rendered
-        to the same dimensions.</p>
-        <p class="src" style="margin-top:14px">Three clipping bugs were fixed getting here and each
-        one taught the check something. The first file set the artwork in absolute millimetres, about
-        240mm of content on a 200mm board. The second was proportional but still clipped, because
-        <code>page.pdf()</code> re-lays the page out at paper size while the board was fixed in
-        pixels. The third was a headline too wide for a landscape board, and that one was caught by
-        the check rather than by somebody looking at it, which is the point. The check now runs
-        against the <b>print</b> layout at real paper size, so the artefact being verified is the
-        artefact being sent.</p>
-      </div>
+
+      <figure class="panelfig">
+        <img src="assets/brand/riskmandate-booth-panel-5906.png" alt="RiskMandate booth front panel artwork">
+        <figcaption>500 &times; 400mm, 5:4 landscape &mdash; the printed area inside the 1000mm front panel.</figcaption>
+      </figure>
+
       <div class="up">
         <table class="up-t">
           <thead><tr><th>File</th><th>What it is</th><th>Use</th></tr></thead>
           <tbody>
             <tr>
               <td class="k"><a href="assets/brand/riskmandate-booth-panel.pdf">riskmandate-booth-panel.pdf</a></td>
-              <td>500 × 400mm vector. The buy action, measured against the print layout</td>
-              <td class="pref">Send this one</td>
+              <td>500 &times; 400mm vector, glyph outlines embedded</td>
+              <td class="pref">Send this one to print</td>
             </tr>
             <tr>
               <td class="k"><a href="assets/brand/riskmandate-booth-panel-5906.png">riskmandate-booth-panel-5906.png</a></td>
-              <td>5906 × 4724px — the portal&rsquo;s stated minimum exactly</td>
-              <td>If they want a raster</td>
+              <td>5906 &times; 4724px &mdash; 50 &times; 40cm at 300dpi</td>
+              <td>If a raster is needed</td>
             </tr>
             <tr>
-              <td class="k"><a href="assets/brand/riskmandate-lockup-light.svg">riskmandate-lockup-light.svg</a></td>
-              <td>The lockup as vector, editable</td>
-              <td>If they ask for SVG</td>
-            </tr>
-            <tr>
-              <td class="k"><a href="assets/brand/riskmandate-mark-512.png">riskmandate-mark-512.png</a></td>
-              <td>The mark alone, square, 512px</td>
-              <td>Only if they want a square mark</td>
+              <td class="k"><a href="assets/brand/riskmandate-linkedin-cover-1128x191.png">riskmandate-linkedin-cover-1128x191.png</a></td>
+              <td>1128 &times; 191px banner on the ink ground</td>
+              <td>A wide banner slot</td>
             </tr>
           </tbody>
         </table>
       </div>
-      <ul class="plist">
-        <li><strong>Send the lockup, not the mark alone.</strong> The front panel is a square metre at waist height in a room of 200 stands. The mark is recognisable only to people who already know us; the wordmark is what makes a stranger able to ask for us by name.</li>
-        <li><strong>The PDF is a square artboard on purpose.</strong> The panel is 1000 × 1000mm, so a square file centres predictably however they place it. If they want it to fill the width instead, they can scale it — it is vector.</li>
-        <li><strong>Ink and green only</strong>, on whatever ground the MDF gives us. Never recoloured, never stretched, and the detailed cut never below 24px. <a href="brand.html">The five things not to do</a>.</li>
-        <li><strong>One defect fixed on the way.</strong> The shipped lockup SVG had a 260-unit viewBox around a <code>&lt;text&gt;</code> wordmark, so it clipped its own last letter in any font wider than the one it was drawn against — which is what a printer would have seen. The viewBox is now 320, and the print deliverables are laid out as real type rather than as a fixed-width drawing, so there is nothing left to clip.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- 05 — the guide -->
-  <section class="psection alt">
-    <div class="wrap">
-      <div class="shead">
-        <span class="tag">The source</span>
-        <h2>The organiser's guide, <span class="g">in full.</span></h2>
-        <p>Seven pages. Everything above is read from this, so it is here rather than summarised and lost.</p>
-      </div>
-      <div class="embed">
-        <div class="embedbar">
-          <span>Startup Booth Guide — Startup Summit Lisbon 2026 · © Startup Summit · 7 pages</span>
-          <a href="assets/summit/startup-booth-guide.pdf">Open the PDF ↗</a>
-        </div>
-        <object data="assets/summit/startup-booth-guide.pdf" type="application/pdf">
-          <div class="fallback">
-            Your browser will not display the PDF inline.
-            <a href="assets/summit/startup-booth-guide.pdf">Open the Startup Booth Guide</a> instead.
-          </div>
-        </object>
-      </div>
-      <div class="notice">
-        <strong>Whose document this is.</strong> The Startup Booth Guide is the organiser's, published to exhibitors by Startup Summit, and it is reproduced here for our own team rather than republished. This page is not in the site menu, not in the sitemap, not in <code>llms.txt</code>, and carries <code>noindex</code> — but <code>site/</code> is a public web root, so anyone with the URL can reach it. If that is not acceptable, the fix is to move the PDF out of <code>site/</code> and into <code>docs/</code>, where it is not web-served at all. Say the word and I will.
-      </div>
-      <p class="src">Source page: <a href="https://startupsummit.io/exhibitors/booth-guide" target="_blank" rel="noopener">startupsummit.io/exhibitors/booth-guide</a> · portal: <a href="https://startupsummit.io/exhibitor/portal" target="_blank" rel="noopener">startupsummit.io/exhibitor/portal</a> · PDF authored 21 August 2026</p>
+      <p class="src">If a plain logo is wanted on the panel instead of the design, the lockups above are rendered to the same dimensions and can be sent as they are.</p>
     </div>
   </section>
 
@@ -576,13 +428,9 @@ The question it answers is not what model somebody bought. It is what the agent 
 
 <section class="pcta">
   <div class="wrap">
-    <span class="eyebrow"><span class="d"></span> Five days out</span>
-    <h2>Two things are blocking, and both are ours.</h2>
-    <p>The logo and name go into the portal by Tuesday, and the power request goes in before the floor plan closes. Everything else on this page is a decision we can take calmly. Nothing here waits on the organiser.</p>
-    <div class="cta-row">
-      <a class="btn btn-green" href="https://startupsummit.io/exhibitor/portal" target="_blank" rel="noopener">Open the portal ↗</a>
-      <a class="btn btn-ghost" href="summit.html">The public summit page →</a>
-    </div>
+    <h2>Anything here in a format we have not shipped?</h2>
+    <p>Tell us what you need and we will cut it &mdash; a different size, a different lockup, a file type that is not on this page. Same day, usually within the hour.</p>
+    <div class="cta-row"><button class="btn btn-green" data-demo>Get in touch →</button><a class="btn btn-ghost" href="brand.html">The full brand page</a></div>
   </div>
 </section>
 

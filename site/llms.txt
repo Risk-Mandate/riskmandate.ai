@@ -61,6 +61,7 @@ library, the scenarios — is in the page, not the twin.
 - [Brief B1 — power user and tester of Agent Behaviour Policies](https://riskmandate.ai/work-abp-power-user.html) · [md](https://riskmandate.ai/work-abp-power-user.md): The first task for a freelance collaborator: make Agent Behaviour Policies for real deployments, find where the model breaks, and time it. Opens with a prompt written to paste straight into an agent, plus the full reading list across riskmandate.ai, abp.sgit.ai and the rest of the estate.
 - [RiskMandate — version record](https://riskmandate.ai/versions.html) · [md](https://riskmandate.ai/versions.md): Every version of the RiskMandate site, what changed in it, and the file that record lives in.
 - [RiskMandate — Design options (internal)](https://riskmandate.ai/design-options.html) · [md](https://riskmandate.ai/design-options.md): The eight logo concepts explored for RiskMandate, preserved as a design record with the reasoning for and against each. Concept E, the Seal, was selected.
+- [Startup Summit Lisbon 2026 — RiskMandate materials](https://riskmandate.ai/summit-booth.html) · [md](https://riskmandate.ai/summit-booth.md): Everything Startup Summit needs from RiskMandate in one place: the name, the description at four lengths, every version of the logo, and the booth panel artwork.
 
 ## Machine-readable
 

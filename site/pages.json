@@ -221,8 +221,7 @@
     {
       "name": "summit-booth",
       "file": "summit-booth.html",
-      "unlisted": true,
-      "private": true
+      "unlisted": true
     }
   ]
 }
