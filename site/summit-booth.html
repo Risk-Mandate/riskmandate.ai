@@ -207,6 +207,12 @@ table.up-t .pref{color:var(--green);font-weight:700}
   .rm{width:24px;height:24px}
   .demo{padding:8px 12px;font-size:12.5px}
 }
+
+.warn{margin-top:22px;border:2px solid var(--red);background:#FDF3F2;border-radius:var(--r);
+  padding:20px 24px;font-size:14px;color:var(--muted);line-height:1.7;max-width:840px}
+.warn b{color:var(--red)}
+.warn a{color:var(--red);text-decoration:underline;text-underline-offset:2px}
+table.up-t td.bad{color:var(--red);font-weight:700;white-space:nowrap}
 </style>
 </head>
 <body id="top">
@@ -395,7 +401,25 @@ table.up-t .pref{color:var(--green);font-weight:700}
       <div class="shead">
         <span class="tag">Ready to upload</span>
         <h2>The artwork, <span class="g">in the formats they asked for.</span></h2>
-        <p>Preferred: SVG, AI, EPS or a print-quality PDF. A high-resolution transparent PNG is also accepted. Upload one file — the PDF is the one to send.</p>
+        <p>Preferred: SVG, AI, EPS or a print-quality PDF. A high-resolution transparent PNG is also accepted. Upload one file.</p>
+      </div>
+      <div class="warn">
+        <b>Do not send riskmandate-booth-panel.pdf.</b> It is clipped. The generator set the mark,
+        the gap and the wordmark in absolute millimetres — about 240mm of content on a 200mm
+        artboard — so the mark is cut off at the left edge and the wordmark runs off the right.
+        The PNG beside it is laid out proportionally and is correct, which is why only one of the
+        two was wrong and why the error survived a visual check of the other.
+        <b>Until a panel design is chosen, the PNG is the file to upload.</b>
+        Three replacements are rendered and measured in
+        <a href="assets/brand/panel-options/panel-b-descriptor.png">panel-options</a> —
+        <a href="assets/brand/panel-options/panel-a-logo.png">A</a> the corrected logo,
+        <a href="assets/brand/panel-options/panel-b-descriptor.png">B</a> the logo with
+        <em>Agent Behaviour Policy</em> under it, and
+        <a href="assets/brand/panel-options/panel-c-statement.png">C</a> the full statement panel.
+        B is the recommendation: it reads as a logo with a descriptor, so there is nothing for the
+        organiser to reject, and it uses the square metre to say what we sell rather than only who
+        we are. C is the strongest and the least like a logo file, so it wants their agreement
+        first. Each option has a print PDF beside its preview.
       </div>
       <div class="up">
         <table class="up-t">
@@ -403,13 +427,13 @@ table.up-t .pref{color:var(--green);font-weight:700}
           <tbody>
             <tr>
               <td class="k"><a href="assets/brand/riskmandate-booth-panel.pdf">riskmandate-booth-panel.pdf</a></td>
-              <td>200 × 200mm vector artboard, lockup centred, glyph outlines embedded</td>
-              <td class="pref">Send this one</td>
+              <td><b>Clipped — do not use.</b> 200 × 200mm artboard with ~240mm of content on it</td>
+              <td class="bad">Superseded</td>
             </tr>
             <tr>
               <td class="k"><a href="assets/brand/riskmandate-booth-panel-2000.png">riskmandate-booth-panel-2000.png</a></td>
-              <td>2000 × 2000px, transparent, lockup centred</td>
-              <td>If they want a raster</td>
+              <td>2000 × 2000px, transparent, lockup centred. Correct, and checked</td>
+              <td class="pref">Send this one, for now</td>
             </tr>
             <tr>
               <td class="k"><a href="assets/brand/riskmandate-lockup-light.svg">riskmandate-lockup-light.svg</a></td>
