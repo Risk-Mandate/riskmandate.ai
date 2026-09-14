@@ -93,19 +93,25 @@ const front = `<div class="card" style="background:${PAPER};padding:${mm(SAFE)};
 // ── back ───────────────────────────────────────────────────────────────────
 //
 // The four objects, because the whole product is the difference between them
-// and a card is where somebody meets those words for the first time. The verb
-// on each row is the part that does the work: only one of the four is written
-// by a person.
+// and a card is where somebody meets those words for the first time.
+//
+// An earlier cut of this card put a verb beside each row — measured, elicited,
+// derived, recorded — and a line saying only the mandate is written by a person.
+// That is wrong, and it undersells the product. Three of the four CAN be written
+// down by the people who run the agent, out of what they understand today; the
+// policy is a draft that goes to several stakeholders to be argued with and
+// corrected, and it is re-corrected as reality changes. Only the delta is not
+// authorable, because it is computed from the other two. So the verb column is
+// gone and one honest line carries the point instead.
 //
 // They are BARRIERS, not blockers. The model, the data at abp.sgit.ai and every
 // page on the site use that word, and a printed artefact is the worst place to
 // introduce a second name for the same thing.
-const row = (term, what, verb) => `
-  <div style="display:grid;grid-template-columns:${mm(15)} 1fr auto;gap:${mm(1.6)};align-items:baseline">
+const row = (term, what) => `
+  <div style="display:grid;grid-template-columns:${mm(16)} 1fr;gap:${mm(2.2)};align-items:baseline">
     <div style="font-family:${MONO};font-size:${mm(2.15)};font-weight:700;color:${GREEN};
                 text-transform:uppercase;letter-spacing:0.04em">${term}</div>
-    <div style="font-family:${SANS};font-size:${mm(2.3)};color:${INK};line-height:1.3">${what}</div>
-    <div style="font-family:${SANS};font-size:${mm(1.9)};color:${FAINT};font-style:italic">${verb}</div>
+    <div style="font-family:${SANS};font-size:${mm(2.35)};color:${INK};line-height:1.3">${what}</div>
   </div>`;
 
 const back = `<div class="card" style="background:${BG2};padding:${mm(SAFE)};box-sizing:border-box;
@@ -114,14 +120,19 @@ const back = `<div class="card" style="background:${BG2};padding:${mm(SAFE)};box
     <div style="font-family:${SANS};font-size:${mm(2.3)};font-weight:700;letter-spacing:0.13em;
                 text-transform:uppercase;color:${INK}">Know what your agents can actually do</div>
     <div style="font-family:${SANS};font-size:${mm(2.25)};line-height:1.45;color:${MUTED};
-                margin-top:${mm(1.6)};max-width:${mm(70)}">
-      One agent, one deployment, four things &mdash; and only the second is written by a person.
+                margin-top:${mm(1.5)};max-width:${mm(70)}">
+      One agent, one deployment, four things.
     </div>
-    <div style="display:flex;flex-direction:column;gap:${mm(1.5)};margin-top:${mm(2.6)}">
-      ${row('Grant',   'Everything it can reach',        'measured')}
-      ${row('Mandate', 'What you authorised it to do',   'elicited')}
-      ${row('Delta',   'The gap between the two',        'derived')}
-      ${row('Barrier', 'What actually stands in the way','recorded')}
+    <div style="display:flex;flex-direction:column;gap:${mm(1.5)};margin-top:${mm(2.2)}">
+      ${row('Grant',   'Everything it can reach')}
+      ${row('Mandate', 'What you authorised it to do')}
+      ${row('Delta',   'The gap between the two')}
+      ${row('Barrier', 'What actually stands in the way')}
+    </div>
+    <div style="font-family:${SANS};font-size:${mm(2.15)};line-height:1.45;color:${MUTED};
+                margin-top:${mm(2.4)};max-width:${mm(72)}">
+      Three of these you can write down. The fourth is worked out, and it is
+      usually the one nobody has looked at.
     </div>
   </div>
   <div style="display:flex;align-items:center;justify-content:space-between;gap:${mm(3)}">
