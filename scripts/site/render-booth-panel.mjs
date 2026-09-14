@@ -2,12 +2,15 @@
 //
 //   node scripts/site/render-booth-panel.mjs
 //
-// The panel is 1000 × 1000mm — the front face of the stand, floor to table
-// height. Two facts about it decide every choice here. It is BELOW waist level,
-// so it is read at two to five metres by somebody walking past and not standing
-// still; and the organiser prints it centrally from whatever single file we
-// upload. So: very few words, very large, and a square artboard that still
-// reads correctly if they place it smaller than the full metre.
+// The exhibitor portal is the authority on the artboard, and it is NOT square:
+// it wants 50 × 40 cm, stated as a PNG minimum of 5906 × 4724 px at 300 dpi,
+// with SVG or PDF preferred. The booth guide describes a 1000mm-wide front
+// panel, so the 50 × 40 is the printed area within it. Everything here is
+// therefore 5:4 landscape — a square artboard is rejected before a human sees
+// it, which is what happened to the first upload.
+//
+// The panel is still read at two to five metres by somebody walking past a
+// stand, below waist height, so: very few words, very large.
 //
 // Everything is proportional to the artboard. The earlier version of this
 // deliverable set absolute millimetres — a 40mm mark, a 14mm gap and a 29mm
@@ -35,6 +38,11 @@ const INK = '#1A1917', PAPER = '#F7F6F2', DARK = '#0D0D0C', GREEN = '#1A7F5A';
 // One board unit = 1% of the artboard's width, so every size below is a
 // percentage and the whole thing scales to any output resolution.
 const u = (n) => `${n}cqw`;
+
+// The portal's numbers, in one place.
+const MM_W = 500, MM_H = 400;                 // 50 × 40 cm
+const PNG_W = 5906, PNG_H = 4724;             // its stated minimum, exactly
+const px = (mm) => Math.round(mm / 25.4 * 96); // CSS px at 96dpi, for the print check
 
 const mark = (pct) => `<div style="width:${u(pct)};height:${u(pct)};flex:none">${fill(svg('riskmandate-mark.svg'))}</div>`;
 
@@ -73,18 +81,18 @@ const B = (ink, faint) => `<div class="board" style="justify-content:center;alig
 // asks for more attention than an aisle gives it — so it moves to the tabletop
 // sign at eye level, where somebody has already stopped, and the panel does the
 // one job a shopfront does.
-const buy = (opts = {}) => `<div class="board" style="justify-content:space-between;align-items:flex-start;
-    padding:${u(8)};box-sizing:border-box;background:${DARK}">
-  ${lockup(7, PAPER)}
-  <div style="font-family:${SANS};font-size:${u(11)};font-weight:700;letter-spacing:-0.035em;
-              line-height:1.06;color:${PAPER};white-space:nowrap">
+const buy = () => `<div class="board" style="justify-content:space-between;align-items:flex-start;
+    padding:${u(5)} ${u(6)};box-sizing:border-box;background:${DARK}">
+  ${lockup(5.2, PAPER)}
+  <div style="font-family:${SANS};font-size:${u(7.9)};font-weight:700;letter-spacing:-0.035em;
+              line-height:1.08;color:${PAPER};white-space:nowrap">
     Buy an<br>
-    <span style="color:${GREEN}">Agent<br>Behaviour<br>Policy</span><br>
+    <span style="color:${GREEN}">Agent Behaviour Policy</span><br>
     here
   </div>
   <div style="display:flex;align-items:baseline;gap:${u(3)};width:100%">
-    <div style="flex:1;height:${u(0.2)};background:rgba(247,246,242,.25)"></div>
-    <div style="font-family:${MONO};font-size:${u(3.4)};color:rgba(247,246,242,.7);white-space:nowrap">riskmandate.ai</div>
+    <div style="flex:1;height:${u(0.15)};background:rgba(247,246,242,.25)"></div>
+    <div style="font-family:${MONO};font-size:${u(2.4)};color:rgba(247,246,242,.7);white-space:nowrap">riskmandate.ai</div>
   </div>
 </div>`;
 
@@ -122,67 +130,67 @@ const C = () => `<div class="board" style="justify-content:space-between;align-i
 // ran off it. A screenshot never sees that, which is why checking the PNG and
 // inferring the PDF missed it twice. So the print document sizes the board in
 // millimetres, and the check below runs against the PRINT layout.
-const doc = (inner, px, bg) => `<!doctype html><meta charset="utf-8"><style>
-  html,body{margin:0;padding:0;width:${px}px;height:${px}px;overflow:hidden;background:${bg}}
-  .board{container-type:inline-size;width:${px}px;height:${px}px;display:flex;flex-direction:column}
+const doc = (inner, w, h, bg) => `<!doctype html><meta charset="utf-8"><style>
+  html,body{margin:0;padding:0;width:${w}px;height:${h}px;overflow:hidden;background:${bg}}
+  .board{container-type:inline-size;width:${w}px;height:${h}px;display:flex;flex-direction:column}
   svg{width:100%;height:100%;display:block}
 </style>${inner}`;
 
-const printDoc = (inner, mm, bg) => `<!doctype html><meta charset="utf-8"><style>
-  @page{size:${mm}mm ${mm}mm;margin:0}
-  html,body{margin:0;padding:0;width:${mm}mm;height:${mm}mm;background:${bg}}
-  .board{container-type:inline-size;width:${mm}mm;height:${mm}mm;display:flex;flex-direction:column}
+const printDoc = (inner, bg) => `<!doctype html><meta charset="utf-8"><style>
+  @page{size:${MM_W}mm ${MM_H}mm;margin:0}
+  html,body{margin:0;padding:0;width:${MM_W}mm;height:${MM_H}mm;background:${bg}}
+  .board{container-type:inline-size;width:${MM_W}mm;height:${MM_H}mm;display:flex;flex-direction:column}
   svg{width:100%;height:100%;display:block}
 </style>${inner}`;
 
-// 200mm at 96dpi. Laying the print document out at exactly this width means the
-// fit check sees the same boxes the PDF will.
-const MM200_PX = Math.round(200 / 25.4 * 96);
+// Laying the print document out at exactly the paper size means the fit check
+// sees the same boxes the PDF will.
 
 const OPTIONS = [
   { id: 'a-logo',       bg: 'transparent', html: A(INK),            label: 'the logo, corrected' },
   { id: 'b-descriptor', bg: PAPER,         html: B(INK, '#6B6862'), label: 'logo + product line' },
-  { id: 'c-statement',  bg: DARK,          html: C(),               label: 'the statement + band' },
+  { id: 'c-statement',  bg: DARK,          html: C(),               label: 'statement + band' },
   { id: 'd-buy',        bg: DARK,          html: buy(),             label: 'the buy action alone' },
 ];
 
 const b = await chromium.launch({ args: ['--no-sandbox'] });
 
-// Does the content fit the board? Two ways it can fail, and the second one is
-// the one that has bitten twice: (a) an element's box sits outside the board,
-// and (b) the box fits but its ink does not, because a nowrap child of a flex
-// row gets shrunk to fit the row while its text keeps its width.
-const fits = async (pg, px) => pg.evaluate((px) => {
+// Does the content fit the board? Two ways it can fail: (a) an element's box
+// sits outside the board, and (b) the box fits but its ink does not, because a
+// nowrap child of a flex row is shrunk to fit the row while its text keeps its
+// width. Both have shipped a clipped file before.
+const fits = (pg, w, h) => pg.evaluate(({ w, h }) => {
   const why = [];
   for (const e of document.querySelectorAll('.board *')) {
     if (e instanceof SVGElement || e.clientWidth === 0) continue;
     const r = e.getBoundingClientRect();
-    if (r.left < -0.5 || r.top < -0.5 || r.right > px + 0.5 || r.bottom > px + 0.5)
-      why.push(`${e.tagName} box to ${Math.round(r.right)}/${Math.round(r.bottom)} of ${px}`);
+    if (r.left < -0.5 || r.top < -0.5 || r.right > w + 0.5 || r.bottom > h + 0.5)
+      why.push(`${e.tagName} box to ${Math.round(r.right)}x${Math.round(r.bottom)} of ${w}x${h}`);
     if (e.scrollWidth > e.clientWidth + 1)
       why.push(`${e.tagName} text ${e.scrollWidth} wide in a ${e.clientWidth} box`);
   }
   return why;
-}, px);
+}, { w, h });
 
-async function render(html, bg, pngPath, pdfPath) {
+async function render(html, bg, pngPath, pdfPath, pngW = 2000) {
   const notes = [];
+  const pngH = Math.round(pngW * MM_H / MM_W);
 
-  // the raster, laid out at its own size
-  const shot = await b.newPage({ viewport: { width: 2000, height: 2000 }, deviceScaleFactor: 1 });
-  await shot.setContent(doc(html, 2000, bg), { waitUntil: 'load' });
-  await shot.waitForTimeout(250);
-  notes.push(...(await fits(shot, 2000)).map((w) => `png: ${w}`));
+  const shot = await b.newPage({ viewport: { width: pngW, height: pngH }, deviceScaleFactor: 1 });
+  await shot.setContent(doc(html, pngW, pngH, bg), { waitUntil: 'load' });
+  await shot.waitForTimeout(300);
+  notes.push(...(await fits(shot, pngW, pngH)).map((x) => `png: ${x}`));
   if (pngPath) await shot.screenshot({ path: pngPath, omitBackground: bg === 'transparent' });
   await shot.close();
 
-  // the print file, laid out at the PAPER size and checked there
-  const pr = await b.newPage({ viewport: { width: MM200_PX, height: MM200_PX }, deviceScaleFactor: 1 });
+  // The print file, laid out at the PAPER size and checked there — the step
+  // that was missing when a 2000px board was printed onto 200mm of paper.
+  const pr = await b.newPage({ viewport: { width: px(MM_W), height: px(MM_H) }, deviceScaleFactor: 1 });
   await pr.emulateMedia({ media: 'print' });
-  await pr.setContent(printDoc(html, 200, bg === 'transparent' ? '#ffffff' : bg), { waitUntil: 'load' });
-  await pr.waitForTimeout(250);
-  notes.push(...(await fits(pr, MM200_PX)).map((w) => `pdf: ${w}`));
-  if (pdfPath) await pr.pdf({ path: pdfPath, width: '200mm', height: '200mm',
+  await pr.setContent(printDoc(html, bg === 'transparent' ? '#ffffff' : bg), { waitUntil: 'load' });
+  await pr.waitForTimeout(300);
+  notes.push(...(await fits(pr, px(MM_W), px(MM_H))).map((x) => `pdf: ${x}`));
+  if (pdfPath) await pr.pdf({ path: pdfPath, width: `${MM_W}mm`, height: `${MM_H}mm`,
                              printBackground: true, pageRanges: '1' });
   await pr.close();
   return notes;
@@ -191,15 +199,19 @@ async function render(html, bg, pngPath, pdfPath) {
 for (const o of OPTIONS) {
   const notes = await render(o.html, o.bg,
     join(PREV, `panel-${o.id}.png`), join(PREV, `panel-${o.id}.pdf`));
-  console.log(`  panel-${o.id.padEnd(13)} ${o.label.padEnd(24)} ${notes.length ? 'OVERFLOWS — ' + notes.join('; ') : 'fits, png and pdf'}`);
+  console.log(`  panel-${o.id.padEnd(13)} ${o.label.padEnd(22)} ${notes.length ? 'OVERFLOWS — ' + notes.join('; ') : 'fits, png and pdf'}`);
 }
 
-// ─────────────────────────────────── the chosen design, as the files to upload
-const chosen = buy();
-const notes = await render(chosen, DARK,
-  join(OUT, 'riskmandate-booth-panel-2000.png'), join(OUT, 'riskmandate-booth-panel.pdf'));
-console.log(`\n  riskmandate-booth-panel.pdf       200x200mm  ${notes.length ? 'OVERFLOWS — ' + notes.join('; ') : 'fits'}`);
-console.log('  riskmandate-booth-panel-2000.png 2000x2000px');
+// ── the files the portal actually accepts ──────────────────────────────────
+// PDF is vector and preferred, so it is the one to send. The PNG is rendered at
+// the portal's stated minimum exactly — 5906 x 4724, which is 50 x 40 cm at 300
+// dpi — because a 2000 x 2000 square was rejected before a human saw it.
+const notes = await render(buy(), DARK,
+  join(OUT, 'riskmandate-booth-panel-5906.png'), join(OUT, 'riskmandate-booth-panel.pdf'), PNG_W);
+const { statSync } = await import('node:fs');
+const kb = (f) => Math.round(statSync(join(OUT, f)).size / 1024);
+console.log(`\n  riskmandate-booth-panel.pdf        ${MM_W}x${MM_H}mm vector  ${kb('riskmandate-booth-panel.pdf')}KB  ${notes.length ? 'OVERFLOWS — ' + notes.join('; ') : 'fits'}`);
+console.log(`  riskmandate-booth-panel-5906.png   ${PNG_W}x${PNG_H}px  ${kb('riskmandate-booth-panel-5906.png')}KB  (portal wants 10KB-50MB)`);
 
 await b.close();
 console.log('  previews in site/assets/brand/panel-options/');

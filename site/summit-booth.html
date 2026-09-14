@@ -404,29 +404,39 @@ table.up-t td.bad{color:var(--red);font-weight:700;white-space:nowrap}
         <p>Preferred: SVG, AI, EPS or a print-quality PDF. A high-resolution PNG is also accepted. Upload one file — the PDF. <b>“booth-panel” is the panel design; “lockup” and “mark” are the logo</b>, and the two are different requests.</p>
       </div>
       <div class="warn">
-        <b>The panel is the buy action, and it is a design rather than a logo — tell them so.</b>
-        The guide asks for a logo and prints it centrally; what we are uploading says
-        <em>Buy an Agent Behaviour Policy here</em>, very large, on the ink ground. That is the right
-        thing on the front of a stand at knee height and it is not what they asked for, so send one
-        line with it — <em>“this is our front-panel artwork rather than a bare logo; print it to fill
-        the panel”</em>. If they would rather have a plain logo,
+        <b>The portal, not the guide, is the authority on the artboard &mdash; and it is not square.</b>
+        It states a PNG minimum of <b>5906 &times; 4724 px, which is 50 &times; 40 cm at 300 dpi</b>,
+        with SVG or PDF preferred and a file between 10 KB and 50 MB. The guide describes a
+        1000mm-wide front panel, so that 50 &times; 40 is the printed area inside it. A square
+        artboard is rejected by the form before a human sees it, which is what happened to the first
+        attempt. Everything is 5:4 landscape now and both files are checked against those exact
+        numbers.
+        <br><br>
+        <b>Send the PDF</b> &mdash; it is vector, which the portal prefers, and it is
+        500 &times; 400mm. The PNG is there at exactly the stated minimum in case they ask for a
+        raster.
+        <br><br>
+        <b>It is a design rather than a logo, so say so.</b> The panel reads
+        <em>Buy an Agent Behaviour Policy here</em>. Send one line with it &mdash; <em>&ldquo;this is
+        our front-panel artwork rather than a bare logo&rdquo;</em> &mdash; rather than letting them
+        find out at the press. If they would rather have a plain logo,
         <a href="assets/brand/panel-options/panel-a-logo.png">A</a> and
-        <a href="assets/brand/panel-options/panel-b-descriptor.png">B</a> are ready to send instead.
+        <a href="assets/brand/panel-options/panel-b-descriptor.png">B</a> are rendered to the same
+        dimensions and ready to send instead.
         <br><br>
         <b>The statement moves to the tabletop sign.</b> <em>You know what you asked for. You don't
-        know what it can do.</em> reads well on a screen and asks for more attention than an aisle
-        gives it. At eye level, where somebody has already stopped, it is the better line — so it is
-        kept as <a href="assets/brand/panel-options/panel-c-statement.png">option C</a> for the sign,
-        the slides and the social card, and the panel does the one job a shopfront does.
+        know what it can do.</em> asks for more attention than an aisle gives it. At eye level, where
+        somebody has already stopped, it is the better line &mdash; kept as
+        <a href="assets/brand/panel-options/panel-c-statement.png">option C</a> for the sign, the
+        slides and the social card.
         <br><br>
-        <b>Two clipping bugs fixed getting here, both the same mistake.</b> The first PDF set the
-        artwork in absolute millimetres — about 240mm of content on a 200mm artboard. The second was
-        proportional but still clipped, because <code>page.pdf()</code> re-lays the page out at the
-        paper size, roughly 756px for 200mm, while the board was fixed at 2000px: every proportional
-        unit resolved against a container two and a half times wider than the paper. A screenshot
-        never sees that, which is why checking the raster and inferring the print file missed it
-        twice. The print document is now sized in millimetres and <b>the fit check runs against the
-        print layout</b>, so the thing being verified is the thing being sent.
+        <b>Three clipping bugs fixed getting here, and each one taught the check something.</b> The
+        first file set the artwork in absolute millimetres, about 240mm of content on a 200mm board.
+        The second was proportional but still clipped, because <code>page.pdf()</code> re-lays the
+        page out at the paper size while the board was fixed in pixels. The third was this headline,
+        too wide for a landscape board &mdash; and that one was caught by the check rather than by a
+        human looking at it, which is the point. The check now runs against the <b>print</b> layout
+        at the real paper size, so the artefact being verified is the artefact being sent.
       </div>
       <div class="up">
         <table class="up-t">
@@ -434,12 +444,12 @@ table.up-t td.bad{color:var(--red);font-weight:700;white-space:nowrap}
           <tbody>
             <tr>
               <td class="k"><a href="assets/brand/riskmandate-booth-panel.pdf">riskmandate-booth-panel.pdf</a></td>
-              <td>200 × 200mm vector artboard. The statement, the offer band and the domain, measured to fit</td>
+              <td>500 × 400mm vector. The buy action, measured against the print layout</td>
               <td class="pref">Send this one</td>
             </tr>
             <tr>
-              <td class="k"><a href="assets/brand/riskmandate-booth-panel-2000.png">riskmandate-booth-panel-2000.png</a></td>
-              <td>2000 × 2000px raster of the same design, on the ink ground</td>
+              <td class="k"><a href="assets/brand/riskmandate-booth-panel-5906.png">riskmandate-booth-panel-5906.png</a></td>
+              <td>5906 × 4724px — the portal&rsquo;s stated minimum exactly</td>
               <td>If they want a raster</td>
             </tr>
             <tr>
