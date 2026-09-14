@@ -141,6 +141,15 @@ rm-menu{display:contents}
 .ti.now .due{color:var(--red)}
 .ti.soon .due{color:var(--gold)}
 
+/* copy-ready blocks — meant to be selected and pasted, so no decoration inside */
+.drafts{margin-top:34px;display:flex;flex-direction:column;gap:16px}
+.draft{border:1px solid var(--border);border-radius:var(--r);background:var(--card);overflow:hidden}
+.draft header{display:flex;justify-content:space-between;gap:16px;align-items:baseline;padding:13px 20px;border-bottom:1px solid var(--border);background:var(--bg2);flex-wrap:wrap}
+.draft header b{font-size:14px;color:var(--text);letter-spacing:-.01em}
+.draft header span{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.draft .body{padding:20px;font-size:14.5px;line-height:1.7;color:var(--text);white-space:pre-wrap}
+.draft .why{padding:0 20px 18px;font-size:13px;color:var(--muted);line-height:1.65}
+
 /* the booth itself, to scale */
 .spec{display:grid;grid-template-columns:300px 1fr;gap:36px;margin-top:34px;align-items:start}
 @media (max-width:800px){.spec{grid-template-columns:1fr}}
@@ -247,7 +256,7 @@ table.up-t td.bad{color:var(--red);font-weight:700;white-space:nowrap}
     <div class="wrap">
       <div class="shead">
         <span class="tag">Open actions</span>
-        <h2>Four things go through the portal. <span class="g">Not by email.</span></h2>
+        <h2>Five things go through the portal. <span class="g">Not by email.</span></h2>
         <p>The guide is explicit: <em>“Please do not email your logo separately if you can upload it through the portal.”</em> Everything below goes to <code>startupsummit.io/exhibitor/portal</code>, on the account attached to the booking.</p>
       </div>
       <ul class="todo">
@@ -258,6 +267,15 @@ table.up-t td.bad{color:var(--red);font-weight:700;white-space:nowrap}
             <p>They print it centrally on the front panel. Artwork is ready below. The name must read <strong>RiskMandate</strong> — one word, two capitals. Adriano Wagner asked for the logo and exact name by Tuesday; the guide says the portal is the route, so <strong>upload first, then reply to him saying it is in the portal</strong> rather than attaching it.</p>
           </div>
           <span class="due">Due Tue 15 Sept</span>
+        </li>
+        <li class="ti now">
+          <span class="box">☐</span>
+          <div>
+            <h3>Paste the exhibitor description — and settle whose profile it is</h3>
+            <p>Not in the booth guide; it came by email on 14 September. <em>“The description should be placed on your exhibitor profile… if you prefer, just send me the description and I'll update the OWASP profile right away.”</em> Three drafts are <a href="#blurb">below</a>, at three lengths, because the portal's field limit is unknown and the guide does not state one. Do it in the portal if the field is findable; the offer to paste it internally is the fallback, not the plan.</p>
+            <p><strong>One thing to settle first.</strong> He calls it <em>the OWASP profile</em>, so the exhibitor entry is booked under OWASP — but the front panel is going up as <strong>RiskMandate</strong> and the drafts below describe RiskMandate. Either the profile name changes to match the panel, or the description has to open by saying what the relationship is. That is a decision, not a wording problem, and it is the same decision as the company name on the logo upload above.</p>
+          </div>
+          <span class="due">Replied to, now</span>
         </li>
         <li class="ti now">
           <span class="box">☐</span>
@@ -288,8 +306,49 @@ table.up-t td.bad{color:var(--red);font-weight:700;white-space:nowrap}
     </div>
   </section>
 
+  <!-- 01b — the exhibitor description -->
+  <section class="psection alt" id="blurb">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Exhibitor profile</span>
+        <h2>The description, <span class="it">at three lengths.</span></h2>
+        <p>The organiser asked for a description and did not say how long it may be — the Startup Booth Guide does not mention an exhibitor description at all, so there is no stated limit to work to. Rather than guess, here are three. Paste the longest one the field accepts. All three say the same thing in the same order, so cutting between them loses detail and never changes the claim.</p>
+      </div>
+
+      <div class="drafts">
+
+        <div class="draft">
+          <header><b>Long</b> <span>118 words · 685 characters · profile body</span></header>
+          <div class="body">RiskMandate writes Agent Behaviour Policies.
+
+An Agent Behaviour Policy is a written description, for one agent in one deployment, of four things: everything it can actually reach, what you authorised it to do, the gap between those two, and what genuinely stands in the way. Only the second is written by a person. The rest is measured, derived and recorded.
+
+The question is not what a model is — it is what a deployed agent can do. Two agents with identical inventory rows can have completely different reach, because reach comes from the connectors, the credentials and the settings around the model rather than from the model.
+
+We describe, and we do not judge. There is no score.</div>
+          <div class="why">Four paragraphs, and they degrade gracefully: drop the last one and it still stands, drop the third and it still stands.</div>
+        </div>
+
+        <div class="draft">
+          <header><b>Medium</b> <span>57 words · 315 characters · listing entry</span></header>
+          <div class="body">RiskMandate writes Agent Behaviour Policies: for one agent in one deployment, a written record of everything it can actually reach, what you authorised it to do, and the gap between the two. Only the authorisation is written by a person — the rest is measured. We describe and we do not judge, so there is no score.</div>
+          <div class="why">The version to send if a field limit is not visible. Safe under almost any cap and reads as finished rather than truncated.</div>
+        </div>
+
+        <div class="draft">
+          <header><b>Short</b> <span>26 words · 156 characters · one line, badge or app</span></header>
+          <div class="body">RiskMandate writes Agent Behaviour Policies — for one agent in one deployment, what it can actually reach, what you authorised, and the gap between the two.</div>
+          <div class="why">For a strapline field. It gives up the four-object structure and keeps the three that make the point.</div>
+        </div>
+
+      </div>
+
+      <p class="src">What is deliberately not in any of them: no customer, no logo wall, no funding, no claim about what insurers are doing, and no adjective attached to anybody else's product. Every sentence here is either a definition of our own term or a statement about our own work, which is the only kind of sentence that cannot be wrong about a third party. British spelling throughout, to match the rest of the estate and the audience.</p>
+    </div>
+  </section>
+
   <!-- 02 — the booth -->
-  <section class="psection alt">
+  <section class="psection">
     <div class="wrap">
       <div class="shead">
         <span class="tag">The booth</span>
@@ -336,7 +395,7 @@ table.up-t td.bad{color:var(--red);font-weight:700;white-space:nowrap}
   </section>
 
   <!-- 03 — what changes -->
-  <section class="psection">
+  <section class="psection alt">
     <div class="wrap">
       <div class="shead">
         <span class="tag">What this changes</span>
@@ -396,7 +455,7 @@ table.up-t td.bad{color:var(--red);font-weight:700;white-space:nowrap}
   </section>
 
   <!-- 04 — the artwork -->
-  <section class="psection alt">
+  <section class="psection">
     <div class="wrap">
       <div class="shead">
         <span class="tag">Ready to upload</span>
@@ -475,7 +534,7 @@ table.up-t td.bad{color:var(--red);font-weight:700;white-space:nowrap}
   </section>
 
   <!-- 05 — the guide -->
-  <section class="psection">
+  <section class="psection alt">
     <div class="wrap">
       <div class="shead">
         <span class="tag">The source</span>
