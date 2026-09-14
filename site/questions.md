@@ -20,11 +20,21 @@ Nobody put this one to us, which is why it is first. The four words look self-ex
 
 Four objects, and the verb attached to each one is the whole model.
 
-The mandate is _elicited_, the grant is _measured_, the delta is _derived_, the barrier is _recorded_. Nothing in a behaviour policy is authored except the mandate — which is also the only one of the four you already know.
+The mandate is _elicited_, the grant is _measured_, the delta is _derived_, the barrier is _recorded_. Those verbs say how each object is meant to _end up_ established, not how it starts. Three of the four start as something a person writes down out of what they understand today, and are corrected towards evidence as evidence arrives. The delta is the exception: it is computed from the first two and never written by hand, which is why it is the one that surprises people.
 
 #### The four objects
 
 **Why the mandate is the cheap half and still the important one.** “Your agent can do 340 things” is a shrug — an inventory nobody acts on. “Your agent can do 340 things and you authorised 12” is a finding. The mandate is the edge that gives the enumeration a shape, and it takes minutes because it is the one thing you already have in your head and nowhere else.
+
+#### A policy is a draft, and that is the point
+
+The verbs above describe where each object is meant to get to. None of them describes day one. On day one a behaviour policy is somebody's best account of what an agent is connected to, what it was for, and what they think is stopping it — and a good deal of that will be wrong.
+
+**That draft is the instrument, not a stage before it.** It goes to the people who built the agent, the people who own the systems it touches, and the people accountable for it, and each of them corrects the part they know and nobody else does. A sentence somebody can disagree with is worth more than a number nobody can argue with, because the disagreement is where the information is. Most of what we learn about a deployment arrives as a correction to a draft, not as a measurement.
+
+**And it is never finished, because the agent is not finished.** A connector is added, a credential is widened, a setting moves, somebody understands the deployment better than they did last month. Each of those is a correction to the grant or the barriers, and the delta is recomputed against both — which is why the delta is stored with the versions of its inputs pinned. The document is expected to be behind reality; what it must never be is behind reality _silently_. That is what pinning the inputs buys: it can always say what it was computed from and when.
+
+So the four objects are not four levels of certainty. Three of them are claims somebody made and can revise. The fourth is the only one nobody writes.
 
 #### The four barriers, and the test that separates them
 

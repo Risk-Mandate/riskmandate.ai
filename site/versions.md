@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.11.0** · 2026-09-14 — A policy is a draft, and three of the four objects are written by people
+  Notes: https://riskmandate.ai/versions/1.11.0.md · Source: `git:v1.11.0`
 - **v1.10.0** · 2026-09-13 — The vocabulary, and how a behaviour policy differs from an inventory
   Notes: https://riskmandate.ai/versions/1.10.0.md · Source: `git:v1.10.0`
 - **v1.9.0** · 2026-09-13 — A Questions section: real questions from public conversations, answered without naming who asked
