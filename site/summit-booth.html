@@ -404,21 +404,29 @@ table.up-t td.bad{color:var(--red);font-weight:700;white-space:nowrap}
         <p>Preferred: SVG, AI, EPS or a print-quality PDF. A high-resolution PNG is also accepted. Upload one file — the PDF. <b>“booth-panel” is the panel design; “lockup” and “mark” are the logo</b>, and the two are different requests.</p>
       </div>
       <div class="warn">
-        <b>The panel is a design now, not a logo — tell them so.</b> The organiser's guide asks for
-        a logo and prints it centrally. What we are uploading is the front-panel design: the
-        statement, and a band saying the policies are for sale at this stand. That is a reasonable
-        thing to put on the front of a booth and it is <em>not</em> what they asked for, so send one
+        <b>The panel is the buy action, and it is a design rather than a logo — tell them so.</b>
+        The guide asks for a logo and prints it centrally; what we are uploading says
+        <em>Buy an Agent Behaviour Policy here</em>, very large, on the ink ground. That is the right
+        thing on the front of a stand at knee height and it is not what they asked for, so send one
         line with it — <em>“this is our front-panel artwork rather than a bare logo; print it to fill
-        the panel”</em> — rather than letting them discover it at the press. If they would rather have
-        a plain logo, <a href="assets/brand/panel-options/panel-a-logo.png">option A</a> and
-        <a href="assets/brand/panel-options/panel-b-descriptor.png">option B</a> are rendered and
-        ready to send instead.
+        the panel”</em>. If they would rather have a plain logo,
+        <a href="assets/brand/panel-options/panel-a-logo.png">A</a> and
+        <a href="assets/brand/panel-options/panel-b-descriptor.png">B</a> are ready to send instead.
         <br><br>
-        <b>Fixed on the way:</b> the previous PDF set the mark, the gap and the wordmark in absolute
-        millimetres — about 240mm of content on a 200mm artboard — so it was clipped at both edges.
-        Everything is proportional now, and every render is measured against the board before it is
-        written. That check caught a second clipping bug in a later variant, which is the only
-        reason this note can say the file is correct.
+        <b>The statement moves to the tabletop sign.</b> <em>You know what you asked for. You don't
+        know what it can do.</em> reads well on a screen and asks for more attention than an aisle
+        gives it. At eye level, where somebody has already stopped, it is the better line — so it is
+        kept as <a href="assets/brand/panel-options/panel-c-statement.png">option C</a> for the sign,
+        the slides and the social card, and the panel does the one job a shopfront does.
+        <br><br>
+        <b>Two clipping bugs fixed getting here, both the same mistake.</b> The first PDF set the
+        artwork in absolute millimetres — about 240mm of content on a 200mm artboard. The second was
+        proportional but still clipped, because <code>page.pdf()</code> re-lays the page out at the
+        paper size, roughly 756px for 200mm, while the board was fixed at 2000px: every proportional
+        unit resolved against a container two and a half times wider than the paper. A screenshot
+        never sees that, which is why checking the raster and inferring the print file missed it
+        twice. The print document is now sized in millimetres and <b>the fit check runs against the
+        print layout</b>, so the thing being verified is the thing being sent.
       </div>
       <div class="up">
         <table class="up-t">
