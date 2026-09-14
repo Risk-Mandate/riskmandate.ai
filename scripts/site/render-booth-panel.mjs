@@ -65,22 +65,42 @@ const B = (ink, faint) => `<div class="board" style="justify-content:center;alig
   <div style="font-family:${MONO};font-size:${u(2.7)};color:${faint};line-height:1">riskmandate.ai</div>
 </div>`;
 
-// C — the statement. Uses the metre: the sentence a stranger can read while
-// walking, with the wordmark demoted to a signature. The most effective and the
-// least like a logo file, so it is the one to check with the organiser first.
-const C = `<div class="board" style="justify-content:space-between;align-items:flex-start;
-    padding:${u(9)};box-sizing:border-box;background:${DARK}">
+// C — the statement, which is the one chosen. The panel is the front of the
+// stand at knee-to-waist height, so it is a shopfront: the sentence stops
+// somebody, and the band underneath has to say that the thing being described
+// is for sale, at this stand, now. Without it the panel is an advertisement for
+// an idea rather than for a product.
+//
+// No exclamation mark. Nothing else this company publishes uses one, and at a
+// square metre it reads as a market stall rather than as a claim we stand
+// behind. It is a one-character change if that judgement is wrong.
+const statement = (sizePct) => `<div style="font-family:${SANS};font-size:${u(sizePct)};font-weight:700;
+    letter-spacing:-0.035em;line-height:1.1;color:${PAPER};white-space:nowrap">
+  You know what you<br>asked for.<br>
+  <span style="color:${GREEN}">You don't know<br>what it can do.</span>
+</div>`;
+
+// The offer, as a filled band. Filled rather than set in rules, because at two
+// to five metres and below waist height a solid block of colour is read before
+// any of the type on it.
+const band = () => `<div style="width:100%;background:${GREEN};border-radius:${u(1.2)};
+    padding:${u(3.4)} ${u(4)};box-sizing:border-box;display:flex;align-items:baseline">
+  <div style="font-family:${MONO};font-size:${u(3.5)};font-weight:700;letter-spacing:${u(0.25)};
+              text-transform:uppercase;color:${DARK};line-height:1;white-space:nowrap">Buy an Agent Behaviour Policy here</div>
+</div>`;
+
+const C = (opts = {}) => `<div class="board" style="justify-content:space-between;align-items:flex-start;
+    padding:${u(8)};box-sizing:border-box;background:${DARK}">
   ${lockup(7, PAPER)}
-  <div style="font-family:${SANS};font-size:${u(7.8)};font-weight:700;letter-spacing:-0.035em;
-              line-height:1.1;color:${PAPER};white-space:nowrap">
-    You know what you<br>asked for.<br>
-    <span style="color:${GREEN}">You don't know<br>what it can do.</span>
-  </div>
-  <div style="display:flex;align-items:baseline;gap:${u(4)};width:100%">
-    <div style="font-family:${MONO};font-size:${u(3.4)};font-weight:700;letter-spacing:${u(0.4)};
-                text-transform:uppercase;color:${GREEN};white-space:nowrap">Agent Behaviour Policy</div>
-    <div style="flex:1;height:${u(0.2)};background:rgba(247,246,242,.25)"></div>
-    <div style="font-family:${MONO};font-size:${u(3.4)};color:rgba(247,246,242,.65);white-space:nowrap">riskmandate.ai</div>
+  ${statement(opts.big ?? 7.4)}
+  <div style="width:100%;display:flex;flex-direction:column;gap:${u(2.6)}">
+    ${opts.band === false ? '' : band()}
+    <div style="display:flex;align-items:baseline;gap:${u(3)};width:100%">
+      ${opts.band === false ? `<div style="font-family:${MONO};font-size:${u(3.2)};font-weight:700;
+          letter-spacing:${u(0.3)};text-transform:uppercase;color:${GREEN};white-space:nowrap">Buy an Agent Behaviour Policy here</div>` : ''}
+      <div style="flex:1;height:${u(0.2)};background:rgba(247,246,242,.25)"></div>
+      <div style="font-family:${MONO};font-size:${u(3.2)};color:rgba(247,246,242,.7);white-space:nowrap">riskmandate.ai</div>
+    </div>
   </div>
 </div>`;
 
@@ -93,7 +113,7 @@ const doc = (inner, px, bg) => `<!doctype html><meta charset="utf-8"><style>
 const OPTIONS = [
   { id: 'a-logo',      px: 2000, bg: 'transparent', html: A(INK),         label: 'the logo, corrected' },
   { id: 'b-descriptor',px: 2000, bg: PAPER,         html: B(INK, '#6B6862'), label: 'logo + product line' },
-  { id: 'c-statement', px: 2000, bg: DARK,          html: C,              label: 'the statement panel' },
+  { id: 'c-statement', px: 2000, bg: DARK, html: C(),                          label: 'statement + offer band' },
 ];
 
 const b = await chromium.launch({ args: ['--no-sandbox'] });
@@ -107,11 +127,23 @@ for (const o of OPTIONS) {
   // fit the board? Anything wider or taller than the artboard is clipped at
   // print, and on a square metre of MDF that is not recoverable.
   const fitsOk = await pg.evaluate((px) => {
-    const bad = [...document.querySelectorAll('.board *')].filter((e) => {
+    const why = [];
+    for (const e of document.querySelectorAll('.board *')) {
       const r = e.getBoundingClientRect();
-      return r.left < -0.5 || r.top < -0.5 || r.right > px + 0.5 || r.bottom > px + 0.5;
-    });
-    return { overflow: bad.length, worst: bad.slice(0, 2).map((e) => Math.round(e.getBoundingClientRect().right)) };
+      // (a) the element's box sits outside the artboard
+      if (r.left < -0.5 || r.top < -0.5 || r.right > px + 0.5 || r.bottom > px + 0.5)
+        why.push(`${e.tagName} box to ${Math.round(r.right)}`);
+      // (b) the element's box fits but its INK does not. A nowrap child of a
+      // flex row gets shrunk to fit the row, so its rect stays inside the board
+      // while the text runs out of it — which is how the priced band passed (a)
+      // and still printed clipped. scrollWidth is what catches that.
+      // SVG elements report scroll/client sizes that do not mean overflow, and
+      // an element with no box (clientWidth 0) cannot be measured this way.
+      if (e instanceof SVGElement || e.clientWidth === 0) continue;
+      if (e.scrollWidth > e.clientWidth + 1)
+        why.push(`${e.tagName} text ${e.scrollWidth} wide in a ${e.clientWidth} box`);
+    }
+    return { overflow: why.length, worst: why.slice(0, 2) };
   }, o.px);
 
   await pg.screenshot({ path: join(PREV, `panel-${o.id}.png`), omitBackground: o.bg === 'transparent' });
@@ -121,5 +153,23 @@ for (const o of OPTIONS) {
   console.log(`  panel-${o.id}  ${o.label.padEnd(24)} ${fitsOk.overflow ? `OVERFLOWS by ${fitsOk.worst}` : 'fits'}`);
   await pg.close();
 }
+
+// ─────────────────────────────────── the chosen design, as the files to upload
+//
+// C is the panel. It is written to the canonical names so there is exactly one
+// pair of files to send, produced from the same source as the preview above.
+// The lockup and mark files are left alone: "booth-panel" means the panel
+// design, "lockup" and "mark" mean the logo, and the two are not the same
+// request.
+const canon = await b.newPage({ viewport: { width: 2000, height: 2000 }, deviceScaleFactor: 1 });
+await canon.setContent(doc(C(), 2000, DARK), { waitUntil: 'load' });
+await canon.waitForTimeout(250);
+await canon.screenshot({ path: join(OUT, 'riskmandate-booth-panel-2000.png') });
+await canon.pdf({ path: join(OUT, 'riskmandate-booth-panel.pdf'), width: '200mm', height: '200mm',
+                  printBackground: true, pageRanges: '1' });
+await canon.close();
+console.log('\n  riskmandate-booth-panel.pdf       200×200mm, the file to upload');
+console.log('  riskmandate-booth-panel-2000.png 2000×2000px, if they want a raster');
+
 await b.close();
-console.log(`\n  previews + print PDFs in site/assets/brand/panel-options/`);
+console.log(`  previews in site/assets/brand/panel-options/`);

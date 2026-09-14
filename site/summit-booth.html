@@ -401,25 +401,24 @@ table.up-t td.bad{color:var(--red);font-weight:700;white-space:nowrap}
       <div class="shead">
         <span class="tag">Ready to upload</span>
         <h2>The artwork, <span class="g">in the formats they asked for.</span></h2>
-        <p>Preferred: SVG, AI, EPS or a print-quality PDF. A high-resolution transparent PNG is also accepted. Upload one file.</p>
+        <p>Preferred: SVG, AI, EPS or a print-quality PDF. A high-resolution PNG is also accepted. Upload one file — the PDF. <b>“booth-panel” is the panel design; “lockup” and “mark” are the logo</b>, and the two are different requests.</p>
       </div>
       <div class="warn">
-        <b>Do not send riskmandate-booth-panel.pdf.</b> It is clipped. The generator set the mark,
-        the gap and the wordmark in absolute millimetres — about 240mm of content on a 200mm
-        artboard — so the mark is cut off at the left edge and the wordmark runs off the right.
-        The PNG beside it is laid out proportionally and is correct, which is why only one of the
-        two was wrong and why the error survived a visual check of the other.
-        <b>Until a panel design is chosen, the PNG is the file to upload.</b>
-        Three replacements are rendered and measured in
-        <a href="assets/brand/panel-options/panel-b-descriptor.png">panel-options</a> —
-        <a href="assets/brand/panel-options/panel-a-logo.png">A</a> the corrected logo,
-        <a href="assets/brand/panel-options/panel-b-descriptor.png">B</a> the logo with
-        <em>Agent Behaviour Policy</em> under it, and
-        <a href="assets/brand/panel-options/panel-c-statement.png">C</a> the full statement panel.
-        B is the recommendation: it reads as a logo with a descriptor, so there is nothing for the
-        organiser to reject, and it uses the square metre to say what we sell rather than only who
-        we are. C is the strongest and the least like a logo file, so it wants their agreement
-        first. Each option has a print PDF beside its preview.
+        <b>The panel is a design now, not a logo — tell them so.</b> The organiser's guide asks for
+        a logo and prints it centrally. What we are uploading is the front-panel design: the
+        statement, and a band saying the policies are for sale at this stand. That is a reasonable
+        thing to put on the front of a booth and it is <em>not</em> what they asked for, so send one
+        line with it — <em>“this is our front-panel artwork rather than a bare logo; print it to fill
+        the panel”</em> — rather than letting them discover it at the press. If they would rather have
+        a plain logo, <a href="assets/brand/panel-options/panel-a-logo.png">option A</a> and
+        <a href="assets/brand/panel-options/panel-b-descriptor.png">option B</a> are rendered and
+        ready to send instead.
+        <br><br>
+        <b>Fixed on the way:</b> the previous PDF set the mark, the gap and the wordmark in absolute
+        millimetres — about 240mm of content on a 200mm artboard — so it was clipped at both edges.
+        Everything is proportional now, and every render is measured against the board before it is
+        written. That check caught a second clipping bug in a later variant, which is the only
+        reason this note can say the file is correct.
       </div>
       <div class="up">
         <table class="up-t">
@@ -427,13 +426,13 @@ table.up-t td.bad{color:var(--red);font-weight:700;white-space:nowrap}
           <tbody>
             <tr>
               <td class="k"><a href="assets/brand/riskmandate-booth-panel.pdf">riskmandate-booth-panel.pdf</a></td>
-              <td><b>Clipped — do not use.</b> 200 × 200mm artboard with ~240mm of content on it</td>
-              <td class="bad">Superseded</td>
+              <td>200 × 200mm vector artboard. The statement, the offer band and the domain, measured to fit</td>
+              <td class="pref">Send this one</td>
             </tr>
             <tr>
               <td class="k"><a href="assets/brand/riskmandate-booth-panel-2000.png">riskmandate-booth-panel-2000.png</a></td>
-              <td>2000 × 2000px, transparent, lockup centred. Correct, and checked</td>
-              <td class="pref">Send this one, for now</td>
+              <td>2000 × 2000px raster of the same design, on the ink ground</td>
+              <td>If they want a raster</td>
             </tr>
             <tr>
               <td class="k"><a href="assets/brand/riskmandate-lockup-light.svg">riskmandate-lockup-light.svg</a></td>
