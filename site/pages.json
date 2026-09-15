@@ -311,6 +311,12 @@
       "group": "More"
     },
     {
+      "name": "admin",
+      "label": "Admin",
+      "file": "admin.html",
+      "group": "More"
+    },
+    {
       "name": "work-abp-power-user",
       "file": "work-abp-power-user.html",
       "unlisted": true

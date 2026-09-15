@@ -4,7 +4,7 @@
 
 Carriers are filing to exclude AI from cover, and the way back is evidence an underwriter will accept. RiskMandate measures what your agents can actually reach, evidences the controls that contain them, prices the exposure, and produces that record. Underneath the insurance framing is a risk model: a grant is what a credential technically permits, a mandate is what the holder is authorised and expected to do, and the gap between them is exposure nobody ever accepted. A deployed agent already has access, so a real risk cannot be denied — only accepted, by a named owner, for an interval, with an expiry that brings the decision back. RiskMandate is read-only and never in the request path: it defines the mandate and measures the gap; it does not enforce it. It is built on SG/Vault — zero-knowledge, PKI, provenance, no database — so you hold the keys.
 
-Site version v1.17.0. The version record is at https://riskmandate.ai/versions.html and its
+Site version v1.18.0. The version record is at https://riskmandate.ai/versions.html and its
 index at https://riskmandate.ai/versions/index.json.
 
 ## Core concepts
@@ -76,6 +76,7 @@ library, the scenarios — is in the page, not the twin.
 - [RiskMandate — Partners](https://riskmandate.ai/partners.html) · [md](https://riskmandate.ai/partners.md): RiskMandate is the risk-acceptance and accountability layer for the agent-detection ecosystem. We complement detection and remediation — we don't compete with them.
 - [RiskMandate — Give feedback after a demo](https://riskmandate.ai/feedback.html) · [md](https://riskmandate.ai/feedback.md): Saw a RiskMandate demo? ChatGPT will interview you by voice while it is fresh, produce an evidence pack you review and control, and you send it back. Not a survey — a conversation that becomes evidence.
 - [RiskMandate — Brand guidelines](https://riskmandate.ai/brand.html) · [md](https://riskmandate.ai/brand.md): The RiskMandate mark, colour tokens, typography and downloadable brand assets. The mark is a seal: it signals counter-signature and provenance to underwriters, risk committees and boards.
+- [RiskMandate — Admin: how this site is run](https://riskmandate.ai/admin.html) · [md](https://riskmandate.ai/admin.md): The index behind riskmandate.ai: the records it keeps, the documents it was built from, the maintenance tooling, and the front door for the agents working on it. Public, because the site is.
 - [Brief B1 — power user and tester of Agent Behaviour Policies](https://riskmandate.ai/work-abp-power-user.html) · [md](https://riskmandate.ai/work-abp-power-user.md): The first task for a freelance collaborator: make Agent Behaviour Policies for real deployments, find where the model breaks, and time it. Opens with a prompt written to paste straight into an agent, plus the full reading list across riskmandate.ai, abp.sgit.ai and the rest of the estate.
 - [RiskMandate — version record](https://riskmandate.ai/versions.html) · [md](https://riskmandate.ai/versions.md): Every version of the RiskMandate site, what changed in it, and the file that record lives in.
 - [RiskMandate — Design options (internal)](https://riskmandate.ai/design-options.html) · [md](https://riskmandate.ai/design-options.md): The eight logo concepts explored for RiskMandate, preserved as a design record with the reasoning for and against each. Concept E, the Seal, was selected.
