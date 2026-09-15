@@ -28,7 +28,7 @@ Neither of these is hypothetical. One of the documents below arrived twice, byte
 | Received | received | Archived and read, and nothing has been built from it yet |
 | Superseded | superseded | Later material replaced it. Kept, because the reasoning is still the record |
 
-## Six files, in the order they arrived.
+## Eight files, in the order they arrived.
 
 Each one is linked in full, as received, with nothing edited. Where a brief and this site disagree, the brief is what we were given and the site is what we concluded — and where we corrected a brief, the correction is on the page rather than in the file.
 
@@ -101,6 +101,34 @@ Each one is linked in full, as received, with nothing edited. Where a brief and 
 - **The reconciliation tool** between an agent's several destination lists — possibly the smallest useful thing we could ship on this capability
 - **The generic pasteable document** as an artefact rather than a table
 
+### ABP Graph and Stakeholder Views — the policy is a graph, and every stakeholder gets a projection of it
+
+**sha256** d93b0fdc381a166dd0044b024031c9ee60a789533f7efc91ff3dafe4248afa90
+
+**A voice memo, transcribed, and the transcriber wrote the acronym as `ADP` throughout.** It is the spoken ABP; the archived bytes are kept exactly as received, which is the rule, and the correction is here rather than in the file. The memo was worked into a brief on the day it was spoken and the file registered when it arrived, with D8.
+
+- [The direction brief — the policy is a graph, and every stakeholder gets a projection of it](https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/briefs/direction__abp-as-a-graph-and-stakeholder-views.md), with the vault structure it asks for and a build order
+- [The _by behaviour_ facet on the library](agent-behaviour-policy.html) — one click answers which policies can delete files, the graph's first visible edge
+- **One page per behaviour**, generated from the catalogue, listing every policy that has the edge with its barrier and its door
+- **Edges per path rather than per row** in every vault — the n8n lesson made structural
+- **Metrics and outward links on the 23 primitives** — speed, volume, blast; ATT&CK technique ids and GDPR articles, cited
+- **Views per audience** — CEO, CFO, CTO, investor, buyer, operator, engineer, project manager — with the prompt and the script shipped in the vault so the customer can regenerate the projection
+- **The two asks to the model site**, not yet on Lab 03
+
+### Use Case Driven ABP Policy Strategy — a policy per use case, and the £500 level is a prompt the customer runs
+
+**sha256** 8457a6637e212c0b91b2186efda1857836dc660deed3e328e796a267ab9e45ac
+
+**The four price points in the memo are the four levels the store put live the same day** (store.sgit.ai v0.1.7, 15 September): £5, £50, £500, £1,500. The memo's contribution is what the £500 level actually is — a prompt the customer runs in their own environment, whose output we turn into their policy — and the idea of a policy per use case, with our own Voice Debrief workflows as the first two.
+
+- [The direction brief — a policy per use case, and the £500 level is a prompt the customer runs](https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/briefs/direction__use-case-driven-policies-and-the-prompt-workflow.md), with the seven-step workflow written down
+- [Pricing](pricing.html), rebuilt around the four levels and linked to the store, with [the prompt step](pricing.html#prompt) spelled out
+- [The homepage](index.html) and every vault page point at viewing a policy and buying one
+- **The two Voice Debrief use-case vaults** — the web flow through a model-routing service, and the WhatsApp flow through n8n — written by the agent that knows those workflows and packaged here
+- **A page of its own for the £500 workflow**, once the store's side has a return address that is not a mailbox
+- **A use-case group on the library**, and the combination of several vaults' grants into one, which the generator does not do yet
+- **The per-shape header on the prompt**, naming the vocabulary and the order reference
+
 ## And the instructions that arrived as speech or a sentence.
 
 These have no digest to check, which makes them the ones most easily lost — a voice memo that changed the direction of the whole site leaves no artefact at all unless somebody writes it down. So they are recorded here in the same list, with the same two columns.
@@ -109,8 +137,8 @@ These have no digest to check, which makes them the ones most easily lost — a 
 
 - [The Agent Behaviour Policy page](abp.html)
 - The direction brief, in the repository under `docs/briefs/`
+- [Pricing](pricing.html), rebuilt around the store's four levels and linked to it
 - The homepage's second panel, which should become _the grant you did not enumerate_ and still does not
-- [Pricing](pricing.html) repointed at the store tiers
 
 **The Startup Summit exhibitor pack and the event site**, for a strategy document and the materials we need to submit.
 
@@ -152,15 +180,15 @@ sha256sum my-brief.md
 
 A register that only lists what was done is a press release.
 
-Every entry above carries what it asked for and did not get, and on most of the eleven that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.
+Every entry above carries what it asked for and did not get, and on most of the thirteen that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.
 
 - **The file is the record, not this page.** [briefs-register.json](briefs-register.json) is what a program should read; this page renders it for people. If the two ever disagree, the file is right and the page is stale.
 - **Every archived document is byte-identical to what arrived.** Nothing is edited, reformatted or trimmed — including the parts we think are wrong. Where we disagree with a brief, the disagreement is published on the page it produced and marked as ours.
 - **Statuses go stale in one direction only.** An item marked _received_ can become _processed_. Nothing moves the other way, and nothing is deleted from the list once it is on it.
 - **If something is missing, that is the most useful thing you could tell us.** Use the contact control in the header and name the digest.
 
-Register maintained by hand alongside the work, and checked in CI: every document listed must exist at the path given and match its recorded digest, and every file in `assets/briefs/` must appear in the register. Last reconciled 12 September 2026.
+Register maintained by hand alongside the work, and checked in CI: every document listed must exist at the path given and match its recorded digest, and every file in `assets/briefs/` must appear in the register. Last reconciled 15 September 2026.
 
-## Eleven items. None untouched, and none finished.
+## Thirteen items. None untouched, and none finished.
 
-Every item now names something it produced and something it did not. Five of the eleven are marked _partly_, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.
+Every item now names something it produced and something it did not. Six of the thirteen are marked _partly_, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.

@@ -14,6 +14,8 @@ before claiming one, then write your `.claude/work/<branch>.md` naming the brief
 | `T06-next-connector-vaults.md` | the next five connectors, then the three business functions | `site/vaults/<new-slug>/`, `site/vaults/index.json` | half a day each |
 | `T07-lab-03-asks.md` | the request list against the model site, brought up to date | `site/lab-abp-requests.html`, an edition | two hours |
 | `T08-docs-refresh.md` | bring `docs/how-the-website-works.md` to the current site | `docs/how-the-website-works.md` | half a day |
+| `T09-stop-deploying-the-vault.md` | inputs in the repository, the product in the vault; drop the snapshot fallback | the two build scripts, `abp-vaults.js`, `site/vaults/`, tests, CI | half a day |
+| `T10-use-case-vaults.md` | the two Voice Debrief use-case vaults, and a use-case group on the library | `site/vaults/voice-debrief-*/`, `index.json`, the library page | a day |
 
 A brief is done when its *Done means* list is true, `npm run check` is green, the state file is
 updated, and the branch is merged or handed over with its work file saying what is left.

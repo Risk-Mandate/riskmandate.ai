@@ -645,6 +645,13 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
 .ab-form .row{grid-column:1 / -1;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 .ab-form .note{font-size:12.5px;color:var(--muted)}
 @media (max-width:700px){.ab-form{grid-template-columns:1fr}}
+
+/* the two host frames on a vault page: App Mode above, the vault browser below and taller */
+.vd-stage.tall{aspect-ratio:16/12}
+.ab-live{display:flex;flex-direction:column;gap:34px;margin-top:8px}
+.ab-live-h{font-size:17px;font-weight:700;letter-spacing:-.01em;color:var(--text);margin:0 0 4px}
+.ab-live-p{font-size:14px;color:var(--muted);line-height:1.65;max-width:76ch}
+@media (max-width:700px){.vd-stage,.vd-stage.tall{aspect-ratio:auto;height:70vh}}
 </style>
 </head>
 <body id="top">
@@ -654,7 +661,7 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
     <a class="ghlink" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener" aria-label="The source, on GitHub" title="Open source · Apache-2.0 code · CC BY 4.0 pages"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a>
-      <a class="version" href="versions.html" title="What shipped in v1.18.0">v1.18.0</a>
+      <a class="version" href="versions.html" title="What shipped in v1.19.0">v1.19.0</a>
     <button class="demo" data-demo>Get in touch</button>
   </div>
 </header>
@@ -667,7 +674,8 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
     <h1>Claude in the browser,<span class="it"> with connectors switched on.</span></h1>
     <p class="sub">The same web assistant with connectors you switched on — a drive, a code host, a cloud account. Each connector is a boundary (the vendor holds the token, scoped as you scoped it) and each one is a row you granted by clicking. This is the template vault for that shape: the grant derived from what the shape architecturally is and from published documentation, the starting mandate the model site published, and everything else derived. Every number on this page is decrypted from the vault as you read it.</p>
     <div class="cta-row">
-      <button class="btn btn-green" data-to="app">Open the vault's app ↓</button>
+      <button class="btn btn-green" data-to="live">See it live ↓</button>
+      <a class="btn btn-ghost" href="https://store.sgit.ai/p/claude-web-connectors/" target="_blank" rel="noopener">Buy this policy, from £5 ↗</a>
       <button class="btn btn-ghost" data-to="key">The read key ↓</button>
     </div>
   </div>
@@ -675,10 +683,33 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
 
 <div class="paper">
 
-  <section class="psection" id="card">
+  <section class="psection" id="live">
     <div class="wrap">
       <div class="shead">
-        <span class="tag">01 · The card</span>
+        <span class="tag">01 · See it live</span>
+        <h2>The vault in action, <span class="g">and the vault itself.</span></h2>
+        <p>Two frames, both the official SG/Vault interface opened read-only with the key printed at the bottom of this page, both reading the vault and not this site. The first is the vault's own app, which is what whoever is handed the policy sees: what we want the agent to do beside what we do not, the mandate to correct, the files to give the agent. The second is the vault browser: every file in the tree, its history, and the same app one click away. Between them is what you are buying at every level — the app is the reading, the tree is the record.</p>
+      </div>
+      <div class="ab-live">
+        <div>
+          <h3 class="ab-live-h">The app</h3>
+          <p class="ab-live-p">Opens on <em>Start here</em>. Use the tabs across the top: the grant, the mandate you can correct, the delta, the licence, and three ways to hand the files to the agent.</p>
+          <rm-abp-host data-vault="claude-web-connectors" data-mode="app"></rm-abp-host>
+        </div>
+        <div>
+          <h3 class="ab-live-h">The vault</h3>
+          <p class="ab-live-p">The tree on the left is the whole product: the markdown for people, the JSON for machines, the pinned vocabulary, the six scenarios, the history of every recompute. Click a file to read it; the same app is under <em>index.html</em>.</p>
+          <rm-abp-host data-vault="claude-web-connectors" data-mode="vault"></rm-abp-host>
+        </div>
+      </div>
+      <p class="src">The read key travels to the host over a same-page handshake, never in a URL. Nothing you do in either frame touches the vault: it is opened read-only, and the write key is not published. Not loading? <a href="https://dev.vault.sgraph.ai/en-gb/#2bf331cfad716bdc7f37feddd7f1892c651425dd844381d3f392ed1b3419447d:wkm5owfl" target="_blank" rel="noopener">Open it in its own tab ↗</a>.</p>
+    </div>
+  </section>
+
+  <section class="psection alt" id="card">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">02 · The card</span>
         <h2>Five it can do. Three you asked for. <span class="g">Zero nothing bounds.</span></h2>
         <p>Four counts and no score. The bar splits the excess by what stands in the way of each row: nothing, a rule in prose, a setting the agent's own account can flip, or a boundary enforced above it. Only the last is a control. 0 of 5 rows were measured; the rest are derived, and the provenance line on every row says so.</p>
       </div>
@@ -686,10 +717,10 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
     </div>
   </section>
 
-  <section class="psection alt" id="mandate">
+  <section class="psection" id="mandate">
     <div class="wrap">
       <div class="shead">
-        <span class="tag">02 · The mandate</span>
+        <span class="tag">03 · The mandate</span>
         <h2>What you asked it to do, <span class="g">and what you did not.</span></h2>
         <p>Elicited, and the only authored file in the vault. This is the draft asserting a conservative mandate so that the correction goes upward: most people authorised less than they think, and never mentioned the rest.</p>
       </div>
@@ -697,10 +728,10 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
     </div>
   </section>
 
-  <section class="psection" id="grant">
+  <section class="psection alt" id="grant">
     <div class="wrap">
       <div class="shead">
-        <span class="tag">02 · The grant</span>
+        <span class="tag">04 · The grant</span>
         <h2>Everything the agent can do, <span class="g">irreversible rows first.</span></h2>
         <p>Measured from the shape, not from your account and not by you. Each row says how it is known (✓ marks a row observed on the thing itself), what stands in the way, and whether the effect can be undone. What host, tenant and world mean in this shape is stated on the vault's Grant view, because for an agent in a vendor's container the host is the container and not your machine.</p>
       </div>
@@ -712,10 +743,10 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
     </div>
   </section>
 
-  <section class="psection alt" id="delta">
+  <section class="psection" id="delta">
     <div class="wrap">
       <div class="shead">
-        <span class="tag">02 · The delta</span>
+        <span class="tag">05 · The delta</span>
         <h2>What it can do <span class="g">that nobody asked for.</span></h2>
         <p>Derived from the grant and the mandate, never authored, stored with both inputs pinned. Split three ways: the part you refused, the part you never mentioned, and the part with no boundary in the way — which is the only list a real control shortens.</p>
       </div>
@@ -723,10 +754,10 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
     </div>
   </section>
 
-  <section class="psection" id="licence">
+  <section class="psection alt" id="licence">
     <div class="wrap">
       <div class="shead">
-        <span class="tag">02 · Licence to Operate</span>
+        <span class="tag">06 · Licence to Operate</span>
         <h2>The organisation authorises the agent, <span class="g">for an interval, on conditions.</span></h2>
         <p>The organisation is the authority, the behaviour policy is the instrument, the agent is the licensee. A template is unsigned and unissued; a corrected vault carries a name, a date and an interval — and each condition sits next to what enforces it, so the person signing knows what they are accepting with their eyes open.</p>
       </div>
@@ -734,28 +765,12 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
     </div>
   </section>
 
-  <section class="psection alt" id="app">
-    <div class="wrap">
-      <div class="shead">
-        <span class="tag">03 · The app</span>
-        <h2>The vault's own interface, <span class="g">running here from the vault.</span></h2>
-        <p>The vault carries a single self-contained page that renders itself from the files beside it, and opens on Start here: what this is, where the pieces go, what we want the agent to do beside what we do not, and three ways to hand it over. Below it is booted inside a sandboxed frame with an opaque origin and served its reads by this page over a message channel — the app never sees a key, and this page never runs the app's code in its own origin.</p>
-      </div>
-      <div class="cta-row ab-openrow">
-        <a class="btn btn-green" href="vaults/claude-web-connectors/index.html" target="_blank" rel="noopener">Open the app in a new window ↗</a>
-        <a class="btn btn-ghost" href="https://dev.vault.sgraph.ai/en-gb/#2bf331cfad716bdc7f37feddd7f1892c651425dd844381d3f392ed1b3419447d:wkm5owfl" target="_blank" rel="noopener">Open in the vault browser ↗</a>
-      </div>
-      <p class="src">On a phone, open it in its own window: the frame below is the same app, sandboxed, and small. The vault browser is the whole product — files, history and the app — and the button carries the public read key, so it opens read-only without a paste. The copy this site serves at <a href="vaults/claude-web-connectors/index.html">vaults/claude-web-connectors/index.html</a> says in its top bar which route it loaded the app by.</p>
-      <rm-abp-app data-vault="claude-web-connectors"></rm-abp-app>
-    </div>
-  </section>
-
   <section class="psection" id="files">
     <div class="wrap">
       <div class="shead">
-        <span class="tag">04 · The files</span>
+        <span class="tag">07 · The files</span>
         <h2>The bytes themselves, <span class="g">listed from the live tree.</span></h2>
-        <p>Markdown for people, JSON for machines, the pinned vocabulary, the history, and the two files you hand the agent — <code>AGENTS.md</code> for a CLAUDE.md, a ROLE.md or a skill, and <code>SKILL.md</code> in the portable skill format. The list is the vault's; each link opens the copy this site serves.</p>
+        <p>Markdown for people, JSON for machines, the pinned vocabulary, the history, and the two files you hand the agent — <code>AGENTS.md</code> for a CLAUDE.md, a ROLE.md or a skill, and <code>SKILL.md</code> in the portable skill format. The list is read from the vault's live tree; the vault browser above opens any of them from the vault itself, and each link here opens the copy this site keeps for the build.</p>
       </div>
       <rm-abp-files data-vault="claude-web-connectors"></rm-abp-files>
     </div>
@@ -764,7 +779,7 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
   <section class="psection alt" id="key">
     <div class="wrap">
       <div class="shead">
-        <span class="tag">The read key</span>
+        <span class="tag">08 · The read key</span>
         <h2>Published on purpose. <span class="g">Read, and nothing else.</span></h2>
         <p>Derived one-way from the vault's write key, which is not published and never will be. With the key below anyone can clone this vault, open it in the vault browser, or read it from their own page — and check every number above against the bytes it came from. That is what makes a template free: the library is the argument, and it is public. A buyer's corrected vault has no public key.</p>
       </div>
@@ -778,10 +793,11 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
 <section class="pcta">
   <div class="wrap">
     <span class="eyebrow"><span class="d"></span> Behaviour-policy vault</span>
-    <h2>Run this? Correct the mandate.</h2>
-    <p>Open the app above, move the rows that are wrong, and send us the export. Your vault is this one with the mandate corrected, a name on the licence, and no public key — and it recomputes when the grant moves.</p>
+    <h2>Run this? <span class="it">Buy the one for your deployment.</span></h2>
+    <p>This template is free and public. Yours is this vault with the mandate corrected, a name on the licence, and no public key — and it recomputes when the grant moves. Four levels at the store: the pack by email for £5, a working vault you hold the keys to for £50, corrected for your situation for £500, or two sessions with a professional's signature for £1,500.</p>
     <div class="cta-row">
-      <a class="btn btn-green" href="vaults/claude-web-connectors/MANDATE.md">Read the mandate ↗</a>
+      <a class="btn btn-green" href="https://store.sgit.ai/p/claude-web-connectors/" target="_blank" rel="noopener">Buy this policy ↗</a>
+      <a class="btn btn-ghost" href="pricing.html">The four levels</a>
       <a class="btn btn-ghost" href="agent-behaviour-policy.html">All applications</a>
     </div>
   </div>
@@ -799,7 +815,7 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
 (function(){
 'use strict';
 var RM={core:{},services:{},components:{},data:{}};
-RM.data.currentPage="abp-vault-claude-web-connectors";RM.data.pages=[{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"The problem"},{"name":"acceptable","label":"Accepted is not acceptable","file":"acceptable.html","group":"The problem"},{"name":"acceptance","label":"You own the risk","file":"acceptance.html","group":"The problem"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"The problem"},{"name":"abp","label":"Agent Behaviour Policy","file":"abp.html","group":"The model"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"The model"},{"name":"agents","label":"Agents","file":"agents.html","group":"The model"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"The model"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"The model"},{"name":"statics","label":"Static scenarios","file":"statics.html","group":"The model"},{"name":"agent-behaviour-policy","label":"Agent Behaviour Policies","file":"agent-behaviour-policy.html"},{"name":"demos","label":"All demos","file":"demos.html","group":"Live demos"},{"name":"demo-licence-to-operate","label":"Licence to Operate","file":"demo-licence-to-operate.html","group":"Live demos"},{"name":"demo-risk-graph-explorer","label":"RiskGraph Explorer","file":"demo-risk-graph-explorer.html","group":"Live demos"},{"name":"demo-agentic-browser-isolation","label":"Agentic Browser Isolation","file":"demo-agentic-browser-isolation.html","group":"Live demos"},{"name":"demo-risk-mandate-field","label":"RiskMandate field demo","file":"demo-risk-mandate-field.html","group":"Live demos"},{"name":"demo-file-security","label":"File security walk","file":"demo-file-security.html","group":"Live demos"},{"name":"demo-agent-permission-games","label":"Permission games","file":"demo-agent-permission-games.html","group":"Live demos"},{"name":"lab","label":"All entries","file":"lab.html","group":"Lab"},{"name":"lab-connector-grants","label":"01 · The grant is user-shaped","file":"lab-connector-grants.html","group":"Lab"},{"name":"lab-abp-flow","label":"02 · Buying a behaviour policy","file":"lab-abp-flow.html","group":"Lab"},{"name":"lab-abp-requests","label":"03 · Requests to abp.sgit.ai","file":"lab-abp-requests.html","group":"Lab"},{"name":"lab-shape-collector","label":"04 · The shape collector","file":"lab-shape-collector.html","group":"Lab"},{"name":"lab-commit-author","label":"05 · The commit author","file":"lab-commit-author.html","group":"Lab"},{"name":"lab-network-reach","label":"06 · Every routable address","file":"lab-network-reach.html","group":"Lab"},{"name":"lab-vault-delivered","label":"07 · The vault, delivered","file":"lab-vault-delivered.html","group":"Lab"},{"name":"summit","label":"Lisbon 2026","file":"summit.html"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"briefs","label":"Brief register","file":"briefs.html","group":"More"},{"name":"work","label":"Working with us","file":"work.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"admin","label":"Admin","file":"admin.html","group":"More"}];RM.data.sections=[];
+RM.data.currentPage="abp-vault-claude-web-connectors";RM.data.pages=[{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"The problem"},{"name":"acceptable","label":"Accepted is not acceptable","file":"acceptable.html","group":"The problem"},{"name":"acceptance","label":"You own the risk","file":"acceptance.html","group":"The problem"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"The problem"},{"name":"abp","label":"Agent Behaviour Policy","file":"abp.html","group":"The model"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"The model"},{"name":"agents","label":"Agents","file":"agents.html","group":"The model"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"The model"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"The model"},{"name":"statics","label":"Static scenarios","file":"statics.html","group":"The model"},{"name":"agent-behaviour-policy","label":"Agent Behaviour Policies","file":"agent-behaviour-policy.html"},{"name":"demos","label":"All demos","file":"demos.html","group":"Live demos"},{"name":"demo-licence-to-operate","label":"Licence to Operate","file":"demo-licence-to-operate.html","group":"Live demos"},{"name":"demo-risk-graph-explorer","label":"RiskGraph Explorer","file":"demo-risk-graph-explorer.html","group":"Live demos"},{"name":"demo-agentic-browser-isolation","label":"Agentic Browser Isolation","file":"demo-agentic-browser-isolation.html","group":"Live demos"},{"name":"demo-risk-mandate-field","label":"RiskMandate field demo","file":"demo-risk-mandate-field.html","group":"Live demos"},{"name":"demo-file-security","label":"File security walk","file":"demo-file-security.html","group":"Live demos"},{"name":"demo-agent-permission-games","label":"Permission games","file":"demo-agent-permission-games.html","group":"Live demos"},{"name":"summit","label":"Lisbon 2026","file":"summit.html"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"lab","label":"The Lab","file":"lab.html","group":"More"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"briefs","label":"Brief register","file":"briefs.html","group":"More"},{"name":"work","label":"Working with us","file":"work.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"admin","label":"Admin","file":"admin.html","group":"More"}];RM.data.sections=[];
 
 'use strict';
 // components/dom.js — tiny DOM helpers shared by components. `el` builds an
@@ -1563,6 +1579,43 @@ RM.services.abpVaults = (function () {
     }
   };
 
+  // ---- <rm-abp-host data-vault data-mode="app|vault"> : the official SG/Vault interface, embedded ----
+  // The host's own embed protocol, the same one the demo pages use: load /en-gb/app/ (App Mode)
+  // or /en-gb/vault/ (the vault browser: files, history, the app) with ?embed=1&parent=<origin>,
+  // wait for {sg:'vault-embed-ready'} FROM THAT FRAME, then post {sg:'vault-open', key, mode} with
+  // the target origin pinned to the host. The key never enters a URL and never touches the host's
+  // storage, which is partitioned inside a cross-site frame and would lose it. What the frame shows
+  // is read from the vault by the host, not from this site: this page holds nothing but the key.
+  var hostRegistry = [], hostListening = false;
+  function hostListen() {
+    if (hostListening) return; hostListening = true;
+    window.addEventListener('message', function (e) {
+      if (e.origin !== UI) return;
+      var d = e.data || {}, entry = null;
+      for (var i = 0; i < hostRegistry.length; i++) { try { if (hostRegistry[i].frame.contentWindow === e.source) { entry = hostRegistry[i]; break; } } catch (err) { /* detached */ } }
+      if (!entry || !e.source) return;
+      if (d.sg === 'vault-embed-ready') { e.source.postMessage({ sg: 'vault-open', key: entry.key, mode: entry.mode }, UI); entry.set('opening', 'Key handed over · opening…'); }
+      else if (d.sg === 'vault-ready') { var m = []; if (d.vaultName) m.push(d.vaultName); if (d.fileCount) m.push(d.fileCount + ' files'); entry.set('live', 'Live · read-only' + (m.length ? ' · ' + m.join(' · ') : '')); }
+      else if (d.sg === 'vault-error') { entry.set('stall', 'The host could not open it: ' + String(d.message || d.error || 'unknown')); }
+    });
+  }
+  RM.components.AbpHost = class extends HTMLElement {
+    connectedCallback() {
+      var v = bySlug(this.dataset.vault); if (!v) return;
+      var mode = this.dataset.mode === 'vault' ? 'vault' : 'app';
+      hostListen();
+      var status = dom.el('span', { class: 'vd-status wait' }, ['Connecting…']);
+      var frame  = dom.el('iframe', { class: 'vd-frame', title: (mode === 'vault' ? 'The vault browser' : 'The vault’s app') + ' — ' + v.app + ', opened read-only', sandbox: 'allow-scripts allow-same-origin allow-popups allow-forms', loading: 'lazy', referrerpolicy: 'no-referrer' });
+      frame.src = UI + (mode === 'vault' ? '/en-gb/vault/' : '/en-gb/app/') + '?embed=1&parent=' + encodeURIComponent(location.origin);
+      var entry = { frame: frame, key: v.key + ':' + v.vid, mode: mode, set: function (c, t) { status.className = 'vd-status ' + c; status.textContent = t; } };
+      hostRegistry.push(entry);
+      var label = mode === 'vault' ? 'SG/Vault · the vault browser: every file, the history, the app · ' + v.vid : 'SG/App · the vault’s own app, opened by the host · ' + v.vid;
+      this.appendChild(dom.el('div', { class: 'ab-appbar' }, [dom.el('span', { class: 'ab-applabel' }, [label]), status, dom.el('a', { class: 'ab-open', href: UI + '/en-gb/#' + v.key + ':' + v.vid, target: '_blank', rel: 'noopener' }, ['open in its own tab ↗'])]));
+      this.appendChild(dom.el('div', { class: 'vd-stage' + (mode === 'vault' ? ' tall' : '') }, [frame]));
+      setTimeout(function () { if (status.classList.contains('wait')) entry.set('stall', 'Not loading here? Open it in its own tab ↗'); }, 20000);
+    }
+  };
+
   // ---- <rm-abp-app data-vault> : the vault's own app, mounted in a sandboxed frame ----
   // The frame is srcdoc with sandbox="allow-scripts" only: opaque origin, no cookies, no
   // storage, no reach into this page. It gets a window.sg shim whose every read is served
@@ -1847,6 +1900,7 @@ RM.services.abpVaults = (function () {
   customElements.define('rm-abp-files', RM.components.AbpFiles);
   customElements.define('rm-abp-key',   RM.components.AbpKey);
   customElements.define('rm-abp-app',   RM.components.AbpApp);
+  customElements.define('rm-abp-host',  RM.components.AbpHost);
 
   return { VAULTS: VAULTS, bySlug: bySlug, publicKey: publicKey, load: load, Reader: Reader, ENDPOINT: ENDPOINT, UI: UI, computeDelta: computeDelta, logoEl: logoEl };
 })();

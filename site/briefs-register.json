@@ -191,6 +191,76 @@
         "The generic pasteable document as an artefact. Lab 06 drafts it in a table; open question 4 is whether it should be published before the custom generator exists."
       ],
       "notes": "Seven load-bearing quotations were fetched and checked rather than relayed, including the reference container's firewall script. Two departures from the brief are stated on the page: the brief reports observing the two egress paths diverge in one session, and in ours they did not — both reached every host tried — so the finding rests on the vendor's own sentences rather than on that observation; and we published our own measurement of this machine's egress instead, which found a raw outbound socket to an arbitrary public address and working name resolution with no allow list in either path."
+    },
+    {
+      "id": "D7",
+      "title": "ABP Graph and Stakeholder Views — the policy is a graph, and every stakeholder gets a projection of it",
+      "version": null,
+      "type": "voice memo (Otter transcript)",
+      "dated": "2026-09-15",
+      "file": "assets/briefs/2026-09-15__voice-memo__abp-graph-and-stakeholder-views__otter-transcript.txt",
+      "bytes": 4026,
+      "sha256": "d93b0fdc381a166dd0044b024031c9ee60a789533f7efc91ff3dafe4248afa90",
+      "received": [
+        "2026-09-15T11:40Z"
+      ],
+      "duplicate_of": null,
+      "status": "partly",
+      "produced": [
+        {
+          "what": "The direction brief: the policy is a graph, and every stakeholder gets a projection of it (docs/briefs/direction__abp-as-a-graph-and-stakeholder-views.md)",
+          "url": "https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/briefs/direction__abp-as-a-graph-and-stakeholder-views.md"
+        },
+        {
+          "what": "The by-behaviour facet on the library: one click answers which policies can delete files",
+          "url": "agent-behaviour-policy.html"
+        }
+      ],
+      "not_done": [
+        "One page per behaviour, generated from the catalogue",
+        "Edges per path rather than per row, in every vault",
+        "Metrics (speed, volume, blast) and outward links (ATT&CK, GDPR) on the 23 primitives",
+        "Views per audience — CEO, CFO, CTO, investor, buyer, operator, engineer, project manager — with the prompt and the script shipped in the vault so the projection can be regenerated",
+        "The two asks to the model site, on Lab 03"
+      ],
+      "notes": "The memo was worked from the transcript on 15 September before the file itself was registered; the file arrived the same day with D8. The transcriber writes the acronym as \"ADP\" throughout; it is the spoken \"ABP\", and the archived bytes are kept as received. The task briefs for the unbuilt items are in the repository under .claude/briefs/ (T01–T04, T07)."
+    },
+    {
+      "id": "D8",
+      "title": "Use Case Driven ABP Policy Strategy — a policy per use case, and the £500 level is a prompt the customer runs",
+      "version": null,
+      "type": "voice memo (Otter transcript)",
+      "dated": "2026-09-15",
+      "file": "assets/briefs/2026-09-15__voice-memo__use-case-driven-abp-strategy__otter-transcript.txt",
+      "bytes": 3874,
+      "sha256": "8457a6637e212c0b91b2186efda1857836dc660deed3e328e796a267ab9e45ac",
+      "received": [
+        "2026-09-15T11:40Z"
+      ],
+      "duplicate_of": null,
+      "status": "partly",
+      "produced": [
+        {
+          "what": "The direction brief: a policy per use case, and the £500 level is a prompt the customer runs (docs/briefs/direction__use-case-driven-policies-and-the-prompt-workflow.md)",
+          "url": "https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/briefs/direction__use-case-driven-policies-and-the-prompt-workflow.md"
+        },
+        {
+          "what": "The pricing page rebuilt around the four levels, with the level-3 prompt workflow written out step by step and every level linked to the store",
+          "url": "pricing.html#prompt"
+        },
+        {
+          "what": "The homepage and every vault page point at viewing a policy and buying one at the store",
+          "url": "index.html"
+        }
+      ],
+      "not_done": [
+        "The two Voice Debrief use-case vaults (the web flow through a model-routing service; the WhatsApp flow through n8n), written by the agent that knows those workflows and packaged here",
+        "A page of its own for the £500 workflow, once the store's side has a return address that is not a mailbox",
+        "A use-case group on the library page, and the combination of several vaults' grants into one",
+        "The per-shape header on MAP-A-GRANT.md naming the vocabulary and the order reference",
+        "Synchronising the level-3 wording with the store agent's page"
+      ],
+      "notes": "Received with D7 on 15 September. The store's four levels went live the same day (store.sgit.ai v0.1.7); the memo's four price points match them."
     }
   ],
   "informal": [
@@ -208,11 +278,14 @@
         {
           "what": "The Agent Behaviour Policy page",
           "url": "abp.html"
+        },
+        {
+          "what": "Pricing, rebuilt around the store's four levels and linked to it (v1.19.0)",
+          "url": "pricing.html"
         }
       ],
       "not_done": [
-        "The homepage's second panel, which should become \"the grant you did not enumerate\" and still does not.",
-        "pricing.html repointed at the store tiers."
+        "The homepage's second panel, which should become \"the grant you did not enumerate\" and still does not."
       ]
     },
     {

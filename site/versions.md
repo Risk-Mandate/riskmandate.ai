@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.19.0** · 2026-09-15 — View a policy, buy a policy: the store linked, pricing as the four levels, the vault pages open on the vault itself, and the Lab steps back
+  Notes: https://riskmandate.ai/versions/1.19.0.md · Source: `git:v1.19.0`
 - **v1.18.0** · 2026-09-15 — The agents' front door, and an admin page that shows how the site is run
   Notes: https://riskmandate.ai/versions/1.18.0.md · Source: `git:v1.18.0`
 - **v1.17.0** · 2026-09-15 — The Agent Behaviour Policy library, wider and readable: the label, the lethal trifecta, the diagram, a resizable panel, and a page for what is next

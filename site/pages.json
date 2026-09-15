@@ -1,5 +1,5 @@
 {
-  "note": "The site's own list of its pages. generate.mjs injects the menu entries into every page as RM.data.pages, so this file is the only place the list lives. `unlisted` pages are real pages with their own URL that the header menu does not show. `private` pages are additionally kept out of the sitemap, llms.txt and the 404 list, carry noindex, and get no markdown twin — they are working pages for us, not published ones, and site/ is a public web root so they are reachable by anyone who has the URL. Keep at most 7 top-level entries (a group counts as one) — the header bar is capped at 1100px and overflows past that.",
+  "note": "The site's own list of its pages. generate.mjs injects the menu entries into every page as RM.data.pages, so this file is the only place the list lives. `unlisted` pages are real pages with their own URL that the header menu does not show. `private` pages are additionally kept out of the sitemap, llms.txt and the 404 list, carry noindex, and get no markdown twin \u2014 they are working pages for us, not published ones, and site/ is a public web root so they are reachable by anyone who has the URL. Keep at most 7 top-level entries (a group counts as one) \u2014 the header bar is capped at 1100px and overflows past that.",
   "pages": [
     {
       "name": "home",
@@ -51,7 +51,7 @@
     },
     {
       "name": "ramm",
-      "label": "RAMM — acceptance maturity",
+      "label": "RAMM \u2014 acceptance maturity",
       "file": "ramm.html",
       "group": "The model"
     },
@@ -123,140 +123,134 @@
     {
       "name": "abp-vault-n8n-owner-api-key",
       "file": "abp-vault-n8n-owner-api-key.html",
-      "label": "Vault · n8n, owner API key",
+      "label": "Vault \u00b7 n8n, owner API key",
       "unlisted": true
     },
     {
       "name": "abp-vault-dropbox-mcp",
       "file": "abp-vault-dropbox-mcp.html",
-      "label": "Vault · Dropbox MCP server",
+      "label": "Vault \u00b7 Dropbox MCP server",
       "unlisted": true
     },
     {
       "name": "abp-vault-claude-m365-connector",
       "file": "abp-vault-claude-m365-connector.html",
-      "label": "Vault · Microsoft 365 connector (Claude)",
+      "label": "Vault \u00b7 Microsoft 365 connector (Claude)",
       "unlisted": true
     },
     {
       "name": "abp-vault-google-drive-readonly",
       "file": "abp-vault-google-drive-readonly.html",
-      "label": "Vault · Google Drive, read-only scope",
+      "label": "Vault \u00b7 Google Drive, read-only scope",
       "unlisted": true
     },
     {
       "name": "abp-vault-gmail-readonly",
       "file": "abp-vault-gmail-readonly.html",
-      "label": "Vault · Gmail, read-only scope",
+      "label": "Vault \u00b7 Gmail, read-only scope",
       "unlisted": true
     },
     {
       "name": "abp-vault-google-workspace-mcp",
       "file": "abp-vault-google-workspace-mcp.html",
-      "label": "Vault · Google Workspace MCP servers",
+      "label": "Vault \u00b7 Google Workspace MCP servers",
       "unlisted": true
     },
     {
       "name": "abp-vault-scheduled-job",
       "file": "abp-vault-scheduled-job.html",
-      "label": "Vault · A scheduled job",
+      "label": "Vault \u00b7 A scheduled job",
       "unlisted": true
     },
     {
       "name": "abp-vault-github-actions",
       "file": "abp-vault-github-actions.html",
-      "label": "Vault · GitHub Actions",
+      "label": "Vault \u00b7 GitHub Actions",
       "unlisted": true
     },
     {
       "name": "abp-vault-browser-extension",
       "file": "abp-vault-browser-extension.html",
-      "label": "Vault · A browser extension",
+      "label": "Vault \u00b7 A browser extension",
       "unlisted": true
     },
     {
       "name": "abp-vault-chatgpt-web",
       "file": "abp-vault-chatgpt-web.html",
-      "label": "Vault · ChatGPT in the browser",
+      "label": "Vault \u00b7 ChatGPT in the browser",
       "unlisted": true
     },
     {
       "name": "abp-vault-claude-web-connectors",
       "file": "abp-vault-claude-web-connectors.html",
-      "label": "Vault · Claude in the browser, connectors on",
+      "label": "Vault \u00b7 Claude in the browser, connectors on",
       "unlisted": true
     },
     {
       "name": "abp-vault-claude-desktop",
       "file": "abp-vault-claude-desktop.html",
-      "label": "Vault · Claude Desktop",
+      "label": "Vault \u00b7 Claude Desktop",
       "unlisted": true
     },
     {
       "name": "abp-vault-claude-code-cli-confirmations-off",
       "file": "abp-vault-claude-code-cli-confirmations-off.html",
-      "label": "Vault · Claude Code, confirmations off",
+      "label": "Vault \u00b7 Claude Code, confirmations off",
       "unlisted": true
     },
     {
       "name": "abp-vault-claude-code-cli",
       "file": "abp-vault-claude-code-cli.html",
-      "label": "Vault · Claude Code on your machine",
+      "label": "Vault \u00b7 Claude Code on your machine",
       "unlisted": true
     },
     {
       "name": "abp-vault-claude-code-web",
       "file": "abp-vault-claude-code-web.html",
-      "label": "Vault · Claude Code on the web",
+      "label": "Vault \u00b7 Claude Code on the web",
       "unlisted": true
     },
     {
-      "name": "lab",
-      "label": "All entries",
-      "file": "lab.html",
-      "group": "Lab"
-    },
-    {
       "name": "lab-connector-grants",
-      "label": "01 · The grant is user-shaped",
+      "label": "01 \u00b7 The grant is user-shaped",
       "file": "lab-connector-grants.html",
-      "group": "Lab"
+      "unlisted": true
     },
     {
       "name": "lab-abp-flow",
-      "label": "02 · Buying a behaviour policy",
+      "label": "02 \u00b7 Buying a behaviour policy",
       "file": "lab-abp-flow.html",
-      "group": "Lab"
+      "unlisted": true
     },
     {
       "name": "lab-abp-requests",
-      "label": "03 · Requests to abp.sgit.ai",
+      "label": "03 \u00b7 Requests to abp.sgit.ai",
       "file": "lab-abp-requests.html",
-      "group": "Lab"
+      "unlisted": true
     },
     {
       "name": "lab-shape-collector",
-      "label": "04 · The shape collector",
+      "label": "04 \u00b7 The shape collector",
       "file": "lab-shape-collector.html",
-      "group": "Lab"
+      "unlisted": true
     },
     {
       "name": "lab-commit-author",
-      "label": "05 · The commit author",
+      "label": "05 \u00b7 The commit author",
       "file": "lab-commit-author.html",
-      "group": "Lab"
+      "unlisted": true
     },
     {
       "name": "lab-network-reach",
-      "label": "06 · Every routable address",
+      "label": "06 \u00b7 Every routable address",
       "file": "lab-network-reach.html",
-      "group": "Lab"
+      "unlisted": true
     },
     {
       "name": "lab-vault-delivered",
-      "label": "07 · The vault, delivered",
+      "label": "07 \u00b7 The vault, delivered",
       "file": "lab-vault-delivered.html",
-      "group": "Lab"
+      "unlisted": true
     },
     {
       "name": "summit",
@@ -267,6 +261,12 @@
       "name": "pricing",
       "label": "Pricing",
       "file": "pricing.html"
+    },
+    {
+      "name": "lab",
+      "label": "The Lab",
+      "file": "lab.html",
+      "group": "More"
     },
     {
       "name": "questions",

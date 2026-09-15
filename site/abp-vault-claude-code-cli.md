@@ -12,6 +12,20 @@ Source: https://riskmandate.ai/abp-vault-claude-code-cli.html
 
 The common case: one CLI agent running as your user account, credentials in the home directory, confirmations on, no containment. DERIVED from what a command-line program running as your account architecturally is, not measured on any instance — every row is a claim until somebody runs the probes and contributes the file. This is the template vault for that shape: the grant derived from what the shape architecturally is and from published documentation, the starting mandate the model site published, and everything else derived. Every number on this page is decrypted from the vault as you read it.
 
+## The vault in action, and the vault itself.
+
+Two frames, both the official SG/Vault interface opened read-only with the key printed at the bottom of this page, both reading the vault and not this site. The first is the vault's own app, which is what whoever is handed the policy sees: what we want the agent to do beside what we do not, the mandate to correct, the files to give the agent. The second is the vault browser: every file in the tree, its history, and the same app one click away. Between them is what you are buying at every level — the app is the reading, the tree is the record.
+
+### The app
+
+Opens on _Start here_. Use the tabs across the top: the grant, the mandate you can correct, the delta, the licence, and three ways to hand the files to the agent.
+
+### The vault
+
+The tree on the left is the whole product: the markdown for people, the JSON for machines, the pinned vocabulary, the six scenarios, the history of every recompute. Click a file to read it; the same app is under _index.html_.
+
+The read key travels to the host over a same-page handshake, never in a URL. Nothing you do in either frame touches the vault: it is opened read-only, and the write key is not published. Not loading? [Open it in its own tab ↗](https://dev.vault.sgraph.ai/en-gb/#46c3f77951dfea80c8bf3d72d5a84915e2694129ca8df4a1c58ccecfeb31bc47:amicdz0h).
+
 ## Sixteen it can do. Five you asked for. Twelve nothing bounds.
 
 Four counts and no score. The bar splits the excess by what stands in the way of each row: nothing, a rule in prose, a setting the agent's own account can flip, or a boundary enforced above it. Only the last is a control. 0 of 22 rows were measured; the rest are derived, and the provenance line on every row says so.
@@ -32,15 +46,9 @@ Derived from the grant and the mandate, never authored, stored with both inputs 
 
 The organisation is the authority, the behaviour policy is the instrument, the agent is the licensee. A template is unsigned and unissued; a corrected vault carries a name, a date and an interval — and each condition sits next to what enforces it, so the person signing knows what they are accepting with their eyes open.
 
-## The vault's own interface, running here from the vault.
-
-The vault carries a single self-contained page that renders itself from the files beside it, and opens on Start here: what this is, where the pieces go, what we want the agent to do beside what we do not, and three ways to hand it over. Below it is booted inside a sandboxed frame with an opaque origin and served its reads by this page over a message channel — the app never sees a key, and this page never runs the app's code in its own origin.
-
-On a phone, open it in its own window: the frame below is the same app, sandboxed, and small. The vault browser is the whole product — files, history and the app — and the button carries the public read key, so it opens read-only without a paste. The copy this site serves at [vaults/claude-code-cli/index.html](vaults/claude-code-cli/index.html) says in its top bar which route it loaded the app by.
-
 ## The bytes themselves, listed from the live tree.
 
-Markdown for people, JSON for machines, the pinned vocabulary, the history, and the two files you hand the agent — `AGENTS.md` for a CLAUDE.md, a ROLE.md or a skill, and `SKILL.md` in the portable skill format. The list is the vault's; each link opens the copy this site serves.
+Markdown for people, JSON for machines, the pinned vocabulary, the history, and the two files you hand the agent — `AGENTS.md` for a CLAUDE.md, a ROLE.md or a skill, and `SKILL.md` in the portable skill format. The list is read from the vault's live tree; the vault browser above opens any of them from the vault itself, and each link here opens the copy this site keeps for the build.
 
 ## Published on purpose. Read, and nothing else.
 
@@ -48,6 +56,6 @@ Derived one-way from the vault's write key, which is not published and never wil
 
 sgit prints the same key with a prefix that declares its intent; the public form is the one shown. This page reads the vault at `dev.send.sgraph.ai` over plain cross-origin GETs and decrypts in your browser; the site never proxies it and holds no credential beyond the key you can see.
 
-## Run this? Correct the mandate.
+## Run this? Buy the one for your deployment.
 
-Open the app above, move the rows that are wrong, and send us the export. Your vault is this one with the mandate corrected, a name on the licence, and no public key — and it recomputes when the grant moves.
+This template is free and public. Yours is this vault with the mandate corrected, a name on the licence, and no public key — and it recomputes when the grant moves. Four levels at the store: the pack by email for £5, a working vault you hold the keys to for £50, corrected for your situation for £500, or two sessions with a professional's signature for £1,500.

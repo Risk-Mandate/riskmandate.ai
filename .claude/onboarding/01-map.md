@@ -20,6 +20,8 @@ One line per thing. Paths are from the repository root; site pages are also live
 | `docs/briefs/architecture__structure-content-decoupling.md` | July. Structure in the repo, content in vaults, decrypted in the browser | `/scenarios/`, content vaults |
 | `docs/briefs/implementation__scenarios-pilot.md` | July. The pilot as built at `site/scenarios/` | `/scenarios/` |
 | `docs/briefs/process__agent-onboarding-and-parallel-work.md` | 15 Sept. Why this folder exists and the rules for agents working in parallel | you are reading its product |
+| `docs/briefs/direction__use-case-driven-policies-and-the-prompt-workflow.md` | 15 Sept. A policy per use case (Voice Debrief first); the £500 level is a prompt the customer runs, in seven steps; what the store and the site must both say | pricing, the store, use-case vaults |
+| `docs/briefs/review__vault-pages-vs-the-vault.md` | 15 Sept. The vault pages read against the vault: the two host frames, and why the site should stop deploying the vault (T09) | touching the vault pages or `site/vaults/` |
 | `docs/marketing/linkedin-company-page.md` | Every field of the company page, ready to paste | LinkedIn |
 
 Brief naming: `<kind>__<slug>.md` with kind one of `direction`, `architecture`, `implementation`,
@@ -37,9 +39,10 @@ needed.
 | Behaviour policies | `agent-behaviour-policy.html` (the library, top-level), `agent-behaviour-policy-next.html` (asked for, vote, suggest), `abp-vault-<slug>.html` ×15 | **generated** by `build-abp-pages.mjs` from `site/vaults/index.json` and each vault's data. `abp-vaults.html` and `abp/` redirect |
 | Vaults | `site/vaults/<slug>/` ×15, `_template/`, `_app/` | inputs: `vault.json`, `data/grant.json`, `data/mandate.json`, `data/scenarios.json`, `data/vocabulary/`. Everything else **generated** by `build-abp-vault.mjs` |
 | Live demos | `demos.html`, `demo-*.html` ×6 | hand-authored; each embeds an sgit vault with a public read key |
-| Lab | `lab.html`, `lab-*.html` ×7 | hand-authored; every meaningful state cut as a dated PDF in `assets/lab/`, registered in `lab-editions.json` |
+| Lab | `lab.html` (in *More*), `lab-*.html` ×7 (unlisted, linked from `lab.html`) | hand-authored; every meaningful state cut as a dated PDF in `assets/lab/`, registered in `lab-editions.json` |
 | Summit | `summit.html`, `summit-booth.html` (private) | hand-authored |
-| More | `questions`, `briefs` (the register page), `work`, `work-abp-power-user`, `library`, `partners`, `feedback`, `brand`, `pricing`, `admin` | hand-authored |
+| More | `lab` (the Lab moved here from the top level in v1.19.0), `questions`, `briefs` (the register page), `work`, `work-abp-power-user`, `library`, `partners`, `feedback`, `brand`, `admin` | hand-authored |
+| Pricing | `pricing.html` | hand-authored; the store's four levels, each linked to `store.sgit.ai/d/t<n>/`; the level-3 prompt workflow |
 | Records | `versions.html` + `versions/index.json` + `versions/<v>.md`; `briefs.html` + `briefs-register.json` + `assets/briefs/`; `lab-editions.json`; `vaults/index.json` | append-only. Never rewrite an entry |
 | Machine-readable | `llms.txt`, `llms-full.txt`, `.well-known/agent-content.json`, `sitemap.xml`, `robots.txt`, `404.html`, every `<page>.md` | **generated** by `generate.mjs` (the manifest and full text are partly hand-written and restamped) |
 | Scenarios pilot | `site/scenarios/` | reads vault `dm42qcaw` in the browser; needs `localhost` |
@@ -88,7 +91,7 @@ upload `site/` → deploy to Pages. **Any of the three branches deploys the one 
 | Thing | Where | Ours to write? |
 |---|---|---|
 | The ABP model, vocabulary, five worked examples | `https://abp.sgit.ai/` (v0.3.0 pinned in every vault) | no; Lab 03 is our request list against it |
-| The store and its tiers | `https://store.sgit.ai/` | no |
+| The store: four levels, `/policies/` by application, `/p/<slug>/` (our slugs), `/d/t1..t4/` per level | `https://store.sgit.ai/` (v0.1.7, live 15 Sept) | no; a separate agent maintains it |
 | The research home | `https://risks.sgit.ai/` | no |
 | The 15 application vaults + the app vault `fl3i7lu4` | sgit, endpoint in `site/vaults/index.json` | yes, with write keys the lead holds |
 | The scenarios content vault `dm42qcaw` | sgit | content agents |
