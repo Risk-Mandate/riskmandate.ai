@@ -65,7 +65,8 @@ test('every internal link resolves — the file, and the anchor if it names one'
   };
   for (const f of html) {
     for (const [, href] of read(f).matchAll(/href="([^"#:][^":]*)"/g)) {
-      const [path, anchor] = href.split('#');
+      const [target, anchor] = href.split('#');
+      const path = target.split('?')[0];   // a query string (the after-payment pages read ?order= and ?shape=) is not part of the file
       if (!existsSync(join(SITE, path))) { misses.push(`${f} → ${href} (no such file)`); continue; }
       // an anchor into another page only works if that page defines the id
       if (anchor && path.endsWith('.html') && !idsOf(path).has(anchor)) {

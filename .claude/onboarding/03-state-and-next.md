@@ -3,9 +3,9 @@
 Keep this file true. If you land something, move it; if you learn something, add it. Dates are
 the site's; check `site/versions/index.json` for the current version before trusting the number here.
 
-## State as at 2026-09-15, v1.19.2
+## State as at 2026-09-15, v1.19.3
 
-- **Site:** 63 HTML files under `site/`, one live site deployed from `dev`. Top-level menu:
+- **Site:** 64 HTML files under `site/`, one live site deployed from `dev`. Top-level menu:
   The problem · The model · Agent Behaviour Policies · Live demos · Lisbon 2026 · Pricing · More
   (the Lab is under More since v1.19.0).
 - **The ABP is the entry point.** Homepage leads with it (v1.12.0); `abp.html` is the model page;
@@ -26,7 +26,7 @@ the site's; check `site/versions/index.json` for the current version before trus
   vote and a suggestion form: Claude's Google Workspace connector, Slack, GitHub, Notion,
   Salesforce; and the three **business functions**: the CRM, the customer-service desk, finance data.
 - **Lab:** seven entries, 16 PDF editions, the whole Lab as one file (v5).
-- **Records:** 14 items in the brief register (9 files, 5 informal); 21 releases since v1.0.0.
+- **Records:** 14 items in the brief register (9 files, 5 informal); 22 releases since v1.0.0.
 - **Summit:** Lisbon, 17–18 Sept. `summit.html` public; `summit-booth.html` private working page.
 - **The store is live** (store.sgit.ai v0.1.7, 15 Sept): four levels, £5 / £50 / £500 / £1,500. The
   homepage says *view a policy / buy a policy*; `pricing.html` is the four levels with the level-3
@@ -42,6 +42,10 @@ the site's; check `site/versions/index.json` for the current version before trus
   checks it); the page reads `?shape=<slug>`, offers the file and hashes it in the browser; with
   no shape it lists all fifteen. Levels 2–4 are *a person follows up within 24 hours* (the
   lead's). The store still has to point each payment link at its page, level 1 with the shape.
+  **`after-payment.html`** (v1.19.3, under *More*, linked from `admin.html` and Pricing) is the
+  debrief for the store team: the four pages, the link contract (`?order=`, `?shape=`), the five
+  things the store has to do, what the site guarantees, what is open. Hand the store's agent
+  `https://riskmandate.ai/after-payment.md`. The paid pages are public and indexable now, on purpose.
 - **Vault pages open on the vault** (v1.19.0): two host frames (App Mode, vault browser) via the
   embed handshake, `rm-abp-host` in `scripts/site/abp/abp-vaults.js`. The site still deploys a copy
   of every vault under `site/vaults/`; removing that is T09.
