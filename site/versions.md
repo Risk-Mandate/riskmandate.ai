@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.17.0** · 2026-09-15 — The Agent Behaviour Policy library, wider and readable: the label, the lethal trifecta, the diagram, a resizable panel, and a page for what is next
+  Notes: https://riskmandate.ai/versions/1.17.0.md · Source: `git:v1.17.0`
 - **v1.16.0** · 2026-09-15 — The behaviour-policy library: one page, two views, a preview panel, scenarios, and a top-level place on the site
   Notes: https://riskmandate.ai/versions/1.16.0.md · Source: `git:v1.16.0`
 - **v1.15.0** · 2026-09-15 — A measured vault from an early beta user, a prompt that lets any agent measure its own grant, and the app in its own window on a phone

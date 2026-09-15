@@ -128,7 +128,8 @@ RM.services.abpVaults = (function () {
   }
   function barrierCell(L, id) { var r = L.row[id]; return dom.el('td', null, [dom.el('span', { class: 'ab-g ' + r.barrier }, [GLYPH[r.barrier] + ' ' + r.barrier])]); }
   function evidenceCell(L, id) { var r = L.row[id], m = !!L.measured[r.evidence]; return dom.el('td', null, [dom.el('span', { class: 'ab-ev' + (m ? ' m' : '') }, [r.evidence + (m ? ' ✓' : '')])]); }
-  function statusCell(L, id) { var s = statusOf(L, id); return dom.el('td', null, [dom.el('span', { class: 'ab-pill ' + s }, [{ want: 'want', refused: 'do not want', unstated: 'unstated' }[s]])]); }
+  var STATUS_LABEL = { want: 'wanted', refused: 'told not to', unstated: 'unstated' };   // "told not to": the mandate refuses it and the grant still permits it
+  function statusCell(L, id) { var s = statusOf(L, id); return dom.el('td', null, [dom.el('span', { class: 'ab-pill ' + s }, [STATUS_LABEL[s]])]); }
   function capTable(L, ids, control) {
     var head = ['Capability', 'What it is', 'Barrier', 'Undo', 'Evidence'].concat(control ? ['What stands in the way'] : []).concat(['Mandate']);
     return dom.el('div', { class: 'tw' }, [dom.el('table', { class: 't' }, [
@@ -208,7 +209,7 @@ RM.services.abpVaults = (function () {
         } else if (view === 'mandate') {
           out.push(dom.el('p', { class: 'ab-quote' }, [m.description]));
           out.push(sub('Elicited — ' + m.status + ', authored ' + m.authored + ' by ' + m.authored_by + '. The only authored file in the vault.'));
-          [['Wanted', m.want, 'want'], ['Explicitly not wanted', m.do_not_want, 'refused'], ['Unstated', m.unstated, 'unstated']].forEach(function (s) {
+          [['Wanted', m.want, 'want'], ['Told not to — refused by the mandate, still permitted by the grant', m.do_not_want, 'refused'], ['Unstated', m.unstated, 'unstated']].forEach(function (s) {
             out.push(h3(s[0] + ' (' + s[1].length + ')'));
             out.push(dom.el('div', { class: 'ab-pills' }, s[1].map(function (id) { return dom.el('span', { class: 'ab-pill ' + s[2], title: gloss(L, id) }, [id]); })));
           });
@@ -365,6 +366,71 @@ RM.services.abpVaults = (function () {
     return d;
   }
 
+  // ---- the label: what a capability could do to you, in the words a label on a box would use ----
+  var WARN = {
+    'delete.file.host': 'could delete files anywhere the account can reach', 'write.file.host': 'could change any file the account can reach',
+    'read.file.host': 'reads every file the account can reach — other people\'s included', 'read.message.tenant': 'reads mail and chat, most of it written by other people',
+    'send.message.world': 'could send mail or messages to anyone, as you', 'send.endpoint.world': 'could send data to any host on the internet — the exfiltration route',
+    'send.endpoint.allowed': 'reaches a permitted list of hosts', 'read.credential.host': 'could read stored credentials — keys, tokens, the codes that arrive by mail',
+    'authenticate-as.credential.tenant': 'could act in your accounts with the credentials it holds', 'authenticate-as.credential.signing': 'could sign commits as you',
+    'grant.credential.self': 'could change its own permission settings', 'create.record.world': 'could publish packages, pages or links under your name',
+    'write.budget.tenant': 'could spend money or tokens against an account you hold', 'create.schedule.host': 'could leave something running after it stops',
+    'create.schedule.tenant': 'could create thousands of scheduled entries, events or jobs — and keep running without you', 'execute.process.host': 'could run any program as the account',
+    'execute.process.self': 'runs programs only inside its own sandbox', 'read.record.history': 'reads retained records — shell history, past sessions',
+    'read.record.browsing': 'reads every page you visit', 'write.repository.tenant': 'could push to any repository it can reach on the code host',
+    'write.repository.project': 'could commit to the repository it was pointed at', 'write.file.project': 'could change the project it is working on', 'read.file.project': 'reads the project it is working on'
+  };
+  // the lethal trifecta (Willison): private data, exposure to untrusted content, a way to communicate out.
+  // All three present and nothing in the way of the third is the shape that leaks.
+  var TRIFECTA = [
+    { id: 'private', name: 'Private data', caps: ['read.file.host', 'read.message.tenant', 'read.credential.host', 'read.record.history', 'read.record.browsing', 'read.file.project'] },
+    { id: 'untrusted', name: 'Untrusted content', caps: ['read.message.tenant', 'read.record.browsing', 'read.file.host', 'send.endpoint.world', 'send.endpoint.allowed'] },
+    { id: 'exfil', name: 'A way out', caps: ['send.message.world', 'send.endpoint.world', 'create.record.world', 'write.repository.tenant', 'send.endpoint.allowed'] },
+  ];
+  function legState(L, leg) { var rows = leg.caps.filter(function (c) { return L.row[c]; }); if (!rows.length) return { has: false, bounded: false, rows: rows }; return { has: true, bounded: rows.every(function (c) { return L.row[c].barrier === 'boundary'; }), rows: rows }; }
+  function labelBox(L, d, W, D) {
+    var g = L.data.grant, sideEffects = d.unbounded.slice().sort(function (a, b) { return L.undoRank[L.row[a].undo] - L.undoRank[L.row[b].undo]; });
+    var toldNot = d.refused.filter(function (id) { return L.row[id].barrier !== 'boundary'; });
+    var box = dom.el('div', { class: 'ab-lab' }, [
+      dom.el('span', { class: 't' }, ['What this agent could do to you']),
+      dom.el('div', { class: 'l' }, [dom.el('span', null, ['capabilities in the grant']), dom.el('b', null, [String(d.counts.grant)])]),
+      dom.el('div', { class: 'l' }, [dom.el('span', null, ['wanted by this mandate']), dom.el('b', null, [String(d.counts.wanted)])]),
+      dom.el('div', { class: 'l' }, [dom.el('span', null, ['not asked for, nothing in the way']), dom.el('b', null, [String(d.counts.unbounded)])]),
+      dom.el('span', { class: 'h' }, ['Side effects — not asked for, and nothing real stops it']),
+    ]);
+    box.appendChild(sideEffects.length ? dom.el('ul', null, sideEffects.map(function (id) { return dom.el('li', { class: L.row[id].undo === 'no' ? '' : 'e' }, [dom.el('i'), dom.el('span', null, [WARN[id] || gloss(L, id), ' ', dom.el('code', null, [id + (L.row[id].undo === 'no' ? ' · cannot be undone' : '')])])]); })) : dom.el('p', { class: 'none' }, ['none — everything not asked for sits behind a boundary']));
+    box.appendChild(dom.el('span', { class: 'h' }, ['Told not to, and only told']));
+    box.appendChild(toldNot.length ? dom.el('ul', null, toldNot.map(function (id) { return dom.el('li', null, [dom.el('i'), dom.el('span', null, [WARN[id] || gloss(L, id), ' ', dom.el('code', null, [id])])]); })) : dom.el('p', { class: 'none' }, ['nothing the mandate refuses is left to a sentence alone']));
+    box.appendChild(dom.el('span', { class: 'h' }, ['The lethal trifecta']));
+    var legs = TRIFECTA.map(function (leg) { return { leg: leg, st: legState(L, leg) }; });
+    box.appendChild(dom.el('div', { class: 'ab-tri' }, legs.map(function (x) { return dom.el('span', { class: !x.st.has ? 'n' : x.st.bounded ? 'b' : 'y' }, [dom.el('b', null, [x.leg.name]), dom.el('span', null, [!x.st.has ? 'not in the grant' : x.st.bounded ? 'present · behind a boundary' : 'present · ' + x.st.rows.length + (x.st.rows.length === 1 ? ' row' : ' rows') + ', unbounded'])]); })));
+    var all = legs.every(function (x) { return x.st.has; }), outOpen = legs[2].st.has && !legs[2].st.bounded;
+    box.appendChild(dom.el('p', { class: 'ab-triv' + (all ? '' : ' ok') }, [dom.el('b', null, [all ? (outOpen ? 'All three, and the way out is unbounded. ' : 'All three present; the way out sits behind a boundary. ') : 'Not all three. ']), all ? 'Private data plus untrusted content plus a way to communicate is the shape that leaks. The mandate cannot change this; only a barrier on one leg does.' : 'The shape that leaks needs all three legs; this grant is missing at least one.']));
+    return box;
+  }
+  // the diagram: one cell per capability in the grant, coloured by what the mandate says and what stands in the way; shortfall drawn outside
+  var SVG = 'http://www.w3.org/2000/svg';
+  function svgEl(tag, attrs, text) { var e = document.createElementNS(SVG, tag); for (var k in attrs) e.setAttribute(k, attrs[k]); if (text != null) e.textContent = text; return e; }
+  function diagram(L, d, W, D) {
+    var ids = sortRows(L, L.data.grant.grant.map(function (r) { return r.capability; })), short = d.shortfall;
+    var n = ids.length + short.length, cw = 100 / Math.max(n, 8), H = 36;
+    var svg = svgEl('svg', { viewBox: '0 0 100 ' + H, preserveAspectRatio: 'none', role: 'img', 'aria-label': 'The grant as cells, coloured by mandate and barrier' });
+    var C = { want: '#1A7F5A', unb: '#B45309', bnd: '#EBF5F0', short: '#1D4ED8' };
+    ids.forEach(function (id, i) { var r = L.row[id], st = W[id] ? 'want' : (r.barrier === 'boundary' ? 'bnd' : 'unb');
+      var g = svgEl('g'); g.appendChild(svgEl('title', {}, id + ' — ' + (W[id] ? 'wanted' : D[id] ? 'told not to' : 'unstated') + ' · ' + r.barrier));
+      g.appendChild(svgEl('rect', { x: i * cw + 0.4, y: 4, width: cw - 0.8, height: 26, rx: 1.2, fill: C[st], stroke: st === 'bnd' ? '#1A7F5A' : 'none', 'stroke-width': .5, 'stroke-dasharray': st === 'bnd' ? '1 1' : 'none', 'vector-effect': 'non-scaling-stroke' }));
+      if (D[id]) g.appendChild(svgEl('rect', { x: i * cw + 0.4, y: 32, width: cw - 0.8, height: 3, fill: '#C0392B' }));
+      svg.appendChild(g); });
+    short.forEach(function (id, j) { var i = ids.length + j; var g = svgEl('g'); g.appendChild(svgEl('title', {}, id + ' — wanted, not granted'));
+      g.appendChild(svgEl('rect', { x: i * cw + 0.4, y: 4, width: cw - 0.8, height: 26, rx: 1.2, fill: 'none', stroke: C.short, 'stroke-width': 1, 'stroke-dasharray': '2 1.5', 'vector-effect': 'non-scaling-stroke' })); svg.appendChild(g); });
+    var caption = dom.el('span', { class: 'ab-diagcap' }, ['one cell per capability in the grant → ' + ids.length + (short.length ? '   ·   wanted, not granted → ' + short.length : '')]);
+    var legend = dom.el('div', { class: 'ab-diaglegend' }, [
+      dom.el('span', null, [dom.el('i', { style: 'background:' + C.want }), 'wanted']), dom.el('span', null, [dom.el('i', { style: 'background:' + C.unb }), 'not asked for · nothing in the way']),
+      dom.el('span', null, [dom.el('i', { style: 'background:' + C.bnd + ';border:1px dashed ' + C.want }), 'not asked for · behind a boundary']), dom.el('span', null, [dom.el('i', { style: 'background:#C0392B;height:3px' }), 'told not to']),
+      dom.el('span', null, [dom.el('i', { style: 'border:1px dashed ' + C.short }), 'wanted, not granted'])]);
+    return dom.el('div', { class: 'ab-diag' }, [svg, caption, legend]);
+  }
+
   // ---- <rm-abp-library> : the directory as one thing — search, filters, grid or list, and the preview panel ----
   // Progressive: the tiles and rows are static links; this wires them to the panel, the toggle, the
   // filters and the search box, and the panel is rendered from the vault as it is read.
@@ -375,16 +441,27 @@ RM.services.abpVaults = (function () {
       this.search = this.querySelector('.ab-search input');
       this.items  = Array.prototype.slice.call(this.querySelectorAll('[data-slug]'));
       this.groups = Array.prototype.slice.call(this.querySelectorAll('[data-groupname]'));
-      this.filter = 'all'; this.q = ''; this.beh = '';
+      this.filter = 'all'; this.q = ''; this.beh = ''; this.rowFilter = 'all';
+      // the panel is resizable: a vertical bar between the views and the panel, width kept on this device
+      this.resizer = this.querySelector('.ab-resize');
+      try { var pw = parseInt(localStorage.getItem('rm-abp-panel-w'), 10); if (pw >= 340 && pw <= 900) this.style.setProperty('--panel-w', pw + 'px'); } catch (_) {}
+      if (this.resizer) {
+        this.resizer.addEventListener('pointerdown', function (e) { e.preventDefault(); self.resizer.setPointerCapture(e.pointerId); self.classList.add('resizing'); self.resizer.classList.add('on'); self._drag = { x: e.clientX, w: self.panel.getBoundingClientRect().width }; });
+        this.resizer.addEventListener('pointermove', function (e) { if (!self._drag) return; var w = Math.max(340, Math.min(900, self._drag.w - (e.clientX - self._drag.x))); self.style.setProperty('--panel-w', w + 'px'); });
+        var end = function () { if (!self._drag) return; self._drag = null; self.classList.remove('resizing'); self.resizer.classList.remove('on'); try { localStorage.setItem('rm-abp-panel-w', parseInt(self.panel.getBoundingClientRect().width, 10)); } catch (_) {} };
+        this.resizer.addEventListener('pointerup', end); this.resizer.addEventListener('pointercancel', end);
+        this.resizer.addEventListener('dblclick', function () { self.style.removeProperty('--panel-w'); try { localStorage.removeItem('rm-abp-panel-w'); } catch (_) {} });
+      }
       this.behSel = this.querySelector('.ab-beh select');
       if (this.behSel) this.behSel.addEventListener('change', function () { self.beh = self.behSel.value; self.apply(); });
       this.addEventListener('click', function (e) {
-        var t = e.target.closest('[data-view], [data-filter], [data-slug], [data-close], [data-scenario], [data-copy]');
+        var t = e.target.closest('[data-view], [data-filter], [data-slug], [data-close], [data-scenario], [data-copy], [data-rowfilter]');
         if (!t || !self.contains(t)) return;
         if (t.dataset.view) { self.setView(t.dataset.view); e.preventDefault(); return; }
         if (t.dataset.filter !== undefined) { self.filter = t.dataset.filter; self.apply(); e.preventDefault(); return; }
         if (t.dataset.close !== undefined) { self.close(); e.preventDefault(); return; }
         if (t.dataset.scenario !== undefined) { self.scenario = t.dataset.scenario; self.renderPanel(); e.preventDefault(); return; }
+        if (t.dataset.rowfilter !== undefined) { self.rowFilter = t.dataset.rowfilter; self.renderPanel(); e.preventDefault(); return; }
         if (t.dataset.copy !== undefined) { self.copy(t.dataset.copy, t); e.preventDefault(); return; }
         if (t.dataset.slug && !t.dataset.off) { if (e.metaKey || e.ctrlKey || e.shiftKey) return; e.preventDefault(); self.select(t.dataset.slug); }
       });
@@ -456,9 +533,16 @@ RM.services.abpVaults = (function () {
       panel.appendChild(scen);
       panel.appendChild(dom.el('p', { class: 'ab-scendesc' }, [dom.el('b', null, [cur.label + '. ']), cur.description || '']));
       panel.appendChild(dom.el('div', { class: 'ab-pcounts' }, [[d.counts.grant, 'it can do', ''], [d.counts.wanted, 'wanted', 'ok'], [d.counts.excess, 'not asked', 'ex'], [d.counts.unbounded, 'unbounded', 'un'], [d.counts.shortfall, 'shortfall', d.counts.shortfall ? 'sf' : '']].map(function (c) { return dom.el('span', { class: 'ab-pc ' + c[2] }, [dom.el('b', null, [String(c[0])]), dom.el('span', null, [c[1]])]); })));
-      var rows = dom.el('div', { class: 'ab-gm' }, [dom.el('div', { class: 'ab-scenhead' }, [dom.el('span', { class: 'ab-tag' }, ['The grant, against this mandate']), dom.el('span', null, ['○ boundary · ◐ setting · ◉ rule · ● none'])])]);
-      ids.forEach(function (id) { var r = L.row[id], s = st(id); rows.appendChild(dom.el('div', { class: 'ab-gmrow' }, [dom.el('span', { class: 'ab-g ' + r.barrier }, [GLYPH[r.barrier]]), dom.el('span', { class: 'ab-gmid' }, [dom.el('b', null, [id]), dom.el('span', null, [r.note || gloss(L, id)])]), dom.el('span', { class: 'ab-pill ' + s }, [{ want: 'wanted', refused: 'refused', unstated: 'unstated' }[s]])])); });
-      d.shortfall.forEach(function (id) { rows.appendChild(dom.el('div', { class: 'ab-gmrow short' }, [dom.el('span', { class: 'ab-g' }, ['·']), dom.el('span', { class: 'ab-gmid' }, [dom.el('b', null, [id]), dom.el('span', null, [gloss(L, id) + ' — not in the grant'])]), dom.el('span', { class: 'ab-pill short' }, ['wanted · not granted'])])); });
+      panel.appendChild(diagram(L, d, W, D));
+      panel.appendChild(labelBox(L, d, W, D));
+      var RF = [['all', 'all'], ['want', 'wanted'], ['refused', 'told not to'], ['unstated', 'unstated'], ['unbounded', 'unbounded'], ['boundary', 'behind a boundary'], ['irreversible', 'cannot be undone']];
+      var rf = self.rowFilter, keep = function (id) { var r = L.row[id], s = st(id); return rf === 'all' || rf === s || (rf === 'unbounded' && !W[id] && r.barrier !== 'boundary') || (rf === 'boundary' && r.barrier === 'boundary') || (rf === 'irreversible' && r.undo === 'no'); };
+      var shown = ids.filter(keep);
+      var rows = dom.el('div', { class: 'ab-gm' }, [dom.el('div', { class: 'ab-scenhead' }, [dom.el('span', { class: 'ab-tag' }, ['The grant, against this mandate · ' + shown.length + ' of ' + ids.length]), dom.el('span', null, ['○ boundary · ◐ setting · ◉ rule · ● none'])]),
+        dom.el('div', { class: 'ab-rf' }, RF.map(function (f) { return dom.el('button', { type: 'button', 'data-rowfilter': f[0], 'aria-pressed': rf === f[0] ? 'true' : 'false' }, [f[1]]); }))]);
+      shown.forEach(function (id) { var r = L.row[id], s = st(id); rows.appendChild(dom.el('div', { class: 'ab-gmrow' }, [dom.el('span', { class: 'ab-g ' + r.barrier, title: r.barrier }, [GLYPH[r.barrier]]), dom.el('span', { class: 'ab-gmid' }, [dom.el('b', null, [id]), dom.el('span', null, [r.note || gloss(L, id)])]), dom.el('span', { class: 'ab-pill ' + s, title: s === 'refused' ? 'the mandate refuses it; the grant still permits it' : '' }, [STATUS_LABEL[s]])])); });
+      if (rf === 'all' || rf === 'want') d.shortfall.forEach(function (id) { rows.appendChild(dom.el('div', { class: 'ab-gmrow short' }, [dom.el('span', { class: 'ab-g' }, ['·']), dom.el('span', { class: 'ab-gmid' }, [dom.el('b', null, [id]), dom.el('span', null, [gloss(L, id) + ' — not in the grant'])]), dom.el('span', { class: 'ab-pill short' }, ['wanted · not granted'])])); });
+      if (!shown.length) rows.appendChild(dom.el('p', { class: 'ab-none' }, ['no row matches this filter']));
       panel.appendChild(rows);
       panel.appendChild(dom.el('div', { class: 'ab-pbtns' }, [dom.el('a', { class: 'btn btn-green', href: v.page }, ['Open the policy page →']), dom.el('a', { class: 'btn btn-ghost dark', href: UI + '/en-gb/#' + v.key + ':' + v.vid, target: '_blank', rel: 'noopener' }, ['Open the vault ↗'])]));
       panel.appendChild(dom.el('div', { class: 'ab-pkey' }, [dom.el('span', null, ['read key ']), dom.el('code', null, [publicKey(v)]), dom.el('button', { type: 'button', class: 'ab-copy', 'data-copy': publicKey(v) }, ['copy'])]));

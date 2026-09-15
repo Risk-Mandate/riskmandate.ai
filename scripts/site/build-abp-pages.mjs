@@ -44,6 +44,8 @@ const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 const built = catalogue.vaults.filter(v => v.vid && v.key);
 const VAULTS_JS = JSON.stringify(built.map(v => ({ slug: v.slug, vid: v.vid, key: v.key, title: v.title, shape: v.shape, page: `abp-vault-${v.slug}.html`, status: 'template', app: v.app, blurb: v.blurb, group: v.group, logo: v.logo, brand: v.brand })), null, 2);
 const LOGOS = JSON.parse(readFileSync(join(HERE, 'logos.json'), 'utf8')).icons;
+// where a suggestion goes, for now: the project lead's own address, by their instruction of 15 September
+const DEMO_TO = 'dinis.cruz@owasp.org';
 const sharedWithCatalogue = shared.replace('/*__VAULTS__*/[]', VAULTS_JS).replace('/*__APP_VAULT__*/null', JSON.stringify(catalogue.app_vault ? { vault_id: catalogue.app_vault.vault_id, key: catalogue.app_vault.key, entry: catalogue.app_vault.entry || 'index.html' } : null)).replace('/*__LOGOS__*/{}', JSON.stringify(LOGOS));
 for (const m of ['/*__VAULTS__*/[]', '/*__APP_VAULT__*/null', '/*__LOGOS__*/{}']) if (!shared.includes(m)) { console.error(`abp-vaults.js has no ${m} marker`); process.exit(1); }
 // a product mark as static markup, for the tiles the page ships with (the component draws the same one live)
@@ -113,17 +115,17 @@ function directory() {
   const openQ = Object.values(data).reduce((n, x) => n + (x.grant.research_needed || []).length, 0);
   const gridGroups = groups.map(gname => `<div class="ab-group" data-groupname="${esc(gname)}"><div class="ab-grouphead"><b>${esc(gname)}</b><span>${on.filter(v => v.group === gname).length} policies</span></div><div class="ab-grid2">${on.filter(v => v.group === gname).map(v => tile(v, data[v.slug])).join('\n')}</div></div>`).join('\n');
   const listGroups = groups.map(gname => `<div class="ab-lgroup" data-groupname="${esc(gname)}"><b>${esc(gname)}</b><span>${on.filter(v => v.group === gname).length}</span></div>${on.filter(v => v.group === gname).sort((a, b) => data[b.slug].delta.counts.unbounded_excess - data[a.slug].delta.counts.unbounded_excess).map(v => row(v, data[v.slug])).join('\n')}`).join('\n');
-  const chips = ['all', ...groups.map(g => 'group:' + g), 'group:Business functions'].map(f => `<button type="button" class="ab-f" data-filter="${esc(f)}" aria-pressed="${f === 'all' ? 'true' : 'false'}">${esc(f === 'all' ? `All · ${on.length}` : f.slice(6))}</button>`).join('') + '<span class="sep"></span>' + ['measured', 'documented'].map(e => `<button type="button" class="ab-f" data-filter="ev:${e}" aria-pressed="false">${e}</button>`).join('');
-  return `<div class="labstrip"><b>The behaviour-policy library</b> · ${on.length} template policies, one per target application, read live in your browser with published keys · ${asked.length + fns.length} asked for. <a href="abp.html">The model</a> · <a href="lab-vault-delivered.html">Lab 07</a></div>
+  const chips = ['all', ...groups.map(g => 'group:' + g)].map(f => `<button type="button" class="ab-f" data-filter="${esc(f)}" aria-pressed="${f === 'all' ? 'true' : 'false'}">${esc(f === 'all' ? `All · ${on.length}` : f.slice(6))}</button>`).join('') + '<span class="sep"></span>' + ['measured', 'documented'].map(e => `<button type="button" class="ab-f" data-filter="ev:${e}" aria-pressed="false">${e}</button>`).join('');
+  const SEARCH_SVG = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>`;
+  return `<div class="labstrip"><b>Agent Behaviour Policies</b> · ${on.length} example policies, one per target application, read live in your browser with published keys. <a href="abp.html">What an Agent Behaviour Policy is</a> · <a href="agent-behaviour-policy-next.html">Which one next? Vote or suggest</a></div>
 
 <main class="phero">
   <div class="wrap">
-    <span class="eyebrow"><span class="d"></span> The behaviour-policy library</span>
-    <h1>Every policy we have, <span class="it">as building blocks.</span></h1>
-    <p class="sub">One template policy per target application, and one per business function. Click any of them to preview it here — the card, the grant against the mandate, the scenarios — then open its vault or its page. A real deployment is a combination of these, and the combination is what we sell.</p>
+    <span class="eyebrow"><span class="d"></span> Agent Behaviour Policies · the examples</span>
+    <h1>Agent Behaviour Policies, <span class="it">as building blocks.</span></h1>
+    <p class="sub">An <strong>Agent Behaviour Policy</strong> describes one AI agent in one deployment: everything it can do (the grant), what you actually authorised (the mandate), the gap between the two (the delta), and what really stands in the way of each thing (the barrier). It describes and it does not judge, so it carries no score. Below are the example policies we have built, one per target application — for most people the first they will have seen. Click one to read it here; a real deployment is a combination of several.</p>
     <div class="cta-row">
-      <button class="btn btn-green" data-to="library">The library ↓</button>
-      <a class="btn btn-ghost" href="abp-vault-${on[0].slug}.html">${esc(on[0].app)} →</a>
+      <a class="btn btn-ghost" href="abp.html">What is an Agent Behaviour Policy? →</a>
     </div>
   </div>
 </main>
@@ -131,15 +133,15 @@ function directory() {
 <div class="paper">
 
   <section class="psection" id="library">
-    <div class="wrap">
+    <div class="wrap ab-wide">
       <div class="shead">
-        <span class="tag">${on.length} built · ${rows} capability rows · ${measured} measured on the thing itself · ${openQ} open questions</span>
-        <h2>Pick a policy. <span class="g">Preview it here. Open its vault.</span></h2>
-        <p>Every tile is a vault: a measured or documented grant for that application, a starting mandate written to be corrected, six scenarios that change the mandate and never the grant, and the files you hand the agent. The counts are read from the vault as you look. Grid or list, same set; search matches names, vendors, scopes, tool names and the 23 capability ids, so <code>send.message.world</code> finds every policy that can send mail whatever the product calls it.</p>
+        <span class="tag">${on.length} example policies · ${rows} capability rows · ${measured} measured on the thing itself · ${openQ} open questions</span>
+        <h2>Pick a policy. <span class="g">Read it here. Open its vault.</span></h2>
+        <p>Every tile is one Agent Behaviour Policy, delivered as a vault: a measured or documented grant for that application, a starting mandate written to be corrected, six scenarios that change the mandate and never the grant, and the files you hand the agent. The counts are read from the vault as you look. Grid or list, same set; search matches names, vendors, scopes, tool names and the 23 capability ids, so <code>send.message.world</code> finds every policy that can send mail whatever the product calls it. Not here yet? <a href="agent-behaviour-policy-next.html">See what is next, vote, or suggest one</a>.</p>
       </div>
       <rm-abp-library class="ab-lib" data-view="grid">
         <div class="ab-tools">
-          <label class="ab-search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg><input type="search" placeholder="Search a policy, a scope, a capability…" aria-label="Search the library"><kbd>/</kbd></label>
+          <label class="ab-search">${SEARCH_SVG}<input type="search" placeholder="Search a policy, a scope, a capability…" aria-label="Search the policies"><kbd>/</kbd></label>
           <div class="ab-filters">${chips}</div>
           <label class="ab-beh"><span>by behaviour</span><select aria-label="Filter by behaviour"><option value="">any of the 23</option>${caps.map(c => `<option value="${c.id}">${esc(c.id)} — ${esc(c.gloss)}</option>`).join('')}</select></label>
           <div class="ab-toggle" role="group" aria-label="View"><button type="button" data-view="grid" aria-pressed="true" aria-label="Grid view"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1.5"></rect><rect x="13" y="3" width="8" height="8" rx="1.5"></rect><rect x="3" y="13" width="8" height="8" rx="1.5"></rect><rect x="13" y="13" width="8" height="8" rx="1.5"></rect></svg></button><button type="button" data-view="list" aria-pressed="false" aria-label="List view"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"></path></svg></button></div>
@@ -147,59 +149,21 @@ function directory() {
         <div class="ab-body">
           <div class="ab-views">
             <div class="ab-gridv">
-              <span class="ab-supertitle">By target application</span>
 ${gridGroups}
-              <div class="ab-group" data-groupname="Not yet researched"><div class="ab-grouphead"><b>Not yet researched</b><span>${asked.length} in the queue · each becomes a vault once its vendor pages have been read and quoted</span></div><div class="ab-grid2">${asked.map(x => offTile(x, 'Not yet researched')).join('\n')}</div></div>
-              <span class="ab-supertitle">By business function</span>
-              <div class="ab-group" data-groupname="Business functions"><div class="ab-grouphead"><b>What the agent is for, not what it runs on</b><span>${fns.length} asked for · the mandate is the same whichever product holds the data</span></div><div class="ab-grid2">${fns.map(x => offTile(x, 'Business functions')).join('\n')}</div></div>
               <p class="ab-none" hidden>Nothing matches. Search matches names, vendors, scopes, tools and capability ids — try a shorter word.</p>
             </div>
             <div class="ab-list">
               <div class="ab-lhead"><span>Policy</span><span>Evidence</span><span class="r">Can</span><span class="r">Want</span><span class="r">Excess</span><span>Unbounded · by barrier</span><span>Open</span><span></span></div>
 ${listGroups}
-              <div class="ab-lgroup" data-groupname="Business functions"><b>Business functions</b><span>${fns.length} asked for</span></div>
-${fns.map(x => offRow(x, 'Business functions')).join('\n')}
-              <div class="ab-lgroup" data-groupname="Not yet researched"><b>Not yet researched</b><span>${asked.length}</span></div>
-${asked.map(x => offRow(x, 'Not yet researched')).join('\n')}
             </div>
+            <p class="src" style="margin-top:18px">Missing the one you run? <a href="agent-behaviour-policy-next.html">${asked.length + fns.length} are asked for — vote on which is next, or suggest one</a>. Every vault also carries <code>MAP-A-GRANT.md</code>: give it to an agent that already holds the credential and it measures its own grant.</p>
           </div>
+          <div class="ab-resize" role="separator" aria-orientation="vertical" aria-label="Resize the preview panel" title="Drag to resize · double-click to reset"></div>
           <div class="ab-backdrop" data-close hidden></div>
           <aside class="ab-panel" aria-live="polite"></aside>
         </div>
       </rm-abp-library>
-      <div class="ab-legend" style="margin-top:18px"><span>■ unbounded excess — a rule in prose, a setting, or nothing</span><span style="color:var(--green)">■ excess behind a boundary — the only control</span><span>no score, anywhere — a policy describes, it does not judge</span></div>
-    </div>
-  </section>
-
-  <section class="psection alt" id="ask">
-    <div class="wrap">
-      <div class="shead">
-        <span class="tag">Asked for · ${asked.length + fns.length}</span>
-        <h2>The next policies, <span class="g">and what each one waits for.</span></h2>
-        <p>A vault is built from a measured or documented grant, never typed. The connectors above marked <em>not yet researched</em> become vaults once their vendor pages have been read and quoted, the way the five connector vaults were. The business functions are a different axis: a policy for what the agent is <em>for</em> — the CRM, the service desk, the finance data — whichever product holds it. The mandate is the same across products; the grant is per product; each becomes a vault once one product's grant is documented for it. Nothing here is invented to fill a grid.</p>
-      </div>
-      <ul class="plist">
-        <li><strong>A documented grant is not a measured one.</strong> The connector vaults stand at the <em>documented</em> tier: every row quotes a vendor page and names its date, nothing was tested, and the rows a page could not settle are counted on the tile as open questions. A measured row needs a system we are entitled to run, and probing somebody else's is out of bounds here with no research exemption.</li>
-        <li><strong>Every deployment is a combination.</strong> An agent's own policy, plus one per connector it holds, plus the business function it serves. The templates are the building blocks; the combination — with its merged grant and a corrected mandate — is what a deployment's policy is made of, and what is sold.</li>
-        <li><strong>Run something that is not here?</strong> Every vault carries <code>MAP-A-GRANT.md</code>: give it to an agent that already holds the credential and it measures its own grant and drafts the first policy. Send us what it finds; that is how a new application gets its tile.</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="psection" id="how">
-    <div class="wrap">
-      <div class="shead">
-        <span class="tag">How this page reads a vault</span>
-        <h2>Ciphertext in, <span class="g">decrypted here, and always the current commit.</span></h2>
-        <p>The vault API answers plain cross-origin GETs with no auth header, because what it returns is ciphertext under a key the server has never held. This page derives each vault's HEAD address from its read key, fetches the ref, the commit, the tree and the blobs it needs, and decrypts them in your browser. A push to a vault is live on the next page load — no rebuild of this site.</p>
-      </div>
-      <ul class="plist">
-        <li><strong>The viewer is the site's. The data is the vault's.</strong> Every string from a vault is rendered as text, never as markup. A vault's app runs only inside a sandboxed frame with an opaque origin, served its reads over a message channel, and never sees a key.</li>
-        <li><strong>Immutable objects are cached; the ref never is.</strong> A stale ref would render an older commit from perfectly valid ciphertext and nothing would error, so the page fetches it fresh every time.</li>
-        <li><strong>The read keys are printed, on purpose.</strong> Each is derived one-way from its vault's write key and cannot be turned back into it. Anyone can clone a vault with it and check what its page says against the bytes.</li>
-        <li><strong>The reader is copied, not fetched.</strong> It is sgit.ai's house reader, about ninety lines, in each page's own source — the brief that documents it says to copy it rather than load it across origins at runtime.</li>
-      </ul>
-      <p class="src">The mechanism is written up at <a href="https://sgit.ai/docs/vault/reading-a-vault-file.html" target="_blank" rel="noopener">sgit.ai — reading one file out of a vault</a>, the rules for a site page that embeds a vault at <a href="https://sgit.ai/docs/guidance/index.html" target="_blank" rel="noopener">sgit.ai — guidance</a>.</p>
+      <div class="ab-legend" style="margin-top:18px"><span>■ unbounded excess — a rule in prose, a setting, or nothing</span><span style="color:var(--green)">■ excess behind a boundary — the only control</span><span>no score, anywhere — a policy describes, it does not judge</span><span>read live from each vault with its published key · <a href="https://sgit.ai/docs/vault/reading-a-vault-file.html" target="_blank" rel="noopener">how</a> · <a href="lab-vault-delivered.html">Lab 07</a></span></div>
     </div>
   </section>
 
@@ -207,12 +171,94 @@ ${asked.map(x => offRow(x, 'Not yet researched')).join('\n')}
 
 <section class="pcta">
   <div class="wrap">
-    <span class="eyebrow"><span class="d"></span> The behaviour-policy library</span>
+    <span class="eyebrow"><span class="d"></span> Agent Behaviour Policies</span>
     <h2>Pick the policies your deployment is made of. Then correct the mandate.</h2>
     <p>Everything else in the vault is derived. The correction is the elicitation, and the corrected combination — with a name on the licence and no public key — is what is sold.</p>
     <div class="cta-row">
-      <a class="btn btn-green" href="abp-vault-${on[0].slug}.html">${esc(on[0].app)} →</a>
+      <a class="btn btn-green" href="abp.html">What an Agent Behaviour Policy is →</a>
       <a class="btn btn-ghost" href="pricing.html">What it costs</a>
+    </div>
+  </div>
+</section>`;
+}
+
+// ----------------------------------------------------------------- the next page: the queue, the vote, the suggestion
+function nextTile(x, kind) {
+  return `<article class="ab-nt">
+  <span class="ab-thead">${logoHtml(x.logo, x.brand, 44)}<span class="ab-pill asked">${kind}</span></span>
+  <h3>${esc(x.app)}</h3><p>${esc(x.blurb)}</p>
+  <div class="ab-vote"><button type="button" disabled title="Voting is coming soon">▲ Vote</button><span>coming soon · for now, say so in the form below</span></div>
+</article>`;
+}
+function nextPage() {
+  const asked = catalogue.asked_for || [], fns = catalogue.functions || [], on = catalogue.vaults.filter(v => v.vid && v.key);
+  const subject = encodeURIComponent('Agent Behaviour Policy suggestion');
+  return `<div class="labstrip"><b>Agent Behaviour Policies · what is next</b> · ${asked.length + fns.length} asked for, none invented to fill a grid. <a href="agent-behaviour-policy.html">Back to the ${on.length} examples</a></div>
+
+<main class="phero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> Agent Behaviour Policies · the queue</span>
+    <h1>Which Agent Behaviour Policy <span class="it">next?</span></h1>
+    <p class="sub">An Agent Behaviour Policy is built from a measured or documented grant, never typed. These are the applications and business functions people have asked for. Each becomes a vault once its vendor pages have been read and quoted, or once one product's grant is documented for the function. Voting is coming; for now, the form at the bottom reaches us directly.</p>
+  </div>
+</main>
+
+<div class="paper">
+
+  <section class="psection" id="queue">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Not yet researched · ${asked.length}</span>
+        <h2>By target application, <span class="g">and what each one waits for.</span></h2>
+        <p>The connector shapes below become policies the way the five connector examples were: the connector's own scope or permission page read and quoted on a date, a row per capability the scopes permit, the contradictions between what is advertised and what is granted published unresolved, and the open questions handed to whoever researches next.</p>
+      </div>
+      <div class="ab-next">
+${asked.map(x => nextTile(x, 'not yet researched')).join('\n')}
+      </div>
+    </div>
+  </section>
+
+  <section class="psection alt" id="functions">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">By business function · ${fns.length}</span>
+        <h2>What the agent is for, <span class="g">not what it runs on.</span></h2>
+        <p>A different axis: a policy for the CRM, the service desk or the finance data, whichever product holds it. The mandate is the same across products; the grant is per product; the policy is built once one product's grant is documented for the function.</p>
+      </div>
+      <div class="ab-next">
+${fns.map(x => nextTile(x, 'asked for')).join('\n')}
+      </div>
+    </div>
+  </section>
+
+  <section class="psection" id="suggest">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Suggest one</span>
+        <h2>Run something that is not here? <span class="g">Tell us.</span></h2>
+        <p>The form opens a message in your mail client with what you typed; nothing is stored on this site. Say which application or connector, what it is connected to, and why it matters to you. If your agent already holds the credential, every vault carries <code>MAP-A-GRANT.md</code>: give it to the agent and it measures its own grant and drafts the first policy — send us what it finds and the policy gets a tile.</p>
+      </div>
+      <form class="ab-form" action="mailto:${DEMO_TO}?subject=${subject}" method="post" enctype="text/plain">
+        <label>The application or connector<input name="application" type="text" placeholder="e.g. Slack, Notion, HubSpot, Home Assistant" required></label>
+        <label>What it is connected to<input name="connected_to" type="text" placeholder="e.g. our workspace, a personal account, the CRM"></label>
+        <label class="full">Why this one, and what you would want it to do<textarea name="why" placeholder="One or two sentences. The mandate is the part only you can write."></textarea></label>
+        <label>Your email, if you want a reply<input name="email" type="email" placeholder="you@example.com"></label>
+        <label>Vote for one already listed<select name="vote"><option value="">— none —</option>${[...asked, ...fns].map(x => `<option value="${esc(x.slug)}">${esc(x.app)}</option>`).join('')}</select></label>
+        <div class="row"><button class="btn btn-green" type="submit">Send the suggestion →</button><span class="note">Opens your mail client · voting on this page is coming soon</span></div>
+      </form>
+    </div>
+  </section>
+
+</div>
+
+<section class="pcta">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> Agent Behaviour Policies</span>
+    <h2>The ${on.length} we have are on the library page.</h2>
+    <p>Each one read live from its vault, with its scenarios, its open questions and the files you hand the agent.</p>
+    <div class="cta-row">
+      <a class="btn btn-green" href="agent-behaviour-policy.html">The examples →</a>
+      <a class="btn btn-ghost" href="abp.html">What an Agent Behaviour Policy is</a>
     </div>
   </div>
 </section>`;
@@ -357,6 +403,7 @@ function vaultPage(v) {
 
 // ----------------------------------------------------------------- write, or check
 const outputs = {};
+outputs['agent-behaviour-policy-next.html'] = cut('agent-behaviour-policy-next', 'RiskMandate — which Agent Behaviour Policy next?', 'The applications and business functions people have asked an Agent Behaviour Policy for, and a form to suggest or vote for the next one.', nextPage());
 outputs['agent-behaviour-policy.html'] = cut('agent-behaviour-policy', 'RiskMandate — Agent Behaviour Policies, one vault per application',
   'A directory of behaviour-policy template vaults, one per target application, each read live in the browser from the encrypted vault with a published read key: the four counts, every row with its barrier, the vault’s own app, and the files you hand the agent.', directory());
 for (const v of built) {
@@ -376,7 +423,9 @@ const pages = JSON.parse(readFileSync(pagesPath, 'utf8'));
 const names = new Set(pages.pages.map(p => p.name));
 let added = 0;
 const oldIdx = pages.pages.findIndex(p => p.name === 'abp-vaults'); if (oldIdx >= 0) { pages.pages.splice(oldIdx, 1); added++; }   // the library's old name and address; abp-vaults.html is a redirect now
-if (!names.has('agent-behaviour-policy')) { let i = -1; pages.pages.forEach((p, k) => { if (p.group === 'The model') i = k; }); pages.pages.splice(i + 1, 0, { name: 'agent-behaviour-policy', label: 'Behaviour policies', file: 'agent-behaviour-policy.html' }); added++; }
+if (!names.has('agent-behaviour-policy')) { let i = -1; pages.pages.forEach((p, k) => { if (p.group === 'The model') i = k; }); pages.pages.splice(i + 1, 0, { name: 'agent-behaviour-policy', label: 'Agent Behaviour Policies', file: 'agent-behaviour-policy.html' }); added++; }
+{ const lib = pages.pages.find(p => p.name === 'agent-behaviour-policy'); if (lib && lib.label !== 'Agent Behaviour Policies') { lib.label = 'Agent Behaviour Policies'; added++; } }
+if (!names.has('agent-behaviour-policy-next')) { const i = pages.pages.findIndex(p => p.name === 'agent-behaviour-policy') + 1; pages.pages.splice(i, 0, { name: 'agent-behaviour-policy-next', file: 'agent-behaviour-policy-next.html', label: 'Which Agent Behaviour Policy next?', unlisted: true }); added++; }
 for (const v of built) {
   const name = `abp-vault-${v.slug}`;
   if (!names.has(name)) { const i = pages.pages.findIndex(p => p.name === 'agent-behaviour-policy') + 1; pages.pages.splice(i, 0, { name, file: `${name}.html`, label: `Vault · ${v.app}`, unlisted: true }); added++; }

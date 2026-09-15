@@ -8,13 +8,13 @@ Source: https://riskmandate.ai/agent-behaviour-policy.html
 
 ---
 
-# Every policy we have, as building blocks.
+# Agent Behaviour Policies, as building blocks.
 
-One template policy per target application, and one per business function. Click any of them to preview it here — the card, the grant against the mandate, the scenarios — then open its vault or its page. A real deployment is a combination of these, and the combination is what we sell.
+An **Agent Behaviour Policy** describes one AI agent in one deployment: everything it can do (the grant), what you actually authorised (the mandate), the gap between the two (the delta), and what really stands in the way of each thing (the barrier). It describes and it does not judge, so it carries no score. Below are the example policies we have built, one per target application — for most people the first they will have seen. Click one to read it here; a real deployment is a combination of several.
 
-## Pick a policy. Preview it here. Open its vault.
+## Pick a policy. Read it here. Open its vault.
 
-Every tile is a vault: a measured or documented grant for that application, a starting mandate written to be corrected, six scenarios that change the mandate and never the grant, and the files you hand the agent. The counts are read from the vault as you look. Grid or list, same set; search matches names, vendors, scopes, tool names and the 23 capability ids, so `send.message.world` finds every policy that can send mail whatever the product calls it.
+Every tile is one Agent Behaviour Policy, delivered as a vault: a measured or documented grant for that application, a starting mandate written to be corrected, six scenarios that change the mandate and never the grant, and the files you hand the agent. The counts are read from the vault as you look. Grid or list, same set; search matches names, vendors, scopes, tool names and the 23 capability ids, so `send.message.world` finds every policy that can send mail whatever the product calls it. Not here yet? [See what is next, vote, or suggest one](agent-behaviour-policy-next.html).
 
 ### Claude Code on the web
 
@@ -76,58 +76,9 @@ Delegated permissions, consented once by a Global Administrator. Shared mailboxe
 
 Eight scopes, two of them write and two of them sharing, and no folder-scoped variant. It reads, creates, moves, deletes and makes shared links; the page says files are not deleted permanently and that recovery depends on your plan.
 
-### Claude's Google Workspace connector
-
-Gmail, Calendar and Drive from inside Claude. The connector's scope list has not been read yet; the Google pages behind it have.
-
-### An assistant connected to Slack
-
-Channels are mostly other people's writing, and a bot token reaches every channel it is in.
-
-### An assistant connected to GitHub
-
-A fine-grained token can be scoped to a repository; an OAuth app cannot, and most connectors are OAuth apps.
-
-### An assistant connected to Notion
-
-An integration is added page by page, which is the one connector model with a floor. Whether the assistant's connector uses it is the question.
-
-### An assistant connected to Salesforce
-
-A CRM is entirely third-party material by construction.
-
-### Access to the CRM
-
-Customer records are third-party material by construction. Salesforce, HubSpot, Dynamics.
-
-### The customer-service desk
-
-Tickets, and the conversations inside them. Zendesk, Intercom, Freshdesk.
-
-### Finance data
-
-Spreadsheets, ledgers and the exports beside them. Sheets, Excel, NetSuite.
-
 Nothing matches. Search matches names, vendors, scopes, tools and capability ids — try a shorter word.
 
-## The next policies, and what each one waits for.
-
-A vault is built from a measured or documented grant, never typed. The connectors above marked _not yet researched_ become vaults once their vendor pages have been read and quoted, the way the five connector vaults were. The business functions are a different axis: a policy for what the agent is _for_ — the CRM, the service desk, the finance data — whichever product holds it. The mandate is the same across products; the grant is per product; each becomes a vault once one product's grant is documented for it. Nothing here is invented to fill a grid.
-
-- **A documented grant is not a measured one.** The connector vaults stand at the _documented_ tier: every row quotes a vendor page and names its date, nothing was tested, and the rows a page could not settle are counted on the tile as open questions. A measured row needs a system we are entitled to run, and probing somebody else's is out of bounds here with no research exemption.
-- **Every deployment is a combination.** An agent's own policy, plus one per connector it holds, plus the business function it serves. The templates are the building blocks; the combination — with its merged grant and a corrected mandate — is what a deployment's policy is made of, and what is sold.
-- **Run something that is not here?** Every vault carries `MAP-A-GRANT.md`: give it to an agent that already holds the credential and it measures its own grant and drafts the first policy. Send us what it finds; that is how a new application gets its tile.
-
-## Ciphertext in, decrypted here, and always the current commit.
-
-The vault API answers plain cross-origin GETs with no auth header, because what it returns is ciphertext under a key the server has never held. This page derives each vault's HEAD address from its read key, fetches the ref, the commit, the tree and the blobs it needs, and decrypts them in your browser. A push to a vault is live on the next page load — no rebuild of this site.
-
-- **The viewer is the site's. The data is the vault's.** Every string from a vault is rendered as text, never as markup. A vault's app runs only inside a sandboxed frame with an opaque origin, served its reads over a message channel, and never sees a key.
-- **Immutable objects are cached; the ref never is.** A stale ref would render an older commit from perfectly valid ciphertext and nothing would error, so the page fetches it fresh every time.
-- **The read keys are printed, on purpose.** Each is derived one-way from its vault's write key and cannot be turned back into it. Anyone can clone a vault with it and check what its page says against the bytes.
-- **The reader is copied, not fetched.** It is sgit.ai's house reader, about ninety lines, in each page's own source — the brief that documents it says to copy it rather than load it across origins at runtime.
-
-The mechanism is written up at [sgit.ai — reading one file out of a vault](https://sgit.ai/docs/vault/reading-a-vault-file.html), the rules for a site page that embeds a vault at [sgit.ai — guidance](https://sgit.ai/docs/guidance/index.html).
+Missing the one you run? [8 are asked for — vote on which is next, or suggest one](agent-behaviour-policy-next.html). Every vault also carries `MAP-A-GRANT.md`: give it to an agent that already holds the credential and it measures its own grant.
 
 ## Pick the policies your deployment is made of. Then correct the mandate.
 

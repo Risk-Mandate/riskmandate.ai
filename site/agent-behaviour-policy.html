@@ -367,7 +367,6 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
 
 .ghlink{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:8px;color:var(--muted);border:1px solid transparent}.ghlink:hover{color:var(--text);border-color:var(--border)}
 .footlic{display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap}.footlic a{color:inherit}.ccicon{vertical-align:-3px;margin:0 2px}
-@media (max-width:1400px) and (min-width:901px){.ghlink{display:none}}
 /* ── behaviour-policy vaults: the card, the tables, the key, the app ────────── */
 .ab-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:26px 28px;box-shadow:0 18px 50px -34px rgba(13,13,12,.45);margin-top:26px}
 .ab-card.wait{min-height:120px}
@@ -481,7 +480,12 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
 .ab-toggle{display:inline-flex;margin-left:auto;border:1px solid var(--border);border-radius:10px;overflow:hidden;background:var(--card)}
 .ab-toggle button{display:grid;place-items:center;width:44px;height:42px;border:0;background:transparent;color:var(--muted);cursor:pointer}
 .ab-toggle button[aria-pressed="true"]{background:var(--ink);color:var(--fg)}
-.ab-body{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:24px;align-items:start;margin-top:22px}
+.ab-wide{max-width:1720px}
+.ab-body{display:grid;grid-template-columns:minmax(0,1fr) 10px var(--panel-w,440px);gap:16px;align-items:start;margin-top:22px}
+.ab-resize{align-self:stretch;width:10px;border-radius:5px;cursor:col-resize;position:relative;touch-action:none}
+.ab-resize::after{content:'';position:absolute;left:3px;top:0;bottom:0;width:4px;border-radius:2px;background:var(--border)}
+.ab-resize:hover::after,.ab-resize.on::after{background:var(--green)}
+.ab-lib.resizing{user-select:none;cursor:col-resize}
 .ab-views{min-width:0}
 .ab-lib[data-view="grid"] .ab-list{display:none}.ab-lib[data-view="list"] .ab-gridv{display:none}
 .ab-supertitle{display:block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin:22px 0 8px}
@@ -509,6 +513,38 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
 .ab-pill.ev-doc{color:var(--gold);background:#FDF6EC;border-color:rgba(180,83,9,.3)}
 .ab-pill.ev-der{color:var(--faint);background:var(--bg2)}
 .ab-pill.short{color:var(--blue);background:#EAF0FD;border-color:rgba(29,78,216,.3)}
+/* the label: what this agent could do to you, read like a list of ingredients */
+.ab-lab{border:2px solid var(--text);border-radius:6px;padding:12px 14px;font-family:var(--mono);font-size:11.5px;color:var(--text)}
+.ab-lab .t{display:block;font-size:15px;font-weight:800;letter-spacing:-.02em;font-family:var(--sans);border-bottom:6px solid var(--text);padding-bottom:6px;margin-bottom:8px}
+.ab-lab .l{display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-bottom:1px solid var(--border)}
+.ab-lab .l b{font-weight:700}
+.ab-lab .h{display:block;font-weight:700;margin-top:10px;padding-top:8px;border-top:4px solid var(--text);letter-spacing:.06em;text-transform:uppercase;font-size:10px}
+.ab-lab ul{margin:6px 0 0;padding:0;list-style:none}
+.ab-lab li{display:grid;grid-template-columns:14px 1fr;gap:8px;padding:4px 0;font-family:var(--sans);font-size:12.5px;line-height:1.4;color:var(--text)}
+.ab-lab li i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-top:4px;background:var(--red)}
+.ab-lab li.b i{background:var(--green)}
+.ab-lab li.e i{background:var(--gold)}
+.ab-lab li code{font-size:10.5px;color:var(--muted)}
+.ab-lab .none{font-family:var(--sans);font-size:12.5px;color:var(--muted);padding:4px 0}
+.ab-tri{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-top:8px}
+.ab-tri span{display:flex;flex-direction:column;gap:2px;padding:8px;border:1px solid var(--border);border-radius:8px;font-family:var(--sans);font-size:11.5px;line-height:1.3}
+.ab-tri span b{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase}
+.ab-tri span.y{border-color:rgba(192,57,43,.5);background:#FBEDEA}.ab-tri span.y b{color:var(--red)}
+.ab-tri span.b{border-color:rgba(26,127,90,.4);background:var(--greenBg)}.ab-tri span.b b{color:var(--green)}
+.ab-tri span.n b{color:var(--faint)}
+.ab-triv{margin-top:8px;font-family:var(--sans);font-size:12.5px;line-height:1.45}
+.ab-triv b{color:var(--red)}.ab-triv.ok b{color:var(--green)}
+/* the diagram: the grant as cells, coloured by what the mandate says and what stands in the way */
+.ab-diag{display:flex;flex-direction:column;gap:6px}
+.ab-diag svg{width:100%;height:auto;display:block}
+.ab-diagcap{font-family:var(--mono);font-size:10.5px;color:var(--faint)}
+.ab-diaglegend{display:flex;flex-wrap:wrap;gap:10px;font-family:var(--mono);font-size:10px;color:var(--faint)}
+.ab-diaglegend i{display:inline-block;width:10px;height:10px;border-radius:2px;vertical-align:-1px;margin-right:4px}
+/* row filters inside the panel */
+.ab-rf{display:flex;flex-wrap:wrap;gap:6px}
+.ab-rf button{font:inherit;font-family:var(--mono);font-size:10.5px;padding:4px 9px;border-radius:999px;border:1px solid var(--border);background:var(--card);color:var(--muted);cursor:pointer}
+.ab-rf button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--fg)}
+.ab-pill.refused{color:var(--red);background:#FBEDEA;border-color:rgba(192,57,43,.3)}
 .ab-pill.asked{color:var(--faint);background:var(--bg2);border-style:dashed}
 .ab-ask{margin-top:auto;font-family:var(--mono);font-size:11px;color:var(--green)}
 .ab-none{font-family:var(--mono);font-size:12px;color:var(--muted);padding:26px 0}
@@ -536,7 +572,7 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
 .ab-lrow .arrow{color:var(--faint);text-align:right}
 .ab-lblurb{grid-column:3 / span 5;font-size:11.5px;color:var(--muted)}
 /* the preview panel */
-.ab-panel{position:sticky;top:20px;display:flex;flex-direction:column;gap:14px;padding:20px;background:var(--card);border:1px solid var(--border);border-radius:16px;box-shadow:0 12px 40px rgba(13,13,12,.08);min-height:200px}
+.ab-panel{position:sticky;top:16px;max-height:calc(100vh - 32px);overflow:auto;overscroll-behavior:contain;display:flex;flex-direction:column;gap:14px;padding:20px;background:var(--card);border:1px solid var(--border);border-radius:16px;box-shadow:0 12px 40px rgba(13,13,12,.08);min-height:200px}
 .ab-panelhint{font-size:14px;line-height:1.6;color:var(--muted);padding:6px 0}
 .ab-panelhint b{color:var(--text)}
 .ab-ph{display:flex;align-items:flex-start;gap:14px}
@@ -580,14 +616,33 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
 .ab-copy{border:0;background:transparent;color:var(--green);font:inherit;font-size:10.5px;cursor:pointer;padding:0}
 @media (max-width:980px){
   .ab-body{grid-template-columns:1fr}
-  .ab-panel{display:none}
+  .ab-resize{display:none}
+  .ab-panel{display:none;max-height:none}
   .ab-lib.open .ab-panel{display:flex;position:fixed;left:0;right:0;bottom:0;top:auto;max-height:84vh;overflow:auto;z-index:60;border-radius:18px 18px 0 0;box-shadow:0 -12px 40px rgba(13,13,12,.25);padding:16px 16px calc(16px + env(safe-area-inset-bottom,0px))}
   .ab-lib.open .ab-backdrop{position:fixed;inset:0;background:rgba(13,13,12,.28);z-index:55}
   .ab-scenrow{grid-template-columns:1fr 1fr}
   .ab-lrow,.ab-lhead{grid-template-columns:minmax(160px,1.6fr) 100px 46px 46px 46px minmax(100px,1fr) 56px 20px}
   .ab-list{overflow-x:auto}
 }
-</style>
+
+/* the next page: the queue, the vote, the suggestion */
+.ab-next{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin-top:26px}
+.ab-nt{display:flex;flex-direction:column;gap:10px;padding:18px;background:var(--card);border:1px solid var(--border);border-radius:14px}
+.ab-nt h3{margin:0;font-size:16px;font-weight:700;letter-spacing:-.01em;color:var(--text)}
+.ab-nt p{margin:0;font-size:13.5px;color:var(--muted);line-height:1.55}
+.ab-vote{display:flex;align-items:center;gap:10px;margin-top:auto;padding-top:10px;border-top:1px solid var(--border)}
+.ab-vote button{font:inherit;font-size:13px;font-weight:600;padding:8px 14px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--faint);cursor:not-allowed}
+.ab-vote span{font-family:var(--mono);font-size:10.5px;color:var(--faint)}
+.ab-form{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px;padding:22px;background:var(--card);border:1px solid var(--border);border-radius:14px}
+.ab-form label{display:flex;flex-direction:column;gap:6px;font-size:12.5px;font-weight:600;color:var(--text)}
+.ab-form label.full{grid-column:1 / -1}
+.ab-form input,.ab-form textarea,.ab-form select{font:inherit;font-size:14px;padding:10px 12px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text)}
+.ab-form textarea{min-height:110px;resize:vertical}
+.ab-form .row{grid-column:1 / -1;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.ab-form .note{font-size:12.5px;color:var(--muted)}
+@media (max-width:700px){.ab-form{grid-template-columns:1fr}}
+
+@media (max-width:1400px) and (min-width:901px){.ghlink,header.top a.version{display:none}header.top .wrap{gap:14px}}</style>
 </head>
 <body id="top">
 
@@ -596,21 +651,20 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
     <a class="ghlink" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener" aria-label="The source, on GitHub" title="Open source · Apache-2.0 code · CC BY 4.0 pages"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a>
-      <a class="version" href="versions.html" title="What shipped in v1.16.0">v1.16.0</a>
+      <a class="version" href="versions.html" title="What shipped in v1.17.0">v1.17.0</a>
     <button class="demo" data-demo>Get in touch</button>
   </div>
 </header>
 
-<div class="labstrip"><b>The behaviour-policy library</b> · 15 template policies, one per target application, read live in your browser with published keys · 8 asked for. <a href="abp.html">The model</a> · <a href="lab-vault-delivered.html">Lab 07</a></div>
+<div class="labstrip"><b>Agent Behaviour Policies</b> · 15 example policies, one per target application, read live in your browser with published keys. <a href="abp.html">What an Agent Behaviour Policy is</a> · <a href="agent-behaviour-policy-next.html">Which one next? Vote or suggest</a></div>
 
 <main class="phero">
   <div class="wrap">
-    <span class="eyebrow"><span class="d"></span> The behaviour-policy library</span>
-    <h1>Every policy we have, <span class="it">as building blocks.</span></h1>
-    <p class="sub">One template policy per target application, and one per business function. Click any of them to preview it here — the card, the grant against the mandate, the scenarios — then open its vault or its page. A real deployment is a combination of these, and the combination is what we sell.</p>
+    <span class="eyebrow"><span class="d"></span> Agent Behaviour Policies · the examples</span>
+    <h1>Agent Behaviour Policies, <span class="it">as building blocks.</span></h1>
+    <p class="sub">An <strong>Agent Behaviour Policy</strong> describes one AI agent in one deployment: everything it can do (the grant), what you actually authorised (the mandate), the gap between the two (the delta), and what really stands in the way of each thing (the barrier). It describes and it does not judge, so it carries no score. Below are the example policies we have built, one per target application — for most people the first they will have seen. Click one to read it here; a real deployment is a combination of several.</p>
     <div class="cta-row">
-      <button class="btn btn-green" data-to="library">The library ↓</button>
-      <a class="btn btn-ghost" href="abp-vault-claude-code-web.html">Claude Code on the web →</a>
+      <a class="btn btn-ghost" href="abp.html">What is an Agent Behaviour Policy? →</a>
     </div>
   </div>
 </main>
@@ -618,23 +672,22 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
 <div class="paper">
 
   <section class="psection" id="library">
-    <div class="wrap">
+    <div class="wrap ab-wide">
       <div class="shead">
-        <span class="tag">15 built · 112 capability rows · 28 measured on the thing itself · 22 open questions</span>
-        <h2>Pick a policy. <span class="g">Preview it here. Open its vault.</span></h2>
-        <p>Every tile is a vault: a measured or documented grant for that application, a starting mandate written to be corrected, six scenarios that change the mandate and never the grant, and the files you hand the agent. The counts are read from the vault as you look. Grid or list, same set; search matches names, vendors, scopes, tool names and the 23 capability ids, so <code>send.message.world</code> finds every policy that can send mail whatever the product calls it.</p>
+        <span class="tag">15 example policies · 112 capability rows · 28 measured on the thing itself · 22 open questions</span>
+        <h2>Pick a policy. <span class="g">Read it here. Open its vault.</span></h2>
+        <p>Every tile is one Agent Behaviour Policy, delivered as a vault: a measured or documented grant for that application, a starting mandate written to be corrected, six scenarios that change the mandate and never the grant, and the files you hand the agent. The counts are read from the vault as you look. Grid or list, same set; search matches names, vendors, scopes, tool names and the 23 capability ids, so <code>send.message.world</code> finds every policy that can send mail whatever the product calls it. Not here yet? <a href="agent-behaviour-policy-next.html">See what is next, vote, or suggest one</a>.</p>
       </div>
       <rm-abp-library class="ab-lib" data-view="grid">
         <div class="ab-tools">
-          <label class="ab-search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg><input type="search" placeholder="Search a policy, a scope, a capability…" aria-label="Search the library"><kbd>/</kbd></label>
-          <div class="ab-filters"><button type="button" class="ab-f" data-filter="all" aria-pressed="true">All · 15</button><button type="button" class="ab-f" data-filter="group:Coding agents" aria-pressed="false">Coding agents</button><button type="button" class="ab-f" data-filter="group:Chat assistants" aria-pressed="false">Chat assistants</button><button type="button" class="ab-f" data-filter="group:Automation &amp; CI" aria-pressed="false">Automation &amp; CI</button><button type="button" class="ab-f" data-filter="group:Mail &amp; files connectors" aria-pressed="false">Mail &amp; files connectors</button><button type="button" class="ab-f" data-filter="group:Business functions" aria-pressed="false">Business functions</button><span class="sep"></span><button type="button" class="ab-f" data-filter="ev:measured" aria-pressed="false">measured</button><button type="button" class="ab-f" data-filter="ev:documented" aria-pressed="false">documented</button></div>
+          <label class="ab-search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg><input type="search" placeholder="Search a policy, a scope, a capability…" aria-label="Search the policies"><kbd>/</kbd></label>
+          <div class="ab-filters"><button type="button" class="ab-f" data-filter="all" aria-pressed="true">All · 15</button><button type="button" class="ab-f" data-filter="group:Coding agents" aria-pressed="false">Coding agents</button><button type="button" class="ab-f" data-filter="group:Chat assistants" aria-pressed="false">Chat assistants</button><button type="button" class="ab-f" data-filter="group:Automation &amp; CI" aria-pressed="false">Automation &amp; CI</button><button type="button" class="ab-f" data-filter="group:Mail &amp; files connectors" aria-pressed="false">Mail &amp; files connectors</button><span class="sep"></span><button type="button" class="ab-f" data-filter="ev:measured" aria-pressed="false">measured</button><button type="button" class="ab-f" data-filter="ev:documented" aria-pressed="false">documented</button></div>
           <label class="ab-beh"><span>by behaviour</span><select aria-label="Filter by behaviour"><option value="">any of the 23</option><option value="read.file.project">read.file.project — Read the project it is working on</option><option value="write.file.project">write.file.project — Change the project it is working on</option><option value="read.file.host">read.file.host — Read any file the account can reach</option><option value="write.file.host">write.file.host — Change any file the account can reach</option><option value="delete.file.host">delete.file.host — Delete files anywhere the account can reach</option><option value="execute.process.host">execute.process.host — Run programs as the account</option><option value="execute.process.self">execute.process.self — Run programs inside its own sandbox only</option><option value="send.endpoint.allowed">send.endpoint.allowed — Reach a permitted list of hosts</option><option value="send.endpoint.world">send.endpoint.world — Reach any host on the internet</option><option value="read.credential.host">read.credential.host — Read credentials stored where it runs</option><option value="authenticate-as.credential.tenant">authenticate-as.credential.tenant — Act in accounts with the credentials it holds</option><option value="grant.credential.self">grant.credential.self — Change its own permission settings</option><option value="send.message.world">send.message.world — Send a message to anyone</option><option value="read.message.tenant">read.message.tenant — Read mail or chat it is connected to</option><option value="write.repository.project">write.repository.project — Commit to the repository it was pointed at</option><option value="write.repository.tenant">write.repository.tenant — Push to a code host (any branch it can reach)</option><option value="authenticate-as.credential.signing">authenticate-as.credential.signing — Sign commits with the key it holds</option><option value="create.record.world">create.record.world — Publish packages, images or pages under the name it holds</option><option value="write.budget.tenant">write.budget.tenant — Spend money or tokens against an account it holds</option><option value="create.schedule.host">create.schedule.host — Create something that outlives the turn where it runs (a cron, a service)</option><option value="read.record.history">read.record.history — Read a retained record: shell history, past sessions</option><option value="create.schedule.tenant">create.schedule.tenant — Create something that outlives the session, on the platform (a routine, a scheduled trigger, a new session)</option><option value="read.record.browsing">read.record.browsing — Read every page you visit</option></select></label>
           <div class="ab-toggle" role="group" aria-label="View"><button type="button" data-view="grid" aria-pressed="true" aria-label="Grid view"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1.5"></rect><rect x="13" y="3" width="8" height="8" rx="1.5"></rect><rect x="3" y="13" width="8" height="8" rx="1.5"></rect><rect x="13" y="13" width="8" height="8" rx="1.5"></rect></svg></button><button type="button" data-view="list" aria-pressed="false" aria-label="List view"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"></path></svg></button></div>
         </div>
         <div class="ab-body">
           <div class="ab-views">
             <div class="ab-gridv">
-              <span class="ab-supertitle">By target application</span>
 <div class="ab-group" data-groupname="Coding agents"><div class="ab-grouphead"><b>Coding agents</b><span>3 policies</span></div><div class="ab-grid2"><a class="ab-t" href="abp-vault-claude-code-web.html" data-slug="claude-code-web" data-group="Coding agents" data-ev="measured" data-caps="authenticate-as.credential.signing delete.file.host read.credential.host read.file.host read.record.history authenticate-as.credential.tenant send.endpoint.allowed execute.process.host write.file.host write.file.project write.repository.project write.repository.tenant read.file.project create.schedule.tenant create.schedule.host" data-search="claude code on the web claude code on the web, with one repository attached claude-code-web anthropic/claude-code-remote/ccr-container coding agents a managed, ephemeral container with one repository attached and an egress proxy above it. the shape this site is maintained from; 13 of 20 rows measured on the thing itself. anthropic claude code on the web (a remote session container) shell (bash) fetch (webfetch) harness (mcp and built-in tools) authenticate-as.credential.signing shell (bash) delete.file.host shell (bash) read.credential.host shell (bash) read.file.host shell (bash) read.record.history shell (bash) authenticate-as.credential.tenant shell (bash) harness (mcp and built-in tools) send.endpoint.allowed shell (bash) fetch (webfetch) harness (mcp and built-in tools) execute.process.host shell (bash) write.file.host shell (bash) write.file.project shell (bash) write.repository.project shell (bash) write.repository.tenant shell (bash) harness (mcp and built-in tools) read.file.project shell (bash) harness (mcp and built-in tools) create.schedule.tenant harness (mcp and built-in tools) create.schedule.host shell (bash)">
   <span class="ab-thead"><span class="ab-logo" style="width:44px;height:44px;background:rgba(217,119,87,0.1);border-color:rgba(217,119,87,0.2)"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z" fill="#D97757"></path></svg></span><span class="ab-pills"><span class="ab-pill ev-live">measured 13 of 15</span></span></span>
   <span><h3>Claude Code on the web</h3><p>A managed, ephemeral container with one repository attached and an egress proxy above it. The shape this site is maintained from; 13 of 20 rows measured on the thing itself.</p></span>
@@ -709,47 +762,6 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
   <span class="ab-thead"><span class="ab-logo" style="width:44px;height:44px;background:rgba(0,97,255,0.1);border-color:rgba(0,97,255,0.2)"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 1.807L0 5.629l6 3.822 6.001-3.822L6 1.807zM18 1.807l-6 3.822 6 3.822 6-3.822-6-3.822zM0 13.274l6 3.822 6.001-3.822L6 9.452l-6 3.822zM18 9.452l-6 3.822 6 3.822 6-3.822-6-3.822zM6 18.371l6.001 3.822 6-3.822-6-3.822L6 18.371z" fill="#0061FF"></path></svg></span><span class="ab-pills"><span class="ab-pill unstated">4 open</span><span class="ab-pill ev-doc">documented</span></span></span>
   <span><h3>Dropbox MCP server</h3><p>Eight scopes, two of them write and two of them sharing, and no folder-scoped variant. It reads, creates, moves, deletes and makes shared links; the page says files are not deleted permanently and that recovery depends on your plan.</p></span>
   <span class="ab-tfoot"><span><b>5</b> it can do</span><span><b class="ok">0</b> unbounded</span><span class="ab-meter"><i class="u" style="width:0%"></i><i class="b" style="width:100%"></i></span><span>6 scenarios</span><rm-abp-mini data-vault="dropbox-mcp"></rm-abp-mini></span>
-</a></div></div>
-              <div class="ab-group" data-groupname="Not yet researched"><div class="ab-grouphead"><b>Not yet researched</b><span>5 in the queue · each becomes a vault once its vendor pages have been read and quoted</span></div><div class="ab-grid2"><a class="ab-t off" href="#ask" data-slug="claude-google-workspace-connector" data-off="1" data-group="Not yet researched" data-ev="asked" data-search="claude's google workspace connector claude-google-workspace-connector gmail, calendar and drive from inside claude. the connector's scope list has not been read yet; the google pages behind it have. not yet researched">
-  <span class="ab-thead"><span class="ab-logo" style="width:44px;height:44px;background:rgba(66,133,244,0.1);border-color:rgba(66,133,244,0.2)"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z" fill="#4285F4"></path></svg></span><span class="ab-pill asked">not yet researched</span></span>
-  <span><h3>Claude's Google Workspace connector</h3><p>Gmail, Calendar and Drive from inside Claude. The connector's scope list has not been read yet; the Google pages behind it have.</p></span>
-  <span class="ab-ask">ask for this →</span>
-</a>
-<a class="ab-t off" href="#ask" data-slug="slack-connector" data-off="1" data-group="Not yet researched" data-ev="asked" data-search="an assistant connected to slack slack-connector channels are mostly other people's writing, and a bot token reaches every channel it is in. not yet researched">
-  <span class="ab-thead"><span class="ab-logo" style="width:44px;height:44px;background:rgba(74,21,75,0.1);border-color:rgba(74,21,75,0.2)"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z" fill="#4A154B"></path></svg></span><span class="ab-pill asked">not yet researched</span></span>
-  <span><h3>An assistant connected to Slack</h3><p>Channels are mostly other people's writing, and a bot token reaches every channel it is in.</p></span>
-  <span class="ab-ask">ask for this →</span>
-</a>
-<a class="ab-t off" href="#ask" data-slug="github-connector" data-off="1" data-group="Not yet researched" data-ev="asked" data-search="an assistant connected to github github-connector a fine-grained token can be scoped to a repository; an oauth app cannot, and most connectors are oauth apps. not yet researched">
-  <span class="ab-thead"><span class="ab-logo" style="width:44px;height:44px;background:rgba(24,23,23,0.1);border-color:rgba(24,23,23,0.2)"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" fill="#181717"></path></svg></span><span class="ab-pill asked">not yet researched</span></span>
-  <span><h3>An assistant connected to GitHub</h3><p>A fine-grained token can be scoped to a repository; an OAuth app cannot, and most connectors are OAuth apps.</p></span>
-  <span class="ab-ask">ask for this →</span>
-</a>
-<a class="ab-t off" href="#ask" data-slug="notion-connector" data-off="1" data-group="Not yet researched" data-ev="asked" data-search="an assistant connected to notion notion-connector an integration is added page by page, which is the one connector model with a floor. whether the assistant's connector uses it is the question. not yet researched">
-  <span class="ab-thead"><span class="ab-logo" style="width:44px;height:44px;background:rgba(0,0,0,0.1);border-color:rgba(0,0,0,0.2)"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.139c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.747-.793-1.306-.793-1.96V2.667c0-.839.374-1.54 1.447-1.632z" fill="#000000"></path></svg></span><span class="ab-pill asked">not yet researched</span></span>
-  <span><h3>An assistant connected to Notion</h3><p>An integration is added page by page, which is the one connector model with a floor. Whether the assistant's connector uses it is the question.</p></span>
-  <span class="ab-ask">ask for this →</span>
-</a>
-<a class="ab-t off" href="#ask" data-slug="salesforce-connector" data-off="1" data-group="Not yet researched" data-ev="asked" data-search="an assistant connected to salesforce salesforce-connector a crm is entirely third-party material by construction. not yet researched">
-  <span class="ab-thead"><span class="ab-logo" style="width:44px;height:44px;background:rgba(0,161,224,0.1);border-color:rgba(0,161,224,0.2)"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M10.006 5.415a4.195 4.195 0 013.045-1.306c1.56 0 2.954.9 3.69 2.205.63-.3 1.35-.45 2.1-.45 2.85 0 5.159 2.34 5.159 5.22s-2.31 5.22-5.176 5.22c-.345 0-.69-.044-1.02-.104a3.75 3.75 0 01-3.3 1.95c-.6 0-1.155-.15-1.65-.375A4.314 4.314 0 018.88 20.4a4.302 4.302 0 01-4.05-2.82c-.27.062-.54.076-.825.076-2.204 0-4.005-1.8-4.005-4.05 0-1.5.811-2.805 2.01-3.51-.255-.57-.39-1.2-.39-1.846 0-2.58 2.1-4.65 4.65-4.65 1.53 0 2.85.705 3.72 1.8" fill="#00A1E0"></path></svg></span><span class="ab-pill asked">not yet researched</span></span>
-  <span><h3>An assistant connected to Salesforce</h3><p>A CRM is entirely third-party material by construction.</p></span>
-  <span class="ab-ask">ask for this →</span>
-</a></div></div>
-              <span class="ab-supertitle">By business function</span>
-              <div class="ab-group" data-groupname="Business functions"><div class="ab-grouphead"><b>What the agent is for, not what it runs on</b><span>3 asked for · the mandate is the same whichever product holds the data</span></div><div class="ab-grid2"><a class="ab-t off" href="#ask" data-slug="access-to-the-crm" data-off="1" data-group="Business functions" data-ev="asked" data-search="access to the crm access-to-the-crm customer records are third-party material by construction. salesforce, hubspot, dynamics. business functions">
-  <span class="ab-thead"><span class="ab-logo" style="width:44px;height:44px;background:rgba(0,161,224,0.1);border-color:rgba(0,161,224,0.2)"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M3 5h18v14H3z M9 12m-2.2 0a2.2 2.2 0 1 0 4.4 0 2.2 2.2 0 1 0-4.4 0 M14 10h4 M14 14h4 M5.5 17c.6-1.6 2-2.4 3.5-2.4s2.9.8 3.5 2.4" fill="none" stroke="#00A1E0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="ab-pill asked">asked for</span></span>
-  <span><h3>Access to the CRM</h3><p>Customer records are third-party material by construction. Salesforce, HubSpot, Dynamics.</p></span>
-  <span class="ab-ask">a policy for the function, whichever product holds it →</span>
-</a>
-<a class="ab-t off" href="#ask" data-slug="customer-service-desk" data-off="1" data-group="Business functions" data-ev="asked" data-search="the customer-service desk customer-service-desk tickets, and the conversations inside them. zendesk, intercom, freshdesk. business functions">
-  <span class="ab-thead"><span class="ab-logo" style="width:44px;height:44px;background:rgba(26,127,90,0.1);border-color:rgba(26,127,90,0.2)"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 13a8 8 0 0 1 16 0 M3 13h4v6H3z M17 13h4v6h-4z M19 19v1a2 2 0 0 1-2 2h-4" fill="none" stroke="#1A7F5A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="ab-pill asked">asked for</span></span>
-  <span><h3>The customer-service desk</h3><p>Tickets, and the conversations inside them. Zendesk, Intercom, Freshdesk.</p></span>
-  <span class="ab-ask">a policy for the function, whichever product holds it →</span>
-</a>
-<a class="ab-t off" href="#ask" data-slug="finance-data" data-off="1" data-group="Business functions" data-ev="asked" data-search="finance data finance-data spreadsheets, ledgers and the exports beside them. sheets, excel, netsuite. business functions">
-  <span class="ab-thead"><span class="ab-logo" style="width:44px;height:44px;background:rgba(180,83,9,0.1);border-color:rgba(180,83,9,0.2)"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M3 4h18v16H3z M3 10h18 M3 15h18 M9 4v16 M15 4v16" fill="none" stroke="#B45309" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="ab-pill asked">asked for</span></span>
-  <span><h3>Finance data</h3><p>Spreadsheets, ledgers and the exports beside them. Sheets, Excel, NetSuite.</p></span>
-  <span class="ab-ask">a policy for the function, whichever product holds it →</span>
 </a></div></div>
               <p class="ab-none" hidden>Nothing matches. Search matches names, vendors, scopes, tools and capability ids — try a shorter word.</p>
             </div>
@@ -860,55 +872,15 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
   <span class="un"><b class="z">0</b><span class="ab-meter"><i class="u" style="width:0%"></i><i class="b" style="width:100%"></i></span></span>
   <span class="open y">4 open</span><span class="arrow">→</span>
 </a>
-              <div class="ab-lgroup" data-groupname="Business functions"><b>Business functions</b><span>3 asked for</span></div>
-<a class="ab-lrow off" href="#ask" data-slug="access-to-the-crm" data-off="1" data-group="Business functions" data-ev="asked" data-search="access to the crm access-to-the-crm customer records are third-party material by construction. salesforce, hubspot, dynamics. business functions"><span class="ab-lname"><span class="ab-logo" style="width:30px;height:30px;background:rgba(0,161,224,0.1);border-color:rgba(0,161,224,0.2)"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M3 5h18v14H3z M9 12m-2.2 0a2.2 2.2 0 1 0 4.4 0 2.2 2.2 0 1 0-4.4 0 M14 10h4 M14 14h4 M5.5 17c.6-1.6 2-2.4 3.5-2.4s2.9.8 3.5 2.4" fill="none" stroke="#00A1E0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span><b>Access to the CRM</b></span></span><span><span class="ab-pill asked">asked for</span></span><span class="ab-lblurb">Customer records are third-party material by construction. Salesforce, HubSpot, Dynamics.</span><span class="arrow">→</span></a>
-<a class="ab-lrow off" href="#ask" data-slug="customer-service-desk" data-off="1" data-group="Business functions" data-ev="asked" data-search="the customer-service desk customer-service-desk tickets, and the conversations inside them. zendesk, intercom, freshdesk. business functions"><span class="ab-lname"><span class="ab-logo" style="width:30px;height:30px;background:rgba(26,127,90,0.1);border-color:rgba(26,127,90,0.2)"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M4 13a8 8 0 0 1 16 0 M3 13h4v6H3z M17 13h4v6h-4z M19 19v1a2 2 0 0 1-2 2h-4" fill="none" stroke="#1A7F5A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span><b>The customer-service desk</b></span></span><span><span class="ab-pill asked">asked for</span></span><span class="ab-lblurb">Tickets, and the conversations inside them. Zendesk, Intercom, Freshdesk.</span><span class="arrow">→</span></a>
-<a class="ab-lrow off" href="#ask" data-slug="finance-data" data-off="1" data-group="Business functions" data-ev="asked" data-search="finance data finance-data spreadsheets, ledgers and the exports beside them. sheets, excel, netsuite. business functions"><span class="ab-lname"><span class="ab-logo" style="width:30px;height:30px;background:rgba(180,83,9,0.1);border-color:rgba(180,83,9,0.2)"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M3 4h18v16H3z M3 10h18 M3 15h18 M9 4v16 M15 4v16" fill="none" stroke="#B45309" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span><b>Finance data</b></span></span><span><span class="ab-pill asked">asked for</span></span><span class="ab-lblurb">Spreadsheets, ledgers and the exports beside them. Sheets, Excel, NetSuite.</span><span class="arrow">→</span></a>
-              <div class="ab-lgroup" data-groupname="Not yet researched"><b>Not yet researched</b><span>5</span></div>
-<a class="ab-lrow off" href="#ask" data-slug="claude-google-workspace-connector" data-off="1" data-group="Not yet researched" data-ev="asked" data-search="claude's google workspace connector claude-google-workspace-connector gmail, calendar and drive from inside claude. the connector's scope list has not been read yet; the google pages behind it have. not yet researched"><span class="ab-lname"><span class="ab-logo" style="width:30px;height:30px;background:rgba(66,133,244,0.1);border-color:rgba(66,133,244,0.2)"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z" fill="#4285F4"></path></svg></span><span><b>Claude's Google Workspace connector</b></span></span><span><span class="ab-pill asked">not researched</span></span><span class="ab-lblurb">Gmail, Calendar and Drive from inside Claude. The connector's scope list has not been read yet; the Google pages behind it have.</span><span class="arrow">→</span></a>
-<a class="ab-lrow off" href="#ask" data-slug="slack-connector" data-off="1" data-group="Not yet researched" data-ev="asked" data-search="an assistant connected to slack slack-connector channels are mostly other people's writing, and a bot token reaches every channel it is in. not yet researched"><span class="ab-lname"><span class="ab-logo" style="width:30px;height:30px;background:rgba(74,21,75,0.1);border-color:rgba(74,21,75,0.2)"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z" fill="#4A154B"></path></svg></span><span><b>An assistant connected to Slack</b></span></span><span><span class="ab-pill asked">not researched</span></span><span class="ab-lblurb">Channels are mostly other people's writing, and a bot token reaches every channel it is in.</span><span class="arrow">→</span></a>
-<a class="ab-lrow off" href="#ask" data-slug="github-connector" data-off="1" data-group="Not yet researched" data-ev="asked" data-search="an assistant connected to github github-connector a fine-grained token can be scoped to a repository; an oauth app cannot, and most connectors are oauth apps. not yet researched"><span class="ab-lname"><span class="ab-logo" style="width:30px;height:30px;background:rgba(24,23,23,0.1);border-color:rgba(24,23,23,0.2)"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" fill="#181717"></path></svg></span><span><b>An assistant connected to GitHub</b></span></span><span><span class="ab-pill asked">not researched</span></span><span class="ab-lblurb">A fine-grained token can be scoped to a repository; an OAuth app cannot, and most connectors are OAuth apps.</span><span class="arrow">→</span></a>
-<a class="ab-lrow off" href="#ask" data-slug="notion-connector" data-off="1" data-group="Not yet researched" data-ev="asked" data-search="an assistant connected to notion notion-connector an integration is added page by page, which is the one connector model with a floor. whether the assistant's connector uses it is the question. not yet researched"><span class="ab-lname"><span class="ab-logo" style="width:30px;height:30px;background:rgba(0,0,0,0.1);border-color:rgba(0,0,0,0.2)"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.139c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.747-.793-1.306-.793-1.96V2.667c0-.839.374-1.54 1.447-1.632z" fill="#000000"></path></svg></span><span><b>An assistant connected to Notion</b></span></span><span><span class="ab-pill asked">not researched</span></span><span class="ab-lblurb">An integration is added page by page, which is the one connector model with a floor. Whether the assistant's connector uses it is the question.</span><span class="arrow">→</span></a>
-<a class="ab-lrow off" href="#ask" data-slug="salesforce-connector" data-off="1" data-group="Not yet researched" data-ev="asked" data-search="an assistant connected to salesforce salesforce-connector a crm is entirely third-party material by construction. not yet researched"><span class="ab-lname"><span class="ab-logo" style="width:30px;height:30px;background:rgba(0,161,224,0.1);border-color:rgba(0,161,224,0.2)"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M10.006 5.415a4.195 4.195 0 013.045-1.306c1.56 0 2.954.9 3.69 2.205.63-.3 1.35-.45 2.1-.45 2.85 0 5.159 2.34 5.159 5.22s-2.31 5.22-5.176 5.22c-.345 0-.69-.044-1.02-.104a3.75 3.75 0 01-3.3 1.95c-.6 0-1.155-.15-1.65-.375A4.314 4.314 0 018.88 20.4a4.302 4.302 0 01-4.05-2.82c-.27.062-.54.076-.825.076-2.204 0-4.005-1.8-4.005-4.05 0-1.5.811-2.805 2.01-3.51-.255-.57-.39-1.2-.39-1.846 0-2.58 2.1-4.65 4.65-4.65 1.53 0 2.85.705 3.72 1.8" fill="#00A1E0"></path></svg></span><span><b>An assistant connected to Salesforce</b></span></span><span><span class="ab-pill asked">not researched</span></span><span class="ab-lblurb">A CRM is entirely third-party material by construction.</span><span class="arrow">→</span></a>
             </div>
+            <p class="src" style="margin-top:18px">Missing the one you run? <a href="agent-behaviour-policy-next.html">8 are asked for — vote on which is next, or suggest one</a>. Every vault also carries <code>MAP-A-GRANT.md</code>: give it to an agent that already holds the credential and it measures its own grant.</p>
           </div>
+          <div class="ab-resize" role="separator" aria-orientation="vertical" aria-label="Resize the preview panel" title="Drag to resize · double-click to reset"></div>
           <div class="ab-backdrop" data-close hidden></div>
           <aside class="ab-panel" aria-live="polite"></aside>
         </div>
       </rm-abp-library>
-      <div class="ab-legend" style="margin-top:18px"><span>■ unbounded excess — a rule in prose, a setting, or nothing</span><span style="color:var(--green)">■ excess behind a boundary — the only control</span><span>no score, anywhere — a policy describes, it does not judge</span></div>
-    </div>
-  </section>
-
-  <section class="psection alt" id="ask">
-    <div class="wrap">
-      <div class="shead">
-        <span class="tag">Asked for · 8</span>
-        <h2>The next policies, <span class="g">and what each one waits for.</span></h2>
-        <p>A vault is built from a measured or documented grant, never typed. The connectors above marked <em>not yet researched</em> become vaults once their vendor pages have been read and quoted, the way the five connector vaults were. The business functions are a different axis: a policy for what the agent is <em>for</em> — the CRM, the service desk, the finance data — whichever product holds it. The mandate is the same across products; the grant is per product; each becomes a vault once one product's grant is documented for it. Nothing here is invented to fill a grid.</p>
-      </div>
-      <ul class="plist">
-        <li><strong>A documented grant is not a measured one.</strong> The connector vaults stand at the <em>documented</em> tier: every row quotes a vendor page and names its date, nothing was tested, and the rows a page could not settle are counted on the tile as open questions. A measured row needs a system we are entitled to run, and probing somebody else's is out of bounds here with no research exemption.</li>
-        <li><strong>Every deployment is a combination.</strong> An agent's own policy, plus one per connector it holds, plus the business function it serves. The templates are the building blocks; the combination — with its merged grant and a corrected mandate — is what a deployment's policy is made of, and what is sold.</li>
-        <li><strong>Run something that is not here?</strong> Every vault carries <code>MAP-A-GRANT.md</code>: give it to an agent that already holds the credential and it measures its own grant and drafts the first policy. Send us what it finds; that is how a new application gets its tile.</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="psection" id="how">
-    <div class="wrap">
-      <div class="shead">
-        <span class="tag">How this page reads a vault</span>
-        <h2>Ciphertext in, <span class="g">decrypted here, and always the current commit.</span></h2>
-        <p>The vault API answers plain cross-origin GETs with no auth header, because what it returns is ciphertext under a key the server has never held. This page derives each vault's HEAD address from its read key, fetches the ref, the commit, the tree and the blobs it needs, and decrypts them in your browser. A push to a vault is live on the next page load — no rebuild of this site.</p>
-      </div>
-      <ul class="plist">
-        <li><strong>The viewer is the site's. The data is the vault's.</strong> Every string from a vault is rendered as text, never as markup. A vault's app runs only inside a sandboxed frame with an opaque origin, served its reads over a message channel, and never sees a key.</li>
-        <li><strong>Immutable objects are cached; the ref never is.</strong> A stale ref would render an older commit from perfectly valid ciphertext and nothing would error, so the page fetches it fresh every time.</li>
-        <li><strong>The read keys are printed, on purpose.</strong> Each is derived one-way from its vault's write key and cannot be turned back into it. Anyone can clone a vault with it and check what its page says against the bytes.</li>
-        <li><strong>The reader is copied, not fetched.</strong> It is sgit.ai's house reader, about ninety lines, in each page's own source — the brief that documents it says to copy it rather than load it across origins at runtime.</li>
-      </ul>
-      <p class="src">The mechanism is written up at <a href="https://sgit.ai/docs/vault/reading-a-vault-file.html" target="_blank" rel="noopener">sgit.ai — reading one file out of a vault</a>, the rules for a site page that embeds a vault at <a href="https://sgit.ai/docs/guidance/index.html" target="_blank" rel="noopener">sgit.ai — guidance</a>.</p>
+      <div class="ab-legend" style="margin-top:18px"><span>■ unbounded excess — a rule in prose, a setting, or nothing</span><span style="color:var(--green)">■ excess behind a boundary — the only control</span><span>no score, anywhere — a policy describes, it does not judge</span><span>read live from each vault with its published key · <a href="https://sgit.ai/docs/vault/reading-a-vault-file.html" target="_blank" rel="noopener">how</a> · <a href="lab-vault-delivered.html">Lab 07</a></span></div>
     </div>
   </section>
 
@@ -916,11 +888,11 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
 
 <section class="pcta">
   <div class="wrap">
-    <span class="eyebrow"><span class="d"></span> The behaviour-policy library</span>
+    <span class="eyebrow"><span class="d"></span> Agent Behaviour Policies</span>
     <h2>Pick the policies your deployment is made of. Then correct the mandate.</h2>
     <p>Everything else in the vault is derived. The correction is the elicitation, and the corrected combination — with a name on the licence and no public key — is what is sold.</p>
     <div class="cta-row">
-      <a class="btn btn-green" href="abp-vault-claude-code-web.html">Claude Code on the web →</a>
+      <a class="btn btn-green" href="abp.html">What an Agent Behaviour Policy is →</a>
       <a class="btn btn-ghost" href="pricing.html">What it costs</a>
     </div>
   </div>
@@ -938,7 +910,7 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
 (function(){
 'use strict';
 var RM={core:{},services:{},components:{},data:{}};
-RM.data.currentPage="agent-behaviour-policy";RM.data.pages=[{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"The problem"},{"name":"acceptable","label":"Accepted is not acceptable","file":"acceptable.html","group":"The problem"},{"name":"acceptance","label":"You own the risk","file":"acceptance.html","group":"The problem"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"The problem"},{"name":"abp","label":"Agent Behaviour Policy","file":"abp.html","group":"The model"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"The model"},{"name":"agents","label":"Agents","file":"agents.html","group":"The model"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"The model"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"The model"},{"name":"statics","label":"Static scenarios","file":"statics.html","group":"The model"},{"name":"agent-behaviour-policy","label":"Behaviour policies","file":"agent-behaviour-policy.html"},{"name":"demos","label":"All demos","file":"demos.html","group":"Live demos"},{"name":"demo-licence-to-operate","label":"Licence to Operate","file":"demo-licence-to-operate.html","group":"Live demos"},{"name":"demo-risk-graph-explorer","label":"RiskGraph Explorer","file":"demo-risk-graph-explorer.html","group":"Live demos"},{"name":"demo-agentic-browser-isolation","label":"Agentic Browser Isolation","file":"demo-agentic-browser-isolation.html","group":"Live demos"},{"name":"demo-risk-mandate-field","label":"RiskMandate field demo","file":"demo-risk-mandate-field.html","group":"Live demos"},{"name":"demo-file-security","label":"File security walk","file":"demo-file-security.html","group":"Live demos"},{"name":"demo-agent-permission-games","label":"Permission games","file":"demo-agent-permission-games.html","group":"Live demos"},{"name":"lab","label":"All entries","file":"lab.html","group":"Lab"},{"name":"lab-connector-grants","label":"01 · The grant is user-shaped","file":"lab-connector-grants.html","group":"Lab"},{"name":"lab-abp-flow","label":"02 · Buying a behaviour policy","file":"lab-abp-flow.html","group":"Lab"},{"name":"lab-abp-requests","label":"03 · Requests to abp.sgit.ai","file":"lab-abp-requests.html","group":"Lab"},{"name":"lab-shape-collector","label":"04 · The shape collector","file":"lab-shape-collector.html","group":"Lab"},{"name":"lab-commit-author","label":"05 · The commit author","file":"lab-commit-author.html","group":"Lab"},{"name":"lab-network-reach","label":"06 · Every routable address","file":"lab-network-reach.html","group":"Lab"},{"name":"lab-vault-delivered","label":"07 · The vault, delivered","file":"lab-vault-delivered.html","group":"Lab"},{"name":"summit","label":"Lisbon 2026","file":"summit.html"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"briefs","label":"Brief register","file":"briefs.html","group":"More"},{"name":"work","label":"Working with us","file":"work.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"}];RM.data.sections=[];
+RM.data.currentPage="agent-behaviour-policy";RM.data.pages=[{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"The problem"},{"name":"acceptable","label":"Accepted is not acceptable","file":"acceptable.html","group":"The problem"},{"name":"acceptance","label":"You own the risk","file":"acceptance.html","group":"The problem"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"The problem"},{"name":"abp","label":"Agent Behaviour Policy","file":"abp.html","group":"The model"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"The model"},{"name":"agents","label":"Agents","file":"agents.html","group":"The model"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"The model"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"The model"},{"name":"statics","label":"Static scenarios","file":"statics.html","group":"The model"},{"name":"agent-behaviour-policy","label":"Agent Behaviour Policies","file":"agent-behaviour-policy.html"},{"name":"demos","label":"All demos","file":"demos.html","group":"Live demos"},{"name":"demo-licence-to-operate","label":"Licence to Operate","file":"demo-licence-to-operate.html","group":"Live demos"},{"name":"demo-risk-graph-explorer","label":"RiskGraph Explorer","file":"demo-risk-graph-explorer.html","group":"Live demos"},{"name":"demo-agentic-browser-isolation","label":"Agentic Browser Isolation","file":"demo-agentic-browser-isolation.html","group":"Live demos"},{"name":"demo-risk-mandate-field","label":"RiskMandate field demo","file":"demo-risk-mandate-field.html","group":"Live demos"},{"name":"demo-file-security","label":"File security walk","file":"demo-file-security.html","group":"Live demos"},{"name":"demo-agent-permission-games","label":"Permission games","file":"demo-agent-permission-games.html","group":"Live demos"},{"name":"lab","label":"All entries","file":"lab.html","group":"Lab"},{"name":"lab-connector-grants","label":"01 · The grant is user-shaped","file":"lab-connector-grants.html","group":"Lab"},{"name":"lab-abp-flow","label":"02 · Buying a behaviour policy","file":"lab-abp-flow.html","group":"Lab"},{"name":"lab-abp-requests","label":"03 · Requests to abp.sgit.ai","file":"lab-abp-requests.html","group":"Lab"},{"name":"lab-shape-collector","label":"04 · The shape collector","file":"lab-shape-collector.html","group":"Lab"},{"name":"lab-commit-author","label":"05 · The commit author","file":"lab-commit-author.html","group":"Lab"},{"name":"lab-network-reach","label":"06 · Every routable address","file":"lab-network-reach.html","group":"Lab"},{"name":"lab-vault-delivered","label":"07 · The vault, delivered","file":"lab-vault-delivered.html","group":"Lab"},{"name":"summit","label":"Lisbon 2026","file":"summit.html"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"briefs","label":"Brief register","file":"briefs.html","group":"More"},{"name":"work","label":"Working with us","file":"work.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"}];RM.data.sections=[];
 
 'use strict';
 // components/dom.js — tiny DOM helpers shared by components. `el` builds an
@@ -1557,7 +1529,8 @@ RM.services.abpVaults = (function () {
   }
   function barrierCell(L, id) { var r = L.row[id]; return dom.el('td', null, [dom.el('span', { class: 'ab-g ' + r.barrier }, [GLYPH[r.barrier] + ' ' + r.barrier])]); }
   function evidenceCell(L, id) { var r = L.row[id], m = !!L.measured[r.evidence]; return dom.el('td', null, [dom.el('span', { class: 'ab-ev' + (m ? ' m' : '') }, [r.evidence + (m ? ' ✓' : '')])]); }
-  function statusCell(L, id) { var s = statusOf(L, id); return dom.el('td', null, [dom.el('span', { class: 'ab-pill ' + s }, [{ want: 'want', refused: 'do not want', unstated: 'unstated' }[s]])]); }
+  var STATUS_LABEL = { want: 'wanted', refused: 'told not to', unstated: 'unstated' };   // "told not to": the mandate refuses it and the grant still permits it
+  function statusCell(L, id) { var s = statusOf(L, id); return dom.el('td', null, [dom.el('span', { class: 'ab-pill ' + s }, [STATUS_LABEL[s]])]); }
   function capTable(L, ids, control) {
     var head = ['Capability', 'What it is', 'Barrier', 'Undo', 'Evidence'].concat(control ? ['What stands in the way'] : []).concat(['Mandate']);
     return dom.el('div', { class: 'tw' }, [dom.el('table', { class: 't' }, [
@@ -1637,7 +1610,7 @@ RM.services.abpVaults = (function () {
         } else if (view === 'mandate') {
           out.push(dom.el('p', { class: 'ab-quote' }, [m.description]));
           out.push(sub('Elicited — ' + m.status + ', authored ' + m.authored + ' by ' + m.authored_by + '. The only authored file in the vault.'));
-          [['Wanted', m.want, 'want'], ['Explicitly not wanted', m.do_not_want, 'refused'], ['Unstated', m.unstated, 'unstated']].forEach(function (s) {
+          [['Wanted', m.want, 'want'], ['Told not to — refused by the mandate, still permitted by the grant', m.do_not_want, 'refused'], ['Unstated', m.unstated, 'unstated']].forEach(function (s) {
             out.push(h3(s[0] + ' (' + s[1].length + ')'));
             out.push(dom.el('div', { class: 'ab-pills' }, s[1].map(function (id) { return dom.el('span', { class: 'ab-pill ' + s[2], title: gloss(L, id) }, [id]); })));
           });
@@ -1794,6 +1767,71 @@ RM.services.abpVaults = (function () {
     return d;
   }
 
+  // ---- the label: what a capability could do to you, in the words a label on a box would use ----
+  var WARN = {
+    'delete.file.host': 'could delete files anywhere the account can reach', 'write.file.host': 'could change any file the account can reach',
+    'read.file.host': 'reads every file the account can reach — other people\'s included', 'read.message.tenant': 'reads mail and chat, most of it written by other people',
+    'send.message.world': 'could send mail or messages to anyone, as you', 'send.endpoint.world': 'could send data to any host on the internet — the exfiltration route',
+    'send.endpoint.allowed': 'reaches a permitted list of hosts', 'read.credential.host': 'could read stored credentials — keys, tokens, the codes that arrive by mail',
+    'authenticate-as.credential.tenant': 'could act in your accounts with the credentials it holds', 'authenticate-as.credential.signing': 'could sign commits as you',
+    'grant.credential.self': 'could change its own permission settings', 'create.record.world': 'could publish packages, pages or links under your name',
+    'write.budget.tenant': 'could spend money or tokens against an account you hold', 'create.schedule.host': 'could leave something running after it stops',
+    'create.schedule.tenant': 'could create thousands of scheduled entries, events or jobs — and keep running without you', 'execute.process.host': 'could run any program as the account',
+    'execute.process.self': 'runs programs only inside its own sandbox', 'read.record.history': 'reads retained records — shell history, past sessions',
+    'read.record.browsing': 'reads every page you visit', 'write.repository.tenant': 'could push to any repository it can reach on the code host',
+    'write.repository.project': 'could commit to the repository it was pointed at', 'write.file.project': 'could change the project it is working on', 'read.file.project': 'reads the project it is working on'
+  };
+  // the lethal trifecta (Willison): private data, exposure to untrusted content, a way to communicate out.
+  // All three present and nothing in the way of the third is the shape that leaks.
+  var TRIFECTA = [
+    { id: 'private', name: 'Private data', caps: ['read.file.host', 'read.message.tenant', 'read.credential.host', 'read.record.history', 'read.record.browsing', 'read.file.project'] },
+    { id: 'untrusted', name: 'Untrusted content', caps: ['read.message.tenant', 'read.record.browsing', 'read.file.host', 'send.endpoint.world', 'send.endpoint.allowed'] },
+    { id: 'exfil', name: 'A way out', caps: ['send.message.world', 'send.endpoint.world', 'create.record.world', 'write.repository.tenant', 'send.endpoint.allowed'] },
+  ];
+  function legState(L, leg) { var rows = leg.caps.filter(function (c) { return L.row[c]; }); if (!rows.length) return { has: false, bounded: false, rows: rows }; return { has: true, bounded: rows.every(function (c) { return L.row[c].barrier === 'boundary'; }), rows: rows }; }
+  function labelBox(L, d, W, D) {
+    var g = L.data.grant, sideEffects = d.unbounded.slice().sort(function (a, b) { return L.undoRank[L.row[a].undo] - L.undoRank[L.row[b].undo]; });
+    var toldNot = d.refused.filter(function (id) { return L.row[id].barrier !== 'boundary'; });
+    var box = dom.el('div', { class: 'ab-lab' }, [
+      dom.el('span', { class: 't' }, ['What this agent could do to you']),
+      dom.el('div', { class: 'l' }, [dom.el('span', null, ['capabilities in the grant']), dom.el('b', null, [String(d.counts.grant)])]),
+      dom.el('div', { class: 'l' }, [dom.el('span', null, ['wanted by this mandate']), dom.el('b', null, [String(d.counts.wanted)])]),
+      dom.el('div', { class: 'l' }, [dom.el('span', null, ['not asked for, nothing in the way']), dom.el('b', null, [String(d.counts.unbounded)])]),
+      dom.el('span', { class: 'h' }, ['Side effects — not asked for, and nothing real stops it']),
+    ]);
+    box.appendChild(sideEffects.length ? dom.el('ul', null, sideEffects.map(function (id) { return dom.el('li', { class: L.row[id].undo === 'no' ? '' : 'e' }, [dom.el('i'), dom.el('span', null, [WARN[id] || gloss(L, id), ' ', dom.el('code', null, [id + (L.row[id].undo === 'no' ? ' · cannot be undone' : '')])])]); })) : dom.el('p', { class: 'none' }, ['none — everything not asked for sits behind a boundary']));
+    box.appendChild(dom.el('span', { class: 'h' }, ['Told not to, and only told']));
+    box.appendChild(toldNot.length ? dom.el('ul', null, toldNot.map(function (id) { return dom.el('li', null, [dom.el('i'), dom.el('span', null, [WARN[id] || gloss(L, id), ' ', dom.el('code', null, [id])])]); })) : dom.el('p', { class: 'none' }, ['nothing the mandate refuses is left to a sentence alone']));
+    box.appendChild(dom.el('span', { class: 'h' }, ['The lethal trifecta']));
+    var legs = TRIFECTA.map(function (leg) { return { leg: leg, st: legState(L, leg) }; });
+    box.appendChild(dom.el('div', { class: 'ab-tri' }, legs.map(function (x) { return dom.el('span', { class: !x.st.has ? 'n' : x.st.bounded ? 'b' : 'y' }, [dom.el('b', null, [x.leg.name]), dom.el('span', null, [!x.st.has ? 'not in the grant' : x.st.bounded ? 'present · behind a boundary' : 'present · ' + x.st.rows.length + (x.st.rows.length === 1 ? ' row' : ' rows') + ', unbounded'])]); })));
+    var all = legs.every(function (x) { return x.st.has; }), outOpen = legs[2].st.has && !legs[2].st.bounded;
+    box.appendChild(dom.el('p', { class: 'ab-triv' + (all ? '' : ' ok') }, [dom.el('b', null, [all ? (outOpen ? 'All three, and the way out is unbounded. ' : 'All three present; the way out sits behind a boundary. ') : 'Not all three. ']), all ? 'Private data plus untrusted content plus a way to communicate is the shape that leaks. The mandate cannot change this; only a barrier on one leg does.' : 'The shape that leaks needs all three legs; this grant is missing at least one.']));
+    return box;
+  }
+  // the diagram: one cell per capability in the grant, coloured by what the mandate says and what stands in the way; shortfall drawn outside
+  var SVG = 'http://www.w3.org/2000/svg';
+  function svgEl(tag, attrs, text) { var e = document.createElementNS(SVG, tag); for (var k in attrs) e.setAttribute(k, attrs[k]); if (text != null) e.textContent = text; return e; }
+  function diagram(L, d, W, D) {
+    var ids = sortRows(L, L.data.grant.grant.map(function (r) { return r.capability; })), short = d.shortfall;
+    var n = ids.length + short.length, cw = 100 / Math.max(n, 8), H = 36;
+    var svg = svgEl('svg', { viewBox: '0 0 100 ' + H, preserveAspectRatio: 'none', role: 'img', 'aria-label': 'The grant as cells, coloured by mandate and barrier' });
+    var C = { want: '#1A7F5A', unb: '#B45309', bnd: '#EBF5F0', short: '#1D4ED8' };
+    ids.forEach(function (id, i) { var r = L.row[id], st = W[id] ? 'want' : (r.barrier === 'boundary' ? 'bnd' : 'unb');
+      var g = svgEl('g'); g.appendChild(svgEl('title', {}, id + ' — ' + (W[id] ? 'wanted' : D[id] ? 'told not to' : 'unstated') + ' · ' + r.barrier));
+      g.appendChild(svgEl('rect', { x: i * cw + 0.4, y: 4, width: cw - 0.8, height: 26, rx: 1.2, fill: C[st], stroke: st === 'bnd' ? '#1A7F5A' : 'none', 'stroke-width': .5, 'stroke-dasharray': st === 'bnd' ? '1 1' : 'none', 'vector-effect': 'non-scaling-stroke' }));
+      if (D[id]) g.appendChild(svgEl('rect', { x: i * cw + 0.4, y: 32, width: cw - 0.8, height: 3, fill: '#C0392B' }));
+      svg.appendChild(g); });
+    short.forEach(function (id, j) { var i = ids.length + j; var g = svgEl('g'); g.appendChild(svgEl('title', {}, id + ' — wanted, not granted'));
+      g.appendChild(svgEl('rect', { x: i * cw + 0.4, y: 4, width: cw - 0.8, height: 26, rx: 1.2, fill: 'none', stroke: C.short, 'stroke-width': 1, 'stroke-dasharray': '2 1.5', 'vector-effect': 'non-scaling-stroke' })); svg.appendChild(g); });
+    var caption = dom.el('span', { class: 'ab-diagcap' }, ['one cell per capability in the grant → ' + ids.length + (short.length ? '   ·   wanted, not granted → ' + short.length : '')]);
+    var legend = dom.el('div', { class: 'ab-diaglegend' }, [
+      dom.el('span', null, [dom.el('i', { style: 'background:' + C.want }), 'wanted']), dom.el('span', null, [dom.el('i', { style: 'background:' + C.unb }), 'not asked for · nothing in the way']),
+      dom.el('span', null, [dom.el('i', { style: 'background:' + C.bnd + ';border:1px dashed ' + C.want }), 'not asked for · behind a boundary']), dom.el('span', null, [dom.el('i', { style: 'background:#C0392B;height:3px' }), 'told not to']),
+      dom.el('span', null, [dom.el('i', { style: 'border:1px dashed ' + C.short }), 'wanted, not granted'])]);
+    return dom.el('div', { class: 'ab-diag' }, [svg, caption, legend]);
+  }
+
   // ---- <rm-abp-library> : the directory as one thing — search, filters, grid or list, and the preview panel ----
   // Progressive: the tiles and rows are static links; this wires them to the panel, the toggle, the
   // filters and the search box, and the panel is rendered from the vault as it is read.
@@ -1804,16 +1842,27 @@ RM.services.abpVaults = (function () {
       this.search = this.querySelector('.ab-search input');
       this.items  = Array.prototype.slice.call(this.querySelectorAll('[data-slug]'));
       this.groups = Array.prototype.slice.call(this.querySelectorAll('[data-groupname]'));
-      this.filter = 'all'; this.q = ''; this.beh = '';
+      this.filter = 'all'; this.q = ''; this.beh = ''; this.rowFilter = 'all';
+      // the panel is resizable: a vertical bar between the views and the panel, width kept on this device
+      this.resizer = this.querySelector('.ab-resize');
+      try { var pw = parseInt(localStorage.getItem('rm-abp-panel-w'), 10); if (pw >= 340 && pw <= 900) this.style.setProperty('--panel-w', pw + 'px'); } catch (_) {}
+      if (this.resizer) {
+        this.resizer.addEventListener('pointerdown', function (e) { e.preventDefault(); self.resizer.setPointerCapture(e.pointerId); self.classList.add('resizing'); self.resizer.classList.add('on'); self._drag = { x: e.clientX, w: self.panel.getBoundingClientRect().width }; });
+        this.resizer.addEventListener('pointermove', function (e) { if (!self._drag) return; var w = Math.max(340, Math.min(900, self._drag.w - (e.clientX - self._drag.x))); self.style.setProperty('--panel-w', w + 'px'); });
+        var end = function () { if (!self._drag) return; self._drag = null; self.classList.remove('resizing'); self.resizer.classList.remove('on'); try { localStorage.setItem('rm-abp-panel-w', parseInt(self.panel.getBoundingClientRect().width, 10)); } catch (_) {} };
+        this.resizer.addEventListener('pointerup', end); this.resizer.addEventListener('pointercancel', end);
+        this.resizer.addEventListener('dblclick', function () { self.style.removeProperty('--panel-w'); try { localStorage.removeItem('rm-abp-panel-w'); } catch (_) {} });
+      }
       this.behSel = this.querySelector('.ab-beh select');
       if (this.behSel) this.behSel.addEventListener('change', function () { self.beh = self.behSel.value; self.apply(); });
       this.addEventListener('click', function (e) {
-        var t = e.target.closest('[data-view], [data-filter], [data-slug], [data-close], [data-scenario], [data-copy]');
+        var t = e.target.closest('[data-view], [data-filter], [data-slug], [data-close], [data-scenario], [data-copy], [data-rowfilter]');
         if (!t || !self.contains(t)) return;
         if (t.dataset.view) { self.setView(t.dataset.view); e.preventDefault(); return; }
         if (t.dataset.filter !== undefined) { self.filter = t.dataset.filter; self.apply(); e.preventDefault(); return; }
         if (t.dataset.close !== undefined) { self.close(); e.preventDefault(); return; }
         if (t.dataset.scenario !== undefined) { self.scenario = t.dataset.scenario; self.renderPanel(); e.preventDefault(); return; }
+        if (t.dataset.rowfilter !== undefined) { self.rowFilter = t.dataset.rowfilter; self.renderPanel(); e.preventDefault(); return; }
         if (t.dataset.copy !== undefined) { self.copy(t.dataset.copy, t); e.preventDefault(); return; }
         if (t.dataset.slug && !t.dataset.off) { if (e.metaKey || e.ctrlKey || e.shiftKey) return; e.preventDefault(); self.select(t.dataset.slug); }
       });
@@ -1885,9 +1934,16 @@ RM.services.abpVaults = (function () {
       panel.appendChild(scen);
       panel.appendChild(dom.el('p', { class: 'ab-scendesc' }, [dom.el('b', null, [cur.label + '. ']), cur.description || '']));
       panel.appendChild(dom.el('div', { class: 'ab-pcounts' }, [[d.counts.grant, 'it can do', ''], [d.counts.wanted, 'wanted', 'ok'], [d.counts.excess, 'not asked', 'ex'], [d.counts.unbounded, 'unbounded', 'un'], [d.counts.shortfall, 'shortfall', d.counts.shortfall ? 'sf' : '']].map(function (c) { return dom.el('span', { class: 'ab-pc ' + c[2] }, [dom.el('b', null, [String(c[0])]), dom.el('span', null, [c[1]])]); })));
-      var rows = dom.el('div', { class: 'ab-gm' }, [dom.el('div', { class: 'ab-scenhead' }, [dom.el('span', { class: 'ab-tag' }, ['The grant, against this mandate']), dom.el('span', null, ['○ boundary · ◐ setting · ◉ rule · ● none'])])]);
-      ids.forEach(function (id) { var r = L.row[id], s = st(id); rows.appendChild(dom.el('div', { class: 'ab-gmrow' }, [dom.el('span', { class: 'ab-g ' + r.barrier }, [GLYPH[r.barrier]]), dom.el('span', { class: 'ab-gmid' }, [dom.el('b', null, [id]), dom.el('span', null, [r.note || gloss(L, id)])]), dom.el('span', { class: 'ab-pill ' + s }, [{ want: 'wanted', refused: 'refused', unstated: 'unstated' }[s]])])); });
-      d.shortfall.forEach(function (id) { rows.appendChild(dom.el('div', { class: 'ab-gmrow short' }, [dom.el('span', { class: 'ab-g' }, ['·']), dom.el('span', { class: 'ab-gmid' }, [dom.el('b', null, [id]), dom.el('span', null, [gloss(L, id) + ' — not in the grant'])]), dom.el('span', { class: 'ab-pill short' }, ['wanted · not granted'])])); });
+      panel.appendChild(diagram(L, d, W, D));
+      panel.appendChild(labelBox(L, d, W, D));
+      var RF = [['all', 'all'], ['want', 'wanted'], ['refused', 'told not to'], ['unstated', 'unstated'], ['unbounded', 'unbounded'], ['boundary', 'behind a boundary'], ['irreversible', 'cannot be undone']];
+      var rf = self.rowFilter, keep = function (id) { var r = L.row[id], s = st(id); return rf === 'all' || rf === s || (rf === 'unbounded' && !W[id] && r.barrier !== 'boundary') || (rf === 'boundary' && r.barrier === 'boundary') || (rf === 'irreversible' && r.undo === 'no'); };
+      var shown = ids.filter(keep);
+      var rows = dom.el('div', { class: 'ab-gm' }, [dom.el('div', { class: 'ab-scenhead' }, [dom.el('span', { class: 'ab-tag' }, ['The grant, against this mandate · ' + shown.length + ' of ' + ids.length]), dom.el('span', null, ['○ boundary · ◐ setting · ◉ rule · ● none'])]),
+        dom.el('div', { class: 'ab-rf' }, RF.map(function (f) { return dom.el('button', { type: 'button', 'data-rowfilter': f[0], 'aria-pressed': rf === f[0] ? 'true' : 'false' }, [f[1]]); }))]);
+      shown.forEach(function (id) { var r = L.row[id], s = st(id); rows.appendChild(dom.el('div', { class: 'ab-gmrow' }, [dom.el('span', { class: 'ab-g ' + r.barrier, title: r.barrier }, [GLYPH[r.barrier]]), dom.el('span', { class: 'ab-gmid' }, [dom.el('b', null, [id]), dom.el('span', null, [r.note || gloss(L, id)])]), dom.el('span', { class: 'ab-pill ' + s, title: s === 'refused' ? 'the mandate refuses it; the grant still permits it' : '' }, [STATUS_LABEL[s]])])); });
+      if (rf === 'all' || rf === 'want') d.shortfall.forEach(function (id) { rows.appendChild(dom.el('div', { class: 'ab-gmrow short' }, [dom.el('span', { class: 'ab-g' }, ['·']), dom.el('span', { class: 'ab-gmid' }, [dom.el('b', null, [id]), dom.el('span', null, [gloss(L, id) + ' — not in the grant'])]), dom.el('span', { class: 'ab-pill short' }, ['wanted · not granted'])])); });
+      if (!shown.length) rows.appendChild(dom.el('p', { class: 'ab-none' }, ['no row matches this filter']));
       panel.appendChild(rows);
       panel.appendChild(dom.el('div', { class: 'ab-pbtns' }, [dom.el('a', { class: 'btn btn-green', href: v.page }, ['Open the policy page →']), dom.el('a', { class: 'btn btn-ghost dark', href: UI + '/en-gb/#' + v.key + ':' + v.vid, target: '_blank', rel: 'noopener' }, ['Open the vault ↗'])]));
       panel.appendChild(dom.el('div', { class: 'ab-pkey' }, [dom.el('span', null, ['read key ']), dom.el('code', null, [publicKey(v)]), dom.el('button', { type: 'button', class: 'ab-copy', 'data-copy': publicKey(v) }, ['copy'])]));
