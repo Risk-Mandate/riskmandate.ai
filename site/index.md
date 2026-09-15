@@ -2,7 +2,7 @@
 
 # RiskMandate — the insurability layer for agentic AI
 
-Carriers are filing to exclude AI. RiskMandate measures what your agents can actually reach, evidences the controls, prices the exposure, and produces the record an underwriter will accept. Read-only, never in the request path.
+You cannot insure what nobody can describe. RiskMandate writes Agent Behaviour Policies: for one agent in one deployment, everything it can actually reach, what you authorised it to do, and the gap between them. The Insurability Index is what those policies add up to.
 
 Source: https://riskmandate.ai/
 
@@ -10,7 +10,7 @@ Source: https://riskmandate.ai/
 
 # Make your agents insurable.
 
-Carriers are filing to exclude AI. RiskMandate measures what your agents can actually reach, evidences the controls that contain them, prices the exposure, and produces the record an underwriter will accept.
+You cannot insure what nobody can describe. So we start with one agent: everything it can actually reach, what you authorised it to do, and the gap between them, written down as a policy you correct and keep. The Insurability Index is what those policies add up to — it is where this goes, and we say so rather than implying a number we do not yet compute.
 
 ## Cover is being withdrawn. Evidence buys it back.
 
@@ -54,17 +54,59 @@ A national consumer regulator published that if an agent a business uses does so
 
 Both are cited by date rather than characterised, and both are somebody else's publication. If your agent does something you did not authorise, the question you will be asked is what you _did_ authorise — and that is the document this site exists to produce.
 
+## One agent, written down.
+
+An Agent Behaviour Policy is a description of one agent in one deployment: four objects, and the verb attached to each says how it is established. Three of them a person can write down out of what they understand today. The fourth is computed, and it is the one nobody has looked at.
+
+### Everything it can reach
+
+Not what somebody decided to give it. What it can actually reach in this deployment, including everything nobody thought about.
+
+### What you authorised it to do
+
+The job, written down. The one object only you can supply, and it takes minutes because you already know it.
+
+### The gap between the two
+
+Excess where it can and you did not ask; shortfall where you asked and it cannot. Never written by hand, recomputed whenever either input moves.
+
+### What stands in the way
+
+Per capability, one of four kinds — and only the fourth bounds anything. A prohibition shown without its barrier is a claim we cannot support.
+
+A policy is a draft and it is meant to be argued with. It goes to the people who built the agent, the people who own what it touches and the people accountable for it, and each corrects the part they know. It is delivered as a vault rather than a document, because the operator needs instructions, leadership needs a decision and security needs evidence out of the same record — with a named owner, a review trigger and every version kept.
+
+## Three rungs. We are on the first.
+
+Insurability is the destination and the behaviour policy is the doorway. Each rung needs the one below it, which is why we are selling the bottom one rather than the top.
+
+### The label — the behaviour policy
+
+What the agent can do, what you authorised, the gap, and what is in the way. Context-free, so it is the same document wherever the agent runs. No score: it describes and it does not judge.
+
+### The patient record — the twin
+
+A read-only model of the environment the agent is actually in: the assets, the tools, the data, what is connected to what. This is where the grant stops being a deployment shape and becomes yours, and it is the point at which the exposure means anything.
+
+### The prescription — the Index and the acceptance
+
+The two combined, dated, with a named owner and an expiry, so the decision comes back. This is the only rung with a score on it, and the only one somebody signs.
+
+Stated this way on purpose. The rungs below the score are the ones that make it mean something, and a number composed from rows nobody can check is the thing this whole model exists to avoid. The six levels and the five dimensions further down are the published design for rung three — the shape it will take, not a number we compute today.
+
 ## Questionnaires describe. Evidence prices.
 
 Underwriting agentic risk today runs on self-reported answers. The same three questions produce very different outcomes depending on where the answer comes from.
 
-## Six levels. One number.
+## Six levels. One number, eventually.
 
-Every agent estate sits somewhere on this ladder. Your level determines what an underwriter will offer, and the gap to the next one is your work order. Select a level to see what it buys.
+This is the design for the top rung: where an agent estate sits, what an underwriter will offer at each level, and the gap to the next one as a work order. Select a level to see what it buys. It is published before it is built on purpose, so the commitment stays checkable afterwards.
 
-The Index is a composite of five dimensions, weighted by how much each one moves a price. It is derived from your environment through read-only connectors, never from a self-assessment. Weights are set by underwriting judgement today and re-fit as loss experience accumulates — we say so rather than implying an actuarial precision that does not yet exist.
+The Index is a composite of five dimensions, weighted by how much each one moves a price. It is composed from behaviour policies rather than from a form: each one states capabilities and the barrier against each, so the number is an aggregate of rows that can be checked individually. Weights are set by underwriting judgement today and re-fit as loss experience accumulates — we say so rather than implying an actuarial precision that does not yet exist.
 
 ## Five dimensions, weighted by price impact.
+
+What the Index is composed from, and how much each part moves a price. The weights below are underwriting judgement rather than fitted loss experience, and they are the design rather than a running calculation.
 
 ### Exposure containment
 
@@ -92,7 +134,7 @@ Who owns each accepted risk, for how long, and at what retention. Acceptance wit
 
 Map every agent's blast radius, evidence the controls that contain it, and walk into your renewal with an evidence pack instead of a questionnaire.
 
-- Agent discovery and blast-radius measurement through read-only connectors
+- A measured grant per agent, derived from the deployment shape rather than from a questionnaire
 - A written mandate per agent, generated from what the agent can actually reach
 - Continuous attestation mapped to ISO 42001 and the OWASP Agentic Top 10
 - A renewal report your broker can submit without rewriting
@@ -140,6 +182,6 @@ Connector setup is typically under a day. A first Index and gap list land inside
 
 Metadata about agent scope and permissions, not the contents of what your agents process. Self-hosted and sovereign deployments are available where the data cannot leave your boundary.
 
-## Know your number.
+## Start with one agent.
 
-A first assessment returns your Insurability Index, the gap list to the next level, and a renewal report written for an underwriter rather than a security team.
+Pick an agent you already run. You get back a draft behaviour policy for it — what it can reach, what you authorised, the gap, and what actually stands in the way — as a file you keep and correct. That is the rung everything above it is built on.

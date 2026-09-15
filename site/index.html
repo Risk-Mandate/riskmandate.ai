@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>RiskMandate — the insurability layer for agentic AI</title>
-<meta name="description" content="Carriers are filing to exclude AI. RiskMandate measures what your agents can actually reach, evidences the controls, prices the exposure, and produces the record an underwriter will accept. Read-only, never in the request path.">
+<meta name="description" content="You cannot insure what nobody can describe. RiskMandate writes Agent Behaviour Policies: for one agent in one deployment, everything it can actually reach, what you authorised it to do, and the gap between them. The Insurability Index is what those policies add up to.">
 <link rel="canonical" href="https://riskmandate.ai/">
 <link rel="alternate" type="text/markdown" href="index.md" title="This page as markdown">
 <link rel="icon" href="assets/brand/riskmandate-favicon-32.png" sizes="32x32">
@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="RiskMandate">
 <meta property="og:url" content="https://riskmandate.ai/">
 <meta property="og:title" content="RiskMandate — the insurability layer for agentic AI">
-<meta property="og:description" content="Carriers are filing to exclude AI. RiskMandate measures what your agents can actually reach, evidences the controls, prices the exposure, and produces the record an underwriter will accept. Read-only, never in the request path.">
+<meta property="og:description" content="You cannot insure what nobody can describe. RiskMandate writes Agent Behaviour Policies: for one agent in one deployment, everything it can actually reach, what you authorised it to do, and the gap between them. The Insurability Index is what those policies add up to.">
 <meta property="og:image" content="https://riskmandate.ai/assets/brand/riskmandate-lockup-light.png">
 <meta name="twitter:card" content="summary_large_image">
 <!-- v1.0.0. Reconstructed from SG/Vault 7rfetjwz at v0.14.0;
@@ -488,6 +488,39 @@ rm-index-ladder { display: block; margin-top: 38px; }
     color:       var(--faint);
 }
 
+/* ===== what a policy is (the four objects) ===== */
+.objs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 38px; }
+@media (max-width: 860px) { .objs { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .objs { grid-template-columns: 1fr; } }
+.obj { background: var(--card); border: 1px solid var(--border); border-radius: var(--r);
+       padding: 24px; display: flex; flex-direction: column; }
+.obj.derived { background: var(--ink); border-color: var(--ink); }
+.ok { font-family: var(--mono); font-size: 12.5px; font-weight: 700; color: var(--green);
+      text-transform: uppercase; letter-spacing: .08em; margin-bottom: 14px; }
+.obj h3 { font-size: 16px; color: var(--text); margin-bottom: 10px; line-height: 1.24; }
+.obj p  { font-size: 13.5px; color: var(--muted); line-height: 1.55; }
+.obj.derived h3 { color: var(--fg); } .obj.derived p { color: var(--fg-2); }
+.ov { margin-top: auto; padding-top: 18px; font-family: var(--mono); font-size: 11px; color: var(--faint); }
+
+/* the files a policy is delivered as */
+.files { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 8px; }
+.files code { font-family: var(--mono); font-size: 12px; color: var(--text); background: var(--bg2);
+              border: 1px solid var(--border); border-radius: 6px; padding: 7px 11px; }
+
+/* ===== the ladder ===== */
+.rungs { margin-top: 38px; display: flex; flex-direction: column; gap: 14px; }
+.rung2 { display: grid; grid-template-columns: 46px 1fr auto; gap: 22px; align-items: start;
+         background: var(--card); border: 1px solid var(--border); border-radius: var(--r); padding: 24px 26px; }
+@media (max-width: 720px) { .rung2 { grid-template-columns: 1fr; gap: 12px; } }
+.rn { font-family: var(--mono); font-size: 22px; font-weight: 700; color: var(--border); line-height: 1; }
+.rung2.now { border-color: var(--green); }
+.rung2.now .rn { color: var(--green); }
+.rung2 h3 { font-size: 19px; color: var(--text); margin-bottom: 9px; letter-spacing: -.02em; }
+.rung2 p { font-size: 14px; color: var(--muted); line-height: 1.62; }
+.rst { font-family: var(--mono); font-size: 10.5px; font-weight: 700; letter-spacing: .1em;
+       text-transform: uppercase; color: var(--faint); white-space: nowrap; padding-top: 5px; }
+.rung2.now .rst { color: var(--green); }
+
 /* ===== audiences ===== */
 .aud {
     display:               grid;
@@ -795,8 +828,8 @@ a.ds{display:block;text-decoration:none;color:inherit}
   <div class="wrap">
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
-    <a class="version" href="versions.html" title="What shipped in v1.11.0">v1.11.0</a>
-    <button class="demo" data-demo>Get your Index</button>
+    <a class="version" href="versions.html" title="What shipped in v1.12.0">v1.12.0</a>
+    <button class="demo" data-demo>Get in touch</button>
   </div>
 </header>
 
@@ -805,11 +838,11 @@ a.ds{display:block;text-decoration:none;color:inherit}
     <div class="ins-hero-copy">
       <span class="eyebrow"><span class="d"></span> The insurability layer for agentic AI</span>
       <h1>Make your agents <span class="it">insurable.</span></h1>
-      <p class="sub">Carriers are filing to exclude AI. RiskMandate measures what your agents can actually reach, evidences the controls that contain them, prices the exposure, and produces the record an underwriter will accept.</p>
+      <p class="sub">You cannot insure what nobody can describe. So we start with one agent: everything it can actually reach, what you authorised it to do, and the gap between them, written down as a policy you correct and keep. The Insurability Index is what those policies add up to &mdash; it is where this goes, and we say so rather than implying a number we do not yet compute.</p>
       <div class="cta-row">
-        <button class="btn btn-green" data-demo>Get your Insurability Index →</button>
+        <a class="btn btn-green" href="abp.html">Start with one agent &rarr;</a>
         <button class="btn btn-ghost" data-to="grant">What did you already authorise?</button>
-        <button class="btn btn-ghost" data-to="levels">See the six levels</button>
+        <button class="btn btn-ghost" data-to="ladder">Where this goes</button>
       </div>
     </div>
     <rm-index-card></rm-index-card>
@@ -908,6 +941,96 @@ a.ds{display:block;text-decoration:none;color:inherit}
     </div>
   </section>
 
+  <!-- what we sell -->
+  <section class="ins-section" id="policy">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">What we sell</span>
+        <h2>One agent, <span class="g">written down.</span></h2>
+        <p>An Agent Behaviour Policy is a description of one agent in one deployment: four objects, and the verb attached to each says how it is established. Three of them a person can write down out of what they understand today. The fourth is computed, and it is the one nobody has looked at.</p>
+      </div>
+
+      <div class="objs">
+        <div class="obj">
+          <span class="ok">Grant</span>
+          <h3>Everything it can reach</h3>
+          <p>Not what somebody decided to give it. What it can actually reach in this deployment, including everything nobody thought about.</p>
+          <span class="ov">measured</span>
+        </div>
+        <div class="obj">
+          <span class="ok">Mandate</span>
+          <h3>What you authorised it to do</h3>
+          <p>The job, written down. The one object only you can supply, and it takes minutes because you already know it.</p>
+          <span class="ov">elicited</span>
+        </div>
+        <div class="obj derived">
+          <span class="ok">Delta</span>
+          <h3>The gap between the two</h3>
+          <p>Excess where it can and you did not ask; shortfall where you asked and it cannot. Never written by hand, recomputed whenever either input moves.</p>
+          <span class="ov">derived</span>
+        </div>
+        <div class="obj">
+          <span class="ok">Barrier</span>
+          <h3>What stands in the way</h3>
+          <p>Per capability, one of four kinds &mdash; and only the fourth bounds anything. A prohibition shown without its barrier is a claim we cannot support.</p>
+          <span class="ov">recorded</span>
+        </div>
+      </div>
+
+      <p class="ins-note" style="margin-top:30px">A policy is a draft and it is meant to be argued with. It goes to the people who built the agent, the people who own what it touches and the people accountable for it, and each corrects the part they know. It is delivered as a vault rather than a document, because the operator needs instructions, leadership needs a decision and security needs evidence out of the same record &mdash; with a named owner, a review trigger and every version kept.</p>
+
+      <div class="files">
+        <code>AGENTS.md</code><code>MANDATE.md</code><code>GRANT.md</code><code>DELTA.md</code><code>LICENCE-TO-OPERATE.md</code>
+      </div>
+
+      <div class="cta-row" style="margin-top:32px">
+        <a class="btn btn-green" href="abp.html">What a behaviour policy is &rarr;</a>
+        <a class="btn btn-ghost-dark" href="questions.html#words">Grant, mandate, delta, barrier</a>
+        <a class="btn btn-ghost-dark" href="lab.html">How we are building it</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- where this goes -->
+  <section class="ins-section alt" id="ladder">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Where this goes</span>
+        <h2>Three rungs. <span class="g">We are on the first.</span></h2>
+        <p>Insurability is the destination and the behaviour policy is the doorway. Each rung needs the one below it, which is why we are selling the bottom one rather than the top.</p>
+      </div>
+
+      <div class="rungs">
+        <div class="rung2 now">
+          <span class="rn">01</span>
+          <div>
+            <h3>The label &mdash; the behaviour policy</h3>
+            <p>What the agent can do, what you authorised, the gap, and what is in the way. Context-free, so it is the same document wherever the agent runs. No score: it describes and it does not judge.</p>
+          </div>
+          <span class="rst">What we sell</span>
+        </div>
+        <div class="rung2">
+          <span class="rn">02</span>
+          <div>
+            <h3>The patient record &mdash; the twin</h3>
+            <p>A read-only model of the environment the agent is actually in: the assets, the tools, the data, what is connected to what. This is where the grant stops being a deployment shape and becomes yours, and it is the point at which the exposure means anything.</p>
+          </div>
+          <span class="rst">Design, part built</span>
+        </div>
+        <div class="rung2">
+          <span class="rn">03</span>
+          <div>
+            <h3>The prescription &mdash; the Index and the acceptance</h3>
+            <p>The two combined, dated, with a named owner and an expiry, so the decision comes back. This is the only rung with a score on it, and the only one somebody signs.</p>
+          </div>
+          <span class="rst">Design</span>
+        </div>
+      </div>
+
+      <p class="ins-note" style="margin-top:28px">Stated this way on purpose. The rungs below the score are the ones that make it mean something, and a number composed from rows nobody can check is the thing this whole model exists to avoid. The six levels and the five dimensions further down are the published design for rung three &mdash; the shape it will take, not a number we compute today.</p>
+    </div>
+  </section>
+
   <!-- the difference -->
   <section class="ins-section">
     <div class="wrap">
@@ -923,7 +1046,7 @@ a.ds{display:block;text-decoration:none;color:inherit}
         <div class="cmp-row">
           <span class="cmp-k">Where the answer comes from</span>
           <span class="cmp-q"><b>Someone's recollection.</b> A security lead fills in a form once a year, from memory and a spreadsheet that was last accurate in March.</span>
-          <span class="cmp-e"><b>Your environment.</b> Read-only connectors derive what each agent can actually reach, refreshed as permissions and deployments change.</span>
+          <span class="cmp-e"><b>The deployment, one capability at a time.</b> Which agent, running where, with which class of credentials — and from that shape, every capability it can reach, each with what actually stands in the way of it. Recomputed when the shape moves.</span>
         </div>
         <div class="cmp-row">
           <span class="cmp-k">What the underwriter gets</span>
@@ -943,12 +1066,12 @@ a.ds{display:block;text-decoration:none;color:inherit}
   <section class="ins-section alt" id="levels">
     <div class="wrap">
       <div class="shead">
-        <span class="tag">The Insurability Index</span>
-        <h2>Six levels. <span class="g">One number.</span></h2>
-        <p>Every agent estate sits somewhere on this ladder. Your level determines what an underwriter will offer, and the gap to the next one is your work order. Select a level to see what it buys.</p>
+        <span class="tag">The Insurability Index &middot; rung three</span>
+        <h2>Six levels. <span class="g">One number, eventually.</span></h2>
+        <p>This is the design for the top rung: where an agent estate sits, what an underwriter will offer at each level, and the gap to the next one as a work order. Select a level to see what it buys. It is published before it is built on purpose, so the commitment stays checkable afterwards.</p>
       </div>
       <rm-index-ladder></rm-index-ladder>
-      <p class="ins-note">The Index is a composite of five dimensions, weighted by how much each one moves a price. It is derived from your environment through read-only connectors, never from a self-assessment. Weights are set by underwriting judgement today and re-fit as loss experience accumulates — we say so rather than implying an actuarial precision that does not yet exist.</p>
+      <p class="ins-note">The Index is a composite of five dimensions, weighted by how much each one moves a price. It is composed from behaviour policies rather than from a form: each one states capabilities and the barrier against each, so the number is an aggregate of rows that can be checked individually. Weights are set by underwriting judgement today and re-fit as loss experience accumulates — we say so rather than implying an actuarial precision that does not yet exist.</p>
     </div>
   </section>
 
@@ -956,8 +1079,9 @@ a.ds{display:block;text-decoration:none;color:inherit}
   <section class="ins-section">
     <div class="wrap">
       <div class="shead">
-        <span class="tag">What gets measured</span>
+        <span class="tag">What gets measured &middot; the design</span>
         <h2>Five dimensions, <span class="g">weighted by price impact.</span></h2>
+        <p>What the Index is composed from, and how much each part moves a price. The weights below are underwriting judgement rather than fitted loss experience, and they are the design rather than a running calculation.</p>
       </div>
       <div class="dims">
         <div class="dim"><span class="dw">30%</span><h3>Exposure containment</h3><p>How bad one agent can get. Reachable actions, systems touched, the value of the authority it holds, and whether the damage is reversible.</p><span class="dr">Drives severity</span></div>
@@ -982,7 +1106,7 @@ a.ds{display:block;text-decoration:none;color:inherit}
           <h3>Mandate</h3>
           <p>Map every agent's blast radius, evidence the controls that contain it, and walk into your renewal with an evidence pack instead of a questionnaire.</p>
           <ul>
-            <li>Agent discovery and blast-radius measurement through read-only connectors</li>
+            <li>A measured grant per agent, derived from the deployment shape rather than from a questionnaire</li>
             <li>A written mandate per agent, generated from what the agent can actually reach</li>
             <li>Continuous attestation mapped to ISO 42001 and the OWASP Agentic Top 10</li>
             <li>A renewal report your broker can submit without rewriting</li>
@@ -1009,7 +1133,7 @@ a.ds{display:block;text-decoration:none;color:inherit}
   <section class="ins-section">
     <div class="wrap ins-mech">
       <div class="shead">
-        <span class="tag">The mechanic</span>
+        <span class="tag">The mechanic &middot; rung three</span>
         <h2>Every risk gets an owner <span class="g">and an expiry.</span></h2>
         <p>A finding sitting in a backlog is not a decision, and an underwriter cannot price it. RiskMandate puts each risk through one of three doors, assigned to a named person for a stated interval. When the interval ends, the decision comes back.</p>
       </div>
@@ -1022,6 +1146,8 @@ a.ds{display:block;text-decoration:none;color:inherit}
         <div class="nodoor">
           <s>Revisit next quarter</s>
           <span>There is no fourth door. Silence is not a decision anyone can underwrite.</span>
+      </div>
+      <p class="ins-note">The acceptance workflow is a published approach rather than a running system: a risk is accepted by a named person for a stated period, and the interval is what brings the decision back. Implementation is not claimed. It belongs to the third rung, and it needs the first one underneath it &mdash; there is nothing to accept until somebody has written down what the agent can actually do.
         </div>
       </div>
     </div>
@@ -1049,11 +1175,12 @@ a.ds{display:block;text-decoration:none;color:inherit}
 
 <section class="ins-cta" id="demo">
   <div class="wrap">
-    <span class="eyebrow"><span class="d"></span> Before your carrier does</span>
-    <h2>Know your <span class="it">number.</span></h2>
-    <p>A first assessment returns your Insurability Index, the gap list to the next level, and a renewal report written for an underwriter rather than a security team.</p>
+    <span class="eyebrow"><span class="d"></span> Before your carrier asks</span>
+    <h2>Start with <span class="it">one agent.</span></h2>
+    <p>Pick an agent you already run. You get back a draft behaviour policy for it &mdash; what it can reach, what you authorised, the gap, and what actually stands in the way &mdash; as a file you keep and correct. That is the rung everything above it is built on.</p>
     <div class="cta-row">
-      <button class="btn btn-green" data-demo>Get your Insurability Index →</button>
+      <a class="btn btn-green" href="abp.html">What a behaviour policy is →</a>
+      <button class="btn btn-ghost" data-demo>Talk to us</button>
       <a class="btn btn-ghost" href="demos.html">See the live demos</a>
     </div>
   </div>
