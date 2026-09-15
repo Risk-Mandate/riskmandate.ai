@@ -11,6 +11,9 @@ __pycache__/
 build/
 develop-eggs/
 dist/
+# …except a behaviour-policy vault's dist/: the zip and the PDF are what the buyer downloads,
+# served from site/ like everything else, and --check verifies the zip against the generator.
+!site/vaults/*/dist/
 downloads/
 eggs/
 .eggs/

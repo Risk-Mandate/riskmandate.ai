@@ -696,7 +696,14 @@ load().then(data => {
   ready();
 }).catch(err => {
   console.error('[abp-vault]', err);
-  $('#loading').textContent = 'Could not read the vault: ' + (err && err.message || err);
+  const msg = String(err && err.message || err);
+  if (/vault\.json/.test(msg)) {
+    // Opened in the app vault itself, or somewhere with no policy beside it: say so.
+    $('#loading').textContent = '';
+    $('#loading').append(h('b', null, 'This is the renderer, not a policy. '), 'It is the code every behaviour-policy vault loads; opened on its own there is no vault.json, no grant and no mandate beside it, so there is nothing to show. Open an application vault — its index.html is a loader that fetches this file and boots it against that vault\u2019s own data. The directory of application vaults is at ', h('a', { href: 'https://riskmandate.ai/abp-vaults.html' }, 'riskmandate.ai/abp-vaults'), '.');
+  } else {
+    $('#loading').textContent = 'Could not read the vault: ' + msg;
+  }
   $('#src').textContent = 'error';
   ready();
 });

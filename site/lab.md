@@ -71,7 +71,7 @@ The rest of this site says only what we can defend. The Lab is looser on purpose
 
 Every entry is also cut as a dated PDF, and the old ones are kept. Send the file rather than the link when what matters is what we thought _then_ — a link shows the reader whatever the page says by the time they arrive.
 
-All 6 entries, in reading order, as a single PDF, 76 pages. This is the one to attach when you want somebody to follow the whole journey rather than land in the middle of it.
+All 7 entries, in reading order, as a single PDF, 76 pages. This is the one to attach when you want somebody to follow the whole journey rather than land in the middle of it.
 
 Digests for every edition are in [lab-editions.json](lab-editions.json), so a PDF somebody was sent can be checked against this list.
 

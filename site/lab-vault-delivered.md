@@ -116,3 +116,9 @@ Built 15 September 2026 from abp.sgit.ai v0.3.0 (profile `anthropic/claude-code-
 ## Correct the mandate. That is the whole purchase.
 
 Everything else in the vault is derived. If you run an agent in this shape, open `MANDATE.md`, tell us which of the six you actually asked for and which of the nine you would object to — and the next build is yours.
+
+## The journey, kept as files.
+
+This page holds current thinking, and it will change. Each edition below is a dated, immutable copy of what it said on the day, with its own digest. Nothing is rewritten; the list only grows.
+
+Digests for every edition are in [lab-editions.json](lab-editions.json), so a PDF somebody was sent can be checked against this list.

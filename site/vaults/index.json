@@ -1,5 +1,5 @@
 {
-  "note": "The catalogue of behaviour-policy vaults on this site — the single source for the directory page (abp-vaults.html) and one page per vault (abp-vault-<slug>.html), both written by scripts/site/build-abp-pages.mjs. `key` is the vault's PUBLIC read key (64 hex): derived one-way, read and nothing else, published on purpose. A write credential never appears here or anywhere in site/. `asked_for` are applications whose grant is not yet published at abp.sgit.ai, so no vault can be derived for them yet — they are listed so the gap is visible, never filled in by hand.",
+  "note": "The catalogue of behaviour-policy vaults on this site \u2014 the single source for the directory page (abp-vaults.html) and one page per vault (abp-vault-<slug>.html), both written by scripts/site/build-abp-pages.mjs. `key` is the vault's PUBLIC read key (64 hex): derived one-way, read and nothing else, published on purpose. A write credential never appears here or anywhere in site/. `asked_for` are applications whose grant is not yet published at abp.sgit.ai, so no vault can be derived for them yet \u2014 they are listed so the gap is visible, never filled in by hand.",
   "endpoint": "https://dev.send.sgraph.ai",
   "vaults": [
     {
@@ -127,7 +127,7 @@
       "family": "mail",
       "glyph": "M",
       "blurb": "The narrowest scope that reads a message reads every message. Asked of the model site as request 2 in Lab 03.",
-      "note": "grant not yet published — first in the queue"
+      "note": "grant not yet published \u2014 first in the queue"
     },
     {
       "slug": "work-mailbox",
@@ -158,7 +158,7 @@
     "vault_id": "fl3i7lu4",
     "key": "e37a0f80d65e2b486f8bb3253e313c65ecbb57e5664c3f1704346c70ac09639a",
     "entry": "index.html",
-    "version": "v1",
+    "version": "v3",
     "note": "The renderer every application vault loads (site/vaults/_app/), pushed as its own vault. Public read key; read and nothing else."
   }
 }

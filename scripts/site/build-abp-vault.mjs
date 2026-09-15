@@ -41,6 +41,7 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync, copyFileSync } from 'node:fs';
 import { dirname, join, resolve }                                             from 'node:path';
 import { fileURLToPath }                                                      from 'node:url';
+import { createHash, createHmac }                                            from 'node:crypto';
 
 // ----------------------------------------------------------------- a deterministic zip
 // STORE only, fixed timestamp, entries in path order: the same inputs give the same bytes,
@@ -456,6 +457,23 @@ if (existsSync(join(TEMPLATE, '..', '_app', 'loader.html'))) {
   const cfgApp = { endpoint: catalogue.endpoint, vault_id: appVault?.vault_id || null, read_key: appVault?.key || null, entry: appVault?.entry || 'index.html', version: appVault?.version || null, static: '../_app/index.html' };
   outputs['index.html'] = loader.replace('const APP_VAULT = /*__APP_VAULT__*/{};', 'const APP_VAULT = /*__APP_VAULT__*/' + JSON.stringify(cfgApp) + ';');
   outputs['app.json']   = readFileSync(join(TEMPLATE, 'app.json'), 'utf8').replace('"title": "Agent Behaviour Policy"', '"title": ' + JSON.stringify('ABP — ' + cfg.title));
+  // The sub-vault link, so the vault host mounts the app vault at app/ and the loader's first
+  // route (sg.vfs.readText('app/index.html')) resolves. Two files, in the platform's own
+  // convention (dev.vault.sgraph.ai, lib/links/vault-links.js + declared-mounts.js):
+  //   app.link.json               a dumb pointer — vault_id, an opaque ref_id, a label; no key
+  //   .vault/owner/ro-links.json  the owner record keyed by ref_id: the child's READ key
+  //                               (base64 of the 32 bytes) and its named-ref file id, so any
+  //                               holder of this vault opens the child read-only, silently.
+  // The app vault's read key is public by design (it is on the site), so the record leaks
+  // nothing; .vault/** is beneath the host's permission floor, so the app never sees it.
+  // ref_id is derived, not random, so rebuilds are byte-identical.
+  if (appVault?.vault_id && appVault?.key) {
+    const rawKey  = Buffer.from(appVault.key, 'hex');
+    const refFile = 'ref-pid-muw-' + createHmac('sha256', rawKey).update('sg-vault-v1:file-id:ref:' + appVault.vault_id).digest('hex').slice(0, 12);
+    const refId   = 'lk-' + createHash('sha256').update('riskmandate:abp-app-link:' + appVault.vault_id).digest('hex').slice(0, 12);
+    outputs['app.link.json'] = JSON.stringify({ vault_id: appVault.vault_id, ref_id: refId, label: 'app' }, null, 2) + '\n';
+    outputs['.vault/owner/ro-links.json'] = JSON.stringify({ [refId]: { type: 'vault', label: 'app', pin: { mode: 'latest' }, vault_id: appVault.vault_id, read_key: rawKey.toString('base64'), ref_file_id: refFile } }, null, 2) + '\n';
+  }
 }
 // The computed_at stamp changes every run; --check compares everything but it.
 const strip = (s) => s.replace(/\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z/g, '<ts>');

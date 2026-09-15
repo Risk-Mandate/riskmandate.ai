@@ -216,6 +216,21 @@
           "content": "f0a0dac8a703b6bde43ccba377a9b5e5f68f51aecdb91134435520f484ced969"
         }
       ]
+    },
+    {
+      "slug": "lab-vault-delivered",
+      "file": "lab-vault-delivered.html",
+      "title": "What you are actually buying — an Agent Behaviour Policy as a vault — RiskMandate Lab 07",
+      "editions": [
+        {
+          "v": 1,
+          "date": "2026-09-15",
+          "file": "assets/lab/lab-vault-delivered--v1--2026-09-15.pdf",
+          "bytes": 185811,
+          "sha256": "8699e55b57f14853f976f4657eb8d6a76671142b5a71ed17a735629956fe9e8f",
+          "content": "a21303b1e48b455a7b8899bcd825a8e36ba420c755991752abd750edc0706b04"
+        }
+      ]
     }
   ]
 }

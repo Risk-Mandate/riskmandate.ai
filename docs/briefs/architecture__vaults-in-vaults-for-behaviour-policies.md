@@ -51,24 +51,49 @@ second reader, everything else from the application vault. So the loader takes r
 - **A buyer's private vault works the same way.** It carries the same loader; the app vault
   stays public and read-only; no code is copied into the thing that is sold.
 
-## 3. What is not settled, honestly
+## 3. What was not settled, and how it was settled
 
-1. **The sub-vault link file itself is not written yet.** The doc's example is
-   `{ "vault_id", "ref_id": "lk-…", "label" }` and the derivation of `ref_id` is not
-   published; a malformed link would render as a broken folder in the vault browser. The
-   loader is written to use the link when it exists (route 1) and does not need it (route 2),
-   so the vaults ship without it. **Ask:** the `ref_id` rule, and whether sgit can write
-   the owner record `.vault/owner/ro-links.json` — the doc says sub-vault access from the
-   CLI is proposed, not shipped.
-2. **Route 2 inside the SG/Vault host is untested.** It needs `fetch` to the vault API from
-   inside the app sandbox; the authoring contract forbids *declared* external resources and
-   is silent on a runtime fetch. If the host's CSP blocks it, route 1 (once the link exists)
-   is the only in-host path, and the loader's error screen says which routes failed and why.
-3. **Static hosting.** `SG_STATIC` vaults have no backend; route 2 would fail and route 3
-   needs the app copied beside the vault. Not our case today.
-4. **The renderer's file links** (`AGENTS.md` and so on) open in the host's viewer inside a
-   vault host; in the site embed they open the copy this site serves. Inside the loader route
-   there is no difference: the renderer runs in the application vault's window.
+The first cut shipped without the sub-vault link because the link's format was not
+published. The project lead opened `exsaxrfr` (browser extension) in the vault host: no `app`
+folder in the tree, no `.vault/` folder, and the app screen showing the loader's error with all
+three routes failed — the host blocks a runtime `fetch` from the app sandbox (route 2 is
+"Failed to fetch" there, which also answers item 2 below), and the static copy is not beside
+the vault inside the host (route 3). Only route 1 works in the host, and route 1 needs the link.
+
+The format is in the host's own source, which it serves unminified
+(`dev.vault.sgraph.ai/_common/js/lib/links/vault-links.js`, `components/app-shell/declared-mounts.js`,
+`adapters/composite-data-source.js`, and the *Add link* handler in `vault-browse-edit.js`):
+
+| File | Shape | Who reads it |
+|---|---|---|
+| `app.link.json` | `{ "vault_id": "fl3i7lu4", "ref_id": "lk-…", "label": "app" }` — a dumb pointer; the `.link.json` suffix is the whole signal; **no key may live here** | the tree (renders as the folder `app/`), the composite data source, the kernel's declared-mounts scan |
+| `.vault/owner/ro-links.json` | `{ "<ref_id>": { "type": "vault", "label", "pin": {"mode":"latest"}, "vault_id", "read_key": <base64 of the 32 key bytes>, "ref_file_id": "ref-pid-muw-…" } }` | `VaultLinks.resolveRef` → `SGVault.openReadOnly(vault_id, read_key, ref_file_id)`: the child opens read-only with no prompt, on any device that has the parent |
+
+Three facts that made it writable from the generator rather than by hand in the host:
+
+1. **`ref_id` is opaque.** The host generates `'lk-' + 6 random bytes` when a person adds a
+   link; the parser only requires a string, and the record is looked up by it. The generator
+   derives it (`lk-` + 12 hex of SHA-256 over a fixed label and the app vault's id) so a rebuild
+   is byte-identical and `--check` can compare it.
+2. **`ref_file_id` is the app vault's named ref**, `ref-pid-muw-` + 12 hex of
+   HMAC-SHA256(read key, `sg-vault-v1:file-id:ref:<vault_id>`) — the same derivation the
+   house reader already used to read the app vault on the site, so the generator computes it.
+3. **The record is read-key tier.** It is an ordinary vault file, readable by any holder of
+   the parent's read key, and it carries the *child's read key* — public by design for the app
+   vault, which is on this site. The owner tier (`.vault/owner/secrets/<ref>`, sealed with a
+   key derived from the write key) is for a *writable* child and is not needed: the app vault
+   is read-only from every application vault, which is the point. `.vault/**` is beneath the
+   host's permission floor, so the renderer never sees the record either way.
+
+sgit commits `.vault/` (its always-ignored set is `.sg_vault`, `.git`, tool caches and the
+`.env*` family; `.vault` is not in it), so the two files ride the same push as the rest of the
+vault. Verified with the host's own library code run in Node: from the record in `exsaxrfr`,
+`DeclaredMounts.resolveCredentials` yields the read credential and `SGVault.openReadOnly`
+opens `fl3i7lu4` at its v3 head.
+
+**Still open.** Nothing in the loader changed. Route 2 stays for embeds outside the host; the
+site's vault pages still serve `app/…` from their own second reader. Static (`SG_STATIC`)
+hosting is unchanged: route 3 needs the app copied beside the vault, which is not our case.
 
 ## 4. The rule that made this easy
 
