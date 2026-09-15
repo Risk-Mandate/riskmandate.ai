@@ -76,6 +76,8 @@ Per capability, one of four kinds — and only the fourth bounds anything. A pro
 
 A policy is a draft and it is meant to be argued with. It goes to the people who built the agent, the people who own what it touches and the people accountable for it, and each corrects the part they know. It is delivered as a vault rather than a document, because the operator needs instructions, leadership needs a decision and security needs evidence out of the same record — with a named owner, a review trigger and every version kept.
 
+Each level is the level below plus exactly one thing, and the one thing is what the price is for. Every level is the same document. [The four levels, and what happens after you pay →](pricing.html)
+
 ## Three rungs. We are on the first.
 
 Insurability is the destination and the behaviour policy is the doorway. Each rung needs the one below it, which is why we are selling the bottom one rather than the top.
@@ -182,6 +184,6 @@ Connector setup is typically under a day. A first Index and gap list land inside
 
 Metadata about agent scope and permissions, not the contents of what your agents process. Self-hosted and sovereign deployments are available where the data cannot leave your boundary.
 
-## View a policy. Then buy the one for your agent.
+## View an example. Then buy the Agent Behaviour Policy for your agent.
 
 Fifteen example Agent Behaviour Policies are on this site, free, read live from their vaults with published keys. Pick the application closest to yours and read it. When you want the one that describes _your_ deployment — the mandate corrected, a name on the licence, no public key — it is four levels at the store, from £5 for the pack to £1,500 with a professional's signature on it.

@@ -18,10 +18,12 @@ Fifteen applications are in [the library](agent-behaviour-policy.html): Claude C
 
 |  | Level | Price | What it is | Who does it |  |
 | --- | --- | --- | --- | --- | --- |
-| 1 | **The pack, by email**You want the material and you do not want to run anything. | £5 | Every file in the vault, sent to you: the policy, the grant, the mandate and the delta as markdown and JSON, the pinned vocabulary, the prompts, and the two files you hand the agent. Yours to use, keep and hand over. Not a vault: no history, no app, no read key to give anybody. | automatedexists and runs | [Buy ↗](https://store.sgit.ai/d/t1/) |
+| 1 | **The pack, by email**You want the material and you do not want to run anything. | £5 | Every file in the vault, sent to you: the behaviour policy, the grant, the mandate and the delta as markdown and JSON, the pinned vocabulary, the prompts, and the two files you hand the agent. Yours to use, keep and hand over. Not a vault: no history, no app, no read key to give anybody. | automatedexists and runs | [Buy ↗](https://store.sgit.ai/d/t1/) |
 | 2 | **A working vault**You want the thing itself rather than a copy of its contents. | £50 | The same material as a vault you hold the keys to: clone it, change it, version it, and hand anyone a read key. It recomputes the delta when the mandate or the grant moves, and keeps every version. The mandate in it is still the starting one; correcting it is yours to do. | automatedexists and runs | [Buy ↗](https://store.sgit.ai/d/t2/) |
 | 3 | **Corrected for your situation**Your deployment is not the template, and you would rather not do the correcting. | £500 | You run a prompt in your own environment and send us what it finds. We build the vault from that, correct the mandate against your industry, your use case and the details you gave, recompute the delta, and send it back yours — with a written note of what changed and why, so the correction is checkable rather than trusted. [How the prompt step works ↓](#prompt) | agents, a person reviewsspecified, never run | [Buy ↗](https://store.sgit.ai/d/t3/) |
 | 4 | **Two sessions, and a professional signs it**The answer has to survive somebody else asking about it. | £1,500 | Half an hour with your team to find out what is actually running, and half an hour to deliver it: reviewed and signed off by a security professional, with the licence carrying a name. The line between this level and the one below it is the line between a thing agents do and a thing a person signs. | a personspecified, never run | [Buy ↗](https://store.sgit.ai/d/t4/) |
+
+**Each level is the level below plus exactly one thing, and the one thing is what the price is for.** The pack is the files. The vault is the files with keys and history. Corrected is the vault against your situation. The fourth is corrected with a person in the room. The price steps are ten, ten and three; the third step is smaller because what is added is an hour of a person rather than a new kind of object.
 
 Prices are in pounds and each level is one price, so each has a standing payment link at [store.sgit.ai](https://store.sgit.ai/), where the paying happens on the payment provider's own pages. The store's own ledger says which levels have run for a paying buyer and which have not; the states above are copied from it on 15 September 2026, and two of the four have never been sold once. Every level says what does not arrive as well as what does.
 
@@ -48,6 +50,19 @@ The vault is built from your files. The mandate is corrected against the industr
 ### Your vault comes back
 
 Private, no public key, a name on the licence, the note beside it. It recomputes when the grant moves, and it is yours to hand to whoever asks what you authorised.
+
+## Done is a commit. You can check it from the vault's own history.
+
+The payment link's success address is a page per level that says what happens now: what arrives and when, what you do next, how the key reaches you (separately, never on a page), and who to write to if it does not arrive. Each level is done when its commit is in your vault's history, and you do not have to take anybody's word for it.
+
+| Level | Done when | Checked by | The page |
+| --- | --- | --- | --- |
+| 1 | The email has been sent carrying a link to a zip whose content hash matches the shape's published hash | Compare the hash on the page with the hash of what you downloaded | [Level 1 →](paid-t1.html) |
+| 2 | A vault exists, the licence file in it carries your name, the public key is off it, and you have opened it with your key | Your first clone: the licence file is in the tree | [Level 2 →](paid-t2.html) |
+| 3 | The corrected mandate and the recomputed delta are committed, and the note of what changed and why is committed beside them | The commit is in the history and the note names every changed row | [Level 3 →](paid-t3.html) |
+| 4 | Both sessions held, the record of what was asked and answered committed, and the sign-off file committed with the professional's name and the date | Three files in the tree, and the sessions dated in the record | [Level 4 →](paid-t4.html) |
+
+Stated delivery times on those pages: one working day for levels 1 and 2, three working days after your files arrive for level 3, the first session within five working days for level 4. They are commitments we set today and will move if the record says we cannot keep them.
 
 ## The library is the argument. The instance is yours.
 

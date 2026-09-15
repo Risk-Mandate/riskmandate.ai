@@ -87,13 +87,13 @@ function tile(v, data) {
   return `<article class="ab-t" data-slug="${v.slug}" data-group="${esc(v.group)}" data-ev="${ev.key}" data-caps="${g.grant.map(r => r.capability).join(' ')}" data-search="${esc(searchIndex(v, data))}" tabindex="0" role="button" aria-label="Preview ${esc(v.app)}">
   <span class="ab-thead">${logoHtml(v.logo, v.brand, 44)}<span class="ab-pills">${q ? `<span class="ab-pill unstated">${q} open</span>` : ''}<span class="ab-pill ev-${ev.cls}">${ev.label}</span></span></span>
   <span><h3><a href="abp-vault-${v.slug}.html">${esc(v.app)}</a></h3><p>${esc(v.blurb)}</p></span>
-  <span class="ab-tfoot"><span><b>${g.grant.length}</b> it can do</span><span><b class="${d.unbounded_excess ? 'un' : 'ok'}">${d.unbounded_excess}</b> unbounded</span>${meter(d)}<span>${sc ? sc + ' scenarios' : ''}</span><rm-abp-mini data-vault="${v.slug}"></rm-abp-mini><a class="ab-topen" href="abp-vault-${v.slug}.html">Open the policy →</a></span>
+  <span class="ab-tfoot"><span><b>${g.grant.length}</b> it can do</span><span><b class="${d.unbounded_excess ? 'un' : 'ok'}">${d.unbounded_excess}</b> unbounded</span>${meter(d)}<span>${sc ? sc + ' scenarios' : ''}</span><rm-abp-mini data-vault="${v.slug}"></rm-abp-mini><a class="ab-topen" href="abp-vault-${v.slug}.html">Open the behaviour policy →</a></span>
 </article>`;
 }
 const offTile = (x, kind) => `<a class="ab-t off" href="#ask" data-slug="${esc(x.slug)}" data-off="1" data-group="${kind}" data-ev="asked" data-search="${esc([x.app, x.slug, x.blurb, kind].join(' ').toLowerCase())}">
   <span class="ab-thead">${logoHtml(x.logo, x.brand, 44)}<span class="ab-pill asked">${kind === 'Business functions' ? 'asked for' : 'not yet researched'}</span></span>
   <span><h3>${esc(x.app)}</h3><p>${esc(x.blurb)}</p></span>
-  <span class="ab-ask">${kind === 'Business functions' ? 'a policy for the function, whichever product holds it →' : 'ask for this →'}</span>
+  <span class="ab-ask">${kind === 'Business functions' ? 'a behaviour policy for the function, whichever product holds it →' : 'ask for this →'}</span>
 </a>`;
 function row(v, data) {
   const d = data.delta.counts, g = data.grant, ev = evOf(data), q = (g.research_needed || []).length;
@@ -136,12 +136,12 @@ function directory() {
     <div class="wrap ab-wide">
       <div class="shead">
         <span class="tag">${on.length} example policies · ${rows} capability rows · ${measured} measured on the thing itself · ${openQ} open questions</span>
-        <h2>Pick a policy. <span class="g">Read it here. Open its vault.</span></h2>
+        <h2>Pick a behaviour policy. <span class="g">Read it here. Open its vault.</span></h2>
         <p>Every tile is one Agent Behaviour Policy, delivered as a vault: a measured or documented grant for that application, a starting mandate written to be corrected, six scenarios that change the mandate and never the grant, and the files you hand the agent. The counts are read from the vault as you look. Grid or list, same set; search matches names, vendors, scopes, tool names and the 23 capability ids, so <code>send.message.world</code> finds every policy that can send mail whatever the product calls it. Not here yet? <a href="agent-behaviour-policy-next.html">See what is next, vote, or suggest one</a>.</p>
       </div>
       <rm-abp-library class="ab-lib" data-view="grid">
         <div class="ab-tools">
-          <label class="ab-search">${SEARCH_SVG}<input type="search" placeholder="Search a policy, a scope, a capability…" aria-label="Search the policies"><kbd>/</kbd></label>
+          <label class="ab-search">${SEARCH_SVG}<input type="search" placeholder="Search a behaviour policy, a scope, a capability…" aria-label="Search the policies"><kbd>/</kbd></label>
           <div class="ab-filters">${chips}</div>
           <label class="ab-beh"><span>by behaviour</span><select aria-label="Filter by behaviour"><option value="">any of the 23</option>${caps.map(c => `<option value="${c.id}">${esc(c.id)} — ${esc(c.gloss)}</option>`).join('')}</select></label>
           <div class="ab-toggle" role="group" aria-label="View"><button type="button" data-view="grid" aria-pressed="true" aria-label="Grid view"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1.5"></rect><rect x="13" y="3" width="8" height="8" rx="1.5"></rect><rect x="3" y="13" width="8" height="8" rx="1.5"></rect><rect x="13" y="13" width="8" height="8" rx="1.5"></rect></svg></button><button type="button" data-view="list" aria-pressed="false" aria-label="List view"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"></path></svg></button></div>
