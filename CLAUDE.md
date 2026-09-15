@@ -47,6 +47,9 @@ node scripts/site/release.mjs 1.17.0 "Title"          # cut a version: notes stu
   an `abp-vault-*.html` page, or anything under `site/vaults/<slug>/` except `vault.json`,
   `data/grant.json`, `data/mandate.json`, `data/scenarios.json`.
 - A release is a note somebody wrote. Every site change ships as one. Nothing bumps it for you.
+- **Move the third number by default** (`1.19.0` → `1.19.1`). The second number is for a release
+  that changes what the site is or what it sells: a new section, a new product, a page family
+  rebuilt. Most sessions, including ones that touch fifty pages, are a patch. The lead moves the first.
 - Pushing to `dev` deploys the live site. `dev` is the default branch and the integration branch.
 
 ## Working alongside other agents
