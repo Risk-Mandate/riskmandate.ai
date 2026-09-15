@@ -118,47 +118,126 @@
       "family": "service",
       "glyph": "SJ",
       "blurb": "A job that outlives the person who made it, running as a service account nobody logs in as. Seven capabilities, four wanted, four with nothing in the way."
+    },
+    {
+      "slug": "google-workspace-mcp",
+      "vid": "pq7ct02p",
+      "key": "093c4c58f1593dacecc727de965ee22f883a6530cac20b2ff9ae6b7ea811c1e4",
+      "app": "Google Workspace MCP servers",
+      "title": "The Google Workspace MCP servers",
+      "title_lead": "The Google Workspace",
+      "title_tail": "MCP servers.",
+      "shape": "google/workspace-mcp/default",
+      "family": "google",
+      "glyph": "G",
+      "blurb": "Gmail, Drive, Docs, Sheets, Slides, Calendar and Chat, one server each. The page advertises drafting mail and scheduling meetings; the scopes it asks for send mail and cannot touch a calendar.",
+      "kind": "connector"
+    },
+    {
+      "slug": "gmail-readonly",
+      "vid": "l2zlv3ng",
+      "key": "865ea2d50ada749c30554380f22202dffe4c362a4a85a565accd045b84eefaf8",
+      "app": "Gmail, read-only scope",
+      "title": "An assistant on a personal Gmail mailbox",
+      "title_lead": "An assistant on a",
+      "title_tail": "personal Gmail mailbox.",
+      "shape": "google/gmail/readonly-connector",
+      "family": "mail",
+      "glyph": "M",
+      "blurb": "The narrowest scope that reads one message reads every message. Lab 03 asked the model site for this shape first; here it is, read from Google's scope page.",
+      "kind": "connector"
+    },
+    {
+      "slug": "google-drive-readonly",
+      "vid": "vz03p8it",
+      "key": "e04bb066d11479d33ecb9e5d0c1a621e13e4599e8c2b5380001ab16e8c932270",
+      "app": "Google Drive, read-only scope",
+      "title": "An assistant on a personal Google Drive",
+      "title_lead": "An assistant on a",
+      "title_tail": "personal Google Drive.",
+      "shape": "google/drive/readonly-connector",
+      "family": "files",
+      "glyph": "D",
+      "blurb": "The default corpus is \"files owned by or shared to the user\": everything anybody ever shared, on day one, without anyone choosing it.",
+      "kind": "connector"
+    },
+    {
+      "slug": "claude-m365-connector",
+      "vid": "dgx3nvu4",
+      "key": "43d439062419da78ef22e544257d775f5774b33830d92f7a3abe5c05c2873669",
+      "app": "Microsoft 365 connector (Claude)",
+      "title": "Claude's Microsoft 365 connector",
+      "title_lead": "Claude's",
+      "title_tail": "Microsoft 365 connector.",
+      "shape": "anthropic/microsoft-365-connector/default",
+      "family": "microsoft",
+      "glyph": "MS",
+      "blurb": "Delegated permissions, consented once by a Global Administrator. Shared mailboxes are in scope; site-specific narrowing is unsupported because the search is tenant-wide; and the page that says \"read-only access\" also lists the tools that send mail as the user.",
+      "kind": "connector"
+    },
+    {
+      "slug": "dropbox-mcp",
+      "vid": "9eqa7e4p",
+      "key": "f22db64f51e4268a4531bebe0c6d46f3e51dd1337193a7e8137efac9cdfc5990",
+      "app": "Dropbox MCP server",
+      "title": "The official Dropbox MCP server",
+      "title_lead": "The official",
+      "title_tail": "Dropbox MCP server.",
+      "shape": "dropbox/mcp-server/default",
+      "family": "files",
+      "glyph": "Db",
+      "blurb": "Eight scopes, two of them write and two of them sharing, and no folder-scoped variant. It reads, creates, moves, deletes and makes shared links; the page says files are not deleted permanently and that recovery depends on your plan.",
+      "kind": "connector"
     }
   ],
   "asked_for": [
     {
-      "slug": "personal-mailbox",
-      "app": "An assistant on a personal mailbox",
-      "family": "mail",
-      "glyph": "M",
-      "blurb": "The narrowest scope that reads a message reads every message. Asked of the model site as request 2 in Lab 03.",
-      "note": "grant not yet published \u2014 first in the queue"
+      "slug": "claude-google-workspace-connector",
+      "app": "Claude's Google Workspace connector",
+      "family": "google",
+      "glyph": "G",
+      "blurb": "Gmail, Calendar and Drive from inside Claude. The connector's scope list has not been read yet; the Google pages behind it have.",
+      "note": "not yet researched \u2014 next in the queue"
     },
     {
-      "slug": "work-mailbox",
-      "app": "An assistant on a work mailbox",
-      "family": "mail",
-      "glyph": "M",
-      "blurb": "Shared mail is in scope, and no administrator was asked.",
-      "note": "grant not yet published"
+      "slug": "slack-connector",
+      "app": "An assistant connected to Slack",
+      "family": "chat",
+      "glyph": "S",
+      "blurb": "Channels are mostly other people's writing, and a bot token reaches every channel it is in.",
+      "note": "not yet researched"
     },
     {
-      "slug": "personal-drive",
-      "app": "An assistant on a personal cloud drive",
+      "slug": "github-connector",
+      "app": "An assistant connected to GitHub",
+      "family": "code",
+      "glyph": "GH",
+      "blurb": "A fine-grained token can be scoped to a repository; an OAuth app cannot, and most connectors are OAuth apps.",
+      "note": "not yet researched"
+    },
+    {
+      "slug": "notion-connector",
+      "app": "An assistant connected to Notion",
       "family": "files",
-      "glyph": "D",
-      "blurb": "The default corpus is files owned by or shared to the user.",
-      "note": "grant not yet published"
+      "glyph": "N",
+      "blurb": "An integration is added page by page, which is the one connector model with a floor. Whether the assistant's connector uses it is the question.",
+      "note": "not yet researched"
     },
     {
-      "slug": "corporate-files",
-      "app": "An assistant on a corporate file estate",
-      "family": "files",
-      "glyph": "D",
-      "blurb": "Site-specific narrowing is unsupported because the search is tenant-wide.",
-      "note": "grant not yet published"
+      "slug": "salesforce-connector",
+      "app": "An assistant connected to Salesforce",
+      "family": "service",
+      "glyph": "SF",
+      "blurb": "A CRM is entirely third-party material by construction.",
+      "note": "not yet researched"
     }
   ],
   "app_vault": {
     "vault_id": "fl3i7lu4",
     "key": "e37a0f80d65e2b486f8bb3253e313c65ecbb57e5664c3f1704346c70ac09639a",
     "entry": "index.html",
-    "version": "v3",
+    "version": "v4",
     "note": "The renderer every application vault loads (site/vaults/_app/), pushed as its own vault. Public read key; read and nothing else."
-  }
+  },
+  "asked_for_note": "Connector shapes not yet built. Each becomes a vault once its vendor pages have been read and quoted; the four Lab 03 asked the model site for are built above, ahead of the model site, and carry their open questions in RESEARCH-NEEDED.md."
 }

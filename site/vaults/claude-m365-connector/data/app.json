@@ -1,0 +1,12 @@
+{
+  "type": "riskmandate/abp-app-context/v1",
+  "dist": {
+    "claude-m365-connector.zip": true
+  },
+  "research_open": 4,
+  "app_vault": {
+    "vault_id": "fl3i7lu4",
+    "entry": "index.html",
+    "version": "v4"
+  }
+}

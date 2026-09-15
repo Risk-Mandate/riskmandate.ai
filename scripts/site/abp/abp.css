@@ -8,6 +8,7 @@
 .ab-meta{display:block;font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:3px}
 .ab-chip{display:inline-flex;font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:4px 10px;border:1px solid var(--border);color:var(--muted);background:var(--card)}
 .ab-chip.template{color:var(--gold);background:#FDF6EC;border-color:rgba(180,83,9,.3)}
+.ab-chip.research{color:#B45309;border-color:rgba(180,83,9,.4);background:#FDF6EC}
 .ab-chip.corrected{color:var(--green);background:var(--greenBg);border-color:rgba(26,127,90,.3)}
 .ab-counts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:20px 0 6px}
 @media (max-width:600px){.ab-counts{grid-template-columns:1fr 1fr}}
@@ -79,6 +80,8 @@
 .ab-tile.off{opacity:.72}
 .ab-glyph{display:grid;place-items:center;width:52px;height:52px;border-radius:12px;font-family:var(--mono);font-weight:700;font-size:15px;letter-spacing:-.02em;color:#fff;background:var(--ink)}
 .ab-glyph.code{background:#1D4ED8}.ab-glyph.chat{background:#1A7F5A}.ab-glyph.desktop{background:#6D28D9}.ab-glyph.browser{background:#B45309}.ab-glyph.ci{background:#0F766E}.ab-glyph.service{background:#374151}.ab-glyph.mail{background:#C0392B}.ab-glyph.files{background:#0369A1}
+.ab-glyph.google{background:#B45309}
+.ab-glyph.microsoft{background:#4F46E5}
 .ab-tile.off .ab-glyph{background:var(--bg2);color:var(--faint);border:1px dashed var(--border)}
 .ab-tilebody h3{margin:0;font-size:16.5px;font-weight:700;letter-spacing:-.01em;color:var(--text)}
 .ab-tilebody h3 a{color:var(--text);text-decoration:none}.ab-tilebody h3 a:hover{color:var(--green)}

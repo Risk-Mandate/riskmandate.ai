@@ -163,7 +163,7 @@ RM.services.abpVaults = (function () {
         var card = dom.el('div', { class: 'ab-card' }, [
           dom.el('div', { class: 'ab-head' }, [
             dom.el('div', null, [dom.el('span', { class: 'ab-org' }, [v.organisation || v.title]), dom.el('span', { class: 'ab-meta' }, [g.product + ' · grant ' + g.profile_version + ' · mandate ' + m.authored + ' · as at ' + v.as_at])]),
-            dom.el('span', { class: 'ab-chip ' + v.status }, [v.status])
+            dom.el('span', null, [dom.el('span', { class: 'ab-chip ' + v.status }, [v.status])].concat((g.research_needed || []).length ? [' ', dom.el('span', { class: 'ab-chip research' }, [(g.research_needed || []).length + ' open questions'])] : []))
           ]),
           dom.el('div', { class: 'ab-counts' }, [
             count(g.grant.length, 'capabilities in the grant'), count(m.want.length, 'wanted by the mandate', 'ok'),

@@ -1,0 +1,37 @@
+{
+  "type": "abp/delta/v1",
+  "profile": "dropbox/mcp-server/default",
+  "mandate": "find-and-read-my-files",
+  "grant_version": "2026-09-15",
+  "mandate_version": "2026-09-15",
+  "vocabulary_version": "v0.3.0",
+  "computed_at": "2026-09-15T02:43:02Z",
+  "computed_by": "riskmandate.ai build-abp-vault.mjs (abp.delta/v1 semantics)",
+  "excess": [
+    "write.file.host",
+    "delete.file.host",
+    "create.record.world",
+    "authenticate-as.credential.tenant"
+  ],
+  "excess_refused": [
+    "write.file.host",
+    "delete.file.host",
+    "create.record.world"
+  ],
+  "excess_unstated": [
+    "authenticate-as.credential.tenant"
+  ],
+  "unbounded_excess": [],
+  "shortfall": [],
+  "aligned": [
+    "read.file.host"
+  ],
+  "derived_never_authored": "No field in this record is writable by a person. The way to change a delta is to change a grant or a mandate, and then recompute.",
+  "counts": {
+    "excess": 4,
+    "unbounded_excess": 0,
+    "shortfall": 0,
+    "aligned": 1
+  },
+  "id": "dropbox__mcp-server__default__find-and-read-my-files"
+}

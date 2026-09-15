@@ -1,7 +1,16 @@
 {
   "note": "One entry per version of the renderer. `commit` is the vault commit it was pushed as, filled in after the push; a version that does not name its commit cannot be verified later.",
-  "current": "v3",
+  "current": "v4",
   "versions": [
+    {
+      "version": "v4",
+      "date": "2026-09-15",
+      "commit": "obj-cas-imm-9bbc3f3ee44d",
+      "title": "Connector shapes: a whose-material column on the grant, an open-questions badge on the first screen, and three panels on the grant view \u2014 open questions, where the vendor's pages disagree, granted and not in the grammar",
+      "changes": [
+        "index.html"
+      ]
+    },
     {
       "version": "v3",
       "date": "2026-09-15",

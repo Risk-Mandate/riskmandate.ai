@@ -375,6 +375,7 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
 .ab-meta{display:block;font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:3px}
 .ab-chip{display:inline-flex;font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:4px 10px;border:1px solid var(--border);color:var(--muted);background:var(--card)}
 .ab-chip.template{color:var(--gold);background:#FDF6EC;border-color:rgba(180,83,9,.3)}
+.ab-chip.research{color:#B45309;border-color:rgba(180,83,9,.4);background:#FDF6EC}
 .ab-chip.corrected{color:var(--green);background:var(--greenBg);border-color:rgba(26,127,90,.3)}
 .ab-counts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:20px 0 6px}
 @media (max-width:600px){.ab-counts{grid-template-columns:1fr 1fr}}
@@ -446,6 +447,8 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
 .ab-tile.off{opacity:.72}
 .ab-glyph{display:grid;place-items:center;width:52px;height:52px;border-radius:12px;font-family:var(--mono);font-weight:700;font-size:15px;letter-spacing:-.02em;color:#fff;background:var(--ink)}
 .ab-glyph.code{background:#1D4ED8}.ab-glyph.chat{background:#1A7F5A}.ab-glyph.desktop{background:#6D28D9}.ab-glyph.browser{background:#B45309}.ab-glyph.ci{background:#0F766E}.ab-glyph.service{background:#374151}.ab-glyph.mail{background:#C0392B}.ab-glyph.files{background:#0369A1}
+.ab-glyph.google{background:#B45309}
+.ab-glyph.microsoft{background:#4F46E5}
 .ab-tile.off .ab-glyph{background:var(--bg2);color:var(--faint);border:1px dashed var(--border)}
 .ab-tilebody h3{margin:0;font-size:16.5px;font-weight:700;letter-spacing:-.01em;color:var(--text)}
 .ab-tilebody h3 a{color:var(--text);text-decoration:none}.ab-tilebody h3 a:hover{color:var(--green)}
@@ -465,7 +468,7 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
   <div class="wrap">
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
-    <a class="version" href="versions.html" title="What shipped in v1.13.0">v1.13.0</a>
+    <a class="version" href="versions.html" title="What shipped in v1.14.0">v1.14.0</a>
     <button class="demo" data-demo>Get in touch</button>
   </div>
 </header>
@@ -1004,6 +1007,56 @@ RM.services.abpVaults = (function () {
     "page": "abp-vault-scheduled-job.html",
     "status": "template",
     "app": "A scheduled job"
+  },
+  {
+    "slug": "google-workspace-mcp",
+    "vid": "pq7ct02p",
+    "key": "093c4c58f1593dacecc727de965ee22f883a6530cac20b2ff9ae6b7ea811c1e4",
+    "title": "The Google Workspace MCP servers",
+    "shape": "google/workspace-mcp/default",
+    "page": "abp-vault-google-workspace-mcp.html",
+    "status": "template",
+    "app": "Google Workspace MCP servers"
+  },
+  {
+    "slug": "gmail-readonly",
+    "vid": "l2zlv3ng",
+    "key": "865ea2d50ada749c30554380f22202dffe4c362a4a85a565accd045b84eefaf8",
+    "title": "An assistant on a personal Gmail mailbox",
+    "shape": "google/gmail/readonly-connector",
+    "page": "abp-vault-gmail-readonly.html",
+    "status": "template",
+    "app": "Gmail, read-only scope"
+  },
+  {
+    "slug": "google-drive-readonly",
+    "vid": "vz03p8it",
+    "key": "e04bb066d11479d33ecb9e5d0c1a621e13e4599e8c2b5380001ab16e8c932270",
+    "title": "An assistant on a personal Google Drive",
+    "shape": "google/drive/readonly-connector",
+    "page": "abp-vault-google-drive-readonly.html",
+    "status": "template",
+    "app": "Google Drive, read-only scope"
+  },
+  {
+    "slug": "claude-m365-connector",
+    "vid": "dgx3nvu4",
+    "key": "43d439062419da78ef22e544257d775f5774b33830d92f7a3abe5c05c2873669",
+    "title": "Claude's Microsoft 365 connector",
+    "shape": "anthropic/microsoft-365-connector/default",
+    "page": "abp-vault-claude-m365-connector.html",
+    "status": "template",
+    "app": "Microsoft 365 connector (Claude)"
+  },
+  {
+    "slug": "dropbox-mcp",
+    "vid": "9eqa7e4p",
+    "key": "f22db64f51e4268a4531bebe0c6d46f3e51dd1337193a7e8137efac9cdfc5990",
+    "title": "The official Dropbox MCP server",
+    "shape": "dropbox/mcp-server/default",
+    "page": "abp-vault-dropbox-mcp.html",
+    "status": "template",
+    "app": "Dropbox MCP server"
   }
 ];
   var APP_VAULT = {"vault_id":"fl3i7lu4","key":"e37a0f80d65e2b486f8bb3253e313c65ecbb57e5664c3f1704346c70ac09639a","entry":"index.html"};   // the renderer's own vault: { vault_id, key, entry }
@@ -1139,7 +1192,7 @@ RM.services.abpVaults = (function () {
         var card = dom.el('div', { class: 'ab-card' }, [
           dom.el('div', { class: 'ab-head' }, [
             dom.el('div', null, [dom.el('span', { class: 'ab-org' }, [v.organisation || v.title]), dom.el('span', { class: 'ab-meta' }, [g.product + ' · grant ' + g.profile_version + ' · mandate ' + m.authored + ' · as at ' + v.as_at])]),
-            dom.el('span', { class: 'ab-chip ' + v.status }, [v.status])
+            dom.el('span', null, [dom.el('span', { class: 'ab-chip ' + v.status }, [v.status])].concat((g.research_needed || []).length ? [' ', dom.el('span', { class: 'ab-chip research' }, [(g.research_needed || []).length + ' open questions'])] : []))
           ]),
           dom.el('div', { class: 'ab-counts' }, [
             count(g.grant.length, 'capabilities in the grant'), count(m.want.length, 'wanted by the mandate', 'ok'),

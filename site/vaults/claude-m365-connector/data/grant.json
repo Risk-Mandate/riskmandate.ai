@@ -1,0 +1,231 @@
+{
+  "type": "abp/profile/v1",
+  "id": "anthropic/microsoft-365-connector/default",
+  "vendor": "Anthropic",
+  "product": "Claude's Microsoft 365 connector (Outlook, SharePoint, OneDrive, Teams)",
+  "variant": "default",
+  "surface": "web",
+  "profile_version": "2026-09-15",
+  "description": "\"An Anthropic-hosted integration that enables Claude to securely access Microsoft 365 services (Outlook, SharePoint, OneDrive, Teams) through user-delegated permissions.\" A Global Administrator consents once for the tenant; each user then reaches only what they already have permission for, over OAuth 2.0 On-Behalf-Of. The rows are the connector's tool tables read as capabilities. Lab 01 read this page on 12 September as read-only; on 15 September it lists write tools too, and both readings are recorded.",
+  "reach_names": {
+    "host": "SharePoint sites and OneDrive files the user can already open — searched tenant-wide",
+    "tenant": "the Microsoft Entra tenant the administrator consented for; the user's mailbox, shared mailboxes they are delegated to, and Teams chats",
+    "world": "anyone reachable by mail from the user's address"
+  },
+  "not_reachable": [
+    {
+      "what": "personal Microsoft accounts",
+      "why": "\"Personal Microsoft accounts (@outlook.com, @hotmail.com) can't be used\"",
+      "source": "https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide"
+    },
+    {
+      "what": "other users' private files or emails",
+      "why": "\"Users can't access other users' private files or emails\"; delegated permissions reach only what the user already can",
+      "source": "https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide"
+    },
+    {
+      "what": "the Online Archive mailbox",
+      "why": "\"Email search doesn't reach a user's separate Online Archive (In-Place Archive) mailbox\"",
+      "source": "https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide"
+    },
+    {
+      "what": "a single SharePoint site",
+      "why": "\"Site-specific permissioning (using *.Selected permissions) is not supported because the underlying search is tenant-wide\"",
+      "source": "https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide"
+    },
+    {
+      "what": "writing SharePoint or OneDrive files",
+      "why": "no write tool for files is listed; the write tools are mail and Teams",
+      "source": "https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide"
+    }
+  ],
+  "tools": [
+    "sharepoint_search",
+    "sharepoint_folder_search",
+    "outlook_email_search",
+    "outlook_calendar_search",
+    "find_meeting_availability",
+    "chat_message_search",
+    "read_resource",
+    "outlook_send_mail",
+    "outlook_forward_mail",
+    "outlook_send_draft",
+    "outlook_trash_thread",
+    "outlook_untrash_thread",
+    "outlook_batch_delete_messages",
+    "outlook_create_draft",
+    "outlook_create_reply_draft",
+    "outlook_create_reply_all_draft",
+    "outlook_update_draft"
+  ],
+  "grant": [
+    {
+      "capability": "read.message.tenant",
+      "barrier": "boundary",
+      "evidence": "documented",
+      "via": [
+        "outlook_email_search",
+        "chat_message_search",
+        "read_resource"
+      ],
+      "control": "delegated Entra permissions Mail.Read, Mail.Read.Shared and Chat.Read — consented once by a Global Administrator, revocable per permission in Entra",
+      "note": "the user's mailbox, \"shared mailboxes they've been granted delegate access to … including full access and folder-level delegation\", and Teams chats. Shared-mailbox access is stated as read-only via Mail.Read.Shared.",
+      "undo": "no",
+      "is_bounded": true,
+      "material": "mixed"
+    },
+    {
+      "capability": "send.message.world",
+      "barrier": "boundary",
+      "evidence": "documented",
+      "via": [
+        "outlook_send_mail",
+        "outlook_forward_mail",
+        "outlook_send_draft"
+      ],
+      "control": "Mail.Send, delegated; \"Revoke … in Entra\" is the off switch, and it is the administrator's, not the user's",
+      "note": "outlook_send_mail — \"Send an email as the user.\" To any address. Listed under Write tools on the same page whose read section says the connector \"provides read-only access to\" its sources.",
+      "undo": "no",
+      "is_bounded": true,
+      "material": "third_party"
+    },
+    {
+      "capability": "read.file.host",
+      "barrier": "boundary",
+      "evidence": "documented",
+      "via": [
+        "sharepoint_search",
+        "sharepoint_folder_search",
+        "read_resource"
+      ],
+      "control": "delegated Sites.Read.All and Files.Read / Files.Read.All; \"Users cannot bypass SharePoint sharing settings or folder permissions\"",
+      "note": "\"SharePoint search requires Sites.Read.All permission. Site-specific permissioning (using *.Selected permissions) is not supported because the underlying search is tenant-wide.\" Everything the user can already open, across the tenant.",
+      "undo": "no",
+      "is_bounded": true,
+      "material": "mixed"
+    },
+    {
+      "capability": "authenticate-as.credential.tenant",
+      "barrier": "boundary",
+      "evidence": "documented",
+      "via": [
+        "OAuth 2.0 On-Behalf-Of"
+      ],
+      "control": "delegated permissions; \"Multi-tenant isolation is cryptographically enforced through digitally signed access tokens\"",
+      "note": "\"Users can only access Microsoft 365 data they already have permission for.\" Anthropic hosts the connector and holds the token.",
+      "undo": "no",
+      "is_bounded": true,
+      "material": "own"
+    },
+    {
+      "capability": "read.credential.host",
+      "barrier": "none",
+      "evidence": "inferred",
+      "via": [
+        "outlook_email_search",
+        "read_resource"
+      ],
+      "control": null,
+      "note": "a work mailbox carries password resets, MFA codes and shared credentials sent between colleagues; a SharePoint estate carries key files and configuration. Reading either reads those. Inferred, not documented.",
+      "undo": "no",
+      "is_bounded": false,
+      "material": "organisation"
+    }
+  ],
+  "widest_reach": "world",
+  "contradictions": [
+    {
+      "advertised": "\"The connector provides read-only access to:\" (the heading over the read tools)",
+      "permitted": "a \"Write tools\" table on the same page: outlook_send_mail (Mail.Send), outlook_trash_thread and outlook_batch_delete_messages (Mail.ReadWrite)",
+      "state": "unresolved",
+      "sources": [
+        "https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide"
+      ]
+    },
+    {
+      "advertised": "\"Shared mailbox access remains read-only, via the Mail.Read.Shared permission\"",
+      "permitted": "outlook_send_mail \"Send an email as the user\" — whether it can send from a shared mailbox is not stated",
+      "state": "undocumented",
+      "sources": [
+        "https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide"
+      ]
+    },
+    {
+      "advertised": "Lab 01, 12 September: the page read as a read-only connector",
+      "permitted": "15 September: the same page lists ten write tools. The page moved between the two readings; which capabilities a tenant consented to before the change is not stated",
+      "state": "unresolved",
+      "sources": [
+        "https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide",
+        "https://riskmandate.ai/lab-connector-grants.html"
+      ]
+    }
+  ],
+  "not_in_grammar": [
+    {
+      "what": "trash, untrash and batch-delete mail; create and update drafts",
+      "permission": "Mail.ReadWrite",
+      "why": "the 23 primitives have delete.file.host and write.file.host; a message is not a file, and no primitive names deleting or drafting one"
+    },
+    {
+      "what": "search the calendar and find meeting availability",
+      "permission": "Calendars.Read",
+      "why": "no primitive reads a calendar; create.schedule.* creates jobs, not events"
+    },
+    {
+      "what": "send Teams messages and create chats",
+      "permission": "ChatMessage.Send, ChannelMessage.Send, Chat.Create",
+      "why": "send.message.world covers it loosely; a Teams post reaches the tenant, and whether it reaches federated external chats is open"
+    }
+  ],
+  "research_needed": [
+    {
+      "capability": "send.message.world",
+      "question": "Are the write tools on for every plan by default, or gated behind a separate administrator consent of Mail.Send?",
+      "how": "Anthropic's connector page and the Entra consent record for the application, quoted. Do not send.",
+      "sources": [
+        "https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide"
+      ]
+    },
+    {
+      "capability": "send.message.world",
+      "question": "Does Teams sending reach federated (external) chats, or only the tenant?",
+      "how": "Anthropic's page for ChatMessage.Send scope and Microsoft Graph's description of that permission.",
+      "sources": [
+        "https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide"
+      ]
+    },
+    {
+      "capability": "read.message.tenant",
+      "question": "\"Delegated permissions inherently respect Microsoft 365 data loss prevention (DLP) policies\" — enforced by Graph on read, or by the connector after read?",
+      "how": "Microsoft Graph documentation on DLP and delegated access; at best self-reported on Anthropic's side.",
+      "sources": [
+        "https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide"
+      ]
+    },
+    {
+      "capability": null,
+      "question": "Do connector reads appear in Purview audit logs, and under whose identity?",
+      "how": "Microsoft Purview audit documentation for Graph delegated access.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "label": "Microsoft 365 connector security guide (Anthropic)",
+      "url": "https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide",
+      "read": "2026-09-15"
+    },
+    {
+      "label": "Lab 01 — the grant is user-shaped (read 12 September)",
+      "url": "https://riskmandate.ai/lab-connector-grants.html",
+      "read": "2026-09-15"
+    }
+  ],
+  "provenance": {
+    "note": "Not published at abp.sgit.ai. Authored on this site from the vendor's own documentation, read on 2026-09-15 and quoted rather than paraphrased; nothing was tested. This shape is one of the four asked of the model site as Lab 03 request 2; once the model site publishes it, data/upstream/delta.json is added and the build checks itself against it.",
+    "requested": "https://riskmandate.ai/lab-abp-requests.html",
+    "lab": "https://riskmandate.ai/lab-connector-grants.html",
+    "licence": "CC BY 4.0",
+    "id": "anthropic/microsoft-365-connector/default"
+  }
+}

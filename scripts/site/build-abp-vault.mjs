@@ -167,6 +167,14 @@ const sortRows = (ids) => [...ids].sort((a, b) => (undoRank[rowOf[a].undo] - und
 const status = (id) => want.has(id) ? 'want' : refuse.has(id) ? 'do not want' : 'unstated';
 const statusOf = { want: 'in the mandate', 'do not want': 'refused by the mandate', unstated: 'unstated by the mandate' };
 const isTemplate = cfg.status === 'template';
+// ----------------------------------------------------------------- connector shapes
+// Three things a grant read from vendor documentation carries that a measured one does not:
+// open questions (research_needed), the vendor's own pages disagreeing (contradictions) and
+// permissions the 23 primitives do not name (not_in_grammar). Absent on the measured shapes.
+const research       = grant.research_needed || [];
+const contradictions = grant.contradictions  || [];
+const notInGrammar   = grant.not_in_grammar  || [];
+const hasMaterial    = grant.grant.some(r => r.material);
 const who = {
   organisation: cfg.organisation || (isTemplate ? '— not yet issued to anyone —' : ''),
   agent: cfg.agent || grant.product,
@@ -207,6 +215,7 @@ const readme = nl(
   '| `SKILL.md` | The same, in the portable agent-skill format | generic; travels unchanged |',
   '| `data/validity.json` | What this describes, as at when, and what would void it | derived |',
   '| `data/vocabulary/` | The 23 capability primitives, 4 barriers, 3 undo classes and evidence tiers this was computed against, pinned | copied from abp.sgit.ai, versioned |',
+  research.length ? `| \`RESEARCH-NEEDED.md\` | ${research.length} questions the grant cannot settle from published pages, each with how to settle it — hand them to an agent | derived from the grant; answered by whoever researches |` : [],
   '| `history/` | One entry per recompute whose counts moved | derived |', '',
   '## How to read it', '',
   '1. **`MANDATE.md` first**, because it is the one thing you already know. If it is wrong, it is wrong upward — most people authorised less than the draft assumes.',
@@ -269,18 +278,35 @@ const grantMd = nl(
   '| --- | --- |',
   Object.entries(grant.reach_names || {}).map(([k, v]) => `| ${k} | ${v} |`), '',
   '## The rows', '',
-  '| Capability | What it is | Barrier | Undo | Evidence | Via | What stands in the way |',
-  '| --- | --- | --- | --- | --- | --- | --- |',
+  `| Capability | What it is | Barrier | Undo | Evidence | Via | What stands in the way |${hasMaterial ? ' Whose material |' : ''}`,
+  `| --- | --- | --- | --- | --- | --- | --- |${hasMaterial ? ' --- |' : ''}`,
   sortRows(grantIds).map(id => {
     const r = rowOf[id];
-    return `| \`${id}\` | ${gloss(id)} | ${GLYPH[r.barrier]} ${r.barrier} | ${r.undo} | ${r.evidence}${MEASURED.has(r.evidence) ? ' ✓' : ''} | ${r.via.join(', ')} | ${r.control ?? '—'} |`;
+    return `| \`${id}\` | ${gloss(id)} | ${GLYPH[r.barrier]} ${r.barrier} | ${r.undo} | ${r.evidence}${MEASURED.has(r.evidence) ? ' ✓' : ''} | ${r.via.join(', ')} | ${r.control ?? '—'} |${hasMaterial ? ` ${r.material ?? '—'} |` : ''}`;
   }), '',
+  hasMaterial ? ['**Whose material** is not in the published grammar. It is the property Lab 01 found a connector shape needs — `own`, `organisation`, `third_party` or `mixed` — and is asked of the model site as Lab 03 request 1. `mixed` is the finding: no setting any of these vendors offers makes it `own`.', ''] : [],
   '## The notes behind the rows', '',
   sortRows(grantIds).map(id => `- **\`${id}\`** — ${rowOf[id].note}`), '',
   '## Not reachable from this shape', '',
   '| What | Why | Source |',
   '| --- | --- | --- |',
   notReach, '',
+  contradictions.length ? [
+    '## Where the vendor\'s own pages disagree', '',
+    'Advertised in one place, permitted in another, and the two do not match. Published unresolved on purpose: settling any of these by connecting an assistant and trying would mean probing somebody else\'s system, which is out of bounds here. If the vendor says which page is right, this table changes and says so.', '',
+    '| What is advertised | What the grant permits | State |',
+    '| --- | --- | --- |',
+    contradictions.map(c => `| ${c.advertised} | ${c.permitted} | **${c.state}** |`), '',
+    'Sources: ' + contradictions.flatMap(c => c.sources || []).filter((u, i, a) => a.indexOf(u) === i).map(u => `<${u}>`).join(' · '), ''] : [],
+  notInGrammar.length ? [
+    '## Granted, and not in the grammar', '',
+    'The connector permits these and none of the 23 primitives names them. They are recorded here so the grant is not silently narrower than the consent screen, and asked of the model site.', '',
+    '| What the connector can do | Permission | Why no row |',
+    '| --- | --- | --- |',
+    notInGrammar.map(n => `| ${n.what} | ${n.permission} | ${n.why} |`), ''] : [],
+  research.length ? [
+    '## Open questions', '',
+    `**${research.length}** things this grant cannot settle from the pages it was read from. Each is in \`RESEARCH-NEEDED.md\` with how to settle it, and can be handed to a separate agent. Until it is answered, the row it belongs to stands at the evidence tier shown.`, ''] : [],
   '## The four barriers, and the test', '',
   '| | Barrier | What stands in the way | Is it a control |',
   '| --- | --- | --- | --- |',
@@ -401,6 +427,9 @@ const abpMd = nl(
   '| Stop and report if a task needs anything above | ◉ expectation | **nothing** — and this is the line that makes the rest useful |', '',
   '## What is not reachable', '',
   (grant.not_reachable || []).map(n => `- **${n.what}** — ${n.why} _(${n.source})_`), '',
+  (research.length || contradictions.length) ? [
+    '## What is not settled', '',
+    `${research.length ? `**${research.length} open questions** the grant cannot answer from published pages — listed in \`RESEARCH-NEEDED.md\` with how each is settled. ` : ''}${contradictions.length ? `**${contradictions.length} places where the vendor\'s own pages disagree** — in \`GRANT.md\`, published unresolved. ` : ''}A row with an open question against it stands at the evidence tier it shows; nothing here was obtained by probing anybody else\'s system.`, ''] : [],
   '## Validity', '',
   `${validity.statement} As at **${cfg.as_at}**, against grant ${grant.profile_version}, mandate ${mandate.authored}, vocabulary ${cfg.vocabulary_version}. Void when: ${validity.void_when.join('; ')}.`, '',
   '## Where a score would live, and why it is not here', '',
@@ -417,7 +446,24 @@ if (!last || JSON.stringify(last.counts) !== JSON.stringify(delta.counts) || las
 }
 
 // ----------------------------------------------------------------- write, or check
+const researchMd = research.length ? nl(
+  head(`RESEARCH NEEDED — ${cfg.title}`,
+       `${research.length} questions the grant cannot settle from the pages it was read from. Each names the row it belongs to, what would settle it, and where to look. This file is written to be handed to an agent.`),
+  '## The rules for whoever takes this', '',
+  '- **Nothing is tested.** Do not connect an assistant to anybody\'s account to find out what it does. A question is settled from the vendor\'s own published pages, from a system you are entitled to run, or not at all.',
+  '- **Quote, do not paraphrase.** An answer is a sentence from a page, its URL, and the date you read it.',
+  '- **Record the answer in the grant.** Edit `data/grant.json`: move the row\'s `evidence` to the tier the answer supports, put the quote in its `note`, and remove the entry from `research_needed`. Rebuild; the history records that the counts moved, or that they did not.',
+  '- **An answer that says the page is silent is an answer.** Record it as `undocumented` in `contradictions` rather than leaving the question open.', '',
+  '## The questions', '',
+  '| # | Row | Question | How to settle it | Where to look |',
+  '| --- | --- | --- | --- | --- |',
+  research.map((q, i) => `| ${i + 1} | ${q.capability ? `\`${q.capability}\`` : '— (the shape)'} | ${q.question} | ${q.how} | ${(q.sources || []).map(u => `<${u}>`).join(' · ') || '—'} |`), '',
+  '## What each row stands at today', '',
+  research.filter(q => q.capability && rowOf[q.capability]).map(q => `- **\`${q.capability}\`** — ${GLYPH[rowOf[q.capability].barrier]} ${rowOf[q.capability].barrier} · evidence *${rowOf[q.capability].evidence}* — ${rowOf[q.capability].note}`), '',
+  (grant.sources || []).length ? ['## Pages this grant was read from', '', ...grant.sources.map(sr => `- ${sr.label} — <${sr.url}>${sr.read ? ` (read ${sr.read})` : ''}`), ''] : [],
+  foot()) : null;
 const outputs = {
+  ...(researchMd ? { 'RESEARCH-NEEDED.md': researchMd } : {}),
   'data/delta.json': JSON.stringify(delta, null, 2) + '\n',
   'data/validity.json': JSON.stringify(validity, null, 2) + '\n',
   'history/index.json': JSON.stringify(hist, null, 2) + '\n',
@@ -451,7 +497,7 @@ if (existsSync(join(TEMPLATE, '..', '_app', 'loader.html'))) {
   outputs[`dist/${zipName}`] = zipStore(zipEntries);
   const dist = { [zipName]: true, ...(existsSync(join(distDir, pdfName)) ? { [pdfName]: true } : {}) };
   // what the renderer needs to know that is not in a data file: which dist files exist
-  outputs['data/app.json'] = JSON.stringify({ type: 'riskmandate/abp-app-context/v1', dist, app_vault: appVault ? { vault_id: appVault.vault_id, entry: appVault.entry || 'index.html', version: appVault.version || null } : null }, null, 2) + '\n';
+  outputs['data/app.json'] = JSON.stringify({ type: 'riskmandate/abp-app-context/v1', dist, ...(research.length ? { research_open: research.length } : {}), app_vault: appVault ? { vault_id: appVault.vault_id, entry: appVault.entry || 'index.html', version: appVault.version || null } : null }, null, 2) + '\n';
   const loader = readFileSync(join(TEMPLATE, '..', '_app', 'loader.html'), 'utf8');
   if (!loader.includes('/*__APP_VAULT__*/{}')) { console.error('loader.html has no /*__APP_VAULT__*/{} marker'); process.exit(1); }
   const cfgApp = { endpoint: catalogue.endpoint, vault_id: appVault?.vault_id || null, read_key: appVault?.key || null, entry: appVault?.entry || 'index.html', version: appVault?.version || null, static: '../_app/index.html' };

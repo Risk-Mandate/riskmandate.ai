@@ -52,27 +52,52 @@ A hosted runner under a service account: persistence, and reach beyond the turn.
 
 A job that outlives the person who made it, running as a service account nobody logs in as. Seven capabilities, four wanted, four with nothing in the way.
 
-## The next applications, and why they are not here yet.
+### [Google Workspace MCP servers](abp-vault-google-workspace-mcp.html) ✓
 
-A vault is built from a measured or documented grant, never typed. These are the applications a stranger recognises first — a mailbox, a drive, a file estate — and each needs its grant published by the model site before a vault can be derived from it ([Lab 03](lab-abp-requests.html), request 2). Nothing here is invented to fill a grid.
+Gmail, Drive, Docs, Sheets, Slides, Calendar and Chat, one server each. The page advertises drafting mail and scheduling meetings; the scopes it asks for send mail and cannot touch a calendar.
 
-### An assistant on a personal mailbox
+### [Gmail, read-only scope](abp-vault-gmail-readonly.html) ✓
 
-The narrowest scope that reads a message reads every message. Asked of the model site as request 2 in Lab 03.
+The narrowest scope that reads one message reads every message. Lab 03 asked the model site for this shape first; here it is, read from Google's scope page.
 
-### An assistant on a work mailbox
+### [Google Drive, read-only scope](abp-vault-google-drive-readonly.html) ✓
 
-Shared mail is in scope, and no administrator was asked.
+The default corpus is "files owned by or shared to the user": everything anybody ever shared, on day one, without anyone choosing it.
 
-### An assistant on a personal cloud drive
+### [Microsoft 365 connector (Claude)](abp-vault-claude-m365-connector.html) ✓
 
-The default corpus is files owned by or shared to the user.
+Delegated permissions, consented once by a Global Administrator. Shared mailboxes are in scope; site-specific narrowing is unsupported because the search is tenant-wide; and the page that says "read-only access" also lists the tools that send mail as the user.
 
-### An assistant on a corporate file estate
+### [Dropbox MCP server](abp-vault-dropbox-mcp.html) ✓
 
-Site-specific narrowing is unsupported because the search is tenant-wide.
+Eight scopes, two of them write and two of them sharing, and no folder-scoped variant. It reads, creates, moves, deletes and makes shared links; the page says files are not deleted permanently and that recovery depends on your plan.
+
+## The next connectors, and what each one waits for.
+
+A vault is built from a measured or documented grant, never typed. The four connector shapes [Lab 03](lab-abp-requests.html) asked the model site for are built above, ahead of the model site, from the vendors' own pages read and quoted on a date — and each carries the questions those pages could not settle in its `RESEARCH-NEEDED.md`, written to be handed to an agent. These are the connectors whose pages have not been read yet. Nothing here is invented to fill a grid.
+
+### Claude's Google Workspace connector
+
+Gmail, Calendar and Drive from inside Claude. The connector's scope list has not been read yet; the Google pages behind it have.
+
+### An assistant connected to Slack
+
+Channels are mostly other people's writing, and a bot token reaches every channel it is in.
+
+### An assistant connected to GitHub
+
+A fine-grained token can be scoped to a repository; an OAuth app cannot, and most connectors are OAuth apps.
+
+### An assistant connected to Notion
+
+An integration is added page by page, which is the one connector model with a floor. Whether the assistant's connector uses it is the question.
+
+### An assistant connected to Salesforce
+
+A CRM is entirely third-party material by construction.
 
 - **Mandates are per application, not per agent — to begin with.** The mandate in a template is really the mandate for a resource: a repository attached to a coding agent, a mailbox connected to an assistant. That is what makes the library reusable, and why the directory is organised by application rather than by model.
+- **A documented grant is not a measured one.** The connector vaults stand at the _documented_ tier: every row quotes a vendor page and names its date, nothing was tested, and the rows a page could not settle are counted on the tile as open questions. A measured row needs a system we are entitled to run, and probing somebody else's is out of bounds here with no research exemption.
 - **Run something that is not here?** The generator takes a grant and a mandate and does the rest. Ask the agent to check its own grant with the block at the end of any GRANT.md, and send us what it finds: that is how a new application gets its row.
 
 ## The same vault, at four altitudes.

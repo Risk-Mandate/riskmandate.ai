@@ -69,7 +69,7 @@ function cut(page, title, desc, body) {
 function tile(v, data) {
   const d = data?.delta.counts, g = data?.grant, m = data?.mandate;
   const live = data ? `<rm-abp-mini data-vault="${v.slug}"></rm-abp-mini>` : '';
-  const counts = data ? `<span class="ab-tilecounts">${g.grant.length} it can do · ${m.want.length} wanted · ${d.excess} not · ${d.unbounded_excess} unbounded</span>` : `<span class="ab-tilecounts">${esc(v.note || 'no grant measured or documented yet')}</span>`;
+  const counts = data ? `<span class="ab-tilecounts">${g.grant.length} it can do · ${m.want.length} wanted · ${d.excess} not · ${d.unbounded_excess} unbounded${(g.research_needed || []).length ? ` · <em>${g.research_needed.length} open questions</em>` : ''}</span>` : `<span class="ab-tilecounts">${esc(v.note || 'no grant measured or documented yet')}</span>`;
   const action = data ? `<a class="ab-plus" href="abp-vault-${v.slug}.html" aria-label="Open ${esc(v.app)}">+</a>` : `<span class="ab-plus off" aria-hidden="true">·</span>`;
   return `<article class="ab-tile ${data ? 'on' : 'off'}">
   <span class="ab-glyph ${v.family}" aria-hidden="true">${esc(v.glyph)}</span>
@@ -115,15 +115,16 @@ ${on.map(v => tile(v, vaultData(v.slug))).join('\n')}
   <section class="psection alt" id="asked">
     <div class="wrap">
       <div class="shead">
-        <span class="tag">Asked for, not built · ${asked.length}</span>
-        <h2>The next applications, <span class="g">and why they are not here yet.</span></h2>
-        <p>A vault is built from a measured or documented grant, never typed. These are the applications a stranger recognises first — a mailbox, a drive, a file estate — and each needs its grant published by the model site before a vault can be derived from it (<a href="lab-abp-requests.html">Lab 03</a>, request 2). Nothing here is invented to fill a grid.</p>
+        <span class="tag">Not yet researched · ${asked.length}</span>
+        <h2>The next connectors, <span class="g">and what each one waits for.</span></h2>
+        <p>A vault is built from a measured or documented grant, never typed. The four connector shapes <a href="lab-abp-requests.html">Lab 03</a> asked the model site for are built above, ahead of the model site, from the vendors' own pages read and quoted on a date — and each carries the questions those pages could not settle in its <code>RESEARCH-NEEDED.md</code>, written to be handed to an agent. These are the connectors whose pages have not been read yet. Nothing here is invented to fill a grid.</p>
       </div>
       <div class="ab-grid">
 ${asked.map(v => tile(v, null)).join('\n')}
       </div>
       <ul class="plist">
         <li><strong>Mandates are per application, not per agent — to begin with.</strong> The mandate in a template is really the mandate for a resource: a repository attached to a coding agent, a mailbox connected to an assistant. That is what makes the library reusable, and why the directory is organised by application rather than by model.</li>
+        <li><strong>A documented grant is not a measured one.</strong> The connector vaults stand at the <em>documented</em> tier: every row quotes a vendor page and names its date, nothing was tested, and the rows a page could not settle are counted on the tile as open questions. A measured row needs a system we are entitled to run, and probing somebody else's is out of bounds here with no research exemption.</li>
         <li><strong>Run something that is not here?</strong> The generator takes a grant and a mandate and does the rest. Ask the agent to check its own grant with the block at the end of any GRANT.md, and send us what it finds: that is how a new application gets its row.</li>
       </ul>
     </div>
@@ -192,7 +193,7 @@ function vaultPage(v) {
   <div class="wrap">
     <span class="eyebrow"><span class="d"></span> Agent Behaviour Policy · ${esc(v.shape)}</span>
     <h1>${esc(v.title_lead || v.app)}<span class="it">${esc(v.title_tail ? ' ' + v.title_tail : '')}</span></h1>
-    <p class="sub">${esc(grant.description.split('. ').slice(0, 2).join('. '))}. This is the template vault for that shape: the grant ${grant.rows.measured ? 'measured on the thing itself' : 'derived from what the shape architecturally is and from published documentation'}, the starting mandate the model site published, and everything else derived. Every number on this page is decrypted from the vault as you read it.</p>
+    <p class="sub">${esc(grant.description.split('. ').slice(0, 2).join('. '))}. This is the template vault for that shape: the grant ${grant.rows && grant.rows.measured ? 'measured on the thing itself' : grant.research_needed ? 'read from the vendor\'s own pages on ' + grant.profile_version + ' and quoted, with ' + grant.research_needed.length + ' open questions it could not settle' : 'derived from what the shape architecturally is and from published documentation'}, the starting mandate ${grant.research_needed ? 'written here to be argued with' : 'the model site published'}, and everything else derived. Every number on this page is decrypted from the vault as you read it.</p>
     <div class="cta-row">
       <button class="btn btn-green" data-to="app">Open the vault's app ↓</button>
       <button class="btn btn-ghost" data-to="key">The read key ↓</button>
@@ -207,7 +208,7 @@ function vaultPage(v) {
       <div class="shead">
         <span class="tag">01 · The card</span>
         <h2>${headline}</h2>
-        <p>Four counts and no score. The bar splits the excess by what stands in the way of each row: nothing, a rule in prose, a setting the agent's own account can flip, or a boundary enforced above it. Only the last is a control. ${measured} rows ${grant.rows.measured ? 'were observed on the thing itself' : 'were measured; the rest are derived, and the provenance line on every row says so'}.</p>
+        <p>Four counts and no score. The bar splits the excess by what stands in the way of each row: nothing, a rule in prose, a setting the agent's own account can flip, or a boundary enforced above it. Only the last is a control. ${measured} rows ${grant.rows && grant.rows.measured ? 'were observed on the thing itself' : grant.research_needed ? 'were measured; every row was read from a vendor page on a date, and the open questions are the rows a page could not settle' : 'were measured; the rest are derived, and the provenance line on every row says so'}.</p>
       </div>
       <rm-abp-card data-vault="${v.slug}"></rm-abp-card>
     </div>

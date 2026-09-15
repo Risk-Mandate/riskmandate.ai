@@ -116,6 +116,36 @@
       "group": "Live demos"
     },
     {
+      "name": "abp-vault-dropbox-mcp",
+      "file": "abp-vault-dropbox-mcp.html",
+      "label": "Vault · Dropbox MCP server",
+      "unlisted": true
+    },
+    {
+      "name": "abp-vault-claude-m365-connector",
+      "file": "abp-vault-claude-m365-connector.html",
+      "label": "Vault · Microsoft 365 connector (Claude)",
+      "unlisted": true
+    },
+    {
+      "name": "abp-vault-google-drive-readonly",
+      "file": "abp-vault-google-drive-readonly.html",
+      "label": "Vault · Google Drive, read-only scope",
+      "unlisted": true
+    },
+    {
+      "name": "abp-vault-gmail-readonly",
+      "file": "abp-vault-gmail-readonly.html",
+      "label": "Vault · Gmail, read-only scope",
+      "unlisted": true
+    },
+    {
+      "name": "abp-vault-google-workspace-mcp",
+      "file": "abp-vault-google-workspace-mcp.html",
+      "label": "Vault · Google Workspace MCP servers",
+      "unlisted": true
+    },
+    {
       "name": "abp-vault-scheduled-job",
       "file": "abp-vault-scheduled-job.html",
       "label": "Vault · A scheduled job",

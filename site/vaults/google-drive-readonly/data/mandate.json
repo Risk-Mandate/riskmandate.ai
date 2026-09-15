@@ -1,0 +1,52 @@
+{
+  "type": "abp/mandate/v1",
+  "id": "reader-on-my-drive",
+  "label": "A reader on my drive",
+  "surface": [
+    "connector"
+  ],
+  "applies_to": [
+    "google/drive/readonly-connector"
+  ],
+  "status": "starting-point",
+  "authored": "2026-09-15",
+  "authored_by": "the site, as a starting point — not measured, not surveyed; the first thing to argue with",
+  "description": "I connected my drive so it could find documents and answer questions about them. My drive has other people's files in it — everything a colleague or a client ever shared — and I did not think about that when I clicked.",
+  "want": [
+    "read.file.host"
+  ],
+  "do_not_want": [
+    "write.file.host",
+    "delete.file.host",
+    "read.credential.host"
+  ],
+  "unstated": [
+    "authenticate-as.credential.signing",
+    "authenticate-as.credential.tenant",
+    "create.record.world",
+    "create.schedule.host",
+    "create.schedule.tenant",
+    "execute.process.host",
+    "execute.process.self",
+    "grant.credential.self",
+    "read.file.project",
+    "read.message.tenant",
+    "read.record.browsing",
+    "read.record.history",
+    "send.endpoint.allowed",
+    "send.endpoint.world",
+    "send.message.world",
+    "write.budget.tenant",
+    "write.file.project",
+    "write.repository.project",
+    "write.repository.tenant"
+  ],
+  "notes": {
+    "write.file.host": "refused, and the scope does not grant it",
+    "read.credential.host": "refused, and nothing enforces it: the key exports are in the same drive"
+  },
+  "provenance": {
+    "note": "Written on this site as the starting mandate for a connector shape the model site has not published. A mandate is elicited, not measured: this is a first draft written to be argued with. `unstated` is the primitives the mandate names neither way.",
+    "licence": "CC BY 4.0"
+  }
+}

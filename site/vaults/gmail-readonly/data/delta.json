@@ -1,0 +1,38 @@
+{
+  "type": "abp/delta/v1",
+  "profile": "google/gmail/readonly-connector",
+  "mandate": "reader-on-my-mailbox",
+  "grant_version": "2026-09-15",
+  "mandate_version": "2026-09-15",
+  "vocabulary_version": "v0.3.0",
+  "computed_at": "2026-09-15T02:43:02Z",
+  "computed_by": "riskmandate.ai build-abp-vault.mjs (abp.delta/v1 semantics)",
+  "excess": [
+    "authenticate-as.credential.tenant",
+    "read.credential.host",
+    "read.record.history"
+  ],
+  "excess_refused": [
+    "read.credential.host"
+  ],
+  "excess_unstated": [
+    "authenticate-as.credential.tenant",
+    "read.record.history"
+  ],
+  "unbounded_excess": [
+    "read.credential.host",
+    "read.record.history"
+  ],
+  "shortfall": [],
+  "aligned": [
+    "read.message.tenant"
+  ],
+  "derived_never_authored": "No field in this record is writable by a person. The way to change a delta is to change a grant or a mandate, and then recompute.",
+  "counts": {
+    "excess": 3,
+    "unbounded_excess": 2,
+    "shortfall": 0,
+    "aligned": 1
+  },
+  "id": "google__gmail__readonly-connector__reader-on-my-mailbox"
+}

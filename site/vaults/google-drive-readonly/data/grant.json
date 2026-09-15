@@ -1,0 +1,134 @@
+{
+  "type": "abp/profile/v1",
+  "id": "google/drive/readonly-connector",
+  "vendor": "Google (the scope); the assistant's vendor holds the token",
+  "product": "An assistant connected to a personal Google Drive with drive.readonly",
+  "variant": "readonly-connector",
+  "surface": "connector",
+  "profile_version": "2026-09-15",
+  "description": "Any assistant a person connects to their own Drive with the read-only scope. Google classes drive.readonly as a restricted scope — \"View and download all your Drive files\" — and the per-file alternative, drive.file, reaches only files the user opened with the app. An assistant that searches needs the restricted one. The corpus it then searches defaults to the user corpus: files owned by or shared to the user.",
+  "reach_names": {
+    "host": "the Drive as a store: every file owned by or shared to the user",
+    "tenant": "the Google account the consent was given for",
+    "world": "not granted by this scope"
+  },
+  "not_reachable": [
+    {
+      "what": "writing, moving, sharing or deleting files",
+      "why": "drive.readonly is \"View and download\"; drive and drive.file are separate scopes and are not in this grant",
+      "source": "https://developers.google.com/workspace/drive/api/guides/api-specific-auth"
+    },
+    {
+      "what": "your machine",
+      "why": "a drive connector reaches a drive, not a disk",
+      "source": "https://developers.google.com/workspace/drive/api/guides/api-specific-auth"
+    }
+  ],
+  "tools": [
+    "the assistant's Drive connector"
+  ],
+  "grant": [
+    {
+      "capability": "read.file.host",
+      "barrier": "boundary",
+      "evidence": "documented",
+      "via": [
+        "drive.readonly"
+      ],
+      "control": "the OAuth scope — restricted in Google's classification, so the assistant's vendor had to pass restricted-scope verification",
+      "note": "drive.readonly — \"View and download all your Drive files.\" The default corpus of a listing is \"files owned by or shared to the user\"; whether shared drives are included is open, below.",
+      "undo": "no",
+      "is_bounded": true,
+      "material": "mixed"
+    },
+    {
+      "capability": "authenticate-as.credential.tenant",
+      "barrier": "boundary",
+      "evidence": "documented",
+      "via": [
+        "the OAuth consent"
+      ],
+      "control": "Google's consent screen; the assistant's vendor holds the refresh token",
+      "note": "the connector acts as the account holder",
+      "undo": "no",
+      "is_bounded": true,
+      "material": "own"
+    },
+    {
+      "capability": "read.credential.host",
+      "barrier": "none",
+      "evidence": "inferred",
+      "via": [
+        "drive.readonly"
+      ],
+      "control": null,
+      "note": "drives hold exported keys, service-account files, .env backups and password exports beside everything else. Reading all files reads those. Inferred, not documented.",
+      "undo": "no",
+      "is_bounded": false,
+      "material": "own"
+    }
+  ],
+  "widest_reach": "host",
+  "contradictions": [
+    {
+      "advertised": "\"search your files\" (the shape, as assistants describe it)",
+      "permitted": "drive.readonly over the user corpus; whether the assistant sets includeItemsFromAllDrives, and so whether shared drives are searched, is not stated on either page",
+      "state": "undocumented",
+      "sources": [
+        "https://developers.google.com/workspace/drive/api/reference/rest/v3/files/list",
+        "https://developers.google.com/workspace/drive/api/guides/enable-shareddrives"
+      ]
+    }
+  ],
+  "research_needed": [
+    {
+      "capability": "read.file.host",
+      "question": "Are shared drives in the corpus the assistant searches, or only files owned by or shared to the user?",
+      "how": "The assistant vendor's connector page, or a listing from an account you are entitled to run, against the Drive API's corpora definition.",
+      "sources": [
+        "https://developers.google.com/workspace/drive/api/reference/rest/v3/files/list",
+        "https://developers.google.com/workspace/drive/api/guides/enable-shareddrives"
+      ]
+    },
+    {
+      "capability": "read.file.host",
+      "question": "Does the assistant download and retain file content, or read on demand? Restricted-scope data stored on servers carries Google's own conditions.",
+      "how": "The vendor's data-retention page and Google's restricted-scope requirements, quoted.",
+      "sources": [
+        "https://developers.google.com/workspace/drive/api/guides/api-specific-auth"
+      ]
+    },
+    {
+      "capability": "authenticate-as.credential.tenant",
+      "question": "Which assistants passed restricted-scope verification for drive.readonly, and which use drive.file (per-file) instead?",
+      "how": "Each vendor's consent screen names its scopes; read them from the screen, do not connect.",
+      "sources": [
+        "https://developers.google.com/workspace/drive/api/guides/api-specific-auth"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Drive API scopes and their classification",
+      "url": "https://developers.google.com/workspace/drive/api/guides/api-specific-auth",
+      "read": "2026-09-15"
+    },
+    {
+      "label": "Drive files.list — corpora",
+      "url": "https://developers.google.com/workspace/drive/api/reference/rest/v3/files/list",
+      "read": "2026-09-15"
+    },
+    {
+      "label": "Lab 01 — the grant is user-shaped",
+      "url": "https://riskmandate.ai/lab-connector-grants.html",
+      "read": "2026-09-15"
+    }
+  ],
+  "provenance": {
+    "note": "Not published at abp.sgit.ai. Authored on this site from the vendor's own documentation, read on 2026-09-15 and quoted rather than paraphrased; nothing was tested. This shape is one of the four asked of the model site as Lab 03 request 2; once the model site publishes it, data/upstream/delta.json is added and the build checks itself against it.",
+    "requested": "https://riskmandate.ai/lab-abp-requests.html",
+    "lab": "https://riskmandate.ai/lab-connector-grants.html",
+    "licence": "CC BY 4.0",
+    "id": "google/drive/readonly-connector"
+  }
+}

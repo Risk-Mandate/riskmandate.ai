@@ -375,6 +375,7 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
 .ab-meta{display:block;font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:3px}
 .ab-chip{display:inline-flex;font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:4px 10px;border:1px solid var(--border);color:var(--muted);background:var(--card)}
 .ab-chip.template{color:var(--gold);background:#FDF6EC;border-color:rgba(180,83,9,.3)}
+.ab-chip.research{color:#B45309;border-color:rgba(180,83,9,.4);background:#FDF6EC}
 .ab-chip.corrected{color:var(--green);background:var(--greenBg);border-color:rgba(26,127,90,.3)}
 .ab-counts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:20px 0 6px}
 @media (max-width:600px){.ab-counts{grid-template-columns:1fr 1fr}}
@@ -446,6 +447,8 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
 .ab-tile.off{opacity:.72}
 .ab-glyph{display:grid;place-items:center;width:52px;height:52px;border-radius:12px;font-family:var(--mono);font-weight:700;font-size:15px;letter-spacing:-.02em;color:#fff;background:var(--ink)}
 .ab-glyph.code{background:#1D4ED8}.ab-glyph.chat{background:#1A7F5A}.ab-glyph.desktop{background:#6D28D9}.ab-glyph.browser{background:#B45309}.ab-glyph.ci{background:#0F766E}.ab-glyph.service{background:#374151}.ab-glyph.mail{background:#C0392B}.ab-glyph.files{background:#0369A1}
+.ab-glyph.google{background:#B45309}
+.ab-glyph.microsoft{background:#4F46E5}
 .ab-tile.off .ab-glyph{background:var(--bg2);color:var(--faint);border:1px dashed var(--border)}
 .ab-tilebody h3{margin:0;font-size:16.5px;font-weight:700;letter-spacing:-.01em;color:var(--text)}
 .ab-tilebody h3 a{color:var(--text);text-decoration:none}.ab-tilebody h3 a:hover{color:var(--green)}
@@ -465,7 +468,7 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
   <div class="wrap">
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
-    <a class="version" href="versions.html" title="What shipped in v1.13.0">v1.13.0</a>
+    <a class="version" href="versions.html" title="What shipped in v1.14.0">v1.14.0</a>
     <button class="demo" data-demo>Get in touch</button>
   </div>
 </header>
@@ -489,7 +492,7 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
   <section class="psection" id="directory">
     <div class="wrap">
       <div class="shead">
-        <span class="tag">Available now · 9</span>
+        <span class="tag">Available now · 14</span>
         <h2>One vault per application. <span class="g">Derived, never authored, and the numbers are live.</span></h2>
         <p>Every tile is a deployment shape published at abp.sgit.ai and built into a vault by one command. The counts are read from the vault as you look: grant, wanted, excess, unbounded. Where a vault cannot be reached the tile says so and falls back to the copy served from this site.</p>
       </div>
@@ -575,6 +578,51 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
   </div>
   <a class="ab-plus" href="abp-vault-scheduled-job.html" aria-label="Open A scheduled job">+</a>
 </article>
+<article class="ab-tile on">
+  <span class="ab-glyph google" aria-hidden="true">G</span>
+  <div class="ab-tilebody">
+    <h3><a href="abp-vault-google-workspace-mcp.html">Google Workspace MCP servers</a> <span class="ab-verified" title="template vault, derived from published data">✓</span></h3>
+    <p>Gmail, Drive, Docs, Sheets, Slides, Calendar and Chat, one server each. The page advertises drafting mail and scheduling meetings; the scopes it asks for send mail and cannot touch a calendar.</p>
+    <span class="ab-tilecounts">6 it can do · 2 wanted · 4 not · 1 unbounded · <em>4 open questions</em></span><rm-abp-mini data-vault="google-workspace-mcp"></rm-abp-mini>
+  </div>
+  <a class="ab-plus" href="abp-vault-google-workspace-mcp.html" aria-label="Open Google Workspace MCP servers">+</a>
+</article>
+<article class="ab-tile on">
+  <span class="ab-glyph mail" aria-hidden="true">M</span>
+  <div class="ab-tilebody">
+    <h3><a href="abp-vault-gmail-readonly.html">Gmail, read-only scope</a> <span class="ab-verified" title="template vault, derived from published data">✓</span></h3>
+    <p>The narrowest scope that reads one message reads every message. Lab 03 asked the model site for this shape first; here it is, read from Google's scope page.</p>
+    <span class="ab-tilecounts">4 it can do · 1 wanted · 3 not · 2 unbounded · <em>3 open questions</em></span><rm-abp-mini data-vault="gmail-readonly"></rm-abp-mini>
+  </div>
+  <a class="ab-plus" href="abp-vault-gmail-readonly.html" aria-label="Open Gmail, read-only scope">+</a>
+</article>
+<article class="ab-tile on">
+  <span class="ab-glyph files" aria-hidden="true">D</span>
+  <div class="ab-tilebody">
+    <h3><a href="abp-vault-google-drive-readonly.html">Google Drive, read-only scope</a> <span class="ab-verified" title="template vault, derived from published data">✓</span></h3>
+    <p>The default corpus is &quot;files owned by or shared to the user&quot;: everything anybody ever shared, on day one, without anyone choosing it.</p>
+    <span class="ab-tilecounts">3 it can do · 1 wanted · 2 not · 1 unbounded · <em>3 open questions</em></span><rm-abp-mini data-vault="google-drive-readonly"></rm-abp-mini>
+  </div>
+  <a class="ab-plus" href="abp-vault-google-drive-readonly.html" aria-label="Open Google Drive, read-only scope">+</a>
+</article>
+<article class="ab-tile on">
+  <span class="ab-glyph microsoft" aria-hidden="true">MS</span>
+  <div class="ab-tilebody">
+    <h3><a href="abp-vault-claude-m365-connector.html">Microsoft 365 connector (Claude)</a> <span class="ab-verified" title="template vault, derived from published data">✓</span></h3>
+    <p>Delegated permissions, consented once by a Global Administrator. Shared mailboxes are in scope; site-specific narrowing is unsupported because the search is tenant-wide; and the page that says &quot;read-only access&quot; also lists the tools that send mail as the user.</p>
+    <span class="ab-tilecounts">5 it can do · 2 wanted · 3 not · 1 unbounded · <em>4 open questions</em></span><rm-abp-mini data-vault="claude-m365-connector"></rm-abp-mini>
+  </div>
+  <a class="ab-plus" href="abp-vault-claude-m365-connector.html" aria-label="Open Microsoft 365 connector (Claude)">+</a>
+</article>
+<article class="ab-tile on">
+  <span class="ab-glyph files" aria-hidden="true">Db</span>
+  <div class="ab-tilebody">
+    <h3><a href="abp-vault-dropbox-mcp.html">Dropbox MCP server</a> <span class="ab-verified" title="template vault, derived from published data">✓</span></h3>
+    <p>Eight scopes, two of them write and two of them sharing, and no folder-scoped variant. It reads, creates, moves, deletes and makes shared links; the page says files are not deleted permanently and that recovery depends on your plan.</p>
+    <span class="ab-tilecounts">5 it can do · 1 wanted · 4 not · 0 unbounded · <em>4 open questions</em></span><rm-abp-mini data-vault="dropbox-mcp"></rm-abp-mini>
+  </div>
+  <a class="ab-plus" href="abp-vault-dropbox-mcp.html" aria-label="Open Dropbox MCP server">+</a>
+</article>
       </div>
     </div>
   </section>
@@ -582,50 +630,60 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
   <section class="psection alt" id="asked">
     <div class="wrap">
       <div class="shead">
-        <span class="tag">Asked for, not built · 4</span>
-        <h2>The next applications, <span class="g">and why they are not here yet.</span></h2>
-        <p>A vault is built from a measured or documented grant, never typed. These are the applications a stranger recognises first — a mailbox, a drive, a file estate — and each needs its grant published by the model site before a vault can be derived from it (<a href="lab-abp-requests.html">Lab 03</a>, request 2). Nothing here is invented to fill a grid.</p>
+        <span class="tag">Not yet researched · 5</span>
+        <h2>The next connectors, <span class="g">and what each one waits for.</span></h2>
+        <p>A vault is built from a measured or documented grant, never typed. The four connector shapes <a href="lab-abp-requests.html">Lab 03</a> asked the model site for are built above, ahead of the model site, from the vendors' own pages read and quoted on a date — and each carries the questions those pages could not settle in its <code>RESEARCH-NEEDED.md</code>, written to be handed to an agent. These are the connectors whose pages have not been read yet. Nothing here is invented to fill a grid.</p>
       </div>
       <div class="ab-grid">
 <article class="ab-tile off">
-  <span class="ab-glyph mail" aria-hidden="true">M</span>
+  <span class="ab-glyph google" aria-hidden="true">G</span>
   <div class="ab-tilebody">
-    <h3>An assistant on a personal mailbox </h3>
-    <p>The narrowest scope that reads a message reads every message. Asked of the model site as request 2 in Lab 03.</p>
-    <span class="ab-tilecounts">grant not yet published — first in the queue</span>
+    <h3>Claude's Google Workspace connector </h3>
+    <p>Gmail, Calendar and Drive from inside Claude. The connector's scope list has not been read yet; the Google pages behind it have.</p>
+    <span class="ab-tilecounts">not yet researched — next in the queue</span>
   </div>
   <span class="ab-plus off" aria-hidden="true">·</span>
 </article>
 <article class="ab-tile off">
-  <span class="ab-glyph mail" aria-hidden="true">M</span>
+  <span class="ab-glyph chat" aria-hidden="true">S</span>
   <div class="ab-tilebody">
-    <h3>An assistant on a work mailbox </h3>
-    <p>Shared mail is in scope, and no administrator was asked.</p>
-    <span class="ab-tilecounts">grant not yet published</span>
+    <h3>An assistant connected to Slack </h3>
+    <p>Channels are mostly other people's writing, and a bot token reaches every channel it is in.</p>
+    <span class="ab-tilecounts">not yet researched</span>
   </div>
   <span class="ab-plus off" aria-hidden="true">·</span>
 </article>
 <article class="ab-tile off">
-  <span class="ab-glyph files" aria-hidden="true">D</span>
+  <span class="ab-glyph code" aria-hidden="true">GH</span>
   <div class="ab-tilebody">
-    <h3>An assistant on a personal cloud drive </h3>
-    <p>The default corpus is files owned by or shared to the user.</p>
-    <span class="ab-tilecounts">grant not yet published</span>
+    <h3>An assistant connected to GitHub </h3>
+    <p>A fine-grained token can be scoped to a repository; an OAuth app cannot, and most connectors are OAuth apps.</p>
+    <span class="ab-tilecounts">not yet researched</span>
   </div>
   <span class="ab-plus off" aria-hidden="true">·</span>
 </article>
 <article class="ab-tile off">
-  <span class="ab-glyph files" aria-hidden="true">D</span>
+  <span class="ab-glyph files" aria-hidden="true">N</span>
   <div class="ab-tilebody">
-    <h3>An assistant on a corporate file estate </h3>
-    <p>Site-specific narrowing is unsupported because the search is tenant-wide.</p>
-    <span class="ab-tilecounts">grant not yet published</span>
+    <h3>An assistant connected to Notion </h3>
+    <p>An integration is added page by page, which is the one connector model with a floor. Whether the assistant's connector uses it is the question.</p>
+    <span class="ab-tilecounts">not yet researched</span>
+  </div>
+  <span class="ab-plus off" aria-hidden="true">·</span>
+</article>
+<article class="ab-tile off">
+  <span class="ab-glyph service" aria-hidden="true">SF</span>
+  <div class="ab-tilebody">
+    <h3>An assistant connected to Salesforce </h3>
+    <p>A CRM is entirely third-party material by construction.</p>
+    <span class="ab-tilecounts">not yet researched</span>
   </div>
   <span class="ab-plus off" aria-hidden="true">·</span>
 </article>
       </div>
       <ul class="plist">
         <li><strong>Mandates are per application, not per agent — to begin with.</strong> The mandate in a template is really the mandate for a resource: a repository attached to a coding agent, a mailbox connected to an assistant. That is what makes the library reusable, and why the directory is organised by application rather than by model.</li>
+        <li><strong>A documented grant is not a measured one.</strong> The connector vaults stand at the <em>documented</em> tier: every row quotes a vendor page and names its date, nothing was tested, and the rows a page could not settle are counted on the tile as open questions. A measured row needs a system we are entitled to run, and probing somebody else's is out of bounds here with no research exemption.</li>
         <li><strong>Run something that is not here?</strong> The generator takes a grant and a mandate and does the rest. Ask the agent to check its own grant with the block at the end of any GRANT.md, and send us what it finds: that is how a new application gets its row.</li>
       </ul>
     </div>
@@ -1088,6 +1146,56 @@ RM.services.abpVaults = (function () {
     "page": "abp-vault-scheduled-job.html",
     "status": "template",
     "app": "A scheduled job"
+  },
+  {
+    "slug": "google-workspace-mcp",
+    "vid": "pq7ct02p",
+    "key": "093c4c58f1593dacecc727de965ee22f883a6530cac20b2ff9ae6b7ea811c1e4",
+    "title": "The Google Workspace MCP servers",
+    "shape": "google/workspace-mcp/default",
+    "page": "abp-vault-google-workspace-mcp.html",
+    "status": "template",
+    "app": "Google Workspace MCP servers"
+  },
+  {
+    "slug": "gmail-readonly",
+    "vid": "l2zlv3ng",
+    "key": "865ea2d50ada749c30554380f22202dffe4c362a4a85a565accd045b84eefaf8",
+    "title": "An assistant on a personal Gmail mailbox",
+    "shape": "google/gmail/readonly-connector",
+    "page": "abp-vault-gmail-readonly.html",
+    "status": "template",
+    "app": "Gmail, read-only scope"
+  },
+  {
+    "slug": "google-drive-readonly",
+    "vid": "vz03p8it",
+    "key": "e04bb066d11479d33ecb9e5d0c1a621e13e4599e8c2b5380001ab16e8c932270",
+    "title": "An assistant on a personal Google Drive",
+    "shape": "google/drive/readonly-connector",
+    "page": "abp-vault-google-drive-readonly.html",
+    "status": "template",
+    "app": "Google Drive, read-only scope"
+  },
+  {
+    "slug": "claude-m365-connector",
+    "vid": "dgx3nvu4",
+    "key": "43d439062419da78ef22e544257d775f5774b33830d92f7a3abe5c05c2873669",
+    "title": "Claude's Microsoft 365 connector",
+    "shape": "anthropic/microsoft-365-connector/default",
+    "page": "abp-vault-claude-m365-connector.html",
+    "status": "template",
+    "app": "Microsoft 365 connector (Claude)"
+  },
+  {
+    "slug": "dropbox-mcp",
+    "vid": "9eqa7e4p",
+    "key": "f22db64f51e4268a4531bebe0c6d46f3e51dd1337193a7e8137efac9cdfc5990",
+    "title": "The official Dropbox MCP server",
+    "shape": "dropbox/mcp-server/default",
+    "page": "abp-vault-dropbox-mcp.html",
+    "status": "template",
+    "app": "Dropbox MCP server"
   }
 ];
   var APP_VAULT = {"vault_id":"fl3i7lu4","key":"e37a0f80d65e2b486f8bb3253e313c65ecbb57e5664c3f1704346c70ac09639a","entry":"index.html"};   // the renderer's own vault: { vault_id, key, entry }
@@ -1223,7 +1331,7 @@ RM.services.abpVaults = (function () {
         var card = dom.el('div', { class: 'ab-card' }, [
           dom.el('div', { class: 'ab-head' }, [
             dom.el('div', null, [dom.el('span', { class: 'ab-org' }, [v.organisation || v.title]), dom.el('span', { class: 'ab-meta' }, [g.product + ' · grant ' + g.profile_version + ' · mandate ' + m.authored + ' · as at ' + v.as_at])]),
-            dom.el('span', { class: 'ab-chip ' + v.status }, [v.status])
+            dom.el('span', null, [dom.el('span', { class: 'ab-chip ' + v.status }, [v.status])].concat((g.research_needed || []).length ? [' ', dom.el('span', { class: 'ab-chip research' }, [(g.research_needed || []).length + ' open questions'])] : []))
           ]),
           dom.el('div', { class: 'ab-counts' }, [
             count(g.grant.length, 'capabilities in the grant'), count(m.want.length, 'wanted by the mandate', 'ok'),

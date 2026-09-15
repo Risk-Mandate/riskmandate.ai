@@ -1,0 +1,143 @@
+{
+  "type": "abp/profile/v1",
+  "id": "google/gmail/readonly-connector",
+  "vendor": "Google (the scope); the assistant's vendor holds the token",
+  "product": "An assistant connected to a personal Gmail mailbox with gmail.readonly",
+  "variant": "readonly-connector",
+  "surface": "connector",
+  "profile_version": "2026-09-15",
+  "description": "Any assistant a person connects to their own Gmail with the read-only scope — the shape Lab 01 found first. The finding is that the grant is user-shaped: the narrowest scope that returns a message body returns every body, and nothing in the scope list narrows it by sender, label or date. Whose mail it is, is the question: most of a mailbox was written by other people.",
+  "reach_names": {
+    "host": "the mailbox itself, as a store: every message and the account's mail settings",
+    "tenant": "the Google account the consent was given for",
+    "world": "not granted by this scope"
+  },
+  "not_reachable": [
+    {
+      "what": "sending, forwarding or drafting mail",
+      "why": "gmail.readonly grants no send; gmail.send, gmail.compose and gmail.modify are separate scopes and are not in this grant",
+      "source": "https://developers.google.com/workspace/gmail/api/auth/scopes"
+    },
+    {
+      "what": "deleting or labelling mail",
+      "why": "no write scope; gmail.labels and gmail.modify are separate",
+      "source": "https://developers.google.com/workspace/gmail/api/auth/scopes"
+    },
+    {
+      "what": "your machine, your drive",
+      "why": "a mailbox connector reaches a mailbox",
+      "source": "https://developers.google.com/workspace/gmail/api/auth/scopes"
+    }
+  ],
+  "tools": [
+    "the assistant's Gmail connector"
+  ],
+  "grant": [
+    {
+      "capability": "read.message.tenant",
+      "barrier": "boundary",
+      "evidence": "documented",
+      "via": [
+        "gmail.readonly"
+      ],
+      "control": "the OAuth scope, consented once on Google's screen and revocable from the account's connected-apps page",
+      "note": "gmail.readonly — \"View your email messages and settings.\" The only scope that excludes bodies, gmail.metadata, \"cannot read a message\". There is no scope that filters by sender, label or date.",
+      "undo": "no",
+      "is_bounded": true,
+      "material": "mixed"
+    },
+    {
+      "capability": "authenticate-as.credential.tenant",
+      "barrier": "boundary",
+      "evidence": "documented",
+      "via": [
+        "the OAuth consent"
+      ],
+      "control": "Google's consent screen; the assistant's vendor holds the refresh token",
+      "note": "the connector acts as the account holder, over everything the scope names",
+      "undo": "no",
+      "is_bounded": true,
+      "material": "own"
+    },
+    {
+      "capability": "read.credential.host",
+      "barrier": "none",
+      "evidence": "inferred",
+      "via": [
+        "gmail.readonly"
+      ],
+      "control": null,
+      "note": "password resets, one-time codes, invitations and account-recovery mail arrive in this mailbox. Reading every message reads those. Inferred, not documented — and no scope separates them.",
+      "undo": "no",
+      "is_bounded": false,
+      "material": "own"
+    },
+    {
+      "capability": "read.record.history",
+      "barrier": "none",
+      "evidence": "inferred",
+      "via": [
+        "gmail.readonly"
+      ],
+      "control": null,
+      "note": "a mailbox is a retained record of years: \"settings\" in the scope text includes filters and forwarding addresses. Whether the assistant reads settings is open, below.",
+      "undo": "no",
+      "is_bounded": false,
+      "material": "mixed"
+    }
+  ],
+  "widest_reach": "tenant",
+  "contradictions": [
+    {
+      "advertised": "the connector \"answers questions about your mail\" (the shape, as assistants describe it)",
+      "permitted": "gmail.readonly — \"View your email messages and settings\": settings include filters and forwarding addresses; whether the assistant reads them is not stated",
+      "state": "undocumented",
+      "sources": [
+        "https://developers.google.com/workspace/gmail/api/auth/scopes"
+      ]
+    }
+  ],
+  "research_needed": [
+    {
+      "capability": "read.message.tenant",
+      "question": "Does the assistant's vendor retain message bodies after answering, and for how long? This is the vendor's row, not Google's.",
+      "how": "The assistant vendor's connector documentation and data-retention page, quoted. At best self-reported.",
+      "sources": []
+    },
+    {
+      "capability": "read.record.history",
+      "question": "Does the connector read \"settings\" — filters, forwarding, vacation responder — or only messages?",
+      "how": "The connector's tool list from the vendor's page.",
+      "sources": [
+        "https://developers.google.com/workspace/gmail/api/auth/scopes"
+      ]
+    },
+    {
+      "capability": null,
+      "question": "On a personal Google account, which setting blocks a third-party app from being connected at all, and is it on by default?",
+      "how": "Google account help on third-party access; Lab 01 read the business-domain default as permissive and did not read the personal one.",
+      "sources": [
+        "https://riskmandate.ai/lab-connector-grants.html"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Gmail API scopes",
+      "url": "https://developers.google.com/workspace/gmail/api/auth/scopes",
+      "read": "2026-09-15"
+    },
+    {
+      "label": "Lab 01 — the grant is user-shaped",
+      "url": "https://riskmandate.ai/lab-connector-grants.html",
+      "read": "2026-09-15"
+    }
+  ],
+  "provenance": {
+    "note": "Not published at abp.sgit.ai. Authored on this site from the vendor's own documentation, read on 2026-09-15 and quoted rather than paraphrased; nothing was tested. This shape is one of the four asked of the model site as Lab 03 request 2; once the model site publishes it, data/upstream/delta.json is added and the build checks itself against it.",
+    "requested": "https://riskmandate.ai/lab-abp-requests.html",
+    "lab": "https://riskmandate.ai/lab-connector-grants.html",
+    "licence": "CC BY 4.0",
+    "id": "google/gmail/readonly-connector"
+  }
+}

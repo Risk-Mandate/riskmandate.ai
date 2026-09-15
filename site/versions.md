@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.14.0** · 2026-09-15 — Five connector vaults, read from the vendors' own pages, with their open questions written to be handed on
+  Notes: https://riskmandate.ai/versions/1.14.0.md · Source: `git:v1.14.0`
 - **v1.13.0** · 2026-09-15 — Behaviour policies as vaults: Lab 07, a directory of nine, the renderer versioned once
   Notes: https://riskmandate.ai/versions/1.13.0.md · Source: `git:v1.13.0`
 - **v1.12.0** · 2026-09-15 — The homepage leads with the policy, and says which rung we are on

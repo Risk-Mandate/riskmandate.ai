@@ -89,6 +89,7 @@ main{padding:34px 0 60px}
 .hero h1{color:var(--fg);max-width:22ch}
 .hero p{color:var(--fg-2);max-width:70ch;margin-top:12px;font-size:16px}
 .hero .chip{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);color:var(--fg)}
+.hero .chip.open{color:#F2C14E;border-color:rgba(242,193,78,.5)}
 .hero .chip.template{color:#F0C27A;border-color:rgba(240,194,122,.4)}
 .chip.link{cursor:pointer;color:var(--green-2);text-transform:none;letter-spacing:0;font-family:var(--sans);font-weight:600;font-size:12.5px}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
@@ -165,6 +166,8 @@ td.m{color:var(--muted)}
 .pill.want{color:var(--green);background:var(--greenBg);border-color:rgba(26,127,90,.3)}
 .pill.refused{color:var(--red);background:#FBEDEA;border-color:rgba(192,57,43,.3)}
 .pill.unstated{color:var(--gold);background:#FDF6EC;border-color:rgba(180,83,9,.3)}
+.pill.mat{color:var(--muted)}.pill.mat.mixed,.pill.mat.third_party{color:var(--red);border-color:rgba(192,57,43,.3)}.pill.mat.own{color:var(--green);border-color:rgba(26,127,90,.3)}
+.chip.open{color:var(--gold);border-color:rgba(180,83,9,.4);cursor:pointer}.panel.open{border-color:rgba(180,83,9,.4)}.panel.open ol{padding-left:20px;margin:8px 0 0}.panel.open li{margin:6px 0;font-size:13px}.panel.open li .m{color:var(--muted)}
 .sub{font-size:13px;color:var(--muted);margin-top:14px}
 
 /* correction */
@@ -327,6 +330,7 @@ function computeDelta(mandate) {
 }
 function counts(d) { return { grant: D.grant.grant.length, mandate: MANDATE.want.length, excess: d.excess.length, unbounded: d.unbounded_excess.length, shortfall: d.shortfall.length, aligned: d.aligned.length }; }
 function corrected() { return JSON.stringify(MANDATE.want) !== JSON.stringify(D.mandate.want) || JSON.stringify(MANDATE.do_not_want) !== JSON.stringify(D.mandate.do_not_want); }
+function research() { return D.grant.research_needed || []; }
 function measuredCount() { return D.grant.grant.filter(r => MEASURED.has(r.evidence)).length; }
 
 function barrierCell(id) { const r = row(id); return h('td', null, h('span', { class: 'g ' + r.barrier }, GLYPH[r.barrier] + ' ' + r.barrier)); }
@@ -334,13 +338,15 @@ function evidenceCell(id) { const r = row(id); const m = MEASURED.has(r.evidence
 function statusCell(id) { const st = statusOf(id); return h('td', null, h('span', { class: 'pill ' + st }, STATUS_LABEL[st])); }
 function capTable(ids, opts) {
   opts = opts || {};
-  const thead = h('thead', null, h('tr', null, ['Capability', 'What it is', 'Barrier', 'Undo', 'Evidence', opts.via ? 'Via' : null, opts.control ? 'What stands in the way' : null, 'Mandate'].filter(Boolean).map(t => h('th', null, t))));
+  const material = !!opts.material && D.grant.grant.some(r => r.material);
+  const thead = h('thead', null, h('tr', null, ['Capability', 'What it is', 'Barrier', 'Undo', 'Evidence', opts.via ? 'Via' : null, opts.control ? 'What stands in the way' : null, material ? 'Whose material' : null, 'Mandate'].filter(Boolean).map(t => h('th', null, t))));
   const tbody = h('tbody', null, ids.map(id => {
     const r = row(id);
     return h('tr', null, [
       h('td', { class: 'k' }, id), h('td', { class: 'm' }, gloss(id)), barrierCell(id), h('td', { class: 'm' }, r.undo), evidenceCell(id),
       opts.via ? h('td', { class: 'm' }, r.via.join(', ')) : null,
       opts.control ? h('td', { class: 'm' }, r.control || '—') : null,
+      material ? h('td', null, r.material ? h('span', { class: 'pill mat ' + r.material }, r.material) : '—') : null,
       statusCell(id),
     ].filter(Boolean));
   }));
@@ -436,6 +442,7 @@ function viewStart() {
       h('div', { class: 'badges' }, [
         h('span', { class: 'chip ' + v.status }, v.status), h('span', { class: 'chip' }, `${c.grant} it can do · ${c.mandate} wanted · ${c.excess} not`),
         h('span', { class: 'chip' }, `${c.unbounded} unbounded`), h('span', { class: 'chip' }, `${measuredCount()} of ${c.grant} measured`),
+        research().length ? h('button', { class: 'chip open', type: 'button', on: { click: () => show('grant') } }, `${research().length} open questions →`) : null,
         h('button', { class: 'chip link', type: 'button', on: { click: () => show('about') } }, 'new to this? what an ABP is →'),
       ]),
       h('div', { class: 'steps' }, [
@@ -506,7 +513,24 @@ function viewGrant() {
   const ids = sortIrreversibleFirst(D.grant.grant.map(r => r.capability));
   return [
     h('div', { class: 'head' }, [h('div', null, [h('span', { class: 'tag' }, 'Grant · measured'), h('h2', null, 'Everything the agent can do'), h('p', null, `${ids.length} capabilities, ${measuredCount()} measured. Irreversible rows first. Every row says how it is known, what stands in the way, and whether the effect can be undone.`)])]),
-    capTable(ids, { via: true, control: true }),
+    capTable(ids, { via: true, control: true, material: true }),
+    D.grant.grant.some(r => r.material) ? h('p', { class: 'sub', style: 'margin-top:8px' }, [h('b', null, 'Whose material '), 'is not in the published grammar. It is the property a connector shape needs — own, organisation, third_party or mixed — asked of the model site as Lab 03 request 1. Mixed is the finding: no setting these vendors offer makes it own.']) : null,
+    research().length ? h('div', { class: 'panel open', style: 'margin-top:18px' }, [
+      h('h3', null, `${research().length} open questions — needs research`),
+      h('p', { class: 'sub' }, 'What this grant cannot settle from the pages it was read from. Each row stands at the evidence tier shown until its question is answered — from the vendor’s own pages or a system you are entitled to run, never by probing somebody else’s. RESEARCH-NEEDED.md in this vault is written to be handed to an agent.'),
+      h('ol', null, research().map(q => h('li', null, [q.capability ? h('b', { class: 'mono' }, q.capability + ' — ') : null, q.question, h('span', { class: 'm' }, ' · ' + q.how)]))),
+    ]) : null,
+    (D.grant.contradictions || []).length ? h('div', { class: 'panel', style: 'margin-top:18px' }, [
+      h('h3', null, 'Where the vendor’s own pages disagree'),
+      h('p', { class: 'sub' }, 'Advertised in one place, permitted in another. Published unresolved on purpose; if the vendor says which page is right, this changes and says so.'),
+      h('div', { class: 'tw', style: 'margin-top:10px' }, h('table', null, [h('thead', null, h('tr', null, ['What is advertised', 'What the grant permits', 'State'].map(t => h('th', null, t)))),
+        h('tbody', null, D.grant.contradictions.map(c => h('tr', null, [h('td', { class: 'm' }, c.advertised), h('td', { class: 'm' }, c.permitted), h('td', null, h('span', { class: 'pill ' + (c.state === 'undocumented' ? 'unstated' : 'refused') }, c.state))])))])),
+    ]) : null,
+    (D.grant.not_in_grammar || []).length ? h('div', { class: 'panel', style: 'margin-top:18px' }, [
+      h('h3', null, 'Granted, and not in the grammar'),
+      h('p', { class: 'sub' }, 'The connector permits these and none of the 23 primitives names them. Recorded so the grant is not silently narrower than the consent screen.'),
+      h('ul', null, D.grant.not_in_grammar.map(n => h('li', null, [h('b', null, n.what + ' — '), n.permission + '. ' + n.why]))),
+    ]) : null,
     h('div', { class: 'grid', style: 'margin-top:18px' }, [
       h('div', { class: 'panel' }, [h('h3', null, 'What the words mean in this shape'), h('ul', null, Object.entries(D.grant.reach_names || {}).map(([k, v]) => h('li', null, [h('b', null, k + ' — '), v])))]),
       h('div', { class: 'panel' }, [h('h3', null, 'Not reachable from this shape'), h('ul', null, (D.grant.not_reachable || []).map(n => h('li', null, [h('b', null, n.what + ' — '), n.why])))]),

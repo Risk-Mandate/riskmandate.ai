@@ -1,0 +1,222 @@
+{
+  "type": "abp/profile/v1",
+  "id": "google/workspace-mcp/default",
+  "vendor": "Google",
+  "product": "The Google Workspace MCP servers (Gmail, Drive, Docs, Sheets, Slides, Calendar, Chat)",
+  "variant": "default",
+  "surface": "mcp",
+  "profile_version": "2026-09-15",
+  "description": "Google's own MCP servers, one per Workspace product, used from an MCP client such as an IDE or an agent. Each server \"inherits the same permissions and data governance controls as the user\": it acts as the person who consented, over everything that person can reach. The rows below are the OAuth scopes the setup page tells you to add to the project, read as capabilities; the client that holds the token has a grant of its own, which is a separate shape.",
+  "reach_names": {
+    "host": "the Google account's Drive and mailbox — every file owned by or shared to the user; not your machine",
+    "tenant": "the Google account the consent was given for, and the Workspace domain it belongs to",
+    "world": "anyone reachable by mail from that account"
+  },
+  "not_reachable": [
+    {
+      "what": "your machine's files",
+      "why": "the servers are hosted by Google; what the MCP client itself can reach is that client's own grant, a separate shape",
+      "source": "https://developers.google.com/workspace/guides/configure-mcp-servers"
+    },
+    {
+      "what": "permanent deletion of mail",
+      "why": "only the https://mail.google.com/ scope permits it (\"Read, compose, send, and permanently delete all your email\"), and it is not on the list",
+      "source": "https://developers.google.com/workspace/gmail/api/auth/scopes"
+    },
+    {
+      "what": "labelling or unlabelling mail",
+      "why": "gmail.labels (\"See and edit your email labels\") exists and is not on the list",
+      "source": "https://developers.google.com/workspace/gmail/api/auth/scopes"
+    },
+    {
+      "what": "creating or changing calendar events",
+      "why": "the three Calendar scopes requested are calendarlist.readonly, events.readonly and events.freebusy; \"schedule meetings\" is advertised on the same page",
+      "source": "https://developers.google.com/workspace/guides/configure-mcp-servers"
+    }
+  ],
+  "tools": [
+    "Gmail MCP server",
+    "Drive MCP server",
+    "Docs, Sheets and Slides MCP servers",
+    "Calendar MCP server",
+    "Chat MCP server"
+  ],
+  "grant": [
+    {
+      "capability": "read.message.tenant",
+      "barrier": "boundary",
+      "evidence": "documented",
+      "via": [
+        "gmail.readonly"
+      ],
+      "control": "the OAuth scope, consented on Google's screen; a Workspace administrator can restrict third-party access to the domain",
+      "note": "gmail.readonly — \"View your email messages and settings.\" Every message and the settings. No Gmail scope filters by sender, label or date; the only narrower one, gmail.metadata, cannot return a body.",
+      "undo": "no",
+      "is_bounded": true,
+      "material": "mixed"
+    },
+    {
+      "capability": "send.message.world",
+      "barrier": "boundary",
+      "evidence": "documented",
+      "via": [
+        "gmail.compose"
+      ],
+      "control": "the OAuth scope",
+      "note": "gmail.compose — \"Manage drafts and send emails.\" The setup page advertises \"create draft emails\"; the scope it asks for also sends. Whether the server exposes a tool that sends is open, below.",
+      "undo": "no",
+      "is_bounded": true,
+      "material": "third_party"
+    },
+    {
+      "capability": "read.file.host",
+      "barrier": "boundary",
+      "evidence": "documented",
+      "via": [
+        "drive.readonly"
+      ],
+      "control": "the OAuth scope — a restricted scope in Google's own classification",
+      "note": "drive.readonly — \"View and download all your Drive files.\" A Drive listing's default corpus is \"files owned by or shared to the user\": everything any colleague, client or counterparty ever shared.",
+      "undo": "no",
+      "is_bounded": true,
+      "material": "mixed"
+    },
+    {
+      "capability": "write.file.host",
+      "barrier": "boundary",
+      "evidence": "documented",
+      "via": [
+        "drive.file",
+        "documents",
+        "spreadsheets",
+        "presentations"
+      ],
+      "control": "the OAuth scopes",
+      "note": "drive.file creates new files or modifies files the user opened with the app; the Docs, Sheets and Slides servers each ask for the full write scope for their document type beside the read-only one. What \"full\" includes is open, below.",
+      "undo": "with-effort",
+      "is_bounded": true,
+      "material": "mixed"
+    },
+    {
+      "capability": "authenticate-as.credential.tenant",
+      "barrier": "boundary",
+      "evidence": "documented",
+      "via": [
+        "the OAuth consent"
+      ],
+      "control": "Google's consent screen and the project's scope list; the token is held by the MCP client",
+      "note": "every server acts as the user who consented — \"inherit the same permissions and data governance controls as the user\"",
+      "undo": "no",
+      "is_bounded": true,
+      "material": "own"
+    },
+    {
+      "capability": "read.credential.host",
+      "barrier": "none",
+      "evidence": "inferred",
+      "via": [
+        "gmail.readonly",
+        "drive.readonly"
+      ],
+      "control": null,
+      "note": "a mailbox carries password resets, one-time codes and invitations; a drive carries exported keys and configuration. Reading all of either reads those too, and no scope separates them. Inferred from the two read rows, not documented.",
+      "undo": "no",
+      "is_bounded": false,
+      "material": "own"
+    }
+  ],
+  "widest_reach": "world",
+  "contradictions": [
+    {
+      "advertised": "Take action: \"schedule meetings\"",
+      "permitted": "calendar.calendarlist.readonly, calendar.events.readonly, calendar.events.freebusy — all read-only",
+      "state": "unresolved",
+      "sources": [
+        "https://developers.google.com/workspace/guides/configure-mcp-servers"
+      ]
+    },
+    {
+      "advertised": "Take action: \"create draft emails\"",
+      "permitted": "gmail.compose — \"Manage drafts and send emails\": sending as well as drafting",
+      "state": "unresolved",
+      "sources": [
+        "https://developers.google.com/workspace/guides/configure-mcp-servers",
+        "https://developers.google.com/workspace/gmail/api/auth/scopes"
+      ]
+    },
+    {
+      "advertised": "Read data: \"retrieve files\"",
+      "permitted": "drive.readonly over the user corpus; whether shared drives are in the search (includeItemsFromAllDrives) is not stated",
+      "state": "undocumented",
+      "sources": [
+        "https://developers.google.com/workspace/guides/configure-mcp-servers",
+        "https://developers.google.com/workspace/drive/api/reference/rest/v3/files/list"
+      ]
+    }
+  ],
+  "research_needed": [
+    {
+      "capability": "send.message.world",
+      "question": "Does the Gmail MCP server expose a tool that sends, or only one that drafts? The scope permits both.",
+      "how": "Read the server's tool list from a client you are entitled to run, or Google's reference for the Gmail MCP server. Do not send anything.",
+      "sources": [
+        "https://developers.google.com/workspace/guides/configure-mcp-servers"
+      ]
+    },
+    {
+      "capability": "read.file.host",
+      "question": "Are shared drives in the corpus of the Drive server's search — does it set includeItemsFromAllDrives?",
+      "how": "The server's documentation or its tool schema; the Drive API page defines the corpora.",
+      "sources": [
+        "https://developers.google.com/workspace/guides/configure-mcp-servers",
+        "https://developers.google.com/workspace/drive/api/reference/rest/v3/files/list",
+        "https://developers.google.com/workspace/drive/api/guides/enable-shareddrives"
+      ]
+    },
+    {
+      "capability": "write.file.host",
+      "question": "What do the documents, spreadsheets and presentations scopes permit — deletion included?",
+      "how": "Google's scope descriptions for the Docs, Sheets and Slides APIs, quoted.",
+      "sources": [
+        "https://developers.google.com/workspace/drive/api/guides/api-specific-auth"
+      ]
+    },
+    {
+      "capability": null,
+      "question": "Which Workspace administrator control restricts these servers for a whole domain, and what is its default on an unconfigured domain?",
+      "how": "Google Workspace admin help on API controls and third-party app access; Lab 01 read the default as permissive.",
+      "sources": [
+        "https://riskmandate.ai/lab-connector-grants.html"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Configure MCP servers (Google Workspace)",
+      "url": "https://developers.google.com/workspace/guides/configure-mcp-servers",
+      "read": "2026-09-15"
+    },
+    {
+      "label": "Gmail API scopes",
+      "url": "https://developers.google.com/workspace/gmail/api/auth/scopes",
+      "read": "2026-09-15"
+    },
+    {
+      "label": "Drive API scopes",
+      "url": "https://developers.google.com/workspace/drive/api/guides/api-specific-auth",
+      "read": "2026-09-15"
+    },
+    {
+      "label": "Drive files.list — corpora",
+      "url": "https://developers.google.com/workspace/drive/api/reference/rest/v3/files/list",
+      "read": "2026-09-15"
+    }
+  ],
+  "provenance": {
+    "note": "Not published at abp.sgit.ai. Authored on this site from the vendor's own documentation, read on 2026-09-15 and quoted rather than paraphrased; nothing was tested. This shape is one of the four asked of the model site as Lab 03 request 2; once the model site publishes it, data/upstream/delta.json is added and the build checks itself against it.",
+    "requested": "https://riskmandate.ai/lab-abp-requests.html",
+    "lab": "https://riskmandate.ai/lab-connector-grants.html",
+    "licence": "CC BY 4.0",
+    "id": "google/workspace-mcp/default"
+  }
+}

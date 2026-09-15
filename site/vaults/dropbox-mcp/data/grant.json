@@ -1,0 +1,201 @@
+{
+  "type": "abp/profile/v1",
+  "id": "dropbox/mcp-server/default",
+  "vendor": "Dropbox",
+  "product": "The official Dropbox MCP server",
+  "variant": "default",
+  "surface": "mcp",
+  "profile_version": "2026-09-15",
+  "description": "Dropbox's own MCP server, connected from an MCP client with a Dropbox app configured for scoped access and eight permissions: account_info.read, files.metadata.read, files.content.read, files.content.write, sharing.read, sharing.write, file_requests.read, file_requests.write. The rows are its published tool list read as capabilities. \"If you change your Dropbox app settings, such as adding a new scope, you must reconnect\" — the scope set is the boundary, and it is the whole of it: there is no folder-scoped variant.",
+  "reach_names": {
+    "host": "the Dropbox account as a store — and for a team user, \"the usage and quota for the entire team\"",
+    "tenant": "the Dropbox account or team the app was authorised for",
+    "world": "anyone who holds a shared link or a file-request URL"
+  },
+  "not_reachable": [
+    {
+      "what": "permanent deletion",
+      "why": "\"Move one or more files or folders to Deleted files. Files aren't deleted permanently.\" — but see the contradiction on recovery windows",
+      "source": "https://help.dropbox.com/integrations/connect-dropbox-mcp-server"
+    },
+    {
+      "what": "files over 5 MB, as text",
+      "why": "\"Support files up to 5 MB\" for content extraction; DownloadLink hands the original to the client instead",
+      "source": "https://help.dropbox.com/integrations/connect-dropbox-mcp-server"
+    },
+    {
+      "what": "your machine",
+      "why": "the client's own grant is a separate shape",
+      "source": "https://help.dropbox.com/integrations/connect-dropbox-mcp-server"
+    }
+  ],
+  "tools": [
+    "ListFolder",
+    "GetFileMetadata",
+    "GetFileContent",
+    "GetUsageAndQuota",
+    "Search",
+    "CreateFolder",
+    "CreateFile",
+    "CreateSharedLink",
+    "WhoAmI",
+    "Copy",
+    "Move",
+    "Delete",
+    "CheckJobStatus",
+    "DownloadLink",
+    "ListSharedLinks",
+    "GetSharedLinkMetadata",
+    "CreateFileRequest",
+    "GetFileRequest",
+    "ListFileRequests"
+  ],
+  "grant": [
+    {
+      "capability": "read.file.host",
+      "barrier": "boundary",
+      "evidence": "documented",
+      "via": [
+        "GetFileContent",
+        "Search",
+        "ListFolder",
+        "DownloadLink",
+        "GetFileMetadata"
+      ],
+      "control": "the app's scopes files.metadata.read and files.content.read, consented by the user; a team admin's App Center controls are open, below",
+      "note": "\"Extract text from PDFs, Word documents, and other text representable files\"; \"Search files and folders by name or content\". Everything the account can open, team folders included.",
+      "undo": "no",
+      "is_bounded": true,
+      "material": "mixed"
+    },
+    {
+      "capability": "write.file.host",
+      "barrier": "boundary",
+      "evidence": "documented",
+      "via": [
+        "CreateFile",
+        "CreateFolder",
+        "Copy",
+        "Move"
+      ],
+      "control": "files.content.write",
+      "note": "Copy \"can recreate a deleted file or replace an existing file at the destination path\"; Move renames or moves files and folders; CreateFile writes up to 5 MB of inline content.",
+      "undo": "with-effort",
+      "is_bounded": true,
+      "material": "mixed"
+    },
+    {
+      "capability": "delete.file.host",
+      "barrier": "boundary",
+      "evidence": "documented",
+      "via": [
+        "Delete"
+      ],
+      "control": "files.content.write",
+      "note": "\"Move one or more files or folders to Deleted files. Files aren't deleted permanently. Recovery depends on your plan's recovery window.\"",
+      "undo": "no",
+      "is_bounded": true,
+      "material": "mixed"
+    },
+    {
+      "capability": "create.record.world",
+      "barrier": "boundary",
+      "evidence": "documented",
+      "via": [
+        "CreateSharedLink",
+        "CreateFileRequest"
+      ],
+      "control": "sharing.write and file_requests.write",
+      "note": "a shared link \"for a file or folder, with the option to invite up to 25 viewers by email\"; a file request \"so others can upload files to a folder you choose\". Both publish something under the account's name to whoever holds the URL.",
+      "undo": "no",
+      "is_bounded": true,
+      "material": "mixed"
+    },
+    {
+      "capability": "authenticate-as.credential.tenant",
+      "barrier": "boundary",
+      "evidence": "documented",
+      "via": [
+        "WhoAmI",
+        "the OAuth app"
+      ],
+      "control": "the app's scoped access, all eight scopes at once",
+      "note": "\"Get the authenticated Dropbox user's identity, team/account context\"; the server acts as the account, and for team users GetUsageAndQuota \"will retrieve the usage and quota for the entire team\".",
+      "undo": "no",
+      "is_bounded": true,
+      "material": "own"
+    }
+  ],
+  "widest_reach": "world",
+  "contradictions": [
+    {
+      "advertised": "\"Files aren't deleted permanently.\"",
+      "permitted": "\"Recovery depends on your plan's recovery window.\" — the same tool description; after the window they are gone",
+      "state": "unresolved",
+      "sources": [
+        "https://help.dropbox.com/integrations/connect-dropbox-mcp-server"
+      ]
+    },
+    {
+      "advertised": "\"Support files up to 5 MB\" (GetFileContent)",
+      "permitted": "DownloadLink: \"download the original file instead of reading extracted text\" — the limit is on extraction, not on reach",
+      "state": "unresolved",
+      "sources": [
+        "https://help.dropbox.com/integrations/connect-dropbox-mcp-server"
+      ]
+    }
+  ],
+  "research_needed": [
+    {
+      "capability": "create.record.world",
+      "question": "What is the default audience of a link CreateSharedLink makes — anyone with the link, or the team? GetSharedLinkMetadata reports an audience, so one is set.",
+      "how": "Dropbox's API reference for sharing/create_shared_link_with_settings and its default link_audience, quoted.",
+      "sources": [
+        "https://help.dropbox.com/integrations/connect-dropbox-mcp-server"
+      ]
+    },
+    {
+      "capability": "delete.file.host",
+      "question": "What is the recovery window per plan, and does Basic have one at all?",
+      "how": "Dropbox help on version history and file recovery, per plan.",
+      "sources": [
+        "https://help.dropbox.com/integrations/connect-dropbox-mcp-server"
+      ]
+    },
+    {
+      "capability": "authenticate-as.credential.tenant",
+      "question": "Can a team administrator block or restrict this MCP app for the whole team, and what is the default?",
+      "how": "Dropbox App Center administration help.",
+      "sources": [
+        "https://help.dropbox.com/integrations/connect-dropbox-mcp-server"
+      ]
+    },
+    {
+      "capability": "write.file.host",
+      "question": "Does files.content.write permit changing an existing file's content in place, or only creating, copying and moving?",
+      "how": "The scope description on Dropbox's developer pages; CreateFile says \"Create a new\".",
+      "sources": [
+        "https://help.dropbox.com/integrations/connect-dropbox-mcp-server"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Connect the Dropbox MCP server (Dropbox help)",
+      "url": "https://help.dropbox.com/integrations/connect-dropbox-mcp-server",
+      "read": "2026-09-15"
+    },
+    {
+      "label": "Lab 01 — the grant is user-shaped",
+      "url": "https://riskmandate.ai/lab-connector-grants.html",
+      "read": "2026-09-15"
+    }
+  ],
+  "provenance": {
+    "note": "Not published at abp.sgit.ai. Authored on this site from the vendor's own documentation, read on 2026-09-15 and quoted rather than paraphrased; nothing was tested. This shape is one of the four asked of the model site as Lab 03 request 2; once the model site publishes it, data/upstream/delta.json is added and the build checks itself against it.",
+    "requested": "https://riskmandate.ai/lab-abp-requests.html",
+    "lab": "https://riskmandate.ai/lab-connector-grants.html",
+    "licence": "CC BY 4.0",
+    "id": "dropbox/mcp-server/default"
+  }
+}
