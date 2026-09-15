@@ -48,7 +48,9 @@ const today = () => new Date().toISOString().slice(0, 10);
 // here moves for reasons unrelated to the thinking — the menu, the version
 // chip, the edition list itself, and the shared JS modules, which a
 // sync-modules run rewrites on every page at once. Leave any of it in and a
-// chrome change mints an edition on all four entries the same afternoon,
+// chrome change mints an edition on all four entries the same afternoon
+// (v1.16.0 added a GitHub link to every header and a licence line to every footer, and the
+// register's current hashes were migrated to this rule that day),
 // implying four arguments moved when none did.
 function contentHash(html) {
   const start = html.indexOf('<body');
@@ -56,6 +58,8 @@ function contentHash(html) {
   return sha(html.slice(start, end < 0 ? undefined : end)
     .replace(/<script[\s\S]*?<\/script>/g, '')
     .replace(/<a class="version"[\s\S]*?<\/a>/, '')
+    .replace(/<header class="top">[\s\S]*?<\/header>/, '')      // site chrome: the menu, the GitHub link, the button
+    .replace(/<footer class="foot">[\s\S]*?<\/footer>/, '')     // site chrome: the licence line, the versions link
     .replace(/<!-- editions:start -->[\s\S]*?<!-- editions:end -->/, ''));
 }
 

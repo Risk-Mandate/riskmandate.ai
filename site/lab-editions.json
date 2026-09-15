@@ -77,7 +77,7 @@
           "file": "assets/lab/lab--the-whole-lab--v5--2026-09-14.pdf",
           "bytes": 1841559,
           "sha256": "c8b12e9e034163fcc82e572ecb65ac8efef868b1a44b0853fc12c540286b0c78",
-          "content": "65d917d260e7c3069c5bfe7d633ae04d69511081c18026c8009efd693d72a083",
+          "content": "710a867c76a4897d114d049ca8837ce6f1a1b54c7c8fe948821834c12270755a",
           "pages": 76,
           "combines": [
             "assets/lab/lab-connector-grants--v2--2026-09-12.pdf",
@@ -119,7 +119,7 @@
           "file": "assets/lab/lab-abp-flow--v3--2026-09-14.pdf",
           "bytes": 256891,
           "sha256": "e72c58ced81ea46e2e32664602703fc81ad8664791e13581358ab638faa56bca",
-          "content": "da84cf57a815f3151962538be45d5df4a339236e0667f9bd388cd4b43b3af1e2",
+          "content": "b36f125b4dc5e2a8f12c9e02abe3a03ef7ae809b84c6844e55a53978c6e4cb79",
           "note": "One sentence changed, and it was a claim rather than a phrasing. The delivery stage said “nothing in it is authored except the mandate”, in the same breath as calling the thing a corrected draft. Both cannot be true. The corrections are most of what makes a policy the customer’s, so the sentence now says that instead. Nothing else on the page moved."
         }
       ]
@@ -143,7 +143,7 @@
           "file": "assets/lab/lab-abp-requests--v2--2026-09-12.pdf",
           "bytes": 191299,
           "sha256": "aa172f14066bcea1e989285782e77a9f28a160ea5b0ce8004198e50e4009243b",
-          "content": "742c8565e6ba3642fa08b93a23689286c8d9d36d3c135d9f1778a4b67ff6f6af",
+          "content": "9138b933c2428270e3e99652f78e756d49004f9c48e9f6707af84a773ab83d98",
           "note": "Identical argument to v1. Re-cut only to remove a line of stray script text that the page was rendering onto its last page."
         }
       ]
@@ -159,7 +159,7 @@
           "file": "assets/lab/lab-commit-author--v1--2026-09-12.pdf",
           "bytes": 350719,
           "sha256": "a8cd4f1efae9ba5d1a0582be7f6c137f8208aca4807bc39c3e0d820882114d13",
-          "content": "bdc154607f29940ff5a8985f0715bec6970f5e7ec1e8162040166bdd262840ef"
+          "content": "693ef3f300b6cac10ffc3218cfb5f2b6b1672b41a97d1f6e5b93608818c69d7e"
         }
       ]
     },
@@ -182,7 +182,7 @@
           "file": "assets/lab/lab-connector-grants--v2--2026-09-12.pdf",
           "bytes": 191738,
           "sha256": "bd32b602d7e9d1fc1b87c12df4a11923e7812689958a207cba8ddc8fd2def8c3",
-          "content": "7516bcf780fdbd8b252e2e4072b71f639b00ac3cb39f8fe94f73695000fb4c56",
+          "content": "c93853e26d7634a97e58664128bafbd33a87594be0410eec594cf4080b361ec0",
           "note": "Identical argument to v1. Re-cut only to remove a line of stray script text that the page was rendering onto its last page."
         }
       ]
@@ -198,7 +198,7 @@
           "file": "assets/lab/lab-network-reach--v1--2026-09-12.pdf",
           "bytes": 503380,
           "sha256": "ad8287423d2f3d0b94f98231a1094933a3a4ea06d22f908b765cd13ef121b2f9",
-          "content": "4a95e5ed6f17d13876b47679d164e09bfbb89541ed0cf90af0ad49c16682cc55"
+          "content": "87f33039c6319b240940b01859796595034153c9d462715413119fb07cafa099"
         }
       ]
     },
@@ -213,7 +213,7 @@
           "file": "assets/lab/lab-shape-collector--v1--2026-09-12.pdf",
           "bytes": 477597,
           "sha256": "eeb5da3fdba77648d4c94f17418f9ec08617f31668ba62d31f1dbc1c443b1131",
-          "content": "f0a0dac8a703b6bde43ccba377a9b5e5f68f51aecdb91134435520f484ced969"
+          "content": "874f349f44359f71f01e7b320f33652daca7a6e35f12af8a41bef37cd7994a55"
         }
       ]
     },
@@ -228,7 +228,7 @@
           "file": "assets/lab/lab-vault-delivered--v1--2026-09-15.pdf",
           "bytes": 185811,
           "sha256": "8699e55b57f14853f976f4657eb8d6a76671142b5a71ed17a735629956fe9e8f",
-          "content": "a21303b1e48b455a7b8899bcd825a8e36ba420c755991752abd750edc0706b04"
+          "content": "ee32be26bbc6fcdd47e71cf5bfbb86456ec93538b543e374f4225ef3abe914ae"
         }
       ]
     }
