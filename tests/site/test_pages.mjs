@@ -279,3 +279,22 @@ test('the home page policy card reports the vault it names, not numbers somebody
   assert.doesNotMatch(card, /\d+\s*(?:\/|out of)\s*100|\bL[1-6]\b|\b(?:rated|scored)\b/i,
     'a behaviour policy carries no score');
 });
+
+test('every inline script parses — a page that throws on load is a broken page', () => {
+  // A page here is one self-contained file, so a stray brace in one of them takes
+  // the menu, the drawer and every component on that page down with it and nothing
+  // else notices: the HTML still renders, the tests still pass, and the only signal
+  // is an error in a console nobody is looking at. Two pages shipped that way before
+  // this existed, and a synthetic-user run driving a real browser is what caught it.
+  // Anchor to a real tag: several pages carry the literal string '<script>' inside
+  // their own JavaScript, and a naive indexOf starts reading from the middle of it.
+  for (const f of pages) {
+    const s = read(f);
+    for (const m of s.matchAll(/^[ \t]*<script>$/gm)) {
+      const a = m.index + m[0].length;
+      const b = s.indexOf('</script>', a);            // in-source ones are escaped <\/script>
+      assert.doesNotThrow(() => new Function(s.slice(a, b)),
+        `${f} has an inline script that does not parse`);
+    }
+  }
+});
