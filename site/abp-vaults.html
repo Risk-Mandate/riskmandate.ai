@@ -468,7 +468,7 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
   <div class="wrap">
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
-    <a class="version" href="versions.html" title="What shipped in v1.14.0">v1.14.0</a>
+    <a class="version" href="versions.html" title="What shipped in v1.15.0">v1.15.0</a>
     <button class="demo" data-demo>Get in touch</button>
   </div>
 </header>
@@ -492,7 +492,7 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
   <section class="psection" id="directory">
     <div class="wrap">
       <div class="shead">
-        <span class="tag">Available now · 14</span>
+        <span class="tag">Available now · 15</span>
         <h2>One vault per application. <span class="g">Derived, never authored, and the numbers are live.</span></h2>
         <p>Every tile is a deployment shape published at abp.sgit.ai and built into a vault by one command. The counts are read from the vault as you look: grant, wanted, excess, unbounded. Where a vault cannot be reached the tile says so and falls back to the copy served from this site.</p>
       </div>
@@ -622,6 +622,15 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
     <span class="ab-tilecounts">5 it can do · 1 wanted · 4 not · 0 unbounded · <em>4 open questions</em></span><rm-abp-mini data-vault="dropbox-mcp"></rm-abp-mini>
   </div>
   <a class="ab-plus" href="abp-vault-dropbox-mcp.html" aria-label="Open Dropbox MCP server">+</a>
+</article>
+<article class="ab-tile on">
+  <span class="ab-glyph service" aria-hidden="true">n8n</span>
+  <div class="ab-tilebody">
+    <h3><a href="abp-vault-n8n-owner-api-key.html">n8n, owner API key</a> <span class="ab-verified" title="template vault, derived from published data">✓</span></h3>
+    <p>The first grant here measured on a live instance, by an early beta user's agent: full control of every automation, an outbound node with no restriction on target, every account visible, and credential metadata open through one door and shut through another.</p>
+    <span class="ab-tilecounts">8 it can do · 4 wanted · 4 not · 4 unbounded · <em>4 open questions</em></span><rm-abp-mini data-vault="n8n-owner-api-key"></rm-abp-mini>
+  </div>
+  <a class="ab-plus" href="abp-vault-n8n-owner-api-key.html" aria-label="Open n8n, owner API key">+</a>
 </article>
       </div>
     </div>
@@ -1196,6 +1205,16 @@ RM.services.abpVaults = (function () {
     "page": "abp-vault-dropbox-mcp.html",
     "status": "template",
     "app": "Dropbox MCP server"
+  },
+  {
+    "slug": "n8n-owner-api-key",
+    "vid": "l8opgcug",
+    "key": "d85b128b1eff181a71f3e4eec16a27510934ca73aecc450617b7c40d750909b3",
+    "title": "A self-hosted n8n instance, owner API key",
+    "shape": "n8n/self-hosted/owner-api-key",
+    "page": "abp-vault-n8n-owner-api-key.html",
+    "status": "template",
+    "app": "n8n, owner API key"
   }
 ];
   var APP_VAULT = {"vault_id":"fl3i7lu4","key":"e37a0f80d65e2b486f8bb3253e313c65ecbb57e5664c3f1704346c70ac09639a","entry":"index.html"};   // the renderer's own vault: { vault_id, key, entry }

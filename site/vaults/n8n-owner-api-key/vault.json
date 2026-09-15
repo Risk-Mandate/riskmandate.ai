@@ -1,0 +1,17 @@
+{
+  "slug": "n8n-owner-api-key",
+  "title": "A self-hosted n8n instance, owner API key",
+  "status": "template",
+  "what_status_means": "template: the draft for a deployment shape, before anybody has corrected the mandate. draft: a copy made for one organisation, mandate not yet corrected. corrected: the mandate has been elicited from the deployer and a named owner has signed the licence.",
+  "shape": "n8n/self-hosted/owner-api-key",
+  "vocabulary_version": "v0.3.0",
+  "vocabulary_source": "https://abp.sgit.ai/data/index.json",
+  "as_at": "2026-09-15",
+  "organisation": null,
+  "agent": "An agent holding an owner-scoped API key for a self-hosted n8n instance",
+  "owner": null,
+  "issued": null,
+  "valid_until": null,
+  "measured_rows": "7 of 8",
+  "shape_note": "Measured on a live sandbox instance on 2026-09-13 by an early beta user's agent, using the previous prose version of the policy; translated into the vocabulary here. Published as the template for this shape rather than as that deployment: the sandbox held nothing else."
+}

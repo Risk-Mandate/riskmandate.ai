@@ -269,8 +269,12 @@ function vaultPage(v) {
         <h2>The vault's own interface, <span class="g">running here from the vault.</span></h2>
         <p>The vault carries a single self-contained page that renders itself from the files beside it, and opens on Start here: what this is, where the pieces go, what we want the agent to do beside what we do not, and three ways to hand it over. Below it is booted inside a sandboxed frame with an opaque origin and served its reads by this page over a message channel — the app never sees a key, and this page never runs the app's code in its own origin.</p>
       </div>
+      <div class="cta-row ab-openrow">
+        <a class="btn btn-green" href="vaults/${v.slug}/index.html" target="_blank" rel="noopener">Open the app in a new window ↗</a>
+        <a class="btn btn-ghost" href="https://dev.vault.sgraph.ai/en-gb/#${v.key}:${v.vid}" target="_blank" rel="noopener">Open in the vault browser ↗</a>
+      </div>
+      <p class="src">On a phone, open it in its own window: the frame below is the same app, sandboxed, and small. The vault browser is the whole product — files, history and the app — and the button carries the public read key, so it opens read-only without a paste. The copy this site serves at <a href="vaults/${v.slug}/index.html">vaults/${v.slug}/index.html</a> says in its top bar which route it loaded the app by.</p>
       <rm-abp-app data-vault="${v.slug}"></rm-abp-app>
-      <p class="src">Prefer the whole product? <a href="https://dev.vault.sgraph.ai/en-gb/" target="_blank" rel="noopener">Open the vault browser</a> and paste the read key from the next section; it opens read-only with the files, the history and the app. A static copy of the app is also served from this site at <a href="vaults/${v.slug}/index.html">vaults/${v.slug}/index.html</a>, and says so in its top bar.</p>
     </div>
   </section>
 

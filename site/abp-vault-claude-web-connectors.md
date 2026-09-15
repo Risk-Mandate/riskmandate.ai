@@ -36,7 +36,7 @@ The organisation is the authority, the behaviour policy is the instrument, the a
 
 The vault carries a single self-contained page that renders itself from the files beside it, and opens on Start here: what this is, where the pieces go, what we want the agent to do beside what we do not, and three ways to hand it over. Below it is booted inside a sandboxed frame with an opaque origin and served its reads by this page over a message channel — the app never sees a key, and this page never runs the app's code in its own origin.
 
-Prefer the whole product? [Open the vault browser](https://dev.vault.sgraph.ai/en-gb/) and paste the read key from the next section; it opens read-only with the files, the history and the app. A static copy of the app is also served from this site at [vaults/claude-web-connectors/index.html](vaults/claude-web-connectors/index.html), and says so in its top bar.
+On a phone, open it in its own window: the frame below is the same app, sandboxed, and small. The vault browser is the whole product — files, history and the app — and the button carries the public read key, so it opens read-only without a paste. The copy this site serves at [vaults/claude-web-connectors/index.html](vaults/claude-web-connectors/index.html) says in its top bar which route it loaded the app by.
 
 ## The bytes themselves, listed from the live tree.
 

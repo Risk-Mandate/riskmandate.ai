@@ -1,0 +1,209 @@
+{
+  "type": "abp/profile/v1",
+  "id": "n8n/self-hosted/owner-api-key",
+  "vendor": "n8n (self-hosted)",
+  "product": "A self-hosted n8n instance, reached with an owner-scoped API key",
+  "variant": "owner-api-key",
+  "surface": "api",
+  "profile_version": "2026-09-13",
+  "description": "An agent holding an owner-scoped API key for a self-hosted workflow-automation platform, reaching it over its REST API and its MCP interface. The first grant on this site measured on a live instance rather than read from a page: a sandbox stood up for the exercise, with nothing else on it, probed on 13 September 2026 by an early beta user's agent. It built and ran a real AI-agent workflow against a real model credential, created and deleted one test workflow to measure create-change-delete and activation, and probed the edges — every account visible, an outbound node accepted with no restriction on target host, and credential metadata readable through one door and not through another. The rows are that write-up, translated row for row into the v0.3.0 vocabulary; where its barrier reading and the vocabulary's differ, the note says so.",
+  "reach_names": {
+    "project": "the workflows on the instance — the thing the key was given to build",
+    "host": "the instance itself: its accounts, its credential store, its execution records",
+    "tenant": "the platform as an account holder: activation, schedules, the model credential it spends against",
+    "world": "any host an outbound node can be pointed at — accepted on creation; what the platform's own server can reach was not tested"
+  },
+  "not_reachable": [
+    {
+      "what": "activating a workflow with no trigger, webhook or polling node",
+      "why": "permitted by the API and rejected by the platform: a structural check on the workflow's shape, not on what it does once triggered",
+      "source": "an independent measured check, 13 September 2026, run by an early beta user's agent against a sandbox instance stood up for the purpose; the write-up is held by RiskMandate"
+    },
+    {
+      "what": "the credentials endpoint over the direct REST path — from the measuring environment",
+      "why": "blocked before it reached the platform by the measuring environment's own egress gateway, which intercepts any path naming \"credentials\". A barrier in the investigator's environment, not the platform's; the same operation was open through the MCP interface",
+      "source": "an independent measured check, 13 September 2026, run by an early beta user's agent against a sandbox instance stood up for the purpose; the write-up is held by RiskMandate"
+    }
+  ],
+  "tools": [
+    "the REST API, owner-scoped key",
+    "the platform's MCP interface",
+    "the platform UI, by the deployer"
+  ],
+  "grant": [
+    {
+      "capability": "write.file.project",
+      "barrier": "none",
+      "evidence": "measured",
+      "via": [
+        "REST API: workflows"
+      ],
+      "control": null,
+      "note": "full create-change-delete confirmed: created, deactivated and deleted one real test workflow in the session. The write-up records the API key as \"the technical gate — broad, but a real gate, not a prose rule\"; in this vocabulary a key that permits a thing is the grant, not a barrier, so the row stands at none.",
+      "undo": "with-effort",
+      "is_bounded": false,
+      "material": "organisation"
+    },
+    {
+      "capability": "create.schedule.tenant",
+      "barrier": "none",
+      "evidence": "measured",
+      "via": [
+        "REST API: activate",
+        "the MCP interface: publish"
+      ],
+      "control": null,
+      "note": "a webhook-triggered workflow was built, activated and executed. Activation is refused for a workflow with no trigger — a check on shape, not on risk — so the platform bounds nothing about what an activated workflow does.",
+      "undo": "yes",
+      "is_bounded": false,
+      "material": "organisation"
+    },
+    {
+      "capability": "send.endpoint.world",
+      "barrier": "none",
+      "evidence": "measured",
+      "via": [
+        "REST API: an outbound-HTTP node on creation"
+      ],
+      "control": null,
+      "note": "the API accepted a generic outbound-HTTP node pointed at an external URL with no restriction on target host; no allow-list observed. No workflow was executed against a non-public target, so what the platform's own server can reach on the network is not tested and is an open question below.",
+      "undo": "no",
+      "is_bounded": false,
+      "material": "mixed"
+    },
+    {
+      "capability": "read.credential.host",
+      "barrier": "none",
+      "evidence": "measured",
+      "via": [
+        "the MCP interface: list credentials",
+        "REST API: credentials (blocked at the investigator's gateway)"
+      ],
+      "control": null,
+      "note": "the identical operation was blocked through the REST path — by the measuring environment's own gateway, not the platform — and returned full credential metadata through the MCP interface. Metadata only; nothing was exported. The write-up's own lesson: the barrier class of a capability can depend on which door was used to ask.",
+      "undo": "no",
+      "is_bounded": false,
+      "material": "organisation"
+    },
+    {
+      "capability": "authenticate-as.credential.tenant",
+      "barrier": "none",
+      "evidence": "measured",
+      "via": [
+        "the owner-scoped API key"
+      ],
+      "control": null,
+      "note": "owner level on the account's personal project; the key was held for the session only and never persisted. Everything below it follows from it.",
+      "undo": "no",
+      "is_bounded": false,
+      "material": "organisation"
+    },
+    {
+      "capability": "write.budget.tenant",
+      "barrier": "none",
+      "evidence": "measured",
+      "via": [
+        "the AI Agent workflow, against a real model credential"
+      ],
+      "control": null,
+      "note": "a real model credential was added by the deployer through the UI and a real execution returned a model response through the node — spend against that account, as the workflow's author. The first attempt failed with \"does not have access to the credential\": a wrong reference from ambiguous name matching between two credentials of the same type, not a barrier, found only once the MCP interface could list them.",
+      "undo": "no",
+      "is_bounded": false,
+      "material": "organisation"
+    },
+    {
+      "capability": "read.record.history",
+      "barrier": "none",
+      "evidence": "measured",
+      "via": [
+        "REST API: executions"
+      ],
+      "control": null,
+      "note": "execution records read: the zero-execution baseline, then the one real execution with its status and the model's response.",
+      "undo": "no",
+      "is_bounded": false,
+      "material": "organisation"
+    },
+    {
+      "capability": "execute.process.host",
+      "barrier": "none",
+      "evidence": "derived",
+      "via": [
+        "a Code node, not created"
+      ],
+      "control": null,
+      "note": "a workflow can carry a code node that runs on the platform's own server. Not tested in the session; derived from what the platform is, and an open question below.",
+      "undo": "with-effort",
+      "is_bounded": false,
+      "material": "organisation"
+    }
+  ],
+  "widest_reach": "world",
+  "not_in_grammar": [
+    {
+      "what": "see every account on the instance",
+      "permission": "the owner-scoped key; no scoping beyond that observed",
+      "why": "no primitive reads the user directory of a platform; the nearest, read.record.history, is a retained record, not a roster. Measured: a handful of accounts, one owner created the day of the session."
+    },
+    {
+      "what": "read the instance's health",
+      "permission": "the owner-scoped key",
+      "why": "no primitive; measured as healthy, recorded for completeness"
+    }
+  ],
+  "contradictions": [
+    {
+      "advertised": "the write-up classes the API key as a \"setting\" barrier — \"the API key itself is the technical gate: broad, but a real gate, not a prose rule\"",
+      "permitted": "in the v0.3.0 vocabulary a setting is \"a switch the agent's own account can flip\" and the enforcer test says a control bounds a grant only if enforced by something the grant does not include; the key is the grant, so every row it permits stands at none",
+      "state": "unresolved",
+      "sources": [
+        "https://abp.sgit.ai/data/barriers.json"
+      ]
+    },
+    {
+      "advertised": "the platform's documented authorisation model: credential management is owner-level (from the write-up, \"unconfirmed from outside\")",
+      "permitted": "credential metadata was readable through the MCP interface; whether the same key can create, change or delete credentials was not tested",
+      "state": "undocumented",
+      "sources": []
+    }
+  ],
+  "research_needed": [
+    {
+      "capability": "send.endpoint.world",
+      "question": "What can the platform's own server reach on the network when a workflow runs? An outbound node was accepted on creation; none was executed against a non-public target.",
+      "how": "On a sandbox you are entitled to run, execute one workflow against an address the deployer names for the purpose; record the result and delete the workflow.",
+      "sources": []
+    },
+    {
+      "capability": "execute.process.host",
+      "question": "Does a Code node on this instance run arbitrary code on the platform's server, and as which account?",
+      "how": "The platform's documentation for the Code node and its sandboxing settings, quoted; then one reversible probe on the sandbox.",
+      "sources": []
+    },
+    {
+      "capability": "read.credential.host",
+      "question": "Beyond metadata: can the owner key create, change or delete credentials, and can it export a secret? The write-up stopped at metadata on purpose.",
+      "how": "The platform's public API reference for the credentials resource, quoted. Do not export a secret to find out.",
+      "sources": []
+    },
+    {
+      "capability": null,
+      "question": "Should the measuring environment's gateway rule (block any path naming \"credentials\") be extended to MCP-tunnelled requests, now that the bypass is confirmed? A decision for the deployer.",
+      "how": "The deployer decides; record the decision in the vault's history.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "label": "The independent measured check, 13 September 2026 (held by RiskMandate; not published with the vault)",
+      "url": "https://riskmandate.ai/abp-vault-n8n-owner-api-key.html",
+      "read": "2026-09-15"
+    }
+  ],
+  "provenance": {
+    "note": "Measured, not read: the rows come from a dated probe of a live sandbox instance by an early beta user's agent, translated into the v0.3.0 vocabulary on 15 September 2026. The write-up is the evidence file the measured tier requires and is held by RiskMandate; its author is credited in the site's versions register with permission, and not here. Not published at abp.sgit.ai.",
+    "measured_on": "2026-09-13",
+    "licence": "CC BY 4.0",
+    "id": "n8n/self-hosted/owner-api-key"
+  }
+}

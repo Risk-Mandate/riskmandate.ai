@@ -72,6 +72,10 @@ Delegated permissions, consented once by a Global Administrator. Shared mailboxe
 
 Eight scopes, two of them write and two of them sharing, and no folder-scoped variant. It reads, creates, moves, deletes and makes shared links; the page says files are not deleted permanently and that recovery depends on your plan.
 
+### [n8n, owner API key](abp-vault-n8n-owner-api-key.html) ✓
+
+The first grant here measured on a live instance, by an early beta user's agent: full control of every automation, an outbound node with no restriction on target, every account visible, and credential metadata open through one door and shut through another.
+
 ## The next connectors, and what each one waits for.
 
 A vault is built from a measured or documented grant, never typed. The four connector shapes [Lab 03](lab-abp-requests.html) asked the model site for are built above, ahead of the model site, from the vendors' own pages read and quoted on a date — and each carries the questions those pages could not settle in its `RESEARCH-NEEDED.md`, written to be handed to an agent. These are the connectors whose pages have not been read yet. Nothing here is invented to fill a grid.

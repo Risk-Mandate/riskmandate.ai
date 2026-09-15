@@ -116,6 +116,12 @@
       "group": "Live demos"
     },
     {
+      "name": "abp-vault-n8n-owner-api-key",
+      "file": "abp-vault-n8n-owner-api-key.html",
+      "label": "Vault · n8n, owner API key",
+      "unlisted": true
+    },
+    {
       "name": "abp-vault-dropbox-mcp",
       "file": "abp-vault-dropbox-mcp.html",
       "label": "Vault · Dropbox MCP server",

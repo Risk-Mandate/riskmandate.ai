@@ -213,6 +213,7 @@ const readme = nl(
   '| `LICENCE-TO-OPERATE.md` | The organisation authorises the agent to operate under this behaviour policy, for an interval, with conditions | derived from the mandate; signed by a named person when issued |',
   '| `AGENTS.md` | Drop this into the agent\'s own context — `CLAUDE.md`, `AGENTS.md`, a `ROLE.md`, a skill — so it knows how to treat the rest | generic; travels unchanged |',
   '| `SKILL.md` | The same, in the portable agent-skill format | generic; travels unchanged |',
+  '| `MAP-A-GRANT.md` | A prompt for an agent that already holds a credential or a connector: measure your own grant and draft the first policy | generic; travels unchanged |',
   '| `data/validity.json` | What this describes, as at when, and what would void it | derived |',
   '| `data/vocabulary/` | The 23 capability primitives, 4 barriers, 3 undo classes and evidence tiers this was computed against, pinned | copied from abp.sgit.ai, versioned |',
   research.length ? `| \`RESEARCH-NEEDED.md\` | ${research.length} questions the grant cannot settle from published pages, each with how to settle it — hand them to an agent | derived from the grant; answered by whoever researches |` : [],
@@ -489,6 +490,7 @@ if (existsSync(join(TEMPLATE, '..', '_app', 'loader.html'))) {
   const zipEntries = [
     ...Object.entries(outputs).filter(([n]) => /\.(md|json)$/.test(n)).map(([n, c]) => ({ name: n, data: Buffer.from(c, 'utf8') })),
     { name: 'AGENTS.md', data: Buffer.from(agents, 'utf8') }, { name: 'SKILL.md', data: Buffer.from(skill, 'utf8') },
+    { name: 'MAP-A-GRANT.md', data: readFileSync(existsSync(join(DIR, 'MAP-A-GRANT.md')) ? join(DIR, 'MAP-A-GRANT.md') : join(TEMPLATE, 'MAP-A-GRANT.md')) },
     { name: 'vault.json', data: readFileSync(join(DIR, 'vault.json')) },
     { name: 'data/grant.json', data: readFileSync(join(DIR, 'data/grant.json')) }, { name: 'data/mandate.json', data: readFileSync(join(DIR, 'data/mandate.json')) },
     ...['capabilities', 'barriers', 'undo-classes', 'evidence-tiers'].map(f => ({ name: `data/vocabulary/${f}.json`, data: readFileSync(join(DIR, `data/vocabulary/${f}.json`)) })),
@@ -535,7 +537,7 @@ for (const [rel, content] of Object.entries(outputs)) {
   mkdirSync(dirname(p), { recursive: true });
   writeFileSync(p, content);
 }
-for (const generic of ['AGENTS.md', 'SKILL.md']) {
+for (const generic of ['AGENTS.md', 'SKILL.md', 'MAP-A-GRANT.md']) {
   const p = join(DIR, generic);
   if (!existsSync(p) && existsSync(join(TEMPLATE, generic)) && !CHECK) copyFileSync(join(TEMPLATE, generic), p);
   if (CHECK && !existsSync(p)) stale.push(generic);

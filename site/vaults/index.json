@@ -188,6 +188,20 @@
       "glyph": "Db",
       "blurb": "Eight scopes, two of them write and two of them sharing, and no folder-scoped variant. It reads, creates, moves, deletes and makes shared links; the page says files are not deleted permanently and that recovery depends on your plan.",
       "kind": "connector"
+    },
+    {
+      "slug": "n8n-owner-api-key",
+      "vid": "l8opgcug",
+      "key": "d85b128b1eff181a71f3e4eec16a27510934ca73aecc450617b7c40d750909b3",
+      "app": "n8n, owner API key",
+      "title": "A self-hosted n8n instance, owner API key",
+      "title_lead": "A self-hosted n8n instance,",
+      "title_tail": "owner API key.",
+      "shape": "n8n/self-hosted/owner-api-key",
+      "family": "service",
+      "glyph": "n8n",
+      "kind": "measured",
+      "blurb": "The first grant here measured on a live instance, by an early beta user's agent: full control of every automation, an outbound node with no restriction on target, every account visible, and credential metadata open through one door and shut through another."
     }
   ],
   "asked_for": [

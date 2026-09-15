@@ -18,6 +18,7 @@
 | `LICENCE-TO-OPERATE.md` | The organisation authorises the agent to operate under this behaviour policy, for an interval, with conditions | derived from the mandate; signed by a named person when issued |
 | `AGENTS.md` | Drop this into the agent's own context — `CLAUDE.md`, `AGENTS.md`, a `ROLE.md`, a skill — so it knows how to treat the rest | generic; travels unchanged |
 | `SKILL.md` | The same, in the portable agent-skill format | generic; travels unchanged |
+| `MAP-A-GRANT.md` | A prompt for an agent that already holds a credential or a connector: measure your own grant and draft the first policy | generic; travels unchanged |
 | `data/validity.json` | What this describes, as at when, and what would void it | derived |
 | `data/vocabulary/` | The 23 capability primitives, 4 barriers, 3 undo classes and evidence tiers this was computed against, pinned | copied from abp.sgit.ai, versioned |
 | `history/` | One entry per recompute whose counts moved | derived |

@@ -1,0 +1,53 @@
+{
+  "type": "abp/mandate/v1",
+  "id": "sandbox-build-one-agent-workflow",
+  "label": "A sandbox: build and run one AI-agent workflow",
+  "surface": [
+    "api"
+  ],
+  "applies_to": [
+    "n8n/self-hosted/owner-api-key"
+  ],
+  "status": "starting-point",
+  "authored": "2026-09-13",
+  "authored_by": "elicited from the deployer during the session — first \"a sandbox to build and measure a second ABP, nothing else\", then extended mid-session to \"build and run a real AI Agent workflow against a real credential\"",
+  "description": "A sandbox stood up for this exercise, with nothing else authorised: build and run one real AI-agent workflow against one real model credential, and measure what else the key can do. No production workflows, no real data, no other users' workflows are in scope. Everything beyond that — arbitrary automations, arbitrary external targets, the credential store, the account roster — is not mandated; it does not exist here yet.",
+  "want": [
+    "write.file.project",
+    "create.schedule.tenant",
+    "write.budget.tenant",
+    "read.record.history"
+  ],
+  "do_not_want": [
+    "read.credential.host",
+    "send.endpoint.world"
+  ],
+  "unstated": [
+    "authenticate-as.credential.signing",
+    "authenticate-as.credential.tenant",
+    "create.record.world",
+    "create.schedule.host",
+    "delete.file.host",
+    "execute.process.host",
+    "execute.process.self",
+    "grant.credential.self",
+    "read.file.host",
+    "read.file.project",
+    "read.message.tenant",
+    "read.record.browsing",
+    "send.endpoint.allowed",
+    "send.message.world",
+    "write.file.host",
+    "write.repository.project",
+    "write.repository.tenant"
+  ],
+  "notes": {
+    "read.credential.host": "refused: the session recorded metadata to prove the row and moved nothing",
+    "send.endpoint.world": "refused for now: nothing in the sandbox should call out, and the platform's own egress is untested",
+    "write.budget.tenant": "wanted, once the deployer added the model credential mid-session"
+  },
+  "provenance": {
+    "note": "The mandate is the deployer's own words as recorded in the measured check, in two stages. The write-up's own observation: \"nobody writes a mandate until someone is made to\", and this one is unusually thin and freshly stated, which is what makes the delta stark.",
+    "licence": "CC BY 4.0"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "type": "abp/delta/v1",
+  "profile": "n8n/self-hosted/owner-api-key",
+  "mandate": "sandbox-build-one-agent-workflow",
+  "grant_version": "2026-09-13",
+  "mandate_version": "2026-09-13",
+  "vocabulary_version": "v0.3.0",
+  "computed_at": "2026-09-15T03:03:07Z",
+  "computed_by": "riskmandate.ai build-abp-vault.mjs (abp.delta/v1 semantics)",
+  "excess": [
+    "send.endpoint.world",
+    "read.credential.host",
+    "authenticate-as.credential.tenant",
+    "execute.process.host"
+  ],
+  "excess_refused": [
+    "send.endpoint.world",
+    "read.credential.host"
+  ],
+  "excess_unstated": [
+    "authenticate-as.credential.tenant",
+    "execute.process.host"
+  ],
+  "unbounded_excess": [
+    "send.endpoint.world",
+    "read.credential.host",
+    "authenticate-as.credential.tenant",
+    "execute.process.host"
+  ],
+  "shortfall": [],
+  "aligned": [
+    "write.file.project",
+    "create.schedule.tenant",
+    "write.budget.tenant",
+    "read.record.history"
+  ],
+  "derived_never_authored": "No field in this record is writable by a person. The way to change a delta is to change a grant or a mandate, and then recompute.",
+  "counts": {
+    "excess": 4,
+    "unbounded_excess": 4,
+    "shortfall": 0,
+    "aligned": 4
+  },
+  "id": "n8n__self-hosted__owner-api-key__sandbox-build-one-agent-workflow"
+}
