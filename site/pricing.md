@@ -2,7 +2,7 @@
 
 # RiskMandate — Pricing: four levels, £5 to £1,500
 
-Four levels of one document, an Agent Behaviour Policy for the agent you run: the pack by email for £5, a working vault for £50, corrected for your situation for £500 with a prompt you run yourself, or two sessions and a professional's signature for £1,500. The examples are free.
+Four levels of one document, an Agent Behaviour Policy for the agent you run: the pack downloaded for £5, a working vault for £50, corrected for your situation for £500 with a prompt you run yourself, or two sessions and a professional's signature for £1,500. The examples are free.
 
 Source: https://riskmandate.ai/pricing.html
 
@@ -10,7 +10,7 @@ Source: https://riskmandate.ai/pricing.html
 
 # Four levels. One document.
 
-What is for sale is an Agent Behaviour Policy for the agent you actually run: everything it can do, what you authorised, the gap, and what stands in the way of each thing. Every level is the same document. What changes is the form it arrives in and who does the correcting — from a pack sent by email for £5 to two sessions and a security professional's signature for £1,500. The examples are free, on this site, with their keys published. Read one before buying anything.
+What is for sale is an Agent Behaviour Policy for the agent you actually run: everything it can do, what you authorised, the gap, and what stands in the way of each thing. Every level is the same document. What changes is the form it arrives in and who does the correcting — from a pack downloaded for £5 to two sessions and a security professional's signature for £1,500. The examples are free, on this site, with their keys published. Read one before buying anything.
 
 ## Pick the application closest to yours, and the level you want it at.
 
@@ -18,7 +18,7 @@ Fifteen applications are in [the library](agent-behaviour-policy.html): Claude C
 
 |  | Level | Price | What it is | Who does it |  |
 | --- | --- | --- | --- | --- | --- |
-| 1 | **The pack, by email**You want the material and you do not want to run anything. | £5 | Every file in the vault, sent to you: the behaviour policy, the grant, the mandate and the delta as markdown and JSON, the pinned vocabulary, the prompts, and the two files you hand the agent. Yours to use, keep and hand over. Not a vault: no history, no app, no read key to give anybody. | automatedexists and runs | [Buy ↗](https://store.sgit.ai/d/t1/) |
+| 1 | **The pack, downloaded**You want the material and you do not want to run anything. | £5 | Every file in the vault, sent to you: the behaviour policy, the grant, the mandate and the delta as markdown and JSON, the pinned vocabulary, the prompts, and the two files you hand the agent. Yours to use, keep and hand over. Not a vault: no history, no app, no read key to give anybody. | automatedexists and runs | [Buy ↗](https://store.sgit.ai/d/t1/) |
 | 2 | **A working vault**You want the thing itself rather than a copy of its contents. | £50 | The same material as a vault you hold the keys to: clone it, change it, version it, and hand anyone a read key. It recomputes the delta when the mandate or the grant moves, and keeps every version. The mandate in it is still the starting one; correcting it is yours to do. | automatedexists and runs | [Buy ↗](https://store.sgit.ai/d/t2/) |
 | 3 | **Corrected for your situation**Your deployment is not the template, and you would rather not do the correcting. | £500 | You run a prompt in your own environment and send us what it finds. We build the vault from that, correct the mandate against your industry, your use case and the details you gave, recompute the delta, and send it back yours — with a written note of what changed and why, so the correction is checkable rather than trusted. [How the prompt step works ↓](#prompt) | agents, a person reviewsspecified, never run | [Buy ↗](https://store.sgit.ai/d/t3/) |
 | 4 | **Two sessions, and a professional signs it**The answer has to survive somebody else asking about it. | £1,500 | Half an hour with your team to find out what is actually running, and half an hour to deliver it: reviewed and signed off by a security professional, with the licence carrying a name. The line between this level and the one below it is the line between a thing agents do and a thing a person signs. | a personspecified, never run | [Buy ↗](https://store.sgit.ai/d/t4/) |
@@ -57,12 +57,12 @@ The payment link's success address is a page per level that says what happens no
 
 | Level | Done when | Checked by | The page |
 | --- | --- | --- | --- |
-| 1 | The email has been sent carrying a link to a zip whose content hash matches the shape's published hash | Compare the hash on the page with the hash of what you downloaded | [Level 1 →](paid-t1.html) |
+| 1 | The zip for the shape bought is downloadable from the page and its content hash matches the hash the shape publishes | Compare the hash on the page with the hash of what you downloaded; the page checks it in the browser | [Level 1 →](paid-t1.html) |
 | 2 | A vault exists, the licence file in it carries your name, the public key is off it, and you have opened it with your key | Your first clone: the licence file is in the tree | [Level 2 →](paid-t2.html) |
 | 3 | The corrected mandate and the recomputed delta are committed, and the note of what changed and why is committed beside them | The commit is in the history and the note names every changed row | [Level 3 →](paid-t3.html) |
 | 4 | Both sessions held, the record of what was asked and answered committed, and the sign-off file committed with the professional's name and the date | Three files in the tree, and the sessions dated in the record | [Level 4 →](paid-t4.html) |
 
-Stated delivery times on those pages: one working day for levels 1 and 2, three working days after your files arrive for level 3, the first session within five working days for level 4. They are commitments we set today and will move if the record says we cannot keep them.
+Level 1 is downloaded on the page, with the hash beside the link. Levels 2, 3 and 4 are a follow-up from a person within 24 hours of the payment landing: the key, the prompt step, the first session. If the record says we cannot keep that, the number moves here first.
 
 ## The library is the argument. The instance is yours.
 

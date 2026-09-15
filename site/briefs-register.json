@@ -278,19 +278,19 @@
       "status": "partly",
       "produced": [
         {
-          "what": "The four post-sale pages, one per level: what arrives and when, what this is not, what you do next, how the key reaches you, the definition of done, and who to write to. Unlisted and noindex; the payment link's success address",
+          "what": "Level 1 after payment: the page a \u00a35 buyer lands on, where the zip of the template vault for the shape bought is downloaded, with its size and sha256 stamped from the file by the build and checked in CI; the page hashes the download in the browser on request. Unlisted and noindex; the payment link's success address, with ?shape=<slug>",
           "url": "paid-t1.html"
         },
         {
-          "what": "Level 2 after payment",
+          "what": "Level 2 after payment: a working vault; a person follows up within 24 hours",
           "url": "paid-t2.html"
         },
         {
-          "what": "Level 3 after payment, with the prompt step and where to send what it produced",
+          "what": "Level 3 after payment: the prompt step and where to send what it produced; a person follows up within 24 hours",
           "url": "paid-t3.html"
         },
         {
-          "what": "Level 4 after payment",
+          "what": "Level 4 after payment: the first session booked by a follow-up within 24 hours",
           "url": "paid-t4.html"
         },
         {
@@ -303,13 +303,11 @@
         }
       ],
       "not_done": [
-        "The payment links themselves, and the success address set on each of them \u2014 the store's, not this site's",
-        "The zip download and the emailed copy at level 1: the vault link exists, the file the brief asks for is the store's to serve",
+        "The payment links themselves, and the success address set on each of them (level 1 passes ?shape=<slug>) \u2014 the store's, not this site's",
         "The level-3 what-you-do text on the store's own product page, and the opinion add-on page",
-        "The A5 and the physical stand",
-        "Delivery times on the post-sale pages are our assumption (one working day at levels 1 and 2, three at level 3 after the files arrive, a first session within five at level 4) and the brief does not set them"
+        "The A5 and the physical stand"
       ],
-      "notes": "Received in chat on 15 September. The brief's site-side items are built; its store-side items are named and left to the store."
+      "notes": "Received in chat on 15 September. The brief's site-side items are built; its store-side items are named and left to the store. The lead's follow-up the same day set the two things the brief left open: the \u00a35 sale lands on a download, and levels 2\u20134 are a follow-up within 24 hours."
     }
   ],
   "informal": [

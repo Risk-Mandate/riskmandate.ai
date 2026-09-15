@@ -16,6 +16,7 @@
 // site's tests fail the build if one lands anywhere in site/.
 
 import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { dirname, join, resolve }                                 from 'node:path';
 import { fileURLToPath }                                          from 'node:url';
 
@@ -42,6 +43,7 @@ const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 
 // ----------------------------------------------------------------- the shared script, with the catalogue in it
 const built = catalogue.vaults.filter(v => v.vid && v.key);
+const VAULTS = join(SITE, 'vaults');
 const VAULTS_JS = JSON.stringify(built.map(v => ({ slug: v.slug, vid: v.vid, key: v.key, title: v.title, shape: v.shape, page: `abp-vault-${v.slug}.html`, status: 'template', app: v.app, blurb: v.blurb, group: v.group, logo: v.logo, brand: v.brand })), null, 2);
 const LOGOS = JSON.parse(readFileSync(join(HERE, 'logos.json'), 'utf8')).icons;
 // where a suggestion goes, for now: the project lead's own address, by their instruction of 15 September
@@ -400,7 +402,7 @@ function vaultPage(v) {
   <div class="wrap">
     <span class="eyebrow"><span class="d"></span> Behaviour-policy vault</span>
     <h2>Run this? <span class="it">Buy the one for your deployment.</span></h2>
-    <p>This template is free and public. Yours is this vault with the mandate corrected, a name on the licence, and no public key — and it recomputes when the grant moves. Four levels at the store: the pack by email for £5, a working vault you hold the keys to for £50, corrected for your situation for £500, or two sessions with a professional's signature for £1,500.</p>
+    <p>This template is free and public. Yours is this vault with the mandate corrected, a name on the licence, and no public key — and it recomputes when the grant moves. Four levels at the store: the pack downloaded for £5, a working vault you hold the keys to for £50, corrected for your situation for £500, or two sessions with a professional's signature for £1,500.</p>
     <div class="cta-row">
       <a class="btn btn-green" href="https://store.sgit.ai/p/${v.slug}/" target="_blank" rel="noopener">Buy this policy ↗</a>
       <a class="btn btn-ghost" href="pricing.html">The four levels</a>
@@ -418,6 +420,28 @@ outputs['agent-behaviour-policy.html'] = cut('agent-behaviour-policy', 'RiskMand
 for (const v of built) {
   outputs[`abp-vault-${v.slug}.html`] = cut(`abp-vault-${v.slug}`, `RiskMandate — the behaviour-policy vault for ${v.app}`,
     `The template Agent Behaviour Policy vault for ${v.app} (${v.shape}), rendered live from vault ${v.vid}: the card, the mandate, the grant with a barrier per row, the delta, the Licence to Operate, the vault’s own app in a sandboxed frame, the file list and the public read key.`, vaultPage(v));
+}
+
+// paid-t1.html is hand-authored: the page a £5 buyer lands on. It carries a manifest of every
+// template's zip (path, bytes, sha256, and the PDF where one exists) between the /*__DIST__*/
+// markers, so the page can offer the file for the shape bought and print the hash the buyer
+// checks against. Stamped here, from the bytes in site/vaults/<slug>/dist/, so it cannot drift.
+{
+  const paidPath = join(SITE, 'paid-t1.html');
+  if (existsSync(paidPath)) {
+    const page = readFileSync(paidPath, 'utf8');
+    const m = page.match(/const DIST = \/\*__DIST__\*\/\[[\s\S]*?\];\n/);
+    if (!m) { console.error('paid-t1.html has no /*__DIST__*/ marker'); process.exit(1); }
+    const dist = built.map(v => {
+      const zipPath = join(VAULTS, v.slug, 'dist', `${v.slug}.zip`);
+      const pdfPath = join(VAULTS, v.slug, 'dist', `${v.slug}.pdf`);
+      if (!existsSync(zipPath)) { console.error(`${v.slug}: no dist zip — run build-abp-vault.mjs`); process.exit(1); }
+      const zip = readFileSync(zipPath);
+      return { slug: v.slug, app: v.app, title: v.title, zip: `vaults/${v.slug}/dist/${v.slug}.zip`, bytes: zip.length,
+               sha256: createHash('sha256').update(zip).digest('hex'), ...(existsSync(pdfPath) ? { pdf: `vaults/${v.slug}/dist/${v.slug}.pdf` } : {}) };
+    });
+    outputs['paid-t1.html'] = page.replace(m[0], 'const DIST = /*__DIST__*/' + JSON.stringify(dist) + ';\n');
+  }
 }
 
 let stale = [];

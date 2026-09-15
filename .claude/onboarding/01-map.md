@@ -43,7 +43,7 @@ needed.
 | Summit | `summit.html`, `summit-booth.html` (private) | hand-authored |
 | More | `lab` (the Lab moved here from the top level in v1.19.0), `questions`, `briefs` (the register page), `work`, `work-abp-power-user`, `library`, `partners`, `feedback`, `brand`, `admin` | hand-authored |
 | Pricing | `pricing.html` | hand-authored; the store's four levels, each linked to `store.sgit.ai/d/t<n>/`; the level-3 prompt workflow; the plus-one-thing rule and a definition of done per level (v1.19.1) |
-| After payment | `paid-t1.html` … `paid-t4.html` (unlisted, noindex) | hand-authored (scaffolded with `new-page.mjs`); one per level, the payment link's success address: what arrives and when, what you do next, how the key reaches you, the definition of done, who to write to. Brief D9 |
+| After payment | `paid-t1.html` … `paid-t4.html` (unlisted, noindex) | hand-authored (scaffolded with `new-page.mjs`); one per level, the payment link's success address: what arrives and when, what you do next, how the key reaches you, the definition of done, who to write to. `paid-t1.html` is the download: its zip manifest (`/*__DIST__*/`) is **stamped** by `build-abp-pages.mjs` from `site/vaults/*/dist/`. Brief D9 |
 | Records | `versions.html` + `versions/index.json` + `versions/<v>.md`; `briefs.html` + `briefs-register.json` + `assets/briefs/`; `lab-editions.json`; `vaults/index.json` | append-only. Never rewrite an entry |
 | Machine-readable | `llms.txt`, `llms-full.txt`, `.well-known/agent-content.json`, `sitemap.xml`, `robots.txt`, `404.html`, every `<page>.md` | **generated** by `generate.mjs` (the manifest and full text are partly hand-written and restamped) |
 | Scenarios pilot | `site/scenarios/` | reads vault `dm42qcaw` in the browser; needs `localhost` |

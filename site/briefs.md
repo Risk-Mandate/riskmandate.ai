@@ -136,13 +136,12 @@ Each one is linked in full, as received, with nothing edited. Where a brief and 
 **The brief's finding is that the four levels are priced and described and nothing happens after the money moves.** Its rule for the ladder — each level is the level below plus one thing — was already true of the pricing page and is now said on it. The part this site owns is the page a customer lands on after paying, one per level; the payment links and the store's own product pages are the store's.
 
 - The four post-sale pages — [level 1](paid-t1.html), [level 2](paid-t2.html), [level 3](paid-t3.html), [level 4](paid-t4.html) — each saying what arrives and when, what this is not, what you do next, how the key reaches you, the definition of done, and who to write to. Unlisted and noindex: they are the success address for the payment link, not pages to find
+- [The £5 page is the download](paid-t1.html): the zip of the template vault for the shape bought, its size and sha256 stamped from the file by the build and checked in CI, and a hash check the page runs in the browser. Levels 2, 3 and 4 are a follow-up from a person within 24 hours
 - [Pricing](pricing.html#after), with the plus-one-thing rule stated and a definition of done per level
 - [The homepage](index.html#policy), with the four levels in the behaviour-policy section, and the £10 still on two pages corrected to £5
-- **The payment links** and the success address on each — the store's, not this site's
-- **The zip and the emailed copy at level 1** — the vault link exists; the file is the store's to serve
+- **The payment links** and the success address on each (level 1 with `?shape=<slug>`) — the store's, not this site's
 - **The level-3 text on the store's product page**, and the opinion add-on page
 - **The A5 and the stand**
-- **Delivery times** on the post-sale pages are our assumption — one working day at levels 1 and 2, three at level 3 once the files arrive, a first session within five at level 4 — and the brief does not set them
 
 ## And the instructions that arrived as speech or a sentence.
 
