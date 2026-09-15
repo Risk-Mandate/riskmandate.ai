@@ -3,22 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Brief B1 — power user and tester of Agent Behaviour Policies</title>
-<meta name="description" content="The first task for a freelance collaborator: make Agent Behaviour Policies for real deployments, find where the model breaks, and time it. Opens with a prompt written to paste straight into an agent, plus the full reading list across riskmandate.ai, abp.sgit.ai and the rest of the estate.">
-<link rel="canonical" href="https://riskmandate.ai/work-abp-power-user.html">
-<link rel="alternate" type="text/markdown" href="work-abp-power-user.md" title="This page as markdown">
+<title>RiskMandate — Admin: how this site is run</title>
+<meta name="description" content="The index behind riskmandate.ai: the records it keeps, the documents it was built from, the maintenance tooling, and the front door for the agents working on it. Public, because the site is.">
+<link rel="canonical" href="https://riskmandate.ai/admin.html">
+<link rel="alternate" type="text/markdown" href="admin.md" title="This page as markdown">
 <link rel="icon" href="assets/brand/riskmandate-favicon-32.png" sizes="32x32">
 <link rel="icon" href="assets/brand/riskmandate-mark.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="RiskMandate">
-<meta property="og:url" content="https://riskmandate.ai/work-abp-power-user.html">
-<meta property="og:title" content="Brief B1 — power user and tester of Agent Behaviour Policies">
-<meta property="og:description" content="The first task for a freelance collaborator: make Agent Behaviour Policies for real deployments, find where the model breaks, and time it. Opens with a prompt written to paste straight into an agent, plus the full reading list across riskmandate.ai, abp.sgit.ai and the rest of the estate.">
+<meta property="og:url" content="https://riskmandate.ai/admin.html">
+<meta property="og:title" content="RiskMandate — Admin: how this site is run">
+<meta property="og:description" content="The index behind riskmandate.ai: the records it keeps, the documents it was built from, the maintenance tooling, and the front door for the agents working on it. Public, because the site is.">
 <meta property="og:image" content="https://riskmandate.ai/assets/brand/riskmandate-lockup-light.png">
 <meta name="twitter:card" content="summary_large_image">
 <!-- Scaffolded by scripts/site/new-page.mjs. Hand-edited from here on — there is no build step. -->
 <style>
-/* work-abp-power-user.css — self-contained: the shared chrome, then this page's own. */
+/* admin.css — self-contained: the shared chrome, then this page's own. */
 :root{
   --bg:#F7F6F2; --bg2:#EFEDE7; --card:#FFFFFF; --ink:#0D0D0C; --canvas:#0A0A09;
   --text:#1A1917; --muted:#4A4845; --faint:#8A8780; --border:#E2DFD8;
@@ -124,7 +124,17 @@ rm-menu{display:contents}
 .foot .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-family:var(--mono);font-size:10px;color:var(--fg-3);max-width:1100px}
 .footlink{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
 .footlink:hover{color:var(--fg-2)}
-/* ── working-section chrome ─────────────────────────────────────────────── */
+/* narrow phones — at 360px the brand, the burger and the call to action stop
+   fitting on one line, and the header was the last thing on this site that
+   scrolled sideways. Tighten the gutter, the gap and the button rather than
+   drop any of them: all three are load-bearing at this width. */
+@media (max-width:420px){
+  .top .wrap{gap:12px;padding:0 16px}
+  .brand{font-size:14px;gap:7px}
+  .rm{width:24px;height:24px}
+  .demo{padding:8px 12px;font-size:12.5px}
+}
+
 .workstrip{background:var(--bg2);border-bottom:1px solid var(--border);padding:9px 24px;font-family:var(--mono);font-size:11px;color:var(--muted);text-align:center}
 .workstrip b{color:var(--text)} .workstrip a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
 
@@ -161,6 +171,8 @@ rm-menu{display:contents}
   letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
 .ritem{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:baseline;padding:13px 18px;border-top:1px solid var(--border)}
 .ritem:first-of-type{border-top:0}
+.ritem p.name{margin:0}
+table.t td.k a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
 .ritem a{font-family:var(--mono);font-size:12.5px;color:var(--green);text-decoration:underline;text-underline-offset:2px;word-break:break-all}
 .ritem .why{font-size:13px;color:var(--muted);line-height:1.55;grid-column:1/-1;margin-top:2px}
 .ritem .must{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
@@ -218,22 +230,15 @@ table.d td.k{color:var(--text)}
 .plist li::before{content:"";position:absolute;left:2px;top:10px;width:6px;height:6px;border-radius:50%;background:var(--green)}
 .plist strong{color:var(--text)}
 .plist code,.shead code,.rule code,.notice code{font-family:var(--mono);font-size:13px;background:var(--bg2);padding:1px 6px;border-radius:5px;color:var(--text)}
-.psection.alt .plist code,.psection.alt .shead code{background:var(--card)}
-
-/* narrow phones — at 360px the brand, the burger and the call to action stop
-   fitting on one line, and the header was the last thing on this site that
-   scrolled sideways. Tighten the gutter, the gap and the button rather than
-   drop any of them: all three are load-bearing at this width. */
-@media (max-width:420px){
-  .top .wrap{gap:12px;padding:0 16px}
-  .brand{font-size:14px;gap:7px}
-  .rm{width:24px;height:24px}
-  .demo{padding:8px 12px;font-size:12.5px}
-}
 
 .ghlink{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:8px;color:var(--muted);border:1px solid transparent}.ghlink:hover{color:var(--text);border-color:var(--border)}
 .footlic{display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap}.footlic a{color:inherit}.ccicon{vertical-align:-3px;margin:0 2px}
-@media (max-width:1400px) and (min-width:901px){.ghlink{display:none}}</style>
+@media (max-width:1400px) and (min-width:901px){.ghlink{display:none}}/* admin: the two tables carry file names, which must wrap on a phone */
+table.t{table-layout:fixed}
+table.t th:first-child{width:42%}
+.tools table.t th:first-child{width:30%} .tools table.t th:last-child{width:90px}
+table.t td.k{white-space:normal;overflow-wrap:anywhere}
+</style>
 </head>
 <body id="top">
 
@@ -247,315 +252,177 @@ table.d td.k{color:var(--text)}
   </div>
 </header>
 
-<div class="workstrip"><b>Brief B1</b> · <span class="state open">Open</span> · Written 12 September 2026 · <a href="work.html">Back to the briefs</a> · <a href="work-abp-power-user.md">this page as markdown</a></div>
+<div class="workstrip"><b>Admin</b> — the index behind the site: records, documents, tooling, and the front door for agents. Public, because the site is. <a href="#agents">Start an agent here</a></div>
 
 <main class="phero">
   <div class="wrap">
-    <span class="eyebrow"><span class="d"></span> Brief B1 · first task</span>
-    <h1>Be the first power user of <span class="it">Agent Behaviour Policies.</span></h1>
-    <p class="sub">We have a published model, five worked examples, and a claim that the second policy of a known deployment shape should take minutes rather than days. Nobody has tested that. Your job is to make these things for real, find out where the model breaks, and time it — because that measurement is the only honest input to pricing anything, and we are five days from a conference where we intend to sell it.</p>
+    <span class="eyebrow"><span class="d"></span> Admin</span>
+    <h1>How this site is run, <span class="it">and where everything behind it lives.</span></h1>
+    <p class="sub">riskmandate.ai is a repository. The pages are plain HTML deployed unchanged, the records are files beside them, the design and the direction are briefs in the same tree, and the agents that work on it read a folder written for them. This page is the index a maintainer or an agent starts from. Nothing on it needs a login.</p>
     <div class="cta-row">
-      <button class="btn btn-green" data-to="prompt">The prompt to paste ↓</button>
-      <a class="btn btn-ghost" href="#task">Straight to the task</a>
+      <button class="btn btn-green" data-to="docs">The documents ↓</button>
+      <a class="btn btn-ghost" href="#agents">For agents →</a>
+      <a class="btn btn-ghost" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener">The repository ↗</a>
     </div>
   </div>
 </main>
 
 <div class="paper">
 
-  <!-- the prompt -->
-  <section class="psection" id="prompt">
+  <!-- 01 — the records -->
+  <section class="psection" id="records">
     <div class="wrap">
       <div class="shead">
-        <span class="tag">Start here</span>
-        <h2>The prompt. <span class="g">Paste this into your agent.</span></h2>
-        <p>Written to be handed over whole. It orients your agent on what we are doing, what we are trying to sell and by when, and what the first task is. Everything after this section on this page is the detail behind it.</p>
+        <span class="tag">The records</span>
+        <h2>Everything the site keeps, <span class="g">and where it is kept.</span></h2>
+        <p>Each of these is a file a program can fetch, rendered by a page a person can read. Where the two disagree, the file is right and the page is stale. None of them is rewritten: they only grow.</p>
       </div>
-
-      <div class="prompt">
-        <div class="prompt-bar"><span>Prompt · copy from here</span><span>or fetch riskmandate.ai/work-abp-power-user.md</span></div>
-        <pre class="prompt-body">You are helping a freelance collaborator working with RiskMandate. Read this whole
-prompt, then fetch the reading list before doing anything else.
-
-<b>WHO WE ARE.</b> RiskMandate sells the insurability layer for AI agents. The argument:
-an agent's <b>grant</b> (everything a credential technically permits) is far larger than
-its <b>mandate</b> (what somebody actually authorised it to do), and the gap between
-them is authority nobody scoped, time-boxed or signed for. We make that gap
-explicit, name an owner, and turn a standing grant into an acceptance with an
-expiry. We are read-only and never in the request path.
-
-<b>WHAT WE ARE SELLING RIGHT NOW.</b> One artefact: an <b>Agent Behaviour Policy</b> (ABP).
-For one agent in one deployment, it states everything it can do, what it was
-authorised to do, the delta, and what actually stands in the way of each
-capability. It <b>describes and does not judge, so it carries no score</b> — that rule
-is absolute and is explained in the reading list.
-
-The sales motion is <b>draft and correct</b>: we hand somebody a pre-computed draft
-policy for a deployment shape resembling theirs, deliberately understated, and
-they correct it. Correcting it IS stating their mandate, and the correction goes
-upward — which is the moment they realise the grant is bigger than they thought.
-It needs no access to anything of theirs, so it is legal and fast with a
-stranger. Tiers run from GBP 10 (their own answers and the delta, as a file they
-keep) to GBP 5,000-10,000 (an assessment by security professionals).
-
-<b>THE TWO DEADLINES THAT SHAPE EVERYTHING.</b>
-  1. <b>Startup Summit Lisbon, 17-18 September 2026.</b> We are exhibiting on a
-     1m x 0.4m booth. The plan is to run draft-and-correct on paper with
-     founders and investors, in about five minutes per conversation.
-  2. <b>Selling online</b>, through a store that already has payment rails and
-     printed codes, and a funnel that currently dead-ends before the checkout.
-
-<b>YOUR FIRST TASK.</b> Be the first real power user and tester of ABPs. Concretely:
-create them for deployments you actually run, work out where the model breaks,
-and <b>instrument the whole thing</b> — time per policy, how many rows you could
-measure versus derive, how many questions needed a human, which stage was
-slowest. We claim the second policy of a known shape takes minutes rather than
-days. Nobody has checked. Your table is the answer, and it decides whether any
-of this can be priced.
-
-<b>SEVEN HARD RULES.</b> These are not style preferences. Breaking any of them
-produces output we cannot use:
-  1. <b>Never test somebody else's system.</b> Read vendors' published documentation.
-     Where their own pages contradict each other, publish the contradiction
-     unresolved, with both sources and the date. Do not settle it by trying it.
-  2. <b>Never put a score on an ABP</b> — no rating, traffic light or risk level,
-     anywhere, including in data. The same policy is dangerous in one deployment
-     and harmless in another.
-  3. <b>Never write "ADP"</b>. It is a registered mark of a major payroll processor.
-     The acronym is ABP, spelled out at first use.
-  4. <b>Never say "the policy"</b> for an ABP — in our own demo, "policy" is the
-     insurance instrument. Say "the ABP" or "the behaviour policy".
-  5. <b>No conformity language</b>: not certified, compliant, conformant, accredited.
-     Nothing here is a compliance assessment.
-  6. <b>No verdict about a named third party.</b> Publish the record — facts, dates,
-     sources — never the judgement, and no adjective against anybody's name.
-  7. <b>Do not reproduce a standards body's text.</b> Titles only. The EU regulation
-     is expressly reusable; the international management standards are not.
-
-<b>HOW TO READ OUR MATERIAL.</b> Every page on riskmandate.ai and abp.sgit.ai has a
-markdown twin: swap .html for .md, or fetch /index.md on a directory URL. Use
-those. /llms.txt on either site is the index. Read in this order:
-
-  1. https://abp.sgit.ai/index.md            what an ABP is — the model itself
-  2. https://abp.sgit.ai/model/index.md      23 capability primitives, 4 barriers, 3 undo classes
-  3. https://abp.sgit.ai/examples/index.md   the five worked examples, derived not authored
-  4. https://riskmandate.ai/abp.md           how we present it commercially
-  5. https://riskmandate.ai/lab-connector-grants.md   the finding the first policies exist to show
-  6. https://riskmandate.ai/lab-abp-flow.md   the twelve-stage flow and the interface mockups
-  7. https://store.sgit.ai/offers/           what is actually for sale, and at what price
-  8. https://riskmandate.ai/summit.md        the Lisbon plan
-
-<b>WHAT GOOD OUTPUT LOOKS LIKE.</b> One markdown file. Dated. What you did, what you
-found, what you could not answer, and the instrumentation table. Include the
-things that went wrong — a brief that only produces good news has told us
-nothing. If part of this brief will not survive contact with reality, say so
-before doing it rather than after.
-
-The full brief, with the deliverable format and the open questions, is at
-https://riskmandate.ai/work-abp-power-user.md</pre>
-      </div>
-
-      <p class="src">The prompt is also the top of this page's markdown twin, so an agent that fetches
-      <a href="work-abp-power-user.md">work-abp-power-user.md</a> gets the prompt and the detail in one go.</p>
-    </div>
-  </section>
-
-  <!-- the reading list -->
-  <section class="psection alt" id="reading">
-    <div class="wrap">
-      <div class="shead">
-        <span class="tag">Reading list</span>
-        <h2>Ordered by what you need first, <span class="g">not by what we are proudest of.</span></h2>
-        <p>Four sites, one game and one repository. Everything is public; nothing needs an account. The <code>.md</code> address is the one to hand an agent — same content, no markup.</p>
-      </div>
-
       <div class="reading">
         <div class="rgroup">
-          <div class="rgroup-h">The model — read this first</div>
-          <div class="ritem"><a href="https://abp.sgit.ai/" target="_blank" rel="noopener">abp.sgit.ai</a><span class="must">must</span>
-            <span class="why">What an Agent Behaviour Policy is: the four objects, the four barriers and the enforcer test, the rule that it carries no score. This is the model we are all working against, and it is not ours — it has a separate maintainer.</span></div>
-          <div class="ritem"><a href="https://abp.sgit.ai/model/" target="_blank" rel="noopener">abp.sgit.ai/model/</a><span class="must">must</span>
-            <span class="why">The 23 capability primitives, the four barrier kinds, the three undo classes, the graph rules and the schema. The vocabulary every policy is written in.</span></div>
-          <div class="ritem"><a href="https://abp.sgit.ai/examples/" target="_blank" rel="noopener">abp.sgit.ai/examples/</a><span class="must">must</span>
-            <span class="why">Five worked examples, derived from published data rather than authored, each stating how many of its rows were measured. Your starting templates — and the thing you are testing.</span></div>
-          <div class="ritem"><a href="https://abp.sgit.ai/data/index.json" target="_blank" rel="noopener">abp.sgit.ai/data/index.json</a><span class="opt">reference</span>
-            <span class="why">The published vocabulary as JSON at stable addresses with cross-origin access. 21 of 99 rows measured, and it says so.</span></div>
+          <div class="rgroup-h">Versions</div>
+          <div class="ritem"><p class="name"><a href="versions.html">versions.html</a></p><span class="opt">page</span><p class="why">Every release since the site began, newest first, with the note somebody wrote for it. A release is declared, never incremented; CI tags the commit it names.</p></div>
+          <div class="ritem"><p class="name"><a href="versions/index.json">versions/index.json</a></p><span class="opt">file</span><p class="why">The index the page renders, and the number every page's header shows. The single place the current version lives.</p></div>
         </div>
-
         <div class="rgroup">
-          <div class="rgroup-h">What we are selling, and to whom</div>
-          <div class="ritem"><a href="abp.html">riskmandate.ai/abp.html</a><span class="must">must</span>
-            <span class="why">How we present the model commercially, including the boundary that is easiest to get wrong: the Insurability Index scores the deployment, never the behaviour policy.</span></div>
-          <div class="ritem"><a href="https://store.sgit.ai/offers/" target="_blank" rel="noopener">store.sgit.ai/offers/</a><span class="must">must</span>
-            <span class="why">The four tiers and two add-ons, with prices and printed payment codes. Note the honesty column — two of the six say on their own row that they do not exist yet.</span></div>
-          <div class="ritem"><a href="summit.html">riskmandate.ai/summit.html</a><span class="must">must</span>
-            <span class="why">The Lisbon plan: what we are showing, the four conversations with one ask each, and the press material. The event is 17–18 September.</span></div>
-          <div class="ritem"><a href="pricing.html">riskmandate.ai/pricing.html</a><span class="opt">context</span>
-            <span class="why">The platform tiers. Be aware these and the store's tiers are two different offers, and nothing on this site yet reaches the store — that gap is known.</span></div>
+          <div class="rgroup-h">Briefs received</div>
+          <div class="ritem"><p class="name"><a href="briefs.html">briefs.html</a></p><span class="opt">page</span><p class="why">Every document this site was built from, what it produced and what it did not, with the SHA-256 of each file as received so nothing is worked twice or quietly dropped.</p></div>
+          <div class="ritem"><p class="name"><a href="briefs-register.json">briefs-register.json</a></p><span class="opt">file</span><p class="why">The register itself. Hash the brief you sent and look for it here.</p></div>
         </div>
-
         <div class="rgroup">
-          <div class="rgroup-h">Our current thinking, and where it is going</div>
-          <div class="ritem"><a href="lab-connector-grants.html">riskmandate.ai/lab-connector-grants.html</a><span class="must">must</span>
-            <span class="why">The finding the first policies exist to demonstrate: the grant a connector creates is user-shaped, not data-shaped. Four verbatim vendor quotes and the four places their own pages disagree with themselves.</span></div>
-          <div class="ritem"><a href="lab-abp-flow.html">riskmandate.ai/lab-abp-flow.html</a><span class="must">must</span>
-            <span class="why">The twelve-stage flow from a stranger's first question to a delivered vault, with five stages drawn as interface mockups. Stages 1–4 are meant to ship without any build.</span></div>
-          <div class="ritem"><a href="lab.html">riskmandate.ai/lab.html</a><span class="opt">orientation</span>
-            <span class="why">How we publish work in progress, and the four state labels. Also where the dated PDF editions live, if you want the thinking as it stood rather than as it stands.</span></div>
-          <div class="ritem"><a href="https://risks.sgit.ai/" target="_blank" rel="noopener">risks.sgit.ai</a><span class="opt">background</span>
-            <span class="why">The research home for the risk model above the ABP — no deny button, the interval is the decision, unaccepted is rated critical. Read its own warning about what is and is not implemented.</span></div>
+          <div class="rgroup-h">The Lab's editions</div>
+          <div class="ritem"><p class="name"><a href="lab-editions.json">lab-editions.json</a></p><span class="opt">file</span><p class="why">Every dated PDF ever cut of a Lab page, with its digest. A page holds current thinking and changes; an edition is what it said on the day, and is never removed. <a href="lab.html">The Lab</a> lists them.</p></div>
         </div>
-
         <div class="rgroup">
-          <div class="rgroup-h">Useful, and quick</div>
-          <div class="ritem"><a href="https://what-can-it-do.games.sgit.ai/" target="_blank" rel="noopener">what-can-it-do.games.sgit.ai</a><span class="opt">do this</span>
-            <span class="why">Five minutes, forty questions, no sign-up. Guess what an agent can reach, then get scored on how well you knew. The fastest way to feel the problem rather than read about it — and its <a href="https://what-can-it-do.games.sgit.ai/map/index.html" target="_blank" rel="noopener">capability map</a> is where the barrier glyphs came from.</span></div>
-          <div class="ritem"><a href="https://sgit.ai/llms.txt" target="_blank" rel="noopener">sgit.ai/llms.txt</a><span class="opt">reference</span>
-            <span class="why">The platform this is all built on: content-addressed encrypted vaults with read keys. Twenty-six public vaults you can open in a browser.</span></div>
-          <div class="ritem"><a href="https://coding.sgit.ai/llms.txt" target="_blank" rel="noopener">coding.sgit.ai/llms.txt</a><span class="opt">only if coding</span>
-            <span class="why">The conventions the code follows, derived by counting the code rather than asserted. Read it before touching the repository, not before making policies.</span></div>
-          <div class="ritem"><a href="https://sgit.ai/docs/guidance/index.html" target="_blank" rel="noopener">sgit.ai/docs/guidance/</a><span class="opt">only if building</span>
-            <span class="why">Five rules for building on the platform — pick the surface first, don't rebuild what exists, publish a read key never a vault key, version everything, keep what is rendered one click from the bytes.</span></div>
+          <div class="rgroup-h">The behaviour-policy vaults</div>
+          <div class="ritem"><p class="name"><a href="vaults/index.json">vaults/index.json</a></p><span class="opt">file</span><p class="why">The catalogue: every template vault, its vault id and its public read key, the applications asked for and not yet built, and the app vault the renderer lives in. <a href="agent-behaviour-policy.html">The library</a> is rendered from it.</p></div>
+        </div>
+        <div class="rgroup">
+          <div class="rgroup-h">Machine-readable</div>
+          <div class="ritem"><p class="name"><a href="llms.txt">llms.txt</a></p><span class="opt">file</span><p class="why">The index for an agent: every page with its title, description and markdown twin.</p></div>
+          <div class="ritem"><p class="name"><a href="llms-full.txt">llms-full.txt</a></p><span class="opt">file</span><p class="why">The whole site as one markdown document.</p></div>
+          <div class="ritem"><p class="name"><a href=".well-known/agent-content.json">.well-known/agent-content.json</a></p><span class="opt">file</span><p class="why">The structured manifest. <a href="agents.html">The agents page</a> explains all three.</p></div>
+          <div class="ritem"><p class="name"><a href="sitemap.xml">sitemap.xml</a></p><span class="opt">file</span><p class="why">Every published page and nothing that is not one; a test says so.</p></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- the task -->
-  <section class="psection" id="task">
+  <!-- 02 — the documents -->
+  <section class="psection alt" id="docs">
     <div class="wrap">
       <div class="shead">
-        <span class="tag">The task</span>
-        <h2>Five steps, and the fourth is <span class="g">the one we are paying for.</span></h2>
-        <p>Steps one to three exist to get you to step four with an informed opinion. Step five is what happens if there is time.</p>
+        <span class="tag">The documents</span>
+        <h2>What was decided, <span class="g">and why.</span></h2>
+        <p>The direction, the architecture and the reviews live in the repository under <code>docs/</code>, written by the agent that maintains the site and read against a named source. Each is linked here; a test fails the build if one is added and this list is not.</p>
       </div>
-
-      <ol class="steps">
-        <li class="step">
-          <span class="num">1</span>
-          <div>
-            <h3>Read, and play the game before the docs</h3>
-            <p>Do the forty questions first. It takes five minutes and it gives you the intuition the documents assume. Then read the model, then how we sell it.</p>
-            <ul>
-              <li>Write down, before you read the examples, how many of the 23 primitives you think your own coding agent has, and how many you asked for. Keep that number — it is the same mechanic we sell.</li>
-              <li>Then read in the order in the list above.</li>
-            </ul>
-          </div>
-        </li>
-
-        <li class="step">
-          <span class="num">2</span>
-          <div>
-            <h3>Reproduce one of the five published examples</h3>
-            <p>Take the coding-agent example — confirmations on and off — and rebuild it from the published vocabulary without copying the finished document. It is the cheapest possible test of whether the model can be used by somebody who did not write it.</p>
-            <ul>
-              <li>Where did you have to guess? Where was the published data silent?</li>
-              <li>Did you get the same numbers? If not, is the example wrong or is the vocabulary ambiguous?</li>
-              <li>Time it. This is your baseline for “a policy for a shape that already exists”.</li>
-            </ul>
-          </div>
-        </li>
-
-        <li class="step">
-          <span class="num">3</span>
-          <div>
-            <h3>Make three policies for things you actually run</h3>
-            <p>Your own deployments, not hypotheticals — the whole point is that a real one surfaces problems an invented one hides. Good candidates: your coding agent, an assistant you have connected to a mailbox or a drive, and a CI job.</p>
-            <ul>
-              <li><strong>Elicit your own mandate first</strong>, in writing, before you measure the grant. Notice how long that takes and how sure you are.</li>
-              <li><strong>Measure the grant from documentation</strong>, never by probing. Record the source URL and the date for every row.</li>
-              <li><strong>Mark every row measured or derived.</strong> Derived is fine and is most of it; unmarked is not.</li>
-              <li><strong>Record the barrier per capability</strong> — none, expectation, setting or boundary — and be strict: a switch your own account can flip is a setting, not a control.</li>
-              <li><strong>Try the proposed <code>material</code> property</strong> — own, organisation, third_party, mixed. Does it survive contact with a real deployment, or does it need a fifth value?</li>
-              <li>Add a validity statement and no score. If you feel the urge to add a score, note where that urge came from — that is useful data about every buyer we will meet.</li>
-            </ul>
-          </div>
-        </li>
-
-        <li class="step">
-          <span class="num">4</span>
-          <div>
-            <h3>Instrument it, and publish the table</h3>
-            <p>This is the deliverable. The claim under test is that the second policy of a shape already in the library takes minutes rather than days. If it does not, the library is not doing its job and nothing should be priced until it does.</p>
-            <ul>
-              <li>Time per policy, split by stage: eliciting the mandate, measuring the grant, computing the delta, writing it up.</li>
-              <li>Rows measured versus derived, per policy.</li>
-              <li>How many questions you could not answer without a human.</li>
-              <li>Which stage was slowest, and whether a shape library would have removed it.</li>
-              <li>First policy of a shape versus second policy of the same shape. That ratio is the finding.</li>
-            </ul>
-          </div>
-        </li>
-
-        <li class="step">
-          <span class="num">5</span>
-          <div>
-            <h3>If there is time: break it on purpose</h3>
-            <p>Find the deployment the model cannot describe. We already know of one and would like more.</p>
-            <ul>
-              <li><strong>The known one:</strong> a connector that exists and is switched off is not in the grant today and is one click from being in it. Neither the barrier model nor the label has a place for that, and it is probably the most common state in any real estate.</li>
-              <li>What about an agent that can create other agents? A scheduled job that outlives the person who made it? A shared machine?</li>
-            </ul>
-          </div>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- deliverable -->
-  <section class="psection alt">
-    <div class="wrap">
-      <div class="shead">
-        <span class="tag">The deliverable</span>
-        <h2>One markdown file, <span class="g">and a table in it.</span></h2>
-        <p>Not a deck, not a summary. The working, because the working is what we can act on. Everything below is a suggested shape rather than a form to fill in.</p>
-      </div>
-      <div class="deliv">
-        <table class="d">
-          <thead><tr><th>Section</th><th>What goes in it</th></tr></thead>
+      <div class="tw">
+        <table class="t">
+          <thead><tr><th>Document</th><th>What it is</th></tr></thead>
           <tbody>
-            <tr><td class="k">date, and what you read</td><td>so a reader knows what your view was based on and when</td></tr>
-            <tr><td class="k">your pre-reading guess</td><td>the two numbers from step 1, and how wrong they turned out to be</td></tr>
-            <tr><td class="k">the reproduction</td><td>did you get the same numbers as the published example, and where did you guess</td></tr>
-            <tr><td class="k">the three policies</td><td>as actual ABPs, with every row marked measured or derived and sourced</td></tr>
-            <tr><td class="k">the instrumentation table</td><td><strong>the point of the exercise</strong> — times, ratios, and the first-versus-second finding</td></tr>
-            <tr><td class="k">where the model broke</td><td>anything you could not express, with the deployment that broke it</td></tr>
-            <tr><td class="k">what you could not answer</td><td>open questions, unresolved contradictions, things needing somebody else</td></tr>
-            <tr><td class="k">what you would change</td><td>about the model, the flow, the brief, or this page</td></tr>
+            <tr><td class="k"><a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/how-the-website-works.md" target="_blank" rel="noopener">docs/how-the-website-works.md</a></td><td>How a page is put together, the shared modules, the generated files, the pipeline and the tests. Written at v1.0.0, with an addendum for what came after.</td></tr>
+            <tr><td class="k"><a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/briefs/direction__abp-at-the-centre.md" target="_blank" rel="noopener">docs/briefs/direction__abp-at-the-centre.md</a></td><td>11 September. The Agent Behaviour Policy becomes the primitive the site sells; the label, the record and the prescription; the naming rules; what is honest to say.</td></tr>
+            <tr><td class="k"><a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/briefs/direction__abp-as-a-graph-and-stakeholder-views.md" target="_blank" rel="noopener">docs/briefs/direction__abp-as-a-graph-and-stakeholder-views.md</a></td><td>15 September. The behaviour policy is a graph: behaviours as addressable nodes, a barrier per path, a view per audience, and projections regenerated from a prompt that ships with the vault. The build order.</td></tr>
+            <tr><td class="k"><a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/briefs/architecture__vaults-in-vaults-for-behaviour-policies.md" target="_blank" rel="noopener">docs/briefs/architecture__vaults-in-vaults-for-behaviour-policies.md</a></td><td>15 September. The renderer lives once in an app vault; every application vault is data plus a loader; the sub-vault link format, found in the host's own source.</td></tr>
+            <tr><td class="k"><a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/briefs/review__first-measured-abp-n8n-owner-key.md" target="_blank" rel="noopener">docs/briefs/review__first-measured-abp-n8n-owner-key.md</a></td><td>15 September. The first grant measured on a live instance, read against the model; where the write-up and the vocabulary disagree, and who is right.</td></tr>
+            <tr><td class="k"><a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/briefs/research__connector-grants-open-questions.md" target="_blank" rel="noopener">docs/briefs/research__connector-grants-open-questions.md</a></td><td>15 September. Five connector vaults at the documented tier, the brief for the agent that settles their open questions, and the queue of five more.</td></tr>
+            <tr><td class="k"><a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/briefs/process__agent-onboarding-and-parallel-work.md" target="_blank" rel="noopener">docs/briefs/process__agent-onboarding-and-parallel-work.md</a></td><td>15 September. Why the agents' front door exists, what it contains, and the rules for agents working on sibling branches that merge into <code>dev</code>.</td></tr>
+            <tr><td class="k"><a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/briefs/review__design-studio-mvps-vs-the-selling-workflow.md" target="_blank" rel="noopener">docs/briefs/review__design-studio-mvps-vs-the-selling-workflow.md</a></td><td>14 September. The storefront concepts read against the workflow that sells a behaviour policy.</td></tr>
+            <tr><td class="k"><a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/briefs/vaults__what-to-add-to-the-site.md" target="_blank" rel="noopener">docs/briefs/vaults__what-to-add-to-the-site.md</a></td><td>9 September. Which of the twenty-six public vaults belong on the site, and why the rest do not.</td></tr>
+            <tr><td class="k"><a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/briefs/summit__lisbon-2026-strategy.md" target="_blank" rel="noopener">docs/briefs/summit__lisbon-2026-strategy.md</a></td><td>9 September, partly superseded. The event, the audiences, the materials and the two days.</td></tr>
+            <tr><td class="k"><a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/briefs/summit__lisbon-2026-messaging.md" target="_blank" rel="noopener">docs/briefs/summit__lisbon-2026-messaging.md</a></td><td>11 September. What to say in the room now there is something to sell.</td></tr>
+            <tr><td class="k"><a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/briefs/architecture__structure-content-decoupling.md" target="_blank" rel="noopener">docs/briefs/architecture__structure-content-decoupling.md</a></td><td>July. Structure in the repository, content in vaults, decrypted in the visitor's browser.</td></tr>
+            <tr><td class="k"><a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/briefs/implementation__scenarios-pilot.md" target="_blank" rel="noopener">docs/briefs/implementation__scenarios-pilot.md</a></td><td>July. The first decoupled content area, as built at <a href="scenarios/">/scenarios/</a>.</td></tr>
+            <tr><td class="k"><a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/marketing/linkedin-company-page.md" target="_blank" rel="noopener">docs/marketing/linkedin-company-page.md</a></td><td>Every field of the company page, ready to paste.</td></tr>
           </tbody>
         </table>
       </div>
-      <div class="rule">
-        <p>Include what went wrong. A report that only contains good news has told us nothing.</p>
-        <p>The most valuable possible outcome of this brief is “the second policy took just as long as the first, and here is why” — because that would stop us pricing something that does not work yet. Finding that out costs days. Finding it out after we have sold it costs considerably more.</p>
+      <div class="notice">
+        <strong>The briefs that arrived from outside are a different list.</strong> Those are archived byte for byte and registered by digest on <a href="briefs.html">the brief register</a>. The documents above were written here, in response to them.
       </div>
     </div>
   </section>
 
-  <!-- open -->
-  <section class="psection">
+  <!-- 03 — for agents -->
+  <section class="psection" id="agents">
     <div class="wrap">
       <div class="shead">
-        <span class="tag">Open</span>
-        <h2>What we do not know, <span class="g">and what we still owe you.</span></h2>
+        <span class="tag">For agents</span>
+        <h2>The front door, <span class="g">so the next agent reads less.</span></h2>
+        <p>Most of the work on this site is done by agents, several at a time, on branches that merge into <code>dev</code>. Each one used to read the whole repository to learn it. Now there is a folder written for them, and it is kept current in the same commit as whatever it describes.</p>
+      </div>
+      <div class="reading">
+        <div class="rgroup">
+          <div class="rgroup-h">Read first</div>
+          <div class="ritem"><p class="name"><a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/CLAUDE.md" target="_blank" rel="noopener">CLAUDE.md</a></p><span class="must">required</span><p class="why">Read automatically by Claude Code. The ten rules that are not optional, the mechanics in one screen, and the short form of working alongside other agents.</p></div>
+          <div class="ritem"><p class="name"><a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/.claude/onboarding/00-start-here.md" target="_blank" rel="noopener">.claude/onboarding/00-start-here.md</a></p><span class="must">required</span><p class="why">The reading order by task. Ten minutes to being useful.</p></div>
+          <div class="ritem"><p class="name"><a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/.claude/onboarding/02-abp-model.md" target="_blank" rel="noopener">.claude/onboarding/02-abp-model.md</a></p><span class="must">required</span><p class="why">The Agent Behaviour Policy condensed: four objects, four barriers, the 23 primitives, the evidence tiers, the vault, the graph. Replaces five briefs and the model site for most tasks.</p></div>
+          <div class="ritem"><p class="name"><a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/.claude/onboarding/04-rules-of-engagement.md" target="_blank" rel="noopener">.claude/onboarding/04-rules-of-engagement.md</a></p><span class="must">required</span><p class="why">Parallel agents, branches, what conflicts and what to do about it, external state, ownership by surface, and what every merge into <code>dev</code> must carry.</p></div>
+        </div>
+        <div class="rgroup">
+          <div class="rgroup-h">Then, as needed</div>
+          <div class="ritem"><p class="name"><a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/.claude/onboarding/01-map.md" target="_blank" rel="noopener">.claude/onboarding/01-map.md</a></p><span class="opt">reference</span><p class="why">Every document, page family, script, test and register, one line each.</p></div>
+          <div class="ritem"><p class="name"><a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/.claude/onboarding/03-state-and-next.md" target="_blank" rel="noopener">.claude/onboarding/03-state-and-next.md</a></p><span class="opt">reference</span><p class="why">Where the site is and the ordered queue of what is next, with the decisions the lead owns.</p></div>
+          <div class="ritem"><p class="name"><a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/.claude/onboarding/05-workflows.md" target="_blank" rel="noopener">.claude/onboarding/05-workflows.md</a></p><span class="opt">reference</span><p class="why">Recipes: add a page, add a vault, cut a release, cut a Lab edition, write a brief, register a document, merge a branch.</p></div>
+          <div class="ritem"><p class="name"><a href="https://github.com/Risk-Mandate/riskmandate.ai/tree/dev/.claude/briefs" target="_blank" rel="noopener">.claude/briefs/</a></p><span class="opt">work</span><p class="why">Task briefs sized for one agent each, with the files each touches so two agents can see whether they would collide.</p></div>
+          <div class="ritem"><p class="name"><a href="https://github.com/Risk-Mandate/riskmandate.ai/tree/dev/.claude/commands" target="_blank" rel="noopener">.claude/commands/</a></p><span class="opt">prompts</span><p class="why">Prompts for the common jobs: onboard, new page, new vault, research a vault, brief from a debrief, release, merge to <code>dev</code>, hand over. In Claude Code they are slash commands.</p></div>
+          <div class="ritem"><p class="name"><a href="https://github.com/Risk-Mandate/riskmandate.ai/tree/dev/.claude/work" target="_blank" rel="noopener">.claude/work/</a></p><span class="opt">live</span><p class="why">One file per in-flight branch: who is on what, which files, which vaults are built and unpushed. Read before claiming a task; delete on merge.</p></div>
+        </div>
+      </div>
+      <div class="rule">
+        <p>A rule in prose bounds nothing. These files work because every agent reads them first.</p>
+        <p>That is the same sentence every behaviour-policy vault says about its own <code>AGENTS.md</code>, and it is as true here. The tests and the CI checks are the boundaries; the folder is the telling. People collaborating with us start at <a href="work.html">Working with us</a> instead.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 — the tooling -->
+  <section class="psection alt" id="tooling">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">The tooling</span>
+        <h2>No build step, <span class="g">and a few scripts that keep it honest.</span></h2>
+        <p><code>site/</code> is what is served, byte for byte. The scripts under <code>scripts/site/</code> derive the files that must agree with the pages, and every one with a <code>--check</code> runs in CI so a page cannot ship with a stale twin, a hand-edited delta or a missing licence line.</p>
+      </div>
+      <div class="tw tools">
+        <table class="t">
+          <thead><tr><th>Script</th><th>Does</th><th>In CI</th></tr></thead>
+          <tbody>
+            <tr><td class="k">generate.mjs</td><td>The markdown twin of every page, <code>sitemap.xml</code>, <code>llms.txt</code>, <code>robots.txt</code>, <code>404.html</code>, <code>versions.md</code>; injects the menu from <code>pages.json</code></td><td>yes</td></tr>
+            <tr><td class="k">release.mjs</td><td>Cuts a version: the notes stub, the index entry, the version chip on every page, the package version</td><td>no</td></tr>
+            <tr><td class="k">new-page.mjs</td><td>Scaffolds a page with the current chrome copied from a donor page, so a new page cannot drift from the site it joins</td><td>no</td></tr>
+            <tr><td class="k">build-abp-vault.mjs</td><td>Derives one behaviour-policy vault from its inputs: the documents, the delta, the validity statement, a deterministic zip, the loader, the history. Refuses to write a delta it cannot reproduce</td><td>yes, every vault</td></tr>
+            <tr><td class="k">build-abp-pages.mjs</td><td>The library page and one page per vault, from the catalogue and each vault's data</td><td>yes</td></tr>
+            <tr><td class="k">render-lab-pdfs.mjs</td><td>Cuts a dated PDF edition of a Lab page when its content moved, and registers its digest</td><td>check only</td></tr>
+            <tr><td class="k">add-licence-chrome.mjs</td><td>The GitHub link in every header and the licence line in every footer</td><td>yes</td></tr>
+            <tr><td class="k">sync-modules.mjs</td><td>Pushes a change to a shared JS module into every page that inlines it</td><td>yes</td></tr>
+            <tr><td class="k">render-abp-vault-pdf.mjs<br>render-booth-panel.mjs<br>render-business-card.mjs<br>render-brand-exports.mjs</td><td>Print and download assets, rendered from the pages with a headless browser</td><td>no</td></tr>
+          </tbody>
+        </table>
       </div>
       <ul class="plist">
-        <li><strong>What does mandate elicitation look like for a connector?</strong> For a coding agent the mandate is a job. For a mailbox it is closer to a relationship, and nobody has drafted those questions. If step 3 produces a usable question set, that is worth more than the table.</li>
-        <li><strong>Does <code>material</code> belong in the shared vocabulary or in each policy?</strong> It is a property of a capability <em>in a context</em>, which argues for the policy; it is identical across every policy of the same shape, which argues for the vocabulary. We lean to the vocabulary with a per-policy override and are not confident.</li>
-        <li><strong>Which of the five shapes should a stranger meet first?</strong> The work mailbox and the corporate file estate are what somebody buys; the personal mailbox and the personal drive are what somebody understands. This decides the front page.</li>
-        <li><strong>Can a vault read key be revoked?</strong> The whole “hand an underwriter a key” story depends on it and we have not checked. If you get to this before we do, tell us.</li>
+        <li><strong>The tests</strong> are <code>node --test tests/site/*.mjs</code>: whole documents, every internal link and anchor, one version and one menu everywhere, the sitemap, the registers against their digests, no read key on a mockup, no write credential anywhere, every document above linked from this page.</li>
+        <li><strong>The pipeline</strong> is <code>.github/workflows/ci-pipeline.yml</code>: on a push to <code>dev</code>, <code>qa</code> or <code>main</code> it runs the checks, tags the commit with the version the record declares, and deploys <code>site/</code> to GitHub Pages. Any of the three deploys the one live site.</li>
+        <li><strong>Locally</strong>, <code>bash scripts/run-locally__riskmandate_ai.sh</code> serves the site on <code>localhost</code>, which matters: the vault pages and <code>/scenarios/</code> decrypt in the browser and need a secure context.</li>
+        <li><strong>Everything CI runs</strong> is one command, <code>npm run check</code>. If it is not green, the change is not done.</li>
       </ul>
+    </div>
+  </section>
 
-      <div class="todo">
-        <span class="k">Not written yet — needs the engagement owner, not the agent</span>
-        <ul>
-          <li><b>Rate, hours and duration.</b> Deliberately absent: this page is public, and those are between the two of you.</li>
-          <li><b>Start date and when the table is wanted by.</b> The Lisbon event is 17–18 September, which is the only fixed date on our side.</li>
-          <li><b>Who to ask when blocked</b>, and how fast a reply is reasonable.</li>
-          <li><b>Whether the output is published.</b> Our default is that it is — this whole section is public — but that is a decision to make explicitly before the work starts rather than after.</li>
-          <li><b>Repository access</b>, if any of the work becomes site changes rather than policies.</li>
-        </ul>
+  <!-- 05 — how a change ships -->
+  <section class="psection" id="shipping">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">How a change ships</span>
+        <h2>A branch, a check, <span class="g">a note, a merge.</span></h2>
+        <p>The same path whether a person or an agent made the change, and the rules for several agents making changes at once are in the file above. The short form:</p>
       </div>
+      <ol class="steps">
+        <li class="step"><span class="num">1</span><div><h3>Branch from <code>dev</code>, and say what you are doing</h3><p>One file in <code>.claude/work/</code> names the branch, its scope, the files it will touch and the vaults it will push. Other agents read it before they start.</p></div></li>
+        <li class="step"><span class="num">2</span><div><h3>Edit the page, then regenerate</h3><p>The page is the source; its twin, the sitemap and the index are derived. Generated files are never hand-edited and never hand-merged.</p></div></li>
+        <li class="step"><span class="num">3</span><div><h3>Check</h3><p><code>npm run check</code> is the gate, locally and in CI.</p></div></li>
+        <li class="step"><span class="num">4</span><div><h3>Merge <code>dev</code> in, then cut the release last</h3><p>The version restamps every page, so it is the final commit before the merge and the number is claimed at merge time. The note says what changed, why, and what was deliberately not done.</p></div></li>
+        <li class="step"><span class="num">5</span><div><h3>Merge into <code>dev</code>, which is live</h3><p>CI checks, tags <code>v&lt;version&gt;</code>, and deploys. A wrong deploy is fixed forward with the next release; nothing is force-pushed.</p></div></li>
+      </ol>
     </div>
   </section>
 
@@ -563,12 +430,13 @@ https://riskmandate.ai/work-abp-power-user.md</pre>
 
 <section class="pcta">
   <div class="wrap">
-    <span class="eyebrow"><span class="d"></span> Brief B1</span>
-    <h2>Tell us the brief is wrong before you do it.</h2>
-    <p>This was written by somebody who has not done the task, five days before a conference, from a model nobody has stress-tested. The most useful first message you can send is which part of it will not survive contact with reality.</p>
+    <span class="eyebrow"><span class="d"></span> Admin</span>
+    <h2>Start at the front door.</h2>
+    <p>If you are an agent, the folder is written for you and it is ten minutes long. If you are a person, the same folder is the most honest description of how this site is actually run.</p>
     <div class="cta-row">
-      <a class="btn btn-green" href="work-abp-power-user.md">This page as markdown →</a>
-      <a class="btn btn-ghost" href="work.html">The rules, and the other briefs</a>
+      <a class="btn btn-green" href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/CLAUDE.md" target="_blank" rel="noopener">CLAUDE.md →</a>
+      <a class="btn btn-ghost" href="https://github.com/Risk-Mandate/riskmandate.ai/tree/dev/docs" target="_blank" rel="noopener">The docs folder</a>
+      <a class="btn btn-ghost" href="work.html">Working with us</a>
     </div>
   </div>
 </section>
@@ -585,7 +453,7 @@ https://riskmandate.ai/work-abp-power-user.md</pre>
 (function(){
 'use strict';
 var RM={core:{},services:{},components:{},data:{}};
-RM.data.currentPage="work-abp-power-user";RM.data.pages=[{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"The problem"},{"name":"acceptable","label":"Accepted is not acceptable","file":"acceptable.html","group":"The problem"},{"name":"acceptance","label":"You own the risk","file":"acceptance.html","group":"The problem"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"The problem"},{"name":"abp","label":"Agent Behaviour Policy","file":"abp.html","group":"The model"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"The model"},{"name":"agents","label":"Agents","file":"agents.html","group":"The model"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"The model"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"The model"},{"name":"statics","label":"Static scenarios","file":"statics.html","group":"The model"},{"name":"agent-behaviour-policy","label":"Behaviour policies","file":"agent-behaviour-policy.html"},{"name":"demos","label":"All demos","file":"demos.html","group":"Live demos"},{"name":"demo-licence-to-operate","label":"Licence to Operate","file":"demo-licence-to-operate.html","group":"Live demos"},{"name":"demo-risk-graph-explorer","label":"RiskGraph Explorer","file":"demo-risk-graph-explorer.html","group":"Live demos"},{"name":"demo-agentic-browser-isolation","label":"Agentic Browser Isolation","file":"demo-agentic-browser-isolation.html","group":"Live demos"},{"name":"demo-risk-mandate-field","label":"RiskMandate field demo","file":"demo-risk-mandate-field.html","group":"Live demos"},{"name":"demo-file-security","label":"File security walk","file":"demo-file-security.html","group":"Live demos"},{"name":"demo-agent-permission-games","label":"Permission games","file":"demo-agent-permission-games.html","group":"Live demos"},{"name":"lab","label":"All entries","file":"lab.html","group":"Lab"},{"name":"lab-connector-grants","label":"01 · The grant is user-shaped","file":"lab-connector-grants.html","group":"Lab"},{"name":"lab-abp-flow","label":"02 · Buying a behaviour policy","file":"lab-abp-flow.html","group":"Lab"},{"name":"lab-abp-requests","label":"03 · Requests to abp.sgit.ai","file":"lab-abp-requests.html","group":"Lab"},{"name":"lab-shape-collector","label":"04 · The shape collector","file":"lab-shape-collector.html","group":"Lab"},{"name":"lab-commit-author","label":"05 · The commit author","file":"lab-commit-author.html","group":"Lab"},{"name":"lab-network-reach","label":"06 · Every routable address","file":"lab-network-reach.html","group":"Lab"},{"name":"lab-vault-delivered","label":"07 · The vault, delivered","file":"lab-vault-delivered.html","group":"Lab"},{"name":"summit","label":"Lisbon 2026","file":"summit.html"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"briefs","label":"Brief register","file":"briefs.html","group":"More"},{"name":"work","label":"Working with us","file":"work.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"admin","label":"Admin","file":"admin.html","group":"More"}];RM.data.sections=[];
+RM.data.currentPage="admin";RM.data.pages=[{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"The problem"},{"name":"acceptable","label":"Accepted is not acceptable","file":"acceptable.html","group":"The problem"},{"name":"acceptance","label":"You own the risk","file":"acceptance.html","group":"The problem"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"The problem"},{"name":"abp","label":"Agent Behaviour Policy","file":"abp.html","group":"The model"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"The model"},{"name":"agents","label":"Agents","file":"agents.html","group":"The model"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"The model"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"The model"},{"name":"statics","label":"Static scenarios","file":"statics.html","group":"The model"},{"name":"agent-behaviour-policy","label":"Behaviour policies","file":"agent-behaviour-policy.html"},{"name":"demos","label":"All demos","file":"demos.html","group":"Live demos"},{"name":"demo-licence-to-operate","label":"Licence to Operate","file":"demo-licence-to-operate.html","group":"Live demos"},{"name":"demo-risk-graph-explorer","label":"RiskGraph Explorer","file":"demo-risk-graph-explorer.html","group":"Live demos"},{"name":"demo-agentic-browser-isolation","label":"Agentic Browser Isolation","file":"demo-agentic-browser-isolation.html","group":"Live demos"},{"name":"demo-risk-mandate-field","label":"RiskMandate field demo","file":"demo-risk-mandate-field.html","group":"Live demos"},{"name":"demo-file-security","label":"File security walk","file":"demo-file-security.html","group":"Live demos"},{"name":"demo-agent-permission-games","label":"Permission games","file":"demo-agent-permission-games.html","group":"Live demos"},{"name":"lab","label":"All entries","file":"lab.html","group":"Lab"},{"name":"lab-connector-grants","label":"01 · The grant is user-shaped","file":"lab-connector-grants.html","group":"Lab"},{"name":"lab-abp-flow","label":"02 · Buying a behaviour policy","file":"lab-abp-flow.html","group":"Lab"},{"name":"lab-abp-requests","label":"03 · Requests to abp.sgit.ai","file":"lab-abp-requests.html","group":"Lab"},{"name":"lab-shape-collector","label":"04 · The shape collector","file":"lab-shape-collector.html","group":"Lab"},{"name":"lab-commit-author","label":"05 · The commit author","file":"lab-commit-author.html","group":"Lab"},{"name":"lab-network-reach","label":"06 · Every routable address","file":"lab-network-reach.html","group":"Lab"},{"name":"lab-vault-delivered","label":"07 · The vault, delivered","file":"lab-vault-delivered.html","group":"Lab"},{"name":"summit","label":"Lisbon 2026","file":"summit.html"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"briefs","label":"Brief register","file":"briefs.html","group":"More"},{"name":"work","label":"Working with us","file":"work.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"admin","label":"Admin","file":"admin.html","group":"More"}];RM.data.sections=[];
 
 'use strict';
 // components/dom.js — tiny DOM helpers shared by components. `el` builds an
@@ -874,6 +742,7 @@ RM.components.nav = (function () {
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
   else start();
 })();
+
 
 })();
 </script>
