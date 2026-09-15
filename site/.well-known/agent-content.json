@@ -151,8 +151,13 @@
     },
     {
       "name": "agent-behaviour-policy",
-      "label": "Behaviour policies",
+      "label": "Agent Behaviour Policies",
       "url": "https://riskmandate.ai/agent-behaviour-policy.html"
+    },
+    {
+      "name": "agent-behaviour-policy-next",
+      "label": "Which Agent Behaviour Policy next?",
+      "url": "https://riskmandate.ai/agent-behaviour-policy-next.html"
     },
     {
       "name": "demos",
