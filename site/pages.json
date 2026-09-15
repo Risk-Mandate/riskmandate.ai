@@ -110,6 +110,18 @@
       "group": "Live demos"
     },
     {
+      "name": "abp-vaults",
+      "label": "Behaviour-policy vaults",
+      "file": "abp-vaults.html",
+      "group": "Live demos"
+    },
+    {
+      "name": "abp-vault-claude-code-web",
+      "file": "abp-vault-claude-code-web.html",
+      "label": "Vault · Claude Code on the web",
+      "unlisted": true
+    },
+    {
       "name": "lab",
       "label": "All entries",
       "file": "lab.html",

@@ -88,17 +88,17 @@ Until now _Licence to Operate_ was the name of a demonstration. In the vault it 
 - **Time it.** The first vault took an afternoon and almost all of it went into the generator. The second vault of this shape should take the length of the conversation that corrects the mandate. If it does not, the library is not working and nothing should be priced yet — the instrumentation table in [Brief B1](work-abp-power-user.html) is still the only honest input to a price.
 - **Nothing sells the shape library itself.** The templates are the free half of the line: they describe _a_ deployment. The paid half is _your_ deployment — the corrected mandate, the name on the licence, and a vault that recomputes when the grant moves.
 
-## Pushed, and the read key is held for now.
+## Pushed, and read live on its own page.
 
-The same files are in an encrypted SG/Vault on the platform this site's demonstrations use — vault `ruj286tr`, one commit, 15 September 2026. Its read key grants read and nothing else and is meant to be public, like every demo key on this site. It is not on this page yet for the same reason one demo on [the demos page](demos.html) is held: the key the tooling issued carries a _private_ prefix, and a credential with that word in its name does not go onto a public page on an assumption. Once the vault owner confirms it is intended to be public it goes here, with the open-in-a-browser link and the clone command beside it. Until then every file is served from this site — the links above — so nothing depends on the vault host.
+The same files are in an encrypted SG/Vault on the platform this site's demonstrations use — vault `ruj286tr`. Its read key grants read and nothing else and is published on purpose, like every demo key on this site. It is printed on [the vault's own page](abp-vault-claude-code-web.html), which reads the vault live in the browser: the card, every table, the vault's app in a sandboxed frame, and the file list, all decrypted from the current commit as you read. A Lab page carries no key by rule, so it is not repeated here; every file is also served from this site — the links above — so nothing depends on the vault host.
 
 |  |  |
 | --- | --- |
 | Vault | ruj286tr |
 | Host | dev.send.sgraph.ai · opened at dev.vault.sgraph.ai, like the demos |
-| Read key | held — pending the owner's confirmation that it is public |
-| Clone it | `sgit clone <read key>:ruj286tr` — read-only, once the key is published |
-| First commit | 15 September 2026 — the template, with the grant check |
+| Read key | published on [the vault's page](abp-vault-claude-code-web.html), in the public form sgit declares for a deliberately published key |
+| Clone it | `sgit clone <read key>` — read-only; the key is on the vault's page |
+| Commits | 15 September 2026 — v1 the template with the grant check · v2 the vault app · v3 the start-here view, the zip and the PDF |
 
 The write side of this vault is held by us and appears nowhere on this site; a test in the repository fails the build if anything shaped like one lands in `site/`. The vault's history is the vault's: every recompute is a commit, and a buyer's own vault keeps the draft it was corrected from as its first entry.
 

@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.12.0** · 2026-09-15 — Behaviour-policy vaults: a section, read live, with the vault app
+  Notes: https://riskmandate.ai/versions/1.12.0.md · Source: `git:v1.12.0`
 - **v1.11.0** · 2026-09-15 — Lab 07, the first behaviour-policy vault
   Notes: https://riskmandate.ai/versions/1.11.0.md · Source: `git:v1.11.0`
 - **v1.10.0** · 2026-09-13 — The vocabulary, and how a behaviour policy differs from an inventory

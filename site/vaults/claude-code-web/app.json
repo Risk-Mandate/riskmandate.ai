@@ -1,0 +1,9 @@
+{
+  "entry": "index.html",
+  "present": true,
+  "auto_open": true,
+  "title": "ABP — Claude Code on the web, with one repository attached",
+  "permissions": { "fs": { "read": true } },
+  "hud": { "mode": "full" },
+  "_why": "Read only, by declaration. The app renders the vault's own files and computes a correction the reader pastes back by hand; it has no reason to write, so it declares none."
+}

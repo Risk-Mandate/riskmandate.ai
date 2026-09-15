@@ -23,6 +23,9 @@
 // (the same, in the portable agent-skill format). They live in the template and
 // are copied in if absent.
 //
+// The vault app (index.html, app.json) is the template's, copied in on every run with
+// this vault's data injected as the FALLBACK, so it renders with no bridge at all.
+//
 // The delta semantics are abp.delta/v1 as published at abp.sgit.ai: excess is the
 // grant minus the mandate's wants, in grant order; refused is the part of the
 // excess the mandate names as unwanted; unstated is the rest; unbounded excess is
@@ -37,6 +40,25 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync, copyFileSync } from 'node:fs';
 import { dirname, join, resolve }                                             from 'node:path';
 import { fileURLToPath }                                                      from 'node:url';
+
+// ----------------------------------------------------------------- a deterministic zip
+// STORE only, fixed timestamp, entries in path order: the same inputs give the same bytes,
+// so --check can compare it like every other derived file. No dependency.
+const CRC = (() => { const t = new Uint32Array(256); for (let n = 0; n < 256; n++) { let c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; t[n] = c >>> 0; } return t; })();
+function crc32(buf) { let c = 0xFFFFFFFF; for (let i = 0; i < buf.length; i++) c = CRC[(c ^ buf[i]) & 0xFF] ^ (c >>> 8); return (c ^ 0xFFFFFFFF) >>> 0; }
+function zipStore(entries /* [{name, data:Buffer}] sorted */, dosDate = 0x5D2F /* 2026-09-15 */, dosTime = 0) {
+  const locals = [], centrals = []; let offset = 0;
+  const u16 = (n) => { const b = Buffer.alloc(2); b.writeUInt16LE(n); return b; }, u32 = (n) => { const b = Buffer.alloc(4); b.writeUInt32LE(n >>> 0); return b; };
+  for (const e of entries) {
+    const name = Buffer.from(e.name, 'utf8'), crc = crc32(e.data);
+    const local = Buffer.concat([u32(0x04034b50), u16(20), u16(0x0800), u16(0), u16(dosTime), u16(dosDate), u32(crc), u32(e.data.length), u32(e.data.length), u16(name.length), u16(0), name, e.data]);
+    centrals.push(Buffer.concat([u32(0x02014b50), u16(20), u16(20), u16(0x0800), u16(0), u16(dosTime), u16(dosDate), u32(crc), u32(e.data.length), u32(e.data.length), u16(name.length), u16(0), u16(0), u16(0), u16(0), u32(0), u32(offset), name]));
+    locals.push(local); offset += local.length;
+  }
+  const cd = Buffer.concat(centrals);
+  const eocd = Buffer.concat([u32(0x06054b50), u16(0), u16(0), u16(entries.length), u16(entries.length), u32(cd.length), u32(offset), u16(0)]);
+  return Buffer.concat([...locals, cd, eocd]);
+}
 
 const ROOT     = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const VAULTS   = join(ROOT, 'site', 'vaults');
@@ -81,7 +103,13 @@ const excess_unstated = excess.filter(id => !refuse.has(id));
 const unbounded       = excess.filter(id => rowOf[id].barrier !== 'boundary');
 const shortfall       = mandate.want.filter(id => !rowOf[id]);
 const aligned         = grantIds.filter(id => want.has(id));
-const computed_at     = new Date().toISOString().replace(/\.\d{3}Z$/, 'Z');
+// Idempotent builds: if the stored delta has the same lists and the same pinned inputs, keep
+// its timestamp — a rebuild that changes nothing should write nothing, and the zip stays
+// byte-identical so --check can compare it.
+const prevDelta = existsSync(join(DIR, 'data/delta.json')) ? rd('data/delta.json') : null;
+const sameAsPrev = prevDelta && JSON.stringify([prevDelta.excess, prevDelta.excess_refused, prevDelta.excess_unstated, prevDelta.unbounded_excess, prevDelta.shortfall, prevDelta.aligned, prevDelta.grant_version, prevDelta.mandate_version, prevDelta.vocabulary_version])
+  === JSON.stringify([excess, excess_refused, excess_unstated, unbounded, shortfall, aligned, grant.profile_version, mandate.authored, cfg.vocabulary_version]);
+const computed_at     = sameAsPrev ? prevDelta.computed_at : new Date().toISOString().replace(/\.\d{3}Z$/, 'Z');
 
 const delta = {
   type: 'abp/delta/v1',
@@ -398,12 +426,44 @@ const outputs = {
   'DELTA.md': deltaMd,
   'LICENCE-TO-OPERATE.md': ltoMd,
 };
+// The vault app: the template's index.html with this vault's data inlined. The app prefers
+// live reads over the bridge and falls back to this copy, so the file is derived like the rest.
+if (existsSync(join(TEMPLATE, 'index.html'))) {
+  const agents = existsSync(join(DIR, 'AGENTS.md')) ? readFileSync(join(DIR, 'AGENTS.md'), 'utf8') : readFileSync(join(TEMPLATE, 'AGENTS.md'), 'utf8');
+  const skill  = existsSync(join(DIR, 'SKILL.md'))  ? readFileSync(join(DIR, 'SKILL.md'), 'utf8')  : readFileSync(join(TEMPLATE, 'SKILL.md'), 'utf8');
+  const md = (n) => outputs[n];
+  const distDir = join(DIR, 'dist');
+  mkdirSync(distDir, { recursive: true });
+  // the zip: every document and data file, no app — built here so it cannot disagree with them
+  const zipEntries = [
+    ...Object.entries(outputs).filter(([n]) => /\.(md|json)$/.test(n)).map(([n, c]) => ({ name: n, data: Buffer.from(c, 'utf8') })),
+    { name: 'AGENTS.md', data: Buffer.from(agents, 'utf8') }, { name: 'SKILL.md', data: Buffer.from(skill, 'utf8') },
+    { name: 'vault.json', data: readFileSync(join(DIR, 'vault.json')) },
+    { name: 'data/grant.json', data: readFileSync(join(DIR, 'data/grant.json')) }, { name: 'data/mandate.json', data: readFileSync(join(DIR, 'data/mandate.json')) },
+    ...['capabilities', 'barriers', 'undo-classes', 'evidence-tiers'].map(f => ({ name: `data/vocabulary/${f}.json`, data: readFileSync(join(DIR, `data/vocabulary/${f}.json`)) })),
+  ].sort((a, b) => a.name < b.name ? -1 : 1);
+  const zipName = `${slug}.zip`, pdfName = `${slug}.pdf`;
+  outputs[`dist/${zipName}`] = zipStore(zipEntries);
+  const dist = { [zipName]: true, ...(existsSync(join(distDir, pdfName)) ? { [pdfName]: true } : {}) };
+  const fallback = { vault: cfg, grant, mandate, delta, validity, history: hist, capabilities: caps, barriers: bars, undo, tiers, agents, skill,
+                     mandate_md: md('MANDATE.md'), grant_md: md('GRANT.md'), delta_md: md('DELTA.md'), licence_md: md('LICENCE-TO-OPERATE.md'), abp_md: md('AGENT-BEHAVIOUR-POLICY.md'), readme: md('README.md'), dist };
+  const compact = JSON.stringify(fallback).replace(/<\//g, '<\\/');
+  const tpl = readFileSync(join(TEMPLATE, 'index.html'), 'utf8');
+  if (!tpl.includes('/*__DATA__*/{}')) { console.error('template index.html has no /*__DATA__*/{} marker'); process.exit(1); }
+  outputs['index.html'] = tpl.replace('const FALLBACK = /*__DATA__*/{};', 'const FALLBACK = /*__DATA__*/' + compact + ';');
+  outputs['app.json']   = readFileSync(join(TEMPLATE, 'app.json'), 'utf8').replace('"title": "Agent Behaviour Policy"', '"title": ' + JSON.stringify('ABP — ' + cfg.title));
+}
 // The computed_at stamp changes every run; --check compares everything but it.
 const strip = (s) => s.replace(/\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z/g, '<ts>');
 let stale = [];
 for (const [rel, content] of Object.entries(outputs)) {
   const p = join(DIR, rel);
-  if (CHECK) { if (!existsSync(p) || strip(readFileSync(p, 'utf8')) !== strip(content)) stale.push(rel); continue; }
+  if (CHECK) {
+    if (!existsSync(p)) { stale.push(rel); continue; }
+    const same = Buffer.isBuffer(content) ? strip(readFileSync(p).toString('latin1')) === strip(content.toString('latin1')) : strip(readFileSync(p, 'utf8')) === strip(content);
+    if (!same) stale.push(rel);
+    continue;
+  }
   mkdirSync(dirname(p), { recursive: true });
   writeFileSync(p, content);
 }
