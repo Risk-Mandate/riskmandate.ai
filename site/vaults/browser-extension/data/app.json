@@ -1,0 +1,11 @@
+{
+  "type": "riskmandate/abp-app-context/v1",
+  "dist": {
+    "browser-extension.zip": true
+  },
+  "app_vault": {
+    "vault_id": "fl3i7lu4",
+    "entry": "index.html",
+    "version": "v1"
+  }
+}

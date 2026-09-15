@@ -1,0 +1,147 @@
+{
+  "type": "abp/profile/v1",
+  "id": "generic/scheduled-job/service-account",
+  "vendor": "generic",
+  "product": "A scheduled job running as a service account",
+  "variant": "service-account",
+  "surface": "service",
+  "profile_version": "2026-09-05",
+  "description": "A cron job or scheduled task on a server, under an account that is not a person's, with a credential nobody rotates. It runs when nobody is watching and no person's judgement stands in front of it. DERIVED; not measured on any instance.",
+  "reach_names": {
+    "host": "the server it runs on, as the service account",
+    "tenant": "whatever the service account's credential opens",
+    "world": "the internet, from the server"
+  },
+  "not_reachable": [
+    {
+      "what": "your machine",
+      "why": "it runs on a server",
+      "source": "by construction"
+    }
+  ],
+  "tools": [
+    "the job"
+  ],
+  "grant": [
+    {
+      "capability": "authenticate-as.credential.tenant",
+      "barrier": "none",
+      "evidence": "derived",
+      "via": [
+        "the job"
+      ],
+      "control": null,
+      "note": "a service-account credential, rarely rotated",
+      "undo": "no",
+      "is_bounded": false
+    },
+    {
+      "capability": "read.file.host",
+      "barrier": "none",
+      "evidence": "derived",
+      "via": [
+        "the job"
+      ],
+      "control": null,
+      "note": null,
+      "undo": "no",
+      "is_bounded": false
+    },
+    {
+      "capability": "send.endpoint.world",
+      "barrier": "none",
+      "evidence": "derived",
+      "via": [
+        "the job"
+      ],
+      "control": null,
+      "note": null,
+      "undo": "no",
+      "is_bounded": false
+    },
+    {
+      "capability": "write.budget.tenant",
+      "barrier": "none",
+      "evidence": "derived",
+      "via": [
+        "the job"
+      ],
+      "control": null,
+      "note": "if the credential is billed",
+      "undo": "no",
+      "is_bounded": false
+    },
+    {
+      "capability": "execute.process.host",
+      "barrier": "none",
+      "evidence": "derived",
+      "via": [
+        "the job"
+      ],
+      "control": null,
+      "note": "as the service account, on a schedule",
+      "undo": "with-effort",
+      "is_bounded": false
+    },
+    {
+      "capability": "write.file.host",
+      "barrier": "none",
+      "evidence": "derived",
+      "via": [
+        "the job"
+      ],
+      "control": null,
+      "note": null,
+      "undo": "with-effort",
+      "is_bounded": false
+    },
+    {
+      "capability": "create.schedule.host",
+      "barrier": "none",
+      "evidence": "derived",
+      "via": [
+        "the job"
+      ],
+      "control": null,
+      "note": "it is one",
+      "undo": "yes",
+      "is_bounded": false
+    }
+  ],
+  "grant_size": 7,
+  "irreversible": [
+    "authenticate-as.credential.tenant",
+    "read.file.host",
+    "send.endpoint.world",
+    "write.budget.tenant"
+  ],
+  "unbounded": [
+    "authenticate-as.credential.tenant",
+    "read.file.host",
+    "send.endpoint.world",
+    "write.budget.tenant",
+    "execute.process.host",
+    "write.file.host",
+    "create.schedule.host"
+  ],
+  "widest_reach": "world",
+  "rows": {
+    "total": 7,
+    "measured": 0,
+    "derived": 7
+  },
+  "sources": [
+    "brief v0.33.65: things nobody calls an agent — a scheduled job with a service account"
+  ],
+  "not_an_assessment": "This describes a published deployment shape. It is not an assessment, an audit, a certification or a security review of any named product, and it carries no adjective and no score.",
+  "provenance": {
+    "source": "https://what-can-it-do.games.sgit.ai/data/",
+    "source_page": "https://what-can-it-do.games.sgit.ai/map/index.html",
+    "retrieved": "2026-09-11T13:00:37Z",
+    "pack_version": "v0.8.0",
+    "content_hash": "sha256:d6d4ba40f1fb1f93f660687e4787ac10c2e1835efeb3929a4c8ad62cee8897ef",
+    "verbatim_bytes": "upstream/",
+    "note": "Promoted from profiles/generic/scheduled-job/service-account.json. The grant is the union of its tool rows; where two tools reach the same capability the WEAKEST barrier is kept, because the agent takes the easier path.",
+    "licence": "CC BY 4.0"
+  }
+}

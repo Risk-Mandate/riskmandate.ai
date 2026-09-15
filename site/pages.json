@@ -116,6 +116,54 @@
       "group": "Live demos"
     },
     {
+      "name": "abp-vault-scheduled-job",
+      "file": "abp-vault-scheduled-job.html",
+      "label": "Vault · A scheduled job",
+      "unlisted": true
+    },
+    {
+      "name": "abp-vault-github-actions",
+      "file": "abp-vault-github-actions.html",
+      "label": "Vault · GitHub Actions",
+      "unlisted": true
+    },
+    {
+      "name": "abp-vault-browser-extension",
+      "file": "abp-vault-browser-extension.html",
+      "label": "Vault · A browser extension",
+      "unlisted": true
+    },
+    {
+      "name": "abp-vault-chatgpt-web",
+      "file": "abp-vault-chatgpt-web.html",
+      "label": "Vault · ChatGPT in the browser",
+      "unlisted": true
+    },
+    {
+      "name": "abp-vault-claude-web-connectors",
+      "file": "abp-vault-claude-web-connectors.html",
+      "label": "Vault · Claude in the browser, connectors on",
+      "unlisted": true
+    },
+    {
+      "name": "abp-vault-claude-desktop",
+      "file": "abp-vault-claude-desktop.html",
+      "label": "Vault · Claude Desktop",
+      "unlisted": true
+    },
+    {
+      "name": "abp-vault-claude-code-cli-confirmations-off",
+      "file": "abp-vault-claude-code-cli-confirmations-off.html",
+      "label": "Vault · Claude Code, confirmations off",
+      "unlisted": true
+    },
+    {
+      "name": "abp-vault-claude-code-cli",
+      "file": "abp-vault-claude-code-cli.html",
+      "label": "Vault · Claude Code on your machine",
+      "unlisted": true
+    },
+    {
       "name": "abp-vault-claude-code-web",
       "file": "abp-vault-claude-code-web.html",
       "label": "Vault · Claude Code on the web",

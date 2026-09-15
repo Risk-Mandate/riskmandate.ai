@@ -1,0 +1,12 @@
+{
+  "type": "riskmandate/abp-app-context/v1",
+  "dist": {
+    "claude-code-web.zip": true,
+    "claude-code-web.pdf": true
+  },
+  "app_vault": {
+    "vault_id": "fl3i7lu4",
+    "entry": "index.html",
+    "version": "v1"
+  }
+}

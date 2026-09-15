@@ -1,0 +1,57 @@
+{
+  "type": "abp/mandate/v1",
+  "id": "desktop-app-with-local-tools",
+  "label": "The desktop app, with local tools switched on",
+  "surface": [
+    "desktop"
+  ],
+  "applies_to": [
+    "anthropic/claude-desktop/default"
+  ],
+  "status": "starting-point",
+  "authored": "2026-09-09",
+  "authored_by": "the site, as a starting point — not measured, not surveyed; the first thing to argue with",
+  "description": "I want it to read and write the files I point it at, and to reach the sites it needs to answer me. I did not turn it on so that it could run programs on my machine, read credentials, act in my accounts, read my past sessions, or change its own settings.",
+  "want": [
+    "read.file.project",
+    "write.file.project",
+    "send.endpoint.allowed"
+  ],
+  "do_not_want": [
+    "execute.process.host",
+    "read.credential.host",
+    "authenticate-as.credential.tenant",
+    "grant.credential.self",
+    "read.record.history",
+    "write.file.host"
+  ],
+  "unstated": [
+    "authenticate-as.credential.signing",
+    "create.record.world",
+    "create.schedule.host",
+    "create.schedule.tenant",
+    "delete.file.host",
+    "execute.process.self",
+    "read.file.host",
+    "read.message.tenant",
+    "read.record.browsing",
+    "send.endpoint.world",
+    "send.message.world",
+    "write.budget.tenant",
+    "write.repository.project",
+    "write.repository.tenant"
+  ],
+  "notes": {
+    "read.file.host": "unstated: ‘the files I point it at’ and ‘any file my account can read’ are different things, and which one the local-tools grant actually is depends on the setup"
+  },
+  "provenance": {
+    "source": "https://what-can-it-do.games.sgit.ai/data/",
+    "source_page": "https://what-can-it-do.games.sgit.ai/map/index.html",
+    "retrieved": "2026-09-11T13:00:37Z",
+    "pack_version": "v0.8.0",
+    "content_hash": "sha256:d6d4ba40f1fb1f93f660687e4787ac10c2e1835efeb3929a4c8ad62cee8897ef",
+    "verbatim_bytes": "upstream/",
+    "note": "Promoted from mandates/desktop-app-with-local-tools.json. `unstated` is computed here as the primitives the mandate names neither way; the pack leaves it implicit. A mandate is elicited, not measured: these are first drafts written to be argued with.",
+    "licence": "CC BY 4.0"
+  }
+}

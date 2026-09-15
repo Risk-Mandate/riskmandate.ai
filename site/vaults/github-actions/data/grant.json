@@ -1,0 +1,164 @@
+{
+  "type": "abp/profile/v1",
+  "id": "github/actions-runner/ci",
+  "vendor": "GitHub",
+  "product": "Actions runner (a hosted CI job)",
+  "variant": "ci",
+  "surface": "ci",
+  "profile_version": "2026-08-26",
+  "description": "An ephemeral CI job with no agent, no hooks, and one platform-enforced grant: the workflow's permissions block. MEASURED on 26 August by measure.py inside the runner (the library's second entry), translated into findings on 5 September. Unrestricted egress; the token cannot write.",
+  "reach_names": {
+    "host": "the runner — destroyed after the job; not your machine",
+    "tenant": "the repository, with the workflow's token",
+    "world": "the internet, unrestricted"
+  },
+  "not_reachable": [
+    {
+      "what": "your machine",
+      "why": "a hosted runner",
+      "source": "library entry 2"
+    },
+    {
+      "what": "the repository, for writing",
+      "why": "the token is contents:read",
+      "source": "evidence: ci.permissions-block"
+    }
+  ],
+  "tools": [
+    "the job's shell"
+  ],
+  "grant": [
+    {
+      "capability": "delete.file.host",
+      "barrier": "none",
+      "evidence": "observed",
+      "via": [
+        "the job's shell"
+      ],
+      "control": null,
+      "note": "the runner's user with passwordless escalation: every file on the ephemeral machine",
+      "undo": "no",
+      "is_bounded": false
+    },
+    {
+      "capability": "read.file.host",
+      "barrier": "none",
+      "evidence": "observed",
+      "via": [
+        "the job's shell"
+      ],
+      "control": null,
+      "note": "the runner's user with passwordless escalation: every file on the ephemeral machine",
+      "undo": "no",
+      "is_bounded": false
+    },
+    {
+      "capability": "send.endpoint.world",
+      "barrier": "none",
+      "evidence": "observed",
+      "via": [
+        "the job's shell"
+      ],
+      "control": null,
+      "note": "github.com 200, pypi.org 200, example.com 200 — UNRESTRICTED egress, no proxy",
+      "undo": "no",
+      "is_bounded": false
+    },
+    {
+      "capability": "execute.process.host",
+      "barrier": "none",
+      "evidence": "observed",
+      "via": [
+        "the job's shell"
+      ],
+      "control": null,
+      "note": "runs as uid 1001; passwordless escalation available (n1a) — programs run as this user and can escalate",
+      "undo": "with-effort",
+      "is_bounded": false
+    },
+    {
+      "capability": "write.file.host",
+      "barrier": "none",
+      "evidence": "observed",
+      "via": [
+        "the job's shell"
+      ],
+      "control": null,
+      "note": "the runner's user with passwordless escalation: every file on the ephemeral machine",
+      "undo": "with-effort",
+      "is_bounded": false
+    },
+    {
+      "capability": "write.file.project",
+      "barrier": "none",
+      "evidence": "observed",
+      "via": [
+        "the job's shell"
+      ],
+      "control": null,
+      "note": "the checked-out tree at this ref is writable by the job",
+      "undo": "with-effort",
+      "is_bounded": false
+    },
+    {
+      "capability": "write.repository.project",
+      "barrier": "boundary",
+      "evidence": "observed",
+      "via": [
+        "the job's shell"
+      ],
+      "control": "the checkout is writable, but the token is contents:read, so nothing written can leave",
+      "note": "the checked-out tree at this ref is writable by the job",
+      "undo": "with-effort",
+      "is_bounded": true
+    },
+    {
+      "capability": "read.file.project",
+      "barrier": "none",
+      "evidence": "observed",
+      "via": [
+        "the job's shell"
+      ],
+      "control": null,
+      "note": "the checked-out tree at this ref is readable — including anything a contributor committed by mistake",
+      "undo": "yes",
+      "is_bounded": false
+    }
+  ],
+  "grant_size": 8,
+  "irreversible": [
+    "delete.file.host",
+    "read.file.host",
+    "send.endpoint.world"
+  ],
+  "unbounded": [
+    "delete.file.host",
+    "read.file.host",
+    "send.endpoint.world",
+    "execute.process.host",
+    "write.file.host",
+    "write.file.project",
+    "read.file.project"
+  ],
+  "widest_reach": "world",
+  "rows": {
+    "total": 8,
+    "measured": 8,
+    "derived": 0
+  },
+  "sources": [
+    "packs/grant-and-mandate/library/github-actions-runner__ci__2026-08-26.json",
+    "experiments/the-deploy/index.html"
+  ],
+  "not_an_assessment": "This describes a published deployment shape. It is not an assessment, an audit, a certification or a security review of any named product, and it carries no adjective and no score.",
+  "provenance": {
+    "source": "https://what-can-it-do.games.sgit.ai/data/",
+    "source_page": "https://what-can-it-do.games.sgit.ai/map/index.html",
+    "retrieved": "2026-09-11T13:00:37Z",
+    "pack_version": "v0.8.0",
+    "content_hash": "sha256:d6d4ba40f1fb1f93f660687e4787ac10c2e1835efeb3929a4c8ad62cee8897ef",
+    "verbatim_bytes": "upstream/",
+    "note": "Promoted from profiles/github/actions-runner/ci.json. The grant is the union of its tool rows; where two tools reach the same capability the WEAKEST barrier is kept, because the agent takes the easier path.",
+    "licence": "CC BY 4.0"
+  }
+}

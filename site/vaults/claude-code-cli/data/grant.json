@@ -1,0 +1,271 @@
+{
+  "type": "abp/profile/v1",
+  "id": "anthropic/claude-code/local-default",
+  "vendor": "Anthropic",
+  "product": "Claude Code (the CLI, on your own machine)",
+  "variant": "local-default",
+  "surface": "cli",
+  "profile_version": "2026-09-05",
+  "description": "The common case: one CLI agent running as your user account, credentials in the home directory, confirmations on, no containment. DERIVED from what a command-line program running as your account architecturally is, not measured on any instance — every row is a claim until somebody runs the probes and contributes the file. The assess library's cli tree is the source.",
+  "reach_names": {
+    "host": "your machine, as your user account",
+    "tenant": "your accounts, with the credentials in your home directory",
+    "world": "the internet"
+  },
+  "not_reachable": [],
+  "tools": [
+    "shell (Bash)",
+    "files (Read, Edit, Write)",
+    "fetch (WebFetch)"
+  ],
+  "grant": [
+    {
+      "capability": "authenticate-as.credential.signing",
+      "barrier": "none",
+      "evidence": "documented",
+      "via": [
+        "shell (Bash)"
+      ],
+      "control": null,
+      "note": "if commit signing is configured for the account, the agent signs as you",
+      "undo": "no",
+      "is_bounded": false
+    },
+    {
+      "capability": "authenticate-as.credential.tenant",
+      "barrier": "none",
+      "evidence": "derived",
+      "via": [
+        "shell (Bash)"
+      ],
+      "control": null,
+      "note": "inferred from the credentials the account holds",
+      "undo": "no",
+      "is_bounded": false
+    },
+    {
+      "capability": "create.record.world",
+      "barrier": "none",
+      "evidence": "documented",
+      "via": [
+        "shell (Bash)"
+      ],
+      "control": null,
+      "note": "if a registry token is in the home directory",
+      "undo": "no",
+      "is_bounded": false
+    },
+    {
+      "capability": "delete.file.host",
+      "barrier": "none",
+      "evidence": "derived",
+      "via": [
+        "shell (Bash)",
+        "files (Read, Edit, Write)"
+      ],
+      "control": null,
+      "note": null,
+      "undo": "no",
+      "is_bounded": false
+    },
+    {
+      "capability": "read.credential.host",
+      "barrier": "none",
+      "evidence": "documented",
+      "via": [
+        "shell (Bash)"
+      ],
+      "control": null,
+      "note": "a published read-only audit tool enumerates exactly this class in a home directory",
+      "undo": "no",
+      "is_bounded": false
+    },
+    {
+      "capability": "read.file.host",
+      "barrier": "none",
+      "evidence": "derived",
+      "via": [
+        "shell (Bash)",
+        "files (Read, Edit, Write)"
+      ],
+      "control": null,
+      "note": "everything your account can read, because a shell as you reads as you",
+      "undo": "no",
+      "is_bounded": false
+    },
+    {
+      "capability": "read.record.history",
+      "barrier": "none",
+      "evidence": "documented",
+      "via": [
+        "shell (Bash)"
+      ],
+      "control": null,
+      "note": "shell history and the harness's own transcripts",
+      "undo": "no",
+      "is_bounded": false
+    },
+    {
+      "capability": "send.endpoint.world",
+      "barrier": "none",
+      "evidence": "derived",
+      "via": [
+        "shell (Bash)",
+        "fetch (WebFetch)"
+      ],
+      "control": null,
+      "note": "curl reaches the world unless something above the account stops it",
+      "undo": "no",
+      "is_bounded": false
+    },
+    {
+      "capability": "write.file.host",
+      "barrier": "none",
+      "evidence": "derived",
+      "via": [
+        "shell (Bash)",
+        "files (Read, Edit, Write)"
+      ],
+      "control": null,
+      "note": null,
+      "undo": "with-effort",
+      "is_bounded": false
+    },
+    {
+      "capability": "write.file.project",
+      "barrier": "none",
+      "evidence": "derived",
+      "via": [
+        "shell (Bash)",
+        "files (Read, Edit, Write)"
+      ],
+      "control": null,
+      "note": null,
+      "undo": "with-effort",
+      "is_bounded": false
+    },
+    {
+      "capability": "write.repository.project",
+      "barrier": "none",
+      "evidence": "derived",
+      "via": [
+        "shell (Bash)"
+      ],
+      "control": null,
+      "note": null,
+      "undo": "with-effort",
+      "is_bounded": false
+    },
+    {
+      "capability": "write.repository.tenant",
+      "barrier": "expectation",
+      "evidence": "derived",
+      "via": [
+        "shell (Bash)"
+      ],
+      "control": "branch discipline in prose, if any",
+      "note": null,
+      "undo": "with-effort",
+      "is_bounded": false
+    },
+    {
+      "capability": "execute.process.host",
+      "barrier": "setting",
+      "evidence": "derived",
+      "via": [
+        "shell (Bash)"
+      ],
+      "control": "the tool's own directory restriction and its confirmation prompt — enforced by the tool, which runs inside the grant; anything that can execute as you steps around it",
+      "note": null,
+      "undo": "with-effort",
+      "is_bounded": false
+    },
+    {
+      "capability": "create.schedule.host",
+      "barrier": "none",
+      "evidence": "derived",
+      "via": [
+        "shell (Bash)"
+      ],
+      "control": null,
+      "note": "a shell as you can write a crontab",
+      "undo": "yes",
+      "is_bounded": false
+    },
+    {
+      "capability": "read.file.project",
+      "barrier": "none",
+      "evidence": "derived",
+      "via": [
+        "shell (Bash)",
+        "files (Read, Edit, Write)"
+      ],
+      "control": null,
+      "note": null,
+      "undo": "yes",
+      "is_bounded": false
+    },
+    {
+      "capability": "grant.credential.self",
+      "barrier": "setting",
+      "evidence": "derived",
+      "via": [
+        "shell (Bash)"
+      ],
+      "control": "the settings file is owned by the same account",
+      "note": "anything running as you can rewrite the file that turns the prompt off",
+      "undo": "yes",
+      "is_bounded": false
+    }
+  ],
+  "grant_size": 16,
+  "irreversible": [
+    "authenticate-as.credential.signing",
+    "authenticate-as.credential.tenant",
+    "create.record.world",
+    "delete.file.host",
+    "read.credential.host",
+    "read.file.host",
+    "read.record.history",
+    "send.endpoint.world"
+  ],
+  "unbounded": [
+    "authenticate-as.credential.signing",
+    "authenticate-as.credential.tenant",
+    "create.record.world",
+    "delete.file.host",
+    "read.credential.host",
+    "read.file.host",
+    "read.record.history",
+    "send.endpoint.world",
+    "write.file.host",
+    "write.file.project",
+    "write.repository.project",
+    "write.repository.tenant",
+    "execute.process.host",
+    "create.schedule.host",
+    "read.file.project",
+    "grant.credential.self"
+  ],
+  "widest_reach": "world",
+  "rows": {
+    "total": 22,
+    "measured": 0,
+    "derived": 22
+  },
+  "sources": [
+    "assess/library.json (surface cli)",
+    "the published read-only audit tool's module list the library cites"
+  ],
+  "not_an_assessment": "This describes a published deployment shape. It is not an assessment, an audit, a certification or a security review of any named product, and it carries no adjective and no score.",
+  "provenance": {
+    "source": "https://what-can-it-do.games.sgit.ai/data/",
+    "source_page": "https://what-can-it-do.games.sgit.ai/map/index.html",
+    "retrieved": "2026-09-11T13:00:37Z",
+    "pack_version": "v0.8.0",
+    "content_hash": "sha256:d6d4ba40f1fb1f93f660687e4787ac10c2e1835efeb3929a4c8ad62cee8897ef",
+    "verbatim_bytes": "upstream/",
+    "note": "Promoted from profiles/anthropic/claude-code/local-default.json. The grant is the union of its tool rows; where two tools reach the same capability the WEAKEST barrier is kept, because the agent takes the easier path.",
+    "licence": "CC BY 4.0"
+  }
+}

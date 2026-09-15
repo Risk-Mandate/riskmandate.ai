@@ -1,0 +1,15 @@
+{
+  "type": "riskmandate/abp-validity/v1",
+  "describes": "Claude Code (the CLI, on your own machine) — deployment shape anthropic/claude-code/local-confirmations-off, grant version 2026-09-05",
+  "mandate": "coding-assistant-on-my-machine, starting-point, authored 2026-09-09",
+  "vocabulary": "abp.sgit.ai v0.3.0",
+  "as_at": "2026-09-15",
+  "statement": "This describes the deployment shape as at this date. If the risk changed, the deployment changed — not this document.",
+  "void_when": [
+    "the grant version changes — a product release, a setting, a connector enabled or removed",
+    "the mandate changes — the deployer authorises more or less",
+    "the vocabulary version changes — a primitive is added, split or renamed",
+    "a barrier moves — a setting becomes a boundary, or a boundary is removed"
+  ],
+  "no_score": "No score, rating, level or traffic light appears in this vault or in its data, and none will. The behaviour policy describes; it does not judge."
+}

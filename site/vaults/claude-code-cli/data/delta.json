@@ -1,0 +1,71 @@
+{
+  "type": "abp/delta/v1",
+  "profile": "anthropic/claude-code/local-default",
+  "mandate": "coding-assistant-on-my-machine",
+  "grant_version": "2026-09-05",
+  "mandate_version": "2026-09-09",
+  "vocabulary_version": "v0.3.0",
+  "computed_at": "2026-09-15T01:41:06Z",
+  "computed_by": "riskmandate.ai build-abp-vault.mjs (abp.delta/v1 semantics)",
+  "excess": [
+    "authenticate-as.credential.signing",
+    "authenticate-as.credential.tenant",
+    "create.record.world",
+    "delete.file.host",
+    "read.credential.host",
+    "read.file.host",
+    "read.record.history",
+    "send.endpoint.world",
+    "write.file.host",
+    "write.repository.tenant",
+    "create.schedule.host",
+    "grant.credential.self"
+  ],
+  "excess_refused": [
+    "authenticate-as.credential.signing",
+    "authenticate-as.credential.tenant",
+    "create.record.world",
+    "delete.file.host",
+    "read.credential.host",
+    "read.file.host",
+    "read.record.history",
+    "write.file.host",
+    "create.schedule.host",
+    "grant.credential.self"
+  ],
+  "excess_unstated": [
+    "send.endpoint.world",
+    "write.repository.tenant"
+  ],
+  "unbounded_excess": [
+    "authenticate-as.credential.signing",
+    "authenticate-as.credential.tenant",
+    "create.record.world",
+    "delete.file.host",
+    "read.credential.host",
+    "read.file.host",
+    "read.record.history",
+    "send.endpoint.world",
+    "write.file.host",
+    "write.repository.tenant",
+    "create.schedule.host",
+    "grant.credential.self"
+  ],
+  "shortfall": [
+    "send.endpoint.allowed"
+  ],
+  "aligned": [
+    "write.file.project",
+    "write.repository.project",
+    "execute.process.host",
+    "read.file.project"
+  ],
+  "derived_never_authored": "No field in this record is writable by a person. The way to change a delta is to change a grant or a mandate, and then recompute.",
+  "counts": {
+    "excess": 12,
+    "unbounded_excess": 12,
+    "shortfall": 1,
+    "aligned": 4
+  },
+  "id": "anthropic__claude-code__local-default__coding-assistant-on-my-machine"
+}

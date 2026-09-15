@@ -1,0 +1,69 @@
+{
+  "type": "abp/profile/v1",
+  "id": "openai/chatgpt-web/default",
+  "vendor": "OpenAI",
+  "product": "ChatGPT (in the browser, no connectors)",
+  "variant": "default",
+  "surface": "web",
+  "profile_version": "2026-09-05",
+  "description": "An assistant in the vendor's environment. It reaches what you paste or upload and nothing on your machine: the vendor's environment is a boundary you did not build. DERIVED from the assess library's web tree. Browsing, if on, is the vendor's egress, not yours.",
+  "reach_names": {
+    "host": "the vendor's environment; not your machine",
+    "tenant": "nothing of yours",
+    "world": "the vendor's egress, if browsing is on"
+  },
+  "not_reachable": [
+    {
+      "what": "your machine's files",
+      "why": "the vendor's environment is a boundary you did not build",
+      "source": "assess/library.json (web: home)"
+    },
+    {
+      "what": "your accounts",
+      "why": "no connectors are on",
+      "source": "assess/library.json (web: connect)"
+    }
+  ],
+  "tools": [
+    "conversation and uploads"
+  ],
+  "grant": [
+    {
+      "capability": "read.file.project",
+      "barrier": "none",
+      "evidence": "derived",
+      "via": [
+        "conversation and uploads"
+      ],
+      "control": null,
+      "note": "what you paste or upload — and a record once read is exposure that cannot be unread, on the vendor's side",
+      "undo": "yes",
+      "is_bounded": false
+    }
+  ],
+  "grant_size": 1,
+  "irreversible": [],
+  "unbounded": [
+    "read.file.project"
+  ],
+  "widest_reach": "project",
+  "rows": {
+    "total": 1,
+    "measured": 0,
+    "derived": 1
+  },
+  "sources": [
+    "assess/library.json (surface web)"
+  ],
+  "not_an_assessment": "This describes a published deployment shape. It is not an assessment, an audit, a certification or a security review of any named product, and it carries no adjective and no score.",
+  "provenance": {
+    "source": "https://what-can-it-do.games.sgit.ai/data/",
+    "source_page": "https://what-can-it-do.games.sgit.ai/map/index.html",
+    "retrieved": "2026-09-11T13:00:37Z",
+    "pack_version": "v0.8.0",
+    "content_hash": "sha256:d6d4ba40f1fb1f93f660687e4787ac10c2e1835efeb3929a4c8ad62cee8897ef",
+    "verbatim_bytes": "upstream/",
+    "note": "Promoted from profiles/openai/chatgpt-web/default.json. The grant is the union of its tool rows; where two tools reach the same capability the WEAKEST barrier is kept, because the agent takes the easier path.",
+    "licence": "CC BY 4.0"
+  }
+}

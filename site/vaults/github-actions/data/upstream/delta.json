@@ -1,0 +1,55 @@
+{
+  "type": "abp/delta/v1",
+  "profile": "github/actions-runner/ci",
+  "mandate": "ci-job",
+  "grant_version": "2026-08-26",
+  "mandate_version": "2026-09-09",
+  "pack_version": "v0.8.0",
+  "computed_at": "2026-09-11T13:00:37Z",
+  "computed_by": "abp.delta/v1",
+  "excess": [
+    "delete.file.host",
+    "read.file.host",
+    "write.file.host",
+    "write.repository.project"
+  ],
+  "excess_refused": [],
+  "excess_unstated": [
+    "delete.file.host",
+    "read.file.host",
+    "write.file.host",
+    "write.repository.project"
+  ],
+  "unbounded_excess": [
+    "delete.file.host",
+    "read.file.host",
+    "write.file.host"
+  ],
+  "shortfall": [
+    "write.repository.tenant"
+  ],
+  "aligned": [
+    "send.endpoint.world",
+    "execute.process.host",
+    "write.file.project",
+    "read.file.project"
+  ],
+  "derived_never_authored": "No field in this record is writable by a person. The way to change a delta is to change a grant or a mandate, and then recompute.",
+  "counts": {
+    "excess": 4,
+    "unbounded_excess": 3,
+    "shortfall": 1,
+    "aligned": 4
+  },
+  "id": "github__actions-runner__ci__ci-job",
+  "provenance": {
+    "source": "https://what-can-it-do.games.sgit.ai/data/",
+    "source_page": "https://what-can-it-do.games.sgit.ai/map/index.html",
+    "retrieved": "2026-09-11T13:00:37Z",
+    "pack_version": "v0.8.0",
+    "content_hash": "sha256:d6d4ba40f1fb1f93f660687e4787ac10c2e1835efeb3929a4c8ad62cee8897ef",
+    "verbatim_bytes": "upstream/",
+    "note": "Derived from the grant and the mandate named above. Never authored: no field here is writable by a person, and the release gate recomputes it.",
+    "licence": "CC BY 4.0"
+  }
+}

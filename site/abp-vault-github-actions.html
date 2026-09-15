@@ -1,0 +1,1341 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RiskMandate — the behaviour-policy vault for GitHub Actions</title>
+<meta name="description" content="The template Agent Behaviour Policy vault for GitHub Actions (github/actions-runner/ci), rendered live from vault 0hpdpj80: the card, the mandate, the grant with a barrier per row, the delta, the Licence to Operate, the vault’s own app in a sandboxed frame, the file list and the public read key.">
+<link rel="canonical" href="https://riskmandate.ai/abp-vault-github-actions.html">
+<link rel="alternate" type="text/markdown" href="abp-vault-github-actions.md" title="This page as markdown">
+<link rel="icon" href="assets/brand/riskmandate-favicon-32.png" sizes="32x32">
+<link rel="icon" href="assets/brand/riskmandate-mark.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RiskMandate">
+<meta property="og:url" content="https://riskmandate.ai/abp-vault-github-actions.html">
+<meta property="og:title" content="RiskMandate — the behaviour-policy vault for GitHub Actions">
+<meta property="og:description" content="The template Agent Behaviour Policy vault for GitHub Actions (github/actions-runner/ci), rendered live from vault 0hpdpj80: the card, the mandate, the grant with a barrier per row, the delta, the Licence to Operate, the vault’s own app in a sandboxed frame, the file list and the public read key.">
+<meta property="og:image" content="https://riskmandate.ai/assets/brand/riskmandate-lockup-light.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Scaffolded by scripts/site/new-page.mjs. Hand-edited from here on — there is no build step. -->
+<style>
+/* abp-vault-github-actions.css — self-contained: the shared chrome, then this page's own. */
+:root{
+  --bg:#F7F6F2; --bg2:#EFEDE7; --card:#FFFFFF; --ink:#0D0D0C; --canvas:#0A0A09;
+  --text:#1A1917; --muted:#4A4845; --faint:#8A8780; --border:#E2DFD8;
+  --green:#1A7F5A; --green-2:#22c55e; --greenBg:#EBF5F0;
+  --gold:#B45309; --red:#C0392B; --blue:#1D4ED8;
+  --fg:#F7F6F2; --fg-2:rgba(247,246,242,.55); --fg-3:rgba(247,246,242,.32);
+  --line:rgba(247,246,242,.10); --line-2:rgba(247,246,242,.18);
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","JetBrains Mono","Roboto Mono",Menlo,Consolas,monospace;
+  --wrap:1000px; --r:10px; --r-sm:8px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth} @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+h1,h2{margin:0;font-weight:800;letter-spacing:-.03em;line-height:1.04}
+h2{font-size:clamp(26px,3.6vw,40px);font-weight:700;letter-spacing:-.02em}
+p{margin:0}
+:focus-visible{outline:2px solid var(--green-2);outline-offset:3px;border-radius:4px}
+.tag{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+.g{color:var(--green)} .it{font-style:italic;color:var(--green)}
+
+/* header */
+.top{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.top .wrap{display:flex;align-items:center;gap:22px;height:56px;max-width:1100px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:15px;color:var(--text);white-space:nowrap;text-decoration:none}
+.rm{width:26px;height:26px;flex:none;display:block}
+.rm svg{width:100%;height:100%;display:block}
+.navlinks{display:flex;align-items:center;gap:22px;margin-left:auto}
+rm-menu{display:contents}
+.navlinks a{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;text-decoration:none;display:inline-flex;align-items:center}
+.navlinks a:hover{color:var(--text)}
+.navlinks a.active{color:var(--text);font-weight:600}
+.version{font-family:var(--mono);font-size:12px;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:7px;padding:5px 8px;text-decoration:none;white-space:nowrap;transition:color .15s,border-color .15s}
+.version:hover{color:var(--text);border-color:var(--faint)}
+.demo{background:var(--green);color:#fff;font-weight:600;font-size:13px;border:0;border-radius:8px;padding:8px 16px;cursor:pointer;transition:background .15s;font-family:var(--sans);white-space:nowrap}
+.demo:hover{background:#16704f}
+
+/* nav dropdowns */
+.navgroup{position:relative;display:inline-flex;align-items:center}
+.navgroup::after{content:"";position:absolute;top:100%;left:0;right:0;height:10px}
+.navgroup-btn{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;display:inline-flex;align-items:center;gap:5px}
+.navgroup-btn:hover,.navgroup:hover .navgroup-btn,.navgroup.open .navgroup-btn,.navgroup.active .navgroup-btn{color:var(--text)}
+.navgroup-car{font-size:8px;line-height:1;opacity:.6;transition:transform .15s}
+.navgroup:hover .navgroup-car,.navgroup.open .navgroup-car{transform:rotate(180deg)}
+.navmenu{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);min-width:184px;background:var(--card);border:1px solid var(--border);border-radius:10px;box-shadow:0 10px 34px rgba(13,13,12,.14);padding:6px;display:none;flex-direction:column;gap:2px;z-index:70}
+.navgroup:hover .navmenu,.navgroup.open .navmenu{display:flex}
+.navmenu .navchild{justify-content:flex-start;text-align:left;width:100%;padding:8px 12px;border-radius:7px;font-size:13.5px;color:var(--muted);white-space:nowrap}
+.navmenu .navchild:hover{background:var(--bg2);color:var(--text)}
+.navmenu .navchild.active{color:var(--green);font-weight:600;background:var(--greenBg)}
+
+/* mobile drawer — the toggle is injected by nav.js; .top.nav-open opens it */
+.navtoggle{display:none;margin-left:auto;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;padding:0;background:none;border:0;cursor:pointer}
+.navtoggle span{display:block;width:20px;height:2px;margin:0 auto;background:var(--text);border-radius:2px;transition:transform .2s,opacity .2s}
+.top.nav-open .navtoggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.top.nav-open .navtoggle span:nth-child(2){opacity:0}
+.top.nav-open .navtoggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media (max-width:1040px){
+  .navtoggle{display:flex}
+  .top .wrap{position:relative}
+  .version{display:none}
+  .navlinks{display:none;position:absolute;left:0;right:0;top:calc(100% + 1px);flex-direction:column;align-items:stretch;gap:0;margin:0;padding:8px;background:var(--card);border-bottom:1px solid var(--border);box-shadow:0 14px 34px rgba(13,13,12,.14);max-height:calc(100vh - 56px);overflow:auto}
+  .top.nav-open .navlinks{display:flex}
+  .navlinks a,.navlinks .navgroup-btn{width:100%;text-align:left;justify-content:flex-start;padding:12px 16px;font-size:15px;border-radius:8px}
+  .navlinks a:hover{background:var(--bg2)}
+  .navgroup{display:block;width:100%;position:static}
+  .navgroup::after{display:none}
+  .navgroup-btn{display:flex}
+  .navgroup-car{margin-left:auto}
+  .navmenu{position:static;transform:none;display:flex;flex-direction:column;min-width:0;padding:2px 0 8px 14px;background:transparent;border:0;box-shadow:none}
+  .navmenu .navchild{padding:10px 14px;font-size:14px}
+}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;padding:12px 22px;border-radius:var(--r-sm);cursor:pointer;border:1px solid transparent;font-family:var(--sans);text-decoration:none}
+.btn-green{background:var(--green);color:#fff} .btn-green:hover{background:#16704f}
+.btn-ghost{background:transparent;color:var(--fg);border-color:var(--line-2)} .btn-ghost:hover{border-color:var(--fg-2)}
+.btn-ghost-dark{background:transparent;color:var(--text);border-color:var(--border)} .btn-ghost-dark:hover{border-color:var(--green);color:var(--green)}
+
+/* dark hero */
+.phero{background:var(--ink);color:var(--fg);padding:88px 24px 84px}
+.phero .wrap{max-width:var(--wrap)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--green);background:rgba(26,127,90,.18);border:1px solid rgba(26,127,90,.4);border-radius:999px;padding:5px 12px}
+.eyebrow .d{width:6px;height:6px;border-radius:50%;background:var(--green-2)}
+.phero h1{font-size:clamp(34px,5.2vw,60px);letter-spacing:-.04em;line-height:1.02;margin:26px 0 0;color:var(--fg);max-width:900px}
+.phero .sub{color:var(--fg-2);font-size:17px;line-height:1.7;max-width:640px;margin-top:24px}
+.cta-row{display:flex;flex-wrap:wrap;gap:11px;margin-top:30px}
+
+/* paper sections */
+.paper{background:var(--bg)}
+.psection{padding:80px 0;border-bottom:1px solid var(--border)}
+.psection.alt{background:var(--bg2)}
+.shead{max-width:680px} .shead.center{max-width:720px;margin:0 auto;text-align:center}
+.shead h2{color:var(--text)} .shead p{color:var(--muted);margin-top:16px;font-size:15px;line-height:1.75}
+
+/* closing panel + footer */
+.pcta{background:var(--ink);padding:80px 24px;text-align:center}
+.pcta .wrap{max-width:720px;padding:0}
+.pcta h2{font-size:clamp(28px,4.4vw,48px);color:var(--fg);margin-top:20px;font-weight:700;letter-spacing:-.03em}
+.pcta p{color:var(--fg-2);margin-top:16px;font-size:16px;line-height:1.7}
+.pcta .cta-row{justify-content:center}
+.foot{background:var(--canvas);border-top:1px solid var(--line);padding:32px 24px}
+.foot .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-family:var(--mono);font-size:10px;color:var(--fg-3);max-width:1100px}
+.footlink{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.footlink:hover{color:var(--fg-2)}
+/* ── lab chrome ──────────────────────────────────────────────────────────── */
+.labstrip{background:var(--bg2);border-bottom:1px solid var(--border);padding:9px 24px;font-family:var(--mono);font-size:11px;color:var(--muted);text-align:center}
+.labstrip b{color:var(--text)} .labstrip a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+
+/* status pill — every lab entry says what state it is in */
+.state{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:999px;padding:4px 10px;white-space:nowrap}
+.state::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.state.finding{color:var(--green);background:var(--greenBg);border:1px solid rgba(26,127,90,.3)}
+.state.mockup {color:var(--blue);background:#EEF2FF;border:1px solid rgba(29,78,216,.25)}
+.state.proposal{color:var(--gold);background:#FDF6EC;border:1px solid rgba(180,83,9,.25)}
+.state.open   {color:var(--muted);background:var(--bg2);border:1px solid var(--border)}
+
+/* the index of entries */
+.entries{display:flex;flex-direction:column;gap:14px;margin-top:36px}
+.entry{display:block;border:1px solid var(--border);border-radius:var(--r);background:var(--card);padding:24px 26px;text-decoration:none;transition:border-color .15s,transform .15s}
+.entry:hover{border-color:var(--green);transform:translateY(-1px)}
+.entry .head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.entry .n{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--faint)}
+.entry h3{margin:0;font-size:20px;font-weight:700;letter-spacing:-.015em;color:var(--text);flex:1 1 auto;min-width:240px}
+.entry p{font-size:14px;color:var(--muted);line-height:1.65;margin-top:10px;max-width:720px}
+.entry .meta{margin-top:14px;padding-top:12px;border-top:1px solid var(--border);font-family:var(--mono);font-size:11px;color:var(--faint);display:flex;gap:18px;flex-wrap:wrap}
+
+/* ── mockups: a fake browser around a fake screen ───────────────────────── */
+.mock{margin:34px 0 0;border:1px solid var(--border);border-radius:var(--r);overflow:hidden;background:var(--card);box-shadow:0 14px 40px -28px rgba(13,13,12,.4)}
+.mock-bar{display:flex;align-items:center;gap:12px;padding:10px 14px;background:var(--bg2);border-bottom:1px solid var(--border)}
+.mock-bar .dots{display:flex;gap:5px;flex:none}
+.mock-bar .dots i{width:9px;height:9px;border-radius:50%;background:#D6D2C9;display:block}
+.mock-bar .url{font-family:var(--mono);font-size:11px;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:6px;padding:4px 10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1 1 auto}
+.mock-body{padding:28px 30px}
+.mock-body.dark{background:var(--ink);color:var(--fg)}
+.mock cap,figcaption{display:block;padding:14px 18px;border-top:1px solid var(--border);background:var(--bg2);font-size:13px;color:var(--muted);line-height:1.6}
+figcaption b{color:var(--text)}
+
+/* pieces used inside the mocked screens */
+.m-eyebrow{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--green)}
+.m-h{font-size:26px;font-weight:800;letter-spacing:-.025em;line-height:1.1;margin:10px 0 0;color:var(--text)}
+.mock-body.dark .m-h{color:var(--fg)}
+.m-sub{font-size:14px;color:var(--muted);line-height:1.65;margin-top:12px;max-width:620px}
+.mock-body.dark .m-sub{color:var(--fg-2)}
+.m-btn{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;padding:10px 18px;border-radius:var(--r-sm);border:1px solid transparent;font-family:var(--sans)}
+.m-btn.p{background:var(--green);color:#fff}
+.m-btn.s{background:transparent;color:var(--text);border-color:var(--border)}
+.mock-body.dark .m-btn.s{color:var(--fg);border-color:var(--line-2)}
+.m-row{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+
+/* shape picker */
+.shapes{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:22px}
+@media (max-width:760px){.shapes{grid-template-columns:1fr}}
+.shape{border:1px solid var(--border);border-radius:var(--r-sm);padding:16px 18px;background:var(--card);display:flex;flex-direction:column;gap:6px}
+.shape.sel{border:2px solid var(--green);background:var(--greenBg)}
+.shape .t{font-size:14.5px;font-weight:700;color:var(--text)}
+.shape .d{font-size:12.5px;color:var(--muted);line-height:1.5}
+.shape .c{font-family:var(--mono);font-size:10.5px;color:var(--faint);margin-top:4px}
+.shape.sel .c{color:var(--green)}
+
+/* the four-object counter row */
+.counts{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--r-sm);overflow:hidden;margin-top:20px}
+@media (max-width:620px){.counts{grid-template-columns:repeat(2,1fr)}}
+.count{background:var(--card);padding:16px 18px}
+.count .k{display:block;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+.count .v{display:block;font-family:var(--mono);font-size:26px;font-weight:700;color:var(--text);line-height:1;margin-top:8px}
+.count.warn .v{color:var(--gold)}
+
+/* capability / contradiction tables */
+.tw{overflow-x:auto;margin-top:22px;border:1px solid var(--border);border-radius:var(--r-sm);background:var(--card)}
+table.t{width:100%;border-collapse:collapse;font-size:13px;min-width:600px}
+table.t th{text-align:left;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);padding:12px 14px;border-bottom:1px solid var(--border);white-space:nowrap}
+table.t td{padding:12px 14px;border-bottom:1px solid var(--border);color:var(--muted);line-height:1.5;vertical-align:top}
+table.t tr:last-child td{border-bottom:0}
+table.t td.k{color:var(--text);font-family:var(--mono);font-size:12px;white-space:nowrap}
+table.t code{font-family:var(--mono);font-size:11.5px;background:var(--bg2);padding:1px 5px;border-radius:4px;color:var(--text)}
+.gl{font-size:13px;text-align:center;width:1px}
+.mat{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:4px;padding:2px 6px;white-space:nowrap}
+.mat.mixed{color:var(--red);background:#FDF3F2}
+.mat.third{color:var(--red);background:#FDF3F2}
+.mat.org{color:var(--gold);background:#FDF6EC}
+.mat.own{color:var(--green);background:var(--greenBg)}
+
+/* correction UI */
+.corr{border:1px solid var(--border);border-radius:var(--r-sm);background:var(--card);margin-top:20px;overflow:hidden}
+.corr-row{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;padding:14px 16px;border-bottom:1px solid var(--border)}
+.corr-row:last-child{border-bottom:0}
+.corr-row.fixed{background:var(--greenBg)}
+.corr-q{font-size:13.5px;color:var(--text)}
+.corr-q span{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.corr-a{display:flex;gap:6px;flex:none}
+.pill{font-family:var(--mono);font-size:10.5px;font-weight:700;border:1px solid var(--border);border-radius:6px;padding:5px 9px;color:var(--muted);background:var(--card);white-space:nowrap}
+.pill.on{border-color:var(--green);color:var(--green);background:var(--greenBg)}
+.pill.off{border-color:var(--red);color:var(--red);background:#FDF3F2}
+.corr-note{padding:14px 16px;background:var(--bg2);border-top:1px solid var(--border);font-size:13px;color:var(--muted);line-height:1.6}
+.corr-note b{color:var(--text)}
+
+/* read key / delivery */
+.key{font-family:var(--mono);font-size:12px;background:var(--ink);color:var(--green-2);border-radius:var(--r-sm);padding:14px 16px;margin-top:18px;word-break:break-all;line-height:1.6}
+.key .lab2{display:block;color:var(--fg-3);font-size:10px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:7px}
+.vfiles{margin:20px 0 0;padding:0;list-style:none;font-family:var(--mono);font-size:12.5px;border:1px solid var(--border);border-radius:var(--r-sm);overflow:hidden}
+.vfiles li{padding:10px 14px;border-bottom:1px solid var(--border);background:var(--card);display:flex;justify-content:space-between;gap:14px;color:var(--text)}
+.vfiles li:last-child{border-bottom:0}
+.vfiles li span:last-child{color:var(--faint);font-size:11px}
+.vfiles li.auth{background:var(--greenBg)}
+
+/* twelve-stage table */
+.stages{overflow-x:auto;margin-top:34px;border:1px solid var(--border);border-radius:var(--r);background:var(--card)}
+table.st{width:100%;border-collapse:collapse;font-size:13.5px;min-width:680px}
+table.st th{text-align:left;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);padding:13px 16px;border-bottom:1px solid var(--border)}
+table.st td{padding:13px 16px;border-bottom:1px solid var(--border);color:var(--muted);line-height:1.55;vertical-align:top}
+table.st tr:last-child td{border-bottom:0}
+table.st td.n{font-family:var(--mono);color:var(--faint);width:1px}
+table.st td.s{color:var(--text);font-weight:700;white-space:nowrap}
+table.st tr.week td{background:var(--greenBg)}
+table.st tr.week td.s{color:var(--green)}
+table.st td.w{font-family:var(--mono);font-size:11px;white-space:nowrap}
+
+/* rules and notes */
+.rule{margin-top:30px;border-left:3px solid var(--green);background:var(--greenBg);border-radius:0 var(--r-sm) var(--r-sm) 0;padding:20px 24px;max-width:700px}
+.rule p{color:var(--text);font-size:16px;line-height:1.6;font-weight:600}
+.rule p + p{margin-top:10px;font-weight:400;font-size:14.5px;color:var(--muted)}
+.notice{margin-top:28px;border:1px dashed var(--faint);border-radius:var(--r-sm);padding:16px 20px;font-size:13.5px;color:var(--muted);line-height:1.65;max-width:780px}
+.notice strong{color:var(--text)}
+.notice a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+.src{margin-top:26px;font-family:var(--mono);font-size:11.5px;color:var(--faint);line-height:1.75}
+.src a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+.plist{margin:26px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;max-width:720px}
+.plist li{position:relative;padding-left:22px;font-size:15px;color:var(--muted);line-height:1.7}
+.plist li::before{content:"";position:absolute;left:2px;top:10px;width:6px;height:6px;border-radius:50%;background:var(--green)}
+.plist strong{color:var(--text)}
+.plist code,.shead code,.rule code,.notice code{font-family:var(--mono);font-size:13px;background:var(--bg2);padding:1px 6px;border-radius:5px;color:var(--text)}
+.psection.alt .plist code,.psection.alt .shead code{background:var(--card)}
+blockquote.q{margin:22px 0 0;border-left:3px solid var(--border);padding:4px 0 4px 20px;font-size:15px;color:var(--text);line-height:1.7;max-width:700px}
+blockquote.q cite{display:block;font-style:normal;font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:10px}
+blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+
+/* ── editions list — the dated PDFs behind a page that changes ──────────── */
+.editions .shead{margin-bottom:6px}
+.edwhole{margin-top:26px;border:2px solid var(--green);background:var(--greenBg);border-radius:var(--r);padding:24px 26px}
+.edwhole .ed-t{font-size:17px}
+.ed-p{font-size:13.5px;color:var(--muted);line-height:1.65;margin:0 0 4px;max-width:560px}
+.edwhole .ed{background:var(--card)}
+.edgroup{margin-top:26px}
+.ed-t{display:block;font-size:15px;font-weight:700;color:var(--text);margin-bottom:10px}
+.edlist{display:flex;flex-direction:column;gap:8px;margin-top:20px;max-width:560px}
+.edgroup .edlist{margin-top:0}
+.ed{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:baseline;
+  border:1px solid var(--border);border-radius:var(--r-sm);background:var(--card);
+  padding:13px 16px;text-decoration:none;transition:border-color .15s}
+.ed:hover{border-color:var(--green)}
+.ed-v{font-family:var(--mono);font-size:12.5px;font-weight:700;color:var(--green);white-space:nowrap}
+.ed-d{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.ed-s{font-family:var(--mono);font-size:11px;color:var(--faint);white-space:nowrap}
+.ed-n{grid-column:1/-1;font-size:12px;color:var(--muted);line-height:1.5;margin-top:2px}
+@media print{.editions{display:none}}
+
+/* ── print ────────────────────────────────────────────────────────────────
+   A Lab page is also a PDF edition: a dated, immutable copy of the thinking
+   as it stood, so the journey survives the page moving on. Rendered by
+   scripts/site/render-lab-pdfs.mjs, which is why this block matters more than
+   print CSS usually does — it is the layout of a published artefact, not a
+   courtesy for somebody's printer. */
+@media print {
+  :root{ --wrap:100% }
+  html,body{ background:#fff }
+  body{ font-size:10.5pt; line-height:1.5 }
+  *{ -webkit-print-color-adjust:exact; print-color-adjust:exact }
+
+  /* chrome that means nothing on paper */
+  .top,.navtoggle,.labstrip,.pcta .cta-row,.entry .meta,.phero{ display:none !important }
+  .pdfcover{ display:block !important }
+
+  .wrap{ max-width:100%; padding:0 }
+  .phero{ padding:0 0 18pt; background:#fff; color:var(--text);
+          border-bottom:1.5pt solid var(--green); break-after:avoid }
+  .phero h1{ color:var(--text); font-size:22pt; line-height:1.1; margin:10pt 0 0 }
+  .phero .sub{ color:var(--muted); font-size:11pt; max-width:100% }
+  .phero .it{ color:var(--green) }
+  .eyebrow{ background:none; border:0; padding:0; color:var(--green) }
+
+  .psection{ padding:16pt 0; border-bottom:0.75pt solid var(--border); break-inside:auto }
+  .psection.alt{ background:#fff }
+  .shead{ max-width:100% } .shead h2{ font-size:15pt; break-after:avoid }
+  .shead p{ font-size:10.5pt; margin-top:8pt }
+  h2,h3{ break-after:avoid }
+
+  /* nothing that is one idea may be split down the middle */
+  .mock,.entry,.rule,.notice,blockquote.q,.tw,.t-wrap,.stages,.up,.saytable,
+  figure,figcaption,.oitem,.wcard,.boiler,.rung,.shape,.count,.corr,.vfiles,
+  .fact,.col,.pcard,.ti,.key,.speclist{ break-inside:avoid }
+  .plist li{ break-inside:avoid }
+  table.t,table.st,table.m,table.say,table.up-t{ font-size:8.5pt }
+  table thead{ display:table-header-group }
+
+  .mock{ box-shadow:none; margin-top:14pt }
+  .mock-bar{ padding:5pt 8pt }
+  .mock-body{ padding:14pt 16pt }
+  .mock-body.dark{ background:var(--ink) }
+  figcaption{ font-size:9pt; padding:9pt 12pt }
+
+  .pcta{ background:#fff; padding:18pt 0 0; text-align:left;
+         border-top:1.5pt solid var(--green) }
+  .pcta .wrap{ max-width:100% } .pcta h2{ color:var(--text); font-size:15pt }
+  .pcta p{ color:var(--muted); font-size:10.5pt }
+  .pcta .eyebrow{ color:var(--green) }
+  .foot{ display:none }
+
+  a{ color:var(--green); text-decoration:none }
+  .src,blockquote.q cite{ font-size:8.5pt }
+}
+
+/* ── the PDF cover — print only ──────────────────────────────────────────── */
+.pdfcover{ display:none }
+@media print {
+  .pdfcover{ break-after:page; padding:0 0 24pt }
+  .pdfcover .pc-mark{ display:flex; align-items:center; gap:9pt; margin-bottom:96pt }
+  .pdfcover .pc-mark svg{ width:30pt; height:30pt; display:block }
+  .pdfcover .pc-mark b{ font-size:15pt; letter-spacing:-0.02em }
+  .pdfcover .pc-kicker{ font-family:var(--mono); font-size:9pt; font-weight:700;
+    letter-spacing:.18em; text-transform:uppercase; color:var(--green) }
+  .pdfcover h1{ font-size:30pt; font-weight:800; letter-spacing:-.03em;
+    line-height:1.06; margin:14pt 0 0; color:var(--text) }
+  .pdfcover h1 .it{ font-style:italic; color:var(--green) }
+  .pdfcover .pc-stand{ font-size:12pt; line-height:1.6; color:var(--muted);
+    margin-top:18pt; max-width:150mm }
+  .pdfcover .pc-meta{ margin-top:96pt; border-top:1.5pt solid var(--green);
+    padding-top:12pt; font-family:var(--mono); font-size:9pt; color:var(--muted);
+    display:flex; flex-direction:column; gap:4pt }
+  .pdfcover .pc-meta b{ color:var(--text) }
+  .pdfcover .pc-warn{ margin-top:14pt; font-size:9.5pt; line-height:1.6;
+    color:var(--muted); max-width:150mm; font-family:var(--sans) }
+  .pdfcover .pc-warn b{ color:var(--text) }
+}
+
+/* narrow phones — at 360px the brand, the burger and the call to action stop
+   fitting on one line, and the header was the last thing on this site that
+   scrolled sideways. Tighten the gutter, the gap and the button rather than
+   drop any of them: all three are load-bearing at this width. */
+@media (max-width:420px){
+  .top .wrap{gap:12px;padding:0 16px}
+  .brand{font-size:14px;gap:7px}
+  .rm{width:24px;height:24px}
+  .demo{padding:8px 12px;font-size:12.5px}
+}
+
+/* ── behaviour-policy vaults: the card, the tables, the key, the app ────────── */
+.ab-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:26px 28px;box-shadow:0 18px 50px -34px rgba(13,13,12,.45);margin-top:26px}
+.ab-card.wait{min-height:120px}
+.ab-loading,.ab-fail{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.ab-fail{color:var(--red);padding:16px;border:1px solid rgba(192,57,43,.3);border-radius:var(--r);background:#FBEDEA}
+.ab-head{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-start}
+.ab-org{display:block;font-size:17px;font-weight:700;letter-spacing:-.01em;color:var(--text)}
+.ab-meta{display:block;font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:3px}
+.ab-chip{display:inline-flex;font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:4px 10px;border:1px solid var(--border);color:var(--muted);background:var(--card)}
+.ab-chip.template{color:var(--gold);background:#FDF6EC;border-color:rgba(180,83,9,.3)}
+.ab-chip.corrected{color:var(--green);background:var(--greenBg);border-color:rgba(26,127,90,.3)}
+.ab-counts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:20px 0 6px}
+@media (max-width:600px){.ab-counts{grid-template-columns:1fr 1fr}}
+.ab-count{border:1px solid var(--border);border-radius:var(--r-sm);padding:12px 12px 10px;background:var(--bg)}
+.ab-count b{display:block;font-size:30px;font-weight:800;letter-spacing:-.03em;line-height:1;color:var(--text)}
+.ab-count span{display:block;font-size:12px;color:var(--muted);margin-top:6px;line-height:1.3}
+.ab-count.ex b{color:var(--red)} .ab-count.ok b{color:var(--green)} .ab-count.un b{color:var(--gold)}
+.ab-rowsline,.ab-legend{display:flex;gap:14px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:10px}
+.ab-legend{margin-top:6px}
+.ab-bar{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;font-size:13px;color:var(--muted);margin-top:14px}
+.ab-track{height:8px;background:var(--bg2);border-radius:999px;overflow:hidden;display:flex}
+.ab-track i{display:block;height:100%}
+.ab-track .b0{background:var(--red)} .ab-track .b1{background:#D98C3F} .ab-track .b2{background:var(--gold)} .ab-track .b3{background:var(--green)}
+.ab-noscore{margin-top:16px;padding-top:14px;border-top:1px solid var(--border);font-size:13.5px;color:var(--muted)}
+.ab-noscore b{color:var(--text)}
+.ab-foot{margin-top:14px}
+.ab-status{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;border-radius:999px;padding:4px 10px;border:1px solid var(--border);color:var(--muted);background:var(--bg)}
+.ab-status.live{color:var(--green);background:var(--greenBg);border-color:rgba(26,127,90,.3)}
+.ab-status.snapshot{color:var(--gold);background:#FDF6EC;border-color:rgba(180,83,9,.3)}
+.ab-g{font-family:var(--mono);white-space:nowrap}
+.ab-g.none{color:var(--red)} .ab-g.expectation{color:#D98C3F} .ab-g.setting{color:var(--gold)} .ab-g.boundary{color:var(--green);font-weight:700}
+.ab-ev{font-family:var(--mono);font-size:11.5px;color:var(--muted)} .ab-ev.m{color:var(--green)}
+.ab-pill{display:inline-block;font-family:var(--mono);font-size:10.5px;border-radius:999px;padding:2px 8px;border:1px solid var(--border);color:var(--muted);white-space:nowrap}
+.ab-pill.want{color:var(--green);background:var(--greenBg);border-color:rgba(26,127,90,.3)}
+.ab-pill.refused{color:var(--red);background:#FBEDEA;border-color:rgba(192,57,43,.3)}
+.ab-pill.unstated{color:var(--gold);background:#FDF6EC;border-color:rgba(180,83,9,.3)}
+.ab-pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.ab-h3{font-size:17px;font-weight:700;letter-spacing:-.01em;color:var(--text);margin:26px 0 0}
+.ab-sub{font-size:13.5px;color:var(--muted);margin-top:6px;line-height:1.6}
+.ab-quote{font-size:17px;line-height:1.6;color:var(--text);margin-top:18px;padding-left:16px;border-left:3px solid var(--green)}
+.ab-src{font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:12px}
+.ab-files{margin:16px 0 0;padding:0;list-style:none;columns:2;column-gap:28px}
+@media (max-width:700px){.ab-files{columns:1}}
+.ab-files li{font-family:var(--mono);font-size:12.5px;padding:4px 0;break-inside:avoid}
+.ab-files a{color:var(--green);text-decoration:none} .ab-files a:hover{text-decoration:underline}
+.ab-keyrow{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-top:10px}
+.ab-keylabel{flex:none;width:76px;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+.ab-key{font-family:var(--mono);font-size:11.5px;color:var(--muted);word-break:break-all;background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:6px 10px}
+.ab-open{font-size:13.5px;color:var(--green)}
+.ab-appbar{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-top:22px}
+.ab-applabel{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.vd-stage{margin-top:12px;background:var(--ink);border-radius:var(--r);overflow:hidden;aspect-ratio:16/11;border:1px solid var(--border)}
+.vd-stage.error{display:grid;place-items:center;aspect-ratio:auto;min-height:150px;padding:26px}
+.vd-stage.error p{color:var(--fg-2);font-size:14px;line-height:1.65;max-width:60ch;text-align:center}
+.vd-stage.error a{color:var(--green-2)}
+.vd-frame{display:block;width:100%;height:100%;border:0;background:#F7F6F2}
+.vd-status{flex:none;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;border-radius:999px;padding:4px 10px}
+.vd-status.wait{color:var(--faint);background:var(--bg2);border:1px solid var(--border)}
+.vd-status.live{color:#fff;background:var(--green);border:1px solid var(--green)}
+.vd-status.stall{color:var(--red);background:#FBEDEA;border:1px solid rgba(192,57,43,.3)}
+.ab-ladder{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:26px}
+.ab-rung{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:18px 20px}
+.ab-rung .n{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.16em;color:var(--green)}
+.ab-rung h3{font-size:16px;margin:8px 0 6px;color:var(--text)}
+.ab-rung p{font-size:13.5px;color:var(--muted);line-height:1.6}
+.ab-vaultlist{display:flex;flex-direction:column;gap:14px;margin-top:26px}
+.ab-vault{border:1px solid var(--border);border-radius:var(--r);background:var(--card);padding:22px 26px}
+.ab-vault .head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.ab-vault h3{margin:0;font-size:20px;font-weight:700;letter-spacing:-.015em;color:var(--text);flex:1 1 auto;min-width:240px}
+.ab-vault .shape{font-family:var(--mono);font-size:11px;color:var(--faint)}
+.ab-vault p{font-size:14px;color:var(--muted);margin-top:8px;max-width:76ch}
+.ab-vault .links{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+
+/* the directory */
+.ab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:14px;margin-top:26px}
+@media (max-width:820px){.ab-grid{grid-template-columns:1fr}}
+.ab-tile{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:start;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 18px 16px}
+.ab-tile.on:hover{border-color:var(--green)}
+.ab-tile.off{opacity:.72}
+.ab-glyph{display:grid;place-items:center;width:52px;height:52px;border-radius:12px;font-family:var(--mono);font-weight:700;font-size:15px;letter-spacing:-.02em;color:#fff;background:var(--ink)}
+.ab-glyph.code{background:#1D4ED8}.ab-glyph.chat{background:#1A7F5A}.ab-glyph.desktop{background:#6D28D9}.ab-glyph.browser{background:#B45309}.ab-glyph.ci{background:#0F766E}.ab-glyph.service{background:#374151}.ab-glyph.mail{background:#C0392B}.ab-glyph.files{background:#0369A1}
+.ab-tile.off .ab-glyph{background:var(--bg2);color:var(--faint);border:1px dashed var(--border)}
+.ab-tilebody h3{margin:0;font-size:16.5px;font-weight:700;letter-spacing:-.01em;color:var(--text)}
+.ab-tilebody h3 a{color:var(--text);text-decoration:none}.ab-tilebody h3 a:hover{color:var(--green)}
+.ab-verified{font-size:12px;color:var(--green);margin-left:4px}
+.ab-tilebody p{font-size:13.5px;color:var(--muted);line-height:1.55;margin-top:4px}
+.ab-tilecounts{display:block;font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:8px}
+.ab-mini{display:inline-block;font-family:var(--mono);font-size:10.5px;margin-top:6px;border-radius:999px;padding:2px 8px;border:1px solid var(--border);color:var(--muted)}
+.ab-mini.live{color:var(--green);background:var(--greenBg);border-color:rgba(26,127,90,.3)}
+.ab-plus{display:grid;place-items:center;width:40px;height:40px;border-radius:10px;border:1px solid var(--border);background:var(--card);color:var(--text);font-size:22px;text-decoration:none;line-height:1}
+.ab-plus:hover{border-color:var(--green);color:var(--green)}
+.ab-plus.off{color:var(--faint);border-style:dashed}
+</style>
+</head>
+<body id="top">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
+    <nav class="navlinks"><rm-menu></rm-menu></nav>
+    <a class="version" href="versions.html" title="What shipped in v1.13.0">v1.13.0</a>
+    <button class="demo" data-demo>Get in touch</button>
+  </div>
+</header>
+
+<div class="labstrip"><b>Behaviour-policy vault</b> · <span class="state proposal">Template</span> · Read live from vault <b>0hpdpj80</b> with the key printed on this page. <a href="abp-vaults.html">All applications</a> · <a href="lab-vault-delivered.html">How the first one was built</a></div>
+
+<main class="phero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> Agent Behaviour Policy · github/actions-runner/ci</span>
+    <h1>GitHub Actions,<span class="it"> a hosted CI job.</span></h1>
+    <p class="sub">An ephemeral CI job with no agent, no hooks, and one platform-enforced grant: the workflow's permissions block. MEASURED on 26 August by measure.py inside the runner (the library's second entry), translated into findings on 5 September. This is the template vault for that shape: the grant measured on the thing itself, the starting mandate the model site published, and everything else derived. Every number on this page is decrypted from the vault as you read it.</p>
+    <div class="cta-row">
+      <button class="btn btn-green" data-to="app">Open the vault's app ↓</button>
+      <button class="btn btn-ghost" data-to="key">The read key ↓</button>
+    </div>
+  </div>
+</main>
+
+<div class="paper">
+
+  <section class="psection" id="card">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">01 · The card</span>
+        <h2>Eight it can do. Five you asked for. <span class="g">Three nothing bounds.</span></h2>
+        <p>Four counts and no score. The bar splits the excess by what stands in the way of each row: nothing, a rule in prose, a setting the agent's own account can flip, or a boundary enforced above it. Only the last is a control. 8 of 8 rows were observed on the thing itself.</p>
+      </div>
+      <rm-abp-card data-vault="github-actions"></rm-abp-card>
+    </div>
+  </section>
+
+  <section class="psection alt" id="mandate">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">02 · The mandate</span>
+        <h2>What you asked it to do, <span class="g">and what you did not.</span></h2>
+        <p>Elicited, and the only authored file in the vault. This is the draft asserting a conservative mandate so that the correction goes upward: most people authorised less than they think, and never mentioned the rest.</p>
+      </div>
+      <rm-abp-table data-vault="github-actions" data-view="mandate"></rm-abp-table>
+    </div>
+  </section>
+
+  <section class="psection" id="grant">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">02 · The grant</span>
+        <h2>Everything the agent can do, <span class="g">irreversible rows first.</span></h2>
+        <p>Measured from the shape, not from your account and not by you. Each row says how it is known (✓ marks a row observed on the thing itself), what stands in the way, and whether the effect can be undone. What host, tenant and world mean in this shape is stated on the vault's Grant view, because for an agent in a vendor's container the host is the container and not your machine.</p>
+      </div>
+      <rm-abp-table data-vault="github-actions" data-view="grant"></rm-abp-table>
+      <rm-abp-table data-vault="github-actions" data-view="notreach"></rm-abp-table>
+      <div class="notice">
+        <strong>A control bounds a grant only if it is enforced by something the grant does not include.</strong> A setting the agent's own account could change is not a control, because the grant includes the ability to remove the bound. A boundary enforced above it is one, because it does not. One of the four excess rows here sit behind a boundary; the other three are only asked.
+      </div>
+    </div>
+  </section>
+
+  <section class="psection alt" id="delta">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">02 · The delta</span>
+        <h2>What it can do <span class="g">that nobody asked for.</span></h2>
+        <p>Derived from the grant and the mandate, never authored, stored with both inputs pinned. Split three ways: the part you refused, the part you never mentioned, and the part with no boundary in the way — which is the only list a real control shortens.</p>
+      </div>
+      <rm-abp-table data-vault="github-actions" data-view="delta"></rm-abp-table>
+    </div>
+  </section>
+
+  <section class="psection" id="licence">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">02 · Licence to Operate</span>
+        <h2>The organisation authorises the agent, <span class="g">for an interval, on conditions.</span></h2>
+        <p>The organisation is the authority, the behaviour policy is the instrument, the agent is the licensee. A template is unsigned and unissued; a corrected vault carries a name, a date and an interval — and each condition sits next to what enforces it, so the person signing knows what they are accepting with their eyes open.</p>
+      </div>
+      <rm-abp-table data-vault="github-actions" data-view="licence"></rm-abp-table>
+    </div>
+  </section>
+
+  <section class="psection alt" id="app">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">03 · The app</span>
+        <h2>The vault's own interface, <span class="g">running here from the vault.</span></h2>
+        <p>The vault carries a single self-contained page that renders itself from the files beside it, and opens on Start here: what this is, where the pieces go, what we want the agent to do beside what we do not, and three ways to hand it over. Below it is booted inside a sandboxed frame with an opaque origin and served its reads by this page over a message channel — the app never sees a key, and this page never runs the app's code in its own origin.</p>
+      </div>
+      <rm-abp-app data-vault="github-actions"></rm-abp-app>
+      <p class="src">Prefer the whole product? <a href="https://dev.vault.sgraph.ai/en-gb/" target="_blank" rel="noopener">Open the vault browser</a> and paste the read key from the next section; it opens read-only with the files, the history and the app. A static copy of the app is also served from this site at <a href="vaults/github-actions/index.html">vaults/github-actions/index.html</a>, and says so in its top bar.</p>
+    </div>
+  </section>
+
+  <section class="psection" id="files">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">04 · The files</span>
+        <h2>The bytes themselves, <span class="g">listed from the live tree.</span></h2>
+        <p>Markdown for people, JSON for machines, the pinned vocabulary, the history, and the two files you hand the agent — <code>AGENTS.md</code> for a CLAUDE.md, a ROLE.md or a skill, and <code>SKILL.md</code> in the portable skill format. The list is the vault's; each link opens the copy this site serves.</p>
+      </div>
+      <rm-abp-files data-vault="github-actions"></rm-abp-files>
+    </div>
+  </section>
+
+  <section class="psection alt" id="key">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">The read key</span>
+        <h2>Published on purpose. <span class="g">Read, and nothing else.</span></h2>
+        <p>Derived one-way from the vault's write key, which is not published and never will be. With the key below anyone can clone this vault, open it in the vault browser, or read it from their own page — and check every number above against the bytes it came from. That is what makes a template free: the library is the argument, and it is public. A buyer's corrected vault has no public key.</p>
+      </div>
+      <rm-abp-key data-vault="github-actions"></rm-abp-key>
+      <p class="src">sgit prints the same key with a prefix that declares its intent; the public form is the one shown. This page reads the vault at <code>dev.send.sgraph.ai</code> over plain cross-origin GETs and decrypts in your browser; the site never proxies it and holds no credential beyond the key you can see.</p>
+    </div>
+  </section>
+
+</div>
+
+<section class="pcta">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> Behaviour-policy vault</span>
+    <h2>Run this? Correct the mandate.</h2>
+    <p>Open the app above, move the rows that are wrong, and send us the export. Your vault is this one with the mandate corrected, a name on the licence, and no public key — and it recomputes when the grant moves.</p>
+    <div class="cta-row">
+      <a class="btn btn-green" href="vaults/github-actions/MANDATE.md">Read the mandate ↗</a>
+      <a class="btn btn-ghost" href="abp-vaults.html">All applications</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>© 2026 RiskMandate · Autonomous Risk Management</span>
+    <span>The insurability layer for agentic AI. · <a class="footlink" href="versions.html">Versions</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+var RM={core:{},services:{},components:{},data:{}};
+RM.data.currentPage="abp-vault-github-actions";RM.data.pages=[{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"The problem"},{"name":"acceptable","label":"Accepted is not acceptable","file":"acceptable.html","group":"The problem"},{"name":"acceptance","label":"You own the risk","file":"acceptance.html","group":"The problem"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"The problem"},{"name":"abp","label":"Agent Behaviour Policy","file":"abp.html","group":"The model"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"The model"},{"name":"agents","label":"Agents","file":"agents.html","group":"The model"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"The model"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"The model"},{"name":"statics","label":"Static scenarios","file":"statics.html","group":"The model"},{"name":"demos","label":"All demos","file":"demos.html","group":"Live demos"},{"name":"demo-licence-to-operate","label":"Licence to Operate","file":"demo-licence-to-operate.html","group":"Live demos"},{"name":"demo-risk-graph-explorer","label":"RiskGraph Explorer","file":"demo-risk-graph-explorer.html","group":"Live demos"},{"name":"demo-agentic-browser-isolation","label":"Agentic Browser Isolation","file":"demo-agentic-browser-isolation.html","group":"Live demos"},{"name":"demo-risk-mandate-field","label":"RiskMandate field demo","file":"demo-risk-mandate-field.html","group":"Live demos"},{"name":"demo-file-security","label":"File security walk","file":"demo-file-security.html","group":"Live demos"},{"name":"demo-agent-permission-games","label":"Permission games","file":"demo-agent-permission-games.html","group":"Live demos"},{"name":"abp-vaults","label":"Behaviour-policy vaults","file":"abp-vaults.html","group":"Live demos"},{"name":"lab","label":"All entries","file":"lab.html","group":"Lab"},{"name":"lab-connector-grants","label":"01 · The grant is user-shaped","file":"lab-connector-grants.html","group":"Lab"},{"name":"lab-abp-flow","label":"02 · Buying a behaviour policy","file":"lab-abp-flow.html","group":"Lab"},{"name":"lab-abp-requests","label":"03 · Requests to abp.sgit.ai","file":"lab-abp-requests.html","group":"Lab"},{"name":"lab-shape-collector","label":"04 · The shape collector","file":"lab-shape-collector.html","group":"Lab"},{"name":"lab-commit-author","label":"05 · The commit author","file":"lab-commit-author.html","group":"Lab"},{"name":"lab-network-reach","label":"06 · Every routable address","file":"lab-network-reach.html","group":"Lab"},{"name":"lab-vault-delivered","label":"07 · The vault, delivered","file":"lab-vault-delivered.html","group":"Lab"},{"name":"summit","label":"Lisbon 2026","file":"summit.html"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"briefs","label":"Brief register","file":"briefs.html","group":"More"},{"name":"work","label":"Working with us","file":"work.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"}];RM.data.sections=[];
+
+'use strict';
+// components/dom.js — tiny DOM helpers shared by components. `el` builds an
+// element with attributes and children; text children always go in via
+// textContent. `renderMarkdownInto` turns core/markdown tokens into real DOM
+// nodes (never an HTML string), so fetched release notes cannot inject markup.
+
+RM.components.dom = (function () {
+  // A link in a markdown note may only go somewhere harmless: same-document,
+  // same-origin relative, https, or mailto. Anything else — javascript:, data:,
+  // a protocol-relative host — renders as the text it was, and goes nowhere.
+  var SAFE = /^(?:https:\/\/|mailto:|#|[^:/?#]*(?:[/?#]|$))/i;
+
+  /**
+   * @param {string} tag
+   * @param {Object<string,string>} [attrs]
+   * @param {Array<Node|string>} [children]
+   * @returns {HTMLElement}
+   */
+  function el(tag, attrs, children) {
+    var node = document.createElement(tag);
+    if (attrs) Object.keys(attrs).forEach(function (k) {
+      if (attrs[k] != null) node.setAttribute(k, attrs[k]);
+    });
+    (children || []).forEach(function (c) {
+      node.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
+    });
+    return node;
+  }
+
+  /**
+   * Render inline runs into a parent element. Emphasis runs carry child runs
+   * rather than a string, so a link or a code span inside **bold** renders as
+   * itself instead of as its own markdown source — hence the recursion.
+   */
+  function appendRuns(parent, runs) {
+    runs.forEach(function (run) {
+      if (run.t === 'strong' || run.t === 'em') {
+        var node = el(run.t);
+        if (run.runs) appendRuns(node, run.runs);
+        else          node.appendChild(document.createTextNode(run.v));
+        parent.appendChild(node);
+      }
+      else if (run.t === 'code') parent.appendChild(el('code', null, [run.v]));
+      else if (run.t === 'link') parent.appendChild(SAFE.test(run.href)
+        ? el('a', { href: run.href }, [run.v])
+        : document.createTextNode(run.v));
+      else parent.appendChild(document.createTextNode(run.v));
+    });
+  }
+
+  /**
+   * Render markdown block tokens into a container as DOM nodes.
+   * @param {HTMLElement} container
+   * @param {Array} blocks  output of RM.core.markdown.parse
+   */
+  function renderMarkdownInto(container, blocks) {
+    blocks.forEach(function (b) {
+      if (b.type === 'heading') {
+        var h = el('h' + (b.level + 1)); // ## release title -> h3, etc.
+        appendRuns(h, b.runs);
+        container.appendChild(h);
+      } else if (b.type === 'list') {
+        var ul = el('ul');
+        b.items.forEach(function (runs) {
+          var li = el('li');
+          appendRuns(li, runs);
+          ul.appendChild(li);
+        });
+        container.appendChild(ul);
+      } else {
+        var p = el('p');
+        appendRuns(p, b.runs);
+        container.appendChild(p);
+      }
+    });
+  }
+
+  return { el: el, appendRuns: appendRuns, renderMarkdownInto: renderMarkdownInto };
+})();
+
+
+'use strict';
+// components/nav.js — the behaviour on a page that is *not* a link.
+//   [data-to]   → smooth in-page scroll to an element id (no hash routing).
+//   [data-demo] → open a pre-filled demo enquiry email.
+//
+// v1.0.0 removed everything else that used to live here. Up to v0.14 the site
+// ran inside a host <iframe> and every navigation was a postMessage — rm-nav,
+// rm-back, rm-manifest, rm-read. A <button> is not a link, so nothing could be
+// deep-linked, bookmarked, opened in a new tab, or crawled. Now each page is
+// the document the server sent and each navigation is an <a href>, so the only
+// things left to wire are the two that genuinely are not navigation.
+//
+// The mobile drawer is still injected rather than templated: one file gives
+// every page a working menu below the header breakpoint, where .navlinks is
+// hidden by CSS.
+
+RM.components.nav = (function () {
+  // Every "Book a demo" control opens a mail client with a subject and a
+  // starting message. One place to change when booking becomes a real form.
+  var DEMO = {
+    to     : 'nrparekh@gmail.com',
+    subject: 'RiskMandate — demo request',
+    body   : [
+      'Hi,',
+      '',
+      'I would like to see a plug profile for one of the agents we already run.',
+      '',
+      'A little about us:',
+      '  • Organisation:',
+      '  • Roughly how many agents we are running:',
+      '  • The agent we would want to look at first:',
+      '  • Anything already in place (register, IdP, detection tooling):',
+      '',
+      'Thanks,'
+    ].join('\n')
+  };
+
+  function demoHref() {
+    return 'mailto:' + DEMO.to +
+      '?subject=' + encodeURIComponent(DEMO.subject) +
+      '&body='    + encodeURIComponent(DEMO.body);
+  }
+
+  function openDemo() { window.location.href = demoHref(); }
+
+  function scrollTo(doc, id) {
+    var t = doc.getElementById(id);
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Inject the hamburger toggle and wire the drawer open/close. Idempotent.
+  function wireMobileNav(doc) {
+    var top = doc.querySelector('.top');
+    if (!top) return;
+    var wrap  = top.querySelector('.wrap');
+    var links = top.querySelector('.navlinks');
+    if (!wrap || !links || top.querySelector('.navtoggle')) return;
+
+    var burger = doc.createElement('button');
+    burger.className = 'navtoggle';
+    burger.setAttribute('type', 'button');
+    burger.setAttribute('aria-label', 'Toggle navigation');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-controls', 'sitenav');
+    for (var i = 0; i < 3; i++) burger.appendChild(doc.createElement('span'));
+    links.id = links.id || 'sitenav';
+    var demo = wrap.querySelector('.demo');
+    if (demo) wrap.insertBefore(burger, demo); else wrap.appendChild(burger);
+
+    function set(open) {
+      top.classList.toggle('nav-open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    burger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      set(!top.classList.contains('nav-open'));
+    });
+    // Following a real nav link closes the drawer; the group header does not.
+    links.addEventListener('click', function (e) {
+      var b = e.target.closest('button, a');
+      if (b && !b.classList.contains('navgroup-btn')) set(false);
+    });
+    doc.addEventListener('click', function (e) {
+      if (top.classList.contains('nav-open') && !top.contains(e.target)) set(false);
+    });
+    doc.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+    var view = doc.defaultView || window;
+    view.addEventListener('resize', function () { if (view.innerWidth > 1040) set(false); });
+  }
+
+  /** @param {Document} doc */
+  function wire(doc) {
+    doc.querySelectorAll('[data-to]').forEach(function (elm) {
+      elm.addEventListener('click', function () { scrollTo(doc, elm.getAttribute('data-to')); });
+    });
+    doc.querySelectorAll('[data-demo], .demo').forEach(function (elm) {
+      elm.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); openDemo(); });
+    });
+    wireMobileNav(doc);
+  }
+
+  return { wire: wire, scrollTo: scrollTo, demoHref: demoHref, openDemo: openDemo };
+})();
+
+
+'use strict';
+// components/menu.js — <rm-menu>. The one shared header menu, on every page, so
+// the nav is built by a single piece of code. Renders the homepage's section
+// links first, then the top-level pages, marking the current page active.
+//
+// A run of contiguous pages sharing a `group` string collapses into one entry:
+// a hover/click dropdown labelled by the group, with the members as children. A
+// single-member group renders flat — no dropdown for one item.
+//
+// v1.0.0: every entry is an <a href>. The old menu emitted <button> elements
+// that asked a host frame to swap an iframe's srcdoc, which meant the links did
+// not exist as far as a crawler, a bookmark or a middle-click was concerned.
+// The group header stays a <button> because it opens a panel rather than going
+// anywhere — that is the one control here that is genuinely not a link.
+
+(function () {
+  var dom = RM.components.dom;
+
+  RM.components.Menu = class extends HTMLElement {
+    connectedCallback() {
+      var self = this;
+      this._onDocClick = function (e) {
+        self.querySelectorAll('.navgroup.open').forEach(function (g) {
+          if (!g.contains(e.target)) g.classList.remove('open');
+        });
+      };
+      document.addEventListener('click', this._onDocClick);
+      this._render();
+    }
+    disconnectedCallback() {
+      document.removeEventListener('click', this._onDocClick);
+    }
+
+    // On the homepage a section link scrolls; on any other page it is a link
+    // back to the homepage at that anchor. Same markup either way.
+    _section(s) {
+      var home = !(RM.data && RM.data.currentPage);
+      var a = dom.el('a', { class: 'seclink', href: home ? '#' + s.to : 'index.html#' + s.to }, [s.label]);
+      if (home) a.addEventListener('click', function (e) {
+        e.preventDefault();
+        RM.components.nav.scrollTo(document, s.to);
+      });
+      return a;
+    }
+
+    _pagelink(p, extra) {
+      var active = p.name === (RM.data && RM.data.currentPage);
+      var attrs  = { class: 'pagelink' + (extra ? ' ' + extra : '') + (active ? ' active' : ''), href: p.file };
+      if (active) attrs['aria-current'] = 'page';
+      return dom.el('a', attrs, [p.label]);
+    }
+
+    _group(name, members) {
+      var self    = this;
+      var current = RM.data && RM.data.currentPage;
+      var active  = members.some(function (m) { return m.name === current; });
+      var car     = dom.el('span',   { class: 'navgroup-car', 'aria-hidden': 'true' }, ['▾']);
+      var btn     = dom.el('button', { class: 'navgroup-btn' + (active ? ' active' : ''), type: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false' }, [name, car]);
+      var panel   = dom.el('div',    { class: 'navmenu' }, members.map(function (m) { return self._pagelink(m, 'navchild'); }));
+      var wrap    = dom.el('span',   { class: 'navgroup' + (active ? ' active' : '') }, [btn, panel]);
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = wrap.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      return wrap;
+    }
+
+    _render() {
+      var sections = (RM.data && RM.data.sections) || [];
+      var pages    = (RM.data && RM.data.pages)    || [];
+      var self     = this;
+      this.textContent = '';
+      sections.forEach(function (s) { self.appendChild(self._section(s)); });
+      var i = 0;
+      while (i < pages.length) {
+        var p = pages[i];
+        if (!p.group) { self.appendChild(self._pagelink(p)); i++; continue; }
+        var g = p.group, members = [];
+        while (i < pages.length && pages[i].group === g) { members.push(pages[i]); i++; }
+        if (members.length === 1) self.appendChild(self._pagelink(members[0]));
+        else                      self.appendChild(self._group(g, members));
+      }
+    }
+  };
+
+  customElements.define('rm-menu', RM.components.Menu);
+})();
+
+
+'use strict';
+// abp/abp-vaults.js — behaviour-policy vaults, read live on the page. Page-specific (scripts/site/abp/), not a shared module.
+//
+// The page reads an encrypted SG/Vault directly: derive the ref id from the
+// published READ key with HMAC-SHA256, fetch ciphertext over CORS from the vault
+// API (plain GETs, no auth header), decrypt with Web Crypto, walk ref → commit →
+// tree → blob. The reader is copied from sgit.ai's assets/vault-embed.js (house
+// code, published to be copied rather than fetched across origins), trimmed to
+// the read path and the app mount.
+//
+// The rule this file follows, from sgit.ai's site-pages brief: THE VIEWER IS THE
+// SITE'S, THE DATA IS THE VAULT'S. Every vault string lands in textContent through
+// dom.el; nothing from the vault reaches innerHTML. The vault's own app runs only
+// inside a sandboxed frame (allow-scripts, opaque origin) and is served its reads
+// over postMessage. Objects whose id carries -imm- are immutable and cached; the
+// ref never is, because a stale ref renders an older commit from valid ciphertext
+// and nothing errors.
+//
+// If the vault cannot be reached the page falls back to the copy served from this
+// site under vaults/<slug>/ and SAYS SO, in the status chip. A page that reads live
+// in one panel and from a snapshot in the next without telling anyone is the
+// failure mode the brief warns about.
+//
+// The read keys below are PUBLIC BY DESIGN: derived one-way, read and nothing else,
+// printed where a human can copy them. No write credential is anywhere in site/.
+
+RM.services.abpVaults = (function () {
+  var dom = RM.components.dom;
+  var ENDPOINT = 'https://dev.send.sgraph.ai';
+  var UI       = 'https://dev.vault.sgraph.ai';
+
+  var VAULTS = [
+  {
+    "slug": "claude-code-web",
+    "vid": "ruj286tr",
+    "key": "6042edc39e0bcb1f17af1da0cf9d4ded6f89a7bb6a5394aa9554bb76913a249c",
+    "title": "Claude Code on the web, with one repository attached",
+    "shape": "anthropic/claude-code-remote/ccr-container",
+    "page": "abp-vault-claude-code-web.html",
+    "status": "template",
+    "app": "Claude Code on the web"
+  },
+  {
+    "slug": "claude-code-cli",
+    "vid": "amicdz0h",
+    "key": "46c3f77951dfea80c8bf3d72d5a84915e2694129ca8df4a1c58ccecfeb31bc47",
+    "title": "Claude Code on your own machine, confirmations on",
+    "shape": "anthropic/claude-code/local-default",
+    "page": "abp-vault-claude-code-cli.html",
+    "status": "template",
+    "app": "Claude Code on your machine"
+  },
+  {
+    "slug": "claude-code-cli-confirmations-off",
+    "vid": "ahly2cho",
+    "key": "7894e9462c18014303ec8137593610880171f0d6fa8a999b5f9f8687ba100b86",
+    "title": "Claude Code on your own machine, confirmations off",
+    "shape": "anthropic/claude-code/local-confirmations-off",
+    "page": "abp-vault-claude-code-cli-confirmations-off.html",
+    "status": "template",
+    "app": "Claude Code, confirmations off"
+  },
+  {
+    "slug": "claude-desktop",
+    "vid": "ty3axtmo",
+    "key": "0773b3bf99cb7ef237fa83c77778eb85009a89dbaf566c2d16a83a8f3c693635",
+    "title": "Claude Desktop, with local tools switched on",
+    "shape": "anthropic/claude-desktop/default",
+    "page": "abp-vault-claude-desktop.html",
+    "status": "template",
+    "app": "Claude Desktop"
+  },
+  {
+    "slug": "claude-web-connectors",
+    "vid": "wkm5owfl",
+    "key": "2bf331cfad716bdc7f37feddd7f1892c651425dd844381d3f392ed1b3419447d",
+    "title": "Claude in the browser, with connectors switched on",
+    "shape": "anthropic/claude-web/connectors-on",
+    "page": "abp-vault-claude-web-connectors.html",
+    "status": "template",
+    "app": "Claude in the browser, connectors on"
+  },
+  {
+    "slug": "chatgpt-web",
+    "vid": "dd1teu9n",
+    "key": "8f7da12c7ab0f2496471ff9d5e4f4755975ce51e7830dafa39dc728b5aa71001",
+    "title": "ChatGPT in the browser, nothing connected",
+    "shape": "openai/chatgpt-web/default",
+    "page": "abp-vault-chatgpt-web.html",
+    "status": "template",
+    "app": "ChatGPT in the browser"
+  },
+  {
+    "slug": "browser-extension",
+    "vid": "exsaxrfr",
+    "key": "875818b8d845c17801db7aa4bef5037a70e084db717749533179af0b2abc68df",
+    "title": "A browser extension with broad host permissions",
+    "shape": "generic/browser-extension/broad-host-permissions",
+    "page": "abp-vault-browser-extension.html",
+    "status": "template",
+    "app": "A browser extension"
+  },
+  {
+    "slug": "github-actions",
+    "vid": "0hpdpj80",
+    "key": "28afd90f03365372d9c0181808680519523ffdbeadc1fce7ec8e2074c28e36e3",
+    "title": "A GitHub Actions runner, a hosted CI job",
+    "shape": "github/actions-runner/ci",
+    "page": "abp-vault-github-actions.html",
+    "status": "template",
+    "app": "GitHub Actions"
+  },
+  {
+    "slug": "scheduled-job",
+    "vid": "kd7zeimj",
+    "key": "cf9307d3ac3f3674049590684d9af0c10116364c813dea77d8584c8fa5a10e7c",
+    "title": "A scheduled job running as a service account",
+    "shape": "generic/scheduled-job/service-account",
+    "page": "abp-vault-scheduled-job.html",
+    "status": "template",
+    "app": "A scheduled job"
+  }
+];
+  var APP_VAULT = {"vault_id":"fl3i7lu4","key":"e37a0f80d65e2b486f8bb3253e313c65ecbb57e5664c3f1704346c70ac09639a","entry":"index.html"};   // the renderer's own vault: { vault_id, key, entry }
+  var appReaderP = null;
+  function appReader() { if (!APP_VAULT) return Promise.reject(new Error('no app vault in the catalogue')); if (!appReaderP) appReaderP = new Reader({ endpoint: ENDPOINT, vault_id: APP_VAULT.vault_id, read_key: APP_VAULT.key }).init().then(function (r) { return r.open(); }); return appReaderP; }
+  function bySlug(slug) { for (var i = 0; i < VAULTS.length; i++) if (VAULTS[i].slug === slug) return VAULTS[i]; return null; }
+  function publicKey(v) { return 'sgit_public_read_' + v.key + ':' + v.vid; }
+
+  // ---- the reader (sgit.ai assets/vault-embed.js, read path only) ----
+  var enc = new TextEncoder(), dec = new TextDecoder();
+  function hexToBytes(hex) { var out = new Uint8Array(hex.length / 2); for (var i = 0; i < out.length; i++) out[i] = parseInt(hex.substr(i * 2, 2), 16); return out; }
+  function bytesToHex(b) { var s = ''; for (var i = 0; i < b.length; i++) s += b[i].toString(16).padStart(2, '0'); return s; }
+  function b64ToBytes(b64) { var bin = atob(b64), out = new Uint8Array(bin.length); for (var i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i); return out; }
+
+  function Reader(cfg) { this.endpoint = cfg.endpoint.replace(/\/$/, ''); this.vaultId = cfg.vault_id; this.readKey = cfg.read_key; this.mem = new Map(); }
+  Reader.prototype.init = async function () {
+    if (!(window.crypto && window.crypto.subtle)) throw new Error('Web Crypto unavailable: a secure context (https or localhost) is needed');
+    var raw = hexToBytes(this.readKey);
+    this.aesKey  = await crypto.subtle.importKey('raw', raw, 'AES-GCM', false, ['decrypt']);
+    this.hmacKey = await crypto.subtle.importKey('raw', raw, { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
+    return this;
+  };
+  Reader.prototype.fileId = async function (domain) { var mac = await crypto.subtle.sign('HMAC', this.hmacKey, enc.encode(domain)); return bytesToHex(new Uint8Array(mac)).slice(0, 12); };
+  Reader.prototype.decrypt = async function (bytes) { var pt = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: bytes.slice(0, 12), tagLength: 128 }, this.aesKey, bytes.slice(12)); return new Uint8Array(pt); };
+  Reader.prototype.raw = async function (path) {
+    var r = await fetch(this.endpoint + '/api/vault/read/' + this.vaultId + '/' + path, { cache: path.indexOf('-imm-') !== -1 ? 'default' : 'no-store' });
+    if (!r.ok) throw new Error('HTTP ' + r.status + ' for ' + path);
+    return new Uint8Array(await r.arrayBuffer());
+  };
+  Reader.prototype.obj = async function (id) { if (this.mem.has(id)) return this.mem.get(id); var plain = await this.decrypt(await this.raw('bare/data/' + id)); this.mem.set(id, plain); return plain; };
+  Reader.prototype.objJson = async function (id) { return JSON.parse(dec.decode(await this.obj(id))); };
+  Reader.prototype.decB64 = async function (b64) { return b64 ? dec.decode(await this.decrypt(b64ToBytes(b64))) : ''; };
+  Reader.prototype.open = async function () {
+    var refId = 'ref-pid-muw-' + await this.fileId('sg-vault-v1:file-id:ref:' + this.vaultId);
+    var ref = JSON.parse(dec.decode(await this.decrypt(await this.raw('bare/refs/' + refId))));
+    this.commitId = ref.commit_id;
+    var commit = await this.objJson(ref.commit_id);
+    this.commit = commit;
+    this.files = {};
+    await this.walk(commit.tree_id, '');
+    return this;
+  };
+  Reader.prototype.walk = async function (treeId, prefix) {
+    var tree = await this.objJson(treeId);
+    for (var i = 0; i < (tree.entries || []).length; i++) {
+      var e = tree.entries[i], name = await this.decB64(e.name_enc), full = prefix ? prefix + '/' + name : name;
+      if (e.tree_id) await this.walk(e.tree_id, full); else this.files[full] = e.blob_id;
+    }
+  };
+  Reader.prototype.readBytes = async function (path) { path = path.replace(/^\.?\//, ''); if (!this.files[path]) throw new Error('not in vault: ' + path); return this.obj(this.files[path]); };
+  Reader.prototype.readText  = async function (path) { return dec.decode(await this.readBytes(path)); };
+
+  // ---- load one vault's data: live, or the snapshot served from this site ----
+  var PATHS = { vault: 'vault.json', grant: 'data/grant.json', mandate: 'data/mandate.json', delta: 'data/delta.json', validity: 'data/validity.json', history: 'history/index.json',
+                capabilities: 'data/vocabulary/capabilities.json', barriers: 'data/vocabulary/barriers.json', undo: 'data/vocabulary/undo-classes.json', tiers: 'data/vocabulary/evidence-tiers.json' };
+  var loads = {};
+  function load(slug) {
+    if (loads[slug]) return loads[slug];
+    var v = bySlug(slug);
+    loads[slug] = (async function () {
+      var out = { vault: v, data: {}, source: 'live', files: [], commit: null, error: null };
+      try {
+        var reader = await new Reader({ endpoint: ENDPOINT, vault_id: v.vid, read_key: v.key }).init();
+        await reader.open();
+        for (var k in PATHS) out.data[k] = JSON.parse(await reader.readText(PATHS[k]));
+        out.files = Object.keys(reader.files).sort();
+        out.commit = reader.commitId;
+        out.reader = reader;
+      } catch (e) {
+        out.source = 'snapshot'; out.error = String(e && e.message || e);
+        for (var k2 in PATHS) {
+          var r = await fetch('vaults/' + slug + '/' + PATHS[k2], { cache: 'no-store' });
+          if (!r.ok) throw new Error('snapshot missing: ' + PATHS[k2]);
+          out.data[k2] = await r.json();
+        }
+      }
+      var d = out.data;
+      out.cap = {}; d.capabilities.capabilities.forEach(function (c) { out.cap[c.id] = c; });
+      out.undoRank = {}; d.undo.order.forEach(function (u, i) { out.undoRank[u] = i; });
+      out.measured = {}; d.tiers.counted_as_measured.forEach(function (t) { out.measured[t] = true; });
+      out.row = {}; d.grant.grant.forEach(function (r) { out.row[r.capability] = r; });
+      return out;
+    })();
+    return loads[slug];
+  }
+
+  // ---- rendering helpers: every vault string goes through dom.el / textContent ----
+  var GLYPH = { none: '●', expectation: '◉', setting: '◐', boundary: '○' };
+  function gloss(L, id) { return (L.cap[id] && L.cap[id].gloss) || id; }
+  function statusOf(L, id) { var m = L.data.mandate; return m.want.indexOf(id) >= 0 ? 'want' : m.do_not_want.indexOf(id) >= 0 ? 'refused' : 'unstated'; }
+  function sortRows(L, ids) {
+    var order = L.data.grant.grant.map(function (r) { return r.capability; });
+    return ids.slice().sort(function (a, b) { return (L.undoRank[L.row[a].undo] - L.undoRank[L.row[b].undo]) || (order.indexOf(a) - order.indexOf(b)); });
+  }
+  function barrierCell(L, id) { var r = L.row[id]; return dom.el('td', null, [dom.el('span', { class: 'ab-g ' + r.barrier }, [GLYPH[r.barrier] + ' ' + r.barrier])]); }
+  function evidenceCell(L, id) { var r = L.row[id], m = !!L.measured[r.evidence]; return dom.el('td', null, [dom.el('span', { class: 'ab-ev' + (m ? ' m' : '') }, [r.evidence + (m ? ' ✓' : '')])]); }
+  function statusCell(L, id) { var s = statusOf(L, id); return dom.el('td', null, [dom.el('span', { class: 'ab-pill ' + s }, [{ want: 'want', refused: 'do not want', unstated: 'unstated' }[s]])]); }
+  function capTable(L, ids, control) {
+    var head = ['Capability', 'What it is', 'Barrier', 'Undo', 'Evidence'].concat(control ? ['What stands in the way'] : []).concat(['Mandate']);
+    return dom.el('div', { class: 'tw' }, [dom.el('table', { class: 't' }, [
+      dom.el('thead', null, [dom.el('tr', null, head.map(function (t) { return dom.el('th', null, [t]); }))]),
+      dom.el('tbody', null, ids.map(function (id) {
+        var r = L.row[id];
+        return dom.el('tr', null, [dom.el('td', { class: 'k' }, [id]), dom.el('td', null, [gloss(L, id)]), barrierCell(L, id), dom.el('td', null, [r.undo]), evidenceCell(L, id)]
+          .concat(control ? [dom.el('td', null, [r.control || '—'])] : []).concat([statusCell(L, id)]));
+      }))
+    ])]);
+  }
+  function statusChip(L) {
+    var d = L.data.delta;
+    var text = L.source === 'live'
+      ? 'Live from vault ' + L.vault.vid + ' · commit ' + (L.commit || '').slice(0, 24) + ' · delta computed ' + d.computed_at
+      : 'Snapshot served from this site · the vault could not be reached (' + L.error + ')';
+    return dom.el('span', { class: 'ab-status ' + L.source }, [text]);
+  }
+  function fail(el, err) {
+    el.textContent = '';
+    el.appendChild(dom.el('div', { class: 'ab-fail' }, ['This vault could not be read, live or from the snapshot on this site: ' + String(err && err.message || err) + '. The files are still linked from this page.']));
+    if (window.console) console.error('abp vault:', err);
+  }
+
+  // ---- <rm-abp-card data-vault="slug"> : the four counts, and no score ----
+  RM.components.AbpCard = class extends HTMLElement {
+    connectedCallback() {
+      var self = this, slug = this.dataset.vault;
+      this.appendChild(dom.el('div', { class: 'ab-card wait' }, [dom.el('p', { class: 'ab-loading' }, ['reading vault ' + (bySlug(slug) || {}).vid + '… deriving ids, fetching ciphertext, decrypting'])]));
+      load(slug).then(function (L) {
+        var d = L.data.delta, g = L.data.grant, m = L.data.mandate, v = L.data.vault;
+        var measured = g.grant.filter(function (r) { return L.measured[r.evidence]; }).length;
+        var by = ['none', 'expectation', 'setting', 'boundary'].map(function (b) { return d.excess.filter(function (id) { return L.row[id].barrier === b; }).length; });
+        var total = Math.max(1, d.excess.length);
+        function count(n, label, cls) { return dom.el('div', { class: 'ab-count' + (cls ? ' ' + cls : '') }, [dom.el('b', null, [String(n)]), dom.el('span', null, [label])]); }
+        var card = dom.el('div', { class: 'ab-card' }, [
+          dom.el('div', { class: 'ab-head' }, [
+            dom.el('div', null, [dom.el('span', { class: 'ab-org' }, [v.organisation || v.title]), dom.el('span', { class: 'ab-meta' }, [g.product + ' · grant ' + g.profile_version + ' · mandate ' + m.authored + ' · as at ' + v.as_at])]),
+            dom.el('span', { class: 'ab-chip ' + v.status }, [v.status])
+          ]),
+          dom.el('div', { class: 'ab-counts' }, [
+            count(g.grant.length, 'capabilities in the grant'), count(m.want.length, 'wanted by the mandate', 'ok'),
+            count(d.counts.excess, 'excess — granted, not asked for', 'ex'), count(d.counts.unbounded_excess, 'unbounded — nothing in the way', 'un')
+          ]),
+          dom.el('div', { class: 'ab-rowsline' }, [measured + ' of ' + g.grant.length + ' rows measured', d.counts.shortfall + ' shortfall', d.counts.aligned + ' aligned'].map(function (t) { return dom.el('span', null, [t]); })),
+          dom.el('div', { class: 'ab-bar' }, [dom.el('span', null, ['excess, by barrier']), dom.el('span', { class: 'ab-track' }, by.map(function (n, i) { return dom.el('i', { class: 'b' + i, style: 'width:' + (n / total * 100) + '%', title: n + ' at ' + ['none', 'expectation', 'setting', 'boundary'][i] }); })), dom.el('span', { class: 'k' }, [String(d.excess.length)])]),
+          dom.el('div', { class: 'ab-legend' }, ['● none', '◉ expectation', '◐ setting', '○ boundary — the only control'].map(function (t) { return dom.el('span', null, [t]); })),
+          dom.el('div', { class: 'ab-noscore' }, [dom.el('b', null, ['No score. ']), 'A behaviour policy describes; it does not judge. The number a buyer can move is the unbounded excess, and only a real control moves it.']),
+          dom.el('div', { class: 'ab-foot' }, [statusChip(L)])
+        ]);
+        self.textContent = ''; self.appendChild(card);
+      }).catch(function (e) { fail(self, e); });
+    }
+  };
+
+  // ---- <rm-abp-table data-vault data-view="grant|delta|licence|mandate|notreach"> ----
+  RM.components.AbpTable = class extends HTMLElement {
+    connectedCallback() {
+      var self = this, slug = this.dataset.vault, view = this.dataset.view;
+      load(slug).then(function (L) {
+        var d = L.data.delta, g = L.data.grant, m = L.data.mandate, v = L.data.vault, out = [];
+        var ids = g.grant.map(function (r) { return r.capability; });
+        function h3(t) { return dom.el('h3', { class: 'ab-h3' }, [t]); }
+        function sub(t) { return dom.el('p', { class: 'ab-sub' }, [t]); }
+        if (view === 'grant') {
+          out.push(capTable(L, sortRows(L, ids), true));
+        } else if (view === 'delta') {
+          [['Excess you refused', d.excess_refused, 'You said no. The last column says what, if anything, enforces the no.'],
+           ['Excess you never mentioned', d.excess_unstated, 'Authority nobody scoped. Not wrong — unstated. These are the rows to read twice.'],
+           ['Unbounded excess', d.unbounded_excess, 'The excess whose barrier is anything but a boundary. Every real control moves one row out of this list; nothing else does.'],
+           ['Aligned', d.aligned, 'Wanted and granted.']].forEach(function (s) {
+            out.push(h3(s[0] + ' (' + s[1].length + ')')); out.push(sub(s[2]));
+            out.push(s[1].length ? capTable(L, sortRows(L, s[1]), true) : sub('none'));
+          });
+          out.push(h3('Shortfall (' + d.shortfall.length + ')'));
+          out.push(sub(d.shortfall.length ? d.shortfall.map(function (id) { return id + ' — ' + gloss(L, id); }).join('; ') : 'none — everything wanted is granted.'));
+        } else if (view === 'mandate') {
+          out.push(dom.el('p', { class: 'ab-quote' }, [m.description]));
+          out.push(sub('Elicited — ' + m.status + ', authored ' + m.authored + ' by ' + m.authored_by + '. The only authored file in the vault.'));
+          [['Wanted', m.want, 'want'], ['Explicitly not wanted', m.do_not_want, 'refused'], ['Unstated', m.unstated, 'unstated']].forEach(function (s) {
+            out.push(h3(s[0] + ' (' + s[1].length + ')'));
+            out.push(dom.el('div', { class: 'ab-pills' }, s[1].map(function (id) { return dom.el('span', { class: 'ab-pill ' + s[2], title: gloss(L, id) }, [id]); })));
+          });
+        } else if (view === 'licence') {
+          var conds = sortRows(L, d.excess), template = v.status === 'template';
+          function kv(k, val) { return dom.el('tr', null, [dom.el('td', { class: 'k' }, [k]), dom.el('td', null, [val])]); }
+          out.push(dom.el('div', { class: 'tw' }, [dom.el('table', { class: 't' }, [dom.el('tbody', null, [
+            kv('Licensee', (v.agent || g.product) + ' — shape ' + g.id + ', grant ' + g.profile_version),
+            kv('Authority', v.organisation || (template ? '— not yet issued to anyone —' : '—')),
+            kv('Accountable owner', v.owner || (template ? '— unassigned —' : '—')),
+            kv('Instrument', 'mandate ' + m.id + ' (' + m.authored + '), delta ' + d.id + ', vocabulary abp.sgit.ai ' + v.vocabulary_version),
+            kv('Issued', v.issued || (template ? '— not issued: this is a template —' : '—')),
+            kv('Valid until', v.valid_until || '— an interval is set when it is issued; a licence with no expiry is not a decision —')
+          ])])]));
+          out.push(h3('Conditions — asked not to, and what enforces each (' + conds.length + ')'));
+          out.push(dom.el('div', { class: 'tw' }, [dom.el('table', { class: 't' }, [
+            dom.el('thead', null, [dom.el('tr', null, ['Condition', 'Asked because', 'Barrier', 'Enforced by'].map(function (t) { return dom.el('th', null, [t]); }))]),
+            dom.el('tbody', null, conds.map(function (id) {
+              return dom.el('tr', null, [dom.el('td', null, [dom.el('span', { class: 'k' }, ['Do not ' + id]), ' — ' + gloss(L, id).toLowerCase()]),
+                dom.el('td', null, [statusOf(L, id) === 'refused' ? 'the mandate refuses it' : 'the mandate never authorised it']), barrierCell(L, id),
+                dom.el('td', null, [L.row[id].control ? L.row[id].control : dom.el('b', null, ['nothing — a line in prose'])])]);
+            }))
+          ])]));
+        } else if (view === 'notreach') {
+          out.push(dom.el('div', { class: 'tw' }, [dom.el('table', { class: 't' }, [
+            dom.el('thead', null, [dom.el('tr', null, ['Not reachable', 'Why', 'Source'].map(function (t) { return dom.el('th', null, [t]); }))]),
+            dom.el('tbody', null, (g.not_reachable || []).map(function (n) { return dom.el('tr', null, [dom.el('td', null, [n.what]), dom.el('td', null, [n.why]), dom.el('td', { class: 'k' }, [n.source])]); }))
+          ])]));
+        }
+        out.push(dom.el('p', { class: 'ab-src' }, [statusChip(L)]));
+        self.textContent = ''; out.forEach(function (n) { self.appendChild(n); });
+      }).catch(function (e) { fail(self, e); });
+    }
+  };
+
+  // ---- <rm-abp-files data-vault> : what is in the vault, from the live tree ----
+  RM.components.AbpFiles = class extends HTMLElement {
+    connectedCallback() {
+      var self = this, slug = this.dataset.vault;
+      load(slug).then(function (L) {
+        var files = L.files.length ? L.files : Object.keys(PATHS).map(function (k) { return PATHS[k]; });
+        var list = dom.el('ul', { class: 'ab-files' }, files.map(function (f) {
+          return dom.el('li', null, [dom.el('a', { href: 'vaults/' + slug + '/' + f }, [f])]);
+        }));
+        var note = L.source === 'live' ? files.length + ' files in the vault tree, read live; each link opens the copy served from this site' : 'the file list is the snapshot’s; the vault could not be reached';
+        self.textContent = ''; self.appendChild(list); self.appendChild(dom.el('p', { class: 'ab-src' }, [note]));
+      }).catch(function (e) { fail(self, e); });
+    }
+  };
+
+  // ---- <rm-abp-key data-vault> : the read key, printed where a human can copy it ----
+  RM.components.AbpKey = class extends HTMLElement {
+    connectedCallback() {
+      var v = bySlug(this.dataset.vault), pk = publicKey(v);
+      function row(label, value) { return dom.el('div', { class: 'ab-keyrow' }, [dom.el('span', { class: 'ab-keylabel' }, [label]), dom.el('code', { class: 'ab-key' }, [value])]); }
+      this.appendChild(row('vault', v.vid));
+      this.appendChild(row('endpoint', ENDPOINT));
+      this.appendChild(row('read key', pk));
+      this.appendChild(row('clone it', 'sgit clone ' + pk));
+      this.appendChild(dom.el('div', { class: 'ab-keyrow' }, [dom.el('span', { class: 'ab-keylabel' }, ['open it']), dom.el('a', { class: 'ab-open', href: UI + '/en-gb/#' + v.key + ':' + v.vid, target: '_blank', rel: 'noopener' }, ['the vault browser at dev.vault.sgraph.ai, read-only ↗'])]));
+    }
+  };
+
+  // ---- <rm-abp-app data-vault> : the vault's own app, mounted in a sandboxed frame ----
+  // The frame is srcdoc with sandbox="allow-scripts" only: opaque origin, no cookies, no
+  // storage, no reach into this page. It gets a window.sg shim whose every read is served
+  // by this page's reader over postMessage. Nothing else is served, because there is
+  // nothing else: the page holds a read key.
+  var SHIM = "(function(){'use strict';var seq=0,pending={};" +
+    "function rpc(op,path){return new Promise(function(res,rej){var id=++seq;pending[id]=[res,rej];parent.postMessage({sgvEmbed:1,id:id,op:op,path:path},'*');});}" +
+    "window.addEventListener('message',function(ev){var m=ev.data;if(!m||m.sgvEmbed!==1||!pending[m.id])return;var p=pending[m.id];delete pending[m.id];m.ok?p[0](m.data):p[1](new Error(m.error||'embed rpc failed'));});" +
+    "window.sg={embedded:true,readOnly:true,vfs:{readText:function(p){return rpc('readText',p);}}};" +
+    "document.addEventListener('click',function(e){var a=e.target&&e.target.closest&&e.target.closest('a[href]');if(!a)return;var h=a.getAttribute('href');" +
+    "if(/^#/.test(h)){e.preventDefault();var t=document.getElementById(h.slice(1));if(t)t.scrollIntoView({behavior:'smooth'});return;}" +
+    "if(!/^(https?:|mailto:)/.test(h)){e.preventDefault();parent.postMessage({sgvEmbed:1,open:h},'*');}},true);})();";
+  RM.components.AbpApp = class extends HTMLElement {
+    connectedCallback() {
+      var self = this, slug = this.dataset.vault, v = bySlug(slug);
+      var status = dom.el('span', { class: 'vd-status wait' }, ['Connecting…']);
+      var stage  = dom.el('div', { class: 'vd-stage' });
+      var bar    = dom.el('div', { class: 'ab-appbar' }, [dom.el('span', { class: 'ab-applabel' }, ['The vault’s own app · ' + v.vid + ' · sandboxed, read-only']), status]);
+      this.appendChild(bar); this.appendChild(stage);
+      load(slug).then(async function (L) {
+        if (L.source !== 'live' || !L.reader) throw new Error('the app runs from the live vault only; the vault could not be reached (' + L.error + ')');
+        var html = await L.reader.readText('index.html');
+        html = /<head[^>]*>/i.test(html) ? html.replace(/<head[^>]*>/i, function (m) { return m + '\n<script>' + SHIM + '<\/script>'; }) : '<script>' + SHIM + '<\/script>' + html;
+        var frame = dom.el('iframe', { class: 'vd-frame', title: 'Agent Behaviour Policy — the vault’s app, read-only', sandbox: 'allow-scripts', referrerpolicy: 'no-referrer' });
+        window.addEventListener('message', async function (ev) {
+          if (ev.source !== frame.contentWindow) return;
+          var m = ev.data; if (!m || m.sgvEmbed !== 1) return;
+          if (typeof m.open === 'string') {                              // a file link inside the app: open the copy on this site
+            var p = m.open.replace(/^\.?\//, '');
+            if (L.files.indexOf(p) >= 0) window.open('vaults/' + slug + '/' + p, '_blank', 'noopener');
+            return;
+          }
+          if (!m.id || typeof m.path !== 'string') return;
+          var reply = { sgvEmbed: 1, id: m.id, ok: false };
+          try {
+            if (m.op !== 'readText') reply.error = 'unknown op: ' + m.op;
+            else if (/^\.?\/?app\//.test(m.path)) { var ar = await appReader(); reply.data = await ar.readText(m.path.replace(/^\.?\/?app\//, '')); reply.ok = true; }   // the sub-vault link, resolved by this host
+            else { reply.data = await L.reader.readText(m.path); reply.ok = true; }
+          }
+          catch (e) { reply.error = String(e && e.message || e); }
+          ev.source.postMessage(reply, '*');
+          if (m.op === 'readText' && reply.ok) { status.className = 'vd-status live'; status.textContent = 'Live · read-only · ' + L.files.length + ' files · served over postMessage'; }
+        });
+        window.addEventListener('message', function (ev) { if (ev.source === frame.contentWindow && ev.data && ev.data.type === 'sg-app-ready') { status.className = 'vd-status live'; status.textContent = 'Live · read-only · ' + L.files.length + ' files'; } });
+        frame.srcdoc = html;
+        stage.appendChild(frame);
+        setTimeout(function () { if (status.classList.contains('wait')) { status.className = 'vd-status stall'; status.textContent = 'Not loading here? Open the vault in its own tab ↗'; } }, 20000);
+      }).catch(function (e) {
+        status.className = 'vd-status stall'; status.textContent = 'Unavailable';
+        stage.classList.add('error'); stage.appendChild(dom.el('p', null, [String(e && e.message || e) + ' The static copy of the app is on this site: ']), dom.el('a', { href: 'vaults/' + slug + '/index.html' }, ['vaults/' + slug + '/index.html']));
+      });
+    }
+  };
+
+
+  // ---- <rm-abp-mini data-vault> : four live counts for a directory tile ----
+  RM.components.AbpMini = class extends HTMLElement {
+    connectedCallback() {
+      var self = this, slug = this.dataset.vault;
+      load(slug).then(function (L) {
+        var d = L.data.delta.counts, g = L.data.grant, m = L.data.mandate;
+        self.textContent = '';
+        self.appendChild(dom.el('span', { class: 'ab-mini ' + L.source }, [
+          (L.source === 'live' ? 'live \u00b7 ' : 'snapshot \u00b7 ') + g.grant.length + ' \u00b7 ' + m.want.length + ' \u00b7 ' + d.excess + ' \u00b7 ' + d.unbounded_excess
+        ]));
+      }).catch(function () { self.textContent = ''; });
+    }
+  };
+
+  customElements.define('rm-abp-mini',  RM.components.AbpMini);
+  customElements.define('rm-abp-card',  RM.components.AbpCard);
+  customElements.define('rm-abp-table', RM.components.AbpTable);
+  customElements.define('rm-abp-files', RM.components.AbpFiles);
+  customElements.define('rm-abp-key',   RM.components.AbpKey);
+  customElements.define('rm-abp-app',   RM.components.AbpApp);
+
+  return { VAULTS: VAULTS, bySlug: bySlug, publicKey: publicKey, load: load, Reader: Reader, ENDPOINT: ENDPOINT, UI: UI };
+})();
+
+'use strict';
+// boot.js — inner-page composition root (version builds and dev.html). Custom
+// elements self-register on load; here we wire document-level nav behaviour.
+// The page runs inside the host's stage frame, so the host (not this page) signals
+// the SG/App host that the app is ready.
+
+(function () {
+  function start() { RM.components.nav.wire(document); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
+})();
+
+})();
+</script>
+</body>
+</html>

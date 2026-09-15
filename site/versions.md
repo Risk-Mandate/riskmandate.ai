@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.13.0** · 2026-09-15 — Nine template vaults and a directory, one per application
+  Notes: https://riskmandate.ai/versions/1.13.0.md · Source: `git:v1.13.0`
 - **v1.12.0** · 2026-09-15 — Behaviour-policy vaults: a section, read live, with the vault app
   Notes: https://riskmandate.ai/versions/1.12.0.md · Source: `git:v1.12.0`
 - **v1.11.0** · 2026-09-15 — Lab 07, the first behaviour-policy vault

@@ -1,0 +1,57 @@
+{
+  "type": "abp/mandate/v1",
+  "id": "scheduled-job-under-a-service-account",
+  "label": "A scheduled job under a service account",
+  "surface": [
+    "service"
+  ],
+  "applies_to": [
+    "generic/scheduled-job/service-account"
+  ],
+  "status": "starting-point",
+  "authored": "2026-09-09",
+  "authored_by": "the site, as a starting point — not measured, not surveyed; the first thing to argue with",
+  "description": "Run on schedule, read its own data, talk to the APIs it was built for with the account it was given, and stop. I did not want it spending money unattended or reaching arbitrary hosts.",
+  "want": [
+    "execute.process.host",
+    "read.file.host",
+    "send.endpoint.allowed",
+    "authenticate-as.credential.tenant"
+  ],
+  "do_not_want": [
+    "write.budget.tenant",
+    "send.endpoint.world"
+  ],
+  "unstated": [
+    "authenticate-as.credential.signing",
+    "create.record.world",
+    "create.schedule.host",
+    "create.schedule.tenant",
+    "delete.file.host",
+    "execute.process.self",
+    "grant.credential.self",
+    "read.credential.host",
+    "read.file.project",
+    "read.message.tenant",
+    "read.record.browsing",
+    "read.record.history",
+    "send.message.world",
+    "write.file.host",
+    "write.file.project",
+    "write.repository.project",
+    "write.repository.tenant"
+  ],
+  "notes": {
+    "create.schedule.host": "unstated: it is itself scheduled; whether it may schedule more of itself is a real question and the mandate does not pretend to answer it"
+  },
+  "provenance": {
+    "source": "https://what-can-it-do.games.sgit.ai/data/",
+    "source_page": "https://what-can-it-do.games.sgit.ai/map/index.html",
+    "retrieved": "2026-09-11T13:00:37Z",
+    "pack_version": "v0.8.0",
+    "content_hash": "sha256:d6d4ba40f1fb1f93f660687e4787ac10c2e1835efeb3929a4c8ad62cee8897ef",
+    "verbatim_bytes": "upstream/",
+    "note": "Promoted from mandates/scheduled-job-under-a-service-account.json. `unstated` is computed here as the primitives the mandate names neither way; the pack leaves it implicit. A mandate is elicited, not measured: these are first drafts written to be argued with.",
+    "licence": "CC BY 4.0"
+  }
+}

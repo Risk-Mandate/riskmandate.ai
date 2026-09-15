@@ -1,0 +1,26 @@
+{
+  "type": "abp/delta/v1",
+  "profile": "openai/chatgpt-web/default",
+  "mandate": "chat-no-connectors",
+  "grant_version": "2026-09-05",
+  "mandate_version": "2026-09-09",
+  "vocabulary_version": "v0.3.0",
+  "computed_at": "2026-09-15T01:41:06Z",
+  "computed_by": "riskmandate.ai build-abp-vault.mjs (abp.delta/v1 semantics)",
+  "excess": [],
+  "excess_refused": [],
+  "excess_unstated": [],
+  "unbounded_excess": [],
+  "shortfall": [],
+  "aligned": [
+    "read.file.project"
+  ],
+  "derived_never_authored": "No field in this record is writable by a person. The way to change a delta is to change a grant or a mandate, and then recompute.",
+  "counts": {
+    "excess": 0,
+    "unbounded_excess": 0,
+    "shortfall": 0,
+    "aligned": 1
+  },
+  "id": "openai__chatgpt-web__default__chat-no-connectors"
+}

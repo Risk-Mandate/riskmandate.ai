@@ -1,0 +1,25 @@
+{
+  "note": "One entry per version of the renderer. `commit` is the vault commit it was pushed as, filled in after the push; a version that does not name its commit cannot be verified later.",
+  "current": "v2",
+  "versions": [
+    {
+      "version": "v2",
+      "date": "2026-09-15",
+      "commit": null,
+      "title": "The renderer reads data/app.json for its dist manifest and names the loader that fetched it in its top bar",
+      "changes": [
+        "index.html"
+      ]
+    },
+    {
+      "version": "v1",
+      "date": "2026-09-15",
+      "commit": "obj-cas-imm-b162bd0f3240",
+      "title": "The renderer moves out of the application vaults into this one; every application vault keeps a loader and its data",
+      "changes": [
+        "index.html",
+        "loader.html"
+      ]
+    }
+  ]
+}

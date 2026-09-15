@@ -1,0 +1,57 @@
+{
+  "type": "abp/mandate/v1",
+  "id": "browser-extension-i-installed",
+  "label": "A browser extension I installed",
+  "surface": [
+    "extension"
+  ],
+  "applies_to": [
+    "generic/browser-extension/broad-host-permissions"
+  ],
+  "status": "starting-point",
+  "authored": "2026-09-09",
+  "authored_by": "the site, as a starting point — not measured, not surveyed; the first thing to argue with",
+  "description": "I want it to work on the sites I use it on. I did not install it so that it could see every page I visit, act inside the accounts I am logged into, or send what it sees anywhere.",
+  "want": [
+    "read.record.browsing"
+  ],
+  "do_not_want": [
+    "authenticate-as.credential.tenant",
+    "send.endpoint.world"
+  ],
+  "unstated": [
+    "authenticate-as.credential.signing",
+    "create.record.world",
+    "create.schedule.host",
+    "create.schedule.tenant",
+    "delete.file.host",
+    "execute.process.host",
+    "execute.process.self",
+    "grant.credential.self",
+    "read.credential.host",
+    "read.file.host",
+    "read.file.project",
+    "read.message.tenant",
+    "read.record.history",
+    "send.endpoint.allowed",
+    "send.message.world",
+    "write.budget.tenant",
+    "write.file.host",
+    "write.file.project",
+    "write.repository.project",
+    "write.repository.tenant"
+  ],
+  "notes": {
+    "read.record.browsing": "the want is ‘the sites I chose’; the grant is every page — the same capability at two different reaches, which is what the reduction (‘on click, or on a list of sites’) narrows"
+  },
+  "provenance": {
+    "source": "https://what-can-it-do.games.sgit.ai/data/",
+    "source_page": "https://what-can-it-do.games.sgit.ai/map/index.html",
+    "retrieved": "2026-09-11T13:00:37Z",
+    "pack_version": "v0.8.0",
+    "content_hash": "sha256:d6d4ba40f1fb1f93f660687e4787ac10c2e1835efeb3929a4c8ad62cee8897ef",
+    "verbatim_bytes": "upstream/",
+    "note": "Promoted from mandates/browser-extension-i-installed.json. `unstated` is computed here as the primitives the mandate names neither way; the pack leaves it implicit. A mandate is elicited, not measured: these are first drafts written to be argued with.",
+    "licence": "CC BY 4.0"
+  }
+}

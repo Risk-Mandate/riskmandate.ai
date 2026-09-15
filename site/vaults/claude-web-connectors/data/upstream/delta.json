@@ -1,0 +1,45 @@
+{
+  "type": "abp/delta/v1",
+  "profile": "anthropic/claude-web/connectors-on",
+  "mandate": "chat-with-connectors",
+  "grant_version": "2026-09-05",
+  "mandate_version": "2026-09-09",
+  "pack_version": "v0.8.0",
+  "computed_at": "2026-09-11T13:00:37Z",
+  "computed_by": "abp.delta/v1",
+  "excess": [
+    "authenticate-as.credential.tenant",
+    "write.repository.tenant"
+  ],
+  "excess_refused": [
+    "write.repository.tenant"
+  ],
+  "excess_unstated": [
+    "authenticate-as.credential.tenant"
+  ],
+  "unbounded_excess": [],
+  "shortfall": [],
+  "aligned": [
+    "read.file.host",
+    "read.message.tenant",
+    "read.file.project"
+  ],
+  "derived_never_authored": "No field in this record is writable by a person. The way to change a delta is to change a grant or a mandate, and then recompute.",
+  "counts": {
+    "excess": 2,
+    "unbounded_excess": 0,
+    "shortfall": 0,
+    "aligned": 3
+  },
+  "id": "anthropic__claude-web__connectors-on__chat-with-connectors",
+  "provenance": {
+    "source": "https://what-can-it-do.games.sgit.ai/data/",
+    "source_page": "https://what-can-it-do.games.sgit.ai/map/index.html",
+    "retrieved": "2026-09-11T13:00:37Z",
+    "pack_version": "v0.8.0",
+    "content_hash": "sha256:d6d4ba40f1fb1f93f660687e4787ac10c2e1835efeb3929a4c8ad62cee8897ef",
+    "verbatim_bytes": "upstream/",
+    "note": "Derived from the grant and the mandate named above. Never authored: no field here is writable by a person, and the release gate recomputes it.",
+    "licence": "CC BY 4.0"
+  }
+}

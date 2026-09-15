@@ -1,0 +1,9 @@
+{
+  "entry": "index.html",
+  "present": true,
+  "auto_open": true,
+  "title": "ABP app — the renderer every behaviour-policy vault loads",
+  "permissions": { "fs": { "read": true } },
+  "hud": { "mode": "minimal" },
+  "_why": "This vault is code, not a policy. Opened on its own it renders nothing useful, because there is no data beside it; every application vault carries a loader that fetches index.html from here and boots it against that vault's own files."
+}

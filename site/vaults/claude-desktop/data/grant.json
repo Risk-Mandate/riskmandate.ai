@@ -1,0 +1,183 @@
+{
+  "type": "abp/profile/v1",
+  "id": "anthropic/claude-desktop/default",
+  "vendor": "Anthropic",
+  "product": "Claude Desktop (a desktop app with local tools)",
+  "variant": "default",
+  "surface": "desktop",
+  "profile_version": "2026-09-05",
+  "description": "A desktop application running as your user account, with connectors and local tools that can read files and run commands with a prompt. DERIVED from the assess library's desktop tree; not measured on any instance.",
+  "reach_names": {
+    "host": "your machine, as your user account",
+    "tenant": "your accounts",
+    "world": "the internet"
+  },
+  "not_reachable": [],
+  "tools": [
+    "conversation",
+    "local files and commands (when enabled)"
+  ],
+  "grant": [
+    {
+      "capability": "authenticate-as.credential.tenant",
+      "barrier": "none",
+      "evidence": "derived",
+      "via": [
+        "local files and commands (when enabled)"
+      ],
+      "control": null,
+      "note": null,
+      "undo": "no",
+      "is_bounded": false
+    },
+    {
+      "capability": "read.credential.host",
+      "barrier": "none",
+      "evidence": "documented",
+      "via": [
+        "local files and commands (when enabled)"
+      ],
+      "control": null,
+      "note": null,
+      "undo": "no",
+      "is_bounded": false
+    },
+    {
+      "capability": "read.record.history",
+      "barrier": "none",
+      "evidence": "documented",
+      "via": [
+        "local files and commands (when enabled)"
+      ],
+      "control": null,
+      "note": null,
+      "undo": "no",
+      "is_bounded": false
+    },
+    {
+      "capability": "send.endpoint.world",
+      "barrier": "none",
+      "evidence": "derived",
+      "via": [
+        "local files and commands (when enabled)"
+      ],
+      "control": null,
+      "note": null,
+      "undo": "no",
+      "is_bounded": false
+    },
+    {
+      "capability": "read.file.host",
+      "barrier": "setting",
+      "evidence": "derived",
+      "via": [
+        "local files and commands (when enabled)"
+      ],
+      "control": "the app's folder permission",
+      "note": null,
+      "undo": "no",
+      "is_bounded": false
+    },
+    {
+      "capability": "write.file.project",
+      "barrier": "none",
+      "evidence": "derived",
+      "via": [
+        "local files and commands (when enabled)"
+      ],
+      "control": null,
+      "note": null,
+      "undo": "with-effort",
+      "is_bounded": false
+    },
+    {
+      "capability": "execute.process.host",
+      "barrier": "setting",
+      "evidence": "derived",
+      "via": [
+        "local files and commands (when enabled)"
+      ],
+      "control": "a confirmation prompt",
+      "note": "run terminal commands as you",
+      "undo": "with-effort",
+      "is_bounded": false
+    },
+    {
+      "capability": "write.file.host",
+      "barrier": "setting",
+      "evidence": "derived",
+      "via": [
+        "local files and commands (when enabled)"
+      ],
+      "control": "the app's folder permission",
+      "note": null,
+      "undo": "with-effort",
+      "is_bounded": false
+    },
+    {
+      "capability": "read.file.project",
+      "barrier": "none",
+      "evidence": "derived",
+      "via": [
+        "conversation",
+        "local files and commands (when enabled)"
+      ],
+      "control": null,
+      "note": "what you paste or attach",
+      "undo": "yes",
+      "is_bounded": false
+    },
+    {
+      "capability": "grant.credential.self",
+      "barrier": "setting",
+      "evidence": "derived",
+      "via": [
+        "local files and commands (when enabled)"
+      ],
+      "control": "the app's own settings file",
+      "note": null,
+      "undo": "yes",
+      "is_bounded": false
+    }
+  ],
+  "grant_size": 10,
+  "irreversible": [
+    "authenticate-as.credential.tenant",
+    "read.credential.host",
+    "read.record.history",
+    "send.endpoint.world",
+    "read.file.host"
+  ],
+  "unbounded": [
+    "authenticate-as.credential.tenant",
+    "read.credential.host",
+    "read.record.history",
+    "send.endpoint.world",
+    "read.file.host",
+    "write.file.project",
+    "execute.process.host",
+    "write.file.host",
+    "read.file.project",
+    "grant.credential.self"
+  ],
+  "widest_reach": "world",
+  "rows": {
+    "total": 11,
+    "measured": 0,
+    "derived": 11
+  },
+  "sources": [
+    "assess/library.json (surface desktop)"
+  ],
+  "not_an_assessment": "This describes a published deployment shape. It is not an assessment, an audit, a certification or a security review of any named product, and it carries no adjective and no score.",
+  "provenance": {
+    "source": "https://what-can-it-do.games.sgit.ai/data/",
+    "source_page": "https://what-can-it-do.games.sgit.ai/map/index.html",
+    "retrieved": "2026-09-11T13:00:37Z",
+    "pack_version": "v0.8.0",
+    "content_hash": "sha256:d6d4ba40f1fb1f93f660687e4787ac10c2e1835efeb3929a4c8ad62cee8897ef",
+    "verbatim_bytes": "upstream/",
+    "note": "Promoted from profiles/anthropic/claude-desktop/default.json. The grant is the union of its tool rows; where two tools reach the same capability the WEAKEST barrier is kept, because the agent takes the easier path.",
+    "licence": "CC BY 4.0"
+  }
+}

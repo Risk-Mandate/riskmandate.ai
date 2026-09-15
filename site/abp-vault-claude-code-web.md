@@ -2,7 +2,7 @@
 
 # RiskMandate — the behaviour-policy vault for Claude Code on the web
 
-The template Agent Behaviour Policy vault for Claude Code on the web with one repository attached, rendered live from vault ruj286tr: the card, the mandate, the grant with a barrier per row, the delta, the Licence to Operate, the vault’s own app in a sandboxed frame, the file list and the public read key.
+The template Agent Behaviour Policy vault for Claude Code on the web (anthropic/claude-code-remote/ccr-container), rendered live from vault ruj286tr: the card, the mandate, the grant with a barrier per row, the delta, the Licence to Operate, the vault’s own app in a sandboxed frame, the file list and the public read key.
 
 Source: https://riskmandate.ai/abp-vault-claude-code-web.html
 
@@ -10,11 +10,11 @@ Source: https://riskmandate.ai/abp-vault-claude-code-web.html
 
 # Claude Code on the web, with one repository attached.
 
-A managed, ephemeral container with one git repository attached, an egress proxy above it and a set of harness tools scoped by the platform. This is the template vault for that shape: the grant measured on the thing itself, the starting mandate the model site published, and everything else derived. Every number on this page is decrypted from the vault as you read it.
+A managed cloud container, ephemeral, one git repository attached, an egress proxy above it, and a set of harness tools scoped by the platform. MEASURED, by the thing being profiled: the shell probed on 5 September with probes/run.py, the fetch tool's reach and the harness tools reported by the operator. This is the template vault for that shape: the grant measured on the thing itself, the starting mandate the model site published, and everything else derived. Every number on this page is decrypted from the vault as you read it.
 
 ## Fifteen it can do. Six you asked for. Seven nothing bounds.
 
-Four counts and no score. The bar splits the excess by what stands in the way of each row: nothing, a rule in prose, a setting the agent's own account can flip, or a boundary enforced above it. Only the last is a control.
+Four counts and no score. The bar splits the excess by what stands in the way of each row: nothing, a rule in prose, a setting the agent's own account can flip, or a boundary enforced above it. Only the last is a control. 13 of 20 rows were observed on the thing itself.
 
 ## What you asked it to do, and what you did not.
 
@@ -22,7 +22,7 @@ Elicited, and the only authored file in the vault. This is the draft asserting a
 
 ## Everything the agent can do, irreversible rows first.
 
-Measured from the shape, not from your account and not by you. Each row says how it is known (✓ marks a row observed on the thing itself), what stands in the way, and whether the effect can be undone. Host means the container, not your machine; tenant means the platform's scoped tokens, not your accounts.
+Measured from the shape, not from your account and not by you. Each row says how it is known (✓ marks a row observed on the thing itself), what stands in the way, and whether the effect can be undone. What host, tenant and world mean in this shape is stated on the vault's Grant view, because for an agent in a vendor's container the host is the container and not your machine.
 
 ## What it can do that nobody asked for.
 
@@ -34,9 +34,9 @@ The organisation is the authority, the behaviour policy is the instrument, the a
 
 ## The vault's own interface, running here from the vault.
 
-The vault carries a single self-contained page that renders itself from the files beside it. Below it is booted inside a sandboxed frame with an opaque origin and served its reads by this page over a message channel — the app never sees a key, this page never runs the app's code in its own origin. The _Mandate — correct it_ view is the correction screen: move a row and the delta recomputes; the export is a mandate.json to paste back into the vault.
+The vault carries a single self-contained page that renders itself from the files beside it, and opens on Start here: what this is, where the pieces go, what we want the agent to do beside what we do not, and three ways to hand it over. Below it is booted inside a sandboxed frame with an opaque origin and served its reads by this page over a message channel — the app never sees a key, and this page never runs the app's code in its own origin.
 
-Prefer the whole product? [Open the vault browser](https://dev.vault.sgraph.ai/en-gb/) and paste the read key from the next section; it opens read-only with the FILES rail, the SGIT history and the app. A static copy of the app is also served from this site at [vaults/claude-code-web/index.html](vaults/claude-code-web/index.html), and says so in its top bar.
+Prefer the whole product? [Open the vault browser](https://dev.vault.sgraph.ai/en-gb/) and paste the read key from the next section; it opens read-only with the files, the history and the app. A static copy of the app is also served from this site at [vaults/claude-code-web/index.html](vaults/claude-code-web/index.html), and says so in its top bar.
 
 ## The bytes themselves, listed from the live tree.
 
@@ -48,6 +48,6 @@ Derived one-way from the vault's write key, which is not published and never wil
 
 sgit prints the same key with a prefix that declares its intent; the public form is the one shown. This page reads the vault at `dev.send.sgraph.ai` over plain cross-origin GETs and decrypts in your browser; the site never proxies it and holds no credential beyond the key you can see.
 
-## Run this shape? Correct the mandate.
+## Run this? Correct the mandate.
 
 Open the app above, move the rows that are wrong, and send us the export. Your vault is this one with the mandate corrected, a name on the licence, and no public key — and it recomputes when the grant moves.

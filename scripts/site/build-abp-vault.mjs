@@ -23,8 +23,9 @@
 // (the same, in the portable agent-skill format). They live in the template and
 // are copied in if absent.
 //
-// The vault app (index.html, app.json) is the template's, copied in on every run with
-// this vault's data injected as the FALLBACK, so it renders with no bridge at all.
+// index.html is the LOADER from site/vaults/_app/ (the app vault), with the app vault's
+// address injected; the renderer lives there, once. data/app.json tells the renderer which
+// dist/ files exist. A data vault carries no renderer.
 //
 // The delta semantics are abp.delta/v1 as published at abp.sgit.ai: excess is the
 // grant minus the mandate's wants, in grant order; refused is the part of the
@@ -426,15 +427,18 @@ const outputs = {
   'DELTA.md': deltaMd,
   'LICENCE-TO-OPERATE.md': ltoMd,
 };
-// The vault app: the template's index.html with this vault's data inlined. The app prefers
-// live reads over the bridge and falls back to this copy, so the file is derived like the rest.
-if (existsSync(join(TEMPLATE, 'index.html'))) {
+// The vault app: application vaults carry the LOADER, not the renderer. The loader is the
+// same bytes in every vault, with the app vault's address injected from the catalogue; it
+// fetches the renderer from the app vault (site/vaults/_app/, pushed as its own vault) and
+// boots it here against this vault's files. dist/ still gets the zip, and the FALLBACK data
+// the renderer used to carry is gone: a data vault is data.
+const catalogue = JSON.parse(readFileSync(join(VAULTS, 'index.json'), 'utf8'));
+const appVault  = catalogue.app_vault;
+if (existsSync(join(TEMPLATE, '..', '_app', 'loader.html'))) {
   const agents = existsSync(join(DIR, 'AGENTS.md')) ? readFileSync(join(DIR, 'AGENTS.md'), 'utf8') : readFileSync(join(TEMPLATE, 'AGENTS.md'), 'utf8');
   const skill  = existsSync(join(DIR, 'SKILL.md'))  ? readFileSync(join(DIR, 'SKILL.md'), 'utf8')  : readFileSync(join(TEMPLATE, 'SKILL.md'), 'utf8');
-  const md = (n) => outputs[n];
   const distDir = join(DIR, 'dist');
   mkdirSync(distDir, { recursive: true });
-  // the zip: every document and data file, no app — built here so it cannot disagree with them
   const zipEntries = [
     ...Object.entries(outputs).filter(([n]) => /\.(md|json)$/.test(n)).map(([n, c]) => ({ name: n, data: Buffer.from(c, 'utf8') })),
     { name: 'AGENTS.md', data: Buffer.from(agents, 'utf8') }, { name: 'SKILL.md', data: Buffer.from(skill, 'utf8') },
@@ -445,12 +449,12 @@ if (existsSync(join(TEMPLATE, 'index.html'))) {
   const zipName = `${slug}.zip`, pdfName = `${slug}.pdf`;
   outputs[`dist/${zipName}`] = zipStore(zipEntries);
   const dist = { [zipName]: true, ...(existsSync(join(distDir, pdfName)) ? { [pdfName]: true } : {}) };
-  const fallback = { vault: cfg, grant, mandate, delta, validity, history: hist, capabilities: caps, barriers: bars, undo, tiers, agents, skill,
-                     mandate_md: md('MANDATE.md'), grant_md: md('GRANT.md'), delta_md: md('DELTA.md'), licence_md: md('LICENCE-TO-OPERATE.md'), abp_md: md('AGENT-BEHAVIOUR-POLICY.md'), readme: md('README.md'), dist };
-  const compact = JSON.stringify(fallback).replace(/<\//g, '<\\/');
-  const tpl = readFileSync(join(TEMPLATE, 'index.html'), 'utf8');
-  if (!tpl.includes('/*__DATA__*/{}')) { console.error('template index.html has no /*__DATA__*/{} marker'); process.exit(1); }
-  outputs['index.html'] = tpl.replace('const FALLBACK = /*__DATA__*/{};', 'const FALLBACK = /*__DATA__*/' + compact + ';');
+  // what the renderer needs to know that is not in a data file: which dist files exist
+  outputs['data/app.json'] = JSON.stringify({ type: 'riskmandate/abp-app-context/v1', dist, app_vault: appVault ? { vault_id: appVault.vault_id, entry: appVault.entry || 'index.html', version: appVault.version || null } : null }, null, 2) + '\n';
+  const loader = readFileSync(join(TEMPLATE, '..', '_app', 'loader.html'), 'utf8');
+  if (!loader.includes('/*__APP_VAULT__*/{}')) { console.error('loader.html has no /*__APP_VAULT__*/{} marker'); process.exit(1); }
+  const cfgApp = { endpoint: catalogue.endpoint, vault_id: appVault?.vault_id || null, read_key: appVault?.key || null, entry: appVault?.entry || 'index.html', version: appVault?.version || null, static: '../_app/index.html' };
+  outputs['index.html'] = loader.replace('const APP_VAULT = /*__APP_VAULT__*/{};', 'const APP_VAULT = /*__APP_VAULT__*/' + JSON.stringify(cfgApp) + ';');
   outputs['app.json']   = readFileSync(join(TEMPLATE, 'app.json'), 'utf8').replace('"title": "Agent Behaviour Policy"', '"title": ' + JSON.stringify('ABP — ' + cfg.title));
 }
 // The computed_at stamp changes every run; --check compares everything but it.

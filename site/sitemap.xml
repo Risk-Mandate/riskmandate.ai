@@ -19,6 +19,14 @@
   <url><loc>https://riskmandate.ai/demo-file-security.html</loc><priority>0.7</priority></url>
   <url><loc>https://riskmandate.ai/demo-agent-permission-games.html</loc><priority>0.7</priority></url>
   <url><loc>https://riskmandate.ai/abp-vaults.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/abp-vault-scheduled-job.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/abp-vault-github-actions.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/abp-vault-browser-extension.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/abp-vault-chatgpt-web.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/abp-vault-claude-web-connectors.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/abp-vault-claude-desktop.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/abp-vault-claude-code-cli-confirmations-off.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/abp-vault-claude-code-cli.html</loc><priority>0.7</priority></url>
   <url><loc>https://riskmandate.ai/abp-vault-claude-code-web.html</loc><priority>0.7</priority></url>
   <url><loc>https://riskmandate.ai/lab.html</loc><priority>0.7</priority></url>
   <url><loc>https://riskmandate.ai/lab-connector-grants.html</loc><priority>0.7</priority></url>

@@ -1,0 +1,117 @@
+{
+  "type": "abp/profile/v1",
+  "id": "anthropic/claude-web/connectors-on",
+  "vendor": "Anthropic",
+  "product": "Claude (in the browser, with connectors switched on)",
+  "variant": "connectors-on",
+  "surface": "web",
+  "profile_version": "2026-09-05",
+  "description": "The same web assistant with connectors you switched on — a drive, a code host, a cloud account. Each connector is a boundary (the vendor holds the token, scoped as you scoped it) and each one is a row you granted by clicking. DERIVED from the assess library's web tree; which connectors is yours to name.",
+  "reach_names": {
+    "host": "what the drive connector is scoped to; not your machine",
+    "tenant": "the accounts you connected, as you scoped them",
+    "world": "the vendor's egress"
+  },
+  "not_reachable": [
+    {
+      "what": "your machine's files",
+      "why": "a browser tab; the connector reaches a drive, not a disk",
+      "source": "assess/library.json (web: home)"
+    }
+  ],
+  "tools": [
+    "conversation and uploads",
+    "connectors"
+  ],
+  "grant": [
+    {
+      "capability": "authenticate-as.credential.tenant",
+      "barrier": "boundary",
+      "evidence": "derived",
+      "via": [
+        "connectors"
+      ],
+      "control": "the connector's scope",
+      "note": "a cloud connector acts as you",
+      "undo": "no",
+      "is_bounded": true
+    },
+    {
+      "capability": "read.file.host",
+      "barrier": "boundary",
+      "evidence": "derived",
+      "via": [
+        "connectors"
+      ],
+      "control": "the connector's scope, held by the vendor",
+      "note": "a drive connector: your other files, as scoped",
+      "undo": "no",
+      "is_bounded": true
+    },
+    {
+      "capability": "read.message.tenant",
+      "barrier": "boundary",
+      "evidence": "derived",
+      "via": [
+        "connectors"
+      ],
+      "control": "the connector's scope",
+      "note": "a mail or chat connector reads your mail",
+      "undo": "no",
+      "is_bounded": true
+    },
+    {
+      "capability": "write.repository.tenant",
+      "barrier": "boundary",
+      "evidence": "derived",
+      "via": [
+        "connectors"
+      ],
+      "control": "the connector's scope",
+      "note": "a code-host connector",
+      "undo": "with-effort",
+      "is_bounded": true
+    },
+    {
+      "capability": "read.file.project",
+      "barrier": "none",
+      "evidence": "derived",
+      "via": [
+        "conversation and uploads"
+      ],
+      "control": null,
+      "note": null,
+      "undo": "yes",
+      "is_bounded": false
+    }
+  ],
+  "grant_size": 5,
+  "irreversible": [
+    "authenticate-as.credential.tenant",
+    "read.file.host",
+    "read.message.tenant"
+  ],
+  "unbounded": [
+    "read.file.project"
+  ],
+  "widest_reach": "tenant",
+  "rows": {
+    "total": 5,
+    "measured": 0,
+    "derived": 5
+  },
+  "sources": [
+    "assess/library.json (surface web)"
+  ],
+  "not_an_assessment": "This describes a published deployment shape. It is not an assessment, an audit, a certification or a security review of any named product, and it carries no adjective and no score.",
+  "provenance": {
+    "source": "https://what-can-it-do.games.sgit.ai/data/",
+    "source_page": "https://what-can-it-do.games.sgit.ai/map/index.html",
+    "retrieved": "2026-09-11T13:00:37Z",
+    "pack_version": "v0.8.0",
+    "content_hash": "sha256:d6d4ba40f1fb1f93f660687e4787ac10c2e1835efeb3929a4c8ad62cee8897ef",
+    "verbatim_bytes": "upstream/",
+    "note": "Promoted from profiles/anthropic/claude-web/connectors-on.json. The grant is the union of its tool rows; where two tools reach the same capability the WEAKEST barrier is kept, because the agent takes the easier path.",
+    "licence": "CC BY 4.0"
+  }
+}

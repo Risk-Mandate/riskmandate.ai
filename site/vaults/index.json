@@ -1,0 +1,164 @@
+{
+  "note": "The catalogue of behaviour-policy vaults on this site — the single source for the directory page (abp-vaults.html) and one page per vault (abp-vault-<slug>.html), both written by scripts/site/build-abp-pages.mjs. `key` is the vault's PUBLIC read key (64 hex): derived one-way, read and nothing else, published on purpose. A write credential never appears here or anywhere in site/. `asked_for` are applications whose grant is not yet published at abp.sgit.ai, so no vault can be derived for them yet — they are listed so the gap is visible, never filled in by hand.",
+  "endpoint": "https://dev.send.sgraph.ai",
+  "vaults": [
+    {
+      "slug": "claude-code-web",
+      "vid": "ruj286tr",
+      "key": "6042edc39e0bcb1f17af1da0cf9d4ded6f89a7bb6a5394aa9554bb76913a249c",
+      "app": "Claude Code on the web",
+      "title": "Claude Code on the web, with one repository attached",
+      "title_lead": "Claude Code on the web,",
+      "title_tail": "with one repository attached.",
+      "shape": "anthropic/claude-code-remote/ccr-container",
+      "family": "code",
+      "glyph": "CC",
+      "blurb": "A managed, ephemeral container with one repository attached and an egress proxy above it. The shape this site is maintained from; 13 of 20 rows measured on the thing itself."
+    },
+    {
+      "slug": "claude-code-cli",
+      "vid": "amicdz0h",
+      "key": "46c3f77951dfea80c8bf3d72d5a84915e2694129ca8df4a1c58ccecfeb31bc47",
+      "app": "Claude Code on your machine",
+      "title": "Claude Code on your own machine, confirmations on",
+      "title_lead": "Claude Code on your machine,",
+      "title_tail": "confirmations on.",
+      "shape": "anthropic/claude-code/local-default",
+      "family": "code",
+      "glyph": "CC",
+      "blurb": "The coding agent on a developer's own machine with confirmation prompts enabled. Read this one beside the confirmations-off shape: one setting moves one barrier and not one number changes."
+    },
+    {
+      "slug": "claude-code-cli-confirmations-off",
+      "vid": "ahly2cho",
+      "key": "7894e9462c18014303ec8137593610880171f0d6fa8a999b5f9f8687ba100b86",
+      "app": "Claude Code, confirmations off",
+      "title": "Claude Code on your own machine, confirmations off",
+      "title_lead": "Claude Code on your machine,",
+      "title_tail": "confirmations off.",
+      "shape": "anthropic/claude-code/local-confirmations-off",
+      "family": "code",
+      "glyph": "CC",
+      "blurb": "The same agent, the same machine, the same account, with the confirmation prompt switched off. The prompt was the only thing between an authorised capability and the whole machine, and it was a switch the agent's account could flip."
+    },
+    {
+      "slug": "claude-desktop",
+      "vid": "ty3axtmo",
+      "key": "0773b3bf99cb7ef237fa83c77778eb85009a89dbaf566c2d16a83a8f3c693635",
+      "app": "Claude Desktop",
+      "title": "Claude Desktop, with local tools switched on",
+      "title_lead": "Claude Desktop,",
+      "title_tail": "with local tools switched on.",
+      "shape": "anthropic/claude-desktop/default",
+      "family": "desktop",
+      "glyph": "CD",
+      "blurb": "The desktop app with local tools on: files, processes and the network of the machine it sits on. Ten capabilities, three wanted, eight with nothing real in the way."
+    },
+    {
+      "slug": "claude-web-connectors",
+      "vid": "wkm5owfl",
+      "key": "2bf331cfad716bdc7f37feddd7f1892c651425dd844381d3f392ed1b3419447d",
+      "app": "Claude in the browser, connectors on",
+      "title": "Claude in the browser, with connectors switched on",
+      "title_lead": "Claude in the browser,",
+      "title_tail": "with connectors switched on.",
+      "shape": "anthropic/claude-web/connectors-on",
+      "family": "chat",
+      "glyph": "CW",
+      "blurb": "Chat with connectors enabled: the tenant's accounts are in reach through whatever was connected. The two excess rows here both sit behind a boundary, which is the exception in this directory."
+    },
+    {
+      "slug": "chatgpt-web",
+      "vid": "dd1teu9n",
+      "key": "8f7da12c7ab0f2496471ff9d5e4f4755975ce51e7830dafa39dc728b5aa71001",
+      "app": "ChatGPT in the browser",
+      "title": "ChatGPT in the browser, nothing connected",
+      "title_lead": "ChatGPT in the browser,",
+      "title_tail": "nothing connected.",
+      "shape": "openai/chatgpt-web/default",
+      "family": "chat",
+      "glyph": "GP",
+      "blurb": "The smallest grant in the set: one capability, one wanted, no excess. The baseline every other shape is measured against, and the proof that a template can be empty and still be right."
+    },
+    {
+      "slug": "browser-extension",
+      "vid": "exsaxrfr",
+      "key": "875818b8d845c17801db7aa4bef5037a70e084db717749533179af0b2abc68df",
+      "app": "A browser extension",
+      "title": "A browser extension with broad host permissions",
+      "title_lead": "A browser extension",
+      "title_tail": "with broad host permissions.",
+      "shape": "generic/browser-extension/broad-host-permissions",
+      "family": "browser",
+      "glyph": "EX",
+      "blurb": "Other people's data, and the mandate nobody wrote down. Three capabilities, all three irreversible; the shortest policy in the directory and not the mildest."
+    },
+    {
+      "slug": "github-actions",
+      "vid": "0hpdpj80",
+      "key": "28afd90f03365372d9c0181808680519523ffdbeadc1fce7ec8e2074c28e36e3",
+      "app": "GitHub Actions",
+      "title": "A GitHub Actions runner, a hosted CI job",
+      "title_lead": "GitHub Actions,",
+      "title_tail": "a hosted CI job.",
+      "shape": "github/actions-runner/ci",
+      "family": "ci",
+      "glyph": "GA",
+      "blurb": "A hosted runner under a service account: persistence, and reach beyond the turn. Eight of eight rows measured, the only fully measured shape besides the web container."
+    },
+    {
+      "slug": "scheduled-job",
+      "vid": "kd7zeimj",
+      "key": "cf9307d3ac3f3674049590684d9af0c10116364c813dea77d8584c8fa5a10e7c",
+      "app": "A scheduled job",
+      "title": "A scheduled job running as a service account",
+      "title_lead": "A scheduled job",
+      "title_tail": "under a service account.",
+      "shape": "generic/scheduled-job/service-account",
+      "family": "service",
+      "glyph": "SJ",
+      "blurb": "A job that outlives the person who made it, running as a service account nobody logs in as. Seven capabilities, four wanted, four with nothing in the way."
+    }
+  ],
+  "asked_for": [
+    {
+      "slug": "personal-mailbox",
+      "app": "An assistant on a personal mailbox",
+      "family": "mail",
+      "glyph": "M",
+      "blurb": "The narrowest scope that reads a message reads every message. Asked of the model site as request 2 in Lab 03.",
+      "note": "grant not yet published — first in the queue"
+    },
+    {
+      "slug": "work-mailbox",
+      "app": "An assistant on a work mailbox",
+      "family": "mail",
+      "glyph": "M",
+      "blurb": "Shared mail is in scope, and no administrator was asked.",
+      "note": "grant not yet published"
+    },
+    {
+      "slug": "personal-drive",
+      "app": "An assistant on a personal cloud drive",
+      "family": "files",
+      "glyph": "D",
+      "blurb": "The default corpus is files owned by or shared to the user.",
+      "note": "grant not yet published"
+    },
+    {
+      "slug": "corporate-files",
+      "app": "An assistant on a corporate file estate",
+      "family": "files",
+      "glyph": "D",
+      "blurb": "Site-specific narrowing is unsupported because the search is tenant-wide.",
+      "note": "grant not yet published"
+    }
+  ],
+  "app_vault": {
+    "vault_id": "fl3i7lu4",
+    "key": "e37a0f80d65e2b486f8bb3253e313c65ecbb57e5664c3f1704346c70ac09639a",
+    "entry": "index.html",
+    "version": "v1",
+    "note": "The renderer every application vault loads (site/vaults/_app/), pushed as its own vault. Public read key; read and nothing else."
+  }
+}

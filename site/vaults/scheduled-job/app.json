@@ -1,0 +1,16 @@
+{
+  "entry": "index.html",
+  "present": true,
+  "auto_open": true,
+  "title": "ABP — A scheduled job running as a service account",
+  "permissions": {
+    "fs": {
+      "read": true
+    }
+  },
+  "hud": {
+    "mode": "minimal"
+  },
+  "_why": "Read only, by declaration. The app renders the vault's own files and computes a correction the reader pastes back by hand; it has no reason to write, so it declares none.",
+  "_hud_why": "minimal: the app carries its own navigation and version, so the host URL bar and toolbar are noise for the person handed this vault; the sovereignty rail (consent, exit) stays."
+}

@@ -1,0 +1,55 @@
+{
+  "type": "abp/mandate/v1",
+  "id": "chat-no-connectors",
+  "label": "Chat in the browser, nothing connected",
+  "surface": [
+    "web"
+  ],
+  "applies_to": [
+    "openai/chatgpt-web/default"
+  ],
+  "status": "starting-point",
+  "authored": "2026-09-09",
+  "authored_by": "the site, as a starting point — not measured, not surveyed; the first thing to argue with",
+  "description": "I paste things in and read what comes back. That is the whole mandate, and the honest baseline: a chat window with nothing connected should be able to do nothing else.",
+  "want": [
+    "read.file.project"
+  ],
+  "do_not_want": [
+    "read.file.host",
+    "write.file.host",
+    "delete.file.host",
+    "execute.process.host",
+    "send.endpoint.world",
+    "read.credential.host",
+    "authenticate-as.credential.tenant",
+    "send.message.world",
+    "read.message.tenant",
+    "write.repository.tenant",
+    "create.record.world",
+    "write.budget.tenant",
+    "create.schedule.tenant",
+    "read.record.history"
+  ],
+  "unstated": [
+    "authenticate-as.credential.signing",
+    "create.schedule.host",
+    "execute.process.self",
+    "grant.credential.self",
+    "read.record.browsing",
+    "send.endpoint.allowed",
+    "write.file.project",
+    "write.repository.project"
+  ],
+  "notes": {},
+  "provenance": {
+    "source": "https://what-can-it-do.games.sgit.ai/data/",
+    "source_page": "https://what-can-it-do.games.sgit.ai/map/index.html",
+    "retrieved": "2026-09-11T13:00:37Z",
+    "pack_version": "v0.8.0",
+    "content_hash": "sha256:d6d4ba40f1fb1f93f660687e4787ac10c2e1835efeb3929a4c8ad62cee8897ef",
+    "verbatim_bytes": "upstream/",
+    "note": "Promoted from mandates/chat-no-connectors.json. `unstated` is computed here as the primitives the mandate names neither way; the pack leaves it implicit. A mandate is elicited, not measured: these are first drafts written to be argued with.",
+    "licence": "CC BY 4.0"
+  }
+}

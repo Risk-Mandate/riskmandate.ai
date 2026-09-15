@@ -98,7 +98,7 @@ The same files are in an encrypted SG/Vault on the platform this site's demonstr
 | Host | dev.send.sgraph.ai · opened at dev.vault.sgraph.ai, like the demos |
 | Read key | published on [the vault's page](abp-vault-claude-code-web.html), in the public form sgit declares for a deliberately published key |
 | Clone it | `sgit clone <read key>` — read-only; the key is on the vault's page |
-| Commits | 15 September 2026 — v1 the template with the grant check · v2 the vault app · v3 the start-here view, the zip and the PDF |
+| Commits | 15 September 2026 — v1 the template with the grant check · v2 the vault app · v3 the start-here view, the zip and the PDF · v4 the primer and the minimal HUD · v5 the loader: the renderer now lives once, in the app vault |
 
 The write side of this vault is held by us and appears nowhere on this site; a test in the repository fails the build if anything shaped like one lands in `site/`. The vault's history is the vault's: every recompute is a commit, and a buyer's own vault keeps the draft it was corrected from as its first entry.
 

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>RiskMandate — the behaviour-policy vault for Claude Code on the web</title>
-<meta name="description" content="The template Agent Behaviour Policy vault for Claude Code on the web with one repository attached, rendered live from vault ruj286tr: the card, the mandate, the grant with a barrier per row, the delta, the Licence to Operate, the vault’s own app in a sandboxed frame, the file list and the public read key.">
+<meta name="description" content="The template Agent Behaviour Policy vault for Claude Code on the web (anthropic/claude-code-remote/ccr-container), rendered live from vault ruj286tr: the card, the mandate, the grant with a barrier per row, the delta, the Licence to Operate, the vault’s own app in a sandboxed frame, the file list and the public read key.">
 <link rel="canonical" href="https://riskmandate.ai/abp-vault-claude-code-web.html">
 <link rel="alternate" type="text/markdown" href="abp-vault-claude-code-web.md" title="This page as markdown">
 <link rel="icon" href="assets/brand/riskmandate-favicon-32.png" sizes="32x32">
@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="RiskMandate">
 <meta property="og:url" content="https://riskmandate.ai/abp-vault-claude-code-web.html">
 <meta property="og:title" content="RiskMandate — the behaviour-policy vault for Claude Code on the web">
-<meta property="og:description" content="The template Agent Behaviour Policy vault for Claude Code on the web with one repository attached, rendered live from vault ruj286tr: the card, the mandate, the grant with a barrier per row, the delta, the Licence to Operate, the vault’s own app in a sandboxed frame, the file list and the public read key.">
+<meta property="og:description" content="The template Agent Behaviour Policy vault for Claude Code on the web (anthropic/claude-code-remote/ccr-container), rendered live from vault ruj286tr: the card, the mandate, the grant with a barrier per row, the delta, the Licence to Operate, the vault’s own app in a sandboxed frame, the file list and the public read key.">
 <meta property="og:image" content="https://riskmandate.ai/assets/brand/riskmandate-lockup-light.png">
 <meta name="twitter:card" content="summary_large_image">
 <!-- Scaffolded by scripts/site/new-page.mjs. Hand-edited from here on — there is no build step. -->
@@ -437,6 +437,26 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
 .ab-vault .shape{font-family:var(--mono);font-size:11px;color:var(--faint)}
 .ab-vault p{font-size:14px;color:var(--muted);margin-top:8px;max-width:76ch}
 .ab-vault .links{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+
+/* the directory */
+.ab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:14px;margin-top:26px}
+@media (max-width:820px){.ab-grid{grid-template-columns:1fr}}
+.ab-tile{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:start;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 18px 16px}
+.ab-tile.on:hover{border-color:var(--green)}
+.ab-tile.off{opacity:.72}
+.ab-glyph{display:grid;place-items:center;width:52px;height:52px;border-radius:12px;font-family:var(--mono);font-weight:700;font-size:15px;letter-spacing:-.02em;color:#fff;background:var(--ink)}
+.ab-glyph.code{background:#1D4ED8}.ab-glyph.chat{background:#1A7F5A}.ab-glyph.desktop{background:#6D28D9}.ab-glyph.browser{background:#B45309}.ab-glyph.ci{background:#0F766E}.ab-glyph.service{background:#374151}.ab-glyph.mail{background:#C0392B}.ab-glyph.files{background:#0369A1}
+.ab-tile.off .ab-glyph{background:var(--bg2);color:var(--faint);border:1px dashed var(--border)}
+.ab-tilebody h3{margin:0;font-size:16.5px;font-weight:700;letter-spacing:-.01em;color:var(--text)}
+.ab-tilebody h3 a{color:var(--text);text-decoration:none}.ab-tilebody h3 a:hover{color:var(--green)}
+.ab-verified{font-size:12px;color:var(--green);margin-left:4px}
+.ab-tilebody p{font-size:13.5px;color:var(--muted);line-height:1.55;margin-top:4px}
+.ab-tilecounts{display:block;font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:8px}
+.ab-mini{display:inline-block;font-family:var(--mono);font-size:10.5px;margin-top:6px;border-radius:999px;padding:2px 8px;border:1px solid var(--border);color:var(--muted)}
+.ab-mini.live{color:var(--green);background:var(--greenBg);border-color:rgba(26,127,90,.3)}
+.ab-plus{display:grid;place-items:center;width:40px;height:40px;border-radius:10px;border:1px solid var(--border);background:var(--card);color:var(--text);font-size:22px;text-decoration:none;line-height:1}
+.ab-plus:hover{border-color:var(--green);color:var(--green)}
+.ab-plus.off{color:var(--faint);border-style:dashed}
 </style>
 </head>
 <body id="top">
@@ -445,18 +465,18 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
   <div class="wrap">
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
-    <a class="version" href="versions.html" title="What shipped in v1.12.0">v1.12.0</a>
+    <a class="version" href="versions.html" title="What shipped in v1.13.0">v1.13.0</a>
     <button class="demo" data-demo>Get in touch</button>
   </div>
 </header>
 
-<div class="labstrip"><b>Behaviour-policy vault</b> · <span class="state proposal">Template</span> · Read live from vault <b>ruj286tr</b> with the key printed on this page. <a href="abp-vaults.html">All vaults</a> · <a href="lab-vault-delivered.html">How it was built</a></div>
+<div class="labstrip"><b>Behaviour-policy vault</b> · <span class="state proposal">Template</span> · Read live from vault <b>ruj286tr</b> with the key printed on this page. <a href="abp-vaults.html">All applications</a> · <a href="lab-vault-delivered.html">How the first one was built</a></div>
 
 <main class="phero">
   <div class="wrap">
     <span class="eyebrow"><span class="d"></span> Agent Behaviour Policy · anthropic/claude-code-remote/ccr-container</span>
-    <h1>Claude Code on the web, <span class="it">with one repository attached.</span></h1>
-    <p class="sub">A managed, ephemeral container with one git repository attached, an egress proxy above it and a set of harness tools scoped by the platform. This is the template vault for that shape: the grant measured on the thing itself, the starting mandate the model site published, and everything else derived. Every number on this page is decrypted from the vault as you read it.</p>
+    <h1>Claude Code on the web,<span class="it"> with one repository attached.</span></h1>
+    <p class="sub">A managed cloud container, ephemeral, one git repository attached, an egress proxy above it, and a set of harness tools scoped by the platform. MEASURED, by the thing being profiled: the shell probed on 5 September with probes/run.py, the fetch tool's reach and the harness tools reported by the operator. This is the template vault for that shape: the grant measured on the thing itself, the starting mandate the model site published, and everything else derived. Every number on this page is decrypted from the vault as you read it.</p>
     <div class="cta-row">
       <button class="btn btn-green" data-to="app">Open the vault's app ↓</button>
       <button class="btn btn-ghost" data-to="key">The read key ↓</button>
@@ -470,8 +490,8 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
     <div class="wrap">
       <div class="shead">
         <span class="tag">01 · The card</span>
-        <h2>Fifteen it can do. <span class="g">Six you asked for. Seven nothing bounds.</span></h2>
-        <p>Four counts and no score. The bar splits the excess by what stands in the way of each row: nothing, a rule in prose, a setting the agent's own account can flip, or a boundary enforced above it. Only the last is a control.</p>
+        <h2>Fifteen it can do. Six you asked for. <span class="g">Seven nothing bounds.</span></h2>
+        <p>Four counts and no score. The bar splits the excess by what stands in the way of each row: nothing, a rule in prose, a setting the agent's own account can flip, or a boundary enforced above it. Only the last is a control. 13 of 20 rows were observed on the thing itself.</p>
       </div>
       <rm-abp-card data-vault="claude-code-web"></rm-abp-card>
     </div>
@@ -493,12 +513,12 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
       <div class="shead">
         <span class="tag">02 · The grant</span>
         <h2>Everything the agent can do, <span class="g">irreversible rows first.</span></h2>
-        <p>Measured from the shape, not from your account and not by you. Each row says how it is known (✓ marks a row observed on the thing itself), what stands in the way, and whether the effect can be undone. Host means the container, not your machine; tenant means the platform's scoped tokens, not your accounts.</p>
+        <p>Measured from the shape, not from your account and not by you. Each row says how it is known (✓ marks a row observed on the thing itself), what stands in the way, and whether the effect can be undone. What host, tenant and world mean in this shape is stated on the vault's Grant view, because for an agent in a vendor's container the host is the container and not your machine.</p>
       </div>
       <rm-abp-table data-vault="claude-code-web" data-view="grant"></rm-abp-table>
       <rm-abp-table data-vault="claude-code-web" data-view="notreach"></rm-abp-table>
       <div class="notice">
-        <strong>A control bounds a grant only if it is enforced by something the grant does not include.</strong> A setting the agent's own account could change is not a control, because the grant includes the ability to remove the bound. A boundary enforced above it is one, because it does not. Two of the three boundaries in this grant are the platform's; the deployer who wants a fourth adds a branch rule at the host, which is free.
+        <strong>A control bounds a grant only if it is enforced by something the grant does not include.</strong> A setting the agent's own account could change is not a control, because the grant includes the ability to remove the bound. A boundary enforced above it is one, because it does not. Two of the nine excess rows here sit behind a boundary; the other seven are only asked.
       </div>
     </div>
   </section>
@@ -530,10 +550,10 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
       <div class="shead">
         <span class="tag">03 · The app</span>
         <h2>The vault's own interface, <span class="g">running here from the vault.</span></h2>
-        <p>The vault carries a single self-contained page that renders itself from the files beside it. Below it is booted inside a sandboxed frame with an opaque origin and served its reads by this page over a message channel — the app never sees a key, this page never runs the app's code in its own origin. The <em>Mandate — correct it</em> view is the correction screen: move a row and the delta recomputes; the export is a mandate.json to paste back into the vault.</p>
+        <p>The vault carries a single self-contained page that renders itself from the files beside it, and opens on Start here: what this is, where the pieces go, what we want the agent to do beside what we do not, and three ways to hand it over. Below it is booted inside a sandboxed frame with an opaque origin and served its reads by this page over a message channel — the app never sees a key, and this page never runs the app's code in its own origin.</p>
       </div>
       <rm-abp-app data-vault="claude-code-web"></rm-abp-app>
-      <p class="src">Prefer the whole product? <a href="https://dev.vault.sgraph.ai/en-gb/" target="_blank" rel="noopener">Open the vault browser</a> and paste the read key from the next section; it opens read-only with the FILES rail, the SGIT history and the app. A static copy of the app is also served from this site at <a href="vaults/claude-code-web/index.html">vaults/claude-code-web/index.html</a>, and says so in its top bar.</p>
+      <p class="src">Prefer the whole product? <a href="https://dev.vault.sgraph.ai/en-gb/" target="_blank" rel="noopener">Open the vault browser</a> and paste the read key from the next section; it opens read-only with the files, the history and the app. A static copy of the app is also served from this site at <a href="vaults/claude-code-web/index.html">vaults/claude-code-web/index.html</a>, and says so in its top bar.</p>
     </div>
   </section>
 
@@ -565,15 +585,14 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
 <section class="pcta">
   <div class="wrap">
     <span class="eyebrow"><span class="d"></span> Behaviour-policy vault</span>
-    <h2>Run this shape? Correct the mandate.</h2>
+    <h2>Run this? Correct the mandate.</h2>
     <p>Open the app above, move the rows that are wrong, and send us the export. Your vault is this one with the mandate corrected, a name on the licence, and no public key — and it recomputes when the grant moves.</p>
     <div class="cta-row">
       <a class="btn btn-green" href="vaults/claude-code-web/MANDATE.md">Read the mandate ↗</a>
-      <a class="btn btn-ghost" href="abp-vaults.html">All vaults</a>
+      <a class="btn btn-ghost" href="abp-vaults.html">All applications</a>
     </div>
   </div>
 </section>
-
 
 <footer class="foot">
   <div class="wrap">
@@ -865,7 +884,7 @@ RM.components.nav = (function () {
 
 
 'use strict';
-// components/abp-vaults.js — behaviour-policy vaults, read live on the page.
+// abp/abp-vaults.js — behaviour-policy vaults, read live on the page. Page-specific (scripts/site/abp/), not a shared module.
 //
 // The page reads an encrypted SG/Vault directly: derive the ref id from the
 // published READ key with HMAC-SHA256, fetch ciphertext over CORS from the vault
@@ -896,18 +915,100 @@ RM.services.abpVaults = (function () {
   var UI       = 'https://dev.vault.sgraph.ai';
 
   var VAULTS = [
-    {
-      slug: 'claude-code-web',
-      vid: 'ruj286tr',
-      key: '6042edc39e0bcb1f17af1da0cf9d4ded6f89a7bb6a5394aa9554bb76913a249c',
-      title: 'Claude Code on the web, with one repository attached',
-      shape: 'anthropic/claude-code-remote/ccr-container',
-      page: 'abp-vault-claude-code-web.html',
-      status: 'template',
-      strap: 'The shape this site is maintained from. 13 of 20 rows measured on the thing itself.',
-      lab: 'lab-vault-delivered.html'
-    }
-  ];
+  {
+    "slug": "claude-code-web",
+    "vid": "ruj286tr",
+    "key": "6042edc39e0bcb1f17af1da0cf9d4ded6f89a7bb6a5394aa9554bb76913a249c",
+    "title": "Claude Code on the web, with one repository attached",
+    "shape": "anthropic/claude-code-remote/ccr-container",
+    "page": "abp-vault-claude-code-web.html",
+    "status": "template",
+    "app": "Claude Code on the web"
+  },
+  {
+    "slug": "claude-code-cli",
+    "vid": "amicdz0h",
+    "key": "46c3f77951dfea80c8bf3d72d5a84915e2694129ca8df4a1c58ccecfeb31bc47",
+    "title": "Claude Code on your own machine, confirmations on",
+    "shape": "anthropic/claude-code/local-default",
+    "page": "abp-vault-claude-code-cli.html",
+    "status": "template",
+    "app": "Claude Code on your machine"
+  },
+  {
+    "slug": "claude-code-cli-confirmations-off",
+    "vid": "ahly2cho",
+    "key": "7894e9462c18014303ec8137593610880171f0d6fa8a999b5f9f8687ba100b86",
+    "title": "Claude Code on your own machine, confirmations off",
+    "shape": "anthropic/claude-code/local-confirmations-off",
+    "page": "abp-vault-claude-code-cli-confirmations-off.html",
+    "status": "template",
+    "app": "Claude Code, confirmations off"
+  },
+  {
+    "slug": "claude-desktop",
+    "vid": "ty3axtmo",
+    "key": "0773b3bf99cb7ef237fa83c77778eb85009a89dbaf566c2d16a83a8f3c693635",
+    "title": "Claude Desktop, with local tools switched on",
+    "shape": "anthropic/claude-desktop/default",
+    "page": "abp-vault-claude-desktop.html",
+    "status": "template",
+    "app": "Claude Desktop"
+  },
+  {
+    "slug": "claude-web-connectors",
+    "vid": "wkm5owfl",
+    "key": "2bf331cfad716bdc7f37feddd7f1892c651425dd844381d3f392ed1b3419447d",
+    "title": "Claude in the browser, with connectors switched on",
+    "shape": "anthropic/claude-web/connectors-on",
+    "page": "abp-vault-claude-web-connectors.html",
+    "status": "template",
+    "app": "Claude in the browser, connectors on"
+  },
+  {
+    "slug": "chatgpt-web",
+    "vid": "dd1teu9n",
+    "key": "8f7da12c7ab0f2496471ff9d5e4f4755975ce51e7830dafa39dc728b5aa71001",
+    "title": "ChatGPT in the browser, nothing connected",
+    "shape": "openai/chatgpt-web/default",
+    "page": "abp-vault-chatgpt-web.html",
+    "status": "template",
+    "app": "ChatGPT in the browser"
+  },
+  {
+    "slug": "browser-extension",
+    "vid": "exsaxrfr",
+    "key": "875818b8d845c17801db7aa4bef5037a70e084db717749533179af0b2abc68df",
+    "title": "A browser extension with broad host permissions",
+    "shape": "generic/browser-extension/broad-host-permissions",
+    "page": "abp-vault-browser-extension.html",
+    "status": "template",
+    "app": "A browser extension"
+  },
+  {
+    "slug": "github-actions",
+    "vid": "0hpdpj80",
+    "key": "28afd90f03365372d9c0181808680519523ffdbeadc1fce7ec8e2074c28e36e3",
+    "title": "A GitHub Actions runner, a hosted CI job",
+    "shape": "github/actions-runner/ci",
+    "page": "abp-vault-github-actions.html",
+    "status": "template",
+    "app": "GitHub Actions"
+  },
+  {
+    "slug": "scheduled-job",
+    "vid": "kd7zeimj",
+    "key": "cf9307d3ac3f3674049590684d9af0c10116364c813dea77d8584c8fa5a10e7c",
+    "title": "A scheduled job running as a service account",
+    "shape": "generic/scheduled-job/service-account",
+    "page": "abp-vault-scheduled-job.html",
+    "status": "template",
+    "app": "A scheduled job"
+  }
+];
+  var APP_VAULT = {"vault_id":"fl3i7lu4","key":"e37a0f80d65e2b486f8bb3253e313c65ecbb57e5664c3f1704346c70ac09639a","entry":"index.html"};   // the renderer's own vault: { vault_id, key, entry }
+  var appReaderP = null;
+  function appReader() { if (!APP_VAULT) return Promise.reject(new Error('no app vault in the catalogue')); if (!appReaderP) appReaderP = new Reader({ endpoint: ENDPOINT, vault_id: APP_VAULT.vault_id, read_key: APP_VAULT.key }).init().then(function (r) { return r.open(); }); return appReaderP; }
   function bySlug(slug) { for (var i = 0; i < VAULTS.length; i++) if (VAULTS[i].slug === slug) return VAULTS[i]; return null; }
   function publicKey(v) { return 'sgit_public_read_' + v.key + ':' + v.vid; }
 
@@ -1177,7 +1278,11 @@ RM.services.abpVaults = (function () {
           }
           if (!m.id || typeof m.path !== 'string') return;
           var reply = { sgvEmbed: 1, id: m.id, ok: false };
-          try { if (m.op === 'readText') { reply.data = await L.reader.readText(m.path); reply.ok = true; } else reply.error = 'unknown op: ' + m.op; }
+          try {
+            if (m.op !== 'readText') reply.error = 'unknown op: ' + m.op;
+            else if (/^\.?\/?app\//.test(m.path)) { var ar = await appReader(); reply.data = await ar.readText(m.path.replace(/^\.?\/?app\//, '')); reply.ok = true; }   // the sub-vault link, resolved by this host
+            else { reply.data = await L.reader.readText(m.path); reply.ok = true; }
+          }
           catch (e) { reply.error = String(e && e.message || e); }
           ev.source.postMessage(reply, '*');
           if (m.op === 'readText' && reply.ok) { status.className = 'vd-status live'; status.textContent = 'Live · read-only · ' + L.files.length + ' files · served over postMessage'; }
@@ -1193,6 +1298,22 @@ RM.services.abpVaults = (function () {
     }
   };
 
+
+  // ---- <rm-abp-mini data-vault> : four live counts for a directory tile ----
+  RM.components.AbpMini = class extends HTMLElement {
+    connectedCallback() {
+      var self = this, slug = this.dataset.vault;
+      load(slug).then(function (L) {
+        var d = L.data.delta.counts, g = L.data.grant, m = L.data.mandate;
+        self.textContent = '';
+        self.appendChild(dom.el('span', { class: 'ab-mini ' + L.source }, [
+          (L.source === 'live' ? 'live \u00b7 ' : 'snapshot \u00b7 ') + g.grant.length + ' \u00b7 ' + m.want.length + ' \u00b7 ' + d.excess + ' \u00b7 ' + d.unbounded_excess
+        ]));
+      }).catch(function () { self.textContent = ''; });
+    }
+  };
+
+  customElements.define('rm-abp-mini',  RM.components.AbpMini);
   customElements.define('rm-abp-card',  RM.components.AbpCard);
   customElements.define('rm-abp-table', RM.components.AbpTable);
   customElements.define('rm-abp-files', RM.components.AbpFiles);

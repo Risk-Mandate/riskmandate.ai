@@ -48,7 +48,13 @@ jobs:
         run: node scripts/site/generate.mjs --check
 
       - name: The behaviour-policy vaults are derived from their inputs
-        run: node scripts/site/build-abp-vault.mjs claude-code-web --check
+        run: |
+          for d in site/vaults/*/; do s=$(basename "$d"); case "$s" in _template|_app) continue;; esac
+            node scripts/site/build-abp-vault.mjs "$s" --check || exit 1
+          done
+
+      - name: The vault directory and the vault pages come from the catalogue
+        run: node scripts/site/build-abp-pages.mjs --check
 
       - name: Shared modules are in step across every page
         run: node scripts/site/sync-modules.mjs --check

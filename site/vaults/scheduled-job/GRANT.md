@@ -1,0 +1,101 @@
+# GRANT — everything the agent can do
+
+> Measured from the deployment shape, not from your account and not by you. Every row says how it is known, what stands in the way, and whether it can be undone. Irreversible rows first.
+
+**Vault** `scheduled-job` · **status** template · **shape** `generic/scheduled-job/service-account` · **grant** 2026-09-05 · **mandate** 2026-09-09 · **vocabulary** abp.sgit.ai v0.3.0 · **as at** 2026-09-15
+
+---
+
+
+**Shape** A scheduled job running as a service account (generic) · **surface** service · **grant version** 2026-09-05 · **rows** 7, of which **0 measured** and 7 derived · **widest reach** world
+
+## What the words mean here
+
+A cron job or scheduled task on a server, under an account that is not a person's, with a credential nobody rotates. It runs when nobody is watching and no person's judgement stands in front of it. DERIVED; not measured on any instance.
+
+| Reach | In this shape means |
+| --- | --- |
+| host | the server it runs on, as the service account |
+| tenant | whatever the service account's credential opens |
+| world | the internet, from the server |
+
+## The rows
+
+| Capability | What it is | Barrier | Undo | Evidence | Via | What stands in the way |
+| --- | --- | --- | --- | --- | --- | --- |
+| `authenticate-as.credential.tenant` | Act in accounts with the credentials it holds | ● none | no | derived | the job | — |
+| `read.file.host` | Read any file the account can reach | ● none | no | derived | the job | — |
+| `send.endpoint.world` | Reach any host on the internet | ● none | no | derived | the job | — |
+| `write.budget.tenant` | Spend money or tokens against an account it holds | ● none | no | derived | the job | — |
+| `execute.process.host` | Run programs as the account | ● none | with-effort | derived | the job | — |
+| `write.file.host` | Change any file the account can reach | ● none | with-effort | derived | the job | — |
+| `create.schedule.host` | Create something that outlives the turn where it runs (a cron, a service) | ● none | yes | derived | the job | — |
+
+## The notes behind the rows
+
+- **`authenticate-as.credential.tenant`** — a service-account credential, rarely rotated
+- **`read.file.host`** — null
+- **`send.endpoint.world`** — null
+- **`write.budget.tenant`** — if the credential is billed
+- **`execute.process.host`** — as the service account, on a schedule
+- **`write.file.host`** — null
+- **`create.schedule.host`** — it is one
+
+## Not reachable from this shape
+
+| What | Why | Source |
+| --- | --- | --- |
+| your machine | it runs on a server | by construction |
+
+## The four barriers, and the test
+
+| | Barrier | What stands in the way | Is it a control |
+| --- | --- | --- | --- |
+| ● | none | nothing in the way | no |
+| ◉ | expectation | a rule in prose, enforced by nobody | no |
+| ◐ | setting | a switch the agent's own account can flip | no |
+| ○ | boundary | enforced above the grant, out of the agent's reach | **yes** |
+
+> A control bounds a grant only if it is enforced by something the grant does not include.
+
+A setting the agent's own account can change is not a control, because the grant includes the ability to remove the bound. A boundary enforced above it is one, because it does not.
+
+## Evidence tiers
+
+| Tier | Means |
+| --- | --- |
+| derived | from what the thing architecturally is; a claim until somebody runs the probes |
+| inferred | from another row or another profile, by reasoning rather than by observation |
+| self-reported | reported by the operator, the harness or the tool itself, without an independent probe |
+| documented | the vendor, or a published tool, says so |
+| measured ✓ | a probe run on an instance, dated, with an evidence file |
+| observed ✓ | seen directly, on the thing itself, by the thing itself |
+
+✓ marks the tiers this vault counts as measured. Nothing here was obtained by probing anybody else's system: a row is measured only from a system we are entitled to run, or from the vendor's own published documentation.
+
+## Ask the agent to check it
+
+The agent is running in the deployment this file describes, so it can look. What it reports is a claim until a log held outside it agrees — but a claim from inside the deployment is a better starting point than a template. Paste this into a session running in the shape above:
+
+```
+You are running inside the deployment described in GRANT.md. Compare each row with what you
+can actually reach from here, and report — do not change any file except the one named below.
+
+For every row: PRESENT, ABSENT or CANNOT TELL; which tool reaches it; one line of evidence
+(a command's output, a tool's own description, a documentation sentence with its URL).
+Never exercise a capability whose undo class is "no" to prove it exists: presence of a
+credential file is evidence; using it is not permitted.
+Add a row for anything you can reach that is not listed, in verb.object.reach form, using
+only the 23 primitives in data/vocabulary/capabilities.json. A new path, host or mailbox is
+an instance of an existing primitive, not a new one.
+Do not touch MANDATE.md or data/mandate.json — that file is the deployer's, not yours.
+Write the result to history/grant-check--<today>.md with the date and the tool versions
+you can see. Everything in it is self-report; say so at the top.
+```
+
+---
+
+_This describes the deployment shape as at this date. If the risk changed, the deployment changed — not this document._ 
+No score, rating, level or traffic light appears in this vault or in its data, and none will. The behaviour policy describes; it does not judge. 
+Generated by `scripts/site/build-abp-vault.mjs` from `data/grant.json`, `data/mandate.json` and the pinned vocabulary; `data/mandate.json` is the only file a person writes. Licence: CC BY 4.0.
+

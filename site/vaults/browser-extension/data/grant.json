@@ -1,0 +1,94 @@
+{
+  "type": "abp/profile/v1",
+  "id": "generic/browser-extension/broad-host-permissions",
+  "vendor": "generic",
+  "product": "A browser extension with broad host permissions",
+  "variant": "broad-host-permissions",
+  "surface": "extension",
+  "profile_version": "2026-09-05",
+  "description": "Not an agent by name, and it has a grant: an extension granted 'read and change all your data on all websites' reads every page you visit, reaches any host, and acts inside the sites you are logged into. Nobody wrote it a mandate. DERIVED from the permission model the browser documents; not measured on any instance.",
+  "reach_names": {
+    "host": "your browser — every page, every logged-in site",
+    "tenant": "the sites you are logged into, as you",
+    "world": "the internet, from your browser"
+  },
+  "not_reachable": [
+    {
+      "what": "files on your disk",
+      "why": "the browser sandbox; an extension reads pages, not the filesystem",
+      "source": "the browser's extension permission model"
+    }
+  ],
+  "tools": [
+    "the extension"
+  ],
+  "grant": [
+    {
+      "capability": "read.record.browsing",
+      "barrier": "none",
+      "evidence": "documented",
+      "via": [
+        "the extension"
+      ],
+      "control": null,
+      "note": "'read and change all your data on all websites'",
+      "undo": "no",
+      "is_bounded": false
+    },
+    {
+      "capability": "send.endpoint.world",
+      "barrier": "none",
+      "evidence": "documented",
+      "via": [
+        "the extension"
+      ],
+      "control": null,
+      "note": "host permissions",
+      "undo": "no",
+      "is_bounded": false
+    },
+    {
+      "capability": "authenticate-as.credential.tenant",
+      "barrier": "setting",
+      "evidence": "documented",
+      "via": [
+        "the extension"
+      ],
+      "control": "the site's own session controls",
+      "note": "acts inside sites where you have a session, as you",
+      "undo": "no",
+      "is_bounded": false
+    }
+  ],
+  "grant_size": 3,
+  "irreversible": [
+    "read.record.browsing",
+    "send.endpoint.world",
+    "authenticate-as.credential.tenant"
+  ],
+  "unbounded": [
+    "read.record.browsing",
+    "send.endpoint.world",
+    "authenticate-as.credential.tenant"
+  ],
+  "widest_reach": "world",
+  "rows": {
+    "total": 3,
+    "measured": 0,
+    "derived": 3
+  },
+  "sources": [
+    "the browser's documented extension permission model (brief v0.33.65: things nobody calls an agent)"
+  ],
+  "not_an_assessment": "This describes a published deployment shape. It is not an assessment, an audit, a certification or a security review of any named product, and it carries no adjective and no score.",
+  "provenance": {
+    "source": "https://what-can-it-do.games.sgit.ai/data/",
+    "source_page": "https://what-can-it-do.games.sgit.ai/map/index.html",
+    "retrieved": "2026-09-11T13:00:37Z",
+    "pack_version": "v0.8.0",
+    "content_hash": "sha256:d6d4ba40f1fb1f93f660687e4787ac10c2e1835efeb3929a4c8ad62cee8897ef",
+    "verbatim_bytes": "upstream/",
+    "note": "Promoted from profiles/generic/browser-extension/broad-host-permissions.json. The grant is the union of its tool rows; where two tools reach the same capability the WEAKEST barrier is kept, because the agent takes the easier path.",
+    "licence": "CC BY 4.0"
+  }
+}

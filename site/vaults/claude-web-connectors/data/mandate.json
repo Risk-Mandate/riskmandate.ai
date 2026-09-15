@@ -1,0 +1,58 @@
+{
+  "type": "abp/mandate/v1",
+  "id": "chat-with-connectors",
+  "label": "Chat, with connectors switched on",
+  "surface": [
+    "web"
+  ],
+  "applies_to": [
+    "anthropic/claude-web/connectors-on"
+  ],
+  "status": "starting-point",
+  "authored": "2026-09-09",
+  "authored_by": "the site, as a starting point — not measured, not surveyed; the first thing to argue with",
+  "description": "I connected my drive and my mail so it could answer questions about them. Reading is what I wanted. I did not want it sending mail, and I did not want it pushing code anywhere — it is a chat window.",
+  "want": [
+    "read.file.project",
+    "read.file.host",
+    "read.message.tenant"
+  ],
+  "do_not_want": [
+    "send.message.world",
+    "write.repository.tenant"
+  ],
+  "unstated": [
+    "authenticate-as.credential.signing",
+    "authenticate-as.credential.tenant",
+    "create.record.world",
+    "create.schedule.host",
+    "create.schedule.tenant",
+    "delete.file.host",
+    "execute.process.host",
+    "execute.process.self",
+    "grant.credential.self",
+    "read.credential.host",
+    "read.record.browsing",
+    "read.record.history",
+    "send.endpoint.allowed",
+    "send.endpoint.world",
+    "write.budget.tenant",
+    "write.file.host",
+    "write.file.project",
+    "write.repository.project"
+  ],
+  "notes": {
+    "read.file.host": "here host means the connected drive, per the profile's own reach names — this is the want",
+    "authenticate-as.credential.tenant": "unstated: it is how a connector works; the question is what it is used for, which is the two rows below it"
+  },
+  "provenance": {
+    "source": "https://what-can-it-do.games.sgit.ai/data/",
+    "source_page": "https://what-can-it-do.games.sgit.ai/map/index.html",
+    "retrieved": "2026-09-11T13:00:37Z",
+    "pack_version": "v0.8.0",
+    "content_hash": "sha256:d6d4ba40f1fb1f93f660687e4787ac10c2e1835efeb3929a4c8ad62cee8897ef",
+    "verbatim_bytes": "upstream/",
+    "note": "Promoted from mandates/chat-with-connectors.json. `unstated` is computed here as the primitives the mandate names neither way; the pack leaves it implicit. A mandate is elicited, not measured: these are first drafts written to be argued with.",
+    "licence": "CC BY 4.0"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "slug": "scheduled-job",
+  "title": "A scheduled job running as a service account",
+  "status": "template",
+  "what_status_means": "template: the draft for a deployment shape, before anybody has corrected the mandate. draft: a copy made for one organisation, mandate not yet corrected. corrected: the mandate has been elicited from the deployer and a named owner has signed the licence.",
+  "shape": "generic/scheduled-job/service-account",
+  "vocabulary_version": "v0.3.0",
+  "vocabulary_source": "https://abp.sgit.ai/data/index.json",
+  "as_at": "2026-09-15",
+  "organisation": null,
+  "agent": "A scheduled job running as a service account",
+  "owner": null,
+  "issued": null,
+  "valid_until": null,
+  "measured_rows": "0 of 7"
+}

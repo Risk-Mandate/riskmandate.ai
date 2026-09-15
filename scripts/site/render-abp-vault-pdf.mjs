@@ -43,7 +43,8 @@ const browser = await chromium.launch(existsSync('/opt/pw-browsers/chromium') ? 
 const page = await browser.newPage();
 await page.emulateMedia({ media: 'print' });
 await page.goto(`http://127.0.0.1:${port}/vaults/${slug}/index.html`, { waitUntil: 'networkidle' });
-await page.waitForFunction(() => !document.getElementById('loading'));
+// the loader boots the renderer, which fills the footer last: wait for that, not for the loader
+await page.waitForFunction(() => { const f = document.getElementById('foot'); return f && f.textContent.trim().length > 0; }, null, { timeout: 30000 });
 await page.waitForTimeout(400);
 const out = join(SITE, 'vaults', slug, 'dist', `${slug}.pdf`);
 mkdirSync(dirname(out), { recursive: true });
