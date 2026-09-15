@@ -20,14 +20,15 @@ footer and in the More menu; two tests that keep the admin page honest; a proces
 ## External state
 - Vaults built and unpushed: none
 - Lab editions: none (chrome change only; the hash rule strips the footer)
-- Release claimed at merge: **v1.17.0**
+- Release claimed at merge: **v1.18.0** (dev took 1.17.0 first; re-cut per the rules)
 
 ## Status
 - [x] onboarding tree and CLAUDE.md
 - [x] admin page, footer link, menu entry, tests
 - [x] process brief, README and docs pointers
-- [x] release v1.17.0, checks green, pushed to the branch
-- [ ] merged into dev (the lead's call; a sibling branch `claude/upbeat-bell-zfzldh` sits on the same base commit and may claim 1.17.0 first — whoever merges second restamps)
+- [x] release v1.18.0 on top of dev's v1.17.0, checks green
+- [x] merged into dev (the lead asked for it)
+- [ ] second wave on this branch: home page to the ABP (view / buy), the store linked, Lab out of the top level, pricing as the four levels, the vault page UX, the use-case brief
 
 ## Notes for whoever merges after me
 The footer change touches every page. If your branch also edits footers, take mine and re-apply

@@ -3,14 +3,15 @@
 Keep this file true. If you land something, move it; if you learn something, add it. Dates are
 the site's; check `site/versions/index.json` for the current version before trusting the number here.
 
-## State as at 2026-09-15, v1.17.0
+## State as at 2026-09-15, v1.18.0
 
 - **Site:** 57 HTML files under `site/`, one live site deployed from `dev`. Top-level menu:
   The problem · The model · Behaviour policies · Live demos · Lab · Lisbon 2026 · Pricing · More.
 - **The ABP is the entry point.** Homepage leads with it (v1.12.0); `abp.html` is the model page;
-  `agent-behaviour-policy.html` is the library: 15 vaults, grid and list, search over names,
-  scopes, tools and the 23 ids, a *by behaviour* facet, a preview panel with scenarios, and
-  `#policy=<slug>` deep links (v1.16.0).
+  `agent-behaviour-policy.html` is the library (menu label *Agent Behaviour Policies*): 15 vaults,
+  grid and list, search over names, scopes, tools and the 23 ids, a *by behaviour* facet, a
+  resizable preview panel with the label, the lethal trifecta and scenarios, `#policy=<slug>`
+  deep links (v1.16.0, v1.17.0). *Refused* is now *told not to* everywhere.
 - **Vaults: 15 built, checked and pushed**, all at the *template* status, all re-pushed to carry
   `MAP-A-GRANT.md` and `data/scenarios.json`. Renderer v4 in the app vault `fl3i7lu4`.
 
@@ -20,15 +21,15 @@ the site's; check `site/versions/index.json` for the current version before trus
 | derived from the model site's five examples | `claude-code-cli`, `claude-code-cli-confirmations-off`, `claude-desktop`, `claude-web-connectors`, `chatgpt-web`, `browser-extension`, `scheduled-job` |
 | documented from vendor pages, 15 Sept, with open questions | `google-workspace-mcp` (4), `gmail-readonly` (3), `google-drive-readonly` (3), `claude-m365-connector` (4), `dropbox-mcp` (4) |
 
-- **Asked for, not built** (on the library page as *not yet researched*): Claude's Google
-  Workspace connector, Slack, GitHub, Notion, Salesforce. **Business functions** listed as a
-  second axis, none built: the CRM, the customer-service desk, finance data.
+- **Asked for, not built**, on their own page `agent-behaviour-policy-next.html` (v1.17.0) with a
+  vote and a suggestion form: Claude's Google Workspace connector, Slack, GitHub, Notion,
+  Salesforce; and the three **business functions**: the CRM, the customer-service desk, finance data.
 - **Lab:** seven entries, 16 PDF editions, the whole Lab as one file (v5).
-- **Records:** 11 items in the brief register (6 files, 5 informal); 17 releases since v1.0.0.
+- **Records:** 11 items in the brief register (6 files, 5 informal); 18 releases since v1.0.0.
 - **Summit:** Lisbon, 17–18 Sept. `summit.html` public; `summit-booth.html` private working page.
 - **Pricing** points at the store's tiers; no price on the homepage on purpose (the route to the
   entry tier is not wired up properly).
-- **Agents' front door:** `CLAUDE.md` + `.claude/` (v1.17.0); `admin.html` mirrors it on the site.
+- **Agents' front door:** `CLAUDE.md` + `.claude/` (v1.18.0); `admin.html` mirrors it on the site.
 
 ## The queue, in order
 

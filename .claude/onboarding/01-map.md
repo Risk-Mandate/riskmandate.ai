@@ -34,7 +34,7 @@ needed.
 | Home | `index.html` | hand-authored. Leads with the ABP; the ladder says we are on rung one |
 | The problem | `plug`, `acceptable`, `acceptance`, `grant-gap` | hand-authored, older voice |
 | The model | `abp.html` (the ABP page), `how-it-works`, `agents` (llms.txt etc.), `ramm`, `scenarios`, `statics` | hand-authored |
-| Behaviour policies | `agent-behaviour-policy.html` (the library, top-level), `abp-vault-<slug>.html` ×15 | **generated** by `build-abp-pages.mjs` from `site/vaults/index.json` and each vault's data. `abp.html` and `abp/` redirect |
+| Behaviour policies | `agent-behaviour-policy.html` (the library, top-level), `agent-behaviour-policy-next.html` (asked for, vote, suggest), `abp-vault-<slug>.html` ×15 | **generated** by `build-abp-pages.mjs` from `site/vaults/index.json` and each vault's data. `abp-vaults.html` and `abp/` redirect |
 | Vaults | `site/vaults/<slug>/` ×15, `_template/`, `_app/` | inputs: `vault.json`, `data/grant.json`, `data/mandate.json`, `data/scenarios.json`, `data/vocabulary/`. Everything else **generated** by `build-abp-vault.mjs` |
 | Live demos | `demos.html`, `demo-*.html` ×6 | hand-authored; each embeds an sgit vault with a public read key |
 | Lab | `lab.html`, `lab-*.html` ×7 | hand-authored; every meaningful state cut as a dated PDF in `assets/lab/`, registered in `lab-editions.json` |
