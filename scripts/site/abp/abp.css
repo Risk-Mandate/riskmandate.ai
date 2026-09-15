@@ -134,6 +134,9 @@
 .ab-logo{display:grid;place-items:center;border-radius:12px;border:1px solid var(--border);flex:none}
 .ab-logo b{font-family:var(--mono);font-size:12px;color:var(--muted)}
 .ab-t h3{margin:0;font-size:15px;font-weight:700;letter-spacing:-.01em;line-height:1.25;color:var(--text)}
+.ab-t h3 a,.ab-lname a{color:inherit;text-decoration:none}.ab-t h3 a:hover,.ab-lname a:hover{color:var(--green);text-decoration:underline}
+.ab-topen{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--green);text-decoration:none;white-space:nowrap}.ab-topen:hover{text-decoration:underline}
+.ab-t:focus-visible,.ab-lrow:focus-visible{outline:2px solid var(--green);outline-offset:2px}
 .ab-t p{margin:3px 0 0;font-size:12.5px;color:var(--muted);line-height:1.5}
 .ab-tfoot{display:flex;align-items:center;gap:10px;margin-top:auto;font-family:var(--mono);font-size:11px;color:var(--faint);white-space:nowrap;flex-wrap:wrap}
 .ab-tfoot b{color:var(--text)}.ab-tfoot b.un{color:var(--gold)}.ab-tfoot b.ok{color:var(--green)}
@@ -200,7 +203,7 @@
 .ab-lrow .un b{width:16px;text-align:right}.ab-lrow .un b.y{color:var(--gold)}.ab-lrow .un b.z{color:var(--green)}
 .ab-lrow .un .ab-meter{width:96px}
 .ab-lrow .open{font-family:var(--mono);font-size:11.5px;color:var(--faint)}.ab-lrow .open.y{color:var(--gold)}
-.ab-lrow .arrow{color:var(--faint);text-align:right}
+.ab-lrow .arrow{color:var(--faint);text-align:right;text-decoration:none;font-size:16px}.ab-lrow a.arrow:hover{color:var(--green)}
 .ab-lblurb{grid-column:3 / span 5;font-size:11.5px;color:var(--muted)}
 /* the preview panel */
 .ab-panel{position:sticky;top:16px;max-height:calc(100vh - 32px);overflow:auto;overscroll-behavior:contain;display:flex;flex-direction:column;gap:14px;padding:20px;background:var(--card);border:1px solid var(--border);border-radius:16px;box-shadow:0 12px 40px rgba(13,13,12,.08);min-height:200px}

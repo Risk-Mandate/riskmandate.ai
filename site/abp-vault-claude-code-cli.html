@@ -367,6 +367,7 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
 
 .ghlink{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:8px;color:var(--muted);border:1px solid transparent}.ghlink:hover{color:var(--text);border-color:var(--border)}
 .footlic{display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap}.footlic a{color:inherit}.ccicon{vertical-align:-3px;margin:0 2px}
+@media (max-width:1400px) and (min-width:901px){.ghlink,header.top a.version{display:none}header.top .wrap{gap:14px}}
 /* ── behaviour-policy vaults: the card, the tables, the key, the app ────────── */
 .ab-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:26px 28px;box-shadow:0 18px 50px -34px rgba(13,13,12,.45);margin-top:26px}
 .ab-card.wait{min-height:120px}
@@ -503,6 +504,9 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
 .ab-logo{display:grid;place-items:center;border-radius:12px;border:1px solid var(--border);flex:none}
 .ab-logo b{font-family:var(--mono);font-size:12px;color:var(--muted)}
 .ab-t h3{margin:0;font-size:15px;font-weight:700;letter-spacing:-.01em;line-height:1.25;color:var(--text)}
+.ab-t h3 a,.ab-lname a{color:inherit;text-decoration:none}.ab-t h3 a:hover,.ab-lname a:hover{color:var(--green);text-decoration:underline}
+.ab-topen{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--green);text-decoration:none;white-space:nowrap}.ab-topen:hover{text-decoration:underline}
+.ab-t:focus-visible,.ab-lrow:focus-visible{outline:2px solid var(--green);outline-offset:2px}
 .ab-t p{margin:3px 0 0;font-size:12.5px;color:var(--muted);line-height:1.5}
 .ab-tfoot{display:flex;align-items:center;gap:10px;margin-top:auto;font-family:var(--mono);font-size:11px;color:var(--faint);white-space:nowrap;flex-wrap:wrap}
 .ab-tfoot b{color:var(--text)}.ab-tfoot b.un{color:var(--gold)}.ab-tfoot b.ok{color:var(--green)}
@@ -569,7 +573,7 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
 .ab-lrow .un b{width:16px;text-align:right}.ab-lrow .un b.y{color:var(--gold)}.ab-lrow .un b.z{color:var(--green)}
 .ab-lrow .un .ab-meter{width:96px}
 .ab-lrow .open{font-family:var(--mono);font-size:11.5px;color:var(--faint)}.ab-lrow .open.y{color:var(--gold)}
-.ab-lrow .arrow{color:var(--faint);text-align:right}
+.ab-lrow .arrow{color:var(--faint);text-align:right;text-decoration:none;font-size:16px}.ab-lrow a.arrow:hover{color:var(--green)}
 .ab-lblurb{grid-column:3 / span 5;font-size:11.5px;color:var(--muted)}
 /* the preview panel */
 .ab-panel{position:sticky;top:16px;max-height:calc(100vh - 32px);overflow:auto;overscroll-behavior:contain;display:flex;flex-direction:column;gap:14px;padding:20px;background:var(--card);border:1px solid var(--border);border-radius:16px;box-shadow:0 12px 40px rgba(13,13,12,.08);min-height:200px}
@@ -641,8 +645,7 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
 .ab-form .row{grid-column:1 / -1;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 .ab-form .note{font-size:12.5px;color:var(--muted)}
 @media (max-width:700px){.ab-form{grid-template-columns:1fr}}
-
-@media (max-width:1400px) and (min-width:901px){.ghlink,header.top a.version{display:none}header.top .wrap{gap:14px}}</style>
+</style>
 </head>
 <body id="top">
 
@@ -1742,6 +1745,7 @@ RM.services.abpVaults = (function () {
       this.behSel = this.querySelector('.ab-beh select');
       if (this.behSel) this.behSel.addEventListener('change', function () { self.beh = self.behSel.value; self.apply(); });
       this.addEventListener('click', function (e) {
+        if (e.target.closest('a.ab-topen, .ab-t h3 a, .ab-lname a')) return;   // the policy's own link: let it navigate
         var t = e.target.closest('[data-view], [data-filter], [data-slug], [data-close], [data-scenario], [data-copy], [data-rowfilter]');
         if (!t || !self.contains(t)) return;
         if (t.dataset.view) { self.setView(t.dataset.view); e.preventDefault(); return; }
@@ -1752,6 +1756,7 @@ RM.services.abpVaults = (function () {
         if (t.dataset.copy !== undefined) { self.copy(t.dataset.copy, t); e.preventDefault(); return; }
         if (t.dataset.slug && !t.dataset.off) { if (e.metaKey || e.ctrlKey || e.shiftKey) return; e.preventDefault(); self.select(t.dataset.slug); }
       });
+      this.addEventListener('keydown', function (e) { if ((e.key === 'Enter' || e.key === ' ') && e.target.matches('[data-slug][role="button"]')) { e.preventDefault(); self.select(e.target.dataset.slug); } });
       if (this.search) {
         this.search.addEventListener('input', function () { self.q = self.search.value.trim().toLowerCase(); self.apply(); });
         document.addEventListener('keydown', function (e) { if (e.key === '/' && document.activeElement !== self.search && !/input|textarea/i.test(document.activeElement.tagName)) { e.preventDefault(); self.search.focus(); } if (e.key === 'Escape' && self.classList.contains('open')) self.close(); });

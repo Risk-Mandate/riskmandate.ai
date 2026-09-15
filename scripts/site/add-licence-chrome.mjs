@@ -35,7 +35,7 @@ for (const f of readdirSync(SITE).filter(f => f.endsWith('.html'))) {
   if (!s.includes('.ghlink{') && s.includes('</style>')) s = s.replace('</style>', '\n' + CSS + '</style>');
   // the laptop-width rule: exactly one copy, whichever earlier form the page carried
   const MQ_FORMS = ['@media (max-width:1400px) and (min-width:901px){.ghlink{display:none}}', '@media (max-width:1400px) and (min-width:901px){.ghlink{display:none}header.top .wrap{gap:14px}}', MQ];
-  if (s.includes('</style>')) { for (const f of MQ_FORMS) s = s.split('\n' + f).join('').split(f).join(''); s = s.replace('</style>', '\n' + MQ + '</style>'); }
+  if (s.includes('</style>') && s.split(MQ).length !== 2) { for (const f of MQ_FORMS) s = s.split('\n' + f).join('').split(f).join(''); s = s.replace('</style>', '\n' + MQ + '</style>'); }   // a page cut from a donor already carries it, wherever the donor put it
   if (s !== before) { if (CHECK) stale.push(f); else { writeFileSync(p, s); changed++; } }
 }
 if (CHECK) { if (stale.length) { console.error(`licence chrome missing on: ${stale.join(', ')} — run add-licence-chrome.mjs`); process.exit(1); } console.log('  every page carries the GitHub link and the licence line'); }

@@ -84,11 +84,11 @@ const searchIndex = (v, data) => { const g = data.grant; return [v.app, v.title,
 const meter = (d) => { const tot = Math.max(1, d.excess), u = d.unbounded_excess; return `<span class="ab-meter"><i class="u" style="width:${u / tot * 100}%"></i><i class="b" style="width:${(d.excess - u) / tot * 100}%"></i></span>`; };
 function tile(v, data) {
   const d = data.delta.counts, g = data.grant, ev = evOf(data), q = (g.research_needed || []).length, sc = (data.scenarios?.scenarios || []).length;
-  return `<a class="ab-t" href="abp-vault-${v.slug}.html" data-slug="${v.slug}" data-group="${esc(v.group)}" data-ev="${ev.key}" data-caps="${g.grant.map(r => r.capability).join(' ')}" data-search="${esc(searchIndex(v, data))}">
+  return `<article class="ab-t" data-slug="${v.slug}" data-group="${esc(v.group)}" data-ev="${ev.key}" data-caps="${g.grant.map(r => r.capability).join(' ')}" data-search="${esc(searchIndex(v, data))}" tabindex="0" role="button" aria-label="Preview ${esc(v.app)}">
   <span class="ab-thead">${logoHtml(v.logo, v.brand, 44)}<span class="ab-pills">${q ? `<span class="ab-pill unstated">${q} open</span>` : ''}<span class="ab-pill ev-${ev.cls}">${ev.label}</span></span></span>
-  <span><h3>${esc(v.app)}</h3><p>${esc(v.blurb)}</p></span>
-  <span class="ab-tfoot"><span><b>${g.grant.length}</b> it can do</span><span><b class="${d.unbounded_excess ? 'un' : 'ok'}">${d.unbounded_excess}</b> unbounded</span>${meter(d)}<span>${sc ? sc + ' scenarios' : ''}</span><rm-abp-mini data-vault="${v.slug}"></rm-abp-mini></span>
-</a>`;
+  <span><h3><a href="abp-vault-${v.slug}.html">${esc(v.app)}</a></h3><p>${esc(v.blurb)}</p></span>
+  <span class="ab-tfoot"><span><b>${g.grant.length}</b> it can do</span><span><b class="${d.unbounded_excess ? 'un' : 'ok'}">${d.unbounded_excess}</b> unbounded</span>${meter(d)}<span>${sc ? sc + ' scenarios' : ''}</span><rm-abp-mini data-vault="${v.slug}"></rm-abp-mini><a class="ab-topen" href="abp-vault-${v.slug}.html">Open the policy →</a></span>
+</article>`;
 }
 const offTile = (x, kind) => `<a class="ab-t off" href="#ask" data-slug="${esc(x.slug)}" data-off="1" data-group="${kind}" data-ev="asked" data-search="${esc([x.app, x.slug, x.blurb, kind].join(' ').toLowerCase())}">
   <span class="ab-thead">${logoHtml(x.logo, x.brand, 44)}<span class="ab-pill asked">${kind === 'Business functions' ? 'asked for' : 'not yet researched'}</span></span>
@@ -97,13 +97,13 @@ const offTile = (x, kind) => `<a class="ab-t off" href="#ask" data-slug="${esc(x
 </a>`;
 function row(v, data) {
   const d = data.delta.counts, g = data.grant, ev = evOf(data), q = (g.research_needed || []).length;
-  return `<a class="ab-lrow" href="abp-vault-${v.slug}.html" data-slug="${v.slug}" data-group="${esc(v.group)}" data-ev="${ev.key}" data-caps="${g.grant.map(r => r.capability).join(' ')}" data-search="${esc(searchIndex(v, data))}">
-  <span class="ab-lname">${logoHtml(v.logo, v.brand, 30)}<span><b>${esc(v.app)}</b><small>${esc(v.slug)}</small></span></span>
+  return `<div class="ab-lrow" data-slug="${v.slug}" data-group="${esc(v.group)}" data-ev="${ev.key}" data-caps="${g.grant.map(r => r.capability).join(' ')}" data-search="${esc(searchIndex(v, data))}" tabindex="0" role="button" aria-label="Preview ${esc(v.app)}">
+  <span class="ab-lname">${logoHtml(v.logo, v.brand, 30)}<span><b><a href="abp-vault-${v.slug}.html">${esc(v.app)}</a></b><small>${esc(v.slug)}</small></span></span>
   <span><span class="ab-pill ev-${ev.cls}">${ev.label}</span></span>
   <span class="n r">${g.grant.length}</span><span class="n r">${data.mandate.want.length}</span><span class="n r">${d.excess}</span>
   <span class="un"><b class="${d.unbounded_excess ? 'y' : 'z'}">${d.unbounded_excess}</b>${meter(d)}</span>
-  <span class="open ${q ? 'y' : ''}">${q ? q + ' open' : '—'}</span><span class="arrow">→</span>
-</a>`;
+  <span class="open ${q ? 'y' : ''}">${q ? q + ' open' : '—'}</span><a class="arrow ab-topen" href="abp-vault-${v.slug}.html" aria-label="Open the policy page for ${esc(v.app)}" title="Open the policy page">→</a>
+</div>`;
 }
 const offRow = (x, kind) => `<a class="ab-lrow off" href="#ask" data-slug="${esc(x.slug)}" data-off="1" data-group="${kind}" data-ev="asked" data-search="${esc([x.app, x.slug, x.blurb, kind].join(' ').toLowerCase())}"><span class="ab-lname">${logoHtml(x.logo, x.brand, 30)}<span><b>${esc(x.app)}</b></span></span><span><span class="ab-pill asked">${kind === 'Business functions' ? 'asked for' : 'not researched'}</span></span><span class="ab-lblurb">${esc(x.blurb)}</span><span class="arrow">→</span></a>`;
 function directory() {

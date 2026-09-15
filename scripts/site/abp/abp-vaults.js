@@ -455,6 +455,7 @@ RM.services.abpVaults = (function () {
       this.behSel = this.querySelector('.ab-beh select');
       if (this.behSel) this.behSel.addEventListener('change', function () { self.beh = self.behSel.value; self.apply(); });
       this.addEventListener('click', function (e) {
+        if (e.target.closest('a.ab-topen, .ab-t h3 a, .ab-lname a')) return;   // the policy's own link: let it navigate
         var t = e.target.closest('[data-view], [data-filter], [data-slug], [data-close], [data-scenario], [data-copy], [data-rowfilter]');
         if (!t || !self.contains(t)) return;
         if (t.dataset.view) { self.setView(t.dataset.view); e.preventDefault(); return; }
@@ -465,6 +466,7 @@ RM.services.abpVaults = (function () {
         if (t.dataset.copy !== undefined) { self.copy(t.dataset.copy, t); e.preventDefault(); return; }
         if (t.dataset.slug && !t.dataset.off) { if (e.metaKey || e.ctrlKey || e.shiftKey) return; e.preventDefault(); self.select(t.dataset.slug); }
       });
+      this.addEventListener('keydown', function (e) { if ((e.key === 'Enter' || e.key === ' ') && e.target.matches('[data-slug][role="button"]')) { e.preventDefault(); self.select(e.target.dataset.slug); } });
       if (this.search) {
         this.search.addEventListener('input', function () { self.q = self.search.value.trim().toLowerCase(); self.apply(); });
         document.addEventListener('keydown', function (e) { if (e.key === '/' && document.activeElement !== self.search && !/input|textarea/i.test(document.activeElement.tagName)) { e.preventDefault(); self.search.focus(); } if (e.key === 'Escape' && self.classList.contains('open')) self.close(); });

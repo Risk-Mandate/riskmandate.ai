@@ -16,63 +16,63 @@ An **Agent Behaviour Policy** describes one AI agent in one deployment: everythi
 
 Every tile is one Agent Behaviour Policy, delivered as a vault: a measured or documented grant for that application, a starting mandate written to be corrected, six scenarios that change the mandate and never the grant, and the files you hand the agent. The counts are read from the vault as you look. Grid or list, same set; search matches names, vendors, scopes, tool names and the 23 capability ids, so `send.message.world` finds every policy that can send mail whatever the product calls it. Not here yet? [See what is next, vote, or suggest one](agent-behaviour-policy-next.html).
 
-### Claude Code on the web
+### [Claude Code on the web](abp-vault-claude-code-web.html)
 
 A managed, ephemeral container with one repository attached and an egress proxy above it. The shape this site is maintained from; 13 of 20 rows measured on the thing itself.
 
-### Claude Code on your machine
+### [Claude Code on your machine](abp-vault-claude-code-cli.html)
 
 The coding agent on a developer's own machine with confirmation prompts enabled. Read this one beside the confirmations-off shape: one setting moves one barrier and not one number changes.
 
-### Claude Code, confirmations off
+### [Claude Code, confirmations off](abp-vault-claude-code-cli-confirmations-off.html)
 
 The same agent, the same machine, the same account, with the confirmation prompt switched off. The prompt was the only thing between an authorised capability and the whole machine, and it was a switch the agent's account could flip.
 
-### Claude Desktop
+### [Claude Desktop](abp-vault-claude-desktop.html)
 
 The desktop app with local tools on: files, processes and the network of the machine it sits on. Ten capabilities, three wanted, eight with nothing real in the way.
 
-### Claude in the browser, connectors on
+### [Claude in the browser, connectors on](abp-vault-claude-web-connectors.html)
 
 Chat with connectors enabled: the tenant's accounts are in reach through whatever was connected. The two excess rows here both sit behind a boundary, which is the exception in this directory.
 
-### ChatGPT in the browser
+### [ChatGPT in the browser](abp-vault-chatgpt-web.html)
 
 The smallest grant in the set: one capability, one wanted, no excess. The baseline every other shape is measured against, and the proof that a template can be empty and still be right.
 
-### A browser extension
+### [A browser extension](abp-vault-browser-extension.html)
 
 Other people's data, and the mandate nobody wrote down. Three capabilities, all three irreversible; the shortest policy in the directory and not the mildest.
 
-### GitHub Actions
+### [GitHub Actions](abp-vault-github-actions.html)
 
 A hosted runner under a service account: persistence, and reach beyond the turn. Eight of eight rows measured, the only fully measured shape besides the web container.
 
-### A scheduled job
+### [A scheduled job](abp-vault-scheduled-job.html)
 
 A job that outlives the person who made it, running as a service account nobody logs in as. Seven capabilities, four wanted, four with nothing in the way.
 
-### n8n, owner API key
+### [n8n, owner API key](abp-vault-n8n-owner-api-key.html)
 
 The first grant here measured on a live instance, by an early beta user's agent: full control of every automation, an outbound node with no restriction on target, every account visible, and credential metadata open through one door and shut through another.
 
-### Google Workspace MCP servers
+### [Google Workspace MCP servers](abp-vault-google-workspace-mcp.html)
 
 Gmail, Drive, Docs, Sheets, Slides, Calendar and Chat, one server each. The page advertises drafting mail and scheduling meetings; the scopes it asks for send mail and cannot touch a calendar.
 
-### Gmail, read-only scope
+### [Gmail, read-only scope](abp-vault-gmail-readonly.html)
 
 The narrowest scope that reads one message reads every message. Lab 03 asked the model site for this shape first; here it is, read from Google's scope page.
 
-### Google Drive, read-only scope
+### [Google Drive, read-only scope](abp-vault-google-drive-readonly.html)
 
 The default corpus is "files owned by or shared to the user": everything anybody ever shared, on day one, without anyone choosing it.
 
-### Microsoft 365 connector (Claude)
+### [Microsoft 365 connector (Claude)](abp-vault-claude-m365-connector.html)
 
 Delegated permissions, consented once by a Global Administrator. Shared mailboxes are in scope; site-specific narrowing is unsupported because the search is tenant-wide; and the page that says "read-only access" also lists the tools that send mail as the user.
 
-### Dropbox MCP server
+### [Dropbox MCP server](abp-vault-dropbox-mcp.html)
 
 Eight scopes, two of them write and two of them sharing, and no folder-scoped variant. It reads, creates, moves, deletes and makes shared links; the page says files are not deleted permanently and that recovery depends on your plan.
 
