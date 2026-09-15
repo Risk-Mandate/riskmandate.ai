@@ -143,6 +143,21 @@ Each one is linked in full, as received, with nothing edited. Where a brief and 
 - **The level-3 text on the store's product page**, and the opinion add-on page
 - **The A5 and the stand**
 
+### Risk Mandate Website Repositioning Strategy
+
+**sha256** ab6f9486ecae99de444ff7bfe0aa4c7a95badcdd01fb12b795eec7ec852984eb
+
+**The first brief that asked for something to come off the home page rather than go onto it.** Its argument is a chain: our job is to make agents insurable; an agent is insurable when the organisation has authorised it in a way that survives examination, which is a licence to operate; a licence to operate needs a behaviour policy to be a licence for anything. So the ABP is sold first — it exists, it is the lowest touch and it can be delivered today — and the insurance thinking is kept in full rather than lost, on a page of its own. One departure while implementing it: the brief names three audiences, and a fourth, investors, is already written up on the Lisbon page, in the store and on the printed sheets. Three pages were built and the fourth is named as missing rather than quietly dropped.
+
+- [The home page](index.html), opening on who is arriving and what is actually sold
+- [Make agents insurable](insurance.html) — the whole insurance argument, kept in full on a page of its own
+- [Licence to Operate](licence-to-operate.html), adopting the organisation / instrument / licensee referent the vaults already use
+- [You run agents today](for-corporate.html), [You are a founder](for-founders.html) and [You are a startup](for-startups.html)
+- The menu rebuilt to seven top-level entries, with **Policies**, **Who it’s for** and **Insurance** as groups
+- **Multilingual delivery for levels 3 and 4.** The brief asks for the £500 correction and the £1,500 session to be deliverable in the buyer’s own language, since both have a person in the loop. Nothing is built, and nothing is claimed anywhere on the site
+- **An investor page**, the fourth audience
+- **A per-audience view inside a vault.** The home page gives that as the reason for audience pages; the vault app opens on one view for everybody
+
 ## And the instructions that arrived as speech or a sentence.
 
 These have no digest to check, which makes them the ones most easily lost — a voice memo that changed the direction of the whole site leaves no artefact at all unless somebody writes it down. So they are recorded here in the same list, with the same two columns.

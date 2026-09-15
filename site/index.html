@@ -488,6 +488,32 @@ rm-index-ladder { display: block; margin-top: 38px; }
     color:       var(--faint);
 }
 
+/* ===== who is arriving, and the chain ===== */
+.whoc{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:38px}
+@media (max-width:900px){.whoc{grid-template-columns:1fr}}
+.wc{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--border);
+  border-radius:var(--r);padding:28px;text-decoration:none}
+.wc:hover{border-color:var(--green)}
+.wk{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--green);margin-bottom:16px}
+.wc h3{font-size:17px;color:var(--text);margin:0 0 12px;line-height:1.35;letter-spacing:-.01em}
+.wc p{font-size:13.5px;color:var(--muted);line-height:1.6;margin:0}
+.wgo{margin-top:auto;padding-top:20px;font-size:13px;font-weight:600;color:var(--green)}
+.chain{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+@media (max-width:820px){.chain{grid-template-columns:1fr}}
+.ch{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--border);
+  border-radius:var(--r);padding:26px;text-decoration:none}
+a.ch:hover{border-color:var(--green)}
+.ch.here{background:var(--ink);border-color:var(--ink)}
+.chn{font-family:var(--mono);font-size:12.5px;font-weight:700;color:var(--green);margin-bottom:14px}
+.ch h3{margin:0 0 9px;font-size:18px;color:var(--text);letter-spacing:-.02em}
+.ch p{font-size:13.5px;color:var(--muted);line-height:1.55;margin:0}
+.ch.here h3{color:var(--fg)} .ch.here p{color:var(--fg-2)}
+.chs{margin-top:auto;padding-top:18px;font-family:var(--mono);font-size:10.5px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.ch.here .chs{color:var(--green-2)}
+.ins-note a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+
 /* ===== what a policy is (the four objects) ===== */
 .objs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 38px; }
 @media (max-width: 860px) { .objs { grid-template-columns: repeat(2, 1fr); } }
@@ -843,7 +869,7 @@ a.ds{display:block;text-decoration:none;color:inherit}
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
     <a class="ghlink" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener" aria-label="The source, on GitHub" title="Open source · Apache-2.0 code · CC BY 4.0 pages"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a>
-      <a class="version" href="versions.html" title="What shipped in v1.19.3">v1.19.3</a>
+      <a class="version" href="versions.html" title="What shipped in v1.20.0">v1.20.0</a>
     <button class="demo" data-demo>Get in touch</button>
   </div>
 </header>
@@ -869,39 +895,6 @@ a.ds{display:block;text-decoration:none;color:inherit}
 </main>
 
 <div class="paper">
-
-  <!-- the problem -->
-  <section class="ins-section" id="problem">
-    <div class="wrap">
-      <div class="shead">
-        <span class="tag">The problem</span>
-        <h2>Cover is being withdrawn. <span class="g">Evidence buys it back.</span></h2>
-        <p>Exclusions are attaching at renewal faster than teams can respond. Affirmative cover exists, but every carrier writing it asks the same question — and most teams cannot answer it in writing.</p>
-      </div>
-      <div class="ins-metrics">
-        <div class="metric">
-          <span class="mk">Filings</span>
-          <span class="mn warn">Many</span>
-          <h3>P&amp;C groups have filed to exclude AI</h3>
-          <p>Standardised AI exclusion endorsements are now in circulation, and some exclusions on D&amp;O and E&amp;O lines are absolute rather than partial.</p>
-        </div>
-        <div class="metric">
-          <span class="mk">Approvals</span>
-          <span class="mn warn">Most</span>
-          <h3>of those filings have cleared review</h3>
-          <p>Whether AI is covered is decided policy by policy, jurisdiction by jurisdiction, at each renewal date — not once, centrally.</p>
-        </div>
-        <div class="metric">
-          <span class="mk">The gate</span>
-          <span class="mn go">1</span>
-          <h3>question decides the outcome</h3>
-          <p>Can you show what your agents can reach, and evidence that the controls hold? Everything else follows from that answer.</p>
-        </div>
-      </div>
-      <p class="ins-note">Figures on this page describe a market in motion and are stated qualitatively on purpose; we cite specific filings and form numbers in the assessment itself, dated, rather than on a page that ages.</p>
-    </div>
-  </section>
-
 
   <!-- the grant you did not enumerate -->
   <section class="ins-section alt" id="grant">
@@ -953,6 +946,38 @@ a.ds{display:block;text-decoration:none;color:inherit}
         </div>
       </div>
       <p class="ins-note">Both are cited by date rather than characterised, and both are somebody else's publication. If your agent does something you did not authorise, the question you will be asked is what you <em>did</em> authorise — and that is the document this site exists to produce.</p>
+    </div>
+  </section>
+
+  <!-- who is arriving -->
+  <section class="ins-section" id="who">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Who is arriving</span>
+        <h2>Three people ask this, <span class="g">and they ask it differently.</span></h2>
+        <p>The document is the same. What changes is the question it answers and which part of it you read first &mdash; which is why a policy vault carries a view per audience rather than one report everybody squints at.</p>
+      </div>
+      <div class="whoc">
+        <a class="wc" href="for-corporate.html">
+          <span class="wk">You run agents today</span>
+          <h3>&ldquo;Do you know what it can actually do? Not what it did &mdash; what it can.&rdquo;</h3>
+          <p>You gave an assistant a repository, a mailbox, a cloud account. You know what you asked for. Nobody enumerates the rest.</p>
+          <span class="wgo">What you get &rarr;</span>
+        </a>
+        <a class="wc" href="for-founders.html">
+          <span class="wk">You are a founder</span>
+          <h3>&ldquo;Would you like to know what diligence finds, before it runs?&rdquo;</h3>
+          <p>The reassuring version of this is already free in several places. The useful direction is the opposite one.</p>
+          <span class="wgo">What you get &rarr;</span>
+        </a>
+        <a class="wc" href="for-startups.html">
+          <span class="wk">You are a startup</span>
+          <h3>&ldquo;What is your buyer&rsquo;s security team going to ask about your agents?&rdquo;</h3>
+          <p>The questionnaire is coming, and the questions are about reach rather than about which model you use.</p>
+          <span class="wgo">What you get &rarr;</span>
+        </a>
+      </div>
+      <p class="ins-note">A fourth group &mdash; investors asking what a portfolio company&rsquo;s agents can reach &mdash; is written up on <a href="summit.html">the Lisbon page</a> and has not been given its own page yet.</p>
     </div>
   </section>
 
@@ -1018,181 +1043,17 @@ a.ds{display:block;text-decoration:none;color:inherit}
     <div class="wrap">
       <div class="shead">
         <span class="tag">Where this goes</span>
-        <h2>Three rungs. <span class="g">We are on the first.</span></h2>
-        <p>Insurability is the destination and the behaviour policy is the doorway. Each rung needs the one below it, which is why we are selling the bottom one rather than the top.</p>
+        <h2>Three rungs. <span class="g">We sell the first.</span></h2>
+        <p>Our job is to make agents insurable. An agent is insurable when the organisation has authorised it in a way that survives examination, which is a licence to operate. A licence to operate needs a description of the agent to be a licence for anything. So the work starts at the bottom, and the bottom is the part that exists, has the lowest touch, and can be delivered today.</p>
       </div>
-
-      <div class="rungs">
-        <div class="rung2 now">
-          <span class="rn">01</span>
-          <div>
-            <h3>The label &mdash; the behaviour policy</h3>
-            <p>What the agent can do, what you authorised, the gap, and what is in the way. Context-free, so it is the same document wherever the agent runs. No score: it describes and it does not judge.</p>
-          </div>
-          <span class="rst">What we sell</span>
-        </div>
-        <div class="rung2">
-          <span class="rn">02</span>
-          <div>
-            <h3>The patient record &mdash; the twin</h3>
-            <p>A read-only model of the environment the agent is actually in: the assets, the tools, the data, what is connected to what. This is where the grant stops being a deployment shape and becomes yours, and it is the point at which the exposure means anything.</p>
-          </div>
-          <span class="rst">Design, part built</span>
-        </div>
-        <div class="rung2">
-          <span class="rn">03</span>
-          <div>
-            <h3>The prescription &mdash; the Index and the acceptance</h3>
-            <p>The two combined, dated, with a named owner and an expiry, so the decision comes back. This is the only rung with a score on it, and the only one somebody signs.</p>
-          </div>
-          <span class="rst">Design</span>
-        </div>
+      <div class="chain">
+        <a class="ch here" href="agent-behaviour-policy.html"><span class="chn">01</span><h3>Agent Behaviour Policy</h3><p>What it can reach, what you authorised, the gap, and what stands in the way of each row.</p><span class="chs">What we sell today</span></a>
+        <a class="ch" href="licence-to-operate.html"><span class="chn">02</span><h3>Licence to Operate</h3><p>The organisation is the authority, the policy is the instrument, the agent is the licensee. For an interval.</p><span class="chs">Template ships, unissued</span></a>
+        <a class="ch" href="insurance.html"><span class="chn">03</span><h3>Make agents insurable</h3><p>The record an underwriter will accept: the Insurability Index, the five dimensions, and the risk owned with an expiry.</p><span class="chs">Design</span></a>
       </div>
-
-      <p class="ins-note" style="margin-top:28px">Stated this way on purpose. The rungs below the score are the ones that make it mean something, and a number composed from rows nobody can check is the thing this whole model exists to avoid. The six levels and the five dimensions further down are the published design for rung three &mdash; the shape it will take, not a number we compute today.</p>
+      <p class="ins-note">Each rung needs the one below it, which is why we sell the bottom one rather than the top. The argument for the top &mdash; cover being withdrawn, what changed in 2026, the Index and the acceptance mechanic &mdash; is kept in full on <a href="insurance.html">the insurance page</a>. It is off this page because this page sells what exists.</p>
     </div>
   </section>
-
-  <!-- the difference -->
-  <section class="ins-section">
-    <div class="wrap">
-      <div class="shead">
-        <span class="tag">The difference</span>
-        <h2>Questionnaires describe. <span class="g">Evidence prices.</span></h2>
-        <p>Underwriting agentic risk today runs on self-reported answers. The same three questions produce very different outcomes depending on where the answer comes from.</p>
-      </div>
-      <div class="cmp">
-        <div class="cmp-row cmp-head">
-          <span></span><span class="q">Questionnaire</span><span class="e">RiskMandate</span>
-        </div>
-        <div class="cmp-row">
-          <span class="cmp-k">Where the answer comes from</span>
-          <span class="cmp-q"><b>Someone's recollection.</b> A security lead fills in a form once a year, from memory and a spreadsheet that was last accurate in March.</span>
-          <span class="cmp-e"><b>The deployment, one capability at a time.</b> Which agent, running where, with which class of credentials — and from that shape, every capability it can reach, each with what actually stands in the way of it. Recomputed when the shape moves.</span>
-        </div>
-        <div class="cmp-row">
-          <span class="cmp-k">What the underwriter gets</span>
-          <span class="cmp-q"><b>A yes or no.</b> No severity, no aggregation, no way to tell a contained agent from one holding standing production access.</span>
-          <span class="cmp-e"><b>A priced exposure.</b> Loss bands per agent, aggregate across the fleet, and concentration in shared models and vendors.</span>
-        </div>
-        <div class="cmp-row">
-          <span class="cmp-k">What happens at claim</span>
-          <span class="cmp-q"><b>The answers get tested.</b> Application warranties are examined after the loss. This is where cover is most often lost.</span>
-          <span class="cmp-e"><b>The record holds.</b> Timestamped control state, containment tests and an immutable action log, assembled before anything went wrong.</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- the index -->
-  <section class="ins-section alt" id="levels">
-    <div class="wrap">
-      <div class="shead">
-        <span class="tag">The Insurability Index &middot; rung three</span>
-        <h2>Six levels. <span class="g">One number, eventually.</span></h2>
-        <p>This is the design for the top rung: where an agent estate sits, what an underwriter will offer at each level, and the gap to the next one as a work order. Select a level to see what it buys. It is published before it is built on purpose, so the commitment stays checkable afterwards.</p>
-      </div>
-      <rm-index-ladder></rm-index-ladder>
-      <p class="ins-note">The Index is a composite of five dimensions, weighted by how much each one moves a price. It is composed from behaviour policies rather than from a form: each one states capabilities and the barrier against each, so the number is an aggregate of rows that can be checked individually. Weights are set by underwriting judgement today and re-fit as loss experience accumulates — we say so rather than implying an actuarial precision that does not yet exist.</p>
-    </div>
-  </section>
-
-  <!-- dimensions -->
-  <section class="ins-section">
-    <div class="wrap">
-      <div class="shead">
-        <span class="tag">What gets measured &middot; the design</span>
-        <h2>Five dimensions, <span class="g">weighted by price impact.</span></h2>
-        <p>What the Index is composed from, and how much each part moves a price. The weights below are underwriting judgement rather than fitted loss experience, and they are the design rather than a running calculation.</p>
-      </div>
-      <div class="dims">
-        <div class="dim"><span class="dw">30%</span><h3>Exposure containment</h3><p>How bad one agent can get. Reachable actions, systems touched, the value of the authority it holds, and whether the damage is reversible.</p><span class="dr">Drives severity</span></div>
-        <div class="dim"><span class="dw">20%</span><h3>Authority definition</h3><p>Whether every agent has a written mandate: purpose, permitted actions, data scope, and the points where a human must intervene.</p><span class="dr">Drives frequency</span></div>
-        <div class="dim"><span class="dw">20%</span><h3>Attestation integrity</h3><p>Whether control state is evidenced continuously rather than asserted once a year, with logs and revocation tests that hold up under examination.</p><span class="dr">Drives warranty credibility</span></div>
-        <div class="dim"><span class="dw">20%</span><h3>Loss quantification</h3><p>Expected loss per agent expressed as a range, not a point. A wide range is itself a finding — it means getting clarity is the next thing to fund.</p><span class="dr">Drives pricing</span></div>
-        <div class="dim"><span class="dw">10%</span><h3>Accountability</h3><p>Who owns each accepted risk, for how long, and at what retention. Acceptance without a named owner and an expiry date is not acceptance.</p><span class="dr">Drives legal standing</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- who it is for -->
-  <section class="ins-section alt" id="who">
-    <div class="wrap">
-      <div class="shead">
-        <span class="tag">Who it is for</span>
-        <h2>One score. <span class="g">Both sides of the renewal.</span></h2>
-      </div>
-      <div class="aud">
-        <div class="acard">
-          <span class="atag">For enterprises and mid-market</span>
-          <h3>Mandate</h3>
-          <p>Map every agent's blast radius, evidence the controls that contain it, and walk into your renewal with an evidence pack instead of a questionnaire.</p>
-          <ul>
-            <li>A measured grant per agent, derived from the deployment shape rather than from a questionnaire</li>
-            <li>A written mandate per agent, generated from what the agent can actually reach</li>
-            <li>Continuous attestation mapped to ISO 42001 and the OWASP Agentic Top 10</li>
-            <li>A renewal report your broker can submit without rewriting</li>
-          </ul>
-          <p class="afoot">Sits on top of your existing identity and posture tools. We read; we are never in the request path.</p>
-        </div>
-        <div class="acard">
-          <span class="atag alt">For brokers, carriers and MGAs</span>
-          <h3>Ledger</h3>
-          <p>Price agentic risk from what is actually deployed in the insured's environment, and see where the same exposure repeats across your book.</p>
-          <ul>
-            <li>Submission triage scored on evidence rather than self-reported answers</li>
-            <li>Exposure derived from the environment, with the derivation shown</li>
-            <li>Concentration view across shared models and vendors in a portfolio</li>
-            <li>An acceptance ledger that maps cleanly onto a policy period</li>
-          </ul>
-          <p class="afoot">Carrier-neutral by design. We score the risk; you set appetite and price.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- the mechanic -->
-  <section class="ins-section">
-    <div class="wrap ins-mech">
-      <div class="shead">
-        <span class="tag">The mechanic &middot; rung three</span>
-        <h2>Every risk gets an owner <span class="g">and an expiry.</span></h2>
-        <p>A finding sitting in a backlog is not a decision, and an underwriter cannot price it. RiskMandate puts each risk through one of three doors, assigned to a named person for a stated interval. When the interval ends, the decision comes back.</p>
-      </div>
-      <div>
-        <div class="doors">
-          <div class="door accept"><span class="dk">Accept</span><h3>Own it</h3><p>A named executive holds this exposure for a set interval, with the amount written down.</p></div>
-          <div class="door fund"><span class="dk">Fund</span><h3>Pay to reduce it</h3><p>The exposure justifies budget. The number is what makes the case.</p></div>
-          <div class="door fix"><span class="dk">Fix</span><h3>Remove it</h3><p>Narrow the mandate or revoke the access, and the radius closes.</p></div>
-        </div>
-        <div class="nodoor">
-          <s>Revisit next quarter</s>
-          <span>There is no fourth door. Silence is not a decision anyone can underwrite.</span>
-      </div>
-      <p class="ins-note">The acceptance workflow is a published approach rather than a running system: a risk is accepted by a named person for a stated period, and the interval is what brings the decision back. Implementation is not claimed. It belongs to the third rung, and it needs the first one underneath it &mdash; there is nothing to accept until somebody has written down what the agent can actually do.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- faq -->
-  <section class="ins-section alt">
-    <div class="wrap">
-      <div class="shead">
-        <span class="tag">Questions</span>
-        <h2>What people <span class="g">ask first.</span></h2>
-      </div>
-      <div class="faq">
-        <details open><summary>Is RiskMandate an insurance policy?</summary><p>No. We are not a carrier, a broker or an MGA, and we do not sell or place cover. RiskMandate measures insurability and produces the evidence that underwriters price against. Your broker and carrier relationships stay exactly as they are.</p></details>
-        <details><summary>Do you sit in the runtime path?</summary><p>Never. All connectors are read-only and out of band. A governance layer that can take your agents down is a new source of the risk it was bought to measure.</p></details>
-        <details><summary>Does this replace our agent security tooling?</summary><p>No, and it is not meant to. We connect to what you already run — identity providers, cloud IAM, agent posture and access-governance tools — and translate their output into exposure an underwriter can read. If you have no controls at all, we will tell you that before you buy anything.</p></details>
-        <details><summary>How is the Index calculated, and can we see the working?</summary><p>It is a weighted composite of five dimensions, each derived from environment telemetry rather than a questionnaire. Every score decomposes to the evidence behind it, and the methodology is published. Weights are set by underwriting judgement today and re-fit as loss experience accumulates.</p></details>
-        <details><summary>How long does a first assessment take?</summary><p>Connector setup is typically under a day. A first Index and gap list land inside two weeks, which is deliberately shorter than most renewal windows.</p></details>
-        <details><summary>Where does our data go?</summary><p>Metadata about agent scope and permissions, not the contents of what your agents process. Self-hosted and sovereign deployments are available where the data cannot leave your boundary.</p></details>
-      </div>
-    </div>
-  </section>
-
 </div>
 
 <section class="ins-cta" id="demo">
@@ -1220,7 +1081,7 @@ a.ds{display:block;text-decoration:none;color:inherit}
 (function(){
 'use strict';
 var RM={core:{},services:{},components:{},data:{}};
-RM.data.pages=[{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"The problem"},{"name":"acceptable","label":"Accepted is not acceptable","file":"acceptable.html","group":"The problem"},{"name":"acceptance","label":"You own the risk","file":"acceptance.html","group":"The problem"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"The problem"},{"name":"abp","label":"Agent Behaviour Policy","file":"abp.html","group":"The model"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"The model"},{"name":"agents","label":"Agents","file":"agents.html","group":"The model"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"The model"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"The model"},{"name":"statics","label":"Static scenarios","file":"statics.html","group":"The model"},{"name":"agent-behaviour-policy","label":"Agent Behaviour Policies","file":"agent-behaviour-policy.html"},{"name":"demos","label":"All demos","file":"demos.html","group":"Live demos"},{"name":"demo-licence-to-operate","label":"Licence to Operate","file":"demo-licence-to-operate.html","group":"Live demos"},{"name":"demo-risk-graph-explorer","label":"RiskGraph Explorer","file":"demo-risk-graph-explorer.html","group":"Live demos"},{"name":"demo-agentic-browser-isolation","label":"Agentic Browser Isolation","file":"demo-agentic-browser-isolation.html","group":"Live demos"},{"name":"demo-risk-mandate-field","label":"RiskMandate field demo","file":"demo-risk-mandate-field.html","group":"Live demos"},{"name":"demo-file-security","label":"File security walk","file":"demo-file-security.html","group":"Live demos"},{"name":"demo-agent-permission-games","label":"Permission games","file":"demo-agent-permission-games.html","group":"Live demos"},{"name":"summit","label":"Lisbon 2026","file":"summit.html"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"lab","label":"The Lab","file":"lab.html","group":"More"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"briefs","label":"Brief register","file":"briefs.html","group":"More"},{"name":"work","label":"Working with us","file":"work.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"after-payment","label":"After payment (store debrief)","file":"after-payment.html","group":"More"},{"name":"admin","label":"Admin","file":"admin.html","group":"More"}];RM.data.sections=[];
+RM.data.pages=[{"name":"abp","label":"Agent Behaviour Policy","file":"abp.html","group":"Policies"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"Policies"},{"name":"agents","label":"Agents","file":"agents.html","group":"Policies"},{"name":"agent-behaviour-policy","label":"Agent Behaviour Policies","file":"agent-behaviour-policy.html","group":"Policies"},{"name":"licence-to-operate","label":"Licence to Operate","file":"licence-to-operate.html","group":"Policies"},{"name":"for-corporate","label":"You run agents today","file":"for-corporate.html","group":"Who it's for"},{"name":"for-founders","label":"You are a founder","file":"for-founders.html","group":"Who it's for"},{"name":"for-startups","label":"You are a startup","file":"for-startups.html","group":"Who it's for"},{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"Insurance"},{"name":"acceptable","label":"Accepted is not acceptable","file":"acceptable.html","group":"Insurance"},{"name":"acceptance","label":"You own the risk","file":"acceptance.html","group":"Insurance"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"Insurance"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"Insurance"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"Insurance"},{"name":"statics","label":"Static scenarios","file":"statics.html","group":"Insurance"},{"name":"insurance","label":"Make agents insurable","file":"insurance.html","group":"Insurance"},{"name":"demos","label":"All demos","file":"demos.html","group":"Live demos"},{"name":"demo-licence-to-operate","label":"Licence to Operate","file":"demo-licence-to-operate.html","group":"Live demos"},{"name":"demo-risk-graph-explorer","label":"RiskGraph Explorer","file":"demo-risk-graph-explorer.html","group":"Live demos"},{"name":"demo-agentic-browser-isolation","label":"Agentic Browser Isolation","file":"demo-agentic-browser-isolation.html","group":"Live demos"},{"name":"demo-risk-mandate-field","label":"RiskMandate field demo","file":"demo-risk-mandate-field.html","group":"Live demos"},{"name":"demo-file-security","label":"File security walk","file":"demo-file-security.html","group":"Live demos"},{"name":"demo-agent-permission-games","label":"Permission games","file":"demo-agent-permission-games.html","group":"Live demos"},{"name":"summit","label":"Lisbon 2026","file":"summit.html"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"lab","label":"The Lab","file":"lab.html","group":"More"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"briefs","label":"Brief register","file":"briefs.html","group":"More"},{"name":"work","label":"Working with us","file":"work.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"after-payment","label":"After payment (store debrief)","file":"after-payment.html","group":"More"},{"name":"admin","label":"Admin","file":"admin.html","group":"More"}];RM.data.sections=[];
 
 'use strict';
 // core/risk-queue.js — pure risk-queue domain logic: status init, counts,

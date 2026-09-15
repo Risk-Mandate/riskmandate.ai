@@ -1,5 +1,5 @@
 {
-  "note": "Every document, brief and instruction this site was built from, in the order it arrived. It exists for two jobs. First, nothing gets worked twice: `sha256` is the digest of the file exactly as received, so an identical file arriving again is recognisable before anybody starts reading it \u2014 `received` lists every time it turned up. Second, nothing gets missed: an agent producing these briefs can fetch this file, compare it against what it has sent, and name anything absent. `status` is the honest state of the work, not an intention. `produced` names what exists because of the item, with URLs that can be checked. Items given as speech, chat text or a link have no digest and are recorded under `informal` \u2014 they are the ones most easily lost, which is why they are in here at all.",
+  "note": "Every document, brief and instruction this site was built from, in the order it arrived. It exists for two jobs. First, nothing gets worked twice: `sha256` is the digest of the file exactly as received, so an identical file arriving again is recognisable before anybody starts reading it — `received` lists every time it turned up. Second, nothing gets missed: an agent producing these briefs can fetch this file, compare it against what it has sent, and name anything absent. `status` is the honest state of the work, not an intention. `produced` names what exists because of the item, with URLs that can be checked. Items given as speech, chat text or a link have no digest and are recorded under `informal` — they are the ones most easily lost, which is why they are in here at all.",
   "site": "https://riskmandate.ai",
   "register": "https://riskmandate.ai/briefs-register.json",
   "page": "https://riskmandate.ai/briefs.html",
@@ -28,21 +28,21 @@
       "status": "processed",
       "produced": [
         {
-          "what": "Lab 01 \u2014 the grant is user-shaped, not data-shaped",
+          "what": "Lab 01 — the grant is user-shaped, not data-shaped",
           "url": "lab-connector-grants.html"
         },
         {
-          "what": "Lab 02 \u2014 what buying a behaviour policy would look like, including the twelve-stage flow",
+          "what": "Lab 02 — what buying a behaviour policy would look like, including the twelve-stage flow",
           "url": "lab-abp-flow.html"
         },
         {
-          "what": "Lab 03 \u2014 the request list against abp.sgit.ai, including the proposed `material` property",
+          "what": "Lab 03 — the request list against abp.sgit.ai, including the proposed `material` property",
           "url": "lab-abp-requests.html"
         }
       ],
       "not_done": [
         "The five first policies themselves. Lab 01 documents the grants; no policy document exists for any of the five shapes.",
-        "The template vault and the shape library \u2014 named in the brief as the actual product, and not started.",
+        "The template vault and the shape library — named in the brief as the actual product, and not started.",
         "The instrumentation table timing the first five, which the brief calls the only pricing input anybody will have."
       ],
       "notes": "Uploaded twice, byte-identical. The second arrival was in the same message as D3 and D4 and was not reprocessed."
@@ -63,7 +63,7 @@
       "status": "processed",
       "produced": [
         {
-          "what": "Lab 04 \u2014 seven things to build, and one word we have not earned",
+          "what": "Lab 04 — seven things to build, and one word we have not earned",
           "url": "lab-shape-collector.html"
         }
       ],
@@ -88,7 +88,7 @@
       "status": "partly",
       "produced": [
         {
-          "what": "Lab 05 \u2014 your agent can commit as you, and no instruction stops it",
+          "what": "Lab 05 — your agent can commit as you, and no instruction stops it",
           "url": "lab-commit-author.html"
         },
         {
@@ -97,7 +97,7 @@
         }
       ],
       "not_done": [
-        "The comparison experiment. Lab 05 specifies it \u2014 three arms, twenty runs each, violations counted as repository queries \u2014 and nobody has set up a repository to run it against.",
+        "The comparison experiment. Lab 05 specifies it — three arms, twenty runs each, violations counted as repository queries — and nobody has set up a repository to run it against.",
         "A signed-commits rule on this site's own repository. Lab 05 says in as many words that the argument is demonstrated and not adopted until that is on.",
         "The provider and connector pages the brief maps onto the four layers, and the community incident repository behind them."
       ],
@@ -119,7 +119,7 @@
       "status": "partly",
       "produced": [
         {
-          "what": "The urgency section on the front page \u2014 three vendor sentences with dates and no adjective, and the two dated changes of this year",
+          "what": "The urgency section on the front page — three vendor sentences with dates and no adjective, and the two dated changes of this year",
           "url": "index.html"
         },
         {
@@ -128,15 +128,15 @@
         }
       ],
       "not_done": [
-        "The price experiment as redesigned \u2014 charge one price and count, with a certainty question after. The pricing page states the approach; no price is set and nothing is charged.",
+        "The price experiment as redesigned — charge one price and count, with a certainty question after. The pricing page states the approach; no price is set and nothing is charged.",
         "The generic prompt as a published, installable artefact. The pricing page says it is free and open; the file does not exist yet.",
         "The early access group: a dozen people running one of the five shapes, used for objections rather than numbers. No list exists."
       ],
-      "notes": "Read in full. Its two rulings are now on the site: the entry product says it reduces accidents and does not stop an attacker, and the behaviour policy is not sold as a skill \u2014 the skill is the free half, because the portable frontmatter cannot carry a constraint. The word for the narrowing cover does not appear on the page carrying a price; the authorise question stands in its place."
+      "notes": "Read in full. Its two rulings are now on the site: the entry product says it reduces accidents and does not stop an attacker, and the behaviour policy is not sold as a skill — the skill is the free half, because the portable frontmatter cannot carry a constraint. The word for the narrowing cover does not appear on the page carrying a price; the authorise question stands in its place."
     },
     {
       "id": "D5",
-      "title": "Startup Summit 2026 \u2014 exhibitor booth guide",
+      "title": "Startup Summit 2026 — exhibitor booth guide",
       "version": null,
       "type": "organiser document",
       "dated": "2026-09-12",
@@ -159,7 +159,7 @@
         }
       ],
       "not_done": [
-        "Logo and name into the exhibitor portal \u2014 the organisers' own deadline was 15 September.",
+        "Logo and name into the exhibitor portal — the organisers' own deadline was 15 September.",
         "The power request, which goes through the portal and not by email."
       ],
       "notes": "Third-party material, republished on a working page rather than a public one. Whether it stays fetchable under site/ is an open decision."
@@ -180,21 +180,21 @@
       "status": "partly",
       "produced": [
         {
-          "what": "Lab 06 \u2014 every routable address is in the grant, and the one rule everybody signs has no barrier",
+          "what": "Lab 06 — every routable address is in the grant, and the one rule everybody signs has no barrier",
           "url": "lab-network-reach.html"
         }
       ],
       "not_done": [
-        "The two proposals to the model site \u2014 the barrier's companion fields (above whom, deterministic, what voids it, evidenceable) and the six composition rules. Lab 06 states them; they are not yet on the request list in Lab 03.",
+        "The two proposals to the model site — the barrier's companion fields (above whom, deterministic, what voids it, evidenceable) and the six composition rules. Lab 06 states them; they are not yet on the request list in Lab 03.",
         "The provider comparison table, which the brief says writes itself from the sources: network on by default locally and hosted, allow list present, all egress paths or one, survives being written into a repository, fails open or closed, resolution covered, and a log the operator can read.",
-        "The reconciliation tool between an agent's several destination lists \u2014 open question 3, and possibly the smallest useful thing we could ship on this capability.",
+        "The reconciliation tool between an agent's several destination lists — open question 3, and possibly the smallest useful thing we could ship on this capability.",
         "The generic pasteable document as an artefact. Lab 06 drafts it in a table; open question 4 is whether it should be published before the custom generator exists."
       ],
-      "notes": "Seven load-bearing quotations were fetched and checked rather than relayed, including the reference container's firewall script. Two departures from the brief are stated on the page: the brief reports observing the two egress paths diverge in one session, and in ours they did not \u2014 both reached every host tried \u2014 so the finding rests on the vendor's own sentences rather than on that observation; and we published our own measurement of this machine's egress instead, which found a raw outbound socket to an arbitrary public address and working name resolution with no allow list in either path."
+      "notes": "Seven load-bearing quotations were fetched and checked rather than relayed, including the reference container's firewall script. Two departures from the brief are stated on the page: the brief reports observing the two egress paths diverge in one session, and in ours they did not — both reached every host tried — so the finding rests on the vendor's own sentences rather than on that observation; and we published our own measurement of this machine's egress instead, which found a raw outbound socket to an arbitrary public address and working name resolution with no allow list in either path."
     },
     {
       "id": "D7",
-      "title": "ABP Graph and Stakeholder Views \u2014 the policy is a graph, and every stakeholder gets a projection of it",
+      "title": "ABP Graph and Stakeholder Views — the policy is a graph, and every stakeholder gets a projection of it",
       "version": null,
       "type": "voice memo (Otter transcript)",
       "dated": "2026-09-15",
@@ -220,14 +220,14 @@
         "One page per behaviour, generated from the catalogue",
         "Edges per path rather than per row, in every vault",
         "Metrics (speed, volume, blast) and outward links (ATT&CK, GDPR) on the 23 primitives",
-        "Views per audience \u2014 CEO, CFO, CTO, investor, buyer, operator, engineer, project manager \u2014 with the prompt and the script shipped in the vault so the projection can be regenerated",
+        "Views per audience — CEO, CFO, CTO, investor, buyer, operator, engineer, project manager — with the prompt and the script shipped in the vault so the projection can be regenerated",
         "The two asks to the model site, on Lab 03"
       ],
-      "notes": "The memo was worked from the transcript on 15 September before the file itself was registered; the file arrived the same day with D8. The transcriber writes the acronym as \"ADP\" throughout; it is the spoken \"ABP\", and the archived bytes are kept as received. The task briefs for the unbuilt items are in the repository under .claude/briefs/ (T01\u2013T04, T07)."
+      "notes": "The memo was worked from the transcript on 15 September before the file itself was registered; the file arrived the same day with D8. The transcriber writes the acronym as \"ADP\" throughout; it is the spoken \"ABP\", and the archived bytes are kept as received. The task briefs for the unbuilt items are in the repository under .claude/briefs/ (T01–T04, T07)."
     },
     {
       "id": "D8",
-      "title": "Use Case Driven ABP Policy Strategy \u2014 a policy per use case, and the \u00a3500 level is a prompt the customer runs",
+      "title": "Use Case Driven ABP Policy Strategy — a policy per use case, and the £500 level is a prompt the customer runs",
       "version": null,
       "type": "voice memo (Otter transcript)",
       "dated": "2026-09-15",
@@ -241,7 +241,7 @@
       "status": "partly",
       "produced": [
         {
-          "what": "The direction brief: a policy per use case, and the \u00a3500 level is a prompt the customer runs (docs/briefs/direction__use-case-driven-policies-and-the-prompt-workflow.md)",
+          "what": "The direction brief: a policy per use case, and the £500 level is a prompt the customer runs (docs/briefs/direction__use-case-driven-policies-and-the-prompt-workflow.md)",
           "url": "https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/briefs/direction__use-case-driven-policies-and-the-prompt-workflow.md"
         },
         {
@@ -255,7 +255,7 @@
       ],
       "not_done": [
         "The two Voice Debrief use-case vaults (the web flow through a model-routing service; the WhatsApp flow through n8n), written by the agent that knows those workflows and packaged here",
-        "A page of its own for the \u00a3500 workflow, once the store's side has a return address that is not a mailbox",
+        "A page of its own for the £500 workflow, once the store's side has a return address that is not a mailbox",
         "A use-case group on the library page, and the combination of several vaults' grants into one",
         "The per-shape header on MAP-A-GRANT.md naming the vocabulary and the order reference",
         "Synchronising the level-3 wording with the store agent's page"
@@ -264,7 +264,7 @@
     },
     {
       "id": "D9",
-      "title": "The offer is built and the button is not \u2014 each level is the level below plus one thing, and the post-sale page does not exist yet",
+      "title": "The offer is built and the button is not — each level is the level below plus one thing, and the post-sale page does not exist yet",
       "version": "v0.33.71",
       "type": "strategy brief",
       "dated": "2026-09-15",
@@ -278,7 +278,7 @@
       "status": "partly",
       "produced": [
         {
-          "what": "Level 1 after payment: the page a \u00a35 buyer lands on, where the zip of the template vault for the shape bought is downloaded, with its size and sha256 stamped from the file by the build and checked in CI; the page hashes the download in the browser on request. Unlisted and noindex; the payment link's success address, with ?shape=<slug>",
+          "what": "Level 1 after payment: the page a £5 buyer lands on, where the zip of the template vault for the shape bought is downloaded, with its size and sha256 stamped from the file by the build and checked in CI; the page hashes the download in the browser on request. Unlisted and noindex; the payment link's success address, with ?shape=<slug>",
           "url": "paid-t1.html"
         },
         {
@@ -298,16 +298,67 @@
           "url": "pricing.html#after"
         },
         {
-          "what": "The homepage: a four-level strip in the behaviour-policy section, and the \u00a310 that was still on two pages corrected to \u00a35",
+          "what": "The homepage: a four-level strip in the behaviour-policy section, and the £10 that was still on two pages corrected to £5",
           "url": "index.html#policy"
         }
       ],
       "not_done": [
-        "The payment links themselves, and the success address set on each of them (level 1 passes ?shape=<slug>) \u2014 the store's, not this site's",
+        "The payment links themselves, and the success address set on each of them (level 1 passes ?shape=<slug>) — the store's, not this site's",
         "The level-3 what-you-do text on the store's own product page, and the opinion add-on page",
         "The A5 and the physical stand"
       ],
-      "notes": "Received in chat on 15 September. The brief's site-side items are built; its store-side items are named and left to the store. The lead's follow-up the same day set the two things the brief left open: the \u00a35 sale lands on a download, and levels 2\u20134 are a follow-up within 24 hours."
+      "notes": "Received in chat on 15 September. The brief's site-side items are built; its store-side items are named and left to the store. The lead's follow-up the same day set the two things the brief left open: the £5 sale lands on a download, and levels 2–4 are a follow-up within 24 hours."
+    },
+    {
+      "id": "D10",
+      "title": "Risk Mandate Website Repositioning Strategy",
+      "version": null,
+      "type": "spoken brief, transcribed",
+      "dated": "2026-09-15",
+      "file": "assets/briefs/2026-09-15__transcript__website-repositioning-strategy.txt",
+      "bytes": 2716,
+      "sha256": "ab6f9486ecae99de444ff7bfe0aa4c7a95badcdd01fb12b795eec7ec852984eb",
+      "received": [
+        "2026-09-15T00:00Z"
+      ],
+      "duplicate_of": null,
+      "status": "partly",
+      "produced": [
+        {
+          "what": "The home page rebuilt around who is arriving and what is sold, with the insurance argument moved off it",
+          "url": "index.html"
+        },
+        {
+          "what": "Make agents insurable — the whole insurance argument kept in full on a page of its own",
+          "url": "insurance.html"
+        },
+        {
+          "what": "Licence to Operate — the middle rung, given the page the brief asked for",
+          "url": "licence-to-operate.html"
+        },
+        {
+          "what": "You run agents today",
+          "url": "for-corporate.html"
+        },
+        {
+          "what": "You are a founder",
+          "url": "for-founders.html"
+        },
+        {
+          "what": "You are a startup",
+          "url": "for-startups.html"
+        },
+        {
+          "what": "The menu restructured to seven top-level entries with Behaviour policy, Who it's for and Insurance as groups",
+          "url": "index.html"
+        }
+      ],
+      "not_done": [
+        "MULTILINGUAL DELIVERY FOR TIER 3 AND TIER 4. The brief asks for the £500 correction and the £1,500 session to be deliverable in the buyer's own language, since both have a person in the loop. Nothing is built and nothing is claimed anywhere on the site. It is recorded here so it is not lost.",
+        "The four offerings are not yet listed on the site as offerings. The store publishes four tiers and two add-ons; pricing.html still describes the free/paid line rather than the ladder.",
+        "An investor page. The brief names three audiences; the printed sheets, the store and the Lisbon page all carry a fourth (investors, or 'you back companies that do'). Three pages were built and the fourth is flagged on the home page as missing.",
+        "The vault's per-audience views are described on the home page as the reason for audience pages, but no ABP vault is published on this site yet."
+      ]
     }
   ],
   "informal": [
@@ -365,12 +416,12 @@
           "url": "work.html"
         },
         {
-          "what": "Brief B1 \u2014 power user and tester of Agent Behaviour Policies",
+          "what": "Brief B1 — power user and tester of Agent Behaviour Policies",
           "url": "work-abp-power-user.html"
         }
       ],
       "not_done": [
-        "Rate, hours, start date, escalation route, publication rules and repository access \u2014 deliberately absent because the page is public, and listed on it as owed."
+        "Rate, hours, start date, escalation route, publication rules and repository access — deliberately absent because the page is public, and listed on it as owed."
       ]
     },
     {
@@ -393,13 +444,13 @@
     },
     {
       "id": "I5",
-      "what": "Add a section answering the questions people actually ask in public \u2014 with the standing rule that the site never names who asked. Answers that outgrow a section get their own page.",
+      "what": "Add a section answering the questions people actually ask in public — with the standing rule that the site never names who asked. Answers that outgrow a section get their own page.",
       "how": "chat instruction, with two public comments supplied as the first two questions",
       "dated": "2026-09-13",
       "status": "processed",
       "produced": [
         {
-          "what": "Questions \u2014 real questions, answered with a date and no name attached",
+          "what": "Questions — real questions, answered with a date and no name attached",
           "url": "questions.html"
         }
       ],

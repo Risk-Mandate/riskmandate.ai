@@ -7,7 +7,7 @@
     "oneLine": "The insurability layer for agentic AI.",
     "summary": "Carriers are filing to exclude AI from cover, and the way back is evidence an underwriter will accept. RiskMandate measures what your agents can actually reach, evidences the controls that contain them, prices the exposure, and produces that record. Underneath the insurance framing is a risk model: a grant is what a credential technically permits, a mandate is what the holder is authorised and expected to do, and the gap between them is exposure nobody ever accepted. A deployed agent already has access, so a real risk cannot be denied — only accepted, by a named owner, for an interval, with an expiry that brings the decision back. RiskMandate is read-only and never in the request path: it defines the mandate and measures the gap; it does not enforce it. It is built on SG/Vault — zero-knowledge, PKI, provenance, no database — so you hold the keys.",
     "throughLine": "Measure what the agents can reach, name who owns it, evidence that the controls hold, and let the acceptance expire so the decision comes back.",
-    "version": "1.19.3"
+    "version": "1.20.0"
   },
   "artifacts": {
     "index": "https://riskmandate.ai/llms.txt",
@@ -100,6 +100,46 @@
       "url": "https://riskmandate.ai/"
     },
     {
+      "name": "abp",
+      "label": "Agent Behaviour Policy",
+      "url": "https://riskmandate.ai/abp.html"
+    },
+    {
+      "name": "how-it-works",
+      "label": "How it works",
+      "url": "https://riskmandate.ai/how-it-works.html"
+    },
+    {
+      "name": "agents",
+      "label": "Agents",
+      "url": "https://riskmandate.ai/agents.html"
+    },
+    {
+      "name": "agent-behaviour-policy",
+      "label": "Agent Behaviour Policies",
+      "url": "https://riskmandate.ai/agent-behaviour-policy.html"
+    },
+    {
+      "name": "licence-to-operate",
+      "label": "Licence to Operate",
+      "url": "https://riskmandate.ai/licence-to-operate.html"
+    },
+    {
+      "name": "for-corporate",
+      "label": "You run agents today",
+      "url": "https://riskmandate.ai/for-corporate.html"
+    },
+    {
+      "name": "for-founders",
+      "label": "You are a founder",
+      "url": "https://riskmandate.ai/for-founders.html"
+    },
+    {
+      "name": "for-startups",
+      "label": "You are a startup",
+      "url": "https://riskmandate.ai/for-startups.html"
+    },
+    {
       "name": "plug",
       "label": "Who can pull the plug",
       "url": "https://riskmandate.ai/plug.html"
@@ -120,21 +160,6 @@
       "url": "https://riskmandate.ai/grant-gap.html"
     },
     {
-      "name": "abp",
-      "label": "Agent Behaviour Policy",
-      "url": "https://riskmandate.ai/abp.html"
-    },
-    {
-      "name": "how-it-works",
-      "label": "How it works",
-      "url": "https://riskmandate.ai/how-it-works.html"
-    },
-    {
-      "name": "agents",
-      "label": "Agents",
-      "url": "https://riskmandate.ai/agents.html"
-    },
-    {
       "name": "ramm",
       "label": "RAMM — acceptance maturity",
       "url": "https://riskmandate.ai/ramm.html"
@@ -150,34 +175,9 @@
       "url": "https://riskmandate.ai/statics.html"
     },
     {
-      "name": "agent-behaviour-policy",
-      "label": "Agent Behaviour Policies",
-      "url": "https://riskmandate.ai/agent-behaviour-policy.html"
-    },
-    {
-      "name": "agent-behaviour-policy-next",
-      "label": "Which Agent Behaviour Policy next?",
-      "url": "https://riskmandate.ai/agent-behaviour-policy-next.html"
-    },
-    {
-      "name": "paid-t1",
-      "label": "After payment · level 1",
-      "url": "https://riskmandate.ai/paid-t1.html"
-    },
-    {
-      "name": "paid-t2",
-      "label": "After payment · level 2",
-      "url": "https://riskmandate.ai/paid-t2.html"
-    },
-    {
-      "name": "paid-t3",
-      "label": "After payment · level 3",
-      "url": "https://riskmandate.ai/paid-t3.html"
-    },
-    {
-      "name": "paid-t4",
-      "label": "After payment · level 4",
-      "url": "https://riskmandate.ai/paid-t4.html"
+      "name": "insurance",
+      "label": "Make agents insurable",
+      "url": "https://riskmandate.ai/insurance.html"
     },
     {
       "name": "demos",
@@ -213,6 +213,91 @@
       "name": "demo-agent-permission-games",
       "label": "Permission games",
       "url": "https://riskmandate.ai/demo-agent-permission-games.html"
+    },
+    {
+      "name": "summit",
+      "label": "Lisbon 2026",
+      "url": "https://riskmandate.ai/summit.html"
+    },
+    {
+      "name": "pricing",
+      "label": "Pricing",
+      "url": "https://riskmandate.ai/pricing.html"
+    },
+    {
+      "name": "lab",
+      "label": "The Lab",
+      "url": "https://riskmandate.ai/lab.html"
+    },
+    {
+      "name": "questions",
+      "label": "Questions",
+      "url": "https://riskmandate.ai/questions.html"
+    },
+    {
+      "name": "briefs",
+      "label": "Brief register",
+      "url": "https://riskmandate.ai/briefs.html"
+    },
+    {
+      "name": "work",
+      "label": "Working with us",
+      "url": "https://riskmandate.ai/work.html"
+    },
+    {
+      "name": "library",
+      "label": "Library",
+      "url": "https://riskmandate.ai/library.html"
+    },
+    {
+      "name": "partners",
+      "label": "Partners",
+      "url": "https://riskmandate.ai/partners.html"
+    },
+    {
+      "name": "feedback",
+      "label": "Give feedback",
+      "url": "https://riskmandate.ai/feedback.html"
+    },
+    {
+      "name": "brand",
+      "label": "Brand",
+      "url": "https://riskmandate.ai/brand.html"
+    },
+    {
+      "name": "after-payment",
+      "label": "After payment (store debrief)",
+      "url": "https://riskmandate.ai/after-payment.html"
+    },
+    {
+      "name": "admin",
+      "label": "Admin",
+      "url": "https://riskmandate.ai/admin.html"
+    },
+    {
+      "name": "agent-behaviour-policy-next",
+      "label": "Which Agent Behaviour Policy next?",
+      "url": "https://riskmandate.ai/agent-behaviour-policy-next.html"
+    },
+    {
+      "name": "paid-t1",
+      "label": "After payment · level 1",
+      "url": "https://riskmandate.ai/paid-t1.html"
+    },
+    {
+      "name": "paid-t2",
+      "label": "After payment · level 2",
+      "url": "https://riskmandate.ai/paid-t2.html"
+    },
+    {
+      "name": "paid-t3",
+      "label": "After payment · level 3",
+      "url": "https://riskmandate.ai/paid-t3.html"
+    },
+    {
+      "name": "paid-t4",
+      "label": "After payment · level 4",
+      "url": "https://riskmandate.ai/paid-t4.html"
     },
     {
       "name": "abp-vault-n8n-owner-api-key",
@@ -323,66 +408,6 @@
       "name": "lab-vault-delivered",
       "label": "07 · The vault, delivered",
       "url": "https://riskmandate.ai/lab-vault-delivered.html"
-    },
-    {
-      "name": "summit",
-      "label": "Lisbon 2026",
-      "url": "https://riskmandate.ai/summit.html"
-    },
-    {
-      "name": "pricing",
-      "label": "Pricing",
-      "url": "https://riskmandate.ai/pricing.html"
-    },
-    {
-      "name": "lab",
-      "label": "The Lab",
-      "url": "https://riskmandate.ai/lab.html"
-    },
-    {
-      "name": "questions",
-      "label": "Questions",
-      "url": "https://riskmandate.ai/questions.html"
-    },
-    {
-      "name": "briefs",
-      "label": "Brief register",
-      "url": "https://riskmandate.ai/briefs.html"
-    },
-    {
-      "name": "work",
-      "label": "Working with us",
-      "url": "https://riskmandate.ai/work.html"
-    },
-    {
-      "name": "library",
-      "label": "Library",
-      "url": "https://riskmandate.ai/library.html"
-    },
-    {
-      "name": "partners",
-      "label": "Partners",
-      "url": "https://riskmandate.ai/partners.html"
-    },
-    {
-      "name": "feedback",
-      "label": "Give feedback",
-      "url": "https://riskmandate.ai/feedback.html"
-    },
-    {
-      "name": "brand",
-      "label": "Brand",
-      "url": "https://riskmandate.ai/brand.html"
-    },
-    {
-      "name": "after-payment",
-      "label": "After payment (store debrief)",
-      "url": "https://riskmandate.ai/after-payment.html"
-    },
-    {
-      "name": "admin",
-      "label": "Admin",
-      "url": "https://riskmandate.ai/admin.html"
     }
   ],
   "library": {
@@ -475,5 +500,5 @@
     ]
   },
   "licence": "CC BY 4.0 (library content)",
-  "generated": "v1.19.3"
+  "generated": "v1.20.0"
 }

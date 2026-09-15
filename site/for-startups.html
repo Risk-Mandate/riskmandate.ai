@@ -3,22 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>RiskMandate — thank you: level 1, what happens now</title>
-<meta name="description" content="After paying for an Agent Behaviour Policy at level 1: what arrives and when, what you do next, how the key reaches you, the definition of done, and who to write to.">
-<link rel="canonical" href="https://riskmandate.ai/paid-t1.html">
-<link rel="alternate" type="text/markdown" href="paid-t1.md" title="This page as markdown">
+<title>You are a startup</title>
+<meta name="description" content="Your first serious enterprise customer will send a security questionnaire with agent questions on it. A behaviour policy answers them with rows rather than assurances.">
+<link rel="canonical" href="https://riskmandate.ai/for-startups.html">
+<link rel="alternate" type="text/markdown" href="for-startups.md" title="This page as markdown">
 <link rel="icon" href="assets/brand/riskmandate-favicon-32.png" sizes="32x32">
 <link rel="icon" href="assets/brand/riskmandate-mark.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="RiskMandate">
-<meta property="og:url" content="https://riskmandate.ai/paid-t1.html">
-<meta property="og:title" content="RiskMandate — thank you: level 1, what happens now">
-<meta property="og:description" content="After paying for an Agent Behaviour Policy at level 1: what arrives and when, what you do next, how the key reaches you, the definition of done, and who to write to.">
+<meta property="og:url" content="https://riskmandate.ai/for-startups.html">
+<meta property="og:title" content="You are a startup">
+<meta property="og:description" content="Your first serious enterprise customer will send a security questionnaire with agent questions on it. A behaviour policy answers them with rows rather than assurances.">
 <meta property="og:image" content="https://riskmandate.ai/assets/brand/riskmandate-lockup-light.png">
 <meta name="twitter:card" content="summary_large_image">
 <!-- Scaffolded by scripts/site/new-page.mjs. Hand-edited from here on — there is no build step. -->
 <style>
-/* paid-t1.css — self-contained: the shared chrome, then this page's own. */
+/* for-startups.css — self-contained: the shared chrome, then this page's own. */
 :root{
   --bg:#F7F6F2; --bg2:#EFEDE7; --card:#FFFFFF; --ink:#0D0D0C; --canvas:#0A0A09;
   --text:#1A1917; --muted:#4A4845; --faint:#8A8780; --border:#E2DFD8;
@@ -135,39 +135,41 @@ rm-menu{display:contents}
   .demo{padding:8px 12px;font-size:12.5px}
 }
 
-/* the post-sale page: read after paying; says what happens now and never carries a key */
-.phero .order{display:inline-flex;flex-wrap:wrap;gap:10px;align-items:baseline;margin-top:22px;padding:10px 14px;border:1px solid var(--line-2);border-radius:var(--r-sm);font-family:var(--mono);font-size:12.5px;color:var(--fg-2)}
-.phero .order b{color:var(--fg);font-weight:700}
-.phero .sub strong{color:var(--fg)}
-.notice{margin-top:22px;padding:16px 18px;border:1px solid var(--border);border-radius:var(--r);background:var(--card);font-size:14.5px;line-height:1.65;color:var(--muted)}
-.notice b{color:var(--text)}
-.steps{margin:22px 0 0;padding-left:0;list-style:none;counter-reset:s;display:flex;flex-direction:column;gap:12px}
-.steps li{counter-increment:s;position:relative;padding:16px 18px 16px 58px;background:var(--card);border:1px solid var(--border);border-radius:var(--r);font-size:14.5px;line-height:1.65;color:var(--muted)}
-.steps li::before{content:counter(s);position:absolute;left:18px;top:16px;width:26px;height:26px;border-radius:50%;background:var(--ink);color:var(--fg);font-family:var(--mono);font-size:12px;font-weight:700;display:grid;place-items:center}
-.steps li b{color:var(--text)}
-.steps a,.shead a,.notice a{color:var(--green)}
+/* for-startups.css */
 
-.ghlink{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:8px;color:var(--muted);border:1px solid transparent}.ghlink:hover{color:var(--text);border-color:var(--border)}
-.footlic{display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap}.footlic a{color:inherit}.ccicon{vertical-align:-3px;margin:0 2px}
-.dl{margin-top:24px;padding:22px 24px;background:var(--card);border:1px solid var(--border);border-radius:var(--r)}
-.dl .dh{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline}
-.dl .dh b{font-size:19px;letter-spacing:-.01em;color:var(--text)}
-.dl .dh span{font-family:var(--mono);font-size:12px;color:var(--faint)}
-.dl .dbtns{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
-.dl .dhash{margin:16px 0 0;font-family:var(--mono);font-size:12px;color:var(--muted);word-break:break-all;line-height:1.7}
-.dl .dhash b{color:var(--text);font-weight:700}
-.dl .dchk{margin:10px 0 0;font-family:var(--mono);font-size:12px;color:var(--muted)}
-.dl .dchk.ok{color:var(--green)}
-.dl .dchk.bad{color:#B42318}
-.dl .dfiles{margin:14px 0 0;font-size:14px;color:var(--muted);line-height:1.65}
-.dl .dfiles code{font-size:12.5px}
-[hidden]{display:none!important}
-.pick{margin-top:22px;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
-.pick a{display:flex;flex-direction:column;gap:4px;padding:14px 16px;background:var(--card);border:1px solid var(--border);border-radius:var(--r-sm);text-decoration:none;color:var(--text);transition:border-color .15s}
-.pick a:hover{border-color:var(--green)}
-.pick a b{font-size:14.5px}
-.pick a span{font-family:var(--mono);font-size:11.5px;color:var(--faint)}
-@media (max-width:1400px) and (min-width:901px){.ghlink,header.top a.version{display:none}header.top .wrap{gap:14px}}</style>
+/* page kit: source notes, spec lists, file chips, the three-rung chain */
+.src{margin-top:24px;font-size:13px;color:var(--faint);line-height:1.8;max-width:820px}
+.src a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+.shead p a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+
+.speclist{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:1px;
+  background:var(--border);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
+.speclist li{background:var(--card);padding:16px 20px;display:flex;justify-content:space-between;
+  gap:22px;font-size:14px;color:var(--muted);flex-wrap:wrap;line-height:1.6}
+.speclist li > span:first-child{color:var(--text);flex:none;min-width:150px}
+
+.files{display:flex;flex-wrap:wrap;gap:8px}
+.files code{font-family:var(--mono);font-size:12px;color:var(--text);background:var(--bg2);
+  border:1px solid var(--border);border-radius:6px;padding:7px 11px}
+
+.chain{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+@media (max-width:820px){.chain{grid-template-columns:1fr}}
+.ch{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--border);
+  border-radius:var(--r);padding:26px;text-decoration:none}
+a.ch:hover{border-color:var(--green)}
+.ch.here{background:var(--ink);border-color:var(--ink)}
+.chn{font-family:var(--mono);font-size:12.5px;font-weight:700;color:var(--green);margin-bottom:14px}
+.ch h3{margin:0 0 9px;font-size:18px;color:var(--text);letter-spacing:-.02em}
+.ch p{font-size:13.5px;color:var(--muted);line-height:1.55;margin:0}
+.ch.here h3{color:var(--fg)} .ch.here p{color:var(--fg-2)}
+.chs{margin-top:auto;padding-top:18px;font-family:var(--mono);font-size:10.5px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.ch.here .chs{color:var(--green-2)}
+
+.ins-note{margin-top:26px;font-size:13.5px;color:var(--faint);line-height:1.75;max-width:760px;font-style:italic}
+
+
+</style>
 </head>
 <body id="top">
 
@@ -175,156 +177,68 @@ rm-menu{display:contents}
   <div class="wrap">
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
-    <a class="ghlink" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener" aria-label="The source, on GitHub" title="Open source · Apache-2.0 code · CC BY 4.0 pages"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a>
-      <a class="version" href="versions.html" title="What shipped in v1.20.0">v1.20.0</a>
-    <button class="demo" data-demo>Get in touch</button>
+    <a class="version" href="versions.html" title="What shipped in v1.20.0">v1.20.0</a>
+    <button class="demo" data-demo>Book a demo</button>
   </div>
 </header>
 
 <main class="phero">
   <div class="wrap">
-    <span class="eyebrow"><span class="d"></span> Level 1 · The pack, downloaded · £5</span>
-    <h1>Thank you. <span class="it">Here is what happens now.</span></h1>
-    <p class="sub">You bought an Agent Behaviour Policy at level 1: <strong>the files</strong>. Keep the payment receipt; its reference is how you quote this order. The product code is <code>t1</code>.</p>
-    <p class="order"><span>Your order reference</span> <b id="order">on your payment receipt</b> <span>·</span> <span>product code</span> <b>t1</b></p>
+    <span class="eyebrow"><span class="d"></span> You are a startup</span>
+    <h1>The questionnaire <span class="it">is coming.</span></h1>
+    <p class="sub">Your first serious enterprise customer will send a security questionnaire with agent questions on it, and the questions will be about what your agents can reach rather than what model you use. A behaviour policy answers them with rows rather than assurances.</p>
+    <div class="cta-row">
+      <a class="btn btn-green" href="agent-behaviour-policy.html">See a real policy &rarr;</a>
+      <a class="btn btn-ghost" href="pricing.html">Where the free line falls</a>
+    </div>
   </div>
 </main>
 
 <div class="paper">
-
-  <section class="psection" id="download">
+  <section class="psection">
     <div class="wrap">
-      <div class="shead">
-        <span class="tag">What arrives, and when</span>
-        <h2 id="dl-h2">Download it now. <span class="g">The zip is here, not in an email.</span></h2>
-        <p id="dl-p">Every file in the vault for the shape you picked, as one zip: the Agent Behaviour Policy, the grant, the mandate and the delta as markdown and as JSON, the pinned vocabulary, the scenarios, the prompts, and the two files you hand the agent. Its content hash is printed beside the link, so you can check that what you downloaded is what the shape publishes. Keep the address of this page: the link stays valid, and the hash stays what it is.</p>
-      </div>
-      <div class="dl" id="dl" hidden>
-        <div class="dh"><b id="dl-title"></b><span id="dl-slug"></span></div>
-        <div class="dbtns">
-          <a class="btn btn-green" id="dl-zip" href="#" download>Download the zip</a>
-          <a class="btn btn-ghost-dark" id="dl-pdf" href="#" hidden>The same, as a PDF</a>
-          <a class="btn btn-ghost-dark" id="dl-live" href="#">See it live, in the vault</a>
-        </div>
-        <p class="dhash"><b>sha256</b> <span id="dl-sha"></span><br><b>bytes</b> <span id="dl-bytes"></span></p>
-        <p class="dchk" id="dl-chk"></p>
-        <p class="dfiles">Unzip it, read <code>MANDATE.md</code> first, and hand <code>AGENTS.md</code> and the three documents beside it to the agent. <code>README.md</code> says what each file is.</p>
-      </div>
-      <div id="pick-wrap">
-        <p id="pick-p"><strong>Which shape did you buy?</strong> The receipt names it. Pick it below and the download appears; every template is the same price, so picking is all that is needed.</p>
-        <div class="pick" id="pick"></div>
-      </div>
-      <div class="notice"><b>What this is not.</b> Not a vault: no history, no app, and no read key to hand anybody. That is level 2. And nothing in it is corrected for your situation: it is the template, as published in <a href="agent-behaviour-policy.html">the library</a>, and it is free to read there. What you paid for is the file, kept, with the hash that says which one.</div>
+      <div class="shead"><span class="tag">The question</span><h2>What does your buyer&rsquo;s security team actually need from you?</h2></div>
     </div>
   </section>
 
-  <section class="psection alt" id="next">
+  <section class="psection alt">
     <div class="wrap">
-      <div class="shead">
-        <span class="tag">What you do next</span>
-        <h2>Check the hash. <span class="g">Then read the mandate.</span></h2>
-        <p>Compare the hash printed above with the hash of what you downloaded, or press <em>check the hash here</em> and the page does it in your browser. Then unzip it: <code>MANDATE.md</code> is what the agent was authorised to do, <code>GRANT.md</code> is everything it can reach, <code>DELTA.md</code> is the gap between them, with the barrier on every row. If the gap is wider than you thought, that is the finding, and the next level is where it gets corrected for your agent rather than the template's.</p>
-      </div>
+      <div class="shead"><span class="tag">The shape of the problem</span><h2>A yes or a no <span class="g">is not an answer any more.</span></h2>
+      <p>A questionnaire asks whether an agent is restricted. The honest answer for most deployments is that it is restricted by a setting the agent&rsquo;s own account could change, which is not a restriction at all. Saying so with the barrier named is a better answer than a yes, and it is one you can support when somebody tests it.</p></div>
     </div>
   </section>
 
-
-  <section class="psection " id="done">
+  <section class="psection">
     <div class="wrap">
-      <div class="shead">
-        <span class="tag">Definition of done</span>
-        <h2>Done is a commit. <span class="g">You can check it.</span></h2>
-        <p><strong>This level is done when:</strong> The zip for the shape you bought is downloadable from this page and its content hash matches the hash the shape publishes.</p>
-        <p><strong>Checked by:</strong> Compare the hash printed beside the link with the hash of what you downloaded, here in the browser or with <code>sha256sum</code>. You do not have to take anybody's word for it.</p>
-      </div>
+      <div class="shead"><span class="tag">What you send</span><h2>One document per agent, <span class="g">not one per buyer.</span></h2>
+      <p>The behaviour policy is context-free: the same document wherever the agent runs, so it is written once and sent to every buyer who asks rather than rewritten per questionnaire. When a connector or a credential changes, the grant changes and the delta recomputes against both, pinned to the versions it was computed from.</p></div>
+      <p class="src">Status, plainly: this is the part that exists and runs. What does not yet exist is a packaged buyer-facing export, and we are not going to describe it as though it does.</p>
     </div>
   </section>
 
-  <section class="psection alt" id="help">
+  <section class="psection alt">
     <div class="wrap">
-      <div class="shead">
-        <span class="tag">If the download does not work</span>
-        <h2>Write to a person. <span class="g">Not a form.</span></h2>
-        <p>If the download fails, the hash does not match, or the shape on your receipt is not on this page, email <a href="mailto:nrparekh@gmail.com?subject=Level%201%20%C2%B7%20order%20%5Byour%20reference%5D%20%C2%B7%20download">nrparekh@gmail.com</a> with your order reference and the product code <code>t1</code>. A person reads it and sends the file.</p>
-      </div>
-      <div class="cta-row">
-        <a class="btn btn-green" href="agent-behaviour-policy.html">Every template, read live →</a>
-        <a class="btn btn-ghost" href="pricing.html">The four levels</a>
-      </div>
+      <div class="shead"><span class="tag">Honesty about you</span><h2>Nothing here was built <span class="g">pointing at startups yet.</span></h2>
+      <p>Three groups arrive at this &mdash; teams running agents, founders, and startups being diligenced &mdash; and of the offers that exist, none was built for the third. The document works; the packaging for your case is the thing we would be building with you rather than selling you off a shelf. That is worth knowing before you spend time on it.</p></div>
     </div>
   </section>
-
 </div>
 
-<script>
-(function () {
-  'use strict';
-  // The manifest below is stamped by scripts/site/build-abp-pages.mjs from the bytes in
-  // site/vaults/<slug>/dist/ — never edit it by hand; CI checks it against the files.
-  const DIST = /*__DIST__*/[{"slug":"claude-code-web","app":"Claude Code on the web","title":"Claude Code on the web, with one repository attached","zip":"vaults/claude-code-web/dist/claude-code-web.zip","bytes":89524,"sha256":"f0f81df10b20ad34b2ddf72a54fa61917027281b94d62a70c2149567fc54054d","pdf":"vaults/claude-code-web/dist/claude-code-web.pdf"},{"slug":"claude-code-cli","app":"Claude Code on your machine","title":"Claude Code on your own machine, confirmations on","zip":"vaults/claude-code-cli/dist/claude-code-cli.zip","bytes":85245,"sha256":"61616c354a7911ef007584d870700255795e7fc1fb8833b1131a142388108b2c"},{"slug":"claude-code-cli-confirmations-off","app":"Claude Code, confirmations off","title":"Claude Code on your own machine, confirmations off","zip":"vaults/claude-code-cli-confirmations-off/dist/claude-code-cli-confirmations-off.zip","bytes":85690,"sha256":"0258279829ddea47fed72f7ae4119220f1df60b54c88424e208dda63b59b2c77"},{"slug":"claude-desktop","app":"Claude Desktop","title":"Claude Desktop, with local tools switched on","zip":"vaults/claude-desktop/dist/claude-desktop.zip","bytes":74996,"sha256":"085f764d096286685555b0515eda5d5110199a9e02233bca99b78e6b957c2ac5"},{"slug":"claude-web-connectors","app":"Claude in the browser, connectors on","title":"Claude in the browser, with connectors switched on","zip":"vaults/claude-web-connectors/dist/claude-web-connectors.zip","bytes":68046,"sha256":"3027bd96617efcbdc368e8a865fe57f0ba07ca66502a99fb877d476f79356f60"},{"slug":"chatgpt-web","app":"ChatGPT in the browser","title":"ChatGPT in the browser, nothing connected","zip":"vaults/chatgpt-web/dist/chatgpt-web.zip","bytes":63306,"sha256":"b8082c695c810a0a17c716bb4dffed98a4cafc1d4e402a705c243a0694ddc7c0"},{"slug":"browser-extension","app":"A browser extension","title":"A browser extension with broad host permissions","zip":"vaults/browser-extension/dist/browser-extension.zip","bytes":67039,"sha256":"bc12f52331a286cd665f8567e271be7c13029d6b4f32b074b22ad66a65b20f4d"},{"slug":"github-actions","app":"GitHub Actions","title":"A GitHub Actions runner, a hosted CI job","zip":"vaults/github-actions/dist/github-actions.zip","bytes":72388,"sha256":"f63a618b772ff26f4846bf62559b05dca7ebdd3fb44516ec5aace6b12f092ef8"},{"slug":"scheduled-job","app":"A scheduled job","title":"A scheduled job running as a service account","zip":"vaults/scheduled-job/dist/scheduled-job.zip","bytes":70732,"sha256":"3d238eb814ae394d3df507d854f41ddb5b5c069dbe933f936d97f23bc44585b5"},{"slug":"google-workspace-mcp","app":"Google Workspace MCP servers","title":"The Google Workspace MCP servers","zip":"vaults/google-workspace-mcp/dist/google-workspace-mcp.zip","bytes":85526,"sha256":"3678399cb1666783ca4ebbc6fa4a0af162cc0418ee1b05e66cfd056817a303a7"},{"slug":"gmail-readonly","app":"Gmail, read-only scope","title":"An assistant on a personal Gmail mailbox","zip":"vaults/gmail-readonly/dist/gmail-readonly.zip","bytes":77422,"sha256":"8eec23261fef79955b0ee837eb0d638f9b36aee510adcea834f9c3ed43bf9ec3"},{"slug":"google-drive-readonly","app":"Google Drive, read-only scope","title":"An assistant on a personal Google Drive","zip":"vaults/google-drive-readonly/dist/google-drive-readonly.zip","bytes":76729,"sha256":"35ef6ff2934ac49c4af5c51afd2411d8ec0c7f39dc4396f7ccfb77eb0838ebb6"},{"slug":"claude-m365-connector","app":"Microsoft 365 connector (Claude)","title":"Claude's Microsoft 365 connector","zip":"vaults/claude-m365-connector/dist/claude-m365-connector.zip","bytes":87559,"sha256":"cd5b772fbad8e73aada28e3ec77d5e707dae78f78cc7018a219c7e86a08fcd8f"},{"slug":"dropbox-mcp","app":"Dropbox MCP server","title":"The official Dropbox MCP server","zip":"vaults/dropbox-mcp/dist/dropbox-mcp.zip","bytes":81452,"sha256":"6f3aa0e2fa07c1710fe4204940c9dee50f5c620e8ac8da8a11d069cf37f02b3c","pdf":"vaults/dropbox-mcp/dist/dropbox-mcp.pdf"},{"slug":"n8n-owner-api-key","app":"n8n, owner API key","title":"A self-hosted n8n instance, owner API key","zip":"vaults/n8n-owner-api-key/dist/n8n-owner-api-key.zip","bytes":92438,"sha256":"e58818764c0be8b576408d4138336c47fe66d3c500022482694a1e7cfe16df29"}];
-  var q = new URLSearchParams(location.search);
-  var ref = q.get('order');
-  var el = document.getElementById('order');
-  if (ref && el) el.textContent = ref.replace(/[^\w.\-]/g, '').slice(0, 64) || el.textContent;
+<section class="pcta" id="demo">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> One agent, to start</span>
+    <h2>Answer it once, properly.</h2>
+    <p>One agent, enumerated, with the barriers named and the gap computed &mdash; a document you can send rather than a form you refill.</p>
+    <div class="cta-row"><a class="btn btn-green" href="abp.html">What a behaviour policy is &rarr;</a><button class="btn btn-ghost" data-demo>Talk to us</button></div>
+  </div>
+</section>
 
-  var $ = function (id) { return document.getElementById(id); };
-  var fmt = function (n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ','); };
-  var slugOf = function () {
-    var v = q.get('shape') || q.get('vault') || q.get('slug') || q.get('policy') || (location.hash.indexOf('#shape=') === 0 ? location.hash.slice(7) : '');
-    return (v || '').toLowerCase().replace(/[^a-z0-9\-]/g, '');
-  };
-  var find = function (slug) { for (var i = 0; i < DIST.length; i++) if (DIST[i].slug === slug) return DIST[i]; return null; };
 
-  function show(d) {
-    $('dl-title').textContent = d.title;
-    $('dl-slug').textContent = d.slug + '.zip';
-    $('dl-zip').href = d.zip; $('dl-zip').setAttribute('download', d.slug + '.zip');
-    $('dl-live').href = 'abp-vault-' + d.slug + '.html';
-    if (d.pdf) { $('dl-pdf').href = d.pdf; $('dl-pdf').hidden = false; } else $('dl-pdf').hidden = true;
-    $('dl-sha').textContent = d.sha256;
-    $('dl-bytes').textContent = fmt(d.bytes);
-    $('dl').hidden = false;
-    $('pick-p').textContent = '';
-    $('pick-p').appendChild(document.createTextNode('Bought a different shape? Pick it: '));
-    var a = document.createElement('a'); a.href = '#'; a.textContent = 'every template'; a.addEventListener('click', function (e) { e.preventDefault(); $('pick').hidden = !$('pick').hidden; }); $('pick-p').appendChild(a);
-    $('pick').hidden = true;
-    var chk = $('dl-chk'); chk.textContent = ''; chk.className = 'dchk';
-    var b = document.createElement('a'); b.href = '#'; b.textContent = 'check the hash here';
-    b.addEventListener('click', function (e) {
-      e.preventDefault(); chk.textContent = 'fetching and hashing ' + fmt(d.bytes) + ' bytes…'; chk.className = 'dchk';
-      if (!window.crypto || !crypto.subtle) { chk.textContent = 'this browser cannot hash here; use sha256sum on the file'; return; }
-      fetch(d.zip, { cache: 'no-store' }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.arrayBuffer(); })
-        .then(function (buf) { return crypto.subtle.digest('SHA-256', buf).then(function (h) {
-          var hex = Array.prototype.map.call(new Uint8Array(h), function (x) { return ('0' + x.toString(16)).slice(-2); }).join('');
-          var ok = hex === d.sha256 && buf.byteLength === d.bytes;
-          chk.textContent = ok ? 'matches: ' + hex + ' · ' + fmt(buf.byteLength) + ' bytes, as published' : 'does not match: the file served is ' + hex + ' (' + fmt(buf.byteLength) + ' bytes). Do not use it; write to us.';
-          chk.className = 'dchk ' + (ok ? 'ok' : 'bad');
-        }); })
-        .catch(function () { chk.textContent = 'could not fetch the file to check it; use sha256sum on your download'; chk.className = 'dchk bad'; });
-    });
-    chk.appendChild(b);
-    document.title = 'RiskMandate — thank you: ' + d.app + ', the files';
-  }
-
-  var pick = $('pick');
-  DIST.forEach(function (d) {
-    var a = document.createElement('a'); a.href = '?' + (ref ? 'order=' + encodeURIComponent(ref) + '&' : '') + 'shape=' + d.slug;
-    var b = document.createElement('b'); b.textContent = d.app; a.appendChild(b);
-    var sp = document.createElement('span'); sp.textContent = d.slug + '.zip · ' + fmt(d.bytes) + ' bytes'; a.appendChild(sp);
-    a.addEventListener('click', function (e) { e.preventDefault(); history.replaceState(null, '', a.href); show(d); window.scrollTo({ top: $('download').offsetTop - 70, behavior: 'smooth' }); });
-    pick.appendChild(a);
-  });
-  var d = find(slugOf());
-  if (d) show(d);
-  else if (slugOf()) { $('pick-p').textContent = 'The shape on the link, ' + slugOf() + ', is not one of the templates on this site. Pick the one on your receipt below, or write to us.'; }
-})();
-</script>
 
 <footer class="foot">
   <div class="wrap">
     <span>© 2026 RiskMandate · Autonomous Risk Management</span>
     <span>The insurability layer for agentic AI. · <a class="footlink" href="versions.html">Versions</a> · <a class="footlink" href="admin.html">Admin</a></span>
-    <span class="footlic"><a href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener">Open source on GitHub</a> · code Apache-2.0 · pages and policies <a rel="license" href="https://creativecommons.org/licenses/by/4.0/" target="_blank" title="Creative Commons Attribution 4.0 — take it, credit it"><svg class="ccicon" width="38" height="16" viewBox="0 0 76 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="2.5"></circle><text x="16" y="21" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14" font-weight="800" fill="currentColor">CC</text><circle cx="60" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="2.5"></circle><text x="60" y="21" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14" font-weight="800" fill="currentColor">BY</text></svg> CC BY 4.0</a> · <a href="https://open-source.sgit.ai/" target="_blank" rel="noopener">why</a></span>
   </div>
 </footer>
 
@@ -332,7 +246,7 @@ rm-menu{display:contents}
 (function(){
 'use strict';
 var RM={core:{},services:{},components:{},data:{}};
-RM.data.currentPage="paid-t1";RM.data.pages=[{"name":"abp","label":"Agent Behaviour Policy","file":"abp.html","group":"Policies"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"Policies"},{"name":"agents","label":"Agents","file":"agents.html","group":"Policies"},{"name":"agent-behaviour-policy","label":"Agent Behaviour Policies","file":"agent-behaviour-policy.html","group":"Policies"},{"name":"licence-to-operate","label":"Licence to Operate","file":"licence-to-operate.html","group":"Policies"},{"name":"for-corporate","label":"You run agents today","file":"for-corporate.html","group":"Who it's for"},{"name":"for-founders","label":"You are a founder","file":"for-founders.html","group":"Who it's for"},{"name":"for-startups","label":"You are a startup","file":"for-startups.html","group":"Who it's for"},{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"Insurance"},{"name":"acceptable","label":"Accepted is not acceptable","file":"acceptable.html","group":"Insurance"},{"name":"acceptance","label":"You own the risk","file":"acceptance.html","group":"Insurance"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"Insurance"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"Insurance"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"Insurance"},{"name":"statics","label":"Static scenarios","file":"statics.html","group":"Insurance"},{"name":"insurance","label":"Make agents insurable","file":"insurance.html","group":"Insurance"},{"name":"demos","label":"All demos","file":"demos.html","group":"Live demos"},{"name":"demo-licence-to-operate","label":"Licence to Operate","file":"demo-licence-to-operate.html","group":"Live demos"},{"name":"demo-risk-graph-explorer","label":"RiskGraph Explorer","file":"demo-risk-graph-explorer.html","group":"Live demos"},{"name":"demo-agentic-browser-isolation","label":"Agentic Browser Isolation","file":"demo-agentic-browser-isolation.html","group":"Live demos"},{"name":"demo-risk-mandate-field","label":"RiskMandate field demo","file":"demo-risk-mandate-field.html","group":"Live demos"},{"name":"demo-file-security","label":"File security walk","file":"demo-file-security.html","group":"Live demos"},{"name":"demo-agent-permission-games","label":"Permission games","file":"demo-agent-permission-games.html","group":"Live demos"},{"name":"summit","label":"Lisbon 2026","file":"summit.html"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"lab","label":"The Lab","file":"lab.html","group":"More"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"briefs","label":"Brief register","file":"briefs.html","group":"More"},{"name":"work","label":"Working with us","file":"work.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"after-payment","label":"After payment (store debrief)","file":"after-payment.html","group":"More"},{"name":"admin","label":"Admin","file":"admin.html","group":"More"}];RM.data.sections=[];
+RM.data.currentPage="for-startups";RM.data.pages=[{"name":"abp","label":"Agent Behaviour Policy","file":"abp.html","group":"Policies"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"Policies"},{"name":"agents","label":"Agents","file":"agents.html","group":"Policies"},{"name":"agent-behaviour-policy","label":"Agent Behaviour Policies","file":"agent-behaviour-policy.html","group":"Policies"},{"name":"licence-to-operate","label":"Licence to Operate","file":"licence-to-operate.html","group":"Policies"},{"name":"for-corporate","label":"You run agents today","file":"for-corporate.html","group":"Who it's for"},{"name":"for-founders","label":"You are a founder","file":"for-founders.html","group":"Who it's for"},{"name":"for-startups","label":"You are a startup","file":"for-startups.html","group":"Who it's for"},{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"Insurance"},{"name":"acceptable","label":"Accepted is not acceptable","file":"acceptable.html","group":"Insurance"},{"name":"acceptance","label":"You own the risk","file":"acceptance.html","group":"Insurance"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"Insurance"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"Insurance"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"Insurance"},{"name":"statics","label":"Static scenarios","file":"statics.html","group":"Insurance"},{"name":"insurance","label":"Make agents insurable","file":"insurance.html","group":"Insurance"},{"name":"demos","label":"All demos","file":"demos.html","group":"Live demos"},{"name":"demo-licence-to-operate","label":"Licence to Operate","file":"demo-licence-to-operate.html","group":"Live demos"},{"name":"demo-risk-graph-explorer","label":"RiskGraph Explorer","file":"demo-risk-graph-explorer.html","group":"Live demos"},{"name":"demo-agentic-browser-isolation","label":"Agentic Browser Isolation","file":"demo-agentic-browser-isolation.html","group":"Live demos"},{"name":"demo-risk-mandate-field","label":"RiskMandate field demo","file":"demo-risk-mandate-field.html","group":"Live demos"},{"name":"demo-file-security","label":"File security walk","file":"demo-file-security.html","group":"Live demos"},{"name":"demo-agent-permission-games","label":"Permission games","file":"demo-agent-permission-games.html","group":"Live demos"},{"name":"summit","label":"Lisbon 2026","file":"summit.html"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"lab","label":"The Lab","file":"lab.html","group":"More"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"briefs","label":"Brief register","file":"briefs.html","group":"More"},{"name":"work","label":"Working with us","file":"work.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"after-payment","label":"After payment (store debrief)","file":"after-payment.html","group":"More"},{"name":"admin","label":"Admin","file":"admin.html","group":"More"}];RM.data.sections=[];
 
 'use strict';
 // components/dom.js — tiny DOM helpers shared by components. `el` builds an
