@@ -273,6 +273,43 @@ RM.services.abpVaults = (function () {
     }
   };
 
+  // ---- <rm-abp-host data-vault data-mode="app|vault"> : the official SG/Vault interface, embedded ----
+  // The host's own embed protocol, the same one the demo pages use: load /en-gb/app/ (App Mode)
+  // or /en-gb/vault/ (the vault browser: files, history, the app) with ?embed=1&parent=<origin>,
+  // wait for {sg:'vault-embed-ready'} FROM THAT FRAME, then post {sg:'vault-open', key, mode} with
+  // the target origin pinned to the host. The key never enters a URL and never touches the host's
+  // storage, which is partitioned inside a cross-site frame and would lose it. What the frame shows
+  // is read from the vault by the host, not from this site: this page holds nothing but the key.
+  var hostRegistry = [], hostListening = false;
+  function hostListen() {
+    if (hostListening) return; hostListening = true;
+    window.addEventListener('message', function (e) {
+      if (e.origin !== UI) return;
+      var d = e.data || {}, entry = null;
+      for (var i = 0; i < hostRegistry.length; i++) { try { if (hostRegistry[i].frame.contentWindow === e.source) { entry = hostRegistry[i]; break; } } catch (err) { /* detached */ } }
+      if (!entry || !e.source) return;
+      if (d.sg === 'vault-embed-ready') { e.source.postMessage({ sg: 'vault-open', key: entry.key, mode: entry.mode }, UI); entry.set('opening', 'Key handed over · opening…'); }
+      else if (d.sg === 'vault-ready') { var m = []; if (d.vaultName) m.push(d.vaultName); if (d.fileCount) m.push(d.fileCount + ' files'); entry.set('live', 'Live · read-only' + (m.length ? ' · ' + m.join(' · ') : '')); }
+      else if (d.sg === 'vault-error') { entry.set('stall', 'The host could not open it: ' + String(d.message || d.error || 'unknown')); }
+    });
+  }
+  RM.components.AbpHost = class extends HTMLElement {
+    connectedCallback() {
+      var v = bySlug(this.dataset.vault); if (!v) return;
+      var mode = this.dataset.mode === 'vault' ? 'vault' : 'app';
+      hostListen();
+      var status = dom.el('span', { class: 'vd-status wait' }, ['Connecting…']);
+      var frame  = dom.el('iframe', { class: 'vd-frame', title: (mode === 'vault' ? 'The vault browser' : 'The vault’s app') + ' — ' + v.app + ', opened read-only', sandbox: 'allow-scripts allow-same-origin allow-popups allow-forms', loading: 'lazy', referrerpolicy: 'no-referrer' });
+      frame.src = UI + (mode === 'vault' ? '/en-gb/vault/' : '/en-gb/app/') + '?embed=1&parent=' + encodeURIComponent(location.origin);
+      var entry = { frame: frame, key: v.key + ':' + v.vid, mode: mode, set: function (c, t) { status.className = 'vd-status ' + c; status.textContent = t; } };
+      hostRegistry.push(entry);
+      var label = mode === 'vault' ? 'SG/Vault · the vault browser: every file, the history, the app · ' + v.vid : 'SG/App · the vault’s own app, opened by the host · ' + v.vid;
+      this.appendChild(dom.el('div', { class: 'ab-appbar' }, [dom.el('span', { class: 'ab-applabel' }, [label]), status, dom.el('a', { class: 'ab-open', href: UI + '/en-gb/#' + v.key + ':' + v.vid, target: '_blank', rel: 'noopener' }, ['open in its own tab ↗'])]));
+      this.appendChild(dom.el('div', { class: 'vd-stage' + (mode === 'vault' ? ' tall' : '') }, [frame]));
+      setTimeout(function () { if (status.classList.contains('wait')) entry.set('stall', 'Not loading here? Open it in its own tab ↗'); }, 20000);
+    }
+  };
+
   // ---- <rm-abp-app data-vault> : the vault's own app, mounted in a sandboxed frame ----
   // The frame is srcdoc with sandbox="allow-scripts" only: opaque origin, no cookies, no
   // storage, no reach into this page. It gets a window.sg shim whose every read is served
@@ -557,6 +594,7 @@ RM.services.abpVaults = (function () {
   customElements.define('rm-abp-files', RM.components.AbpFiles);
   customElements.define('rm-abp-key',   RM.components.AbpKey);
   customElements.define('rm-abp-app',   RM.components.AbpApp);
+  customElements.define('rm-abp-host',  RM.components.AbpHost);
 
   return { VAULTS: VAULTS, bySlug: bySlug, publicKey: publicKey, load: load, Reader: Reader, ENDPOINT: ENDPOINT, UI: UI, computeDelta: computeDelta, logoEl: logoEl };
 })();

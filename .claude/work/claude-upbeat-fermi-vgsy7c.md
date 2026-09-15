@@ -28,7 +28,8 @@ footer and in the More menu; two tests that keep the admin page honest; a proces
 - [x] process brief, README and docs pointers
 - [x] release v1.18.0 on top of dev's v1.17.0, checks green
 - [x] merged into dev (the lead asked for it)
-- [ ] second wave on this branch: home page to the ABP (view / buy), the store linked, Lab out of the top level, pricing as the four levels, the vault page UX, the use-case brief
+- [x] second wave, v1.19.0: home page to the ABP (view / buy), the store linked, Lab out of the top level, pricing as the four levels, the vault pages on the two host frames, the use-case brief, the UX review brief, D7 and D8 registered
+- [ ] not verified from this container: the host's vault-browser embed (the container cannot reach dev.vault.sgraph.ai). Check one vault page in a browser after deploy.
 
 ## Notes for whoever merges after me
 The footer change touches every page. If your branch also edits footers, take mine and re-apply

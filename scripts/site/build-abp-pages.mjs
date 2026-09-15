@@ -280,7 +280,8 @@ function vaultPage(v) {
     <h1>${esc(v.title_lead || v.app)}<span class="it">${esc(v.title_tail ? ' ' + v.title_tail : '')}</span></h1>
     <p class="sub">${esc(grant.description.split('. ').slice(0, 2).join('. '))}. This is the template vault for that shape: the grant ${grant.rows && grant.rows.measured ? 'measured on the thing itself' : grant.research_needed ? 'read from the vendor\'s own pages on ' + grant.profile_version + ' and quoted, with ' + grant.research_needed.length + ' open questions it could not settle' : 'derived from what the shape architecturally is and from published documentation'}, the starting mandate ${grant.research_needed ? 'written here to be argued with' : 'the model site published'}, and everything else derived. Every number on this page is decrypted from the vault as you read it.</p>
     <div class="cta-row">
-      <button class="btn btn-green" data-to="app">Open the vault's app ↓</button>
+      <button class="btn btn-green" data-to="live">See it live ↓</button>
+      <a class="btn btn-ghost" href="https://store.sgit.ai/p/${v.slug}/" target="_blank" rel="noopener">Buy this policy, from £5 ↗</a>
       <button class="btn btn-ghost" data-to="key">The read key ↓</button>
     </div>
   </div>
@@ -288,10 +289,33 @@ function vaultPage(v) {
 
 <div class="paper">
 
-  <section class="psection" id="card">
+  <section class="psection" id="live">
     <div class="wrap">
       <div class="shead">
-        <span class="tag">01 · The card</span>
+        <span class="tag">01 · See it live</span>
+        <h2>The vault in action, <span class="g">and the vault itself.</span></h2>
+        <p>Two frames, both the official SG/Vault interface opened read-only with the key printed at the bottom of this page, both reading the vault and not this site. The first is the vault's own app, which is what whoever is handed the policy sees: what we want the agent to do beside what we do not, the mandate to correct, the files to give the agent. The second is the vault browser: every file in the tree, its history, and the same app one click away. Between them is what you are buying at every level — the app is the reading, the tree is the record.</p>
+      </div>
+      <div class="ab-live">
+        <div>
+          <h3 class="ab-live-h">The app</h3>
+          <p class="ab-live-p">Opens on <em>Start here</em>. Use the tabs across the top: the grant, the mandate you can correct, the delta, the licence, and three ways to hand the files to the agent.</p>
+          <rm-abp-host data-vault="${v.slug}" data-mode="app"></rm-abp-host>
+        </div>
+        <div>
+          <h3 class="ab-live-h">The vault</h3>
+          <p class="ab-live-p">The tree on the left is the whole product: the markdown for people, the JSON for machines, the pinned vocabulary, the six scenarios, the history of every recompute. Click a file to read it; the same app is under <em>index.html</em>.</p>
+          <rm-abp-host data-vault="${v.slug}" data-mode="vault"></rm-abp-host>
+        </div>
+      </div>
+      <p class="src">The read key travels to the host over a same-page handshake, never in a URL. Nothing you do in either frame touches the vault: it is opened read-only, and the write key is not published. Not loading? <a href="https://dev.vault.sgraph.ai/en-gb/#${v.key}:${v.vid}" target="_blank" rel="noopener">Open it in its own tab ↗</a>.</p>
+    </div>
+  </section>
+
+  <section class="psection alt" id="card">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">02 · The card</span>
         <h2>${headline}</h2>
         <p>Four counts and no score. The bar splits the excess by what stands in the way of each row: nothing, a rule in prose, a setting the agent's own account can flip, or a boundary enforced above it. Only the last is a control. ${measured} rows ${grant.rows && grant.rows.measured ? 'were observed on the thing itself' : grant.research_needed ? 'were measured; every row was read from a vendor page on a date, and the open questions are the rows a page could not settle' : 'were measured; the rest are derived, and the provenance line on every row says so'}.</p>
       </div>
@@ -299,10 +323,10 @@ function vaultPage(v) {
     </div>
   </section>
 
-  <section class="psection alt" id="mandate">
+  <section class="psection" id="mandate">
     <div class="wrap">
       <div class="shead">
-        <span class="tag">02 · The mandate</span>
+        <span class="tag">03 · The mandate</span>
         <h2>What you asked it to do, <span class="g">and what you did not.</span></h2>
         <p>Elicited, and the only authored file in the vault. This is the draft asserting a conservative mandate so that the correction goes upward: most people authorised less than they think, and never mentioned the rest.</p>
       </div>
@@ -310,10 +334,10 @@ function vaultPage(v) {
     </div>
   </section>
 
-  <section class="psection" id="grant">
+  <section class="psection alt" id="grant">
     <div class="wrap">
       <div class="shead">
-        <span class="tag">02 · The grant</span>
+        <span class="tag">04 · The grant</span>
         <h2>Everything the agent can do, <span class="g">irreversible rows first.</span></h2>
         <p>Measured from the shape, not from your account and not by you. Each row says how it is known (✓ marks a row observed on the thing itself), what stands in the way, and whether the effect can be undone. What host, tenant and world mean in this shape is stated on the vault's Grant view, because for an agent in a vendor's container the host is the container and not your machine.</p>
       </div>
@@ -325,10 +349,10 @@ function vaultPage(v) {
     </div>
   </section>
 
-  <section class="psection alt" id="delta">
+  <section class="psection" id="delta">
     <div class="wrap">
       <div class="shead">
-        <span class="tag">02 · The delta</span>
+        <span class="tag">05 · The delta</span>
         <h2>What it can do <span class="g">that nobody asked for.</span></h2>
         <p>Derived from the grant and the mandate, never authored, stored with both inputs pinned. Split three ways: the part you refused, the part you never mentioned, and the part with no boundary in the way — which is the only list a real control shortens.</p>
       </div>
@@ -336,10 +360,10 @@ function vaultPage(v) {
     </div>
   </section>
 
-  <section class="psection" id="licence">
+  <section class="psection alt" id="licence">
     <div class="wrap">
       <div class="shead">
-        <span class="tag">02 · Licence to Operate</span>
+        <span class="tag">06 · Licence to Operate</span>
         <h2>The organisation authorises the agent, <span class="g">for an interval, on conditions.</span></h2>
         <p>The organisation is the authority, the behaviour policy is the instrument, the agent is the licensee. A template is unsigned and unissued; a corrected vault carries a name, a date and an interval — and each condition sits next to what enforces it, so the person signing knows what they are accepting with their eyes open.</p>
       </div>
@@ -347,28 +371,12 @@ function vaultPage(v) {
     </div>
   </section>
 
-  <section class="psection alt" id="app">
-    <div class="wrap">
-      <div class="shead">
-        <span class="tag">03 · The app</span>
-        <h2>The vault's own interface, <span class="g">running here from the vault.</span></h2>
-        <p>The vault carries a single self-contained page that renders itself from the files beside it, and opens on Start here: what this is, where the pieces go, what we want the agent to do beside what we do not, and three ways to hand it over. Below it is booted inside a sandboxed frame with an opaque origin and served its reads by this page over a message channel — the app never sees a key, and this page never runs the app's code in its own origin.</p>
-      </div>
-      <div class="cta-row ab-openrow">
-        <a class="btn btn-green" href="vaults/${v.slug}/index.html" target="_blank" rel="noopener">Open the app in a new window ↗</a>
-        <a class="btn btn-ghost" href="https://dev.vault.sgraph.ai/en-gb/#${v.key}:${v.vid}" target="_blank" rel="noopener">Open in the vault browser ↗</a>
-      </div>
-      <p class="src">On a phone, open it in its own window: the frame below is the same app, sandboxed, and small. The vault browser is the whole product — files, history and the app — and the button carries the public read key, so it opens read-only without a paste. The copy this site serves at <a href="vaults/${v.slug}/index.html">vaults/${v.slug}/index.html</a> says in its top bar which route it loaded the app by.</p>
-      <rm-abp-app data-vault="${v.slug}"></rm-abp-app>
-    </div>
-  </section>
-
   <section class="psection" id="files">
     <div class="wrap">
       <div class="shead">
-        <span class="tag">04 · The files</span>
+        <span class="tag">07 · The files</span>
         <h2>The bytes themselves, <span class="g">listed from the live tree.</span></h2>
-        <p>Markdown for people, JSON for machines, the pinned vocabulary, the history, and the two files you hand the agent — <code>AGENTS.md</code> for a CLAUDE.md, a ROLE.md or a skill, and <code>SKILL.md</code> in the portable skill format. The list is the vault's; each link opens the copy this site serves.</p>
+        <p>Markdown for people, JSON for machines, the pinned vocabulary, the history, and the two files you hand the agent — <code>AGENTS.md</code> for a CLAUDE.md, a ROLE.md or a skill, and <code>SKILL.md</code> in the portable skill format. The list is read from the vault's live tree; the vault browser above opens any of them from the vault itself, and each link here opens the copy this site keeps for the build.</p>
       </div>
       <rm-abp-files data-vault="${v.slug}"></rm-abp-files>
     </div>
@@ -377,7 +385,7 @@ function vaultPage(v) {
   <section class="psection alt" id="key">
     <div class="wrap">
       <div class="shead">
-        <span class="tag">The read key</span>
+        <span class="tag">08 · The read key</span>
         <h2>Published on purpose. <span class="g">Read, and nothing else.</span></h2>
         <p>Derived one-way from the vault's write key, which is not published and never will be. With the key below anyone can clone this vault, open it in the vault browser, or read it from their own page — and check every number above against the bytes it came from. That is what makes a template free: the library is the argument, and it is public. A buyer's corrected vault has no public key.</p>
       </div>
@@ -391,10 +399,11 @@ function vaultPage(v) {
 <section class="pcta">
   <div class="wrap">
     <span class="eyebrow"><span class="d"></span> Behaviour-policy vault</span>
-    <h2>Run this? Correct the mandate.</h2>
-    <p>Open the app above, move the rows that are wrong, and send us the export. Your vault is this one with the mandate corrected, a name on the licence, and no public key — and it recomputes when the grant moves.</p>
+    <h2>Run this? <span class="it">Buy the one for your deployment.</span></h2>
+    <p>This template is free and public. Yours is this vault with the mandate corrected, a name on the licence, and no public key — and it recomputes when the grant moves. Four levels at the store: the pack by email for £5, a working vault you hold the keys to for £50, corrected for your situation for £500, or two sessions with a professional's signature for £1,500.</p>
     <div class="cta-row">
-      <a class="btn btn-green" href="vaults/${v.slug}/MANDATE.md">Read the mandate ↗</a>
+      <a class="btn btn-green" href="https://store.sgit.ai/p/${v.slug}/" target="_blank" rel="noopener">Buy this policy ↗</a>
+      <a class="btn btn-ghost" href="pricing.html">The four levels</a>
       <a class="btn btn-ghost" href="agent-behaviour-policy.html">All applications</a>
     </div>
   </div>

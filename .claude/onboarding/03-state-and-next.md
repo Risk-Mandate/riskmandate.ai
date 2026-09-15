@@ -3,10 +3,11 @@
 Keep this file true. If you land something, move it; if you learn something, add it. Dates are
 the site's; check `site/versions/index.json` for the current version before trusting the number here.
 
-## State as at 2026-09-15, v1.18.0
+## State as at 2026-09-15, v1.19.0
 
-- **Site:** 57 HTML files under `site/`, one live site deployed from `dev`. Top-level menu:
-  The problem · The model · Behaviour policies · Live demos · Lab · Lisbon 2026 · Pricing · More.
+- **Site:** 59 HTML files under `site/`, one live site deployed from `dev`. Top-level menu:
+  The problem · The model · Agent Behaviour Policies · Live demos · Lisbon 2026 · Pricing · More
+  (the Lab is under More since v1.19.0).
 - **The ABP is the entry point.** Homepage leads with it (v1.12.0); `abp.html` is the model page;
   `agent-behaviour-policy.html` is the library (menu label *Agent Behaviour Policies*): 15 vaults,
   grid and list, search over names, scopes, tools and the 23 ids, a *by behaviour* facet, a
@@ -25,10 +26,14 @@ the site's; check `site/versions/index.json` for the current version before trus
   vote and a suggestion form: Claude's Google Workspace connector, Slack, GitHub, Notion,
   Salesforce; and the three **business functions**: the CRM, the customer-service desk, finance data.
 - **Lab:** seven entries, 16 PDF editions, the whole Lab as one file (v5).
-- **Records:** 11 items in the brief register (6 files, 5 informal); 18 releases since v1.0.0.
+- **Records:** 13 items in the brief register (8 files, 5 informal); 19 releases since v1.0.0.
 - **Summit:** Lisbon, 17–18 Sept. `summit.html` public; `summit-booth.html` private working page.
-- **Pricing** points at the store's tiers; no price on the homepage on purpose (the route to the
-  entry tier is not wired up properly).
+- **The store is live** (store.sgit.ai v0.1.7, 15 Sept): four levels, £5 / £50 / £500 / £1,500. The
+  homepage says *view a policy / buy a policy*; `pricing.html` is the four levels with the level-3
+  prompt workflow; every vault page links *buy this policy* to `store.sgit.ai/p/<slug>/`.
+- **Vault pages open on the vault** (v1.19.0): two host frames (App Mode, vault browser) via the
+  embed handshake, `rm-abp-host` in `scripts/site/abp/abp-vaults.js`. The site still deploys a copy
+  of every vault under `site/vaults/`; removing that is T09.
 - **Agents' front door:** `CLAUDE.md` + `.claude/` (v1.18.0); `admin.html` mirrors it on the site.
 
 ## The queue, in order
@@ -48,7 +53,9 @@ and vault queues. Each has a task brief in `.claude/briefs/`.
 | 8 | The next five connector vaults | `T06` | half a day each | open |
 | 9 | The three business-function vaults | `T06` | after 8 | open |
 | 10 | Lab 03: add the asks from the n8n review and the graph brief (barrier per path; a word for a broad-but-real gate; metrics and links on the primitives) | `T07` | two hours | open |
-| 11 | Wire the route to the entry tier so the homepage can carry a price | — | the lead's decision first | blocked |
+| 11 | The two Voice Debrief use-case vaults, and a use-case group on the library | `T10` | a day, after the workflow agent runs the prompt | open |
+| 12 | Stop deploying the vault: inputs in the repository, the product in the vault | `T09` | half a day | open |
+| 13 | A page for the £500 workflow once the store has a return address; a per-shape header on `MAP-A-GRANT.md` | — | small | waiting on the store agent |
 
 ## Decisions the lead owns (open)
 
@@ -57,7 +64,8 @@ and vault queues. Each has a task brief in `.claude/briefs/`.
   and in every vault; confirm it is a ruling.
 - Publish the n8n write-up and its author, or not.
 - Extend the measuring environment's gateway rule to MCP-tunnelled requests (the deployer's).
-- Whether `pricing.html` keeps pointing at the store or the tiers are mirrored here.
+- The return address for the level-3 files (a mailbox today; a write-only vault link when it exists).
+- Who the reviewing person is at level 3, and whether the Voice Debrief vaults publish the routing service's providers by name.
 - Which agent branches merge next, and in what order (see `.claude/work/`).
 
 ## Known rough edges

@@ -182,6 +182,6 @@ Connector setup is typically under a day. A first Index and gap list land inside
 
 Metadata about agent scope and permissions, not the contents of what your agents process. Self-hosted and sovereign deployments are available where the data cannot leave your boundary.
 
-## Start with one agent.
+## View a policy. Then buy the one for your agent.
 
-Pick an agent you already run. You get back a draft behaviour policy for it — what it can reach, what you authorised, the gap, and what actually stands in the way — as a file you keep and correct. That is the rung everything above it is built on.
+Fifteen example Agent Behaviour Policies are on this site, free, read live from their vaults with published keys. Pick the application closest to yours and read it. When you want the one that describes _your_ deployment — the mandate corrected, a name on the licence, no public key — it is four levels at the store, from £5 for the pack to £1,500 with a professional's signature on it.
