@@ -1,0 +1,105 @@
+{
+  "type": "riskmandate/abp-scenarios/v1",
+  "_what_this_is": "Alternative mandates for the same grant. Each scenario is a deployer's sentence and the primitives it wants and refuses; everything else is unstated. The grant never changes; the delta is recomputed per scenario. Written on this site as starting points to be argued with.",
+  "authored": "2026-09-15",
+  "scenarios": [
+    {
+      "id": "fix-a-bug-open-a-pr",
+      "tier": "normal",
+      "label": "Fix a bug and open a PR",
+      "description": "Change the repository it was pointed at, run the tests, push a branch and open a pull request.",
+      "want": [
+        "read.file.project",
+        "write.file.project",
+        "execute.process.host",
+        "write.repository.project",
+        "send.endpoint.allowed"
+      ],
+      "do_not_want": [
+        "write.repository.tenant",
+        "authenticate-as.credential.signing"
+      ]
+    },
+    {
+      "id": "review-a-pr-read-only",
+      "tier": "normal",
+      "label": "Review a pull request, read-only",
+      "description": "Read the change and the code around it, run what it needs to, and comment. Change nothing.",
+      "want": [
+        "read.file.project",
+        "execute.process.host",
+        "send.endpoint.allowed"
+      ],
+      "do_not_want": [
+        "write.file.project",
+        "write.repository.project",
+        "write.repository.tenant"
+      ]
+    },
+    {
+      "id": "run-the-tests-and-report",
+      "tier": "normal",
+      "label": "Run the test suite and report",
+      "description": "Run the tests and tell me what failed.",
+      "want": [
+        "read.file.project",
+        "execute.process.host"
+      ],
+      "do_not_want": [
+        "write.repository.project",
+        "write.repository.tenant",
+        "send.endpoint.allowed"
+      ]
+    },
+    {
+      "id": "ship-a-release",
+      "tier": "advanced",
+      "label": "Ship a release: tag, sign, push",
+      "description": "Cut the release, sign the tag with the key it holds and push it to the code host.",
+      "want": [
+        "read.file.project",
+        "write.file.project",
+        "execute.process.host",
+        "write.repository.project",
+        "write.repository.tenant",
+        "authenticate-as.credential.signing"
+      ],
+      "do_not_want": [
+        "read.credential.host"
+      ]
+    },
+    {
+      "id": "refactor-across-repos",
+      "tier": "advanced",
+      "label": "Refactor across many repositories",
+      "description": "The same change in every repository it can reach on the code host.",
+      "want": [
+        "read.file.project",
+        "write.file.project",
+        "write.repository.tenant",
+        "execute.process.host",
+        "send.endpoint.allowed"
+      ],
+      "do_not_want": [
+        "authenticate-as.credential.signing"
+      ]
+    },
+    {
+      "id": "nightly-maintenance",
+      "tier": "advanced",
+      "label": "Nightly maintenance, on a schedule",
+      "description": "A session that runs every night without me: update dependencies, run the tests, push if green.",
+      "want": [
+        "create.schedule.tenant",
+        "read.file.project",
+        "write.file.project",
+        "write.repository.project",
+        "execute.process.host"
+      ],
+      "do_not_want": [
+        "write.repository.tenant",
+        "read.credential.host"
+      ]
+    }
+  ]
+}

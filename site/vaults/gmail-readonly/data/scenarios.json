@@ -1,0 +1,83 @@
+{
+  "type": "riskmandate/abp-scenarios/v1",
+  "_what_this_is": "Alternative mandates for the same grant. Each scenario is a deployer's sentence and the primitives it wants and refuses; everything else is unstated. The grant never changes; the delta is recomputed per scenario. Written on this site as starting points to be argued with.",
+  "authored": "2026-09-15",
+  "scenarios": [
+    {
+      "id": "find-and-summarise",
+      "tier": "normal",
+      "label": "Find and summarise",
+      "description": "Find threads and summarise them. Nothing leaves the mailbox.",
+      "want": [
+        "read.message.tenant"
+      ],
+      "do_not_want": [
+        "send.message.world",
+        "read.credential.host"
+      ]
+    },
+    {
+      "id": "answer-questions-about-my-mail",
+      "tier": "normal",
+      "label": "Answer questions about my mail",
+      "description": "What did she say about the invoice? When is the flight?",
+      "want": [
+        "read.message.tenant"
+      ],
+      "do_not_want": [
+        "send.message.world",
+        "read.credential.host"
+      ]
+    },
+    {
+      "id": "morning-digest",
+      "tier": "normal",
+      "label": "A morning digest",
+      "description": "Every morning at eight, what came in overnight.",
+      "want": [
+        "read.message.tenant",
+        "create.schedule.tenant"
+      ],
+      "do_not_want": [
+        "send.message.world"
+      ]
+    },
+    {
+      "id": "watch-for-invoices-and-alert",
+      "tier": "advanced",
+      "label": "Watch for invoices and alert me",
+      "description": "Tell me, by message, when an invoice arrives.",
+      "want": [
+        "read.message.tenant",
+        "send.message.world"
+      ],
+      "do_not_want": [
+        "read.credential.host"
+      ]
+    },
+    {
+      "id": "draft-replies-for-me",
+      "tier": "advanced",
+      "label": "Draft replies for me",
+      "description": "Read and draft; I press send.",
+      "want": [
+        "read.message.tenant"
+      ],
+      "do_not_want": [
+        "send.message.world"
+      ]
+    },
+    {
+      "id": "inbox-agent-that-sends",
+      "tier": "advanced",
+      "label": "An inbox agent that sends",
+      "description": "Read, decide, reply, on a schedule, without me.",
+      "want": [
+        "read.message.tenant",
+        "send.message.world",
+        "create.schedule.tenant"
+      ],
+      "do_not_want": []
+    }
+  ]
+}

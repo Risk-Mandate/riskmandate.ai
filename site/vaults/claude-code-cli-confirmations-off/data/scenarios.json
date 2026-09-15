@@ -1,0 +1,103 @@
+{
+  "type": "riskmandate/abp-scenarios/v1",
+  "_what_this_is": "Alternative mandates for the same grant. Each scenario is a deployer's sentence and the primitives it wants and refuses; everything else is unstated. The grant never changes; the delta is recomputed per scenario. Written on this site as starting points to be argued with.",
+  "authored": "2026-09-15",
+  "scenarios": [
+    {
+      "id": "pair-on-one-repo",
+      "tier": "normal",
+      "label": "Pair on one repository",
+      "description": "Read, edit, run and commit in the repository I opened it in. Nothing outside it. No confirmation prompt stands between the mandate and the machine.",
+      "want": [
+        "read.file.project",
+        "write.file.project",
+        "execute.process.host",
+        "write.repository.project",
+        "send.endpoint.allowed"
+      ],
+      "do_not_want": [
+        "read.file.host",
+        "write.file.host",
+        "delete.file.host",
+        "read.credential.host"
+      ]
+    },
+    {
+      "id": "explain-this-codebase",
+      "tier": "normal",
+      "label": "Explain this codebase",
+      "description": "Read and answer. Do not change anything, do not run anything. No confirmation prompt stands between the mandate and the machine.",
+      "want": [
+        "read.file.project"
+      ],
+      "do_not_want": [
+        "write.file.project",
+        "execute.process.host",
+        "send.endpoint.world"
+      ]
+    },
+    {
+      "id": "write-and-run-tests",
+      "tier": "normal",
+      "label": "Write and run tests",
+      "description": "Add tests and run them; I will commit. No confirmation prompt stands between the mandate and the machine.",
+      "want": [
+        "read.file.project",
+        "write.file.project",
+        "execute.process.host"
+      ],
+      "do_not_want": [
+        "write.repository.project",
+        "write.repository.tenant"
+      ]
+    },
+    {
+      "id": "set-up-my-machine",
+      "tier": "advanced",
+      "label": "Set up my machine",
+      "description": "Install tools and configure my environment, anywhere on the disk. No confirmation prompt stands between the mandate and the machine.",
+      "want": [
+        "read.file.host",
+        "write.file.host",
+        "execute.process.host",
+        "send.endpoint.world"
+      ],
+      "do_not_want": [
+        "read.credential.host",
+        "delete.file.host"
+      ]
+    },
+    {
+      "id": "publish-the-package",
+      "tier": "advanced",
+      "label": "Publish the package",
+      "description": "Build, tag, sign and publish a release under my name. No confirmation prompt stands between the mandate and the machine.",
+      "want": [
+        "read.file.project",
+        "write.file.project",
+        "execute.process.host",
+        "write.repository.tenant",
+        "create.record.world",
+        "authenticate-as.credential.signing"
+      ],
+      "do_not_want": [
+        "read.credential.host"
+      ]
+    },
+    {
+      "id": "keep-a-daemon-running",
+      "tier": "advanced",
+      "label": "Keep a daemon running",
+      "description": "Start something that outlives the session and keep it healthy. No confirmation prompt stands between the mandate and the machine.",
+      "want": [
+        "create.schedule.host",
+        "execute.process.host",
+        "read.file.project"
+      ],
+      "do_not_want": [
+        "write.file.host",
+        "delete.file.host"
+      ]
+    }
+  ]
+}

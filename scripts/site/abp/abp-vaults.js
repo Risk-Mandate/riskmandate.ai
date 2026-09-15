@@ -31,6 +31,7 @@ RM.services.abpVaults = (function () {
 
   var VAULTS = /*__VAULTS__*/[];
   var APP_VAULT = /*__APP_VAULT__*/null;   // the renderer's own vault: { vault_id, key, entry }
+  var LOGOS = /*__LOGOS__*/{};              // product marks: { name: { kind: 'fill'|'stroke', d } } — CC0 Simple Icons paths, and stroke icons drawn here
   var appReaderP = null;
   function appReader() { if (!APP_VAULT) return Promise.reject(new Error('no app vault in the catalogue')); if (!appReaderP) appReaderP = new Reader({ endpoint: ENDPOINT, vault_id: APP_VAULT.vault_id, read_key: APP_VAULT.key }).init().then(function (r) { return r.open(); }); return appReaderP; }
   function bySlug(slug) { for (var i = 0; i < VAULTS.length; i++) if (VAULTS[i].slug === slug) return VAULTS[i]; return null; }
@@ -83,6 +84,7 @@ RM.services.abpVaults = (function () {
   // ---- load one vault's data: live, or the snapshot served from this site ----
   var PATHS = { vault: 'vault.json', grant: 'data/grant.json', mandate: 'data/mandate.json', delta: 'data/delta.json', validity: 'data/validity.json', history: 'history/index.json',
                 capabilities: 'data/vocabulary/capabilities.json', barriers: 'data/vocabulary/barriers.json', undo: 'data/vocabulary/undo-classes.json', tiers: 'data/vocabulary/evidence-tiers.json' };
+  var OPTIONAL = { scenarios: 'data/scenarios.json' };   // absent on a vault pushed before scenarios existed; the page carries on without
   var loads = {};
   function load(slug) {
     if (loads[slug]) return loads[slug];
@@ -93,6 +95,7 @@ RM.services.abpVaults = (function () {
         var reader = await new Reader({ endpoint: ENDPOINT, vault_id: v.vid, read_key: v.key }).init();
         await reader.open();
         for (var k in PATHS) out.data[k] = JSON.parse(await reader.readText(PATHS[k]));
+        for (var ko in OPTIONAL) { try { out.data[ko] = JSON.parse(await reader.readText(OPTIONAL[ko])); } catch (_) { out.data[ko] = null; } }
         out.files = Object.keys(reader.files).sort();
         out.commit = reader.commitId;
         out.reader = reader;
@@ -103,6 +106,7 @@ RM.services.abpVaults = (function () {
           if (!r.ok) throw new Error('snapshot missing: ' + PATHS[k2]);
           out.data[k2] = await r.json();
         }
+        for (var ko2 in OPTIONAL) { try { var r2 = await fetch('vaults/' + slug + '/' + OPTIONAL[ko2], { cache: 'no-store' }); out.data[ko2] = r2.ok ? await r2.json() : null; } catch (_) { out.data[ko2] = null; } }
       }
       var d = out.data;
       out.cap = {}; d.capabilities.capabilities.forEach(function (c) { out.cap[c.id] = c; });
@@ -337,6 +341,130 @@ RM.services.abpVaults = (function () {
     }
   };
 
+  // ---- product marks: an inline SVG per tile, built with the DOM (createElementNS), never markup ----
+  var SVG_NS = 'http://www.w3.org/2000/svg';
+  function logoEl(name, brand, size) {
+    var spec = LOGOS[name], box = dom.el('span', { class: 'ab-logo', style: 'width:' + size + 'px;height:' + size + 'px;background:' + hexA(brand, .10) + ';border-color:' + hexA(brand, .2) });
+    if (!spec) { box.appendChild(dom.el('b', null, [String(name || '?').slice(0, 2).toUpperCase()])); return box; }
+    var svg = document.createElementNS(SVG_NS, 'svg'); svg.setAttribute('viewBox', '0 0 24 24'); svg.setAttribute('width', Math.round(size / 2)); svg.setAttribute('height', Math.round(size / 2)); svg.setAttribute('aria-hidden', 'true');
+    var path = document.createElementNS(SVG_NS, 'path'); path.setAttribute('d', spec.d);
+    if (spec.kind === 'stroke') { path.setAttribute('fill', 'none'); path.setAttribute('stroke', brand); path.setAttribute('stroke-width', '1.8'); path.setAttribute('stroke-linecap', 'round'); path.setAttribute('stroke-linejoin', 'round'); }
+    else path.setAttribute('fill', brand);
+    svg.appendChild(path); box.appendChild(svg); return box;
+  }
+  function hexA(hex, a) { var n = parseInt(String(hex || '#0D0D0C').slice(1), 16); return 'rgba(' + (n >> 16) + ',' + ((n >> 8) & 255) + ',' + (n & 255) + ',' + a + ')'; }
+
+  // ---- the delta, abp.delta/v1, for any mandate against a loaded grant: scenarios reuse it ----
+  function computeDelta(L, want, dnw) {
+    var ids = L.data.grant.grant.map(function (r) { return r.capability; });
+    var W = {}, D = {}; want.forEach(function (i) { W[i] = 1; }); dnw.forEach(function (i) { D[i] = 1; });
+    var excess = ids.filter(function (i) { return !W[i]; });
+    var d = { excess: excess, refused: excess.filter(function (i) { return D[i]; }), unstated: excess.filter(function (i) { return !D[i]; }),
+              unbounded: excess.filter(function (i) { return L.row[i].barrier !== 'boundary'; }), shortfall: want.filter(function (i) { return !L.row[i]; }), aligned: ids.filter(function (i) { return W[i]; }) };
+    d.counts = { grant: ids.length, wanted: want.length, excess: d.excess.length, unbounded: d.unbounded.length, shortfall: d.shortfall.length, aligned: d.aligned.length };
+    return d;
+  }
+
+  // ---- <rm-abp-library> : the directory as one thing — search, filters, grid or list, and the preview panel ----
+  // Progressive: the tiles and rows are static links; this wires them to the panel, the toggle, the
+  // filters and the search box, and the panel is rendered from the vault as it is read.
+  RM.components.AbpLibrary = class extends HTMLElement {
+    connectedCallback() {
+      var self = this;
+      this.panel  = this.querySelector('.ab-panel');
+      this.search = this.querySelector('.ab-search input');
+      this.items  = Array.prototype.slice.call(this.querySelectorAll('[data-slug]'));
+      this.groups = Array.prototype.slice.call(this.querySelectorAll('[data-groupname]'));
+      this.filter = 'all'; this.q = ''; this.beh = '';
+      this.behSel = this.querySelector('.ab-beh select');
+      if (this.behSel) this.behSel.addEventListener('change', function () { self.beh = self.behSel.value; self.apply(); });
+      this.addEventListener('click', function (e) {
+        var t = e.target.closest('[data-view], [data-filter], [data-slug], [data-close], [data-scenario], [data-copy]');
+        if (!t || !self.contains(t)) return;
+        if (t.dataset.view) { self.setView(t.dataset.view); e.preventDefault(); return; }
+        if (t.dataset.filter !== undefined) { self.filter = t.dataset.filter; self.apply(); e.preventDefault(); return; }
+        if (t.dataset.close !== undefined) { self.close(); e.preventDefault(); return; }
+        if (t.dataset.scenario !== undefined) { self.scenario = t.dataset.scenario; self.renderPanel(); e.preventDefault(); return; }
+        if (t.dataset.copy !== undefined) { self.copy(t.dataset.copy, t); e.preventDefault(); return; }
+        if (t.dataset.slug && !t.dataset.off) { if (e.metaKey || e.ctrlKey || e.shiftKey) return; e.preventDefault(); self.select(t.dataset.slug); }
+      });
+      if (this.search) {
+        this.search.addEventListener('input', function () { self.q = self.search.value.trim().toLowerCase(); self.apply(); });
+        document.addEventListener('keydown', function (e) { if (e.key === '/' && document.activeElement !== self.search && !/input|textarea/i.test(document.activeElement.tagName)) { e.preventDefault(); self.search.focus(); } if (e.key === 'Escape' && self.classList.contains('open')) self.close(); });
+      }
+      var m = /(?:^|[#&])policy=([a-z0-9-]+)/.exec(location.hash || '');
+      if (m && bySlug(m[1])) this.select(m[1], true);
+      else this.hint();
+    }
+    setView(v) { this.dataset.view = v; this.querySelectorAll('[data-view]').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.view === v ? 'true' : 'false'); }); }
+    apply() {
+      var self = this, f = this.filter, q = this.q, shown = {};
+      this.items.forEach(function (it) {
+        var ok = (f === 'all' || (f.indexOf('group:') === 0 ? it.dataset.group === f.slice(6) : f.indexOf('ev:') === 0 ? it.dataset.ev === f.slice(3) : true))
+              && (!q || (it.dataset.search || '').indexOf(q) !== -1)
+              && (!self.beh || (' ' + (it.dataset.caps || '') + ' ').indexOf(' ' + self.beh + ' ') !== -1);
+        it.hidden = !ok; if (ok) shown[it.dataset.group] = (shown[it.dataset.group] || 0) + 1;
+      });
+      this.groups.forEach(function (g) { g.hidden = !shown[g.dataset.groupname]; });
+      this.querySelectorAll('[data-filter]').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.filter === f ? 'true' : 'false'); });
+      var none = this.querySelector('.ab-none'); if (none) none.hidden = Object.keys(shown).length > 0;
+    }
+    hint() {
+      if (!this.panel) return; this.panel.textContent = '';
+      this.panel.appendChild(dom.el('div', { class: 'ab-panelhint' }, [dom.el('b', null, ['Click a policy to preview it here.']), ' The card, the grant against the mandate, and the scenarios — without leaving this page. Then open its vault or its page.']));
+    }
+    select(slug, quiet) {
+      var self = this; this.slug = slug; this.scenario = 'stored';
+      this.items.forEach(function (it) { it.classList.toggle('sel', it.dataset.slug === slug); });
+      if (!quiet) { try { history.replaceState(null, '', '#policy=' + slug); } catch (_) {} }
+      this.classList.add('open');
+      this.panel.textContent = ''; this.panel.appendChild(dom.el('p', { class: 'ab-loading' }, ['reading vault ' + (bySlug(slug) || {}).vid + '…']));
+      load(slug).then(function (L) { if (self.slug === slug) { self.L = L; self.renderPanel(); } }).catch(function (e) { fail(self.panel, e); });
+    }
+    close() { this.classList.remove('open'); this.items.forEach(function (it) { it.classList.remove('sel'); }); this.slug = null; this.hint(); try { history.replaceState(null, '', location.pathname + location.search); } catch (_) {} }
+    copy(text, btn) { var done = function () { btn.textContent = 'copied'; setTimeout(function () { btn.textContent = 'copy'; }, 1400); }; if (navigator.clipboard) navigator.clipboard.writeText(text).then(done, function () { window.prompt('Copy the key', text); }); else window.prompt('Copy the key', text); }
+    mandateFor(L) {
+      var m = L.data.mandate, sc = (L.data.scenarios && L.data.scenarios.scenarios) || [];
+      if (this.scenario === 'stored') return { label: m.label || 'As stored', want: m.want, do_not_want: m.do_not_want, description: m.description };
+      for (var i = 0; i < sc.length; i++) if (sc[i].id === this.scenario) return sc[i];
+      return { label: m.label || 'As stored', want: m.want, do_not_want: m.do_not_want, description: m.description };
+    }
+    renderPanel() {
+      var self = this, L = this.L, v = L.vault, g = L.data.grant, vj = L.data.vault, panel = this.panel;
+      var sc = (L.data.scenarios && L.data.scenarios.scenarios) || [], cur = this.mandateFor(L), d = computeDelta(L, cur.want, cur.do_not_want);
+      var measured = g.grant.filter(function (r) { return L.measured[r.evidence]; }).length;
+      var evLabel = measured ? 'measured ' + measured + ' of ' + g.grant.length : (g.grant.every(function (r) { return r.evidence === 'documented' || r.evidence === 'inferred'; }) ? 'documented' : 'derived');
+      var evClass = measured ? 'live' : (evLabel === 'documented' ? 'doc' : 'der');
+      function chipFor(s, id) { var dd = computeDelta(L, s.want, s.do_not_want); var on = self.scenario === id;
+        return dom.el('button', { type: 'button', class: 'ab-scen' + (on ? ' on' : ''), 'data-scenario': id, title: s.description || '' }, [dom.el('b', null, [s.label]), dom.el('span', null, [dd.counts.wanted + ' wanted · ' + dd.counts.unbounded + ' unbounded' + (dd.counts.shortfall ? ' · ' + dd.counts.shortfall + ' shortfall' : '')])]); }
+      var normal = sc.filter(function (s) { return s.tier === 'normal'; }), adv = sc.filter(function (s) { return s.tier !== 'normal'; });
+      var W = {}, D = {}; cur.want.forEach(function (i) { W[i] = 1; }); cur.do_not_want.forEach(function (i) { D[i] = 1; });
+      function st(id) { return W[id] ? 'want' : D[id] ? 'refused' : 'unstated'; }
+      var ids = sortRows(L, g.grant.map(function (r) { return r.capability; }));
+      panel.textContent = '';
+      panel.appendChild(dom.el('div', { class: 'ab-ph' }, [
+        logoEl(v.logo, v.brand, 52),
+        dom.el('div', { class: 'ab-pht' }, [dom.el('b', null, [vj.title || v.title]), dom.el('span', { class: 'ab-meta' }, [g.id + ' · grant ' + g.profile_version + (L.source === 'live' ? ' · live' : ' · snapshot')]),
+          dom.el('span', { class: 'ab-pills' }, [dom.el('span', { class: 'ab-pill ' + (vj.status === 'template' ? 'unstated' : 'want') }, [vj.status]), dom.el('span', { class: 'ab-pill ev-' + evClass }, [evLabel])].concat((g.research_needed || []).length ? [dom.el('span', { class: 'ab-pill unstated' }, [(g.research_needed || []).length + ' open questions'])] : []))]),
+        dom.el('button', { type: 'button', class: 'ab-x', 'data-close': '', 'aria-label': 'Close the preview' }, ['×']),
+      ]));
+      panel.appendChild(dom.el('p', { class: 'ab-pblurb' }, [v.blurb || g.description]));
+      var scen = dom.el('div', { class: 'ab-scens' }, [dom.el('div', { class: 'ab-scenhead' }, [dom.el('span', { class: 'ab-tag' }, ['Scenario']), dom.el('span', null, ['changes the mandate, never the grant'])]),
+        dom.el('div', { class: 'ab-scenrow one' }, [chipFor({ label: 'As stored — ' + (L.data.mandate.label || 'the starting mandate'), want: L.data.mandate.want, do_not_want: L.data.mandate.do_not_want, description: L.data.mandate.description }, 'stored')])]);
+      if (normal.length) { scen.appendChild(dom.el('span', { class: 'ab-scentier' }, ['Normal use'])); scen.appendChild(dom.el('div', { class: 'ab-scenrow' }, normal.map(function (s) { return chipFor(s, s.id); }))); }
+      if (adv.length) { scen.appendChild(dom.el('span', { class: 'ab-scentier' }, ['Advanced'])); scen.appendChild(dom.el('div', { class: 'ab-scenrow' }, adv.map(function (s) { return chipFor(s, s.id); }))); }
+      panel.appendChild(scen);
+      panel.appendChild(dom.el('p', { class: 'ab-scendesc' }, [dom.el('b', null, [cur.label + '. ']), cur.description || '']));
+      panel.appendChild(dom.el('div', { class: 'ab-pcounts' }, [[d.counts.grant, 'it can do', ''], [d.counts.wanted, 'wanted', 'ok'], [d.counts.excess, 'not asked', 'ex'], [d.counts.unbounded, 'unbounded', 'un'], [d.counts.shortfall, 'shortfall', d.counts.shortfall ? 'sf' : '']].map(function (c) { return dom.el('span', { class: 'ab-pc ' + c[2] }, [dom.el('b', null, [String(c[0])]), dom.el('span', null, [c[1]])]); })));
+      var rows = dom.el('div', { class: 'ab-gm' }, [dom.el('div', { class: 'ab-scenhead' }, [dom.el('span', { class: 'ab-tag' }, ['The grant, against this mandate']), dom.el('span', null, ['○ boundary · ◐ setting · ◉ rule · ● none'])])]);
+      ids.forEach(function (id) { var r = L.row[id], s = st(id); rows.appendChild(dom.el('div', { class: 'ab-gmrow' }, [dom.el('span', { class: 'ab-g ' + r.barrier }, [GLYPH[r.barrier]]), dom.el('span', { class: 'ab-gmid' }, [dom.el('b', null, [id]), dom.el('span', null, [r.note || gloss(L, id)])]), dom.el('span', { class: 'ab-pill ' + s }, [{ want: 'wanted', refused: 'refused', unstated: 'unstated' }[s]])])); });
+      d.shortfall.forEach(function (id) { rows.appendChild(dom.el('div', { class: 'ab-gmrow short' }, [dom.el('span', { class: 'ab-g' }, ['·']), dom.el('span', { class: 'ab-gmid' }, [dom.el('b', null, [id]), dom.el('span', null, [gloss(L, id) + ' — not in the grant'])]), dom.el('span', { class: 'ab-pill short' }, ['wanted · not granted'])])); });
+      panel.appendChild(rows);
+      panel.appendChild(dom.el('div', { class: 'ab-pbtns' }, [dom.el('a', { class: 'btn btn-green', href: v.page }, ['Open the policy page →']), dom.el('a', { class: 'btn btn-ghost dark', href: UI + '/en-gb/#' + v.key + ':' + v.vid, target: '_blank', rel: 'noopener' }, ['Open the vault ↗'])]));
+      panel.appendChild(dom.el('div', { class: 'ab-pkey' }, [dom.el('span', null, ['read key ']), dom.el('code', null, [publicKey(v)]), dom.el('button', { type: 'button', class: 'ab-copy', 'data-copy': publicKey(v) }, ['copy'])]));
+    }
+  };
+  customElements.define('rm-abp-library', RM.components.AbpLibrary);
   customElements.define('rm-abp-mini',  RM.components.AbpMini);
   customElements.define('rm-abp-card',  RM.components.AbpCard);
   customElements.define('rm-abp-table', RM.components.AbpTable);
@@ -344,5 +472,5 @@ RM.services.abpVaults = (function () {
   customElements.define('rm-abp-key',   RM.components.AbpKey);
   customElements.define('rm-abp-app',   RM.components.AbpApp);
 
-  return { VAULTS: VAULTS, bySlug: bySlug, publicKey: publicKey, load: load, Reader: Reader, ENDPOINT: ENDPOINT, UI: UI };
+  return { VAULTS: VAULTS, bySlug: bySlug, publicKey: publicKey, load: load, Reader: Reader, ENDPOINT: ENDPOINT, UI: UI, computeDelta: computeDelta, logoEl: logoEl };
 })();

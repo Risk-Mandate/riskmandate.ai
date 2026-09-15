@@ -13,7 +13,10 @@
       "shape": "anthropic/claude-code-remote/ccr-container",
       "family": "code",
       "glyph": "CC",
-      "blurb": "A managed, ephemeral container with one repository attached and an egress proxy above it. The shape this site is maintained from; 13 of 20 rows measured on the thing itself."
+      "blurb": "A managed, ephemeral container with one repository attached and an egress proxy above it. The shape this site is maintained from; 13 of 20 rows measured on the thing itself.",
+      "logo": "claude",
+      "brand": "#D97757",
+      "group": "Coding agents"
     },
     {
       "slug": "claude-code-cli",
@@ -26,7 +29,10 @@
       "shape": "anthropic/claude-code/local-default",
       "family": "code",
       "glyph": "CC",
-      "blurb": "The coding agent on a developer's own machine with confirmation prompts enabled. Read this one beside the confirmations-off shape: one setting moves one barrier and not one number changes."
+      "blurb": "The coding agent on a developer's own machine with confirmation prompts enabled. Read this one beside the confirmations-off shape: one setting moves one barrier and not one number changes.",
+      "logo": "terminal",
+      "brand": "#D97757",
+      "group": "Coding agents"
     },
     {
       "slug": "claude-code-cli-confirmations-off",
@@ -39,7 +45,10 @@
       "shape": "anthropic/claude-code/local-confirmations-off",
       "family": "code",
       "glyph": "CC",
-      "blurb": "The same agent, the same machine, the same account, with the confirmation prompt switched off. The prompt was the only thing between an authorised capability and the whole machine, and it was a switch the agent's account could flip."
+      "blurb": "The same agent, the same machine, the same account, with the confirmation prompt switched off. The prompt was the only thing between an authorised capability and the whole machine, and it was a switch the agent's account could flip.",
+      "logo": "terminal",
+      "brand": "#D97757",
+      "group": "Coding agents"
     },
     {
       "slug": "claude-desktop",
@@ -52,7 +61,10 @@
       "shape": "anthropic/claude-desktop/default",
       "family": "desktop",
       "glyph": "CD",
-      "blurb": "The desktop app with local tools on: files, processes and the network of the machine it sits on. Ten capabilities, three wanted, eight with nothing real in the way."
+      "blurb": "The desktop app with local tools on: files, processes and the network of the machine it sits on. Ten capabilities, three wanted, eight with nothing real in the way.",
+      "logo": "claude",
+      "brand": "#D97757",
+      "group": "Chat assistants"
     },
     {
       "slug": "claude-web-connectors",
@@ -65,7 +77,10 @@
       "shape": "anthropic/claude-web/connectors-on",
       "family": "chat",
       "glyph": "CW",
-      "blurb": "Chat with connectors enabled: the tenant's accounts are in reach through whatever was connected. The two excess rows here both sit behind a boundary, which is the exception in this directory."
+      "blurb": "Chat with connectors enabled: the tenant's accounts are in reach through whatever was connected. The two excess rows here both sit behind a boundary, which is the exception in this directory.",
+      "logo": "claude",
+      "brand": "#D97757",
+      "group": "Chat assistants"
     },
     {
       "slug": "chatgpt-web",
@@ -78,7 +93,10 @@
       "shape": "openai/chatgpt-web/default",
       "family": "chat",
       "glyph": "GP",
-      "blurb": "The smallest grant in the set: one capability, one wanted, no excess. The baseline every other shape is measured against, and the proof that a template can be empty and still be right."
+      "blurb": "The smallest grant in the set: one capability, one wanted, no excess. The baseline every other shape is measured against, and the proof that a template can be empty and still be right.",
+      "logo": "openai",
+      "brand": "#412991",
+      "group": "Chat assistants"
     },
     {
       "slug": "browser-extension",
@@ -91,7 +109,10 @@
       "shape": "generic/browser-extension/broad-host-permissions",
       "family": "browser",
       "glyph": "EX",
-      "blurb": "Other people's data, and the mandate nobody wrote down. Three capabilities, all three irreversible; the shortest policy in the directory and not the mildest."
+      "blurb": "Other people's data, and the mandate nobody wrote down. Three capabilities, all three irreversible; the shortest policy in the directory and not the mildest.",
+      "logo": "googlechrome",
+      "brand": "#4285F4",
+      "group": "Chat assistants"
     },
     {
       "slug": "github-actions",
@@ -104,7 +125,10 @@
       "shape": "github/actions-runner/ci",
       "family": "ci",
       "glyph": "GA",
-      "blurb": "A hosted runner under a service account: persistence, and reach beyond the turn. Eight of eight rows measured, the only fully measured shape besides the web container."
+      "blurb": "A hosted runner under a service account: persistence, and reach beyond the turn. Eight of eight rows measured, the only fully measured shape besides the web container.",
+      "logo": "githubactions",
+      "brand": "#2088FF",
+      "group": "Automation & CI"
     },
     {
       "slug": "scheduled-job",
@@ -117,7 +141,10 @@
       "shape": "generic/scheduled-job/service-account",
       "family": "service",
       "glyph": "SJ",
-      "blurb": "A job that outlives the person who made it, running as a service account nobody logs in as. Seven capabilities, four wanted, four with nothing in the way."
+      "blurb": "A job that outlives the person who made it, running as a service account nobody logs in as. Seven capabilities, four wanted, four with nothing in the way.",
+      "logo": "clock",
+      "brand": "#374151",
+      "group": "Automation & CI"
     },
     {
       "slug": "google-workspace-mcp",
@@ -131,7 +158,10 @@
       "family": "google",
       "glyph": "G",
       "blurb": "Gmail, Drive, Docs, Sheets, Slides, Calendar and Chat, one server each. The page advertises drafting mail and scheduling meetings; the scopes it asks for send mail and cannot touch a calendar.",
-      "kind": "connector"
+      "kind": "connector",
+      "logo": "google",
+      "brand": "#4285F4",
+      "group": "Mail & files connectors"
     },
     {
       "slug": "gmail-readonly",
@@ -145,7 +175,10 @@
       "family": "mail",
       "glyph": "M",
       "blurb": "The narrowest scope that reads one message reads every message. Lab 03 asked the model site for this shape first; here it is, read from Google's scope page.",
-      "kind": "connector"
+      "kind": "connector",
+      "logo": "gmail",
+      "brand": "#EA4335",
+      "group": "Mail & files connectors"
     },
     {
       "slug": "google-drive-readonly",
@@ -159,7 +192,10 @@
       "family": "files",
       "glyph": "D",
       "blurb": "The default corpus is \"files owned by or shared to the user\": everything anybody ever shared, on day one, without anyone choosing it.",
-      "kind": "connector"
+      "kind": "connector",
+      "logo": "googledrive",
+      "brand": "#4285F4",
+      "group": "Mail & files connectors"
     },
     {
       "slug": "claude-m365-connector",
@@ -173,7 +209,10 @@
       "family": "microsoft",
       "glyph": "MS",
       "blurb": "Delegated permissions, consented once by a Global Administrator. Shared mailboxes are in scope; site-specific narrowing is unsupported because the search is tenant-wide; and the page that says \"read-only access\" also lists the tools that send mail as the user.",
-      "kind": "connector"
+      "kind": "connector",
+      "logo": "microsoft",
+      "brand": "#5E5E5E",
+      "group": "Mail & files connectors"
     },
     {
       "slug": "dropbox-mcp",
@@ -187,7 +226,10 @@
       "family": "files",
       "glyph": "Db",
       "blurb": "Eight scopes, two of them write and two of them sharing, and no folder-scoped variant. It reads, creates, moves, deletes and makes shared links; the page says files are not deleted permanently and that recovery depends on your plan.",
-      "kind": "connector"
+      "kind": "connector",
+      "logo": "dropbox",
+      "brand": "#0061FF",
+      "group": "Mail & files connectors"
     },
     {
       "slug": "n8n-owner-api-key",
@@ -201,7 +243,10 @@
       "family": "service",
       "glyph": "n8n",
       "kind": "measured",
-      "blurb": "The first grant here measured on a live instance, by an early beta user's agent: full control of every automation, an outbound node with no restriction on target, every account visible, and credential metadata open through one door and shut through another."
+      "blurb": "The first grant here measured on a live instance, by an early beta user's agent: full control of every automation, an outbound node with no restriction on target, every account visible, and credential metadata open through one door and shut through another.",
+      "logo": "n8n",
+      "brand": "#EA4B71",
+      "group": "Automation & CI"
     }
   ],
   "asked_for": [
@@ -211,7 +256,9 @@
       "family": "google",
       "glyph": "G",
       "blurb": "Gmail, Calendar and Drive from inside Claude. The connector's scope list has not been read yet; the Google pages behind it have.",
-      "note": "not yet researched \u2014 next in the queue"
+      "note": "not yet researched \u2014 next in the queue",
+      "logo": "google",
+      "brand": "#4285F4"
     },
     {
       "slug": "slack-connector",
@@ -219,7 +266,9 @@
       "family": "chat",
       "glyph": "S",
       "blurb": "Channels are mostly other people's writing, and a bot token reaches every channel it is in.",
-      "note": "not yet researched"
+      "note": "not yet researched",
+      "logo": "slack",
+      "brand": "#4A154B"
     },
     {
       "slug": "github-connector",
@@ -227,7 +276,9 @@
       "family": "code",
       "glyph": "GH",
       "blurb": "A fine-grained token can be scoped to a repository; an OAuth app cannot, and most connectors are OAuth apps.",
-      "note": "not yet researched"
+      "note": "not yet researched",
+      "logo": "github",
+      "brand": "#181717"
     },
     {
       "slug": "notion-connector",
@@ -235,7 +286,9 @@
       "family": "files",
       "glyph": "N",
       "blurb": "An integration is added page by page, which is the one connector model with a floor. Whether the assistant's connector uses it is the question.",
-      "note": "not yet researched"
+      "note": "not yet researched",
+      "logo": "notion",
+      "brand": "#000000"
     },
     {
       "slug": "salesforce-connector",
@@ -243,7 +296,9 @@
       "family": "service",
       "glyph": "SF",
       "blurb": "A CRM is entirely third-party material by construction.",
-      "note": "not yet researched"
+      "note": "not yet researched",
+      "logo": "salesforce",
+      "brand": "#00A1E0"
     }
   ],
   "app_vault": {
@@ -253,5 +308,32 @@
     "version": "v4",
     "note": "The renderer every application vault loads (site/vaults/_app/), pushed as its own vault. Public read key; read and nothing else."
   },
-  "asked_for_note": "Connector shapes not yet built. Each becomes a vault once its vendor pages have been read and quoted; the four Lab 03 asked the model site for are built above, ahead of the model site, and carry their open questions in RESEARCH-NEEDED.md."
+  "asked_for_note": "Connector shapes not yet built. Each becomes a vault once its vendor pages have been read and quoted; the four Lab 03 asked the model site for are built above, ahead of the model site, and carry their open questions in RESEARCH-NEEDED.md.",
+  "functions": [
+    {
+      "slug": "access-to-the-crm",
+      "app": "Access to the CRM",
+      "logo": "crm",
+      "brand": "#00A1E0",
+      "blurb": "Customer records are third-party material by construction. Salesforce, HubSpot, Dynamics.",
+      "note": "asked for \u2014 a policy for the function, whichever product holds it"
+    },
+    {
+      "slug": "customer-service-desk",
+      "app": "The customer-service desk",
+      "logo": "desk",
+      "brand": "#1A7F5A",
+      "blurb": "Tickets, and the conversations inside them. Zendesk, Intercom, Freshdesk.",
+      "note": "asked for"
+    },
+    {
+      "slug": "finance-data",
+      "app": "Finance data",
+      "logo": "sheet",
+      "brand": "#B45309",
+      "blurb": "Spreadsheets, ledgers and the exports beside them. Sheets, Excel, NetSuite.",
+      "note": "asked for"
+    }
+  ],
+  "functions_note": "Policies by business function: what the agent is FOR, whichever product holds the data. The mandate is the same across products; the grant is per product. Each becomes a vault once one product's grant is documented for it."
 }

@@ -56,6 +56,9 @@ jobs:
       - name: The vault directory and the vault pages come from the catalogue
         run: node scripts/site/build-abp-pages.mjs --check
 
+      - name: Every page carries the GitHub link and the licence line
+        run: node scripts/site/add-licence-chrome.mjs --check
+
       - name: Shared modules are in step across every page
         run: node scripts/site/sync-modules.mjs --check
 

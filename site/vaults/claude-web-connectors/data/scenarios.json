@@ -1,0 +1,86 @@
+{
+  "type": "riskmandate/abp-scenarios/v1",
+  "_what_this_is": "Alternative mandates for the same grant. Each scenario is a deployer's sentence and the primitives it wants and refuses; everything else is unstated. The grant never changes; the delta is recomputed per scenario. Written on this site as starting points to be argued with.",
+  "authored": "2026-09-15",
+  "scenarios": [
+    {
+      "id": "answer-from-my-drive",
+      "tier": "normal",
+      "label": "Answer from my drive",
+      "description": "Read my connected drive and my uploads; nothing goes out.",
+      "want": [
+        "read.file.host",
+        "read.file.project"
+      ],
+      "do_not_want": [
+        "send.message.world",
+        "write.repository.tenant"
+      ]
+    },
+    {
+      "id": "summarise-my-mail",
+      "tier": "normal",
+      "label": "Summarise my mail",
+      "description": "Read my mail through the connector and summarise it.",
+      "want": [
+        "read.message.tenant"
+      ],
+      "do_not_want": [
+        "send.message.world"
+      ]
+    },
+    {
+      "id": "just-chat",
+      "tier": "normal",
+      "label": "Just chat",
+      "description": "Conversation and uploads only, connectors untouched.",
+      "want": [
+        "read.file.project"
+      ],
+      "do_not_want": [
+        "read.file.host",
+        "read.message.tenant"
+      ]
+    },
+    {
+      "id": "push-code-from-chat",
+      "tier": "advanced",
+      "label": "Push code from chat",
+      "description": "Write to the code host through the connector.",
+      "want": [
+        "write.repository.tenant",
+        "read.file.project"
+      ],
+      "do_not_want": [
+        "send.message.world"
+      ]
+    },
+    {
+      "id": "act-in-my-accounts",
+      "tier": "advanced",
+      "label": "Act in my accounts",
+      "description": "Use every connector as me: drive, mail, code host.",
+      "want": [
+        "authenticate-as.credential.tenant",
+        "read.file.host",
+        "read.message.tenant"
+      ],
+      "do_not_want": [
+        "write.repository.tenant"
+      ]
+    },
+    {
+      "id": "reply-to-mail-for-me",
+      "tier": "advanced",
+      "label": "Reply to mail for me",
+      "description": "Read my mail and send replies.",
+      "want": [
+        "read.message.tenant",
+        "send.message.world"
+      ],
+      "do_not_want": [
+        "write.repository.tenant"
+      ]
+    }
+  ]
+}

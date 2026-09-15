@@ -365,6 +365,9 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
   .demo{padding:8px 12px;font-size:12.5px}
 }
 
+.ghlink{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:8px;color:var(--muted);border:1px solid transparent}.ghlink:hover{color:var(--text);border-color:var(--border)}
+.footlic{display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap}.footlic a{color:inherit}.ccicon{vertical-align:-3px;margin:0 2px}
+@media (max-width:1400px) and (min-width:901px){.ghlink{display:none}}
 /* ── behaviour-policy vaults: the card, the tables, the key, the app ────────── */
 .ab-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:26px 28px;box-shadow:0 18px 50px -34px rgba(13,13,12,.45);margin-top:26px}
 .ab-card.wait{min-height:120px}
@@ -460,6 +463,130 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
 .ab-plus{display:grid;place-items:center;width:40px;height:40px;border-radius:10px;border:1px solid var(--border);background:var(--card);color:var(--text);font-size:22px;text-decoration:none;line-height:1}
 .ab-plus:hover{border-color:var(--green);color:var(--green)}
 .ab-plus.off{color:var(--faint);border-style:dashed}
+
+/* the library: search, filters, grid or list, and the preview panel */
+.ab-lib{display:block}
+.ab-tools{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:26px}
+.ab-search{display:flex;align-items:center;gap:10px;flex:1 1 320px;max-width:440px;height:44px;padding:0 14px;background:var(--card);border:1px solid var(--border);border-radius:10px}
+.ab-search:focus-within{border-color:var(--green);box-shadow:0 0 0 3px rgba(26,127,90,.12)}
+.ab-search svg{flex:none;color:var(--faint)}
+.ab-search input{flex:1;min-width:0;border:0;outline:0;background:transparent;font:inherit;font-size:14px;color:var(--text)}
+.ab-search kbd{font-family:var(--mono);font-size:10.5px;color:var(--faint);border:1px solid var(--border);border-radius:5px;padding:2px 6px}
+.ab-filters{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.ab-filters .sep{width:1px;height:24px;background:var(--border)}
+.ab-f{display:inline-flex;align-items:center;height:34px;padding:0 13px;border-radius:999px;font:inherit;font-size:13px;font-weight:600;border:1px solid var(--border);background:var(--card);color:var(--text);cursor:pointer;white-space:nowrap}
+.ab-f[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--fg)}
+.ab-beh{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;color:var(--faint)}
+.ab-beh select{max-width:260px;height:34px;border:1px solid var(--border);border-radius:999px;background:var(--card);color:var(--text);font:inherit;font-family:var(--mono);font-size:11.5px;padding:0 10px}
+.ab-toggle{display:inline-flex;margin-left:auto;border:1px solid var(--border);border-radius:10px;overflow:hidden;background:var(--card)}
+.ab-toggle button{display:grid;place-items:center;width:44px;height:42px;border:0;background:transparent;color:var(--muted);cursor:pointer}
+.ab-toggle button[aria-pressed="true"]{background:var(--ink);color:var(--fg)}
+.ab-body{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:24px;align-items:start;margin-top:22px}
+.ab-views{min-width:0}
+.ab-lib[data-view="grid"] .ab-list{display:none}.ab-lib[data-view="list"] .ab-gridv{display:none}
+.ab-supertitle{display:block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin:22px 0 8px}
+.ab-supertitle:first-child{margin-top:0}
+.ab-group{margin-top:14px}
+.ab-grouphead{display:flex;align-items:baseline;gap:10px;margin-bottom:10px}
+.ab-grouphead b{font-size:13px}.ab-grouphead span{font-family:var(--mono);font-size:11px;color:var(--faint)}
+.ab-grid2{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.ab-t{display:flex;flex-direction:column;gap:10px;padding:16px;background:var(--card);border:1px solid var(--border);border-radius:14px;color:var(--text);text-decoration:none;min-height:170px;cursor:pointer}
+.ab-t:hover{border-color:var(--green)}
+.ab-t.sel{background:var(--greenBg);border-color:var(--green);box-shadow:0 0 0 1px var(--green)}
+.ab-t.off{border-style:dashed;background:transparent}
+.ab-t.off:hover{border-color:var(--faint)}
+.ab-thead{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.ab-logo{display:grid;place-items:center;border-radius:12px;border:1px solid var(--border);flex:none}
+.ab-logo b{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.ab-t h3{margin:0;font-size:15px;font-weight:700;letter-spacing:-.01em;line-height:1.25;color:var(--text)}
+.ab-t p{margin:3px 0 0;font-size:12.5px;color:var(--muted);line-height:1.5}
+.ab-tfoot{display:flex;align-items:center;gap:10px;margin-top:auto;font-family:var(--mono);font-size:11px;color:var(--faint);white-space:nowrap;flex-wrap:wrap}
+.ab-tfoot b{color:var(--text)}.ab-tfoot b.un{color:var(--gold)}.ab-tfoot b.ok{color:var(--green)}
+.ab-tfoot .ab-mini{margin:0}
+.ab-meter{display:inline-flex;width:56px;height:6px;border-radius:999px;overflow:hidden;background:var(--border)}
+.ab-meter i{display:block;height:100%}.ab-meter .u{background:var(--gold)}.ab-meter .b{background:var(--green)}
+.ab-pill.ev-live{color:var(--green);background:var(--greenBg);border-color:rgba(26,127,90,.3)}
+.ab-pill.ev-doc{color:var(--gold);background:#FDF6EC;border-color:rgba(180,83,9,.3)}
+.ab-pill.ev-der{color:var(--faint);background:var(--bg2)}
+.ab-pill.short{color:var(--blue);background:#EAF0FD;border-color:rgba(29,78,216,.3)}
+.ab-pill.asked{color:var(--faint);background:var(--bg2);border-style:dashed}
+.ab-ask{margin-top:auto;font-family:var(--mono);font-size:11px;color:var(--green)}
+.ab-none{font-family:var(--mono);font-size:12px;color:var(--muted);padding:26px 0}
+/* list view */
+.ab-list{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.ab-lrow,.ab-lhead{display:grid;grid-template-columns:minmax(200px,1.6fr) 110px 52px 52px 52px minmax(120px,1fr) 64px 24px;gap:10px;align-items:center;padding:8px 14px}
+.ab-lhead{background:var(--bg2);padding:10px 14px}
+.ab-lhead span{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+.ab-lhead span.r,.ab-lrow .r{text-align:right}
+.ab-lgroup{display:flex;align-items:center;gap:8px;padding:8px 14px;border-top:1px solid var(--border);background:var(--bg)}
+.ab-lgroup b{font-size:12px}.ab-lgroup span{font-family:var(--mono);font-size:10.5px;color:var(--faint)}
+.ab-lrow{min-height:52px;border-top:1px solid var(--border);color:var(--text);text-decoration:none;font-size:13px;cursor:pointer}
+.ab-lrow:hover{background:var(--bg)}
+.ab-lrow.sel{background:var(--greenBg);box-shadow:inset 3px 0 0 var(--green)}
+.ab-lrow.off{opacity:.85;border-top-style:dashed}
+.ab-lname{display:flex;align-items:center;gap:10px;min-width:0}
+.ab-lname span{display:flex;flex-direction:column;min-width:0}
+.ab-lname b{font-weight:700;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ab-lname small{font-family:var(--mono);font-size:10px;color:var(--faint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ab-lrow .n{font-family:var(--mono)}
+.ab-lrow .un{display:flex;align-items:center;gap:8px;font-family:var(--mono)}
+.ab-lrow .un b{width:16px;text-align:right}.ab-lrow .un b.y{color:var(--gold)}.ab-lrow .un b.z{color:var(--green)}
+.ab-lrow .un .ab-meter{width:96px}
+.ab-lrow .open{font-family:var(--mono);font-size:11.5px;color:var(--faint)}.ab-lrow .open.y{color:var(--gold)}
+.ab-lrow .arrow{color:var(--faint);text-align:right}
+.ab-lblurb{grid-column:3 / span 5;font-size:11.5px;color:var(--muted)}
+/* the preview panel */
+.ab-panel{position:sticky;top:20px;display:flex;flex-direction:column;gap:14px;padding:20px;background:var(--card);border:1px solid var(--border);border-radius:16px;box-shadow:0 12px 40px rgba(13,13,12,.08);min-height:200px}
+.ab-panelhint{font-size:14px;line-height:1.6;color:var(--muted);padding:6px 0}
+.ab-panelhint b{color:var(--text)}
+.ab-ph{display:flex;align-items:flex-start;gap:14px}
+.ab-pht{display:flex;flex-direction:column;gap:4px;flex:1;min-width:0}
+.ab-pht>b{font-size:18px;font-weight:800;letter-spacing:-.02em;line-height:1.15;color:var(--text)}
+.ab-pht .ab-meta{margin-top:0}
+.ab-pht .ab-pills{margin-top:2px}
+.ab-x{width:30px;height:30px;border-radius:8px;border:1px solid var(--border);background:var(--card);color:var(--faint);font-size:16px;cursor:pointer;flex:none}
+.ab-pblurb{margin:0;font-size:13px;line-height:1.55;color:var(--muted)}
+.ab-tag{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green)}
+.ab-scenhead{display:flex;align-items:baseline;justify-content:space-between;gap:10px;font-size:11px;color:var(--faint)}
+.ab-scens{display:flex;flex-direction:column;gap:8px}
+.ab-scentier{font-size:11px;font-weight:700;color:var(--muted);margin-top:2px}
+.ab-scenrow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.ab-scenrow.one{grid-template-columns:1fr}
+.ab-scen{display:flex;flex-direction:column;gap:3px;padding:9px 11px;border-radius:10px;border:1.5px solid var(--border);background:var(--card);color:var(--text);font:inherit;text-align:left;cursor:pointer}
+.ab-scen b{font-size:12.5px;font-weight:700;line-height:1.2}
+.ab-scen span{font-family:var(--mono);font-size:10px;color:var(--faint)}
+.ab-scen.on{border-color:var(--green);background:var(--greenBg)}
+.ab-scendesc{margin:0;font-size:12.5px;line-height:1.5;color:var(--muted)}
+.ab-scendesc b{color:var(--text)}
+.ab-pcounts{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+.ab-pc{display:flex;flex-direction:column;padding:8px 10px;border:1px solid var(--border);border-radius:10px}
+.ab-pc b{font-size:22px;letter-spacing:-.03em;line-height:1.1;color:var(--text)}
+.ab-pc.ok b{color:var(--green)}.ab-pc.ex b{color:var(--red)}.ab-pc.un b{color:var(--gold)}.ab-pc.sf b{color:var(--blue)}
+.ab-pc span{font-family:var(--mono);font-size:9.5px;color:var(--faint);white-space:nowrap}
+.ab-gm{display:flex;flex-direction:column}
+.ab-gm .ab-scenhead{padding-bottom:6px}
+.ab-gmrow{display:grid;grid-template-columns:18px minmax(0,1fr) auto;align-items:center;gap:10px;padding:8px 0;border-top:1px solid var(--border)}
+.ab-gmrow .ab-g{text-align:center;font-size:14px}
+.ab-gmid{display:flex;flex-direction:column;gap:1px;min-width:0}
+.ab-gmid b{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:-.01em;word-break:break-all}
+.ab-gmid span{font-size:11.5px;color:var(--muted);line-height:1.4}
+.ab-gmrow.short{background:#EAF0FD;margin:0 -8px;padding:8px}
+.ab-pbtns{display:flex;gap:8px;flex-wrap:wrap}
+.ab-pbtns .btn{min-height:44px;padding:0 16px;font-size:13.5px}
+.ab-pbtns .btn-green{flex:1;justify-content:center}
+.ab-pbtns .btn-ghost.dark{color:var(--text);border-color:var(--border)}
+.ab-pkey{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10.5px;color:var(--faint);min-width:0}
+.ab-pkey code{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:10.5px}
+.ab-copy{border:0;background:transparent;color:var(--green);font:inherit;font-size:10.5px;cursor:pointer;padding:0}
+@media (max-width:980px){
+  .ab-body{grid-template-columns:1fr}
+  .ab-panel{display:none}
+  .ab-lib.open .ab-panel{display:flex;position:fixed;left:0;right:0;bottom:0;top:auto;max-height:84vh;overflow:auto;z-index:60;border-radius:18px 18px 0 0;box-shadow:0 -12px 40px rgba(13,13,12,.25);padding:16px 16px calc(16px + env(safe-area-inset-bottom,0px))}
+  .ab-lib.open .ab-backdrop{position:fixed;inset:0;background:rgba(13,13,12,.28);z-index:55}
+  .ab-scenrow{grid-template-columns:1fr 1fr}
+  .ab-lrow,.ab-lhead{grid-template-columns:minmax(160px,1.6fr) 100px 46px 46px 46px minmax(100px,1fr) 56px 20px}
+  .ab-list{overflow-x:auto}
+}
 </style>
 </head>
 <body id="top">
@@ -468,12 +595,13 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
   <div class="wrap">
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
-    <a class="version" href="versions.html" title="What shipped in v1.15.0">v1.15.0</a>
+    <a class="ghlink" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener" aria-label="The source, on GitHub" title="Open source · Apache-2.0 code · CC BY 4.0 pages"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a>
+      <a class="version" href="versions.html" title="What shipped in v1.16.0">v1.16.0</a>
     <button class="demo" data-demo>Get in touch</button>
   </div>
 </header>
 
-<div class="labstrip"><b>Behaviour-policy vault</b> · <span class="state proposal">Template</span> · Read live from vault <b>vz03p8it</b> with the key printed on this page. <a href="abp-vaults.html">All applications</a> · <a href="lab-vault-delivered.html">How the first one was built</a></div>
+<div class="labstrip"><b>Behaviour-policy vault</b> · <span class="state proposal">Template</span> · Read live from vault <b>vz03p8it</b> with the key printed on this page. <a href="agent-behaviour-policy.html">All applications</a> · <a href="lab-vault-delivered.html">How the first one was built</a></div>
 
 <main class="phero">
   <div class="wrap">
@@ -596,7 +724,7 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
     <p>Open the app above, move the rows that are wrong, and send us the export. Your vault is this one with the mandate corrected, a name on the licence, and no public key — and it recomputes when the grant moves.</p>
     <div class="cta-row">
       <a class="btn btn-green" href="vaults/google-drive-readonly/MANDATE.md">Read the mandate ↗</a>
-      <a class="btn btn-ghost" href="abp-vaults.html">All applications</a>
+      <a class="btn btn-ghost" href="agent-behaviour-policy.html">All applications</a>
     </div>
   </div>
 </section>
@@ -605,6 +733,7 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
   <div class="wrap">
     <span>© 2026 RiskMandate · Autonomous Risk Management</span>
     <span>The insurability layer for agentic AI. · <a class="footlink" href="versions.html">Versions</a></span>
+    <span class="footlic"><a href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener">Open source on GitHub</a> · code Apache-2.0 · pages and policies <a rel="license" href="https://creativecommons.org/licenses/by/4.0/" target="_blank" title="Creative Commons Attribution 4.0 — take it, credit it"><svg class="ccicon" width="38" height="16" viewBox="0 0 76 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="2.5"></circle><text x="16" y="21" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14" font-weight="800" fill="currentColor">CC</text><circle cx="60" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="2.5"></circle><text x="60" y="21" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14" font-weight="800" fill="currentColor">BY</text></svg> CC BY 4.0</a> · <a href="https://open-source.sgit.ai/" target="_blank" rel="noopener">why</a></span>
   </div>
 </footer>
 
@@ -612,7 +741,7 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
 (function(){
 'use strict';
 var RM={core:{},services:{},components:{},data:{}};
-RM.data.currentPage="abp-vault-google-drive-readonly";RM.data.pages=[{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"The problem"},{"name":"acceptable","label":"Accepted is not acceptable","file":"acceptable.html","group":"The problem"},{"name":"acceptance","label":"You own the risk","file":"acceptance.html","group":"The problem"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"The problem"},{"name":"abp","label":"Agent Behaviour Policy","file":"abp.html","group":"The model"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"The model"},{"name":"agents","label":"Agents","file":"agents.html","group":"The model"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"The model"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"The model"},{"name":"statics","label":"Static scenarios","file":"statics.html","group":"The model"},{"name":"demos","label":"All demos","file":"demos.html","group":"Live demos"},{"name":"demo-licence-to-operate","label":"Licence to Operate","file":"demo-licence-to-operate.html","group":"Live demos"},{"name":"demo-risk-graph-explorer","label":"RiskGraph Explorer","file":"demo-risk-graph-explorer.html","group":"Live demos"},{"name":"demo-agentic-browser-isolation","label":"Agentic Browser Isolation","file":"demo-agentic-browser-isolation.html","group":"Live demos"},{"name":"demo-risk-mandate-field","label":"RiskMandate field demo","file":"demo-risk-mandate-field.html","group":"Live demos"},{"name":"demo-file-security","label":"File security walk","file":"demo-file-security.html","group":"Live demos"},{"name":"demo-agent-permission-games","label":"Permission games","file":"demo-agent-permission-games.html","group":"Live demos"},{"name":"abp-vaults","label":"Behaviour-policy vaults","file":"abp-vaults.html","group":"Live demos"},{"name":"lab","label":"All entries","file":"lab.html","group":"Lab"},{"name":"lab-connector-grants","label":"01 · The grant is user-shaped","file":"lab-connector-grants.html","group":"Lab"},{"name":"lab-abp-flow","label":"02 · Buying a behaviour policy","file":"lab-abp-flow.html","group":"Lab"},{"name":"lab-abp-requests","label":"03 · Requests to abp.sgit.ai","file":"lab-abp-requests.html","group":"Lab"},{"name":"lab-shape-collector","label":"04 · The shape collector","file":"lab-shape-collector.html","group":"Lab"},{"name":"lab-commit-author","label":"05 · The commit author","file":"lab-commit-author.html","group":"Lab"},{"name":"lab-network-reach","label":"06 · Every routable address","file":"lab-network-reach.html","group":"Lab"},{"name":"lab-vault-delivered","label":"07 · The vault, delivered","file":"lab-vault-delivered.html","group":"Lab"},{"name":"summit","label":"Lisbon 2026","file":"summit.html"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"briefs","label":"Brief register","file":"briefs.html","group":"More"},{"name":"work","label":"Working with us","file":"work.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"}];RM.data.sections=[];
+RM.data.currentPage="abp-vault-google-drive-readonly";RM.data.pages=[{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"The problem"},{"name":"acceptable","label":"Accepted is not acceptable","file":"acceptable.html","group":"The problem"},{"name":"acceptance","label":"You own the risk","file":"acceptance.html","group":"The problem"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"The problem"},{"name":"abp","label":"Agent Behaviour Policy","file":"abp.html","group":"The model"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"The model"},{"name":"agents","label":"Agents","file":"agents.html","group":"The model"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"The model"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"The model"},{"name":"statics","label":"Static scenarios","file":"statics.html","group":"The model"},{"name":"agent-behaviour-policy","label":"Behaviour policies","file":"agent-behaviour-policy.html"},{"name":"demos","label":"All demos","file":"demos.html","group":"Live demos"},{"name":"demo-licence-to-operate","label":"Licence to Operate","file":"demo-licence-to-operate.html","group":"Live demos"},{"name":"demo-risk-graph-explorer","label":"RiskGraph Explorer","file":"demo-risk-graph-explorer.html","group":"Live demos"},{"name":"demo-agentic-browser-isolation","label":"Agentic Browser Isolation","file":"demo-agentic-browser-isolation.html","group":"Live demos"},{"name":"demo-risk-mandate-field","label":"RiskMandate field demo","file":"demo-risk-mandate-field.html","group":"Live demos"},{"name":"demo-file-security","label":"File security walk","file":"demo-file-security.html","group":"Live demos"},{"name":"demo-agent-permission-games","label":"Permission games","file":"demo-agent-permission-games.html","group":"Live demos"},{"name":"lab","label":"All entries","file":"lab.html","group":"Lab"},{"name":"lab-connector-grants","label":"01 · The grant is user-shaped","file":"lab-connector-grants.html","group":"Lab"},{"name":"lab-abp-flow","label":"02 · Buying a behaviour policy","file":"lab-abp-flow.html","group":"Lab"},{"name":"lab-abp-requests","label":"03 · Requests to abp.sgit.ai","file":"lab-abp-requests.html","group":"Lab"},{"name":"lab-shape-collector","label":"04 · The shape collector","file":"lab-shape-collector.html","group":"Lab"},{"name":"lab-commit-author","label":"05 · The commit author","file":"lab-commit-author.html","group":"Lab"},{"name":"lab-network-reach","label":"06 · Every routable address","file":"lab-network-reach.html","group":"Lab"},{"name":"lab-vault-delivered","label":"07 · The vault, delivered","file":"lab-vault-delivered.html","group":"Lab"},{"name":"summit","label":"Lisbon 2026","file":"summit.html"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"briefs","label":"Brief register","file":"briefs.html","group":"More"},{"name":"work","label":"Working with us","file":"work.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"}];RM.data.sections=[];
 
 'use strict';
 // components/dom.js — tiny DOM helpers shared by components. `el` builds an
@@ -930,7 +1059,11 @@ RM.services.abpVaults = (function () {
     "shape": "anthropic/claude-code-remote/ccr-container",
     "page": "abp-vault-claude-code-web.html",
     "status": "template",
-    "app": "Claude Code on the web"
+    "app": "Claude Code on the web",
+    "blurb": "A managed, ephemeral container with one repository attached and an egress proxy above it. The shape this site is maintained from; 13 of 20 rows measured on the thing itself.",
+    "group": "Coding agents",
+    "logo": "claude",
+    "brand": "#D97757"
   },
   {
     "slug": "claude-code-cli",
@@ -940,7 +1073,11 @@ RM.services.abpVaults = (function () {
     "shape": "anthropic/claude-code/local-default",
     "page": "abp-vault-claude-code-cli.html",
     "status": "template",
-    "app": "Claude Code on your machine"
+    "app": "Claude Code on your machine",
+    "blurb": "The coding agent on a developer's own machine with confirmation prompts enabled. Read this one beside the confirmations-off shape: one setting moves one barrier and not one number changes.",
+    "group": "Coding agents",
+    "logo": "terminal",
+    "brand": "#D97757"
   },
   {
     "slug": "claude-code-cli-confirmations-off",
@@ -950,7 +1087,11 @@ RM.services.abpVaults = (function () {
     "shape": "anthropic/claude-code/local-confirmations-off",
     "page": "abp-vault-claude-code-cli-confirmations-off.html",
     "status": "template",
-    "app": "Claude Code, confirmations off"
+    "app": "Claude Code, confirmations off",
+    "blurb": "The same agent, the same machine, the same account, with the confirmation prompt switched off. The prompt was the only thing between an authorised capability and the whole machine, and it was a switch the agent's account could flip.",
+    "group": "Coding agents",
+    "logo": "terminal",
+    "brand": "#D97757"
   },
   {
     "slug": "claude-desktop",
@@ -960,7 +1101,11 @@ RM.services.abpVaults = (function () {
     "shape": "anthropic/claude-desktop/default",
     "page": "abp-vault-claude-desktop.html",
     "status": "template",
-    "app": "Claude Desktop"
+    "app": "Claude Desktop",
+    "blurb": "The desktop app with local tools on: files, processes and the network of the machine it sits on. Ten capabilities, three wanted, eight with nothing real in the way.",
+    "group": "Chat assistants",
+    "logo": "claude",
+    "brand": "#D97757"
   },
   {
     "slug": "claude-web-connectors",
@@ -970,7 +1115,11 @@ RM.services.abpVaults = (function () {
     "shape": "anthropic/claude-web/connectors-on",
     "page": "abp-vault-claude-web-connectors.html",
     "status": "template",
-    "app": "Claude in the browser, connectors on"
+    "app": "Claude in the browser, connectors on",
+    "blurb": "Chat with connectors enabled: the tenant's accounts are in reach through whatever was connected. The two excess rows here both sit behind a boundary, which is the exception in this directory.",
+    "group": "Chat assistants",
+    "logo": "claude",
+    "brand": "#D97757"
   },
   {
     "slug": "chatgpt-web",
@@ -980,7 +1129,11 @@ RM.services.abpVaults = (function () {
     "shape": "openai/chatgpt-web/default",
     "page": "abp-vault-chatgpt-web.html",
     "status": "template",
-    "app": "ChatGPT in the browser"
+    "app": "ChatGPT in the browser",
+    "blurb": "The smallest grant in the set: one capability, one wanted, no excess. The baseline every other shape is measured against, and the proof that a template can be empty and still be right.",
+    "group": "Chat assistants",
+    "logo": "openai",
+    "brand": "#412991"
   },
   {
     "slug": "browser-extension",
@@ -990,7 +1143,11 @@ RM.services.abpVaults = (function () {
     "shape": "generic/browser-extension/broad-host-permissions",
     "page": "abp-vault-browser-extension.html",
     "status": "template",
-    "app": "A browser extension"
+    "app": "A browser extension",
+    "blurb": "Other people's data, and the mandate nobody wrote down. Three capabilities, all three irreversible; the shortest policy in the directory and not the mildest.",
+    "group": "Chat assistants",
+    "logo": "googlechrome",
+    "brand": "#4285F4"
   },
   {
     "slug": "github-actions",
@@ -1000,7 +1157,11 @@ RM.services.abpVaults = (function () {
     "shape": "github/actions-runner/ci",
     "page": "abp-vault-github-actions.html",
     "status": "template",
-    "app": "GitHub Actions"
+    "app": "GitHub Actions",
+    "blurb": "A hosted runner under a service account: persistence, and reach beyond the turn. Eight of eight rows measured, the only fully measured shape besides the web container.",
+    "group": "Automation & CI",
+    "logo": "githubactions",
+    "brand": "#2088FF"
   },
   {
     "slug": "scheduled-job",
@@ -1010,7 +1171,11 @@ RM.services.abpVaults = (function () {
     "shape": "generic/scheduled-job/service-account",
     "page": "abp-vault-scheduled-job.html",
     "status": "template",
-    "app": "A scheduled job"
+    "app": "A scheduled job",
+    "blurb": "A job that outlives the person who made it, running as a service account nobody logs in as. Seven capabilities, four wanted, four with nothing in the way.",
+    "group": "Automation & CI",
+    "logo": "clock",
+    "brand": "#374151"
   },
   {
     "slug": "google-workspace-mcp",
@@ -1020,7 +1185,11 @@ RM.services.abpVaults = (function () {
     "shape": "google/workspace-mcp/default",
     "page": "abp-vault-google-workspace-mcp.html",
     "status": "template",
-    "app": "Google Workspace MCP servers"
+    "app": "Google Workspace MCP servers",
+    "blurb": "Gmail, Drive, Docs, Sheets, Slides, Calendar and Chat, one server each. The page advertises drafting mail and scheduling meetings; the scopes it asks for send mail and cannot touch a calendar.",
+    "group": "Mail & files connectors",
+    "logo": "google",
+    "brand": "#4285F4"
   },
   {
     "slug": "gmail-readonly",
@@ -1030,7 +1199,11 @@ RM.services.abpVaults = (function () {
     "shape": "google/gmail/readonly-connector",
     "page": "abp-vault-gmail-readonly.html",
     "status": "template",
-    "app": "Gmail, read-only scope"
+    "app": "Gmail, read-only scope",
+    "blurb": "The narrowest scope that reads one message reads every message. Lab 03 asked the model site for this shape first; here it is, read from Google's scope page.",
+    "group": "Mail & files connectors",
+    "logo": "gmail",
+    "brand": "#EA4335"
   },
   {
     "slug": "google-drive-readonly",
@@ -1040,7 +1213,11 @@ RM.services.abpVaults = (function () {
     "shape": "google/drive/readonly-connector",
     "page": "abp-vault-google-drive-readonly.html",
     "status": "template",
-    "app": "Google Drive, read-only scope"
+    "app": "Google Drive, read-only scope",
+    "blurb": "The default corpus is \"files owned by or shared to the user\": everything anybody ever shared, on day one, without anyone choosing it.",
+    "group": "Mail & files connectors",
+    "logo": "googledrive",
+    "brand": "#4285F4"
   },
   {
     "slug": "claude-m365-connector",
@@ -1050,7 +1227,11 @@ RM.services.abpVaults = (function () {
     "shape": "anthropic/microsoft-365-connector/default",
     "page": "abp-vault-claude-m365-connector.html",
     "status": "template",
-    "app": "Microsoft 365 connector (Claude)"
+    "app": "Microsoft 365 connector (Claude)",
+    "blurb": "Delegated permissions, consented once by a Global Administrator. Shared mailboxes are in scope; site-specific narrowing is unsupported because the search is tenant-wide; and the page that says \"read-only access\" also lists the tools that send mail as the user.",
+    "group": "Mail & files connectors",
+    "logo": "microsoft",
+    "brand": "#5E5E5E"
   },
   {
     "slug": "dropbox-mcp",
@@ -1060,7 +1241,11 @@ RM.services.abpVaults = (function () {
     "shape": "dropbox/mcp-server/default",
     "page": "abp-vault-dropbox-mcp.html",
     "status": "template",
-    "app": "Dropbox MCP server"
+    "app": "Dropbox MCP server",
+    "blurb": "Eight scopes, two of them write and two of them sharing, and no folder-scoped variant. It reads, creates, moves, deletes and makes shared links; the page says files are not deleted permanently and that recovery depends on your plan.",
+    "group": "Mail & files connectors",
+    "logo": "dropbox",
+    "brand": "#0061FF"
   },
   {
     "slug": "n8n-owner-api-key",
@@ -1070,10 +1255,15 @@ RM.services.abpVaults = (function () {
     "shape": "n8n/self-hosted/owner-api-key",
     "page": "abp-vault-n8n-owner-api-key.html",
     "status": "template",
-    "app": "n8n, owner API key"
+    "app": "n8n, owner API key",
+    "blurb": "The first grant here measured on a live instance, by an early beta user's agent: full control of every automation, an outbound node with no restriction on target, every account visible, and credential metadata open through one door and shut through another.",
+    "group": "Automation & CI",
+    "logo": "n8n",
+    "brand": "#EA4B71"
   }
 ];
   var APP_VAULT = {"vault_id":"fl3i7lu4","key":"e37a0f80d65e2b486f8bb3253e313c65ecbb57e5664c3f1704346c70ac09639a","entry":"index.html"};   // the renderer's own vault: { vault_id, key, entry }
+  var LOGOS = {"microsoft":{"kind":"fill","d":"M0 0v11.408h11.408V0zm12.594 0v11.408H24V0zM0 12.594V24h11.408V12.594zm12.594 0V24H24V12.594z"},"googlechrome":{"kind":"fill","d":"M12 0C8.21 0 4.831 1.757 2.632 4.501l3.953 6.848A5.454 5.454 0 0 1 12 6.545h10.691A12 12 0 0 0 12 0zM1.931 5.47A11.943 11.943 0 0 0 0 12c0 6.012 4.42 10.991 10.189 11.864l3.953-6.847a5.45 5.45 0 0 1-6.865-2.29zm13.342 2.166a5.446 5.446 0 0 1 1.45 7.09l.002.001h-.002l-5.344 9.257c.206.01.413.016.621.016 6.627 0 12-5.373 12-12 0-1.54-.29-3.011-.818-4.364zM12 16.364a4.364 4.364 0 1 1 0-8.728 4.364 4.364 0 0 1 0 8.728Z"},"slack":{"kind":"fill","d":"M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"},"dropbox":{"kind":"fill","d":"M6 1.807L0 5.629l6 3.822 6.001-3.822L6 1.807zM18 1.807l-6 3.822 6 3.822 6-3.822-6-3.822zM0 13.274l6 3.822 6.001-3.822L6 9.452l-6 3.822zM18 9.452l-6 3.822 6 3.822 6-3.822-6-3.822zM6 18.371l6.001 3.822 6-3.822-6-3.822L6 18.371z"},"microsoftoutlook":{"kind":"fill","d":"M7.88 12.04q0 .45-.11.87-.1.41-.33.74-.22.33-.58.52-.37.2-.87.2t-.85-.2q-.35-.21-.57-.55-.22-.33-.33-.75-.1-.42-.1-.86t.1-.87q.1-.43.34-.76.22-.34.59-.54.36-.2.87-.2t.86.2q.35.21.57.55.22.34.31.77.1.43.1.88zM24 12v9.38q0 .46-.33.8-.33.32-.8.32H7.13q-.46 0-.8-.33-.32-.33-.32-.8V18H1q-.41 0-.7-.3-.3-.29-.3-.7V7q0-.41.3-.7Q.58 6 1 6h6.5V2.55q0-.44.3-.75.3-.3.75-.3h12.9q.44 0 .75.3.3.3.3.75V10.85l1.24.72h.01q.1.07.18.18.07.12.07.25zm-6-8.25v3h3v-3zm0 4.5v3h3v-3zm0 4.5v1.83l3.05-1.83zm-5.25-9v3h3.75v-3zm0 4.5v3h3.75v-3zm0 4.5v2.03l2.41 1.5 1.34-.8v-2.73zM9 3.75V6h2l.13.01.12.04v-2.3zM5.98 15.98q.9 0 1.6-.3.7-.32 1.19-.86.48-.55.73-1.28.25-.74.25-1.61 0-.83-.25-1.55-.24-.71-.71-1.24t-1.15-.83q-.68-.3-1.55-.3-.92 0-1.64.3-.71.3-1.2.85-.5.54-.75 1.3-.25.74-.25 1.63 0 .85.26 1.56.26.72.74 1.23.48.52 1.17.81.69.3 1.56.3zM7.5 21h12.39L12 16.08V17q0 .41-.3.7-.29.3-.7.3H7.5zm15-.13v-7.24l-5.9 3.54Z"},"google":{"kind":"fill","d":"M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"},"salesforce":{"kind":"fill","d":"M10.006 5.415a4.195 4.195 0 013.045-1.306c1.56 0 2.954.9 3.69 2.205.63-.3 1.35-.45 2.1-.45 2.85 0 5.159 2.34 5.159 5.22s-2.31 5.22-5.176 5.22c-.345 0-.69-.044-1.02-.104a3.75 3.75 0 01-3.3 1.95c-.6 0-1.155-.15-1.65-.375A4.314 4.314 0 018.88 20.4a4.302 4.302 0 01-4.05-2.82c-.27.062-.54.076-.825.076-2.204 0-4.005-1.8-4.005-4.05 0-1.5.811-2.805 2.01-3.51-.255-.57-.39-1.2-.39-1.846 0-2.58 2.1-4.65 4.65-4.65 1.53 0 2.85.705 3.72 1.8"},"anthropic":{"kind":"fill","d":"M17.3041 3.541h-3.6718l6.696 16.918H24Zm-10.6082 0L0 20.459h3.7442l1.3693-3.5527h7.0052l1.3693 3.5528h3.7442L10.5363 3.5409Zm-.3712 10.2232 2.2914-5.9456 2.2914 5.9456Z"},"googledrive":{"kind":"fill","d":"M12.01 1.485c-2.082 0-3.754.02-3.743.047.01.02 1.708 3.001 3.774 6.62l3.76 6.574h3.76c2.081 0 3.753-.02 3.742-.047-.005-.02-1.708-3.001-3.775-6.62l-3.76-6.574zm-4.76 1.73a789.828 789.861 0 0 0-3.63 6.319L0 15.868l1.89 3.298 1.885 3.297 3.62-6.335 3.618-6.33-1.88-3.287C8.1 4.704 7.255 3.22 7.25 3.214zm2.259 12.653-.203.348c-.114.198-.96 1.672-1.88 3.287a423.93 423.948 0 0 1-1.698 2.97c-.01.026 3.24.042 7.222.042h7.244l1.796-3.157c.992-1.734 1.85-3.23 1.906-3.323l.104-.167h-7.249z"},"githubactions":{"kind":"fill","d":"M10.984 13.836a.5.5 0 0 1-.353-.146l-.745-.743a.5.5 0 1 1 .706-.708l.392.391 1.181-1.18a.5.5 0 0 1 .708.707l-1.535 1.533a.504.504 0 0 1-.354.146zm9.353-.147l1.534-1.532a.5.5 0 0 0-.707-.707l-1.181 1.18-.392-.391a.5.5 0 1 0-.706.708l.746.743a.497.497 0 0 0 .706-.001zM4.527 7.452l2.557-1.585A1 1 0 0 0 7.09 4.17L4.533 2.56A1 1 0 0 0 3 3.406v3.196a1.001 1.001 0 0 0 1.527.85zm2.03-2.436L4 6.602V3.406l2.557 1.61zM24 12.5c0 1.93-1.57 3.5-3.5 3.5a3.503 3.503 0 0 1-3.46-3h-2.08a3.503 3.503 0 0 1-3.46 3 3.502 3.502 0 0 1-3.46-3h-.558c-.972 0-1.85-.399-2.482-1.042V17c0 1.654 1.346 3 3 3h.04c.244-1.693 1.7-3 3.46-3 1.93 0 3.5 1.57 3.5 3.5S13.43 24 11.5 24a3.502 3.502 0 0 1-3.46-3H8c-2.206 0-4-1.794-4-4V9.899A5.008 5.008 0 0 1 0 5c0-2.757 2.243-5 5-5s5 2.243 5 5a5.005 5.005 0 0 1-4.952 4.998A2.482 2.482 0 0 0 7.482 12h.558c.244-1.693 1.7-3 3.46-3a3.502 3.502 0 0 1 3.46 3h2.08a3.503 3.503 0 0 1 3.46-3c1.93 0 3.5 1.57 3.5 3.5zm-15 8c0 1.378 1.122 2.5 2.5 2.5s2.5-1.122 2.5-2.5-1.122-2.5-2.5-2.5S9 19.122 9 20.5zM5 9c2.206 0 4-1.794 4-4S7.206 1 5 1 1 2.794 1 5s1.794 4 4 4zm9 3.5c0-1.378-1.122-2.5-2.5-2.5S9 11.122 9 12.5s1.122 2.5 2.5 2.5 2.5-1.122 2.5-2.5zm9 0c0-1.378-1.122-2.5-2.5-2.5S18 11.122 18 12.5s1.122 2.5 2.5 2.5 2.5-1.122 2.5-2.5zm-13 8a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0zm2 0a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0zm12 0c0 1.93-1.57 3.5-3.5 3.5a3.503 3.503 0 0 1-3.46-3.002c-.007.001-.013.005-.021.005l-.506.017h-.017a.5.5 0 0 1-.016-.999l.506-.017c.018-.002.035.006.052.007A3.503 3.503 0 0 1 20.5 17c1.93 0 3.5 1.57 3.5 3.5zm-1 0c0-1.378-1.122-2.5-2.5-2.5S18 19.122 18 20.5s1.122 2.5 2.5 2.5 2.5-1.122 2.5-2.5z"},"gmail":{"kind":"fill","d":"M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"},"claude":{"kind":"fill","d":"m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"},"openai":{"kind":"fill","d":"M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"},"n8n":{"kind":"fill","d":"M21.4737 5.6842c-1.1772 0-2.1663.8051-2.4468 1.8947h-2.8955c-1.235 0-2.289.893-2.492 2.111l-.1038.623a1.263 1.263 0 0 1-1.246 1.0555H11.289c-.2805-1.0896-1.2696-1.8947-2.4468-1.8947s-2.1663.8051-2.4467 1.8947H4.973c-.2805-1.0896-1.2696-1.8947-2.4468-1.8947C1.1311 9.4737 0 10.6047 0 12s1.131 2.5263 2.5263 2.5263c1.1772 0 2.1663-.8051 2.4468-1.8947h1.4223c.2804 1.0896 1.2696 1.8947 2.4467 1.8947 1.1772 0 2.1663-.8051 2.4468-1.8947h1.0008a1.263 1.263 0 0 1 1.2459 1.0555l.1038.623c.203 1.218 1.257 2.111 2.492 2.111h.3692c.2804 1.0895 1.2696 1.8947 2.4468 1.8947 1.3952 0 2.5263-1.131 2.5263-2.5263s-1.131-2.5263-2.5263-2.5263c-1.1772 0-2.1664.805-2.4468 1.8947h-.3692a1.263 1.263 0 0 1-1.246-1.0555l-.1037-.623A2.52 2.52 0 0 0 13.9607 12a2.52 2.52 0 0 0 .821-1.4794l.1038-.623a1.263 1.263 0 0 1 1.2459-1.0555h2.8955c.2805 1.0896 1.2696 1.8947 2.4468 1.8947 1.3952 0 2.5263-1.131 2.5263-2.5263s-1.131-2.5263-2.5263-2.5263m0 1.2632a1.263 1.263 0 0 1 1.2631 1.2631 1.263 1.263 0 0 1-1.2631 1.2632 1.263 1.263 0 0 1-1.2632-1.2632 1.263 1.263 0 0 1 1.2632-1.2631M2.5263 10.7368A1.263 1.263 0 0 1 3.7895 12a1.263 1.263 0 0 1-1.2632 1.2632A1.263 1.263 0 0 1 1.2632 12a1.263 1.263 0 0 1 1.2631-1.2632m6.3158 0A1.263 1.263 0 0 1 10.1053 12a1.263 1.263 0 0 1-1.2632 1.2632A1.263 1.263 0 0 1 7.579 12a1.263 1.263 0 0 1 1.2632-1.2632m10.1053 3.7895a1.263 1.263 0 0 1 1.2631 1.2632 1.263 1.263 0 0 1-1.2631 1.2631 1.263 1.263 0 0 1-1.2632-1.2631 1.263 1.263 0 0 1 1.2632-1.2632"},"github":{"kind":"fill","d":"M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"},"microsoftsharepoint":{"kind":"fill","d":"M24 13.5q0 1.242-.475 2.332-.474 1.09-1.289 1.904-.814.815-1.904 1.29-1.09.474-2.332.474-.762 0-1.523-.2-.106.997-.557 1.858-.451.862-1.154 1.494-.704.633-1.606.99-.902.358-1.91.358-1.09 0-2.045-.416-.955-.416-1.664-1.125-.709-.709-1.125-1.664Q6 19.84 6 18.75q0-.188.018-.375.017-.188.04-.375H.997q-.41 0-.703-.293T0 17.004V6.996q0-.41.293-.703T.996 6h3.54q.14-1.277.726-2.373.586-1.096 1.488-1.904Q7.652.914 8.807.457 9.96 0 11.25 0q1.395 0 2.625.533T16.02 1.98q.914.915 1.447 2.145T18 6.75q0 .188-.012.375-.011.188-.035.375 1.242 0 2.344.469 1.101.468 1.928 1.277.826.809 1.3 1.904Q24 12.246 24 13.5zm-12.75-12q-.973 0-1.857.34-.885.34-1.577.943-.691.604-1.154 1.43Q6.2 5.039 6.06 6h4.945q.41 0 .703.293t.293.703v4.945l.21-.035q.212-.75.61-1.424.399-.673.944-1.218.545-.545 1.213-.944.668-.398 1.43-.61.093-.503.093-.96 0-1.09-.416-2.045-.416-.955-1.125-1.664-.709-.709-1.664-1.125Q12.34 1.5 11.25 1.5zM6.117 15.902q.54 0 1.06-.111.522-.111.932-.37.41-.257.662-.679.252-.422.252-1.055 0-.632-.263-1.054-.264-.422-.662-.703-.399-.282-.856-.463l-.855-.34q-.399-.158-.662-.334-.264-.176-.264-.445 0-.2.14-.323.141-.123.335-.193.193-.07.404-.094.21-.023.351-.023.598 0 1.055.152.457.153.95.457V8.543q-.282-.082-.522-.14-.24-.06-.475-.1-.234-.041-.486-.059-.252-.017-.557-.017-.515 0-1.054.117-.54.117-.979.375-.44.258-.715.68-.275.421-.275 1.03 0 .598.263.997.264.398.663.68.398.28.855.474l.856.363q.398.17.662.358.263.187.263.457 0 .222-.123.351-.123.13-.31.2-.188.07-.393.087-.205.018-.369.018-.703 0-1.248-.234-.545-.235-1.107-.621v1.875q1.195.468 2.472.468zM11.25 22.5q.773 0 1.453-.293t1.19-.803q.51-.51.808-1.195.299-.686.299-1.459 0-.668-.223-1.277-.222-.61-.62-1.096-.4-.486-.95-.826-.55-.34-1.207-.48v1.933q0 .41-.293.703t-.703.293H7.57q-.07.375-.07.75 0 .773.293 1.459t.803 1.195q.51.51 1.195.803.686.293 1.459.293zM18 18q.926 0 1.746-.352.82-.351 1.436-.966.615-.616.966-1.43.352-.815.352-1.752 0-.926-.352-1.746-.351-.82-.966-1.436-.616-.615-1.436-.966Q18.926 9 18 9t-1.74.357q-.815.358-1.43.973t-.973 1.43q-.357.814-.357 1.74 0 .129.006.258t.017.258q.551.27 1.02.65t.838.855q.369.475.627 1.026.258.55.387 1.148Q17.18 18 18 18Z"},"notion":{"kind":"fill","d":"M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.139c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.747-.793-1.306-.793-1.96V2.667c0-.839.374-1.54 1.447-1.632z"},"terminal":{"kind":"stroke","d":"M3 4h18v16H3z M7 9l3 3-3 3 M12 15h5"},"clock":{"kind":"stroke","d":"M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z M12 7v5l3 2"},"crm":{"kind":"stroke","d":"M3 5h18v14H3z M9 12m-2.2 0a2.2 2.2 0 1 0 4.4 0 2.2 2.2 0 1 0-4.4 0 M14 10h4 M14 14h4 M5.5 17c.6-1.6 2-2.4 3.5-2.4s2.9.8 3.5 2.4"},"desk":{"kind":"stroke","d":"M4 13a8 8 0 0 1 16 0 M3 13h4v6H3z M17 13h4v6h-4z M19 19v1a2 2 0 0 1-2 2h-4"},"sheet":{"kind":"stroke","d":"M3 4h18v16H3z M3 10h18 M3 15h18 M9 4v16 M15 4v16"}};              // product marks: { name: { kind: 'fill'|'stroke', d } } — CC0 Simple Icons paths, and stroke icons drawn here
   var appReaderP = null;
   function appReader() { if (!APP_VAULT) return Promise.reject(new Error('no app vault in the catalogue')); if (!appReaderP) appReaderP = new Reader({ endpoint: ENDPOINT, vault_id: APP_VAULT.vault_id, read_key: APP_VAULT.key }).init().then(function (r) { return r.open(); }); return appReaderP; }
   function bySlug(slug) { for (var i = 0; i < VAULTS.length; i++) if (VAULTS[i].slug === slug) return VAULTS[i]; return null; }
@@ -1126,6 +1316,7 @@ RM.services.abpVaults = (function () {
   // ---- load one vault's data: live, or the snapshot served from this site ----
   var PATHS = { vault: 'vault.json', grant: 'data/grant.json', mandate: 'data/mandate.json', delta: 'data/delta.json', validity: 'data/validity.json', history: 'history/index.json',
                 capabilities: 'data/vocabulary/capabilities.json', barriers: 'data/vocabulary/barriers.json', undo: 'data/vocabulary/undo-classes.json', tiers: 'data/vocabulary/evidence-tiers.json' };
+  var OPTIONAL = { scenarios: 'data/scenarios.json' };   // absent on a vault pushed before scenarios existed; the page carries on without
   var loads = {};
   function load(slug) {
     if (loads[slug]) return loads[slug];
@@ -1136,6 +1327,7 @@ RM.services.abpVaults = (function () {
         var reader = await new Reader({ endpoint: ENDPOINT, vault_id: v.vid, read_key: v.key }).init();
         await reader.open();
         for (var k in PATHS) out.data[k] = JSON.parse(await reader.readText(PATHS[k]));
+        for (var ko in OPTIONAL) { try { out.data[ko] = JSON.parse(await reader.readText(OPTIONAL[ko])); } catch (_) { out.data[ko] = null; } }
         out.files = Object.keys(reader.files).sort();
         out.commit = reader.commitId;
         out.reader = reader;
@@ -1146,6 +1338,7 @@ RM.services.abpVaults = (function () {
           if (!r.ok) throw new Error('snapshot missing: ' + PATHS[k2]);
           out.data[k2] = await r.json();
         }
+        for (var ko2 in OPTIONAL) { try { var r2 = await fetch('vaults/' + slug + '/' + OPTIONAL[ko2], { cache: 'no-store' }); out.data[ko2] = r2.ok ? await r2.json() : null; } catch (_) { out.data[ko2] = null; } }
       }
       var d = out.data;
       out.cap = {}; d.capabilities.capabilities.forEach(function (c) { out.cap[c.id] = c; });
@@ -1380,6 +1573,130 @@ RM.services.abpVaults = (function () {
     }
   };
 
+  // ---- product marks: an inline SVG per tile, built with the DOM (createElementNS), never markup ----
+  var SVG_NS = 'http://www.w3.org/2000/svg';
+  function logoEl(name, brand, size) {
+    var spec = LOGOS[name], box = dom.el('span', { class: 'ab-logo', style: 'width:' + size + 'px;height:' + size + 'px;background:' + hexA(brand, .10) + ';border-color:' + hexA(brand, .2) });
+    if (!spec) { box.appendChild(dom.el('b', null, [String(name || '?').slice(0, 2).toUpperCase()])); return box; }
+    var svg = document.createElementNS(SVG_NS, 'svg'); svg.setAttribute('viewBox', '0 0 24 24'); svg.setAttribute('width', Math.round(size / 2)); svg.setAttribute('height', Math.round(size / 2)); svg.setAttribute('aria-hidden', 'true');
+    var path = document.createElementNS(SVG_NS, 'path'); path.setAttribute('d', spec.d);
+    if (spec.kind === 'stroke') { path.setAttribute('fill', 'none'); path.setAttribute('stroke', brand); path.setAttribute('stroke-width', '1.8'); path.setAttribute('stroke-linecap', 'round'); path.setAttribute('stroke-linejoin', 'round'); }
+    else path.setAttribute('fill', brand);
+    svg.appendChild(path); box.appendChild(svg); return box;
+  }
+  function hexA(hex, a) { var n = parseInt(String(hex || '#0D0D0C').slice(1), 16); return 'rgba(' + (n >> 16) + ',' + ((n >> 8) & 255) + ',' + (n & 255) + ',' + a + ')'; }
+
+  // ---- the delta, abp.delta/v1, for any mandate against a loaded grant: scenarios reuse it ----
+  function computeDelta(L, want, dnw) {
+    var ids = L.data.grant.grant.map(function (r) { return r.capability; });
+    var W = {}, D = {}; want.forEach(function (i) { W[i] = 1; }); dnw.forEach(function (i) { D[i] = 1; });
+    var excess = ids.filter(function (i) { return !W[i]; });
+    var d = { excess: excess, refused: excess.filter(function (i) { return D[i]; }), unstated: excess.filter(function (i) { return !D[i]; }),
+              unbounded: excess.filter(function (i) { return L.row[i].barrier !== 'boundary'; }), shortfall: want.filter(function (i) { return !L.row[i]; }), aligned: ids.filter(function (i) { return W[i]; }) };
+    d.counts = { grant: ids.length, wanted: want.length, excess: d.excess.length, unbounded: d.unbounded.length, shortfall: d.shortfall.length, aligned: d.aligned.length };
+    return d;
+  }
+
+  // ---- <rm-abp-library> : the directory as one thing — search, filters, grid or list, and the preview panel ----
+  // Progressive: the tiles and rows are static links; this wires them to the panel, the toggle, the
+  // filters and the search box, and the panel is rendered from the vault as it is read.
+  RM.components.AbpLibrary = class extends HTMLElement {
+    connectedCallback() {
+      var self = this;
+      this.panel  = this.querySelector('.ab-panel');
+      this.search = this.querySelector('.ab-search input');
+      this.items  = Array.prototype.slice.call(this.querySelectorAll('[data-slug]'));
+      this.groups = Array.prototype.slice.call(this.querySelectorAll('[data-groupname]'));
+      this.filter = 'all'; this.q = ''; this.beh = '';
+      this.behSel = this.querySelector('.ab-beh select');
+      if (this.behSel) this.behSel.addEventListener('change', function () { self.beh = self.behSel.value; self.apply(); });
+      this.addEventListener('click', function (e) {
+        var t = e.target.closest('[data-view], [data-filter], [data-slug], [data-close], [data-scenario], [data-copy]');
+        if (!t || !self.contains(t)) return;
+        if (t.dataset.view) { self.setView(t.dataset.view); e.preventDefault(); return; }
+        if (t.dataset.filter !== undefined) { self.filter = t.dataset.filter; self.apply(); e.preventDefault(); return; }
+        if (t.dataset.close !== undefined) { self.close(); e.preventDefault(); return; }
+        if (t.dataset.scenario !== undefined) { self.scenario = t.dataset.scenario; self.renderPanel(); e.preventDefault(); return; }
+        if (t.dataset.copy !== undefined) { self.copy(t.dataset.copy, t); e.preventDefault(); return; }
+        if (t.dataset.slug && !t.dataset.off) { if (e.metaKey || e.ctrlKey || e.shiftKey) return; e.preventDefault(); self.select(t.dataset.slug); }
+      });
+      if (this.search) {
+        this.search.addEventListener('input', function () { self.q = self.search.value.trim().toLowerCase(); self.apply(); });
+        document.addEventListener('keydown', function (e) { if (e.key === '/' && document.activeElement !== self.search && !/input|textarea/i.test(document.activeElement.tagName)) { e.preventDefault(); self.search.focus(); } if (e.key === 'Escape' && self.classList.contains('open')) self.close(); });
+      }
+      var m = /(?:^|[#&])policy=([a-z0-9-]+)/.exec(location.hash || '');
+      if (m && bySlug(m[1])) this.select(m[1], true);
+      else this.hint();
+    }
+    setView(v) { this.dataset.view = v; this.querySelectorAll('[data-view]').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.view === v ? 'true' : 'false'); }); }
+    apply() {
+      var self = this, f = this.filter, q = this.q, shown = {};
+      this.items.forEach(function (it) {
+        var ok = (f === 'all' || (f.indexOf('group:') === 0 ? it.dataset.group === f.slice(6) : f.indexOf('ev:') === 0 ? it.dataset.ev === f.slice(3) : true))
+              && (!q || (it.dataset.search || '').indexOf(q) !== -1)
+              && (!self.beh || (' ' + (it.dataset.caps || '') + ' ').indexOf(' ' + self.beh + ' ') !== -1);
+        it.hidden = !ok; if (ok) shown[it.dataset.group] = (shown[it.dataset.group] || 0) + 1;
+      });
+      this.groups.forEach(function (g) { g.hidden = !shown[g.dataset.groupname]; });
+      this.querySelectorAll('[data-filter]').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.filter === f ? 'true' : 'false'); });
+      var none = this.querySelector('.ab-none'); if (none) none.hidden = Object.keys(shown).length > 0;
+    }
+    hint() {
+      if (!this.panel) return; this.panel.textContent = '';
+      this.panel.appendChild(dom.el('div', { class: 'ab-panelhint' }, [dom.el('b', null, ['Click a policy to preview it here.']), ' The card, the grant against the mandate, and the scenarios — without leaving this page. Then open its vault or its page.']));
+    }
+    select(slug, quiet) {
+      var self = this; this.slug = slug; this.scenario = 'stored';
+      this.items.forEach(function (it) { it.classList.toggle('sel', it.dataset.slug === slug); });
+      if (!quiet) { try { history.replaceState(null, '', '#policy=' + slug); } catch (_) {} }
+      this.classList.add('open');
+      this.panel.textContent = ''; this.panel.appendChild(dom.el('p', { class: 'ab-loading' }, ['reading vault ' + (bySlug(slug) || {}).vid + '…']));
+      load(slug).then(function (L) { if (self.slug === slug) { self.L = L; self.renderPanel(); } }).catch(function (e) { fail(self.panel, e); });
+    }
+    close() { this.classList.remove('open'); this.items.forEach(function (it) { it.classList.remove('sel'); }); this.slug = null; this.hint(); try { history.replaceState(null, '', location.pathname + location.search); } catch (_) {} }
+    copy(text, btn) { var done = function () { btn.textContent = 'copied'; setTimeout(function () { btn.textContent = 'copy'; }, 1400); }; if (navigator.clipboard) navigator.clipboard.writeText(text).then(done, function () { window.prompt('Copy the key', text); }); else window.prompt('Copy the key', text); }
+    mandateFor(L) {
+      var m = L.data.mandate, sc = (L.data.scenarios && L.data.scenarios.scenarios) || [];
+      if (this.scenario === 'stored') return { label: m.label || 'As stored', want: m.want, do_not_want: m.do_not_want, description: m.description };
+      for (var i = 0; i < sc.length; i++) if (sc[i].id === this.scenario) return sc[i];
+      return { label: m.label || 'As stored', want: m.want, do_not_want: m.do_not_want, description: m.description };
+    }
+    renderPanel() {
+      var self = this, L = this.L, v = L.vault, g = L.data.grant, vj = L.data.vault, panel = this.panel;
+      var sc = (L.data.scenarios && L.data.scenarios.scenarios) || [], cur = this.mandateFor(L), d = computeDelta(L, cur.want, cur.do_not_want);
+      var measured = g.grant.filter(function (r) { return L.measured[r.evidence]; }).length;
+      var evLabel = measured ? 'measured ' + measured + ' of ' + g.grant.length : (g.grant.every(function (r) { return r.evidence === 'documented' || r.evidence === 'inferred'; }) ? 'documented' : 'derived');
+      var evClass = measured ? 'live' : (evLabel === 'documented' ? 'doc' : 'der');
+      function chipFor(s, id) { var dd = computeDelta(L, s.want, s.do_not_want); var on = self.scenario === id;
+        return dom.el('button', { type: 'button', class: 'ab-scen' + (on ? ' on' : ''), 'data-scenario': id, title: s.description || '' }, [dom.el('b', null, [s.label]), dom.el('span', null, [dd.counts.wanted + ' wanted · ' + dd.counts.unbounded + ' unbounded' + (dd.counts.shortfall ? ' · ' + dd.counts.shortfall + ' shortfall' : '')])]); }
+      var normal = sc.filter(function (s) { return s.tier === 'normal'; }), adv = sc.filter(function (s) { return s.tier !== 'normal'; });
+      var W = {}, D = {}; cur.want.forEach(function (i) { W[i] = 1; }); cur.do_not_want.forEach(function (i) { D[i] = 1; });
+      function st(id) { return W[id] ? 'want' : D[id] ? 'refused' : 'unstated'; }
+      var ids = sortRows(L, g.grant.map(function (r) { return r.capability; }));
+      panel.textContent = '';
+      panel.appendChild(dom.el('div', { class: 'ab-ph' }, [
+        logoEl(v.logo, v.brand, 52),
+        dom.el('div', { class: 'ab-pht' }, [dom.el('b', null, [vj.title || v.title]), dom.el('span', { class: 'ab-meta' }, [g.id + ' · grant ' + g.profile_version + (L.source === 'live' ? ' · live' : ' · snapshot')]),
+          dom.el('span', { class: 'ab-pills' }, [dom.el('span', { class: 'ab-pill ' + (vj.status === 'template' ? 'unstated' : 'want') }, [vj.status]), dom.el('span', { class: 'ab-pill ev-' + evClass }, [evLabel])].concat((g.research_needed || []).length ? [dom.el('span', { class: 'ab-pill unstated' }, [(g.research_needed || []).length + ' open questions'])] : []))]),
+        dom.el('button', { type: 'button', class: 'ab-x', 'data-close': '', 'aria-label': 'Close the preview' }, ['×']),
+      ]));
+      panel.appendChild(dom.el('p', { class: 'ab-pblurb' }, [v.blurb || g.description]));
+      var scen = dom.el('div', { class: 'ab-scens' }, [dom.el('div', { class: 'ab-scenhead' }, [dom.el('span', { class: 'ab-tag' }, ['Scenario']), dom.el('span', null, ['changes the mandate, never the grant'])]),
+        dom.el('div', { class: 'ab-scenrow one' }, [chipFor({ label: 'As stored — ' + (L.data.mandate.label || 'the starting mandate'), want: L.data.mandate.want, do_not_want: L.data.mandate.do_not_want, description: L.data.mandate.description }, 'stored')])]);
+      if (normal.length) { scen.appendChild(dom.el('span', { class: 'ab-scentier' }, ['Normal use'])); scen.appendChild(dom.el('div', { class: 'ab-scenrow' }, normal.map(function (s) { return chipFor(s, s.id); }))); }
+      if (adv.length) { scen.appendChild(dom.el('span', { class: 'ab-scentier' }, ['Advanced'])); scen.appendChild(dom.el('div', { class: 'ab-scenrow' }, adv.map(function (s) { return chipFor(s, s.id); }))); }
+      panel.appendChild(scen);
+      panel.appendChild(dom.el('p', { class: 'ab-scendesc' }, [dom.el('b', null, [cur.label + '. ']), cur.description || '']));
+      panel.appendChild(dom.el('div', { class: 'ab-pcounts' }, [[d.counts.grant, 'it can do', ''], [d.counts.wanted, 'wanted', 'ok'], [d.counts.excess, 'not asked', 'ex'], [d.counts.unbounded, 'unbounded', 'un'], [d.counts.shortfall, 'shortfall', d.counts.shortfall ? 'sf' : '']].map(function (c) { return dom.el('span', { class: 'ab-pc ' + c[2] }, [dom.el('b', null, [String(c[0])]), dom.el('span', null, [c[1]])]); })));
+      var rows = dom.el('div', { class: 'ab-gm' }, [dom.el('div', { class: 'ab-scenhead' }, [dom.el('span', { class: 'ab-tag' }, ['The grant, against this mandate']), dom.el('span', null, ['○ boundary · ◐ setting · ◉ rule · ● none'])])]);
+      ids.forEach(function (id) { var r = L.row[id], s = st(id); rows.appendChild(dom.el('div', { class: 'ab-gmrow' }, [dom.el('span', { class: 'ab-g ' + r.barrier }, [GLYPH[r.barrier]]), dom.el('span', { class: 'ab-gmid' }, [dom.el('b', null, [id]), dom.el('span', null, [r.note || gloss(L, id)])]), dom.el('span', { class: 'ab-pill ' + s }, [{ want: 'wanted', refused: 'refused', unstated: 'unstated' }[s]])])); });
+      d.shortfall.forEach(function (id) { rows.appendChild(dom.el('div', { class: 'ab-gmrow short' }, [dom.el('span', { class: 'ab-g' }, ['·']), dom.el('span', { class: 'ab-gmid' }, [dom.el('b', null, [id]), dom.el('span', null, [gloss(L, id) + ' — not in the grant'])]), dom.el('span', { class: 'ab-pill short' }, ['wanted · not granted'])])); });
+      panel.appendChild(rows);
+      panel.appendChild(dom.el('div', { class: 'ab-pbtns' }, [dom.el('a', { class: 'btn btn-green', href: v.page }, ['Open the policy page →']), dom.el('a', { class: 'btn btn-ghost dark', href: UI + '/en-gb/#' + v.key + ':' + v.vid, target: '_blank', rel: 'noopener' }, ['Open the vault ↗'])]));
+      panel.appendChild(dom.el('div', { class: 'ab-pkey' }, [dom.el('span', null, ['read key ']), dom.el('code', null, [publicKey(v)]), dom.el('button', { type: 'button', class: 'ab-copy', 'data-copy': publicKey(v) }, ['copy'])]));
+    }
+  };
+  customElements.define('rm-abp-library', RM.components.AbpLibrary);
   customElements.define('rm-abp-mini',  RM.components.AbpMini);
   customElements.define('rm-abp-card',  RM.components.AbpCard);
   customElements.define('rm-abp-table', RM.components.AbpTable);
@@ -1387,7 +1704,7 @@ RM.services.abpVaults = (function () {
   customElements.define('rm-abp-key',   RM.components.AbpKey);
   customElements.define('rm-abp-app',   RM.components.AbpApp);
 
-  return { VAULTS: VAULTS, bySlug: bySlug, publicKey: publicKey, load: load, Reader: Reader, ENDPOINT: ENDPOINT, UI: UI };
+  return { VAULTS: VAULTS, bySlug: bySlug, publicKey: publicKey, load: load, Reader: Reader, ENDPOINT: ENDPOINT, UI: UI, computeDelta: computeDelta, logoEl: logoEl };
 })();
 
 'use strict';

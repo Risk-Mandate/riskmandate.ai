@@ -1,0 +1,80 @@
+{
+  "type": "riskmandate/abp-scenarios/v1",
+  "_what_this_is": "Alternative mandates for the same grant. Each scenario is a deployer's sentence and the primitives it wants and refuses; everything else is unstated. The grant never changes; the delta is recomputed per scenario. Written on this site as starting points to be argued with.",
+  "authored": "2026-09-15",
+  "scenarios": [
+    {
+      "id": "chat-and-uploads",
+      "tier": "normal",
+      "label": "Chat and uploads",
+      "description": "A chat window and the files I paste into it.",
+      "want": [
+        "read.file.project"
+      ],
+      "do_not_want": [
+        "read.file.host"
+      ]
+    },
+    {
+      "id": "draft-text",
+      "tier": "normal",
+      "label": "Draft text",
+      "description": "Write for me; nothing of mine is connected.",
+      "want": [
+        "read.file.project"
+      ],
+      "do_not_want": []
+    },
+    {
+      "id": "analyse-a-file",
+      "tier": "normal",
+      "label": "Analyse a file I upload",
+      "description": "Read what I upload, and only that.",
+      "want": [
+        "read.file.project"
+      ],
+      "do_not_want": [
+        "read.file.host",
+        "write.file.host"
+      ]
+    },
+    {
+      "id": "browse-for-me",
+      "tier": "advanced",
+      "label": "Browse for me",
+      "description": "Search the web and read pages as part of answering.",
+      "want": [
+        "send.endpoint.world",
+        "read.file.project"
+      ],
+      "do_not_want": [
+        "authenticate-as.credential.tenant"
+      ]
+    },
+    {
+      "id": "connect-my-drive",
+      "tier": "advanced",
+      "label": "Connect my drive",
+      "description": "Read my cloud files to answer questions.",
+      "want": [
+        "read.file.host"
+      ],
+      "do_not_want": [
+        "write.file.host"
+      ]
+    },
+    {
+      "id": "run-code",
+      "tier": "advanced",
+      "label": "Run code",
+      "description": "Execute code in a sandbox to compute an answer.",
+      "want": [
+        "execute.process.self",
+        "read.file.project"
+      ],
+      "do_not_want": [
+        "execute.process.host"
+      ]
+    }
+  ]
+}

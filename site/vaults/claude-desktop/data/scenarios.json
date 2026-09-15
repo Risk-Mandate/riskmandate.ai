@@ -1,0 +1,90 @@
+{
+  "type": "riskmandate/abp-scenarios/v1",
+  "_what_this_is": "Alternative mandates for the same grant. Each scenario is a deployer's sentence and the primitives it wants and refuses; everything else is unstated. The grant never changes; the delta is recomputed per scenario. Written on this site as starting points to be argued with.",
+  "authored": "2026-09-15",
+  "scenarios": [
+    {
+      "id": "draft-with-me",
+      "tier": "normal",
+      "label": "Draft documents with me",
+      "description": "Write and edit in the folder I opened. Do not look elsewhere, do not run anything.",
+      "want": [
+        "read.file.project",
+        "write.file.project"
+      ],
+      "do_not_want": [
+        "read.file.host",
+        "execute.process.host"
+      ]
+    },
+    {
+      "id": "search-my-files",
+      "tier": "normal",
+      "label": "Search my files and summarise",
+      "description": "Read anything on this machine to answer me; change nothing.",
+      "want": [
+        "read.file.host",
+        "read.file.project"
+      ],
+      "do_not_want": [
+        "write.file.host",
+        "execute.process.host"
+      ]
+    },
+    {
+      "id": "browse-and-cite",
+      "tier": "normal",
+      "label": "Browse and cite",
+      "description": "Look things up on the sites I allow and cite them.",
+      "want": [
+        "send.endpoint.allowed",
+        "read.file.project"
+      ],
+      "do_not_want": [
+        "write.file.host"
+      ]
+    },
+    {
+      "id": "organise-downloads",
+      "tier": "advanced",
+      "label": "Organise my downloads folder",
+      "description": "Move and rename files on the disk.",
+      "want": [
+        "read.file.host",
+        "write.file.host"
+      ],
+      "do_not_want": [
+        "execute.process.host",
+        "read.credential.host"
+      ]
+    },
+    {
+      "id": "run-scripts-for-me",
+      "tier": "advanced",
+      "label": "Run scripts for me",
+      "description": "Run programs on this machine as me, reading and writing what they need.",
+      "want": [
+        "execute.process.host",
+        "read.file.host",
+        "write.file.host"
+      ],
+      "do_not_want": [
+        "read.credential.host",
+        "grant.credential.self"
+      ]
+    },
+    {
+      "id": "act-in-my-accounts",
+      "tier": "advanced",
+      "label": "Act in my accounts",
+      "description": "Use the credentials on this machine to act in my accounts and reach anything on the internet.",
+      "want": [
+        "authenticate-as.credential.tenant",
+        "send.endpoint.world"
+      ],
+      "do_not_want": [
+        "read.credential.host"
+      ]
+    }
+  ]
+}

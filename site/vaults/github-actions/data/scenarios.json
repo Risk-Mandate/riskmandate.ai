@@ -1,0 +1,95 @@
+{
+  "type": "riskmandate/abp-scenarios/v1",
+  "_what_this_is": "Alternative mandates for the same grant. Each scenario is a deployer's sentence and the primitives it wants and refuses; everything else is unstated. The grant never changes; the delta is recomputed per scenario. Written on this site as starting points to be argued with.",
+  "authored": "2026-09-15",
+  "scenarios": [
+    {
+      "id": "run-tests-on-push",
+      "tier": "normal",
+      "label": "Run tests on every push",
+      "description": "Check out the code and run the tests. Nothing is written back.",
+      "want": [
+        "read.file.project",
+        "execute.process.host"
+      ],
+      "do_not_want": [
+        "write.repository.project",
+        "write.repository.tenant",
+        "read.credential.host"
+      ]
+    },
+    {
+      "id": "build-and-publish-artefacts",
+      "tier": "normal",
+      "label": "Build and publish artefacts",
+      "description": "Build the project and upload the result somewhere.",
+      "want": [
+        "read.file.project",
+        "execute.process.host",
+        "write.file.project",
+        "send.endpoint.world"
+      ],
+      "do_not_want": [
+        "read.credential.host"
+      ]
+    },
+    {
+      "id": "lint-and-comment",
+      "tier": "normal",
+      "label": "Lint and comment on pull requests",
+      "description": "Run the linters and post the findings.",
+      "want": [
+        "read.file.project",
+        "execute.process.host",
+        "send.endpoint.world"
+      ],
+      "do_not_want": [
+        "write.repository.project"
+      ]
+    },
+    {
+      "id": "auto-merge-dependencies",
+      "tier": "advanced",
+      "label": "Auto-merge dependency updates",
+      "description": "Update, test and commit back to the repository without a person.",
+      "want": [
+        "read.file.project",
+        "write.file.project",
+        "write.repository.project",
+        "execute.process.host"
+      ],
+      "do_not_want": [
+        "read.credential.host"
+      ]
+    },
+    {
+      "id": "deploy-to-production",
+      "tier": "advanced",
+      "label": "Deploy to production",
+      "description": "Use the deploy credentials to push to the live environment.",
+      "want": [
+        "execute.process.host",
+        "send.endpoint.world",
+        "read.credential.host",
+        "write.repository.tenant"
+      ],
+      "do_not_want": [
+        "delete.file.host"
+      ]
+    },
+    {
+      "id": "release-with-signed-tags",
+      "tier": "advanced",
+      "label": "Release with signed tags",
+      "description": "Tag, sign and push releases to other repositories.",
+      "want": [
+        "write.repository.tenant",
+        "authenticate-as.credential.signing",
+        "execute.process.host"
+      ],
+      "do_not_want": [
+        "read.credential.host"
+      ]
+    }
+  ]
+}

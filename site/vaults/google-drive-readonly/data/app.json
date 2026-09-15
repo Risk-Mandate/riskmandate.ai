@@ -4,6 +4,7 @@
     "google-drive-readonly.zip": true
   },
   "research_open": 3,
+  "scenarios": 6,
   "app_vault": {
     "vault_id": "fl3i7lu4",
     "entry": "index.html",

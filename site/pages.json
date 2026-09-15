@@ -68,6 +68,11 @@
       "group": "The model"
     },
     {
+      "name": "agent-behaviour-policy",
+      "label": "Behaviour policies",
+      "file": "agent-behaviour-policy.html"
+    },
+    {
       "name": "demos",
       "label": "All demos",
       "file": "demos.html",
@@ -107,12 +112,6 @@
       "name": "demo-agent-permission-games",
       "label": "Permission games",
       "file": "demo-agent-permission-games.html",
-      "group": "Live demos"
-    },
-    {
-      "name": "abp-vaults",
-      "label": "Behaviour-policy vaults",
-      "file": "abp-vaults.html",
       "group": "Live demos"
     },
     {

@@ -21,7 +21,9 @@ const listed = JSON.parse(read('pages.json')).pages;
 // advertises them. They are still real pages and still have to hold together,
 // so every other check below applies to them.
 const secret = new Set(listed.filter(p => p.private).map(p => p.file));
-const pages  = html.filter(f => f !== '404.html');
+// a redirect stub (a renamed page's old address) carries no menu and no chrome, on purpose
+const isStub = (f) => /<meta http-equiv="refresh"/i.test(readFileSync(join(SITE, f), 'utf8'));
+const pages  = html.filter(f => f !== '404.html' && !isStub(f));
 const pub    = pages.filter(f => !secret.has(f));
 
 test('every page is a whole document, not a fragment loaded into a frame', () => {

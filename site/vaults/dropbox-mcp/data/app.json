@@ -5,6 +5,7 @@
     "dropbox-mcp.pdf": true
   },
   "research_open": 4,
+  "scenarios": 6,
   "app_vault": {
     "vault_id": "fl3i7lu4",
     "entry": "index.html",

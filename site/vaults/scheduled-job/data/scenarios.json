@@ -1,0 +1,89 @@
+{
+  "type": "riskmandate/abp-scenarios/v1",
+  "_what_this_is": "Alternative mandates for the same grant. Each scenario is a deployer's sentence and the primitives it wants and refuses; everything else is unstated. The grant never changes; the delta is recomputed per scenario. Written on this site as starting points to be argued with.",
+  "authored": "2026-09-15",
+  "scenarios": [
+    {
+      "id": "nightly-report",
+      "tier": "normal",
+      "label": "A nightly report",
+      "description": "Read the data, build the report, post it to the one place we allow.",
+      "want": [
+        "execute.process.host",
+        "read.file.host",
+        "send.endpoint.allowed"
+      ],
+      "do_not_want": [
+        "write.budget.tenant",
+        "send.endpoint.world"
+      ]
+    },
+    {
+      "id": "sync-two-systems",
+      "tier": "normal",
+      "label": "Sync two systems",
+      "description": "Read from one account, write to another, on a timer.",
+      "want": [
+        "execute.process.host",
+        "read.file.host",
+        "write.file.host",
+        "authenticate-as.credential.tenant"
+      ],
+      "do_not_want": [
+        "write.budget.tenant"
+      ]
+    },
+    {
+      "id": "clean-up-temp-files",
+      "tier": "normal",
+      "label": "Clean up temporary files",
+      "description": "Delete what is older than a week in the temp directory.",
+      "want": [
+        "execute.process.host",
+        "delete.file.host"
+      ],
+      "do_not_want": [
+        "send.endpoint.world"
+      ]
+    },
+    {
+      "id": "call-an-llm-on-schedule",
+      "tier": "advanced",
+      "label": "Call a model on a schedule",
+      "description": "Spend against the model account every hour.",
+      "want": [
+        "execute.process.host",
+        "write.budget.tenant",
+        "send.endpoint.world"
+      ],
+      "do_not_want": []
+    },
+    {
+      "id": "self-modifying-schedule",
+      "tier": "advanced",
+      "label": "A job that schedules jobs",
+      "description": "Create new scheduled work as it sees fit.",
+      "want": [
+        "create.schedule.host",
+        "execute.process.host"
+      ],
+      "do_not_want": [
+        "write.budget.tenant"
+      ]
+    },
+    {
+      "id": "act-in-accounts-unattended",
+      "tier": "advanced",
+      "label": "Act in accounts, unattended",
+      "description": "Use the service account to act anywhere it can reach, with nobody watching.",
+      "want": [
+        "authenticate-as.credential.tenant",
+        "send.endpoint.world",
+        "execute.process.host"
+      ],
+      "do_not_want": [
+        "write.budget.tenant"
+      ]
+    }
+  ]
+}

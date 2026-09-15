@@ -21,6 +21,7 @@
 | `MAP-A-GRANT.md` | A prompt for an agent that already holds a credential or a connector: measure your own grant and draft the first policy | generic; travels unchanged |
 | `data/validity.json` | What this describes, as at when, and what would void it | derived |
 | `data/vocabulary/` | The 23 capability primitives, 4 barriers, 3 undo classes and evidence tiers this was computed against, pinned | copied from abp.sgit.ai, versioned |
+| `data/scenarios.json` | 6 scenarios — alternative mandates for the same grant (3 normal use, 3 advanced); the delta is recomputed per scenario | written here as starting points; the grant never changes |
 | `history/` | One entry per recompute whose counts moved | derived |
 
 ## How to read it

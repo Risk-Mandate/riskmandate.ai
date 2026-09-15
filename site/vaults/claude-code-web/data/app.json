@@ -4,6 +4,7 @@
     "claude-code-web.zip": true,
     "claude-code-web.pdf": true
   },
+  "scenarios": 6,
   "app_vault": {
     "vault_id": "fl3i7lu4",
     "entry": "index.html",

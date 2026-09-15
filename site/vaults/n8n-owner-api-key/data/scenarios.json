@@ -1,0 +1,90 @@
+{
+  "type": "riskmandate/abp-scenarios/v1",
+  "_what_this_is": "Alternative mandates for the same grant. Each scenario is a deployer's sentence and the primitives it wants and refuses; everything else is unstated. The grant never changes; the delta is recomputed per scenario. Written on this site as starting points to be argued with.",
+  "authored": "2026-09-15",
+  "scenarios": [
+    {
+      "id": "build-one-workflow-sandbox",
+      "tier": "normal",
+      "label": "Build one workflow, in a sandbox",
+      "description": "Build and run one AI-agent workflow against one credential; measure the rest.",
+      "want": [
+        "write.file.project",
+        "create.schedule.tenant",
+        "write.budget.tenant",
+        "read.record.history"
+      ],
+      "do_not_want": [
+        "read.credential.host",
+        "send.endpoint.world"
+      ]
+    },
+    {
+      "id": "monitor-executions",
+      "tier": "normal",
+      "label": "Monitor executions",
+      "description": "Read execution records and report failures. Change nothing.",
+      "want": [
+        "read.record.history"
+      ],
+      "do_not_want": [
+        "write.file.project",
+        "create.schedule.tenant"
+      ]
+    },
+    {
+      "id": "draft-workflows-i-activate",
+      "tier": "normal",
+      "label": "Draft workflows, I activate",
+      "description": "Create and edit workflows; activation is mine.",
+      "want": [
+        "write.file.project",
+        "read.record.history"
+      ],
+      "do_not_want": [
+        "create.schedule.tenant",
+        "send.endpoint.world"
+      ]
+    },
+    {
+      "id": "workflows-that-call-out",
+      "tier": "advanced",
+      "label": "Workflows that call out",
+      "description": "Build and activate workflows that reach external services and spend against the model account.",
+      "want": [
+        "write.file.project",
+        "create.schedule.tenant",
+        "send.endpoint.world",
+        "write.budget.tenant"
+      ],
+      "do_not_want": [
+        "read.credential.host"
+      ]
+    },
+    {
+      "id": "manage-credentials",
+      "tier": "advanced",
+      "label": "Manage credentials",
+      "description": "Read and reference the credential store when building.",
+      "want": [
+        "read.credential.host",
+        "write.file.project"
+      ],
+      "do_not_want": []
+    },
+    {
+      "id": "run-code-nodes",
+      "tier": "advanced",
+      "label": "Run code nodes",
+      "description": "Workflows with code that runs on the server.",
+      "want": [
+        "write.file.project",
+        "execute.process.host",
+        "create.schedule.tenant"
+      ],
+      "do_not_want": [
+        "read.credential.host"
+      ]
+    }
+  ]
+}

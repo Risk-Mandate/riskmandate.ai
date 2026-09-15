@@ -175,6 +175,13 @@ const research       = grant.research_needed || [];
 const contradictions = grant.contradictions  || [];
 const notInGrammar   = grant.not_in_grammar  || [];
 const hasMaterial    = grant.grant.some(r => r.material);
+// Scenarios: alternative mandates for the same grant (data/scenarios.json), validated here so a
+// scenario can never name a primitive the vocabulary does not have or want and refuse the same row.
+const scenarios = existsSync(join(DIR, 'data/scenarios.json')) ? rd('data/scenarios.json').scenarios : [];
+for (const sc of scenarios) {
+  for (const id of [...sc.want, ...sc.do_not_want]) if (!CAP[id]) { console.error(`scenario ${sc.id}: unknown capability ${id}`); process.exit(1); }
+  if (sc.want.some(id => sc.do_not_want.includes(id))) { console.error(`scenario ${sc.id}: wants and refuses the same row`); process.exit(1); }
+}
 const who = {
   organisation: cfg.organisation || (isTemplate ? '— not yet issued to anyone —' : ''),
   agent: cfg.agent || grant.product,
@@ -216,6 +223,7 @@ const readme = nl(
   '| `MAP-A-GRANT.md` | A prompt for an agent that already holds a credential or a connector: measure your own grant and draft the first policy | generic; travels unchanged |',
   '| `data/validity.json` | What this describes, as at when, and what would void it | derived |',
   '| `data/vocabulary/` | The 23 capability primitives, 4 barriers, 3 undo classes and evidence tiers this was computed against, pinned | copied from abp.sgit.ai, versioned |',
+  scenarios.length ? `| \`data/scenarios.json\` | ${scenarios.length} scenarios — alternative mandates for the same grant (${scenarios.filter(s => s.tier === 'normal').length} normal use, ${scenarios.filter(s => s.tier === 'advanced').length} advanced); the delta is recomputed per scenario | written here as starting points; the grant never changes |` : [],
   research.length ? `| \`RESEARCH-NEEDED.md\` | ${research.length} questions the grant cannot settle from published pages, each with how to settle it — hand them to an agent | derived from the grant; answered by whoever researches |` : [],
   '| `history/` | One entry per recompute whose counts moved | derived |', '',
   '## How to read it', '',
@@ -491,6 +499,7 @@ if (existsSync(join(TEMPLATE, '..', '_app', 'loader.html'))) {
     ...Object.entries(outputs).filter(([n]) => /\.(md|json)$/.test(n)).map(([n, c]) => ({ name: n, data: Buffer.from(c, 'utf8') })),
     { name: 'AGENTS.md', data: Buffer.from(agents, 'utf8') }, { name: 'SKILL.md', data: Buffer.from(skill, 'utf8') },
     { name: 'MAP-A-GRANT.md', data: readFileSync(existsSync(join(DIR, 'MAP-A-GRANT.md')) ? join(DIR, 'MAP-A-GRANT.md') : join(TEMPLATE, 'MAP-A-GRANT.md')) },
+    ...(scenarios.length ? [{ name: 'data/scenarios.json', data: readFileSync(join(DIR, 'data/scenarios.json')) }] : []),
     { name: 'vault.json', data: readFileSync(join(DIR, 'vault.json')) },
     { name: 'data/grant.json', data: readFileSync(join(DIR, 'data/grant.json')) }, { name: 'data/mandate.json', data: readFileSync(join(DIR, 'data/mandate.json')) },
     ...['capabilities', 'barriers', 'undo-classes', 'evidence-tiers'].map(f => ({ name: `data/vocabulary/${f}.json`, data: readFileSync(join(DIR, `data/vocabulary/${f}.json`)) })),
@@ -499,7 +508,7 @@ if (existsSync(join(TEMPLATE, '..', '_app', 'loader.html'))) {
   outputs[`dist/${zipName}`] = zipStore(zipEntries);
   const dist = { [zipName]: true, ...(existsSync(join(distDir, pdfName)) ? { [pdfName]: true } : {}) };
   // what the renderer needs to know that is not in a data file: which dist files exist
-  outputs['data/app.json'] = JSON.stringify({ type: 'riskmandate/abp-app-context/v1', dist, ...(research.length ? { research_open: research.length } : {}), app_vault: appVault ? { vault_id: appVault.vault_id, entry: appVault.entry || 'index.html', version: appVault.version || null } : null }, null, 2) + '\n';
+  outputs['data/app.json'] = JSON.stringify({ type: 'riskmandate/abp-app-context/v1', dist, ...(research.length ? { research_open: research.length } : {}), ...(scenarios.length ? { scenarios: scenarios.length } : {}), app_vault: appVault ? { vault_id: appVault.vault_id, entry: appVault.entry || 'index.html', version: appVault.version || null } : null }, null, 2) + '\n';
   const loader = readFileSync(join(TEMPLATE, '..', '_app', 'loader.html'), 'utf8');
   if (!loader.includes('/*__APP_VAULT__*/{}')) { console.error('loader.html has no /*__APP_VAULT__*/{} marker'); process.exit(1); }
   const cfgApp = { endpoint: catalogue.endpoint, vault_id: appVault?.vault_id || null, read_key: appVault?.key || null, entry: appVault?.entry || 'index.html', version: appVault?.version || null, static: '../_app/index.html' };

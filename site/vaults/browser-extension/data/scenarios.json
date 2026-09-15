@@ -1,0 +1,84 @@
+{
+  "type": "riskmandate/abp-scenarios/v1",
+  "_what_this_is": "Alternative mandates for the same grant. Each scenario is a deployer's sentence and the primitives it wants and refuses; everything else is unstated. The grant never changes; the delta is recomputed per scenario. Written on this site as starting points to be argued with.",
+  "authored": "2026-09-15",
+  "scenarios": [
+    {
+      "id": "summarise-this-page",
+      "tier": "normal",
+      "label": "Summarise the page I am on",
+      "description": "Read the page in front of me and answer. Do not log in anywhere, do not send anything.",
+      "want": [
+        "read.record.browsing"
+      ],
+      "do_not_want": [
+        "send.endpoint.world",
+        "authenticate-as.credential.tenant"
+      ]
+    },
+    {
+      "id": "fill-forms-from-notes",
+      "tier": "normal",
+      "label": "Fill forms from my notes",
+      "description": "Read the page and type into it for me.",
+      "want": [
+        "read.record.browsing",
+        "send.endpoint.world"
+      ],
+      "do_not_want": [
+        "authenticate-as.credential.tenant"
+      ]
+    },
+    {
+      "id": "watch-for-prices",
+      "tier": "normal",
+      "label": "Watch a page for me",
+      "description": "Check a page on a schedule and tell me when it changes.",
+      "want": [
+        "read.record.browsing",
+        "create.schedule.host"
+      ],
+      "do_not_want": [
+        "authenticate-as.credential.tenant"
+      ]
+    },
+    {
+      "id": "log-in-and-act-as-me",
+      "tier": "advanced",
+      "label": "Log in and act as me",
+      "description": "Use my sessions to act in my accounts through the browser.",
+      "want": [
+        "authenticate-as.credential.tenant",
+        "read.record.browsing",
+        "send.endpoint.world"
+      ],
+      "do_not_want": []
+    },
+    {
+      "id": "autonomous-browsing-task",
+      "tier": "advanced",
+      "label": "An autonomous browsing task",
+      "description": "Browse, log in and complete a task while I am away.",
+      "want": [
+        "read.record.browsing",
+        "send.endpoint.world",
+        "authenticate-as.credential.tenant",
+        "create.schedule.host"
+      ],
+      "do_not_want": []
+    },
+    {
+      "id": "read-only-research",
+      "tier": "advanced",
+      "label": "Read-only research, no logins",
+      "description": "Read many pages; never log in, never submit.",
+      "want": [
+        "read.record.browsing"
+      ],
+      "do_not_want": [
+        "authenticate-as.credential.tenant",
+        "send.endpoint.world"
+      ]
+    }
+  ]
+}

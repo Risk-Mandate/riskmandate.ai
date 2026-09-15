@@ -1,0 +1,86 @@
+{
+  "type": "riskmandate/abp-scenarios/v1",
+  "_what_this_is": "Alternative mandates for the same grant. Each scenario is a deployer's sentence and the primitives it wants and refuses; everything else is unstated. The grant never changes; the delta is recomputed per scenario. Written on this site as starting points to be argued with.",
+  "authored": "2026-09-15",
+  "scenarios": [
+    {
+      "id": "find-documents",
+      "tier": "normal",
+      "label": "Find documents",
+      "description": "Find the file I mean and open it. Change nothing.",
+      "want": [
+        "read.file.host"
+      ],
+      "do_not_want": [
+        "write.file.host",
+        "delete.file.host",
+        "read.credential.host"
+      ]
+    },
+    {
+      "id": "answer-from-my-docs",
+      "tier": "normal",
+      "label": "Answer questions from my docs",
+      "description": "Read across the drive to answer.",
+      "want": [
+        "read.file.host"
+      ],
+      "do_not_want": [
+        "write.file.host",
+        "read.credential.host"
+      ]
+    },
+    {
+      "id": "weekly-digest-of-new-files",
+      "tier": "normal",
+      "label": "A weekly digest of new files",
+      "description": "What was shared with me this week, every Friday.",
+      "want": [
+        "read.file.host",
+        "create.schedule.tenant"
+      ],
+      "do_not_want": [
+        "write.file.host"
+      ]
+    },
+    {
+      "id": "organise-my-drive",
+      "tier": "advanced",
+      "label": "Organise my drive",
+      "description": "Move files into folders and rename them.",
+      "want": [
+        "read.file.host",
+        "write.file.host"
+      ],
+      "do_not_want": [
+        "delete.file.host"
+      ]
+    },
+    {
+      "id": "clean-up-duplicates",
+      "tier": "advanced",
+      "label": "Clean up duplicates",
+      "description": "Find duplicates and delete the extras.",
+      "want": [
+        "read.file.host",
+        "delete.file.host"
+      ],
+      "do_not_want": [
+        "create.record.world"
+      ]
+    },
+    {
+      "id": "share-files-for-me",
+      "tier": "advanced",
+      "label": "Share files for me",
+      "description": "Create sharing links when I ask.",
+      "want": [
+        "read.file.host",
+        "create.record.world"
+      ],
+      "do_not_want": [
+        "delete.file.host"
+      ]
+    }
+  ]
+}

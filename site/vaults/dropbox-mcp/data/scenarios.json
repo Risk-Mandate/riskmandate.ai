@@ -1,0 +1,88 @@
+{
+  "type": "riskmandate/abp-scenarios/v1",
+  "_what_this_is": "Alternative mandates for the same grant. Each scenario is a deployer's sentence and the primitives it wants and refuses; everything else is unstated. The grant never changes; the delta is recomputed per scenario. Written on this site as starting points to be argued with.",
+  "authored": "2026-09-15",
+  "scenarios": [
+    {
+      "id": "find-and-read-my-files",
+      "tier": "normal",
+      "label": "Find and read my files",
+      "description": "Search and read; never change, never share.",
+      "want": [
+        "read.file.host"
+      ],
+      "do_not_want": [
+        "delete.file.host",
+        "create.record.world",
+        "write.file.host"
+      ]
+    },
+    {
+      "id": "summarise-a-folder",
+      "tier": "normal",
+      "label": "Summarise a folder",
+      "description": "Read everything in one folder and tell me what is there.",
+      "want": [
+        "read.file.host"
+      ],
+      "do_not_want": [
+        "write.file.host",
+        "delete.file.host"
+      ]
+    },
+    {
+      "id": "create-notes-into-a-folder",
+      "tier": "normal",
+      "label": "Create notes into a folder",
+      "description": "Write new files where I say; touch nothing else.",
+      "want": [
+        "read.file.host",
+        "write.file.host"
+      ],
+      "do_not_want": [
+        "delete.file.host",
+        "create.record.world"
+      ]
+    },
+    {
+      "id": "organise-and-rename",
+      "tier": "advanced",
+      "label": "Organise and rename",
+      "description": "Move, rename and copy files across my Dropbox.",
+      "want": [
+        "read.file.host",
+        "write.file.host"
+      ],
+      "do_not_want": [
+        "delete.file.host",
+        "create.record.world"
+      ]
+    },
+    {
+      "id": "share-links-for-me",
+      "tier": "advanced",
+      "label": "Share links for me",
+      "description": "Create shared links and file requests.",
+      "want": [
+        "read.file.host",
+        "create.record.world"
+      ],
+      "do_not_want": [
+        "delete.file.host"
+      ]
+    },
+    {
+      "id": "full-file-agent",
+      "tier": "advanced",
+      "label": "A full file agent",
+      "description": "Read, write, delete and share, as I would.",
+      "want": [
+        "read.file.host",
+        "write.file.host",
+        "delete.file.host",
+        "create.record.world"
+      ],
+      "do_not_want": []
+    }
+  ]
+}

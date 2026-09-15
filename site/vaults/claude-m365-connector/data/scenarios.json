@@ -1,0 +1,82 @@
+{
+  "type": "riskmandate/abp-scenarios/v1",
+  "_what_this_is": "Alternative mandates for the same grant. Each scenario is a deployer's sentence and the primitives it wants and refuses; everything else is unstated. The grant never changes; the delta is recomputed per scenario. Written on this site as starting points to be argued with.",
+  "authored": "2026-09-15",
+  "scenarios": [
+    {
+      "id": "search-tenant-read-only",
+      "tier": "normal",
+      "label": "Search mail, chats and SharePoint",
+      "description": "Find things across the tenant; never send.",
+      "want": [
+        "read.message.tenant",
+        "read.file.host"
+      ],
+      "do_not_want": [
+        "send.message.world",
+        "read.credential.host"
+      ]
+    },
+    {
+      "id": "summarise-a-thread",
+      "tier": "normal",
+      "label": "Summarise a thread",
+      "description": "Read one conversation and summarise it.",
+      "want": [
+        "read.message.tenant"
+      ],
+      "do_not_want": [
+        "send.message.world"
+      ]
+    },
+    {
+      "id": "find-the-document",
+      "tier": "normal",
+      "label": "Find the document",
+      "description": "Search SharePoint and OneDrive for the file.",
+      "want": [
+        "read.file.host"
+      ],
+      "do_not_want": [
+        "send.message.world"
+      ]
+    },
+    {
+      "id": "reply-for-me",
+      "tier": "advanced",
+      "label": "Reply for me",
+      "description": "Read and send mail as me.",
+      "want": [
+        "read.message.tenant",
+        "send.message.world"
+      ],
+      "do_not_want": [
+        "read.credential.host"
+      ]
+    },
+    {
+      "id": "post-in-teams-as-me",
+      "tier": "advanced",
+      "label": "Post in Teams as me",
+      "description": "Read chats and post messages in my name.",
+      "want": [
+        "read.message.tenant",
+        "send.message.world"
+      ],
+      "do_not_want": []
+    },
+    {
+      "id": "draft-into-sharepoint",
+      "tier": "advanced",
+      "label": "Draft documents into SharePoint",
+      "description": "Write new documents into our sites.",
+      "want": [
+        "read.file.host",
+        "write.file.host"
+      ],
+      "do_not_want": [
+        "send.message.world"
+      ]
+    }
+  ]
+}
