@@ -14,7 +14,7 @@ You bought an Agent Behaviour Policy at level 2: the pack, plus **keys and histo
 
 Your order reference **on your payment receipt** · product code **t2**
 
-## A working vault. Within one working day of the payment landing.
+## A working vault. We follow up within 24 hours of the payment landing.
 
 A vault of the shape you picked, with the same files as the pack and, on top of them, its history, its own app, and a licence file carrying your name and no public key. You hold the keys: clone it, change the mandate, commit, and every version is kept. Hand anybody who asks how you govern the agent a read key; keep the vault key.
 
@@ -37,4 +37,4 @@ The vault key arrives out of band — by a separate message to the address you p
 
 ## Write to a person. Not a form.
 
-If nothing has arrived by the time above, email [nrparekh@gmail.com](mailto:nrparekh@gmail.com?subject=Level%202%20%C2%B7%20order%20%5Byour%20reference%5D%20%C2%B7%20nothing%20arrived) with your order reference and the product code `t2`. A person reads it.
+If nobody has followed up within 24 hours, email [nrparekh@gmail.com](mailto:nrparekh@gmail.com?subject=Level%202%20%C2%B7%20order%20%5Byour%20reference%5D%20%C2%B7%20nothing%20arrived) with your order reference and the product code `t2`. A person reads it.

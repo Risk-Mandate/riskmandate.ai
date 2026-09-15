@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.19.2** · 2026-09-15 — The £5 sale is a download: the zip, its hash, and a check in the browser; the other three levels are a follow-up within 24 hours
+  Notes: https://riskmandate.ai/versions/1.19.2.md · Source: `git:v1.19.2`
 - **v1.19.1** · 2026-09-15 — After you pay: a page per level for the payment link to land on, the plus-one-thing rule said out loud, and a definition of done you can check
   Notes: https://riskmandate.ai/versions/1.19.1.md · Source: `git:v1.19.1`
 - **v1.19.0** · 2026-09-15 — View a policy, buy a policy: the store linked, pricing as the four levels, the vault pages open on the vault itself, and the Lab steps back

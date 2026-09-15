@@ -14,7 +14,7 @@ You bought an Agent Behaviour Policy at level 4: corrected for your situation, p
 
 Your order reference **on your payment receipt** · product code **t4**
 
-## Two sessions, and a professional signs it. The first session within five working days of the payment landing; the vault after the second session.
+## Two sessions, and a professional signs it. We follow up within 24 hours of the payment landing to book the first session; the vault after the second.
 
 Everything level 3 delivers, built from two half-hour sessions with your team rather than from a form: one to find out what is actually running, one to deliver. The Agent Behaviour Policy is reviewed and signed off by a security professional, the licence carries a name, and the record of what was asked and answered is committed with it.
 
@@ -41,4 +41,4 @@ The vault key arrives out of band — by a separate message to the address you p
 
 ## Write to a person. Not a form.
 
-If nothing has arrived by the time above, email [nrparekh@gmail.com](mailto:nrparekh@gmail.com?subject=Level%204%20%C2%B7%20order%20%5Byour%20reference%5D%20%C2%B7%20nothing%20arrived) with your order reference and the product code `t4`. A person reads it.
+If nobody has followed up within 24 hours, email [nrparekh@gmail.com](mailto:nrparekh@gmail.com?subject=Level%204%20%C2%B7%20order%20%5Byour%20reference%5D%20%C2%B7%20nothing%20arrived) with your order reference and the product code `t4`. A person reads it.

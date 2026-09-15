@@ -14,7 +14,7 @@ You bought an Agent Behaviour Policy at level 3: a working vault, plus **your si
 
 Your order reference **on your payment receipt** · product code **t3**
 
-## Corrected for your situation. After you send back what the prompt produced. From then, within three working days.
+## Corrected for your situation. We follow up within 24 hours of the payment landing; the corrected vault follows what the prompt produced.
 
 The vault, with the mandate corrected against your situation rather than against a starting assumption, the delta recomputed with the barrier on every row, and a written note of what was changed and why, committed beside it, so the correction is checkable rather than trusted. A person reviews the note before it is sent.
 
@@ -43,4 +43,4 @@ The vault key arrives out of band — by a separate message to the address you p
 
 ## Write to a person. Not a form.
 
-If nothing has arrived by the time above, email [nrparekh@gmail.com](mailto:nrparekh@gmail.com?subject=Level%203%20%C2%B7%20order%20%5Byour%20reference%5D%20%C2%B7%20nothing%20arrived) with your order reference and the product code `t3`. A person reads it.
+If nobody has followed up within 24 hours, email [nrparekh@gmail.com](mailto:nrparekh@gmail.com?subject=Level%203%20%C2%B7%20order%20%5Byour%20reference%5D%20%C2%B7%20nothing%20arrived) with your order reference and the product code `t3`. A person reads it.
