@@ -1,7 +1,23 @@
 # How riskmandate.ai actually works
 
 How a page is put together, what happens when the browser loads one, and where
-each thing lives. Current as of **v1.0.0**.
+each thing lives. Current as of **v1.0.0**; see the addendum below for what has
+been added since, and `.claude/onboarding/01-map.md` for the current map.
+
+> **Addendum, v1.17.0.** The mechanics below still hold. Since v1.0.0 the site has
+> gained, each with its own script under `scripts/site/` and a `--check` in CI:
+> the Agent Behaviour Policy vaults (`build-abp-vault.mjs`, one directory per
+> vault under `site/vaults/`, derived from four input files; the renderer once
+> in `site/vaults/_app/`, every vault carrying a loader — see
+> `docs/briefs/architecture__vaults-in-vaults-for-behaviour-policies.md`), the
+> library page and one page per vault (`build-abp-pages.mjs`, from
+> `site/vaults/index.json`), dated PDF editions of every Lab page
+> (`render-lab-pdfs.mjs`, registered by digest in `site/lab-editions.json`), the
+> GitHub link and licence line on every page (`add-licence-chrome.mjs`), the
+> brief register (`site/briefs-register.json`, checked by digest), the
+> `pages.json` page list with `unlisted` and `private` pages, and `admin.html`
+> as the index of all of it. The page counts and the test list in the body are
+> the v1.0.0 figures; `npm run check` runs everything CI runs today.
 
 ## The one-paragraph version
 

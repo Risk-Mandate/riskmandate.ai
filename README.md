@@ -58,8 +58,16 @@ you: a release is a note somebody wrote.
 
 ## Docs
 
-- [`docs/how-the-website-works.md`](docs/how-the-website-works.md) — **start
-  here**: how a page is put together, how the shared header is built, and what
-  each component does.
-- [`docs/briefs/`](docs/briefs/) — the structure/content decoupling brief and the
-  scenarios pilot it produced.
+- [`CLAUDE.md`](CLAUDE.md) and [`.claude/onboarding/`](.claude/onboarding/) — **start
+  here if you are an agent, or new**: the rules, the map of everything in this
+  repository, the Agent Behaviour Policy model condensed, where the site is and
+  what is next, the rules for working on sibling branches, and the recipes.
+  [`.claude/briefs/`](.claude/briefs/) are tasks ready to pick up;
+  [`.claude/work/`](.claude/work/) says who is on what right now.
+- [`docs/how-the-website-works.md`](docs/how-the-website-works.md) — how a page is
+  put together, how the shared header is built, and what each component does.
+  Written at v1.0.0, with an addendum for what came after.
+- [`docs/briefs/`](docs/briefs/) — the direction, architecture, review and research
+  briefs the site was built from, each dated and read against a named source.
+- [`site/admin.html`](site/admin.html) — the same index, published on the site:
+  the records, the documents, the tooling, and the front door for agents.
