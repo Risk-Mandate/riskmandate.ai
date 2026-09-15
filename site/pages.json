@@ -335,6 +335,12 @@
       "group": "More"
     },
     {
+      "name": "after-payment",
+      "label": "After payment (store debrief)",
+      "file": "after-payment.html",
+      "group": "More"
+    },
+    {
       "name": "admin",
       "label": "Admin",
       "file": "admin.html",

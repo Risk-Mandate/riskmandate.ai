@@ -62,6 +62,7 @@ The direction, the architecture and the reviews live in the repository under `do
 
 | Document | What it is |
 | --- | --- |
+| [after-payment.html](after-payment.html) | 15 September. A debrief for the store.sgit.ai team: the four post-sale pages, the link contract per level, what the store has to point at them, what this site guarantees, and what is still open. On the site rather than in `docs/`, so the store's agent can be handed one address. |
 | [docs/how-the-website-works.md](https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/how-the-website-works.md) | How a page is put together, the shared modules, the generated files, the pipeline and the tests. Written at v1.0.0, with an addendum for what came after. |
 | [docs/briefs/direction__abp-at-the-centre.md](https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/briefs/direction__abp-at-the-centre.md) | 11 September. The Agent Behaviour Policy becomes the primitive the site sells; the label, the record and the prescription; the naming rules; what is honest to say. |
 | [docs/briefs/direction__abp-as-a-graph-and-stakeholder-views.md](https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/briefs/direction__abp-as-a-graph-and-stakeholder-views.md) | 15 September. The behaviour policy is a graph: behaviours as addressable nodes, a barrier per path, a view per audience, and projections regenerated from a prompt that ships with the vault. The build order. |

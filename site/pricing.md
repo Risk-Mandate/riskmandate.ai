@@ -62,7 +62,7 @@ The payment link's success address is a page per level that says what happens no
 | 3 | The corrected mandate and the recomputed delta are committed, and the note of what changed and why is committed beside them | The commit is in the history and the note names every changed row | [Level 3 →](paid-t3.html) |
 | 4 | Both sessions held, the record of what was asked and answered committed, and the sign-off file committed with the professional's name and the date | Three files in the tree, and the sessions dated in the record | [Level 4 →](paid-t4.html) |
 
-Level 1 is downloaded on the page, with the hash beside the link. Levels 2, 3 and 4 are a follow-up from a person within 24 hours of the payment landing: the key, the prompt step, the first session. If the record says we cannot keep that, the number moves here first.
+Level 1 is downloaded on the page, with the hash beside the link. Levels 2, 3 and 4 are a follow-up from a person within 24 hours of the payment landing: the key, the prompt step, the first session. If the record says we cannot keep that, the number moves here first. How the store's payment links reach those pages is written down for the store team on [the after-payment debrief](after-payment.html).
 
 ## The library is the argument. The instance is yours.
 
