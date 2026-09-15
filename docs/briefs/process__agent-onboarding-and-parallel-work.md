@@ -86,6 +86,9 @@ The full text is `.claude/onboarding/04-rules-of-engagement.md`. The reasoning:
    `.claude/work/` says. Two agents adding two different vaults never collide; two agents editing
    `scripts/site/abp/` will.
 8. **`dev` is live.** Nobody force-pushes it; a wrong deploy is fixed forward with a release.
+9. **The third number moves by default** (added by the lead on 15 September, after two agents
+   had each taken a second-number bump in one day). `1.19.0` → `1.19.1`. The second number is
+   for a release that changes what the site is or sells; the first is the lead's.
 
 ## 4. What this does not settle
 

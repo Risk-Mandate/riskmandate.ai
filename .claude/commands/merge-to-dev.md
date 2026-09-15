@@ -15,7 +15,9 @@ Arguments: $ARGUMENTS (the version to claim and the release title; ask if missin
 4. If any page under `site/` changed on this branch and `dev` has not already released those
    changes: `node scripts/site/release.mjs <version> "<title>"`, write `site/versions/<version>.md`
    in the voice of the last note (what changed, why, what was not done), `generate.mjs`, check
-   again. If `dev`'s `versions/index.json` already has that number, use the next one.
+   again. If `dev`'s `versions/index.json` already has that number, use the next one. The next
+   one moves the third number (`1.19.0` → `1.19.1`) unless the release changes what the site is
+   or sells.
 5. Update `.claude/onboarding/03-state-and-next.md` if the state moved. Delete
    `.claude/work/<this-branch>.md`. Commit.
 6. `git checkout dev && git merge --no-ff <branch>` (or open the pull request if the task says

@@ -73,6 +73,13 @@ Notes are prose, in the voice of `site/versions/1.15.0.md`: bold lead phrases, l
 pages, a paragraph on what was deliberately not done. The number is claimed at merge time; if
 `dev` took it, run `release.mjs` again with the next one. CI tags the commit; nothing else to do.
 
+**Which number moves.** The third, by default: `1.19.0` → `1.19.1`. A fix, a page edit, a new
+vault, a new brief, an every-page chrome change, a restructured page: all patches. The second
+number is for a release that changes what the site is or what it sells: a new section in the
+menu, a new product on the pricing page, a page family rebuilt around a new idea. Two agents
+merging in one day should produce `1.19.1` and `1.19.2`, not `1.20.0` and `1.21.0`. The first
+number is the lead's to move.
+
 ## Cut a Lab edition
 
 A Lab page's content hash moved → `node scripts/site/render-lab-pdfs.mjs <slug>` (Playwright;
