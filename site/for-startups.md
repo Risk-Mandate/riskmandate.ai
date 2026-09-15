@@ -28,6 +28,12 @@ Status, plainly: this is the part that exists and runs. What does not yet exist 
 
 Three groups arrive at this — teams running agents, founders, and startups being diligenced — and of the offers that exist, none was built for the third. The document works; the packaging for your case is the thing we would be building with you rather than selling you off a shelf. That is worth knowing before you spend time on it.
 
+## One thing, at four levels.
+
+Level three is the one built for a buyer’s question, and level four is the one where somebody sits with your team. Level two is the cheapest way to hold the material yourself. The whole ladder, what each level changes and who does the work is on [pricing](pricing.html); the catalogue and the checkout are on the store.
+
+The store takes the order and hands you back here: one page per level, and at level one that page **is** the download — the zip, its size, its sha256 and a check that runs in your own browser. Payment rails are not built yet, and every checkout button on the store says so rather than looking live.
+
 ## Answer it once, properly.
 
 One agent, enumerated, with the barriers named and the gap computed — a document you can send rather than a form you refill.

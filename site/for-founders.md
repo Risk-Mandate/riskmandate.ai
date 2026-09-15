@@ -26,6 +26,12 @@ Diligence questions about agents are new enough that most answers are improvised
 
 The same document is rung one of three: describe the agent, licence it, insure it. That matters to a founder because the thing an acquirer or a carrier eventually wants is built from this and not from a questionnaire. [The chain is set out here](insurance.html).
 
+## One thing, at four levels.
+
+Level one is enough to see what diligence will find. Level three is the one where somebody corrects the mandate against your situation rather than a starting assumption. The whole ladder, what each level changes and who does the work is on [pricing](pricing.html); the catalogue and the checkout are on the store.
+
+The store takes the order and hands you back here: one page per level, and at level one that page **is** the download — the zip, its size, its sha256 and a check that runs in your own browser. Payment rails are not built yet, and every checkout button on the store says so rather than looking live.
+
 ## Write it before somebody writes it for you.
 
 One agent you already run, enumerated, with the gap computed. It is a file you keep, and it is yours to correct.

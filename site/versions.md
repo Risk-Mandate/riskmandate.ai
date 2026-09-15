@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.20.1** · 2026-09-15 — A real policy on the front page, and the audience pages reach the store
+  Notes: https://riskmandate.ai/versions/1.20.1.md · Source: `git:v1.20.1`
 - **v1.20.0** · 2026-09-15 — Who is arriving, what is sold, and the insurance argument on a page of its own
   Notes: https://riskmandate.ai/versions/1.20.0.md · Source: `git:v1.20.0`
 - **v1.19.3** · 2026-09-15 — A debrief for the store team: the after-payment pages, the link contract, and what the store has to do

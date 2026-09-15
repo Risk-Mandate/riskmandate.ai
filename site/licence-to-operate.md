@@ -46,6 +46,12 @@ The licence ships as `LICENCE-TO-OPERATE.md` inside the vault, so the agent can 
 
 Status, stated plainly. The file exists and ships in every published vault today, as a **template**: unsigned, unissued, with the authority and the interval blank. What does not exist is the countersigned form — a licence somebody outside your organisation would accept as evidence — which is what rung three needs and what we have not built. We are not going to describe that as available because the file is.
 
+## One thing, at four levels.
+
+A licence needs a behaviour policy underneath it, and that is what the four levels sell. The whole ladder, what each level changes and who does the work is on [pricing](pricing.html); the catalogue and the checkout are on the store.
+
+The store takes the order and hands you back here: one page per level, and at level one that page **is** the download — the zip, its size, its sha256 and a check that runs in your own browser. Payment rails are not built yet, and every checkout button on the store says so rather than looking live.
+
 ## Licence one agent.
 
 Pick an agent you already run, get the behaviour policy for it, and the licence is the short document you write on top. Both are files you keep.

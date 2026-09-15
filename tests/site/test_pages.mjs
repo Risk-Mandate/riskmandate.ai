@@ -258,3 +258,24 @@ test('every footer that links Versions also links Admin', () => {
     assert.match(s, /class="footlink" href="admin\.html"/, `${f} links Versions in its footer but not Admin`);
   }
 });
+
+test('the home page policy card reports the vault it names, not numbers somebody typed', () => {
+  // The hero used to carry an invented company and a score. It now carries a real
+  // template policy, which is only worth more than the invention if the four
+  // numbers on it are the vault's own — so they are checked against the delta the
+  // generator wrote, and a rebuild that moves a count fails here rather than
+  // quietly leaving the front page wrong.
+  const d     = JSON.parse(read('vaults/claude-code-web/data/delta.json'));
+  const c     = d.counts;
+  const card  = read('index.html').match(/<a class="pcard"[\s\S]*?<\/a>/)?.[0];
+  assert.ok(card, 'the home page has no policy card');
+
+  const shown = [...card.matchAll(/<b class="pcn[^"]*">(\d+)<\/b>/g)].map((m) => Number(m[1]));
+  assert.deepEqual(shown, [c.aligned + c.excess, c.aligned + c.shortfall, c.excess, c.unbounded_excess],
+    'the card does not show grant, mandate, excess and unbounded excess from the vault');
+
+  assert.match(card, /abp-vault-claude-code-web\.html/, 'the card does not link the vault it reports');
+  // the word is allowed — the card says "No score" — a rendered score is not
+  assert.doesNotMatch(card, /\d+\s*(?:\/|out of)\s*100|\bL[1-6]\b|\b(?:rated|scored)\b/i,
+    'a behaviour policy carries no score');
+});
