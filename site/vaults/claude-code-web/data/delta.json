@@ -1,0 +1,60 @@
+{
+  "type": "abp/delta/v1",
+  "profile": "anthropic/claude-code-remote/ccr-container",
+  "mandate": "coding-assistant-in-a-container",
+  "grant_version": "2026-09-05.2",
+  "mandate_version": "2026-09-09",
+  "vocabulary_version": "v0.3.0",
+  "computed_at": "2026-09-15T00:17:26Z",
+  "computed_by": "riskmandate.ai build-abp-vault.mjs (abp.delta/v1 semantics)",
+  "excess": [
+    "authenticate-as.credential.signing",
+    "delete.file.host",
+    "read.credential.host",
+    "read.file.host",
+    "read.record.history",
+    "authenticate-as.credential.tenant",
+    "write.file.host",
+    "create.schedule.tenant",
+    "create.schedule.host"
+  ],
+  "excess_refused": [
+    "authenticate-as.credential.signing",
+    "read.record.history",
+    "create.schedule.tenant"
+  ],
+  "excess_unstated": [
+    "delete.file.host",
+    "read.credential.host",
+    "read.file.host",
+    "authenticate-as.credential.tenant",
+    "write.file.host",
+    "create.schedule.host"
+  ],
+  "unbounded_excess": [
+    "authenticate-as.credential.signing",
+    "delete.file.host",
+    "read.credential.host",
+    "read.file.host",
+    "read.record.history",
+    "write.file.host",
+    "create.schedule.tenant"
+  ],
+  "shortfall": [],
+  "aligned": [
+    "send.endpoint.allowed",
+    "execute.process.host",
+    "write.file.project",
+    "write.repository.project",
+    "write.repository.tenant",
+    "read.file.project"
+  ],
+  "derived_never_authored": "No field in this record is writable by a person. The way to change a delta is to change a grant or a mandate, and then recompute.",
+  "counts": {
+    "excess": 9,
+    "unbounded_excess": 7,
+    "shortfall": 0,
+    "aligned": 6
+  },
+  "id": "anthropic__claude-code-remote__ccr-container__coding-assistant-in-a-container"
+}

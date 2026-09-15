@@ -152,6 +152,12 @@
       "group": "Lab"
     },
     {
+      "name": "lab-vault-delivered",
+      "label": "07 · The vault, delivered",
+      "file": "lab-vault-delivered.html",
+      "group": "Lab"
+    },
+    {
       "name": "summit",
       "label": "Lisbon 2026",
       "file": "summit.html"

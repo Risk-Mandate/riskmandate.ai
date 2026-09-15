@@ -1,0 +1,276 @@
+{
+  "type": "abp/profile/v1",
+  "id": "anthropic/claude-code-remote/ccr-container",
+  "vendor": "Anthropic",
+  "product": "Claude Code on the web (a remote session container)",
+  "variant": "ccr-container",
+  "surface": "agentbox",
+  "profile_version": "2026-09-05.2",
+  "description": "A managed cloud container, ephemeral, one git repository attached, an egress proxy above it, and a set of harness tools scoped by the platform. MEASURED, by the thing being profiled: the shell probed on 5 September with probes/run.py, the fetch tool's reach and the harness tools reported by the operator. HOST MEANS THE CONTAINER, not your machine; TENANT means the platform's scoped tokens, not your accounts. The same environment measured on 26 August is the Grant & Mandate library's first entry, and the two agree on every row they share.",
+  "reach_names": {
+    "host": "this container — ephemeral, the vendor's; not your machine",
+    "tenant": "the attached repository and the platform's scoped tokens; not your accounts",
+    "world": "the hosts the proxy allows"
+  },
+  "not_reachable": [
+    {
+      "what": "your machine's files",
+      "why": "the container has no path to the operator's computer; the assess tree records home as a boundary",
+      "source": "assess/library.json (agentbox: home)"
+    },
+    {
+      "what": "your credentials",
+      "why": "no user credential is in the image; the keys present are the session's own",
+      "source": "evidence: filesystem.credential-presence, 5 Sep"
+    },
+    {
+      "what": "hosts the proxy refuses",
+      "why": "a 403 on the CONNECT, set above the process",
+      "source": "evidence: network.egress-shell"
+    },
+    {
+      "what": "repositories outside the platform's scope",
+      "why": "the token is scoped by the platform; the API tool refuses out-of-scope calls",
+      "source": "harness.platform-tools, self-reported"
+    }
+  ],
+  "tools": [
+    "shell (Bash)",
+    "fetch (WebFetch)",
+    "harness (MCP and built-in tools)"
+  ],
+  "grant": [
+    {
+      "capability": "authenticate-as.credential.signing",
+      "barrier": "none",
+      "evidence": "observed",
+      "via": [
+        "shell (Bash)"
+      ],
+      "control": null,
+      "note": "commits are signed with the session's own key, registered as an agent identity in this site's registry (sha256-f9facb4c94da6c19) — not with yours",
+      "undo": "no",
+      "is_bounded": false
+    },
+    {
+      "capability": "delete.file.host",
+      "barrier": "none",
+      "evidence": "observed",
+      "via": [
+        "shell (Bash)"
+      ],
+      "control": null,
+      "note": "anything in the container, including the clone; irreversible for the container, and the container is disposable",
+      "undo": "no",
+      "is_bounded": false
+    },
+    {
+      "capability": "read.credential.host",
+      "barrier": "none",
+      "evidence": "observed",
+      "via": [
+        "shell (Bash)"
+      ],
+      "control": null,
+      "note": "the credential-shaped paths present are the SESSION'S OWN: its commit-signing key and its vault keystore. No user credential is in the container; presence cannot tell whose a key is, so this is the operator's account",
+      "undo": "no",
+      "is_bounded": false
+    },
+    {
+      "capability": "read.file.host",
+      "barrier": "none",
+      "evidence": "observed",
+      "via": [
+        "shell (Bash)"
+      ],
+      "control": null,
+      "note": "any file in the container — the attached clone, the harness's state, the system. Not your machine's files (the assess tree's 'home: boundary')",
+      "undo": "no",
+      "is_bounded": false
+    },
+    {
+      "capability": "read.record.history",
+      "barrier": "none",
+      "evidence": "observed",
+      "via": [
+        "shell (Bash)"
+      ],
+      "control": null,
+      "note": "the harness's project directory holds this session's own earlier tool outputs; no user shell history exists here",
+      "undo": "no",
+      "is_bounded": false
+    },
+    {
+      "capability": "authenticate-as.credential.tenant",
+      "barrier": "boundary",
+      "evidence": "inferred",
+      "via": [
+        "shell (Bash)",
+        "harness (MCP and built-in tools)"
+      ],
+      "control": "the token's scope, set by the platform (in-scope repositories only)",
+      "note": "five key-shaped variables and a code-host token — the platform's, scoped to in-scope repositories; it acts as the platform's app, never as you",
+      "undo": "no",
+      "is_bounded": true
+    },
+    {
+      "capability": "send.endpoint.allowed",
+      "barrier": "boundary",
+      "evidence": "observed",
+      "via": [
+        "shell (Bash)",
+        "fetch (WebFetch)",
+        "harness (MCP and built-in tools)"
+      ],
+      "control": "a mandatory egress proxy configured above this process — hosts it refuses are refused with a 403 on the CONNECT; the six hosts probed on 5 September all answered",
+      "note": "six of six probed hosts answered through the proxy; a sibling container measured on 4 September had three refused: same product, two policies",
+      "undo": "no",
+      "is_bounded": true
+    },
+    {
+      "capability": "execute.process.host",
+      "barrier": "none",
+      "evidence": "observed",
+      "via": [
+        "shell (Bash)"
+      ],
+      "control": null,
+      "note": "root inside the container: every process and file IN THE CONTAINER. The container is the host; your machine is not reachable",
+      "undo": "with-effort",
+      "is_bounded": false
+    },
+    {
+      "capability": "write.file.host",
+      "barrier": "none",
+      "evidence": "observed",
+      "via": [
+        "shell (Bash)"
+      ],
+      "control": null,
+      "note": "a zero-byte file was created and removed in /etc: system configuration of the container is writable",
+      "undo": "with-effort",
+      "is_bounded": false
+    },
+    {
+      "capability": "write.file.project",
+      "barrier": "none",
+      "evidence": "observed",
+      "via": [
+        "shell (Bash)"
+      ],
+      "control": null,
+      "note": "the attached working tree is writable",
+      "undo": "with-effort",
+      "is_bounded": false
+    },
+    {
+      "capability": "write.repository.project",
+      "barrier": "none",
+      "evidence": "observed",
+      "via": [
+        "shell (Bash)"
+      ],
+      "control": null,
+      "note": "a repository is attached and writable",
+      "undo": "with-effort",
+      "is_bounded": false
+    },
+    {
+      "capability": "write.repository.tenant",
+      "barrier": "setting",
+      "evidence": "observed",
+      "via": [
+        "shell (Bash)",
+        "harness (MCP and built-in tools)"
+      ],
+      "control": "pre-commit and pre-push hooks in the clone (the mandate hook and the insurance policy) — refuse by exit code, --no-verify passes; no branch rule at the host",
+      "note": "the attached repository only (any branch it can reach); branch discipline is the clone's hooks, a setting; no rule at the host",
+      "undo": "with-effort",
+      "is_bounded": false
+    },
+    {
+      "capability": "read.file.project",
+      "barrier": "none",
+      "evidence": "observed",
+      "via": [
+        "shell (Bash)",
+        "harness (MCP and built-in tools)"
+      ],
+      "control": null,
+      "note": "the attached working tree is readable",
+      "undo": "yes",
+      "is_bounded": false
+    },
+    {
+      "capability": "create.schedule.tenant",
+      "barrier": "setting",
+      "evidence": "self-reported",
+      "via": [
+        "harness (MCP and built-in tools)"
+      ],
+      "control": "the platform's routines are the operator's to list and delete",
+      "note": "a routine or a scheduled trigger resumes this session or spawns another later: it outlives the container",
+      "undo": "yes",
+      "is_bounded": false
+    },
+    {
+      "capability": "create.schedule.host",
+      "barrier": "boundary",
+      "evidence": "observed",
+      "via": [
+        "shell (Bash)"
+      ],
+      "control": "the container is ephemeral: whatever is scheduled here dies with it",
+      "note": "systemctl and /etc/cron.d exist, so a cron can be written — and dies with the container; the real scheduler is the platform's routines, on the harness row",
+      "undo": "yes",
+      "is_bounded": true
+    }
+  ],
+  "grant_size": 15,
+  "irreversible": [
+    "authenticate-as.credential.signing",
+    "delete.file.host",
+    "read.credential.host",
+    "read.file.host",
+    "read.record.history",
+    "authenticate-as.credential.tenant",
+    "send.endpoint.allowed"
+  ],
+  "unbounded": [
+    "authenticate-as.credential.signing",
+    "delete.file.host",
+    "read.credential.host",
+    "read.file.host",
+    "read.record.history",
+    "execute.process.host",
+    "write.file.host",
+    "write.file.project",
+    "write.repository.project",
+    "write.repository.tenant",
+    "read.file.project",
+    "create.schedule.tenant"
+  ],
+  "widest_reach": "tenant",
+  "rows": {
+    "total": 20,
+    "measured": 13,
+    "derived": 7
+  },
+  "sources": [
+    "evidence/anthropic__claude-code-remote__ccr-container__shell__2026-09-05.json",
+    "evidence/anthropic__claude-code-remote__ccr-container__fetch__2026-09-05.json",
+    "evidence/anthropic__claude-code-remote__ccr-container__harness__2026-09-05.json",
+    "packs/grant-and-mandate/library/claude-code-remote__ccr-container__2026-08-26.json (the same environment, 26 August)"
+  ],
+  "not_an_assessment": "This describes a published deployment shape. It is not an assessment, an audit, a certification or a security review of any named product, and it carries no adjective and no score.",
+  "provenance": {
+    "source": "https://what-can-it-do.games.sgit.ai/data/",
+    "source_page": "https://what-can-it-do.games.sgit.ai/map/index.html",
+    "retrieved": "2026-09-11T13:00:37Z",
+    "pack_version": "v0.8.0",
+    "content_hash": "sha256:d6d4ba40f1fb1f93f660687e4787ac10c2e1835efeb3929a4c8ad62cee8897ef",
+    "verbatim_bytes": "upstream/",
+    "note": "Promoted from profiles/anthropic/claude-code-remote/ccr-container.json. The grant is the union of its tool rows; where two tools reach the same capability the WEAKEST barrier is kept, because the agent takes the easier path.",
+    "licence": "CC BY 4.0"
+  }
+}

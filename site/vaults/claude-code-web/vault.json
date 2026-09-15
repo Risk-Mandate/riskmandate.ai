@@ -1,0 +1,16 @@
+{
+  "slug": "claude-code-web",
+  "title": "Claude Code on the web, with one repository attached",
+  "status": "template",
+  "what_status_means": "template: the draft for a deployment shape, before anybody has corrected the mandate. draft: a copy made for one organisation, mandate not yet corrected. corrected: the mandate has been elicited from the deployer and a named owner has signed the licence.",
+  "shape": "anthropic/claude-code-remote/ccr-container",
+  "vocabulary_version": "v0.3.0",
+  "vocabulary_source": "https://abp.sgit.ai/data/index.json",
+  "as_at": "2026-09-15",
+  "organisation": null,
+  "agent": "Claude Code on the web (a remote session container)",
+  "owner": null,
+  "issued": null,
+  "valid_until": null,
+  "why_this_shape_first": "It is the shape this site is maintained from, so the grant could be measured rather than derived: 13 of 20 rows were observed on the thing itself. It is also the one every founder at a startup summit has already run."
+}

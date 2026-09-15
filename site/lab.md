@@ -40,6 +40,10 @@ The author name and address on a commit are free text — git's own reference sa
 
 Ask any deployer whether their agent should attack other people's systems and you get the same answer — it is the easiest line in any policy to agree. It is also the one where the grant cannot be enumerated at all: it is every address the process can route to, nobody granted it, and the measure we have been using since Lab 04 does not apply. A vendor's own documentation says the fetch allow list does not prevent network access because the shell can reach any URL; the setting that does hold covers shell subprocesses only, does nothing when written into a repository, and fails open. Includes what the machine that published this page can reach, measured.
 
+### What you are actually buying: the vault, delivered
+
+The first behaviour-policy vault, built and pushed rather than drawn. Eight files derived from three inputs — a measured grant, a starting mandate and a pinned vocabulary — for Claude Code on the web with one repository attached. The delta is recomputed and checked against the published record; a Licence to Operate gets a referent; two generic files tell the agent what the others are and, in their own words, what a file like that cannot do. The session that built it read the grant back against what it had actually done, and the template makes the second shape one command.
+
 ## Four states, and they mean different things.
 
 The rest of this site says only what we can defend. The Lab is looser on purpose — but only about _status_, never about sourcing. A guess here is labelled a guess; a quote is still a quote with a link and a date.
