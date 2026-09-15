@@ -141,6 +141,17 @@ em{font-style:italic}
 
 .paper { background: var(--bg); }
 .bsection { padding: 74px 0; border-bottom: 1px solid var(--border); }
+/* boilerplate — meant to be selected and pasted, so nothing decorative inside */
+.bp { margin-top: 30px; display: flex; flex-direction: column; gap: 16px; }
+.bpc { border: 1px solid var(--border); border-radius: var(--r); background: var(--card); overflow: hidden; }
+.bpc header { display: flex; justify-content: space-between; gap: 16px; align-items: baseline;
+  padding: 13px 20px; border-bottom: 1px solid var(--border); background: var(--bg2); flex-wrap: wrap; }
+.bpc header b { font-size: 14px; color: var(--text); letter-spacing: -.01em; }
+.bpc header span { font-family: var(--mono); font-size: 10.5px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--faint); }
+.bpc .body { padding: 20px; font-size: 14.5px; line-height: 1.7; color: var(--text); white-space: pre-wrap; }
+.bpc .use { padding: 0 20px 18px; font-size: 13px; color: var(--muted); line-height: 1.65; }
+
 .bsection.alt { background: var(--bg2); }
 .shead { max-width: 700px; }
 .shead h2 { color: var(--text); }
@@ -484,7 +495,7 @@ a.ds{display:block;text-decoration:none;color:inherit}
   <div class="wrap">
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
-    <a class="version" href="versions.html" title="What shipped in v1.12.0">v1.12.0</a>
+    <a class="version" href="versions.html" title="What shipped in v1.13.0">v1.13.0</a>
     <button class="demo" data-demo>Book a demo</button>
   </div>
 </header>
@@ -546,6 +557,46 @@ a.ds{display:block;text-decoration:none;color:inherit}
       <div class="shead"><span class="tag">05 · Downloads</span><h2>Take the <span class="g">assets.</span></h2>
       <p>SVG for anything that scales, PNG where a raster is required. All served from the vault.</p></div>
       <rm-brand-downloads></rm-brand-downloads>
+    </div>
+  <section class="bsection alt" id="boilerplate">
+    <div class="wrap">
+      <div class="shead"><span class="tag">06 · Boilerplate</span><h2>And the <span class="g">words.</span></h2>
+      <p>Anybody who asks for the logo asks for a line about us in the same breath, so both live here. Four lengths, saying the same thing in the same order, so choosing between them loses detail and never changes the claim. Paste the longest one the field accepts.</p></div>
+      <div class="bp">
+      <div class="bpc">
+        <header><b>Long</b> <span>269 words · 1491 characters · profile or about page</span></header>
+        <div class="body">RiskMandate creates and sells Agent Behaviour Policies.
+
+An Agent Behaviour Policy is a working record, for one agent in one deployment, of four things: everything it can actually reach, what you authorised it to do, the gap between those two, and what stands in the way. Three of the four can be written down by the people who run the agent. The fourth, the gap, is worked out from the first two, and it is usually the one nobody has looked at.
+
+It is a portable vault rather than a document, because four audiences need different things from one record. The operator needs instructions, leadership needs a decision, security needs evidence, and an insurance conversation needs explicit scope and open questions. One record, several views, with a named owner, a review trigger and every version kept.
+
+A policy is a draft, and it is meant to be argued with. It goes to the people who built the agent, the people who own what it touches and the people accountable for it, and each corrects the part they know. It is never finished, because the agent is not finished.
+
+The question it answers is not what model somebody bought. It is what the agent can do that nobody in the business has fully understood yet. That is not a property of the model. It is a property of this deployment, so a policy is fitted to a twin of the environment the agent is actually in. That is where a generic shape stops being generic and becomes yours, and it is the only point at which the exposure means anything.</div>
+        <div class="use">The full version. The third paragraph is what is being sold rather than a description of it, and the last is the one that matters: risk is a property of the deployment, not the model.</div>
+      </div>
+      <div class="bpc">
+        <header><b>Medium</b> <span>85 words · 462 characters · directory or listing entry</span></header>
+        <div class="body">RiskMandate creates and sells Agent Behaviour Policies: for one agent in one deployment, a working record of everything it can actually reach, what you authorised it to do, and the gap between the two. It comes as a portable vault rather than a document, with a view for each audience, a named owner and every version kept. Risk is not a property of the model but of this deployment, so the record is fitted to a twin of the environment the agent is actually in.</div>
+        <div class="use">The one to send when no field limit is visible. Safe under almost any cap and reads as finished rather than truncated.</div>
+      </div>
+      <div class="bpc">
+        <header><b>Short</b> <span>45 words · 258 characters · a card, a tile, a panel</span></header>
+        <div class="body">RiskMandate creates and sells Agent Behaviour Policies. For one agent in one deployment, a portable record of everything it can actually reach, what you authorised it to do, and the gap between the two, fitted to a twin of the deployment it actually runs in.</div>
+        <div class="use">Where there is room for a sentence and no more. Gives up the vault and the drafting, and keeps the twin, because that is the half nobody else is saying.</div>
+      </div>
+      <div class="bpc">
+        <header><b>One line</b> <span>31 words · 180 characters · strapline or badge</span></header>
+        <div class="body">RiskMandate creates and sells Agent Behaviour Policies: for one agent in one deployment, what it can actually reach, what you authorised it to do, and the gap nobody has looked at.</div>
+        <div class="use">A strapline field. Say nothing shorter than this: below it the sentence stops being a claim and becomes a category.</div>
+      </div>
+      </div>
+      <p style="margin-top:22px;font-family:var(--mono);font-size:11.5px;color:var(--faint);line-height:1.8">
+        None of these names a customer, a funder or an insurer, and none attaches an adjective to
+        anybody else&rsquo;s product. Every sentence is a definition of one of our own terms or a
+        statement about our own work. British spelling throughout, and no dash in any of them.
+      </p>
     </div>
   </section>
 
@@ -975,8 +1026,8 @@ RM.components.nav = (function () {
     { f: 'assets/brand/riskmandate-mark-512.png', n: 'Mark — 512px', t: 'PNG', d: 'App icon and anywhere raster is required.' },
     { f: 'assets/brand/riskmandate-mark-128.png', n: 'Mark — 128px', t: 'PNG', d: 'Avatars and small raster placements.' },
     { f: 'assets/brand/riskmandate-favicon-32.png', n: 'Favicon — 32px', t: 'PNG', d: 'The simplified cut, rasterised.' },
-    { f: 'assets/brand/riskmandate-lockup-light.png', n: 'Lockup — light', t: 'PNG', d: '780px wide.' },
-    { f: 'assets/brand/riskmandate-lockup-dark.png', n: 'Lockup — dark', t: 'PNG', d: '780px wide.' }
+    { f: 'assets/brand/riskmandate-lockup-light.png', n: 'Lockup — light', t: 'PNG', d: '2948px wide, transparent. Use this one on a white or light card.' },
+    { f: 'assets/brand/riskmandate-lockup-dark.png', n: 'Lockup — dark', t: 'PNG', d: '2948px wide, transparent. Use this one on a dark ground.' }
   ];
 
   RM.components.BrandDownloads = class extends HTMLElement {

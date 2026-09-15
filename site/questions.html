@@ -307,7 +307,7 @@ table.cmp td.ours{background:var(--greenBg);color:var(--text)}
   <div class="wrap">
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
-    <a class="version" href="versions.html" title="What shipped in v1.12.0">v1.12.0</a>
+    <a class="version" href="versions.html" title="What shipped in v1.13.0">v1.13.0</a>
     <button class="demo" data-demo>Get in touch</button>
   </div>
 </header>
@@ -347,7 +347,7 @@ table.cmp td.ours{background:var(--greenBg);color:var(--text)}
         <div class="short">
           <span class="sk">The short answer</span>
           <p>Four objects, and the verb attached to each one is the whole model.</p>
-          <p>The mandate is <em>elicited</em>, the grant is <em>measured</em>, the delta is <em>derived</em>, the barrier is <em>recorded</em>. Nothing in a behaviour policy is authored except the mandate — which is also the only one of the four you already know.</p>
+          <p>The mandate is <em>elicited</em>, the grant is <em>measured</em>, the delta is <em>derived</em>, the barrier is <em>recorded</em>. Those verbs say how each object is meant to <em>end up</em> established, not how it starts. Three of the four start as something a person writes down out of what they understand today, and are corrected towards evidence as evidence arrives. The delta is the exception: it is computed from the first two and never written by hand, which is why it is the one that surprises people.</p>
         </div>
 
         <div class="qbody">
@@ -356,12 +356,12 @@ table.cmp td.ours{background:var(--greenBg);color:var(--text)}
             <div class="dr">
               <div class="dt">grant</div>
               <div class="dd">Everything the agent <b>can</b> do in this deployment. Not what somebody decided to give it — what it can actually reach, including everything nobody thought about.</div>
-              <div class="dv"><span class="verb">measured</span>From the deployment shape, the account and the credentials. This is the expensive object and the one nobody has.</div>
+              <div class="dv"><span class="verb">measured</span>From the deployment shape, the account and the credentials. Begins as what somebody believes is connected, corrected as each part is checked. The expensive object, and the one nobody has.</div>
             </div>
             <div class="dr">
               <div class="dt">mandate</div>
               <div class="dd">What you authorised and expected it to do. The job, written down.</div>
-              <div class="dv"><span class="verb authored">elicited</span>In minutes, because you already know it. The only thing in the document that a person writes.</div>
+              <div class="dv"><span class="verb authored">elicited</span>In minutes, because you already know it. The one object only you can supply — nothing we could measure would tell us what you intended.</div>
             </div>
             <div class="dr">
               <div class="dt">delta</div>
@@ -371,10 +371,16 @@ table.cmp td.ours{background:var(--greenBg);color:var(--text)}
             <div class="dr">
               <div class="dt">barrier</div>
               <div class="dd">What actually stands between the agent and each capability. One of four kinds — and three of the four bound nothing.</div>
-              <div class="dv"><span class="verb">recorded</span>Per capability, never per document. A prohibition shown without its barrier is a claim we cannot support.</div>
+              <div class="dv"><span class="verb">recorded</span>Per capability, never per document. Begins as what a team believes is enforced; the test below is what records it. A prohibition shown without its barrier is a claim we cannot support.</div>
             </div>
           </div>
           <p><b>Why the mandate is the cheap half and still the important one.</b> “Your agent can do 340 things” is a shrug — an inventory nobody acts on. “Your agent can do 340 things and you authorised 12” is a finding. The mandate is the edge that gives the enumeration a shape, and it takes minutes because it is the one thing you already have in your head and nowhere else.</p>
+
+          <h4>A policy is a draft, and that is the point</h4>
+          <p>The verbs above describe where each object is meant to get to. None of them describes day one. On day one a behaviour policy is somebody's best account of what an agent is connected to, what it was for, and what they think is stopping it — and a good deal of that will be wrong.</p>
+          <p><b>That draft is the instrument, not a stage before it.</b> It goes to the people who built the agent, the people who own the systems it touches, and the people accountable for it, and each of them corrects the part they know and nobody else does. A sentence somebody can disagree with is worth more than a number nobody can argue with, because the disagreement is where the information is. Most of what we learn about a deployment arrives as a correction to a draft, not as a measurement.</p>
+          <p><b>And it is never finished, because the agent is not finished.</b> A connector is added, a credential is widened, a setting moves, somebody understands the deployment better than they did last month. Each of those is a correction to the grant or the barriers, and the delta is recomputed against both — which is why the delta is stored with the versions of its inputs pinned. The document is expected to be behind reality; what it must never be is behind reality <em>silently</em>. That is what pinning the inputs buys: it can always say what it was computed from and when.</p>
+          <p>So the four objects are not four levels of certainty. Three of them are claims somebody made and can revise. The fourth is the only one nobody writes.</p>
 
           <h4>The four barriers, and the test that separates them</h4>
           <div class="tw">

@@ -56,6 +56,12 @@ ACCEPTED CONDITIONS · 4/4 HOLDING
 
 SVG for anything that scales, PNG where a raster is required. All served from the vault.
 
+## And the words.
+
+Anybody who asks for the logo asks for a line about us in the same breath, so both live here. Four lengths, saying the same thing in the same order, so choosing between them loses detail and never changes the claim. Paste the longest one the field accepts.
+
+None of these names a customer, a funder or an insurer, and none attaches an adjective to anybody else’s product. Every sentence is a definition of one of our own terms or a statement about our own work. British spelling throughout, and no dash in any of them.
+
 ## Using the mark somewhere we have not thought of?
 
 Tell us what you need and we will cut it — a new size, a different lockup, a format we have not shipped.

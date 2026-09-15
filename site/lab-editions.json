@@ -70,6 +70,24 @@
             "assets/lab/lab-network-reach--v1--2026-09-12.pdf"
           ],
           "note": "Adds entry 06, the unbounded network grant. Entries 01 to 05 are unchanged from v3."
+        },
+        {
+          "v": 5,
+          "date": "2026-09-14",
+          "file": "assets/lab/lab--the-whole-lab--v5--2026-09-14.pdf",
+          "bytes": 1841559,
+          "sha256": "c8b12e9e034163fcc82e572ecb65ac8efef868b1a44b0853fc12c540286b0c78",
+          "content": "65d917d260e7c3069c5bfe7d633ae04d69511081c18026c8009efd693d72a083",
+          "pages": 76,
+          "combines": [
+            "assets/lab/lab-connector-grants--v2--2026-09-12.pdf",
+            "assets/lab/lab-abp-flow--v3--2026-09-14.pdf",
+            "assets/lab/lab-abp-requests--v2--2026-09-12.pdf",
+            "assets/lab/lab-shape-collector--v1--2026-09-12.pdf",
+            "assets/lab/lab-commit-author--v1--2026-09-12.pdf",
+            "assets/lab/lab-network-reach--v1--2026-09-12.pdf"
+          ],
+          "note": "Re-cut to carry lab-abp-flow v3. The only change in the whole Lab is the one sentence described against that edition."
         }
       ]
     },
@@ -94,6 +112,15 @@
           "sha256": "c55f7b9832df010a2e41ec912392e2b001508f31e4677fef0c7f85d4128c2c6e",
           "content": "dd36d39f2c6948b2f7b92ceff8f98255dce1dce87aecc4faaeb7e635f945e9d4",
           "note": "Identical argument to v1. Re-cut only to remove a line of stray script text that the page was rendering onto its last page."
+        },
+        {
+          "v": 3,
+          "date": "2026-09-14",
+          "file": "assets/lab/lab-abp-flow--v3--2026-09-14.pdf",
+          "bytes": 256891,
+          "sha256": "e72c58ced81ea46e2e32664602703fc81ad8664791e13581358ab638faa56bca",
+          "content": "da84cf57a815f3151962538be45d5df4a339236e0667f9bd388cd4b43b3af1e2",
+          "note": "One sentence changed, and it was a claim rather than a phrasing. The delivery stage said “nothing in it is authored except the mandate”, in the same breath as calling the thing a corrected draft. Both cannot be true. The corrections are most of what makes a policy the customer’s, so the sentence now says that instead. Nothing else on the page moved."
         }
       ]
     },

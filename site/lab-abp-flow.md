@@ -96,7 +96,7 @@ _**Two things this must not do.** It must not tell anybody their setup is danger
 
 ## Deliver. A key, not an attachment.
 
-What is sold is a clone of a template vault, seeded with the customer's own corrected draft. Nothing in it is authored except the mandate — the only thing the customer knows and we do not. And the read key is the part that is worth more than it sounds.
+What is sold is a clone of a template vault, seeded with the customer's own corrected draft. The corrections are most of what makes it theirs, and the mandate inside it is the one thing the customer knows and we never could. And the read key is the part that is worth more than it sounds.
 
 Northgate Financial — assistant, work mailbox
 

@@ -5,21 +5,21 @@
     {
       "version": "1.13.0",
       "date": "2026-09-15",
-      "title": "Nine template vaults and a directory, one per application",
+      "title": "Behaviour policies as vaults: Lab 07, a directory of nine, the renderer versioned once",
       "file": "1.13.0.md",
       "source": "git:v1.13.0"
     },
     {
       "version": "1.12.0",
       "date": "2026-09-15",
-      "title": "Behaviour-policy vaults: a section, read live, with the vault app",
+      "title": "The homepage leads with the policy, and says which rung we are on",
       "file": "1.12.0.md",
       "source": "git:v1.12.0"
     },
     {
       "version": "1.11.0",
-      "date": "2026-09-15",
-      "title": "Lab 07, the first behaviour-policy vault",
+      "date": "2026-09-14",
+      "title": "A policy is a draft, and three of the four objects are written by people",
       "file": "1.11.0.md",
       "source": "git:v1.11.0"
     },

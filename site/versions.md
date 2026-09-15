@@ -9,11 +9,11 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
-- **v1.13.0** · 2026-09-15 — Nine template vaults and a directory, one per application
+- **v1.13.0** · 2026-09-15 — Behaviour policies as vaults: Lab 07, a directory of nine, the renderer versioned once
   Notes: https://riskmandate.ai/versions/1.13.0.md · Source: `git:v1.13.0`
-- **v1.12.0** · 2026-09-15 — Behaviour-policy vaults: a section, read live, with the vault app
+- **v1.12.0** · 2026-09-15 — The homepage leads with the policy, and says which rung we are on
   Notes: https://riskmandate.ai/versions/1.12.0.md · Source: `git:v1.12.0`
-- **v1.11.0** · 2026-09-15 — Lab 07, the first behaviour-policy vault
+- **v1.11.0** · 2026-09-14 — A policy is a draft, and three of the four objects are written by people
   Notes: https://riskmandate.ai/versions/1.11.0.md · Source: `git:v1.11.0`
 - **v1.10.0** · 2026-09-13 — The vocabulary, and how a behaviour policy differs from an inventory
   Notes: https://riskmandate.ai/versions/1.10.0.md · Source: `git:v1.10.0`
