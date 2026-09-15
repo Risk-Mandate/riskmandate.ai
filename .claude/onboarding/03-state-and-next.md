@@ -3,9 +3,9 @@
 Keep this file true. If you land something, move it; if you learn something, add it. Dates are
 the site's; check `site/versions/index.json` for the current version before trusting the number here.
 
-## State as at 2026-09-15, v1.19.0
+## State as at 2026-09-15, v1.19.1
 
-- **Site:** 59 HTML files under `site/`, one live site deployed from `dev`. Top-level menu:
+- **Site:** 63 HTML files under `site/`, one live site deployed from `dev`. Top-level menu:
   The problem · The model · Agent Behaviour Policies · Live demos · Lisbon 2026 · Pricing · More
   (the Lab is under More since v1.19.0).
 - **The ABP is the entry point.** Homepage leads with it (v1.12.0); `abp.html` is the model page;
@@ -26,11 +26,19 @@ the site's; check `site/versions/index.json` for the current version before trus
   vote and a suggestion form: Claude's Google Workspace connector, Slack, GitHub, Notion,
   Salesforce; and the three **business functions**: the CRM, the customer-service desk, finance data.
 - **Lab:** seven entries, 16 PDF editions, the whole Lab as one file (v5).
-- **Records:** 13 items in the brief register (8 files, 5 informal); 19 releases since v1.0.0.
+- **Records:** 14 items in the brief register (9 files, 5 informal); 20 releases since v1.0.0.
 - **Summit:** Lisbon, 17–18 Sept. `summit.html` public; `summit-booth.html` private working page.
 - **The store is live** (store.sgit.ai v0.1.7, 15 Sept): four levels, £5 / £50 / £500 / £1,500. The
   homepage says *view a policy / buy a policy*; `pricing.html` is the four levels with the level-3
   prompt workflow; every vault page links *buy this policy* to `store.sgit.ai/p/<slug>/`.
+- **After payment** (v1.19.1, brief D9 *the offer is built and the button is not*): four unlisted
+  pages `paid-t1.html` … `paid-t4.html`, one per level, for the payment link's success address —
+  what arrives and when, what you do next (level 3: run `MAP-A-GRANT.md`, send the two files by
+  email), how the key reaches you (out of band, never on a page), the definition of done, who to
+  write to. `pricing.html#after` states the plus-one-thing rule and the definition of done per
+  level; the homepage's behaviour-policy section carries the four levels. The delivery times on
+  those pages are our assumption, not the brief's. The store still has to point each payment
+  link at its page; the level-1 zip and email are the store's.
 - **Vault pages open on the vault** (v1.19.0): two host frames (App Mode, vault browser) via the
   embed handshake, `rm-abp-host` in `scripts/site/abp/abp-vaults.js`. The site still deploys a copy
   of every vault under `site/vaults/`; removing that is T09.
@@ -56,6 +64,7 @@ and vault queues. Each has a task brief in `.claude/briefs/`.
 | 11 | The two Voice Debrief use-case vaults, and a use-case group on the library | `T10` | a day, after the workflow agent runs the prompt | open |
 | 12 | Stop deploying the vault: inputs in the repository, the product in the vault | `T09` | half a day | open |
 | 13 | A page for the £500 workflow once the store has a return address; a per-shape header on `MAP-A-GRANT.md` | — | small | waiting on the store agent |
+| 14 | Point the four payment links' success address at `paid-t<n>.html`; the level-1 zip and emailed copy; the level-3 text on the store's product page; the opinion add-on page (brief D9) | — | the store's | waiting on the store agent |
 
 ## Decisions the lead owns (open)
 
@@ -65,6 +74,7 @@ and vault queues. Each has a task brief in `.claude/briefs/`.
 - Publish the n8n write-up and its author, or not.
 - Extend the measuring environment's gateway rule to MCP-tunnelled requests (the deployer's).
 - The return address for the level-3 files (a mailbox today; a write-only vault link when it exists).
+- The delivery times stated on the after-payment pages (one working day at levels 1 and 2, three at level 3 once the files arrive, a first session within five at level 4) — set by the agent, not the brief.
 - Who the reviewing person is at level 3, and whether the Voice Debrief vaults publish the routing service's providers by name.
 - Which agent branches merge next, and in what order (see `.claude/work/`).
 

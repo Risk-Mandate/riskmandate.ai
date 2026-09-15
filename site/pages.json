@@ -79,6 +79,30 @@
       "unlisted": true
     },
     {
+      "name": "paid-t1",
+      "file": "paid-t1.html",
+      "label": "After payment \u00b7 level 1",
+      "unlisted": true
+    },
+    {
+      "name": "paid-t2",
+      "file": "paid-t2.html",
+      "label": "After payment \u00b7 level 2",
+      "unlisted": true
+    },
+    {
+      "name": "paid-t3",
+      "file": "paid-t3.html",
+      "label": "After payment \u00b7 level 3",
+      "unlisted": true
+    },
+    {
+      "name": "paid-t4",
+      "file": "paid-t4.html",
+      "label": "After payment \u00b7 level 4",
+      "unlisted": true
+    },
+    {
       "name": "demos",
       "label": "All demos",
       "file": "demos.html",
