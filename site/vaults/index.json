@@ -1,5 +1,5 @@
 {
-  "note": "The catalogue of behaviour-policy vaults on this site — the single source for the directory page (abp-vaults.html) and one page per vault (abp-vault-<slug>.html), both written by scripts/site/build-abp-pages.mjs. `key` is the vault's PUBLIC read key (64 hex): derived one-way, read and nothing else, published on purpose. A write credential never appears here or anywhere in site/. `asked_for` are applications whose grant is not yet published at abp.sgit.ai, so no vault can be derived for them yet — they are listed so the gap is visible, never filled in by hand.",
+  "note": "The catalogue of behaviour-policy vaults on this site — the single source for the directory page (abp-vaults.html) and one page per vault (abp-vault-<slug>.html), both written by scripts/site/build-abp-pages.mjs. `key` is the vault's PUBLIC read key (64 hex): derived one-way, read and nothing else, published on purpose. A write credential never appears here or anywhere in site/. `asked_for` are applications whose grant is not yet published at abp.sgit.ai, so no vault can be derived for them yet — they are listed so the gap is visible, never filled in by hand. `store_page: false` marks a shape the store has not built a page for yet, so the buy link points at the store's list of shapes rather than at a 404; it is removed once the store promotes the shape.",
   "endpoint": "https://dev.send.sgraph.ai",
   "vaults": [
     {
@@ -178,7 +178,9 @@
       "kind": "measured",
       "logo": "gmail",
       "brand": "#EA4335",
-      "group": "Mail & files connectors"
+      "group": "Mail & files connectors",
+      "store_page": false,
+      "store_note": "The store builds a page per shape by promoting this catalogue at its own build time. This shape was added on 16 September and store.sgit.ai v0.3.17 does not list it yet, so /p/claude-gmail-connector/ is a 404. Until the store's next build the buy link points at its list of shapes. Flip this to true (or delete it) once the page exists."
     },
     {
       "slug": "gmail-readonly",

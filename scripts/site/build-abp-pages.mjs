@@ -266,8 +266,24 @@ ${fns.map(x => nextTile(x, 'asked for')).join('\n')}
 </section>`;
 }
 
+// Where "buy" goes, and what it may say.
+//
+// The store owns the cart, the order and every price (its boundary, published 16 September); this
+// site owns the shapes, the policies and the vaults, and holds no price anywhere. So a buy link
+// here names the level, never the number, and points at the store's own page for this shape.
+//
+// The store builds a page per shape by promoting this catalogue at ITS build time, so a shape
+// added here has no /p/<slug>/ until the store next builds. A catalogue entry says so with
+// `store_page: false`, and until it flips the button points at the store's index of shapes
+// rather than at a 404. Checked against store.sgit.ai v0.3.17, 16 September 2026.
+const STORE = 'https://store.sgit.ai';
+const storeBuy = (v) => v.store_page === false
+  ? { href: `${STORE}/policies/`, label: 'See the levels at the store ↗' }
+  : { href: `${STORE}/p/${v.slug}/`, label: 'Buy this policy ↗' };
+
 function vaultPage(v) {
   const { vault, grant, mandate, delta } = vaultData(v.slug);
+  const buy = storeBuy(v);
   const c = delta.counts, n = grant.grant.length, wanted = mandate.want.length;
   const measured = vault.measured_rows || `${grant.rows.measured} of ${grant.rows.total}`;
   const bounded = c.excess - c.unbounded_excess;
@@ -283,7 +299,7 @@ function vaultPage(v) {
     <p class="sub">${esc(grant.description.split('. ').slice(0, 2).join('. '))}. This is the template vault for that shape: the grant ${grant.rows && grant.rows.measured ? 'measured on the thing itself' : grant.research_needed ? 'read from the vendor\'s own pages on ' + grant.profile_version + ' and quoted, with ' + grant.research_needed.length + ' open questions it could not settle' : 'derived from what the shape architecturally is and from published documentation'}, the starting mandate ${grant.research_needed ? 'written here to be argued with' : 'the model site published'}, and everything else derived. Every number on this page is decrypted from the vault as you read it.</p>
     <div class="cta-row">
       <button class="btn btn-green" data-to="live">See it live ↓</button>
-      <a class="btn btn-ghost" href="https://store.sgit.ai/p/${v.slug}/" target="_blank" rel="noopener">Buy this policy, from £10 ↗</a>
+      <a class="btn btn-ghost" href="${buy.href}" target="_blank" rel="noopener">${buy.label}</a>
       <button class="btn btn-ghost" data-to="key">The read key ↓</button>
     </div>
   </div>
@@ -407,9 +423,9 @@ function vaultPage(v) {
   <div class="wrap">
     <span class="eyebrow"><span class="d"></span> Behaviour-policy vault</span>
     <h2>Run this? <span class="it">Buy the one for your deployment.</span></h2>
-    <p>This template is free and public. Yours is this vault with the mandate corrected, a name on the licence, and no public key — and it recomputes when the grant moves. Four levels at the store: the pack downloaded for £10, a working vault you hold the keys to for £50, corrected for your situation for £500, or two sessions with a professional's signature for £1,500.</p>
+    <p>This template is free and public, and you are reading it with the key printed above. Yours is this vault with the mandate corrected, a name on the licence, and no public key on it — and it recomputes when the grant moves. Four levels at the store: the pack as a download, a working vault you hold the keys to, that vault corrected for your situation by a named professional, or the same with two sessions and their signature. The store owns the prices, the cart and the order; this page holds none of them.${v.store_page === false ? ' This shape is new here, so the store has not built its page yet — the link goes to its list of shapes until it does.' : ''}</p>
     <div class="cta-row">
-      <a class="btn btn-green" href="https://store.sgit.ai/p/${v.slug}/" target="_blank" rel="noopener">Buy this policy ↗</a>
+      <a class="btn btn-green" href="${buy.href}" target="_blank" rel="noopener">${buy.label}</a>
       <a class="btn btn-ghost" href="pricing.html">The four levels</a>
       <a class="btn btn-ghost" href="agent-behaviour-policy.html">All applications</a>
     </div>
