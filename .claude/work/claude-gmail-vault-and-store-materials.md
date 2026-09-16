@@ -44,3 +44,15 @@ deployed and not built by CI. The Gmail vault sits in `asked_for` with `note` sa
 the next-page tile still says *not yet researched* because `nextTile()` ignores the note; a
 one-word fix (`x.note || kind`) I did not make, because the sibling agent owns that page's copy
 this week. Done: the entry is in `vaults` with `vid` and `key`.
+
+## MVP vault (16 Sept, second wave)
+- [x] The lead's seven decisions answered; the MVP brief and the consequences/assets brief written (I8, I9)
+- [x] The consequence layer in the build: assets.json, consequences.json, data/standards/ (GDPR, EU AI Act, ATT&CK), CONSEQUENCES.md derived, routes-out table, barrier derived per consequence, orphan/score refusals (T11, T12)
+- [x] The dual licence: `licence` block in vault.json, LICENCE.template.md, LICENCE.md derived, commercial-copy field refusal, licence footer on every derived file
+- [x] Renderer v5 (`site/vaults/_app/index.html`): left navigation, Start here + Who are you, What follows, Your keys, Keep it (commit log via sg.history), Download (zip bytes + sha256), Licence
+- [x] Pushed: new app vault **vbhmlulo** (v5 renderer); oc433z3m rebuilt and re-pushed so its live view loads v5. fl3i7lu4 (v4) still serves the other fifteen.
+- [x] Vault page repositioned (Open the vault. See what you get; the three claims); release v1.24.0
+- [ ] **Owed / to verify:** oc433z3m's live host frame was still resolving the new sub-vault mount at merge (data verified correct; renderer proven via static preview) — re-check. The research list (Google's sending limits, suspension, the modify tools) is open (T05). The other fifteen vaults re-pushed to v5 when someone gets to them. Authored per-audience views + projections (T04). The twelve screenshots as files for evidence/.
+
+## External state (updated)
+- Vaults pushed from the session: oc433z3m (public, in the catalogue), xjir6m0c (private instance), **vbhmlulo (public — the v5 app vault, in the catalogue as app_vault)**. No write key in the repo.

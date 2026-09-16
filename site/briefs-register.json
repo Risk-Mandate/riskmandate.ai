@@ -518,15 +518,19 @@
       "what": "Make the Gmail-connector vault oc433z3m the first MVP vault, with a solid end-to-end experience and the design template every other vault will reuse; global changes to the code vault are fine, and backwards compatibility with vaults nobody uses is not worth buying. Start from the store's V3 marketplace mock-up (the vault panel with its left navigation, the positioning of the vault) and the store's comparison table of what each level gets you, including the dual licence.",
       "how": "chat instruction with a PDF and a link, 16 Sept",
       "dated": "2026-09-16",
-      "status": "received",
+      "status": "partly",
       "produced": [
         {
           "what": "The direction brief: what the mock-up says about the vault, the feature list read off the store's table, the dual licence as a file and a data block, the redesign of the reading app with a left navigation, what changes globally, four decisions for the lead, and the plan",
           "url": "https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/briefs/direction__mvp-vault-and-the-reading-app.md"
+        },
+        {
+          "what": "Built: the dual licence in the build and LICENCE.md; the v5 left-navigation reading app in a new app vault (vbhmlulo); oc433z3m rebuilt and re-pushed; the vault page repositioned (v1.24.0)",
+          "url": "abp-vault-claude-gmail-connector.html"
         }
       ],
       "not_done": [
-        "The build itself: the licence block and LICENCE.md in the build, the v3 reading app, the new app vault, oc433z3m rebuilt and re-pushed, the vault page repositioned — waiting on the lead's answers to the four decisions in the brief"
+        "The live host view of oc433z3m was still resolving the new sub-vault mount at merge; the vault data is verified correct and the renderer proven via a static preview"
       ]
     },
     {
@@ -543,12 +547,15 @@
         {
           "what": "Task briefs T11 (consequences and assets) and T12 (standards mini-graphs); T04 amended with Who are you?",
           "url": "https://github.com/Risk-Mandate/riskmandate.ai/tree/dev/.claude/briefs"
+        },
+        {
+          "what": "Built: assets.json and consequences.json for oc433z3m (eleven consequences, six assets, two routes out), CONSEQUENCES.md derived, the What follows view, the standards mini-graphs, two scenarios (v1.24.0)",
+          "url": "abp-vault-claude-gmail-connector.html"
         }
       ],
       "not_done": [
-        "The data itself: assets.json and consequences.json in the vault, CONSEQUENCES.md derived, the What follows view, the two scenarios (T11)",
-        "The research list documented from Google's pages: sending limits, suspension, the modify tools, Claude's web tools as a second leg",
-        "The standards mini-graphs (T12) and the Who are you? entry (T04, with the MVP build)"
+        "The research list documented from Google's pages — sending limits, suspension, the modify tools — is still open (T05/research-vault)",
+        "Who are you? ships as a live filter; the authored per-audience views and projections remain T04"
       ]
     }
   ]

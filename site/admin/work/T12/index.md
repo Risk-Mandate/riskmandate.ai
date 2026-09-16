@@ -3,6 +3,8 @@
 > Rendered from .claude/briefs/T12-standards-mini-graphs.md in the repository. The text below is that file.
 > Source: https://riskmandate.ai/admin/work/T12/ · noindex · written by scripts/site/build-admin.mjs
 
+> **Done** v1.24.0 — built for `oc433z3m` and the template. See `docs/briefs/direction__mvp-vault-and-the-reading-app.md` and the v1.24.0 notes.
+
 **From:** `docs/briefs/direction__consequences-assets-and-the-vault-as-a-website.md` §3 and §5 item 3; the graph brief §3 (`links {mitre[], standards[], gdpr[]}`) and T03. **Size:** a day, alongside T03. **Touches:** `site/vaults/_template/data/standards/` (new: `gdpr.json`, `eu-ai-act.json`, `attack.json`, copied into every vault by the build), `data/consequences.json` and the behaviours extension (the `links` they point at), `site/vaults/_app/index.html` (a link renders as title + id, opening the source), `scripts/site/build-abp-vault.mjs` (validates every link resolves to a node).
 
 ## The task

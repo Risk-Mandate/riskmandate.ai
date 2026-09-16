@@ -6,7 +6,7 @@
 Keep this file true. If you land something, move it; if you learn something, add it. Dates are
 the site's; check `site/versions/index.json` for the current version before trusting the number here.
 
-## State as at 2026-09-16, v1.23.0
+## State as at 2026-09-16, v1.24.0
 
 - **Site:** 65 HTML files under `site/` plus the admin console under `site/admin/`, one live site deployed from `dev`. Top-level menu:
   The problem · The model · Agent Behaviour Policies · Live demos · Lisbon 2026 · Pricing · More
@@ -17,7 +17,7 @@ the site's; check `site/versions/index.json` for the current version before trus
   resizable preview panel with the label, the lethal trifecta and scenarios, `#policy=<slug>`
   deep links (v1.16.0, v1.17.0). *Refused* is now *told not to* everywhere.
 - **Vaults: 16 built, checked and pushed**, all at the *template* status, all re-pushed to carry
-  `MAP-A-GRANT.md` and `data/scenarios.json`. Renderer v4 in the app vault `fl3i7lu4`.
+  `MAP-A-GRANT.md` and `data/scenarios.json`. Renderer **v5** in the new app vault `vbhmlulo` (the left-navigation reading app with the consequence layer, Your keys, the dual licence); `fl3i7lu4` (v4) still serves the fifteen not re-pushed.
 
 | Tier | Vaults |
 |---|---|
@@ -84,8 +84,8 @@ and vault queues. Each has a task brief in `.claude/briefs/`.
 | 12 | Stop deploying the vault: inputs in the repository, the product in the vault | `T09` | half a day | open |
 | 13 | A page for the £500 workflow once the store has a return address; a per-shape header on `MAP-A-GRANT.md` | — | small | waiting on the store agent |
 | 14 | Point the four payment links' success address at `paid-t<n>.html` (level 1: `paid-t1.html?shape=<slug>&order=<ref>`); the level-3 text on the store's product page; the opinion add-on page (brief D9) | — | the store's | waiting on the store agent |
-| 15 | The MVP vault: `LICENCE.md` + `licence` block in the build; the v3 reading app with the left navigation, *Who are you?*, *Your keys*, *Keep it*, *Download*; a new app vault; `oc433z3m` re-pushed; the vault page repositioned (`direction__mvp-vault-and-the-reading-app.md`) | — | two and a half days | **waiting on the lead**: four decisions in the brief §6 |
-| 16 | The consequence layer for `oc433z3m`: assets, consequences, routes out, two scenarios; the research list documented from Google's pages; the standards mini-graphs | `T11`, `T12`, `/research-vault` | two and a half days | open, after 15 |
+| 15 | **Done** v1.24.0 — the MVP vault: `LICENCE.md` + `licence` block in the build; the v3 reading app with the left navigation, *Who are you?*, *Your keys*, *Keep it*, *Download*; a new app vault; `oc433z3m` re-pushed; the vault page repositioned (`direction__mvp-vault-and-the-reading-app.md`) | — | two and a half days | the lead's four decisions answered 16 Sept; renderer v5 in a new app vault `vbhmlulo`; oc433z3m re-pushed; the dual licence in the build |
+| 16 | **Done** v1.24.0 — the consequence layer for `oc433z3m`: assets, consequences, routes out, two scenarios; the research list documented from Google's pages; the standards mini-graphs | `T11`, `T12` | done | eleven consequences, six assets, two routes out, the standards mini-graphs; the research list (Google's pages, Claude's web tools) is still open — T05/research-vault |
 
 ## Decisions the lead owns (open)
 
@@ -99,6 +99,8 @@ and vault queues. Each has a task brief in `.claude/briefs/`.
 - Which agent branches merge next, and in what order (see `.claude/work/`).
 
 ## Known rough edges
+
+- **`oc433z3m`'s live host view was still resolving the new sub-vault mount to `vbhmlulo` at merge time.** The vault data is provably correct (the read key, the ref and the index.html blob all verified server-side; the renderer proven via a static preview) and an un-re-pushed vault still renders via `fl3i7lu4`, so this is the host indexing a brand-new mount target, as the first push was. Re-check the Gmail vault page's *See it live* frame; if still blank after a while, open it in its own tab from the page.
 
 - `docs/how-the-website-works.md` is written at v1.0.0 with an addendum; the page counts and
   test counts in its body are historical.

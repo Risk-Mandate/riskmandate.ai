@@ -1,5 +1,7 @@
 # T11 — Consequences and assets: what follows when a capability meets what is in the deployment
 
+> **Done** v1.24.0 — built for `oc433z3m` and the template. See `docs/briefs/direction__mvp-vault-and-the-reading-app.md` and the v1.24.0 notes.
+
 **From:** `docs/briefs/direction__consequences-assets-and-the-vault-as-a-website.md` §3 and §5 items 1 and 5. **Size:** a day. **Touches:** `site/vaults/claude-gmail-connector/data/assets.json` and `data/consequences.json` (new, authored), `scripts/site/build-abp-vault.mjs` (derives `CONSEQUENCES.md`, the routes-out table, the open-consequence view on the delta), `site/vaults/_app/index.html` (the *What follows* view under Evidence), `site/vaults/_template/data/` (empty files with the schema, so every vault carries the layer), `data/scenarios.json` (two scenarios).
 
 ## The task

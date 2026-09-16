@@ -3,9 +3,9 @@
 > Every document, memo and instruction riskmandate.ai was built from, in the order it arrived, with what it produced and what it still owes — read off briefs-register.json.
 > Source: https://riskmandate.ai/admin/memos/ · noindex · written by scripts/site/build-admin.mjs
 
-**1**received, nothing built yet*Archived and read, and nothing has been built from it yet.*
+**0**received, nothing built yet*Archived and read, and nothing has been built from it yet.*
 
-**10**partly worked*read in full; a named part is not built*
+**11**partly worked*read in full; a named part is not built*
 
 **8**processed*something on the site exists because of it*
 
@@ -23,11 +23,11 @@ chat instruction, 16 Sept · 3 produced · 0 not done16 September 2026 · proces
 
 **[Make the Gmail-connector vault oc433z3m the first MVP vault, with a solid end-to-end experience and the design template every other vault will reuse; global changes to the code vault are fine, and backwards compatibility with vaults nobody uses is not worth buying. Start from the store's V3 marketplace mock-up (the vault panel with its left navigation, the positioning of the vault) and the store's comparison table of what each level gets you, including the dual licence.](#I8)**
 
-chat instruction with a PDF and a link, 16 Sept · 1 produced · 1 not done16 September 2026 · received
+chat instruction with a PDF and a link, 16 Sept · 2 produced · 1 not done16 September 2026 · partly
 
 **[Voice memo: the material to add to the Gmail-connector vault. Go back to first principles on the grant and map its side effects: a grant is the union of capabilities, and the reader needs the consequences, each explicit and each tied to the asset that makes it real (secrets in mail, reset links, mail from others); count the routes out; the authorisation to read is not the authorisation to forward; harvesting, mass send and what makes a platform suspend an account; mass change to the inbox's filing; realistic scenarios on the mandate; standards as mini-graphs in the vault; the vault navigated as a website with materials per audience.](#I9)**
 
-voice memo (Otter transcript, about nine minutes), 16 Sept · 2 produced · 3 not done16 September 2026 · partly
+voice memo (Otter transcript, about nine minutes), 16 Sept · 3 produced · 2 not done16 September 2026 · partly
 
 **[Risk Mandate Website Repositioning Strategy](#D10)**
 
@@ -138,15 +138,15 @@ I8 · chat instruction with a PDF and a link, 16 Sept · 16 September 2026
 
 ## Make the Gmail-connector vault oc433z3m the first MVP vault, with a solid end-to-end experience and the design template every other vault will reuse; global changes to the code vault are fine, and backwards compatibility with vaults nobody uses is not worth buying. Start from the store's V3 marketplace mock-up (the vault panel with its left navigation, the positioning of the vault) and the store's comparison table of what each level gets you, including the dual licence.
 
-received
+partly
 
 *chat instruction with a PDF and a link, 16 Sept* — no digest; given as speech, chat text or a link
 
-**Produced.** [The direction brief: what the mock-up says about the vault, the feature list read off the store's table, the dual licence as a file and a data block, the redesign of the reading app with a left navigation, what changes globally, four decisions for the lead, and the plan](https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/briefs/direction__mvp-vault-and-the-reading-app.md)
+**Produced.** [The direction brief: what the mock-up says about the vault, the feature list read off the store's table, the dual licence as a file and a data block, the redesign of the reading app with a left navigation, what changes globally, four decisions for the lead, and the plan](https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/briefs/direction__mvp-vault-and-the-reading-app.md) · [Built: the dual licence in the build and LICENCE.md; the v5 left-navigation reading app in a new app vault (vbhmlulo); oc433z3m rebuilt and re-pushed; the vault page repositioned (v1.24.0)](../../abp-vault-claude-gmail-connector.html)
 
 **Not done.**
 
-- The build itself: the licence block and LICENCE.md in the build, the v3 reading app, the new app vault, oc433z3m rebuilt and re-pushed, the vault page repositioned — waiting on the lead's answers to the four decisions in the brief
+- The live host view of oc433z3m was still resolving the new sub-vault mount at merge; the vault data is verified correct and the renderer proven via a static preview
 
 I9 · voice memo (Otter transcript, about nine minutes), 16 Sept · 16 September 2026
 
@@ -156,13 +156,12 @@ partly
 
 *voice memo (Otter transcript, about nine minutes), 16 Sept* — no digest; given as speech, chat text or a link
 
-**Produced.** [The direction brief: the memo in its own order, where the vault already is, the consequence layer (assets, consequences, standards mini-graphs, the triple), eleven first consequences for oc433z3m, what it settles for the MVP brief, the build order, what needs the lead](https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/briefs/direction__consequences-assets-and-the-vault-as-a-website.md) · [Task briefs T11 (consequences and assets) and T12 (standards mini-graphs); T04 amended with Who are you?](https://github.com/Risk-Mandate/riskmandate.ai/tree/dev/.claude/briefs)
+**Produced.** [The direction brief: the memo in its own order, where the vault already is, the consequence layer (assets, consequences, standards mini-graphs, the triple), eleven first consequences for oc433z3m, what it settles for the MVP brief, the build order, what needs the lead](https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/briefs/direction__consequences-assets-and-the-vault-as-a-website.md) · [Task briefs T11 (consequences and assets) and T12 (standards mini-graphs); T04 amended with Who are you?](https://github.com/Risk-Mandate/riskmandate.ai/tree/dev/.claude/briefs) · [Built: assets.json and consequences.json for oc433z3m (eleven consequences, six assets, two routes out), CONSEQUENCES.md derived, the What follows view, the standards mini-graphs, two scenarios (v1.24.0)](../../abp-vault-claude-gmail-connector.html)
 
 **Not done.**
 
-- The data itself: assets.json and consequences.json in the vault, CONSEQUENCES.md derived, the What follows view, the two scenarios (T11)
-- The research list documented from Google's pages: sending limits, suspension, the modify tools, Claude's web tools as a second leg
-- The standards mini-graphs (T12) and the Who are you? entry (T04, with the MVP build)
+- The research list documented from Google's pages — sending limits, suspension, the modify tools — is still open (T05/research-vault)
+- Who are you? ships as a live filter; the authored per-audience views and projections remain T04
 
 D10 · spoken brief, transcribed · 15 September 2026
 

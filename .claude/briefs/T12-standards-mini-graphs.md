@@ -1,5 +1,7 @@
 # T12 — The standards mini-graphs inside the vault: GDPR, the EU AI Act and ATT&CK as nodes to link to
 
+> **Done** v1.24.0 — built for `oc433z3m` and the template. See `docs/briefs/direction__mvp-vault-and-the-reading-app.md` and the v1.24.0 notes.
+
 **From:** `docs/briefs/direction__consequences-assets-and-the-vault-as-a-website.md` §3 and §5 item 3; the graph brief §3 (`links {mitre[], standards[], gdpr[]}`) and T03. **Size:** a day, alongside T03. **Touches:** `site/vaults/_template/data/standards/` (new: `gdpr.json`, `eu-ai-act.json`, `attack.json`, copied into every vault by the build), `data/consequences.json` and the behaviours extension (the `links` they point at), `site/vaults/_app/index.html` (a link renders as title + id, opening the source), `scripts/site/build-abp-vault.mjs` (validates every link resolves to a node).
 
 ## The task

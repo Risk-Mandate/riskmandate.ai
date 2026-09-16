@@ -9,7 +9,7 @@
 
 **1**branches in flight*one work file each*
 
-**12**open tasks*of 17 in the queue · 1 done*
+**9**open tasks*of 17 in the queue · 1 done*
 
 **11**memos not fully worked*of 19 received*
 
@@ -27,9 +27,9 @@ The only filled rank on this console: a decision, a credential or a call nobody 
 
 waiting on the lead#11a
 
-**The MVP vault: `LICENCE.md` + `licence` block in the build; the v3 reading app with the left navigation, *Who are you?*, *Your keys*, *Keep it*, *Download*; a new app vault; `oc433z3m` re-pushed; the vault page repositioned (`direction__mvp-vault-and-the-reading-app.md`)**
+**Done** v1.24.0 — the MVP vault: `LICENCE.md` + `licence` block in the build; the v3 reading app with the left navigation, *Who are you?*, *Your keys*, *Keep it*, *Download*; a new app vault; `oc433z3m` re-pushed; the vault page repositioned (`direction__mvp-vault-and-the-reading-app.md`)
 
-waiting on the lead: four decisions in the brief §6#15
+the lead's four decisions answered 16 Sept; renderer v5 in a new app vault `vbhmlulo`; oc433z3m re-pushed; the dual licence in the build#15
 
 ***Behaviour* or *behavior* on the mark (the site is British; the recommendation is *behaviour*).**
 
