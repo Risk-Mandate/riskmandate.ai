@@ -1,8 +1,13 @@
 {
   "type": "riskmandate/abp-app-context/v1",
   "dist": {
-    "dropbox-mcp.zip": true,
-    "dropbox-mcp.pdf": true
+    "dropbox-mcp.zip": {
+      "bytes": 83851,
+      "sha256": "7ab1a081a32ad874cd6bcd0b79ad8db2cd75b3c1981c0848482e70aa8990e879"
+    },
+    "dropbox-mcp.pdf": {
+      "bytes": 304816
+    }
   },
   "research_open": 4,
   "scenarios": 6,
@@ -11,8 +16,8 @@
   },
   "copy": "template",
   "app_vault": {
-    "vault_id": "fl3i7lu4",
+    "vault_id": "vbhmlulo",
     "entry": "index.html",
-    "version": "v4"
+    "version": "v5"
   }
 }

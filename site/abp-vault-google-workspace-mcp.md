@@ -12,17 +12,17 @@ Source: https://riskmandate.ai/abp-vault-google-workspace-mcp.html
 
 Google's own MCP servers, one per Workspace product, used from an MCP client such as an IDE or an agent. Each server "inherits the same permissions and data governance controls as the user": it acts as the person who consented, over everything that person can reach. This is the template vault for that shape: the grant read from the vendor's own pages on 2026-09-15 and quoted, with 4 open questions it could not settle, the starting mandate written here to be argued with, and everything else derived. Every number on this page is decrypted from the vault as you read it.
 
-## The vault in action, and the vault itself.
+## Open the vault. See what you get.
 
-Two frames, both the official SG/Vault interface opened read-only with the key printed at the bottom of this page, both reading the vault and not this site. The first is the vault's own app, which is what whoever is handed the policy sees: what we want the agent to do beside what we do not, the mandate to correct, the files to give the agent. The second is the vault browser: every file in the tree, its history, and the same app one click away. Between them is what you are buying at every level — the app is the reading, the tree is the record.
+Reading app · files · keys · history. Two frames, both the official SG/Vault interface opened read-only with the key printed at the bottom of this page, both reading the vault and not this site. The first is the vault's own app, which is what whoever is handed the policy sees. The second is the vault browser: every file in the tree, its history, and the same app one click away. Between them is what you are buying at every level — the app is the reading, the tree is the record.
 
 ### The app
 
-Opens on _Start here_. Use the tabs across the top: the grant, the mandate you can correct, the delta, the licence, and three ways to hand the files to the agent.
+Opens on _Start here_. A left navigation: the record it can do, what you do with it, and what you hold — the mandate to correct, the consequences that follow, your keys, and the licence.
 
 ### The vault
 
-The tree on the left is the whole product: the markdown for people, the JSON for machines, the pinned vocabulary, the six scenarios, the history of every recompute. Click a file to read it; the same app is under _index.html_.
+The tree on the left is the whole product: the markdown for people, the JSON for machines, the pinned vocabulary, the scenarios, the consequence layer, the history of every recompute. Click a file to read it; the same app is under _index.html_.
 
 The read key travels to the host over a same-page handshake, never in a URL. Nothing you do in either frame touches the vault: it is opened read-only, and the write key is not published. Not loading? [Open it in its own tab ↗](https://dev.vault.sgraph.ai/en-gb/#093c4c58f1593dacecc727de965ee22f883a6530cac20b2ff9ae6b7ea811c1e4:pq7ct02p).
 

@@ -1,12 +1,21 @@
 {
   "note": "One entry per version of the renderer. `commit` is the vault commit it was pushed as, filled in after the push; a version that does not name its commit cannot be verified later.",
-  "current": "v4",
+  "current": "v5",
   "versions": [
+    {
+      "version": "v5",
+      "date": "2026-09-16",
+      "commit": "obj-cas-imm-0f245053f12d",
+      "title": "The left-navigation reading app: Start here with Who are you, the record (the ABP, Evidence, the gap, What follows), what you do (Customise, Use it, Build it, Authorise it), what you hold (Licence, Your keys, Keep it, Download). Adds the consequence layer, the assets and routes-out, the dual licence, Your keys and the vault's own commit history. Pushed as a new app vault vbhmlulo.",
+      "changes": [
+        "index.html"
+      ]
+    },
     {
       "version": "v4",
       "date": "2026-09-15",
       "commit": "obj-cas-imm-9bbc3f3ee44d",
-      "title": "Connector shapes: a whose-material column on the grant, an open-questions badge on the first screen, and three panels on the grant view \u2014 open questions, where the vendor's pages disagree, granted and not in the grammar",
+      "title": "Connector shapes: a whose-material column on the grant, an open-questions badge on the first screen, and three panels on the grant view — open questions, where the vendor's pages disagree, granted and not in the grammar",
       "changes": [
         "index.html"
       ]

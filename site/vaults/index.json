@@ -319,11 +319,11 @@
     }
   ],
   "app_vault": {
-    "vault_id": "fl3i7lu4",
-    "key": "e37a0f80d65e2b486f8bb3253e313c65ecbb57e5664c3f1704346c70ac09639a",
+    "vault_id": "vbhmlulo",
+    "key": "ae52f01b60792f13444056dfd0b624dc31c223907aee65700a0e06cf82b84caf",
     "entry": "index.html",
-    "version": "v4",
-    "note": "The renderer every application vault loads (site/vaults/_app/), pushed as its own vault. Public read key; read and nothing else."
+    "version": "v5",
+    "note": "The renderer every application vault loads (site/vaults/_app/), pushed as its own vault. v5 is the left-navigation reading app with the consequence layer and the dual licence. Public read key; read and nothing else. The previous app vault fl3i7lu4 (v4) still serves the vaults not yet re-pushed."
   },
   "asked_for_note": "Connector shapes not yet built. Each becomes a vault once its vendor pages have been read and quoted; the four Lab 03 asked the model site for are built above, ahead of the model site, and carry their open questions in RESEARCH-NEEDED.md.",
   "functions": [

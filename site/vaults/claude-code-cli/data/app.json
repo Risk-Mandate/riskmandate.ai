@@ -1,7 +1,10 @@
 {
   "type": "riskmandate/abp-app-context/v1",
   "dist": {
-    "claude-code-cli.zip": true
+    "claude-code-cli.zip": {
+      "bytes": 87569,
+      "sha256": "80c6c00a38f1fd69c47bf05fbadae8ba57a70c27d44d4080a666fa8aaf2e3a88"
+    }
   },
   "scenarios": 6,
   "licence": {
@@ -9,8 +12,8 @@
   },
   "copy": "template",
   "app_vault": {
-    "vault_id": "fl3i7lu4",
+    "vault_id": "vbhmlulo",
     "entry": "index.html",
-    "version": "v4"
+    "version": "v5"
   }
 }

@@ -1,7 +1,10 @@
 {
   "type": "riskmandate/abp-app-context/v1",
   "dist": {
-    "google-drive-readonly.zip": true
+    "google-drive-readonly.zip": {
+      "bytes": 79148,
+      "sha256": "0e4c352ce4ee2dd7a4e54e47aed52cf098492450f7781c9109a994c330fd557f"
+    }
   },
   "research_open": 3,
   "scenarios": 6,
@@ -10,8 +13,8 @@
   },
   "copy": "template",
   "app_vault": {
-    "vault_id": "fl3i7lu4",
+    "vault_id": "vbhmlulo",
     "entry": "index.html",
-    "version": "v4"
+    "version": "v5"
   }
 }

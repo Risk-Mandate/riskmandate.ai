@@ -295,20 +295,25 @@ function vaultPage(v) {
     <div class="wrap">
       <div class="shead">
         <span class="tag">01 · See it live</span>
-        <h2>The vault in action, <span class="g">and the vault itself.</span></h2>
-        <p>Two frames, both the official SG/Vault interface opened read-only with the key printed at the bottom of this page, both reading the vault and not this site. The first is the vault's own app, which is what whoever is handed the policy sees: what we want the agent to do beside what we do not, the mandate to correct, the files to give the agent. The second is the vault browser: every file in the tree, its history, and the same app one click away. Between them is what you are buying at every level — the app is the reading, the tree is the record.</p>
+        <h2>Open the vault. <span class="g">See what you get.</span></h2>
+        <p>Reading app · files · keys · history. Two frames, both the official SG/Vault interface opened read-only with the key printed at the bottom of this page, both reading the vault and not this site. The first is the vault's own app, which is what whoever is handed the policy sees. The second is the vault browser: every file in the tree, its history, and the same app one click away. Between them is what you are buying at every level — the app is the reading, the tree is the record.</p>
       </div>
       <div class="ab-live">
         <div>
           <h3 class="ab-live-h">The app</h3>
-          <p class="ab-live-p">Opens on <em>Start here</em>. Use the tabs across the top: the grant, the mandate you can correct, the delta, the licence, and three ways to hand the files to the agent.</p>
+          <p class="ab-live-p">Opens on <em>Start here</em>. A left navigation: the record it can do, what you do with it, and what you hold — the mandate to correct, the consequences that follow, your keys, and the licence.</p>
           <rm-abp-host data-vault="${v.slug}" data-mode="app"></rm-abp-host>
         </div>
         <div>
           <h3 class="ab-live-h">The vault</h3>
-          <p class="ab-live-p">The tree on the left is the whole product: the markdown for people, the JSON for machines, the pinned vocabulary, the six scenarios, the history of every recompute. Click a file to read it; the same app is under <em>index.html</em>.</p>
+          <p class="ab-live-p">The tree on the left is the whole product: the markdown for people, the JSON for machines, the pinned vocabulary, the scenarios, the consequence layer, the history of every recompute. Click a file to read it; the same app is under <em>index.html</em>.</p>
           <rm-abp-host data-vault="${v.slug}" data-mode="vault"></rm-abp-host>
         </div>
+      </div>
+      <div class="ab-claims">
+        <div><b>Your keys.</b> A working copy you control; hand the read key on and the reader sees what you see.</div>
+        <div><b>Multiple formats.</b> Markdown for people, JSON for machines, the whole thing as a zip with its sha256.</div>
+        <div><b>Version history.</b> Every recompute keeps the basis of the revision, and the vault keeps every commit.</div>
       </div>
       <p class="src">The read key travels to the host over a same-page handshake, never in a URL. Nothing you do in either frame touches the vault: it is opened read-only, and the write key is not published. Not loading? <a href="https://dev.vault.sgraph.ai/en-gb/#${v.key}:${v.vid}" target="_blank" rel="noopener">Open it in its own tab ↗</a>.</p>
     </div>

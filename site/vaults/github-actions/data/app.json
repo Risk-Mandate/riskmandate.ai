@@ -1,7 +1,10 @@
 {
   "type": "riskmandate/abp-app-context/v1",
   "dist": {
-    "github-actions.zip": true
+    "github-actions.zip": {
+      "bytes": 74689,
+      "sha256": "13b0fc639c4b1c485ae3a6cccc7ea7c5e0a58e0fc7e96843c669122b5e08ca16"
+    }
   },
   "scenarios": 6,
   "licence": {
@@ -9,8 +12,8 @@
   },
   "copy": "template",
   "app_vault": {
-    "vault_id": "fl3i7lu4",
+    "vault_id": "vbhmlulo",
     "entry": "index.html",
-    "version": "v4"
+    "version": "v5"
   }
 }

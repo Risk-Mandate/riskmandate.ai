@@ -1,7 +1,10 @@
 {
   "type": "riskmandate/abp-app-context/v1",
   "dist": {
-    "n8n-owner-api-key.zip": true
+    "n8n-owner-api-key.zip": {
+      "bytes": 94849,
+      "sha256": "8073adedca6151c00afc2f97d7c7bc2ec7fb168a70376b9b491377ce00ae07e5"
+    }
   },
   "research_open": 4,
   "scenarios": 6,
@@ -10,8 +13,8 @@
   },
   "copy": "template",
   "app_vault": {
-    "vault_id": "fl3i7lu4",
+    "vault_id": "vbhmlulo",
     "entry": "index.html",
-    "version": "v4"
+    "version": "v5"
   }
 }

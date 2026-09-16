@@ -647,8 +647,10 @@ if (existsSync(join(TEMPLATE, '..', '_app', 'loader.html'))) {
     ...['capabilities', 'barriers', 'undo-classes', 'evidence-tiers'].map(f => ({ name: `data/vocabulary/${f}.json`, data: readFileSync(join(DIR, `data/vocabulary/${f}.json`)) })),
   ].sort((a, b) => a.name < b.name ? -1 : 1);
   const zipName = `${slug}.zip`, pdfName = `${slug}.pdf`;
-  outputs[`dist/${zipName}`] = zipStore(zipEntries);
-  const dist = { [zipName]: true, ...(existsSync(join(distDir, pdfName)) ? { [pdfName]: true } : {}) };
+  const zipBuf = zipStore(zipEntries);
+  outputs[`dist/${zipName}`] = zipBuf;
+  const zipSha = createHash('sha256').update(zipBuf).digest('hex');
+  const dist = { [zipName]: { bytes: zipBuf.length, sha256: zipSha }, ...(existsSync(join(distDir, pdfName)) ? { [pdfName]: { bytes: existsSync(join(distDir, pdfName)) ? readFileSync(join(distDir, pdfName)).length : 0 } } : {}) };
   // what the renderer needs to know that is not in a data file: which dist files exist
   outputs['data/app.json'] = JSON.stringify({ type: 'riskmandate/abp-app-context/v1', dist, ...(research.length ? { research_open: research.length } : {}), ...(scenarios.length ? { scenarios: scenarios.length } : {}), ...(hasConsequences ? { consequences: consequences.length, consequences_open: consequences.filter(consOpen).length, routes_out: exfil.length } : {}), licence: { kind: lic.kind, ...(lic.kind === 'commercial' ? { licensee: lic.licensee, order: lic.order, level: lic.level } : {}) }, copy: cfg.copy || 'template', app_vault: appVault ? { vault_id: appVault.vault_id, entry: appVault.entry || 'index.html', version: appVault.version || null } : null }, null, 2) + '\n';
   const loader = readFileSync(join(TEMPLATE, '..', '_app', 'loader.html'), 'utf8');
