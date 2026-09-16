@@ -325,6 +325,11 @@
       "url": "https://riskmandate.ai/abp-vault-google-drive-readonly.html"
     },
     {
+      "name": "abp-vault-claude-gmail-connector",
+      "label": "Vault · Claude's Gmail connector",
+      "url": "https://riskmandate.ai/abp-vault-claude-gmail-connector.html"
+    },
+    {
       "name": "abp-vault-gmail-readonly",
       "label": "Vault · Gmail, read-only scope",
       "url": "https://riskmandate.ai/abp-vault-gmail-readonly.html"

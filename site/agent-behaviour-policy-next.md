@@ -36,10 +36,6 @@ An integration is added page by page, which is the one connector model with a fl
 
 A CRM is entirely third-party material by construction.
 
-### Claude's Gmail connector
-
-Search and read carry no approval prompt; send, reply and forward do, on by default — a setting the account, or an org owner on Team and Enterprise, can turn off. The OAuth consent already permits sending before the prompt is ever removed.
-
 ## What the agent is for, not what it runs on.
 
 A different axis: a policy for the CRM, the service desk or the finance data, whichever product holds it. The mandate is the same across products; the grant is per product; the policy is built once one product's grant is documented for the function.
@@ -60,6 +56,6 @@ Spreadsheets, ledgers and the exports beside them. Sheets, Excel, NetSuite.
 
 The form opens a message in your mail client with what you typed; nothing is stored on this site. Say which application or connector, what it is connected to, and why it matters to you. If your agent already holds the credential, every vault carries `MAP-A-GRANT.md`: give it to the agent and it measures its own grant and drafts the first policy — send us what it finds and the policy gets a tile.
 
-## The 15 we have are on the library page.
+## The 16 we have are on the library page.
 
 Each one read live from its vault, with its scenarios, its open questions and the files you hand the agent.

@@ -276,6 +276,12 @@
       "unlisted": true
     },
     {
+      "name": "abp-vault-claude-gmail-connector",
+      "file": "abp-vault-claude-gmail-connector.html",
+      "label": "Vault \u00b7 Claude's Gmail connector",
+      "unlisted": true
+    },
+    {
       "name": "abp-vault-gmail-readonly",
       "file": "abp-vault-gmail-readonly.html",
       "label": "Vault \u00b7 Gmail, read-only scope",
