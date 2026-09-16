@@ -1,0 +1,31 @@
+{
+  "note": "One entry per recompute whose counts moved. The delta is derived; this is its record.",
+  "entries": [
+    {
+      "v": 1,
+      "computed_at": "2026-09-16T10:58:19Z",
+      "grant_version": "2026-09-16",
+      "mandate_version": "2026-09-16",
+      "vocabulary_version": "v0.3.0",
+      "counts": {
+        "excess": 4,
+        "unbounded_excess": 3,
+        "shortfall": 0,
+        "aligned": 1
+      }
+    },
+    {
+      "v": 2,
+      "computed_at": "2026-09-16T11:08:55Z",
+      "grant_version": "2026-09-16",
+      "mandate_version": "2026-09-16",
+      "vocabulary_version": "v0.3.0",
+      "counts": {
+        "excess": 5,
+        "unbounded_excess": 4,
+        "shortfall": 0,
+        "aligned": 1
+      }
+    }
+  ]
+}

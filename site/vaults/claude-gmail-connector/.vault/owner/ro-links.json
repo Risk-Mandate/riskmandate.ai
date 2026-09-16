@@ -1,0 +1,12 @@
+{
+  "lk-e6ef2b031a0a": {
+    "type": "vault",
+    "label": "app",
+    "pin": {
+      "mode": "latest"
+    },
+    "vault_id": "fl3i7lu4",
+    "read_key": "43oPgNZeK0hvi7MlPjE8Zey7V+VmTD8XBDRscKwJY5o=",
+    "ref_file_id": "ref-pid-muw-500648d8192f"
+  }
+}

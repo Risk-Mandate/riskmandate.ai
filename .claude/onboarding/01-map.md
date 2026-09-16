@@ -22,6 +22,7 @@ One line per thing. Paths are from the repository root; site pages are also live
 | `docs/briefs/process__agent-onboarding-and-parallel-work.md` | 15 Sept. Why this folder exists and the rules for agents working in parallel | you are reading its product |
 | `docs/briefs/direction__use-case-driven-policies-and-the-prompt-workflow.md` | 15 Sept. A policy per use case (Voice Debrief first); the £500 level is a prompt the customer runs, in seven steps; what the store and the site must both say | pricing, the store, use-case vaults |
 | `docs/briefs/review__vault-pages-vs-the-vault.md` | 15 Sept. The vault pages read against the vault: the two host frames, and why the site should stop deploying the vault (T09) | touching the vault pages or `site/vaults/` |
+| `docs/briefs/workflow__buying-a-policy-for-claude-on-gmail.md` | 16 Sept. The purchase workflow made concrete for one customer: the steps, the vault mapped, the settings, the prompts, what a measured run taught | delivering a level-3 or level-4 policy; any connector vault |
 | `docs/marketing/linkedin-company-page.md` | Every field of the company page, ready to paste | LinkedIn |
 
 Brief naming: `<kind>__<slug>.md` with kind one of `direction`, `architecture`, `implementation`,
@@ -37,7 +38,7 @@ needed.
 | The problem | `plug`, `acceptable`, `acceptance`, `grant-gap` | hand-authored, older voice |
 | The model | `abp.html` (the ABP page), `how-it-works`, `agents` (llms.txt etc.), `ramm`, `scenarios`, `statics` | hand-authored |
 | Behaviour policies | `agent-behaviour-policy.html` (the library, top-level), `agent-behaviour-policy-next.html` (asked for, vote, suggest), `abp-vault-<slug>.html` ×15 | **generated** by `build-abp-pages.mjs` from `site/vaults/index.json` and each vault's data. `abp-vaults.html` and `abp/` redirect |
-| Vaults | `site/vaults/<slug>/` ×15, `_template/`, `_app/` | inputs: `vault.json`, `data/grant.json`, `data/mandate.json`, `data/scenarios.json`, `data/vocabulary/`. Everything else **generated** by `build-abp-vault.mjs` |
+| Vaults | `site/vaults/<slug>/` ×15 pushed + `claude-gmail-connector` built and unpushed, `_template/`, `_app/`; instances (a customer's copy, anonymised) under `vaults-instances/`, built with `ABP_VAULT_DIR=…` and never deployed | inputs: `vault.json`, `data/grant.json`, `data/mandate.json`, `data/scenarios.json`, `data/vocabulary/`. Everything else **generated** by `build-abp-vault.mjs` |
 | Live demos | `demos.html`, `demo-*.html` ×6 | hand-authored; each embeds an sgit vault with a public read key |
 | Lab | `lab.html` (in *More*), `lab-*.html` ×7 (unlisted, linked from `lab.html`) | hand-authored; every meaningful state cut as a dated PDF in `assets/lab/`, registered in `lab-editions.json` |
 | Summit | `summit.html`, `summit-booth.html` (private) | hand-authored |

@@ -1,0 +1,42 @@
+# The message Claude sent on 2026-09-16, as Gmail's "Download original" saved it on the SENDING side.
+# Addresses and names redacted; every other byte as received. Note what is absent: no X-Mailer, no
+# User-Agent, nothing naming the client. The only trace of how it was sent is the Received line —
+# "by gmailapi.google.com with HTTPREST" — and the numeric sender, which is the OAuth client's
+# Google Cloud project number. Google publishes no lookup from that number to "Claude for Gmail".
+
+Received: from 101988054943
+	named unknown
+	by gmailapi.google.com
+	with HTTPREST;
+	Wed, 16 Sep 2026 04:02:26 -0700
+Received: from 101988054943
+	named unknown
+	by gmailapi.google.com
+	with HTTPREST;
+	Wed, 16 Sep 2026 04:02:26 -0700
+Date: Wed, 16 Sep 2026 04:02:26 -0700
+To: <recipient-redacted>
+Message-Id: <CAF6P_S7Cf9q_7gjAmcmKQnmXBXPSio9DQjfkkhTO9yYetZTvwA@mail.gmail.com>
+Subject: Hi from your other account
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_79428_900834814.1789556546108"
+From: <account-name-redacted> <<sending-address-redacted>>
+
+------=_Part_79428_900834814.1789556546108
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+
+Hi <recipient-redacted>,
+
+Just saying hi from your other email account (<sending-address-redacted>)=
+.
+
+Best,
+<account-name-redacted>
+------=_Part_79428_900834814.1789556546108
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html><body><div dir="auto">Hi <recipient-redacted>,<br/><br/>Just saying hi from your other email account (<sending-address-redacted>).<br/><br/>Best,<br/><account-name-redacted></div></body></html>
+------=_Part_79428_900834814.1789556546108--

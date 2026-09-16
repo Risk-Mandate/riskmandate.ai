@@ -1,5 +1,5 @@
 {
-  "note": "The catalogue of behaviour-policy vaults on this site \u2014 the single source for the directory page (abp-vaults.html) and one page per vault (abp-vault-<slug>.html), both written by scripts/site/build-abp-pages.mjs. `key` is the vault's PUBLIC read key (64 hex): derived one-way, read and nothing else, published on purpose. A write credential never appears here or anywhere in site/. `asked_for` are applications whose grant is not yet published at abp.sgit.ai, so no vault can be derived for them yet \u2014 they are listed so the gap is visible, never filled in by hand.",
+  "note": "The catalogue of behaviour-policy vaults on this site — the single source for the directory page (abp-vaults.html) and one page per vault (abp-vault-<slug>.html), both written by scripts/site/build-abp-pages.mjs. `key` is the vault's PUBLIC read key (64 hex): derived one-way, read and nothing else, published on purpose. A write credential never appears here or anywhere in site/. `asked_for` are applications whose grant is not yet published at abp.sgit.ai, so no vault can be derived for them yet — they are listed so the gap is visible, never filled in by hand.",
   "endpoint": "https://dev.send.sgraph.ai",
   "vaults": [
     {
@@ -252,11 +252,11 @@
   "asked_for": [
     {
       "slug": "claude-google-workspace-connector",
-      "app": "Claude's Google Workspace connector",
+      "app": "Claude's Calendar & Drive connectors",
       "family": "google",
       "glyph": "G",
-      "blurb": "Gmail, Calendar and Drive from inside Claude. The connector's scope list has not been read yet; the Google pages behind it have.",
-      "note": "not yet researched \u2014 next in the queue",
+      "blurb": "Google Calendar and Google Drive, the two Google Workspace connectors not yet in the directory — Gmail's own is.",
+      "note": "not yet researched — next in the queue",
       "logo": "google",
       "brand": "#4285F4"
     },
@@ -299,6 +299,16 @@
       "note": "not yet researched",
       "logo": "salesforce",
       "brand": "#00A1E0"
+    },
+    {
+      "slug": "claude-gmail-connector",
+      "app": "Claude's Gmail connector",
+      "family": "mail",
+      "glyph": "G",
+      "blurb": "Search and read carry no approval prompt; send, reply and forward do, on by default — a setting the account, or an org owner on Team and Enterprise, can turn off. The OAuth consent already permits sending before the prompt is ever removed.",
+      "note": "built and checked, awaiting a push — documented tier, from Anthropic's own connector page",
+      "logo": "gmail",
+      "brand": "#EA4335"
     }
   ],
   "app_vault": {
@@ -316,7 +326,7 @@
       "logo": "crm",
       "brand": "#00A1E0",
       "blurb": "Customer records are third-party material by construction. Salesforce, HubSpot, Dynamics.",
-      "note": "asked for \u2014 a policy for the function, whichever product holds it"
+      "note": "asked for — a policy for the function, whichever product holds it"
     },
     {
       "slug": "customer-service-desk",

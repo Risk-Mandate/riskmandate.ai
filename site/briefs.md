@@ -28,7 +28,7 @@ Neither of these is hypothetical. One of the documents below arrived twice, byte
 | Received | received | Archived and read, and nothing has been built from it yet |
 | Superseded | superseded | Later material replaced it. Kept, because the reasoning is still the record |
 
-## Nine files, in the order they arrived.
+## Ten files, in the order they arrived.
 
 Each one is linked in full, as received, with nothing edited. Where a brief and this site disagree, the brief is what we were given and the site is what we concluded — and where we corrected a brief, the correction is on the page rather than in the file.
 
@@ -187,6 +187,15 @@ These have no digest to check, which makes them the ones most easily lost — a 
 - [The edition register](lab-editions.json), with a digest per file
 - Nothing.
 
+**Build a specific vault for Claude chat connected to a Gmail inbox, capture the connection screens with the address obscured, and map the whole customer workflow** — the vault, its home page, the settings, the permissions, the prompts given to Claude — as the purchase workflow. Do not use the agent's name.
+
+- The template vault `claude-gmail-connector`, built and checked: six rows, **four measured** on the deployer's own account, the eight screens transcribed in `evidence/` with the address redacted — in the repository, unpushed, and on [the next-policy page](agent-behaviour-policy-next.html) as built and awaiting a push
+- The customer's draft instance, anonymised, with a question on every mandate line, under `vaults-instances/`
+- The purchase workflow, run once — the brief in the repository under `docs/briefs/`, linked from [Admin](admin.html)
+- The two pushes — the template to a public vault, the instance to a private one — which need the lead's write keys; until then the vault has no page here
+- The eight screenshots as redacted image files: they arrived inline and could not be edited from the session, so the transcriptions stand in for them
+- The customer's correction of the mandate, and the signed licence
+
 **Answer the questions people actually ask in public**, with the standing rule that the site never names who asked. Two public comments were supplied as the first two questions, and answers that outgrow a section get their own page.
 
 - [Questions](questions.html) — real questions, answered with a date and no name attached, and both current answers containing a _no_
@@ -209,15 +218,15 @@ sha256sum my-brief.md
 
 A register that only lists what was done is a press release.
 
-Every entry above carries what it asked for and did not get, and on most of the thirteen that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.
+Every entry above carries what it asked for and did not get, and on most of the sixteen that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.
 
 - **The file is the record, not this page.** [briefs-register.json](briefs-register.json) is what a program should read; this page renders it for people. If the two ever disagree, the file is right and the page is stale.
 - **Every archived document is byte-identical to what arrived.** Nothing is edited, reformatted or trimmed — including the parts we think are wrong. Where we disagree with a brief, the disagreement is published on the page it produced and marked as ours.
 - **Statuses go stale in one direction only.** An item marked _received_ can become _processed_. Nothing moves the other way, and nothing is deleted from the list once it is on it.
 - **If something is missing, that is the most useful thing you could tell us.** Use the contact control in the header and name the digest.
 
-Register maintained by hand alongside the work, and checked in CI: every document listed must exist at the path given and match its recorded digest, and every file in `assets/briefs/` must appear in the register. Last reconciled 15 September 2026.
+Register maintained by hand alongside the work, and checked in CI: every document listed must exist at the path given and match its recorded digest, and every file in `assets/briefs/` must appear in the register. Last reconciled 16 September 2026.
 
-## Thirteen items. None untouched, and none finished.
+## Sixteen items. None untouched, and none finished.
 
-Every item now names something it produced and something it did not. Six of the thirteen are marked _partly_, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.
+Every item now names something it produced and something it did not. Nine of the sixteen are marked _partly_, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.

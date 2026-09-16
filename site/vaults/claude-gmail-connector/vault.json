@@ -1,0 +1,17 @@
+{
+  "slug": "claude-gmail-connector",
+  "title": "Claude's Gmail connector",
+  "status": "template",
+  "what_status_means": "template: the draft for a deployment shape, before anybody has corrected the mandate. draft: a copy made for one organisation, mandate not yet corrected. corrected: the mandate has been elicited from the deployer and a named owner has signed the licence.",
+  "shape": "anthropic/gmail-connector/default",
+  "vocabulary_version": "v0.3.0",
+  "vocabulary_source": "https://abp.sgit.ai/data/index.json",
+  "as_at": "2026-09-16",
+  "organisation": null,
+  "agent": "Claude, with the Gmail connector enabled and nothing else — Calendar and Drive are separate toggles and left off in this shape",
+  "owner": null,
+  "issued": null,
+  "valid_until": null,
+  "measured_rows": "4 of 6",
+  "shape_note": "Not published at abp.sgit.ai: authored here from Anthropic's and Google's own pages (see data/grant.json provenance), scoped to Gmail alone — the Google Workspace connectors are toggled individually in Claude. Four rows measured on 2026-09-16 by the deployer on an account they run: sign-in, read, one send to an address they named, and the label inventory. The record is in evidence/."
+}

@@ -1,0 +1,42 @@
+{
+  "type": "abp/delta/v1",
+  "profile": "anthropic/gmail-connector/default",
+  "mandate": "customer-draft-read-summarise-send-with-approval",
+  "grant_version": "2026-09-16",
+  "mandate_version": "2026-09-16",
+  "vocabulary_version": "v0.3.0",
+  "computed_at": "2026-09-16T11:10:28Z",
+  "computed_by": "riskmandate.ai build-abp-vault.mjs (abp.delta/v1 semantics)",
+  "excess": [
+    "authenticate-as.credential.tenant",
+    "create.schedule.tenant",
+    "read.credential.host",
+    "read.record.history"
+  ],
+  "excess_refused": [
+    "create.schedule.tenant",
+    "read.credential.host"
+  ],
+  "excess_unstated": [
+    "authenticate-as.credential.tenant",
+    "read.record.history"
+  ],
+  "unbounded_excess": [
+    "create.schedule.tenant",
+    "read.credential.host",
+    "read.record.history"
+  ],
+  "shortfall": [],
+  "aligned": [
+    "read.message.tenant",
+    "send.message.world"
+  ],
+  "derived_never_authored": "No field in this record is writable by a person. The way to change a delta is to change a grant or a mandate, and then recompute.",
+  "counts": {
+    "excess": 4,
+    "unbounded_excess": 3,
+    "shortfall": 0,
+    "aligned": 2
+  },
+  "id": "anthropic__gmail-connector__default__customer-draft-read-summarise-send-with-approval"
+}

@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.22.1** · 2026-09-16 — A Gmail-connector vault built from a measured run, and the purchase workflow mapped for one customer
+  Notes: https://riskmandate.ai/versions/1.22.1.md · Source: `git:v1.22.1`
 - **v1.22.0** · 2026-09-16 — The home page sells the Agent Behaviour Policy, and holds no price
   Notes: https://riskmandate.ai/versions/1.22.0.md · Source: `git:v1.22.0`
 - **v1.21.0** · 2026-09-16 — Five people who do not exist, reading this site

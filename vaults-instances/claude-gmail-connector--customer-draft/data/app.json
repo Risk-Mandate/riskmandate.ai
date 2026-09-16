@@ -1,0 +1,13 @@
+{
+  "type": "riskmandate/abp-app-context/v1",
+  "dist": {
+    "claude-gmail-connector--customer-draft.zip": true
+  },
+  "research_open": 6,
+  "scenarios": 6,
+  "app_vault": {
+    "vault_id": "fl3i7lu4",
+    "entry": "index.html",
+    "version": "v4"
+  }
+}

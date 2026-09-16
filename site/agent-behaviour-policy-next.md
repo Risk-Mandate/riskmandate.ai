@@ -16,9 +16,9 @@ An Agent Behaviour Policy is built from a measured or documented grant, never ty
 
 The connector shapes below become policies the way the five connector examples were: the connector's own scope or permission page read and quoted on a date, a row per capability the scopes permit, the contradictions between what is advertised and what is granted published unresolved, and the open questions handed to whoever researches next.
 
-### Claude's Google Workspace connector
+### Claude's Calendar & Drive connectors
 
-Gmail, Calendar and Drive from inside Claude. The connector's scope list has not been read yet; the Google pages behind it have.
+Google Calendar and Google Drive, the two Google Workspace connectors not yet in the directory — Gmail's own is.
 
 ### An assistant connected to Slack
 
@@ -35,6 +35,10 @@ An integration is added page by page, which is the one connector model with a fl
 ### An assistant connected to Salesforce
 
 A CRM is entirely third-party material by construction.
+
+### Claude's Gmail connector
+
+Search and read carry no approval prompt; send, reply and forward do, on by default — a setting the account, or an org owner on Team and Enterprise, can turn off. The OAuth consent already permits sending before the prompt is ever removed.
 
 ## What the agent is for, not what it runs on.
 

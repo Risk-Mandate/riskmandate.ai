@@ -70,7 +70,8 @@ const slug  = process.argv[2];
 const CHECK = process.argv.includes('--check');
 if (!slug) { console.error('usage: build-abp-vault.mjs <slug> [--check]'); process.exit(2); }
 
-const DIR = join(VAULTS, slug);
+// ABP_VAULT_DIR builds an INSTANCE outside site/ (a customer's copy is never deployed from here); the template, catalogue and app vault are still read from site/vaults/.
+const DIR = process.env.ABP_VAULT_DIR ? resolve(process.env.ABP_VAULT_DIR) : join(VAULTS, slug);
 const rd  = (p) => JSON.parse(readFileSync(join(DIR, p), 'utf8'));
 const cfg     = rd('vault.json');
 const grant   = rd('data/grant.json');
