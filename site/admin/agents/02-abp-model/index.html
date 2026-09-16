@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Agent Behaviour Policy, condensed · RiskMandate admin</title>
+<meta name="description" content="Everything an agent needs to work on this site without reading the five briefs and the model site. Where this and https://abp.sgit.ai/ (v0.3.0, pinned in every vault under data/vocabulary/) disagree, the model site is right and this file is stale: fix it.">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://riskmandate.ai/admin/agents/02-abp-model/">
+<link rel="alternate" type="text/markdown" href="index.md" title="This page as markdown">
+<link rel="icon" href="../../../assets/brand/riskmandate-favicon-32.png" sizes="32x32">
+<link rel="icon" href="../../../assets/brand/riskmandate-mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../../admin/console.css">
+<!-- Written by scripts/site/build-admin.mjs from the files it names. Do not edit: rerun the script. -->
+</head>
+<body class="console">
+<div class="c-strip"><div class="row"><b>riskmandate.ai</b><span class="c-sep">/</span><a href="../../../admin/">admin</a><span class="c-sep">·</span><a href="../../../">the site</a><span class="c-sep">·</span><a href="../../../agent-behaviour-policy.html">the library</a><span class="c-sep">·</span><a href="index.md">this page as markdown</a><span class="c-noindex">noindex · not in the sitemap</span></div></div>
+<div class="c-disc"><div class="row">Written by the agents that maintain this site and read by a person before it merges. Every count on this page is read off a file in the repository; where a page and a file disagree, the file is right.</div></div>
+<div class="shell">
+<nav class="rail" aria-label="Console">
+    <a class="rail__brand" href="../../../admin/"><b>Risk<i>Mandate</i></b><span>admin console · <span data-version>v…</span></span></a>
+    <div class="rail__group"><h3>Where it stands</h3><a class="nav" href="../../../admin/">The console</a><a class="nav" href="../../../admin/work/#lead">Needs the lead<span class="count r1">8</span></a><a class="nav" href="../../../admin/agents/03-state-and-next/">State and next</a><a class="nav" href="../../../admin/vaults/">The vaults<span class="count">16</span></a><a class="nav" href="../../../synthetic-users.html">How the site reads <span class="out">↗</span></a></div>
+    <div class="rail__group"><h3>The work</h3><a class="nav" href="../../../admin/work/">The board<span class="count">11</span></a><a class="nav" href="../../../admin/work/#branches">In flight<span class="count">1</span></a><a class="nav" href="../../../admin/memos/">The memo queue<span class="count">9</span></a><a class="nav" href="../../../admin/briefs/">Briefs written here<span class="count">17</span></a></div>
+    <div class="rail__group"><h3>For agents</h3><a class="nav" href="../../../admin/agents/">The front door</a><a class="nav" href="../../../admin/agents/claude-md/">CLAUDE.md</a><a class="nav" href="../../../admin/agents/04-rules-of-engagement/">Rules of engagement</a><a class="nav" href="../../../admin/agents/05-workflows/">Workflows</a><a class="nav" href="../../../admin/agents/01-map/">The map</a></div>
+    <div class="rail__group"><h3>The record</h3><a class="nav" href="../../../admin/records/">The records</a><a class="nav" href="../../../admin/tooling/">Tooling and the gate</a><a class="nav" href="../../../versions.html">Versions <span class="out">↗</span></a><a class="nav" href="../../../briefs.html">Brief register <span class="out">↗</span></a><a class="nav" href="../../../agent-behaviour-policy.html">The library <span class="out">↗</span></a><a class="nav" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener">The repository <span class="out">↗</span></a></div>
+    <p class="rail__note"><b>Public, and not advertised.</b> Every page here is noindex, out of <code>sitemap.xml</code> and out of <code>llms.txt</code>. Anybody handed the address reads every word. <a href="../../../">Back to the site</a>.</p>
+  </nav>
+<main class="main">
+<p class="crumb"><a href="../../../admin/">admin</a> / <a href="../../../admin/agents/">agents</a> / onboarding/02-abp-model.md</p>
+<div class="page-head"><div><h1>The Agent Behaviour Policy, condensed</h1><p>An onboarding document, read by every agent. The source is <a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/.claude/onboarding/02-abp-model.md" target="_blank" rel="noopener"><code>.claude/onboarding/02-abp-model.md</code></a>; this page is that file, rendered.</p></div></div>
+<article class="doc"><p>Everything an agent needs to work on this site without reading the five briefs and the model site. Where this and <code>https://abp.sgit.ai/</code> (v0.3.0, pinned in every vault under <code>data/vocabulary/</code>) disagree, the model site is right and this file is stale: fix it.</p>
+<h2 id="what-it-is">What it is</h2>
+<p>An <strong>Agent Behaviour Policy</strong> (ABP) is a written description, for <strong>one agent in one deployment</strong>, of everything it can do, what it was authorised to do, the gap between the two, and what actually stands in the way. It <strong>describes and does not judge</strong>, so it carries no score. The same ABP is dangerous in one deployment and harmless in another, and nothing about the document changed; the deployment did. Every ABP carries the validity statement: <em>This describes the deployment shape as at this date. If the risk changed, the deployment changed, not this document.</em></p>
+<p>It is not a new product. It is the primitive the rest of RiskMandate was made of, now named, published, and sellable (the store is <code>store.sgit.ai</code>; the entry tier is £10).</p>
+<h2 id="four-objects-and-the-verb-on-each-is-the-model">Four objects, and the verb on each is the model</h2>
+<div class="tablewrap"><table><thead><tr><th>Object</th><th>What it is</th><th>Verb</th><th>Who produces it</th></tr></thead><tbody><tr><td><strong>the grant</strong></td><td>everything the agent can do, one row per capability</td><td><strong>measured</strong> (or <em>documented</em> from the vendor's pages)</td><td>the deployment shape, the account, the credential; never typed</td></tr><tr><td><strong>the mandate</strong></td><td>what the agent is authorised and expected to do</td><td><strong>elicited</strong></td><td>the deployer, in their words; the only file a person writes; starts as a draft</td></tr><tr><td><strong>the delta</strong></td><td>excess (can, not asked) and shortfall (asked, cannot); the part of the excess nothing bounds</td><td><strong>derived</strong></td><td>the build; recomputed when either input moves; stored with both versions; never edited</td></tr><tr><td><strong>the barrier</strong></td><td>what stands between the agent and each capability</td><td><strong>recorded</strong>, one per row (soon: one per path)</td><td>whoever measured the row</td></tr></tbody></table></div>
+<p>Correction made on 14 Sept (v1.11.0): three of the four can be written down by people out of what they understand today. Only the delta is never authored. The verbs say how each object is meant to <strong>end up</strong> established, not day one. <strong>A policy is a draft and that is the point</strong>: it goes to the people who built the agent, own what it touches and are accountable, and each corrects the part they know. The correction is the elicitation.</p>
+<h2 id="the-vocabulary-abp-sgit-ai-v0-3-0">The vocabulary (abp.sgit.ai v0.3.0)</h2>
+<p><strong>23 capability primitives</strong>, written <code>verb.object.reach</code>. Reach is one of <code>self</code>, <code>project</code>, <code>host</code>, <code>tenant</code>, <code>world</code>. A specific path, host or mailbox is an <em>instance</em> of a primitive, never a new one. The list, with reach and undo class:</p>
+<pre><code>read.file.project (project, yes)         write.file.project (project, with-effort)
+read.file.host (host, no)                write.file.host (host, with-effort)
+delete.file.host (host, no)              execute.process.host (host, with-effort)
+execute.process.self (self, yes)         send.endpoint.allowed (tenant, no)
+send.endpoint.world (world, no)          read.credential.host (host, no)
+authenticate-as.credential.tenant (tenant, no)   grant.credential.self (self, yes)
+send.message.world (world, no)           read.message.tenant (tenant, no)
+write.repository.project (project, with-effort)  write.repository.tenant (tenant, with-effort)
+authenticate-as.credential.signing (tenant, no)  create.record.world (world, no)
+write.budget.tenant (tenant, no)         create.schedule.host (host, yes)
+read.record.history (host, no)           create.schedule.tenant (tenant, yes)
+read.record.browsing (host, no)</code></pre>
+<p>Glosses are in <code>site/vaults/*/data/vocabulary/capabilities.json</code>. What a consent screen permits that none of the 23 names goes in the grant's <code>not_in_grammar</code> (trash a mail thread, read a calendar, see every account), so the grant is never silently narrower than the consent.</p>
+<p><strong>4 barriers</strong>, weakest first, and <strong>only the fourth is a control</strong>:</p>
+<div class="tablewrap"><table><thead><tr><th></th><th>Barrier</th><th>Meaning</th><th>Control?</th></tr></thead><tbody><tr><td>●</td><td><code>none</code></td><td>nothing in the way</td><td>no</td></tr><tr><td>◉</td><td><code>expectation</code></td><td>a rule in prose, enforced by nobody (<code>AGENTS.md</code>, a system prompt, this file)</td><td>no</td></tr><tr><td>◐</td><td><code>setting</code></td><td>a switch the agent's own account can flip (a confirmation prompt)</td><td>no</td></tr><tr><td>○</td><td><code>boundary</code></td><td>enforced above the grant, out of the agent's reach (a token scope, a branch rule, a sandbox, an egress proxy)</td><td><strong>yes</strong></td></tr></tbody></table></div>
+<p><strong>The enforcer test:</strong> <em>a control bounds a grant only if it is enforced by something the grant does not include.</em> Consequences: the credential the agent holds is the grant, not a barrier; a prohibition rendered without its barrier is a claim we cannot support; for most deployments today the honest answer is the second row.</p>
+<p><strong>Undo classes</strong> (a property of the action, never a severity; irreversible first on every rendering): <code>no</code>, <code>with-effort</code>, <code>yes</code>.</p>
+<p><strong>Evidence tiers</strong>, weakest first: <code>derived</code>, <code>inferred</code>, <code>self-reported</code>, <code>documented</code>, <code>measured</code>, <code>observed</code>. Only the last two count as measured. <em>Documented</em> = the vendor's page says so, quoted with URL and date. <em>Measured</em> = a probe on an instance we are entitled to run, dated, with an evidence file.</p>
+<p><strong>Material</strong> (ours, asked of the model site as Lab 03 request 1): <code>own</code>, <code>organisation</code>, <code>third_party</code>, <code>mixed</code>. A mailbox is mixed. Almost every connector row is mixed.</p>
+<p><strong>Delta semantics</strong> (<code>abp.delta/v1</code>): excess = grant minus wants, in grant order; refused = the excess the mandate names under <code>do_not_want</code>; unstated = the rest of the excess; unbounded excess = excess whose barrier is not <code>boundary</code>; shortfall = wanted and not granted; aligned = granted and wanted. The build refuses to write a delta it cannot reproduce from the inputs.</p>
+<h2 id="the-four-counts-and-the-one-number-anybody-can-move">The four counts, and the one number anybody can move</h2>
+<p>A card shows <strong>grant · mandate · excess · unbounded excess</strong> (and shortfall). None is a score. <em>Unbounded excess</em> is the only number a control can move: every real control shifts one row into the fourth barrier and it falls. The gap between excess and unbounded excess is <strong>the business case for a control, with no verdict in it</strong>: <em>this provision requires X; the grant does not bound X; a control of type Y at layer Z would bound X.</em> That is the partner motion.</p>
+<h2 id="where-the-abp-sits-the-label-the-record-the-prescription">Where the ABP sits: the label, the record, the prescription</h2>
+<div class="tablewrap"><table><thead><tr><th></th><th>Thing</th><th>Does</th><th>Scored?</th><th>Signed?</th></tr></thead><tbody><tr><td>Label</td><td>the ABP</td><td>describes capability, context-free</td><td><strong>never</strong></td><td>no</td></tr><tr><td>Patient record</td><td>the twin, hooked to the real environment</td><td>supplies assets, tools, data, what is connected</td><td>no</td><td>no</td></tr><tr><td>Prescription</td><td>the Insurability Index + risk acceptance</td><td>combines the two, dated, expiring</td><td><strong>yes</strong></td><td>a named person</td></tr></tbody></table></div>
+<p>riskmandate.ai is the prescription layer commercially and sells the label today. <strong>We are on rung one</strong> and the homepage says so. The Index's six levels and five dimensions are a published design, not a running calculation. <em>Licence to Operate</em>: the organisation is the authority, the ABP is the instrument, the agent is the licensee; <em>mandate to operate</em> is retired.</p>
+<h2 id="naming-rules">Naming rules</h2>
+<ul><li><strong>ABP</strong>, spelled out <em>Agent Behaviour Policy</em> at first use on every surface. Never <strong>ADP</strong><p>(a registered mark of a payroll processor).</p></li><li><strong>The ABP</strong> or <strong>the behaviour policy</strong>. Never <em>the policy</em> alone: on this site <em>policy</em> is<p>also the insurance instrument in the Licence to Operate demo.</p></li><li><em>Behaviour</em>, British, decided by the site's voice; the mark question is the lead's.</li></ul>
+<h2 id="the-vault-what-a-policy-is-delivered-as">The vault: what a policy is delivered as</h2>
+<p>A policy is a vault, not a document, because the operator, leadership and security each need a different altitude of one record. Fifteen template vaults are on the site (<code>site/vaults/&lt;slug&gt;/</code>) and pushed to sgit with public read keys; the library page reads them live.</p>
+<pre><code>vault.json                 who, which shape, status: template | draft | corrected
+data/grant.json            abp/profile/v1 — the grant; rows under &quot;grant&quot;; plus reach_names, not_reachable,
+                           tools, widest_reach, not_in_grammar, contradictions, research_needed, sources
+data/mandate.json          abp/mandate/v1 — want / do_not_want / unstated; status starting-point   ← the authored file
+data/scenarios.json        six alternative mandates for the same grant (3 normal, 3 advanced)     ← authored
+data/vocabulary/           the 23, the 4, the 3, the tiers, pinned at v0.3.0 with provenance
+data/delta.json  data/validity.json  data/app.json           derived
+AGENT-BEHAVIOUR-POLICY.md  MANDATE.md  GRANT.md  DELTA.md  LICENCE-TO-OPERATE.md  README.md    derived
+RESEARCH-NEEDED.md         derived from research_needed — the file to hand to a research agent
+AGENTS.md  SKILL.md  MAP-A-GRANT.md   generic; travel unchanged; each says in its own words that it is a rule in prose
+history/index.json         one entry per recompute whose counts moved (append-only)
+dist/                      the zip (deterministic, CI-checked) and the PDF
+index.html                 the LOADER (identical in every vault); app.link.json + .vault/owner/ro-links.json point at the app vault</code></pre>
+<p>The renderer lives once in the app vault <code>fl3i7lu4</code> (<code>site/vaults/_app/</code>, currently v4); an application vault is data. <code>MAP-A-GRANT.md</code> is the prompt that lets an agent holding a credential measure its own grant; its seven rules of measurement are the rules for producing any measured row.</p>
+<p>A grant row:</p>
+<pre><code class="lang-json">{ &quot;capability&quot;: &quot;write.file.project&quot;, &quot;barrier&quot;: &quot;none&quot;, &quot;evidence&quot;: &quot;measured&quot;,
+  &quot;via&quot;: [&quot;REST API: workflows&quot;], &quot;control&quot;: null,
+  &quot;note&quot;: &quot;what was done, or the vendor's sentence with URL and date&quot;,
+  &quot;undo&quot;: &quot;with-effort&quot;, &quot;is_bounded&quot;: false, &quot;material&quot;: &quot;organisation&quot; }</code></pre>
+<h2 id="where-it-is-going-the-graph">Where it is going: the graph</h2>
+<p>The debrief of 15 Sept (<code>docs/briefs/direction__abp-as-a-graph-and-stakeholder-views.md</code>): behaviours are standalone, addressable nodes with outward links (ATT&amp;CK, standards, GDPR) and coarse metrics (speed, volume, blast); controls are behaviours too; the grant is a set of edges policy → behaviour, <strong>one edge per path</strong> carrying barrier, via, evidence, material, undo; the ABP is the semantic graph and the documents are produced from it; each audience (CEO, CFO, CTO, investor, buyer, operator, engineer, project manager) is a filtered <strong>view</strong>, authored, and its prose a <strong>projection</strong> regenerated from a prompt and a script that ship in the vault. The 23 primitives already are the nodes; the library's <em>by behaviour</em> facet (v1.16.0) is the first visible edge. The build order is in <code>03-state-and-next.md</code>.</p>
+<h2 id="what-is-honest-to-say">What is honest to say</h2>
+<div class="tablewrap"><table><thead><tr><th>Say</th><th>Do not say</th></tr></thead><tbody><tr><td>the ABP describes; it does not judge</td><td>anything that scores an ABP</td></tr><tr><td>the delta is derived, stored with its inputs, recomputed</td><td>&quot;computed and never stored&quot;</td></tr><tr><td>this provision requires X; the grant does not bound X; a control of type Y at layer Z would bound X</td><td>&quot;then you are in compliance&quot;</td></tr><tr><td>most barriers today are the second kind, a rule enforced by nobody</td><td>a prohibition without its barrier</td></tr><tr><td>the behaviour policy is on the intake form of the one agent-specific underwriter</td><td>that anyone is insured, certified, or endorsed</td></tr><tr><td>a documented row could be wrong the way documentation is wrong</td><td>that a documented row was tested</td></tr></tbody></table></div></article>
+<div class="c-foot"><b>An operations surface</b> for the people and agents building this site, public because every page here is. It is not a selling page and nothing on it is for sale. <a href="../../../">The site</a> · <a href="../../../agent-behaviour-policy.html">the library</a> · <a href="../../../versions.html">every release</a> · <a href="https://github.com/Risk-Mandate/riskmandate.ai/tree/dev/">the repository</a> · <a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/scripts/site/build-admin.mjs">the script that wrote this page</a>.</div>
+</main>
+</div>
+<script>
+(function(){var el=document.querySelector('[data-version]');if(!el)return;fetch('../../../versions/index.json',{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){el.textContent='v'+j.latest}).catch(function(){el.textContent='';});})();
+</script>
+</body>
+</html>

@@ -275,11 +275,6 @@
       "url": "https://riskmandate.ai/synthetic-users.html"
     },
     {
-      "name": "admin",
-      "label": "Admin",
-      "url": "https://riskmandate.ai/admin.html"
-    },
-    {
       "name": "agent-behaviour-policy-next",
       "label": "Which Agent Behaviour Policy next?",
       "url": "https://riskmandate.ai/agent-behaviour-policy-next.html"

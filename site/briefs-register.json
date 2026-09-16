@@ -466,8 +466,8 @@
       "status": "partly",
       "produced": [
         {
-          "what": "The template vault claude-gmail-connector, built and checked: six rows, four measured on the deployer's own account, the evidence transcribed with the address redacted (in the repository under site/vaults/, unpushed)",
-          "url": "https://github.com/Risk-Mandate/riskmandate.ai/tree/dev/site/vaults/claude-gmail-connector"
+          "what": "The template vault claude-gmail-connector: six rows, four measured on the deployer's own account, the evidence transcribed with the address redacted; pushed as vault oc433z3m and read live on its own page",
+          "url": "abp-vault-claude-gmail-connector.html"
         },
         {
           "what": "The customer's draft instance, anonymised, with a question on every mandate line (vaults-instances/)",
@@ -478,15 +478,40 @@
           "url": "https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/briefs/workflow__buying-a-policy-for-claude-on-gmail.md"
         },
         {
-          "what": "The tile on the next-policy page, marked built and awaiting a push",
-          "url": "agent-behaviour-policy-next.html"
+          "what": "The tile in the library, in Mail & files connectors, measured 4 of 6",
+          "url": "agent-behaviour-policy.html"
+        },
+        {
+          "what": "The customer's draft instance pushed as a private vault (xjir6m0c); the key handed to the lead in the session, never on a page",
+          "url": "https://github.com/Risk-Mandate/riskmandate.ai/tree/dev/vaults-instances"
         }
       ],
       "not_done": [
-        "The push of both vaults — the template to a public vault, the instance to a private one — which needs the lead's write keys; until then the vault has no page on this site",
-        "The eight screenshots as redacted image files in evidence/: they arrived inline and could not be edited from the session; the transcriptions stand in for them",
+        "The twelve screenshots as redacted image files in evidence/: they arrived inline and could not be edited from the session; the transcriptions stand in for them",
         "The customer's correction of the mandate, and the signed licence"
       ]
+    },
+    {
+      "id": "I7",
+      "what": "Where is the new Claude + Gmail section; publish the vault (the read key makes the publish automatic); create a page in the admin section for the Gmail workflow brief, in a way that takes many briefs; and refactor the admin section to the structure, layout and capabilities of store.sgit.ai/admin/ and pt.newsroom.sgit.ai/newsroom/.",
+      "how": "chat instruction, 16 Sept",
+      "dated": "2026-09-16",
+      "status": "processed",
+      "produced": [
+        {
+          "what": "The Gmail-connector vault pushed (oc433z3m) and read live on its page and in the library",
+          "url": "abp-vault-claude-gmail-connector.html"
+        },
+        {
+          "what": "The admin console: a rail with counts, what needs the lead, the board, the memo queue, every brief as a page, the vaults, the records, the tooling — written by build-admin.mjs from the repository",
+          "url": "admin/"
+        },
+        {
+          "what": "The Gmail workflow brief as a console page, one of every document under docs/",
+          "url": "admin/briefs/workflow__buying-a-policy-for-claude-on-gmail/"
+        }
+      ],
+      "not_done": []
     }
   ]
 }

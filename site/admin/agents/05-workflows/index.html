@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Workflows · RiskMandate admin</title>
+<meta name="description" content="Each recipe ends with npm run check. If it is not green, it is not done.">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://riskmandate.ai/admin/agents/05-workflows/">
+<link rel="alternate" type="text/markdown" href="index.md" title="This page as markdown">
+<link rel="icon" href="../../../assets/brand/riskmandate-favicon-32.png" sizes="32x32">
+<link rel="icon" href="../../../assets/brand/riskmandate-mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../../admin/console.css">
+<!-- Written by scripts/site/build-admin.mjs from the files it names. Do not edit: rerun the script. -->
+</head>
+<body class="console">
+<div class="c-strip"><div class="row"><b>riskmandate.ai</b><span class="c-sep">/</span><a href="../../../admin/">admin</a><span class="c-sep">·</span><a href="../../../">the site</a><span class="c-sep">·</span><a href="../../../agent-behaviour-policy.html">the library</a><span class="c-sep">·</span><a href="index.md">this page as markdown</a><span class="c-noindex">noindex · not in the sitemap</span></div></div>
+<div class="c-disc"><div class="row">Written by the agents that maintain this site and read by a person before it merges. Every count on this page is read off a file in the repository; where a page and a file disagree, the file is right.</div></div>
+<div class="shell">
+<nav class="rail" aria-label="Console">
+    <a class="rail__brand" href="../../../admin/"><b>Risk<i>Mandate</i></b><span>admin console · <span data-version>v…</span></span></a>
+    <div class="rail__group"><h3>Where it stands</h3><a class="nav" href="../../../admin/">The console</a><a class="nav" href="../../../admin/work/#lead">Needs the lead<span class="count r1">8</span></a><a class="nav" href="../../../admin/agents/03-state-and-next/">State and next</a><a class="nav" href="../../../admin/vaults/">The vaults<span class="count">16</span></a><a class="nav" href="../../../synthetic-users.html">How the site reads <span class="out">↗</span></a></div>
+    <div class="rail__group"><h3>The work</h3><a class="nav" href="../../../admin/work/">The board<span class="count">11</span></a><a class="nav" href="../../../admin/work/#branches">In flight<span class="count">1</span></a><a class="nav" href="../../../admin/memos/">The memo queue<span class="count">9</span></a><a class="nav" href="../../../admin/briefs/">Briefs written here<span class="count">17</span></a></div>
+    <div class="rail__group"><h3>For agents</h3><a class="nav" href="../../../admin/agents/">The front door</a><a class="nav" href="../../../admin/agents/claude-md/">CLAUDE.md</a><a class="nav" href="../../../admin/agents/04-rules-of-engagement/">Rules of engagement</a><a class="nav" href="../../../admin/agents/05-workflows/" aria-current="page">Workflows</a><a class="nav" href="../../../admin/agents/01-map/">The map</a></div>
+    <div class="rail__group"><h3>The record</h3><a class="nav" href="../../../admin/records/">The records</a><a class="nav" href="../../../admin/tooling/">Tooling and the gate</a><a class="nav" href="../../../versions.html">Versions <span class="out">↗</span></a><a class="nav" href="../../../briefs.html">Brief register <span class="out">↗</span></a><a class="nav" href="../../../agent-behaviour-policy.html">The library <span class="out">↗</span></a><a class="nav" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener">The repository <span class="out">↗</span></a></div>
+    <p class="rail__note"><b>Public, and not advertised.</b> Every page here is noindex, out of <code>sitemap.xml</code> and out of <code>llms.txt</code>. Anybody handed the address reads every word. <a href="../../../">Back to the site</a>.</p>
+  </nav>
+<main class="main">
+<p class="crumb"><a href="../../../admin/">admin</a> / <a href="../../../admin/agents/">agents</a> / onboarding/05-workflows.md</p>
+<div class="page-head"><div><h1>Workflows</h1><p>An onboarding document, read by every agent. The source is <a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/.claude/onboarding/05-workflows.md" target="_blank" rel="noopener"><code>.claude/onboarding/05-workflows.md</code></a>; this page is that file, rendered.</p></div></div>
+<article class="doc"><p>Each recipe ends with <code>npm run check</code>. If it is not green, it is not done.</p>
+<h2 id="add-or-edit-a-page">Add or edit a page</h2>
+<pre><code class="lang-bash">node scripts/site/new-page.mjs &lt;name&gt; --title &quot;RiskMandate — …&quot; --desc &quot;…&quot; \
+     --body /path/to/body.html --css /path/to/page.css --donor work.html --cta &quot;Get in touch&quot;
+node scripts/site/add-licence-chrome.mjs         # GitHub link + licence line, if the donor predates them
+# add the page to site/pages.json (group or unlisted; at most 7 top-level entries)
+node scripts/site/generate.mjs                   # injects the menu, writes the twin, sitemap, llms.txt
+npm run check</code></pre>
+<ul><li>A page is one self-contained document: its CSS, its markup, its inlined data, the four shared<p>modules. Copy classes from a donor (<code>work.html</code> has cards, lists, tables, notices, a prompt block).</p></li><li>Colours are tokens on <code>:root</code>. A literal hex outside <code>:root</code> is a bug.</li><li>Components never use <code>innerHTML</code>; text goes in through <code>textContent</code>.</li><li>The voice: plain, sourced, dated. Say what is not built next to what is. British spelling.</li><li>Edit the page, never its <code>.md</code> twin. Rerun <code>generate.mjs</code> after every edit.</li><li>A renamed page leaves a redirect stub at the old address (see <code>site/abp-vaults.html</code>).</li></ul>
+<h2 id="add-a-behaviour-policy-vault">Add a behaviour-policy vault</h2>
+<p>Inputs are four files; everything else is derived.</p>
+<pre><code class="lang-bash">mkdir -p site/vaults/&lt;slug&gt;/data &amp;&amp; cp -r site/vaults/gmail-readonly/data/vocabulary site/vaults/&lt;slug&gt;/data/
+# write site/vaults/&lt;slug&gt;/vault.json          who, which shape, status &quot;template&quot;, renderer version
+# write site/vaults/&lt;slug&gt;/data/grant.json     abp/profile/v1 — one row per capability, evidence, barrier, via, material, undo
+# write site/vaults/&lt;slug&gt;/data/mandate.json   abp/mandate/v1 — want / do_not_want / unstated over the 23; status starting-point
+# write site/vaults/&lt;slug&gt;/data/scenarios.json six scenarios: three normal, three advanced; each wants and refuses primitives
+node scripts/site/build-abp-vault.mjs &lt;slug&gt;          # derives the documents, delta, validity, zip, loader, history
+node scripts/site/build-abp-vault.mjs &lt;slug&gt; --check
+# add the vault to site/vaults/index.json (slug, app, title, shape, family, blurb, logo, brand, group; vid + key once pushed)
+node scripts/site/build-abp-pages.mjs                 # the library page and abp-vault-&lt;slug&gt;.html
+node scripts/site/generate.mjs &amp;&amp; npm run check</code></pre>
+<ul><li><strong>A grant is measured or documented, never typed.</strong> Measured needs a system we are entitled<p>to run and the evidence file in <code>history/</code>. Documented quotes the vendor's page, with URL and date read, in each row's <code>note</code>. Anything unsettled goes in <code>research_needed</code>; disagreements between the vendor's own pages go in <code>contradictions</code>, unresolved; permissions the grammar cannot name go in <code>not_in_grammar</code>.</p></li><li><code>material</code> on every row: <code>own</code>, <code>organisation</code>, <code>third_party</code>, <code>mixed</code>.</li><li>The credential is the grant, not a barrier. A key that permits a thing is not what stops it.</li><li>Note the door: the same capability through two paths is one row with two <code>via</code> entries.</li><li>No score field exists and none is added.</li><li>The vault id and the read key come from the push; until the lead pushes it, leave <code>vid</code> and<p><code>key</code> out of the catalogue entry so the tile lists as <em>asked for, not built</em>, and say so in your work file. <code>site/vaults/index.json</code>'s note explains the fields.</p></li><li>The PDF in <code>dist/</code> is <code>render-abp-vault-pdf.mjs</code> (Playwright); the zip is deterministic and<p>checked by CI.</p></li></ul>
+<h2 id="correct-a-mandate-or-answer-an-open-question">Correct a mandate or answer an open question</h2>
+<p>Edit <code>data/mandate.json</code> (move rows between <code>want</code>, <code>do_not_want</code>, <code>unstated</code>) or <code>data/grant.json</code> (move a row's <code>evidence</code>, put the quote in <code>note</code>, delete the entry from <code>research_needed</code>). Rebuild, <code>--check</code>, and the history records whether the counts moved.</p>
+<h2 id="cut-a-release">Cut a release</h2>
+<pre><code class="lang-bash">git fetch origin dev &amp;&amp; git merge origin/dev            # first; see the rules of engagement
+node scripts/site/release.mjs 1.17.0 &quot;What changed, in a line&quot;
+# write site/versions/1.17.0.md — what changed, why, what was not changed and why not
+node scripts/site/generate.mjs &amp;&amp; npm run check
+git commit -am &quot;v1.17.0 — what changed, in a line&quot;</code></pre>
+<p>Notes are prose, in the voice of <code>site/versions/1.15.0.md</code>: bold lead phrases, links to the pages, a paragraph on what was deliberately not done. The number is claimed at merge time; if <code>dev</code> took it, run <code>release.mjs</code> again with the next one. CI tags the commit; nothing else to do.</p>
+<p><strong>Which number moves.</strong> The third, by default: <code>1.19.0</code> → <code>1.19.1</code>. A fix, a page edit, a new vault, a new brief, an every-page chrome change, a restructured page: all patches. The second number is for a release that changes what the site is or what it sells: a new section in the menu, a new product on the pricing page, a page family rebuilt around a new idea. Two agents merging in one day should produce <code>1.19.1</code> and <code>1.19.2</code>, not <code>1.20.0</code> and <code>1.21.0</code>. The first number is the lead's to move.</p>
+<h2 id="cut-a-lab-edition">Cut a Lab edition</h2>
+<p>A Lab page's content hash moved → <code>node scripts/site/render-lab-pdfs.mjs &lt;slug&gt;</code> (Playwright; serves the site on a local port). It appends to <code>lab-editions.json</code> with the digest; add a <code>note</code> to the entry saying what separates this edition from the last. Then <code>generate.mjs</code> lists it on the page. Never edit or remove an edition.</p>
+<h2 id="write-a-brief">Write a brief</h2>
+<p><code>docs/briefs/&lt;kind&gt;__&lt;slug&gt;.md</code>. Header: title as a claim, date, author <code>@website-agent</code>, trigger (what the lead said, quoted), reads against (the sources with versions). Numbered sections. Tables where a table is honest. End with <em>what this does not settle</em> or <em>decisions I need</em>. Then add one line to <code>.claude/onboarding/01-map.md</code> and, if it changes the state, to <code>03-state-and-next.md</code>. If the brief arrived as a file from outside, it also goes into the register: copy it byte for byte to <code>site/assets/briefs/</code>, add an entry to <code>site/briefs-register.json</code> with its sha256, size, arrival time and status, and render it on <code>site/briefs.html</code>. The test checks the digest.</p>
+<h2 id="give-a-brief-a-task-or-a-work-file-its-page-on-the-console">Give a brief, a task or a work file its page on the console</h2>
+<p>Nothing to do but rerun the build. <code>node scripts/site/build-admin.mjs</code> renders every <code>docs/**/*.md</code> under <code>site/admin/briefs/&lt;slug&gt;/</code>, every <code>.claude/briefs/Txx-*.md</code> under <code>site/admin/work/Txx/</code>, every <code>.claude/work/&lt;branch&gt;.md</code> under <code>site/admin/work/branches/&lt;branch&gt;/</code>, and the onboarding files, <code>CLAUDE.md</code> and the prompts under <code>site/admin/agents/</code>. The counts on the console — what needs the lead, what is in flight, memos not fully worked — are read off <code>03-state-and-next.md</code> (the queue table and <em>Decisions the lead owns</em>), the work files and <code>briefs-register.json</code>, so keeping those true is what keeps the console true. <code>test_admin.mjs</code> fails if a document has no page; <code>build-admin.mjs --check</code> fails in CI if the console is stale. Never hand-edit anything under <code>site/admin/</code> except <code>console.css</code>.</p>
+<h2 id="register-a-document-that-arrived-from-outside">Register a document that arrived from outside</h2>
+<p>See the paragraph above. Statuses: <code>received</code>, <code>partly</code>, <code>processed</code>, <code>superseded</code>, and they only move forward. <code>produced</code> names what exists because of it; <code>not_done</code> names what does not.</p>
+<h2 id="touch-a-shared-module">Touch a shared module</h2>
+<p>Edit <code>scripts/site/modules/&lt;name&gt;.js</code>, run <code>node scripts/site/sync-modules.mjs</code>, then <code>generate.mjs</code>. That is an every-page edit: claim it, commit it alone, merge it fast.</p>
+<h2 id="change-the-chrome-header-footer-menu">Change the chrome (header, footer, menu)</h2>
+<p>There is no template. The chrome is copied from a donor when a page is scaffolded, and <code>add-licence-chrome.mjs</code> shows the pattern for retrofitting one element to every page: an idempotent script with <code>--check</code>, run in CI. Do the same for anything new rather than sed-and-hope; then update <code>new-page.mjs</code>'s <code>FOOTER</code>/<code>header</code> constants so scaffolded pages carry it too.</p>
+<h2 id="merge-a-branch-into-dev">Merge a branch into dev</h2>
+<p><code>.claude/commands/merge-to-dev.md</code> is the checklist. Short form: merge <code>dev</code> in, regenerate, check, release last, check again, <code>--no-ff</code> into <code>dev</code>, delete your work file, push, watch CI.</p>
+<h2 id="run-it-locally">Run it locally</h2>
+<p><code>bash scripts/run-locally__riskmandate_ai.sh</code> → <code>http://localhost:10070/</code>. Use <code>localhost</code>: <code>/scenarios/</code> and the vault pages decrypt with Web Crypto, which needs a secure context.</p></article>
+<div class="c-foot"><b>An operations surface</b> for the people and agents building this site, public because every page here is. It is not a selling page and nothing on it is for sale. <a href="../../../">The site</a> · <a href="../../../agent-behaviour-policy.html">the library</a> · <a href="../../../versions.html">every release</a> · <a href="https://github.com/Risk-Mandate/riskmandate.ai/tree/dev/">the repository</a> · <a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/scripts/site/build-admin.mjs">the script that wrote this page</a>.</div>
+</main>
+</div>
+<script>
+(function(){var el=document.querySelector('[data-version]');if(!el)return;fetch('../../../versions/index.json',{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){el.textContent='v'+j.latest}).catch(function(){el.textContent='';});})();
+</script>
+</body>
+</html>

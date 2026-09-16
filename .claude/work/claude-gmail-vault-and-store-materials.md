@@ -24,8 +24,8 @@ to be in GitHub scope and the lead wants direct edits.
 - scratchpad only for the store materials, unless told to push into the store's repo
 
 ## External state
-- Vault built and unpushed: `claude-gmail-connector` — the push is owed by the lead (write key)
-- No release cut yet
+- Vaults pushed by this branch with the session token: `claude-gmail-connector` → `oc433z3m` (public, read key in the catalogue); the customer instance → `xjir6m0c` (private; vault key handed to the lead in the session, nowhere in the repository)
+- Releases: v1.22.1 (merged); v1.23.0 (the console)
 
 ## Status
 - [x] researched: Anthropic's help article, Google's MCP reference and configure guide, Google's scope list; the lead's twelve screens and the sent message's .eml
@@ -33,13 +33,14 @@ to be in GitHub scope and the lead wants direct edits.
 - [x] instance `vaults-instances/claude-gmail-connector--customer-draft/` built with `ABP_VAULT_DIR` (one-line change to the build script); status draft; a question on every mandate line
 - [x] the workflow brief `docs/briefs/workflow__buying-a-policy-for-claude-on-gmail.md`; register I6; admin link; map and state
 - [x] store materials: two real captures for the empty slots (App Mode, History) plus three extras and a handover note, in the scratchpad, sent to the lead
-- [ ] release v1.22.1 + merge to dev
-- [ ] owed by the lead: the two pushes (template public, instance private); the screenshots as files for redaction; the customer's correction call
+- [x] release v1.22.1 + merge to dev
+- [x] both pushes made from the session (`oc433z3m` public, `xjir6m0c` private); catalogue entry moved to `vaults`; page and tile live
+- [x] the admin console: `scripts/site/build-admin.mjs`, `site/admin/**`, `tests/site/test_admin.mjs`, a `link` entry in `pages.json`, `admin.html` a redirect; CLAUDE.md, map, rules, workflows, state, how-the-website-works updated; release v1.23.0
+- [ ] owed by the lead: the screenshots as files for redaction into `evidence/`; the customer's correction call
 
 ## Notes for whoever merges after me
 `ABP_VAULT_DIR` is new in `build-abp-vault.mjs`: unset, nothing changes. `vaults-instances/` is not
 deployed and not built by CI. The Gmail vault sits in `asked_for` with `note` saying it is built —
 the next-page tile still says *not yet researched* because `nextTile()` ignores the note; a
 one-word fix (`x.note || kind`) I did not make, because the sibling agent owns that page's copy
-this week. When the lead pushes and `vid`/`key` land, move the entry to `vaults` and delete the
-`asked_for` row.
+this week. Done: the entry is in `vaults` with `vid` and `key`.

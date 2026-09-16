@@ -170,12 +170,16 @@ function toMarkdown(html, page) {
 // them in step — a test could see them disagree but nothing could fix it, and
 // adding a page meant editing every page. Now the JSON is the source and the
 // inlined copy is injected from it.
+// A `link` entry is a menu entry and nothing else: it points at a folder the site serves
+// (the admin console at admin/) that is not a published page — no twin, not in the sitemap,
+// not in llms.txt. It is listed here so the menu is still one list in one place.
+function menuEntries() { return JSON.parse(read('pages.json')).pages; }
 function pages() {
-  const listed = JSON.parse(read('pages.json')).pages;
+  const listed = menuEntries();
   for (const p of listed) {
     if (!existsSync(join(SITE, p.file))) throw new Error(`pages.json names a missing page: ${p.file}`);
   }
-  return listed.map(p => ({ ...p, html: read(p.file) }))
+  return listed.filter(p => !p.link).map(p => ({ ...p, html: read(p.file) }))
     .map(p => ({ ...p, title: decode(p.html.match(/<title>([\s\S]*?)<\/title>/)?.[1] ?? p.file),
                        desc : decode(p.html.match(/<meta name="description" content="([^"]*)"/)?.[1] ?? '') }));
 }
@@ -410,12 +414,13 @@ const fullText = (latest) => read('llms-full.txt')
 function main() {
   const check = process.argv.includes('--check');
   const ps    = pages();
+  const menu  = menuEntries();
   const index = JSON.parse(readFileSync(join(SITE, 'versions/index.json'), 'utf8'));
 
   const files = new Map();
   // the pages first: the injected menu lands before the twins are taken from them
   for (const p of ps) {
-    const html = withMenu(p, ps);
+    const html = withMenu(p, menu);
     if (html !== p.html) { p.html = html; files.set(p.file, html); }
   }
   // `private` pages are ours to work from, not ours to publish: no twin, and

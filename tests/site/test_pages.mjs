@@ -15,7 +15,7 @@ const SITE  = join(dirname(fileURLToPath(import.meta.url)), '../../site');
 const read  = (f) => readFileSync(join(SITE, f), 'utf8');
 const html  = readdirSync(SITE).filter(f => f.endsWith('.html'));
 const index = JSON.parse(read('versions/index.json'));
-const listed = JSON.parse(read('pages.json')).pages;
+const listed = JSON.parse(read('pages.json')).pages.filter(p => !p.link);   // a `link` entry is a menu entry to a folder, not a page
 
 // `private` pages are working pages for us: no markdown twin, nothing that
 // advertises them. They are still real pages and still have to hold together,
@@ -237,17 +237,6 @@ test('no write credential ships in the deployed tree', () => {
   }
 });
 
-test('admin.html links every document in docs/, so nothing decided is unreachable from the site', () => {
-  // docs/ is not served; admin.html is the index that points at it. A brief added
-  // to the repository and not listed here is a decision a reader cannot find.
-  const DOCS = join(SITE, '..', 'docs');
-  const walk = (d, pre = '') => readdirSync(d, { withFileTypes: true })
-    .flatMap(e => e.isDirectory() ? walk(join(d, e.name), `${pre}${e.name}/`) : [`${pre}${e.name}`]);
-  const page    = read('admin.html');
-  const missing = walk(DOCS).filter(f => f.endsWith('.md') && !page.includes(`docs/${f}`));
-  assert.deepEqual(missing, [], 'admin.html does not link these documents');
-});
-
 test('every footer that links Versions also links Admin', () => {
   // The admin section is meant to be visible from every page, not found. The two
   // links sit together in the footer; a page scaffolded from an older donor would
@@ -255,7 +244,7 @@ test('every footer that links Versions also links Admin', () => {
   for (const f of pages) {
     const s = read(f);
     if (!/class="footlink" href="versions\.html"/.test(s)) continue;
-    assert.match(s, /class="footlink" href="admin\.html"/, `${f} links Versions in its footer but not Admin`);
+    assert.match(s, /class="footlink" href="admin\/"/, `${f} links Versions in its footer but not Admin`);
   }
 });
 

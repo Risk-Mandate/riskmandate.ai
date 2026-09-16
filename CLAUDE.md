@@ -38,14 +38,16 @@ style problem; it is a correctness problem, and the site's own tests catch some 
 ```bash
 bash scripts/run-locally__riskmandate_ai.sh           # http://localhost:10070/  (localhost, not 127.0.0.1)
 node scripts/site/generate.mjs                        # markdown twins, sitemap, llms.txt, 404 — rerun after any page edit
+node scripts/site/build-admin.mjs                     # the admin console, site/admin/ — rerun after touching docs/, .claude/, a register
 npm run check                                         # everything CI runs: tests + every --check
 node scripts/site/release.mjs 1.17.0 "Title"          # cut a version: notes stub + restamp every page
 ```
 
 - `site/pages.json` is the only place the page list lives; `generate.mjs` injects the menu.
 - Generated files are committed. Never hand-edit a `.md` twin, `sitemap.xml`, `llms.txt`,
-  an `abp-vault-*.html` page, or anything under `site/vaults/<slug>/` except `vault.json`,
-  `data/grant.json`, `data/mandate.json`, `data/scenarios.json`.
+  an `abp-vault-*.html` page, anything under `site/admin/` except `console.css`, or anything
+  under `site/vaults/<slug>/` except `vault.json`, `data/grant.json`, `data/mandate.json`,
+  `data/scenarios.json`.
 - A release is a note somebody wrote. Every site change ships as one. Nothing bumps it for you.
 - **Move the third number by default** (`1.19.0` → `1.19.1`). The second number is for a release
   that changes what the site is or what it sells: a new section, a new product, a page family
@@ -74,7 +76,7 @@ into `dev`. The rules are in `.claude/onboarding/04-rules-of-engagement.md`; the
 | how to add a page, a vault, a release, an edition, a brief | `.claude/onboarding/05-workflows.md` |
 | a task ready to pick up | `.claude/briefs/` |
 | a prompt to start a common job | `.claude/commands/` (also slash commands in Claude Code) |
-| the same index, on the site | `site/admin.html` |
+| the same index, on the site | `site/admin/` — the console: what needs the lead, the board, every brief as a page |
 
 Write for the reader who arrives after you. Commit messages here say what changed and why in
 the site's own voice; look at `git log` for the register. No model identifiers in anything

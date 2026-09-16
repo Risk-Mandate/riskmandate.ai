@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>T10 — The two Voice Debrief use-case vaults, and a use-case axis on the library · RiskMandate admin</title>
+<meta name="description" content=".claude/briefs/T10-use-case-vaults.md, rendered as a console page.">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://riskmandate.ai/admin/work/T10/">
+<link rel="alternate" type="text/markdown" href="index.md" title="This page as markdown">
+<link rel="icon" href="../../../assets/brand/riskmandate-favicon-32.png" sizes="32x32">
+<link rel="icon" href="../../../assets/brand/riskmandate-mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../../admin/console.css">
+<!-- Written by scripts/site/build-admin.mjs from the files it names. Do not edit: rerun the script. -->
+</head>
+<body class="console">
+<div class="c-strip"><div class="row"><b>riskmandate.ai</b><span class="c-sep">/</span><a href="../../../admin/">admin</a><span class="c-sep">·</span><a href="../../../">the site</a><span class="c-sep">·</span><a href="../../../agent-behaviour-policy.html">the library</a><span class="c-sep">·</span><a href="index.md">this page as markdown</a><span class="c-noindex">noindex · not in the sitemap</span></div></div>
+<div class="c-disc"><div class="row">Written by the agents that maintain this site and read by a person before it merges. Every count on this page is read off a file in the repository; where a page and a file disagree, the file is right.</div></div>
+<div class="shell">
+<nav class="rail" aria-label="Console">
+    <a class="rail__brand" href="../../../admin/"><b>Risk<i>Mandate</i></b><span>admin console · <span data-version>v…</span></span></a>
+    <div class="rail__group"><h3>Where it stands</h3><a class="nav" href="../../../admin/">The console</a><a class="nav" href="../../../admin/work/#lead">Needs the lead<span class="count r1">8</span></a><a class="nav" href="../../../admin/agents/03-state-and-next/">State and next</a><a class="nav" href="../../../admin/vaults/">The vaults<span class="count">16</span></a><a class="nav" href="../../../synthetic-users.html">How the site reads <span class="out">↗</span></a></div>
+    <div class="rail__group"><h3>The work</h3><a class="nav" href="../../../admin/work/">The board<span class="count">11</span></a><a class="nav" href="../../../admin/work/#branches">In flight<span class="count">1</span></a><a class="nav" href="../../../admin/memos/">The memo queue<span class="count">9</span></a><a class="nav" href="../../../admin/briefs/">Briefs written here<span class="count">17</span></a></div>
+    <div class="rail__group"><h3>For agents</h3><a class="nav" href="../../../admin/agents/">The front door</a><a class="nav" href="../../../admin/agents/claude-md/">CLAUDE.md</a><a class="nav" href="../../../admin/agents/04-rules-of-engagement/">Rules of engagement</a><a class="nav" href="../../../admin/agents/05-workflows/">Workflows</a><a class="nav" href="../../../admin/agents/01-map/">The map</a></div>
+    <div class="rail__group"><h3>The record</h3><a class="nav" href="../../../admin/records/">The records</a><a class="nav" href="../../../admin/tooling/">Tooling and the gate</a><a class="nav" href="../../../versions.html">Versions <span class="out">↗</span></a><a class="nav" href="../../../briefs.html">Brief register <span class="out">↗</span></a><a class="nav" href="../../../agent-behaviour-policy.html">The library <span class="out">↗</span></a><a class="nav" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener">The repository <span class="out">↗</span></a></div>
+    <p class="rail__note"><b>Public, and not advertised.</b> Every page here is noindex, out of <code>sitemap.xml</code> and out of <code>llms.txt</code>. Anybody handed the address reads every word. <a href="../../../">Back to the site</a>.</p>
+  </nav>
+<main class="main">
+<p class="crumb"><a href="../../../admin/">admin</a> / <a href="../../../admin/work/">work</a> / briefs/T10-use-case-vaults.md</p>
+<div class="page-head"><div><h1>T10 — The two Voice Debrief use-case vaults, and a use-case axis on the library</h1><p>A task brief, sized for one agent. The source is <a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/.claude/briefs/T10-use-case-vaults.md" target="_blank" rel="noopener"><code>.claude/briefs/T10-use-case-vaults.md</code></a>; this page is that file, rendered.</p></div></div>
+<article class="doc"><p><strong>From:</strong> <code>docs/briefs/direction__use-case-driven-policies-and-the-prompt-workflow.md</code> §4–5.<br><strong>Size:</strong> a day, after the agent that knows the Voice Debrief workflows has run the prompt.<br><strong>Touches:</strong> <code>site/vaults/voice-debrief-web/</code>, <code>site/vaults/voice-debrief-whatsapp-n8n/</code> (new), <code>site/vaults/index.json</code> (a <em>Use cases</em> group), <code>scripts/site/build-abp-pages.mjs</code> (the group), <code>vault.json</code> (<code>kind: use-case</code>).</p>
+<h2 id="the-task">The task</h2>
+<p>Two vaults for two workflows of our own product, documented from the workflows as built: the web flow (upload, transcribe, infographic; audio and text sent through a model-routing service to several providers) and the WhatsApp flow through n8n (the measured n8n grant plus the messaging platform's bot scope). The lead's instruction is that the agent that knows the workflows runs <code>MAP-A-GRANT.md</code> and sends the two JSON files here; this brief packages them. This is the £500 workflow run on ourselves before it is run for a customer.</p>
+<h2 id="constraints">Constraints</h2>
+<ul><li>The web flow's grant is unbounded on <code>send.endpoint.world</code> and <code>write.budget.tenant</code>, and the<p>mandate is one sentence. Publish that delta as it is; it is the point.</p></li><li>Where the routing service's providers' retention cannot be read from a page, it is a<p><code>research_needed</code> row, not a guess. <code>material</code> is <code>own</code> for the speaker and <code>third_party</code> for whoever else is in the recording; say so on the rows.</p></li><li>A use case that spans two applications names the source vault on every row. The generator does<p>not merge grants yet; until it does, the second vault carries both sets of rows with <code>via</code> saying which application each came from.</p></li><li>No score; no verdict on the routing service or the providers.</li></ul>
+<h2 id="done-means">Done means</h2>
+<ul><li>Two vaults build and <code>--check</code>; the library shows a <em>Use cases</em> group; the store agent is told<p>the slugs so the store can list them; the state file moves the item.</p></li></ul></article>
+<div class="c-foot"><b>An operations surface</b> for the people and agents building this site, public because every page here is. It is not a selling page and nothing on it is for sale. <a href="../../../">The site</a> · <a href="../../../agent-behaviour-policy.html">the library</a> · <a href="../../../versions.html">every release</a> · <a href="https://github.com/Risk-Mandate/riskmandate.ai/tree/dev/">the repository</a> · <a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/scripts/site/build-admin.mjs">the script that wrote this page</a>.</div>
+</main>
+</div>
+<script>
+(function(){var el=document.querySelector('[data-version]');if(!el)return;fetch('../../../versions/index.json',{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){el.textContent='v'+j.latest}).catch(function(){el.textContent='';});})();
+</script>
+</body>
+</html>

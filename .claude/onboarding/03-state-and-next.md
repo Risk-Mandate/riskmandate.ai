@@ -3,9 +3,9 @@
 Keep this file true. If you land something, move it; if you learn something, add it. Dates are
 the site's; check `site/versions/index.json` for the current version before trusting the number here.
 
-## State as at 2026-09-16, v1.22.1
+## State as at 2026-09-16, v1.23.0
 
-- **Site:** 64 HTML files under `site/`, one live site deployed from `dev`. Top-level menu:
+- **Site:** 65 HTML files under `site/` plus the admin console under `site/admin/`, one live site deployed from `dev`. Top-level menu:
   The problem · The model · Agent Behaviour Policies · Live demos · Lisbon 2026 · Pricing · More
   (the Lab is under More since v1.19.0).
 - **The ABP is the entry point.** Homepage leads with it (v1.12.0); `abp.html` is the model page;
@@ -13,15 +13,15 @@ the site's; check `site/versions/index.json` for the current version before trus
   grid and list, search over names, scopes, tools and the 23 ids, a *by behaviour* facet, a
   resizable preview panel with the label, the lethal trifecta and scenarios, `#policy=<slug>`
   deep links (v1.16.0, v1.17.0). *Refused* is now *told not to* everywhere.
-- **Vaults: 15 built, checked and pushed**, all at the *template* status, all re-pushed to carry
+- **Vaults: 16 built, checked and pushed**, all at the *template* status, all re-pushed to carry
   `MAP-A-GRANT.md` and `data/scenarios.json`. Renderer v4 in the app vault `fl3i7lu4`.
 
 | Tier | Vaults |
 |---|---|
-| measured on the thing itself | `claude-code-web` (13/20 rows), `github-actions` (8/8), `n8n-owner-api-key` (7/8, from an early beta user's write-up) |
+| measured on the thing itself | `claude-code-web` (13/20 rows), `github-actions` (8/8), `n8n-owner-api-key` (7/8, from an early beta user's write-up), `claude-gmail-connector` (4/6, below) |
 | derived from the model site's five examples | `claude-code-cli`, `claude-code-cli-confirmations-off`, `claude-desktop`, `claude-web-connectors`, `chatgpt-web`, `browser-extension`, `scheduled-job` |
 | documented from vendor pages, 15 Sept, with open questions | `google-workspace-mcp` (4), `gmail-readonly` (3), `google-drive-readonly` (3), `claude-m365-connector` (4), `dropbox-mcp` (4) |
-| **built, unpushed** (16 Sept) | `claude-gmail-connector` — Claude's Gmail connector, from Anthropic's and Google's pages plus the deployer's own run: 4 of 6 rows measured, 5 open questions, 5 contradictions (Google's reference vs the listing; filters listed and denied). Listed on the *next* page as *asked for* until the lead pushes it. Its customer instance is under `vaults-instances/`, status draft |
+| measured on the deployer's own account, 16 Sept | `claude-gmail-connector` (`oc433z3m`, 4 of 6 rows measured, 5 contradictions, 6 open questions; in *Mail & files connectors*). Its customer instance is pushed as a private vault `xjir6m0c` (status draft), key handed to the lead in the session; the anonymised inputs stay under `vaults-instances/` |
 
 - **Asked for, not built**, on their own page `agent-behaviour-policy-next.html` (v1.17.0) with a
   vote and a suggestion form: Claude's Google Workspace connector, Slack, GitHub, Notion,
@@ -29,7 +29,7 @@ the site's; check `site/versions/index.json` for the current version before trus
 - **Lab:** seven entries, 16 PDF editions, the whole Lab as one file (v5).
 - **Records:** 14 items in the brief register (9 files, 5 informal); 22 releases since v1.0.0.
 - **Summit:** Lisbon, 17–18 Sept. `summit.html` public; `summit-booth.html` private working page.
-- **The store is live** (store.sgit.ai v0.1.7, 15 Sept): four levels, £5 / £50 / £500 / £1,500. The
+- **The store is live** (store.sgit.ai, 15 Sept): four levels, named by level here; the store owns every price (its boundary of 16 Sept). The
   homepage says *view a policy / buy a policy*; `pricing.html` is the four levels with the level-3
   prompt workflow; every vault page links *buy this policy* to `store.sgit.ai/p/<slug>/`.
 - **After payment** (v1.19.1, brief D9 *the offer is built and the button is not*): four unlisted
@@ -50,7 +50,14 @@ the site's; check `site/versions/index.json` for the current version before trus
 - **Vault pages open on the vault** (v1.19.0): two host frames (App Mode, vault browser) via the
   embed handshake, `rm-abp-host` in `scripts/site/abp/abp-vaults.js`. The site still deploys a copy
   of every vault under `site/vaults/`; removing that is T09.
-- **Agents' front door:** `CLAUDE.md` + `.claude/` (v1.18.0); `admin.html` mirrors it on the site.
+- **Agents' front door:** `CLAUDE.md` + `.claude/` (v1.18.0), rendered on the site by the console.
+- **The admin console** (v1.23.0): `site/admin/`, written by `build-admin.mjs` from the repository —
+  what needs the lead (the only filled rank), the board read off this file's queue, the memo queue
+  read off the brief register, every `docs/` document, task brief, work file and onboarding page as a
+  console page with a twin, the vaults with measured rows and open questions, the records, the
+  tooling. Structure adopted from `store.sgit.ai/admin/` and the newsroom console. Public, noindex,
+  not in `pages.json` (a `link` menu entry under *More*); `admin.html` redirects to it. Adding a
+  brief under `docs/` and rerunning the build is all it takes for it to have a page.
 
 ## The queue, in order
 
@@ -70,7 +77,7 @@ and vault queues. Each has a task brief in `.claude/briefs/`.
 | 9 | The three business-function vaults | `T06` | after 8 | open |
 | 10 | Lab 03: add the asks from the n8n review and the graph brief (barrier per path; a word for a broad-but-real gate; metrics and links on the primitives) | `T07` | two hours | open |
 | 11 | The two Voice Debrief use-case vaults, and a use-case group on the library | `T10` | a day, after the workflow agent runs the prompt | open |
-| 11a | Push `claude-gmail-connector` (public) and its instance (private); add the redacted screens to `evidence/`; run the correction call (§4 of the workflow brief) | — | the lead | waiting on the lead |
+| 11a | Both pushes **done** 16 Sept (`oc433z3m` public, `xjir6m0c` private). Still owed: the twelve screens as redacted image files in `evidence/`; the correction call (§4 of the workflow brief) | — | the lead | waiting on the lead |
 | 12 | Stop deploying the vault: inputs in the repository, the product in the vault | `T09` | half a day | open |
 | 13 | A page for the £500 workflow once the store has a return address; a per-shape header on `MAP-A-GRANT.md` | — | small | waiting on the store agent |
 | 14 | Point the four payment links' success address at `paid-t<n>.html` (level 1: `paid-t1.html?shape=<slug>&order=<ref>`); the level-3 text on the store's product page; the opinion add-on page (brief D9) | — | the store's | waiting on the store agent |

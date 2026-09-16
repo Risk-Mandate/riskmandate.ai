@@ -42,12 +42,13 @@ needed.
 | Live demos | `demos.html`, `demo-*.html` ×6 | hand-authored; each embeds an sgit vault with a public read key |
 | Lab | `lab.html` (in *More*), `lab-*.html` ×7 (unlisted, linked from `lab.html`) | hand-authored; every meaningful state cut as a dated PDF in `assets/lab/`, registered in `lab-editions.json` |
 | Summit | `summit.html`, `summit-booth.html` (private) | hand-authored |
-| More | `lab` (the Lab moved here from the top level in v1.19.0), `questions`, `briefs` (the register page), `work`, `work-abp-power-user`, `library`, `partners`, `feedback`, `brand`, `admin` | hand-authored |
+| More | `lab` (the Lab moved here from the top level in v1.19.0), `questions`, `briefs` (the register page), `work`, `work-abp-power-user`, `library`, `partners`, `feedback`, `brand`, `admin/` (a `link` entry: a folder, not a page) | hand-authored |
 | Pricing | `pricing.html` | hand-authored; the store's four levels, each linked to `store.sgit.ai/d/t<n>/`; the level-3 prompt workflow; the plus-one-thing rule and a definition of done per level (v1.19.1) |
 | After payment | `paid-t1.html` … `paid-t4.html` (unlisted, noindex) | hand-authored (scaffolded with `new-page.mjs`); one per level, the payment link's success address: what arrives and when, what you do next, how the key reaches you, the definition of done, who to write to. `paid-t1.html` is the download: its zip manifest (`/*__DIST__*/`) is **stamped** by `build-abp-pages.mjs` from `site/vaults/*/dist/`. `after-payment.html` (in *More*) is the debrief for the store team: the link contract and what the store has to do. Brief D9 |
 | Records | `versions.html` + `versions/index.json` + `versions/<v>.md`; `briefs.html` + `briefs-register.json` + `assets/briefs/`; `lab-editions.json`; `vaults/index.json` | append-only. Never rewrite an entry |
 | Machine-readable | `llms.txt`, `llms-full.txt`, `.well-known/agent-content.json`, `sitemap.xml`, `robots.txt`, `404.html`, every `<page>.md` | **generated** by `generate.mjs` (the manifest and full text are partly hand-written and restamped) |
 | Scenarios pilot | `site/scenarios/` | reads vault `dm42qcaw` in the browser; needs `localhost` |
+| Admin console | `site/admin/**` (53 pages + twins) and `site/admin/console.css` | **generated** by `build-admin.mjs` from `docs/`, `.claude/`, the brief register, the state file, the catalogue and each vault's data; public, noindex, not in `pages.json`, its own rail. `admin.html` is a redirect stub. Adopted from `store.sgit.ai/admin/` |
 
 `site/pages.json` lists every page with its menu group. `unlisted` = real page, not in the menu.
 `private` = also out of the sitemap, llms.txt and the twins, and noindex. At most 7 top-level
@@ -80,8 +81,11 @@ menu entries (a group counts as one).
 every internal link and anchor resolves, canonical + twin, private pages hidden, one version
 everywhere, one menu everywhere, version record shape, sitemap = published pages, pages.json =
 site/, Lab editions match digests and are linked, brief register matches digests and archive,
-no read key on a Lab mockup, no write credential anywhere, every doc linked from admin.html,
-Admin beside Versions in every footer. `test_scenarios_schema.mjs`: the scenarios content contract.
+no read key on a Lab mockup, no write credential anywhere, Admin beside Versions in every footer.
+`test_admin.mjs`: the console exists, every `docs/**/*.md` has a console page, every console page
+is noindex with a twin and a rail, every console link resolves, the console is in no sitemap or
+llms file, no write credential there either, `admin.html` redirects to `admin/`.
+`test_scenarios_schema.mjs`: the scenarios content contract.
 
 ## CI (`.github/workflows/ci-pipeline.yml`)
 

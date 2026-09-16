@@ -1,5 +1,5 @@
 {
-  "note": "The site's own list of its pages. generate.mjs injects the menu entries into every page as RM.data.pages, so this file is the only place the list lives. `unlisted` pages are real pages with their own URL that the header menu does not show. `private` pages are additionally kept out of the sitemap, llms.txt and the 404 list, carry noindex, and get no markdown twin \u2014 they are working pages for us, not published ones, and site/ is a public web root so they are reachable by anyone who has the URL. Keep at most 7 top-level entries (a group counts as one) \u2014 the header bar is capped at 1100px and overflows past that.",
+  "note": "The site's own list of its pages. generate.mjs injects the menu entries into every page as RM.data.pages, so this file is the only place the list lives. `unlisted` pages are real pages with their own URL that the header menu does not show. `private` pages are additionally kept out of the sitemap, llms.txt and the 404 list, carry noindex, and get no markdown twin \u2014 they are working pages for us, not published ones, and site/ is a public web root so they are reachable by anyone who has the URL. Keep at most 7 top-level entries (a group counts as one) \u2014 the header bar is capped at 1100px and overflows past that. A `link` entry is a menu entry to a folder the site serves (the admin console) and not a page: no twin, not in the sitemap, not in llms.txt.",
   "pages": [
     {
       "name": "home",
@@ -162,6 +162,13 @@
       "group": "More"
     },
     {
+      "name": "admin",
+      "label": "Admin",
+      "file": "admin/",
+      "group": "More",
+      "link": true
+    },
+    {
       "name": "questions",
       "label": "Questions",
       "file": "questions.html",
@@ -213,12 +220,6 @@
       "name": "synthetic-users",
       "label": "Synthetic users",
       "file": "synthetic-users.html",
-      "group": "More"
-    },
-    {
-      "name": "admin",
-      "label": "Admin",
-      "file": "admin.html",
       "group": "More"
     },
     {
