@@ -52,7 +52,8 @@ this week. Done: the entry is in `vaults` with `vid` and `key`.
 - [x] Renderer v5 (`site/vaults/_app/index.html`): left navigation, Start here + Who are you, What follows, Your keys, Keep it (commit log via sg.history), Download (zip bytes + sha256), Licence
 - [x] Pushed: new app vault **vbhmlulo** (v5 renderer); oc433z3m rebuilt and re-pushed so its live view loads v5. fl3i7lu4 (v4) still serves the other fifteen.
 - [x] Vault page repositioned (Open the vault. See what you get; the three claims); release v1.24.0
-- [ ] **Owed / to verify:** oc433z3m's live host frame was still resolving the new sub-vault mount at merge (data verified correct; renderer proven via static preview) — re-check. The research list (Google's sending limits, suspension, the modify tools) is open (T05). The other fifteen vaults re-pushed to v5 when someone gets to them. Authored per-audience views + projections (T04). The twelve screenshots as files for evidence/.
+- [x] oc433z3m's live host frame renders the v5 app (verified 16 Sept). The mount had failed because a clone refresh excluded `.vault/`, leaving ro-links on the old app vault while app.link pointed at the new one; fixed by re-pushing the corrected ro-links.
+- [ ] **Owed:** The research list (Google's sending limits, suspension, the modify tools) is open (T05). The other fifteen vaults re-pushed to v5 when someone gets to them. Authored per-audience views + projections (T04). The twelve screenshots as files for evidence/.
 
 ## External state (updated)
 - Vaults pushed from the session: oc433z3m (public, in the catalogue), xjir6m0c (private instance), **vbhmlulo (public — the v5 app vault, in the catalogue as app_vault)**. No write key in the repo.
