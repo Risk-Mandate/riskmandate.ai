@@ -24,6 +24,14 @@ Every release since the site began, newest first, with the note somebody wrote f
 
 The index the page renders, and the number every page's header shows. The single place the current version lives.
 
+[synthetic-users.html](synthetic-users.html)
+
+Five invented readers walked through this site one screenshot at a time and interviewed at the end, each starting with no knowledge of RiskMandate. Thirty screenshots, eleven unanswered questions, twelve findings, two of them blocking a sale — and the broken JavaScript it found on two pages before it found anything else.
+
+[the vault itself &nearr;](https://dev.vault.sgraph.ai/en-gb/#a41174009cf6f3019147040ef0c759b6c84c86ffa37eb54af06011c161a12332:o3q6zhtr)
+
+Read-only, with the personas, the protocol, every run record and every screenshot. Everybody in it is invented and the vault says so before you can scroll past it.
+
 [briefs.html](briefs.html)
 
 Every document this site was built from, what it produced and what it did not, with the SHA-256 of each file as received so nothing is worked twice or quietly dropped.

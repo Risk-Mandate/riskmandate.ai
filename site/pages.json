@@ -210,6 +210,12 @@
       "group": "More"
     },
     {
+      "name": "synthetic-users",
+      "label": "Synthetic users",
+      "file": "synthetic-users.html",
+      "group": "More"
+    },
+    {
       "name": "admin",
       "label": "Admin",
       "file": "admin.html",

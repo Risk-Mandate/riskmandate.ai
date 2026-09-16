@@ -3,22 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>You run agents today</title>
-<meta name="description" content="You gave an assistant access to a repository, a mailbox, a cloud account. A behaviour policy says what it can actually reach, what you authorised, and the gap.">
-<link rel="canonical" href="https://riskmandate.ai/for-corporate.html">
-<link rel="alternate" type="text/markdown" href="for-corporate.md" title="This page as markdown">
+<title>Synthetic users — five people who do not exist, reading this site</title>
+<meta name="description" content="Five invented readers were walked through riskmandate.ai one screenshot at a time and interviewed at the end. Thirty screenshots, eleven unanswered questions, twelve findings, two of them blocking a sale.">
+<link rel="canonical" href="https://riskmandate.ai/synthetic-users.html">
+<link rel="alternate" type="text/markdown" href="synthetic-users.md" title="This page as markdown">
 <link rel="icon" href="assets/brand/riskmandate-favicon-32.png" sizes="32x32">
 <link rel="icon" href="assets/brand/riskmandate-mark.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="RiskMandate">
-<meta property="og:url" content="https://riskmandate.ai/for-corporate.html">
-<meta property="og:title" content="You run agents today">
-<meta property="og:description" content="You gave an assistant access to a repository, a mailbox, a cloud account. A behaviour policy says what it can actually reach, what you authorised, and the gap.">
+<meta property="og:url" content="https://riskmandate.ai/synthetic-users.html">
+<meta property="og:title" content="Synthetic users — five people who do not exist, reading this site">
+<meta property="og:description" content="Five invented readers were walked through riskmandate.ai one screenshot at a time and interviewed at the end. Thirty screenshots, eleven unanswered questions, twelve findings, two of them blocking a sale.">
 <meta property="og:image" content="https://riskmandate.ai/assets/brand/riskmandate-lockup-light.png">
 <meta name="twitter:card" content="summary_large_image">
 <!-- Scaffolded by scripts/site/new-page.mjs. Hand-edited from here on — there is no build step. -->
 <style>
-/* for-corporate.css — self-contained: the shared chrome, then this page's own. */
+/* synthetic-users.css — self-contained: the shared chrome, then this page's own. */
 :root{
   --bg:#F7F6F2; --bg2:#EFEDE7; --card:#FFFFFF; --ink:#0D0D0C; --canvas:#0A0A09;
   --text:#1A1917; --muted:#4A4845; --faint:#8A8780; --border:#E2DFD8;
@@ -135,51 +135,36 @@ rm-menu{display:contents}
   .demo{padding:8px 12px;font-size:12.5px}
 }
 
-/* for-corporate.css */
+/* synthetic-users.css */
 
-/* page kit: source notes, spec lists, file chips, the three-rung chain */
-.src{margin-top:24px;font-size:13px;color:var(--faint);line-height:1.8;max-width:820px}
+/* the key block, tables and lists */
+.keybox{margin-top:32px;border:1px solid var(--border);border-radius:var(--r);background:var(--card);overflow:hidden}
+.kr{display:grid;grid-template-columns:150px 1fr;gap:18px;padding:16px 20px;border-bottom:1px solid var(--border);align-items:baseline}
+.kr:last-child{border-bottom:0}
+@media (max-width:640px){.kr{grid-template-columns:1fr;gap:6px}}
+.kk{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green)}
+.kr code{font-family:var(--mono);font-size:12.5px;color:var(--text);word-break:break-all;line-height:1.6}
+.kr a{color:var(--green);text-decoration:underline;text-underline-offset:2px;font-size:14px}
+.tw{margin-top:32px;overflow-x:auto;border:1px solid var(--border);border-radius:var(--r);background:var(--card)}
+table.t{width:100%;border-collapse:collapse;font-size:13.5px;min-width:560px}
+table.t th{text-align:left;font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--faint);padding:14px 18px;border-bottom:1px solid var(--border);white-space:nowrap}
+table.t td{padding:14px 18px;border-bottom:1px solid var(--border);color:var(--muted);line-height:1.6;vertical-align:top}
+table.t tr:last-child td{border-bottom:0}
+table.t td.k{color:var(--text);font-weight:600;white-space:nowrap}
+.sub2{display:block;font-weight:400;font-size:12px;color:var(--faint);margin-top:3px;white-space:normal;max-width:230px}
+.plist{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px}
+.plist li{border-left:3px solid var(--green);background:var(--card);border-radius:var(--r-sm);
+  padding:16px 20px;font-size:14px;color:var(--muted);line-height:1.7}
+.plist strong{color:var(--text)}
+.src{margin-top:24px;font-size:13px;color:var(--faint);line-height:1.8;max-width:840px}
 .src a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
 .shead p a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
-
-.speclist{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:1px;
-  background:var(--border);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
-.speclist li{background:var(--card);padding:16px 20px;display:flex;justify-content:space-between;
-  gap:22px;font-size:14px;color:var(--muted);flex-wrap:wrap;line-height:1.6}
-.speclist li > span:first-child{color:var(--text);flex:none;min-width:150px}
-
-.files{display:flex;flex-wrap:wrap;gap:8px}
-.files code{font-family:var(--mono);font-size:12px;color:var(--text);background:var(--bg2);
-  border:1px solid var(--border);border-radius:6px;padding:7px 11px}
-
-.chain{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
-@media (max-width:820px){.chain{grid-template-columns:1fr}}
-.ch{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--border);
-  border-radius:var(--r);padding:26px;text-decoration:none}
-a.ch:hover{border-color:var(--green)}
-.ch.here{background:var(--ink);border-color:var(--ink)}
-.chn{font-family:var(--mono);font-size:12.5px;font-weight:700;color:var(--green);margin-bottom:14px}
-.ch h3{margin:0 0 9px;font-size:18px;color:var(--text);letter-spacing:-.02em}
-.ch p{font-size:13.5px;color:var(--muted);line-height:1.55;margin:0}
-.ch.here h3{color:var(--fg)} .ch.here p{color:var(--fg-2)}
-.chs{margin-top:auto;padding-top:18px;font-family:var(--mono);font-size:10.5px;font-weight:700;
-  letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
-.ch.here .chs{color:var(--green-2)}
-
-.ins-note{margin-top:26px;font-size:13.5px;color:var(--faint);line-height:1.75;max-width:760px;font-style:italic}
-
 
 
 .ghlink{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:8px;color:var(--muted);border:1px solid transparent}.ghlink:hover{color:var(--text);border-color:var(--border)}
 .footlic{display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap}.footlic a{color:inherit}.ccicon{vertical-align:-3px;margin:0 2px}
-@media (max-width:1400px) and (min-width:901px){.ghlink,header.top a.version{display:none}header.top .wrap{gap:14px}}
-.lvls{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
-.lvlchip{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--green);
-  background:var(--greenBg);border:1px solid rgba(26,127,90,.22);border-radius:8px;
-  padding:10px 14px;text-decoration:none;white-space:nowrap}
-.lvlchip:hover{background:var(--green);color:#fff;border-color:var(--green)}
-
-</style>
+@media (max-width:1400px) and (min-width:901px){.ghlink,header.top a.version{display:none}header.top .wrap{gap:14px}}</style>
 </head>
 <body id="top">
 
@@ -195,70 +180,147 @@ a.ch:hover{border-color:var(--green)}
 
 <main class="phero">
   <div class="wrap">
-    <span class="eyebrow"><span class="d"></span> You run agents today</span>
-    <h1>Do you know what it can do? <span class="it">Not what it did.</span></h1>
-    <p class="sub">You gave an assistant access to a repository, a mailbox, a cloud account. You know what you asked it for. Nobody enumerates the rest, and the rest is in the grant regardless of whether anyone wrote it down.</p>
+    <span class="eyebrow"><span class="d"></span> Admin &middot; how this site is checked</span>
+    <h1>Five people who do not exist, <span class="it">reading this site.</span></h1>
+    <p class="sub">Five invented readers were walked through riskmandate.ai one screenshot at a time, asked what they made of each screen, and interviewed at the end. Every one of them started knowing nothing about RiskMandate, Agent Behaviour Policies, or what is for sale. The vault holds all of it: <b>30 screenshots, 30 steps, 11 questions the site did not answer, 12 places somebody got lost, and 12 findings &mdash; two of them costing a sale.</b></p>
     <div class="cta-row">
-      <a class="btn btn-green" href="agent-behaviour-policy.html">See a real policy &rarr;</a>
-      <a class="btn btn-ghost" href="pricing.html">Where the free line falls</a>
+      <a class="btn btn-green" href="https://dev.vault.sgraph.ai/en-gb/#a41174009cf6f3019147040ef0c759b6c84c86ffa37eb54af06011c161a12332:o3q6zhtr" target="_blank" rel="noopener">Open the vault &nearr;</a>
+      <button class="btn btn-ghost" data-to="found">What it found &darr;</button>
     </div>
   </div>
 </main>
 
 <div class="paper">
-  <section class="psection">
-    <div class="wrap">
-      <div class="shead"><span class="tag">The question</span><h2>Your first serious customer will ask, and so will your insurer.</h2></div>
-    </div>
-  </section>
 
-  <section class="psection alt">
+  <section class="psection" id="key">
     <div class="wrap">
-      <div class="shead"><span class="tag">The state you are in</span><h2>The grant is user-shaped, <span class="g">not data-shaped.</span></h2>
-      <p>The unit of restriction is the application, never the material. There is no supported way to say <i>this assistant may read my files except the folder the legal team share with me</i>. That is not our finding &mdash; it is in the publishers&rsquo; own scope definitions, and it is <a href="grant-gap.html">set out with sources</a>.</p></div>
-    </div>
-  </section>
-
-  <section class="psection">
-    <div class="wrap">
-      <div class="shead"><span class="tag">What you get</span><h2>One agent, <span class="g">written down.</span></h2>
-      <p>A behaviour policy for one agent in one deployment: every capability it can reach, what you authorised it to do, the gap between the two, and what actually stands in the way of each row. Three of those you can write down; the gap is computed, and it is usually the one nobody has looked at.</p></div>
-      <div class="files" style="margin-top:28px"><code>AGENTS.md</code><code>MANDATE.md</code><code>GRANT.md</code><code>DELTA.md</code><code>LICENCE-TO-OPERATE.md</code></div>
-      <p class="src">It is a draft on purpose. It goes to the people who built the agent, the people who own what it touches and the people accountable for it, and each corrects the part they know. The correction is the product.</p>
-    </div>
-  </section>
-
-  <section class="psection alt">
-    <div class="wrap">
-      <div class="shead"><span class="tag">What it is not</span><h2>We do not discover <span class="g">your estate.</span></h2>
-      <p>This reaches a personal device, a personal account and a locally run server with no install and no administrator &mdash; and in exchange it only ever sees what somebody is willing to say. An inventory built on telemetry sees what is on the network whether anybody admits to it or not. If you already run a good one, we would rather read from it than replace it.</p></div>
-    </div>
-  </section>
-
-  <section class="psection alt" id="buy">
-    <div class="wrap">
-      <div class="shead"><span class="tag">How to buy one</span><h2>One thing, <span class="g">at four levels.</span></h2>
-      <p>Start at level one: the pack for the shape you run, as a zip you keep. Level two is the same material as a vault you hold the keys to. The whole ladder, what each level changes and who does the work is on <a href="pricing.html">pricing</a>; the catalogue and the checkout are on the store.</p></div>
-      <div class="lvls"><a class="lvlchip" href="https://store.sgit.ai/d/t1/" target="_blank" rel="noopener">Level 1 · the pack &middot; &pound;5</a><a class="lvlchip" href="https://store.sgit.ai/d/t2/" target="_blank" rel="noopener">Level 2 · a vault &middot; &pound;50</a><a class="lvlchip" href="https://store.sgit.ai/d/t3/" target="_blank" rel="noopener">Level 3 · corrected &middot; &pound;500</a></div>
-      <div class="cta-row" style="margin-top:28px">
-        <a class="btn btn-green" href="https://store.sgit.ai/policies/" target="_blank" rel="noopener">Buy at the store &nearr;</a>
-        <a class="btn btn-ghost-dark" href="agent-behaviour-policy.html">See one first</a>
+      <div class="shead">
+        <span class="tag">Open it yourself</span>
+        <h2>The key is <span class="g">the whole credential.</span></h2>
+        <p>Nothing in the vault is a secret: no real person, no customer data, no credential. It is published read-only so the method can be checked rather than described.</p>
       </div>
-      <p class="src">The store takes the order and hands you back here: one page per level, and at level one that page <b>is</b> the download &mdash; the zip, its size, its sha256 and a check that runs in your own browser. Payment rails are not built yet, and every checkout button on the store says so rather than looking live.</p>
+      <div class="keybox">
+        <div class="kr"><span class="kk">Read key</span><code>a41174009cf6f3019147040ef0c759b6c84c86ffa37eb54af06011c161a12332:o3q6zhtr</code></div>
+        <div class="kr"><span class="kk">In the browser</span><a href="https://dev.vault.sgraph.ai/en-gb/#a41174009cf6f3019147040ef0c759b6c84c86ffa37eb54af06011c161a12332:o3q6zhtr" target="_blank" rel="noopener">open it read-only in a new tab &nearr;</a></div>
+        <div class="kr"><span class="kk">From the CLI</span><code>sgit clone a41174009cf6f3019147040ef0c759b6c84c86ffa37eb54af06011c161a12332:o3q6zhtr</code></div>
+      </div>
+      <p class="src">Derived one way from a vault key that is not published and never will be. The read key opens the vault and cannot change it.</p>
     </div>
   </section>
+
+  <section class="psection alt">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Read this first</span>
+        <h2>Everybody in it is invented, <span class="g">and the vault says so before you can scroll past it.</span></h2>
+        <p>The personas are fictional, the names are fictional, and every word attributed to them was written by a language model reading screenshots. <b>It is not user research</b>, and no sentence in it is evidence about a real person.</p>
+      </div>
+      <p class="src">What <em>is</em> evidence is the part a machine produced: the thirty screenshots, the URLs, the step order, the scroll positions, the viewport sizes, the measured word counts, and the page errors &mdash; all captured by driving Chromium against this site&rsquo;s deployed tree at <b>v1.20.1</b>. Both halves are labelled on every screen of the vault, and the findings list is the part worth acting on.</p>
+    </div>
+  </section>
+
+  <section class="psection">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">The method</span>
+        <h2>Hand the agent the screenshot, <span class="g">not the DOM.</span></h2>
+        <p>This is the whole idea, and the vault states it in one sentence: <em>an agent that reads the DOM finds the buy button every time, and therefore finds no confusion &mdash; which is the only thing worth running this for.</em> So the loop is deliberately crippled. The agent gets the same thing a person would have and has to work out what to do from it.</p>
+      </div>
+      <div class="tw">
+        <table class="t">
+          <thead><tr><th></th><th>Step</th><th>Why it is there</th></tr></thead>
+          <tbody>
+            <tr><td class="k">1</td><td>Observe</td><td>Screenshot at that persona&rsquo;s own window size. <b>Do not read the DOM.</b> Do not read the markdown twin unless this persona would</td></tr>
+            <tr><td class="k">2</td><td>Say what you see</td><td>At the level of detail this persona would take in &mdash; a skimmer sees three things, a slow reader sees the caveat under the price</td></tr>
+            <tr><td class="k">3</td><td>Think</td><td>What they are weighing, and what they are suspicious of</td></tr>
+            <tr><td class="k">4</td><td>Record a question</td><td>Something the page raised and did not answer. Null when there is none. <b>These are the output</b></td></tr>
+            <tr><td class="k">5</td><td>Record confusion</td><td>Where the page lost them, or where they guessed. Every claim of confusion must point at something on the screenshot</td></tr>
+            <tr><td class="k">6</td><td>Act</td><td>One action, with the reason given in the persona&rsquo;s terms rather than the site&rsquo;s</td></tr>
+            <tr><td class="k">7</td><td>Loop</td><td>Until they would buy, leave, or run out of patience &mdash; and patience is a field on their record, not a judgement made mid-run</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="src">Seven interview questions follow, however the run ended. The two that earn their keep are <em>where did you have to guess</em> and <em>what did you still not know at the end</em>, because those are the two a real reader never tells you. The protocol is published <b>inside</b> the vault, which is what makes a second run next month comparable rather than merely later.</p>
+    </div>
+  </section>
+
+  <section class="psection alt">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">The five runs</span>
+        <h2>Five readers, <span class="g">and what each one cost.</span></h2>
+        <p>Every number below is computed from the run records rather than from the summary.</p>
+      </div>
+      <div class="tw">
+        <table class="t">
+          <thead><tr><th>Reader</th><th>Outcome</th><th>Steps</th><th>Questions</th><th>Lost</th><th>Viewport</th></tr></thead>
+          <tbody>
+            <tr><td class="k"><b>Priya Raghavan</b><span class="sub2">staff engineer, pays on her own card</span></td><td>would buy, level 1</td><td>6</td><td>2</td><td>2</td><td>1440&times;900</td></tr>
+            <tr><td class="k"><b>Tom Achterberg</b><span class="sub2">founder, six weeks from a term sheet</span></td><td>stalled</td><td>6</td><td>3</td><td>3</td><td><b>390&times;844</b> phone</td></tr>
+            <tr><td class="k"><b>Mei-Lin Okafor</b><span class="sub2">head of engineering, a bank&rsquo;s questionnaire due Friday</span></td><td>would buy, blocked on timing</td><td>6</td><td>2</td><td>2</td><td>1440&times;900</td></tr>
+            <tr><td class="k"><b>Rafael Duarte</b><span class="sub2">fund partner, 31 companies</span></td><td>left</td><td>6</td><td>2</td><td>2</td><td>1440&times;900</td></tr>
+            <tr><td class="k"><b>Claire Buckley</b><span class="sub2">risk manager at an insurance broker</span></td><td>left, having understood it only on the third page</td><td>6</td><td>2</td><td>3</td><td>1440&times;900</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="src">Read the viewport column. The reader carrying the most urgent decision &mdash; a founder six weeks from a term sheet, for whom &pound;500 is his own call &mdash; did the whole thing <b>on a phone</b>, and produced the most questions and the most confusion of anyone. That is not something the vault announces; it falls out of the table once the numbers are in one place.</p>
+    </div>
+  </section>
+
+  <section class="psection" id="found">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">What it found</span>
+        <h2>The product is not named <span class="g">where it is sold.</span></h2>
+        <p>The headline finding is a word, and it is measurable. Above the fold on a 1440&times;900 screen, the home page at v1.20.1 said:</p>
+      </div>
+      <div class="tw">
+        <table class="t">
+          <thead><tr><th>Word, above the fold</th><th>Times</th></tr></thead>
+          <tbody>
+            <tr><td class="k">policy / policies</td><td><b>6</b></td></tr>
+            <tr><td class="k">insure / insurable / insurability</td><td>3</td></tr>
+            <tr><td class="k">underwriters</td><td>1</td></tr>
+            <tr><td class="k">a price (&pound;5)</td><td>1</td></tr>
+            <tr><td class="k"><b>Agent Behaviour Policy</b></td><td><b>0</b></td></tr>
+            <tr><td class="k"><b>ABP</b></td><td><b>0</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="src">The words <em>Agent Behaviour Policy</em> first appeared at character <b>5,387 of 9,270</b> &mdash; 58% of the way down the page. <b>Two of the five read &ldquo;Buy one, from &pound;5&rdquo; as buying an insurance policy for five pounds.</b> The insurance broker held that reading for four screens; the founder resolved it by accident, from the caption of the third button.</p>
+
+      <ul class="plist" style="margin-top:34px">
+        <li><strong>The hero card made it worse.</strong> It was captioned <em>A REAL POLICY &middot; TEMPLATE</em>, directly beside a headline about being insurable &mdash; the phrase most likely to be read as an insurance policy, on the one caption with room to say the product&rsquo;s name instead.</li>
+        <li><strong>The page led with the rung that does not exist.</strong> The audience cards began at 2,823px on a desktop and 4,947px on a phone &mdash; the fourth and sixth screenful. Every reader who was one of the three named audiences scrolled past two full screens of insurance argument before the page addressed them.</li>
+        <li><strong>Two sales were blocked by something that is not a price.</strong> The founder would have paid &pound;500 from his phone: no page states how long any level takes. The head of engineering would have paid &pound;1,500 the same day against a deal worth more than her runway: the payment rails are not built, and the site says so.</li>
+        <li><strong>The investor&rsquo;s content is on the conference page.</strong> It exists and it is good, and a partner arriving outside conference season finds his own content filed under an event he is not attending.</li>
+      </ul>
+
+      <p class="src">And what worked, named unprompted by more than one reader: the connector-scope quotes with their sources and dates, the admissions this site keeps making against itself, and the four-number card &mdash; which was the only thing on the first screen that kept the engineer reading. <em>&ldquo;Nobody oversells and then volunteers that.&rdquo;</em></p>
+    </div>
+  </section>
+
+  <section class="psection alt">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">The bug it found first</span>
+        <h2>Two pages were shipping <span class="g">broken JavaScript.</span></h2>
+        <p>Before a word of the study had been written, the first pass recorded a page error on <b>every step of every journey</b>: <code>Unexpected token '}'</code> on the home page and <code>Unexpected end of input</code> on the insurance page. The menu, the mobile drawer, the in-page scroll buttons and the enquiry button were dead on both, and the insurance page had been broken since it launched.</p>
+      </div>
+      <p class="src">Nothing else caught it. The HTML still rendered, so both pages looked right in a screenshot; twenty-six tests, four <code>npm run check</code> gates and two further CI checks all passed, because not one of them parsed a line of the JavaScript the pages carry. Fixed in <a href="versions.html">v1.21.0</a>, with a test that parses every inline script on every page &mdash; verified by deliberately breaking a page and watching it fail. Driving a real browser and recording what it throws is the only reason this was found.</p>
+    </div>
+  </section>
+
 </div>
 
 <section class="pcta" id="demo">
   <div class="wrap">
-    <span class="eyebrow"><span class="d"></span> One agent, to start</span>
-    <h2>Start with the one that worries you.</h2>
-    <p>Not the whole estate. One agent, already running, and the behaviour policy for it as a file you keep and correct.</p>
-    <div class="cta-row"><a class="btn btn-green" href="abp.html">What a behaviour policy is &rarr;</a><button class="btn btn-ghost" data-demo>Talk to us</button></div>
+    <span class="eyebrow"><span class="d"></span> Run it again after the site changes</span>
+    <h2>Two runs a month apart <span class="it">are the comparison.</span></h2>
+    <p>The personas, the paths and the protocol are all in the vault, so the same five readers can be walked through a changed site and the answers read down a column as well as across. That is the thing this exists to make possible.</p>
+    <div class="cta-row"><a class="btn btn-green" href="https://dev.vault.sgraph.ai/en-gb/#a41174009cf6f3019147040ef0c759b6c84c86ffa37eb54af06011c161a12332:o3q6zhtr" target="_blank" rel="noopener">Open the vault &nearr;</a><a class="btn btn-ghost" href="admin.html">Back to admin</a></div>
   </div>
 </section>
-
-
 
 <footer class="foot">
   <div class="wrap">
@@ -272,7 +334,7 @@ a.ch:hover{border-color:var(--green)}
 (function(){
 'use strict';
 var RM={core:{},services:{},components:{},data:{}};
-RM.data.currentPage="for-corporate";RM.data.pages=[{"name":"abp","label":"Agent Behaviour Policy","file":"abp.html","group":"Policies"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"Policies"},{"name":"agents","label":"Agents","file":"agents.html","group":"Policies"},{"name":"agent-behaviour-policy","label":"Agent Behaviour Policies","file":"agent-behaviour-policy.html","group":"Policies"},{"name":"licence-to-operate","label":"Licence to Operate","file":"licence-to-operate.html","group":"Policies"},{"name":"for-corporate","label":"You run agents today","file":"for-corporate.html","group":"Who it's for"},{"name":"for-founders","label":"You are a founder","file":"for-founders.html","group":"Who it's for"},{"name":"for-startups","label":"You are a startup","file":"for-startups.html","group":"Who it's for"},{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"Insurance"},{"name":"acceptable","label":"Accepted is not acceptable","file":"acceptable.html","group":"Insurance"},{"name":"acceptance","label":"You own the risk","file":"acceptance.html","group":"Insurance"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"Insurance"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"Insurance"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"Insurance"},{"name":"statics","label":"Static scenarios","file":"statics.html","group":"Insurance"},{"name":"insurance","label":"Make agents insurable","file":"insurance.html","group":"Insurance"},{"name":"demos","label":"All demos","file":"demos.html","group":"Live demos"},{"name":"demo-licence-to-operate","label":"Licence to Operate","file":"demo-licence-to-operate.html","group":"Live demos"},{"name":"demo-risk-graph-explorer","label":"RiskGraph Explorer","file":"demo-risk-graph-explorer.html","group":"Live demos"},{"name":"demo-agentic-browser-isolation","label":"Agentic Browser Isolation","file":"demo-agentic-browser-isolation.html","group":"Live demos"},{"name":"demo-risk-mandate-field","label":"RiskMandate field demo","file":"demo-risk-mandate-field.html","group":"Live demos"},{"name":"demo-file-security","label":"File security walk","file":"demo-file-security.html","group":"Live demos"},{"name":"demo-agent-permission-games","label":"Permission games","file":"demo-agent-permission-games.html","group":"Live demos"},{"name":"summit","label":"Lisbon 2026","file":"summit.html"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"lab","label":"The Lab","file":"lab.html","group":"More"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"briefs","label":"Brief register","file":"briefs.html","group":"More"},{"name":"work","label":"Working with us","file":"work.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"after-payment","label":"After payment (store debrief)","file":"after-payment.html","group":"More"},{"name":"synthetic-users","label":"Synthetic users","file":"synthetic-users.html","group":"More"},{"name":"admin","label":"Admin","file":"admin.html","group":"More"}];RM.data.sections=[];
+RM.data.currentPage="synthetic-users";RM.data.pages=[{"name":"abp","label":"Agent Behaviour Policy","file":"abp.html","group":"Policies"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"Policies"},{"name":"agents","label":"Agents","file":"agents.html","group":"Policies"},{"name":"agent-behaviour-policy","label":"Agent Behaviour Policies","file":"agent-behaviour-policy.html","group":"Policies"},{"name":"licence-to-operate","label":"Licence to Operate","file":"licence-to-operate.html","group":"Policies"},{"name":"for-corporate","label":"You run agents today","file":"for-corporate.html","group":"Who it's for"},{"name":"for-founders","label":"You are a founder","file":"for-founders.html","group":"Who it's for"},{"name":"for-startups","label":"You are a startup","file":"for-startups.html","group":"Who it's for"},{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"Insurance"},{"name":"acceptable","label":"Accepted is not acceptable","file":"acceptable.html","group":"Insurance"},{"name":"acceptance","label":"You own the risk","file":"acceptance.html","group":"Insurance"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"Insurance"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"Insurance"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"Insurance"},{"name":"statics","label":"Static scenarios","file":"statics.html","group":"Insurance"},{"name":"insurance","label":"Make agents insurable","file":"insurance.html","group":"Insurance"},{"name":"demos","label":"All demos","file":"demos.html","group":"Live demos"},{"name":"demo-licence-to-operate","label":"Licence to Operate","file":"demo-licence-to-operate.html","group":"Live demos"},{"name":"demo-risk-graph-explorer","label":"RiskGraph Explorer","file":"demo-risk-graph-explorer.html","group":"Live demos"},{"name":"demo-agentic-browser-isolation","label":"Agentic Browser Isolation","file":"demo-agentic-browser-isolation.html","group":"Live demos"},{"name":"demo-risk-mandate-field","label":"RiskMandate field demo","file":"demo-risk-mandate-field.html","group":"Live demos"},{"name":"demo-file-security","label":"File security walk","file":"demo-file-security.html","group":"Live demos"},{"name":"demo-agent-permission-games","label":"Permission games","file":"demo-agent-permission-games.html","group":"Live demos"},{"name":"summit","label":"Lisbon 2026","file":"summit.html"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"lab","label":"The Lab","file":"lab.html","group":"More"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"briefs","label":"Brief register","file":"briefs.html","group":"More"},{"name":"work","label":"Working with us","file":"work.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"after-payment","label":"After payment (store debrief)","file":"after-payment.html","group":"More"},{"name":"synthetic-users","label":"Synthetic users","file":"synthetic-users.html","group":"More"},{"name":"admin","label":"Admin","file":"admin.html","group":"More"}];RM.data.sections=[];
 
 'use strict';
 // components/dom.js — tiny DOM helpers shared by components. `el` builds an
