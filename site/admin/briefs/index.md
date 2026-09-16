@@ -3,9 +3,9 @@
 > Every document under docs/ on riskmandate.ai, rendered as a page: direction briefs, reviews, workflows, architecture and research, newest first.
 > Source: https://riskmandate.ai/admin/briefs/ · noindex · written by scripts/site/build-admin.mjs
 
-**17**documents under docs/*one page each, rendered from the file*
+**18**documents under docs/*one page each, rendered from the file*
 
-**3**direction briefs*the product and the site*
+**4**direction briefs*the product and the site*
 
 **3**reviews*read against a named source*
 
@@ -14,6 +14,10 @@
 These were written here, by the agent maintaining the site, in response to [the memos and documents that arrived](../../admin/memos/). Each is read against a named source and dated. Add a file under `docs/` and rerun `build-admin.mjs`: it has a page here and a test fails until it does.
 
 ## Newest first
+
+**[The first MVP vault: `oc433z3m` becomes the product, and the reading app is rebuilt around it](../../admin/briefs/direction__mvp-vault-and-the-reading-app/)**
+
+The store's exploration has three emphases on one shopping model — ABP first, Vault first, Use it — and the vault appears the same way in all three: a panel titled Inside an ABP vault, with a left navigation of eight entries and a reading pane on the right.16 September 2026 · direction
 
 **[Buying a behaviour policy for Claude on one Gmail mailbox: the workflow, run once](../../admin/briefs/workflow__buying-a-policy-for-claude-on-gmail/)**
 
@@ -84,6 +88,10 @@ Move the interactive Risk Scenarios experience to the decoupled model:4 July 202
 How a page is put together, what happens when the browser loads one, and where each thing lives. Current as of v1.0.0; see the addendum below for what has been added since, and .claude/onboarding/01-map.md for the current map.
 
 ## Direction · where the site and the product are going, and why
+
+**[The first MVP vault: `oc433z3m` becomes the product, and the reading app is rebuilt around it](../../admin/briefs/direction__mvp-vault-and-the-reading-app/)**
+
+The store's exploration has three emphases on one shopping model — ABP first, Vault first, Use it — and the vault appears the same way in all three: a panel titled Inside an ABP vault, with a left navigation of eight entries and a reading pane on the right.16 September 2026 · direction
 
 **[The policy is a graph, and every stakeholder gets a projection of it](../../admin/briefs/direction__abp-as-a-graph-and-stakeholder-views/)**
 

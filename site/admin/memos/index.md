@@ -3,7 +3,7 @@
 > Every document, memo and instruction riskmandate.ai was built from, in the order it arrived, with what it produced and what it still owes — read off briefs-register.json.
 > Source: https://riskmandate.ai/admin/memos/ · noindex · written by scripts/site/build-admin.mjs
 
-**0**received, nothing built yet*Archived and read, and nothing has been built from it yet.*
+**1**received, nothing built yet*Archived and read, and nothing has been built from it yet.*
 
 **9**partly worked*read in full; a named part is not built*
 
@@ -20,6 +20,10 @@ chat instruction with eight screenshots, 16 Sept · 5 produced · 2 not done16 S
 **[Where is the new Claude + Gmail section; publish the vault (the read key makes the publish automatic); create a page in the admin section for the Gmail workflow brief, in a way that takes many briefs; and refactor the admin section to the structure, layout and capabilities of store.sgit.ai/admin/ and pt.newsroom.sgit.ai/newsroom/.](#I7)**
 
 chat instruction, 16 Sept · 3 produced · 0 not done16 September 2026 · processed
+
+**[Make the Gmail-connector vault oc433z3m the first MVP vault, with a solid end-to-end experience and the design template every other vault will reuse; global changes to the code vault are fine, and backwards compatibility with vaults nobody uses is not worth buying. Start from the store's V3 marketplace mock-up (the vault panel with its left navigation, the positioning of the vault) and the store's comparison table of what each level gets you, including the dual licence.](#I8)**
+
+chat instruction with a PDF and a link, 16 Sept · 1 produced · 1 not done16 September 2026 · received
 
 **[Risk Mandate Website Repositioning Strategy](#D10)**
 
@@ -125,6 +129,20 @@ processed
 *chat instruction, 16 Sept* — no digest; given as speech, chat text or a link
 
 **Produced.** [The Gmail-connector vault pushed (oc433z3m) and read live on its page and in the library](../../abp-vault-claude-gmail-connector.html) · [The admin console: a rail with counts, what needs the lead, the board, the memo queue, every brief as a page, the vaults, the records, the tooling — written by build-admin.mjs from the repository](../../admin/) · [The Gmail workflow brief as a console page, one of every document under docs/](../../admin/briefs/workflow__buying-a-policy-for-claude-on-gmail/)
+
+I8 · chat instruction with a PDF and a link, 16 Sept · 16 September 2026
+
+## Make the Gmail-connector vault oc433z3m the first MVP vault, with a solid end-to-end experience and the design template every other vault will reuse; global changes to the code vault are fine, and backwards compatibility with vaults nobody uses is not worth buying. Start from the store's V3 marketplace mock-up (the vault panel with its left navigation, the positioning of the vault) and the store's comparison table of what each level gets you, including the dual licence.
+
+received
+
+*chat instruction with a PDF and a link, 16 Sept* — no digest; given as speech, chat text or a link
+
+**Produced.** [The direction brief: what the mock-up says about the vault, the feature list read off the store's table, the dual licence as a file and a data block, the redesign of the reading app with a left navigation, what changes globally, four decisions for the lead, and the plan](https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/briefs/direction__mvp-vault-and-the-reading-app.md)
+
+**Not done.**
+
+- The build itself: the licence block and LICENCE.md in the build, the v3 reading app, the new app vault, oc433z3m rebuilt and re-pushed, the vault page repositioned — waiting on the lead's answers to the four decisions in the brief
 
 D10 · spoken brief, transcribed · 15 September 2026
 

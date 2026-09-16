@@ -207,6 +207,11 @@ These have no digest to check, which makes them the ones most easily lost — a 
 - [The Gmail workflow brief](admin/briefs/workflow__buying-a-policy-for-claude-on-gmail/) as the first of those pages
 - Nothing from this instruction. What the console shows as owed is on the console itself, under _needs the lead_.
 
+**Make the Gmail-connector vault the first MVP vault**, with a solid end-to-end experience and the design template every other vault reuses; global changes to the code vault are fine. Start from the store's V3 marketplace mock-up — the vault panel with its left navigation, the positioning of the vault — and the store's table of what each level gets you, including the dual licence.
+
+- [The direction brief](admin/briefs/direction__mvp-vault-and-the-reading-app/): what the mock-up says about the vault, the feature list read off the store's table, the dual licence as a file and a data block, the reading app redrawn with a left navigation, what changes globally, four decisions for the lead, the plan
+- The build: the licence block and `LICENCE.md`, the v3 reading app, a new app vault, `oc433z3m` rebuilt and re-pushed, the vault page repositioned — after the lead's answers to the four decisions
+
 ## Check us, rather than trusting us.
 
 The whole point of a digest is that somebody else can compute it. If you produce these documents, you do not have to take this page's word for what arrived — hash what you sent and compare.
@@ -224,7 +229,7 @@ sha256sum my-brief.md
 
 A register that only lists what was done is a press release.
 
-Every entry above carries what it asked for and did not get, and on most of the seventeen that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.
+Every entry above carries what it asked for and did not get, and on most of the eighteen that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.
 
 - **The file is the record, not this page.** [briefs-register.json](briefs-register.json) is what a program should read; this page renders it for people. If the two ever disagree, the file is right and the page is stale.
 - **Every archived document is byte-identical to what arrived.** Nothing is edited, reformatted or trimmed — including the parts we think are wrong. Where we disagree with a brief, the disagreement is published on the page it produced and marked as ours.
@@ -233,6 +238,6 @@ Every entry above carries what it asked for and did not get, and on most of the 
 
 Register maintained by hand alongside the work, and checked in CI: every document listed must exist at the path given and match its recorded digest, and every file in `assets/briefs/` must appear in the register. Last reconciled 16 September 2026.
 
-## Seventeen items. None untouched, and none finished.
+## Eighteen items. None untouched, and none finished.
 
-Every item now names something it produced and something it did not. Nine of the seventeen are marked _partly_, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.
+Every item now names something it produced and something it did not. Nine of the eighteen are marked _partly_, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.
