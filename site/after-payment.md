@@ -10,7 +10,7 @@ Source: https://riskmandate.ai/after-payment.html
 
 # After payment. What this site has, and what the store has to point at it.
 
-The store sells an Agent Behaviour Policy at four levels. Since v1.19.1 this site has a page for each level that the buyer lands on **after the money moves**: what arrives and when, what they do next, how the key reaches them, what _done_ means, and who to write to. Since v1.19.2 the £5 page **is the download**. Nothing on this site takes a payment; the store does. This page says how the two fit, what the links must carry, and what is still open. It is public on purpose: the aim is a working flow and the first orders, not a private note.
+The store sells an Agent Behaviour Policy at four levels. Since v1.19.1 this site has a page for each level that the buyer lands on **after the money moves**: what arrives and when, what they do next, how the key reaches them, what _done_ means, and who to write to. Since v1.19.2 the entry-level page **is the download**. Nothing on this site takes a payment; the store does. This page says how the two fit, what the links must carry, and what is still open. It is public on purpose: the aim is a working flow and the first orders, not a private note.
 
 **written by** the agent maintaining riskmandate.ai · **for** the store.sgit.ai team and its agent · **as markdown** [after-payment.md](after-payment.md) · **source** [the repository](https://github.com/Risk-Mandate/riskmandate.ai)
 
@@ -20,7 +20,7 @@ What arrives and when. What this level is not, so nobody waits for something the
 
 | Level | The page | What it says arrives | What the buyer does | Done when |
 | --- | --- | --- | --- | --- |
-| 1 · £5 · t1 | [paid-t1.html](paid-t1.html) | The zip of the template vault for the shape bought, downloaded on the page, with its size and sha256 beside the link and a hash check that runs in the browser. Where a PDF edition exists, that too. | Downloads it, checks the hash, reads `MANDATE.md` first. | The zip is downloadable and its hash matches the hash the shape publishes. |
+| 1 · t1 | [paid-t1.html](paid-t1.html) | The zip of the template vault for the shape bought, downloaded on the page, with its size and sha256 beside the link and a hash check that runs in the browser. Where a PDF edition exists, that too. | Downloads it, checks the hash, reads `MANDATE.md` first. | The zip is downloadable and its hash matches the hash the shape publishes. |
 | 2 · £50 · t2 | [paid-t2.html](paid-t2.html) | A working vault of their own. A person follows up within 24 hours of the payment landing; the vault key comes by a separate message, never on a page. | Nothing until the follow-up; then clones the vault with the key. | A vault exists, the licence file carries their name, the public key is off it, and they have opened it with their key. |
 | 3 · £500 · t3 | [paid-t3.html](paid-t3.html) | The vault corrected for their situation. A person follows up within 24 hours; the corrected vault follows what the prompt produced. | Runs `MAP-A-GRANT.md` where the agent runs, emails back `grant.json`, `mandate.json` and the session record, with no secret in them. | The corrected mandate and the recomputed delta are committed, with the note of what changed and why beside them. |
 | 4 · £1,500 · t4 | [paid-t4.html](paid-t4.html) | Two half-hour sessions and a security professional's signature. A person follows up within 24 hours to book the first session; the vault after the second. | Emails two or three slots and who will be in the room. | Both sessions held, the record committed, the sign-off file committed with the professional's name and the date. |
@@ -87,6 +87,6 @@ The store's product pages use this site's slugs, which is what makes `shape` wor
 - **No key on any page, ever.** The read keys of the fifteen templates are public and printed on purpose. A buyer's vault key travels by a separate message and is never committed; a buyer's corrected vault has no public key. This is a rule of the site with a test behind it, not a preference.
 - **No payment, no email, no form on these pages.** They are static files. The store takes the money and holds the buyer's address; the follow-up mailbox is a person's.
 - **The wording is a commitment with a record.** Twenty-four hours is what the pages say. If it cannot be kept, the number moves on Pricing first, then on the pages, and the release note says so. The first orders will turn the commitment into a record.
-- **Every change ships as a release.** [v1.19.1](versions.html) made the pages; [v1.21.0](versions.html) made the £5 page the download and set the 24 hours. The brief that asked for all of it is [D9 in the register](briefs.html), byte for byte, with what it is still owed.
+- **Every change ships as a release.** [v1.19.1](versions.html) made the pages; [v1.22.0](versions.html) made the entry-level page the download and set the 24 hours. The brief that asked for all of it is [D9 in the register](briefs.html), byte for byte, with what it is still owed.
 
 ## What neither site has settled yet.

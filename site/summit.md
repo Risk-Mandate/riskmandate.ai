@@ -46,7 +46,7 @@ Find whichever of these is you. We would rather have the right five-minute conve
 
 You almost certainly know what you asked for. Nobody enumerates the rest. Your first serious enterprise customer will send a security questionnaire with agent questions on it, and your insurer and any acquirer will ask the same thing.
 
-The ask: **a draft, corrected, as a file you keep — from £5**
+The ask: **a draft for one agent you already run, corrected, as a file you keep**
 
 ### Agent exposure is sitting un-priced across your whole book
 

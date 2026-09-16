@@ -138,7 +138,7 @@ Each one is linked in full, as received, with nothing edited. Where a brief and 
 - The four post-sale pages — [level 1](paid-t1.html), [level 2](paid-t2.html), [level 3](paid-t3.html), [level 4](paid-t4.html) — each saying what arrives and when, what this is not, what you do next, how the key reaches you, the definition of done, and who to write to. Unlisted and noindex: they are the success address for the payment link, not pages to find
 - [The £5 page is the download](paid-t1.html): the zip of the template vault for the shape bought, its size and sha256 stamped from the file by the build and checked in CI, and a hash check the page runs in the browser. Levels 2, 3 and 4 are a follow-up from a person within 24 hours
 - [Pricing](pricing.html#after), with the plus-one-thing rule stated and a definition of done per level
-- [The homepage](index.html#policy), with the four levels in the behaviour-policy section, and the £10 still on two pages corrected to £5
+- [The homepage](index.html#what), with the four levels in the behaviour-policy section, and the £10 still on two pages corrected to £5
 - **The payment links** and the success address on each (level 1 with `?shape=<slug>`) — the store's, not this site's
 - **The level-3 text on the store's product page**, and the opinion add-on page
 - **The A5 and the stand**

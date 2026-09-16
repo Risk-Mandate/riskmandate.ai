@@ -48,6 +48,16 @@ Can you show what your agents can reach, and evidence that the controls hold? Ev
 
 Figures on this page describe a market in motion and are stated qualitatively on purpose; we cite specific filings and form numbers in the assessment itself, dated, rather than on a page that ages.
 
+## Two things changed, and neither of them was us.
+
+If the state has always been like this, the fair question is what is different now. There are two dated answers and we did not write either of them.
+
+The standard liability forms much of one large market runs on acquired a generative-AI exclusion, announced 21 October 2025 and effective on that date, and several carriers have filed their own — one of them absolute. The market replacing that cover prices on a description of what the agent is permitted to do. Something a business thought it had is being withdrawn on a date, and the thing replacing it asks a question most cannot currently answer.
+
+A national consumer regulator published that if an agent a business uses does something illegal, the business is responsible — and that businesses should be clear about what tasks an agent is allowed to perform, what data it can access, and what constraints apply. That is a regulator describing this document without naming it. It is current, and it is domestic.
+
+Both are cited by date rather than characterised, and both are somebody else's publication. If your agent does something you did not authorise, the question you will be asked is what you _did_ authorise — and that is the document this site exists to produce.
+
 ## Questionnaires describe. Evidence prices.
 
 Underwriting agentic risk today runs on self-reported answers. The same three questions produce very different outcomes depending on where the answer comes from.
