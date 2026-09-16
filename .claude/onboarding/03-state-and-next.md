@@ -97,7 +97,7 @@ and vault queues. Each has a task brief in `.claude/briefs/`.
 
 ## Known rough edges
 
-- **`oc433z3m`'s live host view was still resolving the new sub-vault mount to `vbhmlulo` at merge time.** The vault data is provably correct (the read key, the ref and the index.html blob all verified server-side; the renderer proven via a static preview) and an un-re-pushed vault still renders via `fl3i7lu4`, so this is the host indexing a brand-new mount target, as the first push was. Re-check the Gmail vault page's *See it live* frame; if still blank after a while, open it in its own tab from the page.
+- **The v5 app-vault mount is confirmed working** on `oc433z3m`'s live view (verified 16 Sept: the site's *See it live* frame renders the v5 reading app, "app via sub-vault link"). One trap for whoever re-pushes the other fifteen: when refreshing an sgit clone, do **not** exclude `.vault/` — `app.link.json` and `.vault/owner/ro-links.json` must both point at the same app vault or the host mount fails with "No such file: app/index.html".
 
 - `docs/how-the-website-works.md` is written at v1.0.0 with an addendum; the page counts and
   test counts in its body are historical.
