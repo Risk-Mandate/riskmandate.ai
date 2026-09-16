@@ -98,6 +98,18 @@ register: copy it byte for byte to `site/assets/briefs/`, add an entry to
 `site/briefs-register.json` with its sha256, size, arrival time and status, and render it on
 `site/briefs.html`. The test checks the digest.
 
+## Give a brief, a task or a work file its page on the console
+
+Nothing to do but rerun the build. `node scripts/site/build-admin.mjs` renders every `docs/**/*.md`
+under `site/admin/briefs/<slug>/`, every `.claude/briefs/Txx-*.md` under `site/admin/work/Txx/`,
+every `.claude/work/<branch>.md` under `site/admin/work/branches/<branch>/`, and the onboarding
+files, `CLAUDE.md` and the prompts under `site/admin/agents/`. The counts on the console — what
+needs the lead, what is in flight, memos not fully worked — are read off `03-state-and-next.md`
+(the queue table and *Decisions the lead owns*), the work files and `briefs-register.json`, so
+keeping those true is what keeps the console true. `test_admin.mjs` fails if a document has no
+page; `build-admin.mjs --check` fails in CI if the console is stale. Never hand-edit anything
+under `site/admin/` except `console.css`.
+
 ## Register a document that arrived from outside
 
 See the paragraph above. Statuses: `received`, `partly`, `processed`, `superseded`, and they

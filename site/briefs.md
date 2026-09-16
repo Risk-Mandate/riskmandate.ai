@@ -187,19 +187,25 @@ These have no digest to check, which makes them the ones most easily lost — a 
 - [The edition register](lab-editions.json), with a digest per file
 - Nothing.
 
-**Build a specific vault for Claude chat connected to a Gmail inbox, capture the connection screens with the address obscured, and map the whole customer workflow** — the vault, its home page, the settings, the permissions, the prompts given to Claude — as the purchase workflow. Do not use the agent's name.
-
-- The template vault `claude-gmail-connector`, built and checked: six rows, **four measured** on the deployer's own account, the eight screens transcribed in `evidence/` with the address redacted — in the repository, unpushed, and on [the next-policy page](agent-behaviour-policy-next.html) as built and awaiting a push
-- The customer's draft instance, anonymised, with a question on every mandate line, under `vaults-instances/`
-- The purchase workflow, run once — the brief in the repository under `docs/briefs/`, linked from [Admin](admin.html)
-- The two pushes — the template to a public vault, the instance to a private one — which need the lead's write keys; until then the vault has no page here
-- The eight screenshots as redacted image files: they arrived inline and could not be edited from the session, so the transcriptions stand in for them
-- The customer's correction of the mandate, and the signed licence
-
 **Answer the questions people actually ask in public**, with the standing rule that the site never names who asked. Two public comments were supplied as the first two questions, and answers that outgrow a section get their own page.
 
 - [Questions](questions.html) — real questions, answered with a date and no name attached, and both current answers containing a _no_
 - A convention for screenshots. Our own demos are fine; anybody else's product runs into the no-probing and no-verdicts rules, so the Lab's drawn mockups remain the pattern until that is decided
+
+**Build a specific vault for Claude chat connected to a Gmail inbox, capture the connection screens with the address obscured, and map the whole customer workflow** — the vault, its home page, the settings, the permissions, the prompts given to Claude — as the purchase workflow. Do not use the agent's name.
+
+- The template vault `claude-gmail-connector`, built and checked: six rows, **four measured** on the deployer's own account, the eight screens transcribed in `evidence/` with the address redacted — pushed as vault `oc433z3m` and read live on [its own page](abp-vault-claude-gmail-connector.html), unpushed, and on [the next-policy page](agent-behaviour-policy-next.html) as built and awaiting a push
+- The customer's draft instance, anonymised, with a question on every mandate line, under `vaults-instances/` — pushed as a private vault (`xjir6m0c`); its key went to the lead in the session and is on no page
+- The purchase workflow, run once — the brief in the repository under `docs/briefs/`, a page on [the console](admin/briefs/workflow__buying-a-policy-for-claude-on-gmail/)
+- The twelve screenshots as redacted image files: they arrived inline and could not be edited from the session, so the transcriptions stand in for them
+- The customer's correction of the mandate, and the signed licence
+
+**Where is the new Claude + Gmail section; publish the vault; give the Gmail workflow brief a page in the admin section, in a way that takes many briefs; and rebuild the admin section** to the structure, layout and capabilities of `store.sgit.ai/admin/` and the newsroom console at `pt.newsroom.sgit.ai/newsroom/`.
+
+- The Gmail-connector vault pushed from the session with the shared token (`oc433z3m`), its public read key in the catalogue, [its page](abp-vault-claude-gmail-connector.html) reading the vault live and its tile in [the library](agent-behaviour-policy.html)
+- [The admin console](admin/): a rail with counts, what needs the lead as the only filled rank, [the board](admin/work/) read off the state file, [the memo queue](admin/memos/) read off this register, [every document under `docs/` as a page](admin/briefs/), the vaults with measured rows and open questions, the records and the tooling — written by `build-admin.mjs`, checked in CI, never edited by hand
+- [The Gmail workflow brief](admin/briefs/workflow__buying-a-policy-for-claude-on-gmail/) as the first of those pages
+- Nothing from this instruction. What the console shows as owed is on the console itself, under _needs the lead_.
 
 ## Check us, rather than trusting us.
 
@@ -218,7 +224,7 @@ sha256sum my-brief.md
 
 A register that only lists what was done is a press release.
 
-Every entry above carries what it asked for and did not get, and on most of the sixteen that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.
+Every entry above carries what it asked for and did not get, and on most of the seventeen that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.
 
 - **The file is the record, not this page.** [briefs-register.json](briefs-register.json) is what a program should read; this page renders it for people. If the two ever disagree, the file is right and the page is stale.
 - **Every archived document is byte-identical to what arrived.** Nothing is edited, reformatted or trimmed — including the parts we think are wrong. Where we disagree with a brief, the disagreement is published on the page it produced and marked as ours.
@@ -227,6 +233,6 @@ Every entry above carries what it asked for and did not get, and on most of the 
 
 Register maintained by hand alongside the work, and checked in CI: every document listed must exist at the path given and match its recorded digest, and every file in `assets/briefs/` must appear in the register. Last reconciled 16 September 2026.
 
-## Sixteen items. None untouched, and none finished.
+## Seventeen items. None untouched, and none finished.
 
-Every item now names something it produced and something it did not. Nine of the sixteen are marked _partly_, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.
+Every item now names something it produced and something it did not. Nine of the seventeen are marked _partly_, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.

@@ -15,7 +15,7 @@ been added since, and `.claude/onboarding/01-map.md` for the current map.
 > (`render-lab-pdfs.mjs`, registered by digest in `site/lab-editions.json`), the
 > GitHub link and licence line on every page (`add-licence-chrome.mjs`), the
 > brief register (`site/briefs-register.json`, checked by digest), the
-> `pages.json` page list with `unlisted` and `private` pages, and `admin.html`
+> `pages.json` page list with `unlisted`, `private` and `link` entries, and the admin console under `site/admin/` (`build-admin.mjs`, v1.23.0; `admin.html` redirects to it)
 > as the index of all of it. The page counts and the test list in the body are
 > the v1.0.0 figures; `npm run check` runs everything CI runs today.
 

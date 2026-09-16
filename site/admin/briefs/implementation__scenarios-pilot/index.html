@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Implementation Brief — Scenarios pilot (first decoupled content area) · RiskMandate admin</title>
+<meta name="description" content="Move the interactive Risk Scenarios experience to the decoupled model:">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://riskmandate.ai/admin/briefs/implementation__scenarios-pilot/">
+<link rel="alternate" type="text/markdown" href="index.md" title="This page as markdown">
+<link rel="icon" href="../../../assets/brand/riskmandate-favicon-32.png" sizes="32x32">
+<link rel="icon" href="../../../assets/brand/riskmandate-mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../../admin/console.css">
+<!-- Written by scripts/site/build-admin.mjs from the files it names. Do not edit: rerun the script. -->
+</head>
+<body class="console">
+<div class="c-strip"><div class="row"><b>riskmandate.ai</b><span class="c-sep">/</span><a href="../../../admin/">admin</a><span class="c-sep">·</span><a href="../../../">the site</a><span class="c-sep">·</span><a href="../../../agent-behaviour-policy.html">the library</a><span class="c-sep">·</span><a href="index.md">this page as markdown</a><span class="c-noindex">noindex · not in the sitemap</span></div></div>
+<div class="c-disc"><div class="row">Written by the agents that maintain this site and read by a person before it merges. Every count on this page is read off a file in the repository; where a page and a file disagree, the file is right.</div></div>
+<div class="shell">
+<nav class="rail" aria-label="Console">
+    <a class="rail__brand" href="../../../admin/"><b>Risk<i>Mandate</i></b><span>admin console · <span data-version>v…</span></span></a>
+    <div class="rail__group"><h3>Where it stands</h3><a class="nav" href="../../../admin/">The console</a><a class="nav" href="../../../admin/work/#lead">Needs the lead<span class="count r1">8</span></a><a class="nav" href="../../../admin/agents/03-state-and-next/">State and next</a><a class="nav" href="../../../admin/vaults/">The vaults<span class="count">16</span></a><a class="nav" href="../../../synthetic-users.html">How the site reads <span class="out">↗</span></a></div>
+    <div class="rail__group"><h3>The work</h3><a class="nav" href="../../../admin/work/">The board<span class="count">11</span></a><a class="nav" href="../../../admin/work/#branches">In flight<span class="count">1</span></a><a class="nav" href="../../../admin/memos/">The memo queue<span class="count">9</span></a><a class="nav" href="../../../admin/briefs/">Briefs written here<span class="count">17</span></a></div>
+    <div class="rail__group"><h3>For agents</h3><a class="nav" href="../../../admin/agents/">The front door</a><a class="nav" href="../../../admin/agents/claude-md/">CLAUDE.md</a><a class="nav" href="../../../admin/agents/04-rules-of-engagement/">Rules of engagement</a><a class="nav" href="../../../admin/agents/05-workflows/">Workflows</a><a class="nav" href="../../../admin/agents/01-map/">The map</a></div>
+    <div class="rail__group"><h3>The record</h3><a class="nav" href="../../../admin/records/">The records</a><a class="nav" href="../../../admin/tooling/">Tooling and the gate</a><a class="nav" href="../../../versions.html">Versions <span class="out">↗</span></a><a class="nav" href="../../../briefs.html">Brief register <span class="out">↗</span></a><a class="nav" href="../../../agent-behaviour-policy.html">The library <span class="out">↗</span></a><a class="nav" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener">The repository <span class="out">↗</span></a></div>
+    <p class="rail__note"><b>Public, and not advertised.</b> Every page here is noindex, out of <code>sitemap.xml</code> and out of <code>llms.txt</code>. Anybody handed the address reads every word. <a href="../../../">Back to the site</a>.</p>
+  </nav>
+<main class="main">
+<p class="crumb"><a href="../../../admin/">admin</a> / <a href="../../../admin/briefs/">briefs</a> / briefs/implementation__scenarios-pilot.md</p>
+<div class="page-head"><div><h1>Implementation Brief — Scenarios pilot (first decoupled content area)</h1><p>An implementation brief, dated 4 July 2026. The source is <a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/briefs/implementation__scenarios-pilot.md" target="_blank" rel="noopener"><code>docs/briefs/implementation__scenarios-pilot.md</code></a>; this page is that file, rendered.</p></div></div>
+<article class="doc"><p><strong>Status:</strong> IN BUILD — vault <code>dm42qcaw</code> provisioned (seeded by the vault team with <code>src/data/scenarios.json</code> + both scenario page sources); CORS confirmed (<code>*</code>); browser flow verified end-to-end over plain HTTP (ref → commit → tree walk → decrypt, key <code>zhlwx0cCPoS2UDPsy25EnEEH0pymN87bTBzOFzNpkFU</code>); shell live at <code>/scenarios/</code> (unlinked). Remaining: GRC content review → menu repoint.<br><strong>Author:</strong> @website-agent<br><strong>Date:</strong> 2026-07-04<br><strong>Parent:</strong> <code>architecture__structure-content-decoupling.md</code></p>
+<blockquote><p><strong>As built, since v1.0.0.</strong> The pilot lives at <code>site/scenarios/</code> — it moved with the rest of <code>web_overlay/</code> when the vault publisher was removed and <code>site/</code> became the deployed tree. The file names below were the plan; what shipped is <code>index.html</code>, <code>rm-dom.js</code>, <code>rm-scenarios.js</code>, <code>rm-scenarios-loader.js</code>, <code>rm-scenarios-schema.js</code> and <code>styles.css</code>, all in that one directory, with the tests at <code>tests/site/test_scenarios_schema.mjs</code>. Everything else in this brief — the vault, the branch-as-environment model, the runtime flow — is unchanged.</p></blockquote>
+<hr>
+<h2 id="0-scope-success-criteria">0. Scope &amp; success criteria</h2>
+<p>Move the <strong>interactive Risk Scenarios</strong> experience to the decoupled model:</p>
+<ul><li>Scenario <strong>content</strong> lives in a dedicated SG/Vault, edited by content/GRC<p>agents, published with <code>sgit push</code>.</p></li><li>The scenario <strong>page and engine</strong> live in this repo (<code>/scenarios/</code>), shipped<p>by the existing CI pipeline, with tests.</p></li><li>The website vault changes exactly once: the &quot;Risk Scenarios → Interactive&quot;<p>menu entry points at <code>/scenarios/</code> instead of <code>scenarios.html</code>.</p></li></ul>
+<p><strong>Done means:</strong> a GRC agent edits a scenario (or flips a <code>live</code> flag) in the content vault, pushes, and the change is on riskmandate.ai/scenarios/ on the next page load — <strong>no CI run, no vault re-clone, no repo commit</strong>. Rollback at any moment = repoint the menu link back to <code>scenarios.html</code>.</p>
+<h2 id="1-current-state-verified-against-vault-v0-8-0">1. Current state (verified against vault v0.8.0)</h2>
+<ul><li><code>scenarios.html</code> — built top-level page; data <strong>inlined at build time</strong><p>(<code>RM.data.scenarios</code>).</p></li><li><code>src/data/scenarios.json</code> — the content. Shape:<ul><li><code>series</code>: <code>{ title, buttons {no, yes, deflect, admit}, intervals[6] {id, sev, tone, desc} }</code></li><li><code>scenarios[10]</code>: <code>{ id, n, live, domain, title, hook, escape, act, reveal }</code></li><li>4 of 10 flagged <code>live</code> (per the GRC plan's selection; the rest are the bank).</li></ul></li><li><code>src/pages/scenarios/components/scenarios.js</code> (~190 lines) — the engine.</li><li><code>src/pages/scenarios/styles/scenarios.css</code> (~160 lines).</li><li><code>statics.html</code> — the &quot;Statics&quot; sibling under the same nav dropdown<p>(<strong>out of scope</strong> for the pilot; second migration candidate).</p></li><li>Governance constraint from the GRC plan, inherited as a **content-schema<p>invariant**: every <code>reveal</code> is mechanism-stated — no unsourced percentages, no vendor-absolute claims. This lives with the content, not the code.</p></li></ul>
+<h2 id="2-the-content-vault-rm-scenarios">2. The content vault (<code>rm-scenarios</code>)</h2>
+<p><strong>Needs from Dinis/vault team:</strong> a new vault + its id, the public read key (hex), and write access for the content/GRC agents.</p>
+<p>Proposed layout (grain: one file per scenario, so edits and diffs are scoped and two agents can work without colliding):</p>
+<pre><code>manifest.json                 { schema: &quot;rm-scenarios/v1&quot;,
+                                series: { title, buttons, intervals[] },
+                                live: [&quot;oauth-token&quot;,&quot;company-card&quot;, …],   ← ordered
+                                scenarios: [&quot;s01-email&quot;, &quot;s04-card&quot;, …] }  ← the bank
+scenarios/&lt;id&gt;.json           one per scenario: { id, n, domain, title,
+                                hook, escape, act, reveal }</code></pre>
+<p>(<code>live</code> moves from a per-item flag to an ordered list in the manifest — the page fetches the manifest + only the live scenarios: typically 5 small GETs.)</p>
+<p><strong>Branches = environments:</strong> <code>main</code> is what production renders; a <code>dev</code> branch is staging. Promotion is a sgit merge. The shell accepts <code>?branch=&lt;name&gt;</code> for previewing any branch on any deployment.</p>
+<h2 id="3-the-repo-page-web-overlay-scenarios-index-html">3. The repo page (<code>web_overlay/scenarios/index.html</code>)</h2>
+<p>New files, all repo-owned, all testable:</p>
+<pre><code>web_overlay/scenarios/index.html      the shell (chrome + mount point)
+web_overlay/_common/rm-vault-content.js   fetch→decrypt→verify glue (reusable)
+web_overlay/_common/rm-scenarios.js       the engine, ported from the vault's
+                                          scenarios.js — with unit tests
+web_overlay/_common/rm-scenarios.css      ported styles
+tests/unit/web/…                          engine + glue tests (node:assert)</code></pre>
+<h3 id="runtime-flow">Runtime flow</h3>
+<pre><code>load shell → importReadKey(READ_KEY_B64URL)
+          → resolve ref(branch) → commit → tree → manifest.json   (vault-client)
+          → decrypt manifest → fetch+decrypt live scenarios (parallel GETs)
+          → render via rm-scenarios engine (DOMPurify on every content string)
+          → failure mode: if the vault is unreachable, render the page chrome
+            with a &quot;scenarios are temporarily unavailable&quot; card — never a
+            blank page (fail visible, not broken)</code></pre>
+<p>Vault-client: import the hosted module sgraph's shells use (<code>sg-vault-client.js</code> — <code>importReadKey</code>, <code>readObject</code>, path resolution) from <code>dev.tools.sgraph.ai</code>, pinned to an exact version in the import map. If we want zero external script origins, vendor the file into <code>_common/</code> instead — decide at review (vendored copy = we own updates; import = we track theirs).</p>
+<h3 id="the-key-format-gotcha-do-not-skip">The key-format gotcha (do not skip)</h3>
+<p>sgit uses the <strong>64-hex</strong> read key; the browser client's <code>importReadKey</code> requires <strong>base64url (43 chars)</strong> and fails <em>silently</em> on hex. Convert once when the vault is created and embed the base64url form:</p>
+<pre><code class="lang-python">import base64
+b64u = base64.urlsafe_b64encode(bytes.fromhex(HEX_KEY)).decode().rstrip(&quot;=&quot;)</code></pre>
+<h3 id="chrome-nav-header-pilot-approach">Chrome (nav/header) — pilot approach</h3>
+<p>The shell carries a <strong>static copy</strong> of the current header/menu (markup + tokens from the v0.8.x design) so the page is standalone and looks native, per the plan. Known cost: chrome drift if the vault redesigns. Accepted for one page; the shared <code>rm-chrome</code> component (fed by a runtime site manifest) is scheduled for when the <strong>second</strong> area migrates — that's when duplication becomes real rather than speculative.</p>
+<h2 id="4-qa-engineering-practice-the-point-of-the-exercise">4. QA &amp; engineering practice (the point of the exercise)</h2>
+<ul><li><strong>Unit tests</strong> for the engine (interval/severity logic, live-list ordering,<p>button flows) and for the glue (manifest validation against <code>rm-scenarios/v1</code>, key decode, hex-key rejection with a loud error).</p></li><li><strong>Sanitization test</strong>: a scenario containing <code>&lt;script&gt;</code>/<code>onerror</code> payloads<p>renders inert.</p></li><li><strong>Smoke</strong>: Playwright/jsdom — shell boots, renders 4 live scenarios from a<p>fixture vault response (network mocked; no live dependency in CI).</p></li><li><strong>Local dev</strong>: <code>run-locally</code> script serves the shell; <code>?branch=</code> +<p><code>?vault-endpoint=</code> params allow testing against real vault branches.</p></li><li>CI: <strong>no new workflow</strong> — the shell ships with the existing pipeline<p>(tag → build → deploy). Tests hook into the existing (currently empty) test job slot.</p></li></ul>
+<h2 id="5-cutover-plan">5. Cutover plan</h2>
+<div class="tablewrap"><table><thead><tr><th>Step</th><th>Actor</th><th>Action</th></tr></thead><tbody><tr><td>1</td><td>Dinis/vault team</td><td>create <code>rm-scenarios</code> vault; hand id + read key (hex); grant content agents write</td></tr><tr><td>2</td><td>this agent</td><td>seed the vault from <code>src/data/scenarios.json</code> (split per §2), on branch <code>main</code></td></tr><tr><td>3</td><td>this agent</td><td>build shell + engine + tests; deploy via qa lane; verify at <code>/scenarios/</code> (unlinked — safe)</td></tr><tr><td>4</td><td>GRC/content agent</td><td>review content renders correctly; edit-and-reload test (the &quot;done&quot; criterion)</td></tr><tr><td>5</td><td>vault team</td><td>repoint menu &quot;Risk Scenarios → Interactive&quot; → <code>/scenarios/</code> (one line + rebuild)</td></tr><tr><td>6</td><td>—</td><td>monitor; old <code>scenarios.html</code> remains in the vault untouched as instant rollback</td></tr></tbody></table></div>
+<p><strong>Rollback:</strong> repoint the link back. Nothing else to undo.</p>
+<h2 id="6-explicitly-out-of-scope-follow-ups">6. Explicitly out of scope (follow-ups)</h2>
+<ul><li><code>statics.html</code> migration (second candidate, same vault or sibling area).</li><li>Shared <code>rm-chrome</code> component + runtime site manifest (after area #2).</li><li>Structure-env split (dev.riskmandate.ai) and the S3/CloudFront move —<p>triggers defined in the architecture brief §3.</p></li><li>Static hosting of the encrypted <code>bare/</code> tree (<code>SG_STATIC</code>) — removes the<p><code>dev.send.sgraph.ai</code> runtime dependency; pairs naturally with the S3 move.</p></li><li>Live edge-rendered <code>.md</code>/<code>llms.txt</code> for the scenarios content (needs<p>CloudFront Function/Lambda@Edge — S3 path only).</p></li></ul>
+<h2 id="7-open-questions">7. Open questions</h2>
+<ol><li>Vault granularity: one <code>rm-scenarios</code> vault (proposed) vs one shared<p> <code>rm-content</code> vault with per-area folders? Per-area vaults give scoped keys and rotation; shared gives fewer keys to track. Proposal: <strong>per-area</strong>.</p></li><li>Vendored vault-client vs hosted import (see §3).</li><li>Does <code>dev.send.sgraph.ai</code> send permissive CORS for browser GETs from<p> riskmandate.ai? (Blocking for step 3; already asked in comms msg 001.)</p></li><li>Should the statics (LinkedIn share images) live in the same vault as<p> binary assets, exercising <code>vault:</code> asset fetching in the shell?</p></li></ol></article>
+<div class="c-foot"><b>An operations surface</b> for the people and agents building this site, public because every page here is. It is not a selling page and nothing on it is for sale. <a href="../../../">The site</a> · <a href="../../../agent-behaviour-policy.html">the library</a> · <a href="../../../versions.html">every release</a> · <a href="https://github.com/Risk-Mandate/riskmandate.ai/tree/dev/">the repository</a> · <a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/scripts/site/build-admin.mjs">the script that wrote this page</a>.</div>
+</main>
+</div>
+<script>
+(function(){var el=document.querySelector('[data-version]');if(!el)return;fetch('../../../versions/index.json',{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){el.textContent='v'+j.latest}).catch(function(){el.textContent='';});})();
+</script>
+</body>
+</html>

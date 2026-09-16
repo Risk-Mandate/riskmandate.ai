@@ -46,6 +46,8 @@ jobs:
 
       - name: Generated files are current
         run: node scripts/site/generate.mjs --check
+      - name: The admin console is current (build-admin.mjs --check)
+        run: node scripts/site/build-admin.mjs --check
 
       - name: The behaviour-policy vaults are derived from their inputs
         run: |

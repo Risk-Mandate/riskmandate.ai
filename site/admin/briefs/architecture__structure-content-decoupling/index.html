@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Architecture Brief — Decoupling site structure from content · RiskMandate admin</title>
+<meta name="description" content="Split riskmandate.ai into two planes with different owners, lifecycles, and quality regimes:">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://riskmandate.ai/admin/briefs/architecture__structure-content-decoupling/">
+<link rel="alternate" type="text/markdown" href="index.md" title="This page as markdown">
+<link rel="icon" href="../../../assets/brand/riskmandate-favicon-32.png" sizes="32x32">
+<link rel="icon" href="../../../assets/brand/riskmandate-mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../../admin/console.css">
+<!-- Written by scripts/site/build-admin.mjs from the files it names. Do not edit: rerun the script. -->
+</head>
+<body class="console">
+<div class="c-strip"><div class="row"><b>riskmandate.ai</b><span class="c-sep">/</span><a href="../../../admin/">admin</a><span class="c-sep">·</span><a href="../../../">the site</a><span class="c-sep">·</span><a href="../../../agent-behaviour-policy.html">the library</a><span class="c-sep">·</span><a href="index.md">this page as markdown</a><span class="c-noindex">noindex · not in the sitemap</span></div></div>
+<div class="c-disc"><div class="row">Written by the agents that maintain this site and read by a person before it merges. Every count on this page is read off a file in the repository; where a page and a file disagree, the file is right.</div></div>
+<div class="shell">
+<nav class="rail" aria-label="Console">
+    <a class="rail__brand" href="../../../admin/"><b>Risk<i>Mandate</i></b><span>admin console · <span data-version>v…</span></span></a>
+    <div class="rail__group"><h3>Where it stands</h3><a class="nav" href="../../../admin/">The console</a><a class="nav" href="../../../admin/work/#lead">Needs the lead<span class="count r1">8</span></a><a class="nav" href="../../../admin/agents/03-state-and-next/">State and next</a><a class="nav" href="../../../admin/vaults/">The vaults<span class="count">16</span></a><a class="nav" href="../../../synthetic-users.html">How the site reads <span class="out">↗</span></a></div>
+    <div class="rail__group"><h3>The work</h3><a class="nav" href="../../../admin/work/">The board<span class="count">11</span></a><a class="nav" href="../../../admin/work/#branches">In flight<span class="count">1</span></a><a class="nav" href="../../../admin/memos/">The memo queue<span class="count">9</span></a><a class="nav" href="../../../admin/briefs/">Briefs written here<span class="count">17</span></a></div>
+    <div class="rail__group"><h3>For agents</h3><a class="nav" href="../../../admin/agents/">The front door</a><a class="nav" href="../../../admin/agents/claude-md/">CLAUDE.md</a><a class="nav" href="../../../admin/agents/04-rules-of-engagement/">Rules of engagement</a><a class="nav" href="../../../admin/agents/05-workflows/">Workflows</a><a class="nav" href="../../../admin/agents/01-map/">The map</a></div>
+    <div class="rail__group"><h3>The record</h3><a class="nav" href="../../../admin/records/">The records</a><a class="nav" href="../../../admin/tooling/">Tooling and the gate</a><a class="nav" href="../../../versions.html">Versions <span class="out">↗</span></a><a class="nav" href="../../../briefs.html">Brief register <span class="out">↗</span></a><a class="nav" href="../../../agent-behaviour-policy.html">The library <span class="out">↗</span></a><a class="nav" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener">The repository <span class="out">↗</span></a></div>
+    <p class="rail__note"><b>Public, and not advertised.</b> Every page here is noindex, out of <code>sitemap.xml</code> and out of <code>llms.txt</code>. Anybody handed the address reads every word. <a href="../../../">Back to the site</a>.</p>
+  </nav>
+<main class="main">
+<p class="crumb"><a href="../../../admin/">admin</a> / <a href="../../../admin/briefs/">briefs</a> / briefs/architecture__structure-content-decoupling.md</p>
+<div class="page-head"><div><h1>Architecture Brief — Decoupling site structure from content</h1><p>An architecture brief, dated 4 July 2026. The source is <a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/briefs/architecture__structure-content-decoupling.md" target="_blank" rel="noopener"><code>docs/briefs/architecture__structure-content-decoupling.md</code></a>; this page is that file, rendered.</p></div></div>
+<article class="doc"><p><strong>Status:</strong> PROPOSED — for review by Dinis + the vault team<br><strong>Author:</strong> @website-agent (Claude Code Web session)<br><strong>Date:</strong> 2026-07-04<br><strong>Companion:</strong> <code>implementation__scenarios-pilot.md</code> (the concrete first step)<br><strong>Pattern source:</strong> <a href="https://sgraph.ai/en-gb/library/building-on-sgraph.md" target="_blank" rel="noopener">Building on sgraph.ai</a> (docs 00–05) + the &quot;Hosting a vault on static storage&quot; guide (<code>SGSend.staticMode</code>).</p>
+<hr>
+<h2 id="tl-dr">TL;DR</h2>
+<p>Split riskmandate.ai into two planes with different owners, lifecycles, and quality regimes:</p>
+<ul><li><strong>Structure</strong> (this repo): HTML shells, shared components, the vault-client<p>integration, CI, tests, QA. Changes ship through engineering practice — branches, reviews, pipelines, tags.</p></li><li><strong>Content</strong> (dedicated SG/Vaults): encrypted at rest, **decrypted in the<p>visitor's browser**, published with a <code>sgit push</code> — zero CI, zero redeploy, zero full-vault clone.</p></li></ul>
+<p>Migrate one content area at a time (strangler pattern), starting with the <strong>Scenarios</strong> page. Each migrated area needs exactly one change in the website vault: repoint its menu link to the new repo-owned page.</p>
+<hr>
+<h2 id="1-the-problem-today">1. The problem today</h2>
+<p>Everything lives in one vault (<code>7rfetjwz</code>) and the repo is a dumb mirror:</p>
+<ol><li><strong>Structure and content are coupled.</strong> The interactive scenario engine<p> (code) and the scenario copy (content) ship in the same build; a copy edit and an engine change ride the same release train, gated by the same <code>build.js</code>, owned by the same team.</p></li><li><strong>The version salad.</strong> The vault now carries the IFD frozen chain, HEAD<p> singleton pages, <code>src/pages/</code>, <code>src/data/</code>, <code>assets/</code>, team docs, tests — 19+ published files per deploy and growing with every design snapshot. That chain is <em>good engineering for design snapshots</em>, but it forces all content through it.</p></li><li><strong>Publish = full re-clone.</strong> Every content change requires CI to clone the<p> entire vault and redeploy the whole site. The vault moved 0.4.2 → 0.8.0 in ~two days; each sync was a manual dispatch + full rebuild.</p></li><li><strong>Engineering rigor lives in the wrong place.</strong> The repo (where CI, review,<p> and tests are cheap) contains almost no code; the vault (where none of that exists beyond build gates) contains all of it.</p></li><li><strong>One environment.</strong> No dev/prod split; every deploy is production.</li></ol>
+<p>Evidence the current direction already points this way: vault release 0.5.4 externalised library content to runtime loads; the GRC scenarios plan was explicitly designed so scenario rotation is &quot;a data edit, not a build change&quot;; the vault ships <code>llms.txt</code> for agents. The architecture below completes that motion rather than fighting it.</p>
+<h2 id="2-target-architecture">2. Target architecture</h2>
+<pre><code>  CONTENT PLANE                          STRUCTURE PLANE
+  (SG/Vaults, one per area)              (this repo — Claude Code Web + CI)
+  ─────────────────────────              ────────────────────────────────
+  rm-scenarios vault                     /scenarios/ shell page
+  rm-library vault (later)               /library/ shell page (later)
+  rm-&lt;area&gt; vault (later)                shared: rm-chrome, vault-client glue,
+  …                                        sanitizer, tests, CI pipeline
+  authored by content/GRC agents         owned by engineering agents
+  publish = sgit push                    publish = git push → tag → deploy
+       │                                        │
+       │            DELIVERY PLANE              │
+       │   (GitHub Pages now; S3+CloudFront     │
+       │    when edge features are needed)      │
+       └──────────────┬─────────────────────────┘
+                      ▼
+              visitor's browser
+       shell (static) + content (fetched → DECRYPTED CLIENT-SIDE → rendered)</code></pre>
+<h3 id="the-runtime-model-per-migrated-area">The runtime model (per migrated area)</h3>
+<ol><li>The static shell page loads (repo-built, deployed by CI).</li><li>It imports the vault-client (<code>importReadKey</code>, <code>readObject</code>, path/ref<p> resolution — the same primitives sgraph.ai's shells use).</p></li><li>It resolves the area vault's <strong>branch ref → commit → tree → content path</strong><p> and fetches only the objects it needs (a manifest + the content blobs) from the vault server (<code>dev.send.sgraph.ai</code> today).</p></li><li>Objects are <strong>AES-256-GCM ciphertext</strong>; the browser decrypts with the<p> area's <strong>public read key</strong> (embedded in the shell — public by design, same trust model as sgraph.ai's <code>public-vaults.json</code>; write keys never appear anywhere in this repo).</p></li><li>Content renders through the shell's components, sanitized (DOMPurify) —<p> we do not inherit sgraph's known unsanitized-injection gap (their CR-01).</p></li></ol>
+<p><strong>Consequences:</strong> a content publish is visible on the next page load. No CI. No clone. No redeploy. And the fetches are per-object — the &quot;full clone to publish&quot; problem disappears for every migrated area.</p>
+<h3 id="what-stays-in-the-website-vault">What stays in the website vault</h3>
+<p>The marketing site's <strong>design-version chain</strong> (the IFD frozen deltas, the switcher, <code>frozen.json</code>) is a genuinely good mechanism for <em>design snapshots</em> and stays where it is. Migration drains the <em>content areas</em> out of it one at a time; the chain keeps shrinking toward what it's actually for. End state: the website vault holds the versioned marketing designs; everything editorial lives in per-area content vaults; the repo holds all code.</p>
+<h2 id="3-environments-content-structure">3. Environments: content × structure</h2>
+<p>The two planes version independently, which simplifies environments:</p>
+<ul><li><strong>Content environments are sgit branches.</strong> The vault already has commits<p>and branches; a shell pinned to ref <code>main</code> shows prod content, pinned to ref <code>dev</code> shows staging content. Promotion = a sgit branch operation. No deployment involved. (A <code>?branch=</code> override in the shell gives free content preview on any environment.)</p></li><li><strong>Structure environments are deployments.</strong> Only shell/component changes<p>need a second deployment target.</p></li></ul>
+<h3 id="delivery-options-for-the-structure-split">Delivery options for the structure split</h3>
+<div class="tablewrap"><table><thead><tr><th>Option</th><th>How</th><th>Pros</th><th>Cons</th></tr></thead><tbody><tr><td><strong>A. Single Pages site</strong> (today)</td><td>one repo, one site; content envs via branch pinning</td><td>zero new infra; enough for the pilot</td><td>no structure staging; every shell change is prod</td></tr><tr><td><strong>B. Two GitHub repos</strong></td><td>this repo → riskmandate.ai; a <code>riskmandate.ai-dev</code> repo → dev.riskmandate.ai (Pages is one site per repo; CI here pushes the artifact to the dev repo via deploy key)</td><td>stays on Pages; real structure staging</td><td>cross-repo deploy plumbing; two Pages configs; still no edge functions</td></tr><tr><td><strong>C. S3 + CloudFront</strong> (the sgraph.ai model)</td><td>per-env distributions (dev./www); CF Function for rewrites; optional Lambda@Edge later</td><td>matches sgraph exactly; per-env cache control; enables live <code>.md</code>/<code>llms.txt</code> edge rendering; can serve the encrypted <code>bare/</code> tree same-origin (no CORS, no send-server dependency)</td><td>AWS account/secrets/infra to stand up and operate</td></tr></tbody></table></div>
+<p><strong>Recommendation:</strong> run the pilot on <strong>A</strong> (it's additive — a new page, no risk to the current site). Move to <strong>C</strong> when either trigger fires: (1) we want live edge-rendered <code>.md</code>/<code>.llm.json</code> for agents (the vault's baked <code>llms.txt</code> goes stale between syncs), or (2) we adopt static hosting of the encrypted <code>bare/</code> tree (<code>SG_STATIC</code>) and want it same-origin. <strong>B</strong> is the fallback only if AWS is blocked and structure staging becomes urgent before then.</p>
+<h2 id="4-trust-hardening-non-negotiables-for-every-shell">4. Trust &amp; hardening (non-negotiables for every shell)</h2>
+<ul><li>Read keys are public <strong>only</strong> for genuinely public content; one key per<p>area vault so rotation is area-scoped. Write keys/tokens: never in the repo, never in CI — content publishing is decoupled from code deploy <em>by design</em>.</p></li><li>The browser vault-client requires the <strong>base64url</strong> key form; sgit uses hex.<p>Both encode the same 32 bytes; the shells embed base64url (converter in the implementation brief). This silent-failure gotcha is documented upstream.</p></li><li>Sanitize all vault-derived HTML/strings (DOMPurify + attribute escaping).</li><li>CORS: shells on riskmandate.ai fetch from <code>dev.send.sgraph.ai</code> — permissive<p>GET CORS must be confirmed (asked of @main-rm-vault in comms msg 001); Option C's same-origin layout removes the dependency entirely.</p></li></ul>
+<h2 id="5-migration-strategy-strangler">5. Migration strategy (strangler)</h2>
+<ol><li><strong>Scenarios</strong> (pilot — see the implementation brief): structured JSON<p> content, clean logic/data split, GRC already owns the content lifecycle.</p></li><li>Statics scenarios, then <strong>Library</strong> (the vault team already externalised<p> its loading — it is the most vault-ready area).</p></li><li>Each area: create vault → build shell → QA → repoint one menu link in the<p> website vault → done. <strong>Rollback is repointing the link back.</strong></p></li><li>Extract the shared chrome (<code>rm-chrome</code>: header/menu/footer as a repo<p> component fed by a runtime site manifest) after the <em>second</em> area proves the duplication — not speculatively before.</p></li><li>End state: website vault = design snapshots only; repo = all shells and<p> components with tests and CI; N content vaults publishing at will.</p></li></ol>
+<h2 id="6-decisions-needed">6. Decisions needed</h2>
+<div class="tablewrap"><table><thead><tr><th>#</th><th>Decision</th><th>Owner</th><th>Default if unblocked</th></tr></thead><tbody><tr><td>1</td><td>Create the <code>rm-scenarios</code> vault (id + keys)</td><td>Dinis / vault team</td><td>new dedicated vault</td></tr><tr><td>2</td><td>CORS confirmation on <code>dev.send.sgraph.ai</code></td><td>vault/platform team</td><td>assumed permissive GET</td></tr><tr><td>3</td><td>Who ports the scenario engine JS into the repo</td><td>engineering (this agent)</td><td>this agent, with tests</td></tr><tr><td>4</td><td>dev.riskmandate.ai domain + when to split envs</td><td>Dinis</td><td>defer past pilot</td></tr><tr><td>5</td><td>S3/CloudFront timing</td><td>Dinis</td><td>on first edge-rendering need</td></tr></tbody></table></div></article>
+<div class="c-foot"><b>An operations surface</b> for the people and agents building this site, public because every page here is. It is not a selling page and nothing on it is for sale. <a href="../../../">The site</a> · <a href="../../../agent-behaviour-policy.html">the library</a> · <a href="../../../versions.html">every release</a> · <a href="https://github.com/Risk-Mandate/riskmandate.ai/tree/dev/">the repository</a> · <a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/scripts/site/build-admin.mjs">the script that wrote this page</a>.</div>
+</main>
+</div>
+<script>
+(function(){var el=document.querySelector('[data-version]');if(!el)return;fetch('../../../versions/index.json',{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){el.textContent='v'+j.latest}).catch(function(){el.textContent='';});})();
+</script>
+</body>
+</html>

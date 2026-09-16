@@ -163,7 +163,7 @@ const header = (cta) => `<header class="top">
 const FOOTER = `<footer class="foot">
   <div class="wrap">
     <span>© 2026 RiskMandate · Autonomous Risk Management</span>
-    <span>The insurability layer for agentic AI. · <a class="footlink" href="versions.html">Versions</a> · <a class="footlink" href="admin.html">Admin</a></span>
+    <span>The insurability layer for agentic AI. · <a class="footlink" href="versions.html">Versions</a> · <a class="footlink" href="admin/">Admin</a></span>
   </div>
 </footer>`;
 

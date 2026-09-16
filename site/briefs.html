@@ -265,7 +265,7 @@ table.t code{font-family:var(--mono);font-size:11.5px;background:var(--bg2);padd
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
     <a class="ghlink" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener" aria-label="The source, on GitHub" title="Open source · Apache-2.0 code · CC BY 4.0 pages"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a>
-      <a class="version" href="versions.html" title="What shipped in v1.22.1">v1.22.1</a>
+      <a class="version" href="versions.html" title="What shipped in v1.23.0">v1.23.0</a>
     <button class="demo" data-demo>Get in touch</button>
   </div>
 </header>
@@ -764,29 +764,6 @@ table.t code{font-family:var(--mono);font-size:11.5px;background:var(--bg2);padd
           <div class="ih">
             <span class="did">I5</span><span class="how">chat instruction · 13 Sept</span>
             <span class="st processed">Processed</span>
-    <div class="ii">
-          <div class="ih">
-            <span class="did">I6</span><span class="how">chat instruction, with eight screenshots · 16 Sept</span>
-            <span class="st partly">Partly</span>
-          </div>
-          <p><b>Build a specific vault for Claude chat connected to a Gmail inbox, capture the connection screens with the address obscured, and map the whole customer workflow</b> — the vault, its home page, the settings, the permissions, the prompts given to Claude — as the purchase workflow. Do not use the agent's name.</p>
-          <div class="out">
-            <div class="ok">
-              <span class="k">What it produced</span>
-              <ul>
-                <li>The template vault <code>claude-gmail-connector</code>, built and checked: six rows, <b>four measured</b> on the deployer's own account, the eight screens transcribed in <code>evidence/</code> with the address redacted — in the repository, unpushed, and on <a href="agent-behaviour-policy-next.html">the next-policy page</a> as built and awaiting a push</li>
-                <li>The customer's draft instance, anonymised, with a question on every mandate line, under <code>vaults-instances/</code></li>
-                <li>The purchase workflow, run once — the brief in the repository under <code>docs/briefs/</code>, linked from <a href="admin.html">Admin</a></li>
-              </ul>
-            </div>
-            <div>
-              <span class="k">Still outstanding</span>
-              <ul>
-                <li>The two pushes — the template to a public vault, the instance to a private one — which need the lead's write keys; until then the vault has no page here</li>
-                <li>The eight screenshots as redacted image files: they arrived inline and could not be edited from the session, so the transcriptions stand in for them</li>
-                <li>The customer's correction of the mandate, and the signed licence</li>
-              </ul>
-            </div>
           </div>
         </div>
 
@@ -808,6 +785,51 @@ table.t code{font-family:var(--mono);font-size:11.5px;background:var(--bg2);padd
           </div>
         </div>
 
+    <div class="ii">
+          <div class="ih">
+            <span class="did">I6</span><span class="how">chat instruction, with eight screenshots · 16 Sept</span>
+            <span class="st partly">Partly</span>
+          </div>
+          <p><b>Build a specific vault for Claude chat connected to a Gmail inbox, capture the connection screens with the address obscured, and map the whole customer workflow</b> — the vault, its home page, the settings, the permissions, the prompts given to Claude — as the purchase workflow. Do not use the agent's name.</p>
+          <div class="out">
+            <div class="ok">
+              <span class="k">What it produced</span>
+              <ul>
+                <li>The template vault <code>claude-gmail-connector</code>, built and checked: six rows, <b>four measured</b> on the deployer's own account, the eight screens transcribed in <code>evidence/</code> with the address redacted — pushed as vault <code>oc433z3m</code> and read live on <a href="abp-vault-claude-gmail-connector.html">its own page</a>, unpushed, and on <a href="agent-behaviour-policy-next.html">the next-policy page</a> as built and awaiting a push</li>
+                <li>The customer's draft instance, anonymised, with a question on every mandate line, under <code>vaults-instances/</code> — pushed as a private vault (<code>xjir6m0c</code>); its key went to the lead in the session and is on no page</li>
+                <li>The purchase workflow, run once — the brief in the repository under <code>docs/briefs/</code>, a page on <a href="admin/briefs/workflow__buying-a-policy-for-claude-on-gmail/">the console</a></li>
+              </ul>
+            </div>
+            <div>
+              <span class="k">Still outstanding</span>
+              <ul>
+                <li>The twelve screenshots as redacted image files: they arrived inline and could not be edited from the session, so the transcriptions stand in for them</li>
+                <li>The customer's correction of the mandate, and the signed licence</li>
+              </ul>
+            </div>
+        <div class="ii">
+          <div class="ih">
+            <span class="did">I7</span><span class="how">chat instruction · 16 Sept</span>
+            <span class="st processed">Processed</span>
+          </div>
+          <p><b>Where is the new Claude + Gmail section; publish the vault; give the Gmail workflow brief a page in the admin section, in a way that takes many briefs; and rebuild the admin section</b> to the structure, layout and capabilities of <code>store.sgit.ai/admin/</code> and the newsroom console at <code>pt.newsroom.sgit.ai/newsroom/</code>.</p>
+          <div class="out">
+            <div class="ok">
+              <span class="k">What it produced</span>
+              <ul>
+                <li>The Gmail-connector vault pushed from the session with the shared token (<code>oc433z3m</code>), its public read key in the catalogue, <a href="abp-vault-claude-gmail-connector.html">its page</a> reading the vault live and its tile in <a href="agent-behaviour-policy.html">the library</a></li>
+                <li><a href="admin/">The admin console</a>: a rail with counts, what needs the lead as the only filled rank, <a href="admin/work/">the board</a> read off the state file, <a href="admin/memos/">the memo queue</a> read off this register, <a href="admin/briefs/">every document under <code>docs/</code> as a page</a>, the vaults with measured rows and open questions, the records and the tooling &mdash; written by <code>build-admin.mjs</code>, checked in CI, never edited by hand</li>
+                <li><a href="admin/briefs/workflow__buying-a-policy-for-claude-on-gmail/">The Gmail workflow brief</a> as the first of those pages</li>
+              </ul>
+            </div>
+            <div>
+              <span class="k">Still outstanding</span>
+              <ul>
+                <li>Nothing from this instruction. What the console shows as owed is on the console itself, under <em>needs the lead</em>.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -832,7 +854,7 @@ sha256sum my-brief.md
       </div>
       <div class="rule">
         <p>A register that only lists what was done is a press release.</p>
-        <p>Every entry above carries what it asked for and did not get, and on most of the sixteen that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.</p>
+        <p>Every entry above carries what it asked for and did not get, and on most of the seventeen that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.</p>
       </div>
       <ul class="plist">
         <li><strong>The file is the record, not this page.</strong> <a href="briefs-register.json">briefs-register.json</a> is what a program should read; this page renders it for people. If the two ever disagree, the file is right and the page is stale.</li>
@@ -849,8 +871,8 @@ sha256sum my-brief.md
 <section class="pcta">
   <div class="wrap">
     <span class="eyebrow"><span class="d"></span> The register</span>
-    <h2>Sixteen items. None untouched, and none finished.</h2>
-    <p>Every item now names something it produced and something it did not. Nine of the sixteen are marked <em>partly</em>, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.</p>
+    <h2>Seventeen items. None untouched, and none finished.</h2>
+    <p>Every item now names something it produced and something it did not. Nine of the seventeen are marked <em>partly</em>, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.</p>
     <div class="cta-row">
       <a class="btn btn-green" href="lab.html">See what did get built →</a>
       <a class="btn btn-ghost" href="briefs-register.json">The register as JSON</a>
@@ -861,7 +883,7 @@ sha256sum my-brief.md
 <footer class="foot">
   <div class="wrap">
     <span>© 2026 RiskMandate · Autonomous Risk Management</span>
-    <span>The insurability layer for agentic AI. · <a class="footlink" href="versions.html">Versions</a> · <a class="footlink" href="admin.html">Admin</a></span>
+    <span>The insurability layer for agentic AI. · <a class="footlink" href="versions.html">Versions</a> · <a class="footlink" href="admin/">Admin</a></span>
     <span class="footlic"><a href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener">Open source on GitHub</a> · code Apache-2.0 · pages and policies <a rel="license" href="https://creativecommons.org/licenses/by/4.0/" target="_blank" title="Creative Commons Attribution 4.0 — take it, credit it"><svg class="ccicon" width="38" height="16" viewBox="0 0 76 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="2.5"></circle><text x="16" y="21" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14" font-weight="800" fill="currentColor">CC</text><circle cx="60" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="2.5"></circle><text x="60" y="21" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14" font-weight="800" fill="currentColor">BY</text></svg> CC BY 4.0</a> · <a href="https://open-source.sgit.ai/" target="_blank" rel="noopener">why</a></span>
   </div>
 </footer>
@@ -870,7 +892,7 @@ sha256sum my-brief.md
 (function(){
 'use strict';
 var RM={core:{},services:{},components:{},data:{}};
-RM.data.currentPage="briefs";RM.data.pages=[{"name":"abp","label":"Agent Behaviour Policy","file":"abp.html","group":"Policies"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"Policies"},{"name":"agents","label":"Agents","file":"agents.html","group":"Policies"},{"name":"agent-behaviour-policy","label":"Agent Behaviour Policies","file":"agent-behaviour-policy.html","group":"Policies"},{"name":"licence-to-operate","label":"Licence to Operate","file":"licence-to-operate.html","group":"Policies"},{"name":"for-corporate","label":"You run agents today","file":"for-corporate.html","group":"Who it's for"},{"name":"for-founders","label":"You are a founder","file":"for-founders.html","group":"Who it's for"},{"name":"for-startups","label":"You are a startup","file":"for-startups.html","group":"Who it's for"},{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"Insurance"},{"name":"acceptable","label":"Accepted is not acceptable","file":"acceptable.html","group":"Insurance"},{"name":"acceptance","label":"You own the risk","file":"acceptance.html","group":"Insurance"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"Insurance"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"Insurance"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"Insurance"},{"name":"statics","label":"Static scenarios","file":"statics.html","group":"Insurance"},{"name":"insurance","label":"Make agents insurable","file":"insurance.html","group":"Insurance"},{"name":"demos","label":"All demos","file":"demos.html","group":"Live demos"},{"name":"demo-licence-to-operate","label":"Licence to Operate","file":"demo-licence-to-operate.html","group":"Live demos"},{"name":"demo-risk-graph-explorer","label":"RiskGraph Explorer","file":"demo-risk-graph-explorer.html","group":"Live demos"},{"name":"demo-agentic-browser-isolation","label":"Agentic Browser Isolation","file":"demo-agentic-browser-isolation.html","group":"Live demos"},{"name":"demo-risk-mandate-field","label":"RiskMandate field demo","file":"demo-risk-mandate-field.html","group":"Live demos"},{"name":"demo-file-security","label":"File security walk","file":"demo-file-security.html","group":"Live demos"},{"name":"demo-agent-permission-games","label":"Permission games","file":"demo-agent-permission-games.html","group":"Live demos"},{"name":"summit","label":"Lisbon 2026","file":"summit.html"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"lab","label":"The Lab","file":"lab.html","group":"More"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"briefs","label":"Brief register","file":"briefs.html","group":"More"},{"name":"work","label":"Working with us","file":"work.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"after-payment","label":"After payment (store debrief)","file":"after-payment.html","group":"More"},{"name":"synthetic-users","label":"Synthetic users","file":"synthetic-users.html","group":"More"},{"name":"admin","label":"Admin","file":"admin.html","group":"More"}];RM.data.sections=[];
+RM.data.currentPage="briefs";RM.data.pages=[{"name":"abp","label":"Agent Behaviour Policy","file":"abp.html","group":"Policies"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"Policies"},{"name":"agents","label":"Agents","file":"agents.html","group":"Policies"},{"name":"agent-behaviour-policy","label":"Agent Behaviour Policies","file":"agent-behaviour-policy.html","group":"Policies"},{"name":"licence-to-operate","label":"Licence to Operate","file":"licence-to-operate.html","group":"Policies"},{"name":"for-corporate","label":"You run agents today","file":"for-corporate.html","group":"Who it's for"},{"name":"for-founders","label":"You are a founder","file":"for-founders.html","group":"Who it's for"},{"name":"for-startups","label":"You are a startup","file":"for-startups.html","group":"Who it's for"},{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"Insurance"},{"name":"acceptable","label":"Accepted is not acceptable","file":"acceptable.html","group":"Insurance"},{"name":"acceptance","label":"You own the risk","file":"acceptance.html","group":"Insurance"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"Insurance"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"Insurance"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"Insurance"},{"name":"statics","label":"Static scenarios","file":"statics.html","group":"Insurance"},{"name":"insurance","label":"Make agents insurable","file":"insurance.html","group":"Insurance"},{"name":"demos","label":"All demos","file":"demos.html","group":"Live demos"},{"name":"demo-licence-to-operate","label":"Licence to Operate","file":"demo-licence-to-operate.html","group":"Live demos"},{"name":"demo-risk-graph-explorer","label":"RiskGraph Explorer","file":"demo-risk-graph-explorer.html","group":"Live demos"},{"name":"demo-agentic-browser-isolation","label":"Agentic Browser Isolation","file":"demo-agentic-browser-isolation.html","group":"Live demos"},{"name":"demo-risk-mandate-field","label":"RiskMandate field demo","file":"demo-risk-mandate-field.html","group":"Live demos"},{"name":"demo-file-security","label":"File security walk","file":"demo-file-security.html","group":"Live demos"},{"name":"demo-agent-permission-games","label":"Permission games","file":"demo-agent-permission-games.html","group":"Live demos"},{"name":"summit","label":"Lisbon 2026","file":"summit.html"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"lab","label":"The Lab","file":"lab.html","group":"More"},{"name":"admin","label":"Admin","file":"admin/","group":"More"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"briefs","label":"Brief register","file":"briefs.html","group":"More"},{"name":"work","label":"Working with us","file":"work.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"after-payment","label":"After payment (store debrief)","file":"after-payment.html","group":"More"},{"name":"synthetic-users","label":"Synthetic users","file":"synthetic-users.html","group":"More"}];RM.data.sections=[];
 
 'use strict';
 // components/dom.js — tiny DOM helpers shared by components. `el` builds an

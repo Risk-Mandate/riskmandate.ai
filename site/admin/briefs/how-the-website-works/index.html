@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>How riskmandate.ai actually works · RiskMandate admin</title>
+<meta name="description" content="How a page is put together, what happens when the browser loads one, and where each thing lives. Current as of v1.0.0; see the addendum below for what has been added since, and .claude/onboarding/01-map.md for the current map.">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://riskmandate.ai/admin/briefs/how-the-website-works/">
+<link rel="alternate" type="text/markdown" href="index.md" title="This page as markdown">
+<link rel="icon" href="../../../assets/brand/riskmandate-favicon-32.png" sizes="32x32">
+<link rel="icon" href="../../../assets/brand/riskmandate-mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../../admin/console.css">
+<!-- Written by scripts/site/build-admin.mjs from the files it names. Do not edit: rerun the script. -->
+</head>
+<body class="console">
+<div class="c-strip"><div class="row"><b>riskmandate.ai</b><span class="c-sep">/</span><a href="../../../admin/">admin</a><span class="c-sep">·</span><a href="../../../">the site</a><span class="c-sep">·</span><a href="../../../agent-behaviour-policy.html">the library</a><span class="c-sep">·</span><a href="index.md">this page as markdown</a><span class="c-noindex">noindex · not in the sitemap</span></div></div>
+<div class="c-disc"><div class="row">Written by the agents that maintain this site and read by a person before it merges. Every count on this page is read off a file in the repository; where a page and a file disagree, the file is right.</div></div>
+<div class="shell">
+<nav class="rail" aria-label="Console">
+    <a class="rail__brand" href="../../../admin/"><b>Risk<i>Mandate</i></b><span>admin console · <span data-version>v…</span></span></a>
+    <div class="rail__group"><h3>Where it stands</h3><a class="nav" href="../../../admin/">The console</a><a class="nav" href="../../../admin/work/#lead">Needs the lead<span class="count r1">8</span></a><a class="nav" href="../../../admin/agents/03-state-and-next/">State and next</a><a class="nav" href="../../../admin/vaults/">The vaults<span class="count">16</span></a><a class="nav" href="../../../synthetic-users.html">How the site reads <span class="out">↗</span></a></div>
+    <div class="rail__group"><h3>The work</h3><a class="nav" href="../../../admin/work/">The board<span class="count">11</span></a><a class="nav" href="../../../admin/work/#branches">In flight<span class="count">1</span></a><a class="nav" href="../../../admin/memos/">The memo queue<span class="count">9</span></a><a class="nav" href="../../../admin/briefs/">Briefs written here<span class="count">17</span></a></div>
+    <div class="rail__group"><h3>For agents</h3><a class="nav" href="../../../admin/agents/">The front door</a><a class="nav" href="../../../admin/agents/claude-md/">CLAUDE.md</a><a class="nav" href="../../../admin/agents/04-rules-of-engagement/">Rules of engagement</a><a class="nav" href="../../../admin/agents/05-workflows/">Workflows</a><a class="nav" href="../../../admin/agents/01-map/">The map</a></div>
+    <div class="rail__group"><h3>The record</h3><a class="nav" href="../../../admin/records/">The records</a><a class="nav" href="../../../admin/tooling/">Tooling and the gate</a><a class="nav" href="../../../versions.html">Versions <span class="out">↗</span></a><a class="nav" href="../../../briefs.html">Brief register <span class="out">↗</span></a><a class="nav" href="../../../agent-behaviour-policy.html">The library <span class="out">↗</span></a><a class="nav" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener">The repository <span class="out">↗</span></a></div>
+    <p class="rail__note"><b>Public, and not advertised.</b> Every page here is noindex, out of <code>sitemap.xml</code> and out of <code>llms.txt</code>. Anybody handed the address reads every word. <a href="../../../">Back to the site</a>.</p>
+  </nav>
+<main class="main">
+<p class="crumb"><a href="../../../admin/">admin</a> / <a href="../../../admin/briefs/">briefs</a> / how-the-website-works.md</p>
+<div class="page-head"><div><h1>How riskmandate.ai actually works</h1><p>A document. The source is <a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/how-the-website-works.md" target="_blank" rel="noopener"><code>docs/how-the-website-works.md</code></a>; this page is that file, rendered.</p></div></div>
+<article class="doc"><p>How a page is put together, what happens when the browser loads one, and where each thing lives. Current as of <strong>v1.0.0</strong>; see the addendum below for what has been added since, and <code>.claude/onboarding/01-map.md</code> for the current map.</p>
+<blockquote><p><strong>Addendum, v1.17.0.</strong> The mechanics below still hold. Since v1.0.0 the site has gained, each with its own script under <code>scripts/site/</code> and a <code>--check</code> in CI: the Agent Behaviour Policy vaults (<code>build-abp-vault.mjs</code>, one directory per vault under <code>site/vaults/</code>, derived from four input files; the renderer once in <code>site/vaults/_app/</code>, every vault carrying a loader — see <code>docs/briefs/architecture__vaults-in-vaults-for-behaviour-policies.md</code>), the library page and one page per vault (<code>build-abp-pages.mjs</code>, from <code>site/vaults/index.json</code>), dated PDF editions of every Lab page (<code>render-lab-pdfs.mjs</code>, registered by digest in <code>site/lab-editions.json</code>), the GitHub link and licence line on every page (<code>add-licence-chrome.mjs</code>), the brief register (<code>site/briefs-register.json</code>, checked by digest), the <code>pages.json</code> page list with <code>unlisted</code>, <code>private</code> and <code>link</code> entries, and the admin console under <code>site/admin/</code> (<code>build-admin.mjs</code>, v1.23.0; <code>admin.html</code> redirects to it) as the index of all of it. The page counts and the test list in the body are the v1.0.0 figures; <code>npm run check</code> runs everything CI runs today.</p></blockquote>
+<h2 id="the-one-paragraph-version">The one-paragraph version</h2>
+<p><code>site/</code> is the website. GitHub Pages serves that directory byte for byte — there is no build step, no framework, no bundler and no server. Each page is a single self-contained HTML document: its own <code>&lt;style&gt;</code>, its own <code>&lt;script&gt;</code>, its own data inlined at the top. Open one with <code>file://</code> and it renders. Navigation between pages is <code>&lt;a href&gt;</code>; the shared header is drawn by one small custom element that every page carries a copy of. Four pages fetch something at runtime, and only from the same origin.</p>
+<p>Before v1.0.0 all of this lived in an SG/Vault and was served through a host <code>&lt;iframe&gt;</code>. <a href="../../../versions/1.0.0.md"><code>site/versions/1.0.0.md</code></a> is the record of that change.</p>
+<hr>
+<h2 id="1-what-the-browser-does">1. What the browser does</h2>
+<pre><code>GET https://riskmandate.ai/plug.html
+  └─ Pages serves site/plug.html — one document, ~58KB, nothing else required
+       &lt;style&gt;   the whole page's CSS, tokens first
+       &lt;body&gt;    the markup, including &lt;rm-menu&gt; and any page components
+       &lt;script&gt;  one IIFE: RM.data (inlined), then each component, then boot
+
+  1. custom elements self-register as the script runs
+  2. boot.js calls RM.components.nav.wire(document)
+  3. &lt;rm-menu&gt; renders the header from RM.data.pages  → &lt;a href&gt; per page
+  4. page components render their own content</code></pre>
+<p>No page waits on anything to become readable: the prose is in the document the server sent. Components add the interactive parts on top.</p>
+<h2 id="2-the-anatomy-of-a-page">2. The anatomy of a page</h2>
+<p>Every page is the same five things in the same order.</p>
+<div class="tablewrap"><table><thead><tr><th></th><th>What</th><th>Why it is inline</th></tr></thead><tbody><tr><td><code>&lt;head&gt;</code></td><td>title, description, canonical URL, Open Graph, favicon, and a <code>&lt;link rel=&quot;alternate&quot;&gt;</code> to the page's markdown twin</td><td>crawlers and link unfurls read the document, not a manifest</td></tr><tr><td><code>&lt;style&gt;</code></td><td>design tokens on <code>:root</code>, then the shared header rules, then this page's own</td><td>one request per page; a page can't render half-styled</td></tr><tr><td><code>&lt;body&gt;</code></td><td><code>&lt;header class=&quot;top&quot;&gt;</code> with <code>&lt;rm-menu&gt;</code> and the version link, the content, the footer</td><td>—</td></tr><tr><td><code>&lt;script&gt;</code></td><td><code>RM.data</code> — this page's name and the site's page list, as JSON</td><td>the menu is identical everywhere and needs no fetch</td></tr><tr><td></td><td>the components, then <code>boot.js</code></td><td>plain concatenation, source order matters</td></tr></tbody></table></div>
+<h3 id="design-tokens">Design tokens</h3>
+<p>Declared on <code>:root</code> in every page, identical everywhere:</p>
+<pre><code>--bg #F7F6F2   --bg2 #EFEDE7   --card #FFFFFF  --ink #0D0D0C   --canvas #0A0A09
+--text #1A1917 --muted #4A4845 --faint #8A8780 --border #E2DFD8
+--green #1A7F5A --green-2 #22c55e --greenBg #EBF5F0
+--gold #B45309 --red #C0392B --blue #1D4ED8
+--wrap 1000px  --r 10px  --r-sm 8px</code></pre>
+<p>Colours in a page are tokens. A literal hex outside <code>:root</code> is a bug, except inside the brand SVG, which is a fixed artwork.</p>
+<h2 id="3-the-components">3. The components</h2>
+<p>Four are on every page. The rest are on the one or two pages that need them.</p>
+<p><strong>On all 24 pages</strong></p>
+<ul><li><code>components/dom.js</code> — <code>el()</code> builds an element with attributes and children;<p>text always goes in through <code>textContent</code>. <code>renderMarkdownInto()</code> turns markdown tokens into DOM nodes, never an HTML string, so fetched content cannot inject markup. Links are scheme-checked before they become <code>&lt;a href&gt;</code>.</p></li><li><code>components/nav.js</code> — the two behaviours that are not links: <code>[data-to]</code><p>scrolls in-page, <code>[data-demo]</code> opens a pre-filled mailto. It also injects the mobile drawer, so every page gets a working menu under 880px from one file.</p></li><li><code>components/menu.js</code> — <code>&lt;rm-menu&gt;</code>. Renders the header from <code>RM.data.pages</code>:<p>an <code>&lt;a&gt;</code> per page, contiguous pages sharing a <code>group</code> collapsing into a dropdown. The group header is the only <code>&lt;button&gt;</code> in the menu, because it opens a panel rather than going anywhere.</p></li><li><code>boot.js</code> — <code>nav.wire(document)</code>, on DOMContentLoaded.</li></ul>
+<p><strong>Where needed</strong></p>
+<div class="tablewrap"><table><thead><tr><th>Component</th><th>Pages</th><th>What it does</th></tr></thead><tbody><tr><td><code>registry</code>, <code>vault-demos</code>, <code>vault-page</code></td><td>the 6 demo pages + <code>demos.html</code></td><td>the demo catalogue and the embed that opens each demo's own SG/Vault with its own public read key</td></tr><tr><td><code>risk-queue</code>, <code>data</code></td><td><code>index</code>, <code>acceptance</code>, <code>grant-gap</code></td><td>the acceptance-queue figure</td></tr><tr><td><code>io</code></td><td><code>feedback</code>, <code>library</code>, <code>versions</code></td><td><code>RM.services.siteIo</code> — a same-origin <code>fetch</code>, and the only runtime IO in the site</td></tr><tr><td><code>markdown</code>, <code>version</code>, <code>versions</code></td><td><code>versions</code></td><td>the version record</td></tr><tr><td><code>library</code>, <code>media</code></td><td><code>library</code></td><td>articles from <code>assets/library/library.json</code>, talks and the deck from <code>assets/media/media.json</code></td></tr><tr><td><code>insurability</code></td><td><code>index</code></td><td>the Insurability Index card</td></tr><tr><td><code>plug-profile</code>, <code>state-grid</code>, <code>scenarios</code>, <code>statics</code>, <code>ramm-figure</code>, <code>ramm-pyramid</code>, <code>brand</code>, <code>options</code>, <code>loop</code>, <code>prompt</code>, <code>window-picker</code></td><td>one page each</td><td>that page's figure or interaction</td></tr></tbody></table></div>
+<p>Components never use <code>innerHTML</code>. Everything is built with <code>dom.el</code> and <code>textContent</code> — which is what makes it safe to render a markdown file that was fetched at runtime.</p>
+<h2 id="4-the-four-pages-that-fetch">4. The four pages that fetch</h2>
+<p>Everything else is complete in the document. These four are not, and each has a reason:</p>
+<ul><li><strong><code>library.html</code></strong> — articles and their artwork come from <code>assets/library/</code>,<p>so the copy can change without touching the page. Images load lazily as cards scroll in.</p></li><li><strong><code>versions.html</code></strong> — reads <code>versions/index.json</code>, then each release's notes<p>on demand. Inlining 36 notes would make a 100KB page whose contents you could only read by reading the page; this way every entry links to the bytes it was rendered from.</p></li><li><strong><code>feedback.html</code></strong> — its interview prompt lives in <code>assets/</code>.</li><li><strong><code>/scenarios/</code></strong> — the pilot. Unlike the rest of the site it reads an<p><strong>SG/Vault</strong> (<code>dm42qcaw</code>) directly in the browser, decrypting with Web Crypto. That needs a secure context, which is why local development uses <code>localhost</code> and not <code>127.0.0.1</code>. See <code>docs/briefs/implementation__scenarios-pilot.md</code>.</p></li></ul>
+<p>The live demos also load vaults — but in their own <code>&lt;iframe&gt;</code>, from <code>dev.vault.sgraph.ai</code>, each with its own published read key. Those keys are public by design. No write credential of any kind belongs in <code>site/</code>, and a test asserts none is there.</p>
+<h2 id="5-versions">5. Versions</h2>
+<p>The number in the header is the site version. It links to <code>versions.html</code>, which renders <code>versions/index.json</code> plus one markdown note per release — 36 of them, 35 carried over from the vault and flagged <code>reconstructed</code> because the builds they describe are not in this repository.</p>
+<p>Cutting a release is deliberate:</p>
+<pre><code class="lang-bash">node scripts/site/release.mjs 1.0.1 &quot;What changed, in a line&quot;
+# writes site/versions/1.0.1.md, updates index.json, restamps every page's
+# version chip, and updates riskmandate_ai/version</code></pre>
+<p>Then write the notes, commit, push. CI checks the three places agree, tags that commit <code>v1.0.1</code>, and deploys. Nothing increments the version on your behalf — a release is a note somebody wrote, and the tag is what lets <code>versions/index.json</code> name the commit each release was built from.</p>
+<h2 id="6-generated-files">6. Generated files</h2>
+<p><code>node scripts/site/generate.mjs</code> rebuilds everything in <code>site/</code> that is derived from something else:</p>
+<div class="tablewrap"><table><thead><tr><th>File</th><th>Derived from</th></tr></thead><tbody><tr><td><code>&lt;page&gt;.md</code></td><td>that page's prose. Anything a component renders at runtime is in the page, not the twin.</td></tr><tr><td><code>sitemap.xml</code>, <code>404.html</code></td><td>the page list in <code>index.html</code></td></tr><tr><td><code>llms.txt</code></td><td>the page list plus each page's title and description</td></tr><tr><td><code>robots.txt</code></td><td>fixed</td></tr><tr><td><code>versions.md</code></td><td><code>versions/index.json</code></td></tr></tbody></table></div>
+<p>They are committed, not built at deploy time — <code>site/</code> is served exactly as it is in the repository. <code>generate.mjs --check</code> fails if any of them is stale, and runs as a CI gate, so a page cannot ship with a twin that contradicts it.</p>
+<h2 id="7-the-pipeline">7. The pipeline</h2>
+<p><code>.github/workflows/ci-pipeline.yml</code>, on push to <code>qa</code>/<code>dev</code>/<code>main</code> or manual dispatch:</p>
+<pre><code>check          node --test tests/site/*.mjs
+               node scripts/site/generate.mjs --check
+   ↓
+tag            tag this commit v&lt;versions/index.json:latest&gt;, if not already tagged
+   ↓
+build          touch site/.nojekyll, upload site/ as the Pages artifact
+   ↓
+deploy         actions/deploy-pages</code></pre>
+<p>The deploy always follows the tag, so the live site never claims a version that resolves to nothing.</p>
+<h2 id="8-tests">8. Tests</h2>
+<p><code>node --test tests/site/*.mjs</code> — 17 checks, no dependencies:</p>
+<ul><li>every page is a whole document with a title and description</li><li>no page talks to a parent window (the host frame is gone and stays gone)</li><li>every internal link resolves to a file that exists</li><li>every page has a canonical URL and a markdown twin, and the twin is there</li><li>every page shows the same version, and it matches <code>versions/index.json</code> and<p><code>riskmandate_ai/version</code></p></li><li>the menu is the same list everywhere and every entry is a real page</li><li>the version record is newest-first, every entry has its notes and names its<p>source, and vault-era entries are labelled reconstructed</p></li><li>the sitemap lists every page and nothing else</li><li>no write credential ships in <code>site/</code></li><li>the scenarios content contract (6 checks against a real vault fixture)</li></ul>
+<h2 id="9-what-is-not-here-any-more">9. What is not here any more</h2>
+<ul><li><strong><code>vault_publisher/</code></strong> — cloned <code>7rfetjwz</code> and published it. Nothing publishes<p>from a vault now.</p></li><li><strong><code>web_overlay/</code></strong> — pages overlaid onto the publisher's output. <code>site/</code> is<p>the output; there is nothing to overlay onto. The scenarios pilot moved to <code>site/scenarios/</code>.</p></li><li><strong><code>site/v0/</code></strong> — twelve frozen design snapshots, ~759KB, reachable through a<p>dropdown. They are in vault <code>7rfetjwz</code>, which is kept.</p></li><li><strong>the host shell</strong> — a 9KB <code>index.html</code> that loaded a version page into an<p><code>&lt;iframe srcdoc&gt;</code> and routed navigation over <code>postMessage</code>. It gave the whole site one URL. Deep links, bookmarks, opening in a new tab and search indexing all now work because it is gone.</p></li></ul>
+<p><code>scripts/migrate/collapse-to-v1.mjs</code> is the one-off that did the conversion. It is kept as the statement of what &quot;reconstructed&quot; means for v1.0.0 — run it against a fresh clone of the vault and it reproduces the snapshot. Nothing in CI runs it.</p></article>
+<div class="c-foot"><b>An operations surface</b> for the people and agents building this site, public because every page here is. It is not a selling page and nothing on it is for sale. <a href="../../../">The site</a> · <a href="../../../agent-behaviour-policy.html">the library</a> · <a href="../../../versions.html">every release</a> · <a href="https://github.com/Risk-Mandate/riskmandate.ai/tree/dev/">the repository</a> · <a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/scripts/site/build-admin.mjs">the script that wrote this page</a>.</div>
+</main>
+</div>
+<script>
+(function(){var el=document.querySelector('[data-version]');if(!el)return;fetch('../../../versions/index.json',{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){el.textContent='v'+j.latest}).catch(function(){el.textContent='';});})();
+</script>
+</body>
+</html>

@@ -164,6 +164,23 @@
       "group": "Mail & files connectors"
     },
     {
+      "slug": "claude-gmail-connector",
+      "vid": "oc433z3m",
+      "key": "22fd71dfcc045d047846972e051fd97444f75e0c53da3fde9a233060023cee04",
+      "app": "Claude's Gmail connector",
+      "title": "Claude, with the Gmail connector on one inbox",
+      "title_lead": "Claude, with the Gmail",
+      "title_tail": "connector on one inbox.",
+      "shape": "anthropic/gmail-connector/default",
+      "family": "mail",
+      "glyph": "G",
+      "blurb": "Search and read carry no approval prompt; send, reply and forward do, on by default — a setting the account, or an org owner, can turn off. The consent screen already permits sending before the prompt is ever removed. Four of six rows measured on an account the deployer runs; permanent deletion measured as out of reach.",
+      "kind": "measured",
+      "logo": "gmail",
+      "brand": "#EA4335",
+      "group": "Mail & files connectors"
+    },
+    {
       "slug": "gmail-readonly",
       "vid": "l2zlv3ng",
       "key": "865ea2d50ada749c30554380f22202dffe4c362a4a85a565accd045b84eefaf8",
@@ -299,16 +316,6 @@
       "note": "not yet researched",
       "logo": "salesforce",
       "brand": "#00A1E0"
-    },
-    {
-      "slug": "claude-gmail-connector",
-      "app": "Claude's Gmail connector",
-      "family": "mail",
-      "glyph": "G",
-      "blurb": "Search and read carry no approval prompt; send, reply and forward do, on by default — a setting the account, or an org owner on Team and Enterprise, can turn off. The OAuth consent already permits sending before the prompt is ever removed.",
-      "note": "built and checked, awaiting a push — documented tier, from Anthropic's own connector page",
-      "logo": "gmail",
-      "brand": "#EA4335"
     }
   ],
   "app_vault": {

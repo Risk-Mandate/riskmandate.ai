@@ -60,6 +60,10 @@ The first grant here measured on a live instance, by an early beta user's agent:
 
 Gmail, Drive, Docs, Sheets, Slides, Calendar and Chat, one server each. The page advertises drafting mail and scheduling meetings; the scopes it asks for send mail and cannot touch a calendar.
 
+### [Claude's Gmail connector](abp-vault-claude-gmail-connector.html)
+
+Search and read carry no approval prompt; send, reply and forward do, on by default — a setting the account, or an org owner, can turn off. The consent screen already permits sending before the prompt is ever removed. Four of six rows measured on an account the deployer runs; permanent deletion measured as out of reach.
+
 ### [Gmail, read-only scope](abp-vault-gmail-readonly.html)
 
 The narrowest scope that reads one message reads every message. Lab 03 asked the model site for this shape first; here it is, read from Google's scope page.
@@ -78,7 +82,7 @@ Eight scopes, two of them write and two of them sharing, and no folder-scoped va
 
 Nothing matches. Search matches names, vendors, scopes, tools and capability ids — try a shorter word.
 
-Missing the one you run? [9 are asked for — vote on which is next, or suggest one](agent-behaviour-policy-next.html). Every vault also carries `MAP-A-GRANT.md`: give it to an agent that already holds the credential and it measures its own grant.
+Missing the one you run? [8 are asked for — vote on which is next, or suggest one](agent-behaviour-policy-next.html). Every vault also carries `MAP-A-GRANT.md`: give it to an agent that already holds the credential and it measures its own grant.
 
 ## Pick the policies your deployment is made of. Then correct the mandate.
 
