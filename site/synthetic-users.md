@@ -80,7 +80,7 @@ And what worked, named unprompted by more than one reader: the connector-scope q
 
 Before a word of the study had been written, the first pass recorded a page error on **every step of every journey**: `Unexpected token '}'` on the home page and `Unexpected end of input` on the insurance page. The menu, the mobile drawer, the in-page scroll buttons and the enquiry button were dead on both, and the insurance page had been broken since it launched.
 
-Nothing else caught it. The HTML still rendered, so both pages looked right in a screenshot; twenty-six tests, four `npm run check` gates and two further CI checks all passed, because not one of them parsed a line of the JavaScript the pages carry. Fixed in [v1.23.0](versions.html), with a test that parses every inline script on every page — verified by deliberately breaking a page and watching it fail. Driving a real browser and recording what it throws is the only reason this was found.
+Nothing else caught it. The HTML still rendered, so both pages looked right in a screenshot; twenty-six tests, four `npm run check` gates and two further CI checks all passed, because not one of them parsed a line of the JavaScript the pages carry. Fixed in [v1.24.0](versions.html), with a test that parses every inline script on every page — verified by deliberately breaking a page and watching it fail. Driving a real browser and recording what it throws is the only reason this was found.
 
 ## Two runs a month apart are the comparison.
 
