@@ -435,9 +435,24 @@ RM.services.abpVaults = (function () {
       dom.el('div', { class: 'l' }, [dom.el('span', null, ['not asked for, nothing in the way']), dom.el('b', null, [String(d.counts.unbounded)])]),
       dom.el('span', { class: 'h' }, ['Side effects — not asked for, and nothing real stops it']),
     ]);
-    box.appendChild(sideEffects.length ? dom.el('ul', null, sideEffects.map(function (id) { return dom.el('li', { class: L.row[id].undo === 'no' ? '' : 'e' }, [dom.el('i'), dom.el('span', null, [WARN[id] || gloss(L, id), ' ', dom.el('code', null, [id + (L.row[id].undo === 'no' ? ' · cannot be undone' : '')])])]); })) : dom.el('p', { class: 'none' }, ['none — everything not asked for sits behind a boundary']));
-    box.appendChild(dom.el('span', { class: 'h' }, ['Told not to, and only told']));
-    box.appendChild(toldNot.length ? dom.el('ul', null, toldNot.map(function (id) { return dom.el('li', null, [dom.el('i'), dom.el('span', null, [WARN[id] || gloss(L, id), ' ', dom.el('code', null, [id])])]); })) : dom.el('p', { class: 'none' }, ['nothing the mandate refuses is left to a sentence alone']));
+    // One list, not two. "Told not to, and only told" used to follow this one, and by
+    // construction it could never hold anything new: the refused rows are a subset of the
+    // excess, and both lists dropped anything behind a boundary, so every line in it was
+    // already printed above. What it actually carried was the distinction between a row the
+    // mandate refused and one it never mentioned — so that is a mark on each line here, and
+    // the reader gets it once. The count of each is stated under the list.
+    box.appendChild(sideEffects.length ? dom.el('ul', null, sideEffects.map(function (id) {
+      var told = D[id];
+      return dom.el('li', { class: L.row[id].undo === 'no' ? '' : 'e' }, [dom.el('i'), dom.el('span', null, [
+        WARN[id] || gloss(L, id), ' ',
+        dom.el('code', null, [id + (L.row[id].undo === 'no' ? ' · cannot be undone' : '')]), ' ',
+        dom.el('span', { class: 'ab-said ' + (told ? 'no' : 'un') }, [told ? 'told not to — and only told' : 'never mentioned']),
+      ])]);
+    })) : dom.el('p', { class: 'none' }, ['none — everything not asked for sits behind a boundary']));
+    if (sideEffects.length) box.appendChild(dom.el('p', { class: 'ab-saidsum' }, [
+      String(toldNot.length) + ' of these the mandate refuses in words, and nothing but words stands in the way; ' +
+      String(sideEffects.length - toldNot.length) + ' it never mentioned at all.',
+    ]));
     box.appendChild(dom.el('span', { class: 'h' }, ['The lethal trifecta']));
     var legs = TRIFECTA.map(function (leg) { return { leg: leg, st: legState(L, leg) }; });
     box.appendChild(dom.el('div', { class: 'ab-tri' }, legs.map(function (x) { return dom.el('span', { class: !x.st.has ? 'n' : x.st.bounded ? 'b' : 'y' }, [dom.el('b', null, [x.leg.name]), dom.el('span', null, [!x.st.has ? 'not in the grant' : x.st.bounded ? 'present · behind a boundary' : 'present · ' + x.st.rows.length + (x.st.rows.length === 1 ? ' row' : ' rows') + ', unbounded'])]); })));
