@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.24.1** · 2026-09-16 — The buy links land where the store serves, and name the level not the price
+  Notes: https://riskmandate.ai/versions/1.24.1.md · Source: `git:v1.24.1`
 - **v1.24.0** · 2026-09-16 — The MVP vault: a reading app with a left navigation, the consequence layer, and the dual licence
   Notes: https://riskmandate.ai/versions/1.24.0.md · Source: `git:v1.24.0`
 - **v1.23.0** · 2026-09-16 — The admin section is a console, and the Gmail-connector vault is live
