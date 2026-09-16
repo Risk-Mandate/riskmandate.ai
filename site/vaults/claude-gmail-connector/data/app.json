@@ -4,7 +4,14 @@
     "claude-gmail-connector.zip": true
   },
   "research_open": 6,
-  "scenarios": 6,
+  "scenarios": 8,
+  "consequences": 11,
+  "consequences_open": 5,
+  "routes_out": 2,
+  "licence": {
+    "kind": "cc-by-4.0"
+  },
+  "copy": "template",
   "app_vault": {
     "vault_id": "fl3i7lu4",
     "entry": "index.html",

@@ -4,6 +4,10 @@
     "github-actions.zip": true
   },
   "scenarios": 6,
+  "licence": {
+    "kind": "cc-by-4.0"
+  },
+  "copy": "template",
   "app_vault": {
     "vault_id": "fl3i7lu4",
     "entry": "index.html",

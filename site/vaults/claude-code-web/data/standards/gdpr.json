@@ -1,0 +1,70 @@
+{
+  "type": "riskmandate/standards-mini-graph/v1",
+  "standard": "gdpr",
+  "title": "Regulation (EU) 2016/679 — General Data Protection Regulation",
+  "_what_this_is": "A mini graph of the articles a behaviour policy's consequences may touch: article number, title, link. Titles and identifiers only, never the body text of a standard (site rule 7). A link from a consequence or a behaviour to a node here says the node is touched or named, never that anything complies with it (rule 6).",
+  "source": "https://eur-lex.europa.eu/eli/reg/2016/679/oj",
+  "read": "2026-09-16",
+  "nodes": [
+    {
+      "id": "gdpr.art5",
+      "article": "5",
+      "title": "Principles relating to processing of personal data",
+      "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj#d1e1807-1-1"
+    },
+    {
+      "id": "gdpr.art6",
+      "article": "6",
+      "title": "Lawfulness of processing",
+      "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj#d1e1888-1-1"
+    },
+    {
+      "id": "gdpr.art24",
+      "article": "24",
+      "title": "Responsibility of the controller",
+      "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+    },
+    {
+      "id": "gdpr.art25",
+      "article": "25",
+      "title": "Data protection by design and by default",
+      "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+    },
+    {
+      "id": "gdpr.art28",
+      "article": "28",
+      "title": "Processor",
+      "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+    },
+    {
+      "id": "gdpr.art29",
+      "article": "29",
+      "title": "Processing under the authority of the controller or processor",
+      "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+    },
+    {
+      "id": "gdpr.art32",
+      "article": "32",
+      "title": "Security of processing",
+      "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+    },
+    {
+      "id": "gdpr.art33",
+      "article": "33",
+      "title": "Notification of a personal data breach to the supervisory authority",
+      "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+    },
+    {
+      "id": "gdpr.art34",
+      "article": "34",
+      "title": "Communication of a personal data breach to the data subject",
+      "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+    },
+    {
+      "id": "gdpr.art35",
+      "article": "35",
+      "title": "Data protection impact assessment",
+      "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+    }
+  ]
+}
