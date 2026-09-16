@@ -557,6 +557,26 @@
         "The research list documented from Google's pages — sending limits, suspension, the modify tools — is still open (T05/research-vault)",
         "Who are you? ships as a live filter; the authored per-audience views and projections remain T04"
       ]
+    },
+    {
+      "id": "I10",
+      "what": "Voice memo: the multi-layer grant, and the vault opens on the audience. Map three storeys — what the Google OAuth permission allows, what Anthropic's connector exposes to the chat (code, which can have bugs and can change at any minute's notice), and what normal usage and Claude's own guardrails allow — then the layer above, which is what becomes possible with those mechanical capabilities. Use this vault as the case study and change whatever we want on it. Find good ways to visualise it, because that is where the gaps are and the question is whether people are aware. The vendor's own restriction is a control we can reverse engineer and make the business case for. On the vault: three audience folders (executive, operator, risk) as the main section of the left menu, the executive view being the whole thing in one line, a couple of diagrams and a couple of paragraphs; keep the packs and the how-to-use, but not centre stage.",
+      "how": "voice memo, transcribed in the thread, 16 Sept",
+      "dated": "2026-09-16",
+      "status": "received",
+      "produced": [
+        {
+          "what": "The direction brief: the four storeys (permitted, exposed, practised, consequences), latent capability as the gap between the first two, the barrier gaining a holder and whether it moves without you, the audience spine, the build order and four decisions",
+          "url": "https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/briefs/direction__the-grant-has-storeys-and-the-vault-opens-on-the-audience.md"
+        }
+      ],
+      "not_done": [
+        "Storey one for this shape (data/permitted.json, the scopes and the methods they unlock)",
+        "held_by and moves_without_you on every barrier; splitting not_reachable into bounded and not exposed",
+        "The audience spine in the reading app, with the executive view authored",
+        "The storeys drawn as one diagram",
+        "Waiting on the lead: whether `grant` keeps naming storey two, and the audience names"
+      ]
     }
   ]
 }

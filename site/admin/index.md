@@ -11,9 +11,9 @@
 
 **9**open tasks*of 17 in the queue · 1 done*
 
-**11**memos not fully worked*of 19 received*
+**12**memos not fully worked*of 20 received*
 
-**19**briefs written here*one page each*
+**20**briefs written here*one page each*
 
 **16**vaults built and pushed*4 measured · 8 asked for*
 
