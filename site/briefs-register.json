@@ -457,6 +457,36 @@
       "not_done": [
         "A third-party screenshot convention. The instruction anticipated detailed examples and screenshots; screenshots of our own demos are fine, and screenshots of anybody else's product run into the no-probing and no-verdicts rules, so the Lab's drawn mockups remain the pattern until that is decided."
       ]
+    },
+    {
+      "id": "I6",
+      "what": "Build a specific vault for Claude chat connected to a Gmail inbox; capture the connection screens (address obscured) in a folder for the connector; then map the whole customer workflow — the vault, its home page, the settings, the permissions, the prompts given to Claude — as the purchase workflow. Do not use the agent's name.",
+      "how": "chat instruction with eight screenshots, 16 Sept",
+      "dated": "2026-09-16",
+      "status": "partly",
+      "produced": [
+        {
+          "what": "The template vault claude-gmail-connector, built and checked: six rows, four measured on the deployer's own account, the evidence transcribed with the address redacted (in the repository under site/vaults/, unpushed)",
+          "url": "https://github.com/Risk-Mandate/riskmandate.ai/tree/dev/site/vaults/claude-gmail-connector"
+        },
+        {
+          "what": "The customer's draft instance, anonymised, with a question on every mandate line (vaults-instances/)",
+          "url": "https://github.com/Risk-Mandate/riskmandate.ai/tree/dev/vaults-instances"
+        },
+        {
+          "what": "The purchase workflow, run once: the brief",
+          "url": "https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/briefs/workflow__buying-a-policy-for-claude-on-gmail.md"
+        },
+        {
+          "what": "The tile on the next-policy page, marked built and awaiting a push",
+          "url": "agent-behaviour-policy-next.html"
+        }
+      ],
+      "not_done": [
+        "The push of both vaults — the template to a public vault, the instance to a private one — which needs the lead's write keys; until then the vault has no page on this site",
+        "The eight screenshots as redacted image files in evidence/: they arrived inline and could not be edited from the session; the transcriptions stand in for them",
+        "The customer's correction of the mandate, and the signed licence"
+      ]
     }
   ]
 }

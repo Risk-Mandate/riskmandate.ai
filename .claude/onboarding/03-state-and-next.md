@@ -3,7 +3,7 @@
 Keep this file true. If you land something, move it; if you learn something, add it. Dates are
 the site's; check `site/versions/index.json` for the current version before trusting the number here.
 
-## State as at 2026-09-15, v1.19.3
+## State as at 2026-09-16, v1.22.1
 
 - **Site:** 64 HTML files under `site/`, one live site deployed from `dev`. Top-level menu:
   The problem · The model · Agent Behaviour Policies · Live demos · Lisbon 2026 · Pricing · More
@@ -21,6 +21,7 @@ the site's; check `site/versions/index.json` for the current version before trus
 | measured on the thing itself | `claude-code-web` (13/20 rows), `github-actions` (8/8), `n8n-owner-api-key` (7/8, from an early beta user's write-up) |
 | derived from the model site's five examples | `claude-code-cli`, `claude-code-cli-confirmations-off`, `claude-desktop`, `claude-web-connectors`, `chatgpt-web`, `browser-extension`, `scheduled-job` |
 | documented from vendor pages, 15 Sept, with open questions | `google-workspace-mcp` (4), `gmail-readonly` (3), `google-drive-readonly` (3), `claude-m365-connector` (4), `dropbox-mcp` (4) |
+| **built, unpushed** (16 Sept) | `claude-gmail-connector` — Claude's Gmail connector, from Anthropic's and Google's pages plus the deployer's own run: 4 of 6 rows measured, 5 open questions, 5 contradictions (Google's reference vs the listing; filters listed and denied). Listed on the *next* page as *asked for* until the lead pushes it. Its customer instance is under `vaults-instances/`, status draft |
 
 - **Asked for, not built**, on their own page `agent-behaviour-policy-next.html` (v1.17.0) with a
   vote and a suggestion form: Claude's Google Workspace connector, Slack, GitHub, Notion,
@@ -69,6 +70,7 @@ and vault queues. Each has a task brief in `.claude/briefs/`.
 | 9 | The three business-function vaults | `T06` | after 8 | open |
 | 10 | Lab 03: add the asks from the n8n review and the graph brief (barrier per path; a word for a broad-but-real gate; metrics and links on the primitives) | `T07` | two hours | open |
 | 11 | The two Voice Debrief use-case vaults, and a use-case group on the library | `T10` | a day, after the workflow agent runs the prompt | open |
+| 11a | Push `claude-gmail-connector` (public) and its instance (private); add the redacted screens to `evidence/`; run the correction call (§4 of the workflow brief) | — | the lead | waiting on the lead |
 | 12 | Stop deploying the vault: inputs in the repository, the product in the vault | `T09` | half a day | open |
 | 13 | A page for the £500 workflow once the store has a return address; a per-shape header on `MAP-A-GRANT.md` | — | small | waiting on the store agent |
 | 14 | Point the four payment links' success address at `paid-t<n>.html` (level 1: `paid-t1.html?shape=<slug>&order=<ref>`); the level-3 text on the store's product page; the opinion add-on page (brief D9) | — | the store's | waiting on the store agent |

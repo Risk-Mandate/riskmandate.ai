@@ -1,0 +1,17 @@
+{
+  "slug": "claude-gmail-connector--customer-draft",
+  "title": "Claude on one Gmail mailbox — a customer's draft",
+  "status": "draft",
+  "what_status_means": "template: the draft for a deployment shape, before anybody has corrected the mandate. draft: a copy made for one organisation, mandate not yet corrected. corrected: the mandate has been elicited from the deployer and a named owner has signed the licence.",
+  "shape": "anthropic/gmail-connector/default",
+  "vocabulary_version": "v0.3.0",
+  "vocabulary_source": "https://abp.sgit.ai/data/index.json",
+  "as_at": "2026-09-16",
+  "organisation": "one customer of RiskMandate; the name is withheld on this public copy and written into the private vault",
+  "agent": "Claude in the browser with the Gmail connector enabled, on one mailbox the customer runs",
+  "owner": null,
+  "issued": null,
+  "valid_until": null,
+  "measured_rows": "4 of 6",
+  "shape_note": "Instance of the template claude-gmail-connector, made on 2026-09-16 after a call with the customer in which we agreed to write the behaviour policy for exactly this deployment. The grant is the template's, four rows measured on the deployer's own account the same day. The mandate is the DRAFT the customer corrects: what they want, what they refuse, in their words. Until they have, and a named person has signed LICENCE-TO-OPERATE.md, the status stays draft."
+}

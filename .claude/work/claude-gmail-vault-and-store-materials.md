@@ -28,8 +28,18 @@ to be in GitHub scope and the lead wants direct edits.
 - No release cut yet
 
 ## Status
-- [ ] research Anthropic's Gmail connector docs
-- [ ] build the vault
-- [ ] check, regenerate
-- [ ] store.sgit.ai/lab/product/ reviewed; materials produced
-- [ ] release + merge
+- [x] researched: Anthropic's help article, Google's MCP reference and configure guide, Google's scope list; the lead's twelve screens and the sent message's .eml
+- [x] template vault `claude-gmail-connector` built and checked — 6 rows, 4 measured, 5 contradictions, 6 open questions, `evidence/` with the screens transcribed and the .eml redacted; on the *next* page as built, awaiting a push
+- [x] instance `vaults-instances/claude-gmail-connector--customer-draft/` built with `ABP_VAULT_DIR` (one-line change to the build script); status draft; a question on every mandate line
+- [x] the workflow brief `docs/briefs/workflow__buying-a-policy-for-claude-on-gmail.md`; register I6; admin link; map and state
+- [x] store materials: two real captures for the empty slots (App Mode, History) plus three extras and a handover note, in the scratchpad, sent to the lead
+- [ ] release v1.22.1 + merge to dev
+- [ ] owed by the lead: the two pushes (template public, instance private); the screenshots as files for redaction; the customer's correction call
+
+## Notes for whoever merges after me
+`ABP_VAULT_DIR` is new in `build-abp-vault.mjs`: unset, nothing changes. `vaults-instances/` is not
+deployed and not built by CI. The Gmail vault sits in `asked_for` with `note` saying it is built —
+the next-page tile still says *not yet researched* because `nextTile()` ignores the note; a
+one-word fix (`x.note || kind`) I did not make, because the sibling agent owns that page's copy
+this week. When the lead pushes and `vid`/`key` land, move the entry to `vaults` and delete the
+`asked_for` row.

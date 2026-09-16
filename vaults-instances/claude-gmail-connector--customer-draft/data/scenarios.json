@@ -1,0 +1,82 @@
+{
+  "type": "riskmandate/abp-scenarios/v1",
+  "_what_this_is": "Alternative mandates for the same grant. Each scenario is a deployer's sentence and the primitives it wants and refuses; everything else is unstated. The grant never changes; the delta is recomputed per scenario. Written on this site as starting points to be argued with.",
+  "authored": "2026-09-16",
+  "scenarios": [
+    {
+      "id": "find-an-email",
+      "tier": "normal",
+      "label": "Find an email",
+      "description": "Find a specific email or thread and quote it back.",
+      "want": [
+        "read.message.tenant"
+      ],
+      "do_not_want": [
+        "send.message.world",
+        "read.credential.host"
+      ]
+    },
+    {
+      "id": "summarise-the-week",
+      "tier": "normal",
+      "label": "Summarise the week",
+      "description": "Summarise what came into the inbox this week.",
+      "want": [
+        "read.message.tenant"
+      ],
+      "do_not_want": [
+        "send.message.world",
+        "read.credential.host"
+      ]
+    },
+    {
+      "id": "auto-file-with-a-filter",
+      "tier": "normal",
+      "label": "Auto-file newsletters with a filter",
+      "description": "Create a Gmail filter that labels and archives newsletters as they arrive — a rule that keeps running after the chat ends.",
+      "want": [
+        "read.message.tenant",
+        "create.schedule.tenant"
+      ],
+      "do_not_want": [
+        "send.message.world"
+      ]
+    },
+    {
+      "id": "draft-replies-for-me",
+      "tier": "advanced",
+      "label": "Draft replies for me",
+      "description": "Read a thread and draft a reply. A person sends it.",
+      "want": [
+        "read.message.tenant"
+      ],
+      "do_not_want": [
+        "send.message.world"
+      ]
+    },
+    {
+      "id": "reply-within-approval",
+      "tier": "advanced",
+      "label": "Reply to routine mail, each send confirmed",
+      "description": "Read and reply to routine mail as me, with the approval prompt left on.",
+      "want": [
+        "read.message.tenant",
+        "send.message.world"
+      ],
+      "do_not_want": [
+        "read.credential.host"
+      ]
+    },
+    {
+      "id": "approvals-off",
+      "tier": "advanced",
+      "label": "Reply without asking each time",
+      "description": "The org turned per-action approval off. Claude reads and replies as me with no confirmation.",
+      "want": [
+        "read.message.tenant",
+        "send.message.world"
+      ],
+      "do_not_want": []
+    }
+  ]
+}

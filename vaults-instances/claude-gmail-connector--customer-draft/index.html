@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Agent Behaviour Policy</title>
+<!--
+  The loader. This is the only code an application vault carries, and it is the same
+  bytes in every one of them: it fetches the renderer from the ABP app vault and boots it
+  here, against this vault's own files. The renderer is versioned once, in one place;
+  a data vault is data.
+
+  Where the renderer comes from, in order:
+    1. app/index.html            — a sub-vault link to the app vault, when the host resolves
+                                   it (sg.vfs.readText reads across the link, read-only)
+    2. the app vault directly    — the house reader: derive the ref id from the app vault's
+                                   PUBLIC read key, fetch ciphertext over CORS, decrypt here
+    3. a static copy beside us   — ../_app/index.html, when this vault is served as files
+  Whichever answered is named in the renderer's top bar.
+
+  Nothing external is declared in markup; the renderer's reads for data go through the
+  same bridge (or same-origin fetch) this loader uses, so they resolve in THIS vault.
+  The app vault's read key below is public by design and grants read and nothing else.
+-->
+<style>
+  body{margin:0;background:#F7F6F2;color:#1A1917;font-family:ui-sans-serif,system-ui,sans-serif}
+  #abp-loading{max-width:640px;margin:18vh auto 0;padding:0 22px;font-family:ui-monospace,Menlo,monospace;font-size:12.5px;color:#4A4845;line-height:1.7}
+  #abp-loading b{color:#1A7F5A}
+  #abp-loading ul{padding-left:18px;margin:8px 0 0}
+</style>
+</head>
+<body>
+<div id="abp-loading"><b>Agent Behaviour Policy</b> — fetching the renderer from the app vault…</div>
+<script>
+'use strict';
+const APP_VAULT = /*__APP_VAULT__*/{"endpoint":"https://dev.send.sgraph.ai","vault_id":"fl3i7lu4","read_key":"e37a0f80d65e2b486f8bb3253e313c65ecbb57e5664c3f1704346c70ac09639a","entry":"index.html","version":"v4","static":"../_app/index.html"};
+
+// ---- the house reader (sgit.ai assets/vault-embed.js), read path only ----
+const enc = new TextEncoder(), dec = new TextDecoder();
+const hexToBytes = (hex) => { const o = new Uint8Array(hex.length / 2); for (let i = 0; i < o.length; i++) o[i] = parseInt(hex.substr(i * 2, 2), 16); return o; };
+const bytesToHex = (b) => Array.from(b, x => x.toString(16).padStart(2, '0')).join('');
+const b64ToBytes = (b64) => { const bin = atob(b64), o = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) o[i] = bin.charCodeAt(i); return o; };
+class Reader {
+  constructor(cfg) { this.endpoint = cfg.endpoint.replace(/\/$/, ''); this.vaultId = cfg.vault_id; this.readKey = cfg.read_key; this.mem = new Map(); }
+  async init() { const raw = hexToBytes(this.readKey); this.aes = await crypto.subtle.importKey('raw', raw, 'AES-GCM', false, ['decrypt']); this.hmac = await crypto.subtle.importKey('raw', raw, { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']); return this; }
+  async fileId(domain) { return bytesToHex(new Uint8Array(await crypto.subtle.sign('HMAC', this.hmac, enc.encode(domain)))).slice(0, 12); }
+  async decrypt(bytes) { return new Uint8Array(await crypto.subtle.decrypt({ name: 'AES-GCM', iv: bytes.slice(0, 12), tagLength: 128 }, this.aes, bytes.slice(12))); }
+  async raw(path) { const r = await fetch(`${this.endpoint}/api/vault/read/${this.vaultId}/${path}`, { cache: path.includes('-imm-') ? 'default' : 'no-store' }); if (!r.ok) throw new Error(`HTTP ${r.status} for ${path}`); return new Uint8Array(await r.arrayBuffer()); }
+  async obj(id) { if (!this.mem.has(id)) this.mem.set(id, await this.decrypt(await this.raw('bare/data/' + id))); return this.mem.get(id); }
+  async objJson(id) { return JSON.parse(dec.decode(await this.obj(id))); }
+  async decB64(b64) { return b64 ? dec.decode(await this.decrypt(b64ToBytes(b64))) : ''; }
+  async open() { const refId = 'ref-pid-muw-' + await this.fileId('sg-vault-v1:file-id:ref:' + this.vaultId); const ref = JSON.parse(dec.decode(await this.decrypt(await this.raw('bare/refs/' + refId)))); const commit = await this.objJson(ref.commit_id); this.commitId = ref.commit_id; this.files = {}; await this.walk(commit.tree_id, ''); return this; }
+  async walk(treeId, prefix) { const tree = await this.objJson(treeId); for (const e of tree.entries || []) { const name = await this.decB64(e.name_enc), full = prefix ? prefix + '/' + name : name; if (e.tree_id) await this.walk(e.tree_id, full); else this.files[full] = e.blob_id; } }
+  async readText(path) { path = path.replace(/^\.?\//, ''); if (!this.files[path]) throw new Error('not in vault: ' + path); return dec.decode(await this.obj(this.files[path])); }
+}
+
+// ---- three ways to the renderer, in order ----
+const bridge = () => window.sg && sg.vfs && sg.vfs.readText;
+async function fromLink()   { if (!bridge()) throw new Error('no bridge here'); return sg.vfs.readText('app/' + APP_VAULT.entry); }
+async function fromVault()  { if (!(window.crypto && crypto.subtle)) throw new Error('no Web Crypto in this context'); const r = await new Reader(APP_VAULT).init(); await r.open(); const html = await r.readText(APP_VAULT.entry); return { html, commit: r.commitId }; }
+async function fromStatic() { const r = await fetch(APP_VAULT.static, { cache: 'no-store' }); if (!r.ok) throw new Error('HTTP ' + r.status + ' for ' + APP_VAULT.static); return r.text(); }
+
+function boot(html, source, commit) {
+  const doc = new DOMParser().parseFromString(html, 'text/html');
+  document.title = doc.title || document.title;
+  doc.querySelectorAll('head style').forEach(s => document.head.appendChild(document.importNode(s, true)));
+  const body = document.body; body.textContent = '';
+  for (const n of Array.from(doc.body.children)) if (n.tagName !== 'SCRIPT') body.appendChild(document.importNode(n, true));
+  window.ABP_LOADER = { source, app_vault: { vault_id: APP_VAULT.vault_id, entry: APP_VAULT.entry, version: APP_VAULT.version || null, commit: commit || null } };
+  for (const s of doc.querySelectorAll('script')) { const el = document.createElement('script'); el.textContent = s.textContent; body.appendChild(el); }
+}
+function ready() { try { window.parent && window.parent.postMessage({ type: 'sg-app-ready' }, '*'); } catch (e) {} }
+
+(async () => {
+  const errors = [];
+  for (const [name, fn] of [['sub-vault link', fromLink], ['the app vault, read directly', fromVault], ['a static copy beside this vault', fromStatic]]) {
+    try { const out = await fn(); const html = typeof out === 'string' ? out : out.html; boot(html, name, typeof out === 'string' ? null : out.commit); return; }
+    catch (e) { errors.push(name + ' — ' + (e && e.message || e)); }
+  }
+  const box = document.getElementById('abp-loading');
+  box.textContent = '';
+  box.appendChild(Object.assign(document.createElement('b'), { textContent: 'The renderer could not be fetched. ' }));
+  box.appendChild(document.createTextNode('This vault holds the policy as files — open MANDATE.md, GRANT.md, DELTA.md and AGENT-BEHAVIOUR-POLICY.md beside this page. What was tried:'));
+  const ul = document.createElement('ul'); errors.forEach(t => ul.appendChild(Object.assign(document.createElement('li'), { textContent: t }))); box.appendChild(ul);
+  ready();
+})();
+</script>
+</body>
+</html>

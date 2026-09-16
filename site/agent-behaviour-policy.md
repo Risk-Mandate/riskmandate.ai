@@ -78,7 +78,7 @@ Eight scopes, two of them write and two of them sharing, and no folder-scoped va
 
 Nothing matches. Search matches names, vendors, scopes, tools and capability ids — try a shorter word.
 
-Missing the one you run? [8 are asked for — vote on which is next, or suggest one](agent-behaviour-policy-next.html). Every vault also carries `MAP-A-GRANT.md`: give it to an agent that already holds the credential and it measures its own grant.
+Missing the one you run? [9 are asked for — vote on which is next, or suggest one](agent-behaviour-policy-next.html). Every vault also carries `MAP-A-GRANT.md`: give it to an agent that already holds the credential and it measures its own grant.
 
 ## Pick the policies your deployment is made of. Then correct the mandate.
 
