@@ -81,6 +81,8 @@ and vault queues. Each has a task brief in `.claude/briefs/`.
 | 12 | Stop deploying the vault: inputs in the repository, the product in the vault | `T09` | half a day | open |
 | 13 | A page for the £500 workflow once the store has a return address; a per-shape header on `MAP-A-GRANT.md` | — | small | waiting on the store agent |
 | 14 | Point the four payment links' success address at `paid-t<n>.html` (level 1: `paid-t1.html?shape=<slug>&order=<ref>`); the level-3 text on the store's product page; the opinion add-on page (brief D9) | — | the store's | waiting on the store agent |
+| 15 | The MVP vault: `LICENCE.md` + `licence` block in the build; the v3 reading app with the left navigation, *Who are you?*, *Your keys*, *Keep it*, *Download*; a new app vault; `oc433z3m` re-pushed; the vault page repositioned (`direction__mvp-vault-and-the-reading-app.md`) | — | two and a half days | **waiting on the lead**: four decisions in the brief §6 |
+| 16 | The consequence layer for `oc433z3m`: assets, consequences, routes out, two scenarios; the research list documented from Google's pages; the standards mini-graphs | `T11`, `T12`, `/research-vault` | two and a half days | open, after 15 |
 
 ## Decisions the lead owns (open)
 

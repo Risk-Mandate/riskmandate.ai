@@ -528,6 +528,28 @@
       "not_done": [
         "The build itself: the licence block and LICENCE.md in the build, the v3 reading app, the new app vault, oc433z3m rebuilt and re-pushed, the vault page repositioned — waiting on the lead's answers to the four decisions in the brief"
       ]
+    },
+    {
+      "id": "I9",
+      "what": "Voice memo: the material to add to the Gmail-connector vault. Go back to first principles on the grant and map its side effects: a grant is the union of capabilities, and the reader needs the consequences, each explicit and each tied to the asset that makes it real (secrets in mail, reset links, mail from others); count the routes out; the authorisation to read is not the authorisation to forward; harvesting, mass send and what makes a platform suspend an account; mass change to the inbox's filing; realistic scenarios on the mandate; standards as mini-graphs in the vault; the vault navigated as a website with materials per audience.",
+      "how": "voice memo (Otter transcript, about nine minutes), 16 Sept",
+      "dated": "2026-09-16",
+      "status": "partly",
+      "produced": [
+        {
+          "what": "The direction brief: the memo in its own order, where the vault already is, the consequence layer (assets, consequences, standards mini-graphs, the triple), eleven first consequences for oc433z3m, what it settles for the MVP brief, the build order, what needs the lead",
+          "url": "https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/briefs/direction__consequences-assets-and-the-vault-as-a-website.md"
+        },
+        {
+          "what": "Task briefs T11 (consequences and assets) and T12 (standards mini-graphs); T04 amended with Who are you?",
+          "url": "https://github.com/Risk-Mandate/riskmandate.ai/tree/dev/.claude/briefs"
+        }
+      ],
+      "not_done": [
+        "The data itself: assets.json and consequences.json in the vault, CONSEQUENCES.md derived, the What follows view, the two scenarios (T11)",
+        "The research list documented from Google's pages: sending limits, suspension, the modify tools, Claude's web tools as a second leg",
+        "The standards mini-graphs (T12) and the Who are you? entry (T04, with the MVP build)"
+      ]
     }
   ]
 }

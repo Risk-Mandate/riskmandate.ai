@@ -3,29 +3,33 @@
 > The operations console behind riskmandate.ai: what needs the lead, what is in flight, every memo and brief, the board, the vaults, the records and the tooling — every count read off a file in the repository.
 > Source: https://riskmandate.ai/admin/ · noindex · written by scripts/site/build-admin.mjs
 
-**8**need the lead*1 queue row, 7 decisions*
+**9**need the lead*2 queue rows, 7 decisions*
 
 **2**waiting on somebody outside*the store's agent, the model site*
 
 **1**branches in flight*one work file each*
 
-**11**open tasks*of 15 in the queue · 1 done*
+**12**open tasks*of 17 in the queue · 1 done*
 
-**10**memos not fully worked*of 18 received*
+**11**memos not fully worked*of 19 received*
 
-**18**briefs written here*one page each*
+**19**briefs written here*one page each*
 
 **16**vaults built and pushed*4 measured · 8 asked for*
 
 **66**releases*8 Lab editions*
 
-## Needs the lead — 8
+## Needs the lead — 9
 
 The only filled rank on this console: a decision, a credential or a call nobody else holds. Read off [the state file](../admin/agents/03-state-and-next/).
 
 **Both pushes done** 16 Sept (`oc433z3m` public, `xjir6m0c` private). Still owed: the twelve screens as redacted image files in `evidence/`; the correction call (§4 of the workflow brief)
 
 waiting on the lead#11a
+
+**The MVP vault: `LICENCE.md` + `licence` block in the build; the v3 reading app with the left navigation, *Who are you?*, *Your keys*, *Keep it*, *Download*; a new app vault; `oc433z3m` re-pushed; the vault page repositioned (`direction__mvp-vault-and-the-reading-app.md`)**
+
+waiting on the lead: four decisions in the brief §6#15
 
 ***Behaviour* or *behavior* on the mark (the site is British; the recommendation is *behaviour*).**
 

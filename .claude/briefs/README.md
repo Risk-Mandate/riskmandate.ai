@@ -16,6 +16,8 @@ before claiming one, then write your `.claude/work/<branch>.md` naming the brief
 | `T08-docs-refresh.md` | bring `docs/how-the-website-works.md` to the current site | `docs/how-the-website-works.md` | half a day |
 | `T09-stop-deploying-the-vault.md` | inputs in the repository, the product in the vault; drop the snapshot fallback | the two build scripts, `abp-vaults.js`, `site/vaults/`, tests, CI | half a day |
 | `T10-use-case-vaults.md` | the two Voice Debrief use-case vaults, and a use-case group on the library | `site/vaults/voice-debrief-*/`, `index.json`, the library page | a day |
+| `T11-consequences-and-assets.md` | the consequence layer: assets, consequences, routes out, open consequences on the delta; first for `oc433z3m` | `site/vaults/claude-gmail-connector/data/{assets,consequences}.json` (new), `build-abp-vault.mjs`, the renderer, `_template/data/` | a day |
+| `T12-standards-mini-graphs.md` | GDPR, EU AI Act and ATT&CK as nodes inside the vault, titles only, for consequences and behaviours to link to | `_template/data/standards/` (new), `build-abp-vault.mjs`, the renderer, Lab 03 | a day, with T03 |
 
 A brief is done when its *Done means* list is true, `npm run check` is green, the state file is
 updated, and the branch is merged or handed over with its work file saying what is left.

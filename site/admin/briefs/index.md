@@ -3,9 +3,9 @@
 > Every document under docs/ on riskmandate.ai, rendered as a page: direction briefs, reviews, workflows, architecture and research, newest first.
 > Source: https://riskmandate.ai/admin/briefs/ · noindex · written by scripts/site/build-admin.mjs
 
-**18**documents under docs/*one page each, rendered from the file*
+**19**documents under docs/*one page each, rendered from the file*
 
-**4**direction briefs*the product and the site*
+**5**direction briefs*the product and the site*
 
 **3**reviews*read against a named source*
 
@@ -14,6 +14,10 @@
 These were written here, by the agent maintaining the site, in response to [the memos and documents that arrived](../../admin/memos/). Each is read against a named source and dated. Add a file under `docs/` and rerun `build-admin.mjs`: it has a page here and a test fails until it does.
 
 ## Newest first
+
+**[A grant is a union of capabilities; what the reader needs is the consequences — and the assets that make each one real](../../admin/briefs/direction__consequences-assets-and-the-vault-as-a-website/)**
+
+A consequence layer beside the grant: derived where it can be, authored where it must be, evidence-tiered like everything else, and never a score.16 September 2026 · direction
 
 **[The first MVP vault: `oc433z3m` becomes the product, and the reading app is rebuilt around it](../../admin/briefs/direction__mvp-vault-and-the-reading-app/)**
 
@@ -88,6 +92,10 @@ Move the interactive Risk Scenarios experience to the decoupled model:4 July 202
 How a page is put together, what happens when the browser loads one, and where each thing lives. Current as of v1.0.0; see the addendum below for what has been added since, and .claude/onboarding/01-map.md for the current map.
 
 ## Direction · where the site and the product are going, and why
+
+**[A grant is a union of capabilities; what the reader needs is the consequences — and the assets that make each one real](../../admin/briefs/direction__consequences-assets-and-the-vault-as-a-website/)**
+
+A consequence layer beside the grant: derived where it can be, authored where it must be, evidence-tiered like everything else, and never a score.16 September 2026 · direction
 
 **[The first MVP vault: `oc433z3m` becomes the product, and the reading app is rebuilt around it](../../admin/briefs/direction__mvp-vault-and-the-reading-app/)**
 
