@@ -87,6 +87,6 @@ The store's product pages use this site's slugs, which is what makes `shape` wor
 - **No key on any page, ever.** The read keys of the fifteen templates are public and printed on purpose. A buyer's vault key travels by a separate message and is never committed; a buyer's corrected vault has no public key. This is a rule of the site with a test behind it, not a preference.
 - **No payment, no email, no form on these pages.** They are static files. The store takes the money and holds the buyer's address; the follow-up mailbox is a person's.
 - **The wording is a commitment with a record.** Twenty-four hours is what the pages say. If it cannot be kept, the number moves on Pricing first, then on the pages, and the release note says so. The first orders will turn the commitment into a record.
-- **Every change ships as a release.** [v1.19.1](versions.html) made the pages; [v1.24.1](versions.html) made the entry-level page the download and set the 24 hours. The brief that asked for all of it is [D9 in the register](briefs.html), byte for byte, with what it is still owed.
+- **Every change ships as a release.** [v1.19.1](versions.html) made the pages; [v1.24.2](versions.html) made the entry-level page the download and set the 24 hours. The brief that asked for all of it is [D9 in the register](briefs.html), byte for byte, with what it is still owed.
 
 ## What neither site has settled yet.

@@ -657,6 +657,13 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
 .ab-claims div{font-size:14px;color:var(--muted);line-height:1.55}
 .ab-claims b{color:var(--text)}
 @media (max-width:760px){.ab-claims{grid-template-columns:1fr;gap:12px}}
+/* v1.24.2 — the mandate's word on each side effect, marked in place. The list that used to
+   follow this one repeated it: refused rows are a subset of the excess and both dropped
+   anything behind a boundary, so it could never carry a line that was not already above. */
+.ab-lab .ab-said{display:inline-block;font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;border-radius:99px;padding:1px 6px;white-space:nowrap;border:1px solid}
+.ab-lab .ab-said.no{color:var(--red);background:#FBEDEA;border-color:rgba(192,57,43,.3)}
+.ab-lab .ab-said.un{color:var(--gold);background:#FDF6EC;border-color:rgba(180,83,9,.3)}
+.ab-lab .ab-saidsum{font-family:var(--sans);font-size:11.5px;color:var(--muted);margin:8px 0 0;line-height:1.45}
 </style>
 </head>
 <body id="top">
@@ -666,7 +673,7 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
     <a class="ghlink" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener" aria-label="The source, on GitHub" title="Open source · Apache-2.0 code · CC BY 4.0 pages"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a>
-      <a class="version" href="versions.html" title="What shipped in v1.24.1">v1.24.1</a>
+      <a class="version" href="versions.html" title="What shipped in v1.24.2">v1.24.2</a>
     <button class="demo" data-demo>Get in touch</button>
   </div>
 </header>
@@ -1731,9 +1738,24 @@ RM.services.abpVaults = (function () {
       dom.el('div', { class: 'l' }, [dom.el('span', null, ['not asked for, nothing in the way']), dom.el('b', null, [String(d.counts.unbounded)])]),
       dom.el('span', { class: 'h' }, ['Side effects — not asked for, and nothing real stops it']),
     ]);
-    box.appendChild(sideEffects.length ? dom.el('ul', null, sideEffects.map(function (id) { return dom.el('li', { class: L.row[id].undo === 'no' ? '' : 'e' }, [dom.el('i'), dom.el('span', null, [WARN[id] || gloss(L, id), ' ', dom.el('code', null, [id + (L.row[id].undo === 'no' ? ' · cannot be undone' : '')])])]); })) : dom.el('p', { class: 'none' }, ['none — everything not asked for sits behind a boundary']));
-    box.appendChild(dom.el('span', { class: 'h' }, ['Told not to, and only told']));
-    box.appendChild(toldNot.length ? dom.el('ul', null, toldNot.map(function (id) { return dom.el('li', null, [dom.el('i'), dom.el('span', null, [WARN[id] || gloss(L, id), ' ', dom.el('code', null, [id])])]); })) : dom.el('p', { class: 'none' }, ['nothing the mandate refuses is left to a sentence alone']));
+    // One list, not two. "Told not to, and only told" used to follow this one, and by
+    // construction it could never hold anything new: the refused rows are a subset of the
+    // excess, and both lists dropped anything behind a boundary, so every line in it was
+    // already printed above. What it actually carried was the distinction between a row the
+    // mandate refused and one it never mentioned — so that is a mark on each line here, and
+    // the reader gets it once. The count of each is stated under the list.
+    box.appendChild(sideEffects.length ? dom.el('ul', null, sideEffects.map(function (id) {
+      var told = D[id];
+      return dom.el('li', { class: L.row[id].undo === 'no' ? '' : 'e' }, [dom.el('i'), dom.el('span', null, [
+        WARN[id] || gloss(L, id), ' ',
+        dom.el('code', null, [id + (L.row[id].undo === 'no' ? ' · cannot be undone' : '')]), ' ',
+        dom.el('span', { class: 'ab-said ' + (told ? 'no' : 'un') }, [told ? 'told not to — and only told' : 'never mentioned']),
+      ])]);
+    })) : dom.el('p', { class: 'none' }, ['none — everything not asked for sits behind a boundary']));
+    if (sideEffects.length) box.appendChild(dom.el('p', { class: 'ab-saidsum' }, [
+      String(toldNot.length) + ' of these the mandate refuses in words, and nothing but words stands in the way; ' +
+      String(sideEffects.length - toldNot.length) + ' it never mentioned at all.',
+    ]));
     box.appendChild(dom.el('span', { class: 'h' }, ['The lethal trifecta']));
     var legs = TRIFECTA.map(function (leg) { return { leg: leg, st: legState(L, leg) }; });
     box.appendChild(dom.el('div', { class: 'ab-tri' }, legs.map(function (x) { return dom.el('span', { class: !x.st.has ? 'n' : x.st.bounded ? 'b' : 'y' }, [dom.el('b', null, [x.leg.name]), dom.el('span', null, [!x.st.has ? 'not in the grant' : x.st.bounded ? 'present · behind a boundary' : 'present · ' + x.st.rows.length + (x.st.rows.length === 1 ? ' row' : ' rows') + ', unbounded'])]); })));

@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.24.2** · 2026-09-16 — The label panel names the mandate's word once, beside the row
+  Notes: https://riskmandate.ai/versions/1.24.2.md · Source: `git:v1.24.2`
 - **v1.24.1** · 2026-09-16 — The buy links land where the store serves, and name the level not the price
   Notes: https://riskmandate.ai/versions/1.24.1.md · Source: `git:v1.24.1`
 - **v1.24.0** · 2026-09-16 — The MVP vault: a reading app with a left navigation, the consequence layer, and the dual licence
