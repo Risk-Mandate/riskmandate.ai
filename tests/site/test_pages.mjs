@@ -287,3 +287,26 @@ test('every inline script parses — a page that throws on load is a broken page
     }
   }
 });
+
+test('a behaviour-policy vault page names the level and never the price, and its buy link is one the store serves', () => {
+  // The store owns the cart, the order and every price (its boundary, 16 September); this site
+  // owns the shapes, the policies and the vaults. A vault page shipped "from £10" on its buy
+  // button for four releases after that line was drawn, and every price the store moved would
+  // have had to be chased across sixteen generated pages. Naming the level instead is what the
+  // boundary asks for, and this is the check that keeps it true.
+  const catalogue = JSON.parse(read('vaults/index.json'));
+  const byPage = new Map(catalogue.vaults.map(v => [`abp-vault-${v.slug}.html`, v]));
+  for (const [file, v] of byPage) {
+    if (!existsSync(join(SITE, file))) continue;
+    const s = read(file);
+    assert.doesNotMatch(s, /£\s?\d/, `${file} carries a price — the store owns those`);
+    // and the buy link must be a store address this site has reason to believe resolves:
+    // the per-shape page, or the store's list of shapes while it has not built one yet.
+    const expected = v.store_page === false
+      ? 'https://store.sgit.ai/policies/'
+      : `https://store.sgit.ai/p/${v.slug}/`;
+    for (const [, href] of s.matchAll(/href="(https:\/\/store\.sgit\.ai\/[^"]*)"/g)) {
+      assert.equal(href, expected, `${file} links ${href}; the catalogue says it should link ${expected}`);
+    }
+  }
+});

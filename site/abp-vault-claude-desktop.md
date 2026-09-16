@@ -58,4 +58,4 @@ sgit prints the same key with a prefix that declares its intent; the public form
 
 ## Run this? Buy the one for your deployment.
 
-This template is free and public. Yours is this vault with the mandate corrected, a name on the licence, and no public key — and it recomputes when the grant moves. Four levels at the store: the pack downloaded for £10, a working vault you hold the keys to for £50, corrected for your situation for £500, or two sessions with a professional's signature for £1,500.
+This template is free and public, and you are reading it with the key printed above. Yours is this vault with the mandate corrected, a name on the licence, and no public key on it — and it recomputes when the grant moves. Four levels at the store: the pack as a download, a working vault you hold the keys to, that vault corrected for your situation by a named professional, or the same with two sessions and their signature. The store owns the prices, the cart and the order; this page holds none of them.
