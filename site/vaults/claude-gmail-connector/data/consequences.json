@@ -1,0 +1,268 @@
+{
+  "type": "riskmandate/abp-consequences/v1",
+  "_what_this_is": "What follows when a capability in the grant meets an asset in the deployment. Each is explicit, second person, in the mailbox's own words. `requires` names the capabilities, assets and other consequences it needs; `kind` is read | act | exfiltrate | disrupt | impersonate | outlive; `route` is the door out for an exfiltration; `evidence` is a tier from the vocabulary with a source and a date; `links` name nodes in data/standards/ by id; `questions` are what is not known, kept here rather than in a footnote. The barrier on a consequence is derived by the build from its required capabilities and is not typed here. No consequence carries a severity, a likelihood or a score. This site's extension of abp.sgit.ai v0.3.0, declared as such.",
+  "authored": "2026-09-16",
+  "authored_by": "the site, from the grant and the vendors' own pages; written to be argued with",
+  "consequences": [
+    {
+      "id": "consequence.read-secrets-in-mail",
+      "statement": "You can read any secret that has ever arrived in this mailbox: a password sent in plain text, an API key, an invitation.",
+      "requires": {
+        "capabilities": [
+          "read.message.tenant",
+          "read.credential.host"
+        ],
+        "assets": [
+          "asset.secrets-in-mail"
+        ]
+      },
+      "kind": "read",
+      "evidence": "inferred",
+      "source": "read.message.tenant is measured; that secrets are among the messages is inferred — no scope separates them",
+      "links": {
+        "attack": [
+          "attack.T1552.008"
+        ]
+      },
+      "questions": [
+        "None on the reach itself; the open question is asset.secrets-in-mail, which the deployer can untick if this mailbox holds none."
+      ]
+    },
+    {
+      "id": "consequence.read-reset-links",
+      "statement": "You can read every password-reset link and one-time code in this mailbox, past and future, for whatever other accounts use this address.",
+      "requires": {
+        "capabilities": [
+          "read.message.tenant"
+        ],
+        "assets": [
+          "asset.accounts-registered-to-this-address"
+        ],
+        "consequences": [
+          "consequence.read-secrets-in-mail"
+        ]
+      },
+      "kind": "read",
+      "evidence": "inferred",
+      "source": "the same reading capability; reset mail and one-time codes are messages",
+      "links": {
+        "attack": [
+          "attack.T1098"
+        ],
+        "gdpr": [
+          "gdpr.art32"
+        ]
+      }
+    },
+    {
+      "id": "consequence.reset-passwords",
+      "statement": "Because this deployment can also open a link, you can take over any account that resets its password by email to this address: read the reset link, follow it, set a new password.",
+      "requires": {
+        "capabilities": [
+          "read.message.tenant"
+        ],
+        "assets": [
+          "asset.accounts-registered-to-this-address",
+          "asset.claude-web-tools"
+        ],
+        "consequences": [
+          "consequence.read-reset-links"
+        ]
+      },
+      "kind": "act",
+      "evidence": "documented",
+      "source": "the third leg — opening the link — is not the Gmail connector; it is Claude's own web fetch, which the project lead confirmed is on in this deployment (2026-09-16). The connector reads the mail; web fetch follows the link. Take away either and the takeover is gone.",
+      "links": {
+        "attack": [
+          "attack.T1098",
+          "attack.T1078"
+        ]
+      },
+      "questions": [
+        "Whether the reset flow of a given service completes from a link alone, or asks for a second factor the mailbox does not hold, is per-service and not settled here."
+      ]
+    },
+    {
+      "id": "consequence.forward-any-message",
+      "statement": "You can send any message in this mailbox to anyone — messages the sender authorised the account holder to read, not to forward.",
+      "requires": {
+        "capabilities": [
+          "read.message.tenant",
+          "send.message.world"
+        ],
+        "assets": [
+          "asset.mail-from-others"
+        ]
+      },
+      "kind": "exfiltrate",
+      "route": "a reply, a forward, or a new message carrying the content, sent as the account holder",
+      "evidence": "measured",
+      "source": "read is measured; send is measured (one message, 2026-09-16); the asymmetry between reading and forwarding is a matter of authorisation and is recorded here as a claim about rights, not a legal finding",
+      "links": {
+        "attack": [
+          "attack.T1114",
+          "attack.T1114.002"
+        ],
+        "gdpr": [
+          "gdpr.art5",
+          "gdpr.art6"
+        ]
+      },
+      "questions": [
+        "Where the mailbox is a corporate one, the employer's own policy governs forwarding. This vault records that rights are held by the senders and the employer; it does not rule on whether a given forward is lawful."
+      ]
+    },
+    {
+      "id": "consequence.harvest-addresses-and-content",
+      "statement": "You can collect every address and every message body the mailbox holds, and assemble them.",
+      "requires": {
+        "capabilities": [
+          "read.message.tenant",
+          "read.record.history"
+        ],
+        "assets": [
+          "asset.contacts",
+          "asset.mail-from-others"
+        ]
+      },
+      "kind": "read",
+      "evidence": "measured",
+      "source": "read.message.tenant, measured",
+      "links": {
+        "attack": [
+          "attack.T1114",
+          "attack.T1589.002"
+        ],
+        "gdpr": [
+          "gdpr.art5"
+        ]
+      }
+    },
+    {
+      "id": "consequence.mass-send",
+      "statement": "You can send messages at whatever rate the platform allows, to as many recipients as it allows, as the account holder.",
+      "requires": {
+        "capabilities": [
+          "send.message.world",
+          "authenticate-as.credential.tenant"
+        ]
+      },
+      "kind": "act",
+      "evidence": "documented",
+      "source": "send is measured for one message; the rate and recipient limits, and what a burst triggers, are Google's and are documented from Google's pages or left open — never provoked on a live account",
+      "links": {
+        "attack": [
+          "attack.T1566"
+        ]
+      },
+      "questions": [
+        "Gmail's per-account sending limits, and whether the connector's send is subject to them, are not yet read from Google's pages. See RESEARCH-NEEDED.md."
+      ]
+    },
+    {
+      "id": "consequence.attack-others-from-this-account",
+      "statement": "You can send payloads, links and pretexts to other people and other organisations, from a real account they may trust.",
+      "requires": {
+        "consequences": [
+          "consequence.mass-send",
+          "consequence.send-without-trace"
+        ]
+      },
+      "kind": "impersonate",
+      "evidence": "documented",
+      "source": "follows from send; internal recipients are the most exposed, because a message from a colleague's real address clears the filters a stranger's would not",
+      "links": {
+        "attack": [
+          "attack.T1534",
+          "attack.T1566.001"
+        ]
+      }
+    },
+    {
+      "id": "consequence.provoke-suspension",
+      "statement": "Sending enough, fast enough, may have Google suspend the account, and on a Workspace domain possibly the organisation.",
+      "requires": {
+        "consequences": [
+          "consequence.mass-send"
+        ]
+      },
+      "kind": "disrupt",
+      "evidence": "documented",
+      "source": "Google operates sending limits and abuse protections; the sequence that suspends an account, and one that reaches the organisation, is read from Google's pages and dated, never triggered to find out",
+      "questions": [
+        "The exact thresholds and the sequence of events are not yet read from Google's pages. Documented only; never measured."
+      ]
+    },
+    {
+      "id": "consequence.rearrange-the-inbox",
+      "statement": "You can relabel, archive, trash or mark every message, undoing the filing the account holder built to find things.",
+      "requires": {
+        "capabilities": [
+          "read.message.tenant",
+          "read.record.history"
+        ],
+        "assets": [
+          "asset.the-owners-filing"
+        ]
+      },
+      "kind": "disrupt",
+      "evidence": "documented",
+      "source": "the gmail.modify scope on the consent screen reads \"Read, compose, and send emails from your Gmail account\" and permits changing labels and moving messages; which of these the connector's tools expose is a research row. Permanent deletion is out of reach — the widest consented scope is gmail.modify, which does not bypass Trash.",
+      "links": {
+        "attack": [
+          "attack.T1565.001",
+          "attack.T1564.008"
+        ]
+      },
+      "questions": [
+        "Whether the connector exposes tools to change a message's labels, archive, trash, mark read or mark spam — and whether any of these can be done in bulk — is not settled from either vendor's page. Two of these (change one label, mark one read) may be checked on the deployer's own account without provoking anything; the bulk versions are documented, never run."
+      ]
+    },
+    {
+      "id": "consequence.standing-forward",
+      "statement": "You can create a filter that forwards future mail to an outside address, with nobody present — exfiltration that outlives the session.",
+      "requires": {
+        "capabilities": [
+          "create.schedule.tenant",
+          "send.message.world"
+        ]
+      },
+      "kind": "outlive",
+      "route": "a Gmail filter with a forward action, running on every future message after the chat ends",
+      "evidence": "documented",
+      "source": "a filter is the create.schedule.tenant row; whether create_filter runs under the three consented scopes, and whether a filter it makes can forward to an outside address, is a research row",
+      "links": {
+        "attack": [
+          "attack.T1114.003",
+          "attack.T1564.008"
+        ],
+        "gdpr": [
+          "gdpr.art5"
+        ]
+      },
+      "questions": [
+        "Does create_filter work under the consented scopes, and can its filter forward to an outside address? See RESEARCH-NEEDED.md."
+      ]
+    },
+    {
+      "id": "consequence.send-without-trace",
+      "statement": "Mail you send carries nothing on its face that identifies it as sent by an agent rather than by the account holder.",
+      "requires": {
+        "capabilities": [
+          "send.message.world",
+          "authenticate-as.credential.tenant"
+        ]
+      },
+      "kind": "impersonate",
+      "evidence": "measured",
+      "source": "measured 2026-09-16: the sent message's headers carry only a Received line from gmailapi.google.com with a numeric project id; no header names Claude or the connector as the author",
+      "questions": [
+        "Whether the numeric sender in the Received line can be tied back to the connector's OAuth client, and whether any published method lets a recipient tell an agent-sent message from a person-sent one, is a research row."
+      ]
+    }
+  ],
+  "provenance": {
+    "note": "Authored on this site from the grant, the deployer's measured run and the vendors' own pages. Every consequence is a claim about this deployment shape, none about Google or Anthropic as a party. Where a consequence is documented rather than measured, it was read from a page and never provoked on a live account.",
+    "licence": "CC BY 4.0"
+  }
+}

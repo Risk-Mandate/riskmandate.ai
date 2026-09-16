@@ -1,12 +1,19 @@
 {
   "type": "riskmandate/abp-app-context/v1",
   "dist": {
-    "chatgpt-web.zip": true
+    "chatgpt-web.zip": {
+      "bytes": 65608,
+      "sha256": "dcea6aa936560f1eeb289f268a8c173a72182650ae5503563e7a250eea5898a1"
+    }
   },
   "scenarios": 6,
+  "licence": {
+    "kind": "cc-by-4.0"
+  },
+  "copy": "template",
   "app_vault": {
-    "vault_id": "fl3i7lu4",
+    "vault_id": "vbhmlulo",
     "entry": "index.html",
-    "version": "v4"
+    "version": "v5"
   }
 }

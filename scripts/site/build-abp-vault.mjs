@@ -183,6 +183,64 @@ for (const sc of scenarios) {
   for (const id of [...sc.want, ...sc.do_not_want]) if (!CAP[id]) { console.error(`scenario ${sc.id}: unknown capability ${id}`); process.exit(1); }
   if (sc.want.some(id => sc.do_not_want.includes(id))) { console.error(`scenario ${sc.id}: wants and refuses the same row`); process.exit(1); }
 }
+
+// ----------------------------------------------------------------- the consequence layer
+// A grant is the union of capabilities; the reader needs the consequences — what follows when a
+// capability meets an asset in the deployment. assets.json and consequences.json are authored;
+// data/standards/ are the mini-graphs a consequence links to (titles only). Read from the vault,
+// falling back to the template's (empty for assets/consequences, full for standards) so every
+// vault carries the layer. The barrier on a consequence is DERIVED here, never authored: it is
+// the weakest barrier among the capabilities it requires — the least that stands in its way.
+const readData = (rel) => existsSync(join(DIR, rel)) ? rd(rel) : (existsSync(join(TEMPLATE, rel)) ? JSON.parse(readFileSync(join(TEMPLATE, rel), 'utf8')) : null);
+const assetsDoc  = readData('data/assets.json')       || { assets: [] };
+const consDoc    = readData('data/consequences.json') || { consequences: [] };
+const assets     = assetsDoc.assets || [];
+const consequences = consDoc.consequences || [];
+const STANDARDS  = {};
+for (const st of ['gdpr', 'eu-ai-act', 'attack']) { const d = readData(`data/standards/${st}.json`); if (d) for (const n of d.nodes || []) STANDARDS[n.id] = { ...n, standard: st }; }
+const ASSET      = Object.fromEntries(assets.map(a => [a.id, a]));
+const CONS       = Object.fromEntries(consequences.map(c => [c.id, c]));
+const BAR_RANK   = { none: 0, expectation: 1, setting: 2, boundary: 3 };   // least in the way → most
+const hasConsequences = consequences.length > 0;
+
+// validate: every reference resolves, every standards link is a real node, present is a known word
+for (const a of assets) {
+  if (!['assumed', 'confirmed', 'absent'].includes(a.present)) { console.error(`asset ${a.id}: present must be assumed | confirmed | absent`); process.exit(1); }
+  for (const [k, ids] of Object.entries(a.links || {})) for (const id of ids) if (!STANDARDS[id]) { console.error(`asset ${a.id}: link ${id} is not a node in data/standards/`); process.exit(1); }
+}
+const CONS_KINDS = ['read', 'act', 'exfiltrate', 'disrupt', 'impersonate', 'outlive'];
+for (const c of consequences) {
+  if (!CONS_KINDS.includes(c.kind)) { console.error(`consequence ${c.id}: kind must be one of ${CONS_KINDS.join(', ')}`); process.exit(1); }
+  for (const id of (c.requires?.capabilities || [])) if (!rowOf[id]) { console.error(`consequence ${c.id}: requires capability ${id}, not in this grant`); process.exit(1); }
+  for (const id of (c.requires?.assets || []))       if (!ASSET[id]) { console.error(`consequence ${c.id}: requires asset ${id}, not in assets.json`); process.exit(1); }
+  for (const id of (c.requires?.consequences || [])) if (!CONS[id])  { console.error(`consequence ${c.id}: requires consequence ${id}, not defined`); process.exit(1); }
+  for (const [k, ids] of Object.entries(c.links || {})) for (const id of ids) if (!STANDARDS[id]) { console.error(`consequence ${c.id}: link ${id} is not a node in data/standards/`); process.exit(1); }
+  if (/score|severity|rating|likelihood|critical|high risk|low risk/i.test(JSON.stringify({ s: c.statement, so: c.source }))) { console.error(`consequence ${c.id}: reads like a score — a consequence has a kind and a barrier, never a rating`); process.exit(1); }
+}
+// every grant row must be the parent of at least one consequence, or say none was found
+if (hasConsequences) {
+  const covered = new Set(consequences.flatMap(c => c.requires?.capabilities || []));
+  const orphan = grantIds.filter(id => !covered.has(id) && !(grant.no_consequence || []).includes(id));
+  if (orphan.length) { console.error(`grant rows with no consequence and not in grant.no_consequence: ${orphan.join(', ')}`); process.exit(1); }
+}
+// derived barrier per consequence: the weakest among its required capabilities (recursing through
+// required consequences), so a chain is only as bounded as its least-bounded link.
+const consBarrier = (id, seen = new Set()) => {
+  if (seen.has(id)) return 'boundary'; seen.add(id);
+  const c = CONS[id]; if (!c) return 'boundary';
+  const caps = (c.requires?.capabilities || []).map(cid => rowOf[cid].barrier);
+  const sub  = (c.requires?.consequences || []).map(sid => consBarrier(sid, seen));
+  const all  = [...caps, ...sub]; if (!all.length) return 'expectation';
+  return all.reduce((a, b) => BAR_RANK[b] < BAR_RANK[a] ? b : a);
+};
+const consList = (ids) => ids.map(id => `\`${id}\``).join(', ');
+const linkList = (links) => Object.entries(links || {}).flatMap(([, ids]) => ids).map(id => STANDARDS[id] ? `${STANDARDS[id].title} (${STANDARDS[id].technique || STANDARDS[id].article || id})` : id).join('; ');
+// The licence over this copy — resolved early so the footer of every derived file names it.
+// The full LICENCE.md is assembled lower down; the build refuses a commercial copy missing a field.
+const lic = cfg.licence || { kind: 'cc-by-4.0' };
+const licLine = lic.kind === 'commercial'
+  ? `Licensed to ${lic.licensee || '—'} under RiskMandate's commercial licence (order ${lic.order || '—'}); the published template is CC BY 4.0. See LICENCE.md.`
+  : 'Licence: the published template is CC BY 4.0; a paid copy carries a commercial licence to the buyer. See LICENCE.md.';
 const who = {
   organisation: cfg.organisation || (isTemplate ? '— not yet issued to anyone —' : ''),
   agent: cfg.agent || grant.product,
@@ -196,7 +254,7 @@ const head = (title, blurb) => nl(
 const foot = () => nl('', '---', '',
   `_${validity.statement}_ `,
   `${validity.no_score} `,
-  `Generated by \`scripts/site/build-abp-vault.mjs\` from \`data/grant.json\`, \`data/mandate.json\` and the pinned vocabulary; \`data/mandate.json\` is the only file a person writes. Licence: CC BY 4.0.`);
+  `Generated by \`scripts/site/build-abp-vault.mjs\` from \`data/grant.json\`, \`data/mandate.json\` and the pinned vocabulary; \`data/mandate.json\` is the only file a person writes. ${licLine}`);
 
 const rowLine = (id) => {
   const r = rowOf[id];
@@ -446,6 +504,86 @@ const abpMd = nl(
   'The same behaviour policy is dangerous in one deployment and harmless in another, and nothing about the document changed. A score needs the assets and the consequences, and this document has neither. That is not a preference; it is where the information is.',
   foot());
 
+// ----------------------------------------------------------------- CONSEQUENCES.md
+// A consequence is "open" when every capability it requires is in the excess or unstated (the
+// mandate did not scope it) and every asset it requires is present or assumed — the same
+// discipline as the delta, recomputed here.
+const assetPresent = (id) => ASSET[id] && ASSET[id].present !== 'absent';
+const consOpen = (c) => (c.requires?.capabilities || []).every(cid => !want.has(cid))
+  && (c.requires?.assets || []).every(assetPresent)
+  && (c.requires?.consequences || []).every(sid => CONS[sid] && consOpen(CONS[sid]));
+const KIND_LABEL = { read: 'reading', act: 'an action', exfiltrate: 'data leaving', disrupt: 'disruption', impersonate: 'acting as the account', outlive: 'outliving the session' };
+const consRow = (c) => {
+  const b = consBarrier(c.id);
+  const reqs = [...(c.requires?.capabilities || []).map(id => `\`${id}\``), ...(c.requires?.assets || []).map(id => `${id.replace('asset.', '')}`), ...(c.requires?.consequences || []).map(id => `→ ${id.replace('consequence.', '')}`)].join(' · ');
+  return `| **${c.statement}** | ${c.kind} | ${GLYPH[b]} ${b} | ${c.evidence}${MEASURED.has(c.evidence) ? ' ✓' : ''} | ${reqs} | ${consOpen(c) ? 'open' : 'scoped'} |`;
+};
+const exfil = consequences.filter(c => c.kind === 'exfiltrate' || c.kind === 'outlive');
+const consequencesMd = hasConsequences ? nl(
+  head('CONSEQUENCES — what follows when the agent meets what is in the deployment',
+       'A grant is the union of what the agent can do; this is what that adds up to here. Each line is explicit, and each names the capability and the asset that make it real. Derived from the grant, the assets and the vendors\' own pages — never a score.'),
+  '## Why this file exists', '',
+  'The grant says the agent can read the mailbox. The consequence says what that means when the mailbox holds a password-reset link and the account resets by email. A capability is what the agent can do; a consequence is what follows when that capability meets an asset that is actually there. The barrier on a consequence is the weakest barrier among the capabilities it needs: a chain is only as bounded as its least-bounded link.', '',
+  '## The assets it acts on', '',
+  '| Asset | In this deployment | Present | Whose rights |',
+  '| --- | --- | --- | --- |',
+  assets.map(a => `| ${a.statement} | \`${a.id}\` | ${a.present}${a.configurable ? ' — you can untick this' : ''} | ${a.rights} |`), '',
+  '## What follows', '',
+  '| Consequence | Kind | Barrier | Evidence | Requires | Mandate |',
+  '| --- | --- | --- | --- | --- | --- |',
+  consequences.map(consRow), '',
+  '_Barrier is derived from the required capabilities: ● none, ◉ a rule in prose, ◐ a setting the account can flip, ○ a boundary enforced above it. "Open" means the mandate did not scope every capability it needs and every asset it needs is present or assumed._', '',
+  exfil.length ? [
+    '## The routes out, counted', '',
+    `**${exfil.length}** ways data leaves this deployment, or keeps leaving after the chat ends. Each names the door and what stands in it.`, '',
+    '| Route | Door | Barrier | Outlives the session | Told not to |',
+    '| --- | --- | --- | --- | --- |',
+    exfil.map(c => {
+      const b = consBarrier(c.id);
+      const told = (c.requires?.capabilities || []).some(id => refuse.has(id));
+      return `| ${c.statement} | ${c.route || '—'} | ${GLYPH[b]} ${b} | ${c.kind === 'outlive' ? 'yes' : 'no'} | ${told ? 'yes' : 'no'} |`;
+    }).join('\n'), ''] : [],
+  '## The notes behind each', '',
+  consequences.map(c => `- **${c.statement}**\n  ${c.source}${linkList(c.links) ? `\n  _Touches:_ ${linkList(c.links)}` : ''}${(c.questions || []).length ? `\n  _Open:_ ${c.questions.join(' ')}` : ''}`), '',
+  '## What this is, and is not', '',
+  '- Every line is a claim about **this deployment shape**, not about the vendors as parties.',
+  '- A consequence marked *documented* was read from a vendor\'s own page and never provoked on a live account. A consequence marked *measured* was run once, on an account the deployer is entitled to run.',
+  '- The authorisation to read a message is recorded, where it applies, as not being authorisation to forward it. That is a statement about whose rights are in play, with the standards it touches linked; it is not a legal finding.',
+  '- No consequence is scored, ranked or given a likelihood. It has a kind and a barrier, and that is the whole of it.',
+  foot()) : null;
+
+// ----------------------------------------------------------------- LICENCE.md
+// The dual licence: the published template is CC BY 4.0; a paid copy carries a commercial licence
+// to the buyer over the same material. Assembled from the `licence` block in vault.json and the
+// commercial body in _template/LICENCE.template.md. The build refuses a commercial licence with a
+// missing field, so a licensed copy can never ship without a name, an order and a level on it.
+if (lic.kind === 'commercial') {
+  for (const f of ['licensee', 'order', 'level']) if (!lic[f]) { console.error(`vault.json licence: kind "commercial" needs a ${f} — a licensed copy names its buyer, order and level`); process.exit(1); }
+}
+const commercialBody = existsSync(join(TEMPLATE, 'LICENCE.template.md'))
+  ? readFileSync(join(TEMPLATE, 'LICENCE.template.md'), 'utf8').replace(/^<!--[\s\S]*?-->\n*/, '').trim()
+  : '';
+const ccBySection = nl(
+  '## The published material — CC BY 4.0', '',
+  'The template this copy was built from is published under the Creative Commons Attribution 4.0 International licence (CC BY 4.0). Anyone may copy, share and adapt it, including commercially, provided they attribute RiskMandate, link the licence, and indicate any changes.',
+  `- Template shape: \`${grant.id}\`${cfg.licence?.kind === 'commercial' ? ` (this licensed copy was built from it)` : ''}`,
+  '- Licence: <https://creativecommons.org/licenses/by/4.0/>');
+const licenceMd = nl(
+  head('LICENCE — what you may do with this copy',
+       lic.kind === 'commercial'
+         ? `This copy is licensed to ${lic.licensee}. It carries a commercial licence over the material; the published template it was built from remains CC BY 4.0.`
+         : 'This is the published template. It is CC BY 4.0: yours to copy, adapt and use, including commercially, with attribution.'),
+  '## This copy', '',
+  lic.kind === 'commercial'
+    ? nl(`**Licensed to** ${lic.licensee} · **order** ${lic.order} · **level** ${lic.level} · **issued** ${lic.issued || '—'}.`, '',
+         'A commercial licence, granted below.', '',
+         commercialBody, '',
+         lic.commercial_wording ? `The store records the intent of this licence and its final wording at <${lic.commercial_wording}>; the text above governs this copy.` : '')
+    : nl('This copy is the **published template**, licensed CC BY 4.0 (see below). A paid copy replaces this section with a commercial licence to the named buyer, granting full rights to use the material — including in client work, without attribution.', '',
+         lic.commercial_wording ? `What the paid licence adds is described by the store at <${lic.commercial_wording}>; its final wording is not yet drafted, and the ledger says so rather than this file implying otherwise.` : ''), '',
+  ccBySection,
+  foot());
+
 // ----------------------------------------------------------------- history
 const histPath = join(DIR, 'history', 'index.json');
 mkdirSync(join(DIR, 'history'), { recursive: true });
@@ -474,6 +612,8 @@ const researchMd = research.length ? nl(
   foot()) : null;
 const outputs = {
   ...(researchMd ? { 'RESEARCH-NEEDED.md': researchMd } : {}),
+  ...(consequencesMd ? { 'CONSEQUENCES.md': consequencesMd } : {}),
+  'LICENCE.md': licenceMd,
   'data/delta.json': JSON.stringify(delta, null, 2) + '\n',
   'data/validity.json': JSON.stringify(validity, null, 2) + '\n',
   'history/index.json': JSON.stringify(hist, null, 2) + '\n',
@@ -501,15 +641,18 @@ if (existsSync(join(TEMPLATE, '..', '_app', 'loader.html'))) {
     { name: 'AGENTS.md', data: Buffer.from(agents, 'utf8') }, { name: 'SKILL.md', data: Buffer.from(skill, 'utf8') },
     { name: 'MAP-A-GRANT.md', data: readFileSync(existsSync(join(DIR, 'MAP-A-GRANT.md')) ? join(DIR, 'MAP-A-GRANT.md') : join(TEMPLATE, 'MAP-A-GRANT.md')) },
     ...(scenarios.length ? [{ name: 'data/scenarios.json', data: readFileSync(join(DIR, 'data/scenarios.json')) }] : []),
+    ...(hasConsequences ? [{ name: 'data/assets.json', data: Buffer.from(JSON.stringify(assetsDoc, null, 2) + '\n', 'utf8') }, { name: 'data/consequences.json', data: Buffer.from(JSON.stringify(consDoc, null, 2) + '\n', 'utf8') }, ...['gdpr', 'eu-ai-act', 'attack'].filter(st => existsSync(join(DIR, `data/standards/${st}.json`))).map(st => ({ name: `data/standards/${st}.json`, data: readFileSync(join(DIR, `data/standards/${st}.json`)) }))] : []),
     { name: 'vault.json', data: readFileSync(join(DIR, 'vault.json')) },
     { name: 'data/grant.json', data: readFileSync(join(DIR, 'data/grant.json')) }, { name: 'data/mandate.json', data: readFileSync(join(DIR, 'data/mandate.json')) },
     ...['capabilities', 'barriers', 'undo-classes', 'evidence-tiers'].map(f => ({ name: `data/vocabulary/${f}.json`, data: readFileSync(join(DIR, `data/vocabulary/${f}.json`)) })),
   ].sort((a, b) => a.name < b.name ? -1 : 1);
   const zipName = `${slug}.zip`, pdfName = `${slug}.pdf`;
-  outputs[`dist/${zipName}`] = zipStore(zipEntries);
-  const dist = { [zipName]: true, ...(existsSync(join(distDir, pdfName)) ? { [pdfName]: true } : {}) };
+  const zipBuf = zipStore(zipEntries);
+  outputs[`dist/${zipName}`] = zipBuf;
+  const zipSha = createHash('sha256').update(zipBuf).digest('hex');
+  const dist = { [zipName]: { bytes: zipBuf.length, sha256: zipSha }, ...(existsSync(join(distDir, pdfName)) ? { [pdfName]: { bytes: existsSync(join(distDir, pdfName)) ? readFileSync(join(distDir, pdfName)).length : 0 } } : {}) };
   // what the renderer needs to know that is not in a data file: which dist files exist
-  outputs['data/app.json'] = JSON.stringify({ type: 'riskmandate/abp-app-context/v1', dist, ...(research.length ? { research_open: research.length } : {}), ...(scenarios.length ? { scenarios: scenarios.length } : {}), app_vault: appVault ? { vault_id: appVault.vault_id, entry: appVault.entry || 'index.html', version: appVault.version || null } : null }, null, 2) + '\n';
+  outputs['data/app.json'] = JSON.stringify({ type: 'riskmandate/abp-app-context/v1', dist, ...(research.length ? { research_open: research.length } : {}), ...(scenarios.length ? { scenarios: scenarios.length } : {}), ...(hasConsequences ? { consequences: consequences.length, consequences_open: consequences.filter(consOpen).length, routes_out: exfil.length } : {}), licence: { kind: lic.kind, ...(lic.kind === 'commercial' ? { licensee: lic.licensee, order: lic.order, level: lic.level } : {}) }, copy: cfg.copy || 'template', app_vault: appVault ? { vault_id: appVault.vault_id, entry: appVault.entry || 'index.html', version: appVault.version || null } : null }, null, 2) + '\n';
   const loader = readFileSync(join(TEMPLATE, '..', '_app', 'loader.html'), 'utf8');
   if (!loader.includes('/*__APP_VAULT__*/{}')) { console.error('loader.html has no /*__APP_VAULT__*/{} marker'); process.exit(1); }
   const cfgApp = { endpoint: catalogue.endpoint, vault_id: appVault?.vault_id || null, read_key: appVault?.key || null, entry: appVault?.entry || 'index.html', version: appVault?.version || null, static: '../_app/index.html' };
@@ -551,6 +694,14 @@ for (const generic of ['AGENTS.md', 'SKILL.md', 'MAP-A-GRANT.md']) {
   const p = join(DIR, generic);
   if (!existsSync(p) && existsSync(join(TEMPLATE, generic)) && !CHECK) copyFileSync(join(TEMPLATE, generic), p);
   if (CHECK && !existsSync(p)) stale.push(generic);
+}
+// The consequence-layer data files travel with every vault: the standards mini-graphs, and empty
+// assets/consequences for a vault that has not authored its own yet. Copied from the template if
+// absent, like the generics — never overwritten, because a vault that has authored them owns them.
+for (const dataFile of ['data/standards/gdpr.json', 'data/standards/eu-ai-act.json', 'data/standards/attack.json', 'data/assets.json', 'data/consequences.json']) {
+  const p = join(DIR, dataFile);
+  if (!existsSync(p) && existsSync(join(TEMPLATE, dataFile)) && !CHECK) { mkdirSync(dirname(p), { recursive: true }); copyFileSync(join(TEMPLATE, dataFile), p); }
+  if (CHECK && !existsSync(p) && existsSync(join(TEMPLATE, dataFile))) stale.push(dataFile);
 }
 if (CHECK) {
   if (stale.length) { console.error(`stale: ${stale.join(', ')} — run build-abp-vault.mjs ${slug}`); process.exit(1); }

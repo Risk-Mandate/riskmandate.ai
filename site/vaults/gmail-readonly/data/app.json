@@ -1,13 +1,20 @@
 {
   "type": "riskmandate/abp-app-context/v1",
   "dist": {
-    "gmail-readonly.zip": true
+    "gmail-readonly.zip": {
+      "bytes": 79834,
+      "sha256": "520fb50375789c4a27c0c9edcd836f8116660fa678851ea86d9622ab94df2ca0"
+    }
   },
   "research_open": 3,
   "scenarios": 6,
+  "licence": {
+    "kind": "cc-by-4.0"
+  },
+  "copy": "template",
   "app_vault": {
-    "vault_id": "fl3i7lu4",
+    "vault_id": "vbhmlulo",
     "entry": "index.html",
-    "version": "v4"
+    "version": "v5"
   }
 }

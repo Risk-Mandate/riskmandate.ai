@@ -1,12 +1,19 @@
 {
   "type": "riskmandate/abp-app-context/v1",
   "dist": {
-    "claude-desktop.zip": true
+    "claude-desktop.zip": {
+      "bytes": 77313,
+      "sha256": "64467f835fdf6dd85ee0f31eb26d094a69d8345ff87d32aa3da1a0ac763212c0"
+    }
   },
   "scenarios": 6,
+  "licence": {
+    "kind": "cc-by-4.0"
+  },
+  "copy": "template",
   "app_vault": {
-    "vault_id": "fl3i7lu4",
+    "vault_id": "vbhmlulo",
     "entry": "index.html",
-    "version": "v4"
+    "version": "v5"
   }
 }

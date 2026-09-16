@@ -13,5 +13,17 @@
   "issued": null,
   "valid_until": null,
   "measured_rows": "4 of 6",
-  "shape_note": "Not published at abp.sgit.ai: authored here from Anthropic's and Google's own pages (see data/grant.json provenance), scoped to Gmail alone — the Google Workspace connectors are toggled individually in Claude. Four rows measured on 2026-09-16 by the deployer on an account they run: sign-in, read, one send to an address they named, and the label inventory. The record is in evidence/."
+  "shape_note": "Not published at abp.sgit.ai: authored here from Anthropic's and Google's own pages (see data/grant.json provenance), scoped to Gmail alone — the Google Workspace connectors are toggled individually in Claude. Four rows measured on 2026-09-16 by the deployer on an account they run: sign-in, read, one send to an address they named, and the label inventory. The record is in evidence/.",
+  "copy": "template",
+  "licence": {
+    "kind": "cc-by-4.0",
+    "licensee": null,
+    "order": null,
+    "level": null,
+    "issued": null,
+    "commercial_wording": "https://store.sgit.ai/ledger/#claim-entry-level-dual-licence",
+    "note": "The published template is CC BY 4.0. A paid copy carries a commercial licence to the buyer over the same material, granting full rights to use it, including in the buyer's own and client work, without attribution. The store owns the order and the licence wording; this field records which licence applies to this copy."
+  },
+  "reviewed_by": null,
+  "signed_off": null
 }

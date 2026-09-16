@@ -5,26 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Agent Behaviour Policy — vault app</title>
 <!--
-  The Agent Behaviour Policy, delivered as a vault app.
+  The Agent Behaviour Policy, delivered as a vault app. v3.
 
   One file. Nothing external: no fonts, no CDNs, no analytics, no <link href> or
   <script src> against vault paths — the authoring contract for a vault app, because
   this page runs inside a sandboxed frame from an opaque origin.
 
   Data comes from the vault itself, over the window.sg bridge (sg.vfs.readText) when
-  the vault host is present; from same-origin fetches when served from a static copy;
-  and from the inlined FALLBACK when neither works. The FALLBACK is injected by
-  scripts/site/build-abp-vault.mjs, so the app can render with no bridge at all.
+  the vault host is present, and from same-origin fetches when served from a static copy.
+  A data vault carries no fallback: the loader fetches this renderer and boots it against
+  the vault's own files.
 
-  It is written for the person who was HANDED this vault, who may not be the person
-  who made it: the first view says what it is, where the pieces go, what the agent is
-  asked to do and not to do, and how to give it to the agent — as copy-and-paste
-  blocks, as a zip, as a PDF.
+  It is written for the person who was HANDED this vault. The shape is a left navigation —
+  Start here, then the record (the ABP, the grant, the delta, what follows), then what you
+  do with it (correct the mandate, give it to the agent, build a grant, authorise it), then
+  what you hold (the licence, your keys, the history, the download). Every view names the
+  file it is, and shows it.
 
-  The viewer computes one thing the files do not carry: a correction. Move a
-  capability between want / do not want / unstated and the delta is recomputed here,
-  with the same semantics as the build (abp.delta/v1). The result is a mandate.json
-  to paste back into the vault; the app writes nothing, by declaration (app.json).
+  Two things the files do not carry, computed here: a correction (move a capability, the
+  delta recomputes with abp.delta/v1 semantics) and a projection per audience (who you are
+  decides which of the same facts you are shown). The app writes nothing, by declaration.
 
   No score is computed or rendered anywhere in this file, and there is no field for one.
 -->
@@ -32,76 +32,115 @@
 :root{
   --bg:#F7F6F2; --bg2:#EFEDE7; --card:#FFFFFF; --ink:#0D0D0C; --text:#1A1917; --muted:#4A4845; --faint:#8A8780; --border:#E2DFD8;
   --green:#1A7F5A; --green-2:#22c55e; --greenBg:#EBF5F0; --gold:#B45309; --red:#C0392B; --blue:#1D4ED8; --amber:#D98C3F;
-  --fg:#F7F6F2; --fg-2:rgba(247,246,242,.6);
+  --fg:#F7F6F2; --fg-2:rgba(247,246,242,.6); --fg-3:rgba(247,246,242,.4);
+  --line-d:rgba(247,246,242,.10); --line-d2:rgba(247,246,242,.18);
   --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   --mono:ui-monospace,"SF Mono","JetBrains Mono","Roboto Mono",Menlo,Consolas,monospace;
-  --r:10px; --r-sm:7px; --wrap:1060px;
+  --r:10px; --r-sm:7px; --rail-w:250px;
 }
 *{box-sizing:border-box}
-html,body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
+html,body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
 a{color:var(--green)}
 code,.mono{font-family:var(--mono);font-size:.92em}
-h1,h2,h3{margin:0;line-height:1.15;letter-spacing:-.02em}
-h1{font-size:clamp(26px,3.6vw,40px);font-weight:800}
-h2{font-size:clamp(19px,2.4vw,25px);font-weight:700}
-h3{font-size:16px;font-weight:700}
+h1,h2,h3{margin:0;line-height:1.14;letter-spacing:-.02em}
+h1{font-size:clamp(25px,3.4vw,38px);font-weight:800}
+h2{font-size:clamp(18px,2.3vw,24px);font-weight:700}
+h3{font-size:15.5px;font-weight:700}
 p{margin:0}
-.wrap{max-width:var(--wrap);margin:0 auto;padding:0 22px}
 
-/* top bar — the version lives here, as the guidance asks */
-.top{position:sticky;top:0;z-index:20;background:var(--ink);color:var(--fg);border-bottom:1px solid rgba(255,255,255,.08)}
-.top .wrap{display:flex;align-items:center;gap:14px;min-height:54px;flex-wrap:wrap;padding-top:6px;padding-bottom:6px}
+/* top bar */
+.top{position:sticky;top:0;z-index:30;background:var(--ink);color:var(--fg);border-bottom:1px solid var(--line-d)}
+.top .bar{display:flex;align-items:center;gap:14px;min-height:52px;padding:6px max(16px,env(safe-area-inset-left));flex-wrap:wrap}
 .seal{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:14px;color:var(--fg);white-space:nowrap}
 .seal svg{width:24px;height:24px;display:block}
 .seal em{font-style:normal;color:var(--fg-2);font-weight:500;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
-.tabs{display:flex;gap:2px;flex-wrap:wrap;margin-left:auto}
-.tab{background:none;border:0;color:var(--fg-2);font:inherit;font-size:13px;padding:7px 10px;border-radius:7px;cursor:pointer}
-.tab:hover{color:var(--fg)}
-.tab.on{color:var(--fg);background:rgba(255,255,255,.1);font-weight:600}
-.ver{font-family:var(--mono);font-size:11px;color:var(--fg-2);border:1px solid rgba(255,255,255,.18);border-radius:6px;padding:4px 7px;background:none;cursor:pointer}
+.top .who{margin-left:auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.ver{font-family:var(--mono);font-size:11px;color:var(--fg-2);border:1px solid var(--line-d2);border-radius:6px;padding:4px 7px;background:none;cursor:pointer}
 .ver:hover{color:var(--fg)}
 .src{font-family:var(--mono);font-size:10.5px;color:var(--fg-2);letter-spacing:.04em}
+.navtoggle{display:none;background:none;border:1px solid var(--line-d2);color:var(--fg);border-radius:6px;padding:5px 9px;font:inherit;font-size:12px;cursor:pointer}
 
-/* sections */
-main{padding:34px 0 60px}
-.view{display:none} .view.on{display:block}
-.head{display:flex;align-items:flex-start;gap:18px;flex-wrap:wrap;justify-content:space-between;margin-bottom:22px}
+/* the shell: rail + pane */
+.shell{display:grid;grid-template-columns:var(--rail-w) 1fr;min-height:calc(100vh - 52px);align-items:start}
+.rail{position:sticky;top:52px;align-self:start;max-height:calc(100vh - 52px);overflow-y:auto;background:var(--ink);color:var(--fg);padding:18px 0 30px}
+.rail .home{display:block;width:100%;text-align:left;background:none;border:0;color:var(--fg);font:inherit;font-weight:700;font-size:14.5px;padding:8px 22px 12px;cursor:pointer}
+.rail .home span{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--fg-3);text-transform:uppercase;margin-top:2px;font-weight:400}
+.rgroup{padding:12px 0 0}
+.rgroup h4{margin:0 0 4px;padding:0 22px;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--fg-3)}
+.nav{display:grid;grid-template-columns:1fr auto;align-items:center;gap:0 8px;width:100%;text-align:left;background:none;border:0;border-left:3px solid transparent;color:var(--fg-2);font:inherit;font-size:13.5px;padding:6px 22px;cursor:pointer;line-height:1.3}
+.nav:hover{background:rgba(255,255,255,.05);color:var(--fg)}
+.nav.on{background:rgba(255,255,255,.08);border-left-color:var(--green-2);color:var(--fg);font-weight:600}
+.nav .f{grid-column:1;font-family:var(--mono);font-size:9.5px;color:var(--fg-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:400}
+.nav .b{grid-column:2;grid-row:1;font-family:var(--mono);font-size:10px;padding:0 6px;border-radius:99px;background:rgba(255,255,255,.1);color:var(--fg-2)}
+.nav .b.open{background:rgba(242,193,78,.18);color:#F2C14E}
+.nav > :first-child{grid-column:1;grid-row:1}
+.nav .b.open{background:rgba(242,193,78,.18);color:#F2C14E}
+.rail .note{margin:16px 22px 0;padding-top:12px;border-top:1px solid var(--line-d);font-size:11.5px;line-height:1.5;color:var(--fg-3)}
+.pane{min-width:0;padding:30px max(18px,env(safe-area-inset-left)) 60px;max-width:1080px}
+
+@media (max-width:860px){
+  .shell{grid-template-columns:1fr}
+  .navtoggle{display:inline-block;margin-left:auto}
+  .rail{position:static;max-height:none;display:none}
+  .rail.open{display:block}
+  .top .who{margin-left:0}
+  .pane{padding:22px 16px 48px}
+}
+
+/* generic blocks (shared with the previous renderer) */
+.head{display:flex;align-items:flex-start;gap:18px;flex-wrap:wrap;justify-content:space-between;margin-bottom:18px}
 .head p{color:var(--muted);max-width:74ch;margin-top:8px}
 .tag{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--green);margin-bottom:8px}
-.chip{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:4px 10px;border:1px solid var(--border);color:var(--muted);background:var(--card)}
+.chip{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:4px 10px;border:1px solid var(--border);color:var(--muted)}
 .chip.template{color:var(--gold);background:#FDF6EC;border-color:rgba(180,83,9,.3)}
-.chip.corrected{color:var(--green);background:var(--greenBg);border-color:rgba(26,127,90,.3)}
+.chip.corrected,.chip.licensed{color:var(--green);background:var(--greenBg);border-color:rgba(26,127,90,.3)}
 .chip.draft{color:var(--blue);background:#EEF2FF;border-color:rgba(29,78,216,.25)}
-.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
-.grid{display:grid;gap:18px;grid-template-columns:1fr 1fr}
-@media (max-width:820px){.grid{grid-template-columns:1fr}}
-.panel{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:22px 24px}
+.grid{display:grid;gap:16px;grid-template-columns:1fr 1fr}
+@media (max-width:760px){.grid{grid-template-columns:1fr}}
+.panel{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:20px 22px}
 .panel h3{margin-bottom:10px}
-.panel p,.panel li{color:var(--muted);font-size:14.5px}
+.panel p,.panel li{color:var(--muted);font-size:14px}
 .panel ul{margin:8px 0 0;padding-left:18px}
-.notice{background:var(--greenBg);border:1px solid rgba(26,127,90,.25);border-radius:var(--r);padding:16px 18px;font-size:14.5px;color:var(--text);margin-top:18px}
+.panel.open{border-color:rgba(180,83,9,.4)}
+.notice{background:var(--greenBg);border:1px solid rgba(26,127,90,.25);border-radius:var(--r);padding:14px 16px;font-size:14px;color:var(--text);margin-top:16px}
 .notice b{color:var(--green)}
-.warn{background:#FBEDEA;border:1px solid rgba(192,57,43,.25);border-radius:var(--r);padding:14px 16px;font-size:14px;color:var(--text)}
+.warn{background:#FBEDEA;border:1px solid rgba(192,57,43,.25);border-radius:var(--r);padding:14px 16px;font-size:13.5px;color:var(--text)}
+.sub{font-size:13px;color:var(--muted);margin-top:14px}
 
-/* start here */
-.hero{background:var(--ink);color:var(--fg);border-radius:14px;padding:34px 34px 30px;margin-bottom:22px}
+/* the file strip on every record view */
+.filestrip{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-sm);padding:9px 14px;margin-top:18px;font-size:12.5px}
+.filestrip .fn{font-family:var(--mono);font-weight:700;color:var(--text)}
+.filestrip .fm{color:var(--faint);font-family:var(--mono);font-size:11px}
+.filestrip .btn{margin-left:auto}
+
+/* start here hero */
+.hero{background:var(--ink);color:var(--fg);border-radius:14px;padding:32px 32px 28px;margin-bottom:20px}
 .hero .tag{color:var(--green-2)}
-.hero h1{color:var(--fg);max-width:22ch}
-.hero p{color:var(--fg-2);max-width:70ch;margin-top:12px;font-size:16px}
-.hero .chip{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);color:var(--fg)}
-.hero .chip.open{color:#F2C14E;border-color:rgba(242,193,78,.5)}
+.hero h1{color:var(--fg);max-width:20ch}
+.hero p{color:var(--fg-2);max-width:66ch;margin-top:12px;font-size:15.5px}
+.hero .badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.hero .chip{background:rgba(255,255,255,.08);border-color:var(--line-d2);color:var(--fg)}
+.hero .chip.open{color:#F2C14E;border-color:rgba(242,193,78,.5);cursor:pointer}
 .hero .chip.template{color:#F0C27A;border-color:rgba(240,194,122,.4)}
-.chip.link{cursor:pointer;color:var(--green-2);text-transform:none;letter-spacing:0;font-family:var(--sans);font-weight:600;font-size:12.5px}
+.hero .chip.licensed{color:#7EE0B4;border-color:rgba(126,224,180,.4)}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
-@media (max-width:760px){.steps{grid-template-columns:1fr}}
-.step{display:block;text-align:left;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:var(--r);padding:14px 16px;color:var(--fg);font:inherit;cursor:pointer}
+@media (max-width:720px){.steps{grid-template-columns:1fr}}
+.step{display:block;text-align:left;background:rgba(255,255,255,.06);border:1px solid var(--line-d2);border-radius:var(--r);padding:14px 16px;color:var(--fg);font:inherit;cursor:pointer}
 .step:hover{background:rgba(255,255,255,.1)}
 .step .n{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--green-2)}
 .step b{display:block;font-size:15px;margin-top:4px}
 .step span{display:block;font-size:13px;color:var(--fg-2);margin-top:3px;line-height:1.45}
 
-/* the map */
-.map{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 20px 10px;margin-top:18px}
+/* audiences */
+.auds{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:16px}
+.aud{display:block;text-align:left;background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:16px 18px;cursor:pointer;font:inherit;color:var(--text)}
+.aud:hover{border-color:var(--green)}
+.aud b{display:block;font-size:15px}
+.aud .r{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:6px}
+.aud p{font-size:13px;color:var(--muted);margin-top:5px;line-height:1.45}
+
+/* the map (inline SVG) */
+.map{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 18px 8px;margin-top:16px}
 .map svg{width:100%;height:auto;display:block}
 .map .cap{font-family:var(--mono);font-size:10.5px;color:var(--faint);padding:8px 4px 6px}
 .flow{stroke-dasharray:6 6;animation:flow 1.6s linear infinite}
@@ -109,55 +148,48 @@ main{padding:34px 0 60px}
 @media (prefers-reduced-motion:reduce){.flow{animation:none}}
 
 /* do / don't */
-.dodont{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
+.dodont{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
 @media (max-width:820px){.dodont{grid-template-columns:1fr}}
-.dd{border-radius:14px;padding:20px 22px;border:1px solid var(--border);background:var(--card)}
+.dd{border-radius:14px;padding:18px 20px;border:1px solid var(--border);background:var(--card)}
 .dd.do{border-top:4px solid var(--green)} .dd.dont{border-top:4px solid var(--red)}
-.dd h3{font-size:20px;letter-spacing:-.02em}
-.dd h3 b{font-size:30px;font-weight:800;margin-right:8px}
+.dd h3{font-size:19px;letter-spacing:-.02em}
+.dd h3 b{font-size:28px;font-weight:800;margin-right:8px}
 .dd.do h3 b{color:var(--green)} .dd.dont h3 b{color:var(--red)}
-.dd p{color:var(--muted);font-size:13.5px;margin-top:4px}
-.dd ul{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-direction:column;gap:8px}
-.dd li{display:grid;grid-template-columns:1fr auto;grid-template-rows:auto auto;gap:3px 12px;align-items:center;font-size:13.5px;padding:9px 12px;border-radius:var(--r-sm);background:var(--bg)}
-.dd li .mono{grid-column:1;grid-row:1;font-size:12px;color:var(--text)}
-.dd li .gl{grid-column:1 / -1;grid-row:2;color:var(--muted);font-size:13px;line-height:1.45}
+.dd p{color:var(--muted);font-size:13px;margin-top:4px}
+.dd ul{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-direction:column;gap:7px}
+.dd li{display:grid;grid-template-columns:1fr auto;grid-template-rows:auto auto;gap:3px 12px;align-items:center;font-size:13px;padding:8px 11px;border-radius:var(--r-sm);background:var(--bg)}
+.dd li .mono{grid-column:1;grid-row:1;font-size:11.5px;color:var(--text)}
+.dd li .gl{grid-column:1 / -1;grid-row:2;color:var(--muted);font-size:12.5px;line-height:1.4}
 .dd li .enf,.dd li .why{grid-column:2;grid-row:1;justify-self:end}
-.dd li .mono{font-size:11.5px}
-.dd li .why{font-size:11.5px;color:var(--muted);white-space:nowrap}
-.dd .enf{font-family:var(--mono);font-size:10.5px;padding:2px 7px;border-radius:999px;border:1px solid var(--border);white-space:nowrap}
+.dd li .why{font-size:11px;color:var(--muted);white-space:nowrap}
+.dd .enf{font-family:var(--mono);font-size:10px;padding:2px 7px;border-radius:999px;border:1px solid var(--border);white-space:nowrap}
 .dd .enf.boundary{color:var(--green);background:var(--greenBg);border-color:rgba(26,127,90,.3)}
 .dd .enf.setting{color:var(--gold);background:#FDF6EC;border-color:rgba(180,83,9,.3)}
 .dd .enf.none,.dd .enf.expectation{color:var(--red);background:#FBEDEA;border-color:rgba(192,57,43,.3)}
-.dd .sum{margin-top:14px;padding-top:12px;border-top:1px solid var(--border);font-size:13px;color:var(--muted)}
+.dd .sum{margin-top:12px;padding-top:10px;border-top:1px solid var(--border);font-size:12.5px;color:var(--muted)}
 .dd .sum b{color:var(--text)}
 
-/* the card — four counts, and no score */
-.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:26px 28px;box-shadow:0 18px 50px -34px rgba(13,13,12,.45)}
-.card .org{font-size:17px;font-weight:700;letter-spacing:-.01em}
+/* the card */
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px 26px}
+.card .org{font-size:16px;font-weight:700;letter-spacing:-.01em}
 .card .meta{font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:3px}
-.counts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:20px 0 6px}
+.counts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0 6px}
 @media (max-width:600px){.counts{grid-template-columns:1fr 1fr}}
-.count{border:1px solid var(--border);border-radius:var(--r-sm);padding:12px 12px 10px;background:var(--bg)}
-.count b{display:block;font-size:30px;font-weight:800;letter-spacing:-.03em;line-height:1}
+.count{border:1px solid var(--border);border-radius:var(--r-sm);padding:12px;background:var(--bg)}
+.count b{display:block;font-size:28px;font-weight:800;letter-spacing:-.03em;line-height:1}
 .count span{display:block;font-size:12px;color:var(--muted);margin-top:6px;line-height:1.3}
 .count.ex b{color:var(--red)} .count.ok b{color:var(--green)} .count.un b{color:var(--gold)}
 .rowsline{display:flex;gap:14px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:10px}
-.noscore{margin-top:16px;padding-top:14px;border-top:1px solid var(--border);font-size:13.5px;color:var(--muted)}
+.noscore{margin-top:14px;padding-top:12px;border-top:1px solid var(--border);font-size:13px;color:var(--muted)}
 .noscore b{color:var(--text)}
-.bars{margin-top:16px;display:flex;flex-direction:column;gap:8px}
-.bar{display:grid;grid-template-columns:1fr 3fr auto;gap:12px;align-items:center;font-size:13px;color:var(--muted)}
-.track{height:8px;background:var(--bg2);border-radius:999px;overflow:hidden;display:flex}
-.track i{display:block;height:100%}
-.track .b0{background:var(--red)} .track .b1{background:var(--amber)} .track .b2{background:var(--gold)} .track .b3{background:var(--green)}
-.legend{display:flex;gap:14px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:6px}
 
 /* tables */
-.tw{overflow-x:auto;border:1px solid var(--border);border-radius:var(--r);background:var(--card);margin-top:16px}
-table{border-collapse:collapse;width:100%;font-size:13.5px}
-th{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);text-align:left;padding:11px 12px;border-bottom:1px solid var(--border);white-space:nowrap}
-td{padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text)}
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:var(--r);background:var(--card);margin-top:14px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint);text-align:left;padding:10px 12px;border-bottom:1px solid var(--border);white-space:nowrap}
+td{padding:9px 12px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text)}
 tr:last-child td{border-bottom:0}
-td.k{font-family:var(--mono);font-size:12.5px;white-space:nowrap}
+td.k{font-family:var(--mono);font-size:12px;white-space:nowrap}
 td.m{color:var(--muted)}
 .g{font-family:var(--mono);white-space:nowrap}
 .g.none{color:var(--red)} .g.expectation{color:var(--amber)} .g.setting{color:var(--gold)} .g.boundary{color:var(--green);font-weight:700}
@@ -167,130 +199,138 @@ td.m{color:var(--muted)}
 .pill.refused{color:var(--red);background:#FBEDEA;border-color:rgba(192,57,43,.3)}
 .pill.unstated{color:var(--gold);background:#FDF6EC;border-color:rgba(180,83,9,.3)}
 .pill.mat{color:var(--muted)}.pill.mat.mixed,.pill.mat.third_party{color:var(--red);border-color:rgba(192,57,43,.3)}.pill.mat.own{color:var(--green);border-color:rgba(26,127,90,.3)}
-.chip.open{color:var(--gold);border-color:rgba(180,83,9,.4);cursor:pointer}.panel.open{border-color:rgba(180,83,9,.4)}.panel.open ol{padding-left:20px;margin:8px 0 0}.panel.open li{margin:6px 0;font-size:13px}.panel.open li .m{color:var(--muted)}
-.sub{font-size:13px;color:var(--muted);margin-top:14px}
+.pill.open{color:var(--gold);background:#FDF6EC;border-color:rgba(180,83,9,.3)}
+.pill.kind{color:var(--blue);background:#EEF2FF;border-color:rgba(29,78,216,.2)}
 
-/* correction */
+/* consequences */
+.cons{display:flex;flex-direction:column;gap:12px;margin-top:14px}
+.con{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:16px 18px;border-left:3px solid var(--border)}
+.con.open{border-left-color:var(--gold)}
+.con .st{font-size:15px;font-weight:600;color:var(--text)}
+.con .badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;align-items:center}
+.con .req{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:8px}
+.con .req b{color:var(--text)}
+.con .lk{font-size:12px;color:var(--muted);margin-top:6px}
+.con .lk a{color:var(--green)}
+.con .q{font-size:12.5px;color:var(--gold);margin-top:6px}
+
+/* correction (mandate) */
 .seg{display:inline-flex;border:1px solid var(--border);border-radius:999px;overflow:hidden}
 .seg button{background:var(--card);border:0;font:inherit;font-size:11.5px;padding:5px 10px;cursor:pointer;color:var(--muted);border-right:1px solid var(--border)}
 .seg button:last-child{border-right:0}
 .seg button.on.want{background:var(--greenBg);color:var(--green);font-weight:700}
 .seg button.on.refused{background:#FBEDEA;color:var(--red);font-weight:700}
 .seg button.on.unstated{background:#FDF6EC;color:var(--gold);font-weight:700}
-.sticky{position:sticky;top:60px;z-index:5;background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:12px 16px;display:flex;gap:18px;flex-wrap:wrap;align-items:center;margin-top:16px;font-size:13.5px}
-.sticky b{font-size:18px}
+.sticky{position:sticky;top:60px;z-index:5;background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:12px 16px;display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin:14px 0}
+.sticky b{font-size:17px}
 .btn{display:inline-flex;align-items:center;gap:8px;font:inherit;font-size:13.5px;font-weight:600;padding:9px 16px;border-radius:var(--r-sm);cursor:pointer;border:1px solid var(--border);background:var(--card);color:var(--text);text-decoration:none}
+.btn:hover{border-color:var(--green)}
 .btn.p{background:var(--green);border-color:var(--green);color:#fff}
 .btn.p:hover{background:#16704f}
 .btn.s{font-size:12px;padding:6px 11px}
 textarea{width:100%;min-height:220px;font-family:var(--mono);font-size:12px;border:1px solid var(--border);border-radius:var(--r-sm);padding:12px;background:var(--bg);color:var(--text);resize:vertical}
-pre{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:18px 20px;font-family:var(--mono);font-size:12.5px;line-height:1.55;overflow:auto;white-space:pre-wrap;word-break:break-word;color:var(--text)}
+pre{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:16px 18px;font-family:var(--mono);font-size:12px;line-height:1.55;overflow:auto;white-space:pre-wrap;word-break:break-word}
 
 /* give it to the agent */
-.ways{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+.ways{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
 @media (max-width:820px){.ways{grid-template-columns:1fr}}
-.way{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:18px 20px;display:flex;flex-direction:column;gap:8px}
+.way{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:16px 18px;display:flex;flex-direction:column;gap:8px}
 .way .n{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--green)}
-.way h3{font-size:17px}
-.way p{font-size:13.5px;color:var(--muted);flex:1 1 auto}
+.way h3{font-size:16px}
+.way p{font-size:13px;color:var(--muted);flex:1 1 auto}
 details{background:var(--card);border:1px solid var(--border);border-radius:var(--r);margin-top:10px}
 summary{cursor:pointer;padding:12px 16px;font-weight:600;font-size:14px;display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
 summary .mono{color:var(--green)} summary .where{font-weight:400;font-size:12.5px;color:var(--muted)}
 details .body{padding:0 16px 16px}
 .copyrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:10px 0}
 .toast{font-family:var(--mono);font-size:11px;color:var(--green)}
-.files{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));margin-top:16px}
-.file{display:block;background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;text-decoration:none;color:var(--text)}
-.file:hover{border-color:var(--green)}
-.file b{display:block;font-family:var(--mono);font-size:12.5px;color:var(--green)}
-.file span{display:block;font-size:12.5px;color:var(--muted);margin-top:4px;line-height:1.45}
-.foot{border-top:1px solid var(--border);padding:26px 0 40px;font-size:12.5px;color:var(--faint);line-height:1.6}
-.foot b{color:var(--muted)}
+
+/* keys */
+.keys{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+@media (max-width:760px){.keys{grid-template-columns:1fr}}
+.keycard{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:18px 20px}
+.keycard.read{border-top:4px solid var(--green)} .keycard.write{border-top:4px solid var(--ink)}
+.keycard h3{font-size:16px} .keycard p{font-size:13.5px;color:var(--muted);margin-top:6px}
+.keycard .id{font-family:var(--mono);font-size:12px;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);padding:8px 10px;margin-top:10px;color:var(--text);word-break:break-all}
+
+/* history */
 .hist{display:flex;flex-direction:column;gap:10px;margin-top:14px}
-.h{display:grid;grid-template-columns:auto 1fr;gap:14px;background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:12px 16px;font-size:13.5px}
+.h{display:grid;grid-template-columns:auto 1fr;gap:14px;background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:12px 16px;font-size:13px}
 .h .v{font-family:var(--mono);font-weight:700;color:var(--green)}
 .h .d{color:var(--muted)}
+.foot{border-top:1px solid var(--border);padding:24px 0 40px;font-size:12.5px;color:var(--faint);line-height:1.6}
+.foot b{color:var(--muted)}
 #loading{padding:40px 0;color:var(--muted);font-family:var(--mono);font-size:12px}
 @media print{
-  .top{position:static;background:#fff;color:#000;border-bottom:1px solid #ccc}.tabs,.ver,.src{display:none}.seal,.seal em{color:#000}
-  .hero .chip{color:#000;background:#fff;border-color:#999}.hero .chip.template{color:#B45309}
-  .view{display:block!important;page-break-before:always}.view:first-of-type{page-break-before:auto}
-  .hero{background:#fff;color:#000;border:1px solid #ccc}.hero h1,.hero .step{color:#000}.hero p,.hero .step span{color:#333}.step{background:#fff;border-color:#ccc}
+  .top{position:static}.rail{display:block!important;position:static;max-height:none}.navtoggle,.src{display:none}
+  .shell{grid-template-columns:1fr}.pane{max-width:none}
+  .view{page-break-before:always}.view:first-child{page-break-before:auto}
   .sticky{position:static}textarea{min-height:0;height:auto}.flow{animation:none}
+  .hero,.top{background:#fff;color:#000}.hero h1,.hero p{color:#000}.rail{background:#fff;color:#000}.nav,.rgroup h4,.rail .home{color:#000}
 }
 </style>
 </head>
 <body>
 <header class="top">
-  <div class="wrap">
+  <div class="bar">
     <span class="seal" aria-label="RiskMandate">
-      <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2">RM</text></svg>
+      <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="7" fill="#22c55e"/></svg>
       RiskMandate <em>Agent Behaviour Policy</em>
     </span>
-    <nav class="tabs" id="tabs" aria-label="Views"></nav>
-    <button class="ver" id="ver" type="button" title="Versions and history">v—</button>
-    <span class="src" id="src">loading…</span>
+    <div class="who">
+      <button class="ver" id="ver" type="button" title="History and provenance">v—</button>
+      <span class="src" id="src">loading…</span>
+      <button class="navtoggle" id="navtoggle" type="button" aria-label="Menu">Menu</button>
+    </div>
   </div>
 </header>
-<main>
-  <div class="wrap">
-    <div id="loading">reading the vault…</div>
-    <section class="view" id="v-start"></section>
-    <section class="view" id="v-about"></section>
-    <section class="view" id="v-overview"></section>
-    <section class="view" id="v-grant"></section>
-    <section class="view" id="v-mandate"></section>
-    <section class="view" id="v-delta"></section>
-    <section class="view" id="v-licence"></section>
-    <section class="view" id="v-deploy"></section>
-    <section class="view" id="v-history"></section>
-  </div>
-</main>
-<footer class="foot"><div class="wrap" id="foot"></div></footer>
+<div class="shell">
+  <nav class="rail" id="rail" aria-label="Views"></nav>
+  <main class="pane"><div id="view"><div id="loading">reading the vault…</div></div>
+    <footer class="foot"><div id="foot"></div></footer>
+  </main>
+</div>
 
 <script>
 'use strict';
-const FALLBACK = /*__DATA__*/{};
 
 // ---------------------------------------------------------------- data
 const PATHS = {
   vault: 'vault.json', grant: 'data/grant.json', mandate: 'data/mandate.json', delta: 'data/delta.json',
-  validity: 'data/validity.json', history: 'history/index.json',
+  validity: 'data/validity.json', history: 'history/index.json', app: 'data/app.json',
   capabilities: 'data/vocabulary/capabilities.json', barriers: 'data/vocabulary/barriers.json',
   undo: 'data/vocabulary/undo-classes.json', tiers: 'data/vocabulary/evidence-tiers.json',
   agents: 'AGENTS.md', skill: 'SKILL.md', mandate_md: 'MANDATE.md', grant_md: 'GRANT.md', delta_md: 'DELTA.md',
-  licence_md: 'LICENCE-TO-OPERATE.md', abp_md: 'AGENT-BEHAVIOUR-POLICY.md', readme: 'README.md', app: 'data/app.json',
+  licenceto_md: 'LICENCE-TO-OPERATE.md', abp_md: 'AGENT-BEHAVIOUR-POLICY.md', readme: 'README.md',
+  licence_md: 'LICENCE.md', consequences_md: 'CONSEQUENCES.md',
+  assets: 'data/assets.json', consequences: 'data/consequences.json',
+  gdpr: 'data/standards/gdpr.json', euaiact: 'data/standards/eu-ai-act.json', attack: 'data/standards/attack.json',
 };
+const OPTIONAL = new Set(['app', 'licence_md', 'consequences_md', 'assets', 'consequences', 'gdpr', 'euaiact', 'attack']);
 async function readText(path) {
-  if (window.sg && sg.vfs && sg.vfs.readText) return sg.vfs.readText(path);          // inside a vault host or an embed
-  const r = await fetch(path, { cache: 'no-store' });                                   // static copy on a site
+  if (window.sg && sg.vfs && sg.vfs.readText) return sg.vfs.readText(path);
+  const r = await fetch(path, { cache: 'no-store' });
   if (!r.ok) throw new Error('HTTP ' + r.status + ' ' + path);
   return r.text();
 }
 async function load() {
-  const out = {}, source = { live: 0, fallback: 0 };
+  const out = {}, source = { live: 0, missing: 0 };
   for (const [k, p] of Object.entries(PATHS)) {
-    try {
-      const t = await readText(p);
-      out[k] = /\.json$/.test(p) ? JSON.parse(t) : t;
-      source.live++;
-    } catch (e) {
-      if (k === 'app') { out[k] = null; continue; }
-      if (FALLBACK[k] === undefined) throw e;
-      out[k] = FALLBACK[k]; source.fallback++;
-    }
+    try { const t = await readText(p); out[k] = /\.json$/.test(p) ? JSON.parse(t) : t; source.live++; }
+    catch (e) { if (OPTIONAL.has(k)) { out[k] = null; source.missing++; continue; } throw e; }
   }
-  out.dist = (out.app && out.app.dist) || FALLBACK.dist || {};
+  out.dist = (out.app && out.app.dist) || {};
   out._source = source;
   return out;
 }
 
 // ---------------------------------------------------------------- helpers
-const $ = (s) => document.querySelector(s);
 function h(tag, attrs, kids) {
   const e = document.createElement(tag);
   if (attrs) for (const [k, v] of Object.entries(attrs)) {
-    if (k === 'class') e.className = v; else if (k === 'on') { for (const [ev, fn] of Object.entries(v)) e.addEventListener(ev, fn); } else e.setAttribute(k, v);
+    if (v == null) continue;
+    if (k === 'class') e.className = v; else if (k === 'html') e.innerHTML = v;
+    else if (k === 'on') { for (const [ev, fn] of Object.entries(v)) e.addEventListener(ev, fn); } else e.setAttribute(k, v);
   }
   for (const kid of [].concat(kids || [])) if (kid != null) e.appendChild(typeof kid === 'string' ? document.createTextNode(kid) : kid);
   return e;
@@ -305,8 +345,9 @@ function s(tag, attrs, kids) {
 const GLYPH = { none: '●', expectation: '◉', setting: '◐', boundary: '○' };
 const STATUS_LABEL = { want: 'want', refused: 'do not want', unstated: 'unstated' };
 const ENFORCED = { none: 'nothing in the way', expectation: 'a rule in prose', setting: 'a setting — flippable', boundary: 'a boundary — enforced' };
+const BAR_RANK = { none: 0, expectation: 1, setting: 2, boundary: 3 };
 
-let D, CAP, UNDO_RANK, MEASURED, MANDATE;   // MANDATE is the working (possibly corrected) mandate
+let D, CAP, UNDO_RANK, MEASURED, MANDATE, STD;
 function gloss(id) { return (CAP[id] && CAP[id].gloss) || id; }
 function row(id) { return D.grant.grant.find(r => r.capability === id); }
 function statusOf(id) { return MANDATE.want.includes(id) ? 'want' : MANDATE.do_not_want.includes(id) ? 'refused' : 'unstated'; }
@@ -314,24 +355,30 @@ function sortIrreversibleFirst(ids) {
   const order = D.grant.grant.map(r => r.capability);
   return [...ids].sort((a, b) => (UNDO_RANK[row(a).undo] - UNDO_RANK[row(b).undo]) || order.indexOf(a) - order.indexOf(b));
 }
-// abp.delta/v1, the same semantics as the build script
 function computeDelta(mandate) {
   const ids = D.grant.grant.map(r => r.capability);
   const want = new Set(mandate.want), refuse = new Set(mandate.do_not_want);
   const excess = ids.filter(id => !want.has(id));
-  return {
-    excess,
-    excess_refused: excess.filter(id => refuse.has(id)),
-    excess_unstated: excess.filter(id => !refuse.has(id)),
-    unbounded_excess: excess.filter(id => row(id).barrier !== 'boundary'),
-    shortfall: mandate.want.filter(id => !row(id)),
-    aligned: ids.filter(id => want.has(id)),
-  };
+  return { excess, excess_refused: excess.filter(id => refuse.has(id)), excess_unstated: excess.filter(id => !refuse.has(id)),
+    unbounded_excess: excess.filter(id => row(id).barrier !== 'boundary'), shortfall: mandate.want.filter(id => !row(id)), aligned: ids.filter(id => want.has(id)) };
 }
 function counts(d) { return { grant: D.grant.grant.length, mandate: MANDATE.want.length, excess: d.excess.length, unbounded: d.unbounded_excess.length, shortfall: d.shortfall.length, aligned: d.aligned.length }; }
 function corrected() { return JSON.stringify(MANDATE.want) !== JSON.stringify(D.mandate.want) || JSON.stringify(MANDATE.do_not_want) !== JSON.stringify(D.mandate.do_not_want); }
 function research() { return D.grant.research_needed || []; }
 function measuredCount() { return D.grant.grant.filter(r => MEASURED.has(r.evidence)).length; }
+function assetOf(id) { return (D.assets && D.assets.assets || []).find(a => a.id === id); }
+function consList() { return (D.consequences && D.consequences.consequences) || []; }
+function consOf(id) { return consList().find(c => c.id === id); }
+function assetPresent(id) { const a = assetOf(id); return a && a.present !== 'absent'; }
+function consBarrier(id, seen) { seen = seen || new Set(); if (seen.has(id)) return 'boundary'; seen.add(id); const c = consOf(id); if (!c) return 'boundary';
+  const caps = (c.requires && c.requires.capabilities || []).map(cid => row(cid) ? row(cid).barrier : 'boundary');
+  const sub = (c.requires && c.requires.consequences || []).map(sid => consBarrier(sid, seen));
+  const all = caps.concat(sub); if (!all.length) return 'expectation';
+  return all.reduce((a, b) => BAR_RANK[b] < BAR_RANK[a] ? b : a); }
+function consOpen(c) { return (c.requires && c.requires.capabilities || []).every(cid => !MANDATE.want.includes(cid))
+  && (c.requires && c.requires.assets || []).every(assetPresent)
+  && (c.requires && c.requires.consequences || []).every(sid => { const s = consOf(sid); return s && consOpen(s); }); }
+function stdNode(id) { return STD[id]; }
 
 function barrierCell(id) { const r = row(id); return h('td', null, h('span', { class: 'g ' + r.barrier }, GLYPH[r.barrier] + ' ' + r.barrier)); }
 function evidenceCell(id) { const r = row(id); const m = MEASURED.has(r.evidence); return h('td', null, h('span', { class: 'ev' + (m ? ' m' : '') }, r.evidence + (m ? ' ✓' : ''))); }
@@ -340,364 +387,369 @@ function capTable(ids, opts) {
   opts = opts || {};
   const material = !!opts.material && D.grant.grant.some(r => r.material);
   const thead = h('thead', null, h('tr', null, ['Capability', 'What it is', 'Barrier', 'Undo', 'Evidence', opts.via ? 'Via' : null, opts.control ? 'What stands in the way' : null, material ? 'Whose material' : null, 'Mandate'].filter(Boolean).map(t => h('th', null, t))));
-  const tbody = h('tbody', null, ids.map(id => {
-    const r = row(id);
-    return h('tr', null, [
-      h('td', { class: 'k' }, id), h('td', { class: 'm' }, gloss(id)), barrierCell(id), h('td', { class: 'm' }, r.undo), evidenceCell(id),
-      opts.via ? h('td', { class: 'm' }, r.via.join(', ')) : null,
-      opts.control ? h('td', { class: 'm' }, r.control || '—') : null,
-      material ? h('td', null, r.material ? h('span', { class: 'pill mat ' + r.material }, r.material) : '—') : null,
-      statusCell(id),
-    ].filter(Boolean));
-  }));
+  const tbody = h('tbody', null, ids.map(id => { const r = row(id);
+    return h('tr', null, [h('td', { class: 'k' }, id), h('td', { class: 'm' }, gloss(id)), barrierCell(id), h('td', { class: 'm' }, r.undo), evidenceCell(id),
+      opts.via ? h('td', { class: 'm' }, r.via.join(', ')) : null, opts.control ? h('td', { class: 'm' }, r.control || '—') : null,
+      material ? h('td', null, r.material ? h('span', { class: 'pill mat ' + r.material }, r.material) : '—') : null, statusCell(id)].filter(Boolean)); }));
   return h('div', { class: 'tw' }, h('table', null, [thead, tbody]));
 }
 function copyBlock(text, label) {
   const ta = h('textarea', { readonly: 'readonly', 'aria-label': label }, text);
   const toast = h('span', { class: 'toast' }, '');
   const btn = h('button', { class: 'btn s', type: 'button', on: { click: async () => {
-    let ok = false;
-    try { await navigator.clipboard.writeText(text); ok = true; } catch (e) { try { ta.focus(); ta.select(); ok = document.execCommand('copy'); } catch (e2) {} }
-    toast.textContent = ok ? 'copied' : 'select the text and copy it — the clipboard is not reachable from this frame';
-    setTimeout(() => { toast.textContent = ''; }, 3000);
+    let ok = false; try { await navigator.clipboard.writeText(text); ok = true; } catch (e) { try { ta.focus(); ta.select(); ok = document.execCommand('copy'); } catch (e2) {} }
+    toast.textContent = ok ? 'copied' : 'select the text and copy it'; setTimeout(() => { toast.textContent = ''; }, 3000);
   } } }, 'Copy');
   return h('div', null, [h('div', { class: 'copyrow' }, [btn, h('span', { class: 'mono', style: 'font-size:11px;color:var(--faint)' }, text.length.toLocaleString() + ' characters'), toast]), ta]);
 }
+// the file strip on every record view: the name, the size if we can see it, open raw, copy
+function fileStrip(name, text) {
+  const kids = [h('span', { class: 'fn' }, name)];
+  if (text) kids.push(h('span', { class: 'fm' }, (text.length / 1024).toFixed(1) + ' KB'));
+  if (text) kids.push(h('button', { class: 'btn s', type: 'button', on: { click: () => { const w = window.open('', '_blank'); if (w) { w.document.write('<pre style="white-space:pre-wrap;font-family:ui-monospace,monospace;padding:20px;max-width:70ch;margin:auto">' + text.replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c])) + '</pre>'); w.document.title = name; } } } }, 'Open raw'));
+  return h('div', { class: 'filestrip' }, kids);
+}
 
-// ---------------------------------------------------------------- the map (inline SVG, generated from the data)
+// ---------------------------------------------------------------- the map
 function map() {
   const d = computeDelta(MANDATE), c = counts(d);
   const W = 980, Hh = 330;
-  const svg = s('svg', { viewBox: `0 0 ${W} ${Hh}`, role: 'img', 'aria-label': 'How the four objects fit together and reach the agent' });
-  const box = (x, y, w, hh, title, sub, tone) => {
-    const g = s('g');
+  const svg = s('svg', { viewBox: '0 0 ' + W + ' ' + Hh, role: 'img', 'aria-label': 'How the four objects fit together and reach the agent' });
+  const box = (x, y, w, hh, title, sub, tone) => { const g = s('g');
     g.appendChild(s('rect', { x, y, width: w, height: hh, rx: 10, fill: tone === 'ink' ? '#0D0D0C' : '#FFFFFF', stroke: tone === 'ink' ? '#0D0D0C' : '#E2DFD8', 'stroke-width': 1.5 }));
     g.appendChild(s('text', { x: x + 14, y: y + 24, 'font-family': 'ui-monospace,Menlo,monospace', 'font-size': 10.5, 'letter-spacing': 1.5, fill: tone === 'ink' ? '#22c55e' : '#1A7F5A', 'font-weight': 700 }, title));
     sub.forEach((line, i) => g.appendChild(s('text', { x: x + 14, y: y + 46 + i * 17, 'font-family': 'ui-sans-serif,system-ui,sans-serif', 'font-size': 13.5, fill: tone === 'ink' ? '#F7F6F2' : '#1A1917', 'font-weight': i === 0 ? 700 : 400 }, line)));
-    svg.appendChild(g);
-  };
-  const arrow = (x1, y1, x2, y2, label) => {
-    svg.appendChild(s('path', { d: `M${x1} ${y1} L${x2} ${y2}`, stroke: '#A6A39B', 'stroke-width': 1.6, fill: 'none', 'marker-end': 'url(#arr)', class: 'flow' }));
-    if (label) svg.appendChild(s('text', { x: (x1 + x2) / 2, y: (y1 + y2) / 2 - 8, 'text-anchor': 'middle', 'font-family': 'ui-monospace,Menlo,monospace', 'font-size': 10, fill: '#8A8780' }, label));
-  };
+    svg.appendChild(g); };
+  const arrow = (x1, y1, x2, y2, label) => { svg.appendChild(s('path', { d: 'M' + x1 + ' ' + y1 + ' L' + x2 + ' ' + y2, stroke: '#A6A39B', 'stroke-width': 1.6, fill: 'none', 'marker-end': 'url(#arr)', class: 'flow' }));
+    if (label) svg.appendChild(s('text', { x: (x1 + x2) / 2, y: (y1 + y2) / 2 - 8, 'text-anchor': 'middle', 'font-family': 'ui-monospace,Menlo,monospace', 'font-size': 10, fill: '#8A8780' }, label)); };
   const defs = s('defs'); defs.appendChild(s('marker', { id: 'arr', viewBox: '0 0 10 10', refX: 9, refY: 5, markerWidth: 6, markerHeight: 6, orient: 'auto' }, s('path', { d: 'M0 0L10 5L0 10z', fill: '#A6A39B' }))); svg.appendChild(defs);
-  box(20, 20, 250, 96, 'THE GRANT · MEASURED', [`${c.grant} capabilities it can reach`, `${measuredCount()} observed on the thing itself`, 'from the shape, not from you']);
-  box(710, 20, 250, 96, 'THE MANDATE · ELICITED', [`${c.mandate} you actually asked for`, 'the only file a person wrote', 'correct it and the rest recomputes']);
-  box(340, 110, 300, 96, 'THE DELTA · DERIVED', [`${c.excess} it can do that you did not ask`, `${c.unbounded} with nothing real in the way`, 'never authored — recomputed'], 'ink');
+  box(20, 20, 250, 96, 'THE GRANT · MEASURED', [c.grant + ' capabilities it can reach', measuredCount() + ' observed on the thing itself', 'from the shape, not from you']);
+  box(710, 20, 250, 96, 'THE MANDATE · ELICITED', [c.mandate + ' you actually asked for', 'the only file a person wrote', 'correct it and the rest recomputes']);
+  box(340, 110, 300, 96, 'THE DELTA · DERIVED', [c.excess + ' it can do that you did not ask', c.unbounded + ' with nothing real in the way', 'never authored — recomputed'], 'ink');
   box(20, 220, 250, 96, 'THE BARRIER · RECORDED', ['one of four kinds, per row', '● none  ◉ rule  ◐ setting  ○ boundary', 'only ○ is a control']);
-  box(340, 240, 300, 76, 'THE FILES', ['AGENTS.md · MANDATE.md · GRANT.md', 'DELTA.md · LICENCE-TO-OPERATE.md']);
+  box(340, 240, 300, 76, 'THE FILES', ['AGENTS.md · MANDATE.md · GRANT.md', 'DELTA.md · CONSEQUENCES.md · LICENCE']);
   box(710, 220, 250, 96, 'YOUR AGENT', ['reads the files, works inside', 'the mandate, stops and reports', 'before the rest'], 'ink');
-  arrow(270, 68, 338, 130, 'minus');
-  arrow(710, 68, 642, 130, 'against');
-  arrow(490, 206, 490, 238, 'rendered as');
-  arrow(270, 268, 338, 278, 'a column in');
-  arrow(640, 278, 708, 268, 'handed to');
+  arrow(270, 68, 338, 130, 'minus'); arrow(710, 68, 642, 130, 'against'); arrow(490, 206, 490, 238, 'rendered as'); arrow(270, 268, 338, 278, 'a column in'); arrow(640, 278, 708, 268, 'handed to');
   return h('div', { class: 'map' }, [svg, h('div', { class: 'cap' }, 'Grant minus mandate is the delta. The barrier says what stands in the way of each row. The files carry all four to the agent — and the licence says who authorised it, until when.')]);
 }
-
-// ---------------------------------------------------------------- do / don't
 function doDont() {
   const d = computeDelta(MANDATE);
   const dos = sortIrreversibleFirst(d.aligned), donts = sortIrreversibleFirst(d.excess);
   const enforcedCount = donts.filter(id => row(id).barrier === 'boundary').length;
   const li = (id, why) => { const r = row(id); return h('li', null, [h('span', { class: 'mono' }, id), why ? h('span', { class: 'enf ' + r.barrier }, GLYPH[r.barrier] + ' ' + ENFORCED[r.barrier]) : h('span', { class: 'why' }, r.undo === 'no' ? 'irreversible' : r.undo === 'with-effort' ? 'undo with effort' : 'undoable'), h('span', { class: 'gl' }, gloss(id))]); };
   return h('div', { class: 'dodont' }, [
-    h('div', { class: 'dd do' }, [h('h3', null, [h('b', null, String(dos.length)), 'Here is what we want you to do']), h('p', null, 'The mandate. Use these; this is why you were deployed.'), h('ul', null, dos.map(id => li(id, false))), h('div', { class: 'sum' }, [h('b', null, `${dos.length} of ${dos.length} wanted capabilities are in the grant`), d.shortfall.length ? `; ${d.shortfall.length} wanted and not granted.` : '. Nothing wanted is missing.'])]),
-    h('div', { class: 'dd dont' }, [h('h3', null, [h('b', null, String(donts.length)), 'Here is what we do not want you to do']), h('p', null, 'The excess: reachable, and not asked for. Each line says what actually enforces it.'), h('ul', null, donts.map(id => li(id, true))), h('div', { class: 'sum' }, [h('b', null, `${enforcedCount} of ${donts.length} are enforced by a boundary. `), `${donts.length - enforcedCount} are only asked — a rule in prose, a setting, or nothing. Those are what the licence accepts with its eyes open, and what a real control would close.`])]),
+    h('div', { class: 'dd do' }, [h('h3', null, [h('b', null, String(dos.length)), 'What we want you to do']), h('p', null, 'The mandate. Use these; this is why you were deployed.'), h('ul', null, dos.map(id => li(id, false)))]),
+    h('div', { class: 'dd dont' }, [h('h3', null, [h('b', null, String(donts.length)), 'What we do not want you to do']), h('p', null, 'The excess: reachable, and not asked for. Each line says what actually enforces it.'), h('ul', null, donts.map(id => li(id, true))), h('div', { class: 'sum' }, [h('b', null, enforcedCount + ' of ' + donts.length + ' are enforced by a boundary. '), (donts.length - enforcedCount) + ' are only asked — a rule, a setting, or nothing.'])]),
   ]);
 }
-
-// ---------------------------------------------------------------- the card
 function card() {
-  const d = computeDelta(MANDATE), c = counts(d);
-  const v = D.vault;
-  const byBarrier = ['none', 'expectation', 'setting', 'boundary'].map(b => d.excess.filter(id => row(id).barrier === b).length);
-  const total = Math.max(1, d.excess.length);
+  const d = computeDelta(MANDATE), c = counts(d), v = D.vault;
   return h('div', { class: 'card', 'aria-label': 'The four counts of this behaviour policy' }, [
     h('div', { class: 'org' }, v.organisation || v.title),
-    h('div', { class: 'meta' }, `${D.grant.product} · grant ${D.grant.profile_version} · mandate ${D.mandate.authored} · as at ${v.as_at}`),
+    h('div', { class: 'meta' }, D.grant.product + ' · grant ' + D.grant.profile_version + ' · mandate ' + D.mandate.authored + ' · as at ' + v.as_at),
     h('div', { class: 'counts' }, [
       h('div', { class: 'count' }, [h('b', null, String(c.grant)), h('span', null, 'capabilities in the grant')]),
       h('div', { class: 'count ok' }, [h('b', null, String(c.mandate)), h('span', null, 'wanted by the mandate')]),
       h('div', { class: 'count ex' }, [h('b', null, String(c.excess)), h('span', null, 'excess — granted, not asked for')]),
       h('div', { class: 'count un' }, [h('b', null, String(c.unbounded)), h('span', null, 'unbounded — nothing in the way')]),
     ]),
-    h('div', { class: 'rowsline' }, [`${measuredCount()} of ${c.grant} rows measured`, `${c.shortfall} shortfall`, `${c.aligned} aligned`, corrected() ? 'recomputed from your correction' : 'as stored in the vault'].map(t => h('span', null, t))),
-    h('div', { class: 'bars' }, [
-      h('div', { class: 'bar' }, [h('span', null, 'excess, by barrier'), h('span', { class: 'track' }, byBarrier.map((n, i) => h('i', { class: 'b' + i, style: `width:${(n / total) * 100}%`, title: `${n} at ${['none', 'expectation', 'setting', 'boundary'][i]}` }))), h('span', { class: 'mono' }, String(d.excess.length))]),
-    ]),
-    h('div', { class: 'legend' }, ['● none', '◉ expectation', '◐ setting', '○ boundary — the only control'].map(t => h('span', null, t))),
-    h('div', { class: 'noscore' }, [h('b', null, 'Looking for a score? There is none, on purpose. '), 'This document describes what the agent can do and what you asked for; it does not judge whether that is acceptable, because the same policy is harmless in one deployment and dangerous in another. The number you can move is the unbounded excess, and only a real control moves it.']),
+    h('div', { class: 'rowsline' }, [measuredCount() + ' of ' + c.grant + ' rows measured', c.shortfall + ' shortfall', c.aligned + ' aligned', corrected() ? 'recomputed from your correction' : 'as stored in the vault'].map(t => h('span', null, t))),
+    h('div', { class: 'noscore' }, [h('b', null, 'Looking for a score? There is none, on purpose. '), 'The same policy is harmless in one deployment and dangerous in another, and nothing about the document changed. The number you can move is the unbounded excess, and only a real control moves it.']),
   ]);
 }
 
-// ---------------------------------------------------------------- views
+// ---------------------------------------------------------------- views: Start here + Who are you
 function viewStart() {
   const v = D.vault, d = computeDelta(MANDATE), c = counts(d), template = v.status === 'template';
+  const licBadge = D.app && D.app.licence && D.app.licence.kind === 'commercial'
+    ? h('span', { class: 'chip licensed' }, 'licensed to ' + (D.app.licence.licensee || '—'))
+    : h('span', { class: 'chip template' }, 'published template · CC BY 4.0');
   return [
     h('div', { class: 'hero' }, [
       h('span', { class: 'tag' }, 'You have been handed an Agent Behaviour Policy'),
-      h('h1', null, template ? `A draft behaviour policy for ${v.title}.` : `The behaviour policy for ${v.agent || v.title}${v.organisation ? ', at ' + v.organisation : ''}.`),
-      h('p', null, 'It tells an agent, in files it can read, what it may do, what it may not, and what actually stands in the way of each thing. It was measured from the deployment rather than copied from a template, and it carries no score: it describes, it does not judge.'),
+      h('h1', null, template ? 'A draft behaviour policy for ' + v.title + '.' : 'The behaviour policy for ' + (v.agent || v.title) + (v.organisation ? ', at ' + v.organisation : '') + '.'),
+      h('p', null, 'It tells an agent, in files it can read, what it may do, what it may not, and what actually stands in the way of each thing. It was measured from the deployment, and it carries no score: it describes, it does not judge.'),
       h('div', { class: 'badges' }, [
-        h('span', { class: 'chip ' + v.status }, v.status), h('span', { class: 'chip' }, `${c.grant} it can do · ${c.mandate} wanted · ${c.excess} not`),
-        h('span', { class: 'chip' }, `${c.unbounded} unbounded`), h('span', { class: 'chip' }, `${measuredCount()} of ${c.grant} measured`),
-        research().length ? h('button', { class: 'chip open', type: 'button', on: { click: () => show('grant') } }, `${research().length} open questions →`) : null,
-        h('button', { class: 'chip link', type: 'button', on: { click: () => show('about') } }, 'new to this? what an ABP is →'),
+        h('span', { class: 'chip ' + v.status }, v.status), licBadge,
+        h('span', { class: 'chip' }, c.grant + ' it can do · ' + c.mandate + ' wanted · ' + c.excess + ' not'),
+        h('span', { class: 'chip' }, c.unbounded + ' unbounded'),
+        h('span', { class: 'chip' }, measuredCount() + ' of ' + c.grant + ' measured'),
+        consList().length ? h('button', { class: 'chip open', type: 'button', on: { click: () => show('consequences') } }, consList().length + ' consequences →') : null,
+        research().length ? h('button', { class: 'chip open', type: 'button', on: { click: () => show('grant') } }, research().length + ' open questions →') : null,
       ]),
       h('div', { class: 'steps' }, [
-        h('button', { class: 'step', type: 'button', on: { click: () => show('mandate') } }, [h('span', { class: 'n' }, '01'), h('b', null, template ? 'Read the mandate, and correct it' : 'Read the mandate'), h('span', null, template ? 'It is a starting point written to be argued with. Most people authorised less than it assumes — and never mentioned the rest.' : 'The one file a person wrote. If it is wrong, everything derived from it is wrong the same way.')]),
-        h('button', { class: 'step', type: 'button', on: { click: () => show('deploy') } }, [h('span', { class: 'n' }, '02'), h('b', null, 'Give it to your agent'), h('span', null, 'Copy the files into the agent’s own context, download them as a zip, or hand over the PDF. Three ways, same files.')]),
-        h('button', { class: 'step', type: 'button', on: { click: () => show('licence') } }, [h('span', { class: 'n' }, '03'), h('b', null, 'Sign the licence to operate'), h('span', null, 'A named person, an interval, nine conditions each beside what enforces it. Until then the agent runs on nobody’s say-so.')]),
+        h('button', { class: 'step', type: 'button', on: { click: () => show('mandate') } }, [h('span', { class: 'n' }, '01'), h('b', null, template ? 'Read the mandate, and correct it' : 'Read the mandate'), h('span', null, 'It is a starting point, written to be argued with. Most people authorised less than it assumes.')]),
+        h('button', { class: 'step', type: 'button', on: { click: () => show('deploy') } }, [h('span', { class: 'n' }, '02'), h('b', null, 'Give it to your agent'), h('span', null, 'Copy the files into the agent’s context, download the zip, or hand over the PDF.')]),
+        h('button', { class: 'step', type: 'button', on: { click: () => show('authorise') } }, [h('span', { class: 'n' }, '03'), h('b', null, 'Sign the licence to operate'), h('span', null, 'A named person, an interval, the conditions each beside what enforces it.')]),
       ]),
     ]),
-    h('span', { class: 'tag' }, 'Where the pieces go'),
+    h('span', { class: 'tag' }, 'Who are you?'),
+    h('h2', null, 'The same record, for the reader you are'),
+    h('p', { class: 'sub', style: 'margin-top:6px' }, 'Every view holds the same facts; the audience decides which of them you are shown first. This is a live filter over the data, not a different document.'),
+    audiences(),
+    h('span', { class: 'tag', style: 'display:block;margin-top:26px' }, 'Where the pieces go'),
     h('h2', null, 'Four objects, one route to the agent'),
     map(),
-    h('span', { class: 'tag', style: 'margin-top:26px' }, 'The whole policy on one screen'),
+    h('span', { class: 'tag', style: 'display:block;margin-top:26px' }, 'The whole policy on one screen'),
     h('h2', null, 'What we want you to do. What we do not.'),
     doDont(),
-    h('div', { class: 'notice' }, [h('b', null, 'Not the person who made this? '), 'Start with the mandate anyway: it is the one file a person wrote, and it is short. Everything else in the vault is derived from it and from the measured grant, and is rebuilt whenever either changes. If you are the agent: read AGENTS.md first. It is written for you.']),
   ];
 }
-function viewAbout() {
-  const v = D.vault;
-  const term = (word, verb, what) => h('div', { class: 'panel' }, [h('span', { class: 'tag' }, verb), h('h3', null, word), h('p', null, what)]);
-  return [
-    h('div', { class: 'head' }, [h('div', null, [h('span', { class: 'tag' }, 'New to this?'), h('h2', null, 'What an Agent Behaviour Policy is, in five minutes'), h('p', null, 'An Agent Behaviour Policy — ABP for short — is a written description, for one AI agent in one deployment, of everything it can do, what you authorised it to do, the gap between the two, and what actually stands in the way. It is written in files the agent itself can read, so it is both a record for people and an instruction set for the agent.')])]),
-    h('div', { class: 'panel' }, [h('h3', null, 'The problem it answers'), h('p', null, 'When you connect an assistant to a repository, a mailbox, a drive or a cloud account, you know what you asked it to do. Almost nobody knows what it can do: the credential it runs on usually permits far more than the task needed, and nobody wrote that down. If the agent then does something you did not want, the first question you will be asked is what you did authorise. This document is the answer to that question, written before it is asked.')]),
-    h('h3', { style: 'margin-top:22px' }, 'Four words, and the verb attached to each is the whole model'),
-    h('div', { class: 'grid', style: 'margin-top:10px' }, [
-      term('The grant', 'measured', 'Everything the agent can actually reach — files, processes, credentials, network, repositories, schedules — measured from the deployment shape, not from your account and not by asking the agent.'),
-      term('The mandate', 'elicited', 'What you wanted it to do. You already know this; it is the one part a person writes. In a template it is a starting point, deliberately conservative, written to be corrected upward.'),
-      term('The delta', 'derived', 'The grant minus the mandate: what it can do that you did not ask for. Never written by hand — recomputed whenever the grant or the mandate changes.'),
-      term('The barrier', 'recorded', 'For each capability, what stands in the way: nothing, a rule in prose, a setting the agent could flip, or a boundary enforced above it. Only the last one is a control.'),
-    ]),
-    h('div', { class: 'grid', style: 'margin-top:18px' }, [
-      h('div', { class: 'panel' }, [h('h3', null, 'Why there is no score'), h('p', null, 'Every reader asks for one. The same policy is harmless where nothing valuable is reachable and dangerous with a production database attached tomorrow — and nothing about the document changed. A score needs the assets and the consequences, and this document has neither. It describes; a risk assessment, built on top of it, judges.')]),
-      h('div', { class: 'panel' }, [h('h3', null, 'What it is not'), h('ul', null, [h('li', null, 'Not a guardrail: the files ask, the barrier column says what enforces.'), h('li', null, 'Not a compliance assessment, a certification or an audit of any product.'), h('li', null, 'Not a template: it is derived from one deployment shape, and a copy is corrected for yours.')])]),
-    ]),
-    h('div', { class: 'panel', style: 'margin-top:18px' }, [h('h3', null, 'What to do with this vault'), h('ul', null, [
-      h('li', null, [h('b', null, 'If you run this agent: '), 'read the mandate, correct it, give the files to the agent, and sign the licence. The three buttons on Start here are those steps.']),
-      h('li', null, [h('b', null, 'If you were sent this by someone who runs it: '), 'the Start here view is the whole policy on one screen; the Delta view is the part worth a conversation.']),
-      h('li', null, [h('b', null, 'If you are the agent: '), 'read AGENTS.md first. It is written for you.']),
-    ])]),
-    h('p', { class: 'sub' }, ['The model, the vocabulary and the worked examples are public: ', h('a', { href: 'https://riskmandate.ai/abp.html' }, 'riskmandate.ai/abp'), ' explains how it is sold and used; ', h('a', { href: 'https://abp.sgit.ai/' }, 'abp.sgit.ai'), ' holds the 23 capability primitives, the four barriers and the published deployment shapes this vault was computed against (' + v.vocabulary_version + ').']),
-  ];
+const AUDIENCES = [
+  { id: 'exec', role: 'Executive', title: 'The decision and the exposure', to: 'consequences', what: 'The routes out, what needs a decision, and the licence to operate — without the capability tables.' },
+  { id: 'security', role: 'Security', title: 'The grant and what follows', to: 'grant', what: 'Every capability with its barrier and evidence, and the consequences by kind.' },
+  { id: 'governance', role: 'Risk & governance', title: 'The gap and the standards', to: 'consequences', what: 'The delta, the consequences with the GDPR and ATT&CK nodes they touch, and the conditions on the licence.' },
+  { id: 'buyer', role: 'Buyer', title: 'What this is, and what you may do with it', to: 'licence', what: 'What an Agent Behaviour Policy is, what arrives at each level, and the licence over this copy.' },
+  { id: 'agent', role: 'The agent', title: 'Read this first', to: 'deploy', what: 'AGENTS.md and the files to place in your context, and what they can and cannot enforce.' },
+];
+function audiences() {
+  return h('div', { class: 'auds' }, AUDIENCES.map(a => h('button', { class: 'aud', type: 'button', on: { click: () => show(a.to) } }, [
+    h('div', { class: 'r' }, a.role), h('b', null, a.title), h('p', null, a.what)])));
 }
-function viewOverview() {
-  const v = D.vault;
-  return [
-    h('div', { class: 'head' }, [
-      h('div', null, [h('span', { class: 'tag' }, 'Agent Behaviour Policy · ' + D.grant.id), h('h1', null, v.title), h('p', null, 'For one agent in one deployment: everything it can do, what you authorised, the gap between the two, and what actually stands in the way.')]),
-      h('span', { class: 'chip ' + v.status }, v.status),
-    ]),
+
+// ---------------------------------------------------------------- view: The ABP (the document)
+function viewAbp() {
+  return [docHead('The ABP', 'AGENT-BEHAVIOUR-POLICY.md', 'One agent, written down', 'The grant, the mandate, the delta and the barriers in one document. It describes the deployment; it carries no score.'),
     card(),
-    h('div', { class: 'grid', style: 'margin-top:18px' }, [
-      h('div', { class: 'panel' }, [h('h3', null, 'The mandate, in one paragraph'), h('p', null, MANDATE.description || D.mandate.description), h('p', { class: 'sub' }, `Elicited — ${D.mandate.status}, authored ${D.mandate.authored}. The only authored file in this vault.`)]),
-      h('div', { class: 'panel' }, [h('h3', null, 'The deployment'), h('p', null, D.grant.description), h('p', { class: 'sub' }, `${D.grant.vendor} · surface ${D.grant.surface} · widest reach ${D.grant.widest_reach}`)]),
-    ]),
-    h('div', { class: 'grid', style: 'margin-top:18px' }, [
-      h('div', { class: 'panel' }, [h('h3', null, 'Four objects, and the verb attached to each'), h('ul', null, [
-        h('li', null, [h('b', null, 'The mandate is elicited. '), 'What the agent is authorised and expected to do — you already know it.']),
-        h('li', null, [h('b', null, 'The grant is measured. '), 'Everything the agent can do, from the shape, the account and the credentials.']),
-        h('li', null, [h('b', null, 'The delta is derived. '), 'Recomputed whenever either input moves; never edited by hand.']),
-        h('li', null, [h('b', null, 'The barrier is recorded. '), 'Per row, one of four kinds — and only the fourth is a control.']),
-      ])]),
-      h('div', { class: 'panel' }, [h('h3', null, 'Validity'), h('p', null, D.validity.statement), h('ul', null, D.validity.void_when.map(w => h('li', null, w)))]),
-    ]),
-    h('div', { class: 'notice' }, [h('b', null, 'Delivered as an encrypted vault. '), 'This page is a little HTML on top of the files beside it, rendered straight from them. Anyone holding the read key can check every number here against the bytes it came from; the write side stays with the owner.']),
-  ];
+    D.abp_md ? h('div', { style: 'margin-top:18px' }, [h('h3', null, 'The document'), h('pre', null, D.abp_md)]) : null,
+    fileStrip('AGENT-BEHAVIOUR-POLICY.md', D.abp_md)];
 }
+function docHead(tag, file, title, blurb) {
+  return h('div', { class: 'head' }, [h('div', null, [h('span', { class: 'tag' }, tag), h('h2', null, title), h('p', null, blurb)])]);
+}
+
+// ---------------------------------------------------------------- view: Evidence (the grant)
 function viewGrant() {
   const ids = sortIrreversibleFirst(D.grant.grant.map(r => r.capability));
-  return [
-    h('div', { class: 'head' }, [h('div', null, [h('span', { class: 'tag' }, 'Grant · measured'), h('h2', null, 'Everything the agent can do'), h('p', null, `${ids.length} capabilities, ${measuredCount()} measured. Irreversible rows first. Every row says how it is known, what stands in the way, and whether the effect can be undone.`)])]),
+  return [docHead('Evidence · measured', 'GRANT.md', 'Everything the agent can do', ids.length + ' capabilities, ' + measuredCount() + ' measured. Irreversible rows first. Every row says how it is known, what stands in the way, and whether it can be undone.'),
     capTable(ids, { via: true, control: true, material: true }),
-    D.grant.grant.some(r => r.material) ? h('p', { class: 'sub', style: 'margin-top:8px' }, [h('b', null, 'Whose material '), 'is not in the published grammar. It is the property a connector shape needs — own, organisation, third_party or mixed — asked of the model site as Lab 03 request 1. Mixed is the finding: no setting these vendors offer makes it own.']) : null,
-    research().length ? h('div', { class: 'panel open', style: 'margin-top:18px' }, [
-      h('h3', null, `${research().length} open questions — needs research`),
-      h('p', { class: 'sub' }, 'What this grant cannot settle from the pages it was read from. Each row stands at the evidence tier shown until its question is answered — from the vendor’s own pages or a system you are entitled to run, never by probing somebody else’s. RESEARCH-NEEDED.md in this vault is written to be handed to an agent.'),
-      h('ol', null, research().map(q => h('li', null, [q.capability ? h('b', { class: 'mono' }, q.capability + ' — ') : null, q.question, h('span', { class: 'm' }, ' · ' + q.how)]))),
-    ]) : null,
-    (D.grant.contradictions || []).length ? h('div', { class: 'panel', style: 'margin-top:18px' }, [
-      h('h3', null, 'Where the vendor’s own pages disagree'),
-      h('p', { class: 'sub' }, 'Advertised in one place, permitted in another. Published unresolved on purpose; if the vendor says which page is right, this changes and says so.'),
-      h('div', { class: 'tw', style: 'margin-top:10px' }, h('table', null, [h('thead', null, h('tr', null, ['What is advertised', 'What the grant permits', 'State'].map(t => h('th', null, t)))),
-        h('tbody', null, D.grant.contradictions.map(c => h('tr', null, [h('td', { class: 'm' }, c.advertised), h('td', { class: 'm' }, c.permitted), h('td', null, h('span', { class: 'pill ' + (c.state === 'undocumented' ? 'unstated' : 'refused') }, c.state))])))])),
-    ]) : null,
-    (D.grant.not_in_grammar || []).length ? h('div', { class: 'panel', style: 'margin-top:18px' }, [
-      h('h3', null, 'Granted, and not in the grammar'),
-      h('p', { class: 'sub' }, 'The connector permits these and none of the 23 primitives names them. Recorded so the grant is not silently narrower than the consent screen.'),
-      h('ul', null, D.grant.not_in_grammar.map(n => h('li', null, [h('b', null, n.what + ' — '), n.permission + '. ' + n.why]))),
-    ]) : null,
-    h('div', { class: 'grid', style: 'margin-top:18px' }, [
-      h('div', { class: 'panel' }, [h('h3', null, 'What the words mean in this shape'), h('ul', null, Object.entries(D.grant.reach_names || {}).map(([k, v]) => h('li', null, [h('b', null, k + ' — '), v])))]),
-      h('div', { class: 'panel' }, [h('h3', null, 'Not reachable from this shape'), h('ul', null, (D.grant.not_reachable || []).map(n => h('li', null, [h('b', null, n.what + ' — '), n.why])))]),
-    ]),
-    h('div', { class: 'panel', style: 'margin-top:18px' }, [
-      h('h3', null, 'The four barriers, and the test'),
-      h('div', { class: 'tw', style: 'margin-top:10px' }, h('table', null, [h('thead', null, h('tr', null, ['', 'Barrier', 'What stands in the way', 'Is it a control'].map(t => h('th', null, t)))),
-        h('tbody', null, D.barriers.barriers.map(b => h('tr', null, [h('td', null, h('span', { class: 'g ' + b.id }, GLYPH[b.id])), h('td', { class: 'k' }, b.id), h('td', { class: 'm' }, b.published_meaning), h('td', null, b.is_control ? 'yes' : 'no')])))])),
-      h('p', { class: 'sub' }, [h('b', null, D.barriers.enforcer_test + ' '), 'A setting the agent’s own account can change is not a control, because the grant includes the ability to remove the bound.']),
-    ]),
-    h('div', { class: 'panel', style: 'margin-top:18px' }, [h('h3', null, 'The notes behind the rows'), h('ul', null, ids.map(id => h('li', null, [h('b', { class: 'mono' }, id + ' — '), row(id).note])))]),
-  ];
+    research().length ? h('div', { class: 'panel open', style: 'margin-top:16px' }, [h('h3', null, research().length + ' open questions — needs research'),
+      h('p', { class: 'sub' }, 'What this grant cannot settle from the pages it was read from. Each row stands at the evidence tier shown until answered — from the vendor’s own pages, never by probing.'),
+      h('ol', null, research().map(q => h('li', null, [q.capability ? h('b', { class: 'mono' }, q.capability + ' — ') : null, q.question])))]) : null,
+    (D.grant.contradictions || []).length ? h('div', { class: 'panel', style: 'margin-top:16px' }, [h('h3', null, 'Where the vendor’s own pages disagree'),
+      h('div', { class: 'tw', style: 'margin-top:10px' }, h('table', null, [h('thead', null, h('tr', null, ['Advertised', 'Permitted', 'State'].map(t => h('th', null, t)))),
+        h('tbody', null, D.grant.contradictions.map(c => h('tr', null, [h('td', { class: 'm' }, c.advertised), h('td', { class: 'm' }, c.permitted), h('td', null, h('span', { class: 'pill ' + (c.state === 'undocumented' ? 'unstated' : 'refused') }, c.state))])))]))]) : null,
+    h('div', { class: 'panel', style: 'margin-top:16px' }, [h('h3', null, 'The notes behind the rows'), h('ul', null, ids.map(id => h('li', null, [h('b', { class: 'mono' }, id + ' — '), row(id).note])))]),
+    fileStrip('GRANT.md', D.grant_md)];
 }
+
+// ---------------------------------------------------------------- view: The gap (delta)
+function viewDelta() {
+  const d = computeDelta(MANDATE), c = counts(d);
+  const list = (title, ids, blurb) => [h('h3', { style: 'margin-top:20px' }, title + ' (' + ids.length + ')'), h('p', { class: 'sub', style: 'margin-top:4px' }, blurb), ids.length ? capTable(sortIrreversibleFirst(ids), { control: true }) : h('p', { class: 'sub' }, 'none')];
+  return [h('div', { class: 'head' }, [h('div', null, [h('span', { class: 'tag' }, 'The gap · derived, never authored'), h('h2', null, 'What it can do that you did not ask for'), h('p', null, corrected() ? 'Recomputed from your correction on Customise. The vault’s stored delta is on Keep it until the corrected mandate is pushed.' : 'As stored: computed ' + D.delta.computed_at + ' from grant ' + D.delta.grant_version + ' and mandate ' + D.delta.mandate_version + '.')]), h('span', { class: 'chip ' + (corrected() ? 'draft' : 'corrected') }, corrected() ? 'recomputed here' : 'as stored')]),
+    h('div', { class: 'counts' }, [h('div', { class: 'count ex' }, [h('b', null, String(c.excess)), h('span', null, 'excess')]), h('div', { class: 'count un' }, [h('b', null, String(c.unbounded)), h('span', null, 'unbounded excess')]), h('div', { class: 'count' }, [h('b', null, String(c.shortfall)), h('span', null, 'shortfall')]), h('div', { class: 'count ok' }, [h('b', null, String(c.aligned)), h('span', null, 'aligned')])]),
+    ...list('Excess you refused', d.excess_refused, 'You said no. The last column says what, if anything, enforces the no.'),
+    ...list('Excess you never mentioned', d.excess_unstated, 'Authority nobody scoped. Not wrong — unstated. Read these twice.'),
+    ...list('Unbounded excess', d.unbounded_excess, 'The excess whose barrier is anything but a boundary. Every real control moves one row out of this list; nothing else does.'),
+    h('h3', { style: 'margin-top:20px' }, 'Shortfall (' + d.shortfall.length + ')'), d.shortfall.length ? h('ul', null, d.shortfall.map(id => h('li', null, id + ' — ' + gloss(id) + ' — wanted, and not in this grant'))) : h('p', { class: 'sub', style: 'margin-top:4px' }, 'none — everything wanted is granted.'),
+    fileStrip('DELTA.md', D.delta_md)];
+}
+
+// ---------------------------------------------------------------- view: What follows (consequences)
+function viewConsequences() {
+  const cs = consList();
+  if (!cs.length) return [docHead('What follows', 'CONSEQUENCES.md', 'The consequence layer is not authored for this vault yet', 'A grant is the union of capabilities; the consequences are what follows when a capability meets an asset in the deployment. This shape has not had them written yet.')];
+  const assets = (D.assets && D.assets.assets) || [];
+  const exfil = cs.filter(c => c.kind === 'exfiltrate' || c.kind === 'outlive');
+  const conEl = (c) => { const b = consBarrier(c.id), open = consOpen(c);
+    const reqs = [].concat((c.requires && c.requires.capabilities || []).map(id => h('span', null, [h('b', null, id), ' '])), (c.requires && c.requires.assets || []).map(id => id.replace('asset.', '') + ' '), (c.requires && c.requires.consequences || []).map(id => '→ ' + id.replace('consequence.', '') + ' '));
+    const links = [].concat(...Object.values(c.links || {})).map(id => stdNode(id)).filter(Boolean);
+    return h('div', { class: 'con' + (open ? ' open' : '') }, [
+      h('div', { class: 'st' }, c.statement),
+      h('div', { class: 'badges' }, [h('span', { class: 'pill kind' }, c.kind), h('span', { class: 'g ' + b }, GLYPH[b] + ' ' + b), h('span', { class: 'ev' + (MEASURED.has(c.evidence) ? ' m' : '') }, c.evidence + (MEASURED.has(c.evidence) ? ' ✓' : '')), h('span', { class: 'pill ' + (open ? 'open' : 'want') }, open ? 'open' : 'scoped')]),
+      h('div', { class: 'req' }, ['requires ', ...reqs]),
+      links.length ? h('div', { class: 'lk' }, ['touches ', ...links.map((n, i) => h('a', { href: n.url, target: '_blank', rel: 'noopener' }, n.title + (i < links.length - 1 ? ' · ' : '')))]) : null,
+      (c.questions || []).length ? h('div', { class: 'q' }, 'open: ' + c.questions.join(' ')) : null,
+    ]); };
+  return [docHead('What follows · derived', 'CONSEQUENCES.md', 'What the grant adds up to here', 'A grant is the union of what the agent can do; this is what that means when each capability meets an asset that is actually there. The barrier on a consequence is the weakest among the capabilities it needs. Never a score.'),
+    h('h3', null, 'The routes out — ' + exfil.length),
+    h('p', { class: 'sub', style: 'margin-top:4px' }, 'Ways data leaves this deployment, or keeps leaving after the chat ends.'),
+    h('div', { class: 'tw' }, h('table', null, [h('thead', null, h('tr', null, ['Route', 'Door', 'Barrier', 'Outlives', 'Told not to'].map(t => h('th', null, t)))), h('tbody', null, exfil.map(c => { const b = consBarrier(c.id), told = (c.requires && c.requires.capabilities || []).some(id => MANDATE.do_not_want.includes(id)); return h('tr', null, [h('td', null, c.statement), h('td', { class: 'm' }, c.route || '—'), h('td', null, h('span', { class: 'g ' + b }, GLYPH[b] + ' ' + b)), h('td', { class: 'm' }, c.kind === 'outlive' ? 'yes' : 'no'), h('td', { class: 'm' }, told ? 'yes' : 'no')]); }))])),
+    h('h3', { style: 'margin-top:22px' }, 'The assets it acts on — ' + assets.length),
+    h('div', { class: 'tw' }, h('table', null, [h('thead', null, h('tr', null, ['Asset', 'Present', 'Whose rights'].map(t => h('th', null, t)))), h('tbody', null, assets.map(a => h('tr', null, [h('td', null, a.statement), h('td', null, h('span', { class: 'pill ' + (a.present === 'assumed' ? 'unstated' : 'want') }, a.present + (a.configurable ? ' · you can untick' : ''))), h('td', { class: 'm' }, a.rights)])))])),
+    h('h3', { style: 'margin-top:22px' }, 'What follows — ' + cs.length),
+    h('div', { class: 'cons' }, cs.map(conEl)),
+    h('div', { class: 'notice' }, [h('b', null, 'Every line is a claim about this deployment shape, not about the vendors. '), 'A consequence marked documented was read from a page and never provoked on a live account. The authorisation to read a message is recorded, where it applies, as not being authorisation to forward it — a statement about whose rights are in play, not a legal finding.']),
+    fileStrip('CONSEQUENCES.md', D.consequences_md)];
+}
+
+// ---------------------------------------------------------------- view: Customise (mandate)
 function viewMandate() {
   const grantIds = D.grant.grant.map(r => r.capability);
   const all = D.capabilities.capabilities.map(c => c.id);
   const inGrant = sortIrreversibleFirst(grantIds), notInGrant = all.filter(id => !row(id));
   const sticky = h('div', { class: 'sticky', id: 'sticky' });
-  function refreshSticky() {
-    const d = computeDelta(MANDATE), c = counts(d);
-    sticky.textContent = '';
-    sticky.append(
-      h('span', null, [h('b', null, String(c.mandate)), ' wanted']), h('span', null, [h('b', { style: 'color:var(--red)' }, String(c.excess)), ' excess']),
-      h('span', null, [h('b', { style: 'color:var(--gold)' }, String(c.unbounded)), ' unbounded']), h('span', null, [h('b', null, String(c.shortfall)), ' shortfall']),
+  function refreshSticky() { const d = computeDelta(MANDATE), c = counts(d); sticky.textContent = '';
+    sticky.append(h('span', null, [h('b', null, String(c.mandate)), ' wanted']), h('span', null, [h('b', { style: 'color:var(--red)' }, String(c.excess)), ' excess']), h('span', null, [h('b', { style: 'color:var(--gold)' }, String(c.unbounded)), ' unbounded']),
       h('span', { class: 'pill ' + (corrected() ? 'want' : 'unstated') }, corrected() ? 'corrected — not yet in the vault' : 'as stored'),
-      h('button', { class: 'btn', type: 'button', on: { click: () => { MANDATE = JSON.parse(JSON.stringify(D.mandate)); render('mandate'); } } }, 'Reset to the stored mandate'),
-      h('button', { class: 'btn p', type: 'button', on: { click: () => { show('delta'); } } }, 'See the delta →'),
-    );
-  }
-  function seg(id) {
-    const st = statusOf(id);
-    const mk = (val, label) => h('button', { type: 'button', class: (st === val ? 'on ' : '') + val, on: { click: () => { setStatus(id, val); render('mandate'); } } }, label);
-    return h('span', { class: 'seg' }, [mk('want', 'want'), mk('refused', 'do not want'), mk('unstated', 'unstated')]);
-  }
-  function setStatus(id, val) {
-    MANDATE.want = MANDATE.want.filter(x => x !== id); MANDATE.do_not_want = MANDATE.do_not_want.filter(x => x !== id); MANDATE.unstated = (MANDATE.unstated || []).filter(x => x !== id);
-    if (val === 'want') MANDATE.want.push(id); else if (val === 'refused') MANDATE.do_not_want.push(id); else MANDATE.unstated.push(id);
-  }
-  const table = (ids, note) => h('div', { class: 'tw' }, h('table', null, [
-    h('thead', null, h('tr', null, ['Capability', 'What it is', note ? 'Barrier' : 'Reach', 'Your answer'].map(t => h('th', null, t)))),
-    h('tbody', null, ids.map(id => h('tr', null, [h('td', { class: 'k' }, id), h('td', { class: 'm' }, gloss(id)), note ? barrierCell(id) : h('td', { class: 'm' }, (CAP[id] || {}).reach || ''), h('td', null, seg(id))]))),
-  ]));
+      h('button', { class: 'btn', type: 'button', on: { click: () => { MANDATE = JSON.parse(JSON.stringify(D.mandate)); render('mandate'); } } }, 'Reset'),
+      h('button', { class: 'btn p', type: 'button', on: { click: () => show('delta') } }, 'See the delta →')); }
+  function seg(id) { const st = statusOf(id); const mk = (val, label) => h('button', { type: 'button', class: (st === val ? 'on ' : '') + val, on: { click: () => { setStatus(id, val); render('mandate'); } } }, label); return h('span', { class: 'seg' }, [mk('want', 'want'), mk('refused', 'do not want'), mk('unstated', 'unstated')]); }
+  function setStatus(id, val) { MANDATE.want = MANDATE.want.filter(x => x !== id); MANDATE.do_not_want = MANDATE.do_not_want.filter(x => x !== id); MANDATE.unstated = (MANDATE.unstated || []).filter(x => x !== id); if (val === 'want') MANDATE.want.push(id); else if (val === 'refused') MANDATE.do_not_want.push(id); else MANDATE.unstated.push(id); }
+  const table = (ids, note) => h('div', { class: 'tw' }, h('table', null, [h('thead', null, h('tr', null, ['Capability', 'What it is', note ? 'Barrier' : 'Reach', 'Your answer'].map(t => h('th', null, t)))), h('tbody', null, ids.map(id => h('tr', null, [h('td', { class: 'k' }, id), h('td', { class: 'm' }, gloss(id)), note ? barrierCell(id) : h('td', { class: 'm' }, (CAP[id] || {}).reach || ''), h('td', null, seg(id))])))]));
   const exported = { ...D.mandate, want: MANDATE.want, do_not_want: MANDATE.do_not_want, unstated: all.filter(id => !MANDATE.want.includes(id) && !MANDATE.do_not_want.includes(id)), status: corrected() ? 'corrected' : D.mandate.status, corrected_at: corrected() ? new Date().toISOString().slice(0, 10) : undefined };
-  const out = [
-    h('div', { class: 'head' }, [h('div', null, [h('span', { class: 'tag' }, 'Mandate · elicited'), h('h2', null, 'What you asked it to do — and what you did not'), h('p', null, 'This is the draft asserting your mandate, and correcting it is how you state it. Three questions settle most rows: did you ask for it, would you object if it happened, or neither. Nothing here is sent anywhere; the app holds a read key and writes nothing.')])]),
-    h('div', { class: 'panel' }, [h('h3', null, 'In one paragraph'), h('p', null, D.mandate.description)]),
-    sticky,
-    h('h3', { style: 'margin-top:22px' }, `In the grant (${inGrant.length}) — these are the rows that matter`), table(inGrant, true),
-    h('h3', { style: 'margin-top:22px' }, `Not in this grant (${notInGrant.length}) — stated for completeness`), table(notInGrant, false),
-    h('div', { class: 'panel', style: 'margin-top:22px' }, [h('h3', null, 'Your corrected mandate, as a file'), h('p', null, 'Paste this over data/mandate.json in the vault and rebuild; the delta is recomputed and every document is rewritten. A hand-edited delta is undone by the next build, which is the point.'), copyBlock(JSON.stringify(exported, null, 2), 'corrected mandate.json')]),
-  ];
-  refreshSticky();
-  return out;
+  const out = [docHead('Customise · elicited', 'MANDATE.md', 'What you asked it to do — and what you did not', 'This is the draft asserting your mandate, and correcting it is how you state it. Did you ask for it, would you object if it happened, or neither. Nothing here is sent anywhere; the app writes nothing.'),
+    h('div', { class: 'panel' }, [h('h3', null, 'In one paragraph'), h('p', null, D.mandate.description)]), sticky,
+    h('h3', { style: 'margin-top:20px' }, 'In the grant (' + inGrant.length + ') — the rows that matter'), table(inGrant, true),
+    h('h3', { style: 'margin-top:20px' }, 'Not in this grant (' + notInGrant.length + ') — for completeness'), table(notInGrant, false),
+    h('div', { class: 'panel', style: 'margin-top:20px' }, [h('h3', null, 'Your corrected mandate, as a file'), h('p', null, 'Paste this over data/mandate.json in the vault and rebuild; the delta and every document are recomputed.'), copyBlock(JSON.stringify(exported, null, 2), 'corrected mandate.json')]),
+    fileStrip('MANDATE.md', D.mandate_md)];
+  refreshSticky(); return out;
 }
-function viewDelta() {
-  const d = computeDelta(MANDATE), c = counts(d);
-  const list = (title, ids, blurb) => [h('h3', { style: 'margin-top:22px' }, `${title} (${ids.length})`), h('p', { class: 'sub', style: 'margin-top:4px' }, blurb), ids.length ? capTable(sortIrreversibleFirst(ids), { control: true }) : h('p', { class: 'sub' }, 'none')];
-  return [
-    h('div', { class: 'head' }, [h('div', null, [h('span', { class: 'tag' }, 'Delta · derived, never authored'), h('h2', null, 'What it can do that you did not ask for'), h('p', null, corrected() ? 'Recomputed here from your correction on the Mandate view. The vault’s stored delta is the one on the History view until the corrected mandate is pushed and rebuilt.' : `As stored in the vault: computed ${D.delta.computed_at} from grant ${D.delta.grant_version} and mandate ${D.delta.mandate_version}.`)]), h('span', { class: 'chip ' + (corrected() ? 'draft' : 'corrected') }, corrected() ? 'recomputed here' : 'as stored')]),
-    h('div', { class: 'counts' }, [
-      h('div', { class: 'count ex' }, [h('b', null, String(c.excess)), h('span', null, 'excess')]), h('div', { class: 'count un' }, [h('b', null, String(c.unbounded)), h('span', null, 'unbounded excess')]),
-      h('div', { class: 'count' }, [h('b', null, String(c.shortfall)), h('span', null, 'shortfall — wanted, not granted')]), h('div', { class: 'count ok' }, [h('b', null, String(c.aligned)), h('span', null, 'aligned')]),
-    ]),
-    ...list('Excess you refused', d.excess_refused, 'You said no. The last column says what, if anything, enforces the no.'),
-    ...list('Excess you never mentioned', d.excess_unstated, 'Authority nobody scoped. Not wrong — unstated. These are the rows to read twice.'),
-    ...list('Unbounded excess', d.unbounded_excess, 'The excess whose barrier is anything but a boundary. Every real control moves one row out of this list; nothing else does.'),
-    h('h3', { style: 'margin-top:22px' }, `Shortfall (${d.shortfall.length})`), d.shortfall.length ? h('ul', null, d.shortfall.map(id => h('li', null, `${id} — ${gloss(id)} — wanted, and not in this grant`))) : h('p', { class: 'sub', style: 'margin-top:4px' }, 'none — everything wanted is granted.'),
-    ...list('Aligned', d.aligned, 'Wanted and granted.'),
-  ];
-}
-function viewLicence() {
-  const d = computeDelta(MANDATE), v = D.vault, template = v.status === 'template';
-  const conds = sortIrreversibleFirst(d.excess);
-  const kv = (k, val) => h('tr', null, [h('td', { class: 'k' }, k), h('td', null, val)]);
-  return [
-    h('div', { class: 'head' }, [h('div', null, [h('span', { class: 'tag' }, 'Licence to Operate'), h('h2', null, 'The organisation authorises the agent, under this behaviour policy, for an interval'), h('p', null, 'The organisation is the authority, the behaviour policy is the instrument, the agent is the licensee. Scope, conditions, interval, signature — and each condition next to what enforces it.')])]),
-    h('div', { class: 'tw' }, h('table', null, h('tbody', null, [
-      kv('Licensee', `${v.agent || D.grant.product} — shape ${D.grant.id}, grant ${D.grant.profile_version}`),
-      kv('Authority', v.organisation || (template ? '— not yet issued to anyone —' : '—')),
-      kv('Accountable owner', v.owner || (template ? '— unassigned —' : '—')),
-      kv('Instrument', `mandate ${D.mandate.id} (${D.mandate.authored}), delta ${D.delta.id}, vocabulary abp.sgit.ai ${v.vocabulary_version}`),
-      kv('Issued', v.issued || (template ? '— not issued: this is a template —' : '—')),
-      kv('Valid until', v.valid_until || '— an interval is set when it is issued; a licence with no expiry is not a decision —'),
-    ]))),
-    h('h3', { style: 'margin-top:22px' }, `Scope — authorised (${MANDATE.want.length})`),
-    h('ul', null, MANDATE.want.map(id => h('li', null, [h('span', { class: 'mono' }, id), ' — ' + gloss(id)]))),
-    h('h3', { style: 'margin-top:22px' }, `Conditions — asked not to, and what enforces each (${conds.length})`),
-    h('p', { class: 'sub', style: 'margin-top:4px' }, 'Conditions with ● or ◉ beside them are asked, not enforced; the organisation issuing this licence is accepting that, for the interval above, with its eyes open.'),
-    h('div', { class: 'tw' }, h('table', null, [h('thead', null, h('tr', null, ['Condition', 'Asked because', 'Barrier', 'Enforced by'].map(t => h('th', null, t)))),
-      h('tbody', null, conds.map(id => h('tr', null, [h('td', null, [h('span', { class: 'mono' }, 'Do not ' + id), ' — ' + gloss(id).toLowerCase()]), h('td', { class: 'm' }, statusOf(id) === 'refused' ? 'the mandate refuses it' : 'the mandate never authorised it'), barrierCell(id), h('td', { class: 'm' }, row(id).control || h('b', null, 'nothing — a line in prose'))])))])),
-    h('div', { class: 'grid', style: 'margin-top:18px' }, [
-      h('div', { class: 'panel' }, [h('h3', null, 'Void when'), h('ul', null, D.validity.void_when.map(w => h('li', null, w))), h('p', { class: 'sub' }, 'When any of those happens the deployment changed, not this document. Rebuild, re-read the delta, re-issue.')]),
-      h('div', { class: 'panel' }, [h('h3', null, 'Signature'), h('p', null, template ? 'Unsigned. A template is not issued to anybody. When this vault is customised for one organisation, a named person signs here, with the date and the interval, and the same person owns the review when the interval ends.' : `Signed by the accountable owner named above on ${v.issued || '—'}, for the interval stated.`)]),
-    ]),
-  ];
-}
+
+// ---------------------------------------------------------------- view: Give it to your agent
 function viewDeploy() {
-  const slug = D.vault.slug, dist = D.dist || {};
-  const files = [
-    ['AGENTS.md', D.agents, 'Append to CLAUDE.md, AGENTS.md or a ROLE.md — or drop it into a fresh session first. It tells the agent what the other files are and what to do with them.'],
-    ['SKILL.md', D.skill, 'For a skills directory. The same instructions in the portable skill format, with the format’s limit stated on its face.'],
+  const dist = D.dist || {};
+  const files = [['AGENTS.md', D.agents, 'Append to CLAUDE.md, AGENTS.md or a ROLE.md, or drop it into a fresh session first.'],
+    ['SKILL.md', D.skill, 'For a skills directory. The same instructions in the portable skill format.'],
     ['MANDATE.md', D.mandate_md, 'The scope. Beside AGENTS.md, always.'],
-    ['GRANT.md', D.grant_md, 'What it can reach, with a barrier per row. A description, not permission.'],
+    ['GRANT.md', D.grant_md, 'What it can reach, with a barrier per row.'],
     ['DELTA.md', D.delta_md, 'What nobody asked for — the list the agent stops and reports before touching.'],
-    ['LICENCE-TO-OPERATE.md', D.licence_md, 'Who authorised it, for what, until when, on what conditions.'],
-    ['AGENT-BEHAVIOUR-POLICY.md', D.abp_md, 'All four objects in one document, if one file is all there is room for.'],
-  ];
-  const everything = files.map(([name, text]) => `<!-- ${name} -->\n${text}`).join('\n\n');
-  const distLink = (name, label, blurb) => {
-    const path = 'dist/' + name;
-    if (!dist[name]) return h('p', { class: 'sub' }, `${label} is not in this vault yet — it is rendered by the build and pushed with the vault.`);
-    const btn = (window.sg && sg.vfs && sg.vfs.download)
-      ? h('button', { class: 'btn p', type: 'button', on: { click: () => sg.vfs.download(path, { filename: name }).catch(e => alert('Download refused: ' + (e && e.message || e))) } }, label)
-      : h('a', { class: 'btn p', href: path, download: name }, label);
-    return h('div', null, [btn, h('p', { class: 'sub' }, blurb)]);
-  };
-  return [
-    h('div', { class: 'head' }, [h('div', null, [h('span', { class: 'tag' }, 'Give it to your agent'), h('h2', null, 'Three ways in. The same files each time.'), h('p', null, 'The policy is a set of markdown files the agent reads. Paste them, download them, or print them — whichever fits how the agent is run. AGENTS.md goes wherever the agent already reads its instructions; the rest sit beside it.')])]),
+    ...(D.consequences_md ? [['CONSEQUENCES.md', D.consequences_md, 'What follows when a capability meets an asset here.']] : []),
+    ['LICENCE-TO-OPERATE.md', D.licenceto_md, 'Who authorised it, for what, until when.'],
+    ['AGENT-BEHAVIOUR-POLICY.md', D.abp_md, 'All four objects in one document.']];
+  const everything = files.map(([name, text]) => '<!-- ' + name + ' -->\n' + text).join('\n\n');
+  return [docHead('Give it to your agent', 'AGENTS.md', 'Three ways in. The same files each time.', 'The policy is a set of markdown files. Put them where the agent reads, hand over the zip, or print the PDF.'),
     h('div', { class: 'ways' }, [
-      h('div', { class: 'way' }, [h('span', { class: 'n' }, '01 · COPY AND PASTE'), h('h3', null, 'Blocks, per file or all at once'), h('p', null, 'For a session you are starting now, or a CLAUDE.md you already have. Below.')]),
-      h('div', { class: 'way' }, [h('span', { class: 'n' }, '02 · THE ZIP'), h('h3', null, 'Every file, ready to unpack'), h('p', null, 'The markdown, the JSON, the vocabulary and the history — the whole vault minus this app.'), distLink(slug + '.zip', 'Download the zip', 'Built by the same script that renders the documents, so it cannot disagree with them.')]),
-      h('div', { class: 'way' }, [h('span', { class: 'n' }, '03 · THE PDF'), h('h3', null, 'The whole policy, printed'), h('p', null, 'For the person who wants to read it on paper, or hand it to a board — every view of this app, in order.'), distLink(slug + '.pdf', 'Download the PDF', 'Rendered from this app in print mode, dated in the footer.')]),
+      h('div', { class: 'way' }, [h('span', { class: 'n' }, '01 · COPY AND PASTE'), h('h3', null, 'Blocks, per file or all at once'), h('p', null, 'For a session you are starting now, or a CLAUDE.md.')]),
+      h('div', { class: 'way' }, [h('span', { class: 'n' }, '02 · THE ZIP'), h('h3', null, 'Every file, ready to unpack'), h('p', null, 'On the Download view, with its size and sha256.'), h('button', { class: 'btn', type: 'button', on: { click: () => show('download') } }, 'Go to Download →')]),
+      h('div', { class: 'way' }, [h('span', { class: 'n' }, '03 · THE PDF'), h('h3', null, 'The whole policy, printed'), h('p', null, 'Use the browser’s print to PDF, or the file on Download if the build made one.')]),
     ]),
-    h('h3', { style: 'margin-top:26px' }, 'Everything, in one prompt'),
-    h('p', { class: 'sub', style: 'margin-top:4px' }, 'The seven files concatenated, each under its own marker. Paste it into a fresh session, or into the file the agent reads first.'),
+    h('h3', { style: 'margin-top:22px' }, 'Everything, in one prompt'),
+    h('p', { class: 'sub', style: 'margin-top:4px' }, 'The files concatenated, each under its own marker. Paste into a fresh session.'),
     copyBlock(everything, 'every policy file in one block'),
-    h('h3', { style: 'margin-top:26px' }, 'One file at a time, with where it goes'),
+    h('h3', { style: 'margin-top:22px' }, 'One file at a time, with where it goes'),
     ...files.map(([name, text, where]) => h('details', null, [h('summary', null, [h('span', { class: 'mono' }, name), h('span', { class: 'where' }, where)]), h('div', { class: 'body' }, copyBlock(text || '', name))])),
-    h('div', { class: 'warn', style: 'margin-top:22px' }, [h('b', null, 'What these files cannot do, in their own words. '), 'AGENTS.md is a rule in prose — the second of four barriers — and it bounds nothing. It shapes what the agent tends to do; it does not change what it can do. What would is in the Barrier column of the grant: a token scope, a branch rule, a sandbox, an egress proxy. Most of what goes wrong is not an attack, and for that these files are the telling.']),
-  ];
-}
-function viewHistory() {
-  const v = D.vault, src = D._source || {};
-  return [
-    h('div', { class: 'head' }, [h('div', null, [h('span', { class: 'tag' }, 'Versions and provenance'), h('h2', null, 'What this describes, and what it was computed from'), h('p', null, 'One history entry per recompute whose counts moved. The delta pins the version of both inputs and the time it was computed, so a later build can say what moved.')])]),
-    h('div', { class: 'grid' }, [
-      h('div', { class: 'panel' }, [h('h3', null, 'Pinned inputs'), h('ul', null, [
-        h('li', null, [h('b', null, 'Grant '), `${D.grant.id} · version ${D.grant.profile_version} · ${D.grant.rows.measured} of ${D.grant.rows.total} rows measured`]),
-        h('li', null, [h('b', null, 'Mandate '), `${D.mandate.id} · ${D.mandate.status} · authored ${D.mandate.authored}`]),
-        h('li', null, [h('b', null, 'Delta '), `${D.delta.id} · computed ${D.delta.computed_at} · ${D.delta.computed_by}`]),
-        h('li', null, [h('b', null, 'Vocabulary '), `abp.sgit.ai ${v.vocabulary_version} — 23 capabilities, 4 barriers, 3 undo classes`]),
-        h('li', null, [h('b', null, 'As at '), v.as_at]),
-      ])]),
-      h('div', { class: 'panel' }, [h('h3', null, 'Where this page read its data'), h('p', null, window.sg && sg.vfs ? `Over the window.sg bridge from the vault — ${src.live || 0} files live${src.fallback ? `, ${src.fallback} from the inlined copy` : ''}.` : `From files beside this page — ${src.live || 0} fetched${src.fallback ? `, ${src.fallback} from the inlined copy` : ''}. Outside a vault host this is a static copy; the vault is the one that is right.`), h('p', { class: 'sub' }, 'The app holds a read key at most and declares no write permission, so nothing here can change the vault.')]),
-    ]),
-    h('h3', { style: 'margin-top:22px' }, 'History'),
-    h('div', { class: 'hist' }, (D.history.entries || []).slice().reverse().map(e => h('div', { class: 'h' }, [h('span', { class: 'v' }, 'v' + e.v), h('span', { class: 'd' }, `${e.computed_at} · grant ${e.grant_version} · mandate ${e.mandate_version} · excess ${e.counts.excess}, unbounded ${e.counts.unbounded_excess}, shortfall ${e.counts.shortfall}, aligned ${e.counts.aligned}`)]))),
-    h('div', { class: 'panel', style: 'margin-top:18px' }, [h('h3', null, 'Provenance'), h('p', null, `${D.grant.provenance.note} Source: ${D.grant.provenance.source_page}, retrieved ${D.grant.provenance.retrieved}, pack ${D.grant.provenance.pack_version}, ${D.grant.provenance.content_hash}. ${D.grant.not_an_assessment}`)]),
-    h('h3', { style: 'margin-top:22px' }, 'README'), h('pre', null, D.readme || ''),
+    h('div', { class: 'warn', style: 'margin-top:20px' }, [h('b', null, 'What these files cannot do, in their own words. '), 'AGENTS.md is a rule in prose — the second of four barriers — and it bounds nothing a boundary does not. The barrier column is where the enforcement is, or is not.']),
   ];
 }
 
+// ---------------------------------------------------------------- view: Build it (MAP-A-GRANT)
+function viewBuild() {
+  return [docHead('Build it', 'MAP-A-GRANT.md', 'Map a grant where the agent runs', 'A prompt for an agent that already holds a credential or a connector: measure its own grant and draft the first policy. Read it in the vault; run it where your agent runs.'),
+    D.readme ? null : null,
+    h('div', { class: 'panel' }, [h('h3', null, 'How it is used'), h('p', null, 'The agent running inside a deployment can look at what it can reach. It reports; a log held outside it confirms. This prompt asks for that report in verb.object.reach form, using only the 23 primitives.')]),
+    h('p', { class: 'sub' }, 'Open MAP-A-GRANT.md in the vault browser to read or copy the full prompt.'),
+    fileStrip('MAP-A-GRANT.md', null)];
+}
+
+// ---------------------------------------------------------------- view: Authorise it (Licence to Operate)
+function viewAuthorise() {
+  const d = computeDelta(MANDATE), v = D.vault, template = v.status === 'template';
+  const conds = sortIrreversibleFirst(d.excess);
+  const kv = (k, val) => h('tr', null, [h('td', { class: 'k' }, k), h('td', null, val)]);
+  return [docHead('Authorise it · Licence to Operate', 'LICENCE-TO-OPERATE.md', 'The organisation authorises the agent, for an interval', 'The organisation is the authority, the behaviour policy is the instrument, the agent is the licensee. Self-issued, witnessed and dated.'),
+    h('div', { class: 'tw' }, h('table', null, h('tbody', null, [
+      kv('Licensee', (v.agent || D.grant.product) + ' — shape ' + D.grant.id + ', grant ' + D.grant.profile_version),
+      kv('Authority', v.organisation || (template ? '— not yet issued to anyone —' : '—')),
+      kv('Accountable owner', v.owner || (template ? '— unassigned —' : '—')),
+      kv('Instrument', 'mandate ' + D.mandate.id + ' (' + D.mandate.authored + '), delta ' + D.delta.id + ', vocabulary abp.sgit.ai ' + v.vocabulary_version),
+      kv('Issued', v.issued || (template ? '— not issued: this is a template —' : '—')),
+      kv('Valid until', v.valid_until || '— an interval is set when it is issued —'),
+    ]))),
+    h('h3', { style: 'margin-top:20px' }, 'Scope — authorised (' + MANDATE.want.length + ')'),
+    h('ul', null, MANDATE.want.map(id => h('li', null, [h('span', { class: 'mono' }, id), ' — ' + gloss(id)]))),
+    h('h3', { style: 'margin-top:20px' }, 'Conditions — asked not to, and what enforces each (' + conds.length + ')'),
+    h('div', { class: 'tw' }, h('table', null, [h('thead', null, h('tr', null, ['Condition', 'Barrier', 'Enforced by'].map(t => h('th', null, t)))), h('tbody', null, conds.map(id => { const r = row(id); return h('tr', null, [h('td', null, [h('span', { class: 'mono' }, 'Do not ' + id)]), barrierCell(id), h('td', { class: 'm' }, r.control || 'nothing — a line in prose')]); }))])),
+    fileStrip('LICENCE-TO-OPERATE.md', D.licenceto_md)];
+}
+
+// ---------------------------------------------------------------- view: Licence (the copyright licence)
+function viewLicence() {
+  const lic = (D.app && D.app.licence) || { kind: 'cc-by-4.0' };
+  const commercial = lic.kind === 'commercial';
+  return [docHead('Licence · what you may do with this copy', 'LICENCE.md', commercial ? 'Licensed to ' + (lic.licensee || '—') : 'The published template — CC BY 4.0', commercial ? 'This copy carries a commercial licence to the named buyer over the material; the template it was built from remains CC BY 4.0.' : 'This copy is the published template, licensed CC BY 4.0. A paid copy replaces this with a commercial licence to the buyer, granting full rights to use the material including in client work, without attribution.'),
+    h('div', { class: 'grid' }, [
+      h('div', { class: 'panel' }, [h('h3', null, 'This copy'), commercial ? h('p', null, 'Licensed to ' + lic.licensee + ' · order ' + lic.order + ' · level ' + lic.level + '. Full rights to use the material, including in client work, without attribution.') : h('p', null, 'The published template. Copy, adapt and use it, including commercially, with attribution, a licence link and an indication of changes.'), h('p', { class: 'sub' }, commercial ? 'The paid material.' : 'CC BY 4.0.')]),
+      h('div', { class: 'panel' }, [h('h3', null, 'The published material'), h('p', null, 'The template this copy was built from is CC BY 4.0.'), h('p', { class: 'sub' }, ['Licence: ', h('a', { href: 'https://creativecommons.org/licenses/by/4.0/', target: '_blank', rel: 'noopener' }, 'creativecommons.org/licenses/by/4.0')])]),
+    ]),
+    D.licence_md ? h('div', { style: 'margin-top:18px' }, [h('h3', null, 'The licence file'), h('pre', null, D.licence_md)]) : null,
+    fileStrip('LICENCE.md', D.licence_md)];
+}
+
+// ---------------------------------------------------------------- view: Your keys
+function viewKeys() {
+  const lic = (D.app && D.app.licence) || { kind: 'cc-by-4.0' };
+  const copy = (D.app && D.app.copy) || D.vault.copy || 'template';
+  const vaultId = (window.sg && sg.app && sg.app.vaultId) || (window.ABP_LOADER && window.ABP_LOADER.for) || null;
+  const template = copy === 'template';
+  return [docHead('Your keys', '—', 'A vault you hold the keys to', 'This behaviour policy is delivered as an encrypted vault. Its whole argument is here: a reader you hand the read key to sees exactly what you see, and the write key never leaves you.'),
+    h('div', { class: 'keys' }, [
+      h('div', { class: 'keycard read' }, [h('h3', null, 'The read key'), h('p', null, template ? 'This is the published template, so its read key is public and printed on riskmandate.ai — anybody may open it. A copy licensed to you would carry its own read key, not a public one.' : 'You hold the read key. Hand it to anybody who asks how you govern the agent and they see this, read-only — the grant, the mandate, the delta, the licence. It reads and nothing else.'), vaultId ? h('div', { class: 'id' }, 'vault ' + vaultId) : null]),
+      h('div', { class: 'keycard write' }, [h('h3', null, 'The write key'), h('p', null, 'The write key is separate from the read key and stays with whoever owns the vault. It is what lets you correct the mandate and commit the result. It is not in this app and not on any page; the app writes nothing, by declaration.')]),
+    ]),
+    h('div', { class: 'panel', style: 'margin-top:16px' }, [h('h3', null, 'What clone, change, commit means'), h('p', null, 'With the write key you clone the vault, edit data/mandate.json, and commit; every derived document rebuilds and the history keeps the basis of each revision. A reader with the read key sees the new version when you push it. That is the difference between a vault and a file emailed once.')]),
+    h('div', { class: 'notice' }, [h('b', null, 'The host owns the crypto. '), 'This app never sees a key. It asks the vault host to read files and, when you download, to hand you the bytes. The consent prompts and the exit are the host’s, and an app cannot suppress them.'])];
+}
+
+// ---------------------------------------------------------------- view: Keep it (history + commits)
+function viewKeep() {
+  const v = D.vault, src = D._source || {};
+  const box = h('div', null, [h('h3', null, 'The vault’s own history'), h('p', { class: 'sub', style: 'margin-top:4px' }, 'Reading the commit log…')]);
+  if (window.sg && sg.history && sg.history.log) {
+    sg.history.log().then(entries => { box.textContent = ''; box.append(h('h3', null, 'The vault’s own history'));
+      if (!entries || !entries.length) { box.append(h('p', { class: 'sub' }, 'No commits visible from here.')); return; }
+      box.append(h('div', { class: 'hist' }, entries.slice(0, 25).map(e => h('div', { class: 'h' }, [h('span', { class: 'v' }, (e.id || e.commit || '').toString().slice(0, 10) || '—'), h('span', { class: 'd' }, (e.message || e.subject || '') + (e.date || e.time ? ' · ' + (e.date || e.time) : ''))]))));
+    }).catch(() => { box.textContent = ''; box.append(h('h3', null, 'The vault’s own history'), h('p', { class: 'sub' }, 'The commit log is not readable from here; open the vault browser to see it.')); });
+  } else { box.textContent = ''; box.append(h('h3', null, 'The vault’s own history'), h('p', { class: 'sub' }, 'Outside a vault host there is no commit log; the recompute history below is in the files.')); }
+  return [docHead('Keep it · versions and provenance', 'history/', 'What this describes, and what it was computed from', 'Two histories: the vault’s own commits, and one entry per recompute of the delta whose counts moved. Each pins the inputs, so a later build can say what changed.'),
+    h('div', { class: 'grid' }, [
+      h('div', { class: 'panel' }, [h('h3', null, 'Pinned inputs'), h('ul', null, [
+        h('li', null, [h('b', null, 'Grant '), D.grant.id + ' · version ' + D.grant.profile_version + ' · ' + measuredCount() + ' of ' + D.grant.grant.length + ' rows measured']),
+        h('li', null, [h('b', null, 'Mandate '), D.mandate.id + ' · ' + D.mandate.status + ' · authored ' + D.mandate.authored]),
+        h('li', null, [h('b', null, 'Delta '), D.delta.id + ' · computed ' + D.delta.computed_at]),
+        h('li', null, [h('b', null, 'Vocabulary '), 'abp.sgit.ai ' + v.vocabulary_version]),
+        h('li', null, [h('b', null, 'As at '), v.as_at]),
+      ])]),
+      box,
+    ]),
+    h('h3', { style: 'margin-top:20px' }, 'Recompute history'),
+    h('div', { class: 'hist' }, (D.history.entries || []).slice().reverse().map(e => h('div', { class: 'h' }, [h('span', { class: 'v' }, 'v' + e.v), h('span', { class: 'd' }, e.computed_at + ' · grant ' + e.grant_version + ' · mandate ' + e.mandate_version + ' · excess ' + e.counts.excess + ', unbounded ' + e.counts.unbounded_excess + ', shortfall ' + e.counts.shortfall + ', aligned ' + e.counts.aligned)]))),
+    h('p', { class: 'sub' }, (window.sg && sg.vfs) ? 'Read over the window.sg bridge from the vault — ' + (src.live || 0) + ' files.' : 'Read from files beside this page — a static copy; the vault is the one that is right.')];
+}
+
+// ---------------------------------------------------------------- view: Download
+function viewDownload() {
+  const dist = D.dist || {};
+  const rows = Object.entries(dist);
+  const item = ([name, meta]) => {
+    const bytes = meta && meta.bytes, sha = meta && meta.sha256;
+    const btn = (window.sg && sg.vfs && sg.vfs.download)
+      ? h('button', { class: 'btn p', type: 'button', on: { click: () => sg.vfs.download('dist/' + name, { filename: name }).catch(e => alert('Download refused: ' + (e && e.message || e))) } }, 'Download ' + name)
+      : h('a', { class: 'btn p', href: 'dist/' + name, download: name }, 'Download ' + name);
+    return h('div', { class: 'panel', style: 'margin-top:12px' }, [h('h3', null, name), h('p', null, name.endsWith('.zip') ? 'Every file in the vault: the markdown for people, the JSON for machines, the pinned vocabulary and the consequence layer.' : 'The whole policy, printed.'), bytes ? h('p', { class: 'sub' }, (bytes / 1024).toFixed(1) + ' KB' + (sha ? ' · sha256 ' + sha : '')) : null, h('div', { style: 'margin-top:10px' }, btn)]); };
+  return [docHead('Download', 'dist/', 'Take a copy', 'The vault packaged as files, with its size and sha256 so a copy can be checked against this one. The vault stays the record; this is a snapshot of it.'),
+    rows.length ? rows.map(item) : h('p', { class: 'sub' }, 'The build has not written a download for this vault yet.'),
+    h('div', { class: 'notice' }, [h('b', null, 'The read key is not the download. '), 'Anyone with the read key opens the live vault and sees every number here against the bytes it came from. The download is a copy to keep; the vault is the one that updates.'])];
+}
+
 // ---------------------------------------------------------------- shell
-const VIEWS = [['start', 'Start here'], ['about', 'What is this?'], ['overview', 'Overview'], ['grant', 'Grant'], ['mandate', 'Mandate — correct it'], ['delta', 'Delta'], ['licence', 'Licence to Operate'], ['deploy', 'Give it to your agent'], ['history', 'History']];
-const BUILDERS = { start: viewStart, about: viewAbout, overview: viewOverview, grant: viewGrant, mandate: viewMandate, delta: viewDelta, licence: viewLicence, deploy: viewDeploy, history: viewHistory };
+const GROUPS = [
+  { items: [['start', 'Start here', null]] },
+  { title: 'The record', items: [['abp', 'The ABP', 'AGENT-BEHAVIOUR-POLICY.md'], ['grant', 'Evidence', 'GRANT.md'], ['delta', 'The gap', 'DELTA.md'], ['consequences', 'What follows', 'CONSEQUENCES.md']] },
+  { title: 'What you do', items: [['mandate', 'Customise', 'MANDATE.md'], ['deploy', 'Use it', 'AGENTS.md'], ['build', 'Build it', 'MAP-A-GRANT.md'], ['authorise', 'Authorise it', 'LICENCE-TO-OPERATE.md']] },
+  { title: 'What you hold', items: [['licence', 'Licence', 'LICENCE.md'], ['keys', 'Your keys', null], ['keep', 'Keep it', 'history/'], ['download', 'Download', 'dist/']] },
+];
+const BUILDERS = { start: viewStart, abp: viewAbp, grant: viewGrant, delta: viewDelta, consequences: viewConsequences, mandate: viewMandate, deploy: viewDeploy, build: viewBuild, authorise: viewAuthorise, licence: viewLicence, keys: viewKeys, keep: viewKeep, download: viewDownload };
 let current = 'start';
-function render(name) {
-  const sec = $('#v-' + name); sec.textContent = '';
-  for (const node of BUILDERS[name]()) sec.appendChild(node);
+function buildRail() {
+  const rail = document.getElementById('rail'); rail.textContent = '';
+  rail.append(h('button', { class: 'home', type: 'button', on: { click: () => show('start') } }, [D.vault.title, h('span', null, D.grant.id)]));
+  for (const g of GROUPS) { const grp = h('div', { class: 'rgroup' }); if (g.title) grp.append(h('h4', null, g.title));
+    for (const [id, label, file] of g.items) {
+      if (id === 'consequences' && !consList().length) continue;
+      const badge = id === 'consequences' && consList().length ? h('span', { class: 'b open' }, String(consList().length))
+        : id === 'grant' && research().length ? h('span', { class: 'b open' }, research().length + ' open') : null;
+      grp.append(h('button', { class: 'nav' + (id === current ? ' on' : ''), type: 'button', 'data-view': id, on: { click: () => { show(id); document.getElementById('rail').classList.remove('open'); } } }, [h('span', null, label), badge, file ? h('span', { class: 'f' }, file) : null])); }
+    rail.append(grp); }
+  rail.append(h('p', { class: 'note' }, 'Delivered as an encrypted vault. This page is a little HTML on top of the files beside it; anyone with the read key can check every number here against the bytes it came from.'));
 }
-function show(name) {
-  current = name;
-  document.querySelectorAll('.view').forEach(sec => sec.classList.toggle('on', sec.id === 'v-' + name));
-  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('on', t.dataset.view === name));
-  render(name);
-  window.scrollTo({ top: 0 });
-}
+function appendAll(parent, nodes) { for (const node of [].concat(nodes)) { if (node == null) continue; if (Array.isArray(node)) { appendAll(parent, node); continue; } parent.appendChild(typeof node === 'string' ? document.createTextNode(node) : node); } }
+function render(name) { const view = document.getElementById('view'); view.textContent = ''; view.className = 'view'; appendAll(view, BUILDERS[name]()); }
+function show(name) { current = name;
+  document.querySelectorAll('.nav').forEach(n => n.classList.toggle('on', n.dataset.view === name));
+  render(name); window.scrollTo({ top: 0 }); }
 function ready() { try { window.parent && window.parent.postMessage({ type: 'sg-app-ready' }, '*'); } catch (e) {} }
 
 load().then(data => {
@@ -706,32 +758,28 @@ load().then(data => {
   UNDO_RANK = Object.fromEntries(D.undo.order.map((u, i) => [u, i]));
   MEASURED = new Set(D.tiers.counted_as_measured);
   MANDATE = JSON.parse(JSON.stringify(D.mandate));
-  const tabs = $('#tabs');
-  VIEWS.forEach(([id, label]) => tabs.appendChild(h('button', { class: 'tab', type: 'button', 'data-view': id, on: { click: () => show(id) } }, label)));
+  STD = {}; for (const key of ['gdpr', 'euaiact', 'attack']) { const g = D[key]; if (g) for (const n of g.nodes || []) STD[n.id] = n; }
+  buildRail();
   const last = (D.history.entries || []).slice(-1)[0];
-  $('#ver').textContent = 'v' + (last ? last.v : 1) + ' · ' + D.vault.as_at;
-  $('#ver').addEventListener('click', () => show('history'));
+  document.getElementById('ver').textContent = 'v' + (last ? last.v : 1) + ' · ' + D.vault.as_at;
+  document.getElementById('ver').addEventListener('click', () => show('keep'));
   const via = window.ABP_LOADER ? ' · app via ' + window.ABP_LOADER.source : '';
-  $('#src').textContent = (window.sg && sg.vfs ? 'live from the vault' : 'static copy') + ' · ' + D.grant.id + via;
-  $('#foot').textContent = '';
-  $('#foot').append(h('b', null, 'RiskMandate — Agent Behaviour Policy, delivered as a vault. '), `Grant ${D.grant.profile_version} · mandate ${D.mandate.authored} · vocabulary abp.sgit.ai ${D.vault.vocabulary_version} · as at ${D.vault.as_at}. `, 'It describes and it does not judge, so it carries no score. Not a compliance assessment, a certification, an audit or a security review of any named product. CC BY 4.0. ', h('a', { href: 'https://riskmandate.ai/abp.html' }, 'riskmandate.ai'), ' · ', h('a', { href: 'https://abp.sgit.ai/' }, 'abp.sgit.ai'));
-  $('#loading').remove();
-  if (window.matchMedia && window.matchMedia('print').matches) { VIEWS.forEach(([id]) => render(id)); } else { show('start'); }
+  document.getElementById('src').textContent = (window.sg && sg.vfs ? 'live from the vault' : 'static copy') + via;
+  document.getElementById('navtoggle').addEventListener('click', () => document.getElementById('rail').classList.toggle('open'));
+  document.getElementById('foot').append(h('b', null, 'RiskMandate — Agent Behaviour Policy, delivered as a vault. '), 'Grant ' + D.grant.profile_version + ' · mandate ' + D.mandate.authored + ' · vocabulary abp.sgit.ai ' + D.vault.vocabulary_version + ' · as at ' + D.vault.as_at + '. It describes and it does not judge, so it carries no score. Not a compliance assessment, a certification, an audit or a security review of any named product. ', h('a', { href: 'https://riskmandate.ai/abp.html' }, 'riskmandate.ai'));
+  show('start');
   ready();
 }).catch(err => {
   console.error('[abp-vault]', err);
   const msg = String(err && err.message || err);
+  const view = document.getElementById('view'); view.textContent = '';
   if (/vault\.json/.test(msg)) {
-    // Opened in the app vault itself, or somewhere with no policy beside it: say so.
-    $('#loading').textContent = '';
-    $('#loading').append(h('b', null, 'This is the renderer, not a policy. '), 'It is the code every behaviour-policy vault loads; opened on its own there is no vault.json, no grant and no mandate beside it, so there is nothing to show. Open an application vault — its index.html is a loader that fetches this file and boots it against that vault\u2019s own data. The directory of application vaults is at ', h('a', { href: 'https://riskmandate.ai/abp-vaults.html' }, 'riskmandate.ai/abp-vaults'), '.');
-  } else {
-    $('#loading').textContent = 'Could not read the vault: ' + msg;
-  }
-  $('#src').textContent = 'error';
+    view.append(h('div', { class: 'panel' }, [h('h3', null, 'This is the renderer, not a policy.'), h('p', null, 'It is the code every behaviour-policy vault loads; opened on its own there is no vault.json beside it, so there is nothing to show. Open an application vault — its index.html is a loader that fetches this file and boots it against that vault’s data.'), h('p', { class: 'sub' }, ['The directory of application vaults is at ', h('a', { href: 'https://riskmandate.ai/agent-behaviour-policy.html' }, 'riskmandate.ai/agent-behaviour-policy')])]));
+  } else { view.append(h('div', { class: 'panel' }, [h('h3', null, 'Could not read the vault'), h('p', null, msg)])); }
+  document.getElementById('src').textContent = 'error';
   ready();
 });
-window.addEventListener('beforeprint', () => { VIEWS.forEach(([id]) => render(id)); });
+window.addEventListener('beforeprint', () => { if (D) { const view = document.getElementById('view'); view.textContent = ''; for (const [id] of Object.entries(BUILDERS)) { const sec = h('section', { class: 'view' }); appendAll(sec, BUILDERS[id]()); view.appendChild(sec); } } });
 </script>
 </body>
 </html>

@@ -1,13 +1,23 @@
 {
   "type": "riskmandate/abp-app-context/v1",
   "dist": {
-    "claude-gmail-connector.zip": true
+    "claude-gmail-connector.zip": {
+      "bytes": 161803,
+      "sha256": "99d525d6a896f97cf5bd2bf9127e9a77b26bbfc5c7be4646823be59f37e17435"
+    }
   },
   "research_open": 6,
-  "scenarios": 6,
+  "scenarios": 8,
+  "consequences": 11,
+  "consequences_open": 5,
+  "routes_out": 2,
+  "licence": {
+    "kind": "cc-by-4.0"
+  },
+  "copy": "template",
   "app_vault": {
-    "vault_id": "fl3i7lu4",
+    "vault_id": "vbhmlulo",
     "entry": "index.html",
-    "version": "v4"
+    "version": "v5"
   }
 }

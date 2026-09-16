@@ -282,3 +282,8 @@
 .ab-live-h{font-size:17px;font-weight:700;letter-spacing:-.01em;color:var(--text);margin:0 0 4px}
 .ab-live-p{font-size:14px;color:var(--muted);line-height:1.65;max-width:76ch}
 @media (max-width:700px){.vd-stage,.vd-stage.tall{aspect-ratio:auto;height:70vh}}
+/* v1.24.0 — the three claims under the two live frames, from the store's mock-up */
+.ab-claims{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+.ab-claims div{font-size:14px;color:var(--muted);line-height:1.55}
+.ab-claims b{color:var(--text)}
+@media (max-width:760px){.ab-claims{grid-template-columns:1fr;gap:12px}}

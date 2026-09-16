@@ -5,6 +5,11 @@ T01–T03. **Touches:** `scripts/site/build-abp-vault.mjs`, `site/vaults/*/data/
 `site/vaults/*/prompts/`, `site/vaults/*/projections/`, `site/vaults/_app/index.html`.
 
 ## The task
+**Amended 16 September** (`direction__consequences-assets-and-the-vault-as-a-website.md` §4): the
+reading app gains **Who are you?** directly under *Start here* — executive, technical, risk and
+governance, buyer, the agent itself — and the first four views ship with the MVP vault rather
+than after it. Each view also decides which consequences (T11) that audience is shown.
+
 Eight audiences: CEO, CFO, CTO, investor, buyer, operator, engineer, project manager. Each is a
 **view**: an authored filter over the graph saying which behaviours, which counts, which evidence
 it shows, and what it hides and why. Each has a **prompt** (`prompts/<audience>.md`) that turns

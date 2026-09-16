@@ -12,17 +12,17 @@ Source: https://riskmandate.ai/abp-vault-claude-code-web.html
 
 A managed cloud container, ephemeral, one git repository attached, an egress proxy above it, and a set of harness tools scoped by the platform. MEASURED, by the thing being profiled: the shell probed on 5 September with probes/run.py, the fetch tool's reach and the harness tools reported by the operator. This is the template vault for that shape: the grant measured on the thing itself, the starting mandate the model site published, and everything else derived. Every number on this page is decrypted from the vault as you read it.
 
-## The vault in action, and the vault itself.
+## Open the vault. See what you get.
 
-Two frames, both the official SG/Vault interface opened read-only with the key printed at the bottom of this page, both reading the vault and not this site. The first is the vault's own app, which is what whoever is handed the policy sees: what we want the agent to do beside what we do not, the mandate to correct, the files to give the agent. The second is the vault browser: every file in the tree, its history, and the same app one click away. Between them is what you are buying at every level — the app is the reading, the tree is the record.
+Reading app · files · keys · history. Two frames, both the official SG/Vault interface opened read-only with the key printed at the bottom of this page, both reading the vault and not this site. The first is the vault's own app, which is what whoever is handed the policy sees. The second is the vault browser: every file in the tree, its history, and the same app one click away. Between them is what you are buying at every level — the app is the reading, the tree is the record.
 
 ### The app
 
-Opens on _Start here_. Use the tabs across the top: the grant, the mandate you can correct, the delta, the licence, and three ways to hand the files to the agent.
+Opens on _Start here_. A left navigation: the record it can do, what you do with it, and what you hold — the mandate to correct, the consequences that follow, your keys, and the licence.
 
 ### The vault
 
-The tree on the left is the whole product: the markdown for people, the JSON for machines, the pinned vocabulary, the six scenarios, the history of every recompute. Click a file to read it; the same app is under _index.html_.
+The tree on the left is the whole product: the markdown for people, the JSON for machines, the pinned vocabulary, the scenarios, the consequence layer, the history of every recompute. Click a file to read it; the same app is under _index.html_.
 
 The read key travels to the host over a same-page handshake, never in a URL. Nothing you do in either frame touches the vault: it is opened read-only, and the write key is not published. Not loading? [Open it in its own tab ↗](https://dev.vault.sgraph.ai/en-gb/#6042edc39e0bcb1f17af1da0cf9d4ded6f89a7bb6a5394aa9554bb76913a249c:ruj286tr).
 

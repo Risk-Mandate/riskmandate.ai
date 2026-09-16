@@ -77,6 +77,42 @@
         "send.message.world"
       ],
       "do_not_want": []
+    },
+    {
+      "id": "do-not-attack-the-company",
+      "tier": "advanced",
+      "label": "Read and draft, and never turn on the company",
+      "description": "Read the inbox and draft replies, and never send mass mail, create a forwarding filter, or rearrange the filing — the consequences that attack the account holder's own organisation.",
+      "want": [
+        "read.message.tenant"
+      ],
+      "do_not_want": [
+        "send.message.world",
+        "create.schedule.tenant"
+      ],
+      "refuses_consequences": [
+        "consequence.mass-send",
+        "consequence.standing-forward",
+        "consequence.rearrange-the-inbox",
+        "consequence.provoke-suspension"
+      ]
+    },
+    {
+      "id": "do-not-attack-anyone-else",
+      "tier": "advanced",
+      "label": "Never attack anybody else from this account",
+      "description": "Whatever else it does, the agent must never send payloads or pretexts to other people or organisations from this account, and never forward mail it was given only to read.",
+      "want": [
+        "read.message.tenant"
+      ],
+      "do_not_want": [
+        "send.message.world"
+      ],
+      "refuses_consequences": [
+        "consequence.attack-others-from-this-account",
+        "consequence.forward-any-message",
+        "consequence.reset-passwords"
+      ]
     }
   ]
 }

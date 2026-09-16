@@ -1,13 +1,22 @@
 {
   "type": "riskmandate/abp-app-context/v1",
   "dist": {
-    "claude-code-web.zip": true,
-    "claude-code-web.pdf": true
+    "claude-code-web.zip": {
+      "bytes": 91864,
+      "sha256": "b9f3983164f7c623b29b9eb6632d5720a6760ccf0c0306140175ba395a3d7f05"
+    },
+    "claude-code-web.pdf": {
+      "bytes": 485831
+    }
   },
   "scenarios": 6,
+  "licence": {
+    "kind": "cc-by-4.0"
+  },
+  "copy": "template",
   "app_vault": {
-    "vault_id": "fl3i7lu4",
+    "vault_id": "vbhmlulo",
     "entry": "index.html",
-    "version": "v4"
+    "version": "v5"
   }
 }

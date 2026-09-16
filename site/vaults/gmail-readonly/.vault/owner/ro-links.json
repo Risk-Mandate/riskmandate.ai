@@ -1,12 +1,12 @@
 {
-  "lk-e6ef2b031a0a": {
+  "lk-9295af085d99": {
     "type": "vault",
     "label": "app",
     "pin": {
       "mode": "latest"
     },
-    "vault_id": "fl3i7lu4",
-    "read_key": "43oPgNZeK0hvi7MlPjE8Zey7V+VmTD8XBDRscKwJY5o=",
-    "ref_file_id": "ref-pid-muw-500648d8192f"
+    "vault_id": "vbhmlulo",
+    "read_key": "rlLwG2B5LxNEQFbf0LYk3DHCI5B67mVwCg4Gz4K4TK8=",
+    "ref_file_id": "ref-pid-muw-ee683774577e"
   }
 }
