@@ -4,7 +4,7 @@
 
 Carriers are filing to exclude AI from cover, and the way back is evidence an underwriter will accept. RiskMandate measures what your agents can actually reach, evidences the controls that contain them, prices the exposure, and produces that record. Underneath the insurance framing is a risk model: a grant is what a credential technically permits, a mandate is what the holder is authorised and expected to do, and the gap between them is exposure nobody ever accepted. A deployed agent already has access, so a real risk cannot be denied — only accepted, by a named owner, for an interval, with an expiry that brings the decision back. RiskMandate is read-only and never in the request path: it defines the mandate and measures the gap; it does not enforce it. It is built on SG/Vault — zero-knowledge, PKI, provenance, no database — so you hold the keys.
 
-Site version v1.25.0. The version record is at https://riskmandate.ai/versions.html and its
+Site version v1.25.1. The version record is at https://riskmandate.ai/versions.html and its
 index at https://riskmandate.ai/versions/index.json.
 
 ## Core concepts
@@ -24,7 +24,7 @@ Each is a plain HTML document at its own URL, with a markdown twin at the same
 path. Anything a page renders at runtime from data — the demo cards, the
 library, the scenarios — is in the page, not the twin.
 
-- [RiskMandate — the insurability layer for agentic AI](https://riskmandate.ai/) · [md](https://riskmandate.ai/index.md): You cannot insure what nobody can describe. RiskMandate writes Agent Behaviour Policies: for one agent in one deployment, everything it can actually reach, what you authorised it to do, and the gap between them. The Insurability Index is what those policies add up to.
+- [RiskMandate — Know what your agents can do](https://riskmandate.ai/) · [md](https://riskmandate.ai/index.md): An Agent Behaviour Policy writes down what one AI agent can really reach, what you authorised it to do and the gap between the two.
 - [RiskMandate — the Agent Behaviour Policy](https://riskmandate.ai/abp.html) · [md](https://riskmandate.ai/abp.md): An Agent Behaviour Policy is a written description, for one agent in one deployment, of everything it can do, what you authorised it to do, the gap between them, and what actually stands in the way. It describes and it does not judge, so it carries no score.
 - [RiskMandate — How it works](https://riskmandate.ai/how-it-works.html) · [md](https://riskmandate.ai/how-it-works.md): Authorisation is whatever the agent can already do — the union of every route to a capability, conferred long before request time. So we model rather than intercept: read-only digital twins instead of integrations, the RiskGraph, and engines that compute the profile. Never in the request path.
 - [RiskMandate — For Agents](https://riskmandate.ai/agents.html) · [md](https://riskmandate.ai/agents.md): Machine-readable access to RiskMandate's content: llms.txt, a full-text markdown export, and a structured agent-content manifest. A product about governing agent access, publishing a clean one.

@@ -259,9 +259,9 @@ test('the home page counts come from the vault, and the shape count from the cat
   const c    = JSON.parse(read('vaults/claude-code-web/data/delta.json')).counts;
   const n    = JSON.parse(read('vaults/index.json')).vaults.length;
 
-  const hero = home.match(/<div class="counts">[\s\S]*?<p class="hcap">[\s\S]*?<\/p>/)?.[0];
+  const hero = home.match(/<div class="legend">[\s\S]*?<\/figcaption>/)?.[0];
   assert.ok(hero, 'the home page has no hero counts block');
-  const shown = [...hero.matchAll(/<b class="cn[^"]*">(\d+)<\/b>/g)].map((m) => Number(m[1]));
+  const shown = [...hero.matchAll(/<span class="legendNumber[^"]*">(\d+)<\/span>/g)].map((m) => Number(m[1]));
   assert.deepEqual(shown,
     [c.aligned + c.excess, c.aligned + c.shortfall, c.excess, c.unbounded_excess],
     'the hero counts are not reach, mandate, gap and unbounded gap from the vault');
