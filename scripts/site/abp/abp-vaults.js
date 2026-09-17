@@ -469,16 +469,22 @@ RM.services.abpVaults = (function () {
     // already printed above. What it actually carried was the distinction between a row the
     // mandate refused and one it never mentioned — so that is a mark on each line here, and
     // the reader gets it once. The count of each is stated under the list.
+    //
+    // The mark says what the mandate said, and nothing else. It used to read "told not to —
+    // and only told", which put the enforcement twice more on a panel that has already said
+    // it twice: the counter above reads "not asked for, nothing in the way", and the heading
+    // reads "nothing real stops it". Only the first half was news. A reader who has to be
+    // told four times that nothing stops it stops reading any of them.
     box.appendChild(sideEffects.length ? dom.el('ul', null, sideEffects.map(function (id) {
       var told = D[id];
       return dom.el('li', { class: L.row[id].undo === 'no' ? '' : 'e' }, [dom.el('i'), dom.el('span', null, [
         WARN[id] || gloss(L, id), ' ',
         dom.el('code', null, [id + (L.row[id].undo === 'no' ? ' · cannot be undone' : '')]), ' ',
-        dom.el('span', { class: 'ab-said ' + (told ? 'no' : 'un') }, [told ? 'told not to — and only told' : 'never mentioned']),
+        dom.el('span', { class: 'ab-said ' + (told ? 'no' : 'un') }, [told ? 'refused in words' : 'never mentioned']),
       ])]);
     })) : dom.el('p', { class: 'none' }, ['none — everything not asked for sits behind a boundary']));
     if (sideEffects.length) box.appendChild(dom.el('p', { class: 'ab-saidsum' }, [
-      String(toldNot.length) + ' of these the mandate refuses in words, and nothing but words stands in the way; ' +
+      String(toldNot.length) + ' of these the mandate refused in words; ' +
       String(sideEffects.length - toldNot.length) + ' it never mentioned at all.',
     ]));
     box.appendChild(dom.el('span', { class: 'h' }, ['The lethal trifecta']));
