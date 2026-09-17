@@ -8,128 +8,136 @@ Source: https://riskmandate.ai/
 
 ---
 
-# Make your agents insurable.
+# Know whatyour agentscan do.
 
-That is the destination, and you cannot insure what nobody can describe. So the thing we make and sell today is an **Agent Behaviour Policy**: for one agent in one deployment, everything it can actually reach, what you authorised it to do, and the gap between the two. Fifteen are published in full, free, and you can open one before you read another word.
+Not what they did. What they can.
 
-## Three people ask this, and they ask it differently.
+An Agent Behaviour Policy writes down what one agent can really reach, what you authorised it to do and the gap between the two, in one record the CEO, CTO and CISO can all stand behind.
 
-The document is the same. What changes is the question it answers and which part of it you read first — which is why a policy vault carries a view per audience rather than one report everybody squints at.
+**From £10 for one agent.** All sixteen published examples are free to read.
 
-### “Do you know what it can actually do? Not what it did — what it can.”
+From a published policy: Claude Code on the web, with one repository attached. [Open this policy](abp-vault-claude-code-web.html)
 
-You gave an assistant a repository, a mailbox, a cloud account. You know what you asked for. Nobody enumerates the rest.
+Measured against the standards underwriters are adopting: ISO/IEC 42001, OWASP Agentic Top 10, NIST AI RMF and ISO/IEC 27001.
 
-### “Would you like to know what diligence finds, before it runs?”
+Model-drafted and marked as such. Not a compliance assessment. [What we don’t claim](questions.html#words)
 
-The reassuring version of this is already free in several places. The useful direction is the opposite one.
+## Every agent will need a licence to operate.
 
-### “What is your buyer’s security team going to ask about your agents?”
+Insurers are carving AI out of cover, and the business answers for what its agents do. What earns cover back is a written record of what each agent can reach, what it was authorised to do and what actually contains it.
 
-The questionnaire is coming, and the questions are about reach rather than about which model you use.
+[Read the full argument](insurance.html)
 
-A fourth group — investors asking what a portfolio company’s agents can reach — is written up on [the Lisbon page](summit.html) and has not been given its own page yet.
+A generative-AI exclusion took effect in the standard liability forms much of one large insurance market runs on. Several carriers have filed their own, one of them absolute.
 
-## One agent, one deployment, written down.
+A national consumer regulator said a business is responsible if an agent it uses does something illegal, and should be clear what the agent may do, what data it can access and what constraints apply.
 
-Four objects, and the verb attached to each says how it is established. Three of them a person can write down out of what they understand today. The fourth is computed from the first two, and it is the one nobody has looked at.
+Three steps, in order. Each one needs the step before it.
 
-### Everything it can reach
+### Describe it
 
-Not what somebody decided to give it. What it can actually reach in this deployment, including everything nobody thought about.
+Agent Behaviour Policy
 
-### What you authorised it to do
+What one agent can reach, what you authorised, the gap between them and what stands in the way.
 
-The job, written down. The one object only you can supply, and it takes minutes because you already know it.
+### Authorise it
 
-### The gap between the two
+Licence to Operate
 
-Excess where it can and you did not ask; shortfall where you asked and it cannot. Never written by hand, recomputed whenever either input moves.
+The business is the authority, the behaviour policy is the instrument and the agent is the licensee, for a set interval.
 
-### What stands in the way
+### Insure it
 
-Per capability, one of four kinds — and only the fourth bounds anything. A prohibition shown without its barrier is a claim we cannot support.
+Insurability Index
 
-It carries no score. It describes and it does not judge, because the same grant is reasonable in one deployment and serious in another, and a number hides which.
+The record an underwriter will accept: scored, dated and with the residual risk owned.
 
-## A vault, not a PDF.
+## Not a model property. A property of this deployment.
 
-A policy arrives as an encrypted vault you hold the keys to, with an app inside it. Four audiences read the same record and need different things out of it: the operator needs instructions, leadership needs a decision, security needs evidence, and an insurance conversation needs explicit scope and open questions.
+The same model can be harmless in one setup and serious in another. Connect it to a mailbox and the narrowest Gmail scope that reads one message reads every message. So a policy describes one agent, in one deployment, in four parts, and carries no score. [See the scope evidence](grant-gap.html)
 
-### Files your agent can read
+### Reach
 
-`AGENTS.md` and `SKILL.md` go into the agent’s own context, so the thing being governed can read the terms it runs under. Copy them, take the zip, or hand over the PDF.
+Everything the agent can actually access in this deployment, including what nobody thought to check.
 
-### The policy, and its workings
+### Mandate
 
-`AGENT-BEHAVIOUR-POLICY.md`, `GRANT.md` and `DELTA.md`: every capability with the barrier against it, and the gap recomputed from both inputs with their versions pinned.
+The job, written down: what the business authorised it to do. The one part only you can supply.
 
-### A mandate you correct
+### Gap
 
-The starting mandate is written to be argued with. Move a row in the app and the delta recomputes; export the corrected `mandate.json` and it is yours.
+Reach minus mandate. Never written by hand, and recomputed whenever either side moves.
 
-### A licence to operate
+### Barriers
 
-`LICENCE-TO-OPERATE.md`: the organisation is the authority, the policy is the instrument, the agent is the licensee. It ships unissued, with the name and the interval blank until somebody fills them in.
+What actually stands in the way of each capability: controls, constraints and open questions.
 
-## Fifteen are free. Four levels are not.
+The files and the data keep the older names for these: `GRANT.md` is the reach and `DELTA.md` is the gap, because the vocabulary is pinned at [abp.sgit.ai](https://abp.sgit.ai/) and sixteen published vaults are built against it. Same four objects, plainer words on this page.
 
-Every template shape is published in full with a read key, and you should open one before you buy anything. What the paid levels add is a commercial licence over the same material and, at the top two, a named security professional doing the correction with you.
+## One record. A view for everyone who answers for it.
 
-### The published templates
+The behaviour policy lives in an encrypted vault you hold the keys to, with a reading app inside. Hand a read key to your board, your auditor or your broker and they see exactly what you see.
 
-Fifteen shapes, read keys printed, Creative Commons Attribution. Open, check, and use with credit.
+### CEO
 
-### The pack, downloaded
+“What have we authorised, and who owns it if it goes wrong?”
 
-Every file for the shape you picked, as a zip, licensed to you rather than to the world.
+The gap in plain terms, a named owner, and a trigger that brings the decision back for review.
 
-### A vault you hold the keys to
+### CTO
 
-The same material as a vault of your own, licensed in your name, with no public key on it.
+“How do we keep shipping agents without losing track of what they can touch?”
 
-### Corrected for your situation
+Terms your agent reads in its own context, as `AGENTS.md` and `SKILL.md`. Markdown for people, JSON for tools, and nothing in your request path.
 
-The mandate corrected against your industry, your use case and what you send, with a written note of what changed.
+### CISO
 
-### Two sessions with your team
+“Can we prove what it can reach, and what actually stops it?”
 
-Built from an interview, reviewed, and signed off by a named security professional.
+Every capability with its barrier, the gap recomputed whenever an input changes, and every version kept.
 
-**We do not run a cart and we do not hold a price.** The store owns the order, the prices and the page you land on after paying; this site owns the policies, the templates and the explanation. That boundary is [published on their side](https://store.sgit.ai/boundary/) so it cannot quietly move. [Every level side by side &nearr;](https://store.sgit.ai/compare/) · [where the free line falls](pricing.html)
+### Insurer
 
-## Nothing is coming. You already connected it.
+“What exactly are we being asked to cover?”
 
-There is no deadline here, and we are not going to invent one. The exposure was created the moment somebody clicked authorise — last month, probably, on a mailbox or a drive — and it has never been enumerated. Below are three sentences from three vendors' own documentation, with the dates we read them. We have attached no adjective to any of them.
+Explicit scope and the questions still open, so renewal starts from a record instead of a questionnaire.
 
-> The only scope that lets anything read a message reads every message in the mailbox. There is no scope that filters by sender, by label or by date.
+**It’s a draft on purpose.** The people who built the agent, own what it touches and answer for it each correct the part they know. The correction is the product.
 
-> The default file-search corpus is defined by its own publisher as files owned by _or shared to_ the user.
+## One policy. Four ways to get it.
 
-> Site-specific permissioning is not supported because the underlying search is tenant-wide.
+The document is the same at every level. What changes is how it arrives and who does the correcting.
 
-The grant is user-shaped, not data-shaped.
+Sixteen published shapes to start from, including:
 
-The unit of restriction is the application, never the material. There is no supported way to say _this assistant may read my files except the folder the legal team shared with me_, or _my inbox except messages from outside the company_. Which means the only honest question is not whether to allow it. It is what, exactly, was allowed — and nobody has written that down.
+### ABP Pack
 
-## Three rungs. We sell the first.
+The policy files for your shape, downloaded and yours to keep.
 
-Our job is to make agents insurable. An agent is insurable when the organisation has authorised it in a way that survives examination, which is a licence to operate. A licence to operate needs a description of the agent to be a licence for anything. So the work starts at the bottom, and the bottom is the part that exists, has the lowest touch, and can be delivered today.
+ImmediatelyPaid in full up front
 
-### Agent Behaviour Policy
+### ABP Vault
 
-What it can reach, what you authorised, the gap, and what stands in the way of each row.
+The same material in a working vault, with your keys and version history.
 
-### Licence to Operate
+1 to 2 daysPaid in full up front
 
-The organisation is the authority, the policy is the instrument, the agent is the licensee. For an interval.
+### ABP Tailored
 
-### Make agents insurable
+A named security professional corrects the mandate for your deployment.
 
-The record an underwriter will accept: the Insurability Index, the five dimensions, and the risk owned with an expiry.
+1 to 3 days from your reply£100 now, £400 on delivery
 
-Each rung needs the one below it, which is why we sell the bottom one rather than the top. The argument for the top — cover being withdrawn, what changed in 2026, the Index and the acceptance mechanic — is kept in full on [the insurance page](insurance.html). It is off this page because this page sells what exists.
+### ABP Reviewed
 
-## View an example. Then buy the Agent Behaviour Policy for your agent.
+Two half-hour sessions with your team and a custom vault, reviewed and signed off.
 
-Fifteen example Agent Behaviour Policies are on this site, free, read live from their vaults with published keys. Pick the application closest to yours and read it. When you want the one that describes _your_ deployment — the mandate corrected, a name on the licence, no public key — it is four levels at the store, from £5 for the pack to £1,500 with a professional's signature on it.
+1 to 5 days from your reply£300 now, £1,200 on delivery
+
+Prices in GBP. Paid levels carry a commercial licence to you; the sixteen published templates stay free to read and reuse under CC BY 4.0. Every figure on this page was read from [store.sgit.ai/compare](https://store.sgit.ai/compare/) at site v0.3.24 on 17 September 2026 — the store sets them and this page repeats them, so check there if the two ever disagree.
+
+[Compare every level &nearr;](https://store.sgit.ai/compare/) [Read a template first](agent-behaviour-policy.html)
+
+## Start with the agent that worries you.
+
+Not the whole estate. One agent, already running, written down as a record you keep, correct and can hand to your insurer before they ask.

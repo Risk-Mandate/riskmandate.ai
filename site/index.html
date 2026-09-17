@@ -912,6 +912,138 @@ a.ds{display:block;text-decoration:none;color:inherit}
 .lvc span:last-child{font-size:12.5px;color:var(--muted)}
 .lvnote{margin-top:12px;font-size:13.5px;color:var(--muted)}
 .lvnote a{color:var(--green)}
+
+/* ===== the partner design: light hero, dark close ===== */
+.hero{background:var(--bg);padding:0 0 0;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);
+  background-size:72px 72px;opacity:.5}
+.hgrid{position:relative;display:grid;grid-template-columns:1.02fr .98fr;gap:64px;align-items:center;
+  max-width:1160px;padding:88px 24px 76px}
+@media (max-width:960px){.hgrid{grid-template-columns:1fr;gap:48px;padding:64px 24px 56px}}
+.hcopy h1{font-size:clamp(44px,6.4vw,78px);line-height:.98;letter-spacing:-.045em;color:var(--text);margin:0}
+.hsub{font-size:clamp(19px,2.2vw,25px);font-weight:700;letter-spacing:-.02em;color:var(--text);margin:22px 0 0}
+.hbody{font-size:16.5px;line-height:1.66;color:var(--muted);margin:18px 0 0;max-width:500px}
+.hcopy .cta-row{margin-top:30px}
+.hprice{margin:26px 0 0;font-size:16px;color:var(--muted);line-height:1.6;max-width:520px}
+.hprice b{color:var(--text)}
+.hfig{position:relative}
+.gapfig{width:100%;max-width:400px;height:auto;display:block;margin:0 auto}
+.counts{display:grid;grid-template-columns:1fr 1fr;gap:20px 26px;margin-top:26px;max-width:430px;margin-inline:auto}
+.ct{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;gap:2px 12px;align-items:baseline}
+.cn{grid-row:1/3;font-size:31px;font-weight:700;color:var(--text);line-height:1;letter-spacing:-.03em}
+.cn.go{color:var(--green)} .cn.am{color:var(--gold)}
+.cg{width:9px;height:9px;border-radius:50%;align-self:center}
+.cg.dot.go{background:var(--green)} .cg.dot.am{background:var(--gold)}
+.cg.dash{border-top:2px dashed var(--faint);border-radius:0;height:0;width:14px}
+.cg.ring{border:1.6px solid var(--faint);background:transparent}
+.cl{grid-column:2;font-size:13.5px;color:var(--muted);line-height:1.4}
+.hcap{margin:22px auto 0;max-width:420px;text-align:center;font-size:14.5px;color:var(--muted);line-height:1.6}
+.hcap a{color:var(--green);font-weight:600;text-decoration:underline;text-underline-offset:2px}
+.proof{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:26px;
+  max-width:1160px;padding:26px 24px;border-top:1px solid var(--border);background:var(--card)}
+@media (max-width:900px){.proof{grid-template-columns:repeat(2,1fr);gap:18px}}
+@media (max-width:520px){.proof{grid-template-columns:1fr}}
+.pf{display:grid;grid-template-columns:auto 1fr;gap:10px;font-size:14px;font-weight:600;color:var(--text);line-height:1.4}
+.pf i{color:var(--green);font-style:normal}
+.pf a{color:var(--text);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--green)}
+.stds{position:relative;max-width:1160px;padding:22px 24px 30px;background:var(--card);border-top:1px solid var(--border)}
+.stds p{font-size:14px;color:var(--muted);line-height:1.65;margin:0}
+.stds p+p{margin-top:4px}
+.stds a{color:var(--green);font-weight:600;text-decoration:underline;text-underline-offset:2px}
+
+.sec{padding:92px 0;border-bottom:1px solid var(--border)}
+.sec.alt{background:var(--bg2)}
+.sec h2{font-size:clamp(30px,4.2vw,50px);line-height:1.04;letter-spacing:-.035em;color:var(--text);margin:0;max-width:820px}
+.lead{font-size:17px;line-height:1.68;color:var(--muted);margin:22px 0 0;max-width:620px}
+.lead a,.more{color:var(--green);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.two{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:start}
+@media (max-width:900px){.two{grid-template-columns:1fr;gap:40px}}
+.dates{display:flex;flex-direction:column;gap:30px;padding-top:6px}
+.dt{border-left:2px solid var(--border);padding-left:22px;position:relative}
+.dt::before{content:"";position:absolute;left:-7px;top:5px;width:12px;height:12px;border-radius:50%;background:var(--gold)}
+.dd{display:block;font-size:17px;font-weight:700;color:var(--text);letter-spacing:-.01em;margin-bottom:9px}
+.dt p{font-size:14.5px;color:var(--muted);line-height:1.65;margin:0}
+
+.steplead{margin:74px 0 0;font-size:15px;font-weight:700;color:var(--text)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:20px}
+@media (max-width:860px){.steps{grid-template-columns:1fr}}
+.st{display:block;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:26px;
+  text-decoration:none;position:relative}
+.st.now{border:2px solid var(--green)}
+.st.soon{border-style:dashed}
+.st:hover{border-color:var(--green)}
+.sn{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--text)}
+.chip{position:absolute;top:24px;right:24px;font-size:11.5px;font-weight:700;border-radius:999px;
+  padding:5px 11px;background:var(--bg2);color:var(--muted)}
+.chip.ok{background:var(--greenBg);color:var(--green)}
+.chip.warn{background:#FDF1DC;color:var(--gold)}
+.st h3{font-size:24px;letter-spacing:-.025em;color:var(--text);margin:16px 0 4px}
+.sk{font-size:14px;font-weight:700;color:var(--text);margin:0 0 12px}
+.st p{font-size:14px;color:var(--muted);line-height:1.6;margin:0}
+.st .more{display:inline-block;margin-top:18px;font-size:14px}
+
+.four{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:48px}
+@media (max-width:900px){.four{grid-template-columns:repeat(2,1fr);gap:32px}}
+@media (max-width:520px){.four{grid-template-columns:1fr}}
+.og{width:44px;height:44px;display:block;margin-bottom:16px}
+.fp h3{font-size:23px;letter-spacing:-.025em;color:var(--text);margin:0}
+.fv{display:block;font-size:14px;font-weight:700;color:var(--green);margin:3px 0 12px}
+.fp p{font-size:14px;color:var(--muted);line-height:1.6;margin:0}
+
+.views{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:48px}
+@media (max-width:1000px){.views{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.views{grid-template-columns:1fr}}
+.vw{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:26px}
+.vw h3{font-size:26px;letter-spacing:-.03em;color:var(--text);margin:0}
+.vk{display:block;font-size:13.5px;font-weight:700;color:var(--green);margin:3px 0 18px}
+.vq{font-size:15px;font-weight:700;color:var(--text);line-height:1.42;margin:0}
+.va{font-size:13.5px;color:var(--muted);line-height:1.62;margin:20px 0 0;padding-top:18px;border-top:1px solid var(--border)}
+.vw code{font-family:var(--mono);font-size:12px;background:var(--bg2);border:1px solid var(--border);
+  border-radius:4px;padding:1px 5px}
+.draftline{margin:44px 0 0;font-size:16px;color:var(--muted);line-height:1.66;max-width:720px}
+.draftline b{color:var(--text)}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:22px}
+.fl{font-size:14.5px;font-weight:700;color:var(--text);border:1px solid var(--border);background:var(--card);
+  border-radius:9px;padding:11px 18px}
+.fl.on{background:var(--green);border-color:var(--green);color:#fff}
+.flow i{color:var(--green);font-style:normal}
+
+.shplead{margin:46px 0 0;font-size:15px;font-weight:700;color:var(--text)}
+.shapes{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.shp{font-size:14px;color:var(--muted);background:var(--card);border:1px solid var(--border);
+  border-radius:999px;padding:9px 18px}
+.shp.other{border-style:dashed;text-decoration:none;color:var(--muted)}
+.shp.other:hover{border-color:var(--green);color:var(--green)}
+.lvls{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:34px}
+@media (max-width:1000px){.lvls{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.lvls{grid-template-columns:1fr}}
+.lvl{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--border);
+  border-radius:14px;padding:26px}
+.lvl.dark{background:var(--ink);border-color:var(--ink)}
+.ln{font-size:13.5px;color:var(--muted)}
+.lvl h3{font-size:24px;letter-spacing:-.025em;color:var(--text);margin:8px 0 10px}
+.lvl>p{font-size:13.5px;color:var(--muted);line-height:1.6;margin:0}
+.lp{display:block;font-size:42px;font-weight:700;letter-spacing:-.04em;color:var(--text);margin:20px 0 8px;line-height:1}
+.lw{font-size:13px;color:var(--muted);line-height:1.6;margin:0}
+.lst{margin-top:18px;font-size:13px;font-weight:700;color:var(--muted)}
+.lst.ok{color:var(--green)}
+.lgo{margin-top:auto;padding-top:20px;font-size:14px;font-weight:700;color:var(--green);text-decoration:none}
+.lgo:hover{text-decoration:underline;text-underline-offset:3px}
+.lvl.dark h3,.lvl.dark .lp{color:var(--fg)}
+.lvl.dark>p,.lvl.dark .ln,.lvl.dark .lw{color:var(--fg-2)}
+.lvl.dark .lst{color:var(--green-2)} .lvl.dark .lgo{color:var(--green-2)}
+.src{margin-top:30px;font-size:13px;color:var(--faint);line-height:1.8;max-width:860px}
+.src a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+.src code{font-family:var(--mono);font-size:12px}
+
+.close{background:var(--ink);padding:96px 0}
+.close h2{font-size:clamp(32px,4.6vw,54px);line-height:1.04;letter-spacing:-.035em;color:var(--fg);margin:0}
+.close .lead{color:var(--fg-2)}
+.close .cta-row{margin-top:30px}
+.closemark svg{width:100%;max-width:230px;height:auto;display:block;margin-left:auto}
+@media (max-width:900px){.closemark{display:none}}
+
 </style>
 </head>
 <body id="top">
@@ -921,193 +1053,159 @@ a.ds{display:block;text-decoration:none;color:inherit}
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
     <a class="ghlink" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener" aria-label="The source, on GitHub" title="Open source · Apache-2.0 code · CC BY 4.0 pages"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a>
-      <a class="version" href="versions.html" title="What shipped in v1.24.2">v1.24.2</a>
+      <a class="version" href="versions.html" title="What shipped in v1.25.0">v1.25.0</a>
     <button class="demo" data-demo>Get in touch</button>
   </div>
 </header>
 
 </header>
 
-<main class="ins-hero">
-  <div class="wrap ins-hero-grid">
-    <div class="ins-hero-copy">
-      <span class="eyebrow"><span class="d"></span> Agent Behaviour Policies</span>
-      <h1>Make your agents <span class="it">insurable.</span></h1>
-      <p class="sub">That is the destination, and you cannot insure what nobody can describe. So the thing we make and sell today is an <b>Agent Behaviour Policy</b>: for one agent in one deployment, everything it can actually reach, what you authorised it to do, and the gap between the two. Fifteen are published in full, free, and you can open one before you read another word.</p>
+<main class="hero">
+  <div class="wrap hgrid">
+    <div class="hcopy">
+      <h1>Know what<br>your agents<br>can do.</h1>
+      <p class="hsub">Not what they did. What they can.</p>
+      <p class="hbody">An Agent Behaviour Policy writes down what one agent can really reach, what you authorised it to do and the gap between the two, in one record the CEO, CTO and CISO can all stand behind.</p>
       <div class="cta-row">
-        <a class="btn btn-green" href="agent-behaviour-policy.html">Open a policy, free &rarr;</a>
-        <button class="btn btn-ghost" data-to="what">What is in one?</button>
-        <button class="btn btn-ghost" data-to="who">Which of these are you?</button>
+        <a class="btn btn-green" href="agent-behaviour-policy.html">Find your agent&rsquo;s policy</a>
+        <a class="btn btn-ghost-dark" href="abp-vault-claude-code-web.html">Read a free example</a>
       </div>
+      <p class="hprice"><b>From &pound;10 for one agent.</b> All sixteen published examples are free to read.</p>
     </div>
-    <a class="pcard" href="abp-vault-claude-code-web.html">
-      <span class="pch"><span class="pck">Agent Behaviour Policy &middot; template</span><span class="pcv">Claude Code on the web, with one repository attached</span></span>
-      <span class="pcg">
-        <span class="pcr"><b class="pcn">15</b><span class="pcl">capabilities it can reach</span><span class="pcv2">the grant &middot; measured</span></span>
-        <span class="pcr"><b class="pcn go">6</b><span class="pcl">you actually asked for</span><span class="pcv2">the mandate &middot; elicited</span></span>
-        <span class="pcr hot"><b class="pcn">9</b><span class="pcl">it can do that you did not ask</span><span class="pcv2">the delta &middot; derived</span></span>
-        <span class="pcr"><b class="pcn warn">7</b><span class="pcl">with nothing real in the way</span><span class="pcv2">the barrier &middot; recorded</span></span>
-      </span>
-      <span class="pcf">Read live from the vault. No score: it describes, it does not judge. <b>Open this policy &rarr;</b></span>
-    </a>
+    <div class="hfig">
+      <svg class="gapfig" viewBox="0 0 420 420" role="img" aria-label="One agent at the centre, the ring of what it was authorised to do, and the gap of what it can reach beyond that">
+  <circle cx="210" cy="210" r="196" fill="none" stroke="var(--border)" stroke-width="1"/>
+  <circle cx="210" cy="210" r="168" fill="#FDF1DC"/>
+  <circle cx="210" cy="210" r="168" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-dasharray="5 6" opacity=".7"/>
+  <circle cx="210" cy="210" r="104" fill="#FFFFFF"/>
+  <circle cx="210" cy="210" r="104" fill="none" stroke="var(--green)" stroke-width="11"/>
+  <g stroke="var(--green)" stroke-width="11" stroke-linecap="butt">
+    <line x1="210" y1="82" x2="210" y2="120"/><line x1="210" y1="300" x2="210" y2="338"/>
+    <line x1="82" y1="210" x2="120" y2="210"/><line x1="300" y1="210" x2="338" y2="210"/>
+  </g>
+  <circle cx="210" cy="210" r="46" fill="var(--ink)"/>
+  <text x="210" y="215" text-anchor="middle" font-family="var(--sans)" font-size="17" font-weight="600" fill="#F7F6F2">Agent</text>
+  <g fill="var(--green)">
+    <circle cx="210" cy="168" r="7"/><circle cx="252" cy="188" r="7"/><circle cx="252" cy="232" r="7"/>
+    <circle cx="210" cy="252" r="7"/><circle cx="168" cy="232" r="7"/><circle cx="168" cy="188" r="7"/>
+  </g>
+  <g fill="var(--gold)">
+    <circle cx="210" cy="60" r="8"/><circle cx="286" cy="80" r="8"/><circle cx="340" cy="136" r="8"/>
+    <circle cx="358" cy="210" r="8"/><circle cx="340" cy="284" r="8"/><circle cx="286" cy="340" r="8"/>
+    <circle cx="134" cy="340" r="8"/><circle cx="80" cy="284" r="8"/><circle cx="62" cy="210" r="8"/>
+  </g>
+  <text x="210" y="34" text-anchor="middle" font-family="var(--mono)" font-size="14" font-weight="700" fill="var(--gold)">The gap</text>
+</svg>
+      <div class="counts">
+        <div class="ct"><b class="cn">15</b><span class="cg dash"></span><span class="cl">capabilities it can reach</span></div>
+        <div class="ct"><b class="cn go">6</b><span class="cg dot go"></span><span class="cl">that you actually asked for</span></div>
+        <div class="ct"><b class="cn am">9</b><span class="cg dot am"></span><span class="cl">it can do that you didn&rsquo;t ask for</span></div>
+        <div class="ct"><b class="cn">7</b><span class="cg ring"></span><span class="cl">with nothing real in the way</span></div>
+      </div>
+      <p class="hcap">From a published policy: Claude Code on the web, with one repository attached. <a href="abp-vault-claude-code-web.html">Open this policy</a></p>
+    </div>
   </div>
-  <div class="wrap ins-standards">
-    <span>Measured against the standards underwriters are adopting</span>
-    <em>ISO/IEC 42001</em><em>OWASP Agentic Top 10</em><em>NIST AI RMF</em><em>ISO/IEC 27001</em>
+  <div class="wrap proof">
+    <span class="pf"><i>&#10003;</i> 16 templates, published free</span>
+    <span class="pf"><i>&#10003;</i> <a href="agent-behaviour-policy.html">Working vaults you hold the keys to</a></span>
+    <span class="pf"><i>&#10003;</i> <a href="https://store.sgit.ai/d/t3/" target="_blank" rel="noopener">Mandates corrected by a named professional</a></span>
+    <span class="pf"><i>&#10003;</i> <a href="https://store.sgit.ai/d/t4/" target="_blank" rel="noopener">Two sessions with your team, then sign-off</a></span>
+  </div>
+  <div class="wrap stds">
+    <p>Measured against the standards underwriters are adopting: ISO/IEC 42001, OWASP Agentic Top 10, NIST AI RMF and ISO/IEC 27001.</p>
+    <p>Model-drafted and marked as such. Not a compliance assessment. <a href="questions.html#words">What we don&rsquo;t claim</a></p>
   </div>
 </main>
 
 <div class="paper">
 
-  <!-- who is arriving -->
-  <section class="ins-section" id="who">
-    <div class="wrap">
-      <div class="shead">
-        <span class="tag">Who is arriving</span>
-        <h2>Three people ask this, <span class="g">and they ask it differently.</span></h2>
-        <p>The document is the same. What changes is the question it answers and which part of it you read first &mdash; which is why a policy vault carries a view per audience rather than one report everybody squints at.</p>
+  <!-- why now -->
+  <section class="sec" id="why">
+    <div class="wrap two">
+      <div>
+        <h2>Every agent will need a licence to operate.</h2>
+        <p class="lead">Insurers are carving AI out of cover, and the business answers for what its agents do. What earns cover back is a written record of what each agent can reach, what it was authorised to do and what actually contains it.</p>
+        <p><a class="more" href="insurance.html">Read the full argument</a></p>
       </div>
-      <div class="whoc">
-        <a class="wc" href="for-corporate.html">
-          <span class="wk">You run agents today</span>
-          <h3>&ldquo;Do you know what it can actually do? Not what it did &mdash; what it can.&rdquo;</h3>
-          <p>You gave an assistant a repository, a mailbox, a cloud account. You know what you asked for. Nobody enumerates the rest.</p>
-          <span class="wgo">What you get &rarr;</span>
-        </a>
-        <a class="wc" href="for-founders.html">
-          <span class="wk">You are a founder</span>
-          <h3>&ldquo;Would you like to know what diligence finds, before it runs?&rdquo;</h3>
-          <p>The reassuring version of this is already free in several places. The useful direction is the opposite one.</p>
-          <span class="wgo">What you get &rarr;</span>
-        </a>
-        <a class="wc" href="for-startups.html">
-          <span class="wk">You are a startup</span>
-          <h3>&ldquo;What is your buyer&rsquo;s security team going to ask about your agents?&rdquo;</h3>
-          <p>The questionnaire is coming, and the questions are about reach rather than about which model you use.</p>
-          <span class="wgo">What you get &rarr;</span>
-        </a>
+      <div class="dates">
+        <div class="dt"><span class="dd">1 January 2026</span><p>A generative-AI exclusion took effect in the standard liability forms much of one large insurance market runs on. Several carriers have filed their own, one of them absolute.</p></div>
+        <div class="dt"><span class="dd">9 March 2026</span><p>A national consumer regulator said a business is responsible if an agent it uses does something illegal, and should be clear what the agent may do, what data it can access and what constraints apply.</p></div>
       </div>
-      <p class="ins-note">A fourth group &mdash; investors asking what a portfolio company&rsquo;s agents can reach &mdash; is written up on <a href="summit.html">the Lisbon page</a> and has not been given its own page yet.</p>
     </div>
-  </section>
-  <!-- what an ABP is -->
-  <section class="ins-section alt" id="what">
     <div class="wrap">
-      <div class="shead">
-        <span class="tag">What an Agent Behaviour Policy is</span>
-        <h2>One agent, one deployment, <span class="g">written down.</span></h2>
-        <p>Four objects, and the verb attached to each says how it is established. Three of them a person can write down out of what they understand today. The fourth is computed from the first two, and it is the one nobody has looked at.</p>
-      </div>
-      <div class="objs">
-        <div class="obj"><span class="ok">Grant</span><h3>Everything it can reach</h3><p>Not what somebody decided to give it. What it can actually reach in this deployment, including everything nobody thought about.</p><span class="ov">measured</span></div>
-        <div class="obj"><span class="ok">Mandate</span><h3>What you authorised it to do</h3><p>The job, written down. The one object only you can supply, and it takes minutes because you already know it.</p><span class="ov">elicited</span></div>
-        <div class="obj derived"><span class="ok">Delta</span><h3>The gap between the two</h3><p>Excess where it can and you did not ask; shortfall where you asked and it cannot. Never written by hand, recomputed whenever either input moves.</p><span class="ov">derived</span></div>
-        <div class="obj"><span class="ok">Barrier</span><h3>What stands in the way</h3><p>Per capability, one of four kinds &mdash; and only the fourth bounds anything. A prohibition shown without its barrier is a claim we cannot support.</p><span class="ov">recorded</span></div>
-      </div>
-      <p class="ins-note">It carries no score. It describes and it does not judge, because the same grant is reasonable in one deployment and serious in another, and a number hides which.</p>
-    </div>
-  </section>
-  <!-- what you actually get -->
-  <section class="ins-section" id="deliver">
-    <div class="wrap">
-      <div class="shead">
-        <span class="tag">What it delivers</span>
-        <h2>A vault, <span class="g">not a PDF.</span></h2>
-        <p>A policy arrives as an encrypted vault you hold the keys to, with an app inside it. Four audiences read the same record and need different things out of it: the operator needs instructions, leadership needs a decision, security needs evidence, and an insurance conversation needs explicit scope and open questions.</p>
-      </div>
-      <div class="dlv">
-        <div class="dl"><span class="dln">01</span><h3>Files your agent can read</h3><p><code>AGENTS.md</code> and <code>SKILL.md</code> go into the agent&rsquo;s own context, so the thing being governed can read the terms it runs under. Copy them, take the zip, or hand over the PDF.</p></div>
-        <div class="dl"><span class="dln">02</span><h3>The policy, and its workings</h3><p><code>AGENT-BEHAVIOUR-POLICY.md</code>, <code>GRANT.md</code> and <code>DELTA.md</code>: every capability with the barrier against it, and the gap recomputed from both inputs with their versions pinned.</p></div>
-        <div class="dl"><span class="dln">03</span><h3>A mandate you correct</h3><p>The starting mandate is written to be argued with. Move a row in the app and the delta recomputes; export the corrected <code>mandate.json</code> and it is yours.</p></div>
-        <div class="dl"><span class="dln">04</span><h3>A licence to operate</h3><p><code>LICENCE-TO-OPERATE.md</code>: the organisation is the authority, the policy is the instrument, the agent is the licensee. It ships unissued, with the name and the interval blank until somebody fills them in.</p></div>
-      </div>
-      <div class="cta-row" style="margin-top:34px">
-        <a class="btn btn-green" href="agent-behaviour-policy.html">See the fifteen &rarr;</a>
-        <a class="btn btn-ghost-dark" href="abp-vaults.html">Open a vault live</a>
-        <a class="btn btn-ghost-dark" href="licence-to-operate.html">What a licence to operate is</a>
+      <p class="steplead">Three steps, in order. Each one needs the step before it.</p>
+      <div class="steps">
+        <a class="st now" href="agent-behaviour-policy.html"><span class="sn">1</span><span class="chip ok">Available now</span><h3>Describe it</h3><p class="sk">Agent Behaviour Policy</p><p>What one agent can reach, what you authorised, the gap between them and what stands in the way.</p><span class="more">See a policy</span></a>
+        <a class="st" href="licence-to-operate.html"><span class="sn">2</span><span class="chip">Template available</span><h3>Authorise it</h3><p class="sk">Licence to Operate</p><p>The business is the authority, the behaviour policy is the instrument and the agent is the licensee, for a set interval.</p><span class="more">See the template</span></a>
+        <a class="st soon" href="insurance.html"><span class="sn">3</span><span class="chip warn">In design</span><h3>Insure it</h3><p class="sk">Insurability Index</p><p>The record an underwriter will accept: scored, dated and with the residual risk owned.</p><span class="more">See the design</span></a>
       </div>
     </div>
   </section>
-  <!-- how to get one -->
-  <section class="ins-section alt" id="buy">
-    <div class="wrap">
-      <div class="shead">
-        <span class="tag">How to get one</span>
-        <h2>Fifteen are free. <span class="g">Four levels are not.</span></h2>
-        <p>Every template shape is published in full with a read key, and you should open one before you buy anything. What the paid levels add is a commercial licence over the same material and, at the top two, a named security professional doing the correction with you.</p>
-      </div>
-      <div class="lvl4">
-        <div class="lv"><span class="lvn">Free</span><h3>The published templates</h3><p>Fifteen shapes, read keys printed, Creative Commons Attribution. Open, check, and use with credit.</p><a class="lvgo" href="agent-behaviour-policy.html">Open one &rarr;</a></div>
-        <div class="lv"><span class="lvn">Level 1</span><h3>The pack, downloaded</h3><p>Every file for the shape you picked, as a zip, licensed to you rather than to the world.</p><a class="lvgo" href="https://store.sgit.ai/d/t1/" target="_blank" rel="noopener">At the store &nearr;</a></div>
-        <div class="lv"><span class="lvn">Level 2</span><h3>A vault you hold the keys to</h3><p>The same material as a vault of your own, licensed in your name, with no public key on it.</p><a class="lvgo" href="https://store.sgit.ai/d/t2/" target="_blank" rel="noopener">At the store &nearr;</a></div>
-        <div class="lv"><span class="lvn">Level 3</span><h3>Corrected for your situation</h3><p>The mandate corrected against your industry, your use case and what you send, with a written note of what changed.</p><a class="lvgo" href="https://store.sgit.ai/d/t3/" target="_blank" rel="noopener">At the store &nearr;</a></div>
-        <div class="lv"><span class="lvn">Level 4</span><h3>Two sessions with your team</h3><p>Built from an interview, reviewed, and signed off by a named security professional.</p><a class="lvgo" href="https://store.sgit.ai/d/t4/" target="_blank" rel="noopener">At the store &nearr;</a></div>
-      </div>
-      <p class="ins-note"><b>We do not run a cart and we do not hold a price.</b> The store owns the order, the prices and the page you land on after paying; this site owns the policies, the templates and the explanation. That boundary is <a href="https://store.sgit.ai/boundary/" target="_blank" rel="noopener">published on their side</a> so it cannot quietly move. <a href="https://store.sgit.ai/compare/" target="_blank" rel="noopener">Every level side by side &nearr;</a> &middot; <a href="pricing.html">where the free line falls</a></p>
-    </div>
-  </section>
-  <!-- the grant you did not enumerate -->
-  <section class="ins-section" id="grant">
-    <div class="wrap">
-      <div class="shead">
-        <span class="tag">The state you are already in</span>
-        <h2>Nothing is coming. <span class="g">You already connected it.</span></h2>
-        <p>There is no deadline here, and we are not going to invent one. The exposure was created the moment somebody clicked authorise — last month, probably, on a mailbox or a drive — and it has never been enumerated. Below are three sentences from three vendors' own documentation, with the dates we read them. We have attached no adjective to any of them.</p>
-      </div>
 
-      <div class="grants">
-        <div class="gq">
-          <span class="gqk">Mail</span>
-          <blockquote>The only scope that lets anything read a message reads every message in the mailbox. There is no scope that filters by sender, by label or by date.</blockquote>
-          <span class="gqs">Derived from the publisher's own scope definitions at <a href="https://developers.google.com/workspace/gmail/api/auth/scopes" target="_blank" rel="noopener">developers.google.com</a>, read 12 September 2026. Quoted in full, with the scope names, in <a href="lab-connector-grants.html">Lab 01</a>.</span>
-        </div>
-        <div class="gq">
-          <span class="gqk">Files</span>
-          <blockquote>The default file-search corpus is defined by its own publisher as files owned by <em>or shared to</em> the user.</blockquote>
-          <span class="gqs">The <code>corpora</code> default at <a href="https://developers.google.com/workspace/drive/api/reference/rest/v3/files/list" target="_blank" rel="noopener">developers.google.com</a>, read 12 September 2026. So everything a colleague, client or counterparty ever shared with that person is inside the default search on day one, without anybody choosing it.</span>
-        </div>
-        <div class="gq">
-          <span class="gqk">The corporate file estate</span>
-          <blockquote>Site-specific permissioning is not supported because the underlying search is tenant-wide.</blockquote>
-          <span class="gqs">A vendor's own connector security guide, read 12 September 2026 — a published statement that the intended narrowing mechanism is unavailable, leaving revocation as the only remaining lever.</span>
-        </div>
-      </div>
-
-      <div class="gstate">
-        <p>The grant is user-shaped, not data-shaped.</p>
-        <p>The unit of restriction is the application, never the material. There is no supported way to say <em>this assistant may read my files except the folder the legal team shared with me</em>, or <em>my inbox except messages from outside the company</em>. Which means the only honest question is not whether to allow it. It is what, exactly, was allowed — and nobody has written that down.</p>
-      </div>
-
-    </div>
-  </section>
-  <!-- where this goes -->
-  <section class="ins-section alt" id="ladder">
+  <!-- the four parts -->
+  <section class="sec alt" id="parts">
     <div class="wrap">
-      <div class="shead">
-        <span class="tag">Where this goes</span>
-        <h2>Three rungs. <span class="g">We sell the first.</span></h2>
-        <p>Our job is to make agents insurable. An agent is insurable when the organisation has authorised it in a way that survives examination, which is a licence to operate. A licence to operate needs a description of the agent to be a licence for anything. So the work starts at the bottom, and the bottom is the part that exists, has the lowest touch, and can be delivered today.</p>
+      <h2>Not a model property. A property of this deployment.</h2>
+      <p class="lead">The same model can be harmless in one setup and serious in another. Connect it to a mailbox and the narrowest Gmail scope that reads one message reads every message. So a policy describes one agent, in one deployment, in four parts, and carries no score. <a class="more" href="grant-gap.html">See the scope evidence</a></p>
+      <div class="four">
+        <div class="fp"><svg class="og" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="20" fill="none" stroke="var(--faint)" stroke-width="1.4" stroke-dasharray="3 3.4"/><circle cx="22" cy="22" r="11" fill="none" stroke="var(--faint)" stroke-width="2.4"/><circle cx="22" cy="22" r="4.5" fill="var(--green)"/></svg><h3>Reach</h3><span class="fv">Measured</span><p>Everything the agent can actually access in this deployment, including what nobody thought to check.</p></div>
+        <div class="fp"><svg class="og" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="20" fill="none" stroke="var(--faint)" stroke-width="1.4" stroke-dasharray="3 3.4"/><circle cx="22" cy="22" r="11" fill="none" stroke="var(--green)" stroke-width="2.8"/><circle cx="22" cy="22" r="4.5" fill="var(--green)"/></svg><h3>Mandate</h3><span class="fv">Elicited</span><p>The job, written down: what the business authorised it to do. The one part only you can supply.</p></div>
+        <div class="fp"><svg class="og" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="20" fill="none" stroke="var(--gold)" stroke-width="1.4" stroke-dasharray="3 3.4"/><circle cx="22" cy="22" r="12" fill="var(--gold)"/><circle cx="22" cy="22" r="5" fill="#FFFFFF"/><circle cx="22" cy="22" r="2.6" fill="var(--ink)"/></svg><h3>Gap</h3><span class="fv">Derived</span><p>Reach minus mandate. Never written by hand, and recomputed whenever either side moves.</p></div>
+        <div class="fp"><svg class="og" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="20" fill="none" stroke="var(--faint)" stroke-width="1.4" stroke-dasharray="3 3.4"/><circle cx="22" cy="22" r="11" fill="none" stroke="var(--ink)" stroke-width="2.4"/><circle cx="22" cy="22" r="4" fill="var(--ink)"/><g stroke="var(--ink)" stroke-width="2.4"><line x1="22" y1="2" x2="22" y2="9"/><line x1="22" y1="35" x2="22" y2="42"/><line x1="2" y1="22" x2="9" y2="22"/><line x1="35" y1="22" x2="42" y2="22"/></g></svg><h3>Barriers</h3><span class="fv">Recorded</span><p>What actually stands in the way of each capability: controls, constraints and open questions.</p></div>
       </div>
-      <div class="chain">
-        <a class="ch here" href="agent-behaviour-policy.html"><span class="chn">01</span><h3>Agent Behaviour Policy</h3><p>What it can reach, what you authorised, the gap, and what stands in the way of each row.</p><span class="chs">What we sell today</span></a>
-        <a class="ch" href="licence-to-operate.html"><span class="chn">02</span><h3>Licence to Operate</h3><p>The organisation is the authority, the policy is the instrument, the agent is the licensee. For an interval.</p><span class="chs">Template ships, unissued</span></a>
-        <a class="ch" href="insurance.html"><span class="chn">03</span><h3>Make agents insurable</h3><p>The record an underwriter will accept: the Insurability Index, the five dimensions, and the risk owned with an expiry.</p><span class="chs">Design</span></a>
-      </div>
-      <p class="ins-note">Each rung needs the one below it, which is why we sell the bottom one rather than the top. The argument for the top &mdash; cover being withdrawn, what changed in 2026, the Index and the acceptance mechanic &mdash; is kept in full on <a href="insurance.html">the insurance page</a>. It is off this page because this page sells what exists.</p>
+      <p class="src">The files and the data keep the older names for these: <code>GRANT.md</code> is the reach and <code>DELTA.md</code> is the gap, because the vocabulary is pinned at <a href="https://abp.sgit.ai/" target="_blank" rel="noopener">abp.sgit.ai</a> and sixteen published vaults are built against it. Same four objects, plainer words on this page.</p>
     </div>
   </section>
+
+  <!-- one record, four views -->
+  <section class="sec" id="views">
+    <div class="wrap">
+      <h2>One record. A view for everyone who answers for it.</h2>
+      <p class="lead">The behaviour policy lives in an encrypted vault you hold the keys to, with a reading app inside. Hand a read key to your board, your auditor or your broker and they see exactly what you see.</p>
+      <div class="views">
+        <div class="vw"><h3>CEO</h3><span class="vk">Leadership view</span><p class="vq">&ldquo;What have we authorised, and who owns it if it goes wrong?&rdquo;</p><p class="va">The gap in plain terms, a named owner, and a trigger that brings the decision back for review.</p></div>
+        <div class="vw"><h3>CTO</h3><span class="vk">Operator view</span><p class="vq">&ldquo;How do we keep shipping agents without losing track of what they can touch?&rdquo;</p><p class="va">Terms your agent reads in its own context, as <code>AGENTS.md</code> and <code>SKILL.md</code>. Markdown for people, JSON for tools, and nothing in your request path.</p></div>
+        <div class="vw"><h3>CISO</h3><span class="vk">Security view</span><p class="vq">&ldquo;Can we prove what it can reach, and what actually stops it?&rdquo;</p><p class="va">Every capability with its barrier, the gap recomputed whenever an input changes, and every version kept.</p></div>
+        <div class="vw"><h3>Insurer</h3><span class="vk">Insurance view</span><p class="vq">&ldquo;What exactly are we being asked to cover?&rdquo;</p><p class="va">Explicit scope and the questions still open, so renewal starts from a record instead of a questionnaire.</p></div>
+      </div>
+      <p class="draftline"><b>It&rsquo;s a draft on purpose.</b> The people who built the agent, own what it touches and answer for it each correct the part they know. The correction is the product.</p>
+      <div class="flow">
+        <span class="fl">Draft</span><i>&rarr;</i><span class="fl">Challenge</span><i>&rarr;</i><span class="fl">Correct</span><i>&rarr;</i><span class="fl">Review</span><i>&rarr;</i><span class="fl on">Version</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- four ways to get it -->
+  <section class="sec alt" id="levels">
+    <div class="wrap">
+      <h2>One policy. Four ways to get it.</h2>
+      <p class="lead">The document is the same at every level. What changes is how it arrives and who does the correcting.</p>
+      <p class="shplead">Sixteen published shapes to start from, including:</p>
+      <div class="shapes"><span class="shp">Claude Code</span><span class="shp">Claude Desktop</span><span class="shp">ChatGPT</span><span class="shp">Microsoft 365</span><span class="shp">Google Workspace</span><span class="shp">GitHub Actions</span><span class="shp">Gmail</span><span class="shp">n8n</span><a class="shp other" href="https://store.sgit.ai/d/t3/" target="_blank" rel="noopener">Something else, from &pound;500</a></div>
+      <div class="lvls">
+        <div class="lvl"><span class="ln">Level 1</span><h3>ABP Pack</h3><p>The policy files for your shape, downloaded and yours to keep.</p><b class="lp">&pound;10</b><p class="lw">Immediately<br>Paid in full up front</p><span class="lst ok">Exists and runs</span><a class="lgo" href="https://store.sgit.ai/d/t1/" target="_blank" rel="noopener">Choose this level &nearr;</a></div>
+        <div class="lvl"><span class="ln">Level 2</span><h3>ABP Vault</h3><p>The same material in a working vault, with your keys and version history.</p><b class="lp">&pound;50</b><p class="lw">1 to 2 days<br>Paid in full up front</p><span class="lst ok">Exists and runs</span><a class="lgo" href="https://store.sgit.ai/d/t2/" target="_blank" rel="noopener">Choose this level &nearr;</a></div>
+        <div class="lvl"><span class="ln">Level 3</span><h3>ABP Tailored</h3><p>A named security professional corrects the mandate for your deployment.</p><b class="lp">&pound;500</b><p class="lw">1 to 3 days from your reply<br>&pound;100 now, &pound;400 on delivery</p><span class="lst">Delivered by a person</span><a class="lgo" href="https://store.sgit.ai/d/t3/" target="_blank" rel="noopener">Choose this level &nearr;</a></div>
+        <div class="lvl dark"><span class="ln">Level 4</span><h3>ABP Reviewed</h3><p>Two half-hour sessions with your team and a custom vault, reviewed and signed off.</p><b class="lp">&pound;1,500</b><p class="lw">1 to 5 days from your reply<br>&pound;300 now, &pound;1,200 on delivery</p><span class="lst">Delivered by a person</span><a class="lgo" href="https://store.sgit.ai/d/t4/" target="_blank" rel="noopener">Choose this level &nearr;</a></div>
+      </div>
+      <p class="src">Prices in GBP. Paid levels carry a commercial licence to you; the sixteen published templates stay free to read and reuse under CC BY 4.0. Every figure on this page was read from <a href="https://store.sgit.ai/compare/" target="_blank" rel="noopener">store.sgit.ai/compare</a> at site v0.3.24 on 17 September 2026 &mdash; the store sets them and this page repeats them, so check there if the two ever disagree.</p>
+      <p><a class="more" href="https://store.sgit.ai/compare/" target="_blank" rel="noopener">Compare every level &nearr;</a> &nbsp; <a class="more" href="agent-behaviour-policy.html">Read a template first</a></p>
+    </div>
+  </section>
+
 </div>
 
-<section class="ins-cta" id="demo">
-  <div class="wrap">
-    <span class="eyebrow"><span class="d"></span> Before your carrier asks</span>
-    <h2>View an example. <span class="it">Then buy the Agent Behaviour Policy for your agent.</span></h2>
-    <p>Fifteen example Agent Behaviour Policies are on this site, free, read live from their vaults with published keys. Pick the application closest to yours and read it. When you want the one that describes <em>your</em> deployment &mdash; the mandate corrected, a name on the licence, no public key &mdash; it is four levels at the store, from &pound;5 for the pack to &pound;1,500 with a professional's signature on it.</p>
-    <div class="cta-row">
-      <a class="btn btn-green" href="agent-behaviour-policy.html">View an example policy →</a>
-      <a class="btn btn-ghost" href="https://store.sgit.ai/policies/" target="_blank" rel="noopener">Buy one ↗</a>
-      <a class="btn btn-ghost" href="pricing.html">The four levels</a>
+<section class="close">
+  <div class="wrap two">
+    <div>
+      <h2>Start with the agent that worries you.</h2>
+      <p class="lead">Not the whole estate. One agent, already running, written down as a record you keep, correct and can hand to your insurer before they ask.</p>
+      <div class="cta-row">
+        <a class="btn btn-green" href="agent-behaviour-policy.html">Find your agent&rsquo;s policy</a>
+        <a class="btn btn-ghost" href="abp-vault-claude-code-web.html">Read a free example</a>
+      </div>
     </div>
+    <div class="closemark"><svg viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="92" fill="none" stroke="rgba(247,246,242,.14)" stroke-width="1.4" stroke-dasharray="4 5"/><circle cx="100" cy="100" r="58" fill="none" stroke="var(--green-2)" stroke-width="13"/><g stroke="var(--green-2)" stroke-width="13"><line x1="100" y1="22" x2="100" y2="44"/><line x1="100" y1="156" x2="100" y2="178"/><line x1="22" y1="100" x2="44" y2="100"/><line x1="156" y1="100" x2="178" y2="100"/></g><circle cx="100" cy="100" r="30" fill="var(--ink)"/><text x="100" y="109" text-anchor="middle" font-size="26" font-weight="700" fill="#F7F6F2">RM</text></svg></div>
   </div>
 </section>
 
