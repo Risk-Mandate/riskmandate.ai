@@ -62,9 +62,11 @@ Every line an agent is asked to observe, next to what enforces it. A prohibition
 | Do not `create.schedule.host` — create something that outlives the turn where it runs (a cron, a service) | ● none | **nothing** |
 | Stop and report if a task needs anything above | ◉ expectation | **nothing** — and this is the line that makes the rest useful |
 
-## What is not reachable
+## What is blocked, and who holds the block
 
-- **your machine** — it runs on a server _(by construction)_
+Everything above is what the agent can do once every block is applied. These are the things something withholds — and the record says what, because a ceiling the credential itself enforces and a tool a vendor has not shipped are different objects with different lifespans.
+
+- **your machine** — blocked by where it runs — a server, by construction. it runs on a server _(by construction)_
 
 ## Validity
 

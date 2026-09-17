@@ -12,9 +12,10 @@
     "tenant": "the accounts you connected, as you scoped them",
     "world": "the vendor's egress"
   },
-  "not_reachable": [
+  "blocked": [
     {
       "what": "your machine's files",
+      "blocked_by": "the browser — a tab reaches a drive over the network, not a disk",
       "why": "a browser tab; the connector reaches a drive, not a disk",
       "source": "assess/library.json (web: home)"
     }

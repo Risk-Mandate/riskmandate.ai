@@ -46,12 +46,14 @@ An agent holding an owner-scoped API key for a self-hosted workflow-automation p
 - **`execute.process.host`** — a workflow can carry a code node that runs on the platform's own server. Not tested in the session; derived from what the platform is, and an open question below.
 - **`create.schedule.tenant`** — a webhook-triggered workflow was built, activated and executed. Activation is refused for a workflow with no trigger — a check on shape, not on risk — so the platform bounds nothing about what an activated workflow does.
 
-## Not reachable from this shape
+## Permitted, and blocked
 
-| What | Why | Source |
-| --- | --- | --- |
-| activating a workflow with no trigger, webhook or polling node | permitted by the API and rejected by the platform: a structural check on the workflow's shape, not on what it does once triggered | an independent measured check, 13 September 2026, run by an early beta user's agent against a sandbox instance stood up for the purpose; the write-up is held by RiskMandate |
-| the credentials endpoint over the direct REST path — from the measuring environment | blocked before it reached the platform by the measuring environment's own egress gateway, which intercepts any path naming "credentials". A barrier in the investigator's environment, not the platform's; the same operation was open through the MCP interface | an independent measured check, 13 September 2026, run by an early beta user's agent against a sandbox instance stood up for the purpose; the write-up is held by RiskMandate |
+The grant above is what the agent can do **after** the blocks. This is what something withholds. A block is not a property of the credential: some of these are the credential's own ceiling, and some are a vendor choosing not to ship a tool the credential would authorise. Each one names what blocks it, because those two are not the same object and a reader who is shown them under one heading has been told something this document cannot support.
+
+| What | Blocked by | Who holds the block | Why | Source |
+| --- | --- | --- | --- | --- |
+| activating a workflow with no trigger, webhook or polling node | the platform's structural check on the workflow's shape, applied after the API has accepted the call | _not yet recorded_ | permitted by the API and rejected by the platform: a structural check on the workflow's shape, not on what it does once triggered | an independent measured check, 13 September 2026, run by an early beta user's agent against a sandbox instance stood up for the purpose; the write-up is held by RiskMandate |
+| the credentials endpoint over the direct REST path — from the measuring environment | the measuring environment's own egress gateway, which intercepts any path naming credentials — a barrier in the investigator's environment, not the platform's | _not yet recorded_ | blocked before it reached the platform by the measuring environment's own egress gateway, which intercepts any path naming "credentials". A barrier in the investigator's environment, not the platform's; the same operation was open through the MCP interface | an independent measured check, 13 September 2026, run by an early beta user's agent against a sandbox instance stood up for the purpose; the write-up is held by RiskMandate |
 
 ## Where the vendor's own pages disagree
 
@@ -59,7 +61,8 @@ Advertised in one place, permitted in another, and the two do not match. Publish
 
 | What is advertised | What the grant permits | State |
 | --- | --- | --- |
-| the write-up classes the API key as a "setting" barrier — "the API key itself is the technical gate: broad, but a real gate, not a prose rule" | in the v0.3.0 vocabulary a setting is "a switch the agent's own account can flip" and the enforcer test says a control bounds a grant only if enforced by something the grant does not include; the key is the grant, so every row it permits stands at none | **unresolved** |,| the platform's documented authorisation model: credential management is owner-level (from the write-up, "unconfirmed from outside") | credential metadata was readable through the MCP interface; whether the same key can create, change or delete credentials was not tested | **undocumented** |
+| the write-up classes the API key as a "setting" barrier — "the API key itself is the technical gate: broad, but a real gate, not a prose rule" | in the v0.3.0 vocabulary a setting is "a switch the agent's own account can flip" and the enforcer test says a control bounds a grant only if enforced by something the grant does not include; the key is the grant, so every row it permits stands at none | **unresolved** |
+| the platform's documented authorisation model: credential management is owner-level (from the write-up, "unconfirmed from outside") | credential metadata was readable through the MCP interface; whether the same key can create, change or delete credentials was not tested | **undocumented** |
 
 Sources: <https://abp.sgit.ai/data/barriers.json>
 
@@ -69,7 +72,8 @@ The connector permits these and none of the 23 primitives names them. They are r
 
 | What the connector can do | Permission | Why no row |
 | --- | --- | --- |
-| see every account on the instance | the owner-scoped key; no scoping beyond that observed | no primitive reads the user directory of a platform; the nearest, read.record.history, is a retained record, not a roster. Measured: a handful of accounts, one owner created the day of the session. |,| read the instance's health | the owner-scoped key | no primitive; measured as healthy, recorded for completeness |
+| see every account on the instance | the owner-scoped key; no scoping beyond that observed | no primitive reads the user directory of a platform; the nearest, read.record.history, is a retained record, not a roster. Measured: a handful of accounts, one owner created the day of the session. |
+| read the instance's health | the owner-scoped key | no primitive; measured as healthy, recorded for completeness |
 
 ## Open questions
 

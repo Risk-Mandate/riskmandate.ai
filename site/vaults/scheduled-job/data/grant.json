@@ -12,9 +12,10 @@
     "tenant": "whatever the service account's credential opens",
     "world": "the internet, from the server"
   },
-  "not_reachable": [
+  "blocked": [
     {
       "what": "your machine",
+      "blocked_by": "where it runs — a server, by construction",
       "why": "it runs on a server",
       "source": "by construction"
     }

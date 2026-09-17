@@ -53,10 +53,12 @@ Every line an agent is asked to observe, next to what enforces it. A prohibition
 | Do not `read.credential.host` — read credentials stored where it runs | ● none | **nothing** |
 | Stop and report if a task needs anything above | ◉ expectation | **nothing** — and this is the line that makes the rest useful |
 
-## What is not reachable
+## What is blocked, and who holds the block
 
-- **writing, moving, sharing or deleting files** — drive.readonly is "View and download"; drive and drive.file are separate scopes and are not in this grant _(https://developers.google.com/workspace/drive/api/guides/api-specific-auth)_
-- **your machine** — a drive connector reaches a drive, not a disk _(https://developers.google.com/workspace/drive/api/guides/api-specific-auth)_
+Everything above is what the agent can do once every block is applied. These are the things something withholds — and the record says what, because a ceiling the credential itself enforces and a tool a vendor has not shipped are different objects with different lifespans.
+
+- **writing, moving, sharing or deleting files** — blocked by the scope the deployer asked for — drive.readonly is view and download, and drive and drive.file are separate scopes this credential does not carry. drive.readonly is "View and download"; drive and drive.file are separate scopes and are not in this grant _(https://developers.google.com/workspace/drive/api/guides/api-specific-auth)_
+- **your machine** — blocked by the API itself — a drive credential reaches a drive. a drive connector reaches a drive, not a disk _(https://developers.google.com/workspace/drive/api/guides/api-specific-auth)_
 
 ## What is not settled
 

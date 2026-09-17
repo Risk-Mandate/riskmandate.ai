@@ -29,12 +29,14 @@ An assistant in the vendor's environment. It reaches what you paste or upload an
 
 - **`read.file.project`** — what you paste or upload — and a record once read is exposure that cannot be unread, on the vendor's side
 
-## Not reachable from this shape
+## Permitted, and blocked
 
-| What | Why | Source |
-| --- | --- | --- |
-| your machine's files | the vendor's environment is a boundary you did not build | assess/library.json (web: home) |
-| your accounts | no connectors are on | assess/library.json (web: connect) |
+The grant above is what the agent can do **after** the blocks. This is what something withholds. A block is not a property of the credential: some of these are the credential's own ceiling, and some are a vendor choosing not to ship a tool the credential would authorise. Each one names what blocks it, because those two are not the same object and a reader who is shown them under one heading has been told something this document cannot support.
+
+| What | Blocked by | Who holds the block | Why | Source |
+| --- | --- | --- | --- | --- |
+| your machine's files | the vendor's hosted environment — a browser tab reaches OpenAI's servers, and no local path is exposed to it | _not yet recorded_ | the vendor's environment is a boundary you did not build | assess/library.json (web: home) |
+| your accounts | the connector toggles, all of them off in this shape | _not yet recorded_ | no connectors are on | assess/library.json (web: connect) |
 
 ## The four barriers, and the test
 

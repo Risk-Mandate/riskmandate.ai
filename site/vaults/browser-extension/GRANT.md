@@ -33,11 +33,13 @@ Not an agent by name, and it has a grant: an extension granted 'read and change 
 - **`send.endpoint.world`** — host permissions
 - **`authenticate-as.credential.tenant`** — acts inside sites where you have a session, as you
 
-## Not reachable from this shape
+## Permitted, and blocked
 
-| What | Why | Source |
-| --- | --- | --- |
-| files on your disk | the browser sandbox; an extension reads pages, not the filesystem | the browser's extension permission model |
+The grant above is what the agent can do **after** the blocks. This is what something withholds. A block is not a property of the credential: some of these are the credential's own ceiling, and some are a vendor choosing not to ship a tool the credential would authorise. Each one names what blocks it, because those two are not the same object and a reader who is shown them under one heading has been told something this document cannot support.
+
+| What | Blocked by | Who holds the block | Why | Source |
+| --- | --- | --- | --- | --- |
+| files on your disk | the browser's extension sandbox — the runtime the extension is loaded into offers page scripts no filesystem | _not yet recorded_ | the browser sandbox; an extension reads pages, not the filesystem | the browser's extension permission model |
 
 ## The four barriers, and the test
 

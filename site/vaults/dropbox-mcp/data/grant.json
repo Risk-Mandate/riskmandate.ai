@@ -12,19 +12,22 @@
     "tenant": "the Dropbox account or team the app was authorised for",
     "world": "anyone who holds a shared link or a file-request URL"
   },
-  "not_reachable": [
+  "blocked": [
     {
       "what": "permanent deletion",
+      "blocked_by": "Dropbox's own delete semantics — the tool moves files to Deleted files, and no tool deletes permanently",
       "why": "\"Move one or more files or folders to Deleted files. Files aren't deleted permanently.\" — but see the contradiction on recovery windows",
       "source": "https://help.dropbox.com/integrations/connect-dropbox-mcp-server"
     },
     {
       "what": "files over 5 MB, as text",
+      "blocked_by": "the server's extraction limit — over it, the client is handed a download link instead",
       "why": "\"Support files up to 5 MB\" for content extraction; DownloadLink hands the original to the client instead",
       "source": "https://help.dropbox.com/integrations/connect-dropbox-mcp-server"
     },
     {
       "what": "your machine",
+      "blocked_by": "the line between the server and the client — what the MCP client itself reaches is that client's own grant, a separate shape",
       "why": "the client's own grant is a separate shape",
       "source": "https://help.dropbox.com/integrations/connect-dropbox-mcp-server"
     }

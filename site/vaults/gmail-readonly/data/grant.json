@@ -12,19 +12,22 @@
     "tenant": "the Google account the consent was given for",
     "world": "not granted by this scope"
   },
-  "not_reachable": [
+  "blocked": [
     {
       "what": "sending, forwarding or drafting mail",
+      "blocked_by": "the scope the deployer asked for — gmail.readonly grants no send, and gmail.send, gmail.compose and gmail.modify are separate scopes this credential does not carry",
       "why": "gmail.readonly grants no send; gmail.send, gmail.compose and gmail.modify are separate scopes and are not in this grant",
       "source": "https://developers.google.com/workspace/gmail/api/auth/scopes"
     },
     {
       "what": "deleting or labelling mail",
+      "blocked_by": "the same scope choice — no write scope is in this credential",
       "why": "no write scope; gmail.labels and gmail.modify are separate",
       "source": "https://developers.google.com/workspace/gmail/api/auth/scopes"
     },
     {
       "what": "your machine, your drive",
+      "blocked_by": "the API itself — a mailbox credential reaches a mailbox",
       "why": "a mailbox connector reaches a mailbox",
       "source": "https://developers.google.com/workspace/gmail/api/auth/scopes"
     }

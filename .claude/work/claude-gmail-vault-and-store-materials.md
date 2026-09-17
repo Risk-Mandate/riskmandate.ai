@@ -57,3 +57,18 @@ this week. Done: the entry is in `vaults` with `vid` and `key`.
 
 ## External state (updated)
 - Vaults pushed from the session: oc433z3m (public, in the catalogue), xjir6m0c (private instance), **vbhmlulo (public — the v5 app vault, in the catalogue as app_vault)**. No write key in the repo.
+
+## Who holds the barrier (17 Sept, third wave) — v1.25.0
+- [x] `data/barrier-holders.json` — six holder classes, the seven questions, travels with every vault, offered to the model site as an extension (not invented into the pinned vocabulary)
+- [x] `not_reachable` → `blocked` in all sixteen vaults; `blocked_by` required by the build; thirty-four entries authored
+- [x] The seven properties on grant rows and on blocks, validated in the build: enum answers, no unknown keys, no holder on a `none` barrier, and **any grading adjective fails the build**
+- [x] Authored for `claude-gmail-connector`: four blocks, four barriers. The finding: the one block held as a product decision is the one holding back a capability the consent screen already granted
+- [x] Rendered — GRANT.md (two sections), AGENT-BEHAVIOUR-POLICY.md, the licence-to-operate conditions, the reading app's **What holds** view, and the generated vault pages
+- [x] `nl()` now flattens all the way down; two tables that had been rendering `|,|` since the consequence layer are fixed
+- [x] `tests/site/test_vault_app.mjs` — the reading app booted against a real vault in a fake DOM, every view built, every holder answer checked against the vocabulary
+- [ ] **Owed, still:** storey one (`permitted.json`: scopes → methods, `permitted_by` per row); the audience spine; the storeys drawn. All three are in the brief's §4 and named as not done in the release note.
+
+**Not pushed to sgit this wave.** The renderer changed (a new view) and the Gmail vault's data changed,
+so `vbhmlulo` and `oc433z3m` are both behind what is in the repo until someone re-pushes them. The
+static copies on the site are current; the live vault view is not. Whoever pushes: copy `.vault/`
+across when refreshing a clone, or the app mount breaks (see 16 Sept).

@@ -2,10 +2,13 @@
   "type": "riskmandate/abp-app-context/v1",
   "dist": {
     "browser-extension.zip": {
-      "bytes": 69391,
-      "sha256": "e30ed569b242a23b05993cc217702fb27c5c513d38189c55a36450c523d4431b"
+      "bytes": 70560,
+      "sha256": "7f3952080e96f234cdc84d7ebd11824865b5db3fe0ea4e994e34023056c319ea"
     }
   },
+  "blocked": 1,
+  "blocks_held": 0,
+  "barriers_held": 0,
   "scenarios": 6,
   "licence": {
     "kind": "cc-by-4.0"

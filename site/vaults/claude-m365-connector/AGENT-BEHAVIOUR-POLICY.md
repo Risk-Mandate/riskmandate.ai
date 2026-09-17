@@ -56,13 +56,15 @@ Every line an agent is asked to observe, next to what enforces it. A prohibition
 | Do not `read.credential.host` — read credentials stored where it runs | ● none | **nothing** |
 | Stop and report if a task needs anything above | ◉ expectation | **nothing** — and this is the line that makes the rest useful |
 
-## What is not reachable
+## What is blocked, and who holds the block
 
-- **personal Microsoft accounts** — "Personal Microsoft accounts (@outlook.com, @hotmail.com) can't be used" _(https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide)_
-- **other users' private files or emails** — "Users can't access other users' private files or emails"; delegated permissions reach only what the user already can _(https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide)_
-- **the Online Archive mailbox** — "Email search doesn't reach a user's separate Online Archive (In-Place Archive) mailbox" _(https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide)_
-- **a single SharePoint site** — "Site-specific permissioning (using *.Selected permissions) is not supported because the underlying search is tenant-wide" _(https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide)_
-- **writing SharePoint or OneDrive files** — no write tool for files is listed; the write tools are mail and Teams _(https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide)_
+Everything above is what the agent can do once every block is applied. These are the things something withholds — and the record says what, because a ceiling the credential itself enforces and a tool a vendor has not shipped are different objects with different lifespans.
+
+- **personal Microsoft accounts** — blocked by Microsoft's tenancy rule for the connector — a work or school account is required. "Personal Microsoft accounts (@outlook.com, @hotmail.com) can't be used" _(https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide)_
+- **other users' private files or emails** — blocked by the delegated permission model — the connector reaches what the signed-in user already reaches, and no more. "Users can't access other users' private files or emails"; delegated permissions reach only what the user already can _(https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide)_
+- **the Online Archive mailbox** — blocked by Microsoft's search — the archive is a separate store the connector's search does not cover. "Email search doesn't reach a user's separate Online Archive (In-Place Archive) mailbox" _(https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide)_
+- **a single SharePoint site** — blocked by the connector's design — the underlying search is tenant-wide, so *.Selected permissions are not supported. "Site-specific permissioning (using *.Selected permissions) is not supported because the underlying search is tenant-wide" _(https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide)_
+- **writing SharePoint or OneDrive files** — blocked by the connector's tool surface — the write tools are mail and Teams, and no file-write tool is listed. no write tool for files is listed; the write tools are mail and Teams _(https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide)_
 
 ## What is not settled
 

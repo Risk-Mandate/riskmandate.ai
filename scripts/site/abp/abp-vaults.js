@@ -185,7 +185,11 @@ RM.services.abpVaults = (function () {
     }
   };
 
-  // ---- <rm-abp-table data-vault data-view="grant|delta|licence|mandate|notreach"> ----
+  // The holder classes, as data/barrier-holders.json names them. A label, never a grade.
+  var HOLDER_LABEL = { deployer: 'you', 'org-owner': 'an owner above you', 'vendor-with-consent': 'a vendor, against a consent you gave', 'vendor-product': 'a vendor, as a product decision', agent: 'the agent itself', environment: 'the environment it runs in' };
+  function holderLabel(id) { return HOLDER_LABEL[id] || id; }
+
+  // ---- <rm-abp-table data-vault data-view="grant|delta|licence|mandate|blocked|held"> ----
   RM.components.AbpTable = class extends HTMLElement {
     connectedCallback() {
       var self = this, slug = this.dataset.vault, view = this.dataset.view;
@@ -233,10 +237,34 @@ RM.services.abpVaults = (function () {
                 dom.el('td', null, [L.row[id].control ? L.row[id].control : dom.el('b', null, ['nothing — a line in prose'])])]);
             }))
           ])]));
-        } else if (view === 'notreach') {
+        } else if (view === 'blocked') {
+          // The grant is what the agent can do AFTER the blocks. These are what something
+          // withholds — and the blocker is named, because a ceiling the credential enforces and
+          // a tool a vendor has not shipped are different objects with different lifespans.
+          var held = (g.blocked || []).filter(function (n) { return n.holder; });
           out.push(dom.el('div', { class: 'tw' }, [dom.el('table', { class: 't' }, [
-            dom.el('thead', null, [dom.el('tr', null, ['Not reachable', 'Why', 'Source'].map(function (t) { return dom.el('th', null, [t]); }))]),
-            dom.el('tbody', null, (g.not_reachable || []).map(function (n) { return dom.el('tr', null, [dom.el('td', null, [n.what]), dom.el('td', null, [n.why]), dom.el('td', { class: 'k' }, [n.source])]); }))
+            dom.el('thead', null, [dom.el('tr', null, ['Permitted, and blocked', 'Blocked by', 'Who holds the block', 'Moves without you', 'Source'].map(function (t) { return dom.el('th', null, [t]); }))]),
+            dom.el('tbody', null, (g.blocked || []).map(function (n) {
+              return dom.el('tr', null, [dom.el('td', null, [n.what]), dom.el('td', null, [n.blocked_by || n.why]),
+                dom.el('td', null, [n.holder ? holderLabel(n.holder.held_by) : 'not yet recorded']),
+                dom.el('td', null, [n.holder ? dom.el('b', null, [n.holder.moves_without_you]) : '—']),
+                dom.el('td', { class: 'k' }, [n.source])]);
+            }))
+          ])]));
+          if (held.length) out.push(dom.el('p', { class: 'ab-sub' }, ['Who holds a block decides how long it lasts. One held by a vendor as a product decision moves in a release, with no consent screen and nothing for the deployer to click; one that is the credential\u2019s own ceiling moves only if somebody consents to a wider credential. Neither is rated here \u2014 both are recorded.']));
+        } else if (view === 'held') {
+          // Seven answers per barrier: who holds it, what it rests on, whether it moves without
+          // you, whether you would be told, whether you can check, what removes it, and what the
+          // credential would still allow. Facts, each with a source. Never a grade.
+          var rows = (g.grant || []).filter(function (r) { return r.holder; });
+          if (!rows.length) { out.push(dom.el('p', { class: 'ab-sub' }, ['Who holds each barrier has not been recorded for this shape yet.'])); }
+          else out.push(dom.el('div', { class: 'tw' }, [dom.el('table', { class: 't' }, [
+            dom.el('thead', null, [dom.el('tr', null, ['Capability', 'Barrier', 'Who holds it', 'Moves without you', 'Would you be told', 'What removes it'].map(function (t) { return dom.el('th', null, [t]); }))]),
+            dom.el('tbody', null, rows.map(function (r) {
+              return dom.el('tr', null, [dom.el('td', null, [dom.el('span', { class: 'k' }, [r.capability])]), barrierCell(L, r.capability),
+                dom.el('td', null, [holderLabel(r.holder.held_by)]), dom.el('td', null, [dom.el('b', null, [r.holder.moves_without_you])]),
+                dom.el('td', null, [r.holder.you_would_be_told]), dom.el('td', null, [r.holder.removed_by])]);
+            }))
           ])]));
         }
         out.push(dom.el('p', { class: 'ab-src' }, [statusChip(L)]));

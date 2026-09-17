@@ -63,10 +63,12 @@ Every line an agent is asked to observe, next to what enforces it. A prohibition
 | Do not `execute.process.host` — run programs as the account | ● none | **nothing** |
 | Stop and report if a task needs anything above | ◉ expectation | **nothing** — and this is the line that makes the rest useful |
 
-## What is not reachable
+## What is blocked, and who holds the block
 
-- **activating a workflow with no trigger, webhook or polling node** — permitted by the API and rejected by the platform: a structural check on the workflow's shape, not on what it does once triggered _(an independent measured check, 13 September 2026, run by an early beta user's agent against a sandbox instance stood up for the purpose; the write-up is held by RiskMandate)_
-- **the credentials endpoint over the direct REST path — from the measuring environment** — blocked before it reached the platform by the measuring environment's own egress gateway, which intercepts any path naming "credentials". A barrier in the investigator's environment, not the platform's; the same operation was open through the MCP interface _(an independent measured check, 13 September 2026, run by an early beta user's agent against a sandbox instance stood up for the purpose; the write-up is held by RiskMandate)_
+Everything above is what the agent can do once every block is applied. These are the things something withholds — and the record says what, because a ceiling the credential itself enforces and a tool a vendor has not shipped are different objects with different lifespans.
+
+- **activating a workflow with no trigger, webhook or polling node** — blocked by the platform's structural check on the workflow's shape, applied after the API has accepted the call. permitted by the API and rejected by the platform: a structural check on the workflow's shape, not on what it does once triggered _(an independent measured check, 13 September 2026, run by an early beta user's agent against a sandbox instance stood up for the purpose; the write-up is held by RiskMandate)_
+- **the credentials endpoint over the direct REST path — from the measuring environment** — blocked by the measuring environment's own egress gateway, which intercepts any path naming credentials — a barrier in the investigator's environment, not the platform's. blocked before it reached the platform by the measuring environment's own egress gateway, which intercepts any path naming "credentials". A barrier in the investigator's environment, not the platform's; the same operation was open through the MCP interface _(an independent measured check, 13 September 2026, run by an early beta user's agent against a sandbox instance stood up for the purpose; the write-up is held by RiskMandate)_
 
 ## What is not settled
 

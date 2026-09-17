@@ -39,15 +39,17 @@
 - **`authenticate-as.credential.tenant`** — "Users can only access Microsoft 365 data they already have permission for." Anthropic hosts the connector and holds the token.
 - **`read.credential.host`** — a work mailbox carries password resets, MFA codes and shared credentials sent between colleagues; a SharePoint estate carries key files and configuration. Reading either reads those. Inferred, not documented.
 
-## Not reachable from this shape
+## Permitted, and blocked
 
-| What | Why | Source |
-| --- | --- | --- |
-| personal Microsoft accounts | "Personal Microsoft accounts (@outlook.com, @hotmail.com) can't be used" | https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide |
-| other users' private files or emails | "Users can't access other users' private files or emails"; delegated permissions reach only what the user already can | https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide |
-| the Online Archive mailbox | "Email search doesn't reach a user's separate Online Archive (In-Place Archive) mailbox" | https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide |
-| a single SharePoint site | "Site-specific permissioning (using *.Selected permissions) is not supported because the underlying search is tenant-wide" | https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide |
-| writing SharePoint or OneDrive files | no write tool for files is listed; the write tools are mail and Teams | https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide |
+The grant above is what the agent can do **after** the blocks. This is what something withholds. A block is not a property of the credential: some of these are the credential's own ceiling, and some are a vendor choosing not to ship a tool the credential would authorise. Each one names what blocks it, because those two are not the same object and a reader who is shown them under one heading has been told something this document cannot support.
+
+| What | Blocked by | Who holds the block | Why | Source |
+| --- | --- | --- | --- | --- |
+| personal Microsoft accounts | Microsoft's tenancy rule for the connector — a work or school account is required | _not yet recorded_ | "Personal Microsoft accounts (@outlook.com, @hotmail.com) can't be used" | https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide |
+| other users' private files or emails | the delegated permission model — the connector reaches what the signed-in user already reaches, and no more | _not yet recorded_ | "Users can't access other users' private files or emails"; delegated permissions reach only what the user already can | https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide |
+| the Online Archive mailbox | Microsoft's search — the archive is a separate store the connector's search does not cover | _not yet recorded_ | "Email search doesn't reach a user's separate Online Archive (In-Place Archive) mailbox" | https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide |
+| a single SharePoint site | the connector's design — the underlying search is tenant-wide, so *.Selected permissions are not supported | _not yet recorded_ | "Site-specific permissioning (using *.Selected permissions) is not supported because the underlying search is tenant-wide" | https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide |
+| writing SharePoint or OneDrive files | the connector's tool surface — the write tools are mail and Teams, and no file-write tool is listed | _not yet recorded_ | no write tool for files is listed; the write tools are mail and Teams | https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide |
 
 ## Where the vendor's own pages disagree
 
@@ -55,7 +57,9 @@ Advertised in one place, permitted in another, and the two do not match. Publish
 
 | What is advertised | What the grant permits | State |
 | --- | --- | --- |
-| "The connector provides read-only access to:" (the heading over the read tools) | a "Write tools" table on the same page: outlook_send_mail (Mail.Send), outlook_trash_thread and outlook_batch_delete_messages (Mail.ReadWrite) | **unresolved** |,| "Shared mailbox access remains read-only, via the Mail.Read.Shared permission" | outlook_send_mail "Send an email as the user" — whether it can send from a shared mailbox is not stated | **undocumented** |,| Lab 01, 12 September: the page read as a read-only connector | 15 September: the same page lists ten write tools. The page moved between the two readings; which capabilities a tenant consented to before the change is not stated | **unresolved** |
+| "The connector provides read-only access to:" (the heading over the read tools) | a "Write tools" table on the same page: outlook_send_mail (Mail.Send), outlook_trash_thread and outlook_batch_delete_messages (Mail.ReadWrite) | **unresolved** |
+| "Shared mailbox access remains read-only, via the Mail.Read.Shared permission" | outlook_send_mail "Send an email as the user" — whether it can send from a shared mailbox is not stated | **undocumented** |
+| Lab 01, 12 September: the page read as a read-only connector | 15 September: the same page lists ten write tools. The page moved between the two readings; which capabilities a tenant consented to before the change is not stated | **unresolved** |
 
 Sources: <https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide> · <https://riskmandate.ai/lab-connector-grants.html>
 
@@ -65,7 +69,9 @@ The connector permits these and none of the 23 primitives names them. They are r
 
 | What the connector can do | Permission | Why no row |
 | --- | --- | --- |
-| trash, untrash and batch-delete mail; create and update drafts | Mail.ReadWrite | the 23 primitives have delete.file.host and write.file.host; a message is not a file, and no primitive names deleting or drafting one |,| search the calendar and find meeting availability | Calendars.Read | no primitive reads a calendar; create.schedule.* creates jobs, not events |,| send Teams messages and create chats | ChatMessage.Send, ChannelMessage.Send, Chat.Create | send.message.world covers it loosely; a Teams post reaches the tenant, and whether it reaches federated external chats is open |
+| trash, untrash and batch-delete mail; create and update drafts | Mail.ReadWrite | the 23 primitives have delete.file.host and write.file.host; a message is not a file, and no primitive names deleting or drafting one |
+| search the calendar and find meeting availability | Calendars.Read | no primitive reads a calendar; create.schedule.* creates jobs, not events |
+| send Teams messages and create chats | ChatMessage.Send, ChannelMessage.Send, Chat.Create | send.message.world covers it loosely; a Teams post reaches the tenant, and whether it reaches federated external chats is open |
 
 ## Open questions
 

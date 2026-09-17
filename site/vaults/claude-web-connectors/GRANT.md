@@ -37,11 +37,13 @@ The same web assistant with connectors you switched on — a drive, a code host,
 - **`write.repository.tenant`** — a code-host connector
 - **`read.file.project`** — null
 
-## Not reachable from this shape
+## Permitted, and blocked
 
-| What | Why | Source |
-| --- | --- | --- |
-| your machine's files | a browser tab; the connector reaches a drive, not a disk | assess/library.json (web: home) |
+The grant above is what the agent can do **after** the blocks. This is what something withholds. A block is not a property of the credential: some of these are the credential's own ceiling, and some are a vendor choosing not to ship a tool the credential would authorise. Each one names what blocks it, because those two are not the same object and a reader who is shown them under one heading has been told something this document cannot support.
+
+| What | Blocked by | Who holds the block | Why | Source |
+| --- | --- | --- | --- | --- |
+| your machine's files | the browser — a tab reaches a drive over the network, not a disk | _not yet recorded_ | a browser tab; the connector reaches a drive, not a disk | assess/library.json (web: home) |
 
 ## The four barriers, and the test
 

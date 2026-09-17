@@ -46,10 +46,12 @@ Every line an agent is asked to observe, next to what enforces it. A prohibition
 | --- | --- | --- |
 | Stop and report if a task needs anything above | ◉ expectation | **nothing** — and this is the line that makes the rest useful |
 
-## What is not reachable
+## What is blocked, and who holds the block
 
-- **your machine's files** — the vendor's environment is a boundary you did not build _(assess/library.json (web: home))_
-- **your accounts** — no connectors are on _(assess/library.json (web: connect))_
+Everything above is what the agent can do once every block is applied. These are the things something withholds — and the record says what, because a ceiling the credential itself enforces and a tool a vendor has not shipped are different objects with different lifespans.
+
+- **your machine's files** — blocked by the vendor's hosted environment — a browser tab reaches OpenAI's servers, and no local path is exposed to it. the vendor's environment is a boundary you did not build _(assess/library.json (web: home))_
+- **your accounts** — blocked by the connector toggles, all of them off in this shape. no connectors are on _(assess/library.json (web: connect))_
 
 ## Validity
 

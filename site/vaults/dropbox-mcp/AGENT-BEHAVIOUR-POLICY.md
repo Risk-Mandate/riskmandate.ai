@@ -54,11 +54,13 @@ Every line an agent is asked to observe, next to what enforces it. A prohibition
 | Do not `write.file.host` — change any file the account can reach | ○ boundary | files.content.write |
 | Stop and report if a task needs anything above | ◉ expectation | **nothing** — and this is the line that makes the rest useful |
 
-## What is not reachable
+## What is blocked, and who holds the block
 
-- **permanent deletion** — "Move one or more files or folders to Deleted files. Files aren't deleted permanently." — but see the contradiction on recovery windows _(https://help.dropbox.com/integrations/connect-dropbox-mcp-server)_
-- **files over 5 MB, as text** — "Support files up to 5 MB" for content extraction; DownloadLink hands the original to the client instead _(https://help.dropbox.com/integrations/connect-dropbox-mcp-server)_
-- **your machine** — the client's own grant is a separate shape _(https://help.dropbox.com/integrations/connect-dropbox-mcp-server)_
+Everything above is what the agent can do once every block is applied. These are the things something withholds — and the record says what, because a ceiling the credential itself enforces and a tool a vendor has not shipped are different objects with different lifespans.
+
+- **permanent deletion** — blocked by Dropbox's own delete semantics — the tool moves files to Deleted files, and no tool deletes permanently. "Move one or more files or folders to Deleted files. Files aren't deleted permanently." — but see the contradiction on recovery windows _(https://help.dropbox.com/integrations/connect-dropbox-mcp-server)_
+- **files over 5 MB, as text** — blocked by the server's extraction limit — over it, the client is handed a download link instead. "Support files up to 5 MB" for content extraction; DownloadLink hands the original to the client instead _(https://help.dropbox.com/integrations/connect-dropbox-mcp-server)_
+- **your machine** — blocked by the line between the server and the client — what the MCP client itself reaches is that client's own grant, a separate shape. the client's own grant is a separate shape _(https://help.dropbox.com/integrations/connect-dropbox-mcp-server)_
 
 ## What is not settled
 

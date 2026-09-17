@@ -12,14 +12,16 @@
     "tenant": "nothing of yours",
     "world": "the vendor's egress, if browsing is on"
   },
-  "not_reachable": [
+  "blocked": [
     {
       "what": "your machine's files",
+      "blocked_by": "the vendor's hosted environment — a browser tab reaches OpenAI's servers, and no local path is exposed to it",
       "why": "the vendor's environment is a boundary you did not build",
       "source": "assess/library.json (web: home)"
     },
     {
       "what": "your accounts",
+      "blocked_by": "the connector toggles, all of them off in this shape",
       "why": "no connectors are on",
       "source": "assess/library.json (web: connect)"
     }

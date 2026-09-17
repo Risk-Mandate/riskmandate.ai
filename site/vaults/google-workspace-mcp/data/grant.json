@@ -12,24 +12,28 @@
     "tenant": "the Google account the consent was given for, and the Workspace domain it belongs to",
     "world": "anyone reachable by mail from that account"
   },
-  "not_reachable": [
+  "blocked": [
     {
       "what": "your machine's files",
+      "blocked_by": "the hosting — the servers are Google's, and what the MCP client itself reaches is a separate shape",
       "why": "the servers are hosted by Google; what the MCP client itself can reach is that client's own grant, a separate shape",
       "source": "https://developers.google.com/workspace/guides/configure-mcp-servers"
     },
     {
       "what": "permanent deletion of mail",
+      "blocked_by": "Google's scope ceiling — only https://mail.google.com/ permits it, and it is not on the list",
       "why": "only the https://mail.google.com/ scope permits it (\"Read, compose, send, and permanently delete all your email\"), and it is not on the list",
       "source": "https://developers.google.com/workspace/gmail/api/auth/scopes"
     },
     {
       "what": "labelling or unlabelling mail",
+      "blocked_by": "the scopes on the list — gmail.labels exists and was not requested",
       "why": "gmail.labels (\"See and edit your email labels\") exists and is not on the list",
       "source": "https://developers.google.com/workspace/gmail/api/auth/scopes"
     },
     {
       "what": "creating or changing calendar events",
+      "blocked_by": "the three Calendar scopes requested, all of them read-only",
       "why": "the three Calendar scopes requested are calendarlist.readonly, events.readonly and events.freebusy; \"schedule meetings\" is advertised on the same page",
       "source": "https://developers.google.com/workspace/guides/configure-mcp-servers"
     }

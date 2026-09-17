@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.25.0** · 2026-09-17 — A barrier gains a holder, and a block names its blocker
+  Notes: https://riskmandate.ai/versions/1.25.0.md · Source: `git:v1.25.0`
 - **v1.24.2** · 2026-09-16 — The label panel names the mandate's word once, beside the row
   Notes: https://riskmandate.ai/versions/1.24.2.md · Source: `git:v1.24.2`
 - **v1.24.1** · 2026-09-16 — The buy links land where the store serves, and name the level not the price

@@ -71,7 +71,7 @@ Then, below and still present: the record (the ABP, evidence, the gap, what foll
 ## 4. What to build, in order
 
 1. **Storey one for this shape.** `data/permitted.json`: the scopes the consent granted, and per scope the Gmail API methods they unlock, quoted and dated from Google. Each grant row gains `permitted_by` (the scope) and each permitted-but-unexposed capability becomes a row with `exposed: false`. **Half a day.**
-2. **`held_by` and `moves_without_you` on every barrier**, derived from the evidence source, rendered everywhere a barrier is rendered, and asked of the model site as a vocabulary extension. Split `not_reachable` into *bounded* and *not exposed*. **Half a day.**
+2. ~~**`held_by` and `moves_without_you` on every barrier**~~ — **done, 17 September**, and wider than proposed: seven properties rather than two, `not_reachable` replaced by the blocked list in all sixteen vaults, and the build refusing a record that grades what it describes. See §6.
 3. **The audience spine in the reading app.** The three sections as the top of the left navigation with sub-pages, the executive view authored, everything current demoted but kept. **A day and a half.**
 4. **The storeys, drawn.** One diagram, in the executive view and on the site: four bands, the rows sitting in each, the latent gap shaded. This is the *"good way to visualise"* the memo asks for, and it is the picture that answers *"are people aware?"* in one look. **Half a day.**
 5. **Say it once on the site**, on the ABP model page: the grant has storeys, and here is what that means for anyone who has ever ticked an OAuth consent screen. **Two hours.**
@@ -80,5 +80,81 @@ Then, below and still present: the record (the ABP, evidence, the gap, what foll
 
 1. **Settled, 16 September.** The lead's ruling: *"Grant is everything that agent can do (after blocks), not just what it is given to it via OAuth."* So the grant keeps its meaning and its place — storey two, the effective reach once every block is applied — and each row carries which scope permits it. A capability the credential permits and a block withholds is **not** a grant row; it is recorded as *permitted and blocked*, with the block named. `not_reachable` therefore becomes **the blocked list**, and each entry says what blocks it, who holds that block, and what would remove it. Attachment content is the worked example: permitted by `gmail.readonly`, blocked by the connector's tool surface, which Anthropic holds.
 2. **Audience names.** Executive · Operator · Risk, per §3.3. Say if you want Technical instead.
+   *(Still open. The spine is not built; the names are.)*
 3. **Do we ask Anthropic and Google anything?** Both gaps are readable from published pages, so nothing here needs testing. But *"it'd be interesting to see if Anthropic even has access to it in its scripts"* is only answerable by them. Recommendation: publish the contradiction unresolved, as we do, and do not ask.
 4. **How far does the case study go?** The memo says we can change whatever we want on this vault. Recommendation: yes for structure, data and the app — and the fifteen other vaults stay on the current shape until this one has settled, exactly as we did for the reading app.
+
+---
+
+## 6. Built, 17 September: the seven answers
+
+The lead's instruction was *"yes build it"*, with one clarification and one question. Both changed
+what got built.
+
+**The clarification.** *"The judgment that we provide is the delta, which is the difference between
+what the user is expecting the agent to do (mandate) and what it can actually do."* That is the
+whole reason a barrier gets facts and never a grade. The ABP already carries exactly one judgment,
+and it is derived rather than given: the delta. Adding a second — *this control is strong* — would
+be a judgment we author, about somebody else's product, in a document whose one rule is that it
+describes and does not judge. It would also be wrong on its own terms: how much a barrier is worth
+depends on the deployment it is in, which is the same argument that keeps a score off the policy.
+
+So: **seven properties on every barrier and every block, each a fact with a source, none of them a
+rating.** Who holds it · what it is made of · can it move without you · would you be told · can you
+check it is still there · what would take it away · if it went, what is behind it. The build refuses
+a holder record that grades the thing it describes: *strong*, *weak*, *credible*, *robust*,
+*adequate*, *effective*, *reliable* and their negatives fail the build, in data as in prose.
+
+**The question.** *"Have you read this document [nhi.sgit.ai/hope](https://nhi.sgit.ai/hope/index.html)
+where I talk about the Hope as Strategy?"* Not until it was asked; read 2026-09-17. It names the
+thing this work had been circling without a word for it. Its argument, in its own terms: the honest
+description of an agent deployment today is *hand over a broad credential, and hope*; every broad
+credential carries two hopes that fail differently — the **behaviour hope** (the agent will not
+misuse what it holds) and the **discovery hope** (the agent will not find access beyond what was
+intended); and the real authorisation is *the union of everything reachable from what it was given —
+the transitive closure of the grant — not the words used when granting*.
+
+That lands on this brief in three places.
+
+1. **The lead's grant ruling and the closure are the same sentence.** *Everything the agent can do
+   after the blocks* is the transitive closure, with the blocks subtracted. Our four barrier kinds
+   already separate a bound that is enforced from one that is asked; what was missing is that a
+   bound nobody holds, or one held by a party who can withdraw it in a release, is a hope wearing a
+   boundary's clothes. The seven answers are how a reader tells those apart without being told which
+   to trust.
+2. **The blocked list is the discovery hope, made specific.** Attachment content is not a boundary
+   and it is not out of reach: it is a capability the credential authorises and a client does not
+   offer. Filed under *not reachable*, it reads as assurance. Filed as *permitted, blocked by a
+   vendor's product decision, moves without you: yes, would you be told: no*, it reads as what it is.
+3. **The asymmetry is the finding.** On this shape, every block held by the deployer or by a
+   credential ceiling moves only with a screen in front of it. The one block held as a product
+   decision moves in a release with no screen at all — and it is the one holding back a capability
+   the consent screen already granted. That is a hope with a date on it, and the record now says so.
+
+What the ABP does not do, and the hope document is right about: none of this removes the hope. It
+names it, which is the step before it can be measured, bounded or replaced. The rung above this one
+is the Insurability Index, where a barrier's holder is exactly the kind of fact an underwriter asks
+for and nobody currently has to answer.
+
+### What shipped
+
+- `data/barrier-holders.json` — six holder classes and the seven questions, travelling with every
+  vault, pinned like the vocabulary and offered to the model site as an extension rather than
+  invented into it.
+- `not_reachable` is gone. Every vault now carries **`blocked`**, and the build refuses an entry
+  that does not name its blocker — all sixteen migrated, thirty-four entries.
+- The seven answers authored for the MVP vault: four blocks and the four barriers that are not
+  *none*. A row whose barrier is `none` may not carry a holder: nothing is in the way, so nobody
+  holds it.
+- Rendered in `GRANT.md` (two new sections), `AGENT-BEHAVIOUR-POLICY.md`, the licence-to-operate
+  conditions table (a condition now names who holds the thing enforcing it), the reading app as a
+  **What holds** view, and the vault pages on the site.
+- `tests/site/test_vault_app.mjs` — the reading app is booted against a real vault in a fake DOM and
+  every view is built. Two renderer bugs shipped from that file before this existed.
+
+### Still open after this
+
+Storey one — `data/permitted.json`, the scopes and the methods they unlock, quoted from Google, with
+`permitted_by` on each grant row — is not built. The blocked list names the blocker but does not yet
+name the permission behind it in machine-readable form; it is prose in `credential_would_still_allow`.
+The audience spine and the storeys diagram (§4 items 3 and 4) are also still to come.

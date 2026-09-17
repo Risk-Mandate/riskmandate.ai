@@ -12,14 +12,16 @@
     "tenant": "the repository, with the workflow's token",
     "world": "the internet, unrestricted"
   },
-  "not_reachable": [
+  "blocked": [
     {
       "what": "your machine",
+      "blocked_by": "the hosted runner — the job runs on GitHub's machine, not the operator's",
       "why": "a hosted runner",
       "source": "library entry 2"
     },
     {
       "what": "the repository, for writing",
+      "blocked_by": "the workflow's own permissions block — the token is contents:read",
       "why": "the token is contents:read",
       "source": "evidence: ci.permissions-block"
     }

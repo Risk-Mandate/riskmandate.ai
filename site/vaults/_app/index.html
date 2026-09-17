@@ -268,6 +268,23 @@ details .body{padding:0 16px 16px}
   .sticky{position:static}textarea{min-height:0;height:auto}.flow{animation:none}
   .hero,.top{background:#fff;color:#000}.hero h1,.hero p{color:#000}.rail{background:#fff;color:#000}.nav,.rgroup h4,.rail .home{color:#000}
 }
+
+/* what holds: the seven answers per barrier and per block */
+.holds{display:grid;gap:14px;margin-top:16px}
+.hold{border:1px solid var(--border);border-radius:var(--r);padding:16px 18px;background:var(--card)}
+.ht{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.ht b{font-size:15px;letter-spacing:-.01em}
+.ht span{font-family:var(--mono);font-size:11px;color:var(--faint)}
+.hrows{display:grid;gap:9px;margin-top:12px}
+.hrow{display:grid;grid-template-columns:210px 1fr;gap:14px;align-items:baseline}
+.hrow .q{font-family:var(--mono);font-size:10.5px;color:var(--faint);text-transform:uppercase;letter-spacing:.06em}
+.hrow .a{font-size:13.5px;line-height:1.6;color:var(--muted)}
+.hs{margin-top:12px;font-family:var(--mono);font-size:10.5px;color:var(--faint);word-break:break-word}
+.hv{font-weight:700;color:var(--text)}
+.pill.mv{font-weight:700;font-family:var(--mono);font-size:11px}
+.pill.mv.v-yes,.hv.v-yes{color:var(--gold)}
+.pill.mv.v-no,.hv.v-no{color:var(--green)}
+@media (max-width:720px){.hrow{grid-template-columns:1fr;gap:2px}}
 </style>
 </head>
 <body>
@@ -305,8 +322,9 @@ const PATHS = {
   licence_md: 'LICENCE.md', consequences_md: 'CONSEQUENCES.md',
   assets: 'data/assets.json', consequences: 'data/consequences.json',
   gdpr: 'data/standards/gdpr.json', euaiact: 'data/standards/eu-ai-act.json', attack: 'data/standards/attack.json',
+  holders: 'data/barrier-holders.json',
 };
-const OPTIONAL = new Set(['app', 'licence_md', 'consequences_md', 'assets', 'consequences', 'gdpr', 'euaiact', 'attack']);
+const OPTIONAL = new Set(['app', 'licence_md', 'consequences_md', 'assets', 'consequences', 'gdpr', 'euaiact', 'attack', 'holders']);
 async function readText(path) {
   if (window.sg && sg.vfs && sg.vfs.readText) return sg.vfs.readText(path);
   const r = await fetch(path, { cache: 'no-store' });
@@ -347,7 +365,7 @@ const STATUS_LABEL = { want: 'want', refused: 'do not want', unstated: 'unstated
 const ENFORCED = { none: 'nothing in the way', expectation: 'a rule in prose', setting: 'a setting — flippable', boundary: 'a boundary — enforced' };
 const BAR_RANK = { none: 0, expectation: 1, setting: 2, boundary: 3 };
 
-let D, CAP, UNDO_RANK, MEASURED, MANDATE, STD;
+let D, CAP, UNDO_RANK, MEASURED, MANDATE, STD, HOLDERS;
 function gloss(id) { return (CAP[id] && CAP[id].gloss) || id; }
 function row(id) { return D.grant.grant.find(r => r.capability === id); }
 function statusOf(id) { return MANDATE.want.includes(id) ? 'want' : MANDATE.do_not_want.includes(id) ? 'refused' : 'unstated'; }
@@ -379,6 +397,28 @@ function consOpen(c) { return (c.requires && c.requires.capabilities || []).ever
   && (c.requires && c.requires.assets || []).every(assetPresent)
   && (c.requires && c.requires.consequences || []).every(sid => { const s = consOf(sid); return s && consOpen(s); }); }
 function stdNode(id) { return STD[id]; }
+// Who holds a barrier, and who holds a block. Seven answers, each a fact with a source; never a
+// grade. The classes live in data/barrier-holders.json so the label is the vault's, not the app's.
+function holderClass(id) { return HOLDERS[id] || { label: id, meaning: '' }; }
+function holderLabel(id) { return holderClass(id).label; }
+function blockedList() { return D.grant.blocked || []; }
+function heldRows() { return D.grant.grant.filter(r => r.holder); }
+const HOLD_Q = [['held_by', 'Who holds it'], ['rests_on', 'What it is made of'], ['moves_without_you', 'Can it move without you'],
+  ['you_would_be_told', 'Would you be told'], ['you_can_verify', 'Can you check it is still there'],
+  ['removed_by', 'What would take it away'], ['credential_would_still_allow', 'If it went, what is behind it']];
+function holderPanel(title, sub, hd) {
+  const line = (k, label) => {
+    const note = hd[k + '_note'];
+    const val = k === 'held_by' ? holderLabel(hd[k]) : hd[k];
+    const strong = k === 'moves_without_you' || k === 'you_would_be_told' || k === 'you_can_verify' || k === 'held_by';
+    return h('div', { class: 'hrow' }, [h('div', { class: 'q' }, label), h('div', { class: 'a' }, [strong ? h('b', { class: 'hv ' + k + ' v-' + String(val).replace(/[^a-z-]/g, '') }, val) : val, note ? ' — ' + note : null])]);
+  };
+  return h('div', { class: 'hold' }, [
+    h('div', { class: 'ht' }, [h('b', null, title), sub ? h('span', null, sub) : null]),
+    h('div', { class: 'hrows' }, HOLD_Q.map(([k, label]) => line(k, label))),
+    hd.source ? h('div', { class: 'hs' }, 'read from ' + hd.source) : null,
+  ]);
+}
 
 function barrierCell(id) { const r = row(id); return h('td', null, h('span', { class: 'g ' + r.barrier }, GLYPH[r.barrier] + ' ' + r.barrier)); }
 function evidenceCell(id) { const r = row(id); const m = MEASURED.has(r.evidence); return h('td', null, h('span', { class: 'ev' + (m ? ' m' : '') }, r.evidence + (m ? ' ✓' : ''))); }
@@ -574,6 +614,36 @@ function viewConsequences() {
     fileStrip('CONSEQUENCES.md', D.consequences_md)];
 }
 
+// ---------------------------------------------------------------- view: What holds (barriers and blocks)
+function viewHolds() {
+  const blocks = blockedList(), rows = heldRows();
+  const doc = D.holders || {};
+  const head = docHead('What holds · recorded', 'GRANT.md', 'Who holds what stands in the way',
+    'The barrier says what is in the way. It does not say who holds it, what it is made of, or what would take it away — and two barriers of the same kind can be nothing alike. Seven answers each, every one a fact with a source. None of them is a rating.');
+  const legend = h('div', { class: 'notice' }, [h('b', null, 'Why this is not a score. '),
+    'How much a barrier is worth depends on the deployment it is in, exactly as a score on a behaviour policy would — so it is not this document\u2019s to give. A control held by a vendor as a product decision is not "weaker" here; it is recorded as moving in a release, with no consent screen, and the reader decides what that is worth to them.']);
+  const holderKey = (doc.holders || []).length ? h('div', { class: 'panel', style: 'margin-top:16px' }, [h('h3', null, 'The six holders'),
+    h('div', { class: 'tw', style: 'margin-top:10px' }, h('table', null, [h('thead', null, h('tr', null, ['Holder', 'What it means'].map(t => h('th', null, t)))),
+      h('tbody', null, doc.holders.map(x => h('tr', null, [h('td', null, h('b', null, x.label)), h('td', { class: 'm' }, x.meaning)])))]))]) : null;
+  const blockTable = blocks.length ? h('div', { class: 'tw' }, h('table', null, [
+    h('thead', null, h('tr', null, ['Permitted, and blocked', 'Blocked by', 'Who holds the block', 'Moves without you'].map(t => h('th', null, t)))),
+    h('tbody', null, blocks.map(n => h('tr', null, [h('td', null, n.what), h('td', { class: 'm' }, n.blocked_by || n.why),
+      h('td', { class: 'm' }, n.holder ? holderLabel(n.holder.held_by) : 'not yet recorded'),
+      h('td', null, n.holder ? h('span', { class: 'pill mv v-' + n.holder.moves_without_you }, n.holder.moves_without_you) : '—')])))])) : null;
+  return [head,
+    h('h3', null, 'Permitted, and blocked — ' + blocks.length),
+    h('p', { class: 'sub', style: 'margin-top:4px' }, 'The grant is what the agent can do after these. A capability the credential authorises and something else withholds is not a grant row, and it is not out of reach either: it is blocked, and the blocker is named. Some of these are the credential\u2019s own ceiling; some are a vendor choosing not to ship a tool the credential would authorise, which moves in a release.'),
+    blockTable || h('p', { class: 'sub' }, 'Nothing is recorded as blocked in this shape.'),
+    blocks.filter(n => n.holder).length ? h('div', { class: 'holds' }, blocks.filter(n => n.holder).map(n => holderPanel(n.what, 'blocked by ' + n.blocked_by, n.holder))) : null,
+    h('h3', { style: 'margin-top:26px' }, 'Who holds each barrier — ' + rows.length + ' of ' + D.grant.grant.length + ' rows recorded'),
+    rows.length ? h('div', { class: 'tw' }, h('table', null, [h('thead', null, h('tr', null, ['Capability', 'Barrier', 'Who holds it', 'Moves without you', 'Would you be told', 'What removes it'].map(t => h('th', null, t)))),
+      h('tbody', null, rows.map(r => h('tr', null, [h('td', { class: 'k' }, r.capability), barrierCell(r.capability), h('td', { class: 'm' }, holderLabel(r.holder.held_by)),
+        h('td', null, h('span', { class: 'pill mv v-' + r.holder.moves_without_you }, r.holder.moves_without_you)), h('td', { class: 'm' }, r.holder.you_would_be_told), h('td', { class: 'm' }, r.holder.removed_by)])))]))
+      : h('p', { class: 'sub', style: 'margin-top:4px' }, 'Who holds each barrier has not been recorded for this shape yet. The barrier column still says what is in the way; this page says who holds it, and that answer is not yet written down here.'),
+    rows.length ? h('div', { class: 'holds' }, rows.map(r => holderPanel(r.capability, gloss(r.capability) + ' · ' + GLYPH[r.barrier] + ' ' + r.barrier, r.holder))) : null,
+    holderKey, legend];
+}
+
 // ---------------------------------------------------------------- view: Customise (mandate)
 function viewMandate() {
   const grantIds = D.grant.grant.map(r => r.capability);
@@ -727,11 +797,11 @@ function viewDownload() {
 // ---------------------------------------------------------------- shell
 const GROUPS = [
   { items: [['start', 'Start here', null]] },
-  { title: 'The record', items: [['abp', 'The ABP', 'AGENT-BEHAVIOUR-POLICY.md'], ['grant', 'Evidence', 'GRANT.md'], ['delta', 'The gap', 'DELTA.md'], ['consequences', 'What follows', 'CONSEQUENCES.md']] },
+  { title: 'The record', items: [['abp', 'The ABP', 'AGENT-BEHAVIOUR-POLICY.md'], ['grant', 'Evidence', 'GRANT.md'], ['holds', 'What holds', 'GRANT.md'], ['delta', 'The gap', 'DELTA.md'], ['consequences', 'What follows', 'CONSEQUENCES.md']] },
   { title: 'What you do', items: [['mandate', 'Customise', 'MANDATE.md'], ['deploy', 'Use it', 'AGENTS.md'], ['build', 'Build it', 'MAP-A-GRANT.md'], ['authorise', 'Authorise it', 'LICENCE-TO-OPERATE.md']] },
   { title: 'What you hold', items: [['licence', 'Licence', 'LICENCE.md'], ['keys', 'Your keys', null], ['keep', 'Keep it', 'history/'], ['download', 'Download', 'dist/']] },
 ];
-const BUILDERS = { start: viewStart, abp: viewAbp, grant: viewGrant, delta: viewDelta, consequences: viewConsequences, mandate: viewMandate, deploy: viewDeploy, build: viewBuild, authorise: viewAuthorise, licence: viewLicence, keys: viewKeys, keep: viewKeep, download: viewDownload };
+const BUILDERS = { start: viewStart, abp: viewAbp, grant: viewGrant, holds: viewHolds, delta: viewDelta, consequences: viewConsequences, mandate: viewMandate, deploy: viewDeploy, build: viewBuild, authorise: viewAuthorise, licence: viewLicence, keys: viewKeys, keep: viewKeep, download: viewDownload };
 let current = 'start';
 function buildRail() {
   const rail = document.getElementById('rail'); rail.textContent = '';
@@ -759,6 +829,7 @@ load().then(data => {
   MEASURED = new Set(D.tiers.counted_as_measured);
   MANDATE = JSON.parse(JSON.stringify(D.mandate));
   STD = {}; for (const key of ['gdpr', 'euaiact', 'attack']) { const g = D[key]; if (g) for (const n of g.nodes || []) STD[n.id] = n; }
+  HOLDERS = Object.fromEntries((((D.holders || {}).holders) || []).map(x => [x.id, x]));
   buildRail();
   const last = (D.history.entries || []).slice(-1)[0];
   document.getElementById('ver').textContent = 'v' + (last ? last.v : 1) + ' · ' + D.vault.as_at;

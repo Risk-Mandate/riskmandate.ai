@@ -58,12 +58,14 @@ Every line an agent is asked to observe, next to what enforces it. A prohibition
 | Do not `write.file.host` — change any file the account can reach | ○ boundary | the OAuth scopes |
 | Stop and report if a task needs anything above | ◉ expectation | **nothing** — and this is the line that makes the rest useful |
 
-## What is not reachable
+## What is blocked, and who holds the block
 
-- **your machine's files** — the servers are hosted by Google; what the MCP client itself can reach is that client's own grant, a separate shape _(https://developers.google.com/workspace/guides/configure-mcp-servers)_
-- **permanent deletion of mail** — only the https://mail.google.com/ scope permits it ("Read, compose, send, and permanently delete all your email"), and it is not on the list _(https://developers.google.com/workspace/gmail/api/auth/scopes)_
-- **labelling or unlabelling mail** — gmail.labels ("See and edit your email labels") exists and is not on the list _(https://developers.google.com/workspace/gmail/api/auth/scopes)_
-- **creating or changing calendar events** — the three Calendar scopes requested are calendarlist.readonly, events.readonly and events.freebusy; "schedule meetings" is advertised on the same page _(https://developers.google.com/workspace/guides/configure-mcp-servers)_
+Everything above is what the agent can do once every block is applied. These are the things something withholds — and the record says what, because a ceiling the credential itself enforces and a tool a vendor has not shipped are different objects with different lifespans.
+
+- **your machine's files** — blocked by the hosting — the servers are Google's, and what the MCP client itself reaches is a separate shape. the servers are hosted by Google; what the MCP client itself can reach is that client's own grant, a separate shape _(https://developers.google.com/workspace/guides/configure-mcp-servers)_
+- **permanent deletion of mail** — blocked by Google's scope ceiling — only https://mail.google.com/ permits it, and it is not on the list. only the https://mail.google.com/ scope permits it ("Read, compose, send, and permanently delete all your email"), and it is not on the list _(https://developers.google.com/workspace/gmail/api/auth/scopes)_
+- **labelling or unlabelling mail** — blocked by the scopes on the list — gmail.labels exists and was not requested. gmail.labels ("See and edit your email labels") exists and is not on the list _(https://developers.google.com/workspace/gmail/api/auth/scopes)_
+- **creating or changing calendar events** — blocked by the three Calendar scopes requested, all of them read-only. the three Calendar scopes requested are calendarlist.readonly, events.readonly and events.freebusy; "schedule meetings" is advertised on the same page _(https://developers.google.com/workspace/guides/configure-mcp-servers)_
 
 ## What is not settled
 
