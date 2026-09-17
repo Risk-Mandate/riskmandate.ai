@@ -144,6 +144,7 @@ rm-menu{display:contents}
 @media (max-width:640px){.kr{grid-template-columns:1fr;gap:6px}}
 .kk{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green)}
 .kr code{font-family:var(--mono);font-size:12.5px;color:var(--text);word-break:break-all;line-height:1.6}
+.src code{font-family:var(--mono);font-size:12.5px;word-break:break-all}
 .kr a{color:var(--green);text-decoration:underline;text-underline-offset:2px;font-size:14px}
 .tw{margin-top:32px;overflow-x:auto;border:1px solid var(--border);border-radius:var(--r);background:var(--card)}
 table.t{width:100%;border-collapse:collapse;font-size:13.5px;min-width:560px}
@@ -173,7 +174,7 @@ table.t td.k{color:var(--text);font-weight:600;white-space:nowrap}
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
     <a class="ghlink" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener" aria-label="The source, on GitHub" title="Open source · Apache-2.0 code · CC BY 4.0 pages"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a>
-      <a class="version" href="versions.html" title="What shipped in v1.25.1">v1.25.1</a>
+      <a class="version" href="versions.html" title="What shipped in v1.25.2">v1.25.2</a>
     <button class="demo" data-demo>Book a demo</button>
   </div>
 </header>
@@ -181,11 +182,11 @@ table.t td.k{color:var(--text);font-weight:600;white-space:nowrap}
 <main class="phero">
   <div class="wrap">
     <span class="eyebrow"><span class="d"></span> Admin &middot; how this site is checked</span>
-    <h1>Five people who do not exist, <span class="it">reading this site.</span></h1>
-    <p class="sub">Five invented readers were walked through riskmandate.ai one screenshot at a time, asked what they made of each screen, and interviewed at the end. Every one of them started knowing nothing about RiskMandate, Agent Behaviour Policies, or what is for sale. The vault holds all of it: <b>30 screenshots, 30 steps, 11 questions the site did not answer, 12 places somebody got lost, and 12 findings &mdash; two of them costing a sale.</b></p>
+    <h1>Five people who do not exist, <span class="it">reading this site twice.</span></h1>
+    <p class="sub">Five invented readers were walked through riskmandate.ai one screenshot at a time, asked what they made of each screen, and interviewed at the end. Every one of them starts every run knowing nothing about RiskMandate, Agent Behaviour Policies, or what is for sale. The site has now been read twice &mdash; <b>v1.20.1 on 16 September and v1.25.1 on 17 September</b>, the same five readers both times: <b>60 screenshots, 60 steps, 37 questions the site did not answer, 29 places somebody got lost, and 32 findings.</b> The second run is the one worth reading, because it says which of the first run&rsquo;s findings survived.</p>
     <div class="cta-row">
-      <a class="btn btn-green" href="https://dev.vault.sgraph.ai/en-gb/#a41174009cf6f3019147040ef0c759b6c84c86ffa37eb54af06011c161a12332:o3q6zhtr" target="_blank" rel="noopener">Open the vault &nearr;</a>
-      <button class="btn btn-ghost" data-to="found">What it found &darr;</button>
+      <a class="btn btn-green" href="https://dev.vault.sgraph.ai/en-gb/#835a49efea7bd24b0205dd6dd74a08d22539fe5e3bac8dcca073d2e66a74e1fb:re5nrn3h" target="_blank" rel="noopener">Open the vault &nearr;</a>
+      <button class="btn btn-ghost" data-to="changed">What changed &darr;</button>
     </div>
   </div>
 </main>
@@ -200,11 +201,11 @@ table.t td.k{color:var(--text);font-weight:600;white-space:nowrap}
         <p>Nothing in the vault is a secret: no real person, no customer data, no credential. It is published read-only so the method can be checked rather than described.</p>
       </div>
       <div class="keybox">
-        <div class="kr"><span class="kk">Read key</span><code>a41174009cf6f3019147040ef0c759b6c84c86ffa37eb54af06011c161a12332:o3q6zhtr</code></div>
-        <div class="kr"><span class="kk">In the browser</span><a href="https://dev.vault.sgraph.ai/en-gb/#a41174009cf6f3019147040ef0c759b6c84c86ffa37eb54af06011c161a12332:o3q6zhtr" target="_blank" rel="noopener">open it read-only in a new tab &nearr;</a></div>
-        <div class="kr"><span class="kk">From the CLI</span><code>sgit clone a41174009cf6f3019147040ef0c759b6c84c86ffa37eb54af06011c161a12332:o3q6zhtr</code></div>
+        <div class="kr"><span class="kk">Read key</span><code>835a49efea7bd24b0205dd6dd74a08d22539fe5e3bac8dcca073d2e66a74e1fb:re5nrn3h</code></div>
+        <div class="kr"><span class="kk">In the browser</span><a href="https://dev.vault.sgraph.ai/en-gb/#835a49efea7bd24b0205dd6dd74a08d22539fe5e3bac8dcca073d2e66a74e1fb:re5nrn3h" target="_blank" rel="noopener">open it read-only in a new tab &nearr;</a></div>
+        <div class="kr"><span class="kk">From the CLI</span><code>sgit clone 835a49efea7bd24b0205dd6dd74a08d22539fe5e3bac8dcca073d2e66a74e1fb:re5nrn3h</code></div>
       </div>
-      <p class="src">Derived one way from a vault key that is not published and never will be. The read key opens the vault and cannot change it.</p>
+      <p class="src">Derived one way from a vault key that is not published and never will be. The read key opens the vault and cannot change it. This vault, <code>re5nrn3h</code>, holds <b>both</b> readings &mdash; ten runs, two per reader &mdash; so the comparison is inside one vault rather than across two. The first study was published as its own vault and is still there, read-only, at <code>a41174009cf6f3019147040ef0c759b6c84c86ffa37eb54af06011c161a12332:o3q6zhtr</code>.</p>
     </div>
   </section>
 
@@ -248,22 +249,22 @@ table.t td.k{color:var(--text);font-weight:600;white-space:nowrap}
     <div class="wrap">
       <div class="shead">
         <span class="tag">The five runs</span>
-        <h2>Five readers, <span class="g">and what each one cost.</span></h2>
-        <p>Every number below is computed from the run records rather than from the summary.</p>
+        <h2>Five readers, <span class="g">twice each.</span></h2>
+        <p>Every number below is computed from the run records rather than from the summary. The outcome column is what the reader decided at the last step, in their own words.</p>
       </div>
       <div class="tw">
         <table class="t">
-          <thead><tr><th>Reader</th><th>Outcome</th><th>Steps</th><th>Questions</th><th>Lost</th><th>Viewport</th></tr></thead>
+          <thead><tr><th>Reader</th><th>At v1.20.1</th><th>At v1.25.1</th><th>Questions</th><th>Lost</th><th>Viewport</th></tr></thead>
           <tbody>
-            <tr><td class="k"><b>Priya Raghavan</b><span class="sub2">staff engineer, pays on her own card</span></td><td>would buy, level 1</td><td>6</td><td>2</td><td>2</td><td>1440&times;900</td></tr>
-            <tr><td class="k"><b>Tom Achterberg</b><span class="sub2">founder, six weeks from a term sheet</span></td><td>stalled</td><td>6</td><td>3</td><td>3</td><td><b>390&times;844</b> phone</td></tr>
-            <tr><td class="k"><b>Mei-Lin Okafor</b><span class="sub2">head of engineering, a bank&rsquo;s questionnaire due Friday</span></td><td>would buy, blocked on timing</td><td>6</td><td>2</td><td>2</td><td>1440&times;900</td></tr>
-            <tr><td class="k"><b>Rafael Duarte</b><span class="sub2">fund partner, 31 companies</span></td><td>left</td><td>6</td><td>2</td><td>2</td><td>1440&times;900</td></tr>
-            <tr><td class="k"><b>Claire Buckley</b><span class="sub2">risk manager at an insurance broker</span></td><td>left, having understood it only on the third page</td><td>6</td><td>2</td><td>3</td><td>1440&times;900</td></tr>
+            <tr><td class="k"><b>Priya Raghavan</b><span class="sub2">staff engineer, pays on her own card</span></td><td>would buy, level 1</td><td><b>would buy, level 1 today</b></td><td>4</td><td>4</td><td>1440&times;900</td></tr>
+            <tr><td class="k"><b>Tom Achterberg</b><span class="sub2">founder, six weeks from a term sheet</span></td><td>stalled</td><td><b>would buy, level 1 tonight</b></td><td>5</td><td>4</td><td><b>390&times;844</b> phone</td></tr>
+            <tr><td class="k"><b>Mei-Lin Okafor</b><span class="sub2">head of engineering, a bank&rsquo;s questionnaire due Friday</span></td><td>would buy, blocked on timing</td><td>would buy level 4, blocking on a date</td><td>6</td><td>4</td><td>1440&times;900</td></tr>
+            <tr><td class="k"><b>Rafael Duarte</b><span class="sub2">fund partner, 31 companies</span></td><td>left</td><td>buys nothing, sends three companies</td><td>6</td><td>2</td><td>1440&times;900</td></tr>
+            <tr><td class="k"><b>Claire Buckley</b><span class="sub2">risk manager at an insurance broker</span></td><td>left, having understood it only on the third page</td><td><b>buys nothing, understood on screen one</b></td><td>5</td><td>3</td><td>1440&times;900</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="src">Read the viewport column. The reader carrying the most urgent decision &mdash; a founder six weeks from a term sheet, for whom &pound;500 is his own call &mdash; did the whole thing <b>on a phone</b>, and produced the most questions and the most confusion of anyone. That is not something the vault announces; it falls out of the table once the numbers are in one place.</p>
+      <p class="src">The questions and lost columns are the second run&rsquo;s. Read the viewport column. The reader carrying the most urgent decision &mdash; a founder six weeks from a term sheet, for whom &pound;500 is his own call &mdash; did the whole thing <b>on a phone</b>, and produced the most questions and the most confusion of anyone. That is not something the vault announces; it falls out of the table once the numbers are in one place.</p>
     </div>
   </section>
 
@@ -271,8 +272,8 @@ table.t td.k{color:var(--text);font-weight:600;white-space:nowrap}
     <div class="wrap">
       <div class="shead">
         <span class="tag">What it found</span>
-        <h2>The product is not named <span class="g">where it is sold.</span></h2>
-        <p>The headline finding is a word, and it is measurable. Above the fold on a 1440&times;900 screen, the home page at v1.20.1 said:</p>
+        <h2>The first run&rsquo;s finding: the product is not named <span class="g">where it is sold.</span></h2>
+        <p>The headline finding was a word, and it was measurable. Above the fold on a 1440&times;900 screen, the home page at <b>v1.20.1</b> said &mdash; this table is a dated record of a page that has since been rewritten:</p>
       </div>
       <div class="tw">
         <table class="t">
@@ -300,6 +301,55 @@ table.t td.k{color:var(--text);font-weight:600;white-space:nowrap}
     </div>
   </section>
 
+  <section class="psection" id="changed">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">The second reading, v1.25.1</span>
+        <h2>The confusion the first run measured <span class="g">did not happen again.</span></h2>
+        <p>Same five readers, same six-step loop, same window sizes, against the home page rebuilt from a business partner&rsquo;s design. Measured on the page rather than asserted:</p>
+      </div>
+      <div class="tw">
+        <table class="t">
+          <thead><tr><th>Measured on the home page</th><th>v1.20.1</th><th>v1.25.1</th></tr></thead>
+          <tbody>
+            <tr><td class="k">where <em>Agent Behaviour Policy</em> first appears</td><td>character 5,387 of 9,270</td><td><b>character 67 of 6,081</b></td></tr>
+            <tr><td class="k"><em>Agent Behaviour Policy</em> above the fold</td><td>0</td><td><b>1</b></td></tr>
+            <tr><td class="k">bare <em>policy</em> / <em>policies</em> in the page body</td><td>6 above the fold alone</td><td><b>0</b></td></tr>
+            <tr><td class="k"><em>behaviour policy</em>, qualified</td><td>&mdash;</td><td><b>12</b></td></tr>
+            <tr><td class="k">insurance-register words above the fold</td><td>10</td><td><b>0</b></td></tr>
+            <tr><td class="k">a price above the fold</td><td>&pound;5</td><td>&pound;10</td></tr>
+            <tr><td class="k">screens to the four levels, desktop</td><td>&mdash;</td><td>4.8</td></tr>
+            <tr><td class="k">screens to the four levels, on a phone</td><td>&mdash;</td><td><b>8.9</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="src">The insurance broker understood on the first screen what took her three pages before, and said why: <em>&ldquo;policy here is a document, and they have put the qualifier in front of the noun everywhere I can see.&rdquo;</em> The phone reader, who stalled at v1.20.1 without ever learning what was for sale, reached a purchase decision at step six. <b>Four of the five would now spend money, against two of five.</b> None of that is a sale; two of the three who would buy said the entry level is cheap enough not to be a decision, which is a compliment to the pricing rather than to the page.</p>
+
+      <ul class="plist" style="margin-top:34px">
+        <li><strong>The word that was wrong is fixed; the vocabulary is now split.</strong> The home page says <em>reach</em>, <em>mandate</em>, <em>gap</em>, <em>barriers</em> and carries a note about the file names. The pages it links to use the older words in their own prose &mdash; <a href="agent-behaviour-policy.html">the behaviour-policy page</a> says <em>the grant</em> and <em>the delta</em>, and <a href="for-corporate.html">for-corporate</a> says <em>the grant</em>. Three readers hit it within two minutes of the home page. The investor put it worst: <em>&ldquo;I am forwarding this to people who will not chase a footnote.&rdquo;</em></li>
+        <li><strong>Every delivery window starts from a reply that has no clock on it.</strong> Levels 3 and 4 say <em>1 to 3 days</em> and <em>1 to 5 days</em> from your reply. The reader who would have paid &pound;1,500 the same day could not: <em>&ldquo;one to five days from my reply still depends on when they reply to me.&rdquo;</em> The step with no time on it is ours.</li>
+        <li><strong>A read key may go to your board, your auditor or your broker &mdash; and to a customer?</strong> The sentence lists three recipients and the reader with a bank&rsquo;s questionnaire is a fourth. Whether a read key can go to a customer, and be revoked after the review, decides that purchase and is not on the site.</li>
+        <li><strong>The investor still has nowhere to land.</strong> At v1.20.1 he found an audience card pointing at a page that did not exist. At v1.25.1 the audience cards are gone, so he finds nothing: no view card among CEO, CTO, CISO and insurer, no page, and no sentence saying the document has the same shape every time &mdash; which is the only thing he needs to ask thirty-one companies for one.</li>
+        <li><strong>Both dated 2026 facts are unsourced where most people read them.</strong> <a href="insurance.html">The insurance page</a> gives the exclusion&rsquo;s announcement date and explains why its figures are deliberately qualitative. The home page states the same two facts with no source and no link, and the home page is the page people reach.</li>
+        <li><strong>One sentence about somebody else&rsquo;s industry is unhedged.</strong> <em>&ldquo;What earns cover back is a written record&hellip;&rdquo;</em> states as settled a thing only an underwriter decides, on a page that hedges everything about its own product precisely. The insurance page&rsquo;s conditional version is the one to carry. The same reader asked for a line the site does not have anywhere: <b>RiskMandate is not an insurer and places no cover.</b></li>
+        <li><strong>And the small ones, measured.</strong> The eighteen vault pages say <em>Buy this policy</em> on their primary button, bare, straight after a home page that says <em>behaviour policy</em> twelve times. <a href="for-corporate.html">for-corporate</a> says <em>See a real policy</em> &mdash; the exact phrase two readers took for insurance last time. The header&rsquo;s button says <em>Get in touch</em> on the home page and <em>Book a demo</em> on three others.</li>
+      </ul>
+
+      <p class="src">What no reader asked to change, named unprompted by more than one of them: the <b>in design</b> chip on the third step (<em>&ldquo;the single most credible thing on this site&rdquo;</em>), <b>model-drafted and marked as such, not a compliance assessment</b>, and the deposit split (<em>&ldquo;somebody who has been burned by a late delivery themselves&rdquo;</em>). Two design decisions were vindicated: the product&rsquo;s name in the first sentence, and the price on the first screen &mdash; which v1.22.0 removed on principle and a partner&rsquo;s design put back. The investor read the price before he read anything else, and it is the reason he will act.</p>
+    </div>
+  </section>
+
+  <section class="psection alt">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Running it a second time</span>
+        <h2>Two mechanical corrections, <span class="g">both in the runner.</span></h2>
+        <p>Neither was a finding about the site and both would have quietly falsified the study. The page grows while its webfonts settle, so a scroll issued too early lands short, clamped against a shorter document. And the site sets <code>scroll-behavior: smooth</code>, so <code>scrollTo</code> animates and a screenshot 280ms later catches the page mid-flight &mdash; a step aimed at 4,340px landed at 3,308px and showed a different section entirely.</p>
+      </div>
+      <p class="src">Both are fixed in <code>tools/runner.mjs</code> in the vault, and every step now records the scroll position it actually reached. A run that lands somewhere other than where it was aimed is visible in the record rather than silent. This is the same class of problem as the one the first study found: the screenshots looked plausible, so nothing else would have caught it.</p>
+    </div>
+  </section>
+
   <section class="psection alt">
     <div class="wrap">
       <div class="shead">
@@ -307,7 +357,7 @@ table.t td.k{color:var(--text);font-weight:600;white-space:nowrap}
         <h2>Two pages were shipping <span class="g">broken JavaScript.</span></h2>
         <p>Before a word of the study had been written, the first pass recorded a page error on <b>every step of every journey</b>: <code>Unexpected token '}'</code> on the home page and <code>Unexpected end of input</code> on the insurance page. The menu, the mobile drawer, the in-page scroll buttons and the enquiry button were dead on both, and the insurance page had been broken since it launched.</p>
       </div>
-      <p class="src">Nothing else caught it. The HTML still rendered, so both pages looked right in a screenshot; twenty-six tests, four <code>npm run check</code> gates and two further CI checks all passed, because not one of them parsed a line of the JavaScript the pages carry. Fixed in <a href="versions.html">v1.25.1</a>, with a test that parses every inline script on every page &mdash; verified by deliberately breaking a page and watching it fail. Driving a real browser and recording what it throws is the only reason this was found.</p>
+      <p class="src">Nothing else caught it. The HTML still rendered, so both pages looked right in a screenshot; twenty-six tests, four <code>npm run check</code> gates and two further CI checks all passed, because not one of them parsed a line of the JavaScript the pages carry. Fixed in <a href="versions.html">v1.20.2</a>, with a test that parses every inline script on every page &mdash; verified by deliberately breaking a page and watching it fail. Driving a real browser and recording what it throws is the only reason this was found.</p>
     </div>
   </section>
 
@@ -316,9 +366,9 @@ table.t td.k{color:var(--text);font-weight:600;white-space:nowrap}
 <section class="pcta" id="demo">
   <div class="wrap">
     <span class="eyebrow"><span class="d"></span> Run it again after the site changes</span>
-    <h2>Two runs a month apart <span class="it">are the comparison.</span></h2>
-    <p>The personas, the paths and the protocol are all in the vault, so the same five readers can be walked through a changed site and the answers read down a column as well as across. That is the thing this exists to make possible.</p>
-    <div class="cta-row"><a class="btn btn-green" href="https://dev.vault.sgraph.ai/en-gb/#a41174009cf6f3019147040ef0c759b6c84c86ffa37eb54af06011c161a12332:o3q6zhtr" target="_blank" rel="noopener">Open the vault &nearr;</a><a class="btn btn-ghost" href="admin/">Back to admin</a></div>
+    <h2>Two runs a day apart <span class="it">were the comparison.</span></h2>
+    <p>The personas, the paths and the protocol were in the vault, so the same five readers were walked through the rewritten site and the answers read down a column as well as across. Every persona in this vault now carries two runs, and the reading app switches between them. That is the thing this exists to make possible, and it has now been done once.</p>
+    <div class="cta-row"><a class="btn btn-green" href="https://dev.vault.sgraph.ai/en-gb/#835a49efea7bd24b0205dd6dd74a08d22539fe5e3bac8dcca073d2e66a74e1fb:re5nrn3h" target="_blank" rel="noopener">Open the vault &nearr;</a><a class="btn btn-ghost" href="admin/">Back to admin</a></div>
   </div>
 </section>
 

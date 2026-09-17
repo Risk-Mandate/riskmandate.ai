@@ -279,7 +279,7 @@ ${fns.map(x => nextTile(x, 'asked for')).join('\n')}
 const STORE = 'https://store.sgit.ai';
 const storeBuy = (v) => v.store_page === false
   ? { href: `${STORE}/policies/`, label: 'See the levels at the store ↗' }
-  : { href: `${STORE}/p/${v.slug}/`, label: 'Buy this policy ↗' };
+  : { href: `${STORE}/p/${v.slug}/`, label: 'Buy this behaviour policy ↗' };
 
 function vaultPage(v) {
   const { vault, grant, mandate, delta } = vaultData(v.slug);

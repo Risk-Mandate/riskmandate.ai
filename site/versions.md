@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.25.2** · 2026-09-17 — Five synthetic users read the new home page, and four of five would buy
+  Notes: https://riskmandate.ai/versions/1.25.2.md · Source: `git:v1.25.2`
 - **v1.25.1** · 2026-09-17 — The home page, built from the partner's own HTML
   Notes: https://riskmandate.ai/versions/1.25.1.md · Source: `git:v1.25.1`
 - **v1.25.0** · 2026-09-17 — The home page as the partner drew it: reach, mandate, gap, barriers

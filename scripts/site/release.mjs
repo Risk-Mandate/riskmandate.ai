@@ -38,7 +38,12 @@ function setVersionInPages(from, to) {
   for (const f of html) {
     const path = join(SITE, String(f));
     const was  = read(path);
-    const now  = was.replaceAll(`>v${from}</a>`, `>v${to}</a>`)
+    // Only the header chip. An earlier version of this replaced every `>vX.Y.Z</a>`
+    // on the page, which silently rewrote prose: a sentence saying a bug was fixed in
+    // v1.20.2 was carried forward release by release until it claimed v1.25.1. A page
+    // that names a release in its own text is a dated record and is left alone.
+    const now  = was.replace(new RegExp(`(<a class="version" href="/?versions\\.html"[^>]*>)v${from}(</a>)`),
+                             `$1v${to}$2`)
                     .replaceAll(`title="What shipped in v${from}"`, `title="What shipped in v${to}"`);
     if (now !== was) { writeFileSync(path, now); n++; }
   }

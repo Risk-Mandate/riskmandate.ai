@@ -25,11 +25,11 @@ _From a published behaviour policy: Claude Code on the web, with one repository 
 
 Measured against the standards underwriters are adopting: ISO/IEC 42001, OWASP Agentic Top 10, NIST AI RMF and ISO/IEC 27001.
 
-Model-drafted and marked as such. Not a compliance assessment. [What we don’t claim](https://store.sgit.ai/disclosures/)
+Model-drafted and marked as such. Not a compliance assessment. We are not an insurer and place no cover. [What we don’t claim](https://store.sgit.ai/disclosures/)
 
 ## Every agent will need a licence to operate.
 
-Insurers are carving AI out of cover, and the business answers for what its agents do. What earns cover back is a written record of what each agent can reach, what it was authorised to do and what actually contains it.
+Insurers are carving AI out of cover, and the business answers for what its agents do. Cover comes back when somebody can evidence what each agent can reach, what it was authorised to do and what actually contains it.
 
 1 January 2026
 
@@ -38,6 +38,8 @@ A generative-AI exclusion took effect in the standard liability forms much of on
 9 March 2026
 
 A national consumer regulator said a business is responsible if an agent it uses does something illegal, and should be clear what the agent may do, what data it can access and what constraints apply.
+
+Both dates, with the exclusion’s announcement date and why the figures beside them are stated qualitatively rather than counted: [on the insurance page](insurance.html). Neither is our observation.
 
 Three steps, in order. Each one needs the step before it.
 
