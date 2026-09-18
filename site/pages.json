@@ -148,7 +148,7 @@
     {
       "name": "summit",
       "label": "Lisbon 2026",
-      "file": "summit.html"
+      "file": "summit.html", "unlisted": true
     },
     {
       "name": "pricing",

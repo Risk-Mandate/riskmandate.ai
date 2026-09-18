@@ -3,9 +3,9 @@
 > Every document under docs/ on riskmandate.ai, rendered as a page: direction briefs, reviews, workflows, architecture and research, newest first.
 > Source: https://riskmandate.ai/admin/briefs/ · noindex · written by scripts/site/build-admin.mjs
 
-**20**documents under docs/*one page each, rendered from the file*
+**21**documents under docs/*one page each, rendered from the file*
 
-**5**direction briefs*the product and the site*
+**6**direction briefs*the product and the site*
 
 **4**reviews*read against a named source*
 
@@ -14,6 +14,10 @@
 These were written here, by the agent maintaining the site, in response to [the memos and documents that arrived](../../admin/memos/). Each is read against a named source and dated. Add a file under `docs/` and rerun `build-admin.mjs`: it has a page here and a test fails until it does.
 
 ## Newest first
+
+**[The menu after the ABP turn: five entries, one product first, and eleven pages out of the nav](../../admin/briefs/direction__the-menu-and-the-page-list-after-the-abp-turn/)**
+
+Seven top-level entries, which is the cap the header can hold at 1100px: Policies (5) · Who it's for (3) · Insurance (8) · Live demos (7) · Lisbon 2026 (1) · Pricing (1) · More (11).18 September 2026 · direction
 
 **[Five synthetic users read the new home page: the word is fixed, the vocabulary is split](../../admin/briefs/review__five-synthetic-users-read-the-new-home-page/)**
 
@@ -96,6 +100,10 @@ Move the interactive Risk Scenarios experience to the decoupled model:4 July 202
 How a page is put together, what happens when the browser loads one, and where each thing lives. Current as of v1.0.0; see the addendum below for what has been added since, and .claude/onboarding/01-map.md for the current map.
 
 ## Direction · where the site and the product are going, and why
+
+**[The menu after the ABP turn: five entries, one product first, and eleven pages out of the nav](../../admin/briefs/direction__the-menu-and-the-page-list-after-the-abp-turn/)**
+
+Seven top-level entries, which is the cap the header can hold at 1100px: Policies (5) · Who it's for (3) · Insurance (8) · Live demos (7) · Lisbon 2026 (1) · Pricing (1) · More (11).18 September 2026 · direction
 
 **[A grant is a union of capabilities; what the reader needs is the consequences — and the assets that make each one real](../../admin/briefs/direction__consequences-assets-and-the-vault-as-a-website/)**
 
