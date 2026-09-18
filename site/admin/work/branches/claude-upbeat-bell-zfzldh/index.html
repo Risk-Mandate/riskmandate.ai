@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>research-vault · RiskMandate admin</title>
-<meta name="description" content="Work site/vaults/$ARGUMENTS/RESEARCH-NEEDED.md following §2 of docs/briefs/research__connector-grants-open-questions.md. For each question:">
+<title>claude/upbeat-bell-zfzldh · RiskMandate admin</title>
+<meta name="description" content=".claude/work/claude-upbeat-bell-zfzldh.md, rendered as a console page.">
 <meta name="robots" content="noindex,follow">
-<link rel="canonical" href="https://riskmandate.ai/admin/agents/commands/research-vault/">
+<link rel="canonical" href="https://riskmandate.ai/admin/work/branches/claude-upbeat-bell-zfzldh/">
 <link rel="alternate" type="text/markdown" href="index.md" title="This page as markdown">
 <link rel="icon" href="../../../../assets/brand/riskmandate-favicon-32.png" sizes="32x32">
 <link rel="icon" href="../../../../assets/brand/riskmandate-mark.svg" type="image/svg+xml">
@@ -26,13 +26,15 @@
     <p class="rail__note"><b>Public, and not advertised.</b> Every page here is noindex, out of <code>sitemap.xml</code> and out of <code>llms.txt</code>. Anybody handed the address reads every word. <a href="../../../../">Back to the site</a>.</p>
   </nav>
 <main class="main">
-<p class="crumb"><a href="../../../../admin/">admin</a> / <a href="../../../../admin/agents/">agents</a> / commands/research-vault.md</p>
-<div class="page-head"><div><h1>research-vault</h1><p>A prompt for a common job; a slash command in Claude Code. The source is <a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/.claude/commands/research-vault.md" target="_blank" rel="noopener"><code>.claude/commands/research-vault.md</code></a>; this page is that file, rendered.</p></div></div>
-<article class="doc"><hr>
-<p>description: Settle the open questions in a connector vault's RESEARCH-NEEDED.md by reading, quoting and dating vendor pages — never by testing argument-hint: &lt;vault slug&gt; ---</p>
-<p>Work <code>site/vaults/$ARGUMENTS/RESEARCH-NEEDED.md</code> following §2 of <code>docs/briefs/research__connector-grants-open-questions.md</code>. For each question:</p>
-<ol><li>Read, do not test. Settle it from the vendor's published page, or not at all. Never connect<p> anything to an account to see what happens.</p></li><li>Quote: a sentence from the page, its URL, and today's date as the date read.</li><li>Record it in <code>data/grant.json</code>: move the row's <code>evidence</code> to the tier the answer supports<p> (<code>documented</code> for a vendor page; <code>self-reported</code> for a vendor claim no page substantiates), put the quote in the row's <code>note</code>, delete the entry from <code>research_needed</code>. A silent page is an answer too: add it to <code>contradictions</code> with <code>state: &quot;undocumented&quot;</code> and delete the question.</p></li><li><code>node scripts/site/build-abp-vault.mjs &lt;slug&gt;</code> then <code>--check</code>; the history records whether<p> the counts moved. <code>build-abp-pages.mjs</code>, <code>generate.mjs</code>, <code>npm run check</code>.</p></li></ol>
-<p>Report: questions settled, questions still open and why, rows whose tier moved, and whether the counts on the tile changed. The vault push is the lead's; say it is owed.</p></article>
+<p class="crumb"><a href="../../../../admin/">admin</a> / <a href="../../../../admin/work/">work</a> / work/claude-upbeat-bell-zfzldh.md</p>
+<div class="page-head"><div><h1>claude/upbeat-bell-zfzldh</h1><p>A work file: one branch, in flight, dated 18 September 2026. The source is <a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/.claude/work/claude-upbeat-bell-zfzldh.md" target="_blank" rel="noopener"><code>.claude/work/claude-upbeat-bell-zfzldh.md</code></a>; this page is that file, rendered.</p></div></div>
+<article class="doc"><p><strong>Started:</strong> 2026-09-18 · <strong>Task brief:</strong> ad hoc — the lead's request: a page that answers Sasha Romanosky's LinkedIn reply to Dinis Cruz under RAND's <em>How Is Artificial Intelligence Insured?</em> — &quot;can you insure a software program? Has that ever been done?&quot; — with our strategy (make agents insurable, starting with the building blocks: selling and enabling the creation of Agent Behaviour Policies).</p>
+<h2 id="scope">Scope</h2>
+<p>One new page in the <em>Insurance</em> group, <code>insure-a-program.html</code>: the answer, sourced and dated (tech E&amp;O, Y2K, software as a product in law, smart-contract cover, AI performance guarantees, the affirmative AI products and the exclusions of 2024–26), and where a behaviour policy sits in it. Links from <code>insurance.html</code> and the home page's insurance strip if there is one. No vault work, no store work.</p>
+<h2 id="files-and-surfaces-i-expect-to-touch">Files and surfaces I expect to touch</h2>
+<ul><li><code>site/insure-a-program.html</code> (new) + twin; <code>site/pages.json</code> (Insurance group)</li><li><code>site/insurance.html</code> (one link); <code>.claude/onboarding/01-map.md</code>, <code>03-state-and-next.md</code></li><li>Release 1.25.5 at merge</li></ul>
+<h2 id="external-state">External state</h2>
+<ul><li>Vaults pushed: none. Lab editions: none.</li></ul></article>
 <div class="c-foot"><b>An operations surface</b> for the people and agents building this site, public because every page here is. It is not a selling page and nothing on it is for sale. <a href="../../../../">The site</a> · <a href="../../../../agent-behaviour-policy.html">the library</a> · <a href="../../../../versions.html">every release</a> · <a href="https://github.com/Risk-Mandate/riskmandate.ai/tree/dev/">the repository</a> · <a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/scripts/site/build-admin.mjs">the script that wrote this page</a>.</div>
 </main>
 </div>

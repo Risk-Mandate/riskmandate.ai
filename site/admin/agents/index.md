@@ -9,7 +9,7 @@
 
 **8**prompts*slash commands in Claude Code*
 
-**1**branches in flight*one work file each*
+**2**branches in flight*one work file each*
 
 Most of the work on this site is done by agents, several at a time, on branches that merge into `dev`. Each one used to read the whole repository to learn it. Now there is a folder written for them, kept current in the same commit as whatever it describes, and rendered here so it can be read without the repository.
 

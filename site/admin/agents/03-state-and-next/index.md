@@ -6,11 +6,11 @@
 Keep this file true. If you land something, move it; if you learn something, add it. Dates are
 the site's; check `site/versions/index.json` for the current version before trusting the number here.
 
-## State as at 2026-09-16, v1.24.0
+## State as at 2026-09-18, v1.26.1
 
 - **Site:** 65 HTML files under `site/` plus the admin console under `site/admin/`, one live site deployed from `dev`. Top-level menu:
-  The problem · The model · Agent Behaviour Policies · Live demos · Lisbon 2026 · Pricing · More
-  (the Lab is under More since v1.19.0).
+  Behaviour policies · Who it's for · Insurance · Pricing · More (v1.26.0: five entries, 21 pages in
+  the menu; the Lab and the live demos are under More; thirteen pages are unlisted).
 - **The ABP is the entry point.** Homepage leads with it (v1.12.0); `abp.html` is the model page;
   `agent-behaviour-policy.html` is the library (menu label *Agent Behaviour Policies*): 15 vaults,
   grid and list, search over names, scopes, tools and the 23 ids, a *by behaviour* facet, a
@@ -30,7 +30,16 @@ the site's; check `site/versions/index.json` for the current version before trus
   vote and a suggestion form: Claude's Google Workspace connector, Slack, GitHub, Notion,
   Salesforce; and the three **business functions**: the CRM, the customer-service desk, finance data.
 - **Lab:** seven entries, 16 PDF editions, the whole Lab as one file (v5).
-- **Records:** 14 items in the brief register (9 files, 5 informal); 22 releases since v1.0.0.
+- **Can you insure a program?** (v1.26.1, `insure-a-program.html`, in *Insurance*): the answer to the
+  LinkedIn question under RAND's *How Is Artificial Intelligence Insured?* (RR-A5130-1, 16 Sept 2026),
+  sourced and dated: tech E&O since the 1980s, Y2K 1997–98, Munich Re's first AI policy 2018, Nexus
+  Mutual's smart-contract cover 2019, the courts and Directive 2024/2853 on software as a product,
+  the AI warranties and liability covers of 2023–26, the exclusions, the first insured agent
+  deployment (AIUC / ElevenLabs, Feb 2026), and the AIUC blueprint's line that the deployment, not
+  the model, is the unit of risk. The underwriting questions mapped to the parts of an ABP; the
+  three rungs as the strategy. Two sources refused a direct read (RAND's page, Justia) and the page
+  says so.
+- **Records:** 14 items in the brief register (9 files, 5 informal); 23 releases since v1.0.0.
 - **Summit:** Lisbon, 17–18 Sept. `summit.html` public; `summit-booth.html` private working page.
 - **The store is live** (store.sgit.ai, 15 Sept): four levels, named by level here; the store owns every price (its boundary of 16 Sept). The
   homepage says *view a policy / buy a policy*; `pricing.html` is the four levels with the level-3
