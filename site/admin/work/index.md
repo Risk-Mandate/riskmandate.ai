@@ -75,7 +75,7 @@ a decision the lead owns, listed in the state fileneeds the lead
 
 a decision the lead owns, listed in the state fileneeds the lead
 
-## In flight — 2 branches
+## In flight — 1 branch
 
 One file per branch under `.claude/work/`. [How a work file is written](../../admin/work/about-work-files/).
 
@@ -88,14 +88,6 @@ started 16 September 2026 · task brief: ad hoc — "a) a specific vault example
 **External state.** Vaults pushed by this branch with the session token: `claude-gmail-connector` → `oc433z3m` (public, read key in the catalogue); the customer instance → `xjir6m0c` (private; vault key handed to the lead in the session, nowhere in the repository) · Releases: v1.22.1 (merged); v1.23.0 (the console)
 
 **Status.** [x] researched: Anthropic's help article, Google's MCP reference and configure guide, Google's scope list; the lead's twelve screens and the sent message's .eml · [x] template vault `claude-gmail-connector` built and checked — 6 rows, 4 measured, 5 contradictions, 6 open questions, `evidence/` with the screens transcribed and the .eml redacted; on the *next* page as built, awaiting a push · [x] instance `vaults-instances/claude-gmail-connector--customer-draft/` built with `ABP_VAULT_DIR` (one-line change to the build script); status draft; a question on every mandate line
-
-### [claude/upbeat-bell-zfzldh](../../admin/work/branches/claude-upbeat-bell-zfzldh/)
-
-started 18 September 2026 · task brief: ad hoc — the lead's request: a page that answers Sasha Romanosky's LinkedIn reply to Dinis Cruz under RAND's *How Is Artificial Intelligence Insured?* — "can you insure a software program? Has that ever been done?" — with our strategy (make agents insurable, starting with the building blocks: selling and enabling the creation of Agent Behaviour Policies).
-
-One new page in the *Insurance* group, `insure-a-program.html`: the answer, sourced and dated (tech E&O, Y2K, software as a product in law, smart-contract cover, AI performance guarantees, the affirmative AI products and the exclusions of 2024–26), and where a behaviour policy sits in it. Links from `insurance.html` and the home page's insurance strip if there is one. No vault work, no store work.
-
-**External state.** Vaults pushed: none. Lab editions: none.
 
 ## Task briefs — 12
 
