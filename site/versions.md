@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.26.0** · 2026-09-18 — Five menu entries, the product first, and thirteen pages out of the nav
+  Notes: https://riskmandate.ai/versions/1.26.0.md · Source: `git:v1.26.0`
 - **v1.25.4** · 2026-09-18 — One menu on the home page, and Lisbon comes out of the nav
   Notes: https://riskmandate.ai/versions/1.25.4.md · Source: `git:v1.25.4`
 - **v1.25.3** · 2026-09-17 — The hero says buy, and the study is a review in the console

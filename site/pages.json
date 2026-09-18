@@ -8,34 +8,34 @@
       "unlisted": true
     },
     {
+      "name": "agent-behaviour-policy",
+      "label": "The sixteen examples",
+      "file": "agent-behaviour-policy.html",
+      "group": "Behaviour policies"
+    },
+    {
       "name": "abp",
-      "label": "Agent Behaviour Policy",
+      "label": "What an ABP is",
       "file": "abp.html",
-      "group": "Policies"
+      "group": "Behaviour policies"
     },
     {
       "name": "how-it-works",
       "label": "How it works",
       "file": "how-it-works.html",
-      "group": "Policies"
-    },
-    {
-      "name": "agents",
-      "label": "Agents",
-      "file": "agents.html",
-      "group": "Policies"
-    },
-    {
-      "name": "agent-behaviour-policy",
-      "label": "Agent Behaviour Policies",
-      "file": "agent-behaviour-policy.html",
-      "group": "Policies"
+      "group": "Behaviour policies"
     },
     {
       "name": "licence-to-operate",
       "label": "Licence to Operate",
       "file": "licence-to-operate.html",
-      "group": "Policies"
+      "group": "Behaviour policies"
+    },
+    {
+      "name": "grant-gap",
+      "label": "The grant is not the mandate",
+      "file": "grant-gap.html",
+      "group": "Behaviour policies"
     },
     {
       "name": "for-corporate",
@@ -56,48 +56,6 @@
       "group": "Who it's for"
     },
     {
-      "name": "plug",
-      "label": "Who can pull the plug",
-      "file": "plug.html",
-      "group": "Insurance"
-    },
-    {
-      "name": "acceptable",
-      "label": "Accepted is not acceptable",
-      "file": "acceptable.html",
-      "group": "Insurance"
-    },
-    {
-      "name": "acceptance",
-      "label": "You own the risk",
-      "file": "acceptance.html",
-      "group": "Insurance"
-    },
-    {
-      "name": "grant-gap",
-      "label": "The grant is not the mandate",
-      "file": "grant-gap.html",
-      "group": "Insurance"
-    },
-    {
-      "name": "ramm",
-      "label": "RAMM \u2014 acceptance maturity",
-      "file": "ramm.html",
-      "group": "Insurance"
-    },
-    {
-      "name": "scenarios",
-      "label": "Risk scenarios",
-      "file": "scenarios.html",
-      "group": "Insurance"
-    },
-    {
-      "name": "statics",
-      "label": "Static scenarios",
-      "file": "statics.html",
-      "group": "Insurance"
-    },
-    {
       "name": "insurance",
       "label": "Make agents insurable",
       "file": "insurance.html",
@@ -110,70 +68,27 @@
       "group": "Insurance"
     },
     {
-      "name": "demos",
-      "label": "All demos",
-      "file": "demos.html",
-      "group": "Live demos"
+      "name": "plug",
+      "label": "Who can pull the plug",
+      "file": "plug.html",
+      "group": "Insurance"
     },
     {
-      "name": "demo-licence-to-operate",
-      "label": "Licence to Operate",
-      "file": "demo-licence-to-operate.html",
-      "group": "Live demos"
+      "name": "scenarios",
+      "label": "Risk scenarios",
+      "file": "scenarios.html",
+      "group": "Insurance"
     },
     {
-      "name": "demo-risk-graph-explorer",
-      "label": "RiskGraph Explorer",
-      "file": "demo-risk-graph-explorer.html",
-      "group": "Live demos"
-    },
-    {
-      "name": "demo-agentic-browser-isolation",
-      "label": "Agentic Browser Isolation",
-      "file": "demo-agentic-browser-isolation.html",
-      "group": "Live demos"
-    },
-    {
-      "name": "demo-risk-mandate-field",
-      "label": "RiskMandate field demo",
-      "file": "demo-risk-mandate-field.html",
-      "group": "Live demos"
-    },
-    {
-      "name": "demo-file-security",
-      "label": "File security walk",
-      "file": "demo-file-security.html",
-      "group": "Live demos"
-    },
-    {
-      "name": "demo-agent-permission-games",
-      "label": "Permission games",
-      "file": "demo-agent-permission-games.html",
-      "group": "Live demos"
-    },
-    {
-      "name": "summit",
-      "label": "Lisbon 2026",
-      "file": "summit.html",
-      "unlisted": true
+      "name": "ramm",
+      "label": "RAMM \u2014 acceptance maturity",
+      "file": "ramm.html",
+      "group": "Insurance"
     },
     {
       "name": "pricing",
       "label": "Pricing",
       "file": "pricing.html"
-    },
-    {
-      "name": "lab",
-      "label": "The Lab",
-      "file": "lab.html",
-      "group": "More"
-    },
-    {
-      "name": "admin",
-      "label": "Admin",
-      "file": "admin/",
-      "group": "More",
-      "link": true
     },
     {
       "name": "questions",
@@ -182,15 +97,15 @@
       "group": "More"
     },
     {
-      "name": "briefs",
-      "label": "Brief register",
-      "file": "briefs.html",
+      "name": "lab",
+      "label": "The Lab",
+      "file": "lab.html",
       "group": "More"
     },
     {
-      "name": "work",
-      "label": "Working with us",
-      "file": "work.html",
+      "name": "demos",
+      "label": "Live demos",
+      "file": "demos.html",
       "group": "More"
     },
     {
@@ -206,28 +121,127 @@
       "group": "More"
     },
     {
-      "name": "feedback",
-      "label": "Give feedback",
-      "file": "feedback.html",
-      "group": "More"
-    },
-    {
       "name": "brand",
       "label": "Brand",
       "file": "brand.html",
       "group": "More"
     },
     {
+      "name": "feedback",
+      "label": "Give feedback",
+      "file": "feedback.html",
+      "group": "More"
+    },
+    {
+      "name": "admin",
+      "label": "Admin",
+      "file": "admin/",
+      "group": "More",
+      "link": true
+    },
+    {
+      "name": "agents",
+      "label": "Agents",
+      "file": "agents.html",
+      "group": "Policies",
+      "unlisted": true
+    },
+    {
+      "name": "acceptable",
+      "label": "Accepted is not acceptable",
+      "file": "acceptable.html",
+      "group": "Insurance",
+      "unlisted": true
+    },
+    {
+      "name": "acceptance",
+      "label": "You own the risk",
+      "file": "acceptance.html",
+      "group": "Insurance",
+      "unlisted": true
+    },
+    {
+      "name": "statics",
+      "label": "Static scenarios",
+      "file": "statics.html",
+      "group": "Insurance",
+      "unlisted": true
+    },
+    {
+      "name": "demo-licence-to-operate",
+      "label": "Licence to Operate",
+      "file": "demo-licence-to-operate.html",
+      "group": "Live demos",
+      "unlisted": true
+    },
+    {
+      "name": "demo-risk-graph-explorer",
+      "label": "RiskGraph Explorer",
+      "file": "demo-risk-graph-explorer.html",
+      "group": "Live demos",
+      "unlisted": true
+    },
+    {
+      "name": "demo-agentic-browser-isolation",
+      "label": "Agentic Browser Isolation",
+      "file": "demo-agentic-browser-isolation.html",
+      "group": "Live demos",
+      "unlisted": true
+    },
+    {
+      "name": "demo-risk-mandate-field",
+      "label": "RiskMandate field demo",
+      "file": "demo-risk-mandate-field.html",
+      "group": "Live demos",
+      "unlisted": true
+    },
+    {
+      "name": "demo-file-security",
+      "label": "File security walk",
+      "file": "demo-file-security.html",
+      "group": "Live demos",
+      "unlisted": true
+    },
+    {
+      "name": "demo-agent-permission-games",
+      "label": "Permission games",
+      "file": "demo-agent-permission-games.html",
+      "group": "Live demos",
+      "unlisted": true
+    },
+    {
+      "name": "summit",
+      "label": "Lisbon 2026",
+      "file": "summit.html",
+      "unlisted": true
+    },
+    {
+      "name": "briefs",
+      "label": "Brief register",
+      "file": "briefs.html",
+      "group": "More",
+      "unlisted": true
+    },
+    {
+      "name": "work",
+      "label": "Working with us",
+      "file": "work.html",
+      "group": "More",
+      "unlisted": true
+    },
+    {
       "name": "after-payment",
       "label": "After payment (store debrief)",
       "file": "after-payment.html",
-      "group": "More"
+      "group": "More",
+      "unlisted": true
     },
     {
       "name": "synthetic-users",
       "label": "Synthetic users",
       "file": "synthetic-users.html",
-      "group": "More"
+      "group": "More",
+      "unlisted": true
     },
     {
       "name": "agent-behaviour-policy-next",

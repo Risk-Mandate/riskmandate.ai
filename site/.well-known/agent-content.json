@@ -7,7 +7,7 @@
     "oneLine": "The insurability layer for agentic AI.",
     "summary": "Carriers are filing to exclude AI from cover, and the way back is evidence an underwriter will accept. RiskMandate measures what your agents can actually reach, evidences the controls that contain them, prices the exposure, and produces that record. Underneath the insurance framing is a risk model: a grant is what a credential technically permits, a mandate is what the holder is authorised and expected to do, and the gap between them is exposure nobody ever accepted. A deployed agent already has access, so a real risk cannot be denied — only accepted, by a named owner, for an interval, with an expiry that brings the decision back. RiskMandate is read-only and never in the request path: it defines the mandate and measures the gap; it does not enforce it. It is built on SG/Vault — zero-knowledge, PKI, provenance, no database — so you hold the keys.",
     "throughLine": "Measure what the agents can reach, name who owns it, evidence that the controls hold, and let the acceptance expire so the decision comes back.",
-    "version": "1.25.4"
+    "version": "1.26.0"
   },
   "artifacts": {
     "index": "https://riskmandate.ai/llms.txt",
@@ -100,8 +100,13 @@
       "url": "https://riskmandate.ai/"
     },
     {
+      "name": "agent-behaviour-policy",
+      "label": "The sixteen examples",
+      "url": "https://riskmandate.ai/agent-behaviour-policy.html"
+    },
+    {
       "name": "abp",
-      "label": "Agent Behaviour Policy",
+      "label": "What an ABP is",
       "url": "https://riskmandate.ai/abp.html"
     },
     {
@@ -110,19 +115,14 @@
       "url": "https://riskmandate.ai/how-it-works.html"
     },
     {
-      "name": "agents",
-      "label": "Agents",
-      "url": "https://riskmandate.ai/agents.html"
-    },
-    {
-      "name": "agent-behaviour-policy",
-      "label": "Agent Behaviour Policies",
-      "url": "https://riskmandate.ai/agent-behaviour-policy.html"
-    },
-    {
       "name": "licence-to-operate",
       "label": "Licence to Operate",
       "url": "https://riskmandate.ai/licence-to-operate.html"
+    },
+    {
+      "name": "grant-gap",
+      "label": "The grant is not the mandate",
+      "url": "https://riskmandate.ai/grant-gap.html"
     },
     {
       "name": "for-corporate",
@@ -140,9 +140,74 @@
       "url": "https://riskmandate.ai/for-startups.html"
     },
     {
+      "name": "insurance",
+      "label": "Make agents insurable",
+      "url": "https://riskmandate.ai/insurance.html"
+    },
+    {
+      "name": "insure-a-program",
+      "label": "Can you insure a program?",
+      "url": "https://riskmandate.ai/insure-a-program.html"
+    },
+    {
       "name": "plug",
       "label": "Who can pull the plug",
       "url": "https://riskmandate.ai/plug.html"
+    },
+    {
+      "name": "scenarios",
+      "label": "Risk scenarios",
+      "url": "https://riskmandate.ai/scenarios.html"
+    },
+    {
+      "name": "ramm",
+      "label": "RAMM — acceptance maturity",
+      "url": "https://riskmandate.ai/ramm.html"
+    },
+    {
+      "name": "pricing",
+      "label": "Pricing",
+      "url": "https://riskmandate.ai/pricing.html"
+    },
+    {
+      "name": "questions",
+      "label": "Questions",
+      "url": "https://riskmandate.ai/questions.html"
+    },
+    {
+      "name": "lab",
+      "label": "The Lab",
+      "url": "https://riskmandate.ai/lab.html"
+    },
+    {
+      "name": "demos",
+      "label": "Live demos",
+      "url": "https://riskmandate.ai/demos.html"
+    },
+    {
+      "name": "library",
+      "label": "Library",
+      "url": "https://riskmandate.ai/library.html"
+    },
+    {
+      "name": "partners",
+      "label": "Partners",
+      "url": "https://riskmandate.ai/partners.html"
+    },
+    {
+      "name": "brand",
+      "label": "Brand",
+      "url": "https://riskmandate.ai/brand.html"
+    },
+    {
+      "name": "feedback",
+      "label": "Give feedback",
+      "url": "https://riskmandate.ai/feedback.html"
+    },
+    {
+      "name": "agents",
+      "label": "Agents",
+      "url": "https://riskmandate.ai/agents.html"
     },
     {
       "name": "acceptable",
@@ -155,39 +220,9 @@
       "url": "https://riskmandate.ai/acceptance.html"
     },
     {
-      "name": "grant-gap",
-      "label": "The grant is not the mandate",
-      "url": "https://riskmandate.ai/grant-gap.html"
-    },
-    {
-      "name": "ramm",
-      "label": "RAMM — acceptance maturity",
-      "url": "https://riskmandate.ai/ramm.html"
-    },
-    {
-      "name": "scenarios",
-      "label": "Risk scenarios",
-      "url": "https://riskmandate.ai/scenarios.html"
-    },
-    {
       "name": "statics",
       "label": "Static scenarios",
       "url": "https://riskmandate.ai/statics.html"
-    },
-    {
-      "name": "insurance",
-      "label": "Make agents insurable",
-      "url": "https://riskmandate.ai/insurance.html"
-    },
-    {
-      "name": "insure-a-program",
-      "label": "Can you insure a program?",
-      "url": "https://riskmandate.ai/insure-a-program.html"
-    },
-    {
-      "name": "demos",
-      "label": "All demos",
-      "url": "https://riskmandate.ai/demos.html"
     },
     {
       "name": "demo-licence-to-operate",
@@ -225,21 +260,6 @@
       "url": "https://riskmandate.ai/summit.html"
     },
     {
-      "name": "pricing",
-      "label": "Pricing",
-      "url": "https://riskmandate.ai/pricing.html"
-    },
-    {
-      "name": "lab",
-      "label": "The Lab",
-      "url": "https://riskmandate.ai/lab.html"
-    },
-    {
-      "name": "questions",
-      "label": "Questions",
-      "url": "https://riskmandate.ai/questions.html"
-    },
-    {
       "name": "briefs",
       "label": "Brief register",
       "url": "https://riskmandate.ai/briefs.html"
@@ -248,26 +268,6 @@
       "name": "work",
       "label": "Working with us",
       "url": "https://riskmandate.ai/work.html"
-    },
-    {
-      "name": "library",
-      "label": "Library",
-      "url": "https://riskmandate.ai/library.html"
-    },
-    {
-      "name": "partners",
-      "label": "Partners",
-      "url": "https://riskmandate.ai/partners.html"
-    },
-    {
-      "name": "feedback",
-      "label": "Give feedback",
-      "url": "https://riskmandate.ai/feedback.html"
-    },
-    {
-      "name": "brand",
-      "label": "Brand",
-      "url": "https://riskmandate.ai/brand.html"
     },
     {
       "name": "after-payment",
@@ -510,5 +510,5 @@
     ]
   },
   "licence": "CC BY 4.0 (library content)",
-  "generated": "v1.25.4"
+  "generated": "v1.26.0"
 }

@@ -86,9 +86,31 @@ decision, and the Insurance group still carries eight pages in front of a reader
   ids stay, so `briefs.html → index.html#parts` still lands.
 - **Lisbon 2026 is unlisted.** The page, the twin and the sitemap entry are untouched.
 
-## 6. What this does not decide
+## 6. Built — A, on 18 September 2026
+
+The lead picked **A**, and it shipped in [v1.26.0](https://riskmandate.ai/versions.html). Five
+top-level entries, 21 pages in the menu, 13 pages out of it and none deleted. Two departures from
+§3 as written, both because the counted inbound links said so:
+
+- **Give feedback stays in the menu.** It is linked from nothing but `404.html`, so unlisting it
+  would have orphaned a page that invites a reader to write to us.
+- **The three Insurance essays got a home before they lost their menu row.** `insurance.html` now
+  carries *Three pages this argument is built on* — `acceptable.html`, `acceptance.html` and
+  `statics.html` as three named links, above the FAQ. That was §6's open question, decided the way
+  it was decided because two of the three had no editorial inbound link at all.
+
+The rest went as written: `grant-gap.html` moved into the product group, the two look-alike labels
+became *The sixteen examples* and *What an ABP is*, the six demo pages come off the menu and are
+reached from `demos.html`, which links every one of them, and the operational pages — the brief
+register, Working with us, After payment and the synthetic-user study — are reached from the
+console, which already linked all four.
+
+Measured after: the header is 1,076px of content inside its 1,100px cap, the mobile drawer holds
+all five groups without scrolling sideways, and `sitemap.xml` still lists 68 pages.
+
+## 7. The question §3 left open, and how it was answered
 
 Whether the essays under Insurance — *Accepted is not acceptable*, *You own the risk*, *Static
 scenarios* — belong in a reading list on `insurance.html` or in the Library. Both work; the Library
 is the honest place for writing that is not selling anything, and `insurance.html` is where somebody
-following the argument already is. **The lead's call**, along with which of A, B or C to run.
+following the argument already is. It was **the lead's call** and it was made: A, with the essays on `insurance.html` rather than in the Library.

@@ -477,8 +477,12 @@ const pages = JSON.parse(readFileSync(pagesPath, 'utf8'));
 const names = new Set(pages.pages.map(p => p.name));
 let added = 0;
 const oldIdx = pages.pages.findIndex(p => p.name === 'abp-vaults'); if (oldIdx >= 0) { pages.pages.splice(oldIdx, 1); added++; }   // the library's old name and address; abp-vaults.html is a redirect now
-if (!names.has('agent-behaviour-policy')) { let i = -1; pages.pages.forEach((p, k) => { if (p.group === 'The model') i = k; }); pages.pages.splice(i + 1, 0, { name: 'agent-behaviour-policy', label: 'Agent Behaviour Policies', file: 'agent-behaviour-policy.html' }); added++; }
-{ const lib = pages.pages.find(p => p.name === 'agent-behaviour-policy'); if (lib && lib.label !== 'Agent Behaviour Policies') { lib.label = 'Agent Behaviour Policies'; added++; } }
+if (!names.has('agent-behaviour-policy')) { let i = -1; pages.pages.forEach((p, k) => { if (p.group === 'The model') i = k; }); pages.pages.splice(i + 1, 0, { name: 'agent-behaviour-policy', label: 'The sixteen examples', file: 'agent-behaviour-policy.html' }); added++; }
+const LIB_LABEL = 'The sixteen examples';   // the menu row for agent-behaviour-policy.html: it sits
+// beside 'What an ABP is', and two rows both called some form of Agent Behaviour Policy was the
+// thing v1.26.0 fixed. This script owns the label, so changing it in pages.json alone is undone
+// on the next build — change it here.
+{ const lib = pages.pages.find(p => p.name === 'agent-behaviour-policy'); if (lib && lib.label !== LIB_LABEL) { lib.label = LIB_LABEL; added++; } }
 if (!names.has('agent-behaviour-policy-next')) { const i = pages.pages.findIndex(p => p.name === 'agent-behaviour-policy') + 1; pages.pages.splice(i, 0, { name: 'agent-behaviour-policy-next', file: 'agent-behaviour-policy-next.html', label: 'Which Agent Behaviour Policy next?', unlisted: true }); added++; }
 for (const v of built) {
   const name = `abp-vault-${v.slug}`;
