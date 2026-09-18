@@ -132,6 +132,14 @@ The exposure justifies budget. The number is what makes the case.
 
 Narrow the mandate or revoke the access, and the radius closes.
 
+## Three pages this argument is built on.
+
+Written before there was anything to sell, and left as they were. They are not in the menu; they are here, where somebody following the argument already is.
+
+- [Accepted is not acceptable](acceptable.html)A risk somebody signed off is not the same as a risk somebody can live with, and the difference is where most acceptance processes quietly fail.
+- [You own the risk](acceptance.html)Acceptance without a named owner and an expiry is a decision nobody made.
+- [Static scenarios](statics.html)The scenarios as flat pages, for reading rather than running.
+
 ## What people ask first.
 
 No. We are not a carrier, a broker or an MGA, and we do not sell or place cover. RiskMandate measures insurability and produces the evidence that underwriters price against. Your broker and carrier relationships stay exactly as they are.
