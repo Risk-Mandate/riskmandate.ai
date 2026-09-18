@@ -7,7 +7,7 @@
 
 **2**waiting on somebody outside*the store's agent, the model site*
 
-**1**branches in flight*one work file each*
+**2**branches in flight*one work file each*
 
 **9**open tasks*of 17 in the queue · 1 done*
 
@@ -17,7 +17,7 @@
 
 **16**vaults built and pushed*4 measured · 8 asked for*
 
-**75**releases*8 Lab editions*
+**76**releases*8 Lab editions*
 
 ## Needs the lead — 9
 
@@ -59,13 +59,17 @@ a decision the lead owns, openD6
 
 a decision the lead owns, openD7
 
-## In flight — 1 branch
+## In flight — 2 branches
 
 One file per branch under `.claude/work/`, written before the work starts and deleted when it merges. Read every one before claiming a task.
 
 **[claude/gmail-vault-and-store-materials](../admin/work/branches/claude-gmail-vault-and-store-materials/)**
 
 (a) A new documented-tier vault, `claude-gmail-connector`: Claude.ai chat with the official Gmail connector enabled (not the raw `gmail.readonly` OAuth scope already covered by `gmail-readonly`, not the generic `claude-web-connectors` shape). Researched from Anthropic's own connector documentation, dated, quoted. Moves `claude-google-workspace-connector` in `asked_for` — or adds a narrower sibling — per what the vendor page actually documents.since 16 September 2026
+
+**[claude/upbeat-bell-zfzldh](../admin/work/branches/claude-upbeat-bell-zfzldh/)**
+
+One new page in the *Insurance* group, `insure-a-program.html`: the answer, sourced and dated (tech E&O, Y2K, software as a product in law, smart-contract cover, AI performance guarantees, the affirmative AI products and the exclusions of 2024–26), and where a behaviour policy sits in it. Links from `insurance.html` and the home page's insurance strip if there is one. No vault work, no store work. since 18 September 2026
 
 ## How work gets here
 
