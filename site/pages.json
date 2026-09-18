@@ -104,6 +104,12 @@
       "group": "Insurance"
     },
     {
+      "name": "insure-a-program",
+      "label": "Can you insure a program?",
+      "file": "insure-a-program.html",
+      "group": "Insurance"
+    },
+    {
       "name": "demos",
       "label": "All demos",
       "file": "demos.html",
@@ -148,7 +154,8 @@
     {
       "name": "summit",
       "label": "Lisbon 2026",
-      "file": "summit.html", "unlisted": true
+      "file": "summit.html",
+      "unlisted": true
     },
     {
       "name": "pricing",

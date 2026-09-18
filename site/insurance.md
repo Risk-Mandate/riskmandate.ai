@@ -34,6 +34,8 @@ Everything below is the argument for rung three and the published design for it,
 
 Exclusions are attaching at renewal faster than teams can respond. Affirmative cover exists, but every carrier writing it asks the same question — and most teams cannot answer it in writing.
 
+Whether a program can be insured at all, and the dated record of every time it was — the maker, one defect, a smart contract, a model's output, an agent in one deployment — is on [Can you insure a program?](insure-a-program.html)
+
 ### P&C groups have filed to exclude AI
 
 Standardised AI exclusion endorsements are now in circulation, and some exclusions on D&O and E&O lines are absolute rather than partial.

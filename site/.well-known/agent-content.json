@@ -180,6 +180,11 @@
       "url": "https://riskmandate.ai/insurance.html"
     },
     {
+      "name": "insure-a-program",
+      "label": "Can you insure a program?",
+      "url": "https://riskmandate.ai/insure-a-program.html"
+    },
+    {
       "name": "demos",
       "label": "All demos",
       "url": "https://riskmandate.ai/demos.html"
