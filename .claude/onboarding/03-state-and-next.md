@@ -27,9 +27,9 @@ the site's; check `site/versions/index.json` for the current version before trus
   vote and a suggestion form: Claude's Google Workspace connector, Slack, GitHub, Notion,
   Salesforce; and the three **business functions**: the CRM, the customer-service desk, finance data.
 - **Lab:** seven entries, 16 PDF editions, the whole Lab as one file (v5).
-- **Can you insure a program?** (v1.26.1, `insure-a-program.html`, in *Insurance*): the answer to the
-  LinkedIn question under RAND's *How Is Artificial Intelligence Insured?* (RR-A5130-1, 16 Sept 2026),
-  sourced and dated: tech E&O since the 1980s, Y2K 1997–98, Munich Re's first AI policy 2018, Nexus
+- **Can you insure a program?** (v1.26.1, `insure-a-program.html`, in *Insurance*; the thread framing
+  removed in v1.26.2 at the lead's ask): the answer, with RAND's *How Is Artificial Intelligence
+  Insured?* (RR-A5130-1, 16 Sept 2026) as the context, sourced and dated: tech E&O since the 1980s, Y2K 1997–98, Munich Re's first AI policy 2018, Nexus
   Mutual's smart-contract cover 2019, the courts and Directive 2024/2853 on software as a product,
   the AI warranties and liability covers of 2023–26, the exclusions, the first insured agent
   deployment (AIUC / ElevenLabs, Feb 2026), and the AIUC blueprint's line that the deployment, not

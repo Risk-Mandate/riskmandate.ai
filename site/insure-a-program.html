@@ -175,7 +175,7 @@ table.t code{font-family:var(--mono);font-size:12px;background:var(--bg2);paddin
 .phero .sub strong{color:var(--fg);font-weight:600}
 .phero .eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--green);background:rgba(26,127,90,.18);border:1px solid rgba(26,127,90,.4);border-radius:999px;padding:5px 12px;margin-bottom:26px}
 .phero .eyebrow .d{width:6px;height:6px;border-radius:50%;background:var(--green-2)}
-.phero .meta{margin-top:26px;display:flex;flex-wrap:wrap;gap:8px 22px;font-family:var(--mono);font-size:12px;color:var(--fg-3)}
+.phero .meta{margin-top:26px;font-family:var(--mono);font-size:12px;line-height:1.9;color:var(--fg-3);max-width:64ch}
 .phero .meta b{color:var(--fg-2);font-weight:600}
 .phero .meta a{color:var(--green-2)}
 .shead h2{max-width:24ch}
@@ -224,17 +224,17 @@ table.t code{font-family:var(--mono);font-size:12px;background:var(--bg2);paddin
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
     <a class="ghlink" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener" aria-label="The source, on GitHub" title="Open source · Apache-2.0 code · CC BY 4.0 pages"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a>
-      <a class="version" href="versions.html" title="What shipped in v1.26.1">v1.26.1</a>
+      <a class="version" href="versions.html" title="What shipped in v1.26.2">v1.26.2</a>
     <button class="demo" data-demo>Get in touch</button>
   </div>
 </header>
 
 <main class="phero">
   <div class="wrap">
-    <span class="eyebrow"><span class="d"></span> Insurance · an answer to a question · 18 September 2026</span>
+    <span class="eyebrow"><span class="d"></span> Insurance · the question, answered · 18 September 2026</span>
     <h1>Can you insure a software program? <span class="it">Yes, and it has been done for decades.</span></h1>
     <p class="sub">The interesting part is <strong>what</strong> got insured each time: the maker's liability, one named defect, the behaviour of the code, the accuracy of a model's output, and now the actions of an agent. Every step closer to the program itself has needed a better description of what the program does where it runs. That is the question this site exists to answer, so here is the history, dated and sourced, and where an Agent Behaviour Policy sits in it.</p>
-    <p class="meta"><b>the question</b> asked on LinkedIn, September 2026 <span>·</span> <b>under</b> RAND, <a href="https://www.rand.org/pubs/research_reports/RRA5130-1.html" target="_blank" rel="noopener">How Is Artificial Intelligence Insured?</a> <span>·</span> <b>as markdown</b> <a href="insure-a-program.md">insure-a-program.md</a></p>
+    <p class="meta"><b>Context:</b> RAND, <a href="https://www.rand.org/pubs/research_reports/RRA5130-1.html" target="_blank" rel="noopener">How Is Artificial Intelligence Insured?</a>, 16 September 2026. <b>This page as markdown:</b> <a href="insure-a-program.md">insure-a-program.md</a>.</p>
   </div>
 </main>
 
@@ -244,13 +244,9 @@ table.t code{font-family:var(--mono);font-size:12px;background:var(--bg2);paddin
     <div class="wrap">
       <div class="shead">
         <span class="tag">01 · The question</span>
-        <h2>Two questions, <span class="g">one under the other.</span></h2>
-        <p>RAND published <em>How Is Artificial Intelligence Insured?</em> on 16 September 2026: Sasha Romanosky and Celine Robinson, report RR-A5130-1, on how carriers are responding to AI-related loss through exclusions, endorsements, affirmative cover, or silence. Under the post, Dinis Cruz asked what about insurance for individual agents and their deployment or context environment. The author asked back.</p>
+        <h2>One question, <span class="g">and the one under it.</span></h2>
+        <p>Can you insure a software program, and has that ever been done? It is the first thing anybody asks when AI insurance comes up, and it deserves a dated answer rather than an opinion. The current account of how carriers answer it for AI is RAND's <em>How Is Artificial Intelligence Insured?</em> of 16 September 2026 (Romanosky and Robinson, report RR-A5130-1): through exclusions, endorsements, affirmative cover, or silence. Under that question sits the one this site is built around: can an individual agent be insured in its deployment, in the environment and context it actually runs in?</p>
       </div>
-      <blockquote class="quote">
-        <p>“Can you insure a software program? Has that ever been done?”</p>
-        <cite>Sasha Romanosky, RAND, replying on LinkedIn, September 2026</cite>
-      </blockquote>
       <div class="answer">
         <div class="a"><span class="k">The maker</span><b>Insured since the 1980s.</b><p>Technology errors and omissions cover pays when a program fails to perform as intended and a third party loses money. It insures the vendor's liability, not the code.</p></div>
         <div class="a"><span class="k">The program</span><b>Insured, several times, on its own terms.</b><p>One named defect in 1997. The behaviour of a smart contract since 2019. A model's output against a threshold since 2018, as a warranty since 2024.</p></div>
@@ -310,7 +306,7 @@ table.t code{font-family:var(--mono);font-size:12px;background:var(--bg2);paddin
       <div class="shead">
         <span class="tag">04 · The question under the question</span>
         <h2>An agent is not insured as a program. <span class="g">It is insured in a deployment.</span></h2>
-        <p>Dinis's original question was about individual agents and their deployment or context environment. The people now writing the cover say the same thing in their own words. The AIUC blueprint, whose listed authors include Sasha Romanosky, puts it like this:</p>
+        <p>The question under the question is whether an individual agent can be insured in its deployment or context environment. The people now writing the cover answer it in their own words. The blueprint published by the Artificial Intelligence Underwriting Company in July 2026, with authors from a reinsurer, two insurers, RAND and several universities, puts it like this:</p>
       </div>
       <blockquote class="quote">
         <p>“A certified AI agent autonomously executing trades in a brokerage poses very different risks than a certified AI agent handling internal document summarization for a law firm. The underlying model and guardrails might be the same, but the legal exposure, potential severity of loss, and probability of a claim will diverge enormously.”</p>
