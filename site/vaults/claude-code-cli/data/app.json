@@ -2,8 +2,8 @@
   "type": "riskmandate/abp-app-context/v1",
   "dist": {
     "claude-code-cli.zip": {
-      "bytes": 88347,
-      "sha256": "26eabcff912d9a7d687eb93e345ea61a363d18f1ffbf2b6a460eaf425b4eea9c"
+      "bytes": 92676,
+      "sha256": "388a7a7adf8729d2d80d9284bc7182df763c47f53a6b4df58eec4b4a804704ba"
     }
   },
   "scenarios": 6,

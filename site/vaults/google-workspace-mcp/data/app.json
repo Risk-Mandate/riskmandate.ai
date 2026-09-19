@@ -2,8 +2,8 @@
   "type": "riskmandate/abp-app-context/v1",
   "dist": {
     "google-workspace-mcp.zip": {
-      "bytes": 89920,
-      "sha256": "ba7443748f584a781c53e67c2ea98bcb9c53c717620c0359851e57360ecb9314"
+      "bytes": 94249,
+      "sha256": "b8b3927af29bb4442ae9161039c429bca132104f1d977838852511dcd956dc6a"
     }
   },
   "research_open": 4,

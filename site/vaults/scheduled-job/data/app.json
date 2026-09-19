@@ -2,8 +2,8 @@
   "type": "riskmandate/abp-app-context/v1",
   "dist": {
     "scheduled-job.zip": {
-      "bytes": 74026,
-      "sha256": "662895432f7c8bba9f79b5fd9db98792fe971108f87f707252b32949a1d0fc75"
+      "bytes": 78355,
+      "sha256": "ddd8b6f874c582c959c746ad05e12ed75ad7c6a13dea1a3d6b6392509a9f274a"
     }
   },
   "blocked": 1,

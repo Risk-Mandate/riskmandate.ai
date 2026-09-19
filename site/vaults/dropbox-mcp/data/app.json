@@ -2,8 +2,8 @@
   "type": "riskmandate/abp-app-context/v1",
   "dist": {
     "dropbox-mcp.zip": {
-      "bytes": 85766,
-      "sha256": "c3842f2e3a634fb7e3ceb2a4362e844aa0d42b9a942ac7383c97874c4d2aa98c"
+      "bytes": 90095,
+      "sha256": "a1bf39762db0e1c012d1c2739c1f648157bacb64c53e537a103c450f101eaef4"
     },
     "dropbox-mcp.pdf": {
       "bytes": 304816

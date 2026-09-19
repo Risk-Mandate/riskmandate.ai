@@ -2,8 +2,8 @@
   "type": "riskmandate/abp-app-context/v1",
   "dist": {
     "claude-m365-connector.zip": {
-      "bytes": 92560,
-      "sha256": "3926388f457f0f951696e14de1d03cb8a25c3b7ef20f78283855835c39fb9fb1"
+      "bytes": 96889,
+      "sha256": "ae441db37c69ea43037eda65a59399b74f4fefb15481014b92bffe1ef3de9b1e"
     }
   },
   "research_open": 4,

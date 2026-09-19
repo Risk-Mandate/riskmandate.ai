@@ -3,9 +3,9 @@
 > Every document under docs/ on riskmandate.ai, rendered as a page: direction briefs, reviews, workflows, architecture and research, newest first.
 > Source: https://riskmandate.ai/admin/briefs/ · noindex · written by scripts/site/build-admin.mjs
 
-**21**documents under docs/*one page each, rendered from the file*
+**22**documents under docs/*one page each, rendered from the file*
 
-**6**direction briefs*the product and the site*
+**7**direction briefs*the product and the site*
 
 **4**reviews*read against a named source*
 

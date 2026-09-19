@@ -2,8 +2,8 @@
   "type": "riskmandate/abp-app-context/v1",
   "dist": {
     "claude-web-connectors.zip": {
-      "bytes": 71411,
-      "sha256": "0d1cbea3fd80f504e039b4ef6014d33111f05eb424e55169916ffa786bbffda9"
+      "bytes": 75740,
+      "sha256": "1234bbecd5f98072c86ad2f02dd99aaf343da053baebc3780648b83f95b657c9"
     }
   },
   "blocked": 1,

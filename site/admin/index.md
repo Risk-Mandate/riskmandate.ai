@@ -13,7 +13,7 @@
 
 **12**memos not fully worked*of 20 received*
 
-**21**briefs written here*one page each*
+**22**briefs written here*one page each*
 
 **16**vaults built and pushed*4 measured · 8 asked for*
 
