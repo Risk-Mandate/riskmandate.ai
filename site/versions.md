@@ -9,7 +9,21 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
-- **v1.25.0** · 2026-09-17 — A barrier gains a holder, and a block names its blocker
+- **v1.26.2** · 2026-09-19 — The insurance answer stands on its own question
+  Notes: https://riskmandate.ai/versions/1.26.2.md · Source: `git:v1.26.2`
+- **v1.26.1** · 2026-09-18 — Can you insure a software program? Yes, and here is every time it was done, dated
+  Notes: https://riskmandate.ai/versions/1.26.1.md · Source: `git:v1.26.1`
+- **v1.26.0** · 2026-09-18 — Five menu entries, the product first, and thirteen pages out of the nav
+  Notes: https://riskmandate.ai/versions/1.26.0.md · Source: `git:v1.26.0`
+- **v1.25.4** · 2026-09-18 — One menu on the home page, and Lisbon comes out of the nav
+  Notes: https://riskmandate.ai/versions/1.25.4.md · Source: `git:v1.25.4`
+- **v1.25.3** · 2026-09-17 — The hero says buy, and the study is a review in the console
+  Notes: https://riskmandate.ai/versions/1.25.3.md · Source: `git:v1.25.3`
+- **v1.25.2** · 2026-09-17 — Five synthetic users read the new home page, and four of five would buy
+  Notes: https://riskmandate.ai/versions/1.25.2.md · Source: `git:v1.25.2`
+- **v1.25.1** · 2026-09-17 — The home page, built from the partner's own HTML
+  Notes: https://riskmandate.ai/versions/1.25.1.md · Source: `git:v1.25.1`
+- **v1.25.0** · 2026-09-17 — The home page as the partner drew it: reach, mandate, gap, barriers
   Notes: https://riskmandate.ai/versions/1.25.0.md · Source: `git:v1.25.0`
 - **v1.24.2** · 2026-09-16 — The label panel names the mandate's word once, beside the row
   Notes: https://riskmandate.ai/versions/1.24.2.md · Source: `git:v1.24.2`

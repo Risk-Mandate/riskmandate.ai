@@ -42,6 +42,7 @@ needed.
 |---|---|---|
 | Home | `index.html` | hand-authored. Leads with the ABP; the ladder says we are on rung one |
 | The problem | `plug`, `acceptable`, `acceptance`, `grant-gap` | hand-authored, older voice |
+| Insurance, the answer page | `insure-a-program.html` | hand-authored, 18 Sept 2026; every claim dated and linked to its source; the AIUC blueprint (July 2026) and RAND RR-A5130-1 (16 Sept 2026) are the two anchors |
 | The model | `abp.html` (the ABP page), `how-it-works`, `agents` (llms.txt etc.), `ramm`, `scenarios`, `statics` | hand-authored |
 | Behaviour policies | `agent-behaviour-policy.html` (the library, top-level), `agent-behaviour-policy-next.html` (asked for, vote, suggest), `abp-vault-<slug>.html` ×15 | **generated** by `build-abp-pages.mjs` from `site/vaults/index.json` and each vault's data. `abp-vaults.html` and `abp/` redirect |
 | Vaults | `site/vaults/<slug>/` ×15 pushed + `claude-gmail-connector` built and unpushed, `_template/`, `_app/`; instances (a customer's copy, anonymised) under `vaults-instances/`, built with `ABP_VAULT_DIR=…` and never deployed | inputs: `vault.json`, `data/grant.json`, `data/mandate.json`, `data/scenarios.json`, `data/vocabulary/`. Everything else **generated** by `build-abp-vault.mjs` |

@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>RiskMandate — the insurability layer for agentic AI</title>
-<meta name="description" content="You cannot insure what nobody can describe. RiskMandate writes Agent Behaviour Policies: for one agent in one deployment, everything it can actually reach, what you authorised it to do, and the gap between them. The Insurability Index is what those policies add up to.">
+<title>RiskMandate — Know what your agents can do</title>
+<meta name="description" content="An Agent Behaviour Policy writes down what one AI agent can really reach, what you authorised it to do and the gap between the two.">
 <link rel="canonical" href="https://riskmandate.ai/">
 <link rel="alternate" type="text/markdown" href="index.md" title="This page as markdown">
 <link rel="icon" href="assets/brand/riskmandate-favicon-32.png" sizes="32x32">
@@ -12,16 +12,15 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="RiskMandate">
 <meta property="og:url" content="https://riskmandate.ai/">
-<meta property="og:title" content="RiskMandate — the insurability layer for agentic AI">
-<meta property="og:description" content="You cannot insure what nobody can describe. RiskMandate writes Agent Behaviour Policies: for one agent in one deployment, everything it can actually reach, what you authorised it to do, and the gap between them. The Insurability Index is what those policies add up to.">
+<meta property="og:title" content="RiskMandate — Know what your agents can do">
+<meta property="og:description" content="An Agent Behaviour Policy writes down what one AI agent can really reach, what you authorised it to do and the gap between the two.">
 <meta property="og:image" content="https://riskmandate.ai/assets/brand/riskmandate-lockup-light.png">
 <meta name="twitter:card" content="summary_large_image">
-<!-- v1.0.0. Reconstructed from SG/Vault 7rfetjwz at v0.14.0;
-     see versions/1.0.0.md. Edited directly from here on — there is no build step. -->
+<!-- v1.26.0. Built from a homepage design a business partner sent as HTML: their
+     copy, their structure, their palette and their type, scoped under .page and
+     joined to the shared chrome. See versions/1.26.0.md. There is no build step. -->
 <style>
-/* home.css - v0.12.0 homepage, the insurability layer. Self-contained:
-   site tokens, the canonical shared header (desktop dropdowns + mobile
-   drawer) and this design's sections. Colours are tokens only. */
+/* index.css — self-contained: the shared chrome, then the partner design. */
 :root{
   --bg:#F7F6F2; --bg2:#EFEDE7; --card:#FFFFFF; --ink:#0D0D0C; --canvas:#0A0A09;
   --text:#1A1917; --muted:#4A4845; --faint:#8A8780; --border:#E2DFD8;
@@ -36,828 +35,97 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth} @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+h1,h2{margin:0;font-weight:800;letter-spacing:-.03em;line-height:1.04}
+h2{font-size:clamp(26px,3.6vw,40px);font-weight:700;letter-spacing:-.02em}
+p{margin:0}
+:focus-visible{outline:2px solid var(--green-2);outline-offset:3px;border-radius:4px}
+.tag{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+.g{color:var(--green)} .it{font-style:italic;color:var(--green)}
 
-/* header — light theme, identical to the version pages (one look everywhere) */
+/* header */
 .top{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
 .top .wrap{display:flex;align-items:center;gap:22px;height:56px;max-width:1100px}
-.brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:15px;color:var(--text);cursor:pointer;white-space:nowrap}
-.brand:hover{color:var(--text)}
+.brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:15px;color:var(--text);white-space:nowrap;text-decoration:none}
 .rm{width:26px;height:26px;flex:none;display:block}
 .rm svg{width:100%;height:100%;display:block}
 .navlinks{display:flex;align-items:center;gap:22px;margin-left:auto}
 rm-menu{display:contents}
-.navlinks button{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap}
-.navlinks button:hover{color:var(--text)}
-.pagelink.active{color:var(--text);font-weight:600}
-
-/* nav dropdowns (desktop) — must match the other pages; the mobile drawer
-   below restyles these for narrow viewports. */
-.navgroup{position:relative;display:inline-flex;align-items:center}
-.navgroup::after{content:"";position:absolute;top:100%;left:0;right:0;height:10px}
-.navgroup-btn{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;display:inline-flex;align-items:center;gap:5px}
-.navgroup-btn:hover,.navgroup:hover .navgroup-btn,.navgroup.open .navgroup-btn,.navgroup.active .navgroup-btn{color:var(--text)}
-.navgroup-car{font-size:8px;line-height:1;opacity:.6;transition:transform .15s}
-.navgroup:hover .navgroup-car,.navgroup.open .navgroup-car{transform:rotate(180deg)}
-.navmenu{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);min-width:184px;background:var(--card);border:1px solid var(--border);border-radius:10px;box-shadow:0 10px 34px rgba(13,13,12,.14);padding:6px;display:none;flex-direction:column;gap:2px;z-index:70}
-.navgroup:hover .navmenu,.navgroup.open .navmenu{display:flex}
-.navmenu .navchild{justify-content:flex-start;text-align:left;width:100%;padding:8px 12px;border-radius:7px;font-size:13.5px;color:var(--muted);white-space:nowrap}
-.navmenu .navchild:hover{background:var(--bg2,#EFEDE7);color:var(--text)}
-.navmenu .navchild.active{color:var(--green);font-weight:600;background:var(--greenBg,#EBF5F0)}
-.vs-select{font-family:var(--mono);font-size:12px;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:7px;padding:5px 8px;cursor:pointer}
-.vs-select:disabled{cursor:default;opacity:.8}
-.demo{background:var(--green);color:#fff;font-weight:600;font-size:13px;border:0;border-radius:8px;padding:8px 16px;cursor:pointer;transition:background .15s;font-family:var(--sans);white-space:nowrap}
-.demo:hover{background:#16704f}
-@media (max-width:1040px){.navlinks{display:none}.vs-select{display:none}}
-
-.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
-h1,h2{margin:0;font-weight:800;letter-spacing:-.03em;line-height:1.04}
-h2{font-size:clamp(26px,3.6vw,40px);font-weight:700;letter-spacing:-.02em}
-h3{margin:0;font-weight:700}
-p{margin:0}
-ul{margin:0;padding:0;list-style:none}
-:focus-visible{outline:2px solid var(--green-2);outline-offset:3px;border-radius:4px}
-.tag{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:14px}
-.g{color:var(--green)} .it{font-style:italic;color:var(--green)}
-em{font-style:italic}
-.lnk{background:none;border:0;padding:0;font:inherit;color:var(--green);font-weight:600;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
-.lnk:hover{color:#16704f}
-
-/* buttons */
-.btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;padding:12px 22px;border-radius:var(--r-sm);cursor:pointer;border:1px solid transparent;font-family:var(--sans)}
-.btn-green{background:var(--green);color:#fff} .btn-green:hover{background:#16704f}
-.btn-ghost{background:transparent;color:var(--fg);border-color:var(--line-2)} .btn-ghost:hover{border-color:var(--fg-2)}
-.btn-ghost-dark{background:transparent;color:var(--text);border-color:var(--border)} .btn-ghost-dark:hover{border-color:var(--green);color:var(--green)}
-
-
-/* Tokens added by this design. Every colour below is a token; no literal hex
-   appears outside this block, per the house CSS rule. */
-:root {
-    --lad-0:  #6B6560;
-    --lad-1:  #96442C;
-    --lad-2:  #8A6011;
-    --lad-3:  #2E7A4C;
-    --lad-4:  #147A4A;
-    --lad-5:  #39BE7F;
-    --redBg:  #FBEDEA;
-    --goldBg: #FCF7EA;
-}
-
-[hidden] { display: none !important; }
-
-/* ===== hero ===== */
-.ins-hero {
-    background: var(--ink);
-    color:      var(--fg);
-    padding:    74px 24px 0;
-}
-.ins-hero-grid {
-    display:               grid;
-    grid-template-columns:  1.06fr .94fr;
-    gap:                   56px;
-    align-items:           center;
-    max-width:             1100px;
-    margin:                0 auto;
-}
-@media (max-width: 940px) { .ins-hero-grid { grid-template-columns: 1fr; gap: 46px; } }
-.ins-hero h1 {
-    font-size:      clamp(40px, 5.6vw, 68px);
-    letter-spacing: -.045em;
-    line-height:    1.0;
-    margin:         26px 0 0;
-    color:          var(--fg);
-}
-.ins-hero .sub {
-    color:       var(--fg-2);
-    font-size:   17.5px;
-    line-height: 1.65;
-    max-width:   52ch;
-    margin-top:  22px;
-}
-.eyebrow {
-    display:       inline-flex;
-    align-items:   center;
-    gap:           8px;
-    font-family:   var(--mono);
-    font-size:     11px;
-    font-weight:   700;
-    color:         var(--green-2);
-    background:    rgba(26,127,90,.18);
-    border:        1px solid rgba(26,127,90,.4);
-    border-radius: 999px;
-    padding:       5px 12px;
-    flex-wrap:            wrap;
-    max-width:            100%;
-}
-.eyebrow .d { width: 6px; height: 6px; border-radius: 50%; background: var(--green-2); }
-.it { font-style: italic; color: var(--green-2); }
-.g  { color: var(--green); }
-.cta-row { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 32px; }
-.btn {
-    display:       inline-flex;
-    align-items:   center;
-    gap:           8px;
-    font-size:     14px;
-    font-weight:   600;
-    padding:       12px 22px;
-    border-radius: var(--r-sm);
-    cursor:        pointer;
-    border:        1px solid transparent;
-    font-family:   var(--sans);
-}
-.btn-green { background: var(--green); color: var(--card); }
-.btn-green:hover { background: var(--green); filter: brightness(1.12); }
-.btn-ghost { background: transparent; color: var(--fg); border-color: var(--line-2); }
-.btn-ghost:hover { border-color: var(--fg-2); }
-.btn-ghost-dark { background: transparent; color: var(--text); border-color: var(--border); }
-
-/* ===== the sample Index card ===== */
-.ic-card {
-    background:    var(--card);
-    border-radius: 16px;
-    padding:       26px 28px 24px;
-    box-shadow:    0 30px 70px -30px rgba(0,0,0,.55);
-}
-.ic-head {
-    display:         flex;
-    justify-content: space-between;
-    align-items:     flex-start;
-    gap:             14px;
-}
-.ic-org  { display: block; font-size: 16.5px; font-weight: 700; color: var(--text); letter-spacing: -.01em; }
-.ic-meta { display: block; font-family: var(--mono); font-size: 11px; color: var(--faint); margin-top: 4px; }
-.ic-flag {
-    flex:          none;
-    font-family:   var(--mono);
-    font-size:     11px;
-    padding:       6px 10px;
-    border-radius: 999px;
-    background:    var(--redBg);
-    color:         var(--red);
-    white-space:   nowrap;
-}
-.ic-score { display: flex; align-items: baseline; gap: 11px; margin: 22px 0 4px; }
-.ic-num {
-    font-size:      68px;
-    line-height:    .88;
-    font-weight:    800;
-    letter-spacing: -.05em;
-    color:          var(--text);
-    font-variant-numeric: tabular-nums;
-}
-.ic-den   { font-family: var(--mono); font-size: 15px; color: var(--faint); }
-.ic-level { font-size: 14.5px; color: var(--muted); margin-bottom: 22px; }
-.ic-level b { color: var(--text); font-weight: 700; }
-.ic-dims {
-    display:        flex;
-    flex-direction: column;
-    gap:            10px;
-    padding-top:    20px;
-    border-top:     1px solid var(--border);
-}
-.ic-dim {
-    display:               grid;
-    grid-template-columns:  1fr 78px 30px;
-    align-items:           center;
-    gap:                   12px;
-}
-.ic-dk { font-size: 13px; color: var(--muted); }
-.ic-track {
-    display:       block;
-    height:        6px;
-    border-radius: 999px;
-    background:    var(--bg2);
-    overflow:      hidden;
-}
-.ic-fill {
-    display:       block;
-    height:        100%;
-    width:         0;
-    border-radius: 999px;
-    background:    var(--green);
-    transition:    width .9s cubic-bezier(.22,.9,.3,1);
-}
-.ic-dv { font-family: var(--mono); font-size: 12px; color: var(--text); text-align: right; }
-.ic-doors {
-    display:     flex;
-    gap:         8px;
-    margin-top:  22px;
-    padding-top: 20px;
-    border-top:  1px solid var(--border);
-}
-.ic-door {
-    flex:          1;
-    text-align:    center;
-    font-family:   var(--mono);
-    font-size:     11px;
-    padding:       9px 4px;
-    border-radius: var(--r-sm);
-    border:        1px solid var(--border);
-    color:         var(--faint);
-}
-.ic-door.on { background: var(--green); border-color: var(--green); color: var(--card); }
-
-/* ===== standards strip ===== */
-.ins-standards {
-    display:     flex;
-    flex-wrap:   wrap;
-    align-items: center;
-    gap:         10px 26px;
-    border-top:  1px solid var(--line);
-    margin:      58px auto 0;
-    padding:     18px 24px;
-    max-width:   1100px;
-}
-.ins-standards span {
-    font-family:    var(--mono);
-    font-size:      10.5px;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    color:          var(--faint);
-}
-.ins-standards em { font-style: normal; font-size: 14px; font-weight: 700; color: var(--fg-2); }
-
-/* ===== sections ===== */
-.paper { background: var(--bg); }
-.ins-section { padding: 82px 0; border-bottom: 1px solid var(--border); }
-.ins-section.alt { background: var(--bg2); }
-.shead { max-width: 700px; }
-.shead h2 { color: var(--text); }
-.shead p  { color: var(--muted); margin-top: 16px; font-size: 15.5px; line-height: 1.72; }
-h2 {
-    font-size:      clamp(28px, 3.8vw, 46px);
-    font-weight:    700;
-    letter-spacing: -.03em;
-    line-height:    1.05;
-    margin:         0;
-}
-h3 { margin: 0; font-weight: 700; }
-p  { margin: 0; }
-.tag {
-    display:        inline-block;
-    font-family:    var(--mono);
-    font-size:      10px;
-    font-weight:    700;
-    letter-spacing: .2em;
-    text-transform: uppercase;
-    color:          var(--green);
-    margin-bottom:  14px;
-}
-.ins-note {
-    margin-top:  26px;
-    font-size:   13px;
-    color:       var(--faint);
-    line-height: 1.65;
-    max-width:   82ch;
-    font-style:  italic;
-}
-
-/* ===== metrics ===== */
-.ins-metrics {
-    display:               grid;
-    grid-template-columns:  repeat(3, 1fr);
-    gap:                   0;
-    margin-top:            38px;
-    border:                1px solid var(--border);
-    border-radius:         var(--r);
-    overflow:              hidden;
-    background:            var(--card);
-}
-@media (max-width: 860px) { .ins-metrics { grid-template-columns: 1fr; } }
-.metric { padding: 30px 28px; border-right: 1px solid var(--border); }
-.metric:last-child { border-right: 0; }
-@media (max-width: 860px) {
-    .metric { border-right: 0; border-bottom: 1px solid var(--border); }
-    .metric:last-child { border-bottom: 0; }
-}
-.mk {
-    display:        block;
-    font-family:    var(--mono);
-    font-size:      11px;
-    color:          var(--faint);
-    margin-bottom:  14px;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-}
-.mn {
-    display:        block;
-    font-size:      44px;
-    font-weight:    800;
-    letter-spacing: -.04em;
-    line-height:    1;
-    margin-bottom:  14px;
-}
-.mn.warn { color: var(--gold); }
-.mn.go   { color: var(--green); }
-.metric h3 { font-size: 16.5px; color: var(--text); margin-bottom: 9px; }
-.metric p  { font-size: 14px; color: var(--muted); line-height: 1.6; }
-
-/* ===== comparison ===== */
-.cmp {
-    margin-top:    38px;
-    border:        1px solid var(--border);
-    border-radius: var(--r);
-    overflow:      hidden;
-    background:    var(--card);
-}
-.cmp-row {
-    display:               grid;
-    grid-template-columns:  190px 1fr 1fr;
-    border-bottom:         1px solid var(--border);
-}
-.cmp-row:last-child { border-bottom: 0; }
-.cmp-row > span { padding: 20px 24px; border-right: 1px solid var(--border); font-size: 14px; line-height: 1.6; }
-.cmp-row > span:last-child { border-right: 0; }
-.cmp-head { background: var(--bg2); }
-.cmp-head > span {
-    font-family:    var(--mono);
-    font-size:      10.5px;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    color:          var(--faint);
-    padding-top:    14px;
-    padding-bottom: 14px;
-}
-.cmp-head .q { color: var(--red); }
-.cmp-head .e { color: var(--green); }
-.cmp-k { font-weight: 700; color: var(--text); }
-.cmp-q { background: var(--redBg);   color: var(--muted); }
-.cmp-e { background: var(--greenBg); color: var(--muted); }
-.cmp-row b { display: block; color: var(--text); margin-bottom: 6px; }
-@media (max-width: 760px) {
-    .cmp-head { display: none; }
-    .cmp-row  { grid-template-columns: 1fr; }
-    .cmp-row > span { border-right: 0; border-bottom: 1px solid var(--border); }
-}
-
-/* ===== the ladder ===== */
-.lad-rungs {
-    display:               grid;
-    grid-template-columns:  repeat(6, 1fr);
-    gap:                   10px;
-    align-items:           end;
-    margin-bottom:         14px;
-}
-@media (max-width: 860px) { .lad-rungs { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 560px) { .lad-rungs { grid-template-columns: repeat(2, 1fr); } }
-.lad-rung {
-    position:        relative;
-    text-align:      left;
-    border-radius:   var(--r);
-    padding:         15px;
-    border:          1px solid transparent;
-    color:           var(--fg);
-    display:         flex;
-    flex-direction:  column;
-    justify-content: flex-end;
-    cursor:          pointer;
-    font-family:     var(--sans);
-    transition:      transform .18s ease;
-}
-.lad-rung:hover { transform: translateY(-3px); }
-.lad-rung.on { box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--text); }
-.lad-code { font-family: var(--mono); font-size: 12px; font-weight: 600; margin-bottom: 6px; opacity: .95; }
-.lad-name { font-size: 15px; font-weight: 700; line-height: 1.2; letter-spacing: -.02em; }
-.lad-band { font-family: var(--mono); font-size: 11px; margin-top: 6px; opacity: .88; }
-.lad-rung.r0 { background: var(--lad-0); height: 104px; }
-.lad-rung.r1 { background: var(--lad-1); height: 128px; }
-.lad-rung.r2 { background: var(--lad-2); height: 152px; }
-.lad-rung.r3 { background: var(--lad-3); height: 176px; }
-.lad-rung.r4 { background: var(--lad-4); height: 200px; }
-.lad-rung.r5 { background: var(--lad-5); height: 224px; color: var(--ink); }
-@media (max-width: 860px) { .lad-rung { height: auto !important; min-height: 112px; } }
-.lad-detail {
-    background:            var(--card);
-    border:                1px solid var(--border);
-    border-radius:         var(--r);
-    padding:               30px 32px;
-    display:               grid;
-    grid-template-columns:  1fr 1.3fr;
-    gap:                   44px;
-}
-@media (max-width: 860px) { .lad-detail { grid-template-columns: 1fr; gap: 26px; } }
-.lad-dcode { display: block; font-family: var(--mono); font-size: 12px; color: var(--green); margin-bottom: 10px; }
-.lad-detail h3 { font-size: 26px; color: var(--text); margin-bottom: 13px; letter-spacing: -.02em; }
-.lad-desc  { font-size: 15px; color: var(--muted); line-height: 1.65; }
-.lad-right { display: flex; flex-direction: column; gap: 24px; }
-.lad-lab {
-    display:        block;
-    font-family:    var(--mono);
-    font-size:      10.5px;
-    color:          var(--faint);
-    margin-bottom:  9px;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-}
-.lad-out  { font-size: 15px; color: var(--text); line-height: 1.65; }
-.lad-arts { display: flex; flex-wrap: wrap; gap: 8px; }
-.lad-arts span {
-    font-family:   var(--mono);
-    font-size:     11.5px;
-    padding:       6px 11px;
-    border-radius: 999px;
-    background:    var(--bg2);
-    color:         var(--muted);
-    border:        1px solid var(--border);
-}
-
-/* ===== dimensions ===== */
-.dims {
-    display:               grid;
-    grid-template-columns:  repeat(5, 1fr);
-    gap:                   16px;
-    margin-top:            38px;
-}
-@media (max-width: 1000px) { .dims { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width:  700px) { .dims { grid-template-columns: 1fr; } }
-.dim {
-    background:      var(--card);
-    border:          1px solid var(--border);
-    border-radius:   var(--r);
-    padding:         24px;
-    display:         flex;
-    flex-direction:  column;
-}
-.dw { font-family: var(--mono); font-size: 12.5px; color: var(--green); font-weight: 700; margin-bottom: 16px; }
-.dim h3 { font-size: 16px; color: var(--text); margin-bottom: 10px; line-height: 1.22; }
-.dim p  { font-size: 13.5px; color: var(--muted); line-height: 1.55; }
-.dr {
-    margin-top:  auto;
-    padding-top: 18px;
-    font-family: var(--mono);
-    font-size:   11px;
-    color:       var(--faint);
-}
-
-/* ===== the sample policy card ===== */
-.pcard{display:block;background:var(--card);border:1px solid var(--border);border-radius:var(--r);
-  padding:26px;box-shadow:0 20px 60px rgba(0,0,0,.28);text-decoration:none}
-.pcard:hover{border-color:var(--green)}
-.pch{display:flex;flex-direction:column;gap:5px;padding-bottom:18px;border-bottom:1px solid var(--border)}
-.pck{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--green)}
-.pcv{font-size:14px;color:var(--text);font-weight:600;line-height:1.35}
-.pcg{display:flex;flex-direction:column;gap:1px;background:var(--border);margin-top:18px;
-  border:1px solid var(--border);border-radius:var(--r-sm);overflow:hidden}
-.pcr{background:var(--card);display:grid;grid-template-columns:52px 1fr;gap:14px;padding:13px 16px;align-items:baseline}
-.pcr.hot{background:var(--ink)}
-.pcn{font-family:var(--mono);font-size:23px;font-weight:700;color:var(--text);line-height:1}
-.pcn.go{color:var(--green)} .pcn.warn{color:var(--gold)}
-.pcr.hot .pcn{color:var(--fg)}
-.pcl{font-size:13.5px;color:var(--text);line-height:1.35}
-.pcr.hot .pcl{color:var(--fg)}
-.pcv2{grid-column:2;font-family:var(--mono);font-size:10.5px;color:var(--faint);margin-top:3px}
-.pcf{display:block;margin-top:16px;font-size:12px;color:var(--faint);line-height:1.6}
-.pcf b{color:var(--green)}
-
-/* ===== what it delivers ===== */
-.dlv{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:38px}
-@media (max-width:820px){.dlv{grid-template-columns:1fr}}
-.dl{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:26px}
-.dln{font-family:var(--mono);font-size:12.5px;font-weight:700;color:var(--green);display:block;margin-bottom:14px}
-.dl h3{margin:0 0 10px;font-size:17px;color:var(--text);letter-spacing:-.01em}
-.dl p{margin:0;font-size:13.5px;color:var(--muted);line-height:1.62}
-.dl code{font-family:var(--mono);font-size:12px;color:var(--text);background:var(--bg2);
-  border:1px solid var(--border);border-radius:5px;padding:2px 6px}
-
-/* ===== the free line and the four levels ===== */
-.lvl4{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:38px}
-@media (max-width:1040px){.lvl4{grid-template-columns:repeat(3,1fr)}}
-@media (max-width:700px){.lvl4{grid-template-columns:1fr}}
-.lv{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--border);
-  border-radius:var(--r);padding:22px}
-.lv:first-child{border-color:var(--green);background:var(--greenBg)}
-.lvn{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--green);margin-bottom:14px}
-.lv h3{margin:0 0 9px;font-size:15.5px;color:var(--text);line-height:1.3;letter-spacing:-.01em}
-.lv p{margin:0;font-size:13px;color:var(--muted);line-height:1.55}
-.lvgo{margin-top:auto;padding-top:18px;font-size:12.5px;font-weight:600;color:var(--green);text-decoration:none}
-.lvgo:hover{text-decoration:underline;text-underline-offset:2px}
-
-@media (max-width:420px){
-  .pcard{padding:18px}
-  .pcr{grid-template-columns:40px 1fr;gap:10px;padding:11px 12px}
-  .pcn{font-size:20px}
-  .pcl{font-size:13px}
-  .pcv{font-size:13.5px}
-}
-
-/* ===== who is arriving, and the chain ===== */
-.whoc{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:38px}
-@media (max-width:900px){.whoc{grid-template-columns:1fr}}
-.wc{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--border);
-  border-radius:var(--r);padding:28px;text-decoration:none}
-.wc:hover{border-color:var(--green)}
-.wk{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--green);margin-bottom:16px}
-.wc h3{font-size:17px;color:var(--text);margin:0 0 12px;line-height:1.35;letter-spacing:-.01em}
-.wc p{font-size:13.5px;color:var(--muted);line-height:1.6;margin:0}
-.wgo{margin-top:auto;padding-top:20px;font-size:13px;font-weight:600;color:var(--green)}
-.chain{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
-@media (max-width:820px){.chain{grid-template-columns:1fr}}
-.ch{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--border);
-  border-radius:var(--r);padding:26px;text-decoration:none}
-a.ch:hover{border-color:var(--green)}
-.ch.here{background:var(--ink);border-color:var(--ink)}
-.chn{font-family:var(--mono);font-size:12.5px;font-weight:700;color:var(--green);margin-bottom:14px}
-.ch h3{margin:0 0 9px;font-size:18px;color:var(--text);letter-spacing:-.02em}
-.ch p{font-size:13.5px;color:var(--muted);line-height:1.55;margin:0}
-.ch.here h3{color:var(--fg)} .ch.here p{color:var(--fg-2)}
-.chs{margin-top:auto;padding-top:18px;font-family:var(--mono);font-size:10.5px;font-weight:700;
-  letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
-.ch.here .chs{color:var(--green-2)}
-.ins-note a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
-
-/* ===== what a policy is (the four objects) ===== */
-.objs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 38px; }
-@media (max-width: 860px) { .objs { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 520px) { .objs { grid-template-columns: 1fr; } }
-.obj { background: var(--card); border: 1px solid var(--border); border-radius: var(--r);
-       padding: 24px; display: flex; flex-direction: column; }
-.obj.derived { background: var(--ink); border-color: var(--ink); }
-.ok { font-family: var(--mono); font-size: 12.5px; font-weight: 700; color: var(--green);
-      text-transform: uppercase; letter-spacing: .08em; margin-bottom: 14px; }
-.obj h3 { font-size: 16px; color: var(--text); margin-bottom: 10px; line-height: 1.24; }
-.obj p  { font-size: 13.5px; color: var(--muted); line-height: 1.55; }
-.obj.derived h3 { color: var(--fg); } .obj.derived p { color: var(--fg-2); }
-.ov { margin-top: auto; padding-top: 18px; font-family: var(--mono); font-size: 11px; color: var(--faint); }
-
-/* the files a policy is delivered as */
-.files { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 8px; }
-.files code { font-family: var(--mono); font-size: 12px; color: var(--text); background: var(--bg2);
-              border: 1px solid var(--border); border-radius: 6px; padding: 7px 11px; }
-
-/* ===== the ladder ===== */
-.rungs { margin-top: 38px; display: flex; flex-direction: column; gap: 14px; }
-.rung2 { display: grid; grid-template-columns: 46px 1fr auto; gap: 22px; align-items: start;
-         background: var(--card); border: 1px solid var(--border); border-radius: var(--r); padding: 24px 26px; }
-@media (max-width: 720px) { .rung2 { grid-template-columns: 1fr; gap: 12px; } }
-.rn { font-family: var(--mono); font-size: 22px; font-weight: 700; color: var(--border); line-height: 1; }
-.rung2.now { border-color: var(--green); }
-.rung2.now .rn { color: var(--green); }
-.rung2 h3 { font-size: 19px; color: var(--text); margin-bottom: 9px; letter-spacing: -.02em; }
-.rung2 p { font-size: 14px; color: var(--muted); line-height: 1.62; }
-.rst { font-family: var(--mono); font-size: 10.5px; font-weight: 700; letter-spacing: .1em;
-       text-transform: uppercase; color: var(--faint); white-space: nowrap; padding-top: 5px; }
-.rung2.now .rst { color: var(--green); }
-
-/* ===== audiences ===== */
-.aud {
-    display:               grid;
-    grid-template-columns:  1fr 1fr;
-    gap:                   20px;
-    margin-top:            38px;
-}
-@media (max-width: 860px) { .aud { grid-template-columns: 1fr; } }
-.acard {
-    background:      var(--card);
-    border:          1px solid var(--border);
-    border-radius:   var(--r);
-    padding:         32px;
-    display:         flex;
-    flex-direction:  column;
-}
-.atag {
-    display:        inline-block;
-    align-self:     flex-start;
-    font-family:    var(--mono);
-    font-size:      11px;
-    padding:        6px 11px;
-    border-radius:  999px;
-    margin-bottom:  16px;
-    background:     var(--greenBg);
-    color:          var(--green);
-}
-.atag.alt { background: var(--bg2); color: var(--muted); }
-.acard h3 { font-size: 25px; color: var(--text); margin-bottom: 12px; letter-spacing: -.02em; }
-.acard > p { font-size: 15px; color: var(--muted); line-height: 1.6; }
-.acard ul {
-    list-style:      none;
-    padding:         0;
-    margin:          22px 0 24px;
-    display:         flex;
-    flex-direction:  column;
-    gap:             12px;
-}
-.acard li {
-    font-size:    14.5px;
-    line-height:  1.5;
-    color:        var(--text);
-    padding-left: 20px;
-    position:     relative;
-}
-.acard li::before {
-    content:       '';
-    position:      absolute;
-    left:          0;
-    top:           8px;
-    width:         6px;
-    height:        6px;
-    border-radius: 50%;
-    background:    var(--green);
-}
-.afoot {
-    margin-top:  auto;
-    padding-top: 20px;
-    border-top:  1px solid var(--border);
-    font-size:   13.5px;
-    color:       var(--faint);
-    font-style:  normal;
-}
-
-/* ===== the mechanic ===== */
-.ins-mech {
-    display:               grid;
-    grid-template-columns:  .9fr 1.1fr;
-    gap:                   56px;
-    align-items:           center;
-}
-@media (max-width: 940px) { .ins-mech { grid-template-columns: 1fr; gap: 38px; } }
-.doors {
-    display:               grid;
-    grid-template-columns:  repeat(3, 1fr);
-    gap:                   14px;
-}
-@media (max-width: 620px) { .doors { grid-template-columns: 1fr; } }
-.door { border: 1px solid var(--border); border-radius: var(--r); padding: 22px; }
-.dk { display: block; font-family: var(--mono); font-size: 11px; margin-bottom: 12px; font-weight: 700; }
-.door h3 { font-size: 17px; color: var(--text); margin-bottom: 9px; }
-.door p  { font-size: 13.5px; color: var(--muted); line-height: 1.55; }
-.door.accept { background: var(--greenBg); } .door.accept .dk { color: var(--green); }
-.door.fund   { background: var(--goldBg); }  .door.fund   .dk { color: var(--gold); }
-.door.fix    { background: var(--redBg); }   .door.fix    .dk { color: var(--red); }
-.nodoor {
-    margin-top:    16px;
-    border:        1px dashed var(--border);
-    border-radius: var(--r);
-    padding:       18px 22px;
-    display:       flex;
-    align-items:   center;
-    gap:           15px;
-    flex-wrap:     wrap;
-}
-.nodoor s    { color: var(--faint); font-size: 15px; }
-.nodoor span { font-size: 14.5px; color: var(--muted); }
-
-/* ===== faq ===== */
-.faq { margin-top: 34px; max-width: 840px; }
-.faq details { border-bottom: 1px solid var(--border); padding: 6px 0; }
-.faq summary {
-    cursor:       pointer;
-    font-size:    17px;
-    font-weight:  700;
-    color:        var(--text);
-    padding:      18px 0;
-    list-style:   none;
-    position:     relative;
-    padding-right: 32px;
-    letter-spacing: -.015em;
-}
-.faq summary::-webkit-details-marker { display: none; }
-.faq summary::after {
-    content:   '+';
-    position:  absolute;
-    right:     4px;
-    top:       50%;
-    transform: translateY(-50%);
-    color:     var(--faint);
-    font-size: 20px;
-    font-family: var(--mono);
-}
-.faq details[open] summary::after { content: '\2013'; }
-.faq details p {
-    font-size:   14.5px;
-    color:       var(--muted);
-    line-height: 1.7;
-    padding:     0 0 20px;
-    max-width:   80ch;
-}
-
-/* ===== CTA + footer ===== */
-.ins-cta {
-    background: var(--ink);
-    color:      var(--fg);
-    text-align: center;
-    padding:    96px 24px;
-}
-.ins-cta .wrap { max-width: 680px; }
-.ins-cta h2 {
-    font-size:      clamp(34px, 5.2vw, 58px);
-    color:          var(--fg);
-    margin-top:     20px;
-    letter-spacing: -.035em;
-}
-.ins-cta p { color: var(--fg-2); margin-top: 16px; font-size: 16.5px; line-height: 1.65; }
-.ins-cta .cta-row { justify-content: center; }
-.foot {
-    background: var(--canvas);
-    border-top: 1px solid var(--line);
-    padding:    32px 24px;
-}
-.foot .wrap {
-    display:         flex;
-    justify-content: space-between;
-    flex-wrap:       wrap;
-    gap:             10px;
-    font-family:     var(--mono);
-    font-size:       10px;
-    color:           var(--fg-3);
-    max-width:       1100px;
-}
-.footlink {
-    background:            none;
-    border:                0;
-    padding:               0;
-    font:                  inherit;
-    color:                 var(--fg-3);
-    cursor:                pointer;
-    text-decoration:       underline;
-    text-underline-offset: 2px;
-}
-.footlink:hover { color: var(--fg-2); }
-
-@media (prefers-reduced-motion: reduce) {
-    .lad-rung, .ic-fill { transition: none !important; }
-}
-
-/* ===== mobile nav — hamburger drawer. Toggle injected by nav.js; .top.nav-open opens it. ===== */
-.navtoggle{display:none;margin-left:auto;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;padding:0;background:none;border:0;cursor:pointer}
-.navtoggle span{display:block;width:20px;height:2px;margin:0 auto;background:var(--text,var(--text));border-radius:2px;transition:transform .2s,opacity .2s}
-.top.nav-open .navtoggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.top.nav-open .navtoggle span:nth-child(2){opacity:0}
-.top.nav-open .navtoggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-@media (max-width:1040px){
-  .navtoggle{display:flex}
-  .top .wrap{position:relative}
-  .navlinks{position:absolute;left:0;right:0;top:calc(100% + 1px);flex-direction:column;align-items:stretch;gap:0;margin:0;padding:8px;background:var(--card,var(--card));border-bottom:1px solid var(--border,var(--border));box-shadow:0 14px 34px rgba(13,13,12,.14);max-height:calc(100vh - 56px);overflow:auto}
-  .top.nav-open .navlinks{display:flex}
-  .navlinks button,.navlinks .pagelink,.navlinks .navgroup-btn{width:100%;text-align:left;justify-content:flex-start;padding:12px 16px;font-size:15px;border-radius:8px}
-  .navlinks button:hover,.navlinks .pagelink:hover{background:var(--bg2,var(--bg2))}
-  .navgroup{display:block;width:100%;position:static}
-  .navgroup::after{display:none}
-  .navgroup-btn{display:flex}
-  .navgroup-car{margin-left:auto}
-  .navmenu{position:static;transform:none;display:flex;flex-direction:column;min-width:0;padding:2px 0 8px 14px;background:transparent;border:0;box-shadow:none}
-  .navmenu .navchild{padding:10px 14px;font-size:14px}
-}
-.footlink{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
-.footlink:hover{color:var(--fg-2)}
-
-/* nav-dropdown.css — 0.6.0: the homepage now layers the v0.5.2 dropdown menu
-   component (grouped top-level pages, e.g. Risk Scenarios), so it needs the same
-   dropdown styling the top-level pages carry. Scoped to this snapshot forward;
-   older frozen snapshots use the pre-dropdown menu and never see this file. */
-.navgroup{position:relative;display:inline-flex;align-items:center}
-.navgroup::after{content:"";position:absolute;top:100%;left:0;right:0;height:10px}
-.navgroup-btn{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;display:inline-flex;align-items:center;gap:5px}
-.navgroup-btn:hover,.navgroup:hover .navgroup-btn,.navgroup.open .navgroup-btn,.navgroup.active .navgroup-btn{color:var(--text)}
-.navgroup-car{font-size:8px;line-height:1;opacity:.6;transition:transform .15s}
-.navgroup:hover .navgroup-car,.navgroup.open .navgroup-car{transform:rotate(180deg)}
-.navmenu{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);min-width:184px;background:var(--card);border:1px solid var(--border);border-radius:10px;box-shadow:0 10px 34px rgba(13,13,12,.14);padding:6px;display:none;flex-direction:column;gap:2px;z-index:70}
-.navgroup:hover .navmenu,.navgroup.open .navmenu{display:flex}
-.navmenu .navchild{justify-content:flex-start;text-align:left;width:100%;padding:8px 12px;border-radius:7px;font-size:13.5px;color:var(--muted);white-space:nowrap}
-.navmenu .navchild:hover{background:var(--bg2,#EFEDE7);color:var(--text)}
-.navmenu .navchild.active{color:var(--green);font-weight:600;background:var(--greenBg,#EBF5F0)}
-
-
-/* ===== mobile nav — hamburger drawer (fix: nav bar was hidden with no
-   replacement below 880px). Toggle injected by nav.js; .top.nav-open opens it. ===== */
-.navtoggle{display:none;margin-left:auto;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;padding:0;background:none;border:0;cursor:pointer}
-.navtoggle span{display:block;width:20px;height:2px;margin:0 auto;background:var(--text,#1A1917);border-radius:2px;transition:transform .2s,opacity .2s}
-.top.nav-open .navtoggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.top.nav-open .navtoggle span:nth-child(2){opacity:0}
-.top.nav-open .navtoggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-@media (max-width:1040px){
-  .navtoggle{display:flex}
-  .top .wrap{position:relative}
-  .navlinks{position:absolute;left:0;right:0;top:calc(100% + 1px);flex-direction:column;align-items:stretch;gap:0;margin:0;padding:8px;background:var(--card,#fff);border-bottom:1px solid var(--border,#E2DFD8);box-shadow:0 14px 34px rgba(13,13,12,.14);max-height:calc(100vh - 56px);overflow:auto}
-  .top.nav-open .navlinks{display:flex}
-  .navlinks button,.navlinks .pagelink,.navlinks .navgroup-btn{width:100%;text-align:left;justify-content:flex-start;padding:12px 16px;font-size:15px;border-radius:8px}
-  .navlinks button:hover,.navlinks .pagelink:hover{background:var(--bg2,#EFEDE7)}
-  /* the Risk Scenarios group expands inline inside the drawer (no hover dropdown) */
-  .navgroup{display:block;width:100%;position:static}
-  .navgroup::after{display:none}
-  .navgroup-btn{display:flex}
-  .navgroup-car{margin-left:auto}
-  .navmenu{position:static;transform:none;display:flex;flex-direction:column;min-width:0;padding:2px 0 8px 14px;background:transparent;border:0;box-shadow:none}
-  .navmenu .navchild{padding:10px 14px;font-size:14px}
-}
-
-
-/* v1.0.0 — navigation is real links now, so the header rules that targeted
-   <button> have to reach <a> too, and the version switcher is a link. */
-.brand{text-decoration:none}
 .navlinks a{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;text-decoration:none;display:inline-flex;align-items:center}
 .navlinks a:hover{color:var(--text)}
 .navlinks a.active{color:var(--text);font-weight:600}
 .version{font-family:var(--mono);font-size:12px;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:7px;padding:5px 8px;text-decoration:none;white-space:nowrap;transition:color .15s,border-color .15s}
 .version:hover{color:var(--text);border-color:var(--faint)}
-a.btn{text-decoration:none}
-a.ds{display:block;text-decoration:none;color:inherit}
+.demo{background:var(--green);color:#fff;font-weight:600;font-size:13px;border:0;border-radius:8px;padding:8px 16px;cursor:pointer;transition:background .15s;font-family:var(--sans);white-space:nowrap}
+.demo:hover{background:#16704f}
+
+/* nav dropdowns */
+.navgroup{position:relative;display:inline-flex;align-items:center}
+.navgroup::after{content:"";position:absolute;top:100%;left:0;right:0;height:10px}
+.navgroup-btn{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;display:inline-flex;align-items:center;gap:5px}
+.navgroup-btn:hover,.navgroup:hover .navgroup-btn,.navgroup.open .navgroup-btn,.navgroup.active .navgroup-btn{color:var(--text)}
+.navgroup-car{font-size:8px;line-height:1;opacity:.6;transition:transform .15s}
+.navgroup:hover .navgroup-car,.navgroup.open .navgroup-car{transform:rotate(180deg)}
+.navmenu{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);min-width:184px;background:var(--card);border:1px solid var(--border);border-radius:10px;box-shadow:0 10px 34px rgba(13,13,12,.14);padding:6px;display:none;flex-direction:column;gap:2px;z-index:70}
+.navgroup:hover .navmenu,.navgroup.open .navmenu{display:flex}
+.navmenu .navchild{justify-content:flex-start;text-align:left;width:100%;padding:8px 12px;border-radius:7px;font-size:13.5px;color:var(--muted);white-space:nowrap}
+.navmenu .navchild:hover{background:var(--bg2);color:var(--text)}
+.navmenu .navchild.active{color:var(--green);font-weight:600;background:var(--greenBg)}
+
+/* mobile drawer — the toggle is injected by nav.js; .top.nav-open opens it */
+.navtoggle{display:none;margin-left:auto;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;padding:0;background:none;border:0;cursor:pointer}
+.navtoggle span{display:block;width:20px;height:2px;margin:0 auto;background:var(--text);border-radius:2px;transition:transform .2s,opacity .2s}
+.top.nav-open .navtoggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.top.nav-open .navtoggle span:nth-child(2){opacity:0}
+.top.nav-open .navtoggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 @media (max-width:1040px){
+  .navtoggle{display:flex}
+  .top .wrap{position:relative}
   .version{display:none}
-  .navlinks a{width:100%;text-align:left;justify-content:flex-start;padding:12px 16px;font-size:15px;border-radius:8px}
-  .navlinks a:hover{background:var(--bg2,#EFEDE7)}
+  .navlinks{display:none;position:absolute;left:0;right:0;top:calc(100% + 1px);flex-direction:column;align-items:stretch;gap:0;margin:0;padding:8px;background:var(--card);border-bottom:1px solid var(--border);box-shadow:0 14px 34px rgba(13,13,12,.14);max-height:calc(100vh - 56px);overflow:auto}
+  .top.nav-open .navlinks{display:flex}
+  .navlinks a,.navlinks .navgroup-btn{width:100%;text-align:left;justify-content:flex-start;padding:12px 16px;font-size:15px;border-radius:8px}
+  .navlinks a:hover{background:var(--bg2)}
+  .navgroup{display:block;width:100%;position:static}
+  .navgroup::after{display:none}
+  .navgroup-btn{display:flex}
+  .navgroup-car{margin-left:auto}
+  .navmenu{position:static;transform:none;display:flex;flex-direction:column;min-width:0;padding:2px 0 8px 14px;background:transparent;border:0;box-shadow:none}
+  .navmenu .navchild{padding:10px 14px;font-size:14px}
 }
 
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;padding:12px 22px;border-radius:var(--r-sm);cursor:pointer;border:1px solid transparent;font-family:var(--sans);text-decoration:none}
+.btn-green{background:var(--green);color:#fff} .btn-green:hover{background:#16704f}
+.btn-ghost{background:transparent;color:var(--fg);border-color:var(--line-2)} .btn-ghost:hover{border-color:var(--fg-2)}
+.btn-ghost-dark{background:transparent;color:var(--text);border-color:var(--border)} .btn-ghost-dark:hover{border-color:var(--green);color:var(--green)}
+
+/* dark hero */
+.phero{background:var(--ink);color:var(--fg);padding:88px 24px 84px}
+.phero .wrap{max-width:var(--wrap)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--green);background:rgba(26,127,90,.18);border:1px solid rgba(26,127,90,.4);border-radius:999px;padding:5px 12px}
+.eyebrow .d{width:6px;height:6px;border-radius:50%;background:var(--green-2)}
+.phero h1{font-size:clamp(34px,5.2vw,60px);letter-spacing:-.04em;line-height:1.02;margin:26px 0 0;color:var(--fg);max-width:900px}
+.phero .sub{color:var(--fg-2);font-size:17px;line-height:1.7;max-width:640px;margin-top:24px}
+.cta-row{display:flex;flex-wrap:wrap;gap:11px;margin-top:30px}
+
+/* paper sections */
+.paper{background:var(--bg)}
+.psection{padding:80px 0;border-bottom:1px solid var(--border)}
+.psection.alt{background:var(--bg2)}
+.shead{max-width:680px} .shead.center{max-width:720px;margin:0 auto;text-align:center}
+.shead h2{color:var(--text)} .shead p{color:var(--muted);margin-top:16px;font-size:15px;line-height:1.75}
+
+/* closing panel + footer */
+.pcta{background:var(--ink);padding:80px 24px;text-align:center}
+.pcta .wrap{max-width:720px;padding:0}
+.pcta h2{font-size:clamp(28px,4.4vw,48px);color:var(--fg);margin-top:20px;font-weight:700;letter-spacing:-.03em}
+.pcta p{color:var(--fg-2);margin-top:16px;font-size:16px;line-height:1.7}
+.pcta .cta-row{justify-content:center}
+.foot{background:var(--canvas);border-top:1px solid var(--line);padding:32px 24px}
+.foot .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-family:var(--mono);font-size:10px;color:var(--fg-3);max-width:1100px}
+.footlink{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.footlink:hover{color:var(--fg-2)}
 /* narrow phones — at 360px the brand, the burger and the call to action stop
    fitting on one line, and the header was the last thing on this site that
    scrolled sideways. Tighten the gutter, the gap and the button rather than
@@ -869,50 +137,1131 @@ a.ds{display:block;text-decoration:none;color:inherit}
   .demo{padding:8px 12px;font-size:12.5px}
 }
 
-/* ── the grant you did not enumerate — v1.7.0 ──────────────────────────────
-   The urgency on this page is a state rather than a deadline: the exposure was
-   created when somebody enabled a connector, and it has never been enumerated.
-   So this section quotes three vendor pages with dates and attaches no
-   adjective to any of them, and the reader supplies the conclusion. The rule
-   it obeys is the estate's oldest: publish the record, never the verdict. */
-.grants{display:flex;flex-direction:column;gap:14px;margin-top:36px}
-.gq{border:1px solid var(--border);border-radius:var(--r);background:var(--card);
-  padding:24px 26px;border-left:3px solid var(--green)}
-.gq .gqk{display:block;font-family:var(--mono);font-size:9.5px;font-weight:700;
-  letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:12px}
-.gq blockquote{margin:0;font-size:16.5px;line-height:1.6;color:var(--text);font-weight:600;
-  max-width:760px}
-.gq .gqs{display:block;margin-top:14px;font-family:var(--mono);font-size:11px;color:var(--faint);
-  line-height:1.65}
-.gq .gqs a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
-.dated{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);
-  border:1px solid var(--border);border-radius:var(--r-sm);overflow:hidden;margin-top:30px}
-@media (max-width:760px){.dated{grid-template-columns:1fr}}
-.dated > div{background:var(--card);padding:22px 24px}
-.dated .dk{display:block;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--green);
-  letter-spacing:.06em}
-.dated .dt{display:block;font-size:16px;font-weight:700;color:var(--text);margin-top:9px;
-  letter-spacing:-.015em}
-.dated .dd{font-size:14px;color:var(--muted);line-height:1.65;margin-top:9px}
-.gstate{margin-top:32px;border-left:3px solid var(--green);background:var(--greenBg);
-  border-radius:0 var(--r-sm) var(--r-sm) 0;padding:22px 26px;max-width:760px}
-.gstate p{color:var(--text);font-size:17px;line-height:1.6;font-weight:600}
-.gstate p + p{margin-top:11px;font-weight:400;font-size:15px;color:var(--muted)}
+/* Geist and Geist Mono, self-hosted. The design specifies them; Google Fonts
+   would make this the only page on the site that calls a third party, so the
+   latin and latin-ext subsets are committed under assets/fonts/ with the SIL
+   Open Font License they ship under. Fetched from fonts.gstatic.com on
+   17 September 2026: Geist v5, Geist Mono v6. */
+@font-face{font-family:Geist;font-style:normal;font-weight:400 700;font-display:swap;
+  src:url(assets/fonts/geist-latin.woff2) format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Geist;font-style:normal;font-weight:400 700;font-display:swap;
+  src:url(assets/fonts/geist-latin-ext.woff2) format('woff2');
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Geist Mono';font-style:normal;font-weight:400 500;font-display:swap;
+  src:url(assets/fonts/geist-mono-latin.woff2) format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Geist Mono';font-style:normal;font-weight:400 500;font-display:swap;
+  src:url(assets/fonts/geist-mono-latin-ext.woff2) format('woff2');
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+
+/*
+  RiskMandate homepage styles.
+  The React components import this file as a CSS Module; riskmandate-home.html inlines
+  the same rules. Type is Geist and Geist Mono: next/font supplies them in the app
+  (--font-geist-sans, --font-geist-mono) and Google Fonts supplies them in the HTML file.
+*/
+
+/* Tokens and page base */
+
+.page {
+  --paper: #f3f7f4;
+  --white: #ffffff;
+  --ink: #14201a;
+  --ink-deep: #0c1611;
+  --ink-raised: #22332a;
+  --muted: #45534b;
+  --line: #d5dfd9;
+  --line-soft: #e4ebe6;
+  --line-strong: #c9d6ce;
+  --green: #0b7a4b;
+  --green-dark: #075e39;
+  --green-bright: #16a864;
+  --green-bright-hover: #3dc687;
+  --green-tint: #ddf1e6;
+  --green-on-tint: #0a5c38;
+  --green-on-dark: #7fe0ae;
+  --amber: #e3a21a;
+  --amber-tint: #faefd6;
+  --amber-strong: #8a5a00;
+  --on-dark: #f3f7f4;
+  --on-dark-muted: #b4c6bb;
+  --dark-line: #2a3b32;
+  --gutter: clamp(20px, 5vw, 56px);
+
+  width: 100%;
+  overflow-x: clip;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-geist-sans, "Geist"), ui-sans-serif, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.page :focus-visible {
+  outline: 3px solid var(--amber);
+  outline-offset: 3px;
+}
+
+/* Layout */
+
+.page .container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-inline: var(--gutter);
+  box-sizing: border-box;
+}
+
+.page .section {
+  padding-block: clamp(64px, 8vw, 112px);
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: 72px;
+}
+
+.page .paper { background: var(--paper); }
+.page .white { background: var(--white); }
+.page .noDivider { border-bottom: 0; }
+
+.page .sectionInner {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(40px, 5vw, 64px);
+}
+
+.page .gapWide { gap: clamp(48px, 6vw, 80px); }
+.page .gapTight { gap: 40px; }
+
+.page .intro {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  max-width: 900px;
+}
+
+/* Type */
+
+.page .h1 {
+  margin: 0;
+  font-size: clamp(48px, 6vw, 84px);
+  font-weight: 700;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+.page .h2 {
+  margin: 0;
+  font-size: clamp(36px, 4.2vw, 58px);
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -0.042em;
+  text-wrap: balance;
+}
+
+.page .h2Large {
+  font-size: clamp(40px, 5vw, 66px);
+  line-height: 1;
+}
+
+.page .h3 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+}
+
+.page .lede {
+  max-width: 38em;
+  margin: 0;
+  font-size: clamp(18px, 1.5vw, 20px);
+  line-height: 1.55;
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+.page .text {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+.page .small {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.page .measure { max-width: 52em; }
+
+.page .code {
+  padding: 1px 6px;
+  border-radius: 6px;
+  background: #edf3ef;
+  color: var(--ink);
+  font-family: var(--font-geist-mono, "Geist Mono"), ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.875em;
+}
+
+/* Links and buttons */
+
+.page .link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--green);
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.page .link:hover { color: var(--green-dark); }
+
+.page .inlineLink {
+  color: var(--green);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.page .inlineLink:hover { color: var(--green-dark); }
+
+.page .alignStart { align-self: flex-start; }
+
+.page .pushDown {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+.page .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 0 24px;
+  border: 1.5px solid transparent;
+  border-radius: 12px;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.page .btnSmall {
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.page .btnBlock {
+  display: flex;
+  width: 100%;
+  min-height: 50px;
+}
+
+.page .btnPrimary { border-color: var(--green); background: var(--green); color: var(--white); }
+.page .btnPrimary:hover { border-color: var(--green-dark); background: var(--green-dark); }
+.page .btnOutline { border-color: var(--ink); background: transparent; color: var(--ink); }
+.page .btnOutline:hover { background: #e1ebe5; }
+.page .btnBright { border-color: var(--green-bright); background: var(--green-bright); color: var(--ink-deep); }
+.page .btnBright:hover { border-color: var(--green-bright-hover); background: var(--green-bright-hover); }
+.page .btnGhost { border-color: #5e7468; background: transparent; color: var(--on-dark); }
+.page .btnGhost:hover { background: var(--ink-raised); }
+
+.page .actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.page .iconBlock {
+  display: block;
+  flex: none;
+}
+
+/* Header */
+
+.page .header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  border-bottom: 1px solid var(--line);
+  background: rgba(243, 247, 244, 0.94);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.page .headerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  height: 72px;
+}
+
+.page .brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.page .wordmark {
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+
+.page .nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.page .navLink {
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.page .navLink:hover { color: var(--green); }
+
+/* Hero */
+
+.page .hero {
+  padding-block: clamp(56px, 7vw, 104px) clamp(56px, 6vw, 88px);
+  border-bottom: 1px solid var(--line);
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(rgba(11, 122, 75, 0.065) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(11, 122, 75, 0.065) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.page .heroGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: clamp(40px, 6vw, 88px);
+}
+
+.page .heroCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  min-width: 0;
+}
+
+.page .heroLead {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 32em;
+}
+
+.page .heroKicker {
+  margin: 0;
+  font-size: clamp(21px, 2vw, 26px);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+}
+
+.page .heroText {
+  margin: 0;
+  font-size: clamp(17px, 1.4vw, 19px);
+  line-height: 1.55;
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+.page .priceNote {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.page .priceNote strong { font-weight: 700; }
+
+.page .figure {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  min-width: 0;
+  margin: 0;
+}
+
+.page .diagram {
+  display: block;
+  width: 100%;
+  max-width: 460px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.page .diagramLabel {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.page .diagramGap { font-weight: 700; }
+
+.page .legend {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 24px;
+  width: 100%;
+  max-width: 460px;
+  margin: 0 auto;
+}
+
+.page .legendItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.page .legendNumber {
+  flex: none;
+  min-width: 52px;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  font-variant-numeric: tabular-nums;
+}
+
+.page .legendText {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 2px;
+  font-size: 15px;
+  line-height: 1.35;
+  color: var(--muted);
+}
+
+.page .toneInk { color: var(--ink); }
+.page .toneGreen { color: var(--green); }
+.page .toneAmber { color: var(--amber-strong); }
+
+.page .figcaption {
+  max-width: 460px;
+  margin: 0 auto;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted);
+  text-align: center;
+  text-wrap: balance;
+}
+
+.page .fadeIn { animation: rmFadeIn 700ms ease-out both; }
+
+.page .pop {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: rmPop 480ms cubic-bezier(0.2, 0.9, 0.25, 1.15) both;
+}
+
+@keyframes rmFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes rmPop {
+  from { opacity: 0; transform: scale(0.2); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Evidence strip */
+
+.page .proof {
+  border-bottom: 1px solid var(--line);
+  background: var(--white);
+}
+
+.page .proofInner {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-block: 24px 22px;
+}
+
+.page .proofList {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px 28px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.page .proofItem { display: flex; }
+
+.page .proofLink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.3;
+  text-decoration: none;
+}
+
+.page .proofText {
+  text-decoration: underline;
+  text-decoration-color: #b9cac0;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 5px;
+}
+
+.page .proofLink:hover .proofText { text-decoration-color: var(--green); }
+
+.page .proofMeta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 6px 40px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-soft);
+}
+
+/* Why now */
+
+.page .whyTop {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  align-items: start;
+  gap: clamp(40px, 6vw, 88px);
+}
+
+.page .whyCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.page .timeline {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 8px 0 0;
+  list-style: none;
+}
+
+.page .timelineItem {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  column-gap: 18px;
+}
+
+.page .timelineRail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page .timelineDot {
+  width: 12px;
+  height: 12px;
+  margin-top: 8px;
+  border-radius: 999px;
+  background: var(--amber);
+  box-shadow: 0 0 0 5px var(--amber-tint);
+}
+
+.page .timelineLine {
+  flex-grow: 1;
+  width: 2px;
+  margin-top: 12px;
+  background: var(--line);
+}
+
+.page .timelineBody {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 36px;
+}
+
+.page .timelineItem:last-child .timelineBody { padding-bottom: 0; }
+
+.page .timelineDate {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.025em;
+}
+
+.page .timelineText {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+.page .ladderWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.page .ladderLead {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.page .ladder {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.page .step {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 28px;
+  border-radius: 18px;
+  box-sizing: border-box;
+}
+
+.page .stepLive { border: 2px solid var(--green); background: var(--white); }
+.page .stepReady { border: 1px solid var(--line-strong); background: var(--white); }
+.page .stepPlanned { border: 1.5px dashed #9fb3a8; background: transparent; }
+
+.page .stepTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.page .stepNumber {
+  font-size: 17px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.page .stepNumberLive { color: var(--green); }
+
+.page .pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.page .pillLive { background: var(--green-tint); color: var(--green-on-tint); }
+.page .pillReady { background: #e6ece8; color: #33413a; }
+.page .pillPlanned { background: #fbebc7; color: #6e4700; }
+
+.page .titleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.page .stepProduct {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* How it works */
+
+.page .parts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 40px 32px;
+}
+
+.page .part {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.page .partHead {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.page .partMethod {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--green);
+}
+
+/* For leaders */
+
+.page .roles {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.page .role {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 28px 26px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--white);
+}
+
+.page .roleHead {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.page .roleTitle {
+  margin: 0;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.page .roleView {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--green);
+}
+
+.page .roleQuestion {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  text-wrap: pretty;
+}
+
+.page .roleAnswer {
+  margin: auto 0 0;
+  padding-top: 18px;
+  border-top: 1px solid var(--line-soft);
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+.page .flow {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.page .flowLead {
+  max-width: 50em;
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.page .flowLead strong { font-weight: 700; }
+
+.page .flowList {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.page .flowItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.page .flowStep {
+  display: inline-flex;
+  align-items: center;
+  min-height: 46px;
+  padding: 0 22px;
+  border: 1.5px solid var(--green);
+  border-radius: 12px;
+  box-sizing: border-box;
+  background: var(--white);
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.page .flowStepFinal {
+  background: var(--green);
+  color: var(--white);
+}
+
+/* Pricing */
+
+.page .shapes {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.page .shapesLead {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.page .chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.page .chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  box-sizing: border-box;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.page .chip:hover { border-color: var(--green); color: var(--green); }
+
+.page .chipOpen {
+  border-style: dashed;
+  border-color: #8fa597;
+  background: var(--white);
+}
+
+.page .levels {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.page .level {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 28px 24px 24px;
+  border: 1px solid #cfdad3;
+  border-radius: 18px;
+  background: var(--white);
+}
+
+.page .levelLabel {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.page .levelHead {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.page .levelName {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+
+.page .levelSummary {
+  min-height: 4.5em;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+.page .price {
+  margin: 0;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.055em;
+  font-variant-numeric: tabular-nums;
+}
+
+.page .terms {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.page .termsSecondary { color: var(--muted); }
+
+.page .evidence {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 8px;
+  min-height: 36px;
+  margin-top: auto;
+  color: var(--green);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.page .evidence:hover { color: var(--green-dark); }
+
+.page .evidenceText {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.page .levelFeatured {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--on-dark);
+}
+
+.page .levelFeatured .levelLabel,
+.page .levelFeatured .levelSummary,
+.page .levelFeatured .termsSecondary { color: var(--on-dark-muted); }
+
+.page .levelFeatured .levelName,
+.page .levelFeatured .price { color: var(--white); }
+
+.page .levelFeatured .evidence { color: var(--green-on-dark); }
+.page .levelFeatured .evidence:hover { color: var(--white); }
+
+.page .pricingFoot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 32px;
+}
+
+.page .pricingNote { max-width: 46em; }
+
+.page .pricingLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 28px;
+}
+
+/* Closing call to action */
+
+.page .cta {
+  padding-block: clamp(72px, 9vw, 128px) clamp(64px, 7vw, 96px);
+  background: var(--ink);
+  color: var(--on-dark);
+}
+
+.page .ctaGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 56px;
+}
+
+.page .ctaCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 720px;
+}
+
+.page .ctaTitle {
+  margin: 0;
+  font-size: clamp(40px, 5vw, 68px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  color: var(--on-dark);
+  text-wrap: balance;
+}
+
+.page .ctaText {
+  max-width: 34em;
+  margin: 0;
+  font-size: clamp(18px, 1.5vw, 20px);
+  line-height: 1.55;
+  color: var(--on-dark-muted);
+  text-wrap: pretty;
+}
+
+.page .ctaMark { display: block; }
+
+/* Footer */
+
+.page .footer {
+  border-top: 1px solid var(--dark-line);
+  background: var(--ink);
+  color: var(--on-dark-muted);
+}
+
+.page .footerInner {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  padding-block: 48px 40px;
+}
+
+.page .footerGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) repeat(3, minmax(0, 1fr));
+  gap: 32px;
+}
+
+.page .footerBrand {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.page .footerLogo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.page .footerWordmark { color: var(--on-dark); }
+
+.page .footerTagline {
+  max-width: 24em;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.page .footerNav {
+  display: flex;
+  flex-direction: column;
+}
+
+.page .footerHeading {
+  margin: 0 0 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--on-dark);
+}
+
+.page .footlink {
+  display: flex;
+  align-items: center;
+  min-height: 40px;
+  color: var(--on-dark-muted);
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.page .footlink:hover { color: var(--white); }
+
+.page .footerBottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--dark-line);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Responsive */
+
+@media (max-width: 1080px) {
+  .page .heroGrid,
+  .page .whyTop,
+  .page .ladder,
+  .page .ctaGrid { grid-template-columns: minmax(0, 1fr); }
+
+  .page .proofList,
+  .page .parts,
+  .page .roles,
+  .page .levels,
+  .page .footerGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .page .ctaMark { display: none; }
+}
+
+@media (max-width: 860px) {
+  .page .nav { display: none; }
+}
+
+@media (max-width: 620px) {
+  .page .proofList,
+  .page .parts,
+  .page .roles,
+  .page .levels,
+  .page .footerGrid { grid-template-columns: minmax(0, 1fr); }
+
+  .page .levelSummary { min-height: 0; }
+}
+
+@media (max-width: 420px) {
+  .page .wordmark { font-size: 19px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page .fadeIn,
+  .page .pop { animation: none; }
+}
+
+/* the hero pair keeps its row: "Buy an Agent Behaviour Policy" beside "See Policy
+   examples" is ten pixels wider than the column at 1280, and the design wraps rather
+   than shrinks. Tighten the padding and the gap instead of stacking them. */
+.page .heroCopy .actions{gap:10px}
+.page .heroCopy .actions .btn{padding:0 20px}
 
 .ghlink{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:8px;color:var(--muted);border:1px solid transparent}.ghlink:hover{color:var(--text);border-color:var(--border)}
 .footlic{display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap}.footlic a{color:inherit}.ccicon{vertical-align:-3px;margin:0 2px}
-@media (max-width:1400px) and (min-width:901px){.ghlink,header.top a.version{display:none}header.top .wrap{gap:14px}}
-/* the four levels, one strip: each is the one below plus one thing */
-.lv4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:26px}
-@media (max-width:820px){.lv4{grid-template-columns:1fr 1fr}}
-.lvc{display:flex;flex-direction:column;gap:4px;padding:14px 16px;border:1px solid var(--border);border-radius:var(--r);background:var(--card);color:var(--text);text-decoration:none}
-.lvc:hover{border-color:var(--green)}
-.lvc .n{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--green)}
-.lvc b{font-size:14.5px;letter-spacing:-.01em;line-height:1.25}
-.lvc span:last-child{font-size:12.5px;color:var(--muted)}
-.lvnote{margin-top:12px;font-size:13.5px;color:var(--muted)}
-.lvnote a{color:var(--green)}
-</style>
+@media (max-width:1400px) and (min-width:901px){.ghlink,header.top a.version{display:none}header.top .wrap{gap:14px}}</style>
 </head>
 <body id="top">
 
@@ -921,310 +1270,513 @@ a.ds{display:block;text-decoration:none;color:inherit}
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
     <a class="ghlink" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener" aria-label="The source, on GitHub" title="Open source · Apache-2.0 code · CC BY 4.0 pages"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a>
-      <a class="version" href="versions.html" title="What shipped in v1.25.0">v1.25.0</a>
+      <a class="version" href="versions.html" title="What shipped in v1.26.2">v1.26.2</a>
     <button class="demo" data-demo>Get in touch</button>
   </div>
 </header>
 
-</header>
+<div class="page">
 
-<main class="ins-hero">
-  <div class="wrap ins-hero-grid">
-    <div class="ins-hero-copy">
-      <span class="eyebrow"><span class="d"></span> Agent Behaviour Policies</span>
-      <h1>Make your agents <span class="it">insurable.</span></h1>
-      <p class="sub">That is the destination, and you cannot insure what nobody can describe. So the thing we make and sell today is an <b>Agent Behaviour Policy</b>: for one agent in one deployment, everything it can actually reach, what you authorised it to do, and the gap between the two. Fifteen are published in full, free, and you can open one before you read another word.</p>
-      <div class="cta-row">
-        <a class="btn btn-green" href="agent-behaviour-policy.html">Open a policy, free &rarr;</a>
-        <button class="btn btn-ghost" data-to="what">What is in one?</button>
-        <button class="btn btn-ghost" data-to="who">Which of these are you?</button>
-      </div>
-    </div>
-    <a class="pcard" href="abp-vault-claude-code-web.html">
-      <span class="pch"><span class="pck">Agent Behaviour Policy &middot; template</span><span class="pcv">Claude Code on the web, with one repository attached</span></span>
-      <span class="pcg">
-        <span class="pcr"><b class="pcn">15</b><span class="pcl">capabilities it can reach</span><span class="pcv2">the grant &middot; measured</span></span>
-        <span class="pcr"><b class="pcn go">6</b><span class="pcl">you actually asked for</span><span class="pcv2">the mandate &middot; elicited</span></span>
-        <span class="pcr hot"><b class="pcn">9</b><span class="pcl">it can do that you did not ask</span><span class="pcv2">the delta &middot; derived</span></span>
-        <span class="pcr"><b class="pcn warn">7</b><span class="pcl">with nothing real in the way</span><span class="pcv2">the barrier &middot; recorded</span></span>
-      </span>
-      <span class="pcf">Read live from the vault. No score: it describes, it does not judge. <b>Open this policy &rarr;</b></span>
-    </a>
-  </div>
-  <div class="wrap ins-standards">
-    <span>Measured against the standards underwriters are adopting</span>
-    <em>ISO/IEC 42001</em><em>OWASP Agentic Top 10</em><em>NIST AI RMF</em><em>ISO/IEC 27001</em>
-  </div>
-</main>
 
-<div class="paper">
+  <main>
 
-  <!-- who is arriving -->
-  <section class="ins-section" id="who">
-    <div class="wrap">
-      <div class="shead">
-        <span class="tag">Who is arriving</span>
-        <h2>Three people ask this, <span class="g">and they ask it differently.</span></h2>
-        <p>The document is the same. What changes is the question it answers and which part of it you read first &mdash; which is why a policy vault carries a view per audience rather than one report everybody squints at.</p>
-      </div>
-      <div class="whoc">
-        <a class="wc" href="for-corporate.html">
-          <span class="wk">You run agents today</span>
-          <h3>&ldquo;Do you know what it can actually do? Not what it did &mdash; what it can.&rdquo;</h3>
-          <p>You gave an assistant a repository, a mailbox, a cloud account. You know what you asked for. Nobody enumerates the rest.</p>
-          <span class="wgo">What you get &rarr;</span>
-        </a>
-        <a class="wc" href="for-founders.html">
-          <span class="wk">You are a founder</span>
-          <h3>&ldquo;Would you like to know what diligence finds, before it runs?&rdquo;</h3>
-          <p>The reassuring version of this is already free in several places. The useful direction is the opposite one.</p>
-          <span class="wgo">What you get &rarr;</span>
-        </a>
-        <a class="wc" href="for-startups.html">
-          <span class="wk">You are a startup</span>
-          <h3>&ldquo;What is your buyer&rsquo;s security team going to ask about your agents?&rdquo;</h3>
-          <p>The questionnaire is coming, and the questions are about reach rather than about which model you use.</p>
-          <span class="wgo">What you get &rarr;</span>
-        </a>
-      </div>
-      <p class="ins-note">A fourth group &mdash; investors asking what a portfolio company&rsquo;s agents can reach &mdash; is written up on <a href="summit.html">the Lisbon page</a> and has not been given its own page yet.</p>
-    </div>
-  </section>
-  <!-- what an ABP is -->
-  <section class="ins-section alt" id="what">
-    <div class="wrap">
-      <div class="shead">
-        <span class="tag">What an Agent Behaviour Policy is</span>
-        <h2>One agent, one deployment, <span class="g">written down.</span></h2>
-        <p>Four objects, and the verb attached to each says how it is established. Three of them a person can write down out of what they understand today. The fourth is computed from the first two, and it is the one nobody has looked at.</p>
-      </div>
-      <div class="objs">
-        <div class="obj"><span class="ok">Grant</span><h3>Everything it can reach</h3><p>Not what somebody decided to give it. What it can actually reach in this deployment, including everything nobody thought about.</p><span class="ov">measured</span></div>
-        <div class="obj"><span class="ok">Mandate</span><h3>What you authorised it to do</h3><p>The job, written down. The one object only you can supply, and it takes minutes because you already know it.</p><span class="ov">elicited</span></div>
-        <div class="obj derived"><span class="ok">Delta</span><h3>The gap between the two</h3><p>Excess where it can and you did not ask; shortfall where you asked and it cannot. Never written by hand, recomputed whenever either input moves.</p><span class="ov">derived</span></div>
-        <div class="obj"><span class="ok">Barrier</span><h3>What stands in the way</h3><p>Per capability, one of four kinds &mdash; and only the fourth bounds anything. A prohibition shown without its barrier is a claim we cannot support.</p><span class="ov">recorded</span></div>
-      </div>
-      <p class="ins-note">It carries no score. It describes and it does not judge, because the same grant is reasonable in one deployment and serious in another, and a number hides which.</p>
-    </div>
-  </section>
-  <!-- what you actually get -->
-  <section class="ins-section" id="deliver">
-    <div class="wrap">
-      <div class="shead">
-        <span class="tag">What it delivers</span>
-        <h2>A vault, <span class="g">not a PDF.</span></h2>
-        <p>A policy arrives as an encrypted vault you hold the keys to, with an app inside it. Four audiences read the same record and need different things out of it: the operator needs instructions, leadership needs a decision, security needs evidence, and an insurance conversation needs explicit scope and open questions.</p>
-      </div>
-      <div class="dlv">
-        <div class="dl"><span class="dln">01</span><h3>Files your agent can read</h3><p><code>AGENTS.md</code> and <code>SKILL.md</code> go into the agent&rsquo;s own context, so the thing being governed can read the terms it runs under. Copy them, take the zip, or hand over the PDF.</p></div>
-        <div class="dl"><span class="dln">02</span><h3>The policy, and its workings</h3><p><code>AGENT-BEHAVIOUR-POLICY.md</code>, <code>GRANT.md</code> and <code>DELTA.md</code>: every capability with the barrier against it, and the gap recomputed from both inputs with their versions pinned.</p></div>
-        <div class="dl"><span class="dln">03</span><h3>A mandate you correct</h3><p>The starting mandate is written to be argued with. Move a row in the app and the delta recomputes; export the corrected <code>mandate.json</code> and it is yours.</p></div>
-        <div class="dl"><span class="dln">04</span><h3>A licence to operate</h3><p><code>LICENCE-TO-OPERATE.md</code>: the organisation is the authority, the policy is the instrument, the agent is the licensee. It ships unissued, with the name and the interval blank until somebody fills them in.</p></div>
-      </div>
-      <div class="cta-row" style="margin-top:34px">
-        <a class="btn btn-green" href="agent-behaviour-policy.html">See the fifteen &rarr;</a>
-        <a class="btn btn-ghost-dark" href="abp-vaults.html">Open a vault live</a>
-        <a class="btn btn-ghost-dark" href="licence-to-operate.html">What a licence to operate is</a>
-      </div>
-    </div>
-  </section>
-  <!-- how to get one -->
-  <section class="ins-section alt" id="buy">
-    <div class="wrap">
-      <div class="shead">
-        <span class="tag">How to get one</span>
-        <h2>Fifteen are free. <span class="g">Four levels are not.</span></h2>
-        <p>Every template shape is published in full with a read key, and you should open one before you buy anything. What the paid levels add is a commercial licence over the same material and, at the top two, a named security professional doing the correction with you.</p>
-      </div>
-      <div class="lvl4">
-        <div class="lv"><span class="lvn">Free</span><h3>The published templates</h3><p>Fifteen shapes, read keys printed, Creative Commons Attribution. Open, check, and use with credit.</p><a class="lvgo" href="agent-behaviour-policy.html">Open one &rarr;</a></div>
-        <div class="lv"><span class="lvn">Level 1</span><h3>The pack, downloaded</h3><p>Every file for the shape you picked, as a zip, licensed to you rather than to the world.</p><a class="lvgo" href="https://store.sgit.ai/d/t1/" target="_blank" rel="noopener">At the store &nearr;</a></div>
-        <div class="lv"><span class="lvn">Level 2</span><h3>A vault you hold the keys to</h3><p>The same material as a vault of your own, licensed in your name, with no public key on it.</p><a class="lvgo" href="https://store.sgit.ai/d/t2/" target="_blank" rel="noopener">At the store &nearr;</a></div>
-        <div class="lv"><span class="lvn">Level 3</span><h3>Corrected for your situation</h3><p>The mandate corrected against your industry, your use case and what you send, with a written note of what changed.</p><a class="lvgo" href="https://store.sgit.ai/d/t3/" target="_blank" rel="noopener">At the store &nearr;</a></div>
-        <div class="lv"><span class="lvn">Level 4</span><h3>Two sessions with your team</h3><p>Built from an interview, reviewed, and signed off by a named security professional.</p><a class="lvgo" href="https://store.sgit.ai/d/t4/" target="_blank" rel="noopener">At the store &nearr;</a></div>
-      </div>
-      <p class="ins-note"><b>We do not run a cart and we do not hold a price.</b> The store owns the order, the prices and the page you land on after paying; this site owns the policies, the templates and the explanation. That boundary is <a href="https://store.sgit.ai/boundary/" target="_blank" rel="noopener">published on their side</a> so it cannot quietly move. <a href="https://store.sgit.ai/compare/" target="_blank" rel="noopener">Every level side by side &nearr;</a> &middot; <a href="pricing.html">where the free line falls</a></p>
-    </div>
-  </section>
-  <!-- the grant you did not enumerate -->
-  <section class="ins-section" id="grant">
-    <div class="wrap">
-      <div class="shead">
-        <span class="tag">The state you are already in</span>
-        <h2>Nothing is coming. <span class="g">You already connected it.</span></h2>
-        <p>There is no deadline here, and we are not going to invent one. The exposure was created the moment somebody clicked authorise — last month, probably, on a mailbox or a drive — and it has never been enumerated. Below are three sentences from three vendors' own documentation, with the dates we read them. We have attached no adjective to any of them.</p>
-      </div>
-
-      <div class="grants">
-        <div class="gq">
-          <span class="gqk">Mail</span>
-          <blockquote>The only scope that lets anything read a message reads every message in the mailbox. There is no scope that filters by sender, by label or by date.</blockquote>
-          <span class="gqs">Derived from the publisher's own scope definitions at <a href="https://developers.google.com/workspace/gmail/api/auth/scopes" target="_blank" rel="noopener">developers.google.com</a>, read 12 September 2026. Quoted in full, with the scope names, in <a href="lab-connector-grants.html">Lab 01</a>.</span>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container heroGrid">
+        <div class="heroCopy">
+          <h1 id="hero-title" class="h1">Know what your agents can do.</h1>
+          <div class="heroLead">
+            <p class="heroKicker">Not what they did. What they can.</p>
+            <p class="heroText">An Agent Behaviour Policy writes down what one agent can really reach, what you authorised it to do and the gap between the two, in one record the CEO, CTO and CISO can all stand behind.</p>
+          </div>
+          <div class="actions">
+            <a class="btn btnPrimary" href="https://store.sgit.ai/policies/" target="_blank" rel="noopener">Buy an Agent Behaviour Policy</a>
+            <a class="btn btnOutline" href="agent-behaviour-policy.html">See Policy examples</a>
+          </div>
+          <p class="priceNote"><strong>From £10 for one agent.</strong> All sixteen published examples are free to read.</p>
         </div>
-        <div class="gq">
-          <span class="gqk">Files</span>
-          <blockquote>The default file-search corpus is defined by its own publisher as files owned by <em>or shared to</em> the user.</blockquote>
-          <span class="gqs">The <code>corpora</code> default at <a href="https://developers.google.com/workspace/drive/api/reference/rest/v3/files/list" target="_blank" rel="noopener">developers.google.com</a>, read 12 September 2026. So everything a colleague, client or counterparty ever shared with that person is inside the default search on day one, without anybody choosing it.</span>
-        </div>
-        <div class="gq">
-          <span class="gqk">The corporate file estate</span>
-          <blockquote>Site-specific permissioning is not supported because the underlying search is tenant-wide.</blockquote>
-          <span class="gqs">A vendor's own connector security guide, read 12 September 2026 — a published statement that the intended narrowing mechanism is unavailable, leaving revocation as the only remaining lever.</span>
+
+        <figure class="figure">
+          <svg class="diagram" viewBox="0 0 560 560" role="img" aria-label="An agent at the centre. A green ring holds the six capabilities it was authorised to use. A wider dashed boundary holds everything it can reach, with nine more capabilities in the gap between the two.">
+            <g class="fadeIn">
+              <circle cx="280" cy="280" r="274" fill="none" stroke="#0B7A4B" stroke-opacity="0.16" stroke-width="1" stroke-dasharray="2 7"></circle>
+              <circle cx="280" cy="280" r="246" fill="none" stroke="#0B7A4B" stroke-opacity="0.12" stroke-width="1"></circle>
+              <path d="M2 280H558M280 2V558" stroke="#0B7A4B" stroke-opacity="0.12" stroke-width="1"></path>
+            </g>
+            <circle class="fadeIn" style="animation-delay: 950ms" cx="280" cy="280" r="212" fill="#FAEFD6" stroke="#14201A" stroke-opacity="0.5" stroke-width="2" stroke-dasharray="7 8"></circle>
+            <g class="fadeIn" style="animation-delay: 120ms">
+              <circle cx="280" cy="280" r="126" fill="#FFFFFF" stroke="#16A864" stroke-width="18"></circle>
+              <path d="M280 122V152M438 280H408M280 438V408M122 280H152" stroke="#16A864" stroke-width="16"></path>
+              <circle cx="280" cy="280" r="56" fill="#14201A"></circle>
+              <text class="diagramLabel" x="280" y="286" text-anchor="middle" fill="#F3F7F4">Agent</text>
+            </g>
+            <circle class="pop" style="animation-delay: 420ms" cx="325" cy="202" r="9.5" fill="#16A864"></circle>
+            <circle class="pop" style="animation-delay: 480ms" cx="370" cy="280" r="9.5" fill="#16A864"></circle>
+            <circle class="pop" style="animation-delay: 540ms" cx="325" cy="358" r="9.5" fill="#16A864"></circle>
+            <circle class="pop" style="animation-delay: 600ms" cx="235" cy="358" r="9.5" fill="#16A864"></circle>
+            <circle class="pop" style="animation-delay: 660ms" cx="190" cy="280" r="9.5" fill="#16A864"></circle>
+            <circle class="pop" style="animation-delay: 720ms" cx="235" cy="202" r="9.5" fill="#16A864"></circle>
+            <circle class="pop" style="animation-delay: 1150ms" cx="344" cy="121" r="10.5" fill="#E3A21A" stroke="#FFFFFF" stroke-width="3"></circle>
+            <circle class="pop" style="animation-delay: 1230ms" cx="443" cy="178" r="10.5" fill="#E3A21A" stroke="#FFFFFF" stroke-width="3"></circle>
+            <circle class="pop" style="animation-delay: 1310ms" cx="450" cy="304" r="10.5" fill="#E3A21A" stroke="#FFFFFF" stroke-width="3"></circle>
+            <circle class="pop" style="animation-delay: 1390ms" cx="413" cy="418" r="10.5" fill="#E3A21A" stroke="#FFFFFF" stroke-width="3"></circle>
+            <circle class="pop" style="animation-delay: 1470ms" cx="304" cy="450" r="10.5" fill="#E3A21A" stroke="#FFFFFF" stroke-width="3"></circle>
+            <circle class="pop" style="animation-delay: 1550ms" cx="190" cy="450" r="10.5" fill="#E3A21A" stroke="#FFFFFF" stroke-width="3"></circle>
+            <circle class="pop" style="animation-delay: 1630ms" cx="123" cy="350" r="10.5" fill="#E3A21A" stroke="#FFFFFF" stroke-width="3"></circle>
+            <circle class="pop" style="animation-delay: 1710ms" cx="95" cy="227" r="10.5" fill="#E3A21A" stroke="#FFFFFF" stroke-width="3"></circle>
+            <circle class="pop" style="animation-delay: 1790ms" cx="184" cy="137" r="10.5" fill="#E3A21A" stroke="#FFFFFF" stroke-width="3"></circle>
+            <text class="fadeIn diagramLabel diagramGap" style="animation-delay: 1900ms" x="280" y="101" text-anchor="middle" fill="#7A4F00">The gap</text>
+          </svg>
+
+          <div class="legend">
+            <div class="legendItem">
+              <span class="legendNumber toneInk">15</span>
+              <span class="legendText">
+                <svg class="iconBlock" width="30" height="12" viewBox="0 0 30 12" aria-hidden="true"><path d="M1 6H29" stroke="#14201A" stroke-opacity="0.55" stroke-width="2" stroke-dasharray="5 4"></path></svg>
+                <span>capabilities it can reach</span>
+              </span>
+            </div>
+            <div class="legendItem">
+              <span class="legendNumber toneGreen">6</span>
+              <span class="legendText">
+                <svg class="iconBlock" width="30" height="12" viewBox="0 0 30 12" aria-hidden="true"><circle cx="6" cy="6" r="5.5" fill="#16A864"></circle></svg>
+                <span>that you actually asked for</span>
+              </span>
+            </div>
+            <div class="legendItem">
+              <span class="legendNumber toneAmber">9</span>
+              <span class="legendText">
+                <svg class="iconBlock" width="30" height="12" viewBox="0 0 30 12" aria-hidden="true"><circle cx="6" cy="6" r="5.5" fill="#E3A21A"></circle></svg>
+                <span>it can do that you didn’t ask for</span>
+              </span>
+            </div>
+            <div class="legendItem">
+              <span class="legendNumber toneInk">7</span>
+              <span class="legendText">
+                <svg class="iconBlock" width="30" height="12" viewBox="0 0 30 12" aria-hidden="true"><circle cx="6" cy="6" r="4.6" fill="none" stroke="#14201A" stroke-width="1.8"></circle></svg>
+                <span>with nothing real in the way</span>
+              </span>
+            </div>
+          </div>
+
+          <figcaption class="figcaption">From a published behaviour policy: Claude Code on the web, with one repository attached. <a class="inlineLink" href="abp-vault-claude-code-web.html">Open this behaviour policy</a></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="proof" aria-label="What stands behind every behaviour policy">
+      <div class="container proofInner">
+        <ul class="proofList">
+          <li class="proofItem">
+            <a class="proofLink" href="https://store.sgit.ai/ledger/index.html#claim-abp-templates-exist" target="_blank" rel="noopener">
+              <svg class="iconBlock" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#DDF1E6"></circle><path d="M7.2 12.3L10.3 15.4L16.7 8.6" fill="none" stroke="#0B7A4B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              <span class="proofText">16 templates, published free</span>
+            </a>
+          </li>
+          <li class="proofItem">
+            <a class="proofLink" href="https://store.sgit.ai/ledger/index.html#claim-abp-vault-build-exists" target="_blank" rel="noopener">
+              <svg class="iconBlock" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#DDF1E6"></circle><path d="M7.2 12.3L10.3 15.4L16.7 8.6" fill="none" stroke="#0B7A4B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              <span class="proofText">Working vaults you hold the keys to</span>
+            </a>
+          </li>
+          <li class="proofItem">
+            <a class="proofLink" href="https://store.sgit.ai/ledger/index.html#claim-abp-correction-by-a-person" target="_blank" rel="noopener">
+              <svg class="iconBlock" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#DDF1E6"></circle><path d="M7.2 12.3L10.3 15.4L16.7 8.6" fill="none" stroke="#0B7A4B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              <span class="proofText">Mandates corrected by a named professional</span>
+            </a>
+          </li>
+          <li class="proofItem">
+            <a class="proofLink" href="https://store.sgit.ai/ledger/index.html#claim-abp-sessions-by-a-person" target="_blank" rel="noopener">
+              <svg class="iconBlock" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#DDF1E6"></circle><path d="M7.2 12.3L10.3 15.4L16.7 8.6" fill="none" stroke="#0B7A4B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              <span class="proofText">Two sessions with your team, then sign-off</span>
+            </a>
+          </li>
+        </ul>
+        <div class="proofMeta">
+          <p class="small measure">Measured against the standards underwriters are adopting: ISO/IEC 42001, OWASP Agentic Top 10, NIST AI RMF and ISO/IEC 27001.</p>
+          <p class="small">Model-drafted and marked as such. Not a compliance assessment. We are not an insurer and place no cover. <a class="inlineLink" href="https://store.sgit.ai/disclosures/" target="_blank" rel="noopener">What we don’t claim</a></p>
         </div>
       </div>
+    </section>
 
-      <div class="gstate">
-        <p>The grant is user-shaped, not data-shaped.</p>
-        <p>The unit of restriction is the application, never the material. There is no supported way to say <em>this assistant may read my files except the folder the legal team shared with me</em>, or <em>my inbox except messages from outside the company</em>. Which means the only honest question is not whether to allow it. It is what, exactly, was allowed — and nobody has written that down.</p>
-      </div>
+    <section id="why" class="section paper" aria-labelledby="why-title">
+      <div class="container sectionInner gapWide">
+        <div class="whyTop">
+          <div class="whyCopy">
+            <h2 id="why-title" class="h2 h2Large">Every agent will need a licence to operate.</h2>
+            <p class="lede">Insurers are carving AI out of cover, and the business answers for what its agents do. Cover comes back when somebody can evidence what each agent can reach, what it was authorised to do and what actually contains it.</p>
+            <a class="link alignStart" href="insurance.html">Read the full argument</a>
+          </div>
+          <ol class="timeline" aria-label="What changed this year">
+            <li class="timelineItem">
+              <span class="timelineRail" aria-hidden="true">
+                <span class="timelineDot"></span>
+                <span class="timelineLine"></span>
+              </span>
+              <div class="timelineBody">
+                <p class="timelineDate">1 January 2026</p>
+                <p class="timelineText">A generative-AI exclusion took effect in the standard liability forms much of one large insurance market runs on. Several carriers have filed their own, one of them absolute.</p>
+              </div>
+            </li>
+            <li class="timelineItem">
+              <span class="timelineRail" aria-hidden="true">
+                <span class="timelineDot"></span>
+              </span>
+              <div class="timelineBody">
+                <p class="timelineDate">9 March 2026</p>
+                <p class="timelineText">A national consumer regulator said a business is responsible if an agent it uses does something illegal, and should be clear what the agent may do, what data it can access and what constraints apply.</p>
+              </div>
+            </li>
+          </ol>
+          <p class="small measure" style="grid-column:1/-1">Both dates, with the exclusion&rsquo;s announcement date and why the figures beside them are stated qualitatively rather than counted: <a class="inlineLink" href="insurance.html">on the insurance page</a>. Neither is our observation.</p>
+        </div>
 
-    </div>
-  </section>
-  <!-- where this goes -->
-  <section class="ins-section alt" id="ladder">
-    <div class="wrap">
-      <div class="shead">
-        <span class="tag">Where this goes</span>
-        <h2>Three rungs. <span class="g">We sell the first.</span></h2>
-        <p>Our job is to make agents insurable. An agent is insurable when the organisation has authorised it in a way that survives examination, which is a licence to operate. A licence to operate needs a description of the agent to be a licence for anything. So the work starts at the bottom, and the bottom is the part that exists, has the lowest touch, and can be delivered today.</p>
+        <div class="ladderWrap">
+          <p class="ladderLead">Three steps, in order. Each one needs the step before it.</p>
+          <ol class="ladder">
+            <li class="step stepLive">
+              <div class="stepTop">
+                <span class="stepNumber stepNumberLive" aria-hidden="true">1</span>
+                <span class="pill pillLive">Available now</span>
+              </div>
+              <div class="titleGroup">
+                <h3 class="h3">Describe it</h3>
+                <p class="stepProduct">Agent Behaviour Policy</p>
+              </div>
+              <p class="text">What one agent can reach, what you authorised, the gap between them and what stands in the way.</p>
+              <a class="link pushDown" href="agent-behaviour-policy.html">See a behaviour policy</a>
+            </li>
+            <li class="step stepReady">
+              <div class="stepTop">
+                <span class="stepNumber" aria-hidden="true">2</span>
+                <span class="pill pillReady">Template available</span>
+              </div>
+              <div class="titleGroup">
+                <h3 class="h3">Authorise it</h3>
+                <p class="stepProduct">Licence to Operate</p>
+              </div>
+              <p class="text">The business is the authority, the behaviour policy is the instrument and the agent is the licensee, for a set interval.</p>
+              <a class="link pushDown" href="licence-to-operate.html">See the template</a>
+            </li>
+            <li class="step stepPlanned">
+              <div class="stepTop">
+                <span class="stepNumber" aria-hidden="true">3</span>
+                <span class="pill pillPlanned">In design</span>
+              </div>
+              <div class="titleGroup">
+                <h3 class="h3">Insure it</h3>
+                <p class="stepProduct">Insurability Index</p>
+              </div>
+              <p class="text">The record an underwriter will accept: scored, dated and with the residual risk owned.</p>
+              <a class="link pushDown" href="insurance.html">See the design</a>
+            </li>
+          </ol>
+        </div>
       </div>
-      <div class="chain">
-        <a class="ch here" href="agent-behaviour-policy.html"><span class="chn">01</span><h3>Agent Behaviour Policy</h3><p>What it can reach, what you authorised, the gap, and what stands in the way of each row.</p><span class="chs">What we sell today</span></a>
-        <a class="ch" href="licence-to-operate.html"><span class="chn">02</span><h3>Licence to Operate</h3><p>The organisation is the authority, the policy is the instrument, the agent is the licensee. For an interval.</p><span class="chs">Template ships, unissued</span></a>
-        <a class="ch" href="insurance.html"><span class="chn">03</span><h3>Make agents insurable</h3><p>The record an underwriter will accept: the Insurability Index, the five dimensions, and the risk owned with an expiry.</p><span class="chs">Design</span></a>
+    </section>
+
+    <section id="how" class="section white" aria-labelledby="how-title">
+      <div class="container sectionInner">
+        <div class="intro">
+          <h2 id="how-title" class="h2">Not a model property. A property of this deployment.</h2>
+          <p class="lede">The same model can be harmless in one setup and serious in another. Connect it to a mailbox and the narrowest Gmail scope that reads one message reads every message. So a behaviour policy describes one agent, in one deployment, in four parts, and carries no score. <a class="inlineLink" href="lab-connector-grants.html">See the scope evidence</a></p>
+        </div>
+        <div class="parts" id="parts">
+          <article class="part">
+            <svg class="iconBlock" width="56" height="56" viewBox="0 0 56 56" aria-hidden="true">
+              <circle cx="28" cy="28" r="25" fill="none" stroke="#14201A" stroke-width="2.2" stroke-dasharray="3.5 3.5"></circle>
+              <path d="M28 8V16M48 28H40M28 48V40M8 28H16" stroke="#C5D3CA" stroke-width="3"></path>
+              <circle cx="28" cy="28" r="12" fill="none" stroke="#C5D3CA" stroke-width="4"></circle>
+              <circle cx="28" cy="28" r="4.5" fill="#14201A"></circle>
+            </svg>
+            <div class="partHead">
+              <h3 class="h3">Reach</h3>
+              <p class="partMethod">Measured</p>
+            </div>
+            <p class="text">Everything the agent can actually access in this deployment, including what nobody thought to check.</p>
+          </article>
+          <article class="part">
+            <svg class="iconBlock" width="56" height="56" viewBox="0 0 56 56" aria-hidden="true">
+              <circle cx="28" cy="28" r="25" fill="none" stroke="#C5D3CA" stroke-width="1.6" stroke-dasharray="3.5 3.5"></circle>
+              <path d="M28 8V16M48 28H40M28 48V40M8 28H16" stroke="#C5D3CA" stroke-width="3"></path>
+              <circle cx="28" cy="28" r="12" fill="none" stroke="#16A864" stroke-width="4.5"></circle>
+              <circle cx="28" cy="28" r="4.5" fill="#14201A"></circle>
+            </svg>
+            <div class="partHead">
+              <h3 class="h3">Mandate</h3>
+              <p class="partMethod">Elicited</p>
+            </div>
+            <p class="text">The job, written down: what the business authorised it to do. The one part only you can supply.</p>
+          </article>
+          <article class="part">
+            <svg class="iconBlock" width="56" height="56" viewBox="0 0 56 56" aria-hidden="true">
+              <circle cx="28" cy="28" r="19.5" fill="none" stroke="#E3A21A" stroke-width="10"></circle>
+              <circle cx="28" cy="28" r="25" fill="none" stroke="#C5D3CA" stroke-width="1.6" stroke-dasharray="3.5 3.5"></circle>
+              <circle cx="28" cy="28" r="12" fill="none" stroke="#C5D3CA" stroke-width="4"></circle>
+              <circle cx="28" cy="28" r="4.5" fill="#14201A"></circle>
+            </svg>
+            <div class="partHead">
+              <h3 class="h3">Gap</h3>
+              <p class="partMethod">Derived</p>
+            </div>
+            <p class="text">Reach minus mandate. Never written by hand, and recomputed whenever either side moves.</p>
+          </article>
+          <article class="part">
+            <svg class="iconBlock" width="56" height="56" viewBox="0 0 56 56" aria-hidden="true">
+              <circle cx="28" cy="28" r="25" fill="none" stroke="#C5D3CA" stroke-width="1.6" stroke-dasharray="3.5 3.5"></circle>
+              <circle cx="28" cy="28" r="12" fill="none" stroke="#C5D3CA" stroke-width="4"></circle>
+              <path d="M28 7V17M49 28H39M28 49V39M7 28H17" stroke="#14201A" stroke-width="3.5"></path>
+              <circle cx="28" cy="28" r="4.5" fill="#14201A"></circle>
+            </svg>
+            <div class="partHead">
+              <h3 class="h3">Barriers</h3>
+              <p class="partMethod">Recorded</p>
+            </div>
+            <p class="text">What actually stands in the way of each capability: controls, constraints and open questions.</p>
+          </article>
+        </div>
+        <p class="small measure">The files and the data keep the older names for these: <code class="code">GRANT.md</code> is the reach and <code class="code">DELTA.md</code> is the gap, because the vocabulary is pinned at <a class="inlineLink" href="https://abp.sgit.ai/" target="_blank" rel="noopener">abp.sgit.ai</a> and sixteen published vaults are built against it. Same four objects, plainer words on this page.</p>
       </div>
-      <p class="ins-note">Each rung needs the one below it, which is why we sell the bottom one rather than the top. The argument for the top &mdash; cover being withdrawn, what changed in 2026, the Index and the acceptance mechanic &mdash; is kept in full on <a href="insurance.html">the insurance page</a>. It is off this page because this page sells what exists.</p>
+    </section>
+
+    <section id="leaders" class="section paper" aria-labelledby="leaders-title">
+      <div class="container sectionInner">
+        <div class="intro">
+          <h2 id="leaders-title" class="h2">One record. A view for everyone who answers for it.</h2>
+          <p class="lede">The behaviour policy lives in an encrypted vault you hold the keys to, with a reading app inside. Hand a read key to your board, your auditor or your broker and they see exactly what you see.</p>
+        </div>
+        <div class="roles">
+          <article class="role">
+            <div class="roleHead">
+              <h3 class="roleTitle">CEO</h3>
+              <p class="roleView">Leadership view</p>
+            </div>
+            <p class="roleQuestion">“What have we authorised, and who owns it if it goes wrong?”</p>
+            <p class="roleAnswer">The gap in plain terms, a named owner, and a trigger that brings the decision back for review.</p>
+          </article>
+          <article class="role">
+            <div class="roleHead">
+              <h3 class="roleTitle">CTO</h3>
+              <p class="roleView">Operator view</p>
+            </div>
+            <p class="roleQuestion">“How do we keep shipping agents without losing track of what they can touch?”</p>
+            <p class="roleAnswer">Terms your agent reads in its own context, as <code class="code">AGENTS.md</code> and <code class="code">SKILL.md</code>. Markdown for people, JSON for tools, and nothing in your request path.</p>
+          </article>
+          <article class="role">
+            <div class="roleHead">
+              <h3 class="roleTitle">CISO</h3>
+              <p class="roleView">Security view</p>
+            </div>
+            <p class="roleQuestion">“Can we prove what it can reach, and what actually stops it?”</p>
+            <p class="roleAnswer">Every capability with its barrier, the gap recomputed whenever an input changes, and every version kept.</p>
+          </article>
+          <article class="role">
+            <div class="roleHead">
+              <h3 class="roleTitle">Insurer</h3>
+              <p class="roleView">Insurance view</p>
+            </div>
+            <p class="roleQuestion">“What exactly are we being asked to cover?”</p>
+            <p class="roleAnswer">Explicit scope and the questions still open, so renewal starts from a record instead of a questionnaire.</p>
+          </article>
+        </div>
+        <div class="flow">
+          <p class="flowLead"><strong>It’s a draft on purpose.</strong> The people who built the agent, own what it touches and answer for it each correct the part they know. The correction is the product.</p>
+          <ol class="flowList" aria-label="How a behaviour policy is made">
+            <li class="flowItem">
+              <span class="flowStep">Draft</span>
+              <svg class="iconBlock" width="22" height="14" viewBox="0 0 22 14" aria-hidden="true"><path d="M1 7H19M13 1.5L19.5 7L13 12.5" fill="none" stroke="#0B7A4B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </li>
+            <li class="flowItem">
+              <span class="flowStep">Challenge</span>
+              <svg class="iconBlock" width="22" height="14" viewBox="0 0 22 14" aria-hidden="true"><path d="M1 7H19M13 1.5L19.5 7L13 12.5" fill="none" stroke="#0B7A4B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </li>
+            <li class="flowItem">
+              <span class="flowStep">Correct</span>
+              <svg class="iconBlock" width="22" height="14" viewBox="0 0 22 14" aria-hidden="true"><path d="M1 7H19M13 1.5L19.5 7L13 12.5" fill="none" stroke="#0B7A4B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </li>
+            <li class="flowItem">
+              <span class="flowStep">Review</span>
+              <svg class="iconBlock" width="22" height="14" viewBox="0 0 22 14" aria-hidden="true"><path d="M1 7H19M13 1.5L19.5 7L13 12.5" fill="none" stroke="#0B7A4B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </li>
+            <li class="flowItem">
+              <span class="flowStep flowStepFinal">Version</span>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" class="section white noDivider" aria-labelledby="pricing-title">
+      <div class="container sectionInner gapTight">
+        <div class="intro">
+          <h2 id="pricing-title" class="h2">One behaviour policy. Four ways to get it.</h2>
+          <p class="lede">The document is the same at every level. What changes is how it arrives and who does the correcting.</p>
+        </div>
+        <div class="shapes">
+          <p class="shapesLead">Sixteen published shapes to start from, including:</p>
+          <div class="chips">
+            <a class="chip" href="https://store.sgit.ai/policies/" target="_blank" rel="noopener">Claude Code</a>
+            <a class="chip" href="https://store.sgit.ai/policies/" target="_blank" rel="noopener">Claude Desktop</a>
+            <a class="chip" href="https://store.sgit.ai/policies/" target="_blank" rel="noopener">ChatGPT</a>
+            <a class="chip" href="https://store.sgit.ai/policies/" target="_blank" rel="noopener">Microsoft 365</a>
+            <a class="chip" href="https://store.sgit.ai/policies/" target="_blank" rel="noopener">Google Workspace</a>
+            <a class="chip" href="https://store.sgit.ai/policies/" target="_blank" rel="noopener">GitHub Actions</a>
+            <a class="chip" href="https://store.sgit.ai/policies/" target="_blank" rel="noopener">n8n</a>
+            <a class="chip chipOpen" href="https://store.sgit.ai/product/?level=t3" target="_blank" rel="noopener">Something else, from £500</a>
+          </div>
+        </div>
+        <div class="levels">
+          <article class="level">
+            <p class="levelLabel">Level 1</p>
+            <div class="levelHead">
+              <h3 class="levelName">ABP Pack</h3>
+              <p class="levelSummary">The behaviour policy files for your shape, downloaded and yours to keep.</p>
+            </div>
+            <p class="price">£10</p>
+            <div class="terms">
+              <span>Immediately</span>
+              <span class="termsSecondary">Paid in full up front</span>
+            </div>
+            <a class="evidence" href="https://store.sgit.ai/ledger/index.html#claim-abp-templates-exist" target="_blank" rel="noopener">
+              <svg class="iconBlock" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8L19.2 5.7V11.3C19.2 15.7 16.2 19.5 12 21.2C7.8 19.5 4.8 15.7 4.8 11.3V5.7L12 2.8Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path><path d="M8.6 12.1L10.9 14.4L15.4 9.7" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              <span class="evidenceText">Exists and runs</span>
+            </a>
+            <a class="btn btnBlock btnOutline" href="https://store.sgit.ai/product/?level=t1" target="_blank" rel="noopener">Choose this level</a>
+          </article>
+          <article class="level">
+            <p class="levelLabel">Level 2</p>
+            <div class="levelHead">
+              <h3 class="levelName">ABP Vault</h3>
+              <p class="levelSummary">The same material in a working vault, with your keys and version history.</p>
+            </div>
+            <p class="price">£50</p>
+            <div class="terms">
+              <span>1 to 2 days</span>
+              <span class="termsSecondary">Paid in full up front</span>
+            </div>
+            <a class="evidence" href="https://store.sgit.ai/ledger/index.html#claim-abp-vault-build-exists" target="_blank" rel="noopener">
+              <svg class="iconBlock" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8L19.2 5.7V11.3C19.2 15.7 16.2 19.5 12 21.2C7.8 19.5 4.8 15.7 4.8 11.3V5.7L12 2.8Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path><path d="M8.6 12.1L10.9 14.4L15.4 9.7" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              <span class="evidenceText">Exists and runs</span>
+            </a>
+            <a class="btn btnBlock btnOutline" href="https://store.sgit.ai/product/?level=t2" target="_blank" rel="noopener">Choose this level</a>
+          </article>
+          <article class="level">
+            <p class="levelLabel">Level 3</p>
+            <div class="levelHead">
+              <h3 class="levelName">ABP Tailored</h3>
+              <p class="levelSummary">A named security professional corrects the mandate for your deployment.</p>
+            </div>
+            <p class="price">£500</p>
+            <div class="terms">
+              <span>1 to 3 days from your reply</span>
+              <span class="termsSecondary">£100 now, £400 on delivery</span>
+            </div>
+            <a class="evidence" href="https://store.sgit.ai/ledger/index.html#claim-abp-correction-by-a-person" target="_blank" rel="noopener">
+              <svg class="iconBlock" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8L19.2 5.7V11.3C19.2 15.7 16.2 19.5 12 21.2C7.8 19.5 4.8 15.7 4.8 11.3V5.7L12 2.8Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path><path d="M8.6 12.1L10.9 14.4L15.4 9.7" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              <span class="evidenceText">Delivered by a person</span>
+            </a>
+            <a class="btn btnBlock btnOutline" href="https://store.sgit.ai/product/?level=t3" target="_blank" rel="noopener">Choose this level</a>
+          </article>
+          <article class="level levelFeatured">
+            <p class="levelLabel">Level 4</p>
+            <div class="levelHead">
+              <h3 class="levelName">ABP Reviewed</h3>
+              <p class="levelSummary">Two half-hour sessions with your team and a custom vault, reviewed and signed off.</p>
+            </div>
+            <p class="price">£1,500</p>
+            <div class="terms">
+              <span>1 to 5 days from your reply</span>
+              <span class="termsSecondary">£300 now, £1,200 on delivery</span>
+            </div>
+            <a class="evidence" href="https://store.sgit.ai/ledger/index.html#claim-abp-sessions-by-a-person" target="_blank" rel="noopener">
+              <svg class="iconBlock" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8L19.2 5.7V11.3C19.2 15.7 16.2 19.5 12 21.2C7.8 19.5 4.8 15.7 4.8 11.3V5.7L12 2.8Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path><path d="M8.6 12.1L10.9 14.4L15.4 9.7" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              <span class="evidenceText">Delivered by a person</span>
+            </a>
+            <a class="btn btnBlock btnBright" href="https://store.sgit.ai/product/?level=t4" target="_blank" rel="noopener">Choose this level</a>
+          </article>
+        </div>
+        <div class="pricingFoot">
+          <p class="text pricingNote">Prices in GBP, read from <a class="inlineLink" href="https://store.sgit.ai/compare/" target="_blank" rel="noopener">store.sgit.ai/compare</a> at store v0.3.24 on 17 September 2026; the store holds the cart and the price, so a figure that moves there is detectable here. <br>Paid levels carry a commercial licence to you; the sixteen published templates stay free to read and reuse under CC BY 4.0.</p>
+          <div class="pricingLinks">
+            <a class="link" href="https://store.sgit.ai/compare/" target="_blank" rel="noopener">Compare every level</a>
+            <a class="link" href="agent-behaviour-policy.html">Read a template first</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" aria-labelledby="cta-title">
+      <div class="container ctaGrid">
+        <div class="ctaCopy">
+          <h2 id="cta-title" class="ctaTitle">Start with the agent that worries you.</h2>
+          <p class="ctaText">Not the whole estate. One agent, already running, written down as a record you keep, correct and can hand to your insurer before they ask.</p>
+          <div class="actions">
+            <a class="btn btnBright" href="https://store.sgit.ai/policies/" target="_blank" rel="noopener">Buy an Agent Behaviour Policy</a>
+            <a class="btn btnGhost" href="agent-behaviour-policy.html">See Policy examples</a>
+          </div>
+        </div>
+        <svg class="ctaMark" width="220" height="220" viewBox="0 0 220 220" aria-hidden="true">
+          <circle cx="110" cy="110" r="104" fill="none" stroke="#16A864" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="2 6"></circle>
+          <circle cx="110" cy="110" r="62" fill="none" stroke="#16A864" stroke-width="16"></circle>
+          <path d="M110 28V56M110 164V192M28 110H56M164 110H192" stroke="#16A864" stroke-width="14"></path>
+          <circle cx="110" cy="110" r="44" fill="#0C1611"></circle>
+          <text x="110" y="122" text-anchor="middle" fill="#F3F7F4" font-size="34" font-weight="700" letter-spacing="-1">RM</text>
+        </svg>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footerInner">
+      <div class="footerGrid">
+        <div class="footerBrand">
+          <div class="footerLogo">
+            <svg class="iconBlock" width="36" height="36" viewBox="0 0 36 36" aria-hidden="true">
+              <rect width="36" height="36" rx="9" fill="#22332A"></rect>
+              <circle cx="18" cy="18" r="9.5" fill="none" stroke="#16A864" stroke-width="3.2"></circle>
+              <path d="M18 4.5V9.5M18 26.5V31.5M4.5 18H9.5M26.5 18H31.5" stroke="#16A864" stroke-width="3.2"></path>
+              <text x="18" y="20.7" text-anchor="middle" fill="#FFFFFF" font-size="7.5" font-weight="700">RM</text>
+            </svg>
+            <span class="wordmark footerWordmark">RiskMandate</span>
+          </div>
+          <p class="footerTagline">The insurability layer for agentic AI. Know the risk. Name the owner. Own the mandate.</p>
+        </div>
+        <nav class="footerNav" aria-label="Product">
+          <p class="footerHeading">Product</p>
+          <a class="footlink" href="agent-behaviour-policy.html">Agent Behaviour Policy</a>
+          <a class="footlink" href="licence-to-operate.html">Licence to Operate</a>
+          <a class="footlink" href="insurance.html">Insurability Index</a>
+          <a class="footlink" href="https://store.sgit.ai/compare/" target="_blank" rel="noopener">Compare levels</a>
+        </nav>
+        <nav class="footerNav" aria-label="Evidence">
+          <p class="footerHeading">Evidence</p>
+          <a class="footlink" href="https://store.sgit.ai/ledger/" target="_blank" rel="noopener">Claim ledger</a>
+          <a class="footlink" href="https://store.sgit.ai/disclosures/" target="_blank" rel="noopener">What we don’t claim</a>
+          <a class="footlink" href="versions.html">Release history</a>
+          <a class="footlink" href="admin/">Admin</a>
+        </nav>
+        <nav class="footerNav" aria-label="Open source">
+          <p class="footerHeading">Open source</p>
+          <a class="footlink" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener">Code on GitHub</a>
+          <a class="footlink" href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0 licence</a>
+          <a class="footlink" href="https://open-source.sgit.ai/" target="_blank" rel="noopener">Why we publish it</a>
+        </nav>
+      </div>
+      <div class="footerBottom">
+        <span>© 2026 RiskMandate</span>
+        <span>Code Apache-2.0. Pages and behaviour policies CC BY 4.0.</span>
+      </div>
     </div>
-  </section>
+  </footer>
+
 </div>
 
-<section class="ins-cta" id="demo">
-  <div class="wrap">
-    <span class="eyebrow"><span class="d"></span> Before your carrier asks</span>
-    <h2>View an example. <span class="it">Then buy the Agent Behaviour Policy for your agent.</span></h2>
-    <p>Fifteen example Agent Behaviour Policies are on this site, free, read live from their vaults with published keys. Pick the application closest to yours and read it. When you want the one that describes <em>your</em> deployment &mdash; the mandate corrected, a name on the licence, no public key &mdash; it is four levels at the store, from &pound;5 for the pack to &pound;1,500 with a professional's signature on it.</p>
-    <div class="cta-row">
-      <a class="btn btn-green" href="agent-behaviour-policy.html">View an example policy →</a>
-      <a class="btn btn-ghost" href="https://store.sgit.ai/policies/" target="_blank" rel="noopener">Buy one ↗</a>
-      <a class="btn btn-ghost" href="pricing.html">The four levels</a>
-    </div>
-  </div>
-</section>
-
-<footer class="foot">
-  <div class="wrap">
-    <span>© 2026 RiskMandate · Know the risk. Name the owner. Own the mandate.</span>
-    <span><a class="footlink" href="versions.html">Versions</a> · <a class="footlink" href="admin/">Admin</a></span>
-    <span class="footlic"><a href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener">Open source on GitHub</a> · code Apache-2.0 · pages and policies <a rel="license" href="https://creativecommons.org/licenses/by/4.0/" target="_blank" title="Creative Commons Attribution 4.0 — take it, credit it"><svg class="ccicon" width="38" height="16" viewBox="0 0 76 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="2.5"></circle><text x="16" y="21" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14" font-weight="800" fill="currentColor">CC</text><circle cx="60" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="2.5"></circle><text x="60" y="21" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14" font-weight="800" fill="currentColor">BY</text></svg> CC BY 4.0</a> · <a href="https://open-source.sgit.ai/" target="_blank" rel="noopener">why</a></span>
-  </div>
-</footer>
 
 <script>
 (function(){
 'use strict';
 var RM={core:{},services:{},components:{},data:{}};
-RM.data.pages=[{"name":"abp","label":"Agent Behaviour Policy","file":"abp.html","group":"Policies"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"Policies"},{"name":"agents","label":"Agents","file":"agents.html","group":"Policies"},{"name":"agent-behaviour-policy","label":"Agent Behaviour Policies","file":"agent-behaviour-policy.html","group":"Policies"},{"name":"licence-to-operate","label":"Licence to Operate","file":"licence-to-operate.html","group":"Policies"},{"name":"for-corporate","label":"You run agents today","file":"for-corporate.html","group":"Who it's for"},{"name":"for-founders","label":"You are a founder","file":"for-founders.html","group":"Who it's for"},{"name":"for-startups","label":"You are a startup","file":"for-startups.html","group":"Who it's for"},{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"Insurance"},{"name":"acceptable","label":"Accepted is not acceptable","file":"acceptable.html","group":"Insurance"},{"name":"acceptance","label":"You own the risk","file":"acceptance.html","group":"Insurance"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"Insurance"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"Insurance"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"Insurance"},{"name":"statics","label":"Static scenarios","file":"statics.html","group":"Insurance"},{"name":"insurance","label":"Make agents insurable","file":"insurance.html","group":"Insurance"},{"name":"demos","label":"All demos","file":"demos.html","group":"Live demos"},{"name":"demo-licence-to-operate","label":"Licence to Operate","file":"demo-licence-to-operate.html","group":"Live demos"},{"name":"demo-risk-graph-explorer","label":"RiskGraph Explorer","file":"demo-risk-graph-explorer.html","group":"Live demos"},{"name":"demo-agentic-browser-isolation","label":"Agentic Browser Isolation","file":"demo-agentic-browser-isolation.html","group":"Live demos"},{"name":"demo-risk-mandate-field","label":"RiskMandate field demo","file":"demo-risk-mandate-field.html","group":"Live demos"},{"name":"demo-file-security","label":"File security walk","file":"demo-file-security.html","group":"Live demos"},{"name":"demo-agent-permission-games","label":"Permission games","file":"demo-agent-permission-games.html","group":"Live demos"},{"name":"summit","label":"Lisbon 2026","file":"summit.html"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"lab","label":"The Lab","file":"lab.html","group":"More"},{"name":"admin","label":"Admin","file":"admin/","group":"More"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"briefs","label":"Brief register","file":"briefs.html","group":"More"},{"name":"work","label":"Working with us","file":"work.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"after-payment","label":"After payment (store debrief)","file":"after-payment.html","group":"More"},{"name":"synthetic-users","label":"Synthetic users","file":"synthetic-users.html","group":"More"}];RM.data.sections=[];
-
-'use strict';
-// core/risk-queue.js — pure risk-queue domain logic: status init, counts,
-// risk score, per-row view-model, and the accept/info state transition.
-// Zero DOM, zero IO. Dependency: none. Consumed by components/risk-queue.js.
-
-RM.core.riskQueue = (function () {
-  /**
-   * Build the initial status map from the risk records.
-   * @param {Array<{id:string,init:string}>} risks
-   * @returns {Object<string,string>} id -> status
-   */
-  function initialStatus(risks) {
-    var status = {};
-    risks.forEach(function (r) { status[r.id] = r.init; });
-    return status;
-  }
-
-  /**
-   * Tally statuses.
-   * @param {Array<{id:string}>} risks
-   * @param {Object<string,string>} status
-   * @returns {{unaddressed:number,info:number,accepted:number}}
-   */
-  function counts(risks, status) {
-    var c = { unaddressed: 0, info: 0, accepted: 0 };
-    risks.forEach(function (r) {
-      var s = status[r.id];
-      if (s === 'unaddressed') c.unaddressed++;
-      else if (s === 'info_requested') c.info++;
-      else if (s === 'accepted') c.accepted++;
-    });
-    return c;
-  }
-
-  /**
-   * Derived risk score. Known-answer: 1 unaddressed -> 74, 0 -> 38.
-   * @param {{unaddressed:number}} c
-   * @returns {number}
-   */
-  function riskScore(c) { return 38 + 36 * c.unaddressed; }
-
-  /**
-   * View-model for one risk row's meta line: a label string plus the
-   * semantic class applied to the status token. No HTML is produced here.
-   * @param {{tri:string,age:string}} risk
-   * @param {string} status
-   * @returns {{tri:string, statusText:string, statusClass:string, age:(string|null)}}
-   */
-  function rowMeta(risk, status) {
-    if (status === 'info_requested') {
-      return { tri: risk.tri, statusText: 'Info requested', statusClass: 'info', age: null };
-    }
-    if (status === 'accepted') {
-      return { tri: risk.tri, statusText: 'Accepted · 1w', statusClass: 'ok', age: risk.age };
-    }
-    return { tri: risk.tri, statusText: 'Unaddressed', statusClass: 'bad', age: risk.age };
-  }
-
-  /**
-   * Apply an action to a risk, returning a NEW status map (pure — no mutation),
-   * plus the id that should become selected (next unaddressed, else unchanged).
-   * @param {Array<{id:string}>} risks
-   * @param {Object<string,string>} status
-   * @param {string} id
-   * @param {('accepted'|'info_requested')} to
-   * @param {string} currentSel
-   * @returns {{status:Object<string,string>, sel:string}}
-   */
-  function applyAction(risks, status, id, to, currentSel) {
-    var next = Object.assign({}, status);
-    next[id] = to;
-    var nextUn = risks.find(function (r) { return next[r.id] === 'unaddressed'; });
-    return { status: next, sel: nextUn ? nextUn.id : currentSel };
-  }
-
-  return {
-    initialStatus: initialStatus,
-    counts: counts,
-    riskScore: riskScore,
-    rowMeta: rowMeta,
-    applyAction: applyAction
-  };
-})();
-
-
-'use strict';
-// data.js — static app data for the risk-queue demo. App configuration, not
-// fetched content; inlined at build time.
-
-RM.data.risks = [
-  { id: 'RM-001', name: 'agent.invoice-processing', level: 'Critical', tri: '3/3', init: 'unaddressed', age: '72h exposed',
-    ai: 'AGT-003 active 72h with no mandate. Full trifecta. Assign an owner now — this is your highest-priority risk.' },
-  { id: 'RM-002', name: 'agent.erp-procurement', level: 'Critical', tri: '3/3', init: 'accepted', age: '6d remaining',
-    ai: 'Generate a Capability Certificate before the 1w window expires. Remove ERP Write and Payment Auth from scope.' },
-  { id: 'RM-003', name: 'agent.supplier-review', level: 'High', tri: '2/3', init: 'accepted', age: '22d remaining',
-    ai: '2/3 trifecta — no exfiltration path. Risk appropriately managed. Review at next mandate renewal.' }
-];
-
-RM.data.levelColor = { Critical: 'var(--red)', High: 'var(--gold)' };
-
+RM.data.pages=[{"name":"agent-behaviour-policy","label":"The sixteen examples","file":"agent-behaviour-policy.html","group":"Behaviour policies"},{"name":"abp","label":"What an ABP is","file":"abp.html","group":"Behaviour policies"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"Behaviour policies"},{"name":"licence-to-operate","label":"Licence to Operate","file":"licence-to-operate.html","group":"Behaviour policies"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"Behaviour policies"},{"name":"for-corporate","label":"You run agents today","file":"for-corporate.html","group":"Who it's for"},{"name":"for-founders","label":"You are a founder","file":"for-founders.html","group":"Who it's for"},{"name":"for-startups","label":"You are a startup","file":"for-startups.html","group":"Who it's for"},{"name":"insurance","label":"Make agents insurable","file":"insurance.html","group":"Insurance"},{"name":"insure-a-program","label":"Can you insure a program?","file":"insure-a-program.html","group":"Insurance"},{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"Insurance"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"Insurance"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"Insurance"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"lab","label":"The Lab","file":"lab.html","group":"More"},{"name":"demos","label":"Live demos","file":"demos.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"admin","label":"Admin","file":"admin/","group":"More"}];RM.data.sections=[];
 
 'use strict';
 // components/dom.js — tiny DOM helpers shared by components. `el` builds an
@@ -1503,123 +2055,6 @@ RM.components.nav = (function () {
 
 
 'use strict';
-// components/risk-queue.js — <rm-risk-queue>. The interactive hero terminal.
-// Holds instance state (status map, selection, busy latch); renders rows and
-// the action panel from the pure RM.core.riskQueue selectors. Light DOM so the
-// existing .term/.row CSS applies. Delegated handleEvent; listener removed in
-// disconnectedCallback.
-
-(function () {
-  var dom = RM.components.dom;
-  var core = RM.core.riskQueue;
-
-  RM.components.RiskQueue = class extends HTMLElement {
-    connectedCallback() {
-      this._risks = RM.data.risks;
-      this._levelColor = RM.data.levelColor;
-      this._status = core.initialStatus(this._risks);
-      this._sel = this._risks.length ? this._risks[0].id : null;
-      this._busy = false;
-      this._build();
-      this._render();
-      this.addEventListener('click', this);
-    }
-    disconnectedCallback() { this.removeEventListener('click', this); }
-
-    _build() {
-      var el = dom.el;
-      var bar = el('div', { class: 'term-bar' }, [
-        el('span', { class: 'lights' }, [el('i', { class: 'l1' }), el('i', { class: 'l2' }), el('i', { class: 'l3' })]),
-        el('span', { class: 'ttl' }, ['risk-mandate · risk-queue']),
-        el('span', { class: 'live' }, [el('i'), ' LIVE'])
-      ]);
-      var defs = [['un', 'Unaddressed', 'var(--red)'], ['info', 'Info Req.', 'var(--gold)'],
-                  ['acc', 'Accepted', 'var(--green-2)'], ['score', 'Risk score', '#5b9dff']];
-      this._stat = {};
-      var stats = el('div', { class: 'stats' }, defs.map(function (d) {
-        var num = el('div', { class: 'num', style: 'color:' + d[2] }, ['0']);
-        this._stat[d[0]] = num;
-        return el('div', { class: 'stat' }, [num, el('div', { class: 'lab' }, [d[1]])]);
-      }, this));
-      this._qhead = el('div', { class: 'qhead' }, ['']);
-      this._rows = el('div', { class: 'rows' });
-      this._action = el('div', { class: 'action' });
-      var term = el('section', { class: 'term', 'aria-label': 'Risk queue (interactive)' },
-        [bar, stats, this._qhead, this._rows, this._action]);
-      this.appendChild(term);
-    }
-
-    _render() {
-      var c = core.counts(this._risks, this._status);
-      this._stat.un.textContent = c.unaddressed;
-      this._stat.info.textContent = c.info;
-      this._stat.acc.textContent = c.accepted;
-      this._stat.score.textContent = core.riskScore(c);
-      this._qhead.textContent = 'RISK QUEUE · ' + c.unaddressed + ' UNADDRESSED';
-
-      this._rows.textContent = '';
-      var self = this;
-      this._risks.forEach(function (r) {
-        var meta = core.rowMeta(r, self._status[r.id]);
-        var metaEl = dom.el('div', { class: 'meta' }, [meta.tri + ' trifecta · ']);
-        metaEl.appendChild(dom.el('span', { class: meta.statusClass }, [meta.statusText]));
-        if (meta.age) metaEl.appendChild(document.createTextNode(' · ' + meta.age));
-        var dotColor = self._status[r.id] === 'unaddressed' ? 'var(--red)' : 'var(--green-2)';
-        var row = dom.el('div', { class: 'row' + (r.id === self._sel ? ' sel' : ''), 'data-id': r.id }, [
-          dom.el('span', { class: 'dot', style: 'background:' + dotColor }),
-          dom.el('div', { class: 'rbody' }, [dom.el('div', { class: 'name' }, [r.name]), metaEl]),
-          dom.el('span', { class: 'lvl', style: 'color:' + (self._levelColor[r.level] || 'var(--fg-2)') }, [r.level])
-        ]);
-        self._rows.appendChild(row);
-      });
-
-      this._action.textContent = '';
-      if (c.unaddressed === 0) {
-        this._action.appendChild(dom.el('div', { class: 'cleared' }, [
-          dom.el('div', { class: 'big' }, ['✓ Risk queue cleared']),
-          dom.el('div', { class: 'sm' }, ['Every agent has an owner and a decision. Review on expiry.'])
-        ]));
-        return;
-      }
-      var r = this._risks.find(function (x) { return x.id === self._sel; });
-      var actionable = this._status[this._sel] === 'unaddressed';
-      this._action.appendChild(dom.el('div', { class: 'ai' }, [
-        dom.el('div', { class: 'lab' }, ['✦ AI RECOMMENDATION']),
-        dom.el('p', null, [r ? r.ai : ''])
-      ]));
-      var accept = dom.el('button', { class: 'accept' }, ['Accept for 1 Week']);
-      var info = dom.el('button', { class: 'info' }, ['Request Info']);
-      if (!actionable) { accept.disabled = true; info.disabled = true; }
-      this._action.appendChild(dom.el('div', { class: 'acts' }, [accept, info]));
-    }
-
-    handleEvent(e) {
-      if (this._busy) return;
-      var btn = e.target.closest('.accept, .info');
-      if (btn && !btn.disabled) {
-        this._act(this._sel, btn.classList.contains('accept') ? 'accepted' : 'info_requested');
-        return;
-      }
-      var row = e.target.closest('.row');
-      if (row) { this._sel = row.getAttribute('data-id'); this._render(); }
-    }
-
-    _act(id, to) {
-      this._busy = true;
-      var res = core.applyAction(this._risks, this._status, id, to, this._sel);
-      this._status = res.status;
-      this._sel = res.sel;
-      var self = this;
-      setTimeout(function () { self._busy = false; self._render(); }, 420);
-      this._render();
-    }
-  };
-
-  customElements.define('rm-risk-queue', RM.components.RiskQueue);
-})();
-
-
-'use strict';
 // boot.js — inner-page composition root (version builds and dev.html). Custom
 // elements self-register on load; here we wire document-level nav behaviour.
 // The page runs inside the host's stage frame, so the host (not this page) signals
@@ -1630,6 +2065,7 @@ RM.components.nav = (function () {
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
   else start();
 })();
+
 
 })();
 </script>

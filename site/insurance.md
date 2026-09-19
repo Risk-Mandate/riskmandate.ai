@@ -34,6 +34,8 @@ Everything below is the argument for rung three and the published design for it,
 
 Exclusions are attaching at renewal faster than teams can respond. Affirmative cover exists, but every carrier writing it asks the same question — and most teams cannot answer it in writing.
 
+Whether a program can be insured at all, and the dated record of every time it was — the maker, one defect, a smart contract, a model's output, an agent in one deployment — is on [Can you insure a program?](insure-a-program.html)
+
 ### P&C groups have filed to exclude AI
 
 Standardised AI exclusion endorsements are now in circulation, and some exclusions on D&O and E&O lines are absolute rather than partial.
@@ -131,6 +133,14 @@ The exposure justifies budget. The number is what makes the case.
 ### Remove it
 
 Narrow the mandate or revoke the access, and the radius closes.
+
+## Three pages this argument is built on.
+
+Written before there was anything to sell, and left as they were. They are not in the menu; they are here, where somebody following the argument already is.
+
+- [Accepted is not acceptable](acceptable.html)A risk somebody signed off is not the same as a risk somebody can live with, and the difference is where most acceptance processes quietly fail.
+- [You own the risk](acceptance.html)Acceptance without a named owner and an expiry is a decision nobody made.
+- [Static scenarios](statics.html)The scenarios as flat pages, for reading rather than running.
 
 ## What people ask first.
 

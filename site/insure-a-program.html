@@ -1,0 +1,675 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RiskMandate — can you insure a software program?</title>
+<meta name="description" content="Can you insure a software program, and has it ever been done? Yes: the maker since the 1980s, one defect in 1997, a smart contract since 2019, a model's output since 2018, an agent in one deployment since February 2026 — dated and sourced — and where an Agent Behaviour Policy sits in it.">
+<link rel="canonical" href="https://riskmandate.ai/insure-a-program.html">
+<link rel="alternate" type="text/markdown" href="insure-a-program.md" title="This page as markdown">
+<link rel="icon" href="assets/brand/riskmandate-favicon-32.png" sizes="32x32">
+<link rel="icon" href="assets/brand/riskmandate-mark.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RiskMandate">
+<meta property="og:url" content="https://riskmandate.ai/insure-a-program.html">
+<meta property="og:title" content="RiskMandate — can you insure a software program?">
+<meta property="og:description" content="Can you insure a software program, and has it ever been done? Yes: the maker since the 1980s, one defect in 1997, a smart contract since 2019, a model's output since 2018, an agent in one deployment since February 2026 — dated and sourced — and where an Agent Behaviour Policy sits in it.">
+<meta property="og:image" content="https://riskmandate.ai/assets/brand/riskmandate-lockup-light.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Scaffolded by scripts/site/new-page.mjs. Hand-edited from here on — there is no build step. -->
+<style>
+/* insure-a-program.css — self-contained: the shared chrome, then this page's own. */
+:root{
+  --bg:#F7F6F2; --bg2:#EFEDE7; --card:#FFFFFF; --ink:#0D0D0C; --canvas:#0A0A09;
+  --text:#1A1917; --muted:#4A4845; --faint:#8A8780; --border:#E2DFD8;
+  --green:#1A7F5A; --green-2:#22c55e; --greenBg:#EBF5F0;
+  --gold:#B45309; --red:#C0392B; --blue:#1D4ED8;
+  --fg:#F7F6F2; --fg-2:rgba(247,246,242,.55); --fg-3:rgba(247,246,242,.32);
+  --line:rgba(247,246,242,.10); --line-2:rgba(247,246,242,.18);
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","JetBrains Mono","Roboto Mono",Menlo,Consolas,monospace;
+  --wrap:1000px; --r:10px; --r-sm:8px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth} @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+h1,h2{margin:0;font-weight:800;letter-spacing:-.03em;line-height:1.04}
+h2{font-size:clamp(26px,3.6vw,40px);font-weight:700;letter-spacing:-.02em}
+p{margin:0}
+:focus-visible{outline:2px solid var(--green-2);outline-offset:3px;border-radius:4px}
+.tag{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+.g{color:var(--green)} .it{font-style:italic;color:var(--green)}
+
+/* header */
+.top{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.top .wrap{display:flex;align-items:center;gap:22px;height:56px;max-width:1100px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:15px;color:var(--text);white-space:nowrap;text-decoration:none}
+.rm{width:26px;height:26px;flex:none;display:block}
+.rm svg{width:100%;height:100%;display:block}
+.navlinks{display:flex;align-items:center;gap:22px;margin-left:auto}
+rm-menu{display:contents}
+.navlinks a{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;text-decoration:none;display:inline-flex;align-items:center}
+.navlinks a:hover{color:var(--text)}
+.navlinks a.active{color:var(--text);font-weight:600}
+.version{font-family:var(--mono);font-size:12px;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:7px;padding:5px 8px;text-decoration:none;white-space:nowrap;transition:color .15s,border-color .15s}
+.version:hover{color:var(--text);border-color:var(--faint)}
+.demo{background:var(--green);color:#fff;font-weight:600;font-size:13px;border:0;border-radius:8px;padding:8px 16px;cursor:pointer;transition:background .15s;font-family:var(--sans);white-space:nowrap}
+.demo:hover{background:#16704f}
+
+/* nav dropdowns */
+.navgroup{position:relative;display:inline-flex;align-items:center}
+.navgroup::after{content:"";position:absolute;top:100%;left:0;right:0;height:10px}
+.navgroup-btn{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;display:inline-flex;align-items:center;gap:5px}
+.navgroup-btn:hover,.navgroup:hover .navgroup-btn,.navgroup.open .navgroup-btn,.navgroup.active .navgroup-btn{color:var(--text)}
+.navgroup-car{font-size:8px;line-height:1;opacity:.6;transition:transform .15s}
+.navgroup:hover .navgroup-car,.navgroup.open .navgroup-car{transform:rotate(180deg)}
+.navmenu{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);min-width:184px;background:var(--card);border:1px solid var(--border);border-radius:10px;box-shadow:0 10px 34px rgba(13,13,12,.14);padding:6px;display:none;flex-direction:column;gap:2px;z-index:70}
+.navgroup:hover .navmenu,.navgroup.open .navmenu{display:flex}
+.navmenu .navchild{justify-content:flex-start;text-align:left;width:100%;padding:8px 12px;border-radius:7px;font-size:13.5px;color:var(--muted);white-space:nowrap}
+.navmenu .navchild:hover{background:var(--bg2);color:var(--text)}
+.navmenu .navchild.active{color:var(--green);font-weight:600;background:var(--greenBg)}
+
+/* mobile drawer — the toggle is injected by nav.js; .top.nav-open opens it */
+.navtoggle{display:none;margin-left:auto;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;padding:0;background:none;border:0;cursor:pointer}
+.navtoggle span{display:block;width:20px;height:2px;margin:0 auto;background:var(--text);border-radius:2px;transition:transform .2s,opacity .2s}
+.top.nav-open .navtoggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.top.nav-open .navtoggle span:nth-child(2){opacity:0}
+.top.nav-open .navtoggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media (max-width:1040px){
+  .navtoggle{display:flex}
+  .top .wrap{position:relative}
+  .version{display:none}
+  .navlinks{display:none;position:absolute;left:0;right:0;top:calc(100% + 1px);flex-direction:column;align-items:stretch;gap:0;margin:0;padding:8px;background:var(--card);border-bottom:1px solid var(--border);box-shadow:0 14px 34px rgba(13,13,12,.14);max-height:calc(100vh - 56px);overflow:auto}
+  .top.nav-open .navlinks{display:flex}
+  .navlinks a,.navlinks .navgroup-btn{width:100%;text-align:left;justify-content:flex-start;padding:12px 16px;font-size:15px;border-radius:8px}
+  .navlinks a:hover{background:var(--bg2)}
+  .navgroup{display:block;width:100%;position:static}
+  .navgroup::after{display:none}
+  .navgroup-btn{display:flex}
+  .navgroup-car{margin-left:auto}
+  .navmenu{position:static;transform:none;display:flex;flex-direction:column;min-width:0;padding:2px 0 8px 14px;background:transparent;border:0;box-shadow:none}
+  .navmenu .navchild{padding:10px 14px;font-size:14px}
+}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;padding:12px 22px;border-radius:var(--r-sm);cursor:pointer;border:1px solid transparent;font-family:var(--sans);text-decoration:none}
+.btn-green{background:var(--green);color:#fff} .btn-green:hover{background:#16704f}
+.btn-ghost{background:transparent;color:var(--fg);border-color:var(--line-2)} .btn-ghost:hover{border-color:var(--fg-2)}
+.btn-ghost-dark{background:transparent;color:var(--text);border-color:var(--border)} .btn-ghost-dark:hover{border-color:var(--green);color:var(--green)}
+
+/* dark hero */
+.phero{background:var(--ink);color:var(--fg);padding:88px 24px 84px}
+.phero .wrap{max-width:var(--wrap)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--green);background:rgba(26,127,90,.18);border:1px solid rgba(26,127,90,.4);border-radius:999px;padding:5px 12px}
+.eyebrow .d{width:6px;height:6px;border-radius:50%;background:var(--green-2)}
+.phero h1{font-size:clamp(34px,5.2vw,60px);letter-spacing:-.04em;line-height:1.02;margin:26px 0 0;color:var(--fg);max-width:900px}
+.phero .sub{color:var(--fg-2);font-size:17px;line-height:1.7;max-width:640px;margin-top:24px}
+.cta-row{display:flex;flex-wrap:wrap;gap:11px;margin-top:30px}
+
+/* paper sections */
+.paper{background:var(--bg)}
+.psection{padding:80px 0;border-bottom:1px solid var(--border)}
+.psection.alt{background:var(--bg2)}
+.shead{max-width:680px} .shead.center{max-width:720px;margin:0 auto;text-align:center}
+.shead h2{color:var(--text)} .shead p{color:var(--muted);margin-top:16px;font-size:15px;line-height:1.75}
+
+/* closing panel + footer */
+.pcta{background:var(--ink);padding:80px 24px;text-align:center}
+.pcta .wrap{max-width:720px;padding:0}
+.pcta h2{font-size:clamp(28px,4.4vw,48px);color:var(--fg);margin-top:20px;font-weight:700;letter-spacing:-.03em}
+.pcta p{color:var(--fg-2);margin-top:16px;font-size:16px;line-height:1.7}
+.pcta .cta-row{justify-content:center}
+.foot{background:var(--canvas);border-top:1px solid var(--line);padding:32px 24px}
+.foot .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-family:var(--mono);font-size:10px;color:var(--fg-3);max-width:1100px}
+.footlink{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.footlink:hover{color:var(--fg-2)}
+/* narrow phones — at 360px the brand, the burger and the call to action stop
+   fitting on one line, and the header was the last thing on this site that
+   scrolled sideways. Tighten the gutter, the gap and the button rather than
+   drop any of them: all three are load-bearing at this width. */
+@media (max-width:420px){
+  .top .wrap{gap:12px;padding:0 16px}
+  .brand{font-size:14px;gap:7px}
+  .rm{width:24px;height:24px}
+  .demo{padding:8px 12px;font-size:12.5px}
+}
+
+.steps{margin:34px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px}
+.step{display:grid;grid-template-columns:40px 1fr;gap:18px;align-items:start;border:1px solid var(--border);
+  border-radius:var(--r);background:var(--card);padding:22px 24px}
+.step .num{font-family:var(--mono);font-size:20px;font-weight:700;color:var(--green);line-height:1}
+.step h3{margin:0;font-size:18px;font-weight:700;letter-spacing:-.01em;color:var(--text)}
+.step p{font-size:14px;color:var(--muted);line-height:1.65;margin-top:8px}
+.step ul{margin:10px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px}
+.step li{font-size:13.5px;color:var(--muted);line-height:1.55;padding-left:16px;position:relative}
+.step li::before{content:"▸";position:absolute;left:0;font-size:9px;top:3px;color:var(--green)}
+.step code{font-family:var(--mono);font-size:12.5px;background:var(--bg2);padding:1px 6px;border-radius:5px;color:var(--text)}
+.tw{overflow-x:auto;margin-top:30px;border:1px solid var(--border);border-radius:var(--r);background:var(--card)}
+table.t{width:100%;border-collapse:collapse;font-size:13.5px;min-width:560px}
+table.t th{text-align:left;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--faint);padding:13px 16px;border-bottom:1px solid var(--border)}
+table.t td{padding:13px 16px;border-bottom:1px solid var(--border);color:var(--muted);line-height:1.55;vertical-align:top}
+table.t tr:last-child td{border-bottom:0}
+table.t td.k{color:var(--text);font-weight:700;white-space:nowrap}
+table.t code{font-family:var(--mono);font-size:12px;background:var(--bg2);padding:1px 5px;border-radius:4px;color:var(--text)}
+
+.rule{margin-top:30px;border-left:3px solid var(--green);background:var(--greenBg);border-radius:0 var(--r-sm) var(--r-sm) 0;padding:20px 24px;max-width:700px}
+.rule p{color:var(--text);font-size:16px;line-height:1.6;font-weight:600}
+.rule p + p{margin-top:10px;font-weight:400;font-size:14.5px;color:var(--muted)}
+.notice{margin-top:28px;border:1px dashed var(--faint);border-radius:var(--r-sm);padding:16px 20px;font-size:13.5px;color:var(--muted);line-height:1.65;max-width:780px}
+.notice strong{color:var(--text)} .notice a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+.src{margin-top:26px;font-family:var(--mono);font-size:11.5px;color:var(--faint);line-height:1.75}
+.src a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+.plist{margin:26px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;max-width:720px}
+.plist li{position:relative;padding-left:22px;font-size:15px;color:var(--muted);line-height:1.7}
+.plist li::before{content:"";position:absolute;left:2px;top:10px;width:6px;height:6px;border-radius:50%;background:var(--green)}
+.plist strong{color:var(--text)}
+.plist code,.shead code,.rule code,.notice code{font-family:var(--mono);font-size:13px;background:var(--bg2);padding:1px 6px;border-radius:5px;color:var(--text)}
+.psection.alt .plist code,.psection.alt .shead code{background:var(--card)}
+
+/* this page */
+.phero{background:var(--canvas);color:var(--fg);padding:76px 0 64px;border-bottom:1px solid var(--line)}
+.phero h1{font-size:clamp(34px,5.4vw,60px);max-width:18ch}
+.phero .sub{margin-top:22px;font-size:17px;line-height:1.7;color:var(--fg-2);max-width:64ch}
+.phero .sub strong{color:var(--fg);font-weight:600}
+.phero .eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--green);background:rgba(26,127,90,.18);border:1px solid rgba(26,127,90,.4);border-radius:999px;padding:5px 12px;margin-bottom:26px}
+.phero .eyebrow .d{width:6px;height:6px;border-radius:50%;background:var(--green-2)}
+.phero .meta{margin-top:26px;font-family:var(--mono);font-size:12px;line-height:1.9;color:var(--fg-3);max-width:64ch}
+.phero .meta b{color:var(--fg-2);font-weight:600}
+.phero .meta a{color:var(--green-2)}
+.shead h2{max-width:24ch}
+.shead p{margin-top:18px;font-size:16.5px;line-height:1.7;color:var(--muted);max-width:68ch}
+.shead p+p{margin-top:12px}
+.shead p strong{color:var(--text)}
+.quote{margin:26px 0 0;padding:22px 26px;border-left:3px solid var(--green);background:var(--card);border-radius:0 var(--r) var(--r) 0;max-width:760px}
+.quote p{font-size:19px;line-height:1.55;color:var(--text);font-weight:600;letter-spacing:-.01em}
+.quote cite{display:block;margin-top:12px;font-style:normal;font-family:var(--mono);font-size:12px;color:var(--faint)}
+.answer{margin-top:28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.answer .a{padding:20px 22px;background:var(--card);border:1px solid var(--border);border-radius:var(--r)}
+.answer .a .k{display:block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--green);margin-bottom:10px}
+.answer .a b{display:block;font-size:17px;color:var(--text);letter-spacing:-.01em;line-height:1.3}
+.answer .a p{margin-top:8px;font-size:14px;color:var(--muted);line-height:1.65}
+.tl{margin:30px 0 0;padding:0;list-style:none;position:relative;max-width:820px}
+.tl::before{content:"";position:absolute;left:92px;top:6px;bottom:6px;width:1px;background:var(--border)}
+.tl li{display:grid;grid-template-columns:80px 1fr;gap:28px;padding:0 0 26px;position:relative}
+.tl li::before{content:"";position:absolute;left:88px;top:8px;width:9px;height:9px;border-radius:50%;background:var(--green);border:2px solid var(--bg)}
+.psection.alt .tl li::before{border-color:var(--bg2)}
+.tl .y{font-family:var(--mono);font-size:12.5px;font-weight:700;color:var(--green);text-align:right;padding-top:2px}
+.tl h3{margin:0;font-size:17px;font-weight:700;letter-spacing:-.01em;color:var(--text)}
+.tl p{margin-top:6px;font-size:14.5px;line-height:1.65;color:var(--muted)}
+.tl .s{display:block;margin-top:6px;font-family:var(--mono);font-size:11.5px;color:var(--faint);line-height:1.7}
+.tl .s a,.src a,.plist a,.shead a,table.t a,.notice a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+@media (max-width:640px){.tl::before{left:8px}.tl li{grid-template-columns:1fr;gap:4px;padding-left:28px}.tl li::before{left:4px}.tl .y{text-align:left}}
+.three{margin-top:30px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.three .c{padding:22px 22px 24px;background:var(--card);border:1px solid var(--border);border-radius:var(--r);position:relative}
+.three .c.now{border-color:var(--green);box-shadow:0 0 0 3px var(--greenBg)}
+.three .c .n{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--faint);letter-spacing:.14em;text-transform:uppercase}
+.three .c .st{position:absolute;top:18px;right:18px;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green);background:var(--greenBg);border-radius:999px;padding:4px 9px}
+.three .c .st.d{color:var(--gold);background:rgba(180,83,9,.10)}
+.three .c h3{margin:12px 0 0;font-size:19px;font-weight:700;letter-spacing:-.01em;color:var(--text)}
+.three .c .w{font-family:var(--mono);font-size:11.5px;color:var(--green);margin-top:4px}
+.three .c p{margin-top:12px;font-size:14px;color:var(--muted);line-height:1.65}
+.three .c a{display:inline-block;margin-top:12px;font-size:13.5px;font-weight:600;color:var(--green);text-decoration:underline;text-underline-offset:2px}
+@media (max-width:820px){.three{grid-template-columns:1fr}}
+
+.ghlink{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:8px;color:var(--muted);border:1px solid transparent}.ghlink:hover{color:var(--text);border-color:var(--border)}
+.footlic{display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap}.footlic a{color:inherit}.ccicon{vertical-align:-3px;margin:0 2px}
+@media (max-width:1400px) and (min-width:901px){.ghlink,header.top a.version{display:none}header.top .wrap{gap:14px}}</style>
+</head>
+<body id="top">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
+    <nav class="navlinks"><rm-menu></rm-menu></nav>
+    <a class="ghlink" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener" aria-label="The source, on GitHub" title="Open source · Apache-2.0 code · CC BY 4.0 pages"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a>
+      <a class="version" href="versions.html" title="What shipped in v1.26.2">v1.26.2</a>
+    <button class="demo" data-demo>Get in touch</button>
+  </div>
+</header>
+
+<main class="phero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> Insurance · the question, answered · 18 September 2026</span>
+    <h1>Can you insure a software program? <span class="it">Yes, and it has been done for decades.</span></h1>
+    <p class="sub">The interesting part is <strong>what</strong> got insured each time: the maker's liability, one named defect, the behaviour of the code, the accuracy of a model's output, and now the actions of an agent. Every step closer to the program itself has needed a better description of what the program does where it runs. That is the question this site exists to answer, so here is the history, dated and sourced, and where an Agent Behaviour Policy sits in it.</p>
+    <p class="meta"><b>Context:</b> RAND, <a href="https://www.rand.org/pubs/research_reports/RRA5130-1.html" target="_blank" rel="noopener">How Is Artificial Intelligence Insured?</a>, 16 September 2026. <b>This page as markdown:</b> <a href="insure-a-program.md">insure-a-program.md</a>.</p>
+  </div>
+</main>
+
+<div class="paper">
+
+  <section class="psection" id="question">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">01 · The question</span>
+        <h2>One question, <span class="g">and the one under it.</span></h2>
+        <p>Can you insure a software program, and has that ever been done? It is the first thing anybody asks when AI insurance comes up, and it deserves a dated answer rather than an opinion. The current account of how carriers answer it for AI is RAND's <em>How Is Artificial Intelligence Insured?</em> of 16 September 2026 (Romanosky and Robinson, report RR-A5130-1): through exclusions, endorsements, affirmative cover, or silence. Under that question sits the one this site is built around: can an individual agent be insured in its deployment, in the environment and context it actually runs in?</p>
+      </div>
+      <div class="answer">
+        <div class="a"><span class="k">The maker</span><b>Insured since the 1980s.</b><p>Technology errors and omissions cover pays when a program fails to perform as intended and a third party loses money. It insures the vendor's liability, not the code.</p></div>
+        <div class="a"><span class="k">The program</span><b>Insured, several times, on its own terms.</b><p>One named defect in 1997. The behaviour of a smart contract since 2019. A model's output against a threshold since 2018, as a warranty since 2024.</p></div>
+        <div class="a"><span class="k">The agent</span><b>Insured since February 2026, and only with a description of the deployment.</b><p>The first affirmatively insured agent deployment came with thousands of tests behind it, and the underwriters' own blueprint says the model is not the unit of risk. The deployment is.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="psection alt" id="history">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">02 · Has it ever been done</span>
+        <h2>Eight dated answers, <span class="g">oldest first.</span></h2>
+        <p>Each entry names what was insured and who held the cover. The sources are the insurers', the courts', the regulators' and the trade press's own pages, with the date on each; where a page could not be reached, the entry says what was read instead.</p>
+      </div>
+      <ol class="tl">
+        <li><span class="y">1980s</span><div><h3>The maker's errors, as professional liability</h3><p>Data processors' errors and omissions cover insured “liability arising from errors and omissions in performing data processing for outside entities on a fee basis”; computer software design E&amp;O gave “professional liability coverage for computer software designers, analysts, and consultants to cover errors in programs or in systems design”. IRMI dates the rise of professional-liability claims around computers to the mid-to-late 1980s, and a 2006 survey of the market's evolution puts AIG's more comprehensive forms, errors and omissions included, at 2000. Nobody has published the date of the first such policy.</p><span class="s">IRMI glossary entries, undated, read 18 Sept 2026 · IRMI, Bregman, 18 Aug 2017 · Majuca, Yurcik &amp; Kesan, <a href="https://arxiv.org/pdf/cs/0601020" target="_blank" rel="noopener">The Evolution of Cyberinsurance</a>, 2006</span></div></li>
+        <li><span class="y">1997–1998</span><div><h3>One defect in every program, priced and then excluded</h3><p>Y2K was the first time the industry insured a specific fault in software as such. AIG launched Millennium Insurance in early 1997; the programmes required an audit and “commanded premiums in the six figures”; one fund manager “bought a $100 million Y2K insurance policy for a premium of $75 million”. Then the market excluded it: ISO's CG 21 60, CG 21 61 and IL 09 35 removed cover for “any actual or alleged Y2K (failure to recognize a year-date) hardware or software failure”, approved in most states with effect from 1 April 1998, and AIG withdrew its own form in August 1998 citing adverse selection. Cover was still being sold through Lloyd's, AIG and Aon in 1999, “quite expensive”, with “large deductibles” and “extensive pre-coverage audits”.</p><span class="s"><a href="https://www.soa.org/sections/entrepreneur-innovate/entrepreneur-innovate-newsletter/2025/february/iande-2025-02-james/" target="_blank" rel="noopener">Society of Actuaries, James, Feb 2025</a> · <a href="https://roughnotes.com/rnmagazine/1998/april98/04p100.htm" target="_blank" rel="noopener">Rough Notes, April 1998</a> · <a href="https://corporate.findlaw.com/corporate-governance/y2k-coverage-is-your-insurance-business-covered.html" target="_blank" rel="noopener">FindLaw, March 1999</a></span></div></li>
+        <li><span class="y">2018</span><div><h3>A model's output, guaranteed</h3><p>Munich Re says it wrote “our first AI policy for anti-fraud model in 2018”: if the model “fails to catch a fraud event, we provide a payout amounting to the losses incurred”. The line, aiSure, insures “performance warranties” a vendor gives its customer, with the error-rate threshold set after the reinsurer has assessed the data-science process. In February 2026 Mosaic put up to 15 million of capacity behind it for AI vendors “when an AI model fails to meet clearly defined performance thresholds”.</p><span class="s"><a href="https://www.munichre.com/en/solutions/for-industry-clients/insure-ai/faq.html" target="_blank" rel="noopener">Munich Re, Insure AI FAQ</a>, undated, read 18 Sept 2026 · <a href="https://emerj.com/creating-insurance-policies-for-ai-applications-with-munich-res-michael-berger/" target="_blank" rel="noopener">Emerj, 29 May 2023</a> · <a href="https://www.mosaicinsurance.com/resources/press-releases/~/mosaic-partners-with-munich-res-aisure-to-provide-pioneering-coverage-for-ai-vendors/" target="_blank" rel="noopener">Mosaic, 26 Feb 2026</a></span></div></li>
+        <li><span class="y">2019–2020</span><div><h3>The code itself, as the thing insured</h3><p>Nexus Mutual, a discretionary mutual, opened Smart Contract Cover in July 2019: the trigger is “unintended code usage that results in a material financial loss”, on a named contract at a named address. The first payout came in February 2020, about $31,000 across two claims on the bZx protocol, approved by member vote after the protocol's own post-mortem admitted a fault in the code. The 2021 wording widened it to economic design failure, oracle manipulation and governance attacks, and excluded phishing, key loss and known bugs. It is the clearest case on record of cover written on a program's behaviour rather than on its author.</p><span class="s"><a href="https://www.coindesk.com/tech/2020/02/20/defi-insurance-firm-nexus-mutual-makes-its-first-payout-following-bzx-attacks" target="_blank" rel="noopener">CoinDesk, 20 Feb 2020</a> · <a href="https://forum.nexusmutual.io/t/protocol-cover-new-cover-wording/437" target="_blank" rel="noopener">Nexus Mutual forum, 25 Feb 2021</a> · <a href="https://coinbureau.com/review/nexus-mutual-nxm" target="_blank" rel="noopener">Coin Bureau, 29 Mar 2023</a></span></div></li>
+        <li><span class="y">1991 → 2026</span><div><h3>The courts, on whether a program is a product</h3><p>Product liability law “is geared to the tangible world” (<em>Winter v. G.P. Putnam's Sons</em>, 9th Cir. 1991). An algorithmic risk tool “is neither ‘tangible personal property’ nor remotely ‘analogous to’ it” (<em>Rodgers v. Christie</em>, 3rd Cir. 2020). Then a chatbot app was “a product for the purposes of Plaintiff's claims” arising “from defects in the Character A.I. app rather than ideas or expressions within the app” (<em>Garcia v. Character Technologies</em>, M.D. Fla., 21 May 2025; settled January 2026). In the EU the question is closed by statute: Directive 2024/2853 defines a product to include “software”, operating systems, applications and AI systems however supplied, and applies to products placed on the market from 9 December 2026. The UK Law Commission is reviewing “whether software qualifies as a product when supplied in an intangible format”, consultation due October 2026.</p><span class="s"><a href="https://law.justia.com/cases/federal/appellate-courts/ca3/19-2616/19-2616-2020-03-06.html" target="_blank" rel="noopener">Rodgers v. Christie</a>, 5 Mar 2020 · <a href="https://www.mcguirewoods.com/client-resources/alerts/2026/3/can-social-media-or-ai-be-a-defective-product/" target="_blank" rel="noopener">McGuireWoods, 18 Mar 2026</a> · <a href="https://eur-lex.europa.eu/eli/dir/2024/2853/oj/eng" target="_blank" rel="noopener">Directive (EU) 2024/2853</a>, OJ 18 Nov 2024 · <a href="https://www.osborneclarke.com/insights/uk-product-liability-law-commission-reviews-consumer-protection-act-1987" target="_blank" rel="noopener">Osborne Clarke, 14 Apr 2026</a></span></div></li>
+        <li><span class="y">2023–2024</span><div><h3>A warranty on an AI model, sold to the buyer</h3><p>Armilla's warranty, backed by Swiss Re, Greenlight Re and Chaucer, “reimburses customers for fees paid to use an AI model if it fails to meet quality standards after passing the company's assessment”. One80 Intermediaries' term sheet of June 2024 makes the shape exact: the named insured is “the purchaser of the AI model”, the limit is the “annual cost of the model”, the premium “3% to 5% of the model subscription”, and the cover grant is that “the Vendor's services will perform in accordance with the performance and fairness metrics set forth in the assessment”. The same year Vouch sold AI E&O to start-ups and Coalition added an affirmative AI endorsement to cyber cover, for AI as an attack vector rather than as a source of wrong output.</p><span class="s"><a href="https://techcrunch.com/2024/02/15/armilla-wants-to-give-companies-a-warranty-for-ai" target="_blank" rel="noopener">TechCrunch, 15 Feb 2024</a> · <a href="https://www.one80.com/wp-content/uploads/2024/06/AI-Warranty-Term-Sheet-v3.pdf" target="_blank" rel="noopener">One80 term sheet, 17 Jun 2024</a> · <a href="https://www.coalitioninc.com/announcements/coalition-adds-new-affirmative-ai-endorsement-to-cyber-policies" target="_blank" rel="noopener">Coalition, 26 Mar 2024</a></span></div></li>
+        <li><span class="y">2025</span><div><h3>Liability for what the AI did, and the exclusions that made room for it</h3><p>Chaucer and Armilla put a standalone AI liability cover on Lloyd's paper on 22 April 2025, triggered by “the failure of the AI solution to perform as intended, generate critical errors, hallucinations or inaccuracies leading to damages”. AIUC launched in July with cover “tied directly to audit results” and a standard, AIUC-1, for “AI agent security, safety and reliability”. Going the other way: W. R. Berkley filed an absolute exclusion for claims from “any actual or alleged use, deployment, or development of Artificial Intelligence”, and Verisk announced three optional generative-AI exclusions for general liability, CG 40 47, CG 40 48 and CG 35 08, on 21 October 2025, effective January 2026. California's AB 316, signed 13 October 2025, says “it shall not be a defense that the artificial intelligence autonomously caused the harm”.</p><span class="s"><a href="https://www.chaucergroup.com/news/press-release-chaucer-co-develops-new-ai-insurance-product-with-armilla-ai" target="_blank" rel="noopener">Chaucer, 22 Apr 2025</a> · <a href="https://www.insurancejournal.com/news/national/2025/07/25/833169.htm" target="_blank" rel="noopener">Insurance Journal, 25 Jul 2025</a> · <a href="https://www.hunton.com/hunton-insurance-recovery-blog/the-continued-proliferation-of-ai-exclusions" target="_blank" rel="noopener">Hunton, 28 May 2025</a> · <a href="https://www.independentagent.com/vu_resource/verisk-to-roll-out-new-general-liability-exclusions-for-generative-ai-exposures/" target="_blank" rel="noopener">IIABA, 21 Oct 2025</a> · <a href="https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260AB316" target="_blank" rel="noopener">AB 316</a></span></div></li>
+        <li><span class="y">2026</span><div><h3>An agent, insured in one deployment</h3><p>On 11 February 2026 ElevenLabs announced the first deployment insured under AIUC-1: “an AI agent providing incorrect information to a customer, can be insured against”, after “5,835 technical tests across 14 risk categories”; neither release names the carrier or the limit. Armilla's cover rose to $25 million per organisation in January and named “AI Agent Failures (incorrect decisions, improper tool use, escalation errors)”; Chaucer's Vanguard AI structure of 10 February lists “AI agent actions” as a loss without “an underlying cyber event”. RAND's report of 16 September reads the filings: “Most AI policies still remain silent on AI agents, while AIUC and Armilla affirmatively cover them.”</p><span class="s"><a href="https://www.prnewswire.com/news-releases/elevenlabs-secures-first-of-its-kind-ai-agent-insurance-302684587.html" target="_blank" rel="noopener">ElevenLabs, 11 Feb 2026</a> · <a href="https://www.armilla.ai/resources/armilla-ai-raises-lloyds-backed-coverage-to-25m-as-traditional-insurers-retreat-from-ai-risk" target="_blank" rel="noopener">Armilla, 21 Jan 2026</a> · <a href="https://www.chaucergroup.com/news/press-release-chaucer-and-armilla-ai-launch-vanguard-ai-coordinated-insurance-structure" target="_blank" rel="noopener">Chaucer, 10 Feb 2026</a> · <a href="https://www.rand.org/pubs/research_reports/RRA5130-1.html" target="_blank" rel="noopener">RAND RR-A5130-1, 16 Sept 2026</a></span></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="psection" id="what">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">03 · What was insured, each time</span>
+        <h2>Eight kinds of cover, <span class="g">eight different things insured.</span></h2>
+        <p>Lined up, the answers to <em>has it been done</em> are also the answer to <em>how</em>. Every time cover moved closer to the program, the underwriter wanted a description of what the program does in the place it runs: an audit, a named address, a threshold, a term sheet's “metrics set forth in the assessment”, a test log. Without that description the cover is either on the author or it is silence.</p>
+      </div>
+      <div class="tw">
+        <table class="t">
+          <thead><tr><th>What is insured</th><th>Who holds it</th><th>What triggers a claim</th><th>Example, dated</th></tr></thead>
+          <tbody>
+            <tr><td class="k">The maker's liability</td><td>the vendor</td><td>a third party loses money because the program did not perform as intended</td><td>tech E&amp;O, described by IRMI 2003; Chubb claims scenario 2019</td></tr>
+            <tr><td class="k">One named defect</td><td>the operator</td><td>a year-date failure, after an audit</td><td>Y2K cover 1997–99; excluded from standard forms from 1 Apr 1998</td></tr>
+            <tr><td class="k">The code's behaviour</td><td>the user of the contract</td><td>“unintended code usage that results in a material financial loss”</td><td>Nexus Mutual Smart Contract Cover, July 2019; first payout Feb 2020</td></tr>
+            <tr><td class="k">The model's output</td><td>the vendor, for its customer</td><td>output below a stated threshold</td><td>Munich Re aiSure, first policy 2018; Mosaic capacity Feb 2026</td></tr>
+            <tr><td class="k">The model's performance, as a warranty</td><td>the purchaser of the model</td><td>failure against “the performance and fairness metrics set forth in the assessment”</td><td>One80 / Armilla term sheet, June 2024</td></tr>
+            <tr><td class="k">The deployer's liability from AI</td><td>the business using it</td><td>“hallucinations or inaccuracies leading to damages”; bodily injury or property damage from AI use</td><td>Chaucer / Armilla, Apr 2025; HSB, Mar 2026; Testudo, 2025–26</td></tr>
+            <tr><td class="k">An agent's actions</td><td>the vendor and its customers</td><td>“incorrect decisions, improper tool use, escalation errors”; “tool call failures”</td><td>Armilla, Jan 2026; AIUC / ElevenLabs, Feb 2026</td></tr>
+            <tr><td class="k">Nothing</td><td>—</td><td>any claim “arising out of … any actual or alleged use, deployment, or development of Artificial Intelligence”</td><td>W. R. Berkley absolute exclusion, 2025; ISO CG 40 47 / 40 48 / 35 08, Jan 2026</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="notice"><strong>What the numbers say about scale.</strong> The underwriters' own blueprint puts today's standalone AI limits at “up to $50 million”, “one or two orders of magnitude below what the largest enterprise deployments will demand” (AIUC, <em>Underwriting the Agent Economy</em>, July 2026, p. 50). RAND's reading of 125 admitted-market filings is that carriers are “some offering affirmative coverage for certain risks (e.g., model errors), and others filing broad exclusions”, and that most “are remaining silent … leaving coverage for such losses untested and open to dispute” (RR-A5130-1, 16 Sept 2026).</div>
+    </div>
+  </section>
+
+  <section class="psection alt" id="agent">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">04 · The question under the question</span>
+        <h2>An agent is not insured as a program. <span class="g">It is insured in a deployment.</span></h2>
+        <p>The question under the question is whether an individual agent can be insured in its deployment or context environment. The people now writing the cover answer it in their own words. The blueprint published by the Artificial Intelligence Underwriting Company in July 2026, with authors from a reinsurer, two insurers, RAND and several universities, puts it like this:</p>
+      </div>
+      <blockquote class="quote">
+        <p>“A certified AI agent autonomously executing trades in a brokerage poses very different risks than a certified AI agent handling internal document summarization for a law firm. The underlying model and guardrails might be the same, but the legal exposure, potential severity of loss, and probability of a claim will diverge enormously.”</p>
+        <cite>Trout et al., <a href="https://www.underwriting-agents.com/report.pdf" target="_blank" rel="noopener">Underwriting the Agent Economy</a>, AIUC, July 2026, p. 51</cite>
+      </blockquote>
+      <p class="shead"><span>The same report lists what an underwriter must ask about the agentic system, beyond revenue and sector: “Does it recommend actions or execute them?”, “How much human oversight is involved?”, “Agent access-control configurations”, “Agent observability tools”, “Human oversight and handoff protocols” (p. 51–52). Earlier it expects that “underwriters will again need recognized minimum standards for issues like least-privilege scoping of the tools and data exposed to agents through protocols such as the Model Context Protocol”. A cyber analytics firm told Insurance Business in April 2026 that insurers now examine an agent's permissions, the controls on its high-impact actions, and its monitoring. And an underwriter at Armilla told Reuters in August 2026 that “the harder cases are where there is no conventional attacker and potentially no unauthorized credential use”: the agent did what its credential allowed, and nobody had said that was not allowed.</span></p>
+      <div class="tw">
+        <table class="t">
+          <thead><tr><th>What the underwriter asks</th><th>Where an Agent Behaviour Policy answers it</th></tr></thead>
+          <tbody>
+            <tr><td class="k">Does it recommend actions or execute them?</td><td>Every row of the grant is a capability, <code>verb.object.reach</code>, with how it was established: measured on the thing itself, documented from the vendor's page, or inferred. Execute and recommend are different verbs.</td></tr>
+            <tr><td class="k">Agent access-control configurations</td><td>The grant is what the credential and the deployment actually permit, including what nobody thought to check; the mandate is what the business authorised. Their difference, the delta, is the excess authority, recomputed whenever either moves.</td></tr>
+            <tr><td class="k">Human oversight and handoff protocols</td><td>Each capability carries the kind of thing that stands in its way: nothing, an expectation, a setting, or a boundary with an enforcer. Only the last is a control, and the ABP says which rows have one.</td></tr>
+            <tr><td class="k">Least-privilege scoping of tools and data</td><td>The same capability through two paths is one row with two doors, so a connector's real reach is written down, not its label. Sixteen template vaults show what that looks like for named shapes.</td></tr>
+            <tr><td class="k">Observability, logs, incident records</td><td>The behaviour policy lives in an encrypted vault with every version kept, a read key the underwriter can hold, and the evidence tier on every number.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="shead"><span>So the honest answer to <em>can you insure an agent in its deployment</em> is: yes, two carriers have started to, and the thing they price on is a description of that deployment which most businesses cannot yet produce. The first job is producing it.</span></p>
+    </div>
+  </section>
+
+  <section class="psection" id="strategy">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">05 · Where we come in</span>
+        <h2>Make agents insurable, <span class="g">starting from the bottom.</span></h2>
+        <p>RiskMandate is not a carrier, a broker or an MGA, and does not sell or place cover. The strategy is to make agents insurable by producing the evidence underwriters price against, in the order the evidence has to exist. The bottom rung is the part that exists today and is for sale: <strong>Agent Behaviour Policies</strong>, and the means for anyone to create one.</p>
+      </div>
+      <div class="three">
+        <div class="c now"><span class="st">On sale now</span><span class="n">Rung 1 · Describe it</span><h3>Agent Behaviour Policy</h3><p class="w">the building block</p><p>One agent, in one deployment: everything it can reach, what you authorised, the gap, and what stands in the way of each thing. Sixteen template vaults, free to read with their keys published; four levels at the store, from a downloaded pack to a professional's signature. And a prompt, <code>MAP-A-GRANT.md</code>, that lets the agent holding a credential measure its own grant, so the description can be created by anyone, not only by us.</p><a href="agent-behaviour-policy.html">The library of behaviour policies →</a></div>
+        <div class="c"><span class="st">Template available</span><span class="n">Rung 2 · Authorise it</span><h3>Licence to Operate</h3><p class="w">the instrument</p><p>The business is the authority, the behaviour policy is the instrument, the agent is the licensee, for an interval, with each condition beside its enforcer. It is what turns a description into something a board has signed and an underwriter can hold a business to.</p><a href="licence-to-operate.html">The licence →</a></div>
+        <div class="c"><span class="st d">In design</span><span class="n">Rung 3 · Insure it</span><h3>Insurability Index</h3><p class="w">the record an underwriter accepts</p><p>Composed from behaviour policies rather than from a questionnaire, so every number decomposes to rows that can be checked. Published as a design before it is built, on purpose, so the commitment stays checkable.</p><a href="insurance.html">The design →</a></div>
+      </div>
+      <div class="notice"><strong>Why the building block first.</strong> Every dated answer above ends the same way: the cover got written once somebody could describe the program's behaviour where it runs, and got withdrawn where nobody could. The RAND report's recommendation is an AI Coverage Notice, so a buyer knows whether AI loss is covered, excluded or left silent by line. Our side of that is the other half of the conversation: a business that can hand its broker one document per agent saying what it can reach, what it was told to do, and what actually stops it. That document is a behaviour policy, and the pieces are open source and CC BY 4.0 so the format outlives us.</div>
+      <div class="cta-row">
+        <a class="btn btn-green" href="agent-behaviour-policy.html">Read a behaviour policy →</a>
+        <a class="btn btn-ghost-dark" href="pricing.html">Buy one for your agent</a>
+        <a class="btn btn-ghost-dark" href="insurance.html">The full argument for rung three</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="psection alt" id="sources">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">06 · Sources, and what could not be read</span>
+        <h2>Every claim above <span class="g">carries its date.</span></h2>
+        <p>Read on 18 September 2026 unless the entry says otherwise. Two pages refused a direct read and are cited through what could be read: RAND's own page and PDF returned 403 to us, so the report's findings come from its abstract in search indexes and from the trade press of 18 September; the Justia page for <em>Winter</em> likewise, so its sentence is confirmed only through a search index. The One80 term sheet, the AIUC report PDF and the Nexus Mutual wording were read in full.</p>
+      </div>
+      <p class="src">
+        RAND, <a href="https://www.rand.org/pubs/research_reports/RRA5130-1.html" target="_blank" rel="noopener">How Is Artificial Intelligence Insured? / The Insurability of Artificial Intelligence</a>, RR-A5130-1, Romanosky &amp; Robinson, 16 Sept 2026 · Insurance Business, <a href="https://www.insurancebusinessmag.com/us/news/technology/most-carriers-are-silent-on-ai--and-that-silence-has-a-cost-590236.aspx" target="_blank" rel="noopener">most carriers are silent on AI</a>, 18 Sept 2026 · AIUC, <a href="https://www.underwriting-agents.com/report.pdf" target="_blank" rel="noopener">Underwriting the Agent Economy</a>, July 2026 · AIUC-1, <a href="https://www.aiuc-1.com/" target="_blank" rel="noopener">the standard</a>, version Q3-2026 · Romanosky, Ablon, Kuehn &amp; Jones, <a href="https://academic.oup.com/cybersecurity/article/5/1/tyz002/5366419" target="_blank" rel="noopener">Content analysis of cyber insurance policies</a>, Journal of Cybersecurity, 2019 · IRMI, <a href="https://www.irmi.com/articles/expert-commentary/tech-eando-insurance-a-primer-for-risk-managers" target="_blank" rel="noopener">Tech E&amp;O Insurance — A Primer</a>, 1 Nov 2003 · IRMI, <a href="https://www.irmi.com/term/insurance-definitions/year-2000-exclusion" target="_blank" rel="noopener">Year 2000 exclusion</a>, undated · Chubb, <a href="https://www.chubb.com/us-en/_assets/doc/2019-02.27-eo-claims-scenarios.pdf" target="_blank" rel="noopener">E&amp;O claims scenarios</a>, 27 Feb 2019 · Munich Re, <a href="https://www.munichre.com/en/solutions/for-industry-clients/insure-ai.html" target="_blank" rel="noopener">Insure AI</a>, undated · Munich Re, <a href="https://www.munichre.com/hsb/en/press-and-publications/press-releases/2026/2026-03-18-introducing-ai-liability-insurance-for-small-businesses.html" target="_blank" rel="noopener">HSB AI liability insurance</a>, 18 Mar 2026 · Testudo, <a href="https://www.testudo.co/" target="_blank" rel="noopener">testudo.co</a>, undated; Fintech Global, 9 Mar 2026 · Armilla, <a href="https://www.prnewswire.com/news-releases/armilla-launches-affirmative-ai-liability-insurance-with-lloyds-underwriter-chaucer-302442586.html" target="_blank" rel="noopener">affirmative AI liability insurance</a>, 30 Apr 2025 · One80 Intermediaries, <a href="https://www.one80.com/news/one80-intermediaries-launches-artificial-intelligence-warranty-coverage/" target="_blank" rel="noopener">AI warranty coverage</a>, 21 May 2024 · Evertas, <a href="https://www.globenewswire.com/news-release/2022/02/03/2378585/0/en/Cryptoasset-insurer-Evertas-granted-Lloyd-s-of-London-coverholder-status.html" target="_blank" rel="noopener">Lloyd's coverholder status</a>, 3 Feb 2022 · Munich Re, <a href="https://www.munichre.com/en/company/media-relations/media-information-and-corporate-news/media-information/2021/pioneering-cyber-insurance.html" target="_blank" rel="noopener">Google Cloud Risk Protection Program</a>, 2 Mar 2021 · Insurance Business, <a href="https://www.insurancebusinessmag.com/us/news/cyber/how-agentic-ai-raises-fresh-underwriting-challenges-in-cyber-insurance-571980.aspx" target="_blank" rel="noopener">agentic AI underwriting</a>, 16 Apr 2026 · Insurance Journal (Reuters), <a href="https://www.insurancejournal.com/news/national/2026/08/27/883064.htm" target="_blank" rel="noopener">insurers review wordings for agents</a>, 27 Aug 2026 · Hunton, <a href="https://www.hunton.com/privacy-and-information-security-law/european-commission-withdraws-eprivacy-regulation-and-ai-liability-directive-proposals" target="_blank" rel="noopener">AI Liability Directive withdrawn</a>, 14 Feb 2025 · Policyholder Pulse, <a href="https://www.policyholderpulse.com/ai-exclusions-insurance-policies/" target="_blank" rel="noopener">AI exclusions</a>, 13 Apr 2026 · CSIS, <a href="https://www.csis.org/analysis/insurance-industrys-retreat-ai-threatens-slow-innovation-and-adoption" target="_blank" rel="noopener">the insurance industry's retreat from AI</a>, 4 Sept 2026 · arXiv: <a href="https://arxiv.org/abs/2606.05449" target="_blank" rel="noopener">Insurance of Agentic AI</a>, 3 Jun 2026; <a href="https://arxiv.org/abs/2605.18784" target="_blank" rel="noopener">The Insurability Frontier of AI Risk</a>, 6 May 2026; <a href="https://arxiv.org/abs/2606.16465" target="_blank" rel="noopener">trace-economic underwriting</a>, 15 Jun 2026.
+      </p>
+      <div class="notice"><strong>Not claimed here.</strong> The carrier and limit behind the ElevenLabs cover; AIUC's $50 million product limit and its Beazley capacity, reported behind a paywall; the total Y2K premium written; the first-ever tech E&amp;O policy. Where a company is named, the page says what its own release says and when, and nothing about how good it is.</div>
+    </div>
+  </section>
+
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>© 2026 RiskMandate · Autonomous Risk Management</span>
+    <span>The insurability layer for agentic AI. · <a class="footlink" href="versions.html">Versions</a> · <a class="footlink" href="admin/">Admin</a></span>
+    <span class="footlic"><a href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener">Open source on GitHub</a> · code Apache-2.0 · pages and policies <a rel="license" href="https://creativecommons.org/licenses/by/4.0/" target="_blank" title="Creative Commons Attribution 4.0 — take it, credit it"><svg class="ccicon" width="38" height="16" viewBox="0 0 76 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="2.5"></circle><text x="16" y="21" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14" font-weight="800" fill="currentColor">CC</text><circle cx="60" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="2.5"></circle><text x="60" y="21" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14" font-weight="800" fill="currentColor">BY</text></svg> CC BY 4.0</a> · <a href="https://open-source.sgit.ai/" target="_blank" rel="noopener">why</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+var RM={core:{},services:{},components:{},data:{}};
+RM.data.currentPage="insure-a-program";RM.data.pages=[{"name":"agent-behaviour-policy","label":"The sixteen examples","file":"agent-behaviour-policy.html","group":"Behaviour policies"},{"name":"abp","label":"What an ABP is","file":"abp.html","group":"Behaviour policies"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"Behaviour policies"},{"name":"licence-to-operate","label":"Licence to Operate","file":"licence-to-operate.html","group":"Behaviour policies"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"Behaviour policies"},{"name":"for-corporate","label":"You run agents today","file":"for-corporate.html","group":"Who it's for"},{"name":"for-founders","label":"You are a founder","file":"for-founders.html","group":"Who it's for"},{"name":"for-startups","label":"You are a startup","file":"for-startups.html","group":"Who it's for"},{"name":"insurance","label":"Make agents insurable","file":"insurance.html","group":"Insurance"},{"name":"insure-a-program","label":"Can you insure a program?","file":"insure-a-program.html","group":"Insurance"},{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"Insurance"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"Insurance"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"Insurance"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"lab","label":"The Lab","file":"lab.html","group":"More"},{"name":"demos","label":"Live demos","file":"demos.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"admin","label":"Admin","file":"admin/","group":"More"}];RM.data.sections=[];
+
+'use strict';
+// components/dom.js — tiny DOM helpers shared by components. `el` builds an
+// element with attributes and children; text children always go in via
+// textContent. `renderMarkdownInto` turns core/markdown tokens into real DOM
+// nodes (never an HTML string), so fetched release notes cannot inject markup.
+
+RM.components.dom = (function () {
+  // A link in a markdown note may only go somewhere harmless: same-document,
+  // same-origin relative, https, or mailto. Anything else — javascript:, data:,
+  // a protocol-relative host — renders as the text it was, and goes nowhere.
+  var SAFE = /^(?:https:\/\/|mailto:|#|[^:/?#]*(?:[/?#]|$))/i;
+
+  /**
+   * @param {string} tag
+   * @param {Object<string,string>} [attrs]
+   * @param {Array<Node|string>} [children]
+   * @returns {HTMLElement}
+   */
+  function el(tag, attrs, children) {
+    var node = document.createElement(tag);
+    if (attrs) Object.keys(attrs).forEach(function (k) {
+      if (attrs[k] != null) node.setAttribute(k, attrs[k]);
+    });
+    (children || []).forEach(function (c) {
+      node.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
+    });
+    return node;
+  }
+
+  /**
+   * Render inline runs into a parent element. Emphasis runs carry child runs
+   * rather than a string, so a link or a code span inside **bold** renders as
+   * itself instead of as its own markdown source — hence the recursion.
+   */
+  function appendRuns(parent, runs) {
+    runs.forEach(function (run) {
+      if (run.t === 'strong' || run.t === 'em') {
+        var node = el(run.t);
+        if (run.runs) appendRuns(node, run.runs);
+        else          node.appendChild(document.createTextNode(run.v));
+        parent.appendChild(node);
+      }
+      else if (run.t === 'code') parent.appendChild(el('code', null, [run.v]));
+      else if (run.t === 'link') parent.appendChild(SAFE.test(run.href)
+        ? el('a', { href: run.href }, [run.v])
+        : document.createTextNode(run.v));
+      else parent.appendChild(document.createTextNode(run.v));
+    });
+  }
+
+  /**
+   * Render markdown block tokens into a container as DOM nodes.
+   * @param {HTMLElement} container
+   * @param {Array} blocks  output of RM.core.markdown.parse
+   */
+  function renderMarkdownInto(container, blocks) {
+    blocks.forEach(function (b) {
+      if (b.type === 'heading') {
+        var h = el('h' + (b.level + 1)); // ## release title -> h3, etc.
+        appendRuns(h, b.runs);
+        container.appendChild(h);
+      } else if (b.type === 'list') {
+        var ul = el('ul');
+        b.items.forEach(function (runs) {
+          var li = el('li');
+          appendRuns(li, runs);
+          ul.appendChild(li);
+        });
+        container.appendChild(ul);
+      } else {
+        var p = el('p');
+        appendRuns(p, b.runs);
+        container.appendChild(p);
+      }
+    });
+  }
+
+  return { el: el, appendRuns: appendRuns, renderMarkdownInto: renderMarkdownInto };
+})();
+
+
+'use strict';
+// components/nav.js — the behaviour on a page that is *not* a link.
+//   [data-to]   → smooth in-page scroll to an element id (no hash routing).
+//   [data-demo] → open a pre-filled demo enquiry email.
+//
+// v1.0.0 removed everything else that used to live here. Up to v0.14 the site
+// ran inside a host <iframe> and every navigation was a postMessage — rm-nav,
+// rm-back, rm-manifest, rm-read. A <button> is not a link, so nothing could be
+// deep-linked, bookmarked, opened in a new tab, or crawled. Now each page is
+// the document the server sent and each navigation is an <a href>, so the only
+// things left to wire are the two that genuinely are not navigation.
+//
+// The mobile drawer is still injected rather than templated: one file gives
+// every page a working menu below the header breakpoint, where .navlinks is
+// hidden by CSS.
+
+RM.components.nav = (function () {
+  // Every "Book a demo" control opens a mail client with a subject and a
+  // starting message. One place to change when booking becomes a real form.
+  var DEMO = {
+    to     : 'nrparekh@gmail.com',
+    subject: 'RiskMandate — demo request',
+    body   : [
+      'Hi,',
+      '',
+      'I would like to see a plug profile for one of the agents we already run.',
+      '',
+      'A little about us:',
+      '  • Organisation:',
+      '  • Roughly how many agents we are running:',
+      '  • The agent we would want to look at first:',
+      '  • Anything already in place (register, IdP, detection tooling):',
+      '',
+      'Thanks,'
+    ].join('\n')
+  };
+
+  function demoHref() {
+    return 'mailto:' + DEMO.to +
+      '?subject=' + encodeURIComponent(DEMO.subject) +
+      '&body='    + encodeURIComponent(DEMO.body);
+  }
+
+  function openDemo() { window.location.href = demoHref(); }
+
+  function scrollTo(doc, id) {
+    var t = doc.getElementById(id);
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Inject the hamburger toggle and wire the drawer open/close. Idempotent.
+  function wireMobileNav(doc) {
+    var top = doc.querySelector('.top');
+    if (!top) return;
+    var wrap  = top.querySelector('.wrap');
+    var links = top.querySelector('.navlinks');
+    if (!wrap || !links || top.querySelector('.navtoggle')) return;
+
+    var burger = doc.createElement('button');
+    burger.className = 'navtoggle';
+    burger.setAttribute('type', 'button');
+    burger.setAttribute('aria-label', 'Toggle navigation');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-controls', 'sitenav');
+    for (var i = 0; i < 3; i++) burger.appendChild(doc.createElement('span'));
+    links.id = links.id || 'sitenav';
+    var demo = wrap.querySelector('.demo');
+    if (demo) wrap.insertBefore(burger, demo); else wrap.appendChild(burger);
+
+    function set(open) {
+      top.classList.toggle('nav-open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    burger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      set(!top.classList.contains('nav-open'));
+    });
+    // Following a real nav link closes the drawer; the group header does not.
+    links.addEventListener('click', function (e) {
+      var b = e.target.closest('button, a');
+      if (b && !b.classList.contains('navgroup-btn')) set(false);
+    });
+    doc.addEventListener('click', function (e) {
+      if (top.classList.contains('nav-open') && !top.contains(e.target)) set(false);
+    });
+    doc.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+    var view = doc.defaultView || window;
+    view.addEventListener('resize', function () { if (view.innerWidth > 1040) set(false); });
+  }
+
+  /** @param {Document} doc */
+  function wire(doc) {
+    doc.querySelectorAll('[data-to]').forEach(function (elm) {
+      elm.addEventListener('click', function () { scrollTo(doc, elm.getAttribute('data-to')); });
+    });
+    doc.querySelectorAll('[data-demo], .demo').forEach(function (elm) {
+      elm.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); openDemo(); });
+    });
+    wireMobileNav(doc);
+  }
+
+  return { wire: wire, scrollTo: scrollTo, demoHref: demoHref, openDemo: openDemo };
+})();
+
+
+'use strict';
+// components/menu.js — <rm-menu>. The one shared header menu, on every page, so
+// the nav is built by a single piece of code. Renders the homepage's section
+// links first, then the top-level pages, marking the current page active.
+//
+// A run of contiguous pages sharing a `group` string collapses into one entry:
+// a hover/click dropdown labelled by the group, with the members as children. A
+// single-member group renders flat — no dropdown for one item.
+//
+// v1.0.0: every entry is an <a href>. The old menu emitted <button> elements
+// that asked a host frame to swap an iframe's srcdoc, which meant the links did
+// not exist as far as a crawler, a bookmark or a middle-click was concerned.
+// The group header stays a <button> because it opens a panel rather than going
+// anywhere — that is the one control here that is genuinely not a link.
+
+(function () {
+  var dom = RM.components.dom;
+
+  RM.components.Menu = class extends HTMLElement {
+    connectedCallback() {
+      var self = this;
+      this._onDocClick = function (e) {
+        self.querySelectorAll('.navgroup.open').forEach(function (g) {
+          if (!g.contains(e.target)) g.classList.remove('open');
+        });
+      };
+      document.addEventListener('click', this._onDocClick);
+      this._render();
+    }
+    disconnectedCallback() {
+      document.removeEventListener('click', this._onDocClick);
+    }
+
+    // On the homepage a section link scrolls; on any other page it is a link
+    // back to the homepage at that anchor. Same markup either way.
+    _section(s) {
+      var home = !(RM.data && RM.data.currentPage);
+      var a = dom.el('a', { class: 'seclink', href: home ? '#' + s.to : 'index.html#' + s.to }, [s.label]);
+      if (home) a.addEventListener('click', function (e) {
+        e.preventDefault();
+        RM.components.nav.scrollTo(document, s.to);
+      });
+      return a;
+    }
+
+    _pagelink(p, extra) {
+      var active = p.name === (RM.data && RM.data.currentPage);
+      var attrs  = { class: 'pagelink' + (extra ? ' ' + extra : '') + (active ? ' active' : ''), href: p.file };
+      if (active) attrs['aria-current'] = 'page';
+      return dom.el('a', attrs, [p.label]);
+    }
+
+    _group(name, members) {
+      var self    = this;
+      var current = RM.data && RM.data.currentPage;
+      var active  = members.some(function (m) { return m.name === current; });
+      var car     = dom.el('span',   { class: 'navgroup-car', 'aria-hidden': 'true' }, ['▾']);
+      var btn     = dom.el('button', { class: 'navgroup-btn' + (active ? ' active' : ''), type: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false' }, [name, car]);
+      var panel   = dom.el('div',    { class: 'navmenu' }, members.map(function (m) { return self._pagelink(m, 'navchild'); }));
+      var wrap    = dom.el('span',   { class: 'navgroup' + (active ? ' active' : '') }, [btn, panel]);
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = wrap.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      return wrap;
+    }
+
+    _render() {
+      var sections = (RM.data && RM.data.sections) || [];
+      var pages    = (RM.data && RM.data.pages)    || [];
+      var self     = this;
+      this.textContent = '';
+      sections.forEach(function (s) { self.appendChild(self._section(s)); });
+      var i = 0;
+      while (i < pages.length) {
+        var p = pages[i];
+        if (!p.group) { self.appendChild(self._pagelink(p)); i++; continue; }
+        var g = p.group, members = [];
+        while (i < pages.length && pages[i].group === g) { members.push(pages[i]); i++; }
+        if (members.length === 1) self.appendChild(self._pagelink(members[0]));
+        else                      self.appendChild(self._group(g, members));
+      }
+    }
+  };
+
+  customElements.define('rm-menu', RM.components.Menu);
+})();
+
+
+'use strict';
+// boot.js — inner-page composition root (version builds and dev.html). Custom
+// elements self-register on load; here we wire document-level nav behaviour.
+// The page runs inside the host's stage frame, so the host (not this page) signals
+// the SG/App host that the app is ready.
+
+(function () {
+  function start() { RM.components.nav.wire(document); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
+})();
+
+
+})();
+</script>
+</body>
+</html>

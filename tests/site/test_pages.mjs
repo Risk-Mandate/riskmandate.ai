@@ -248,24 +248,36 @@ test('every footer that links Versions also links Admin', () => {
   }
 });
 
-test('the home page policy card reports the vault it names, not numbers somebody typed', () => {
-  // The hero used to carry an invented company and a score. It now carries a real
-  // template policy, which is only worth more than the invention if the four
-  // numbers on it are the vault's own — so they are checked against the delta the
-  // generator wrote, and a rebuild that moves a count fails here rather than
-  // quietly leaving the front page wrong.
-  const d     = JSON.parse(read('vaults/claude-code-web/data/delta.json'));
-  const c     = d.counts;
-  const card  = read('index.html').match(/<a class="pcard"[\s\S]*?<\/a>/)?.[0];
-  assert.ok(card, 'the home page has no policy card');
+test('the home page counts come from the vault, and the shape count from the catalogue', () => {
+  // The hero once carried an invented company and a score. It now carries a real
+  // template policy, which is only worth more than the invention if the numbers on
+  // it are the vault's own. Both halves are checked: the four counts against the
+  // delta the generator wrote, and the number of published shapes against the
+  // catalogue — the design this page was built from said "fifteen" and the
+  // sixteenth vault had already shipped.
+  const home = read('index.html');
+  const c    = JSON.parse(read('vaults/claude-code-web/data/delta.json')).counts;
+  const n    = JSON.parse(read('vaults/index.json')).vaults.length;
 
-  const shown = [...card.matchAll(/<b class="pcn[^"]*">(\d+)<\/b>/g)].map((m) => Number(m[1]));
-  assert.deepEqual(shown, [c.aligned + c.excess, c.aligned + c.shortfall, c.excess, c.unbounded_excess],
-    'the card does not show grant, mandate, excess and unbounded excess from the vault');
+  const hero = home.match(/<div class="legend">[\s\S]*?<\/figcaption>/)?.[0];
+  assert.ok(hero, 'the home page has no hero counts block');
+  const shown = [...hero.matchAll(/<span class="legendNumber[^"]*">(\d+)<\/span>/g)].map((m) => Number(m[1]));
+  assert.deepEqual(shown,
+    [c.aligned + c.excess, c.aligned + c.shortfall, c.excess, c.unbounded_excess],
+    'the hero counts are not reach, mandate, gap and unbounded gap from the vault');
+  assert.match(hero, /Claude Code on the web/, 'the counts do not name the policy they came from');
 
-  assert.match(card, /abp-vault-claude-code-web\.html/, 'the card does not link the vault it reports');
-  // the word is allowed — the card says "No score" — a rendered score is not
-  assert.doesNotMatch(card, /\d+\s*(?:\/|out of)\s*100|\bL[1-6]\b|\b(?:rated|scored)\b/i,
+  // the count of published shapes, in digits and in words, wherever the page states it
+  const words = { 15: 'fifteen', 16: 'sixteen', 17: 'seventeen' }[n];
+  assert.ok(words, `no word for ${n} shapes — extend this test`);
+  assert.match(home, new RegExp(`${n} templates, published free`),
+    `the home page does not say there are ${n} templates`);
+  for (const m of home.matchAll(/\b(fifteen|sixteen|seventeen)\b/gi))
+    assert.equal(m[1].toLowerCase(), words,
+      `the home page says "${m[1]}" where the catalogue has ${n} vaults`);
+
+  assert.match(home, /abp-vault-claude-code-web\.html/, 'the hero does not link the policy it reports');
+  assert.doesNotMatch(hero, /\d+\s*(?:\/|out of)\s*100|\bL[1-6]\b|\b(?:rated|scored)\b/i,
     'a behaviour policy carries no score');
 });
 
