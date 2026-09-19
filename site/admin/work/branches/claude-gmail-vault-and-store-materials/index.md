@@ -90,8 +90,9 @@ for. The note for the barrier-holder half is drafted and must not be lost; it wa
 before dev shipped its own `1.25.0`, and the merge kept dev's. The draft is below — add the Writing
 paragraph to it and ship it under the new number.
 
-<details><summary>Drafted release note (was 1.25.0)</summary>
+<details><summary>Drafted release note (was 1.25.0) — verbatim, fenced so its site-relative links stay text here</summary>
 
+```markdown
 ## A barrier gains a holder, and a block names its blocker
 
 The barrier column has always said *what* stands in the way of a capability: nothing, a rule in
@@ -150,5 +151,6 @@ at the top. The summary line under the list lost the same repetition.
 **Not changed.** What the credential permits, as data, is still not recorded: the blocked list names
 the blocker in prose and there is no `permitted.json` behind it yet. The audiences still signpost
 rather than organise. Both are in the brief, and neither is claimed here.
+```
 
 </details>
