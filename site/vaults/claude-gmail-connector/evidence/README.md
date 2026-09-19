@@ -164,9 +164,26 @@ of threads and messages, bypassing Trash", and the scope that would — `https:/
 screen. Permanent deletion is bounded at Google, out of the agent's reach: a boundary, not a
 setting, and the thirty-day Bin is Google's rule rather than the connector's.
 
+### 13 · The approval prompt again, three days later (`13-approval-prompt-add-labels.png`)
+
+Captured 19 September 2026 on the same account, in the same browser surface:
+
+**Add labels to message** › "Claude wants to use **Add labels to message** from **Gmail**" —
+**Deny** (Esc) · **Always allow** (⇧⌘↵) · **Allow once** (⌘↵, the filled button).
+
+The same three buttons, the same wording, a different tool. Three prompts of this shape are now
+in the record — *Send email message* (7), *Moves a message to Trash* (10) and this one — and none
+of the three names the object it would act on: no message, no thread, no label, no count, and no
+indication of whether the agent was asked by the account holder or by text inside a message it had
+just read. The image is kept unredacted because the screen carries nothing to redact, which is
+itself the finding. It is the evidence behind the article
+[*An approval prompt is not a human in the loop*](https://riskmandate.ai/article-approval-prompts.html),
+19 September 2026.
+
 ## Images
 
-Present: `09-sent-message-headers.eml.txt` (redacted). To be added, redacted: `01-directory.png`,
+Present: `09-sent-message-headers.eml.txt` (redacted) and `13-approval-prompt-add-labels.png`
+(nothing to redact). To be added, redacted: `01-directory.png`,
 `02-listing.png`, `03-choose-account.png`, `04-sign-in.png`, `05-consent.png`, `06-read-inbox.png`,
 `07-approval-prompt.png`, `08-send-and-settings.png`, `10-trash-prompt.png`, `11-the-bin.png`,
 `12-permanent-deletion.png`. The transcriptions above are the record until then.

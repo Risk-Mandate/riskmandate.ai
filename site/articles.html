@@ -3,23 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>RiskMandate — For Agents</title>
-<meta name="description" content="Machine-readable access to RiskMandate's content: llms.txt, a full-text markdown export, and a structured agent-content manifest. A product about governing agent access, publishing a clean one.">
-<link rel="canonical" href="https://riskmandate.ai/agents.html">
-<link rel="alternate" type="text/markdown" href="agents.md" title="This page as markdown">
+<title>RiskMandate — writing</title>
+<meta name="description" content="One argument at a time, from the record: what a deployment actually does, the screen or page it was read from, and where the accountability lands. Every claim sourced and dated; nothing tested on anybody else's system; nothing scored.">
+<link rel="canonical" href="https://riskmandate.ai/articles.html">
+<link rel="alternate" type="text/markdown" href="articles.md" title="This page as markdown">
 <link rel="icon" href="assets/brand/riskmandate-favicon-32.png" sizes="32x32">
 <link rel="icon" href="assets/brand/riskmandate-mark.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="RiskMandate">
-<meta property="og:url" content="https://riskmandate.ai/agents.html">
-<meta property="og:title" content="RiskMandate — For Agents">
-<meta property="og:description" content="Machine-readable access to RiskMandate's content: llms.txt, a full-text markdown export, and a structured agent-content manifest. A product about governing agent access, publishing a clean one.">
+<meta property="og:url" content="https://riskmandate.ai/articles.html">
+<meta property="og:title" content="RiskMandate — writing">
+<meta property="og:description" content="One argument at a time, from the record: what a deployment actually does, the screen or page it was read from, and where the accountability lands. Every claim sourced and dated; nothing tested on anybody else's system; nothing scored.">
 <meta property="og:image" content="https://riskmandate.ai/assets/brand/riskmandate-lockup-light.png">
 <meta name="twitter:card" content="summary_large_image">
-<!-- v1.0.0. Reconstructed from SG/Vault 7rfetjwz at v0.14.0;
-     see versions/1.0.0.md. Edited directly from here on — there is no build step. -->
+<!-- Scaffolded by scripts/site/new-page.mjs. Hand-edited from here on — there is no build step. -->
 <style>
-/* partners.css — standalone styling for partners.html (self-contained tokens). */
+/* articles.css — self-contained: the shared chrome, then this page's own. */
 :root{
   --bg:#F7F6F2; --bg2:#EFEDE7; --card:#FFFFFF; --ink:#0D0D0C; --canvas:#0A0A09;
   --text:#1A1917; --muted:#4A4845; --faint:#8A8780; --border:#E2DFD8;
@@ -34,24 +33,6 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth} @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
-
-/* header — light theme, identical to the version pages (one look everywhere) */
-.top{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
-.top .wrap{display:flex;align-items:center;gap:22px;height:56px;max-width:1100px}
-.brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:15px;color:var(--text);cursor:pointer;white-space:nowrap}
-.brand:hover{color:var(--text)}
-.rm{width:26px;height:26px;flex:none;display:block}
-.rm svg{width:100%;height:100%;display:block}
-.navlinks{display:flex;align-items:center;gap:22px;margin-left:auto}
-rm-menu{display:contents}
-.navlinks button{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap}
-.navlinks button:hover{color:var(--text)}
-.pagelink.active{color:var(--text);font-weight:600}
-.vs-select{font-family:var(--mono);font-size:12px;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:7px;padding:5px 8px;cursor:pointer}
-.vs-select:disabled{cursor:default;opacity:.8}
-.demo{background:var(--green);color:#fff;font-weight:600;font-size:13px;border:0;border-radius:8px;padding:8px 16px;cursor:pointer;transition:background .15s;font-family:var(--sans);white-space:nowrap}
-.demo:hover{background:#16704f}
-@media (max-width:1040px){.navlinks{display:none}.vs-select{display:none}}
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
 h1,h2{margin:0;font-weight:800;letter-spacing:-.03em;line-height:1.04}
 h2{font-size:clamp(26px,3.6vw,40px);font-weight:700;letter-spacing:-.02em}
@@ -60,67 +41,23 @@ p{margin:0}
 .tag{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:14px}
 .g{color:var(--green)} .it{font-style:italic;color:var(--green)}
 
-/* header (dark) */
+/* header */
+.top{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.top .wrap{display:flex;align-items:center;gap:22px;height:56px;max-width:1100px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:15px;color:var(--text);white-space:nowrap;text-decoration:none}
+.rm{width:26px;height:26px;flex:none;display:block}
+.rm svg{width:100%;height:100%;display:block}
+.navlinks{display:flex;align-items:center;gap:22px;margin-left:auto}
+rm-menu{display:contents}
+.navlinks a{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;text-decoration:none;display:inline-flex;align-items:center}
+.navlinks a:hover{color:var(--text)}
+.navlinks a.active{color:var(--text);font-weight:600}
+.version{font-family:var(--mono);font-size:12px;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:7px;padding:5px 8px;text-decoration:none;white-space:nowrap;transition:color .15s,border-color .15s}
+.version:hover{color:var(--text);border-color:var(--faint)}
+.demo{background:var(--green);color:#fff;font-weight:600;font-size:13px;border:0;border-radius:8px;padding:8px 16px;cursor:pointer;transition:background .15s;font-family:var(--sans);white-space:nowrap}
+.demo:hover{background:#16704f}
 
-/* buttons */
-.btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;padding:12px 22px;border-radius:var(--r-sm);cursor:pointer;border:1px solid transparent;font-family:var(--sans)}
-.btn-green{background:var(--green);color:#fff} .btn-green:hover{background:#16704f}
-.btn-ghost{background:transparent;color:var(--fg);border-color:var(--line-2)} .btn-ghost:hover{border-color:var(--fg-2)}
-
-/* hero (dark) */
-.phero{background:var(--ink);color:var(--fg);padding:88px 24px 84px}
-
-/* hero (dark) */
-.phero{background:var(--ink);color:var(--fg);padding:88px 24px 84px}
-.phero .wrap{max-width:820px}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--green);background:rgba(26,127,90,.18);border:1px solid rgba(26,127,90,.4);border-radius:999px;padding:5px 12px}
-.eyebrow .d{width:6px;height:6px;border-radius:50%;background:var(--green-2)}
-.phero h1{font-size:clamp(36px,5.2vw,64px);letter-spacing:-.04em;line-height:1;margin:26px 0 0;color:var(--fg)}
-.phero .sub{color:var(--fg-2);font-size:17px;line-height:1.7;max-width:660px;margin-top:24px}
-.cta-row{display:flex;flex-wrap:wrap;gap:11px;margin-top:30px}
-.btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;padding:12px 22px;border-radius:var(--r-sm);cursor:pointer;border:1px solid transparent;font-family:var(--sans)}
-.btn-green{background:var(--green);color:#fff} .btn-green:hover{background:#16704f}
-.btn-ghost{background:transparent;color:var(--fg);border-color:var(--line-2)} .btn-ghost:hover{border-color:var(--fg-2)}
-
-/* sections */
-.paper{background:var(--bg)}
-.psection{padding:80px 0;border-bottom:1px solid var(--border)}
-.psection.alt{background:var(--bg2)}
-.shead{max-width:640px}
-.shead h2{color:var(--text)} .shead p{color:var(--muted);margin-top:16px;font-size:15px;line-height:1.75}
-.side{display:grid;grid-template-columns:1fr 360px;gap:48px;align-items:center}
-@media (max-width:900px){.side{grid-template-columns:1fr;gap:32px}}
-
-/* format cards */
-.fmts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px}
-.fmt{display:block;border:1.5px solid var(--border);border-radius:var(--r);background:var(--card);padding:20px;box-shadow:0 1px 4px rgba(0,0,0,.05);transition:border-color .15s,box-shadow .15s;cursor:pointer}
-.fmt:hover{border-color:var(--green);box-shadow:0 8px 28px rgba(0,0,0,.10)}
-.fmt-h{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
-.fmt-path{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--text);word-break:break-all}
-.fmt-badge{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.06em;color:var(--green);background:rgba(26,127,90,.12);border-radius:999px;padding:3px 9px;flex:none}
-.fmt-d{font-size:13px;color:var(--muted);line-height:1.6}
-@media (max-width:820px){.fmts{grid-template-columns:1fr}}
-
-/* code block */
-.code{margin-top:36px;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:#131210;box-shadow:0 12px 40px -24px #000}
-.code-h{padding:11px 16px;border-bottom:1px solid var(--line);background:var(--canvas)}
-.code-t{font-family:var(--mono);font-size:11px;color:var(--fg-3)}
-.code pre{margin:0;padding:18px 16px;overflow-x:auto}
-.code code{font-family:var(--mono);font-size:12.5px;line-height:1.7;color:var(--fg-2);white-space:pre}
-.note{margin-top:24px;font-size:13px;color:var(--muted);line-height:1.7;max-width:660px}
-
-/* why card */
-.whycard{border-radius:var(--r);border:1.5px solid rgba(26,127,90,.4);background:var(--card);box-shadow:0 8px 32px rgba(0,0,0,.10);overflow:hidden}
-.wc-row{display:grid;grid-template-columns:104px 1fr;gap:12px;padding:11px 18px;align-items:baseline}
-.wc-row + .wc-row{border-top:1px dashed var(--border)}
-.wc-k{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--green)}
-.wc-v{font-size:13px;color:var(--text)}
-
-/* footer */
-.foot{background:var(--canvas);border-top:1px solid var(--line);padding:32px 24px}
-.foot .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-family:var(--mono);font-size:10px;color:var(--fg-3);max-width:1100px}
-
-/* nav dropdown — grouped top-level pages (e.g. Risk Scenarios) */
+/* nav dropdowns */
 .navgroup{position:relative;display:inline-flex;align-items:center}
 .navgroup::after{content:"";position:absolute;top:100%;left:0;right:0;height:10px}
 .navgroup-btn{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;display:inline-flex;align-items:center;gap:5px}
@@ -130,24 +67,23 @@ p{margin:0}
 .navmenu{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);min-width:184px;background:var(--card);border:1px solid var(--border);border-radius:10px;box-shadow:0 10px 34px rgba(13,13,12,.14);padding:6px;display:none;flex-direction:column;gap:2px;z-index:70}
 .navgroup:hover .navmenu,.navgroup.open .navmenu{display:flex}
 .navmenu .navchild{justify-content:flex-start;text-align:left;width:100%;padding:8px 12px;border-radius:7px;font-size:13.5px;color:var(--muted);white-space:nowrap}
-.navmenu .navchild:hover{background:var(--bg2,#EFEDE7);color:var(--text)}
-.navmenu .navchild.active{color:var(--green);font-weight:600;background:var(--greenBg,#EBF5F0)}
+.navmenu .navchild:hover{background:var(--bg2);color:var(--text)}
+.navmenu .navchild.active{color:var(--green);font-weight:600;background:var(--greenBg)}
 
-/* ===== mobile nav — hamburger drawer (fix: nav bar was hidden with no
-   replacement below 880px). Toggle injected by nav.js; .top.nav-open opens it. ===== */
+/* mobile drawer — the toggle is injected by nav.js; .top.nav-open opens it */
 .navtoggle{display:none;margin-left:auto;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;padding:0;background:none;border:0;cursor:pointer}
-.navtoggle span{display:block;width:20px;height:2px;margin:0 auto;background:var(--text,#1A1917);border-radius:2px;transition:transform .2s,opacity .2s}
+.navtoggle span{display:block;width:20px;height:2px;margin:0 auto;background:var(--text);border-radius:2px;transition:transform .2s,opacity .2s}
 .top.nav-open .navtoggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .top.nav-open .navtoggle span:nth-child(2){opacity:0}
 .top.nav-open .navtoggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 @media (max-width:1040px){
   .navtoggle{display:flex}
   .top .wrap{position:relative}
-  .navlinks{position:absolute;left:0;right:0;top:calc(100% + 1px);flex-direction:column;align-items:stretch;gap:0;margin:0;padding:8px;background:var(--card,#fff);border-bottom:1px solid var(--border,#E2DFD8);box-shadow:0 14px 34px rgba(13,13,12,.14);max-height:calc(100vh - 56px);overflow:auto}
+  .version{display:none}
+  .navlinks{display:none;position:absolute;left:0;right:0;top:calc(100% + 1px);flex-direction:column;align-items:stretch;gap:0;margin:0;padding:8px;background:var(--card);border-bottom:1px solid var(--border);box-shadow:0 14px 34px rgba(13,13,12,.14);max-height:calc(100vh - 56px);overflow:auto}
   .top.nav-open .navlinks{display:flex}
-  .navlinks button,.navlinks .pagelink,.navlinks .navgroup-btn{width:100%;text-align:left;justify-content:flex-start;padding:12px 16px;font-size:15px;border-radius:8px}
-  .navlinks button:hover,.navlinks .pagelink:hover{background:var(--bg2,#EFEDE7)}
-  /* the Risk Scenarios group expands inline inside the drawer (no hover dropdown) */
+  .navlinks a,.navlinks .navgroup-btn{width:100%;text-align:left;justify-content:flex-start;padding:12px 16px;font-size:15px;border-radius:8px}
+  .navlinks a:hover{background:var(--bg2)}
   .navgroup{display:block;width:100%;position:static}
   .navgroup::after{display:none}
   .navgroup-btn{display:flex}
@@ -155,26 +91,39 @@ p{margin:0}
   .navmenu{position:static;transform:none;display:flex;flex-direction:column;min-width:0;padding:2px 0 8px 14px;background:transparent;border:0;box-shadow:none}
   .navmenu .navchild{padding:10px 14px;font-size:14px}
 }
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;padding:12px 22px;border-radius:var(--r-sm);cursor:pointer;border:1px solid transparent;font-family:var(--sans);text-decoration:none}
+.btn-green{background:var(--green);color:#fff} .btn-green:hover{background:#16704f}
+.btn-ghost{background:transparent;color:var(--fg);border-color:var(--line-2)} .btn-ghost:hover{border-color:var(--fg-2)}
+.btn-ghost-dark{background:transparent;color:var(--text);border-color:var(--border)} .btn-ghost-dark:hover{border-color:var(--green);color:var(--green)}
+
+/* dark hero */
+.phero{background:var(--ink);color:var(--fg);padding:88px 24px 84px}
+.phero .wrap{max-width:var(--wrap)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--green);background:rgba(26,127,90,.18);border:1px solid rgba(26,127,90,.4);border-radius:999px;padding:5px 12px}
+.eyebrow .d{width:6px;height:6px;border-radius:50%;background:var(--green-2)}
+.phero h1{font-size:clamp(34px,5.2vw,60px);letter-spacing:-.04em;line-height:1.02;margin:26px 0 0;color:var(--fg);max-width:900px}
+.phero .sub{color:var(--fg-2);font-size:17px;line-height:1.7;max-width:640px;margin-top:24px}
+.cta-row{display:flex;flex-wrap:wrap;gap:11px;margin-top:30px}
+
+/* paper sections */
+.paper{background:var(--bg)}
+.psection{padding:80px 0;border-bottom:1px solid var(--border)}
+.psection.alt{background:var(--bg2)}
+.shead{max-width:680px} .shead.center{max-width:720px;margin:0 auto;text-align:center}
+.shead h2{color:var(--text)} .shead p{color:var(--muted);margin-top:16px;font-size:15px;line-height:1.75}
+
+/* closing panel + footer */
+.pcta{background:var(--ink);padding:80px 24px;text-align:center}
+.pcta .wrap{max-width:720px;padding:0}
+.pcta h2{font-size:clamp(28px,4.4vw,48px);color:var(--fg);margin-top:20px;font-weight:700;letter-spacing:-.03em}
+.pcta p{color:var(--fg-2);margin-top:16px;font-size:16px;line-height:1.7}
+.pcta .cta-row{justify-content:center}
+.foot{background:var(--canvas);border-top:1px solid var(--line);padding:32px 24px}
+.foot .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-family:var(--mono);font-size:10px;color:var(--fg-3);max-width:1100px}
 .footlink{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
 .footlink:hover{color:var(--fg-2)}
-
-
-/* v1.0.0 — navigation is real links now, so the header rules that targeted
-   <button> have to reach <a> too, and the version switcher is a link. */
-.brand{text-decoration:none}
-.navlinks a{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;text-decoration:none;display:inline-flex;align-items:center}
-.navlinks a:hover{color:var(--text)}
-.navlinks a.active{color:var(--text);font-weight:600}
-.version{font-family:var(--mono);font-size:12px;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:7px;padding:5px 8px;text-decoration:none;white-space:nowrap;transition:color .15s,border-color .15s}
-.version:hover{color:var(--text);border-color:var(--faint)}
-a.btn{text-decoration:none}
-a.ds{display:block;text-decoration:none;color:inherit}
-@media (max-width:1040px){
-  .version{display:none}
-  .navlinks a{width:100%;text-align:left;justify-content:flex-start;padding:12px 16px;font-size:15px;border-radius:8px}
-  .navlinks a:hover{background:var(--bg2,#EFEDE7)}
-}
-
 /* narrow phones — at 360px the brand, the burger and the call to action stop
    fitting on one line, and the header was the last thing on this site that
    scrolled sideways. Tighten the gutter, the gap and the button rather than
@@ -186,9 +135,47 @@ a.ds{display:block;text-decoration:none;color:inherit}
   .demo{padding:8px 12px;font-size:12.5px}
 }
 
+/* this page */
+.phero{background:var(--canvas);color:var(--fg);padding:76px 0 64px;border-bottom:1px solid var(--line)}
+.phero h1{font-size:clamp(34px,5.4vw,58px);max-width:16ch}
+.phero .sub{margin-top:22px;font-size:17px;line-height:1.7;color:var(--fg-2);max-width:64ch}
+.phero .sub strong{color:var(--fg);font-weight:600}
+.phero .eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--green);background:rgba(26,127,90,.18);border:1px solid rgba(26,127,90,.4);border-radius:999px;padding:5px 12px;margin-bottom:26px}
+.phero .eyebrow .d{width:6px;height:6px;border-radius:50%;background:var(--green-2)}
+.shead h2{max-width:24ch}
+.shead p{margin-top:18px;font-size:16.5px;line-height:1.7;color:var(--muted);max-width:68ch}
+.shead p+p{margin-top:12px}
+.shead p strong{color:var(--text)}
+.shead a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+
+.arts{margin:30px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px}
+.arts li{border:1px solid var(--border);border-radius:var(--r);background:var(--card);padding:26px 28px}
+.arts li .d{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green)}
+.arts li h3{margin:10px 0 0;font-size:clamp(20px,2.4vw,26px);font-weight:700;letter-spacing:-.02em;line-height:1.2}
+.arts li h3 a{color:var(--text);text-decoration:none}
+.arts li h3 a:hover{color:var(--green)}
+.arts li p{margin-top:12px;font-size:15px;line-height:1.7;color:var(--muted);max-width:74ch}
+.arts li .sh{margin-top:14px;font-family:var(--mono);font-size:11.5px;color:var(--faint);line-height:1.8}
+.arts li .sh a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+
+.soon{margin:30px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:12px}
+.soon li{border:1px dashed var(--faint);border-radius:var(--r);padding:20px 22px;background:transparent}
+.soon li h3{margin:0;font-size:16.5px;font-weight:700;color:var(--text);letter-spacing:-.01em;line-height:1.35}
+.soon li p{margin-top:8px;font-size:14px;color:var(--muted);line-height:1.65}
+.soon li .st{display:inline-block;margin-top:12px;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+
+.notice{margin-top:28px;border:1px dashed var(--faint);border-radius:var(--r-sm);padding:16px 20px;font-size:13.5px;color:var(--muted);line-height:1.65;max-width:800px}
+.notice strong{color:var(--text)} .notice a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+.plist{margin:26px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;max-width:740px}
+.plist li{position:relative;padding-left:22px;font-size:15px;color:var(--muted);line-height:1.7}
+.plist li::before{content:"";position:absolute;left:2px;top:10px;width:6px;height:6px;border-radius:50%;background:var(--green)}
+.plist strong{color:var(--text)} .plist a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+.plist code{font-family:var(--mono);font-size:13px;background:var(--bg2);padding:1px 6px;border-radius:5px;color:var(--text)}
+
 .ghlink{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:8px;color:var(--muted);border:1px solid transparent}.ghlink:hover{color:var(--text);border-color:var(--border)}
 .footlic{display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap}.footlic a{color:inherit}.ccicon{vertical-align:-3px;margin:0 2px}
-@media (max-width:1400px) and (min-width:901px){.ghlink,header.top a.version{display:none}header.top .wrap{gap:14px}}</style>
+@media (max-width:1400px) and (min-width:901px){.ghlink,header.top a.version{display:none}header.top .wrap{gap:14px}}
+</style>
 </head>
 <body id="top">
 
@@ -198,91 +185,89 @@ a.ds{display:block;text-decoration:none;color:inherit}
     <nav class="navlinks"><rm-menu></rm-menu></nav>
     <a class="ghlink" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener" aria-label="The source, on GitHub" title="Open source · Apache-2.0 code · CC BY 4.0 pages"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a>
       <a class="version" href="versions.html" title="What shipped in v1.26.2">v1.26.2</a>
-    <button class="demo" data-demo>Book a demo</button>
+    <button class="demo" data-demo>Get in touch</button>
   </div>
 </header>
 
 <main class="phero">
   <div class="wrap">
-    <span class="eyebrow"><span class="d"></span> For Agents</span>
-    <h1>Machine-readable by <span class="it">design.</span></h1>
-    <p class="sub">This site is JavaScript-rendered inside an isolated frame — great for humans, opaque to a crawler. So the content is also published as plain text an LLM agent can read directly: a curated index, a full-text export, and a structured manifest. A product about governing what agents may access should publish a clean, honest access surface of its own.</p>
-    <div class="cta-row"><button class="btn btn-green" data-to="formats">The formats ↓</button><button class="btn btn-ghost" data-to="use">How to use them</button></div>
+    <span class="eyebrow"><span class="d"></span>WRITING</span>
+    <h1>One argument at a time, from the record.</h1>
+    <p class="sub">Each of these takes one thing a deployment actually does, shows the screen or the page it was read from, and follows it to where the accountability lands. <strong>Every claim carries a source and a date.</strong> Nothing is tested on anybody else's system, nothing is scored, and where a vendor's own pages disagree the article says so rather than settling it.</p>
   </div>
 </main>
 
 <div class="paper">
 
-  <section class="psection" id="formats">
-    <div class="wrap">
-      <div class="shead">
-        <span class="tag">The formats</span>
-        <h2>Three artifacts, <span class="g">one source of truth.</span></h2>
-        <p>All three are generated from the same content at build time, so they never drift from the site. Fetch whichever fits your agent. Paths are stable and served from the domain root.</p>
-      </div>
-      <div class="fmts">
-        <a class="fmt" href="https://riskmandate.ai/llms.txt">
-          <div class="fmt-h"><span class="fmt-path">/llms.txt</span><span class="fmt-badge">llmstxt.org</span></div>
-          <div class="fmt-d">A curated Markdown index: the one-line pitch, the core concepts in brief, and links to the deeper material. The place to start — small, and built for a context window.</div>
-        </a>
-        <a class="fmt" href="https://riskmandate.ai/llms-full.txt">
-          <div class="fmt-h"><span class="fmt-path">/llms-full.txt</span><span class="fmt-badge">full text</span></div>
-          <div class="fmt-d">The entire site as one clean Markdown document — positioning, the no-deny mechanic, the mandate, the foundation, pricing, partners, and the full concept library. One fetch, everything.</div>
-        </a>
-        <a class="fmt" href="https://riskmandate.ai/.well-known/agent-content.json">
-          <div class="fmt-h"><span class="fmt-path">/.well-known/agent-content.json</span><span class="fmt-badge">structured</span></div>
-          <div class="fmt-d">A machine manifest: site metadata, an enumerated concept list with stable ids, the pricing model, and pointers to every text artifact. Parse it deterministically — no scraping.</div>
-        </a>
-      </div>
+<section class="psection">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">Published</span>
+      <h2>Written so far.</h2>
     </div>
-  </section>
+    <ul class="arts">
+      <li>
+        <span class="d">19 September 2026</span>
+        <h3><a href="article-approval-prompts.html">An approval prompt is not a human in the loop.</a></h3>
+        <p>A connector asks <em>Claude wants to use Add labels to message from Gmail</em> and offers Deny, Always allow and Allow once. It does not say which label, on which message, in which thread, or whether the agent was asked by the person or by an email it had just read. One of the three buttons removes the question permanently, and it is pressed by the account the prompt exists to protect. What the screen carries, what Google had already authorised before it appeared, and why the person clicking it ends up accountable for a decision they were not given enough to make.</p>
+        <span class="sh">Shape: <a href="abp-vault-claude-gmail-connector.html">Claude with the Gmail connector</a> · three prompts captured on the deployer's own account, 16 and 19 September 2026 · <a href="article-approval-prompts.md">markdown</a></span>
+      </li>
+    </ul>
+  </div>
+</section>
 
-  <section class="psection alt" id="use">
-    <div class="wrap">
-      <div class="shead">
-        <span class="tag">How to use them</span>
-        <h2>Fetch, don't scrape.</h2>
-        <p>The rendered pages carry no crawlable content. Point your agent at the text artifacts instead.</p>
-      </div>
-      <div class="code">
-        <div class="code-h"><span class="code-t">start small, then go deep</span></div>
-        <pre><code># 1. The index — cheap, orients the agent
-curl -s https://riskmandate.ai/llms.txt
-
-# 2. Everything, as one Markdown document
-curl -s https://riskmandate.ai/llms-full.txt
-
-# 3. Structured, for deterministic parsing
-curl -s https://riskmandate.ai/.well-known/agent-content.json | jq .</code></pre>
-      </div>
-      <p class="note">Content licence: the concept library is CC BY 4.0 — reuse it, attribute RiskMandate. The artifacts are regenerated on every release, so a cached copy is a point-in-time snapshot; re-fetch for the current version.</p>
+<section class="psection alt">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">In the queue</span>
+      <h2>Being written, in no fixed order.</h2>
+      <p>Listed so the queue is visible rather than implied. None of these exists yet; each one already has its record behind it in a behaviour policy, which is the only reason it is on the list.</p>
     </div>
-  </section>
+    <ul class="soon">
+      <li><h3>A barrier somebody can withdraw on a Tuesday</h3><p>Attachment content is out of reach in this deployment because a client ships no tool for it — while the credential authorises the bytes. A block a vendor holds as a product decision moves in a release, with no consent screen and no notice. What that means for anyone relying on it.</p><span class="st">Not written</span></li>
+      <li><h3>The consent screen you cannot remember</h3><p>Three lines, each with its own tick box, all pre-ticked under <em>Select all</em>. What those three actually authorise, in Google's own words, against what the product then offers — and the distance between the two.</p><span class="st">Not written</span></li>
+      <li><h3>Reading a message is not authorisation to forward it</h3><p>The mail in an inbox was sent to one person under one expectation. An agent that may read it may also forward it, and the authorisation the sender gave does not stretch that far. Whose rights are in play, and what the record can honestly say about it.</p><span class="st">Not written</span></li>
+      <li><h3>The agent's mail is your mail</h3><p>A message sent through the connector carries no header naming the client. To the recipient it is the account holder's. What that does to attribution, measured on the sending side.</p><span class="st">Not written</span></li>
+      <li><h3>The mailbox is a credential store</h3><p>Password resets, one-time codes, invitations and recovery mail arrive by email, and reading messages reads those. A capability with no separate permission behind it, and no tool on either vendor's page that separates them.</p><span class="st">Not written</span></li>
+    </ul>
+    <div class="notice"><strong>Want one of these first, or a different one?</strong> The queue is not fixed. <a href="feedback.html">Tell us which</a>, or say which deployment you are looking at — an article gets written when there is a record behind it, and the record is a behaviour policy.</div>
+  </div>
+</section>
 
-  <section class="psection" id="why">
-    <div class="wrap side">
-      <div class="shead">
-        <span class="tag">Why we bother</span>
-        <h2>The access surface <span class="g">is the point.</span></h2>
-        <p>RiskMandate governs the right to act: what a system is authorised to do, granted by whom, for how long. An access surface that is explicit, scoped, and honest is exactly what we ask of every mandate on the platform. Publishing one for our own content is the smallest possible version of the thing the product does.</p>
-        <p>No dark patterns, no cloaking, no serving agents different content than humans. The text artifacts say precisely what the site says.</p>
-      </div>
-      <div class="whycard">
-        <div class="wc-row"><span class="wc-k">GRANTED BY</span><span class="wc-v">RiskMandate, openly</span></div>
-        <div class="wc-row"><span class="wc-k">SCOPE</span><span class="wc-v">the public site content, in full</span></div>
-        <div class="wc-row"><span class="wc-k">FORMAT</span><span class="wc-v">Markdown + JSON, from one source</span></div>
-        <div class="wc-row"><span class="wc-k">FRESHNESS</span><span class="wc-v">regenerated every release</span></div>
-        <div class="wc-row"><span class="wc-k">LICENCE</span><span class="wc-v">CC BY 4.0 (concept library)</span></div>
-      </div>
+<section class="psection">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">How these are written</span>
+      <h2>The rules, stated so they can be held against us.</h2>
     </div>
-  </section>
+    <ul class="plist">
+      <li><strong>Nothing is tested on somebody else's system.</strong> A claim comes from a vendor's own published page, quoted and dated, or from a system we are entitled to run. Where those two disagree, the disagreement is published unresolved.</li>
+      <li><strong>No verdict on a named company.</strong> Facts, dates and sources. Screens are quoted rather than characterised. The judgment these pages make is about a mechanism, using a test that is published and applied the same way everywhere.</li>
+      <li><strong>Nothing is scored.</strong> No rating, no traffic light, no strong-or-weak. What a barrier is worth depends on the deployment it sits in, which is exactly why the barrier is described instead: who holds it, what it rests on, whether it moves without you, and what would take it away.</li>
+      <li><strong>What was not done is stated beside what was.</strong> If a question is open, it is listed as open, with how it would be settled. A number nobody has measured does not appear here because it sounds right.</li>
+      <li><strong>Each article says which deployment shape it is about</strong> and links to that shape's <a href="agent-behaviour-policy.html">behaviour policy</a>, so every claim can be checked against the record it came from.</li>
+    </ul>
+  </div>
+</section>
 
 </div>
 
+<section class="pcta">
+  <div class="wrap">
+    <span class="tag">The record behind the writing</span>
+    <h2>Sixteen deployments, described.</h2>
+    <p>For one agent in one deployment: everything it can do, what it was authorised to do, the gap between the two, and who holds each thing standing in the way. Read them with their keys, or have one corrected for your deployment.</p>
+    <div class="cta-row">
+      <a class="btn btn-green" href="agent-behaviour-policy.html">The sixteen examples</a>
+      <a class="btn btn-ghost" href="abp.html">What an ABP is</a>
+    </div>
+  </div>
+</section>
+
 <footer class="foot">
   <div class="wrap">
-    <span>© 2026 RiskMandate · Autonomous risk management for systems that act</span>
-    <span>Fetch, don't scrape · /llms.txt · /llms-full.txt · /.well-known/agent-content.json · <a class="footlink" href="versions.html">Versions</a> · <a class="footlink" href="admin/">Admin</a></span>
+    <span>© 2026 RiskMandate · Autonomous Risk Management</span>
+    <span>The insurability layer for agentic AI. · <a class="footlink" href="versions.html">Versions</a> · <a class="footlink" href="admin/">Admin</a></span>
     <span class="footlic"><a href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener">Open source on GitHub</a> · code Apache-2.0 · pages and policies <a rel="license" href="https://creativecommons.org/licenses/by/4.0/" target="_blank" title="Creative Commons Attribution 4.0 — take it, credit it"><svg class="ccicon" width="38" height="16" viewBox="0 0 76 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="2.5"></circle><text x="16" y="21" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14" font-weight="800" fill="currentColor">CC</text><circle cx="60" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="2.5"></circle><text x="60" y="21" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14" font-weight="800" fill="currentColor">BY</text></svg> CC BY 4.0</a> · <a href="https://open-source.sgit.ai/" target="_blank" rel="noopener">why</a></span>
   </div>
 </footer>
@@ -291,7 +276,7 @@ curl -s https://riskmandate.ai/.well-known/agent-content.json | jq .</code></pre
 (function(){
 'use strict';
 var RM={core:{},services:{},components:{},data:{}};
-RM.data.currentPage="agents";RM.data.pages=[{"name":"agent-behaviour-policy","label":"The sixteen examples","file":"agent-behaviour-policy.html","group":"Behaviour policies"},{"name":"abp","label":"What an ABP is","file":"abp.html","group":"Behaviour policies"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"Behaviour policies"},{"name":"licence-to-operate","label":"Licence to Operate","file":"licence-to-operate.html","group":"Behaviour policies"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"Behaviour policies"},{"name":"for-corporate","label":"You run agents today","file":"for-corporate.html","group":"Who it's for"},{"name":"for-founders","label":"You are a founder","file":"for-founders.html","group":"Who it's for"},{"name":"for-startups","label":"You are a startup","file":"for-startups.html","group":"Who it's for"},{"name":"insurance","label":"Make agents insurable","file":"insurance.html","group":"Insurance"},{"name":"insure-a-program","label":"Can you insure a program?","file":"insure-a-program.html","group":"Insurance"},{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"Insurance"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"Insurance"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"Insurance"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"lab","label":"The Lab","file":"lab.html","group":"More"},{"name":"demos","label":"Live demos","file":"demos.html","group":"More"},{"name":"articles","label":"Writing","file":"articles.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"admin","label":"Admin","file":"admin/","group":"More"}];RM.data.sections=[];
+RM.data.currentPage="articles";RM.data.pages=[{"name":"agent-behaviour-policy","label":"The sixteen examples","file":"agent-behaviour-policy.html","group":"Behaviour policies"},{"name":"abp","label":"What an ABP is","file":"abp.html","group":"Behaviour policies"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"Behaviour policies"},{"name":"licence-to-operate","label":"Licence to Operate","file":"licence-to-operate.html","group":"Behaviour policies"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"Behaviour policies"},{"name":"for-corporate","label":"You run agents today","file":"for-corporate.html","group":"Who it's for"},{"name":"for-founders","label":"You are a founder","file":"for-founders.html","group":"Who it's for"},{"name":"for-startups","label":"You are a startup","file":"for-startups.html","group":"Who it's for"},{"name":"insurance","label":"Make agents insurable","file":"insurance.html","group":"Insurance"},{"name":"insure-a-program","label":"Can you insure a program?","file":"insure-a-program.html","group":"Insurance"},{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"Insurance"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"Insurance"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"Insurance"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"lab","label":"The Lab","file":"lab.html","group":"More"},{"name":"demos","label":"Live demos","file":"demos.html","group":"More"},{"name":"articles","label":"Writing","file":"articles.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"admin","label":"Admin","file":"admin/","group":"More"}];RM.data.sections=[];
 
 'use strict';
 // components/dom.js — tiny DOM helpers shared by components. `el` builds an
@@ -580,6 +565,7 @@ RM.components.nav = (function () {
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
   else start();
 })();
+
 
 })();
 </script>

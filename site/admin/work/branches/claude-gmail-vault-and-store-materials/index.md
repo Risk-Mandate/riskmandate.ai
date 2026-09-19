@@ -75,3 +75,80 @@ this week. Done: the entry is in `vaults` with `vid` and `key`.
 so `vbhmlulo` and `oc433z3m` are both behind what is in the repo until someone re-pushes them. The
 static copies on the site are current; the live vault view is not. Whoever pushes: copy `.vault/`
 across when refreshing a clone, or the app mount breaks (see 16 Sept).
+
+## Writing — the article family (19 Sept, fourth wave)
+- [x] `articles.html` (*Writing*, under **More**) and `article-approval-prompts.html` (unlisted, group *Writing*), scaffolded from `insure-a-program.html`
+- [x] **An approval prompt is not a human in the loop** — the lead's thesis, built on the Gmail vault's own record: the three buttons, the seven things the screen does not say, the consent underneath it that had already authorised the action, the barrier's seven holder answers, and where the accountability lands
+- [x] Capture 13 in the vault's `evidence/` — the *Add labels to message* prompt, unredacted because the screen carries nothing to redact
+- [x] The index lists five more, each marked **not written**, each with a record already behind it
+- The lead's "90% if not 99% of users have no idea" is **not** published as a number. Nobody has measured it; it is an open question on the article with how it would be settled. The same goes for "everyone ends up pressing Always allow" — what is published is that the off switch is one click, held by the account the prompt protects, and that its pressing leaves no record.
+
+## THE RELEASE OWED AT MERGE
+Two page additions and the whole barrier-holder wave are unreleased. **Cut one release as the last
+commit before the merge** — `1.27.0`, because a new section (*Writing*) is what the second number is
+for. The note for the barrier-holder half is drafted and must not be lost; it was cut as `1.25.0`
+before dev shipped its own `1.25.0`, and the merge kept dev's. The draft is below — add the Writing
+paragraph to it and ship it under the new number.
+
+<details><summary>Drafted release note (was 1.25.0)</summary>
+
+## A barrier gains a holder, and a block names its blocker
+
+The barrier column has always said *what* stands in the way of a capability: nothing, a rule in
+prose, a setting, or a boundary enforced by something the grant does not include. It has never said
+**who holds the thing in the way** — and two barriers that pass the same test can be nothing alike.
+
+The worked example is on [Claude's Gmail connector](abp-vault-claude-gmail-connector.html). Attachment
+content was filed as *not reachable*, beside permanent deletion of mail. Both are out of reach and
+they are not the same object. Permanent deletion needs the `https://mail.google.com/` scope, which
+the consent screen never asked for; widening that means a screen with *"permanently delete all your
+email"* on it, which somebody has to tick. Attachment content is out of reach because a client does
+not offer a tool for it — while Google's own reference says the method *"Requires one of the
+following OAuth scopes: `https://mail.google.com/`, `gmail.modify`, `gmail.readonly`"*, two of which
+were consented. That block moves in a release. No screen, no new scope, nothing for anyone to click.
+Printed under one heading, the two read as equal assurance. That is what this release stops.
+
+**`not_reachable` is gone.** Every vault now carries a **blocked** list, and the build refuses an
+entry that does not name what blocks it. All sixteen shapes migrated; thirty-four entries, each one
+read and given its blocker.
+
+**Seven answers, and not one of them is a grade.** Every barrier and every block may now carry:
+who holds it · what it is made of · can it move without you · would you be told · can you check it
+is still there · what would take it away · if it went, what is behind it. Six holder classes —
+you, an owner above you, a vendor against a consent you gave, a vendor as a product decision, the
+agent itself, the environment it runs in — travel with every vault in `data/barrier-holders.json`,
+pinned like the vocabulary and offered to the model site as an extension rather than invented into
+it. The seven are authored for the Gmail shape: four blocks, and the four barriers that are not
+*none*. A row whose barrier is *none* may not carry a holder, because nothing is in the way and so
+nobody holds it.
+
+**No adjective survives the build.** A holder record that calls a control strong, weak, credible,
+robust, adequate, effective or reliable — or their negatives — fails the build, in data as in prose.
+The reason is the one that keeps a score off a behaviour policy: how much a barrier is worth depends
+on the deployment it is in. The only judgment this record makes is the delta, and the delta is
+derived rather than given.
+
+They are rendered in `GRANT.md` (two new sections, one of them the seven answers per row), in
+`AGENT-BEHAVIOUR-POLICY.md`, in the licence-to-operate conditions — where a condition now names who
+holds the thing enforcing it, because signing over a bound a supplier can withdraw is a different
+undertaking — in the reading app as a **What holds** view, and on every generated vault page.
+
+**A test boots the reading app.** Two renderer bugs have shipped from that file, and neither was
+visible in a diff. The app is now booted against a real vault in a fake DOM and every view is built:
+a view that throws, renders nothing, prints `undefined`, or leaves a comma-joined table behind now
+fails the build. Two tables that had been rendering `|,|` since the consequence layer landed are
+fixed, and the cause — a builder returning an array inside an array — cannot come back.
+
+**And the label panel stops saying it four times.** The mark beside each side effect on
+[the library](agent-behaviour-policy.html) read *told not to — and only told*. Half of that was
+news; the other half was the third time the same panel had said it. The counter above reads *not
+asked for, nothing in the way*, the heading reads *side effects — not asked for, and nothing real
+stops it*, and then each line said it again. The mark now says only what the mandate said —
+**refused in words**, or **never mentioned** — and the enforcement is stated once, where it belongs,
+at the top. The summary line under the list lost the same repetition.
+
+**Not changed.** What the credential permits, as data, is still not recorded: the blocked list names
+the blocker in prose and there is no `permitted.json` behind it yet. The audiences still signpost
+rather than organise. Both are in the brief, and neither is claimed here.
+
+</details>

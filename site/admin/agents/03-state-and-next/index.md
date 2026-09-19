@@ -39,6 +39,13 @@ the site's; check `site/versions/index.json` for the current version before trus
   the model, is the unit of risk. The underwriting questions mapped to the parts of an ABP; the
   three rungs as the strategy. Two sources refused a direct read (RAND's page, Justia) and the page
   says so.
+- **Writing** (`articles.html`, in *More*): the article family. One published — *An approval prompt
+  is not a human in the loop* (19 Sept, `article-approval-prompts.html`), on Claude's Gmail
+  connector: the prompt's three buttons against the seven things the screen does not say, the
+  consent that had already authorised the action underneath it, the barrier's seven holder answers
+  from the vault, and where the accountability lands. The evidence is capture 13 in that vault's
+  `evidence/`. Five more are listed on the index as *not written*, each with a record already
+  behind it.
 - **Records:** 14 items in the brief register (9 files, 5 informal); 23 releases since v1.0.0.
 - **Summit:** Lisbon, 17–18 Sept. `summit.html` public; `summit-booth.html` private working page.
 - **The store is live** (store.sgit.ai, 15 Sept): four levels, named by level here; the store owns every price (its boundary of 16 Sept). The
