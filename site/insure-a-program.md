@@ -12,13 +12,11 @@ Source: https://riskmandate.ai/insure-a-program.html
 
 The interesting part is **what** got insured each time: the maker's liability, one named defect, the behaviour of the code, the accuracy of a model's output, and now the actions of an agent. Every step closer to the program itself has needed a better description of what the program does where it runs. That is the question this site exists to answer, so here is the history, dated and sourced, and where an Agent Behaviour Policy sits in it.
 
-**the question** asked on LinkedIn, September 2026 · **under** RAND, [How Is Artificial Intelligence Insured?](https://www.rand.org/pubs/research_reports/RRA5130-1.html) · **as markdown** [insure-a-program.md](insure-a-program.md)
+**Context:** RAND, [How Is Artificial Intelligence Insured?](https://www.rand.org/pubs/research_reports/RRA5130-1.html), 16 September 2026. **This page as markdown:** [insure-a-program.md](insure-a-program.md).
 
-## Two questions, one under the other.
+## One question, and the one under it.
 
-RAND published _How Is Artificial Intelligence Insured?_ on 16 September 2026: Sasha Romanosky and Celine Robinson, report RR-A5130-1, on how carriers are responding to AI-related loss through exclusions, endorsements, affirmative cover, or silence. Under the post, Dinis Cruz asked what about insurance for individual agents and their deployment or context environment. The author asked back.
-
-“Can you insure a software program? Has that ever been done?”
+Can you insure a software program, and has that ever been done? It is the first thing anybody asks when AI insurance comes up, and it deserves a dated answer rather than an opinion. The current account of how carriers answer it for AI is RAND's _How Is Artificial Intelligence Insured?_ of 16 September 2026 (Romanosky and Robinson, report RR-A5130-1): through exclusions, endorsements, affirmative cover, or silence. Under that question sits the one this site is built around: can an individual agent be insured in its deployment, in the environment and context it actually runs in?
 
 Technology errors and omissions cover pays when a program fails to perform as intended and a third party loses money. It insures the vendor's liability, not the code.
 
@@ -79,7 +77,7 @@ Lined up, the answers to _has it been done_ are also the answer to _how_. Every 
 
 ## An agent is not insured as a program. It is insured in a deployment.
 
-Dinis's original question was about individual agents and their deployment or context environment. The people now writing the cover say the same thing in their own words. The AIUC blueprint, whose listed authors include Sasha Romanosky, puts it like this:
+The question under the question is whether an individual agent can be insured in its deployment or context environment. The people now writing the cover answer it in their own words. The blueprint published by the Artificial Intelligence Underwriting Company in July 2026, with authors from a reinsurer, two insurers, RAND and several universities, puts it like this:
 
 “A certified AI agent autonomously executing trades in a brokerage poses very different risks than a certified AI agent handling internal document summarization for a law firm. The underlying model and guardrails might be the same, but the legal exposure, potential severity of loss, and probability of a claim will diverge enormously.”
 
