@@ -3,11 +3,11 @@
 Keep this file true. If you land something, move it; if you learn something, add it. Dates are
 the site's; check `site/versions/index.json` for the current version before trusting the number here.
 
-## State as at 2026-09-20, v1.27.1
+## State as at 2026-09-20, v1.27.2
 
 - **Site:** 65 HTML files under `site/` plus the admin console under `site/admin/`, one live site deployed from `dev`. Top-level menu:
-  Behaviour policies · Who it's for · Insurance · Pricing · Writing · More (v1.27.0: six entries; the
-  Lab and the live demos are under More; the articles are unlisted beneath Writing).
+  Behaviour policies · Who it's for · Insurance · Pricing · Articles · More (v1.27.0: six entries; the
+  Lab and the live demos are under More; the articles are unlisted beneath Articles).
 - **The ABP is the entry point.** Homepage leads with it (v1.12.0); `abp.html` is the model page;
   `agent-behaviour-policy.html` is the library (menu label *Agent Behaviour Policies*): 15 vaults,
   grid and list, search over names, scopes, tools and the 23 ids, a *by behaviour* facet, a
@@ -36,7 +36,7 @@ the site's; check `site/versions/index.json` for the current version before trus
   the model, is the unit of risk. The underwriting questions mapped to the parts of an ABP; the
   three rungs as the strategy. Two sources refused a direct read (RAND's page, Justia) and the page
   says so.
-- **Writing** (`articles.html`, **top-level**, between Pricing and More — six top-level entries, cap is seven): the article family. Two published. *Somebody will ask
+- **Articles** (`articles.html`, **top-level**, between Pricing and More — six top-level entries, cap is seven): the article family (menu label *Articles* from v1.27.2; it was *Writing*). Three published. *A session that only reads still holds everything you ever allowed* (20 Sept, `article-union-of-every-session.html`): how the permission union forms at the credential, the client and the deployment, each in the vendor's own words; six questions a deployer would ask with four of them silent on the help page; standing privilege named; the mandate written per purpose as the one lever left. *Somebody will ask
   what your agent can do* (20 Sept, `article-what-is-an-abp.html`) is the introduction: the three
   answers people give and why each fails, the four objects and their verbs, the twenty-three
   primitives, the four barriers and the enforcer test, why nothing is scored, and one deployment

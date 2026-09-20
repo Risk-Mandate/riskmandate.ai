@@ -92,7 +92,7 @@
     },
     {
       "name": "articles",
-      "label": "Writing",
+      "label": "Articles",
       "file": "articles.html"
     },
     {
@@ -249,17 +249,24 @@
       "unlisted": true
     },
     {
+      "name": "article-union-of-every-session",
+      "label": "A session that only reads still holds everything you ever allowed",
+      "file": "article-union-of-every-session.html",
+      "group": "Articles",
+      "unlisted": true
+    },
+    {
       "name": "article-what-is-an-abp",
       "label": "What an Agent Behaviour Policy is",
       "file": "article-what-is-an-abp.html",
-      "group": "Writing",
+      "group": "Articles",
       "unlisted": true
     },
     {
       "name": "article-approval-prompts",
       "label": "An approval prompt is not a human in the loop",
       "file": "article-approval-prompts.html",
-      "group": "Writing",
+      "group": "Articles",
       "unlisted": true
     },
     {

@@ -1,6 +1,6 @@
 <!-- Generated from articles.html by scripts/site/generate.mjs. Edit the page, not this file. -->
 
-# RiskMandate — writing
+# RiskMandate — articles
 
 One argument at a time, from the record: what a deployment actually does, the screen or page it was read from, and where the accountability lands. Every claim sourced and dated; nothing tested on anybody else's system; nothing scored.
 
@@ -13,6 +13,10 @@ Source: https://riskmandate.ai/articles.html
 Each of these takes one thing a deployment actually does, shows the screen or the page it was read from, and follows it to where the accountability lands. **Every claim carries a source and a date.** Nothing is tested on anybody else's system, nothing is scored, and where a vendor's own pages disagree the article says so rather than settling it.
 
 ## Written so far.
+
+### [A session that only reads still holds everything you ever allowed.](article-union-of-every-session.html)
+
+You open a new chat and ask the agent to read your inbox. Nothing in that sentence authorises sending mail or changing labels — but a conversation is not an authorisation boundary. The session runs on the credential you granted months ago and the approvals you clicked in other conversations for other reasons. How the union forms at three layers, in each vendor's own documented words; the six questions a deployer would ask and the four the help page leaves silent; why “don't press Always allow” does not survive the mechanics; and the one lever a deployer still has when the credential has no per-session setting to offer.
 
 ### [Somebody will ask what your agent can do. You need an answer they can check.](article-what-is-an-abp.html)
 

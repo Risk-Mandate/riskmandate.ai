@@ -3,22 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>RiskMandate — an approval prompt is not a human in the loop</title>
-<meta name="description" content="Claude wants to use Add labels to message from Gmail. Which label, on which message, asked for by whom? The screen does not say — and one of its three buttons removes the question for good. What an approval prompt actually is, in the barrier vocabulary, and where the accountability lands.">
-<link rel="canonical" href="https://riskmandate.ai/article-approval-prompts.html">
-<link rel="alternate" type="text/markdown" href="article-approval-prompts.md" title="This page as markdown">
+<title>RiskMandate — a session that only reads still holds everything you ever allowed</title>
+<meta name="description" content="You ask the agent to read your inbox. The session carries the credential you granted months ago and every approval you clicked in other conversations for other reasons. How the union forms at three layers, what the vendor's page answers and what it leaves silent, and the one lever a deployer still has.">
+<link rel="canonical" href="https://riskmandate.ai/article-union-of-every-session.html">
+<link rel="alternate" type="text/markdown" href="article-union-of-every-session.md" title="This page as markdown">
 <link rel="icon" href="assets/brand/riskmandate-favicon-32.png" sizes="32x32">
 <link rel="icon" href="assets/brand/riskmandate-mark.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="RiskMandate">
-<meta property="og:url" content="https://riskmandate.ai/article-approval-prompts.html">
-<meta property="og:title" content="RiskMandate — an approval prompt is not a human in the loop">
-<meta property="og:description" content="Claude wants to use Add labels to message from Gmail. Which label, on which message, asked for by whom? The screen does not say — and one of its three buttons removes the question for good. What an approval prompt actually is, in the barrier vocabulary, and where the accountability lands.">
+<meta property="og:url" content="https://riskmandate.ai/article-union-of-every-session.html">
+<meta property="og:title" content="RiskMandate — a session that only reads still holds everything you ever allowed">
+<meta property="og:description" content="You ask the agent to read your inbox. The session carries the credential you granted months ago and every approval you clicked in other conversations for other reasons. How the union forms at three layers, what the vendor's page answers and what it leaves silent, and the one lever a deployer still has.">
 <meta property="og:image" content="https://riskmandate.ai/assets/brand/riskmandate-lockup-light.png">
 <meta name="twitter:card" content="summary_large_image">
 <!-- Scaffolded by scripts/site/new-page.mjs. Hand-edited from here on — there is no build step. -->
 <style>
-/* article-approval-prompts.css — self-contained: the shared chrome, then this page's own. */
+/* article-union-of-every-session.css — self-contained: the shared chrome, then this page's own. */
 :root{
   --bg:#F7F6F2; --bg2:#EFEDE7; --card:#FFFFFF; --ink:#0D0D0C; --canvas:#0A0A09;
   --text:#1A1917; --muted:#4A4845; --faint:#8A8780; --border:#E2DFD8;
@@ -142,7 +142,7 @@ rm-menu{display:contents}
 .phero .sub strong{color:var(--fg);font-weight:600}
 .phero .eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--green);background:rgba(26,127,90,.18);border:1px solid rgba(26,127,90,.4);border-radius:999px;padding:5px 12px;margin-bottom:26px}
 .phero .eyebrow .d{width:6px;height:6px;border-radius:50%;background:var(--green-2)}
-.phero .meta{margin-top:10px;font-family:var(--mono);font-size:12px;line-height:1.9;color:var(--fg-3);max-width:66ch}
+.phero .meta{margin-top:26px;font-family:var(--mono);font-size:12px;line-height:1.9;color:var(--fg-3);max-width:66ch}
 .phero .meta b{color:var(--fg-2);font-weight:600}
 .phero .meta a{color:var(--green-2)}
 .shead h2{max-width:24ch}
@@ -170,7 +170,7 @@ rm-menu{display:contents}
 /* the questions the screen cannot answer */
 .qs{margin:30px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
 .qs li{border:1px solid var(--border);border-radius:var(--r);background:var(--card);padding:20px 22px}
-.qs li h3{margin:0;font-size:16.5px;font-weight:700;color:var(--text);letter-spacing:-.01em;line-height:1.35}
+.qs li b{display:block;font-size:16.5px;color:var(--text);letter-spacing:-.01em;line-height:1.35}
 .qs li p{margin-top:8px;font-size:14px;color:var(--muted);line-height:1.65}
 .qs li code{font-family:var(--mono);font-size:12.5px;background:var(--bg2);padding:1px 5px;border-radius:4px;color:var(--text)}
 .psection.alt .qs li code{background:var(--bg2)}
@@ -189,7 +189,6 @@ rm-menu{display:contents}
 .rule{margin-top:30px;border-left:3px solid var(--green);background:var(--greenBg);border-radius:0 var(--r-sm) var(--r-sm) 0;padding:20px 24px;max-width:740px}
 .rule p{color:var(--text);font-size:16px;line-height:1.6;font-weight:600}
 .rule p + p{margin-top:10px;font-weight:400;font-size:14.5px;color:var(--muted)}
-.rule a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
 .notice{margin-top:28px;border:1px dashed var(--faint);border-radius:var(--r-sm);padding:16px 20px;font-size:13.5px;color:var(--muted);line-height:1.65;max-width:800px}
 .notice strong{color:var(--text)}
 .src{margin-top:26px;font-family:var(--mono);font-size:11.5px;color:var(--faint);line-height:1.8}
@@ -214,6 +213,14 @@ table.t td b{color:var(--text)}
 .ghlink{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:8px;color:var(--muted);border:1px solid transparent}.ghlink:hover{color:var(--text);border-color:var(--border)}
 .footlic{display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap}.footlic a{color:inherit}.ccicon{vertical-align:-3px;margin:0 2px}
 @media (max-width:1400px) and (min-width:901px){.ghlink,header.top a.version{display:none}header.top .wrap{gap:14px}}
+
+/* the four counts */
+.answer{margin-top:28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.answer .a{padding:20px 22px;background:var(--card);border:1px solid var(--border);border-radius:var(--r)}
+.answer .a .k{display:block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--green);margin-bottom:8px}
+.answer .a b{display:block;font-size:34px;color:var(--text);letter-spacing:-.03em;line-height:1}
+.answer .a p{margin-top:8px;font-size:13.5px;color:var(--muted);line-height:1.6}
+.answer .a p b{display:inline;font-size:inherit;letter-spacing:0;color:var(--text)}
 </style>
 </head>
 <body id="top">
@@ -230,12 +237,12 @@ table.t td b{color:var(--text)}
 
 <main class="phero">
   <div class="wrap">
-    <span class="eyebrow"><span class="d"></span>ARTICLE · 19 SEPTEMBER 2026</span>
-    <h1>An approval prompt is not a human in the loop.</h1>
-    <p class="sub" style="margin-bottom:20px">A connector asks <strong>Claude wants to use Add labels to message from Gmail</strong> and offers three buttons. It does not say which label, on which message, in which thread, or why the agent asked. The person clicking it is being made accountable for an action they have not been given enough to judge — and one of the three buttons removes the question permanently.</p>
-    <p class="meta"><b>Shape:</b> Claude with the Gmail connector enabled, the deployment described in <a href="abp-vault-claude-gmail-connector.html">that shape's behaviour policy</a>.</p>
-    <p class="meta"><b>Evidence:</b> three prompts of this shape captured by the deployer on an account they run, 16 and 19 September 2026. Nothing was tested on anybody else's system.</p>
-    <p class="meta"><b>This page as markdown:</b> <a href="article-approval-prompts.md">article-approval-prompts.md</a></p>
+    <span class="eyebrow"><span class="d"></span>ARTICLE · 20 SEPTEMBER 2026</span>
+    <h1>A session that only reads still holds everything you ever allowed.</h1>
+    <p class="sub" style="margin-bottom:20px">You open a new chat and ask the agent to read your inbox. Nothing in that sentence authorises sending mail, changing labels or creating a filter — but the chat is not a new grant. It runs on the credential you gave months ago and the approvals you clicked in other conversations for other reasons. <strong>What the agent holds in this session is the union of everything it has ever been allowed to do.</strong></p>
+    <p class="meta"><b>Shape:</b> Claude with the Gmail connector, the deployment described in <a href="abp-vault-claude-gmail-connector.html">that shape's behaviour policy</a>.</p>
+    <p class="meta"><b>Sources:</b> Google's OAuth 2.0 documentation and Anthropic's connector help article, both read 20 September 2026, quoted rather than paraphrased. Nothing was tested on anybody else's system.</p>
+    <p class="meta"><b>This page as markdown:</b> <a href="article-union-of-every-session.md">article-union-of-every-session.md</a></p>
   </div>
 </main>
 
@@ -244,73 +251,107 @@ table.t td b{color:var(--text)}
 <section class="psection">
   <div class="wrap">
     <div class="shead">
-      <span class="tag">01 · The screen</span>
-      <h2>Everything it says, and everything it offers.</h2>
-      <p>This is the whole prompt. It was captured on an account the deployer runs, in Claude in the browser. Two others of the same shape are in the record for this deployment: <em>Claude wants to use <strong>Send email message</strong> from Gmail</em> and <em>Claude wants to use <strong>Moves a message to Trash</strong> from Gmail</em>. The layout, the wording and the three buttons are identical in all three.</p>
+      <span class="tag">01 · The session you meant</span>
+      <h2>Two sentences, two very different grants.</h2>
+      <p>In March you asked the agent to send an apology to a client, and approved it. In June you had it file a month of receipts, and approved that. In July you let it set up a filter. Each approval was reasonable, each was for one task, and each was given in its own conversation.</p>
+      <p>Today you type <em>read my inbox and tell me what is in it</em>. That sentence asks for one capability. The session it runs in carries all four.</p>
     </div>
-    <div class="shot">
-      <figure>
-        <img src="assets/articles/approval-prompt-add-labels.png" alt="The approval prompt: a Gmail icon, the words Claude wants to use Add labels to message from Gmail, and three buttons — Deny, Always allow, and Allow once." width="856" height="682" loading="lazy">
-        <figcaption>Captured 19 September 2026 by the deployer, on an account they run. Nothing on the screen is redacted, because the screen carries nothing to redact.</figcaption>
-      </figure>
-      <div class="said">
-        <span class="k">What is on it</span>
-        <p>A title: <b>Add labels to message</b>. A sentence: <b>Claude wants to use Add labels to message from Gmail</b>. A Gmail icon. Three buttons, with keyboard shortcuts.</p>
-        <div class="btns">
-          <span>Deny <em>Esc</em></span>
-          <span>Always allow <em>⇧⌘↵</em></span>
-          <span class="def">Allow once <em>⌘↵ · the default</em></span>
-        </div>
-        <p><b>Allow once</b> is the primary button — the filled one, and the one the plain Return-with-Command shortcut lands on. <b>Deny</b> is the escape key.</p>
+    <div class="rule">
+      <p>A conversation is not an authorisation boundary. It only looks like one.</p>
+      <p>Everything about the interface suggests a fresh start — a new chat, an empty history, a new request. Underneath, the credential and the approval state are the same ones as last time, and neither has a way to be less than it was.</p>
+    </div>
+  </div>
+</section>
+
+<section class="psection alt">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">02 · How the union forms</span>
+      <h2>Three layers, and each one accumulates.</h2>
+      <p>None of this is hidden. It is the documented behaviour of two ordinary systems, which is why it is worth writing down rather than discovering.</p>
+    </div>
+    <div class="three">
+      <div class="c">
+        <span class="n">At the credential</span>
+        <h3>Scopes add up, by design</h3>
+        <p>Google's authorisation server is built to accumulate. Its own documentation: a new authorisation “returns an authorization code that may be exchanged for a token containing <b>all scopes the user has granted the project</b>”, and with incremental authorisation “the new access token will also cover any scopes to which the user <b>previously granted</b> the application access”.</p>
+        <p>The grant is per account and per application, not per task. There is no smaller token to fall back to for a session that needs less.</p>
+      </div>
+      <div class="c">
+        <span class="n">At the client</span>
+        <h3>Approvals are per tool, not per session</h3>
+        <p>The approval prompt offers <em>Always allow</em> beside <em>Allow once</em>. Press it for one tool, in one conversation, for one reason, and the question stops being asked. Three prompts of that shape are in this deployment's record — send, trash, labels — each identical, each with the same button.</p>
+        <p>Whether that state is bounded by the conversation is <b>not stated</b> on the vendor's help page. See the table below.</p>
+      </div>
+      <div class="c">
+        <span class="n">At the deployment</span>
+        <h3>One connector, one account</h3>
+        <p>The directory listing shows a single Gmail connector with a single <em>Connect to Claude</em> button, captured 16 September 2026. A narrower second connection — the same mailbox, read-only, for the sessions that only read — is something neither vendor's page describes.</p>
+        <p>It may be possible; it is not documented. That is an open question below rather than a claim here.</p>
       </div>
     </div>
-    <div class="rule">
-      <p>The prompt names a verb. A decision needs the object.</p>
-      <p>Everything below follows from that one gap, and none of it requires an opinion about anybody's product.</p>
-    </div>
-  </div>
-</section>
-
-<section class="psection alt">
-  <div class="wrap">
-    <div class="shead">
-      <span class="tag">02 · What it cannot tell you</span>
-      <h2>Seven questions the screen does not answer.</h2>
-      <p>Not <em>does not answer well</em> — does not contain the information at all. Each of these is checkable against the image above.</p>
-    </div>
-    <ul class="qs">
-      <li><h3>Which label?</h3><p>A label is a folder, a tag, and on many accounts a filing rule that other people's automations read. <code>Important</code>, <code>Invoices</code> and <code>Archive</code> are not the same act.</p></li>
-      <li><h3>On which message?</h3><p>One message, a thread, or a search result that matched two thousand. The screen names no message and no count.</p></li>
-      <li><h3>Asked for by whom?</h3><p>By the instruction the account holder typed, or by a sentence inside an email the agent has just read. The prompt is identical either way, and reading the inbox is a row in this deployment's grant.</p></li>
-      <li><h3>How many times?</h3><p>One call, or the first of a hundred in the same run. The prompt does not say whether it is per call.</p></li>
-      <li><h3>What does the tool do, exactly?</h3><p><b>Add labels to message</b> is a display name. The connector's own listing names <code>label_message</code>, <code>label_thread</code>, and two more truncated as <code>apply_sensitive_messa…</code> and <code>apply_sensitive_thread…</code> — read 16 September 2026, with more behind a <em>Show all</em> the capture did not expand.</p></li>
-      <li><h3>Can it be undone?</h3><p>For a label, usually. For the same prompt over <b>Send email message</b>, no — and the screen looks the same. The record for this shape marks that row irreversible.</p></li>
-      <li><h3>What does allowing it permanently cover?</h3><p>This tool, every Gmail tool, or every connector? The screens captured do not say, and the vendor's help page speaks of <em>these actions</em> without listing them.</p></li>
-    </ul>
-    <div class="notice"><strong>Why this matters more than it reads.</strong> A person asked to approve an action is being asked to take responsibility for it. Responsibility without the object of the verb is not a decision; it is a signature. The same screen would be an adequate decision surface if it said <em>add the label “Invoices” to 3 messages from Acme Ltd</em> — the information exists on the calling side, and it is not on the screen.</div>
+    <p class="src">Google, <a href="https://developers.google.com/identity/protocols/oauth2/web-server" target="_blank" rel="noopener">Using OAuth 2.0 for Web Server Applications</a>, read 20 September 2026. Whether this particular connector uses incremental authorisation is not published by either vendor; what is published is that the authorisation server is designed to accumulate, and that a grant belongs to an account-and-application pair rather than to a task.</p>
   </div>
 </section>
 
 <section class="psection">
   <div class="wrap">
     <div class="shead">
-      <span class="tag">03 · The button that ends the question</span>
-      <h2>One click, by the account the prompt is about.</h2>
-      <p>The vendor's help article describes the mechanism plainly, and describes its own off switch in the next sentence.</p>
+      <span class="tag">03 · What the page answers, and what it does not</span>
+      <h2>Six questions a deployer would ask. Two are answered.</h2>
+      <p>Read from Anthropic's Google Workspace connector help article on 20 September 2026. The silences are not an accusation — a vendor is entitled to document what it chooses. They are recorded because a deployer cannot find the answers, and the answers decide how far a single click reaches.</p>
     </div>
-    <div class="quote">
-      <p>“By default, Claude asks for your approval before each of these actions. On Team and Enterprise plans, owners decide whether members can allow these actions to run without asking each time.”</p>
-      <cite>Anthropic, <a href="https://support.claude.com/en/articles/10166901-use-google-workspace-connectors" target="_blank" rel="noopener">Use Google Workspace connectors</a>, read 16 September 2026</cite>
+    <div class="tw">
+      <table class="t">
+        <thead><tr><th>The question</th><th>What the page says</th></tr></thead>
+        <tbody>
+          <tr><td class="k">Can I turn a connector off?</td><td><b>Answered.</b> “Toggle individual connectors on or off.”</td></tr>
+          <tr><td class="k">Can I turn off a single tool?</td><td><b>Answered.</b> “Individual users can also disable specific tools from the chat interface.” A real control surface, and a manual one — nothing turns a tool off because this session does not need it.</td></tr>
+          <tr><td class="k">Does <em>Always allow</em> last beyond this conversation?</td><td><b>Silent.</b> The page says approval is asked “before each of these actions” and that the asking can stop; it does not say for how long, or where the state lives.</td></tr>
+          <tr><td class="k">Can an approval be scoped to one chat or one project?</td><td><b>Silent.</b></td></tr>
+          <tr><td class="k">Can I connect a second account, or the same account with fewer permissions?</td><td><b>Silent.</b></td></tr>
+          <tr><td class="k">Which scopes are requested, and can I choose a subset?</td><td><b>Silent on the scopes</b> — it says only that “Google's OAuth screen mentions email sending permissions”. Google's screen itself offers three tick boxes, each of which can be unticked.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="notice"><strong>The two answered questions are the two that need a person.</strong> Both controls exist, both are manual, and both require the deployer to know — before the session starts — that this session needs less than the last one. Neither is a bound on what the session can reach; they are things a careful person does, every time, forever.</div>
+  </div>
+</section>
+
+<section class="psection alt">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">04 · The obvious objection</span>
+      <h2>“Then don't press Always allow.”</h2>
+      <p>It is the right instinct and it does not survive the mechanics, which <a href="article-approval-prompts.html">the first article in this series</a> takes apart in detail.</p>
     </div>
     <ul class="plist">
-      <li><strong>The prompt is per action.</strong> An agent asked to triage a morning's mail takes many actions. Every one of them is a modal in front of the person who asked for the triage.</li>
-      <li><strong>The off switch is one click, and it is permanent.</strong> <em>Always allow</em> is on the same screen as the action it would stop asking about, sits one key away from the default, and is pressed by the account the prompt exists to protect.</li>
-      <li><strong>Nothing records that it was pressed.</strong> Not on any screen captured here. The prompt's absence afterwards is the only sign, and an absence is not a record.</li>
-      <li><strong>We do not know how often it is pressed.</strong> Neither vendor publishes a figure, and this site has not run a study. It is an open question below, not a statistic — a number nobody has measured does not become true by being obvious.</li>
+      <li><strong>The prompt is per action, and the point of the agent is to act.</strong> An assistant asked to triage a morning's mail takes many actions. Every one is a modal in front of the person who asked for the triage, at the moment they are least inclined to read it.</li>
+      <li><strong>The off switch is one click, on the same screen, one key from the default.</strong> It is offered to the account it exists to protect, at the point of maximum friction.</li>
+      <li><strong>We have no measurement of how often it is pressed</strong>, and neither does anybody else — neither vendor publishes a figure. What can be said without a number is that the design places a permanent decision inside a momentary one, and that nothing on any later screen shows it was taken.</li>
+      <li><strong>Even pressing it once is not the failure.</strong> One approval, for one task, in one conversation, is a reasonable act. The accumulation is what nobody agreed to: four reasonable decisions, months apart, add up to a standing capability nobody ever described.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="psection">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">05 · The problem has an old name</span>
+      <h2>Standing privilege, arriving somewhere with no tooling for it.</h2>
+      <p>What the agent needs to do its job over a year, and what it needs for the next ten minutes, are different sets. Keeping the first available at all times, because the second cannot be expressed, is the oldest failure mode in access management — and the discipline that grew up around it has names for every part of the answer: roles, least privilege, just-in-time elevation, session scoping, expiry, review.</p>
+      <p>None of that tooling has arrived here. What a deployer has today, for an agent sitting on a mailbox, is:</p>
+    </div>
+    <ul class="plist">
+      <li><strong>One grant per account and application</strong>, which a session cannot narrow.</li>
+      <li><strong>One approval state per tool</strong>, with no stated lifetime.</li>
+      <li><strong>No expiry.</strong> An approval given in March for one message is still in force in September, and no screen says when it was given.</li>
+      <li><strong>No record.</strong> Nothing shows which approvals exist, who granted them, or when — so nothing can be reviewed, and nobody can be asked to re-justify one.</li>
+      <li><strong>Two manual controls</strong> — the connector toggle and the per-tool toggle — both of which depend on somebody remembering, before every session, what that session ought not to be able to do.</li>
     </ul>
     <div class="rule">
-      <p>A bound the agent's own account can remove is not a control. It is a setting.</p>
-      <p>That is the test this site applies to every row in every behaviour policy: <em>a control bounds a grant only if it is enforced by something the grant does not include.</em> The grant here includes the ability to press <em>Always allow</em>.</p>
+      <p>The union is not a bug in anybody's product. It is what you get when authorisation is granted per application and work is done per task.</p>
+      <p>Everything above follows from that mismatch. It is worth stating plainly because it is invisible from inside the session — there is no screen anywhere that shows a person the union they are now running with.</p>
     </div>
   </div>
 </section>
@@ -318,137 +359,78 @@ table.t td b{color:var(--text)}
 <section class="psection alt">
   <div class="wrap">
     <div class="shead">
-      <span class="tag">04 · Underneath it, the answer is already yes</span>
-      <h2>Google was asked once, on a screen nobody remembers.</h2>
-      <p>The prompt sits above Google's authorisation, not inside it. When this deployment was connected, Google's consent screen asked for three things, each with its own tick box, all of them pre-ticked under <em>Select all</em>:</p>
+      <span class="tag">06 · What the record does about it</span>
+      <h2>One grant, more than one mandate.</h2>
+      <p>A behaviour policy measures the grant once, and the grant it measures <em>is</em> the union — that is what measuring means. The lever a deployer still has is the other object: the mandate is written per purpose, and the delta is recomputed against each one.</p>
     </div>
     <div class="tw">
       <table class="t">
-        <thead><tr><th>The line on Google's screen</th><th>The scope</th><th>What it covers</th></tr></thead>
+        <thead><tr><th>The mandate you write</th><th>Against the same six-capability grant</th></tr></thead>
         <tbody>
-          <tr><td class="k">View your email messages and settings.</td><td><code>gmail.readonly</code></td><td>every message and thread in the mailbox, and the label structure</td></tr>
-          <tr><td class="k">Manage drafts and send emails.</td><td><code>gmail.compose</code></td><td>drafts, and sending</td></tr>
-          <tr><td class="k">Read, compose and send emails from your Gmail account.</td><td><code>gmail.modify</code></td><td>reading, sending, and changing what is on a message — labelling included</td></tr>
+          <tr><td class="k">“Read my inbox and tell me what is in it”</td><td>one capability wanted, five in the grant and not asked for, four of them with nothing in the way</td></tr>
+          <tr><td class="k">“Draft replies for me to send myself”</td><td>drafting is wanted; sending is not — and sending is a setting, removable in one click, so the refusal is a sentence rather than a bound</td></tr>
+          <tr><td class="k">“Triage and file, never send”</td><td>labelling is wanted; the send tools are still present, still approved from a previous conversation, still in the grant</td></tr>
         </tbody>
       </table>
     </div>
     <ul class="plist">
-      <li><strong>Labelling is inside <code>gmail.modify</code>.</strong> Once that consent is given, a call to label a message is an authorised call. Nothing in Gmail refuses it, because there is nothing left to refuse: the account holder said yes to the class of action, not to the instance.</li>
-      <li><strong>So the prompt is not a Gmail control.</strong> It is a client behaviour, above Google's authorisation, held by the party that built the client. Google's stack sees a token it issued being used within the scope it was issued for.</li>
-      <li><strong>That is not a complaint about the scope model — it is the point.</strong> Google's ceiling <em>does</em> hold where it applies: asked to empty the Bin, the agent reported it had no tool, and Google's own scope text says <code>gmail.modify</code> “does not allow immediate, permanent deletion of threads and messages, bypassing Trash”. That is a real boundary, enforced by somebody the grant does not include. The approval prompt is a different kind of object, and putting both under the word <em>control</em> is how a reader ends up reassured.</li>
+      <li><strong>This is why the vault for this shape carries several scenarios rather than one mandate.</strong> Each is an alternative statement of what the agent is for, and each produces its own delta against the same measured grant. The grant never changes; what you asked for does.</li>
+      <li><strong>Writing the mandate per purpose does not narrow the credential.</strong> It makes the distance visible, per purpose — which is the only honest thing a document can do when the credential has no per-session setting to offer.</li>
+      <li><strong>And it makes the ask concrete.</strong> “We would like a narrower connection for read-only sessions” is a sentence a vendor can act on. “We are worried about permissions” is not.</li>
     </ul>
-    <p class="src">Consent screen transcribed in the deployment's <a href="abp-vault-claude-gmail-connector.html">evidence record</a>, 16 September 2026. Scope text: Google, <a href="https://developers.google.com/workspace/gmail/api/auth/scopes" target="_blank" rel="noopener">Gmail API scopes</a>, read 16 September 2026.</p>
+    <div style="margin-top:30px">
+      <a class="btn btn-green" href="abp-vault-claude-gmail-connector.html">Open the behaviour policy for this shape →</a>
+    </div>
   </div>
 </section>
 
 <section class="psection">
   <div class="wrap">
     <div class="shead">
-      <span class="tag">05 · What the record already says</span>
-      <h2>The same prompt, written down in the deployment's behaviour policy.</h2>
-      <p>None of this is a new finding. It is the <code>send.message.world</code> row of this shape's grant, with the seven answers that sit behind every barrier we record: who holds it, what it is made of, whether it moves without you, whether you would be told, whether you could check, what removes it, and what the credential would still allow if it went.</p>
+      <span class="tag">07 · What would narrow it</span>
+      <h2>Three changes, in the vocabulary this site uses.</h2>
     </div>
-    <div class="tw">
-      <table class="t">
-        <thead><tr><th>Question</th><th>The answer, for this barrier</th></tr></thead>
-        <tbody>
-          <tr><td class="k">What kind of barrier</td><td><b>A setting</b> — the third of four. Not <em>nothing</em>, not a rule in prose, not a boundary.</td></tr>
-          <tr><td class="k">Who holds it</td><td><b>You</b> — the account holder. One click on <em>Always allow</em> and the prompt is gone for good. On Team and Enterprise plans an owner above them decides whether members may make that click.</td></tr>
-          <tr><td class="k">What it is made of</td><td>A per-action prompt in the client, with Deny, Allow once and Always allow.</td></tr>
-          <tr><td class="k">Can it move without you</td><td><b>Yes</b> — the switch is inside the deployment. Whoever is at the keyboard in the session can flip it.</td></tr>
-          <tr><td class="k">Would you be told</td><td><b>No</b> — nothing announces that <em>Always allow</em> was clicked. The prompt simply stops appearing.</td></tr>
-          <tr><td class="k">Could you check</td><td><b>Partly</b> — the setting is visible in the account's own connector settings; no log outside the deployment says when it changed or who changed it.</td></tr>
-          <tr><td class="k">If it went, what is behind it</td><td>The send itself. <code>gmail.compose</code> and <code>gmail.modify</code> were both consented, so with the prompt gone the credential sends, replies and forwards to anyone, with no further screen.</td></tr>
-        </tbody>
-      </table>
+    <div class="three">
+      <div class="c">
+        <span class="n">A boundary</span>
+        <h3>A second, narrower credential</h3>
+        <p>A read-only connection to the same mailbox, used by the sessions that only read. Google's <code>gmail.readonly</code> grants no send, so the bound is enforced by somebody the grant does not include — which is the difference between a control and a preference. <a href="abp-vault-gmail-readonly.html">That shape is written up too.</a> Whether a client can hold two connections to one provider is the open question below.</p>
+      </div>
+      <div class="c">
+        <span class="n">A bounded setting</span>
+        <h3>Approval state with a scope</h3>
+        <p>Per project, or per conversation, or per hour. Still a setting by our test — the account can still grant it — but a setting whose blast radius ends somewhere, and which a session cannot inherit silently from a conversation three months ago.</p>
+      </div>
+      <div class="c">
+        <span class="n">A record</span>
+        <h3>An approval with a date on it</h3>
+        <p>A list of what has been allowed, when, and by whom, that a person can open and revoke from. It bounds nothing on its own — but nothing can be reviewed that cannot be seen, and today the only evidence that <em>Always allow</em> was pressed is that the prompt stopped appearing.</p>
+      </div>
     </div>
-    <div class="notice"><strong>Nothing here is scored.</strong> This site does not rate a control as strong or weak, for the same reason it puts no score on a behaviour policy: what a barrier is worth depends entirely on the deployment it sits in. Seven facts, each with a source, and the reader does the judging. The one judgment we do make is the <a href="grant-gap.html">delta</a> — the distance between what the agent was expected to do and what it can actually do.</div>
   </div>
 </section>
 
 <section class="psection alt">
   <div class="wrap">
     <div class="shead">
-      <span class="tag">06 · Where the accountability lands</span>
-      <h2>The click is the record, and the message is yours.</h2>
-      <p>This is the part that outlives the screen. When the agent in this deployment sent a message, the deployer opened the original on the sending side and read the headers.</p>
-    </div>
-    <div class="quote">
-      <p>No <code>X-Mailer</code>. No <code>User-Agent</code>. No header naming the client. One <code>Received</code> line saying the Gmail API sent it, from a numeric project identifier — and a body signed with the account holder's own name.</p>
-      <cite>Measured 16 September 2026 on the deployer's account; the redacted <code>.eml</code> is in the deployment's evidence record</cite>
-    </div>
-    <ul class="plist">
-      <li><strong>To the recipient, it is the account holder's mail.</strong> There is no published way for them to tell that an agent composed it.</li>
-      <li><strong>To an investigator afterwards, the approval is the account holder's decision.</strong> A prompt was shown, a person pressed a button, the action followed. That is what the record will look like, and it will be accurate.</li>
-      <li><strong>The decision it records was taken without the object of the verb.</strong> Which message, which label, which recipient, prompted by whose words — none of it was on the screen at the moment of the click.</li>
-    </ul>
-    <div class="rule">
-      <p>An approval prompt transfers accountability without transferring the means to exercise it.</p>
-      <p>That is the whole of the argument. It is not that people click too fast, and it is not that the mechanism is worthless — a prompt with the arguments in it would be a genuine decision surface. It is that responsibility has been placed on the one party in the chain who was given the least to decide with.</p>
-    </div>
-    <div class="shead" style="margin-top:34px">
-      <h2 style="font-size:clamp(22px,2.6vw,28px)">A mandate is the other thing entirely.</h2>
-      <p>This site's own definition, from <a href="grant-gap.html">the grant is not the mandate</a>: a mandate has an issuer, a subject, a scope, an interval and a revocation path — <em>a durable statement somebody who wasn't there can verify afterwards</em>. An approval prompt has none of the five. It is consent to one instance, given by whoever happens to be in the session, recorded nowhere, expiring never once <em>Always allow</em> is pressed. Approving actions one at a time is not a substitute for saying, in advance and in writing, what this agent is here to do.</p>
-    </div>
-  </div>
-</section>
-
-<section class="psection">
-  <div class="wrap">
-    <div class="shead">
-      <span class="tag">07 · What we do not know</span>
-      <h2>Five open questions, and how each would be settled.</h2>
-      <p>Written down rather than guessed. Every one of them is answerable from a vendor's own pages or from a system we are entitled to run; none of them is answerable by probing somebody else's.</p>
+      <span class="tag">08 · What we do not know</span>
+      <h2>Four open questions, and how each would be settled.</h2>
+      <p>Each is answerable from a vendor's own pages or from a system we are entitled to run. None is answerable by probing somebody else's, so none of them is answered here.</p>
     </div>
     <div class="tw">
       <table class="t">
         <thead><tr><th>Question</th><th>How it gets settled</th></tr></thead>
         <tbody>
-          <tr><td class="k">Does <em>Always allow</em> cover the tool, the connector, or every connector?</td><td>The vendor's own documentation of the setting, quoted; or the connector settings screen after pressing it, on an account we run.</td></tr>
-          <tr><td class="k">Does any surface show the arguments — the label, the message, the recipient?</td><td>The same prompt on desktop and mobile, captured on an account we run. Three captures in the browser show none.</td></tr>
-          <tr><td class="k">Is there any record that <em>Always allow</em> was pressed, and can an owner see it?</td><td>The admin documentation for Team and Enterprise plans, quoted.</td></tr>
-          <tr><td class="k">Does the display name always match the tool invoked?</td><td>The connector's <code>tools/list</code> response against the prompt's wording, on an account we run.</td></tr>
-          <tr><td class="k">How many people who click this know what <code>gmail.modify</code> permits?</td><td>Nobody has published a figure. It would take a study, run properly, and until somebody runs one the honest answer is that we do not know — which is itself worth stating, because the mechanism is being relied upon as though we did.</td></tr>
+          <tr><td class="k">Can one client hold two connections to the same provider, with different scopes?</td><td>The vendor's documentation of the connector model, quoted; or attempting a second connection on an account we run, and recording what the interface does.</td></tr>
+          <tr><td class="k">Does the approval state live in the conversation, the account, or the workspace?</td><td>The vendor's own documentation. Failing that, approving in one conversation and observing the next, on an account we run.</td></tr>
+          <tr><td class="k">Does this connector use incremental authorisation, so that consenting again widens the existing token?</td><td>Google's third-party access page for the account, which lists the scopes the application currently holds, read before and after.</td></tr>
+          <tr><td class="k">Does unticking a scope at consent time actually narrow what the connector can do, or does the connector refuse to connect?</td><td>Connecting with one line unticked, on an account we run, and recording what happens.</td></tr>
         </tbody>
       </table>
     </div>
-  </div>
-</section>
-
-<section class="psection alt">
-  <div class="wrap">
-    <div class="shead">
-      <span class="tag">08 · What would change it</span>
-      <h2>Three things that would make the prompt a decision, and one that does not need it to be.</h2>
-      <p>Stated in the vocabulary this site uses, because “add more oversight” is not an instruction anybody can act on.</p>
-    </div>
-    <div class="three">
-      <div class="c">
-        <span class="n">Still a setting</span>
-        <h3>Put the arguments on the screen</h3>
-        <p>The label, the message, the recipient, and whether the instruction came from the person or from text the agent read. This would not change the barrier's kind — the off switch is still one click — but it would turn a signature into a decision.</p>
-      </div>
-      <div class="c">
-        <span class="n">A boundary</span>
-        <h3>Move the switch above the account</h3>
-        <p>The vendor's own page says owners on Team and Enterprise plans decide whether members may allow actions without asking. A switch the agent's account cannot flip passes the enforcer test. That is the difference between a setting and a control, and it already exists in the product for those plans.</p>
-      </div>
-      <div class="c">
-        <span class="n">A boundary</span>
-        <h3>Narrow the credential, not the prompt</h3>
-        <p>Three scopes were consented in one click. A deployment that reads a mailbox does not need <code>gmail.compose</code>. Unticking a line on the consent screen makes sending a boundary — enforced by Google, held against a consent, and not removable from inside the session.</p>
-      </div>
-    </div>
-    <div class="rule">
-      <p>And the one that does not need the prompt to change: write the delta down before the first click.</p>
-      <p>What this agent can do, what it was authorised to do, the gap between the two, and what actually stands in the way of each row. That document exists for this deployment, and it is the thing an approval prompt cannot be: durable, specific, and readable by somebody who was not in the session.</p>
-    </div>
-    <div style="margin-top:30px">
-      <a class="btn btn-green" href="abp-vault-claude-gmail-connector.html">See the behaviour policy for this shape →</a>
-    </div>
     <p class="src">
-      <b>Sources.</b> Anthropic, <a href="https://support.claude.com/en/articles/10166901-use-google-workspace-connectors" target="_blank" rel="noopener">Use Google Workspace connectors</a> (read 16 September 2026). Google, <a href="https://developers.google.com/workspace/gmail/api/auth/scopes" target="_blank" rel="noopener">Gmail API scopes</a> (read 16 September 2026). The connector's listing in Claude's directory (sign-in required; captured by the deployer 16 September 2026). The approval prompts, the consent screens and the sent message's headers: captured by the deployer on an account they run, 16 and 19 September 2026, and transcribed in the evidence record inside the vault for this shape.<br>
-      <b>What was not done.</b> Nothing was tested on anybody else's system, no account but the deployer's own was touched, and no claim here is a verdict on a named company. The screens are quoted; where a vendor's pages disagree with each other, the behaviour policy for this shape publishes the contradiction unresolved rather than settling it.
+      <b>Sources.</b> Google, <a href="https://developers.google.com/identity/protocols/oauth2/web-server" target="_blank" rel="noopener">Using OAuth 2.0 for Web Server Applications</a> and <a href="https://developers.google.com/workspace/gmail/api/auth/scopes" target="_blank" rel="noopener">Gmail API scopes</a>, read 20 September 2026. Anthropic, <a href="https://support.claude.com/en/articles/10166901-use-google-workspace-connectors" target="_blank" rel="noopener">Use Google Workspace connectors</a>, read 20 September 2026. The connector's directory listing, the consent screens and the approval prompts: captured by the deployer on an account they run, 16 and 19 September 2026, transcribed in the evidence record inside the vault for this shape.<br>
+      <b>What was not done.</b> No account but the deployer's own was touched, nothing was probed on anybody else's system, and where a page is silent this article says it is silent rather than filling the gap. No claim here is a verdict on a named company.
     </p>
   </div>
 </section>
@@ -457,11 +439,11 @@ table.t td b{color:var(--text)}
 
 <section class="pcta">
   <div class="wrap">
-    <span class="tag">The next one</span>
-    <h2>Every agent you run has a gap like this one.</h2>
-    <p>Sixteen deployment shapes are written up as Agent Behaviour Policies: what the agent can do, what it was authorised to do, the distance between them, and who holds each thing standing in the way. Read them, or have one corrected for your deployment.</p>
+    <span class="tag">The question to take away</span>
+    <h2>What is your agent still allowed to do, from a task you finished in March?</h2>
+    <p>Nobody can answer that from inside the session, which is the finding. What can be written down is the grant, the mandate for what you actually want this agent for, and the distance between the two — per purpose, with what stands in the way of each row.</p>
     <div class="cta-row">
-      <a class="btn btn-green" href="agent-behaviour-policy.html">The sixteen examples</a>
+      <a class="btn btn-green" href="article-what-is-an-abp.html">What an Agent Behaviour Policy is</a>
       <a class="btn btn-ghost" href="articles.html">All articles</a>
     </div>
   </div>
@@ -479,7 +461,7 @@ table.t td b{color:var(--text)}
 (function(){
 'use strict';
 var RM={core:{},services:{},components:{},data:{}};
-RM.data.currentPage="article-approval-prompts";RM.data.pages=[{"name":"agent-behaviour-policy","label":"The sixteen examples","file":"agent-behaviour-policy.html","group":"Behaviour policies"},{"name":"abp","label":"What an ABP is","file":"abp.html","group":"Behaviour policies"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"Behaviour policies"},{"name":"licence-to-operate","label":"Licence to Operate","file":"licence-to-operate.html","group":"Behaviour policies"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"Behaviour policies"},{"name":"for-corporate","label":"You run agents today","file":"for-corporate.html","group":"Who it's for"},{"name":"for-founders","label":"You are a founder","file":"for-founders.html","group":"Who it's for"},{"name":"for-startups","label":"You are a startup","file":"for-startups.html","group":"Who it's for"},{"name":"insurance","label":"Make agents insurable","file":"insurance.html","group":"Insurance"},{"name":"insure-a-program","label":"Can you insure a program?","file":"insure-a-program.html","group":"Insurance"},{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"Insurance"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"Insurance"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"Insurance"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"articles","label":"Articles","file":"articles.html"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"lab","label":"The Lab","file":"lab.html","group":"More"},{"name":"demos","label":"Live demos","file":"demos.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"admin","label":"Admin","file":"admin/","group":"More"}];RM.data.sections=[];
+RM.data.currentPage="article-union-of-every-session";RM.data.pages=[{"name":"agent-behaviour-policy","label":"The sixteen examples","file":"agent-behaviour-policy.html","group":"Behaviour policies"},{"name":"abp","label":"What an ABP is","file":"abp.html","group":"Behaviour policies"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"Behaviour policies"},{"name":"licence-to-operate","label":"Licence to Operate","file":"licence-to-operate.html","group":"Behaviour policies"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"Behaviour policies"},{"name":"for-corporate","label":"You run agents today","file":"for-corporate.html","group":"Who it's for"},{"name":"for-founders","label":"You are a founder","file":"for-founders.html","group":"Who it's for"},{"name":"for-startups","label":"You are a startup","file":"for-startups.html","group":"Who it's for"},{"name":"insurance","label":"Make agents insurable","file":"insurance.html","group":"Insurance"},{"name":"insure-a-program","label":"Can you insure a program?","file":"insure-a-program.html","group":"Insurance"},{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"Insurance"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"Insurance"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"Insurance"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"articles","label":"Articles","file":"articles.html"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"lab","label":"The Lab","file":"lab.html","group":"More"},{"name":"demos","label":"Live demos","file":"demos.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"admin","label":"Admin","file":"admin/","group":"More"}];RM.data.sections=[];
 
 'use strict';
 // components/dom.js — tiny DOM helpers shared by components. `el` builds an
