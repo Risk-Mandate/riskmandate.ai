@@ -7,17 +7,17 @@
 
 **2**waiting on somebody outside*the store's agent, the model site*
 
-**1**branches in flight*one work file each*
+**0**branches in flight*one work file each*
 
-**9**open tasks*of 17 in the queue · 1 done*
+**12**open tasks*of 17 in the queue · 1 done*
 
-**11**memos not fully worked*of 19 received*
+**12**memos not fully worked*of 20 received*
 
-**21**briefs written here*one page each*
+**22**briefs written here*one page each*
 
 **16**vaults built and pushed*4 measured · 8 asked for*
 
-**77**releases*8 Lab editions*
+**78**releases*8 Lab editions*
 
 ## Needs the lead — 9
 
@@ -59,13 +59,13 @@ a decision the lead owns, openD6
 
 a decision the lead owns, openD7
 
-## In flight — 1 branch
+## In flight — 0 branches
 
 One file per branch under `.claude/work/`, written before the work starts and deleted when it merges. Read every one before claiming a task.
 
-**[claude/gmail-vault-and-store-materials](../admin/work/branches/claude-gmail-vault-and-store-materials/)**
+**Nothing in flight.**
 
-(a) A new documented-tier vault, `claude-gmail-connector`: Claude.ai chat with the official Gmail connector enabled (not the raw `gmail.readonly` OAuth scope already covered by `gmail-readonly`, not the generic `claude-web-connectors` shape). Researched from Anthropic's own connector documentation, dated, quoted. Moves `claude-google-workspace-connector` in `asked_for` — or adds a narrower sibling — per what the vendor page actually documents.since 16 September 2026
+No work file under .claude/work/.
 
 ## How work gets here
 

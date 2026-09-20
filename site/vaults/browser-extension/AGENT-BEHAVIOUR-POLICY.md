@@ -54,9 +54,11 @@ Every line an agent is asked to observe, next to what enforces it. A prohibition
 | Do not `authenticate-as.credential.tenant` — act in accounts with the credentials it holds | ◐ setting | the site's own session controls |
 | Stop and report if a task needs anything above | ◉ expectation | **nothing** — and this is the line that makes the rest useful |
 
-## What is not reachable
+## What is blocked, and who holds the block
 
-- **files on your disk** — the browser sandbox; an extension reads pages, not the filesystem _(the browser's extension permission model)_
+Everything above is what the agent can do once every block is applied. These are the things something withholds — and the record says what, because a ceiling the credential itself enforces and a tool a vendor has not shipped are different objects with different lifespans.
+
+- **files on your disk** — blocked by the browser's extension sandbox — the runtime the extension is loaded into offers page scripts no filesystem. the browser sandbox; an extension reads pages, not the filesystem _(the browser's extension permission model)_
 
 ## Validity
 

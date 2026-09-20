@@ -2,10 +2,13 @@
   "type": "riskmandate/abp-app-context/v1",
   "dist": {
     "chatgpt-web.zip": {
-      "bytes": 65608,
-      "sha256": "dcea6aa936560f1eeb289f268a8c173a72182650ae5503563e7a250eea5898a1"
+      "bytes": 71323,
+      "sha256": "7f53bc9f7a88556ba609e92124867baa41192a67318aeb92e10e13d888c15fbb"
     }
   },
+  "blocked": 2,
+  "blocks_held": 0,
+  "barriers_held": 0,
   "scenarios": 6,
   "licence": {
     "kind": "cc-by-4.0"

@@ -12,9 +12,10 @@
     "tenant": "the sites you are logged into, as you",
     "world": "the internet, from your browser"
   },
-  "not_reachable": [
+  "blocked": [
     {
       "what": "files on your disk",
+      "blocked_by": "the browser's extension sandbox — the runtime the extension is loaded into offers page scripts no filesystem",
       "why": "the browser sandbox; an extension reads pages, not the filesystem",
       "source": "the browser's extension permission model"
     }

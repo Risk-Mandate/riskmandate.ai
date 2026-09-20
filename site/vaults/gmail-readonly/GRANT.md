@@ -37,13 +37,15 @@ Any assistant a person connects to their own Gmail with the read-only scope — 
 - **`read.credential.host`** — password resets, one-time codes, invitations and account-recovery mail arrive in this mailbox. Reading every message reads those. Inferred, not documented — and no scope separates them.
 - **`read.record.history`** — a mailbox is a retained record of years: "settings" in the scope text includes filters and forwarding addresses. Whether the assistant reads settings is open, below.
 
-## Not reachable from this shape
+## Permitted, and blocked
 
-| What | Why | Source |
-| --- | --- | --- |
-| sending, forwarding or drafting mail | gmail.readonly grants no send; gmail.send, gmail.compose and gmail.modify are separate scopes and are not in this grant | https://developers.google.com/workspace/gmail/api/auth/scopes |
-| deleting or labelling mail | no write scope; gmail.labels and gmail.modify are separate | https://developers.google.com/workspace/gmail/api/auth/scopes |
-| your machine, your drive | a mailbox connector reaches a mailbox | https://developers.google.com/workspace/gmail/api/auth/scopes |
+The grant above is what the agent can do **after** the blocks. This is what something withholds. A block is not a property of the credential: some of these are the credential's own ceiling, and some are a vendor choosing not to ship a tool the credential would authorise. Each one names what blocks it, because those two are not the same object and a reader who is shown them under one heading has been told something this document cannot support.
+
+| What | Blocked by | Who holds the block | Why | Source |
+| --- | --- | --- | --- | --- |
+| sending, forwarding or drafting mail | the scope the deployer asked for — gmail.readonly grants no send, and gmail.send, gmail.compose and gmail.modify are separate scopes this credential does not carry | _not yet recorded_ | gmail.readonly grants no send; gmail.send, gmail.compose and gmail.modify are separate scopes and are not in this grant | https://developers.google.com/workspace/gmail/api/auth/scopes |
+| deleting or labelling mail | the same scope choice — no write scope is in this credential | _not yet recorded_ | no write scope; gmail.labels and gmail.modify are separate | https://developers.google.com/workspace/gmail/api/auth/scopes |
+| your machine, your drive | the API itself — a mailbox credential reaches a mailbox | _not yet recorded_ | a mailbox connector reaches a mailbox | https://developers.google.com/workspace/gmail/api/auth/scopes |
 
 ## Where the vendor's own pages disagree
 

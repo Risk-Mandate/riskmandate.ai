@@ -12,7 +12,7 @@
     "tenant": "your accounts",
     "world": "the internet"
   },
-  "not_reachable": [],
+  "blocked": [],
   "tools": [
     "conversation",
     "local files and commands (when enabled)"

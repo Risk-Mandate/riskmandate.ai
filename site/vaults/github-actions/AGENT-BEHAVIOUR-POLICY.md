@@ -62,10 +62,12 @@ Every line an agent is asked to observe, next to what enforces it. A prohibition
 | Do not `write.repository.project` — commit to the repository it was pointed at | ○ boundary | the checkout is writable, but the token is contents:read, so nothing written can leave |
 | Stop and report if a task needs anything above | ◉ expectation | **nothing** — and this is the line that makes the rest useful |
 
-## What is not reachable
+## What is blocked, and who holds the block
 
-- **your machine** — a hosted runner _(library entry 2)_
-- **the repository, for writing** — the token is contents:read _(evidence: ci.permissions-block)_
+Everything above is what the agent can do once every block is applied. These are the things something withholds — and the record says what, because a ceiling the credential itself enforces and a tool a vendor has not shipped are different objects with different lifespans.
+
+- **your machine** — blocked by the hosted runner — the job runs on GitHub's machine, not the operator's. a hosted runner _(library entry 2)_
+- **the repository, for writing** — blocked by the workflow's own permissions block — the token is contents:read. the token is contents:read _(evidence: ci.permissions-block)_
 
 ## Validity
 

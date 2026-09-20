@@ -43,12 +43,14 @@ An ephemeral CI job with no agent, no hooks, and one platform-enforced grant: th
 - **`write.repository.project`** — the checked-out tree at this ref is writable by the job
 - **`read.file.project`** — the checked-out tree at this ref is readable — including anything a contributor committed by mistake
 
-## Not reachable from this shape
+## Permitted, and blocked
 
-| What | Why | Source |
-| --- | --- | --- |
-| your machine | a hosted runner | library entry 2 |
-| the repository, for writing | the token is contents:read | evidence: ci.permissions-block |
+The grant above is what the agent can do **after** the blocks. This is what something withholds. A block is not a property of the credential: some of these are the credential's own ceiling, and some are a vendor choosing not to ship a tool the credential would authorise. Each one names what blocks it, because those two are not the same object and a reader who is shown them under one heading has been told something this document cannot support.
+
+| What | Blocked by | Who holds the block | Why | Source |
+| --- | --- | --- | --- | --- |
+| your machine | the hosted runner — the job runs on GitHub's machine, not the operator's | _not yet recorded_ | a hosted runner | library entry 2 |
+| the repository, for writing | the workflow's own permissions block — the token is contents:read | _not yet recorded_ | the token is contents:read | evidence: ci.permissions-block |
 
 ## The four barriers, and the test
 

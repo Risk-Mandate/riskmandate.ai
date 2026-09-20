@@ -35,12 +35,14 @@ Any assistant a person connects to their own Drive with the read-only scope. Goo
 - **`authenticate-as.credential.tenant`** — the connector acts as the account holder
 - **`read.credential.host`** — drives hold exported keys, service-account files, .env backups and password exports beside everything else. Reading all files reads those. Inferred, not documented.
 
-## Not reachable from this shape
+## Permitted, and blocked
 
-| What | Why | Source |
-| --- | --- | --- |
-| writing, moving, sharing or deleting files | drive.readonly is "View and download"; drive and drive.file are separate scopes and are not in this grant | https://developers.google.com/workspace/drive/api/guides/api-specific-auth |
-| your machine | a drive connector reaches a drive, not a disk | https://developers.google.com/workspace/drive/api/guides/api-specific-auth |
+The grant above is what the agent can do **after** the blocks. This is what something withholds. A block is not a property of the credential: some of these are the credential's own ceiling, and some are a vendor choosing not to ship a tool the credential would authorise. Each one names what blocks it, because those two are not the same object and a reader who is shown them under one heading has been told something this document cannot support.
+
+| What | Blocked by | Who holds the block | Why | Source |
+| --- | --- | --- | --- | --- |
+| writing, moving, sharing or deleting files | the scope the deployer asked for — drive.readonly is view and download, and drive and drive.file are separate scopes this credential does not carry | _not yet recorded_ | drive.readonly is "View and download"; drive and drive.file are separate scopes and are not in this grant | https://developers.google.com/workspace/drive/api/guides/api-specific-auth |
+| your machine | the API itself — a drive credential reaches a drive | _not yet recorded_ | a drive connector reaches a drive, not a disk | https://developers.google.com/workspace/drive/api/guides/api-specific-auth |
 
 ## Where the vendor's own pages disagree
 

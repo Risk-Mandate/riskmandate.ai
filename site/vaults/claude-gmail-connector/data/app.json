@@ -2,11 +2,14 @@
   "type": "riskmandate/abp-app-context/v1",
   "dist": {
     "claude-gmail-connector.zip": {
-      "bytes": 161803,
-      "sha256": "99d525d6a896f97cf5bd2bf9127e9a77b26bbfc5c7be4646823be59f37e17435"
+      "bytes": 194336,
+      "sha256": "2bab35caf553a5214916de40c040f6d0fef1afa65e64a364581a242ebcc82976"
     }
   },
   "research_open": 6,
+  "blocked": 4,
+  "blocks_held": 4,
+  "barriers_held": 4,
   "scenarios": 8,
   "consequences": 11,
   "consequences_open": 5,

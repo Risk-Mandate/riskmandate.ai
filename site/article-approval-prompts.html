@@ -1,0 +1,775 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RiskMandate — an approval prompt is not a human in the loop</title>
+<meta name="description" content="Claude wants to use Add labels to message from Gmail. Which label, on which message, asked for by whom? The screen does not say — and one of its three buttons removes the question for good. What an approval prompt actually is, in the barrier vocabulary, and where the accountability lands.">
+<link rel="canonical" href="https://riskmandate.ai/article-approval-prompts.html">
+<link rel="alternate" type="text/markdown" href="article-approval-prompts.md" title="This page as markdown">
+<link rel="icon" href="assets/brand/riskmandate-favicon-32.png" sizes="32x32">
+<link rel="icon" href="assets/brand/riskmandate-mark.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RiskMandate">
+<meta property="og:url" content="https://riskmandate.ai/article-approval-prompts.html">
+<meta property="og:title" content="RiskMandate — an approval prompt is not a human in the loop">
+<meta property="og:description" content="Claude wants to use Add labels to message from Gmail. Which label, on which message, asked for by whom? The screen does not say — and one of its three buttons removes the question for good. What an approval prompt actually is, in the barrier vocabulary, and where the accountability lands.">
+<meta property="og:image" content="https://riskmandate.ai/assets/brand/riskmandate-lockup-light.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Scaffolded by scripts/site/new-page.mjs. Hand-edited from here on — there is no build step. -->
+<style>
+/* article-approval-prompts.css — self-contained: the shared chrome, then this page's own. */
+:root{
+  --bg:#F7F6F2; --bg2:#EFEDE7; --card:#FFFFFF; --ink:#0D0D0C; --canvas:#0A0A09;
+  --text:#1A1917; --muted:#4A4845; --faint:#8A8780; --border:#E2DFD8;
+  --green:#1A7F5A; --green-2:#22c55e; --greenBg:#EBF5F0;
+  --gold:#B45309; --red:#C0392B; --blue:#1D4ED8;
+  --fg:#F7F6F2; --fg-2:rgba(247,246,242,.55); --fg-3:rgba(247,246,242,.32);
+  --line:rgba(247,246,242,.10); --line-2:rgba(247,246,242,.18);
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","JetBrains Mono","Roboto Mono",Menlo,Consolas,monospace;
+  --wrap:1000px; --r:10px; --r-sm:8px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth} @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+h1,h2{margin:0;font-weight:800;letter-spacing:-.03em;line-height:1.04}
+h2{font-size:clamp(26px,3.6vw,40px);font-weight:700;letter-spacing:-.02em}
+p{margin:0}
+:focus-visible{outline:2px solid var(--green-2);outline-offset:3px;border-radius:4px}
+.tag{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+.g{color:var(--green)} .it{font-style:italic;color:var(--green)}
+
+/* header */
+.top{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.top .wrap{display:flex;align-items:center;gap:22px;height:56px;max-width:1100px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:15px;color:var(--text);white-space:nowrap;text-decoration:none}
+.rm{width:26px;height:26px;flex:none;display:block}
+.rm svg{width:100%;height:100%;display:block}
+.navlinks{display:flex;align-items:center;gap:22px;margin-left:auto}
+rm-menu{display:contents}
+.navlinks a{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;text-decoration:none;display:inline-flex;align-items:center}
+.navlinks a:hover{color:var(--text)}
+.navlinks a.active{color:var(--text);font-weight:600}
+.version{font-family:var(--mono);font-size:12px;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:7px;padding:5px 8px;text-decoration:none;white-space:nowrap;transition:color .15s,border-color .15s}
+.version:hover{color:var(--text);border-color:var(--faint)}
+.demo{background:var(--green);color:#fff;font-weight:600;font-size:13px;border:0;border-radius:8px;padding:8px 16px;cursor:pointer;transition:background .15s;font-family:var(--sans);white-space:nowrap}
+.demo:hover{background:#16704f}
+
+/* nav dropdowns */
+.navgroup{position:relative;display:inline-flex;align-items:center}
+.navgroup::after{content:"";position:absolute;top:100%;left:0;right:0;height:10px}
+.navgroup-btn{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;display:inline-flex;align-items:center;gap:5px}
+.navgroup-btn:hover,.navgroup:hover .navgroup-btn,.navgroup.open .navgroup-btn,.navgroup.active .navgroup-btn{color:var(--text)}
+.navgroup-car{font-size:8px;line-height:1;opacity:.6;transition:transform .15s}
+.navgroup:hover .navgroup-car,.navgroup.open .navgroup-car{transform:rotate(180deg)}
+.navmenu{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);min-width:184px;background:var(--card);border:1px solid var(--border);border-radius:10px;box-shadow:0 10px 34px rgba(13,13,12,.14);padding:6px;display:none;flex-direction:column;gap:2px;z-index:70}
+.navgroup:hover .navmenu,.navgroup.open .navmenu{display:flex}
+.navmenu .navchild{justify-content:flex-start;text-align:left;width:100%;padding:8px 12px;border-radius:7px;font-size:13.5px;color:var(--muted);white-space:nowrap}
+.navmenu .navchild:hover{background:var(--bg2);color:var(--text)}
+.navmenu .navchild.active{color:var(--green);font-weight:600;background:var(--greenBg)}
+
+/* mobile drawer — the toggle is injected by nav.js; .top.nav-open opens it */
+.navtoggle{display:none;margin-left:auto;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;padding:0;background:none;border:0;cursor:pointer}
+.navtoggle span{display:block;width:20px;height:2px;margin:0 auto;background:var(--text);border-radius:2px;transition:transform .2s,opacity .2s}
+.top.nav-open .navtoggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.top.nav-open .navtoggle span:nth-child(2){opacity:0}
+.top.nav-open .navtoggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media (max-width:1040px){
+  .navtoggle{display:flex}
+  .top .wrap{position:relative}
+  .version{display:none}
+  .navlinks{display:none;position:absolute;left:0;right:0;top:calc(100% + 1px);flex-direction:column;align-items:stretch;gap:0;margin:0;padding:8px;background:var(--card);border-bottom:1px solid var(--border);box-shadow:0 14px 34px rgba(13,13,12,.14);max-height:calc(100vh - 56px);overflow:auto}
+  .top.nav-open .navlinks{display:flex}
+  .navlinks a,.navlinks .navgroup-btn{width:100%;text-align:left;justify-content:flex-start;padding:12px 16px;font-size:15px;border-radius:8px}
+  .navlinks a:hover{background:var(--bg2)}
+  .navgroup{display:block;width:100%;position:static}
+  .navgroup::after{display:none}
+  .navgroup-btn{display:flex}
+  .navgroup-car{margin-left:auto}
+  .navmenu{position:static;transform:none;display:flex;flex-direction:column;min-width:0;padding:2px 0 8px 14px;background:transparent;border:0;box-shadow:none}
+  .navmenu .navchild{padding:10px 14px;font-size:14px}
+}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;padding:12px 22px;border-radius:var(--r-sm);cursor:pointer;border:1px solid transparent;font-family:var(--sans);text-decoration:none}
+.btn-green{background:var(--green);color:#fff} .btn-green:hover{background:#16704f}
+.btn-ghost{background:transparent;color:var(--fg);border-color:var(--line-2)} .btn-ghost:hover{border-color:var(--fg-2)}
+.btn-ghost-dark{background:transparent;color:var(--text);border-color:var(--border)} .btn-ghost-dark:hover{border-color:var(--green);color:var(--green)}
+
+/* dark hero */
+.phero{background:var(--ink);color:var(--fg);padding:88px 24px 84px}
+.phero .wrap{max-width:var(--wrap)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--green);background:rgba(26,127,90,.18);border:1px solid rgba(26,127,90,.4);border-radius:999px;padding:5px 12px}
+.eyebrow .d{width:6px;height:6px;border-radius:50%;background:var(--green-2)}
+.phero h1{font-size:clamp(34px,5.2vw,60px);letter-spacing:-.04em;line-height:1.02;margin:26px 0 0;color:var(--fg);max-width:900px}
+.phero .sub{color:var(--fg-2);font-size:17px;line-height:1.7;max-width:640px;margin-top:24px}
+.cta-row{display:flex;flex-wrap:wrap;gap:11px;margin-top:30px}
+
+/* paper sections */
+.paper{background:var(--bg)}
+.psection{padding:80px 0;border-bottom:1px solid var(--border)}
+.psection.alt{background:var(--bg2)}
+.shead{max-width:680px} .shead.center{max-width:720px;margin:0 auto;text-align:center}
+.shead h2{color:var(--text)} .shead p{color:var(--muted);margin-top:16px;font-size:15px;line-height:1.75}
+
+/* closing panel + footer */
+.pcta{background:var(--ink);padding:80px 24px;text-align:center}
+.pcta .wrap{max-width:720px;padding:0}
+.pcta h2{font-size:clamp(28px,4.4vw,48px);color:var(--fg);margin-top:20px;font-weight:700;letter-spacing:-.03em}
+.pcta p{color:var(--fg-2);margin-top:16px;font-size:16px;line-height:1.7}
+.pcta .cta-row{justify-content:center}
+.foot{background:var(--canvas);border-top:1px solid var(--line);padding:32px 24px}
+.foot .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-family:var(--mono);font-size:10px;color:var(--fg-3);max-width:1100px}
+.footlink{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.footlink:hover{color:var(--fg-2)}
+/* narrow phones — at 360px the brand, the burger and the call to action stop
+   fitting on one line, and the header was the last thing on this site that
+   scrolled sideways. Tighten the gutter, the gap and the button rather than
+   drop any of them: all three are load-bearing at this width. */
+@media (max-width:420px){
+  .top .wrap{gap:12px;padding:0 16px}
+  .brand{font-size:14px;gap:7px}
+  .rm{width:24px;height:24px}
+  .demo{padding:8px 12px;font-size:12.5px}
+}
+
+/* this page */
+.phero{background:var(--canvas);color:var(--fg);padding:76px 0 64px;border-bottom:1px solid var(--line)}
+.phero h1{font-size:clamp(32px,5vw,56px);max-width:19ch}
+.phero .sub{margin-top:22px;font-size:17px;line-height:1.7;color:var(--fg-2);max-width:66ch}
+.phero .sub strong{color:var(--fg);font-weight:600}
+.phero .eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--green);background:rgba(26,127,90,.18);border:1px solid rgba(26,127,90,.4);border-radius:999px;padding:5px 12px;margin-bottom:26px}
+.phero .eyebrow .d{width:6px;height:6px;border-radius:50%;background:var(--green-2)}
+.phero .meta{margin-top:10px;font-family:var(--mono);font-size:12px;line-height:1.9;color:var(--fg-3);max-width:66ch}
+.phero .meta b{color:var(--fg-2);font-weight:600}
+.phero .meta a{color:var(--green-2)}
+.shead h2{max-width:24ch}
+.shead p{margin-top:18px;font-size:16.5px;line-height:1.7;color:var(--muted);max-width:68ch}
+.shead p+p{margin-top:12px}
+.shead p strong{color:var(--text)}
+.shead a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+
+/* the screenshot, beside what it says */
+.shot{margin-top:32px;display:grid;grid-template-columns:minmax(0,420px) 1fr;gap:28px;align-items:start}
+.shot figure{margin:0}
+.shot img{display:block;width:100%;height:auto;border:1px solid var(--border);border-radius:var(--r);background:var(--card)}
+.shot figcaption{margin-top:10px;font-family:var(--mono);font-size:11px;line-height:1.7;color:var(--faint)}
+.shot .said{border:1px solid var(--border);border-radius:var(--r);background:var(--card);padding:22px 24px}
+.shot .said .k{display:block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--green);margin-bottom:12px}
+.shot .said p{font-size:15px;line-height:1.7;color:var(--muted)}
+.shot .said p+p{margin-top:10px}
+.shot .said b{color:var(--text)}
+.shot .btns{margin-top:16px;display:flex;flex-direction:column;gap:8px}
+.shot .btns span{display:flex;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:12px;color:var(--muted);border:1px solid var(--border);border-radius:var(--r-sm);padding:9px 12px}
+.shot .btns span.def{border-color:var(--text);color:var(--text);font-weight:700}
+.shot .btns span em{font-style:normal;color:var(--faint)}
+@media (max-width:820px){.shot{grid-template-columns:1fr}}
+
+/* the questions the screen cannot answer */
+.qs{margin:30px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+.qs li{border:1px solid var(--border);border-radius:var(--r);background:var(--card);padding:20px 22px}
+.qs li h3{margin:0;font-size:16.5px;font-weight:700;color:var(--text);letter-spacing:-.01em;line-height:1.35}
+.qs li p{margin-top:8px;font-size:14px;color:var(--muted);line-height:1.65}
+.qs li code{font-family:var(--mono);font-size:12.5px;background:var(--bg2);padding:1px 5px;border-radius:4px;color:var(--text)}
+.psection.alt .qs li code{background:var(--bg2)}
+
+.plist{margin:26px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;max-width:760px}
+.plist li{position:relative;padding-left:22px;font-size:15px;color:var(--muted);line-height:1.7}
+.plist li::before{content:"";position:absolute;left:2px;top:10px;width:6px;height:6px;border-radius:50%;background:var(--green)}
+.plist strong{color:var(--text)}
+.plist code,.shead code,.rule code,.notice code,.quote code{font-family:var(--mono);font-size:13px;background:var(--bg2);padding:1px 6px;border-radius:5px;color:var(--text)}
+.psection.alt .plist code,.psection.alt .shead code{background:var(--card)}
+.plist a,.notice a,.src a,table.t a,.quote a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+
+.quote{margin:26px 0 0;padding:22px 26px;border-left:3px solid var(--green);background:var(--card);border-radius:0 var(--r) var(--r) 0;max-width:780px}
+.quote p{font-size:18px;line-height:1.55;color:var(--text);font-weight:600;letter-spacing:-.01em}
+.quote cite{display:block;margin-top:12px;font-style:normal;font-family:var(--mono);font-size:11.5px;color:var(--faint);line-height:1.7}
+.rule{margin-top:30px;border-left:3px solid var(--green);background:var(--greenBg);border-radius:0 var(--r-sm) var(--r-sm) 0;padding:20px 24px;max-width:740px}
+.rule p{color:var(--text);font-size:16px;line-height:1.6;font-weight:600}
+.rule p + p{margin-top:10px;font-weight:400;font-size:14.5px;color:var(--muted)}
+.notice{margin-top:28px;border:1px dashed var(--faint);border-radius:var(--r-sm);padding:16px 20px;font-size:13.5px;color:var(--muted);line-height:1.65;max-width:800px}
+.notice strong{color:var(--text)}
+.src{margin-top:26px;font-family:var(--mono);font-size:11.5px;color:var(--faint);line-height:1.8}
+
+.tw{overflow-x:auto;margin-top:30px;border:1px solid var(--border);border-radius:var(--r);background:var(--card)}
+table.t{width:100%;border-collapse:collapse;font-size:13.5px;min-width:560px}
+table.t th{text-align:left;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);padding:13px 16px;border-bottom:1px solid var(--border)}
+table.t td{padding:13px 16px;border-bottom:1px solid var(--border);color:var(--muted);line-height:1.55;vertical-align:top}
+table.t tr:last-child td{border-bottom:0}
+table.t td.k{color:var(--text);font-weight:700;white-space:nowrap}
+table.t code{font-family:var(--mono);font-size:12px;background:var(--bg2);padding:1px 5px;border-radius:4px;color:var(--text)}
+table.t td b{color:var(--text)}
+
+.three{margin-top:30px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.three .c{padding:22px 22px 24px;background:var(--card);border:1px solid var(--border);border-radius:var(--r);position:relative}
+.three .c .n{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--faint);letter-spacing:.14em;text-transform:uppercase}
+.three .c h3{margin:12px 0 0;font-size:18px;font-weight:700;letter-spacing:-.01em;color:var(--text)}
+.three .c p{margin-top:12px;font-size:14px;color:var(--muted);line-height:1.65}
+.three .c a{display:inline-block;margin-top:12px;font-size:13.5px;font-weight:600;color:var(--green);text-decoration:underline;text-underline-offset:2px}
+@media (max-width:820px){.three{grid-template-columns:1fr}}
+
+.ghlink{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:8px;color:var(--muted);border:1px solid transparent}.ghlink:hover{color:var(--text);border-color:var(--border)}
+.footlic{display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap}.footlic a{color:inherit}.ccicon{vertical-align:-3px;margin:0 2px}
+@media (max-width:1400px) and (min-width:901px){.ghlink,header.top a.version{display:none}header.top .wrap{gap:14px}}
+</style>
+</head>
+<body id="top">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
+    <nav class="navlinks"><rm-menu></rm-menu></nav>
+    <a class="ghlink" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener" aria-label="The source, on GitHub" title="Open source · Apache-2.0 code · CC BY 4.0 pages"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a>
+      <a class="version" href="versions.html" title="What shipped in v1.27.0">v1.27.0</a>
+    <button class="demo" data-demo>Get in touch</button>
+  </div>
+</header>
+
+<main class="phero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span>ARTICLE · 19 SEPTEMBER 2026</span>
+    <h1>An approval prompt is not a human in the loop.</h1>
+    <p class="sub" style="margin-bottom:20px">A connector asks <strong>Claude wants to use Add labels to message from Gmail</strong> and offers three buttons. It does not say which label, on which message, in which thread, or why the agent asked. The person clicking it is being made accountable for an action they have not been given enough to judge — and one of the three buttons removes the question permanently.</p>
+    <p class="meta"><b>Shape:</b> Claude with the Gmail connector enabled, the deployment described in <a href="abp-vault-claude-gmail-connector.html">that shape's behaviour policy</a>.</p>
+    <p class="meta"><b>Evidence:</b> three prompts of this shape captured by the deployer on an account they run, 16 and 19 September 2026. Nothing was tested on anybody else's system.</p>
+    <p class="meta"><b>This page as markdown:</b> <a href="article-approval-prompts.md">article-approval-prompts.md</a></p>
+  </div>
+</main>
+
+<div class="paper">
+
+<section class="psection">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">01 · The screen</span>
+      <h2>Everything it says, and everything it offers.</h2>
+      <p>This is the whole prompt. It was captured on an account the deployer runs, in Claude in the browser. Two others of the same shape are in the record for this deployment: <em>Claude wants to use <strong>Send email message</strong> from Gmail</em> and <em>Claude wants to use <strong>Moves a message to Trash</strong> from Gmail</em>. The layout, the wording and the three buttons are identical in all three.</p>
+    </div>
+    <div class="shot">
+      <figure>
+        <img src="assets/articles/approval-prompt-add-labels.png" alt="The approval prompt: a Gmail icon, the words Claude wants to use Add labels to message from Gmail, and three buttons — Deny, Always allow, and Allow once." width="856" height="682" loading="lazy">
+        <figcaption>Captured 19 September 2026 by the deployer, on an account they run. Nothing on the screen is redacted, because the screen carries nothing to redact.</figcaption>
+      </figure>
+      <div class="said">
+        <span class="k">What is on it</span>
+        <p>A title: <b>Add labels to message</b>. A sentence: <b>Claude wants to use Add labels to message from Gmail</b>. A Gmail icon. Three buttons, with keyboard shortcuts.</p>
+        <div class="btns">
+          <span>Deny <em>Esc</em></span>
+          <span>Always allow <em>⇧⌘↵</em></span>
+          <span class="def">Allow once <em>⌘↵ · the default</em></span>
+        </div>
+        <p><b>Allow once</b> is the primary button — the filled one, and the one the plain Return-with-Command shortcut lands on. <b>Deny</b> is the escape key.</p>
+      </div>
+    </div>
+    <div class="rule">
+      <p>The prompt names a verb. A decision needs the object.</p>
+      <p>Everything below follows from that one gap, and none of it requires an opinion about anybody's product.</p>
+    </div>
+  </div>
+</section>
+
+<section class="psection alt">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">02 · What it cannot tell you</span>
+      <h2>Seven questions the screen does not answer.</h2>
+      <p>Not <em>does not answer well</em> — does not contain the information at all. Each of these is checkable against the image above.</p>
+    </div>
+    <ul class="qs">
+      <li><h3>Which label?</h3><p>A label is a folder, a tag, and on many accounts a filing rule that other people's automations read. <code>Important</code>, <code>Invoices</code> and <code>Archive</code> are not the same act.</p></li>
+      <li><h3>On which message?</h3><p>One message, a thread, or a search result that matched two thousand. The screen names no message and no count.</p></li>
+      <li><h3>Asked for by whom?</h3><p>By the instruction the account holder typed, or by a sentence inside an email the agent has just read. The prompt is identical either way, and reading the inbox is a row in this deployment's grant.</p></li>
+      <li><h3>How many times?</h3><p>One call, or the first of a hundred in the same run. The prompt does not say whether it is per call.</p></li>
+      <li><h3>What does the tool do, exactly?</h3><p><b>Add labels to message</b> is a display name. The connector's own listing names <code>label_message</code>, <code>label_thread</code>, and two more truncated as <code>apply_sensitive_messa…</code> and <code>apply_sensitive_thread…</code> — read 16 September 2026, with more behind a <em>Show all</em> the capture did not expand.</p></li>
+      <li><h3>Can it be undone?</h3><p>For a label, usually. For the same prompt over <b>Send email message</b>, no — and the screen looks the same. The record for this shape marks that row irreversible.</p></li>
+      <li><h3>What does allowing it permanently cover?</h3><p>This tool, every Gmail tool, or every connector? The screens captured do not say, and the vendor's help page speaks of <em>these actions</em> without listing them.</p></li>
+    </ul>
+    <div class="notice"><strong>Why this matters more than it reads.</strong> A person asked to approve an action is being asked to take responsibility for it. Responsibility without the object of the verb is not a decision; it is a signature. The same screen would be an adequate decision surface if it said <em>add the label “Invoices” to 3 messages from Acme Ltd</em> — the information exists on the calling side, and it is not on the screen.</div>
+  </div>
+</section>
+
+<section class="psection">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">03 · The button that ends the question</span>
+      <h2>One click, by the account the prompt is about.</h2>
+      <p>The vendor's help article describes the mechanism plainly, and describes its own off switch in the next sentence.</p>
+    </div>
+    <div class="quote">
+      <p>“By default, Claude asks for your approval before each of these actions. On Team and Enterprise plans, owners decide whether members can allow these actions to run without asking each time.”</p>
+      <cite>Anthropic, <a href="https://support.claude.com/en/articles/10166901-use-google-workspace-connectors" target="_blank" rel="noopener">Use Google Workspace connectors</a>, read 16 September 2026</cite>
+    </div>
+    <ul class="plist">
+      <li><strong>The prompt is per action.</strong> An agent asked to triage a morning's mail takes many actions. Every one of them is a modal in front of the person who asked for the triage.</li>
+      <li><strong>The off switch is one click, and it is permanent.</strong> <em>Always allow</em> is on the same screen as the action it would stop asking about, sits one key away from the default, and is pressed by the account the prompt exists to protect.</li>
+      <li><strong>Nothing records that it was pressed.</strong> Not on any screen captured here. The prompt's absence afterwards is the only sign, and an absence is not a record.</li>
+      <li><strong>We do not know how often it is pressed.</strong> Neither vendor publishes a figure, and this site has not run a study. It is an open question below, not a statistic — a number nobody has measured does not become true by being obvious.</li>
+    </ul>
+    <div class="rule">
+      <p>A bound the agent's own account can remove is not a control. It is a setting.</p>
+      <p>That is the test this site applies to every row in every behaviour policy: <em>a control bounds a grant only if it is enforced by something the grant does not include.</em> The grant here includes the ability to press <em>Always allow</em>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="psection alt">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">04 · Underneath it, the answer is already yes</span>
+      <h2>Google was asked once, on a screen nobody remembers.</h2>
+      <p>The prompt sits above Google's authorisation, not inside it. When this deployment was connected, Google's consent screen asked for three things, each with its own tick box, all of them pre-ticked under <em>Select all</em>:</p>
+    </div>
+    <div class="tw">
+      <table class="t">
+        <thead><tr><th>The line on Google's screen</th><th>The scope</th><th>What it covers</th></tr></thead>
+        <tbody>
+          <tr><td class="k">View your email messages and settings.</td><td><code>gmail.readonly</code></td><td>every message and thread in the mailbox, and the label structure</td></tr>
+          <tr><td class="k">Manage drafts and send emails.</td><td><code>gmail.compose</code></td><td>drafts, and sending</td></tr>
+          <tr><td class="k">Read, compose and send emails from your Gmail account.</td><td><code>gmail.modify</code></td><td>reading, sending, and changing what is on a message — labelling included</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ul class="plist">
+      <li><strong>Labelling is inside <code>gmail.modify</code>.</strong> Once that consent is given, a call to label a message is an authorised call. Nothing in Gmail refuses it, because there is nothing left to refuse: the account holder said yes to the class of action, not to the instance.</li>
+      <li><strong>So the prompt is not a Gmail control.</strong> It is a client behaviour, above Google's authorisation, held by the party that built the client. Google's stack sees a token it issued being used within the scope it was issued for.</li>
+      <li><strong>That is not a complaint about the scope model — it is the point.</strong> Google's ceiling <em>does</em> hold where it applies: asked to empty the Bin, the agent reported it had no tool, and Google's own scope text says <code>gmail.modify</code> “does not allow immediate, permanent deletion of threads and messages, bypassing Trash”. That is a real boundary, enforced by somebody the grant does not include. The approval prompt is a different kind of object, and putting both under the word <em>control</em> is how a reader ends up reassured.</li>
+    </ul>
+    <p class="src">Consent screen transcribed in the deployment's <a href="abp-vault-claude-gmail-connector.html">evidence record</a>, 16 September 2026. Scope text: Google, <a href="https://developers.google.com/workspace/gmail/api/auth/scopes" target="_blank" rel="noopener">Gmail API scopes</a>, read 16 September 2026.</p>
+  </div>
+</section>
+
+<section class="psection">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">05 · What the record already says</span>
+      <h2>The same prompt, written down in the deployment's behaviour policy.</h2>
+      <p>None of this is a new finding. It is the <code>send.message.world</code> row of this shape's grant, with the seven answers that sit behind every barrier we record: who holds it, what it is made of, whether it moves without you, whether you would be told, whether you could check, what removes it, and what the credential would still allow if it went.</p>
+    </div>
+    <div class="tw">
+      <table class="t">
+        <thead><tr><th>Question</th><th>The answer, for this barrier</th></tr></thead>
+        <tbody>
+          <tr><td class="k">What kind of barrier</td><td><b>A setting</b> — the third of four. Not <em>nothing</em>, not a rule in prose, not a boundary.</td></tr>
+          <tr><td class="k">Who holds it</td><td><b>You</b> — the account holder. One click on <em>Always allow</em> and the prompt is gone for good. On Team and Enterprise plans an owner above them decides whether members may make that click.</td></tr>
+          <tr><td class="k">What it is made of</td><td>A per-action prompt in the client, with Deny, Allow once and Always allow.</td></tr>
+          <tr><td class="k">Can it move without you</td><td><b>Yes</b> — the switch is inside the deployment. Whoever is at the keyboard in the session can flip it.</td></tr>
+          <tr><td class="k">Would you be told</td><td><b>No</b> — nothing announces that <em>Always allow</em> was clicked. The prompt simply stops appearing.</td></tr>
+          <tr><td class="k">Could you check</td><td><b>Partly</b> — the setting is visible in the account's own connector settings; no log outside the deployment says when it changed or who changed it.</td></tr>
+          <tr><td class="k">If it went, what is behind it</td><td>The send itself. <code>gmail.compose</code> and <code>gmail.modify</code> were both consented, so with the prompt gone the credential sends, replies and forwards to anyone, with no further screen.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="notice"><strong>Nothing here is scored.</strong> This site does not rate a control as strong or weak, for the same reason it puts no score on a behaviour policy: what a barrier is worth depends entirely on the deployment it sits in. Seven facts, each with a source, and the reader does the judging. The one judgment we do make is the <a href="grant-gap.html">delta</a> — the distance between what the agent was expected to do and what it can actually do.</div>
+  </div>
+</section>
+
+<section class="psection alt">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">06 · Where the accountability lands</span>
+      <h2>The click is the record, and the message is yours.</h2>
+      <p>This is the part that outlives the screen. When the agent in this deployment sent a message, the deployer opened the original on the sending side and read the headers.</p>
+    </div>
+    <div class="quote">
+      <p>No <code>X-Mailer</code>. No <code>User-Agent</code>. No header naming the client. One <code>Received</code> line saying the Gmail API sent it, from a numeric project identifier — and a body signed with the account holder's own name.</p>
+      <cite>Measured 16 September 2026 on the deployer's account; the redacted <code>.eml</code> is in the deployment's evidence record</cite>
+    </div>
+    <ul class="plist">
+      <li><strong>To the recipient, it is the account holder's mail.</strong> There is no published way for them to tell that an agent composed it.</li>
+      <li><strong>To an investigator afterwards, the approval is the account holder's decision.</strong> A prompt was shown, a person pressed a button, the action followed. That is what the record will look like, and it will be accurate.</li>
+      <li><strong>The decision it records was taken without the object of the verb.</strong> Which message, which label, which recipient, prompted by whose words — none of it was on the screen at the moment of the click.</li>
+    </ul>
+    <div class="rule">
+      <p>An approval prompt transfers accountability without transferring the means to exercise it.</p>
+      <p>That is the whole of the argument. It is not that people click too fast, and it is not that the mechanism is worthless — a prompt with the arguments in it would be a genuine decision surface. It is that responsibility has been placed on the one party in the chain who was given the least to decide with.</p>
+    </div>
+    <div class="shead" style="margin-top:34px">
+      <h2 style="font-size:clamp(22px,2.6vw,28px)">A mandate is the other thing entirely.</h2>
+      <p>This site's own definition, from <a href="grant-gap.html">the grant is not the mandate</a>: a mandate has an issuer, a subject, a scope, an interval and a revocation path — <em>a durable statement somebody who wasn't there can verify afterwards</em>. An approval prompt has none of the five. It is consent to one instance, given by whoever happens to be in the session, recorded nowhere, expiring never once <em>Always allow</em> is pressed. Approving actions one at a time is not a substitute for saying, in advance and in writing, what this agent is here to do.</p>
+    </div>
+  </div>
+</section>
+
+<section class="psection">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">07 · What we do not know</span>
+      <h2>Five open questions, and how each would be settled.</h2>
+      <p>Written down rather than guessed. Every one of them is answerable from a vendor's own pages or from a system we are entitled to run; none of them is answerable by probing somebody else's.</p>
+    </div>
+    <div class="tw">
+      <table class="t">
+        <thead><tr><th>Question</th><th>How it gets settled</th></tr></thead>
+        <tbody>
+          <tr><td class="k">Does <em>Always allow</em> cover the tool, the connector, or every connector?</td><td>The vendor's own documentation of the setting, quoted; or the connector settings screen after pressing it, on an account we run.</td></tr>
+          <tr><td class="k">Does any surface show the arguments — the label, the message, the recipient?</td><td>The same prompt on desktop and mobile, captured on an account we run. Three captures in the browser show none.</td></tr>
+          <tr><td class="k">Is there any record that <em>Always allow</em> was pressed, and can an owner see it?</td><td>The admin documentation for Team and Enterprise plans, quoted.</td></tr>
+          <tr><td class="k">Does the display name always match the tool invoked?</td><td>The connector's <code>tools/list</code> response against the prompt's wording, on an account we run.</td></tr>
+          <tr><td class="k">How many people who click this know what <code>gmail.modify</code> permits?</td><td>Nobody has published a figure. It would take a study, run properly, and until somebody runs one the honest answer is that we do not know — which is itself worth stating, because the mechanism is being relied upon as though we did.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="psection alt">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">08 · What would change it</span>
+      <h2>Three things that would make the prompt a decision, and one that does not need it to be.</h2>
+      <p>Stated in the vocabulary this site uses, because “add more oversight” is not an instruction anybody can act on.</p>
+    </div>
+    <div class="three">
+      <div class="c">
+        <span class="n">Still a setting</span>
+        <h3>Put the arguments on the screen</h3>
+        <p>The label, the message, the recipient, and whether the instruction came from the person or from text the agent read. This would not change the barrier's kind — the off switch is still one click — but it would turn a signature into a decision.</p>
+      </div>
+      <div class="c">
+        <span class="n">A boundary</span>
+        <h3>Move the switch above the account</h3>
+        <p>The vendor's own page says owners on Team and Enterprise plans decide whether members may allow actions without asking. A switch the agent's account cannot flip passes the enforcer test. That is the difference between a setting and a control, and it already exists in the product for those plans.</p>
+      </div>
+      <div class="c">
+        <span class="n">A boundary</span>
+        <h3>Narrow the credential, not the prompt</h3>
+        <p>Three scopes were consented in one click. A deployment that reads a mailbox does not need <code>gmail.compose</code>. Unticking a line on the consent screen makes sending a boundary — enforced by Google, held against a consent, and not removable from inside the session.</p>
+      </div>
+    </div>
+    <div class="rule">
+      <p>And the one that does not need the prompt to change: write the delta down before the first click.</p>
+      <p>What this agent can do, what it was authorised to do, the gap between the two, and what actually stands in the way of each row. That document exists for this deployment, and it is the thing an approval prompt cannot be: durable, specific, and readable by somebody who was not in the session.</p>
+    </div>
+    <div style="margin-top:30px">
+      <a class="btn btn-green" href="abp-vault-claude-gmail-connector.html">See the behaviour policy for this shape →</a>
+    </div>
+    <p class="src">
+      <b>Sources.</b> Anthropic, <a href="https://support.claude.com/en/articles/10166901-use-google-workspace-connectors" target="_blank" rel="noopener">Use Google Workspace connectors</a> (read 16 September 2026). Google, <a href="https://developers.google.com/workspace/gmail/api/auth/scopes" target="_blank" rel="noopener">Gmail API scopes</a> (read 16 September 2026). The connector's listing in Claude's directory (sign-in required; captured by the deployer 16 September 2026). The approval prompts, the consent screens and the sent message's headers: captured by the deployer on an account they run, 16 and 19 September 2026, and transcribed in the evidence record inside the vault for this shape.<br>
+      <b>What was not done.</b> Nothing was tested on anybody else's system, no account but the deployer's own was touched, and no claim here is a verdict on a named company. The screens are quoted; where a vendor's pages disagree with each other, the behaviour policy for this shape publishes the contradiction unresolved rather than settling it.
+    </p>
+  </div>
+</section>
+
+</div>
+
+<section class="pcta">
+  <div class="wrap">
+    <span class="tag">The next one</span>
+    <h2>Every agent you run has a gap like this one.</h2>
+    <p>Sixteen deployment shapes are written up as Agent Behaviour Policies: what the agent can do, what it was authorised to do, the distance between them, and who holds each thing standing in the way. Read them, or have one corrected for your deployment.</p>
+    <div class="cta-row">
+      <a class="btn btn-green" href="agent-behaviour-policy.html">The sixteen examples</a>
+      <a class="btn btn-ghost" href="articles.html">More writing</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>© 2026 RiskMandate · Autonomous Risk Management</span>
+    <span>The insurability layer for agentic AI. · <a class="footlink" href="versions.html">Versions</a> · <a class="footlink" href="admin/">Admin</a></span>
+    <span class="footlic"><a href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener">Open source on GitHub</a> · code Apache-2.0 · pages and policies <a rel="license" href="https://creativecommons.org/licenses/by/4.0/" target="_blank" title="Creative Commons Attribution 4.0 — take it, credit it"><svg class="ccicon" width="38" height="16" viewBox="0 0 76 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="2.5"></circle><text x="16" y="21" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14" font-weight="800" fill="currentColor">CC</text><circle cx="60" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="2.5"></circle><text x="60" y="21" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14" font-weight="800" fill="currentColor">BY</text></svg> CC BY 4.0</a> · <a href="https://open-source.sgit.ai/" target="_blank" rel="noopener">why</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+var RM={core:{},services:{},components:{},data:{}};
+RM.data.currentPage="article-approval-prompts";RM.data.pages=[{"name":"agent-behaviour-policy","label":"The sixteen examples","file":"agent-behaviour-policy.html","group":"Behaviour policies"},{"name":"abp","label":"What an ABP is","file":"abp.html","group":"Behaviour policies"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"Behaviour policies"},{"name":"licence-to-operate","label":"Licence to Operate","file":"licence-to-operate.html","group":"Behaviour policies"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"Behaviour policies"},{"name":"for-corporate","label":"You run agents today","file":"for-corporate.html","group":"Who it's for"},{"name":"for-founders","label":"You are a founder","file":"for-founders.html","group":"Who it's for"},{"name":"for-startups","label":"You are a startup","file":"for-startups.html","group":"Who it's for"},{"name":"insurance","label":"Make agents insurable","file":"insurance.html","group":"Insurance"},{"name":"insure-a-program","label":"Can you insure a program?","file":"insure-a-program.html","group":"Insurance"},{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"Insurance"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"Insurance"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"Insurance"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"articles","label":"Writing","file":"articles.html"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"lab","label":"The Lab","file":"lab.html","group":"More"},{"name":"demos","label":"Live demos","file":"demos.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"admin","label":"Admin","file":"admin/","group":"More"}];RM.data.sections=[];
+
+'use strict';
+// components/dom.js — tiny DOM helpers shared by components. `el` builds an
+// element with attributes and children; text children always go in via
+// textContent. `renderMarkdownInto` turns core/markdown tokens into real DOM
+// nodes (never an HTML string), so fetched release notes cannot inject markup.
+
+RM.components.dom = (function () {
+  // A link in a markdown note may only go somewhere harmless: same-document,
+  // same-origin relative, https, or mailto. Anything else — javascript:, data:,
+  // a protocol-relative host — renders as the text it was, and goes nowhere.
+  var SAFE = /^(?:https:\/\/|mailto:|#|[^:/?#]*(?:[/?#]|$))/i;
+
+  /**
+   * @param {string} tag
+   * @param {Object<string,string>} [attrs]
+   * @param {Array<Node|string>} [children]
+   * @returns {HTMLElement}
+   */
+  function el(tag, attrs, children) {
+    var node = document.createElement(tag);
+    if (attrs) Object.keys(attrs).forEach(function (k) {
+      if (attrs[k] != null) node.setAttribute(k, attrs[k]);
+    });
+    (children || []).forEach(function (c) {
+      node.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
+    });
+    return node;
+  }
+
+  /**
+   * Render inline runs into a parent element. Emphasis runs carry child runs
+   * rather than a string, so a link or a code span inside **bold** renders as
+   * itself instead of as its own markdown source — hence the recursion.
+   */
+  function appendRuns(parent, runs) {
+    runs.forEach(function (run) {
+      if (run.t === 'strong' || run.t === 'em') {
+        var node = el(run.t);
+        if (run.runs) appendRuns(node, run.runs);
+        else          node.appendChild(document.createTextNode(run.v));
+        parent.appendChild(node);
+      }
+      else if (run.t === 'code') parent.appendChild(el('code', null, [run.v]));
+      else if (run.t === 'link') parent.appendChild(SAFE.test(run.href)
+        ? el('a', { href: run.href }, [run.v])
+        : document.createTextNode(run.v));
+      else parent.appendChild(document.createTextNode(run.v));
+    });
+  }
+
+  /**
+   * Render markdown block tokens into a container as DOM nodes.
+   * @param {HTMLElement} container
+   * @param {Array} blocks  output of RM.core.markdown.parse
+   */
+  function renderMarkdownInto(container, blocks) {
+    blocks.forEach(function (b) {
+      if (b.type === 'heading') {
+        var h = el('h' + (b.level + 1)); // ## release title -> h3, etc.
+        appendRuns(h, b.runs);
+        container.appendChild(h);
+      } else if (b.type === 'list') {
+        var ul = el('ul');
+        b.items.forEach(function (runs) {
+          var li = el('li');
+          appendRuns(li, runs);
+          ul.appendChild(li);
+        });
+        container.appendChild(ul);
+      } else {
+        var p = el('p');
+        appendRuns(p, b.runs);
+        container.appendChild(p);
+      }
+    });
+  }
+
+  return { el: el, appendRuns: appendRuns, renderMarkdownInto: renderMarkdownInto };
+})();
+
+
+'use strict';
+// components/nav.js — the behaviour on a page that is *not* a link.
+//   [data-to]   → smooth in-page scroll to an element id (no hash routing).
+//   [data-demo] → open a pre-filled demo enquiry email.
+//
+// v1.0.0 removed everything else that used to live here. Up to v0.14 the site
+// ran inside a host <iframe> and every navigation was a postMessage — rm-nav,
+// rm-back, rm-manifest, rm-read. A <button> is not a link, so nothing could be
+// deep-linked, bookmarked, opened in a new tab, or crawled. Now each page is
+// the document the server sent and each navigation is an <a href>, so the only
+// things left to wire are the two that genuinely are not navigation.
+//
+// The mobile drawer is still injected rather than templated: one file gives
+// every page a working menu below the header breakpoint, where .navlinks is
+// hidden by CSS.
+
+RM.components.nav = (function () {
+  // Every "Book a demo" control opens a mail client with a subject and a
+  // starting message. One place to change when booking becomes a real form.
+  var DEMO = {
+    to     : 'nrparekh@gmail.com',
+    subject: 'RiskMandate — demo request',
+    body   : [
+      'Hi,',
+      '',
+      'I would like to see a plug profile for one of the agents we already run.',
+      '',
+      'A little about us:',
+      '  • Organisation:',
+      '  • Roughly how many agents we are running:',
+      '  • The agent we would want to look at first:',
+      '  • Anything already in place (register, IdP, detection tooling):',
+      '',
+      'Thanks,'
+    ].join('\n')
+  };
+
+  function demoHref() {
+    return 'mailto:' + DEMO.to +
+      '?subject=' + encodeURIComponent(DEMO.subject) +
+      '&body='    + encodeURIComponent(DEMO.body);
+  }
+
+  function openDemo() { window.location.href = demoHref(); }
+
+  function scrollTo(doc, id) {
+    var t = doc.getElementById(id);
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Inject the hamburger toggle and wire the drawer open/close. Idempotent.
+  function wireMobileNav(doc) {
+    var top = doc.querySelector('.top');
+    if (!top) return;
+    var wrap  = top.querySelector('.wrap');
+    var links = top.querySelector('.navlinks');
+    if (!wrap || !links || top.querySelector('.navtoggle')) return;
+
+    var burger = doc.createElement('button');
+    burger.className = 'navtoggle';
+    burger.setAttribute('type', 'button');
+    burger.setAttribute('aria-label', 'Toggle navigation');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-controls', 'sitenav');
+    for (var i = 0; i < 3; i++) burger.appendChild(doc.createElement('span'));
+    links.id = links.id || 'sitenav';
+    var demo = wrap.querySelector('.demo');
+    if (demo) wrap.insertBefore(burger, demo); else wrap.appendChild(burger);
+
+    function set(open) {
+      top.classList.toggle('nav-open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    burger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      set(!top.classList.contains('nav-open'));
+    });
+    // Following a real nav link closes the drawer; the group header does not.
+    links.addEventListener('click', function (e) {
+      var b = e.target.closest('button, a');
+      if (b && !b.classList.contains('navgroup-btn')) set(false);
+    });
+    doc.addEventListener('click', function (e) {
+      if (top.classList.contains('nav-open') && !top.contains(e.target)) set(false);
+    });
+    doc.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+    var view = doc.defaultView || window;
+    view.addEventListener('resize', function () { if (view.innerWidth > 1040) set(false); });
+  }
+
+  /** @param {Document} doc */
+  function wire(doc) {
+    doc.querySelectorAll('[data-to]').forEach(function (elm) {
+      elm.addEventListener('click', function () { scrollTo(doc, elm.getAttribute('data-to')); });
+    });
+    doc.querySelectorAll('[data-demo], .demo').forEach(function (elm) {
+      elm.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); openDemo(); });
+    });
+    wireMobileNav(doc);
+  }
+
+  return { wire: wire, scrollTo: scrollTo, demoHref: demoHref, openDemo: openDemo };
+})();
+
+
+'use strict';
+// components/menu.js — <rm-menu>. The one shared header menu, on every page, so
+// the nav is built by a single piece of code. Renders the homepage's section
+// links first, then the top-level pages, marking the current page active.
+//
+// A run of contiguous pages sharing a `group` string collapses into one entry:
+// a hover/click dropdown labelled by the group, with the members as children. A
+// single-member group renders flat — no dropdown for one item.
+//
+// v1.0.0: every entry is an <a href>. The old menu emitted <button> elements
+// that asked a host frame to swap an iframe's srcdoc, which meant the links did
+// not exist as far as a crawler, a bookmark or a middle-click was concerned.
+// The group header stays a <button> because it opens a panel rather than going
+// anywhere — that is the one control here that is genuinely not a link.
+
+(function () {
+  var dom = RM.components.dom;
+
+  RM.components.Menu = class extends HTMLElement {
+    connectedCallback() {
+      var self = this;
+      this._onDocClick = function (e) {
+        self.querySelectorAll('.navgroup.open').forEach(function (g) {
+          if (!g.contains(e.target)) g.classList.remove('open');
+        });
+      };
+      document.addEventListener('click', this._onDocClick);
+      this._render();
+    }
+    disconnectedCallback() {
+      document.removeEventListener('click', this._onDocClick);
+    }
+
+    // On the homepage a section link scrolls; on any other page it is a link
+    // back to the homepage at that anchor. Same markup either way.
+    _section(s) {
+      var home = !(RM.data && RM.data.currentPage);
+      var a = dom.el('a', { class: 'seclink', href: home ? '#' + s.to : 'index.html#' + s.to }, [s.label]);
+      if (home) a.addEventListener('click', function (e) {
+        e.preventDefault();
+        RM.components.nav.scrollTo(document, s.to);
+      });
+      return a;
+    }
+
+    _pagelink(p, extra) {
+      var active = p.name === (RM.data && RM.data.currentPage);
+      var attrs  = { class: 'pagelink' + (extra ? ' ' + extra : '') + (active ? ' active' : ''), href: p.file };
+      if (active) attrs['aria-current'] = 'page';
+      return dom.el('a', attrs, [p.label]);
+    }
+
+    _group(name, members) {
+      var self    = this;
+      var current = RM.data && RM.data.currentPage;
+      var active  = members.some(function (m) { return m.name === current; });
+      var car     = dom.el('span',   { class: 'navgroup-car', 'aria-hidden': 'true' }, ['▾']);
+      var btn     = dom.el('button', { class: 'navgroup-btn' + (active ? ' active' : ''), type: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false' }, [name, car]);
+      var panel   = dom.el('div',    { class: 'navmenu' }, members.map(function (m) { return self._pagelink(m, 'navchild'); }));
+      var wrap    = dom.el('span',   { class: 'navgroup' + (active ? ' active' : '') }, [btn, panel]);
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = wrap.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      return wrap;
+    }
+
+    _render() {
+      var sections = (RM.data && RM.data.sections) || [];
+      var pages    = (RM.data && RM.data.pages)    || [];
+      var self     = this;
+      this.textContent = '';
+      sections.forEach(function (s) { self.appendChild(self._section(s)); });
+      var i = 0;
+      while (i < pages.length) {
+        var p = pages[i];
+        if (!p.group) { self.appendChild(self._pagelink(p)); i++; continue; }
+        var g = p.group, members = [];
+        while (i < pages.length && pages[i].group === g) { members.push(pages[i]); i++; }
+        if (members.length === 1) self.appendChild(self._pagelink(members[0]));
+        else                      self.appendChild(self._group(g, members));
+      }
+    }
+  };
+
+  customElements.define('rm-menu', RM.components.Menu);
+})();
+
+
+'use strict';
+// boot.js — inner-page composition root (version builds and dev.html). Custom
+// elements self-register on load; here we wire document-level nav behaviour.
+// The page runs inside the host's stage frame, so the host (not this page) signals
+// the SG/App host that the app is ready.
+
+(function () {
+  function start() { RM.components.nav.wire(document); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
+})();
+
+
+})();
+</script>
+</body>
+</html>

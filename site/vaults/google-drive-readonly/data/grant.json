@@ -12,14 +12,16 @@
     "tenant": "the Google account the consent was given for",
     "world": "not granted by this scope"
   },
-  "not_reachable": [
+  "blocked": [
     {
       "what": "writing, moving, sharing or deleting files",
+      "blocked_by": "the scope the deployer asked for — drive.readonly is view and download, and drive and drive.file are separate scopes this credential does not carry",
       "why": "drive.readonly is \"View and download\"; drive and drive.file are separate scopes and are not in this grant",
       "source": "https://developers.google.com/workspace/drive/api/guides/api-specific-auth"
     },
     {
       "what": "your machine",
+      "blocked_by": "the API itself — a drive credential reaches a drive",
       "why": "a drive connector reaches a drive, not a disk",
       "source": "https://developers.google.com/workspace/drive/api/guides/api-specific-auth"
     }

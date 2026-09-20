@@ -13,14 +13,16 @@
     "tenant": "the platform as an account holder: activation, schedules, the model credential it spends against",
     "world": "any host an outbound node can be pointed at — accepted on creation; what the platform's own server can reach was not tested"
   },
-  "not_reachable": [
+  "blocked": [
     {
       "what": "activating a workflow with no trigger, webhook or polling node",
+      "blocked_by": "the platform's structural check on the workflow's shape, applied after the API has accepted the call",
       "why": "permitted by the API and rejected by the platform: a structural check on the workflow's shape, not on what it does once triggered",
       "source": "an independent measured check, 13 September 2026, run by an early beta user's agent against a sandbox instance stood up for the purpose; the write-up is held by RiskMandate"
     },
     {
       "what": "the credentials endpoint over the direct REST path — from the measuring environment",
+      "blocked_by": "the measuring environment's own egress gateway, which intercepts any path naming credentials — a barrier in the investigator's environment, not the platform's",
       "why": "blocked before it reached the platform by the measuring environment's own egress gateway, which intercepts any path naming \"credentials\". A barrier in the investigator's environment, not the platform's; the same operation was open through the MCP interface",
       "source": "an independent measured check, 13 September 2026, run by an early beta user's agent against a sandbox instance stood up for the purpose; the write-up is held by RiskMandate"
     }

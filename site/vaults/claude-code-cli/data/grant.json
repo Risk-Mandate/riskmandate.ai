@@ -12,7 +12,7 @@
     "tenant": "your accounts, with the credentials in your home directory",
     "world": "the internet"
   },
-  "not_reachable": [],
+  "blocked": [],
   "tools": [
     "shell (Bash)",
     "files (Read, Edit, Write)",

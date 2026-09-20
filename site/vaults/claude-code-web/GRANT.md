@@ -57,14 +57,16 @@ A managed cloud container, ephemeral, one git repository attached, an egress pro
 - **`create.schedule.tenant`** — a routine or a scheduled trigger resumes this session or spawns another later: it outlives the container
 - **`create.schedule.host`** — systemctl and /etc/cron.d exist, so a cron can be written — and dies with the container; the real scheduler is the platform's routines, on the harness row
 
-## Not reachable from this shape
+## Permitted, and blocked
 
-| What | Why | Source |
-| --- | --- | --- |
-| your machine's files | the container has no path to the operator's computer; the assess tree records home as a boundary | assess/library.json (agentbox: home) |
-| your credentials | no user credential is in the image; the keys present are the session's own | evidence: filesystem.credential-presence, 5 Sep |
-| hosts the proxy refuses | a 403 on the CONNECT, set above the process | evidence: network.egress-shell |
-| repositories outside the platform's scope | the token is scoped by the platform; the API tool refuses out-of-scope calls | harness.platform-tools, self-reported |
+The grant above is what the agent can do **after** the blocks. This is what something withholds. A block is not a property of the credential: some of these are the credential's own ceiling, and some are a vendor choosing not to ship a tool the credential would authorise. Each one names what blocks it, because those two are not the same object and a reader who is shown them under one heading has been told something this document cannot support.
+
+| What | Blocked by | Who holds the block | Why | Source |
+| --- | --- | --- | --- | --- |
+| your machine's files | the container this runs in — no path from it to the operator's computer | _not yet recorded_ | the container has no path to the operator's computer; the assess tree records home as a boundary | assess/library.json (agentbox: home) |
+| your credentials | the image — no user credential is in it; the keys present are the session's own | _not yet recorded_ | no user credential is in the image; the keys present are the session's own | evidence: filesystem.credential-presence, 5 Sep |
+| hosts the proxy refuses | the egress proxy, set above the process: a 403 on the CONNECT | _not yet recorded_ | a 403 on the CONNECT, set above the process | evidence: network.egress-shell |
+| repositories outside the platform's scope | the platform, which scopes the token and refuses an out-of-scope call from its own API tool | _not yet recorded_ | the token is scoped by the platform; the API tool refuses out-of-scope calls | harness.platform-tools, self-reported |
 
 ## The four barriers, and the test
 

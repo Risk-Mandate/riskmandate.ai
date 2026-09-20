@@ -78,12 +78,14 @@ Every line an agent is asked to observe, next to what enforces it. A prohibition
 | Do not `create.schedule.host` — create something that outlives the turn where it runs (a cron, a service) | ○ boundary | the container is ephemeral: whatever is scheduled here dies with it |
 | Stop and report if a task needs anything above | ◉ expectation | **nothing** — and this is the line that makes the rest useful |
 
-## What is not reachable
+## What is blocked, and who holds the block
 
-- **your machine's files** — the container has no path to the operator's computer; the assess tree records home as a boundary _(assess/library.json (agentbox: home))_
-- **your credentials** — no user credential is in the image; the keys present are the session's own _(evidence: filesystem.credential-presence, 5 Sep)_
-- **hosts the proxy refuses** — a 403 on the CONNECT, set above the process _(evidence: network.egress-shell)_
-- **repositories outside the platform's scope** — the token is scoped by the platform; the API tool refuses out-of-scope calls _(harness.platform-tools, self-reported)_
+Everything above is what the agent can do once every block is applied. These are the things something withholds — and the record says what, because a ceiling the credential itself enforces and a tool a vendor has not shipped are different objects with different lifespans.
+
+- **your machine's files** — blocked by the container this runs in — no path from it to the operator's computer. the container has no path to the operator's computer; the assess tree records home as a boundary _(assess/library.json (agentbox: home))_
+- **your credentials** — blocked by the image — no user credential is in it; the keys present are the session's own. no user credential is in the image; the keys present are the session's own _(evidence: filesystem.credential-presence, 5 Sep)_
+- **hosts the proxy refuses** — blocked by the egress proxy, set above the process: a 403 on the CONNECT. a 403 on the CONNECT, set above the process _(evidence: network.egress-shell)_
+- **repositories outside the platform's scope** — blocked by the platform, which scopes the token and refuses an out-of-scope call from its own API tool. the token is scoped by the platform; the API tool refuses out-of-scope calls _(harness.platform-tools, self-reported)_
 
 ## Validity
 

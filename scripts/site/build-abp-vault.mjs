@@ -162,7 +162,9 @@ const validity = {
 };
 
 // ----------------------------------------------------------------- rendering helpers
-const nl = (...lines) => lines.flat().join('\n') + '\n';
+// flat(Infinity): a builder that returns an array inside an array is common here, and a
+// half-flattened one renders as `|,|` in the middle of a table. Flatten all the way down.
+const nl = (...lines) => lines.flat(Infinity).join('\n') + '\n';
 const measuredCount = grant.grant.filter(r => MEASURED.has(r.evidence)).length;
 const sortRows = (ids) => [...ids].sort((a, b) => (undoRank[rowOf[a].undo] - undoRank[rowOf[b].undo]) || grantIds.indexOf(a) - grantIds.indexOf(b));
 const status = (id) => want.has(id) ? 'want' : refuse.has(id) ? 'do not want' : 'unstated';
@@ -208,6 +210,45 @@ for (const a of assets) {
   if (!['assumed', 'confirmed', 'absent'].includes(a.present)) { console.error(`asset ${a.id}: present must be assumed | confirmed | absent`); process.exit(1); }
   for (const [k, ids] of Object.entries(a.links || {})) for (const id of ids) if (!STANDARDS[id]) { console.error(`asset ${a.id}: link ${id} is not a node in data/standards/`); process.exit(1); }
 }
+// ----------------------------------------------------------------- who holds each barrier
+// The barrier vocabulary says WHAT stands in the way. It does not say who holds it, what it is
+// made of, or what would take it away — and two boundaries that pass the same enforcer test can
+// be nothing alike: a scope the deployer consented to, and a tool a vendor chose not to ship.
+// Seven properties, all facts with a source, none of them a grade. data/barrier-holders.json
+// carries the classes and the questions; this validates every answer against them.
+const holderDoc  = readData('data/barrier-holders.json') || { holders: [], answers: {} };
+const HOLDER     = Object.fromEntries((holderDoc.holders || []).map(h => [h.id, h]));
+const HOLD_ANS   = holderDoc.answers || {};
+const HOLD_REQ   = ['held_by', 'held_by_note', 'rests_on', 'moves_without_you', 'moves_without_you_note', 'you_would_be_told', 'you_would_be_told_note', 'you_can_verify', 'you_can_verify_note', 'removed_by', 'credential_would_still_allow'];
+const HOLD_OK    = new Set([...HOLD_REQ, 'source', 'evidence']);
+// A control is not rated here. The same barrier is worth a great deal in one deployment and
+// nothing in another, which is the whole reason this site refuses to score a behaviour policy.
+const GRADE = /\b(strong|weak|robust|credible|solid|poor|adequate|inadequate|insufficient|effective|ineffective|reliable|unreliable|severity|rating|score|grade|mature|immature|best.practice)\b/i;
+function checkHolder(where, hd) {
+  for (const k of HOLD_REQ) if (!hd[k]) { console.error(`${where}: holder is missing ${k} — all seven properties are answered, or none is`); process.exit(1); }
+  for (const k of Object.keys(hd)) if (!HOLD_OK.has(k)) { console.error(`${where}: holder has an unknown property ${k}`); process.exit(1); }
+  if (!HOLDER[hd.held_by]) { console.error(`${where}: held_by "${hd.held_by}" is not a class in data/barrier-holders.json`); process.exit(1); }
+  for (const [k, allowed] of Object.entries(HOLD_ANS)) if (!allowed.includes(hd[k])) { console.error(`${where}: ${k} must be one of ${allowed.join(' · ')}`); process.exit(1); }
+  for (const [k, v] of Object.entries(hd)) if (typeof v === 'string' && GRADE.test(v)) { console.error(`${where}: ${k} grades the control ("${v.match(GRADE)[0]}") — these seven properties are facts, and this record carries no rating`); process.exit(1); }
+}
+for (const r of grant.grant) {
+  if (!r.holder) continue;
+  if (r.barrier === 'none') { console.error(`grant row ${r.capability}: barrier is "none" and it carries a holder — nothing is in the way, so nobody holds it`); process.exit(1); }
+  checkHolder(`grant row ${r.capability}`, r.holder);
+}
+// The blocked list: what the credential permits and something withholds. The grant is what the
+// agent can do AFTER the blocks, so these are not grant rows — and a block with no named blocker
+// is the thing this site calls manufactured assurance, so the build refuses one.
+if (grant.not_reachable) { console.error('data/grant.json: not_reachable is gone. Rename it to "blocked" and give every entry a "blocked_by" naming who or what withholds it — a capability out of reach because a vendor did not ship a tool is not the same object as one out of reach because the credential never authorised it.'); process.exit(1); }
+const blocked = grant.blocked || [];
+for (const b of blocked) {
+  if (!b.what || !b.why || !b.source) { console.error(`blocked entry ${b.what || '(unnamed)'}: needs what, why and source`); process.exit(1); }
+  if (!b.blocked_by) { console.error(`blocked entry "${b.what}": needs blocked_by — the thing that withholds it, named`); process.exit(1); }
+  if (b.holder) checkHolder(`blocked entry "${b.what}"`, b.holder);
+}
+const heldRows   = grant.grant.filter(r => r.holder).map(r => r.capability);
+const heldBlocks = blocked.filter(b => b.holder);
+
 const CONS_KINDS = ['read', 'act', 'exfiltrate', 'disrupt', 'impersonate', 'outlive'];
 for (const c of consequences) {
   if (!CONS_KINDS.includes(c.kind)) { console.error(`consequence ${c.id}: kind must be one of ${CONS_KINDS.join(', ')}`); process.exit(1); }
@@ -234,6 +275,18 @@ const consBarrier = (id, seen = new Set()) => {
   return all.reduce((a, b) => BAR_RANK[b] < BAR_RANK[a] ? b : a);
 };
 const consList = (ids) => ids.map(id => `\`${id}\``).join(', ');
+const holderName = (id) => HOLDER[id] ? HOLDER[id].label : id;
+const holderRows = (hd) => nl(
+  '| | |',
+  '| --- | --- |',
+  `| **Who holds it** | ${holderName(hd.held_by)} — ${hd.held_by_note} |`,
+  `| **What it is made of** | ${hd.rests_on} |`,
+  `| **Can it move without you** | **${hd.moves_without_you}** — ${hd.moves_without_you_note} |`,
+  `| **Would you be told** | **${hd.you_would_be_told}** — ${hd.you_would_be_told_note} |`,
+  `| **Can you check it is still there** | **${hd.you_can_verify}** — ${hd.you_can_verify_note} |`,
+  `| **What would take it away** | ${hd.removed_by} |`,
+  `| **If it went, what is behind it** | ${hd.credential_would_still_allow} |`,
+  hd.source ? `| **Read from** | ${hd.source} |` : []);
 const linkList = (links) => Object.entries(links || {}).flatMap(([, ids]) => ids).map(id => STANDARDS[id] ? `${STANDARDS[id].title} (${STANDARDS[id].technique || STANDARDS[id].article || id})` : id).join('; ');
 // The licence over this copy — resolved early so the footer of every derived file names it.
 // The full LICENCE.md is assembled lower down; the build refuses a commercial copy missing a field.
@@ -335,7 +388,7 @@ const mandateMd = nl(
   foot());
 
 // ----------------------------------------------------------------- GRANT.md
-const notReach = (grant.not_reachable || []).map(n => `| ${n.what} | ${n.why} | ${n.source} |`);
+const blockedRows = blocked.map(n => `| ${n.what} | ${n.blocked_by} | ${n.holder ? `${holderName(n.holder.held_by)} — moves without you: **${n.holder.moves_without_you}**` : '_not yet recorded_'} | ${n.why} | ${n.source} |`);
 const grantMd = nl(
   head('GRANT — everything the agent can do',
        'Measured from the deployment shape, not from your account and not by you. Every row says how it is known, what stands in the way, and whether it can be undone. Irreversible rows first.'),
@@ -355,10 +408,22 @@ const grantMd = nl(
   hasMaterial ? ['**Whose material** is not in the published grammar. It is the property Lab 01 found a connector shape needs — `own`, `organisation`, `third_party` or `mixed` — and is asked of the model site as Lab 03 request 1. `mixed` is the finding: no setting any of these vendors offers makes it `own`.', ''] : [],
   '## The notes behind the rows', '',
   sortRows(grantIds).map(id => `- **\`${id}\`** — ${rowOf[id].note}`), '',
-  '## Not reachable from this shape', '',
-  '| What | Why | Source |',
-  '| --- | --- | --- |',
-  notReach, '',
+  '## Permitted, and blocked', '',
+  'The grant above is what the agent can do **after** the blocks. This is what something withholds. A block is not a property of the credential: some of these are the credential\'s own ceiling, and some are a vendor choosing not to ship a tool the credential would authorise. Each one names what blocks it, because those two are not the same object and a reader who is shown them under one heading has been told something this document cannot support.', '',
+  '| What | Blocked by | Who holds the block | Why | Source |',
+  '| --- | --- | --- | --- | --- |',
+  blockedRows, '',
+  heldBlocks.length ? [
+    '### Each block, in seven answers', '',
+    heldBlocks.map(n => nl(`**${n.what}**`, '', holderRows(n.holder))).join('\n'), ''] : [],
+  heldRows.length ? [
+    '## Who holds each barrier', '',
+    'The barrier column says *what* stands in the way. It does not say who holds the thing in the way, what it is made of, or what would take it away — and two barriers of the same kind can be nothing alike. Seven answers per row, each a fact with a source. None of them is a rating: how much a barrier is worth depends on the deployment, which is the same reason nothing here is scored.', '',
+    `| Capability | Barrier | Who holds it | Moves without you | Would you be told | What removes it |`,
+    '| --- | --- | --- | --- | --- | --- |',
+    heldRows.map(id => { const r = rowOf[id], hd = r.holder; return `| \`${id}\` | ${GLYPH[r.barrier]} ${r.barrier} | ${holderName(hd.held_by)} | **${hd.moves_without_you}** | ${hd.you_would_be_told} | ${hd.removed_by} |`; }).join('\n'), '',
+    '### Each barrier, in seven answers', '',
+    heldRows.map(id => nl(`**\`${id}\`** — ${gloss(id)} — ${GLYPH[rowOf[id].barrier]} ${rowOf[id].barrier}`, '', holderRows(rowOf[id].holder))).join('\n'), ''] : [],
   contradictions.length ? [
     '## Where the vendor\'s own pages disagree', '',
     'Advertised in one place, permitted in another, and the two do not match. Published unresolved on purpose: settling any of these by connecting an assistant and trying would mean probing somebody else\'s system, which is out of bounds here. If the vendor says which page is right, this table changes and says so.', '',
@@ -451,12 +516,13 @@ const ltoMd = nl(
   mandate.want.map(id => `- \`${id}\` — ${gloss(id)}`), '',
   `## Conditions — what the licensee is asked not to do, and what enforces each (${conditions.length})`, '',
   'A condition is only as good as the thing in its last column. Conditions with ● or ◉ beside them are asked, not enforced; the organisation issuing this licence is accepting that, for the interval above, with its eyes open.', '',
-  '| Condition | Asked because | Barrier | Enforced by |',
-  '| --- | --- | --- | --- |',
+  `| Condition | Asked because | Barrier | Enforced by |${heldRows.length ? ' Who holds that |' : ''}`,
+  `| --- | --- | --- | --- |${heldRows.length ? ' --- |' : ''}`,
   conditions.map(id => {
     const r = rowOf[id];
-    return `| Do not \`${id}\` (${gloss(id).toLowerCase()}) | ${refuse.has(id) ? 'the mandate refuses it' : 'the mandate never authorised it'} | ${GLYPH[r.barrier]} ${r.barrier} | ${r.control ?? '**nothing** — a line in prose'} |`;
+    return `| Do not \`${id}\` (${gloss(id).toLowerCase()}) | ${refuse.has(id) ? 'the mandate refuses it' : 'the mandate never authorised it'} | ${GLYPH[r.barrier]} ${r.barrier} | ${r.control ?? '**nothing** — a line in prose'} |${heldRows.length ? ` ${r.holder ? `${holderName(r.holder.held_by)} — moves without you: **${r.holder.moves_without_you}**` : '—'} |` : ''}`;
   }), '',
+  heldRows.length ? ['Who holds a barrier is the question this table used to leave out. A condition enforced by something the organisation holds is a different undertaking from one enforced by something a supplier can withdraw in a release, and the licence is being signed over both.', ''] : [],
   '## Void when', '',
   validity.void_when.map(v => `- ${v}`), '',
   'When any of those happens the deployment changed, not this document. Rebuild, re-read the delta, and re-issue.', '',
@@ -493,8 +559,9 @@ const abpMd = nl(
   '| --- | --- | --- |',
   conditions.map(id => `| Do not \`${id}\` — ${gloss(id).toLowerCase()} | ${GLYPH[rowOf[id].barrier]} ${rowOf[id].barrier} | ${rowOf[id].control ?? '**nothing**'} |`),
   '| Stop and report if a task needs anything above | ◉ expectation | **nothing** — and this is the line that makes the rest useful |', '',
-  '## What is not reachable', '',
-  (grant.not_reachable || []).map(n => `- **${n.what}** — ${n.why} _(${n.source})_`), '',
+  '## What is blocked, and who holds the block', '',
+  'Everything above is what the agent can do once every block is applied. These are the things something withholds — and the record says what, because a ceiling the credential itself enforces and a tool a vendor has not shipped are different objects with different lifespans.', '',
+  blocked.map(n => `- **${n.what}** — blocked by ${n.blocked_by}${n.holder ? ` (held by ${holderName(n.holder.held_by)}; moves without you: **${n.holder.moves_without_you}**)` : ''}. ${n.why} _(${n.source})_`), '',
   (research.length || contradictions.length) ? [
     '## What is not settled', '',
     `${research.length ? `**${research.length} open questions** the grant cannot answer from published pages — listed in \`RESEARCH-NEEDED.md\` with how each is settled. ` : ''}${contradictions.length ? `**${contradictions.length} places where the vendor\'s own pages disagree** — in \`GRANT.md\`, published unresolved. ` : ''}A row with an open question against it stands at the evidence tier it shows; nothing here was obtained by probing anybody else\'s system.`, ''] : [],
@@ -645,6 +712,7 @@ if (existsSync(join(TEMPLATE, '..', '_app', 'loader.html'))) {
     { name: 'vault.json', data: readFileSync(join(DIR, 'vault.json')) },
     { name: 'data/grant.json', data: readFileSync(join(DIR, 'data/grant.json')) }, { name: 'data/mandate.json', data: readFileSync(join(DIR, 'data/mandate.json')) },
     ...['capabilities', 'barriers', 'undo-classes', 'evidence-tiers'].map(f => ({ name: `data/vocabulary/${f}.json`, data: readFileSync(join(DIR, `data/vocabulary/${f}.json`)) })),
+    ...(existsSync(join(DIR, 'data/barrier-holders.json')) ? [{ name: 'data/barrier-holders.json', data: readFileSync(join(DIR, 'data/barrier-holders.json')) }] : []),
   ].sort((a, b) => a.name < b.name ? -1 : 1);
   const zipName = `${slug}.zip`, pdfName = `${slug}.pdf`;
   const zipBuf = zipStore(zipEntries);
@@ -652,7 +720,7 @@ if (existsSync(join(TEMPLATE, '..', '_app', 'loader.html'))) {
   const zipSha = createHash('sha256').update(zipBuf).digest('hex');
   const dist = { [zipName]: { bytes: zipBuf.length, sha256: zipSha }, ...(existsSync(join(distDir, pdfName)) ? { [pdfName]: { bytes: existsSync(join(distDir, pdfName)) ? readFileSync(join(distDir, pdfName)).length : 0 } } : {}) };
   // what the renderer needs to know that is not in a data file: which dist files exist
-  outputs['data/app.json'] = JSON.stringify({ type: 'riskmandate/abp-app-context/v1', dist, ...(research.length ? { research_open: research.length } : {}), ...(scenarios.length ? { scenarios: scenarios.length } : {}), ...(hasConsequences ? { consequences: consequences.length, consequences_open: consequences.filter(consOpen).length, routes_out: exfil.length } : {}), licence: { kind: lic.kind, ...(lic.kind === 'commercial' ? { licensee: lic.licensee, order: lic.order, level: lic.level } : {}) }, copy: cfg.copy || 'template', app_vault: appVault ? { vault_id: appVault.vault_id, entry: appVault.entry || 'index.html', version: appVault.version || null } : null }, null, 2) + '\n';
+  outputs['data/app.json'] = JSON.stringify({ type: 'riskmandate/abp-app-context/v1', dist, ...(research.length ? { research_open: research.length } : {}), ...(blocked.length ? { blocked: blocked.length, blocks_held: heldBlocks.length, barriers_held: heldRows.length } : {}), ...(scenarios.length ? { scenarios: scenarios.length } : {}), ...(hasConsequences ? { consequences: consequences.length, consequences_open: consequences.filter(consOpen).length, routes_out: exfil.length } : {}), licence: { kind: lic.kind, ...(lic.kind === 'commercial' ? { licensee: lic.licensee, order: lic.order, level: lic.level } : {}) }, copy: cfg.copy || 'template', app_vault: appVault ? { vault_id: appVault.vault_id, entry: appVault.entry || 'index.html', version: appVault.version || null } : null }, null, 2) + '\n';
   const loader = readFileSync(join(TEMPLATE, '..', '_app', 'loader.html'), 'utf8');
   if (!loader.includes('/*__APP_VAULT__*/{}')) { console.error('loader.html has no /*__APP_VAULT__*/{} marker'); process.exit(1); }
   const cfgApp = { endpoint: catalogue.endpoint, vault_id: appVault?.vault_id || null, read_key: appVault?.key || null, entry: appVault?.entry || 'index.html', version: appVault?.version || null, static: '../_app/index.html' };
@@ -698,7 +766,7 @@ for (const generic of ['AGENTS.md', 'SKILL.md', 'MAP-A-GRANT.md']) {
 // The consequence-layer data files travel with every vault: the standards mini-graphs, and empty
 // assets/consequences for a vault that has not authored its own yet. Copied from the template if
 // absent, like the generics — never overwritten, because a vault that has authored them owns them.
-for (const dataFile of ['data/standards/gdpr.json', 'data/standards/eu-ai-act.json', 'data/standards/attack.json', 'data/assets.json', 'data/consequences.json']) {
+for (const dataFile of ['data/standards/gdpr.json', 'data/standards/eu-ai-act.json', 'data/standards/attack.json', 'data/assets.json', 'data/consequences.json', 'data/barrier-holders.json']) {
   const p = join(DIR, dataFile);
   if (!existsSync(p) && existsSync(join(TEMPLATE, dataFile)) && !CHECK) { mkdirSync(dirname(p), { recursive: true }); copyFileSync(join(TEMPLATE, dataFile), p); }
   if (CHECK && !existsSync(p) && existsSync(join(TEMPLATE, dataFile))) stale.push(dataFile);

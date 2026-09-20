@@ -3,11 +3,11 @@
 Keep this file true. If you land something, move it; if you learn something, add it. Dates are
 the site's; check `site/versions/index.json` for the current version before trusting the number here.
 
-## State as at 2026-09-18, v1.26.1
+## State as at 2026-09-20, v1.27.0
 
 - **Site:** 65 HTML files under `site/` plus the admin console under `site/admin/`, one live site deployed from `dev`. Top-level menu:
-  Behaviour policies · Who it's for · Insurance · Pricing · More (v1.26.0: five entries, 21 pages in
-  the menu; the Lab and the live demos are under More; thirteen pages are unlisted).
+  Behaviour policies · Who it's for · Insurance · Pricing · Writing · More (v1.27.0: six entries; the
+  Lab and the live demos are under More; the articles are unlisted beneath Writing).
 - **The ABP is the entry point.** Homepage leads with it (v1.12.0); `abp.html` is the model page;
   `agent-behaviour-policy.html` is the library (menu label *Agent Behaviour Policies*): 15 vaults,
   grid and list, search over names, scopes, tools and the 23 ids, a *by behaviour* facet, a
@@ -36,6 +36,13 @@ the site's; check `site/versions/index.json` for the current version before trus
   the model, is the unit of risk. The underwriting questions mapped to the parts of an ABP; the
   three rungs as the strategy. Two sources refused a direct read (RAND's page, Justia) and the page
   says so.
+- **Writing** (`articles.html`, **top-level**, between Pricing and More — six top-level entries, cap is seven): the article family. One published — *An approval prompt
+  is not a human in the loop* (19 Sept, `article-approval-prompts.html`), on Claude's Gmail
+  connector: the prompt's three buttons against the seven things the screen does not say, the
+  consent that had already authorised the action underneath it, the barrier's seven holder answers
+  from the vault, and where the accountability lands. The evidence is capture 13 in that vault's
+  `evidence/`. Five more are listed on the index as *not written*, each with a record already
+  behind it.
 - **Records:** 14 items in the brief register (9 files, 5 informal); 23 releases since v1.0.0.
 - **Summit:** Lisbon, 17–18 Sept. `summit.html` public; `summit-booth.html` private working page.
 - **The store is live** (store.sgit.ai, 15 Sept): four levels, named by level here; the store owns every price (its boundary of 16 Sept). The

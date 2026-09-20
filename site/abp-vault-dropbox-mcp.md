@@ -38,6 +38,14 @@ Elicited, and the only authored file in the vault. This is the draft asserting a
 
 Measured from the shape, not from your account and not by you. Each row says how it is known (✓ marks a row observed on the thing itself), what stands in the way, and whether the effect can be undone. What host, tenant and world mean in this shape is stated on the vault's Grant view, because for an agent in a vendor's container the host is the container and not your machine.
 
+## The grant above is what it can do after the blocks.
+
+A capability the credential authorises and something else withholds is not a grant row, and it is not out of reach either: it is blocked, and the record names the blocker. Some of these are the credential's own ceiling. Some are a vendor choosing not to ship a tool the credential would authorise — which moves in a release, with no consent screen and nothing for anyone to click. Under one heading those two look alike; they are not.
+
+## Who holds each barrier, in answers that need no adjective.
+
+The barrier column says what stands in the way. These say who holds it, whether it can move without you, whether you would be told, and what would remove it — each a fact with a source, and none of them a rating. How much a barrier is worth depends on the deployment, which is the same reason nothing on this site is scored.
+
 ## What it can do that nobody asked for.
 
 Derived from the grant and the mandate, never authored, stored with both inputs pinned. Split three ways: the part you refused, the part you never mentioned, and the part with no boundary in the way — which is the only list a real control shortens.

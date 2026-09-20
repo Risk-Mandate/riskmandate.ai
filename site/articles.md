@@ -1,0 +1,55 @@
+<!-- Generated from articles.html by scripts/site/generate.mjs. Edit the page, not this file. -->
+
+# RiskMandate — writing
+
+One argument at a time, from the record: what a deployment actually does, the screen or page it was read from, and where the accountability lands. Every claim sourced and dated; nothing tested on anybody else's system; nothing scored.
+
+Source: https://riskmandate.ai/articles.html
+
+---
+
+# One argument at a time, from the record.
+
+Each of these takes one thing a deployment actually does, shows the screen or the page it was read from, and follows it to where the accountability lands. **Every claim carries a source and a date.** Nothing is tested on anybody else's system, nothing is scored, and where a vendor's own pages disagree the article says so rather than settling it.
+
+## Written so far.
+
+### [An approval prompt is not a human in the loop.](article-approval-prompts.html)
+
+A connector asks _Claude wants to use Add labels to message from Gmail_ and offers Deny, Always allow and Allow once. It does not say which label, on which message, in which thread, or whether the agent was asked by the person or by an email it had just read. One of the three buttons removes the question permanently, and it is pressed by the account the prompt exists to protect. What the screen carries, what Google had already authorised before it appeared, and why the person clicking it ends up accountable for a decision they were not given enough to make.
+
+## Being written, in no fixed order.
+
+Listed so the queue is visible rather than implied. None of these exists yet; each one already has its record behind it in a behaviour policy, which is the only reason it is on the list.
+
+### A barrier somebody can withdraw on a Tuesday
+
+Attachment content is out of reach in this deployment because a client ships no tool for it — while the credential authorises the bytes. A block a vendor holds as a product decision moves in a release, with no consent screen and no notice. What that means for anyone relying on it.
+
+### The consent screen you cannot remember
+
+Three lines, each with its own tick box, all pre-ticked under _Select all_. What those three actually authorise, in Google's own words, against what the product then offers — and the distance between the two.
+
+### Reading a message is not authorisation to forward it
+
+The mail in an inbox was sent to one person under one expectation. An agent that may read it may also forward it, and the authorisation the sender gave does not stretch that far. Whose rights are in play, and what the record can honestly say about it.
+
+### The agent's mail is your mail
+
+A message sent through the connector carries no header naming the client. To the recipient it is the account holder's. What that does to attribution, measured on the sending side.
+
+### The mailbox is a credential store
+
+Password resets, one-time codes, invitations and recovery mail arrive by email, and reading messages reads those. A capability with no separate permission behind it, and no tool on either vendor's page that separates them.
+
+## The rules, stated so they can be held against us.
+
+- **Nothing is tested on somebody else's system.** A claim comes from a vendor's own published page, quoted and dated, or from a system we are entitled to run. Where those two disagree, the disagreement is published unresolved.
+- **No verdict on a named company.** Facts, dates and sources. Screens are quoted rather than characterised. The judgment these pages make is about a mechanism, using a test that is published and applied the same way everywhere.
+- **Nothing is scored.** No rating, no traffic light, no strong-or-weak. What a barrier is worth depends on the deployment it sits in, which is exactly why the barrier is described instead: who holds it, what it rests on, whether it moves without you, and what would take it away.
+- **What was not done is stated beside what was.** If a question is open, it is listed as open, with how it would be settled. A number nobody has measured does not appear here because it sounds right.
+- **Each article says which deployment shape it is about** and links to that shape's [behaviour policy](agent-behaviour-policy.html), so every claim can be checked against the record it came from.
+
+## Sixteen deployments, described.
+
+For one agent in one deployment: everything it can do, what it was authorised to do, the gap between the two, and who holds each thing standing in the way. Read them with their keys, or have one corrected for your deployment.

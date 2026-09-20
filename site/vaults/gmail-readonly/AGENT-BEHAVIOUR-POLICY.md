@@ -56,11 +56,13 @@ Every line an agent is asked to observe, next to what enforces it. A prohibition
 | Do not `read.record.history` — read a retained record: shell history, past sessions | ● none | **nothing** |
 | Stop and report if a task needs anything above | ◉ expectation | **nothing** — and this is the line that makes the rest useful |
 
-## What is not reachable
+## What is blocked, and who holds the block
 
-- **sending, forwarding or drafting mail** — gmail.readonly grants no send; gmail.send, gmail.compose and gmail.modify are separate scopes and are not in this grant _(https://developers.google.com/workspace/gmail/api/auth/scopes)_
-- **deleting or labelling mail** — no write scope; gmail.labels and gmail.modify are separate _(https://developers.google.com/workspace/gmail/api/auth/scopes)_
-- **your machine, your drive** — a mailbox connector reaches a mailbox _(https://developers.google.com/workspace/gmail/api/auth/scopes)_
+Everything above is what the agent can do once every block is applied. These are the things something withholds — and the record says what, because a ceiling the credential itself enforces and a tool a vendor has not shipped are different objects with different lifespans.
+
+- **sending, forwarding or drafting mail** — blocked by the scope the deployer asked for — gmail.readonly grants no send, and gmail.send, gmail.compose and gmail.modify are separate scopes this credential does not carry. gmail.readonly grants no send; gmail.send, gmail.compose and gmail.modify are separate scopes and are not in this grant _(https://developers.google.com/workspace/gmail/api/auth/scopes)_
+- **deleting or labelling mail** — blocked by the same scope choice — no write scope is in this credential. no write scope; gmail.labels and gmail.modify are separate _(https://developers.google.com/workspace/gmail/api/auth/scopes)_
+- **your machine, your drive** — blocked by the API itself — a mailbox credential reaches a mailbox. a mailbox connector reaches a mailbox _(https://developers.google.com/workspace/gmail/api/auth/scopes)_
 
 ## What is not settled
 

@@ -12,24 +12,28 @@
     "tenant": "the attached repository and the platform's scoped tokens; not your accounts",
     "world": "the hosts the proxy allows"
   },
-  "not_reachable": [
+  "blocked": [
     {
       "what": "your machine's files",
+      "blocked_by": "the container this runs in — no path from it to the operator's computer",
       "why": "the container has no path to the operator's computer; the assess tree records home as a boundary",
       "source": "assess/library.json (agentbox: home)"
     },
     {
       "what": "your credentials",
+      "blocked_by": "the image — no user credential is in it; the keys present are the session's own",
       "why": "no user credential is in the image; the keys present are the session's own",
       "source": "evidence: filesystem.credential-presence, 5 Sep"
     },
     {
       "what": "hosts the proxy refuses",
+      "blocked_by": "the egress proxy, set above the process: a 403 on the CONNECT",
       "why": "a 403 on the CONNECT, set above the process",
       "source": "evidence: network.egress-shell"
     },
     {
       "what": "repositories outside the platform's scope",
+      "blocked_by": "the platform, which scopes the token and refuses an out-of-scope call from its own API tool",
       "why": "the token is scoped by the platform; the API tool refuses out-of-scope calls",
       "source": "harness.platform-tools, self-reported"
     }

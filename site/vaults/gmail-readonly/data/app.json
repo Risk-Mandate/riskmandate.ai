@@ -2,11 +2,14 @@
   "type": "riskmandate/abp-app-context/v1",
   "dist": {
     "gmail-readonly.zip": {
-      "bytes": 79834,
-      "sha256": "520fb50375789c4a27c0c9edcd836f8116660fa678851ea86d9622ab94df2ca0"
+      "bytes": 85976,
+      "sha256": "638089a30d577df746620126f2e1982badbeb9a458b748e6994c6c37c7af3e79"
     }
   },
   "research_open": 3,
+  "blocked": 3,
+  "blocks_held": 0,
+  "barriers_held": 0,
   "scenarios": 6,
   "licence": {
     "kind": "cc-by-4.0"

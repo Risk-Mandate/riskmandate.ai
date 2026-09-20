@@ -41,11 +41,13 @@ A cron job or scheduled task on a server, under an account that is not a person'
 - **`write.file.host`** — null
 - **`create.schedule.host`** — it is one
 
-## Not reachable from this shape
+## Permitted, and blocked
 
-| What | Why | Source |
-| --- | --- | --- |
-| your machine | it runs on a server | by construction |
+The grant above is what the agent can do **after** the blocks. This is what something withholds. A block is not a property of the credential: some of these are the credential's own ceiling, and some are a vendor choosing not to ship a tool the credential would authorise. Each one names what blocks it, because those two are not the same object and a reader who is shown them under one heading has been told something this document cannot support.
+
+| What | Blocked by | Who holds the block | Why | Source |
+| --- | --- | --- | --- | --- |
+| your machine | where it runs — a server, by construction | _not yet recorded_ | it runs on a server | by construction |
 
 ## The four barriers, and the test
 

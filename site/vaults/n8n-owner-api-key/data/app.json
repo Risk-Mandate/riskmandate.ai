@@ -2,11 +2,14 @@
   "type": "riskmandate/abp-app-context/v1",
   "dist": {
     "n8n-owner-api-key.zip": {
-      "bytes": 94849,
-      "sha256": "8073adedca6151c00afc2f97d7c7bc2ec7fb168a70376b9b491377ce00ae07e5"
+      "bytes": 100858,
+      "sha256": "5f0fdd4c3956ce5f5be20c18f0632b2f0f6c87d0fb1bdd0abbc46bee755c594c"
     }
   },
   "research_open": 4,
+  "blocked": 2,
+  "blocks_held": 0,
+  "barriers_held": 0,
   "scenarios": 6,
   "licence": {
     "kind": "cc-by-4.0"

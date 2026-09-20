@@ -365,7 +365,16 @@ function vaultPage(v) {
         <p>Measured from the shape, not from your account and not by you. Each row says how it is known (✓ marks a row observed on the thing itself), what stands in the way, and whether the effect can be undone. What host, tenant and world mean in this shape is stated on the vault's Grant view, because for an agent in a vendor's container the host is the container and not your machine.</p>
       </div>
       <rm-abp-table data-vault="${v.slug}" data-view="grant"></rm-abp-table>
-      <rm-abp-table data-vault="${v.slug}" data-view="notreach"></rm-abp-table>
+      <div class="shead" style="margin-top:34px">
+        <h2>The grant above is what it can do <span class="g">after the blocks.</span></h2>
+        <p>A capability the credential authorises and something else withholds is not a grant row, and it is not out of reach either: it is blocked, and the record names the blocker. Some of these are the credential's own ceiling. Some are a vendor choosing not to ship a tool the credential would authorise — which moves in a release, with no consent screen and nothing for anyone to click. Under one heading those two look alike; they are not.</p>
+      </div>
+      <rm-abp-table data-vault="${v.slug}" data-view="blocked"></rm-abp-table>
+      <div class="shead" style="margin-top:34px">
+        <h2>Who holds each barrier, <span class="g">in answers that need no adjective.</span></h2>
+        <p>The barrier column says what stands in the way. These say who holds it, whether it can move without you, whether you would be told, and what would remove it — each a fact with a source, and none of them a rating. How much a barrier is worth depends on the deployment, which is the same reason nothing on this site is scored.</p>
+      </div>
+      <rm-abp-table data-vault="${v.slug}" data-view="held"></rm-abp-table>
       <div class="notice">
         <strong>A control bounds a grant only if it is enforced by something the grant does not include.</strong> A setting the agent's own account could change is not a control, because the grant includes the ability to remove the bound. A boundary enforced above it is one, because it does not. ${bounded ? `${cap(W(bounded))} of the ${W(c.excess)} excess rows here sit behind a boundary; the other ${W(c.unbounded_excess)} are only asked.` : c.excess ? 'None of the excess here sits behind a boundary: every row is only asked.' : 'There is no excess in this shape to bound.'}
       </div>

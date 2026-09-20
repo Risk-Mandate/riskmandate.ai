@@ -41,14 +41,16 @@ Google's own MCP servers, one per Workspace product, used from an MCP client suc
 - **`read.credential.host`** — a mailbox carries password resets, one-time codes and invitations; a drive carries exported keys and configuration. Reading all of either reads those too, and no scope separates them. Inferred from the two read rows, not documented.
 - **`write.file.host`** — drive.file creates new files or modifies files the user opened with the app; the Docs, Sheets and Slides servers each ask for the full write scope for their document type beside the read-only one. What "full" includes is open, below.
 
-## Not reachable from this shape
+## Permitted, and blocked
 
-| What | Why | Source |
-| --- | --- | --- |
-| your machine's files | the servers are hosted by Google; what the MCP client itself can reach is that client's own grant, a separate shape | https://developers.google.com/workspace/guides/configure-mcp-servers |
-| permanent deletion of mail | only the https://mail.google.com/ scope permits it ("Read, compose, send, and permanently delete all your email"), and it is not on the list | https://developers.google.com/workspace/gmail/api/auth/scopes |
-| labelling or unlabelling mail | gmail.labels ("See and edit your email labels") exists and is not on the list | https://developers.google.com/workspace/gmail/api/auth/scopes |
-| creating or changing calendar events | the three Calendar scopes requested are calendarlist.readonly, events.readonly and events.freebusy; "schedule meetings" is advertised on the same page | https://developers.google.com/workspace/guides/configure-mcp-servers |
+The grant above is what the agent can do **after** the blocks. This is what something withholds. A block is not a property of the credential: some of these are the credential's own ceiling, and some are a vendor choosing not to ship a tool the credential would authorise. Each one names what blocks it, because those two are not the same object and a reader who is shown them under one heading has been told something this document cannot support.
+
+| What | Blocked by | Who holds the block | Why | Source |
+| --- | --- | --- | --- | --- |
+| your machine's files | the hosting — the servers are Google's, and what the MCP client itself reaches is a separate shape | _not yet recorded_ | the servers are hosted by Google; what the MCP client itself can reach is that client's own grant, a separate shape | https://developers.google.com/workspace/guides/configure-mcp-servers |
+| permanent deletion of mail | Google's scope ceiling — only https://mail.google.com/ permits it, and it is not on the list | _not yet recorded_ | only the https://mail.google.com/ scope permits it ("Read, compose, send, and permanently delete all your email"), and it is not on the list | https://developers.google.com/workspace/gmail/api/auth/scopes |
+| labelling or unlabelling mail | the scopes on the list — gmail.labels exists and was not requested | _not yet recorded_ | gmail.labels ("See and edit your email labels") exists and is not on the list | https://developers.google.com/workspace/gmail/api/auth/scopes |
+| creating or changing calendar events | the three Calendar scopes requested, all of them read-only | _not yet recorded_ | the three Calendar scopes requested are calendarlist.readonly, events.readonly and events.freebusy; "schedule meetings" is advertised on the same page | https://developers.google.com/workspace/guides/configure-mcp-servers |
 
 ## Where the vendor's own pages disagree
 
@@ -56,7 +58,9 @@ Advertised in one place, permitted in another, and the two do not match. Publish
 
 | What is advertised | What the grant permits | State |
 | --- | --- | --- |
-| Take action: "schedule meetings" | calendar.calendarlist.readonly, calendar.events.readonly, calendar.events.freebusy — all read-only | **unresolved** |,| Take action: "create draft emails" | gmail.compose — "Manage drafts and send emails": sending as well as drafting | **unresolved** |,| Read data: "retrieve files" | drive.readonly over the user corpus; whether shared drives are in the search (includeItemsFromAllDrives) is not stated | **undocumented** |
+| Take action: "schedule meetings" | calendar.calendarlist.readonly, calendar.events.readonly, calendar.events.freebusy — all read-only | **unresolved** |
+| Take action: "create draft emails" | gmail.compose — "Manage drafts and send emails": sending as well as drafting | **unresolved** |
+| Read data: "retrieve files" | drive.readonly over the user corpus; whether shared drives are in the search (includeItemsFromAllDrives) is not stated | **undocumented** |
 
 Sources: <https://developers.google.com/workspace/guides/configure-mcp-servers> · <https://developers.google.com/workspace/gmail/api/auth/scopes> · <https://developers.google.com/workspace/drive/api/reference/rest/v3/files/list>
 

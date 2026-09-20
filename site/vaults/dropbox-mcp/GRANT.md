@@ -39,13 +39,15 @@ Dropbox's own MCP server, connected from an MCP client with a Dropbox app config
 - **`authenticate-as.credential.tenant`** — "Get the authenticated Dropbox user's identity, team/account context"; the server acts as the account, and for team users GetUsageAndQuota "will retrieve the usage and quota for the entire team".
 - **`write.file.host`** — Copy "can recreate a deleted file or replace an existing file at the destination path"; Move renames or moves files and folders; CreateFile writes up to 5 MB of inline content.
 
-## Not reachable from this shape
+## Permitted, and blocked
 
-| What | Why | Source |
-| --- | --- | --- |
-| permanent deletion | "Move one or more files or folders to Deleted files. Files aren't deleted permanently." — but see the contradiction on recovery windows | https://help.dropbox.com/integrations/connect-dropbox-mcp-server |
-| files over 5 MB, as text | "Support files up to 5 MB" for content extraction; DownloadLink hands the original to the client instead | https://help.dropbox.com/integrations/connect-dropbox-mcp-server |
-| your machine | the client's own grant is a separate shape | https://help.dropbox.com/integrations/connect-dropbox-mcp-server |
+The grant above is what the agent can do **after** the blocks. This is what something withholds. A block is not a property of the credential: some of these are the credential's own ceiling, and some are a vendor choosing not to ship a tool the credential would authorise. Each one names what blocks it, because those two are not the same object and a reader who is shown them under one heading has been told something this document cannot support.
+
+| What | Blocked by | Who holds the block | Why | Source |
+| --- | --- | --- | --- | --- |
+| permanent deletion | Dropbox's own delete semantics — the tool moves files to Deleted files, and no tool deletes permanently | _not yet recorded_ | "Move one or more files or folders to Deleted files. Files aren't deleted permanently." — but see the contradiction on recovery windows | https://help.dropbox.com/integrations/connect-dropbox-mcp-server |
+| files over 5 MB, as text | the server's extraction limit — over it, the client is handed a download link instead | _not yet recorded_ | "Support files up to 5 MB" for content extraction; DownloadLink hands the original to the client instead | https://help.dropbox.com/integrations/connect-dropbox-mcp-server |
+| your machine | the line between the server and the client — what the MCP client itself reaches is that client's own grant, a separate shape | _not yet recorded_ | the client's own grant is a separate shape | https://help.dropbox.com/integrations/connect-dropbox-mcp-server |
 
 ## Where the vendor's own pages disagree
 
@@ -53,7 +55,8 @@ Advertised in one place, permitted in another, and the two do not match. Publish
 
 | What is advertised | What the grant permits | State |
 | --- | --- | --- |
-| "Files aren't deleted permanently." | "Recovery depends on your plan's recovery window." — the same tool description; after the window they are gone | **unresolved** |,| "Support files up to 5 MB" (GetFileContent) | DownloadLink: "download the original file instead of reading extracted text" — the limit is on extraction, not on reach | **unresolved** |
+| "Files aren't deleted permanently." | "Recovery depends on your plan's recovery window." — the same tool description; after the window they are gone | **unresolved** |
+| "Support files up to 5 MB" (GetFileContent) | DownloadLink: "download the original file instead of reading extracted text" — the limit is on extraction, not on reach | **unresolved** |
 
 Sources: <https://help.dropbox.com/integrations/connect-dropbox-mcp-server>
 

@@ -3,9 +3,9 @@
 > Every document under docs/ on riskmandate.ai, rendered as a page: direction briefs, reviews, workflows, architecture and research, newest first.
 > Source: https://riskmandate.ai/admin/briefs/ · noindex · written by scripts/site/build-admin.mjs
 
-**21**documents under docs/*one page each, rendered from the file*
+**22**documents under docs/*one page each, rendered from the file*
 
-**6**direction briefs*the product and the site*
+**7**direction briefs*the product and the site*
 
 **4**reviews*read against a named source*
 
@@ -30,6 +30,10 @@ A consequence layer beside the grant: derived where it can be, authored where it
 **[The first MVP vault: `oc433z3m` becomes the product, and the reading app is rebuilt around it](../../admin/briefs/direction__mvp-vault-and-the-reading-app/)**
 
 The store's exploration has three emphases on one shopping model — ABP first, Vault first, Use it — and the vault appears the same way in all three: a panel titled Inside an ABP vault, with a left navigation of eight entries and a reading pane on the right.16 September 2026 · direction
+
+**[The grant has storeys: what the credential permits, what the client exposes, what practice allows — and the vault opens on the audience, not on the data](../../admin/briefs/direction__the-grant-has-storeys-and-the-vault-opens-on-the-audience/)**
+
+Our enforcer test is a control bounds a grant only if it is enforced by something the grant does not include. The vendor's non-exposure passes it: the agent cannot edit Anthropic's connector. So it is a boundary — and treating it as one, without more, is…16 September 2026 · direction
 
 **[Buying a behaviour policy for Claude on one Gmail mailbox: the workflow, run once](../../admin/briefs/workflow__buying-a-policy-for-claude-on-gmail/)**
 
@@ -112,6 +116,10 @@ A consequence layer beside the grant: derived where it can be, authored where it
 **[The first MVP vault: `oc433z3m` becomes the product, and the reading app is rebuilt around it](../../admin/briefs/direction__mvp-vault-and-the-reading-app/)**
 
 The store's exploration has three emphases on one shopping model — ABP first, Vault first, Use it — and the vault appears the same way in all three: a panel titled Inside an ABP vault, with a left navigation of eight entries and a reading pane on the right.16 September 2026 · direction
+
+**[The grant has storeys: what the credential permits, what the client exposes, what practice allows — and the vault opens on the audience, not on the data](../../admin/briefs/direction__the-grant-has-storeys-and-the-vault-opens-on-the-audience/)**
+
+Our enforcer test is a control bounds a grant only if it is enforced by something the grant does not include. The vendor's non-exposure passes it: the agent cannot edit Anthropic's connector. So it is a boundary — and treating it as one, without more, is…16 September 2026 · direction
 
 **[The policy is a graph, and every stakeholder gets a projection of it](../../admin/briefs/direction__abp-as-a-graph-and-stakeholder-views/)**
 

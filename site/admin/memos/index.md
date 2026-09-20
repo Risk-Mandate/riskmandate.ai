@@ -3,7 +3,7 @@
 > Every document, memo and instruction riskmandate.ai was built from, in the order it arrived, with what it produced and what it still owes — read off briefs-register.json.
 > Source: https://riskmandate.ai/admin/memos/ · noindex · written by scripts/site/build-admin.mjs
 
-**0**received, nothing built yet*Archived and read, and nothing has been built from it yet.*
+**1**received, nothing built yet*Archived and read, and nothing has been built from it yet.*
 
 **11**partly worked*read in full; a named part is not built*
 
@@ -12,6 +12,10 @@
 **0**superseded*kept because the reasoning is the record*
 
 The queue. A document or a memo from the project lead arrives — a dev brief as a file, a voice memo as a transcript, an instruction in the thread — and is archived exactly as received: files by SHA-256 in [the register](../../briefs-register.json), so an identical file arriving again is recognised before anybody reads it; speech and chat as an entry with no digest. Then it is read into [a brief](../../admin/briefs/), and the brief is broken into [units of work](../../admin/work/). What was said and what we made of it are kept apart on purpose.
+
+**[Voice memo: the multi-layer grant, and the vault opens on the audience. Map three storeys — what the Google OAuth permission allows, what Anthropic's connector exposes to the chat (code, which can have bugs and can change at any minute's notice), and what normal usage and Claude's own guardrails allow — then the layer above, which is what becomes possible with those mechanical capabilities. Use this vault as the case study and change whatever we want on it. Find good ways to visualise it, because that is where the gaps are and the question is whether people are aware. The vendor's own restriction is a control we can reverse engineer and make the business case for. On the vault: three audience folders (executive, operator, risk) as the main section of the left menu, the executive view being the whole thing in one line, a couple of diagrams and a couple of paragraphs; keep the packs and the how-to-use, but not centre stage.](#I10)**
+
+voice memo, transcribed in the thread, 16 Sept · 1 produced · 5 not done16 September 2026 · received
 
 **[Build a specific vault for Claude chat connected to a Gmail inbox; capture the connection screens (address obscured) in a folder for the connector; then map the whole customer workflow — the vault, its home page, the settings, the permissions, the prompts given to Claude — as the purchase workflow. Do not use the agent's name.](#I6)**
 
@@ -108,6 +112,24 @@ Task briefs under `.claude/briefs/`, each sized for one agent and naming the fil
 The row moves on [the board](../../admin/work/); the register's *status* and *not done* say what the memo still owes.
 
 ## What happened to each of them
+
+I10 · voice memo, transcribed in the thread, 16 Sept · 16 September 2026
+
+## Voice memo: the multi-layer grant, and the vault opens on the audience. Map three storeys — what the Google OAuth permission allows, what Anthropic's connector exposes to the chat (code, which can have bugs and can change at any minute's notice), and what normal usage and Claude's own guardrails allow — then the layer above, which is what becomes possible with those mechanical capabilities. Use this vault as the case study and change whatever we want on it. Find good ways to visualise it, because that is where the gaps are and the question is whether people are aware. The vendor's own restriction is a control we can reverse engineer and make the business case for. On the vault: three audience folders (executive, operator, risk) as the main section of the left menu, the executive view being the whole thing in one line, a couple of diagrams and a couple of paragraphs; keep the packs and the how-to-use, but not centre stage.
+
+received
+
+*voice memo, transcribed in the thread, 16 Sept* — no digest; given as speech, chat text or a link
+
+**Produced.** [The direction brief: the four storeys (permitted, exposed, practised, consequences), latent capability as the gap between the first two, the barrier gaining a holder and whether it moves without you, the audience spine, the build order and four decisions](https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/briefs/direction__the-grant-has-storeys-and-the-vault-opens-on-the-audience.md)
+
+**Not done.**
+
+- Storey one for this shape (data/permitted.json, the scopes and the methods they unlock)
+- held_by and moves_without_you on every barrier; splitting not_reachable into bounded and not exposed
+- The audience spine in the reading app, with the executive view authored
+- The storeys drawn as one diagram
+- Waiting on the lead: whether `grant` keeps naming storey two, and the audience names
 
 I6 · chat instruction with eight screenshots, 16 Sept · 16 September 2026
 

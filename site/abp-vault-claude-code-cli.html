@@ -673,7 +673,7 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
     <a class="ghlink" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener" aria-label="The source, on GitHub" title="Open source · Apache-2.0 code · CC BY 4.0 pages"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a>
-      <a class="version" href="versions.html" title="What shipped in v1.26.2">v1.26.2</a>
+      <a class="version" href="versions.html" title="What shipped in v1.27.0">v1.27.0</a>
     <button class="demo" data-demo>Get in touch</button>
   </div>
 </header>
@@ -753,7 +753,16 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
         <p>Measured from the shape, not from your account and not by you. Each row says how it is known (✓ marks a row observed on the thing itself), what stands in the way, and whether the effect can be undone. What host, tenant and world mean in this shape is stated on the vault's Grant view, because for an agent in a vendor's container the host is the container and not your machine.</p>
       </div>
       <rm-abp-table data-vault="claude-code-cli" data-view="grant"></rm-abp-table>
-      <rm-abp-table data-vault="claude-code-cli" data-view="notreach"></rm-abp-table>
+      <div class="shead" style="margin-top:34px">
+        <h2>The grant above is what it can do <span class="g">after the blocks.</span></h2>
+        <p>A capability the credential authorises and something else withholds is not a grant row, and it is not out of reach either: it is blocked, and the record names the blocker. Some of these are the credential's own ceiling. Some are a vendor choosing not to ship a tool the credential would authorise — which moves in a release, with no consent screen and nothing for anyone to click. Under one heading those two look alike; they are not.</p>
+      </div>
+      <rm-abp-table data-vault="claude-code-cli" data-view="blocked"></rm-abp-table>
+      <div class="shead" style="margin-top:34px">
+        <h2>Who holds each barrier, <span class="g">in answers that need no adjective.</span></h2>
+        <p>The barrier column says what stands in the way. These say who holds it, whether it can move without you, whether you would be told, and what would remove it — each a fact with a source, and none of them a rating. How much a barrier is worth depends on the deployment, which is the same reason nothing on this site is scored.</p>
+      </div>
+      <rm-abp-table data-vault="claude-code-cli" data-view="held"></rm-abp-table>
       <div class="notice">
         <strong>A control bounds a grant only if it is enforced by something the grant does not include.</strong> A setting the agent's own account could change is not a control, because the grant includes the ability to remove the bound. A boundary enforced above it is one, because it does not. None of the excess here sits behind a boundary: every row is only asked.
       </div>
@@ -832,7 +841,7 @@ blockquote.q cite a{color:var(--green);text-decoration:underline;text-underline-
 (function(){
 'use strict';
 var RM={core:{},services:{},components:{},data:{}};
-RM.data.currentPage="abp-vault-claude-code-cli";RM.data.pages=[{"name":"agent-behaviour-policy","label":"The sixteen examples","file":"agent-behaviour-policy.html","group":"Behaviour policies"},{"name":"abp","label":"What an ABP is","file":"abp.html","group":"Behaviour policies"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"Behaviour policies"},{"name":"licence-to-operate","label":"Licence to Operate","file":"licence-to-operate.html","group":"Behaviour policies"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"Behaviour policies"},{"name":"for-corporate","label":"You run agents today","file":"for-corporate.html","group":"Who it's for"},{"name":"for-founders","label":"You are a founder","file":"for-founders.html","group":"Who it's for"},{"name":"for-startups","label":"You are a startup","file":"for-startups.html","group":"Who it's for"},{"name":"insurance","label":"Make agents insurable","file":"insurance.html","group":"Insurance"},{"name":"insure-a-program","label":"Can you insure a program?","file":"insure-a-program.html","group":"Insurance"},{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"Insurance"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"Insurance"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"Insurance"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"lab","label":"The Lab","file":"lab.html","group":"More"},{"name":"demos","label":"Live demos","file":"demos.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"admin","label":"Admin","file":"admin/","group":"More"}];RM.data.sections=[];
+RM.data.currentPage="abp-vault-claude-code-cli";RM.data.pages=[{"name":"agent-behaviour-policy","label":"The sixteen examples","file":"agent-behaviour-policy.html","group":"Behaviour policies"},{"name":"abp","label":"What an ABP is","file":"abp.html","group":"Behaviour policies"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"Behaviour policies"},{"name":"licence-to-operate","label":"Licence to Operate","file":"licence-to-operate.html","group":"Behaviour policies"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"Behaviour policies"},{"name":"for-corporate","label":"You run agents today","file":"for-corporate.html","group":"Who it's for"},{"name":"for-founders","label":"You are a founder","file":"for-founders.html","group":"Who it's for"},{"name":"for-startups","label":"You are a startup","file":"for-startups.html","group":"Who it's for"},{"name":"insurance","label":"Make agents insurable","file":"insurance.html","group":"Insurance"},{"name":"insure-a-program","label":"Can you insure a program?","file":"insure-a-program.html","group":"Insurance"},{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"Insurance"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"Insurance"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"Insurance"},{"name":"pricing","label":"Pricing","file":"pricing.html"},{"name":"articles","label":"Writing","file":"articles.html"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"lab","label":"The Lab","file":"lab.html","group":"More"},{"name":"demos","label":"Live demos","file":"demos.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"admin","label":"Admin","file":"admin/","group":"More"}];RM.data.sections=[];
 
 'use strict';
 // components/dom.js — tiny DOM helpers shared by components. `el` builds an
@@ -1522,7 +1531,11 @@ RM.services.abpVaults = (function () {
     }
   };
 
-  // ---- <rm-abp-table data-vault data-view="grant|delta|licence|mandate|notreach"> ----
+  // The holder classes, as data/barrier-holders.json names them. A label, never a grade.
+  var HOLDER_LABEL = { deployer: 'you', 'org-owner': 'an owner above you', 'vendor-with-consent': 'a vendor, against a consent you gave', 'vendor-product': 'a vendor, as a product decision', agent: 'the agent itself', environment: 'the environment it runs in' };
+  function holderLabel(id) { return HOLDER_LABEL[id] || id; }
+
+  // ---- <rm-abp-table data-vault data-view="grant|delta|licence|mandate|blocked|held"> ----
   RM.components.AbpTable = class extends HTMLElement {
     connectedCallback() {
       var self = this, slug = this.dataset.vault, view = this.dataset.view;
@@ -1570,10 +1583,34 @@ RM.services.abpVaults = (function () {
                 dom.el('td', null, [L.row[id].control ? L.row[id].control : dom.el('b', null, ['nothing — a line in prose'])])]);
             }))
           ])]));
-        } else if (view === 'notreach') {
+        } else if (view === 'blocked') {
+          // The grant is what the agent can do AFTER the blocks. These are what something
+          // withholds — and the blocker is named, because a ceiling the credential enforces and
+          // a tool a vendor has not shipped are different objects with different lifespans.
+          var held = (g.blocked || []).filter(function (n) { return n.holder; });
           out.push(dom.el('div', { class: 'tw' }, [dom.el('table', { class: 't' }, [
-            dom.el('thead', null, [dom.el('tr', null, ['Not reachable', 'Why', 'Source'].map(function (t) { return dom.el('th', null, [t]); }))]),
-            dom.el('tbody', null, (g.not_reachable || []).map(function (n) { return dom.el('tr', null, [dom.el('td', null, [n.what]), dom.el('td', null, [n.why]), dom.el('td', { class: 'k' }, [n.source])]); }))
+            dom.el('thead', null, [dom.el('tr', null, ['Permitted, and blocked', 'Blocked by', 'Who holds the block', 'Moves without you', 'Source'].map(function (t) { return dom.el('th', null, [t]); }))]),
+            dom.el('tbody', null, (g.blocked || []).map(function (n) {
+              return dom.el('tr', null, [dom.el('td', null, [n.what]), dom.el('td', null, [n.blocked_by || n.why]),
+                dom.el('td', null, [n.holder ? holderLabel(n.holder.held_by) : 'not yet recorded']),
+                dom.el('td', null, [n.holder ? dom.el('b', null, [n.holder.moves_without_you]) : '—']),
+                dom.el('td', { class: 'k' }, [n.source])]);
+            }))
+          ])]));
+          if (held.length) out.push(dom.el('p', { class: 'ab-sub' }, ['Who holds a block decides how long it lasts. One held by a vendor as a product decision moves in a release, with no consent screen and nothing for the deployer to click; one that is the credential\u2019s own ceiling moves only if somebody consents to a wider credential. Neither is rated here \u2014 both are recorded.']));
+        } else if (view === 'held') {
+          // Seven answers per barrier: who holds it, what it rests on, whether it moves without
+          // you, whether you would be told, whether you can check, what removes it, and what the
+          // credential would still allow. Facts, each with a source. Never a grade.
+          var rows = (g.grant || []).filter(function (r) { return r.holder; });
+          if (!rows.length) { out.push(dom.el('p', { class: 'ab-sub' }, ['Who holds each barrier has not been recorded for this shape yet.'])); }
+          else out.push(dom.el('div', { class: 'tw' }, [dom.el('table', { class: 't' }, [
+            dom.el('thead', null, [dom.el('tr', null, ['Capability', 'Barrier', 'Who holds it', 'Moves without you', 'Would you be told', 'What removes it'].map(function (t) { return dom.el('th', null, [t]); }))]),
+            dom.el('tbody', null, rows.map(function (r) {
+              return dom.el('tr', null, [dom.el('td', null, [dom.el('span', { class: 'k' }, [r.capability])]), barrierCell(L, r.capability),
+                dom.el('td', null, [holderLabel(r.holder.held_by)]), dom.el('td', null, [dom.el('b', null, [r.holder.moves_without_you])]),
+                dom.el('td', null, [r.holder.you_would_be_told]), dom.el('td', null, [r.holder.removed_by])]);
+            }))
           ])]));
         }
         out.push(dom.el('p', { class: 'ab-src' }, [statusChip(L)]));
@@ -1778,16 +1815,22 @@ RM.services.abpVaults = (function () {
     // already printed above. What it actually carried was the distinction between a row the
     // mandate refused and one it never mentioned — so that is a mark on each line here, and
     // the reader gets it once. The count of each is stated under the list.
+    //
+    // The mark says what the mandate said, and nothing else. It used to read "told not to —
+    // and only told", which put the enforcement twice more on a panel that has already said
+    // it twice: the counter above reads "not asked for, nothing in the way", and the heading
+    // reads "nothing real stops it". Only the first half was news. A reader who has to be
+    // told four times that nothing stops it stops reading any of them.
     box.appendChild(sideEffects.length ? dom.el('ul', null, sideEffects.map(function (id) {
       var told = D[id];
       return dom.el('li', { class: L.row[id].undo === 'no' ? '' : 'e' }, [dom.el('i'), dom.el('span', null, [
         WARN[id] || gloss(L, id), ' ',
         dom.el('code', null, [id + (L.row[id].undo === 'no' ? ' · cannot be undone' : '')]), ' ',
-        dom.el('span', { class: 'ab-said ' + (told ? 'no' : 'un') }, [told ? 'told not to — and only told' : 'never mentioned']),
+        dom.el('span', { class: 'ab-said ' + (told ? 'no' : 'un') }, [told ? 'refused in words' : 'never mentioned']),
       ])]);
     })) : dom.el('p', { class: 'none' }, ['none — everything not asked for sits behind a boundary']));
     if (sideEffects.length) box.appendChild(dom.el('p', { class: 'ab-saidsum' }, [
-      String(toldNot.length) + ' of these the mandate refuses in words, and nothing but words stands in the way; ' +
+      String(toldNot.length) + ' of these the mandate refused in words; ' +
       String(sideEffects.length - toldNot.length) + ' it never mentioned at all.',
     ]));
     box.appendChild(dom.el('span', { class: 'h' }, ['The lethal trifecta']));

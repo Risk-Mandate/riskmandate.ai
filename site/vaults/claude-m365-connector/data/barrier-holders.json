@@ -1,0 +1,32 @@
+{
+  "type": "riskmandate/barrier-holders/v1",
+  "version": "0.1.0",
+  "extends": "abp.sgit.ai barriers 0.3.0",
+  "what_this_is": "The barrier vocabulary says what stands in the way of a capability: nothing, a rule in prose, a setting, or a boundary enforced above the grant. It does not say who holds the thing in the way. These seven properties do, for a barrier and for a block alike.",
+  "why": "Two boundaries can pass the same enforcer test and be nothing alike. One is a scope the deployer consented to and can revoke. The other is a tool a vendor chose not to ship, which the vendor can ship on any Tuesday, with no consent screen and no notice. A record that calls both 'a boundary' and stops has manufactured assurance.",
+  "no_grade": "None of these seven is a rating. A control is never described here as strong, weak, credible, robust or adequate: how much a barrier is worth depends on the deployment, exactly as a score on a behaviour policy would, and it is not this document's to give. Each property is a fact with a source, and the reader does the judging.",
+  "asked_of_the_model_site": "Lab 03 — who holds a barrier, and whether it moves without the deployer knowing. Proposed as an extension to the published barrier vocabulary; recorded here until it is answered.",
+  "holders": [
+    { "id": "deployer", "label": "you", "meaning": "The person or team who deployed this agent holds it: a scope not asked for, a toggle turned off, a token scoped narrowly. It moves when they move it." },
+    { "id": "org-owner", "label": "an owner above you", "meaning": "Somebody in the same organisation, above the deployer: an admin switch, a workspace policy, a plan-level setting. It moves when they move it, and the deployer is not always the one told." },
+    { "id": "vendor-with-consent", "label": "a vendor, against a consent you gave", "meaning": "A vendor enforces it, and what it enforces is the consent the deployer gave. It moves only if the deployer consents again — and consenting means being shown a screen." },
+    { "id": "vendor-product", "label": "a vendor, as a product decision", "meaning": "A vendor holds it as a decision expressed in code: which tools a client ships, what a connector offers. It moves in a release." },
+    { "id": "agent", "label": "the agent itself", "meaning": "Nothing enforces it. The agent is asked, and complies or does not. A rule in prose is held by the thing it is addressed to." },
+    { "id": "environment", "label": "the environment it runs in", "meaning": "Something neither party chose for this deployment: a browser sandbox, a hosted runner, an egress gateway, a provider's own rule about its own service." }
+  ],
+  "properties": [
+    { "id": "held_by", "question": "Who holds it?", "form": "one of the holders above, with a line naming the party" },
+    { "id": "rests_on", "question": "What is it made of?", "form": "prose — a scope, a consent tick, a line of code, a prompt, a sandbox, a network rule" },
+    { "id": "moves_without_you", "question": "Can it move without you?", "form": "yes · no · with-your-consent, with a line" },
+    { "id": "you_would_be_told", "question": "Would you be told if it moved?", "form": "yes · no · partly, with a line" },
+    { "id": "you_can_verify", "question": "Can you check it is still there?", "form": "yes · no · partly, with a line" },
+    { "id": "removed_by", "question": "What would take it away?", "form": "prose — the specific event, not a risk" },
+    { "id": "credential_would_still_allow", "question": "If it went, what is behind it?", "form": "prose — what the credential authorises regardless, or that it authorises nothing here" }
+  ],
+  "answers": {
+    "moves_without_you": ["yes", "no", "with-your-consent"],
+    "you_would_be_told": ["yes", "no", "partly"],
+    "you_can_verify": ["yes", "no", "partly"]
+  },
+  "reading": "A barrier held by the deployer, resting on a setting they control, that cannot move without them, is a different object from a barrier held by a vendor as a product decision, resting on code, that moves in a release with no notice. Both are recorded the same way, and the difference is in the seven answers rather than in an adjective."
+}
