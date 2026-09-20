@@ -170,6 +170,11 @@
       "url": "https://riskmandate.ai/pricing.html"
     },
     {
+      "name": "articles",
+      "label": "Writing",
+      "url": "https://riskmandate.ai/articles.html"
+    },
+    {
       "name": "questions",
       "label": "Questions",
       "url": "https://riskmandate.ai/questions.html"
@@ -183,11 +188,6 @@
       "name": "demos",
       "label": "Live demos",
       "url": "https://riskmandate.ai/demos.html"
-    },
-    {
-      "name": "articles",
-      "label": "Writing",
-      "url": "https://riskmandate.ai/articles.html"
     },
     {
       "name": "library",

@@ -91,6 +91,11 @@
       "file": "pricing.html"
     },
     {
+      "name": "articles",
+      "label": "Writing",
+      "file": "articles.html"
+    },
+    {
       "name": "questions",
       "label": "Questions",
       "file": "questions.html",
@@ -106,12 +111,6 @@
       "name": "demos",
       "label": "Live demos",
       "file": "demos.html",
-      "group": "More"
-    },
-    {
-      "name": "articles",
-      "label": "Writing",
-      "file": "articles.html",
       "group": "More"
     },
     {
