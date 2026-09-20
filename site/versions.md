@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.27.1** · 2026-09-20 — An introduction to the Agent Behaviour Policy
+  Notes: https://riskmandate.ai/versions/1.27.1.md · Source: `git:v1.27.1`
 - **v1.27.0** · 2026-09-20 — Writing, and a barrier gains a holder
   Notes: https://riskmandate.ai/versions/1.27.0.md · Source: `git:v1.27.0`
 - **v1.26.2** · 2026-09-19 — The insurance answer stands on its own question

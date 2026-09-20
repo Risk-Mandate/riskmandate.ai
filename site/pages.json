@@ -249,6 +249,13 @@
       "unlisted": true
     },
     {
+      "name": "article-what-is-an-abp",
+      "label": "What an Agent Behaviour Policy is",
+      "file": "article-what-is-an-abp.html",
+      "group": "Writing",
+      "unlisted": true
+    },
+    {
       "name": "article-approval-prompts",
       "label": "An approval prompt is not a human in the loop",
       "file": "article-approval-prompts.html",

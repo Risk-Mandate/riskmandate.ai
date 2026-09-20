@@ -14,6 +14,10 @@ Each of these takes one thing a deployment actually does, shows the screen or th
 
 ## Written so far.
 
+### [Somebody will ask what your agent can do. You need an answer they can check.](article-what-is-an-abp.html)
+
+An introduction to the Agent Behaviour Policy: the three answers people give today and why none of them survives contact; the four objects and the verb attached to each — the mandate elicited, the grant measured, the delta derived, the barrier recorded; the twenty-three primitives that let two policies be read side by side; the four kinds of barrier and the one test that separates a control from a rule in prose. Then one real deployment worked all the way through, with every number traceable to the record it came from.
+
 ### [An approval prompt is not a human in the loop.](article-approval-prompts.html)
 
 A connector asks _Claude wants to use Add labels to message from Gmail_ and offers Deny, Always allow and Allow once. It does not say which label, on which message, in which thread, or whether the agent was asked by the person or by an email it had just read. One of the three buttons removes the question permanently, and it is pressed by the account the prompt exists to protect. What the screen carries, what Google had already authorised before it appeared, and why the person clicking it ends up accountable for a decision they were not given enough to make.
