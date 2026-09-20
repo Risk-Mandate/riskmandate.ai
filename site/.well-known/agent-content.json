@@ -285,6 +285,11 @@
       "url": "https://riskmandate.ai/synthetic-users.html"
     },
     {
+      "name": "article-what-is-an-abp",
+      "label": "What an Agent Behaviour Policy is",
+      "url": "https://riskmandate.ai/article-what-is-an-abp.html"
+    },
+    {
       "name": "article-approval-prompts",
       "label": "An approval prompt is not a human in the loop",
       "url": "https://riskmandate.ai/article-approval-prompts.html"
