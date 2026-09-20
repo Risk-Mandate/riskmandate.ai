@@ -3,7 +3,7 @@
 Keep this file true. If you land something, move it; if you learn something, add it. Dates are
 the site's; check `site/versions/index.json` for the current version before trusting the number here.
 
-## State as at 2026-09-20, v1.27.0
+## State as at 2026-09-20, v1.27.1
 
 - **Site:** 65 HTML files under `site/` plus the admin console under `site/admin/`, one live site deployed from `dev`. Top-level menu:
   Behaviour policies · Who it's for · Insurance · Pricing · Writing · More (v1.27.0: six entries; the
@@ -36,7 +36,11 @@ the site's; check `site/versions/index.json` for the current version before trus
   the model, is the unit of risk. The underwriting questions mapped to the parts of an ABP; the
   three rungs as the strategy. Two sources refused a direct read (RAND's page, Justia) and the page
   says so.
-- **Writing** (`articles.html`, **top-level**, between Pricing and More — six top-level entries, cap is seven): the article family. One published — *An approval prompt
+- **Writing** (`articles.html`, **top-level**, between Pricing and More — six top-level entries, cap is seven): the article family. Two published. *Somebody will ask
+  what your agent can do* (20 Sept, `article-what-is-an-abp.html`) is the introduction: the three
+  answers people give and why each fails, the four objects and their verbs, the twenty-three
+  primitives, the four barriers and the enforcer test, why nothing is scored, and one deployment
+  worked end to end. *An approval prompt
   is not a human in the loop* (19 Sept, `article-approval-prompts.html`), on Claude's Gmail
   connector: the prompt's three buttons against the seven things the screen does not say, the
   consent that had already authorised the action underneath it, the barrier's seven holder answers
