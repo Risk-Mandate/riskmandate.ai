@@ -6,10 +6,10 @@
 Keep this file true. If you land something, move it; if you learn something, add it. Dates are
 the site's; check `site/versions/index.json` for the current version before trusting the number here.
 
-## State as at 2026-09-21, v1.27.3
+## State as at 2026-09-21, v1.28.0
 
 - **Site:** 65 HTML files under `site/` plus the admin console under `site/admin/`, one live site deployed from `dev`. Top-level menu:
-  Behaviour policies · Who it's for · Insurance · Pricing · Articles · More (v1.27.0: six entries; the
+  Behaviour policies · Who it's for · Insurance · Pricing · Try it · Articles · More (v1.28.0: **seven entries, the cap**; the
   Lab and the live demos are under More; the articles are unlisted beneath Articles).
 - **The ABP is the entry point.** Homepage leads with it (v1.12.0); `abp.html` is the model page;
   `agent-behaviour-policy.html` is the library (menu label *Agent Behaviour Policies*): 15 vaults,
@@ -50,6 +50,14 @@ the site's; check `site/versions/index.json` for the current version before trus
   from the vault, and where the accountability lands. The evidence is capture 13 in that vault's
   `evidence/`. Five more are listed on the index as *not written*, each with a record already
   behind it.
+- **Try it** (`try-it.html`, top-level, v1.28.0): the free rung below the store's ladder and the
+  first surface aimed at a stranger rather than a reader. Four steps, thirteen prompts, run in the
+  person's own assistant against their own mailbox, hosted at abp.sgit.ai/gmail; what they end up
+  with (grant, mandate, delta); what it honestly is not (a self report, said before they find out);
+  the four layers; and where to say it broke. From the lead's memo of 21 September —
+  `direction__the-next-phase-is-users.md`, the go-to-market direction: **the measure is the number
+  of people who run the prompts**, and the queue that follows is T13 (a workflow per shape) and T14
+  (volume and instances on the consequence layer).
 - **Records:** 14 items in the brief register (9 files, 5 informal); 23 releases since v1.0.0.
 - **Summit:** Lisbon, 17–18 Sept. `summit.html` public; `summit-booth.html` private working page.
 - **The store is live** (store.sgit.ai, 15 Sept): four levels, named by level here; the store owns every price (its boundary of 16 Sept). The

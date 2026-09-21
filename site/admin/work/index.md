@@ -81,7 +81,7 @@ One file per branch under `.claude/work/`. [How a work file is written](../../ad
 
 Nothing in flight.
 
-## Task briefs — 12
+## Task briefs — 14
 
 Each is a unit of work sized for one branch, with the files it touches named so two agents can see whether they would collide. [How a task brief is written and claimed](../../admin/work/about-task-briefs/).
 

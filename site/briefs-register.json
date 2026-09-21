@@ -577,6 +577,31 @@
         "The storeys drawn as one diagram",
         "Waiting on the lead: whether `grant` keeps naming storey two, and the audience names"
       ]
+    },
+    {
+      "id": "I11",
+      "what": "Voice memo: the next phase is users. The MVP is nailed and the vaults are more than most first users need, so find many smaller examples where a policy adds value now. The abp.sgit.ai/gmail prompt workflow - four steps, thirteen prompts, about twenty minutes - is the shareable artefact, already sent to a real group. KPIs and OKRs are the number of users who run the prompts and the number who create a policy; the pricing ladder exists, what is missing is a bigger free funnel above it. Nobody buys a full policy until they have made a smaller one. And the second frontier, beyond technical permissions: consequences in the user's own terms (relabelling destroys a mailbox's information architecture, marking read things unread, too many sends, drafts or moves), which messages should and should not be read or replied to, prompt injection, and rules of engagement for a single session.",
+      "how": "voice memo, transcribed in the thread, with a screenshot of the Agentics Foundation London group, 21 Sept",
+      "dated": "2026-09-21",
+      "status": "received",
+      "produced": [
+        {
+          "what": "The direction brief: the free rung below the ladder, why a small policy is not a small vault, the six things the memo names beyond permissions mapped against the model, the build order and five decisions",
+          "url": "https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/briefs/direction__the-next-phase-is-users.md"
+        },
+        {
+          "what": "Try it - the seventh top-level section: the four steps, what you end up with, what it honestly is not, the four layers, and where to say it broke",
+          "url": "try-it.html"
+        }
+      ],
+      "not_done": [
+        "A prompt workflow per shape we already have (T13) - the Gmail one is published at abp.sgit.ai and the other fifteen have only MAP-A-GRANT.md, inside the vault",
+        "A feedback path from the workflow's last step that survives a stranger",
+        "What we count, and where it is published - the site collects nothing, so the honest measure needs the lead",
+        "Volume and instances on the consequence layer (T14): the relabelling, the mass send, the draft flood, the mailbox's state as an asset",
+        "The session-scoped mandate, and the instance-scoped mandate - proposed as a Lab ask rather than a change to the published vocabulary",
+        "Waiting on the lead: the seventh menu slot, what is counted, whether a user-made policy gets published, and how far the free rung goes"
+      ]
     }
   ]
 }

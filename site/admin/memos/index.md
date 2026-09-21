@@ -3,7 +3,7 @@
 > Every document, memo and instruction riskmandate.ai was built from, in the order it arrived, with what it produced and what it still owes — read off briefs-register.json.
 > Source: https://riskmandate.ai/admin/memos/ · noindex · written by scripts/site/build-admin.mjs
 
-**1**received, nothing built yet*Archived and read, and nothing has been built from it yet.*
+**2**received, nothing built yet*Archived and read, and nothing has been built from it yet.*
 
 **11**partly worked*read in full; a named part is not built*
 
@@ -12,6 +12,10 @@
 **0**superseded*kept because the reasoning is the record*
 
 The queue. A document or a memo from the project lead arrives — a dev brief as a file, a voice memo as a transcript, an instruction in the thread — and is archived exactly as received: files by SHA-256 in [the register](../../briefs-register.json), so an identical file arriving again is recognised before anybody reads it; speech and chat as an entry with no digest. Then it is read into [a brief](../../admin/briefs/), and the brief is broken into [units of work](../../admin/work/). What was said and what we made of it are kept apart on purpose.
+
+**[Voice memo: the next phase is users. The MVP is nailed and the vaults are more than most first users need, so find many smaller examples where a policy adds value now. The abp.sgit.ai/gmail prompt workflow - four steps, thirteen prompts, about twenty minutes - is the shareable artefact, already sent to a real group. KPIs and OKRs are the number of users who run the prompts and the number who create a policy; the pricing ladder exists, what is missing is a bigger free funnel above it. Nobody buys a full policy until they have made a smaller one. And the second frontier, beyond technical permissions: consequences in the user's own terms (relabelling destroys a mailbox's information architecture, marking read things unread, too many sends, drafts or moves), which messages should and should not be read or replied to, prompt injection, and rules of engagement for a single session.](#I11)**
+
+voice memo, transcribed in the thread, with a screenshot of the Agentics Foundation London group, 21 Sept · 2 produced · 6 not done21 September 2026 · received
 
 **[Voice memo: the multi-layer grant, and the vault opens on the audience. Map three storeys — what the Google OAuth permission allows, what Anthropic's connector exposes to the chat (code, which can have bugs and can change at any minute's notice), and what normal usage and Claude's own guardrails allow — then the layer above, which is what becomes possible with those mechanical capabilities. Use this vault as the case study and change whatever we want on it. Find good ways to visualise it, because that is where the gaps are and the question is whether people are aware. The vendor's own restriction is a control we can reverse engineer and make the business case for. On the vault: three audience folders (executive, operator, risk) as the main section of the left menu, the executive view being the whole thing in one line, a couple of diagrams and a couple of paragraphs; keep the packs and the how-to-use, but not centre stage.](#I10)**
 
@@ -112,6 +116,25 @@ Task briefs under `.claude/briefs/`, each sized for one agent and naming the fil
 The row moves on [the board](../../admin/work/); the register's *status* and *not done* say what the memo still owes.
 
 ## What happened to each of them
+
+I11 · voice memo, transcribed in the thread, with a screenshot of the Agentics Foundation London group, 21 Sept · 21 September 2026
+
+## Voice memo: the next phase is users. The MVP is nailed and the vaults are more than most first users need, so find many smaller examples where a policy adds value now. The abp.sgit.ai/gmail prompt workflow - four steps, thirteen prompts, about twenty minutes - is the shareable artefact, already sent to a real group. KPIs and OKRs are the number of users who run the prompts and the number who create a policy; the pricing ladder exists, what is missing is a bigger free funnel above it. Nobody buys a full policy until they have made a smaller one. And the second frontier, beyond technical permissions: consequences in the user's own terms (relabelling destroys a mailbox's information architecture, marking read things unread, too many sends, drafts or moves), which messages should and should not be read or replied to, prompt injection, and rules of engagement for a single session.
+
+received
+
+*voice memo, transcribed in the thread, with a screenshot of the Agentics Foundation London group, 21 Sept* — no digest; given as speech, chat text or a link
+
+**Produced.** [The direction brief: the free rung below the ladder, why a small policy is not a small vault, the six things the memo names beyond permissions mapped against the model, the build order and five decisions](https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/briefs/direction__the-next-phase-is-users.md) · [Try it - the seventh top-level section: the four steps, what you end up with, what it honestly is not, the four layers, and where to say it broke](../../try-it.html)
+
+**Not done.**
+
+- A prompt workflow per shape we already have (T13) - the Gmail one is published at abp.sgit.ai and the other fifteen have only MAP-A-GRANT.md, inside the vault
+- A feedback path from the workflow's last step that survives a stranger
+- What we count, and where it is published - the site collects nothing, so the honest measure needs the lead
+- Volume and instances on the consequence layer (T14): the relabelling, the mass send, the draft flood, the mailbox's state as an asset
+- The session-scoped mandate, and the instance-scoped mandate - proposed as a Lab ask rather than a change to the published vocabulary
+- Waiting on the lead: the seventh menu slot, what is counted, whether a user-made policy gets published, and how far the free rung goes
 
 I10 · voice memo, transcribed in the thread, 16 Sept · 16 September 2026
 
