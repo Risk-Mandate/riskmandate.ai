@@ -14,9 +14,9 @@ Each of these takes one thing a deployment actually does, shows the screen or th
 
 ## Written so far.
 
-### [A session that only reads still holds everything you ever allowed.](article-union-of-every-session.html)
+### [In this session, the agent holds the union of everything it has ever been allowed to do.](article-union-of-every-session.html)
 
-You open a new chat and ask the agent to read your inbox. Nothing in that sentence authorises sending mail or changing labels — but a conversation is not an authorisation boundary. The session runs on the credential you granted months ago and the approvals you clicked in other conversations for other reasons. How the union forms at three layers, in each vendor's own documented words; the six questions a deployer would ask and the four the help page leaves silent; why “don't press Always allow” does not survive the mechanics; and the one lever a deployer still has when the credential has no per-session setting to offer.
+A session that only reads still holds everything you ever allowed. Open a new chat, ask the agent to read your inbox, and nothing in that sentence authorises sending mail or changing labels — but a conversation is not an authorisation boundary. The session runs on the credential you granted months ago and the approvals you clicked in other conversations for other reasons. How the union forms at three layers, in each vendor's own documented words; the six questions a deployer would ask and the four the help page leaves silent; why “don't press Always allow” does not survive the mechanics; and the one lever a deployer still has when the credential has no per-session setting to offer.
 
 ### [Somebody will ask what your agent can do. You need an answer they can check.](article-what-is-an-abp.html)
 

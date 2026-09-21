@@ -250,7 +250,7 @@
     },
     {
       "name": "article-union-of-every-session",
-      "label": "A session that only reads still holds everything you ever allowed",
+      "label": "The union of everything it has ever been allowed to do",
       "file": "article-union-of-every-session.html",
       "group": "Articles",
       "unlisted": true

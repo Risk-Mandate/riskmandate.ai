@@ -161,6 +161,22 @@ What this agent can do, what it was authorised to do, the gap between the two, a
 
 **Sources.** Anthropic, [Use Google Workspace connectors](https://support.claude.com/en/articles/10166901-use-google-workspace-connectors) (read 16 September 2026). Google, [Gmail API scopes](https://developers.google.com/workspace/gmail/api/auth/scopes) (read 16 September 2026). The connector's listing in Claude's directory (sign-in required; captured by the deployer 16 September 2026). The approval prompts, the consent screens and the sent message's headers: captured by the deployer on an account they run, 16 and 19 September 2026, and transcribed in the evidence record inside the vault for this shape.** What was not done.** Nothing was tested on anybody else's system, no account but the deployer's own was touched, and no claim here is a verdict on a named company. The screens are quoted; where a vendor's pages disagree with each other, the behaviour policy for this shape publishes the contradiction unresolved rather than settling it.
 
+## Where the prompt fits in the rest of it.
+
+One screen, followed all the way down. These are the pieces on either side of it.
+
+What happens after enough prompts: a conversation is not an authorisation boundary, and every session carries every approval ever given.
+
+Start here if the vocabulary in this article — grant, mandate, delta, barrier — is new. One deployment worked end to end.
+
+The record this article quotes: the measured rows, the seven answers behind each barrier, and the evidence file the screenshots live in.
+
+What a real authorisation looks like: an authority, a licensee, an interval, and every condition printed beside the thing that enforces it.
+
+A setting the agent’s own account can flip is not a control. The test, and the vocabulary it comes from.
+
+Where hope hides in an authorisation model, and what it takes to replace it with something that can be measured.
+
 ## Every agent you run has a gap like this one.
 
 Sixteen deployment shapes are written up as Agent Behaviour Policies: what the agent can do, what it was authorised to do, the distance between them, and who holds each thing standing in the way. Read them, or have one corrected for your deployment.
