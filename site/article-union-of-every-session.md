@@ -1,16 +1,16 @@
 <!-- Generated from article-union-of-every-session.html by scripts/site/generate.mjs. Edit the page, not this file. -->
 
-# RiskMandate — a session that only reads still holds everything you ever allowed
+# RiskMandate — in this session, the agent holds the union of everything it has ever been allowed to do
 
-You ask the agent to read your inbox. The session carries the credential you granted months ago and every approval you clicked in other conversations for other reasons. How the union forms at three layers, what the vendor's page answers and what it leaves silent, and the one lever a deployer still has.
+A conversation is not an authorisation boundary. Every session an agent runs carries the union of every scope ever consented and every approval ever clicked — in each vendor's own documented words. What that union is made of, what the help page will not tell you about it, and the one lever a deployer still has.
 
 Source: https://riskmandate.ai/article-union-of-every-session.html
 
 ---
 
-# A session that only reads still holds everything you ever allowed.
+# In this session, the agent holds the union of everything it has ever been allowed to do.
 
-You open a new chat and ask the agent to read your inbox. Nothing in that sentence authorises sending mail, changing labels or creating a filter — but the chat is not a new grant. It runs on the credential you gave months ago and the approvals you clicked in other conversations for other reasons. **What the agent holds in this session is the union of everything it has ever been allowed to do.**
+Open a new chat, ask it to read your inbox, and nothing in that sentence authorises sending mail, changing labels or creating a filter. The session does anyway. **A session that only reads still holds everything you ever allowed** — because a conversation is not an authorisation boundary, and there is no screen anywhere that shows a person the union they are running with.
 
 **Shape:** Claude with the Gmail connector, the deployment described in [that shape's behaviour policy](abp-vault-claude-gmail-connector.html).
 
@@ -23,6 +23,8 @@ You open a new chat and ask the agent to read your inbox. Nothing in that senten
 In March you asked the agent to send an apology to a client, and approved it. In June you had it file a month of receipts, and approved that. In July you let it set up a filter. Each approval was reasonable, each was for one task, and each was given in its own conversation.
 
 Today you type _read my inbox and tell me what is in it_. That sentence asks for one capability. The session it runs in carries all four.
+
+_Reading needs no approval prompt in this shape, so it is present from the consent. Each later approval is added by a conversation that had a reason for it, and none of them is ever taken away. The bottom band is the ceiling all four sit under: it was agreed in one click, months before the first of these conversations._
 
 A conversation is not an authorisation boundary. It only looks like one.
 
@@ -130,6 +132,22 @@ Each is answerable from a vendor's own pages or from a system we are entitled to
 | Does unticking a scope at consent time actually narrow what the connector can do, or does the connector refuse to connect? | Connecting with one line unticked, on an account we run, and recording what happens. |
 
 **Sources.** Google, [Using OAuth 2.0 for Web Server Applications](https://developers.google.com/identity/protocols/oauth2/web-server) and [Gmail API scopes](https://developers.google.com/workspace/gmail/api/auth/scopes), read 20 September 2026. Anthropic, [Use Google Workspace connectors](https://support.claude.com/en/articles/10166901-use-google-workspace-connectors), read 20 September 2026. The connector's directory listing, the consent screens and the approval prompts: captured by the deployer on an account they run, 16 and 19 September 2026, transcribed in the evidence record inside the vault for this shape.** What was not done.** No account but the deployer's own was touched, nothing was probed on anybody else's system, and where a page is silent this article says it is silent rather than filling the gap. No claim here is a verdict on a named company.
+
+## The pieces this one rests on.
+
+Every article here is built on a record you can open, and on a model published somewhere you can check it. These are the ones behind this argument.
+
+The button that makes the union permanent, taken apart: seven things the screen cannot tell you, and who holds the barrier it offers.
+
+The four objects — mandate elicited, grant measured, delta derived, barrier recorded — and the enforcer test this article leans on throughout.
+
+The record: six capabilities with their barriers and holders, the blocked list, the contradictions, and the scenarios that give one grant more than one mandate.
+
+The narrower credential as its own shape. What a session that only reads would hold if the credential said so — a boundary rather than a preference.
+
+The transitive closure of a grant, and the two hopes every broad credential carries: that the agent will not misuse what it holds, and will not find more.
+
+The vocabulary every policy on this site is computed against, versioned and pinned, so a barrier means the same thing in two documents.
 
 ## What is your agent still allowed to do, from a task you finished in March?
 

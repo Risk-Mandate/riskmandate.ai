@@ -154,6 +154,22 @@ A [Licence to Operate](licence-to-operate.html) turns the description into somet
 
 **The worked example.** Claude with the Gmail connector: Anthropic's [Use Google Workspace connectors](https://support.claude.com/en/articles/10166901-use-google-workspace-connectors) and Google's [Gmail API scopes](https://developers.google.com/workspace/gmail/api/auth/scopes), both read 16 September 2026; the connector's directory listing and Google's consent screens as captured by the deployer the same day; four of the six rows exercised on an account the deployer runs. The record, the evidence and the contradictions are in [that shape's behaviour policy](abp-vault-claude-gmail-connector.html).** The model.** The twenty-three primitives, the four barriers, the undo classes and the evidence tiers are published as a versioned vocabulary and pinned into every vault, so a policy written today can still be read against the one it was computed with.
 
+## Where to go from here.
+
+The model, then two arguments built on it, then the record itself — and the places all of it is published.
+
+One barrier taken apart: what an approval prompt asks, what it cannot tell you, and where the accountability ends up.
+
+What a session actually holds: every scope ever consented and every approval ever clicked, in each vendor’s own documented words.
+
+One behaviour policy per deployment shape, each an encrypted vault whose read key is printed on purpose so anybody can check the numbers.
+
+Where this is going. Eight dated answers, oldest first, and why every one of them needed a description of what the program does where it runs.
+
+The twenty-three primitives, the four barriers, the undo classes and the evidence tiers — versioned, and pinned into every vault.
+
+What arrives at each level, from the pack as a download to a named professional’s signature on a copy corrected for your deployment.
+
 ## The gap is already there. The document is the only new thing.
 
 Pick the agent you would least like to explain to an auditor, and write down four things about it: what it can do, what you asked it to do, the distance between them, and what actually stands in the way of each row. Sixteen worked examples are published with their keys, and one of them is probably close to yours.

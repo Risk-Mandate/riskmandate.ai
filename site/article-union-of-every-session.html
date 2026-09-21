@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>RiskMandate — a session that only reads still holds everything you ever allowed</title>
-<meta name="description" content="You ask the agent to read your inbox. The session carries the credential you granted months ago and every approval you clicked in other conversations for other reasons. How the union forms at three layers, what the vendor's page answers and what it leaves silent, and the one lever a deployer still has.">
+<title>RiskMandate — in this session, the agent holds the union of everything it has ever been allowed to do</title>
+<meta name="description" content="A conversation is not an authorisation boundary. Every session an agent runs carries the union of every scope ever consented and every approval ever clicked — in each vendor's own documented words. What that union is made of, what the help page will not tell you about it, and the one lever a deployer still has.">
 <link rel="canonical" href="https://riskmandate.ai/article-union-of-every-session.html">
 <link rel="alternate" type="text/markdown" href="article-union-of-every-session.md" title="This page as markdown">
 <link rel="icon" href="assets/brand/riskmandate-favicon-32.png" sizes="32x32">
@@ -12,8 +12,8 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="RiskMandate">
 <meta property="og:url" content="https://riskmandate.ai/article-union-of-every-session.html">
-<meta property="og:title" content="RiskMandate — a session that only reads still holds everything you ever allowed">
-<meta property="og:description" content="You ask the agent to read your inbox. The session carries the credential you granted months ago and every approval you clicked in other conversations for other reasons. How the union forms at three layers, what the vendor's page answers and what it leaves silent, and the one lever a deployer still has.">
+<meta property="og:title" content="RiskMandate — in this session, the agent holds the union of everything it has ever been allowed to do">
+<meta property="og:description" content="A conversation is not an authorisation boundary. Every session an agent runs carries the union of every scope ever consented and every approval ever clicked — in each vendor's own documented words. What that union is made of, what the help page will not tell you about it, and the one lever a deployer still has.">
 <meta property="og:image" content="https://riskmandate.ai/assets/brand/riskmandate-lockup-light.png">
 <meta name="twitter:card" content="summary_large_image">
 <!-- Scaffolded by scripts/site/new-page.mjs. Hand-edited from here on — there is no build step. -->
@@ -210,9 +210,42 @@ table.t td b{color:var(--text)}
 .three .c a{display:inline-block;margin-top:12px;font-size:13.5px;font-weight:600;color:var(--green);text-decoration:underline;text-underline-offset:2px}
 @media (max-width:820px){.three{grid-template-columns:1fr}}
 
+/* where this connects — the cards at the foot of every article */
+.conns{margin-top:30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(288px,1fr));gap:12px}
+.conn{display:flex;flex-direction:column;gap:9px;padding:22px 24px 20px;background:var(--card);border:1px solid var(--border);border-radius:var(--r);text-decoration:none;transition:border-color .15s ease,transform .15s ease,box-shadow .15s ease}
+.conn:hover,.conn:focus-visible{border-color:var(--green);transform:translateY(-2px);box-shadow:0 6px 18px rgba(13,13,12,.06)}
+.conn .kind{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--green)}
+.conn.ext .kind{color:var(--gold)}
+.conn b{font-size:17px;font-weight:700;color:var(--text);letter-spacing:-.015em;line-height:1.3}
+.conn p{font-size:14px;color:var(--muted);line-height:1.6;flex:1}
+.conn .go{font-family:var(--mono);font-size:11.5px;font-weight:700;color:var(--green)}
+.conn.ext .go{color:var(--gold)}
+.psection.alt .conn{background:var(--bg)}
+
 .ghlink{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:8px;color:var(--muted);border:1px solid transparent}.ghlink:hover{color:var(--text);border-color:var(--border)}
 .footlic{display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap}.footlic a{color:inherit}.ccicon{vertical-align:-3px;margin:0 2px}
 @media (max-width:1400px) and (min-width:901px){.ghlink,header.top a.version{display:none}header.top .wrap{gap:14px}}
+
+/* the union, drawn */
+.dg{margin:32px 0 0;padding:26px 28px 22px;background:var(--card);border:1px solid var(--border);border-radius:var(--r)}
+.dg svg{display:block;width:100%;height:auto;overflow:visible}
+.dg figcaption{margin-top:18px;font-size:13.5px;line-height:1.7;color:var(--muted);max-width:74ch}
+.dg-h{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.16em;fill:var(--faint)}
+.dg-d{font-family:var(--mono);font-size:12px;font-weight:700;fill:var(--faint)}
+.dg-d.now,.dg-a.now{fill:var(--green)}
+.dg-a{font-family:var(--sans);font-size:14px;font-weight:600;fill:var(--muted)}
+.dg-a.now{font-weight:700}
+.dg-r{font-family:var(--mono);font-size:12px;fill:var(--muted);text-anchor:end}
+.dg-rule{stroke:var(--border);stroke-width:1}
+.dg-c{fill:var(--bg2);stroke:var(--border);stroke-width:1}
+.dg-c.on{fill:var(--green);stroke:none}
+.dg-c.on.base{fill:var(--green);opacity:.45}
+.dg-now{fill:none;stroke:var(--green);stroke-width:2}
+.dg-note{font-family:var(--mono);font-size:11px;font-weight:700;fill:var(--green);text-anchor:end}
+.dg-band{fill:var(--bg2);stroke:var(--border);stroke-width:1}
+.dg-bh{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.14em;fill:var(--faint)}
+.dg-bt{font-family:var(--mono);font-size:12.5px;fill:var(--text)}
+@media (max-width:640px){.dg{padding:18px 16px}.dg-a{font-size:12px}.dg-bt{font-size:10.5px}}
 
 /* the four counts */
 .answer{margin-top:28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
@@ -230,7 +263,7 @@ table.t td b{color:var(--text)}
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
     <a class="ghlink" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener" aria-label="The source, on GitHub" title="Open source · Apache-2.0 code · CC BY 4.0 pages"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a>
-      <a class="version" href="versions.html" title="What shipped in v1.27.2">v1.27.2</a>
+      <a class="version" href="versions.html" title="What shipped in v1.27.3">v1.27.3</a>
     <button class="demo" data-demo>Get in touch</button>
   </div>
 </header>
@@ -238,8 +271,8 @@ table.t td b{color:var(--text)}
 <main class="phero">
   <div class="wrap">
     <span class="eyebrow"><span class="d"></span>ARTICLE · 20 SEPTEMBER 2026</span>
-    <h1>A session that only reads still holds everything you ever allowed.</h1>
-    <p class="sub" style="margin-bottom:20px">You open a new chat and ask the agent to read your inbox. Nothing in that sentence authorises sending mail, changing labels or creating a filter — but the chat is not a new grant. It runs on the credential you gave months ago and the approvals you clicked in other conversations for other reasons. <strong>What the agent holds in this session is the union of everything it has ever been allowed to do.</strong></p>
+    <h1>In this session, the agent holds the union of everything it has ever been allowed to do.</h1>
+    <p class="sub" style="margin-bottom:20px">Open a new chat, ask it to read your inbox, and nothing in that sentence authorises sending mail, changing labels or creating a filter. The session does anyway. <strong>A session that only reads still holds everything you ever allowed</strong> — because a conversation is not an authorisation boundary, and there is no screen anywhere that shows a person the union they are running with.</p>
     <p class="meta"><b>Shape:</b> Claude with the Gmail connector, the deployment described in <a href="abp-vault-claude-gmail-connector.html">that shape's behaviour policy</a>.</p>
     <p class="meta"><b>Sources:</b> Google's OAuth 2.0 documentation and Anthropic's connector help article, both read 20 September 2026, quoted rather than paraphrased. Nothing was tested on anybody else's system.</p>
     <p class="meta"><b>This page as markdown:</b> <a href="article-union-of-every-session.md">article-union-of-every-session.md</a></p>
@@ -256,6 +289,55 @@ table.t td b{color:var(--text)}
       <p>In March you asked the agent to send an apology to a client, and approved it. In June you had it file a month of receipts, and approved that. In July you let it set up a filter. Each approval was reasonable, each was for one task, and each was given in its own conversation.</p>
       <p>Today you type <em>read my inbox and tell me what is in it</em>. That sentence asks for one capability. The session it runs in carries all four.</p>
     </div>
+    <figure class="dg">
+      <svg viewBox="0 0 1000 430" role="img" aria-labelledby="dgt dgd">
+        <title id="dgt">How the union forms across four conversations</title>
+        <desc id="dgd">Four conversations over seven months. Reading is available from the day the credential is consented. Sending is approved in March, labelling in June, filters in July. By the fourth conversation, which only asks for reading, all four capabilities are present in the session.</desc>
+
+        <text class="dg-h" x="0" y="16">WHAT EACH CONVERSATION ASKED FOR</text>
+        <text class="dg-d" x="120" y="52">March</text><text class="dg-a" x="120" y="74">“send this apology”</text>
+        <text class="dg-d" x="340" y="52">June</text><text class="dg-a" x="340" y="74">“file these receipts”</text>
+        <text class="dg-d" x="560" y="52">July</text><text class="dg-a" x="560" y="74">“set up a filter”</text>
+        <text class="dg-d now" x="780" y="52">Today</text><text class="dg-a now" x="780" y="74">“read my inbox”</text>
+
+        <line class="dg-rule" x1="0" y1="96" x2="1000" y2="96"></line>
+
+        <text class="dg-h" x="0" y="126">WHAT THE SESSION HOLDS BY THEN</text>
+
+        <text class="dg-r" x="98" y="166">read</text>
+        <rect class="dg-c on base" x="120" y="150" width="180" height="22" rx="5"></rect>
+        <rect class="dg-c on base" x="340" y="150" width="180" height="22" rx="5"></rect>
+        <rect class="dg-c on base" x="560" y="150" width="180" height="22" rx="5"></rect>
+        <rect class="dg-c on base" x="780" y="150" width="180" height="22" rx="5"></rect>
+
+        <text class="dg-r" x="98" y="204">send</text>
+        <rect class="dg-c on" x="120" y="188" width="180" height="22" rx="5"></rect>
+        <rect class="dg-c on" x="340" y="188" width="180" height="22" rx="5"></rect>
+        <rect class="dg-c on" x="560" y="188" width="180" height="22" rx="5"></rect>
+        <rect class="dg-c on" x="780" y="188" width="180" height="22" rx="5"></rect>
+
+        <text class="dg-r" x="98" y="242">label</text>
+        <rect class="dg-c" x="120" y="226" width="180" height="22" rx="5"></rect>
+        <rect class="dg-c on" x="340" y="226" width="180" height="22" rx="5"></rect>
+        <rect class="dg-c on" x="560" y="226" width="180" height="22" rx="5"></rect>
+        <rect class="dg-c on" x="780" y="226" width="180" height="22" rx="5"></rect>
+
+        <text class="dg-r" x="98" y="280">filter</text>
+        <rect class="dg-c" x="120" y="264" width="180" height="22" rx="5"></rect>
+        <rect class="dg-c" x="340" y="264" width="180" height="22" rx="5"></rect>
+        <rect class="dg-c on" x="560" y="264" width="180" height="22" rx="5"></rect>
+        <rect class="dg-c on" x="780" y="264" width="180" height="22" rx="5"></rect>
+
+        <rect class="dg-now" x="772" y="142" width="196" height="152" rx="9"></rect>
+        <text class="dg-note" x="968" y="314">one capability asked for · four present</text>
+
+        <rect class="dg-band" x="0" y="330" width="1000" height="70" rx="9"></rect>
+        <text class="dg-bh" x="20" y="356">THE CREDENTIAL, CONSENTED ONCE, BEFORE ANY OF IT</text>
+        <text class="dg-bt" x="20" y="382">gmail.readonly  ·  gmail.compose  ·  gmail.modify  —  one grant, per account and application, never per task</text>
+      </svg>
+      <figcaption>Reading needs no approval prompt in this shape, so it is present from the consent. Each later approval is added by a conversation that had a reason for it, and none of them is ever taken away. The bottom band is the ceiling all four sit under: it was agreed in one click, months before the first of these conversations.</figcaption>
+    </figure>
+
     <div class="rule">
       <p>A conversation is not an authorisation boundary. It only looks like one.</p>
       <p>Everything about the interface suggests a fresh start — a new chat, an empty history, a new request. Underneath, the credential and the approval state are the same ones as last time, and neither has a way to be less than it was.</p>
@@ -436,6 +518,54 @@ table.t td b{color:var(--text)}
 </section>
 
 </div>
+
+<section class="psection alt">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">Where this connects</span>
+      <h2>The pieces this one rests on.</h2>
+      <p>Every article here is built on a record you can open, and on a model published somewhere you can check it. These are the ones behind this argument.</p>
+    </div>
+    <div class="conns">
+      <a class="conn" href="article-approval-prompts.html">
+        <span class="kind">Article</span>
+        <b>An approval prompt is not a human in the loop</b>
+        <p>The button that makes the union permanent, taken apart: seven things the screen cannot tell you, and who holds the barrier it offers.</p>
+        <span class="go">Read →</span>
+      </a>
+      <a class="conn" href="article-what-is-an-abp.html">
+        <span class="kind">Article</span>
+        <b>What an Agent Behaviour Policy is</b>
+        <p>The four objects — mandate elicited, grant measured, delta derived, barrier recorded — and the enforcer test this article leans on throughout.</p>
+        <span class="go">Read →</span>
+      </a>
+      <a class="conn" href="abp-vault-claude-gmail-connector.html">
+        <span class="kind">Behaviour policy</span>
+        <b>Claude with the Gmail connector</b>
+        <p>The record: six capabilities with their barriers and holders, the blocked list, the contradictions, and the scenarios that give one grant more than one mandate.</p>
+        <span class="go">Read →</span>
+      </a>
+      <a class="conn" href="abp-vault-gmail-readonly.html">
+        <span class="kind">Behaviour policy</span>
+        <b>Gmail, read-only scope</b>
+        <p>The narrower credential as its own shape. What a session that only reads would hold if the credential said so — a boundary rather than a preference.</p>
+        <span class="go">Read →</span>
+      </a>
+      <a class="conn ext" href="https://nhi.sgit.ai/hope/index.html" target="_blank" rel="noopener">
+        <span class="kind">Essay · nhi.sgit.ai</span>
+        <b>Hope is not a control</b>
+        <p>The transitive closure of a grant, and the two hopes every broad credential carries: that the agent will not misuse what it holds, and will not find more.</p>
+        <span class="go">Open ↗</span>
+      </a>
+      <a class="conn ext" href="https://abp.sgit.ai/model/barriers/" target="_blank" rel="noopener">
+        <span class="kind">Model · abp.sgit.ai</span>
+        <b>The four barriers, published</b>
+        <p>The vocabulary every policy on this site is computed against, versioned and pinned, so a barrier means the same thing in two documents.</p>
+        <span class="go">Open ↗</span>
+      </a>
+    </div>
+  </div>
+</section>
 
 <section class="pcta">
   <div class="wrap">
