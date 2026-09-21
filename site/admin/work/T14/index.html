@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>T14 — Volume and instances on the consequence layer · RiskMandate admin</title>
+<meta name="description" content="A permission model says the agent may label a message. The lead's memo says what a person actually fears: &amp;quot;if you change all the labels, you basically destroy the information architecture of a user&amp;quot;. Those are the same capability and not the same…">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://riskmandate.ai/admin/work/T14/">
+<link rel="alternate" type="text/markdown" href="index.md" title="This page as markdown">
+<link rel="icon" href="../../../assets/brand/riskmandate-favicon-32.png" sizes="32x32">
+<link rel="icon" href="../../../assets/brand/riskmandate-mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../../admin/console.css">
+<!-- Written by scripts/site/build-admin.mjs from the files it names. Do not edit: rerun the script. -->
+</head>
+<body class="console">
+<div class="c-strip"><div class="row"><b>riskmandate.ai</b><span class="c-sep">/</span><a href="../../../admin/">admin</a><span class="c-sep">·</span><a href="../../../">the site</a><span class="c-sep">·</span><a href="../../../agent-behaviour-policy.html">the library</a><span class="c-sep">·</span><a href="index.md">this page as markdown</a><span class="c-noindex">noindex · not in the sitemap</span></div></div>
+<div class="c-disc"><div class="row">Written by the agents that maintain this site and read by a person before it merges. Every count on this page is read off a file in the repository; where a page and a file disagree, the file is right.</div></div>
+<div class="shell">
+<nav class="rail" aria-label="Console">
+    <a class="rail__brand" href="../../../admin/"><b>Risk<i>Mandate</i></b><span>admin console · <span data-version>v…</span></span></a>
+    <div class="rail__group"><h3>Where it stands</h3><a class="nav" href="../../../admin/">The console</a><a class="nav" href="../../../admin/work/#lead">Needs the lead<span class="count r1">9</span></a><a class="nav" href="../../../admin/agents/03-state-and-next/">State and next</a><a class="nav" href="../../../admin/vaults/">The vaults<span class="count">16</span></a><a class="nav" href="../../../synthetic-users.html">How the site reads <span class="out">↗</span></a></div>
+    <div class="rail__group"><h3>The work</h3><a class="nav" href="../../../admin/work/">The board<span class="count">12</span></a><a class="nav" href="../../../admin/work/#branches">In flight<span class="count">0</span></a><a class="nav" href="../../../admin/memos/">The memo queue<span class="count">13</span></a><a class="nav" href="../../../admin/briefs/">Briefs written here<span class="count">23</span></a></div>
+    <div class="rail__group"><h3>For agents</h3><a class="nav" href="../../../admin/agents/">The front door</a><a class="nav" href="../../../admin/agents/claude-md/">CLAUDE.md</a><a class="nav" href="../../../admin/agents/04-rules-of-engagement/">Rules of engagement</a><a class="nav" href="../../../admin/agents/05-workflows/">Workflows</a><a class="nav" href="../../../admin/agents/01-map/">The map</a></div>
+    <div class="rail__group"><h3>The record</h3><a class="nav" href="../../../admin/records/">The records</a><a class="nav" href="../../../admin/tooling/">Tooling and the gate</a><a class="nav" href="../../../versions.html">Versions <span class="out">↗</span></a><a class="nav" href="../../../briefs.html">Brief register <span class="out">↗</span></a><a class="nav" href="../../../agent-behaviour-policy.html">The library <span class="out">↗</span></a><a class="nav" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener">The repository <span class="out">↗</span></a></div>
+    <p class="rail__note"><b>Public, and not advertised.</b> Every page here is noindex, out of <code>sitemap.xml</code> and out of <code>llms.txt</code>. Anybody handed the address reads every word. <a href="../../../">Back to the site</a>.</p>
+  </nav>
+<main class="main">
+<p class="crumb"><a href="../../../admin/">admin</a> / <a href="../../../admin/work/">work</a> / briefs/T14-volume-and-instances-on-consequences.md</p>
+<div class="page-head"><div><h1>T14 — Volume and instances on the consequence layer</h1><p>A task brief, sized for one agent. The source is <a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/.claude/briefs/T14-volume-and-instances-on-consequences.md" target="_blank" rel="noopener"><code>.claude/briefs/T14-volume-and-instances-on-consequences.md</code></a>; this page is that file, rendered.</p></div></div>
+<article class="doc"><p><strong>From:</strong> <code>docs/briefs/direction__the-next-phase-is-users.md</code> §3.3 · <strong>Size:</strong> a day<br><strong>Status:</strong> open</p>
+<h2 id="why">Why</h2>
+<p>A permission model says <em>the agent may label a message</em>. The lead's memo says what a person actually fears: <em>&quot;if you change all the labels, you basically destroy the information architecture of a user&quot;</em>. Those are the same capability and not the same event, and the difference is <strong>volume</strong>.</p>
+<p>The consequence layer already models <code>capability × asset → consequence</code> with six kinds and a derived barrier. It has no notion of scale, and no notion of an instance a mandate names.</p>
+<h2 id="what-to-build">What to build</h2>
+<ol><li><strong><code>volume</code> on a consequence</strong> — a coarse, authored property: <code>one</code>, <code>some</code>, <code>most</code>, <code>all</code>. Not a<p> score and not a likelihood: a statement of how much of the asset the consequence reaches when it happens. The build refuses a value outside the four.</p></li><li>**The mailbox's <em>state</em> as an asset**, distinct from its contents: read and unread, starred,<p> filed, archived. Marking read things unread is a consequence against that asset and against nothing else we currently model.</p></li><li><strong>Author the four the memo names</strong>, for <code>claude-gmail-connector</code>: the relabelling, the mass send,<p> the draft flood, and the unread flip — each with its required capabilities, its asset, its derived barrier and its source.</p></li><li><strong>Render volume</strong> wherever a consequence is rendered: <code>CONSEQUENCES.md</code>, the reading app's *What<p> follows* view, and the vault page.</p></li></ol>
+<h2 id="rules">Rules</h2>
+<ul><li><strong>No score.</strong> <code>volume</code> says how much, not how bad. The build already refuses a consequence that<p>reads like a rating, and the same check must cover the new field.</p></li><li>It is <strong>this site's extension</strong>, not the published vocabulary — recorded like <code>material</code> and the<p>barrier holders, and offered to the model site as a Lab ask rather than invented into it.</p></li></ul>
+<h2 id="not-in-this-task">Not in this task</h2>
+<p>The <strong>instance-scoped mandate</strong> (<em>never this label</em>, <em>never this correspondent</em>) and the <strong>session-scoped mandate</strong> (<em>not in this session</em>) are the harder half of §3.3 and are a change to what a mandate is. They are a design and a Lab ask, not this build.</p></article>
+<div class="c-foot"><b>An operations surface</b> for the people and agents building this site, public because every page here is. It is not a selling page and nothing on it is for sale. <a href="../../../">The site</a> · <a href="../../../agent-behaviour-policy.html">the library</a> · <a href="../../../versions.html">every release</a> · <a href="https://github.com/Risk-Mandate/riskmandate.ai/tree/dev/">the repository</a> · <a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/scripts/site/build-admin.mjs">the script that wrote this page</a>.</div>
+</main>
+</div>
+<script>
+(function(){var el=document.querySelector('[data-version]');if(!el)return;fetch('../../../versions/index.json',{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){el.textContent='v'+j.latest}).catch(function(){el.textContent='';});})();
+</script>
+</body>
+</html>

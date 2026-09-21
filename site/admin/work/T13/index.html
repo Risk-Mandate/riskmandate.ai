@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>T13 — A prompt workflow per shape, published where a stranger can find it · RiskMandate admin</title>
+<meta name="description" content="The Gmail workflow at abp.sgit.ai/gmail is four steps and thirteen prompts a person pastes into their own assistant. It is the only on-ramp we have, and it covers one shape. The other fifteen carry MAP-A-GRANT.md — the same idea, one prompt instead of…">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://riskmandate.ai/admin/work/T13/">
+<link rel="alternate" type="text/markdown" href="index.md" title="This page as markdown">
+<link rel="icon" href="../../../assets/brand/riskmandate-favicon-32.png" sizes="32x32">
+<link rel="icon" href="../../../assets/brand/riskmandate-mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../../admin/console.css">
+<!-- Written by scripts/site/build-admin.mjs from the files it names. Do not edit: rerun the script. -->
+</head>
+<body class="console">
+<div class="c-strip"><div class="row"><b>riskmandate.ai</b><span class="c-sep">/</span><a href="../../../admin/">admin</a><span class="c-sep">·</span><a href="../../../">the site</a><span class="c-sep">·</span><a href="../../../agent-behaviour-policy.html">the library</a><span class="c-sep">·</span><a href="index.md">this page as markdown</a><span class="c-noindex">noindex · not in the sitemap</span></div></div>
+<div class="c-disc"><div class="row">Written by the agents that maintain this site and read by a person before it merges. Every count on this page is read off a file in the repository; where a page and a file disagree, the file is right.</div></div>
+<div class="shell">
+<nav class="rail" aria-label="Console">
+    <a class="rail__brand" href="../../../admin/"><b>Risk<i>Mandate</i></b><span>admin console · <span data-version>v…</span></span></a>
+    <div class="rail__group"><h3>Where it stands</h3><a class="nav" href="../../../admin/">The console</a><a class="nav" href="../../../admin/work/#lead">Needs the lead<span class="count r1">9</span></a><a class="nav" href="../../../admin/agents/03-state-and-next/">State and next</a><a class="nav" href="../../../admin/vaults/">The vaults<span class="count">16</span></a><a class="nav" href="../../../synthetic-users.html">How the site reads <span class="out">↗</span></a></div>
+    <div class="rail__group"><h3>The work</h3><a class="nav" href="../../../admin/work/">The board<span class="count">12</span></a><a class="nav" href="../../../admin/work/#branches">In flight<span class="count">0</span></a><a class="nav" href="../../../admin/memos/">The memo queue<span class="count">13</span></a><a class="nav" href="../../../admin/briefs/">Briefs written here<span class="count">23</span></a></div>
+    <div class="rail__group"><h3>For agents</h3><a class="nav" href="../../../admin/agents/">The front door</a><a class="nav" href="../../../admin/agents/claude-md/">CLAUDE.md</a><a class="nav" href="../../../admin/agents/04-rules-of-engagement/">Rules of engagement</a><a class="nav" href="../../../admin/agents/05-workflows/">Workflows</a><a class="nav" href="../../../admin/agents/01-map/">The map</a></div>
+    <div class="rail__group"><h3>The record</h3><a class="nav" href="../../../admin/records/">The records</a><a class="nav" href="../../../admin/tooling/">Tooling and the gate</a><a class="nav" href="../../../versions.html">Versions <span class="out">↗</span></a><a class="nav" href="../../../briefs.html">Brief register <span class="out">↗</span></a><a class="nav" href="../../../agent-behaviour-policy.html">The library <span class="out">↗</span></a><a class="nav" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener">The repository <span class="out">↗</span></a></div>
+    <p class="rail__note"><b>Public, and not advertised.</b> Every page here is noindex, out of <code>sitemap.xml</code> and out of <code>llms.txt</code>. Anybody handed the address reads every word. <a href="../../../">Back to the site</a>.</p>
+  </nav>
+<main class="main">
+<p class="crumb"><a href="../../../admin/">admin</a> / <a href="../../../admin/work/">work</a> / briefs/T13-prompt-workflow-per-shape.md</p>
+<div class="page-head"><div><h1>T13 — A prompt workflow per shape, published where a stranger can find it</h1><p>A task brief, sized for one agent. The source is <a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/.claude/briefs/T13-prompt-workflow-per-shape.md" target="_blank" rel="noopener"><code>.claude/briefs/T13-prompt-workflow-per-shape.md</code></a>; this page is that file, rendered.</p></div></div>
+<article class="doc"><p><strong>From:</strong> <code>docs/briefs/direction__the-next-phase-is-users.md</code> §4.2 · <strong>Size:</strong> a day for the first, less after<br><strong>Status:</strong> open</p>
+<h2 id="why">Why</h2>
+<p>The Gmail workflow at <a href="https://abp.sgit.ai/gmail/index.html" target="_blank" rel="noopener">abp.sgit.ai/gmail</a> is four steps and thirteen prompts a person pastes into their own assistant. It is the only on-ramp we have, and it covers one shape. The other fifteen carry <code>MAP-A-GRANT.md</code> — the same idea, one prompt instead of thirteen, and buried inside a vault, which is behind the thing it is meant to be an on-ramp to.</p>
+<p>The lead's measure is the number of people who <strong>run</strong> the prompts. That number is bounded by how many shapes have something runnable.</p>
+<h2 id="what-to-build">What to build</h2>
+<p>For one shape at a time, in this order — the three that need no connector and no consent screen, so a curious person can start in thirty seconds:</p>
+<ol><li><code>claude-code-cli</code> — a coding agent on the operator's own machine</li><li><code>github-actions</code> — a CI runner, where the grant is a token and a workflow file</li><li><code>scheduled-job</code> — something that runs with nobody watching</li></ol>
+<p>Each one is four steps, matching the Gmail shape: <strong>what it can already do</strong> · <strong>what you actually asked for</strong> · <strong>write the behaviour policy</strong> · <strong>what a prompt cannot do</strong>. Take the wording from the Gmail pages so a person who has done one recognises the next.</p>
+<h2 id="rules">Rules</h2>
+<ul><li>The prompts ask the agent about <strong>itself, on a system the person is entitled to run</strong>. Never a<p>prompt that probes somebody else's system, and never one that exercises an irreversible capability to prove it exists.</p></li><li>Every workflow says, before the reader finds out, that what comes back is a <strong>self report</strong> — a<p>claim rather than a measurement, at the <code>self-reported</code> evidence tier the vocabulary already has.</p></li><li>The last step marks the rows the agent is inferring, so the weak lines are visible.</li><li>Name the shape's behaviour policy beside it, so a person can read the measured version against<p>their own.</p></li></ul>
+<h2 id="done-when">Done when</h2>
+<p>Each shape has a workflow a stranger can follow without asking us anything, linked from <code>try-it.html</code>, and the page says which shapes have one and which do not.</p></article>
+<div class="c-foot"><b>An operations surface</b> for the people and agents building this site, public because every page here is. It is not a selling page and nothing on it is for sale. <a href="../../../">The site</a> · <a href="../../../agent-behaviour-policy.html">the library</a> · <a href="../../../versions.html">every release</a> · <a href="https://github.com/Risk-Mandate/riskmandate.ai/tree/dev/">the repository</a> · <a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/scripts/site/build-admin.mjs">the script that wrote this page</a>.</div>
+</main>
+</div>
+<script>
+(function(){var el=document.querySelector('[data-version]');if(!el)return;fetch('../../../versions/index.json',{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){el.textContent='v'+j.latest}).catch(function(){el.textContent='';});})();
+</script>
+</body>
+</html>

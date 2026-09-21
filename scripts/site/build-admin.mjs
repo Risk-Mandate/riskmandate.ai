@@ -119,6 +119,10 @@ function metaOf(repoPath) {
               : repoPath.startsWith('.claude/commands/') ? 'prompt' : 'rules';
   return { repoPath, title, date: dateOf(src), summary: summary.length > 260 ? summary.slice(0, 257).replace(/\s\S*$/, '') + '…' : summary, kind, src, url: route(repoPath) };
 }
+// Declared before META is built: metaOf renders each summary through inline(), and a summary
+// whose first prose paragraph carries a markdown link reaches LINK. Left below the renderer it
+// sat in the temporal dead zone and the build threw on the first document that had one.
+let LINK = (href) => href;   // set per document before rendering
 const META = new Map(allDocs.map(p => [p, metaOf(p)]));
 
 // ------------------------------------------------------------- markdown → html
@@ -127,7 +131,7 @@ const META = new Map(allDocs.map(p => [p, metaOf(p)]));
 // nested lists, GFM tables, fenced code, quotes, rules; inline code, bold, italic, links and
 // bare URLs. Everything is escaped; a document cannot inject markup into the console.
 
-let LINK = (href) => href;   // set per document before rendering
+// LINK is declared above metaOf, which renders summaries before this point in the file.
 function inline(s) {
   const codes = [];
   s = s.replace(/`([^`]+)`/g, (_, c) => { codes.push(`<code>${esc(c)}</code>`); return `\u0000${codes.length - 1}\u0000`; });

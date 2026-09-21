@@ -91,6 +91,11 @@
       "file": "pricing.html"
     },
     {
+      "name": "try-it",
+      "label": "Try it",
+      "file": "try-it.html"
+    },
+    {
       "name": "articles",
       "label": "Articles",
       "file": "articles.html"

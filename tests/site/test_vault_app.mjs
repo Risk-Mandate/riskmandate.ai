@@ -26,7 +26,9 @@ function makeEl(tag) {
         `appendChild got ${Object.prototype.toString.call(node)} — a builder returned something that is not a node`);
       el.children.push(node); return node;
     },
-    append(...nodes) { for (const n of nodes) if (n != null) el.appendChild(n); },
+    // Element.append() takes strings as well as nodes, unlike appendChild — mirroring that
+    // keeps the appendChild assertion below meaningful instead of firing on legal code.
+    append(...nodes) { for (const n of nodes) if (n != null) el.appendChild(typeof n === 'string' ? textNode(n) : n); },
     addEventListener() {}, focus() {}, select() {},
     get innerHTML() { return el._text; }, set innerHTML(v) { el._text = String(v); },
     get textContent() { return el._text + el.children.map(c => c.textContent).join(''); },
