@@ -87,8 +87,33 @@
     },
     {
       "name": "pricing",
-      "label": "Pricing",
-      "file": "pricing.html"
+      "label": "The four levels",
+      "file": "pricing.html",
+      "group": "Pricing"
+    },
+    {
+      "name": "abp-reviewed",
+      "label": "The reviewed level",
+      "file": "abp-reviewed.html",
+      "group": "Pricing"
+    },
+    {
+      "name": "reviewers",
+      "label": "Who runs your review",
+      "file": "reviewers.html",
+      "group": "Pricing"
+    },
+    {
+      "name": "reviewer-dinis-cruz",
+      "label": "Reviewer · Dinis Cruz",
+      "file": "reviewer-dinis-cruz.html",
+      "unlisted": true
+    },
+    {
+      "name": "reviewer-ciso-xyz",
+      "label": "Reviewer · the shape of the page",
+      "file": "reviewer-ciso-xyz.html",
+      "unlisted": true
     },
     {
       "name": "try-it",

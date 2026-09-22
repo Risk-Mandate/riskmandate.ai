@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.29.0** · 2026-09-22 — The reviewed level, and the people who run it
+  Notes: https://riskmandate.ai/versions/1.29.0.md · Source: `git:v1.29.0`
 - **v1.28.0** · 2026-09-21 — Try it — the free rung, and the phase that is about users
   Notes: https://riskmandate.ai/versions/1.28.0.md · Source: `git:v1.28.0`
 - **v1.27.3** · 2026-09-21 — The union is the title, and every article says where it connects

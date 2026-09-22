@@ -3,17 +3,21 @@
 > Every document under docs/ on riskmandate.ai, rendered as a page: direction briefs, reviews, workflows, architecture and research, newest first.
 > Source: https://riskmandate.ai/admin/briefs/ · noindex · written by scripts/site/build-admin.mjs
 
-**23**documents under docs/*one page each, rendered from the file*
+**24**documents under docs/*one page each, rendered from the file*
 
 **8**direction briefs*the product and the site*
 
 **4**reviews*read against a named source*
 
-**1**workflows*run once, written to run again*
+**2**workflows*run once, written to run again*
 
 These were written here, by the agent maintaining the site, in response to [the memos and documents that arrived](../../admin/memos/). Each is read against a named source and dated. Add a file under `docs/` and rerun `build-admin.mjs`: it has a page here and a test fails until it does.
 
 ## Newest first
+
+**[The reviewer manifest: one source for who does the work, addressed to the store team](../../admin/briefs/workflow__the-reviewer-manifest-and-who-owns-a-person-page/)**
+
+One line: read https://riskmandate.ai/reviewers.json and build the chooser from it, instead of holding a second copy of a real person's biography.22 September 2026 · workflow
 
 **[Nobody buys a policy until they have made a small one, so the next phase is users](../../admin/briefs/direction__the-next-phase-is-users/)**
 
@@ -142,6 +146,10 @@ What the customer does, what we do, and what arrives, so the level-3 page on bot
 The Agent Behaviour Policy is not a new product. It is the primitive the rest of RiskMandate was already made of, now named, published, and — critically — sellable this week at ten pounds.11 September 2026 · direction
 
 ## Workflows · a process run once, written down so it can be run again
+
+**[The reviewer manifest: one source for who does the work, addressed to the store team](../../admin/briefs/workflow__the-reviewer-manifest-and-who-owns-a-person-page/)**
+
+One line: read https://riskmandate.ai/reviewers.json and build the chooser from it, instead of holding a second copy of a real person's biography.22 September 2026 · workflow
 
 **[Buying a behaviour policy for Claude on one Gmail mailbox: the workflow, run once](../../admin/briefs/workflow__buying-a-policy-for-claude-on-gmail/)**
 

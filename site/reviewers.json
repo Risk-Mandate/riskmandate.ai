@@ -1,0 +1,73 @@
+{
+  "_what_this_is": "The people who run the reviewed level of an Agent Behaviour Policy, as data. riskmandate.ai is the source of truth for who they are; store.sgit.ai owns the cart and the chooser at checkout and can build it from this file rather than keeping a second copy of a real person's biography.",
+  "_the_rule": "Every line about a person is read off a page that person publishes, or written by them and signed off. Nothing is composed. No reviewer is scored, ranked or rated here, and none will be.",
+  "source": "https://riskmandate.ai/reviewers.json",
+  "page": "https://riskmandate.ai/reviewers.html",
+  "generated_from": "site/reviewers/<slug>.json",
+  "level": {
+    "id": "t4",
+    "what": "Two half-hour sessions with your team, the behaviour policy built from the interview, and a security professional's review and sign-off.",
+    "bought_at": "https://store.sgit.ai/d/t4/"
+  },
+  "reviewers": [
+    {
+      "slug": "dinis-cruz",
+      "name": "Dinis Cruz",
+      "kind": "person",
+      "page": "https://riskmandate.ai/reviewer-dinis-cruz.html",
+      "one_line": "Founder of RiskMandate.ai and the sgit.ai network; former OWASP Board member and organiser of the OWASP Summits; creator of the O2 Platform.",
+      "runs": [
+        "t4"
+      ],
+      "taking_work": true,
+      "status_note": "One name on this list today. No queue is published and none is promised: ask, and the answer comes back within a day.",
+      "status_confirmed": "2026-09-22",
+      "languages": [
+        "English",
+        "Portuguese"
+      ],
+      "listed_since": "2026-09-22",
+      "sources": [
+        {
+          "url": "https://sgit.ai/about/",
+          "read": "2026-09-22"
+        },
+        {
+          "url": "https://open-source.sgit.ai/about/",
+          "read": "2026-09-22"
+        },
+        {
+          "url": "https://store.sgit.ai/who/dinis-cruz/",
+          "read": "2026-09-22"
+        }
+      ]
+    },
+    {
+      "slug": "ciso-xyz",
+      "name": "CISO XYZ",
+      "kind": "placeholder",
+      "page": "https://riskmandate.ai/reviewer-ciso-xyz.html",
+      "one_line": "One sentence, in the person's own published words where there are any: the role, the organisation and the thing they are known for.",
+      "runs": [
+        "t4"
+      ],
+      "taking_work": false,
+      "status_note": "Not a person and not available. This entry exists so the shape can be read before anybody is asked to fill it in.",
+      "status_confirmed": "2026-09-22",
+      "languages": [
+        "The languages they can run the two sessions in"
+      ],
+      "listed_since": "2026-09-22",
+      "sources": [
+        {
+          "url": "https://example.org/their-own-page",
+          "read": "2026-09-22"
+        },
+        {
+          "url": "https://example.org/their-talk-or-paper",
+          "read": "2026-09-22"
+        }
+      ]
+    }
+  ]
+}

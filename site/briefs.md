@@ -158,6 +158,23 @@ Each one is linked in full, as received, with nothing edited. Where a brief and 
 - **An investor page**, the fourth audience
 - **A per-audience view inside a vault.** The home page gives that as the reason for audience pages; the vault app opens on one view for everybody
 
+### The named professional, and the assignment of the individual who does the £1,500 review
+
+**sha256** d376355f1747cc88986a623b91592bee5a5ec3b73f3ac838c43687f7a8fb53eb
+
+**The first brief about a person rather than a document.** A consultant has agreed to take some of this work, so the top level needs two things written down: what the service actually is — the workflow, the timelines, the expectation on both sides — and who does it, as a page carrying the record, the experience and the declared interests, so that a buyer chooses the individual rather than a logo. The brief asks for the lead’s own page first and the second consultant mapped from it. Built as a generated family from one file per reviewer, because the store reads the same data for its chooser and two sites must not end up saying different things about the same person. The second reviewer is published as a labelled placeholder rather than a name, which is what was asked for: the shape can be read before anybody is asked to fill it in.
+
+- [The reviewed level](abp-reviewed.html) — eight steps in order, what you bring, what we never ask for, and every figure with the page and date it was read from
+- [Who runs your review](reviewers.html), and the rule that nothing on a reviewer’s page is written by us
+- [The first reviewer](reviewer-dinis-cruz.html), every line read off a published page with the date, and the interests declared on the page rather than in a footer
+- [The shape of the page](reviewer-ciso-xyz.html), labelled a placeholder everywhere it renders, so the next person can see what would be published about them before agreeing to any of it
+- [reviewers.json](reviewers.json) — the same data as a manifest, so the store’s chooser reads one source instead of keeping a second copy of a real person’s biography
+- **A second, named reviewer.** The brief names a consultant who has agreed; nothing about them is published until they have read their own page and said yes. The placeholder is what stands in the meantime
+- **The chooser at checkout.** Picking the reviewer while buying is the store’s workflow, not ours. The manifest is published for it and the arrangement is written up for them; nothing is agreed yet
+- **Comments and testimonials.** Asked for in the brief; none exist, and none will be written by us. The page says so instead of showing an invented one
+- **Availability.** No queue, no calendar and no throughput is published, because none can be honoured yet — the page carries a status and the date it was confirmed
+- **What the reviewer is paid.** Agreed in the brief and deliberately not published: a commercial term that belongs to the lead, recorded here so it is not mistaken for an oversight
+
 ## And the instructions that arrived as speech or a sentence.
 
 These have no digest to check, which makes them the ones most easily lost — a voice memo that changed the direction of the whole site leaves no artefact at all unless somebody writes it down. So they are recorded here in the same list, with the same two columns.

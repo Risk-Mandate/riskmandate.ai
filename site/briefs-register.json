@@ -359,6 +359,50 @@
         "An investor page. The brief names three audiences; the printed sheets, the store and the Lisbon page all carry a fourth (investors, or 'you back companies that do'). Three pages were built and the fourth is flagged on the home page as missing.",
         "The vault's per-audience views are described on the home page as the reason for audience pages, but no ABP vault is published on this site yet."
       ]
+    },
+    {
+      "id": "D11",
+      "title": "The named professional, and the assignment of the individual who does the £1,500 review",
+      "version": null,
+      "type": "spoken brief, transcribed",
+      "dated": "2026-09-22",
+      "file": "assets/briefs/2026-09-22__transcript__the-named-professional-and-the-assignment.txt",
+      "bytes": 1845,
+      "sha256": "d376355f1747cc88986a623b91592bee5a5ec3b73f3ac838c43687f7a8fb53eb",
+      "received": [
+        "2026-09-22T00:00Z"
+      ],
+      "duplicate_of": null,
+      "status": "partly",
+      "produced": [
+        {
+          "what": "The reviewed level — the workflow, the expectations and the figures with their sources",
+          "url": "abp-reviewed.html"
+        },
+        {
+          "what": "Who runs your review — the list, and the rule about what gets published",
+          "url": "reviewers.html"
+        },
+        {
+          "what": "The first reviewer's page, every line read off a published page",
+          "url": "reviewer-dinis-cruz.html"
+        },
+        {
+          "what": "The shape of a reviewer page, labelled a placeholder",
+          "url": "reviewer-ciso-xyz.html"
+        },
+        {
+          "what": "The manifest the store can build its chooser from",
+          "url": "reviewers.json"
+        }
+      ],
+      "not_done": [
+        "A second, named reviewer: nothing about them is published until they have read their own page and agreed to it. The placeholder stands in the meantime.",
+        "The chooser at checkout, which is the store's workflow rather than ours. The manifest is published for it; the arrangement is written up for the store team and nothing is agreed yet.",
+        "Comments and testimonials. Asked for; none exist, and none will be composed here.",
+        "Availability, a queue or a throughput number: none can be honoured yet, so the pages carry a status and the date it was confirmed instead.",
+        "What the reviewer is paid — agreed in the brief and deliberately not published. A commercial term, and the lead's call."
+      ]
     }
   ],
   "informal": [

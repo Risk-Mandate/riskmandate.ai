@@ -1,0 +1,66 @@
+{
+  "_what_this_is": "A placeholder, on purpose and labelled as one everywhere it renders. It is the shape a second reviewer's page takes, so that the person being asked can see exactly what would be published about them before they agree to any of it. Nobody is described here: every field says what would go in it, not what is true of anybody.",
+  "slug": "ciso-xyz",
+  "name": "CISO XYZ",
+  "kind": "placeholder",
+  "listed_since": "2026-09-22",
+  "runs": ["t4"],
+  "status": {
+    "taking_work": false,
+    "note": "Not a person and not available. This entry exists so the shape can be read before anybody is asked to fill it in.",
+    "confirmed": "2026-09-22"
+  },
+  "one_line": "One sentence, in the person's own published words where there are any: the role, the organisation and the thing they are known for.",
+  "why_them": "Why this reviewer rather than any other, stated as fact rather than praise: the kind of estate they have run, the agents they have had to answer for, the sectors whose questions they already know the shape of.",
+  "sources": [
+    {
+      "id": "their-page",
+      "url": "https://example.org/their-own-page",
+      "what": "The page they publish about themselves — a company bio, a conference speaker page, a personal site. Every row of the record below is read off it, and this site composes none of it.",
+      "read": "2026-09-22"
+    },
+    {
+      "id": "their-writing",
+      "url": "https://example.org/their-talk-or-paper",
+      "what": "A second published source: a talk, a paper, a standard they contributed to, an open-source project. It is what makes the record checkable without trusting us.",
+      "read": "2026-09-22"
+    }
+  ],
+  "record": [
+    {
+      "what": "Their current role",
+      "detail": "What it involves, in a sentence, read off the page they publish. If there is no published page there is no row: we do not write a biography for somebody and then charge £1,500 beside it.",
+      "source": "their-page"
+    },
+    {
+      "what": "The estate they have answered for",
+      "detail": "Size, sector and the kind of systems — the fact a buyer is actually weighing when they choose one reviewer over another.",
+      "source": "their-page"
+    },
+    {
+      "what": "Published work",
+      "detail": "A talk, a paper, a tool, a standard. Named, linked and dated, because it is the part of a reviewer's record that can be checked in five minutes.",
+      "source": "their-writing"
+    }
+  ],
+  "writing": [
+    {
+      "what": "Where they write, if they write",
+      "detail": "A blog, a newsletter, a conference track. Linked, not summarised.",
+      "url": "https://example.org/their-writing",
+      "source": "their-writing"
+    }
+  ],
+  "languages": [
+    {
+      "what": "The languages they can run the two sessions in",
+      "detail": "A session is a conversation, so this is a real difference between reviewers rather than a flag on a page. It is stated only where the person has confirmed it in writing.",
+      "source": "their-page"
+    }
+  ],
+  "interests_declared": "What a buyer should know before weighing the review: who employs them, what they sell, which vendors they are involved with. Every reviewer on this list declares theirs, and the declaration sits on the page rather than in a footer.",
+  "reach": {
+    "what": "How to reach them, once there is somebody to reach.",
+    "url": "https://example.org/their-own-page"
+  }
+}

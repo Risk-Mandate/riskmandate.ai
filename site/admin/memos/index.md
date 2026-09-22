@@ -5,13 +5,17 @@
 
 **2**received, nothing built yet*Archived and read, and nothing has been built from it yet.*
 
-**11**partly worked*read in full; a named part is not built*
+**12**partly worked*read in full; a named part is not built*
 
 **8**processed*something on the site exists because of it*
 
 **0**superseded*kept because the reasoning is the record*
 
 The queue. A document or a memo from the project lead arrives — a dev brief as a file, a voice memo as a transcript, an instruction in the thread — and is archived exactly as received: files by SHA-256 in [the register](../../briefs-register.json), so an identical file arriving again is recognised before anybody reads it; speech and chat as an entry with no digest. Then it is read into [a brief](../../admin/briefs/), and the brief is broken into [units of work](../../admin/work/). What was said and what we made of it are kept apart on purpose.
+
+**[The named professional, and the assignment of the individual who does the £1,500 review](#D11)**
+
+spoken brief, transcribed · 5 produced · 5 not done22 September 2026 · partly
 
 **[Voice memo: the next phase is users. The MVP is nailed and the vaults are more than most first users need, so find many smaller examples where a policy adds value now. The abp.sgit.ai/gmail prompt workflow - four steps, thirteen prompts, about twenty minutes - is the shareable artefact, already sent to a real group. KPIs and OKRs are the number of users who run the prompts and the number who create a policy; the pricing ladder exists, what is missing is a bigger free funnel above it. Nobody buys a full policy until they have made a smaller one. And the second frontier, beyond technical permissions: consequences in the user's own terms (relabelling destroys a mailbox's information architecture, marking read things unread, too many sends, drafts or moves), which messages should and should not be read or replied to, prompt injection, and rules of engagement for a single session.](#I11)**
 
@@ -116,6 +120,24 @@ Task briefs under `.claude/briefs/`, each sized for one agent and naming the fil
 The row moves on [the board](../../admin/work/); the register's *status* and *not done* say what the memo still owes.
 
 ## What happened to each of them
+
+D11 · spoken brief, transcribed · 22 September 2026
+
+## The named professional, and the assignment of the individual who does the £1,500 review
+
+partly
+
+[the file as received](../../assets/briefs/2026-09-22__transcript__the-named-professional-and-the-assignment.txt) · `d376355f1747…` · 2 KB
+
+**Produced.** [The reviewed level — the workflow, the expectations and the figures with their sources](../../abp-reviewed.html) · [Who runs your review — the list, and the rule about what gets published](../../reviewers.html) · [The first reviewer's page, every line read off a published page](../../reviewer-dinis-cruz.html) · [The shape of a reviewer page, labelled a placeholder](../../reviewer-ciso-xyz.html) · [The manifest the store can build its chooser from](../../reviewers.json)
+
+**Not done.**
+
+- A second, named reviewer: nothing about them is published until they have read their own page and agreed to it. The placeholder stands in the meantime.
+- The chooser at checkout, which is the store's workflow rather than ours. The manifest is published for it; the arrangement is written up for the store team and nothing is agreed yet.
+- Comments and testimonials. Asked for; none exist, and none will be composed here.
+- Availability, a queue or a throughput number: none can be honoured yet, so the pages carry a status and the date it was confirmed instead.
+- What the reviewer is paid — agreed in the brief and deliberately not published. A commercial term, and the lead's call.
 
 I11 · voice memo, transcribed in the thread, with a screenshot of the Agentics Foundation London group, 21 Sept · 21 September 2026
 

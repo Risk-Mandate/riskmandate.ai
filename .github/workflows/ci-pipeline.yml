@@ -58,6 +58,9 @@ jobs:
       - name: The vault directory and the vault pages come from the catalogue
         run: node scripts/site/build-abp-pages.mjs --check
 
+      - name: The reviewer pages are derived from site/reviewers/
+        run: node scripts/site/build-reviewer-pages.mjs --check
+
       - name: Every page carries the GitHub link and the licence line
         run: node scripts/site/add-licence-chrome.mjs --check
 
