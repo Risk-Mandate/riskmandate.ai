@@ -54,7 +54,9 @@ ACCEPTED CONDITIONS · 4/4 HOLDING
 
 ## Take the assets.
 
-SVG for anything that scales, PNG where a raster is required. All served from the vault.
+SVG for anything that scales, PNG where a raster is required, EPS for a printer. All served from the vault.
+
+**About the EPS.** Conference stands and print shops ask for `.eps` and reject everything else as pixelated. These are real vector, drawn from the same geometry as the SVG, with one deliberate difference: **the lettering is converted to outlines** rather than named as a font, because an EPS that names a font is an EPS that looks different on somebody else’s machine and we never see the proof. No background is painted, so the artwork drops onto any ground. The letterforms are Geist, which this site self-hosts under the [SIL Open Font License](assets/fonts/OFL.txt). Written by `scripts/site/render-brand-eps.py` and proofed by rasterising the file that ships.
 
 ## And the words.
 
