@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.31.0** · 2026-09-23 — The words that start a conversation, and the page that has to back them
+  Notes: https://riskmandate.ai/versions/1.31.0.md · Source: `git:v1.31.0`
 - **v1.30.1** · 2026-09-23 — A deck, built from the site rather than written beside it
   Notes: https://riskmandate.ai/versions/1.30.1.md · Source: `git:v1.30.1`
 - **v1.30.0** · 2026-09-23 — A privacy page, and a test that keeps it honest

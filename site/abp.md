@@ -97,6 +97,36 @@ The two combined, dated, with a named owner and an expiry — so the decision co
 
 The people who sell do not sign, which is why the label and the prescription are separate products rather than two sections of one.
 
+## The policy is a graph, and a document is a projection of it.
+
+The four objects are what you read. What they are made of is a set of behaviour nodes and the edges between them, which is why the same policy can be read by four different people without being written four times. Half of this is running today and half is drawn; both are marked below, and the [direction brief behind it](admin/briefs/direction__abp-as-a-graph-and-stakeholder-views/) is published in full.
+
+### Behaviours are addressable nodes
+
+The capability vocabulary is a fixed set of ids, pinned at [abp.sgit.ai](https://abp.sgit.ai/) and shared by every vault. `execute.process.host` is remote code execution as the account; `delete.file.host` is data deletion; `send.endpoint.world` is unrestricted network reach. They are ids rather than prose, so they can be linked, counted and compared across policies.
+
+### Every row is an edge, and the barrier sits on it
+
+A grant row is an edge from this deployment to a behaviour node, carrying the door it goes through, the evidence tier it is known at, how reversible it is, and the barrier that stands in the way. The same behaviour is often barred through one door and open through another, which is a property of the path rather than of the behaviour.
+
+### Scenarios are the first projections
+
+Each vault carries several mandates over one grant: the same behaviours, filtered for a different purpose. That is the projection mechanism working, one axis at a time, and it is what the stakeholder views are built from.
+
+### The prompt ships inside the vault
+
+`MAP-A-GRANT.md` travels with every policy, so the document you read can be regenerated from the data by whoever holds the keys. A projection nobody can reproduce is a claim; one you can re-run is a method.
+
+### A view per stakeholder
+
+Operator, security, leadership and insurance read different things off one record, and the plan is for each view to be content in the vault rather than a page on this site. The reading app opens on one view for everybody today, and [the register says so](briefs.html).
+
+### Outward edges, and a page per behaviour
+
+A behaviour node is a good centre: the attack techniques that use it, the standards that name it, the obligations it touches. With those edges in place, _which policies can delete data_ becomes a query rather than a reading exercise, and every behaviour gets its own page listing the policies and their barriers.
+
+Why this matters commercially, stated plainly: a graph is what lets one record serve four audiences and connect to whatever standard somebody already reports against. If that is the part you want to talk about, [say so](feedback.html) — it is the half of the model that is still being built, and the people who ask about it tend to be the people who have already tried to do it themselves.
+
 ## The business case for a control, with no verdict in it.
 
 Unbounded excess is the only number on a behaviour policy that anybody can move. Every real control shifts one capability out of the agent's reach and into the fourth row, and the number falls.
