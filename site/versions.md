@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.29.5** · 2026-09-23 — The ladder in order
+  Notes: https://riskmandate.ai/versions/1.29.5.md · Source: `git:v1.29.5`
 - **v1.29.4** · 2026-09-23 — A 396-character version, because the profile field caps at 400
   Notes: https://riskmandate.ai/versions/1.29.4.md · Source: `git:v1.29.4`
 - **v1.29.3** · 2026-09-23 — The lead's own line, and the verb pair it turns on
