@@ -1,11 +1,11 @@
 {
-  "version": "1.31.0",
+  "version": "1.31.1",
   "shapes": 16,
   "reach": 15,
   "mandate": 6,
   "gap": 9,
   "unbounded": 7,
   "prices_read": "22 September 2026",
-  "slides": 13,
+  "slides": 14,
   "rendered": "2026-09-24"
 }

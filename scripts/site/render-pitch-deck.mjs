@@ -11,8 +11,11 @@
 // what the site says. The prices are the store's and are quoted with the date they were read,
 // which is the same rule every page here follows.
 //
-// Twelve slides, no ask slide: this is what exists, what is sold, who does it and what is not
-// built. The raise conversation happens in person, where a number can be answered for.
+// Fourteen slides and no ask slide. It is shown in November, by which time the practice will have
+// moved but the direction will not, so the deck carries the direction: make agents insurable, and
+// start with the Agent Behaviour Policy as the path there. Status is shown as chips on the things
+// themselves (available now / template / in design) rather than on a page of what we are not. And
+// the word "rung" is not used anywhere on it: it is not a common word, and it reads oddly.
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { spawn }                                              from 'node:child_process';
@@ -31,7 +34,12 @@ const json = (f) => JSON.parse(read(f));
 
 // ------------------------------------------------------------------ what the site says today
 const version   = json('versions/index.json').latest;
-const shapes    = json('vaults/index.json').vaults.length;
+const catalogue = json('vaults/index.json').vaults;
+const shapes    = catalogue.length;
+const shapeNames = catalogue.map(v => v.app);
+// the standards a published vault already links to, by id and title only (site rule 7)
+const std = (f) => json(`vaults/claude-code-web/data/standards/${f}.json`).nodes;
+const AIA = std('eu-ai-act'), GDPR = std('gdpr'), ATTACK = std('attack');
 const counts    = json('vaults/claude-code-web/data/delta.json').counts;
 const reach     = counts.aligned + counts.excess;
 const mandate   = counts.aligned + counts.shortfall;
@@ -111,6 +119,13 @@ li b,p b{color:var(--text);font-weight:600}
 .t td{padding:16px 18px 16px 0;border-bottom:1px solid var(--border);color:var(--muted);vertical-align:top}
 .t td:first-child{color:var(--text);font-weight:600;white-space:nowrap}
 .t .p{font-size:26px;font-weight:700;color:var(--text);letter-spacing:-.02em}
+.arc{display:grid;grid-template-columns:1fr 40px 1fr 40px 1fr;align-items:stretch;gap:0;margin-top:10px}
+.arc .step{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px 26px;display:flex;flex-direction:column;gap:10px}
+.arc .step p{font-size:16px;line-height:1.5}
+.arc .step .who{margin-top:auto;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--green)}
+.arc .arrow{display:grid;place-items:center;font-size:30px;color:var(--faint)}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px;max-width:1080px}
+.chip{border:1px solid var(--border);background:var(--card);border-radius:999px;padding:9px 16px;font-size:16px;color:var(--text)}
 </style></head><body>
 
 ${slide('dark', `
@@ -121,9 +136,9 @@ ${slide('dark', `
     <line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g>
     <text x="32" y="37" text-anchor="middle" font-family="Geist Mono, monospace" font-size="13" font-weight="700" fill="#F7F6F2">RM</text></svg>
   <h1>Know what your agents can do.</h1>
-  <p class="lead">Create or buy Agent Behaviour Policies: for one agent in one deployment, what it can
-  actually reach, what you authorised it to do, and the gap between the two.</p>
-  <div class="foot"><span>riskmandate.ai</span><span>v${version}</span></div>`)}
+  <p class="lead">Make your agents insurable. Start by writing down what each one can actually
+  reach, what you authorised it to do, and the gap between the two.</p>
+  <div class="foot"><span>riskmandate.ai &middot; Web Summit Lisbon, November 2026</span><span>v${version}</span></div>`)}
 
 ${slide('', `
   <div class="split">
@@ -143,6 +158,15 @@ ${slide('', `
   </div>
   <div class="foot"><span>The gap</span><span>riskmandate.ai/abp-vault-claude-code-web.html</span></div>`)}
 
+${slide('dark', `
+  <span class="tag">Not a model property</span>
+  <h2>The same model is harmless in one setup and serious in another.</h2>
+  <p class="lead">Connect it to a mailbox and the narrowest Gmail scope that reads one message reads
+  every message. Nothing about the model changed; the deployment did.</p>
+  <p>So risk is a property of the deployment, and the record has to be fitted to the deployment it
+  describes. That is why the unit is one agent, in one place, not a model or an estate.</p>
+  <div class="foot"><span>A property of this deployment</span><span>riskmandate.ai/lab-connector-grants.html</span></div>`)}
+
 ${slide('', `
   <span class="tag">What an Agent Behaviour Policy is</span>
   <h2>Four objects, and only one of them is an opinion.</h2>
@@ -152,105 +176,106 @@ ${slide('', `
     <div class="card"><span class="k">Derived</span><h3>Gap</h3><p>Reach minus mandate. Never written by hand, and recomputed whenever either side moves.</p></div>
     <div class="card"><span class="k">Recorded</span><h3>Barriers</h3><p>What actually stands in the way of each capability: controls, constraints and open questions.</p></div>
   </div>
-  <p class="src">A behaviour policy carries no score, no rating and no verdict. It describes one agent in one deployment, and what to do about it is the reader's decision.</p>
+  <p class="src">A behaviour policy describes and carries no score. What is acceptable is a decision, and the decision belongs to the people who answer for the agent.</p>
   <div class="foot"><span>The model</span><span>riskmandate.ai/abp.html</span></div>`)}
-
-${slide('dark', `
-  <span class="tag">Why it is not a model problem</span>
-  <h2>The same model is harmless in one setup and serious in another.</h2>
-  <p class="lead">Connect it to a mailbox and the narrowest Gmail scope that reads one message reads
-  every message. Nothing about the model changed; the deployment did.</p>
-  <p>So risk is a property of the deployment rather than of the model, and a record that is not
-  fitted to the deployment it describes is describing somebody else's agent.</p>
-  <div class="foot"><span>Not a model property</span><span>riskmandate.ai/lab-connector-grants.html</span></div>`)}
 
 ${slide('', `
   <span class="tag">Where this goes</span>
-  <h2>Three rungs, in order. Each needs the one below it.</h2>
+  <h2>Make agents insurable. The behaviour policy is where every agent starts.</h2>
+  <div class="arc">
+    <div class="step"><span class="pill">Available now</span><h3>1 &middot; Describe it</h3><p><b>Agent Behaviour Policy.</b> What one agent can reach, what you authorised, the gap, and what stands in the way.</p><p class="who">Companies running agents today</p></div>
+    <div class="arrow">&rarr;</div>
+    <div class="step"><span class="pill soon">Template available</span><h3>2 &middot; Authorise it</h3><p><b>Licence to Operate.</b> The organisation is the authority, the behaviour policy is the instrument, the agent is the licensee, for a set interval.</p><p class="who">Risk teams and boards</p></div>
+    <div class="arrow">&rarr;</div>
+    <div class="step"><span class="pill no">In design</span><h3>3 &middot; Insure it</h3><p><b>Insurability Index.</b> The record an underwriter will accept: scored, dated, with the residual risk owned.</p><p class="who">Insurers and brokers</p></div>
+  </div>
+  <p class="src">Each step needs the one before it, and each one is sold to the people it serves. The destination is agent risk at a level the board has accepted and can show &mdash; which, for high-risk AI systems, is what the EU AI Act asks for: residual risk <em>judged to be acceptable</em> (Regulation (EU) 2024/1689, Article 9(5)).</p>
+  <div class="foot"><span>The direction</span><span>riskmandate.ai/insurance.html</span></div>`)}
+
+${slide('dark', `
+  <span class="tag">The commercial model</span>
+  <h2>Help companies control and manage the agents they already run.</h2>
   <div class="grid g3">
-    <div class="card"><span class="pill">Available now</span><h3>Describe it</h3><p><b>Agent Behaviour Policy.</b> What one agent can reach, what you authorised, the gap, and what stands in the way.</p></div>
-    <div class="card"><span class="pill soon">Template available</span><h3>Authorise it</h3><p><b>Licence to Operate.</b> The organisation is the authority, the behaviour policy is the instrument, the agent is the licensee.</p></div>
-    <div class="card"><span class="pill no">In design</span><h3>Insure it</h3><p><b>Insurability Index.</b> The record an underwriter will accept: scored, dated, with the residual risk owned.</p></div>
+    <div class="card"><span class="k">Today</span><h3>Describe and correct</h3><p>One agent, one deployment, written down and argued with by the people who built it, own what it touches and answer for it. Sold at four levels, from a pack to a named professional's sign-off.</p></div>
+    <div class="card"><span class="k">Next</span><h3>Authorise and accept</h3><p>A licence with a named owner and an expiry; a risk register built from the gap rather than from a workshop; acceptance carried up to the board on a record instead of a slide.</p></div>
+    <div class="card"><span class="k">Then</span><h3>Price and insure</h3><p>The same record, read by an underwriter: explicit scope, the open questions named, and the residual risk owned by somebody. Renewal starts from a record instead of a questionnaire.</p></div>
   </div>
-  <p class="src">The third rung is the business. The first rung is what is on sale, and it is the one that can be delivered today.</p>
-  <div class="foot"><span>The ladder</span><span>riskmandate.ai/insurance.html</span></div>`)}
+  <div class="foot"><span>Control, then accept, then insure</span><span>riskmandate.ai/pricing.html</span></div>`)}
 
 ${slide('', `
-  <span class="tag">What arrives</span>
-  <h2>An encrypted vault you hold the keys to, not a PDF.</h2>
-  <div class="grid g2">
-    <div class="card"><h3>What is in it</h3><p>The policy and the data behind it. The terms your agent reads, as <b>AGENTS.md</b> and <b>SKILL.md</b>. A licence-to-operate template, unissued. Every version kept.</p></div>
-    <div class="card"><h3>What you do with it</h3><p>Hand a read key to your board, your auditor or your broker and they see exactly what you see. Correct the mandate; the gap recomputes.</p></div>
-  </div>
-  <p class="src">Markdown for people, JSON for tools, and nothing in your request path. We never ask for a credential, a token, a key, or access to anything of yours.</p>
-  <div class="foot"><span>The artefact</span><span>riskmandate.ai/agent-behaviour-policy.html</span></div>`)}
-
-${slide('', `
-  <span class="tag">Free, and paid</span>
+  <span class="tag">On sale today</span>
   <h2>${shapes} published free. Four levels when you want yours.</h2>
   <table class="t">
     <thead><tr><th>Level</th><th>Price</th><th>When it arrives</th><th>Who does the work</th></tr></thead>
     <tbody>${LEVELS.map(l => `<tr><td>${l.n} &middot; ${l.name}</td><td class="p">${l.price}</td><td>${l.when}</td><td>${l.who}</td></tr>`).join('')}</tbody>
   </table>
-  <p class="src">Every level is the same document; what changes is how it arrives and who does the correcting. Prices read from store.sgit.ai on ${PRICES_READ}: the store owns the cart, this site owns the material. Before any of it, ${shapes} template policies are published with their read keys, and the prompts to write your own are free.</p>
-  <div class="foot"><span>The offer</span><span>riskmandate.ai/pricing.html</span></div>`)}
+  <p class="src">Every level is the same document; what changes is how it arrives and who does the correcting. Prices read from store.sgit.ai on ${PRICES_READ}. Before any of it: ${shapes} template policies published with their read keys, and a free twenty-minute route to write your own against the assistant you already run.</p>
+  <div class="foot"><span>The offer</span><span>riskmandate.ai/pricing.html &middot; riskmandate.ai/try-it.html</span></div>`)}
+
+${slide('', `
+  <span class="tag">We integrate with everybody</span>
+  <h2>${shapes} deployment shapes, and the next one is a file rather than a product.</h2>
+  <div class="chips">${shapeNames.map(n => `<span class="chip">${n}</span>`).join('')}</div>
+  <p class="src">Coding agents, desktop assistants, browser agents, mail and drive connectors, workflow engines and scheduled jobs, across Anthropic, OpenAI, Google, Microsoft, GitHub, Dropbox and n8n. A shape is described from the vendor's own published pages, quoted and dated, or measured on a deployment we are entitled to run. We never test somebody else's system.</p>
+  <div class="foot"><span>The catalogue</span><span>riskmandate.ai/agent-behaviour-policy.html</span></div>`)}
 
 ${slide('dark', `
-  <span class="tag">The free rung</span>
-  <h2>Twenty minutes, your own assistant, nothing collected.</h2>
-  <p class="lead">Four steps, thirteen prompts, pasted into the assistant you have already connected
-  to your mail. At the end you have a written account of what it can reach, what you meant to
-  authorise, and the gap.</p>
-  <p>It is the top of the sales motion rather than a giveaway: correcting our draft is how you tell
-  us what you actually intended, and intent is the one input nobody can derive.</p>
-  <div class="foot"><span>Try it</span><span>riskmandate.ai/try-it.html</span></div>`)}
-
-${slide('', `
-  <span class="tag">Who does the work</span>
-  <h2>The sign-off carries a name and a date.</h2>
-  <div class="grid g2">
-    <div class="card"><h3>At the top level</h3><p>Two half-hour sessions with your team, the policy built from the interview rather than from a form, and a named security professional who corrects it and signs it.</p></div>
-    <div class="card"><h3>How the list is built</h3><p>Every line of a reviewer's page is read off a page they publish themselves, with the date. Nobody is scored, ranked or rated, and we compose nobody's biography.</p></div>
+  <span class="tag">Linked to the standards</span>
+  <h2>Every vault carries the articles and techniques it touches.</h2>
+  <div class="grid g3">
+    <div class="card"><span class="k">EU AI Act &middot; ${AIA.length} articles</span><p>${AIA.map(n => `Art. ${n.article} ${n.title}`).join(' &middot; ')}</p></div>
+    <div class="card"><span class="k">GDPR &middot; ${GDPR.length} articles</span><p>${GDPR.slice(0, 6).map(n => `Art. ${n.article}`).join(', ')} and ${GDPR.length - 6} more, by article number and title.</p></div>
+    <div class="card"><span class="k">MITRE ATT&amp;CK &middot; ${ATTACK.length} techniques</span><p>${ATTACK.slice(0, 5).map(n => `${n.technique} ${n.title}`).join(' &middot; ')} &hellip;</p></div>
   </div>
-  <p class="src">One name on the list today, and the page is built for more. A second entry is published as a labelled placeholder so the next professional can read exactly what would be said about them before agreeing to it.</p>
-  <div class="foot"><span>Delivered by a person</span><span>riskmandate.ai/reviewers.html</span></div>`)}
+  <p class="src">Ids and titles only, linked from the consequences in the policy. A link says a provision is <b>touched</b>, never that anything complies. Alongside: ISO/IEC 42001, ISO/IEC 27001, NIST AI RMF and the OWASP Agentic Top 10 as the frames underwriters are adopting. This is what lets one record answer the questionnaire somebody else already has.</p>
+  <div class="foot"><span>The standards graph</span><span>riskmandate.ai/abp.html#graph</span></div>`)}
 
 ${slide('', `
+  <span class="tag">Under the document</span>
+  <h2>The policy is a graph. A document is a projection of it.</h2>
+  <div class="grid g3">
+    <div class="card"><span class="pill">Running</span><h3>Behaviours are nodes</h3><p>A fixed vocabulary of capability ids shared by every vault. <b>execute.process.host</b> is remote code execution; <b>delete.file.host</b> is data deletion. Ids, so they can be linked, counted and compared.</p></div>
+    <div class="card"><span class="pill">Running</span><h3>Rows are edges; the barrier sits on the path</h3><p>Each row carries the door it goes through, the evidence tier, how reversible it is, and what stands in the way. The prompt that regenerates the document ships inside the vault.</p></div>
+    <div class="card"><span class="pill no">In design</span><h3>A view per stakeholder</h3><p>Operator, security, leadership and insurer each read a projection of the same record. Scenarios already do this on one axis; audiences are the next.</p></div>
+  </div>
+  <p class="src">One record, several readers, and connections outward to the standards and techniques each behaviour touches: that is what makes it deployable in an organisation that already has a risk register, an auditor and a broker.</p>
+  <div class="foot"><span>The graph</span><span>riskmandate.ai/abp.html#graph</span></div>`)}
+
+${slide('', `
+  <span class="tag">From the gap to the risk register</span>
+  <h2>The risk is derived from the record, and owned by a name.</h2>
+  <div class="grid g4">
+    <div class="card"><span class="k">Consequences</span><p>What follows when a capability meets an asset: read, act, exfiltrate, disrupt, impersonate, outlive. Each one names what it requires and the articles it touches.</p></div>
+    <div class="card"><span class="k">Who holds the barrier</span><p>A scope you consented to and can revoke is a different object from a product decision a vendor can change in a release. Both are recorded; the difference is in the facts, not an adjective.</p></div>
+    <div class="card"><span class="k">Validity</span><p>Every policy says what it describes, as at which date, and what makes it void: a release, a setting, a connector enabled. If the risk changed, the deployment changed.</p></div>
+    <div class="card"><span class="k">Acceptance</span><p>A licence to operate with a named owner and an expiry, and a maturity model for how acceptance travels up to the board. The policy carries no score; the acceptance carries a name.</p></div>
+  </div>
+  <div class="foot"><span>Risk management, from the record</span><span>riskmandate.ai/acceptance.html &middot; riskmandate.ai/ramm.html</span></div>`)}
+
+${slide('dark', `
   <span class="tag">Why this year</span>
-  <h2>Two things changed, and neither of them was us.</h2>
-  <div class="grid g2">
+  <h2>Three things changed, and none of them was us.</h2>
+  <div class="grid g3">
     <div class="card"><span class="k">1 January 2026</span><h3>Cover started being withdrawn</h3><p>A generative-AI exclusion took effect in the standard liability forms much of one large insurance market runs on. Several carriers have filed their own, one of them absolute.</p></div>
     <div class="card"><span class="k">9 March 2026</span><h3>Responsibility was assigned</h3><p>A national consumer regulator said a business is responsible if an agent it uses does something illegal, and should be clear what the agent may do and what data it can access.</p></div>
+    <div class="card"><span class="k">Regulation (EU) 2024/1689</span><h3>Residual risk must be judged acceptable</h3><p>For high-risk AI systems, Article 9(5) requires the residual risk of each hazard, and overall, to be <em>judged to be acceptable</em>. Somebody has to do the judging, and they need a record to judge from.</p></div>
   </div>
-  <p class="src">Both are sourced and dated on riskmandate.ai/insurance.html, with the announcement dates. Neither is our observation, and we are not an insurer and place no cover.</p>
+  <p class="src">The first two are sourced and dated on riskmandate.ai/insurance.html. The third is quoted from the regulation as published, read 24 September 2026.</p>
   <div class="foot"><span>Why now</span><span>riskmandate.ai/insurance.html</span></div>`)}
 
-${slide('dark', `
-  <span class="tag">How it is checkable</span>
-  <h2>Open source, and the keys are printed.</h2>
-  <ul>
-    <li><b>${shapes} behaviour policies published in full</b>, each with its read key on the page, because a policy nobody can check is a policy asking to be trusted.</li>
-    <li><b>Every page of this site is in a public repository</b>, code Apache-2.0, pages and policies CC BY 4.0.</li>
-    <li><b>The method is written down with its mistakes</b>: what was measured, what was documented, and what is still an open question, on the page rather than in a footnote.</li>
-    <li><b>Model-drafted and marked as such.</b> Not a compliance assessment, and no standards body has assessed anything here.</li>
-  </ul>
-  <div class="foot"><span>Open source</span><span>github.com/Risk-Mandate/riskmandate.ai</span></div>`)}
-
 ${slide('', `
-  <span class="tag">What we do not claim</span>
-  <h2>Said before anybody has to ask.</h2>
-  <ul>
-    <li><b>We are not an insurer</b> and we place no cover. The insurance rung is designed, not built.</li>
-    <li><b>Levels 3 and 4 have never been sold.</b> They are specified and the payment link is not issued; the store's ledger says so and so does our pricing page.</li>
-    <li><b>We never test somebody else's system.</b> Vendor behaviour is read from vendor pages, quoted and dated; where those pages disagree we publish the contradiction unresolved.</li>
-    <li><b>A behaviour policy reduces accidents. It does not stop an attacker.</b> A rule somebody wrote down shapes what an agent tends to do, not what it can do.</li>
-  </ul>
-  <div class="foot"><span>The limits</span><span>riskmandate.ai/questions.html</span></div>`)}
+  <span class="tag">Delivered by people, checkable by anyone</span>
+  <h2>The sign-off carries a name and a date. The method carries its keys.</h2>
+  <div class="grid g2">
+    <div class="card"><h3>A named professional signs the top level</h3><p>Two half-hour sessions with your team, the policy built from the interview rather than from a form, and a security professional who corrects it and signs it. Every line about a reviewer is read off a page they publish themselves, with the date; nobody is scored or ranked.</p></div>
+    <div class="card"><h3>Open source, and the keys are printed</h3><p>${shapes} behaviour policies published in full with their read keys. Every page in a public repository: code Apache-2.0, pages and policies CC BY 4.0. Model-drafted and marked as such, with what was measured kept apart from what was documented.</p></div>
+  </div>
+  <div class="foot"><span>Who, and how it is checked</span><span>riskmandate.ai/reviewers.html &middot; github.com/Risk-Mandate/riskmandate.ai</span></div>`)}
 
 ${slide('dark', `
   <h1>Start with the agent you cannot describe.</h1>
-  <p class="lead">Not the estate. One agent, already running, written down as a record you keep,
-  correct, and can hand to whoever asks.</p>
+  <p class="lead">One agent, already running, written down as a record you keep and correct. Then the
+  licence, then the acceptance, then the cover. The direction is set; the first step is on sale.</p>
   <div class="grid g3" style="margin-top:12px">
     <div class="card"><span class="k">Read one free</span><p>riskmandate.ai</p></div>
     <div class="card"><span class="k">Write your own</span><p>riskmandate.ai/try-it.html</p></div>
