@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.29.3** · 2026-09-23 — The lead's own line, and the verb pair it turns on
+  Notes: https://riskmandate.ai/versions/1.29.3.md · Source: `git:v1.29.3`
 - **v1.29.2** · 2026-09-23 — Two shorter descriptions, because a form refused the shortest one
   Notes: https://riskmandate.ai/versions/1.29.2.md · Source: `git:v1.29.2`
 - **v1.29.1** · 2026-09-23 — The logo as EPS, for a printer who asks for one

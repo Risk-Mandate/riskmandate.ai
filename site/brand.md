@@ -60,7 +60,7 @@ SVG for anything that scales, PNG where a raster is required, EPS for a printer.
 
 ## And the words.
 
-Anybody who asks for the logo asks for a line about us in the same breath, so both live here. Six lengths, saying the same thing in the same order, so choosing between them loses detail and never changes the claim. Paste the longest one the field accepts.
+Anybody who asks for the logo asks for a line about us in the same breath, so both live here. Seven lengths, saying the same thing in the same order, so choosing between them loses detail and never changes the claim. Paste the longest one the field accepts.
 
 None of these names a customer, a funder or an insurer, and none attaches an adjective to anybody else’s product. Every sentence is a definition of one of our own terms or a statement about our own work. British spelling throughout, and no dash in any of them.
 
