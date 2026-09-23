@@ -3,22 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>You are a founder</title>
-<meta name="description" content="You will be diligenced on your agents before long. A behaviour policy is what diligence finds, written by you first.">
-<link rel="canonical" href="https://riskmandate.ai/for-founders.html">
-<link rel="alternate" type="text/markdown" href="for-founders.md" title="This page as markdown">
+<title>RiskMandate — privacy: what this site collects, and how to check</title>
+<meta name="description" content="riskmandate.ai runs no analytics, sets no cookies, loads nothing from a third-party CDN and has no account to create. This page says what happens when you read it, when you write to us and when you buy, and what we never ask for.">
+<link rel="canonical" href="https://riskmandate.ai/privacy.html">
+<link rel="alternate" type="text/markdown" href="privacy.md" title="This page as markdown">
 <link rel="icon" href="assets/brand/riskmandate-favicon-32.png" sizes="32x32">
 <link rel="icon" href="assets/brand/riskmandate-mark.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="RiskMandate">
-<meta property="og:url" content="https://riskmandate.ai/for-founders.html">
-<meta property="og:title" content="You are a founder">
-<meta property="og:description" content="You will be diligenced on your agents before long. A behaviour policy is what diligence finds, written by you first.">
+<meta property="og:url" content="https://riskmandate.ai/privacy.html">
+<meta property="og:title" content="RiskMandate — privacy: what this site collects, and how to check">
+<meta property="og:description" content="riskmandate.ai runs no analytics, sets no cookies, loads nothing from a third-party CDN and has no account to create. This page says what happens when you read it, when you write to us and when you buy, and what we never ask for.">
 <meta property="og:image" content="https://riskmandate.ai/assets/brand/riskmandate-lockup-light.png">
 <meta name="twitter:card" content="summary_large_image">
 <!-- Scaffolded by scripts/site/new-page.mjs. Hand-edited from here on — there is no build step. -->
 <style>
-/* for-founders.css — self-contained: the shared chrome, then this page's own. */
+/* privacy.css — self-contained: the shared chrome, then this page's own. */
 :root{
   --bg:#F7F6F2; --bg2:#EFEDE7; --card:#FFFFFF; --ink:#0D0D0C; --canvas:#0A0A09;
   --text:#1A1917; --muted:#4A4845; --faint:#8A8780; --border:#E2DFD8;
@@ -135,51 +135,18 @@ rm-menu{display:contents}
   .demo{padding:8px 12px;font-size:12.5px}
 }
 
-/* for-founders.css */
-
-/* page kit: source notes, spec lists, file chips, the three-rung chain */
-.src{margin-top:24px;font-size:13px;color:var(--faint);line-height:1.8;max-width:820px}
-.src a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
-.shead p a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
-
-.speclist{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:1px;
-  background:var(--border);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
-.speclist li{background:var(--card);padding:16px 20px;display:flex;justify-content:space-between;
-  gap:22px;font-size:14px;color:var(--muted);flex-wrap:wrap;line-height:1.6}
-.speclist li > span:first-child{color:var(--text);flex:none;min-width:150px}
-
-.files{display:flex;flex-wrap:wrap;gap:8px}
-.files code{font-family:var(--mono);font-size:12px;color:var(--text);background:var(--bg2);
-  border:1px solid var(--border);border-radius:6px;padding:7px 11px}
-
-.chain{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
-@media (max-width:820px){.chain{grid-template-columns:1fr}}
-.ch{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--border);
-  border-radius:var(--r);padding:26px;text-decoration:none}
-a.ch:hover{border-color:var(--green)}
-.ch.here{background:var(--ink);border-color:var(--ink)}
-.chn{font-family:var(--mono);font-size:12.5px;font-weight:700;color:var(--green);margin-bottom:14px}
-.ch h3{margin:0 0 9px;font-size:18px;color:var(--text);letter-spacing:-.02em}
-.ch p{font-size:13.5px;color:var(--muted);line-height:1.55;margin:0}
-.ch.here h3{color:var(--fg)} .ch.here p{color:var(--fg-2)}
-.chs{margin-top:auto;padding-top:18px;font-family:var(--mono);font-size:10.5px;font-weight:700;
-  letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
-.ch.here .chs{color:var(--green-2)}
-
-.ins-note{margin-top:26px;font-size:13.5px;color:var(--faint);line-height:1.75;max-width:760px;font-style:italic}
-
-
+/* privacy.css — the table of what the site does and does not do */
+.pv-t{width:100%;border-collapse:collapse;margin-top:34px;font-size:15px;max-width:900px}
+.pv-t th{text-align:left;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);font-weight:700;padding:0 16px 10px 0;border-bottom:1px solid var(--border)}
+.pv-t td{padding:16px 16px 16px 0;border-bottom:1px solid var(--border);color:var(--muted);line-height:1.7;vertical-align:top}
+.pv-t td:first-child{color:var(--text);font-weight:600;width:34%}
+.pv-t b.no{color:var(--green)}
+.pv-t b.yes{color:var(--gold)}
+@media (max-width:640px){.pv-t td:first-child{width:auto}.pv-t,.pv-t tbody,.pv-t tr,.pv-t td{display:block}.pv-t thead{display:none}.pv-t td{border:0;padding:4px 0}.pv-t tr{border-bottom:1px solid var(--border);padding:14px 0;display:block}}
 
 .ghlink{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:8px;color:var(--muted);border:1px solid transparent}.ghlink:hover{color:var(--text);border-color:var(--border)}
 .footlic{display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap}.footlic a{color:inherit}.ccicon{vertical-align:-3px;margin:0 2px}
-@media (max-width:1400px) and (min-width:901px){.ghlink,header.top a.version{display:none}header.top .wrap{gap:14px}}
-.lvls{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
-.lvlchip{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--green);
-  background:var(--greenBg);border:1px solid rgba(26,127,90,.22);border-radius:8px;
-  padding:10px 14px;text-decoration:none;white-space:nowrap}
-.lvlchip:hover{background:var(--green);color:#fff;border-color:var(--green)}
-
-</style>
+@media (max-width:1400px) and (min-width:901px){.ghlink,header.top a.version{display:none}header.top .wrap{gap:14px}}</style>
 </head>
 <body id="top">
 
@@ -189,74 +156,100 @@ a.ch:hover{border-color:var(--green)}
     <nav class="navlinks"><rm-menu></rm-menu></nav>
     <a class="ghlink" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener" aria-label="The source, on GitHub" title="Open source · Apache-2.0 code · CC BY 4.0 pages"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a>
       <a class="version" href="versions.html" title="What shipped in v1.30.0">v1.30.0</a>
-    <button class="demo" data-demo>Book a demo</button>
+    <button class="demo" data-demo>Get in touch</button>
   </div>
 </header>
 
 <main class="phero">
   <div class="wrap">
-    <span class="eyebrow"><span class="d"></span> You are a founder</span>
-    <h1>Diligence will find it. <span class="it">You can find it first.</span></h1>
-    <p class="sub">You will be diligenced on your agents before long, by an enterprise customer, an acquirer or an investor. The useful direction is not a posture document that says you are fine. It is the document that says what you can actually reach, written by you, before somebody else writes a worse version of it.</p>
+    <span class="eyebrow"><span class="d"></span> Privacy &middot; 24 September 2026</span>
+    <h1>What this site collects, <span class="it">and how to check.</span></h1>
+    <p class="sub">Nothing on riskmandate.ai is measured, tracked or stored about you. There is no analytics, no tag manager, no advertising pixel and no cookie set by this site. That is a claim you do not have to take on trust: every page is plain HTML in <a href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener">a public repository</a>, and your browser&rsquo;s network tab is the audit.</p>
     <div class="cta-row">
-      <a class="btn btn-green" href="agent-behaviour-policy.html">See a real policy &rarr;</a>
-      <a class="btn btn-ghost" href="pricing.html">Where the free line falls</a>
+      <a class="btn btn-green" href="#browsing">What happens when you read a page &darr;</a>
+      <a class="btn btn-ghost" href="#buying">What happens if you buy</a>
     </div>
   </div>
 </main>
 
 <div class="paper">
-  <section class="psection">
-    <div class="wrap">
-      <div class="shead"><span class="tag">The question</span><h2>Would you like to know what diligence finds, before it runs?</h2></div>
-    </div>
-  </section>
 
-  <section class="psection alt">
+  <section class="psection" id="browsing">
     <div class="wrap">
-      <div class="shead"><span class="tag">Why not a posture document</span><h2>The reassuring version <span class="g">is already free.</span></h2>
-      <p>Buy-a-posture-document is a solved and crowded problem, and a document asserting that everything is under control is worth what any self-assessment is worth. We are not selling you that. A behaviour policy is useful precisely because it can be unflattering: the delta is computed, so it says what you can reach and did not ask for whether or not that is convenient.</p></div>
-    </div>
-  </section>
-
-  <section class="psection">
-    <div class="wrap">
-      <div class="shead"><span class="tag">What it does in the room</span><h2>A row somebody can argue with <span class="g">beats an assurance.</span></h2>
-      <p>Diligence questions about agents are new enough that most answers are improvised. Arriving with the enumeration already done, including the parts that are not tidy, changes the conversation from whether you have thought about it to which rows matter. The ones that are unflattering are evidence you did the work rather than evidence you have a problem.</p></div>
-    </div>
-  </section>
-
-  <section class="psection alt">
-    <div class="wrap">
-      <div class="shead"><span class="tag">Where this goes</span><h2>It is also the bottom <span class="g">of the insurance chain.</span></h2>
-      <p>The same document is rung one of three: describe the agent, licence it, insure it. That matters to a founder because the thing an acquirer or a carrier eventually wants is built from this and not from a questionnaire. <a href="insurance.html">The chain is set out here</a>.</p></div>
-    </div>
-  </section>
-
-  <section class="psection alt" id="buy">
-    <div class="wrap">
-      <div class="shead"><span class="tag">How to buy one</span><h2>One thing, <span class="g">at four levels.</span></h2>
-      <p>Level one is enough to see what diligence will find. Level three is the one where somebody corrects the mandate against your situation rather than a starting assumption. The whole ladder, what each level changes and who does the work is on <a href="pricing.html">pricing</a>; the catalogue and the checkout are on the store.</p></div>
-      <div class="lvls"><a class="lvlchip" href="https://store.sgit.ai/d/t1/" target="_blank" rel="noopener">Level 1 · the pack &middot; &pound;5</a><a class="lvlchip" href="https://store.sgit.ai/d/t3/" target="_blank" rel="noopener">Level 3 · corrected &middot; &pound;500</a><a class="lvlchip" href="https://store.sgit.ai/d/t4/" target="_blank" rel="noopener">Level 4 · two sessions &middot; &pound;1,500</a></div>
-      <div class="cta-row" style="margin-top:28px">
-        <a class="btn btn-green" href="https://store.sgit.ai/policies/" target="_blank" rel="noopener">Buy at the store &nearr;</a>
-        <a class="btn btn-ghost-dark" href="agent-behaviour-policy.html">See one first</a>
+      <div class="shead">
+        <span class="tag">Reading the site</span>
+        <h2>No analytics, no cookies, <span class="g">and one thing in your browser.</span></h2>
+        <p>The site is static files. It runs no server of its own, holds no database, and has no account to create.</p>
       </div>
-      <p class="src">The store takes the order and hands you back here: one page per level, and at level one that page <b>is</b> the download &mdash; the zip, its size, its sha256 and a check that runs in your own browser. Payment rails are not built yet, and every checkout button on the store says so rather than looking live.</p>
+      <table class="pv-t">
+        <thead><tr><th>What</th><th>Whether this site does it</th></tr></thead>
+        <tbody>
+          <tr><td>Analytics, product analytics or a tag manager</td><td><b class="no">None.</b> No Google Analytics, no Plausible, no Segment, no pixel of any kind.</td></tr>
+          <tr><td>Cookies set by this site</td><td><b class="no">None.</b> Nothing on this site writes a cookie.</td></tr>
+          <tr><td>Browser storage</td><td><b class="yes">One key.</b> The behaviour-policy pages remember how wide you dragged the side panel, under <code>rm-abp-panel-w</code>. It stays in your browser, it is a number, and clearing site data removes it.</td></tr>
+          <tr><td>Fonts and scripts from somebody else&rsquo;s server</td><td><b class="no">None.</b> The typeface is served from this site, and every script is inline in the page it belongs to.</td></tr>
+          <tr><td>An account, a sign-up or a newsletter</td><td><b class="no">None.</b> There is nothing to create and no list to join.</td></tr>
+          <tr><td>Forms that post to a server</td><td><b class="no">None.</b> The one form on the site, on <a href="agent-behaviour-policy-next.html">which behaviour policy next</a>, opens your own mail client with the text in it. You decide whether to send it, and it goes to us as an ordinary email.</td></tr>
+        </tbody>
+      </table>
+      <p class="src">Two things do happen that are not ours, and it would be dishonest to leave them out. <b>The site is hosted on GitHub Pages</b>, so GitHub&rsquo;s servers see the ordinary request information any web server sees, including your IP address, and handle it under <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener">GitHub&rsquo;s privacy statement</a>. We have no analytics dashboard, no log access and no way to see who read what. And <b>a page that embeds a live vault</b> &mdash; the demos, and the reading app on a behaviour-policy page &mdash; loads that vault from <code>vault.sgraph.ai</code>, so opening those pages contacts SGraph the way opening any embedded page contacts its host. Everything in the vault is decrypted in your browser.</p>
     </div>
   </section>
+
+  <section class="psection alt" id="writing">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Writing to us</span>
+        <h2>An email is an email, <span class="g">and a person reads it.</span></h2>
+      </div>
+      <ul class="plist">
+        <li><strong>What we get:</strong> your email address and whatever you put in the message. No form builder, no CRM sitting in between, and no automatic list.</li>
+        <li><strong>What we do with it:</strong> answer it. If it is a correction to something published here, it may produce a change on the site and a note in the release &mdash; the substance, not your address.</li>
+        <li><strong>How long we keep it:</strong> in a mailbox, like any other mail. Ask us to delete it and we will.</li>
+        <li><strong>Who else sees it:</strong> nobody outside the people running this, and no advertiser or data broker, ever.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="psection" id="buying">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Buying, and the work that follows</span>
+        <h2>The cart is not ours, <span class="g">and neither is your card.</span></h2>
+        <p>Payment happens at <a href="https://store.sgit.ai/" target="_blank" rel="noopener">store.sgit.ai</a> on the payment provider&rsquo;s own pages. This site never takes a payment, never sees a card number, and issues no order reference. <a href="https://store.sgit.ai/boundary/" target="_blank" rel="noopener">The boundary between the two sites</a> is published.</p>
+      </div>
+      <ul class="plist">
+        <li><strong>What reaches us from a purchase:</strong> the order reference and the address you paid with, so that a person can write to you and deliver what you bought.</li>
+        <li><strong>What we ask you for while doing the work:</strong> what your agent is connected to, at the level of names, and what your team believed it had authorised. That is the whole of it.</li>
+        <li><strong>What we never ask for:</strong> credentials, tokens, keys, a seat in your environment, or the data your agent processes. Not at any level. Nothing we deliver sits in your request path, and we never connect to anything of yours.</li>
+        <li><strong>At the corrected level,</strong> you run a prompt where your agent runs and send back what it produced. <a href="pricing.html">The page that describes it</a> says what those files are and that they carry no secret; read them before you send them, because they are yours until you do.</li>
+        <li><strong>Your vault key never appears on a page or in a committed file.</strong> It reaches you out of band, in a separate message to the address you paid with. A read key you may publish; the vault key you may not, and we cannot recover it for you.</li>
+        <li><strong>The vault is yours.</strong> Its contents describe your deployment and are not published by us. The sixteen <a href="agent-behaviour-policy.html">template policies</a> are public on purpose, with their read keys printed, because a policy nobody can check is a policy asking to be trusted.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="psection alt" id="rights">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Your rights, and the address</span>
+        <h2>Ask what we hold. <span class="g">It is a short answer.</span></h2>
+        <p>If you have never written to us and never bought anything, the answer is nothing at all: there is no profile, no identifier and no record of your visit anywhere we can reach. If you have, write to <a href="mailto:dinis.cruz@owasp.org?subject=Privacy%20%C2%B7%20riskmandate.ai">dinis.cruz@owasp.org</a> and ask for a copy of it, a correction to it, or its deletion. UK and EU readers have those rights in law and you do not need to cite the law to use them here.</p>
+      </div>
+      <p class="src">RiskMandate is operated from London, United Kingdom. This page is written by the people who run the site rather than by a solicitor, and it describes what the site actually does rather than what a template says a site might do. If something here is wrong, tell us: it will be corrected on the page with a dated note, which is how every other correction on this site is handled. Last reviewed 24 September 2026.</p>
+    </div>
+  </section>
+
 </div>
 
 <section class="pcta" id="demo">
   <div class="wrap">
-    <span class="eyebrow"><span class="d"></span> One agent, to start</span>
-    <h2>Write it before somebody writes it for you.</h2>
-    <p>One agent you already run, enumerated, with the gap computed. It is a file you keep, and it is yours to correct.</p>
-    <div class="cta-row"><a class="btn btn-green" href="abp.html">What a behaviour policy is &rarr;</a><button class="btn btn-ghost" data-demo>Talk to us</button></div>
+    <span class="eyebrow"><span class="d"></span> The same rule as the rest of the site</span>
+    <h2>A claim you can check <span class="it">beats a claim you must believe.</span></h2>
+    <p>Every page here is in a public repository, every published policy has its read key printed, and this page tells you what to look for in your own browser. That is the whole method, applied to ourselves.</p>
+    <div class="cta-row"><a class="btn btn-green" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener">Read the source &nearr;</a><a class="btn btn-ghost" href="questions.html">What we do not claim</a></div>
   </div>
 </section>
-
-
 
 <footer class="foot">
   <div class="wrap">
@@ -270,7 +263,7 @@ a.ch:hover{border-color:var(--green)}
 (function(){
 'use strict';
 var RM={core:{},services:{},components:{},data:{}};
-RM.data.currentPage="for-founders";RM.data.pages=[{"name":"agent-behaviour-policy","label":"The sixteen examples","file":"agent-behaviour-policy.html","group":"Behaviour policies"},{"name":"abp","label":"What an ABP is","file":"abp.html","group":"Behaviour policies"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"Behaviour policies"},{"name":"licence-to-operate","label":"Licence to Operate","file":"licence-to-operate.html","group":"Behaviour policies"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"Behaviour policies"},{"name":"for-corporate","label":"You run agents today","file":"for-corporate.html","group":"Who it's for"},{"name":"for-founders","label":"You are a founder","file":"for-founders.html","group":"Who it's for"},{"name":"for-startups","label":"You are a startup","file":"for-startups.html","group":"Who it's for"},{"name":"insurance","label":"Make agents insurable","file":"insurance.html","group":"Insurance"},{"name":"insure-a-program","label":"Can you insure a program?","file":"insure-a-program.html","group":"Insurance"},{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"Insurance"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"Insurance"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"Insurance"},{"name":"pricing","label":"The four levels","file":"pricing.html","group":"Pricing"},{"name":"abp-reviewed","label":"The reviewed level","file":"abp-reviewed.html","group":"Pricing"},{"name":"reviewers","label":"Who runs your review","file":"reviewers.html","group":"Pricing"},{"name":"try-it","label":"Try it","file":"try-it.html"},{"name":"articles","label":"Articles","file":"articles.html"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"privacy","label":"Privacy","file":"privacy.html","group":"More"},{"name":"lab","label":"The Lab","file":"lab.html","group":"More"},{"name":"demos","label":"Live demos","file":"demos.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"admin","label":"Admin","file":"admin/","group":"More"}];RM.data.sections=[];
+RM.data.currentPage="privacy";RM.data.pages=[{"name":"agent-behaviour-policy","label":"The sixteen examples","file":"agent-behaviour-policy.html","group":"Behaviour policies"},{"name":"abp","label":"What an ABP is","file":"abp.html","group":"Behaviour policies"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"Behaviour policies"},{"name":"licence-to-operate","label":"Licence to Operate","file":"licence-to-operate.html","group":"Behaviour policies"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"Behaviour policies"},{"name":"for-corporate","label":"You run agents today","file":"for-corporate.html","group":"Who it's for"},{"name":"for-founders","label":"You are a founder","file":"for-founders.html","group":"Who it's for"},{"name":"for-startups","label":"You are a startup","file":"for-startups.html","group":"Who it's for"},{"name":"insurance","label":"Make agents insurable","file":"insurance.html","group":"Insurance"},{"name":"insure-a-program","label":"Can you insure a program?","file":"insure-a-program.html","group":"Insurance"},{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"Insurance"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"Insurance"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"Insurance"},{"name":"pricing","label":"The four levels","file":"pricing.html","group":"Pricing"},{"name":"abp-reviewed","label":"The reviewed level","file":"abp-reviewed.html","group":"Pricing"},{"name":"reviewers","label":"Who runs your review","file":"reviewers.html","group":"Pricing"},{"name":"try-it","label":"Try it","file":"try-it.html"},{"name":"articles","label":"Articles","file":"articles.html"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"privacy","label":"Privacy","file":"privacy.html","group":"More"},{"name":"lab","label":"The Lab","file":"lab.html","group":"More"},{"name":"demos","label":"Live demos","file":"demos.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"admin","label":"Admin","file":"admin/","group":"More"}];RM.data.sections=[];
 
 'use strict';
 // components/dom.js — tiny DOM helpers shared by components. `el` builds an

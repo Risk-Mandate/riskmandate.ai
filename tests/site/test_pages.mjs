@@ -322,3 +322,28 @@ test('a behaviour-policy vault page names the level and never the price, and its
     }
   }
 });
+
+test('the privacy page tells the truth: no analytics, no cookie, nothing loaded from somebody else', () => {
+  // The page tells a reader to check the claim in their own network tab rather than believe
+  // it, which only works if the claim keeps being true. These are properties of the deployed
+  // tree, so they are asserted rather than trusted: one dropped snippet and the page becomes
+  // the one dishonest thing on a site whose whole argument is that claims are checkable.
+  const TRACKER = /googletagmanager|google-analytics|\bgtag\s*\(|plausible\.io|matomo|hotjar|mixpanel|segment\.com|connect\.facebook|doubleclick|clarity\.ms/i;
+  for (const f of pages) {
+    const s = read(f);
+    assert.doesNotMatch(s, TRACKER, `${f} carries an analytics snippet, and privacy.html says none exists`);
+    assert.doesNotMatch(s, /document\.cookie/, `${f} touches document.cookie, and privacy.html says nothing does`);
+    // a subresource is loaded; a link is followed by a person. Only the first breaks the claim.
+    for (const [tag] of s.matchAll(/<script[^>]+src\s*=\s*"https?:[^"]*"/gi))
+      assert.fail(`${f} loads a script from elsewhere: ${tag}`);
+    for (const [tag] of s.matchAll(/<link[^>]+rel="stylesheet"[^>]*href\s*=\s*"https?:[^"]*"/gi))
+      assert.fail(`${f} loads a stylesheet from elsewhere: ${tag}`);
+    for (const [tag] of s.matchAll(/@font-face[^}]*url\(\s*["']?https?:[^)]*\)/gi))
+      assert.fail(`${f} loads a font from elsewhere: ${tag}`);
+  }
+  // and the two things that are not ours stay disclosed, because leaving them out is the
+  // easier kind of dishonesty
+  const privacy = read('privacy.html');
+  assert.match(privacy, /GitHub Pages/, 'privacy.html no longer discloses who hosts the site');
+  assert.match(privacy, /vault\.sgraph\.ai/, 'privacy.html no longer discloses the embedded vault host');
+});

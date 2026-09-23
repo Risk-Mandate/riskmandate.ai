@@ -132,6 +132,12 @@
       "group": "More"
     },
     {
+      "name": "privacy",
+      "label": "Privacy",
+      "file": "privacy.html",
+      "group": "More"
+    },
+    {
       "name": "lab",
       "label": "The Lab",
       "file": "lab.html",
