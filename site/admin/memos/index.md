@@ -5,13 +5,17 @@
 
 **2**received, nothing built yet*Archived and read, and nothing has been built from it yet.*
 
-**12**partly worked*read in full; a named part is not built*
+**13**partly worked*read in full; a named part is not built*
 
 **8**processed*something on the site exists because of it*
 
 **0**superseded*kept because the reasoning is the record*
 
 The queue. A document or a memo from the project lead arrives — a dev brief as a file, a voice memo as a transcript, an instruction in the thread — and is archived exactly as received: files by SHA-256 in [the register](../../briefs-register.json), so an identical file arriving again is recognised before anybody reads it; speech and chat as an entry with no digest. Then it is read into [a brief](../../admin/briefs/), and the brief is broken into [units of work](../../admin/work/). What was said and what we made of it are kept apart on purpose.
+
+**[How it technically works: prompts first, then hope is not a control, then fit, integrate, graph, and the vault as provenance](#D12)**
+
+spoken brief, transcribed · 1 produced · 3 not done24 September 2026 · partly
 
 **[The named professional, and the assignment of the individual who does the £1,500 review](#D11)**
 
@@ -120,6 +124,22 @@ Task briefs under `.claude/briefs/`, each sized for one agent and naming the fil
 The row moves on [the board](../../admin/work/); the register's *status* and *not done* say what the memo still owes.
 
 ## What happened to each of them
+
+D12 · spoken brief, transcribed · 24 September 2026
+
+## How it technically works: prompts first, then hope is not a control, then fit, integrate, graph, and the vault as provenance
+
+partly
+
+[the file as received](../../assets/briefs/2026-09-24__transcript__how-it-technically-works.txt) · `dadd026e61c5…` · 2 KB
+
+**Produced.** [How it works, rebuilt in the order the memo gives: six steps with the status of each on the step](../../how-it-works.html)
+
+**Not done.**
+
+- Connectors to a customer's own control planes (identity provider, cloud IAM, proxy, CI). Described as built per engagement and productised as they mature; none exists as a product and the page says so.
+- The graph's edges upward to risks and the board, and sideways to a customer's internal policies and documents. Standards edges run today; these are marked in design.
+- Execution logs and evidence held in the vault beside the policy, as the memo's provenance store. Marked as where this goes, not as something that exists.
 
 D11 · spoken brief, transcribed · 22 September 2026
 

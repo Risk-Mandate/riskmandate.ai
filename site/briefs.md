@@ -175,6 +175,18 @@ Each one is linked in full, as received, with nothing edited. Where a brief and 
 - **Availability.** No queue, no calendar and no throughput is published, because none can be honoured yet — the page carries a status and the date it was confirmed
 - **What the reviewer is paid.** Agreed in the brief and deliberately not published: a commercial term that belongs to the lead, recorded here so it is not mistaken for an oversight
 
+### How it technically works: prompts first, then hope is not a control, then fit, integrate, graph, and the vault as provenance
+
+**sha256** dadd026e61c5653ea7789c5f8e852900cc4d1bef8f852ea9846719bd9ba91791
+
+**Prompted by a peer asking, in a chat, “how does it technically work?”** The page called _How it works_ answered with an architecture that predates the Agent Behaviour Policy — twins, a RiskGraph, engines, board briefings, an API — none of which is what is sold, and one line of which, _twins instead of integrations_, said the opposite of the memo. The memo gives the order: start with a prompt because being surprised by the reach is the shift; notice that asking an agent to behave is hope rather than a control; fit the policy to whatever controls actually exist; integrate with whatever the customer runs, connectors built per engagement; connect it all as one graph to risks, standards and internal policies; and keep it in a vault because the vault is the provenance. Rebuilt in that order, with a status chip on each step.
+
+- [How it works](how-it-works.html), rebuilt: the technical insight kept, then six steps in the memo’s order, each marked running, per engagement or in design
+- The one-line answer to _what does this do_ at the top of the page, in the words the lead used in the chat
+- **Connectors to a customer’s own control planes.** Built per engagement, productised as they mature; none is a product, and the page says so rather than implying one
+- **The graph’s edges upward to risks and the board, and sideways to internal policies and documents.** Standards edges run in every vault today; these are marked in design
+- **Execution logs and evidence in the vault beside the policy.** The memo’s provenance store, marked as where this goes
+
 ## And the instructions that arrived as speech or a sentence.
 
 These have no digest to check, which makes them the ones most easily lost — a voice memo that changed the direction of the whole site leaves no artefact at all unless somebody writes it down. So they are recorded here in the same list, with the same two columns.

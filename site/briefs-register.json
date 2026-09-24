@@ -403,6 +403,32 @@
         "Availability, a queue or a throughput number: none can be honoured yet, so the pages carry a status and the date it was confirmed instead.",
         "What the reviewer is paid — agreed in the brief and deliberately not published. A commercial term, and the lead's call."
       ]
+    },
+    {
+      "id": "D12",
+      "title": "How it technically works: prompts first, then hope is not a control, then fit, integrate, graph, and the vault as provenance",
+      "version": null,
+      "type": "spoken brief, transcribed",
+      "dated": "2026-09-24",
+      "file": "assets/briefs/2026-09-24__transcript__how-it-technically-works.txt",
+      "bytes": 2299,
+      "sha256": "dadd026e61c5653ea7789c5f8e852900cc4d1bef8f852ea9846719bd9ba91791",
+      "received": [
+        "2026-09-24T09:00Z"
+      ],
+      "duplicate_of": null,
+      "status": "partly",
+      "produced": [
+        {
+          "what": "How it works, rebuilt in the order the memo gives: six steps with the status of each on the step",
+          "url": "how-it-works.html"
+        }
+      ],
+      "not_done": [
+        "Connectors to a customer's own control planes (identity provider, cloud IAM, proxy, CI). Described as built per engagement and productised as they mature; none exists as a product and the page says so.",
+        "The graph's edges upward to risks and the board, and sideways to a customer's internal policies and documents. Standards edges run today; these are marked in design.",
+        "Execution logs and evidence held in the vault beside the policy, as the memo's provenance store. Marked as where this goes, not as something that exists."
+      ]
     }
   ],
   "informal": [
