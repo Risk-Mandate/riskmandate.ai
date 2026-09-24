@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.34.3** · 2026-09-24 — Four releases, delivered
+  Notes: https://riskmandate.ai/versions/1.34.3.md · Source: `git:v1.34.3`
 - **v1.34.2** · 2026-09-24 — Twenty minutes of your advice, by voice
   Notes: https://riskmandate.ai/versions/1.34.2.md · Source: `git:v1.34.2`
 - **v1.34.1** · 2026-09-24 — A behaviour policy for everybody the lead talks to
