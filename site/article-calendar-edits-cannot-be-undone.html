@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A deleted meeting comes back. An edited one does not.</title>
+<meta name="description" content="Google Calendar keeps a deleted event in a trash for 30 days and documents no way for a user to restore an edited one. What Google keeps after each action, in its own words, why an edit is worse than a delete, where Google's pages disagree, and the draft Calendar rows of an Agent Behaviour Policy.">
+<link rel="canonical" href="https://riskmandate.ai/article-calendar-edits-cannot-be-undone.html">
+<link rel="alternate" type="text/markdown" href="article-calendar-edits-cannot-be-undone.md" title="This page as markdown">
+<link rel="icon" href="assets/brand/riskmandate-favicon-32.png" sizes="32x32">
+<link rel="icon" href="assets/brand/riskmandate-mark.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RiskMandate">
+<meta property="og:url" content="https://riskmandate.ai/article-calendar-edits-cannot-be-undone.html">
+<meta property="og:title" content="A deleted meeting comes back. An edited one does not.">
+<meta property="og:description" content="Google Calendar keeps a deleted event in a trash for 30 days and documents no way for a user to restore an edited one. What Google keeps after each action, in its own words, why an edit is worse than a delete, where Google's pages disagree, and the draft Calendar rows of an Agent Behaviour Policy.">
+<meta property="og:image" content="https://riskmandate.ai/assets/brand/riskmandate-lockup-light.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Scaffolded by scripts/site/new-page.mjs. Hand-edited from here on — there is no build step. -->
+<style>
+/* article-calendar-edits-cannot-be-undone.css — self-contained: the shared chrome, then this page's own. */
+:root{
+  --bg:#F7F6F2; --bg2:#EFEDE7; --card:#FFFFFF; --ink:#0D0D0C; --canvas:#0A0A09;
+  --text:#1A1917; --muted:#4A4845; --faint:#8A8780; --border:#E2DFD8;
+  --green:#1A7F5A; --green-2:#22c55e; --greenBg:#EBF5F0;
+  --gold:#B45309; --red:#C0392B; --blue:#1D4ED8;
+  --fg:#F7F6F2; --fg-2:rgba(247,246,242,.55); --fg-3:rgba(247,246,242,.32);
+  --line:rgba(247,246,242,.10); --line-2:rgba(247,246,242,.18);
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","JetBrains Mono","Roboto Mono",Menlo,Consolas,monospace;
+  --wrap:1000px; --r:10px; --r-sm:8px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth} @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+h1,h2{margin:0;font-weight:800;letter-spacing:-.03em;line-height:1.04}
+h2{font-size:clamp(26px,3.6vw,40px);font-weight:700;letter-spacing:-.02em}
+p{margin:0}
+:focus-visible{outline:2px solid var(--green-2);outline-offset:3px;border-radius:4px}
+.tag{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+.g{color:var(--green)} .it{font-style:italic;color:var(--green)}
+
+/* header */
+.top{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.top .wrap{display:flex;align-items:center;gap:22px;height:56px;max-width:1100px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:15px;color:var(--text);white-space:nowrap;text-decoration:none}
+.rm{width:26px;height:26px;flex:none;display:block}
+.rm svg{width:100%;height:100%;display:block}
+.navlinks{display:flex;align-items:center;gap:22px;margin-left:auto}
+rm-menu{display:contents}
+.navlinks a{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;text-decoration:none;display:inline-flex;align-items:center}
+.navlinks a:hover{color:var(--text)}
+.navlinks a.active{color:var(--text);font-weight:600}
+.version{font-family:var(--mono);font-size:12px;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:7px;padding:5px 8px;text-decoration:none;white-space:nowrap;transition:color .15s,border-color .15s}
+.version:hover{color:var(--text);border-color:var(--faint)}
+.demo{background:var(--green);color:#fff;font-weight:600;font-size:13px;border:0;border-radius:8px;padding:8px 16px;cursor:pointer;transition:background .15s;font-family:var(--sans);white-space:nowrap}
+.demo:hover{background:#16704f}
+
+/* nav dropdowns */
+.navgroup{position:relative;display:inline-flex;align-items:center}
+.navgroup::after{content:"";position:absolute;top:100%;left:0;right:0;height:10px}
+.navgroup-btn{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;display:inline-flex;align-items:center;gap:5px}
+.navgroup-btn:hover,.navgroup:hover .navgroup-btn,.navgroup.open .navgroup-btn,.navgroup.active .navgroup-btn{color:var(--text)}
+.navgroup-car{font-size:8px;line-height:1;opacity:.6;transition:transform .15s}
+.navgroup:hover .navgroup-car,.navgroup.open .navgroup-car{transform:rotate(180deg)}
+.navmenu{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);min-width:184px;background:var(--card);border:1px solid var(--border);border-radius:10px;box-shadow:0 10px 34px rgba(13,13,12,.14);padding:6px;display:none;flex-direction:column;gap:2px;z-index:70}
+.navgroup:hover .navmenu,.navgroup.open .navmenu{display:flex}
+.navmenu .navchild{justify-content:flex-start;text-align:left;width:100%;padding:8px 12px;border-radius:7px;font-size:13.5px;color:var(--muted);white-space:nowrap}
+.navmenu .navchild:hover{background:var(--bg2);color:var(--text)}
+.navmenu .navchild.active{color:var(--green);font-weight:600;background:var(--greenBg)}
+
+/* mobile drawer — the toggle is injected by nav.js; .top.nav-open opens it */
+.navtoggle{display:none;margin-left:auto;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;padding:0;background:none;border:0;cursor:pointer}
+.navtoggle span{display:block;width:20px;height:2px;margin:0 auto;background:var(--text);border-radius:2px;transition:transform .2s,opacity .2s}
+.top.nav-open .navtoggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.top.nav-open .navtoggle span:nth-child(2){opacity:0}
+.top.nav-open .navtoggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media (max-width:1040px){
+  .navtoggle{display:flex}
+  .top .wrap{position:relative}
+  .version{display:none}
+  .navlinks{display:none;position:absolute;left:0;right:0;top:calc(100% + 1px);flex-direction:column;align-items:stretch;gap:0;margin:0;padding:8px;background:var(--card);border-bottom:1px solid var(--border);box-shadow:0 14px 34px rgba(13,13,12,.14);max-height:calc(100vh - 56px);overflow:auto}
+  .top.nav-open .navlinks{display:flex}
+  .navlinks a,.navlinks .navgroup-btn{width:100%;text-align:left;justify-content:flex-start;padding:12px 16px;font-size:15px;border-radius:8px}
+  .navlinks a:hover{background:var(--bg2)}
+  .navgroup{display:block;width:100%;position:static}
+  .navgroup::after{display:none}
+  .navgroup-btn{display:flex}
+  .navgroup-car{margin-left:auto}
+  .navmenu{position:static;transform:none;display:flex;flex-direction:column;min-width:0;padding:2px 0 8px 14px;background:transparent;border:0;box-shadow:none}
+  .navmenu .navchild{padding:10px 14px;font-size:14px}
+}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;padding:12px 22px;border-radius:var(--r-sm);cursor:pointer;border:1px solid transparent;font-family:var(--sans);text-decoration:none}
+.btn-green{background:var(--green);color:#fff} .btn-green:hover{background:#16704f}
+.btn-ghost{background:transparent;color:var(--fg);border-color:var(--line-2)} .btn-ghost:hover{border-color:var(--fg-2)}
+.btn-ghost-dark{background:transparent;color:var(--text);border-color:var(--border)} .btn-ghost-dark:hover{border-color:var(--green);color:var(--green)}
+
+/* dark hero */
+.phero{background:var(--ink);color:var(--fg);padding:88px 24px 84px}
+.phero .wrap{max-width:var(--wrap)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--green);background:rgba(26,127,90,.18);border:1px solid rgba(26,127,90,.4);border-radius:999px;padding:5px 12px}
+.eyebrow .d{width:6px;height:6px;border-radius:50%;background:var(--green-2)}
+.phero h1{font-size:clamp(34px,5.2vw,60px);letter-spacing:-.04em;line-height:1.02;margin:26px 0 0;color:var(--fg);max-width:900px}
+.phero .sub{color:var(--fg-2);font-size:17px;line-height:1.7;max-width:640px;margin-top:24px}
+.cta-row{display:flex;flex-wrap:wrap;gap:11px;margin-top:30px}
+
+/* paper sections */
+.paper{background:var(--bg)}
+.psection{padding:80px 0;border-bottom:1px solid var(--border)}
+.psection.alt{background:var(--bg2)}
+.shead{max-width:680px} .shead.center{max-width:720px;margin:0 auto;text-align:center}
+.shead h2{color:var(--text)} .shead p{color:var(--muted);margin-top:16px;font-size:15px;line-height:1.75}
+
+/* closing panel + footer */
+.pcta{background:var(--ink);padding:80px 24px;text-align:center}
+.pcta .wrap{max-width:720px;padding:0}
+.pcta h2{font-size:clamp(28px,4.4vw,48px);color:var(--fg);margin-top:20px;font-weight:700;letter-spacing:-.03em}
+.pcta p{color:var(--fg-2);margin-top:16px;font-size:16px;line-height:1.7}
+.pcta .cta-row{justify-content:center}
+.foot{background:var(--canvas);border-top:1px solid var(--line);padding:32px 24px}
+.foot .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-family:var(--mono);font-size:10px;color:var(--fg-3);max-width:1100px}
+.footlink{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.footlink:hover{color:var(--fg-2)}
+/* narrow phones — at 360px the brand, the burger and the call to action stop
+   fitting on one line, and the header was the last thing on this site that
+   scrolled sideways. Tighten the gutter, the gap and the button rather than
+   drop any of them: all three are load-bearing at this width. */
+@media (max-width:420px){
+  .top .wrap{gap:12px;padding:0 16px}
+  .brand{font-size:14px;gap:7px}
+  .rm{width:24px;height:24px}
+  .demo{padding:8px 12px;font-size:12.5px}
+}
+
+/* article-calendar-edits — what Google keeps after each action, and what a behaviour policy does with that */
+.phero .meta{font-family:var(--mono);font-size:12px;color:rgba(255,255,255,.6);line-height:1.7;margin-top:6px;max-width:820px}
+.phero .meta b{color:rgba(255,255,255,.85)}
+.phero .meta a{color:inherit}
+.gc-note{font-size:15px;line-height:1.75;color:var(--muted);max-width:880px;margin-top:16px}
+.gc-note b{color:var(--text)}
+.gc-note a,.gc-box a,.gc-act a{color:var(--green)}
+.gc-quote{margin:24px 0 0;max-width:880px;border-left:3px solid var(--green);padding:4px 0 4px 22px;font-size:18px;line-height:1.65;color:var(--text);font-style:italic}
+.gc-src{font-family:var(--mono);font-size:11px;color:var(--faint);line-height:1.6;margin-top:8px;overflow-wrap:anywhere}
+.gc-src a{color:inherit}
+.gc-acts{display:flex;flex-direction:column;margin-top:28px;border:1px solid var(--border);border-radius:var(--r);background:var(--card);overflow:hidden}
+.gc-act{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr) minmax(0,1.3fr);border-top:1px solid var(--border)}
+.gc-act:first-child{border-top:0;background:var(--bg2)}
+.gc-act>div{padding:16px 18px;font-size:14px;line-height:1.65;color:var(--muted)}
+.gc-act>div+div{border-left:1px solid var(--border)}
+.gc-act:first-child>div{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text);padding:12px 18px}
+.gc-act h3{font-size:15.5px;color:var(--text);letter-spacing:-.01em;margin:0}
+.gc-act .how{display:block;font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:6px}
+.gc-act b{color:var(--text)}
+.gc-act .no{color:#96442C;font-weight:600}
+.gc-act .yes{color:var(--green);font-weight:600}
+.gc-act .src{display:block;font-family:var(--mono);font-size:10.5px;color:var(--faint);margin-top:8px;overflow-wrap:anywhere}
+.gc-two{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
+.gc-box{border:1px solid var(--border);border-radius:var(--r);padding:22px 24px;background:var(--card)}
+.gc-box.hole{border-color:var(--green)}
+.gc-box.wrong{border-color:#C9A097}
+.gc-box .k{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+.gc-box h3{font-size:17px;color:var(--text);margin:8px 0 8px}
+.gc-box p{font-size:14.5px;line-height:1.7;color:var(--muted)}
+.gc-box p+p{margin-top:8px}
+.gc-dis{display:flex;flex-direction:column;margin-top:24px;max-width:960px}
+.gc-dis>div{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 22px;padding:16px 0;border-top:1px solid var(--border)}
+.gc-dis>div:last-child{border-bottom:1px solid var(--border)}
+.gc-dis h3{grid-column:1 / -1;font-size:15px;color:var(--text);margin-bottom:8px}
+.gc-dis p{font-size:14px;line-height:1.65;color:var(--muted)}
+.gc-dis p em{color:var(--text)}
+.gc-rows{margin-top:26px;border:1px solid var(--border);border-radius:var(--r);background:var(--card);overflow:hidden;max-width:1000px}
+.gc-row{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr) minmax(0,1.4fr) minmax(0,1.6fr);border-top:1px solid var(--border)}
+.gc-row:first-child{border-top:0;background:var(--bg2)}
+.gc-row>span{padding:12px 14px;font-size:13.5px;line-height:1.6;color:var(--muted)}
+.gc-row:first-child>span{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text)}
+.gc-row>span:first-child{color:var(--text);font-weight:600}
+.gc-row .none{color:#96442C}
+.gc-draft{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:#FDF1DC;color:var(--gold);border-radius:999px;padding:3px 9px;margin-left:8px;vertical-align:middle}
+@media (max-width:900px){.gc-act{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.gc-act>div:first-child{grid-column:1 / -1;border-bottom:1px solid var(--border)}.gc-act>div:nth-child(2){border-left:0}.gc-act:first-child{display:none}.gc-act>div[data-k]::before{content:attr(data-k);display:block;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:4px}.gc-two{grid-template-columns:1fr}.gc-row{grid-template-columns:1fr 1fr}.gc-row>span:first-child{grid-column:1 / -1}.gc-row:first-child{display:none}.gc-row>span[data-k]::before{content:attr(data-k);display:block;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:2px}}
+@media (max-width:640px){.gc-act{grid-template-columns:minmax(0,1fr)}.gc-act>div+div{border-left:0;border-top:1px dashed var(--border)}.gc-dis>div{grid-template-columns:1fr}.gc-dis p+p{margin-top:8px}.gc-row{grid-template-columns:1fr}.gc-quote{font-size:16px}}
+</style>
+</head>
+<body id="top">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
+    <nav class="navlinks"><rm-menu></rm-menu></nav>
+    <a class="version" href="versions.html" title="What shipped in v1.32.3">v1.32.3</a>
+    <button class="demo" data-demo>Book a demo</button>
+  </div>
+</header>
+
+<main class="phero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span>ARTICLE · 24 SEPTEMBER 2026</span>
+    <h1>A deleted meeting comes back. An edited one does not.</h1>
+    <p class="sub" style="margin-bottom:20px">Google Calendar keeps a deleted event in a trash for 30 days. It documents no way for a user to get back an event that was edited. So an agent allowed to edit your calendar can do damage a delete cannot: fifty meetings moved, re-titled or stripped of their guests, each still looking like a real meeting, with nothing to restore them from. This is an integrity risk, and it changes which permission is the dangerous one.</p>
+    <p class="meta"><b>Evidence:</b> Google&rsquo;s own help, Workspace and developer pages, read 24 September 2026, quoted with their addresses. Nothing was tested on anybody&rsquo;s account.</p>
+    <p class="meta"><b>Where it came from:</b> drafting behaviour policies for agents with Calendar access. Those policies are in draft and not yet published; the rows in section 06 are from the draft.</p>
+    <p class="meta"><b>This page as markdown:</b> <a href="article-calendar-edits-cannot-be-undone.md">article-calendar-edits-cannot-be-undone.md</a></p>
+  </div>
+</main>
+
+<div class="paper">
+
+<section class="psection">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">01 · Why the calendar</span>
+      <h2>The inbox is best effort. The calendar runs the day.</h2>
+      <p>Asked which mattered more, their email or their calendar, the early users the lead spoke to said the calendar, and so does the lead. That is a handful of conversations, not a survey, and it is offered as that. The reason they gave is the useful part: email is read when there is time, and some of it never is; the calendar is followed. People turn up where it says, at the time it says, having prepared for what it says the meeting is about.</p>
+    </div>
+    <p class="gc-note">Which means that for a calendar, the question that matters most is often not <em>who can read it</em> but <em>can I still trust it</em>. A confidentiality failure leaks your week. An integrity failure sends you to the wrong room, at the wrong hour, without the person you were meeting, and nothing on the screen tells you so.</p>
+  </div>
+</section>
+
+<section class="psection alt">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">02 · What Google keeps</span>
+      <h2>Action by action, <span class="g">in Google&rsquo;s own words.</span></h2>
+      <p>For a personal account, and for a Workspace account whose edition includes Vault for Calendar. Where a page shows no date, it was read on 24 September 2026; Workspace and developer pages carry their own &ldquo;last updated&rdquo; dates, all in 2026.</p>
+    </div>
+    <div class="gc-acts">
+      <div class="gc-act"><div>The action</div><div>Personal account</div><div>Workspace, with Vault</div></div>
+      <div class="gc-act">
+        <div><h3>Delete an event</h3><span class="how">web, app, or the API&rsquo;s events.delete</span></div>
+        <div data-k="Personal account"><span class="yes">Recoverable for 30 days.</span> &ldquo;When you delete an event or mark it as spam, it stays in that calendar&rsquo;s trash for 30 days.&rdquo; Restored from a computer, by &ldquo;Anyone who has &lsquo;Make changes to events&rsquo; or &lsquo;Make changes AND manage sharing&rsquo; permission for the calendar&rdquo;. Guests must reply again.<span class="src"><a href="https://support.google.com/calendar/answer/37113?hl=en" target="_blank" rel="noopener">support.google.com/calendar/answer/37113</a></span></div>
+        <div data-k="Workspace, with Vault">The same trash. Vault also keeps a deleted primary-calendar event searchable and exportable: &ldquo;Calendar events are kept for 30 days after a user or a retention rule removes the event.&rdquo;<span class="src"><a href="https://support.google.com/vault/answer/2990828?hl=en" target="_blank" rel="noopener">support.google.com/vault/answer/2990828</a>, updated 22 September 2026</span></div>
+      </div>
+      <div class="gc-act">
+        <div><h3>Delete &ldquo;this and following&rdquo; events of a series</h3><span class="how">recurring events</span></div>
+        <div data-k="Personal account"><span class="no">Not recoverable.</span> &ldquo;If you choose This and following events or All following, the deleted events are not moved to the trash and can&rsquo;t be restored.&rdquo;<span class="src">support.google.com/calendar/answer/37113</span></div>
+        <div data-k="Workspace, with Vault">The same for the user. Whether Vault keeps these is not stated on the pages read.</div>
+      </div>
+      <div class="gc-act">
+        <div><h3>Edit an event</h3><span class="how">title, time, place, description, recurrence</span></div>
+        <div data-k="Personal account"><span class="no">No documented restore.</span> No help page describes a version history for an event. The keyboard list offers &ldquo;Undo &mdash; z&rdquo; under &ldquo;Make changes to an event&rdquo;; a 2008 post describes undoing &ldquo;the last change you made&rdquo;. Neither says how long it lasts or how far back it goes.<span class="src"><a href="https://support.google.com/calendar/answer/37034?hl=en" target="_blank" rel="noopener">answer/37034</a>; Workspace Updates, 12 December 2008</span></div>
+        <div data-k="Workspace, with Vault"><b>Readable by an admin, not restorable.</b> Vault keeps &ldquo;Versions of primary calendar events&rdquo;: &ldquo;revision information is kept for 30 days&rdquo; without a retention rule, and at most 365 revisions with one. Vault exports; it does not put anything back: &ldquo;Restoring data from Vault export files is hard. Vault doesn&rsquo;t have any automated recovery tools.&rdquo;<span class="src"><a href="https://support.google.com/vault/answer/6127699?hl=en" target="_blank" rel="noopener">vault/answer/6127699</a>, <a href="https://support.google.com/vault/answer/12568582?hl=en" target="_blank" rel="noopener">12568582</a>, <a href="https://support.google.com/vault/answer/2539616?hl=en" target="_blank" rel="noopener">2539616</a></span></div>
+      </div>
+      <div class="gc-act">
+        <div><h3>Change the guest list through the API</h3><span class="how">events.patch or events.update</span></div>
+        <div data-k="Personal account"><span class="no">The old list is gone.</span> &ldquo;Array fields, if specified, overwrite the existing arrays; this discards any previous array elements.&rdquo; An update &ldquo;always updates the entire event resource.&rdquo;<span class="src"><a href="https://developers.google.com/workspace/calendar/api/v3/reference/events" target="_blank" rel="noopener">Calendar API, events</a>, updated July 2026</span></div>
+        <div data-k="Workspace, with Vault">The same, with Vault&rsquo;s export of earlier versions as the only record of who was invited before.</div>
+      </div>
+      <div class="gc-act">
+        <div><h3>Export, then import</h3><span class="how">the do-it-yourself backup</span></div>
+        <div data-k="Personal account">Takeout covers only &ldquo;data that hasn&rsquo;t been deleted&rdquo;, as it is now. On import, &ldquo;guests and conference data for that event are not imported.&rdquo; Whether an import overwrites an edited event or creates a copy is not stated.<span class="src"><a href="https://support.google.com/calendar/answer/10041132?hl=en" target="_blank" rel="noopener">answer/10041132</a>, <a href="https://support.google.com/calendar/answer/37118?hl=en" target="_blank" rel="noopener">37118</a></span></div>
+        <div data-k="Workspace, with Vault">The same, plus an admin export of an event as it stood on a given date, which then has to be put back by hand under the same import rules.</div>
+      </div>
+    </div>
+    <p class="gc-note"><b>For contrast, from the same company.</b> Docs, Sheets and Slides offer <em>Restore this version</em>. Gmail keeps deleted mail in a trash for 30 days. Calendar protects the delete, like Gmail, and does not protect the edit, unlike Docs.</p>
+  </div>
+</section>
+
+<section class="psection">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">03 · Why an edit is worse</span>
+      <h2>A delete leaves a hole. <span class="g">An edit leaves a wrong answer.</span></h2>
+    </div>
+    <div class="gc-two">
+      <div class="gc-box hole"><span class="k">After a delete</span><h3>You can see that something is missing.</h3><p>The slot is empty. Somebody asks where the meeting went. The trash has it for 30 days, unless it was the rest of a recurring series.</p></div>
+      <div class="gc-box wrong"><span class="k">After an edit</span><h3>Nothing looks wrong.</h3><p>The meeting is still there, an hour later, in another room, without the client, with a description that is no longer the agenda. It is followed, because the calendar is followed. Nothing in the user&rsquo;s view records what it said before.</p></div>
+    </div>
+    <p class="gc-note">Now multiply it. An agent that can edit one event can edit fifty in the time it takes to read this paragraph, and it does not matter much why: a mistake, a misguided plan to &ldquo;tidy up&rdquo;, an instruction hidden in an invitation it read, or the user asking for something broader than they meant. The result is corruption: records that are wrong and look right, with no undo in the product and often no backup of a calendar at all. Even a daily backup loses the day.</p>
+    <p class="gc-note"><b>So the permissions are the wrong way round from how they feel.</b> Withholding delete while granting edit feels cautious. On these facts, granting delete while withholding edit leaves less that cannot be undone. The deletes to worry about are the recurring-series ones, which skip the trash, and the edits are the ones to worry about all the time.</p>
+    <p class="gc-note">Google&rsquo;s scopes do not separate the two. The events scope reads: <em>&ldquo;View and edit events on all your calendars.&rdquo;</em> The narrower ones limit <em>which</em> calendars, not <em>which verbs</em>: <code>calendar.events.owned</code> is &ldquo;See, create, change, and delete events on Google calendars you own&rdquo;, and <code>calendar.app.created</code> covers only calendars the app itself made. <span class="gc-src" style="display:inline"><a href="https://developers.google.com/workspace/calendar/api/auth" target="_blank" rel="noopener">Calendar API scopes</a>, updated 3 September 2026.</span></p>
+  </div>
+</section>
+
+<section class="psection alt">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">04 · Where Google&rsquo;s pages disagree</span>
+      <h2>Three contradictions, <span class="g">published unresolved.</span></h2>
+      <p>Each pair was read on the same day. We have not tested which is true, because that would mean testing somebody else&rsquo;s system.</p>
+    </div>
+    <div class="gc-dis">
+      <div><h3>Does Vault cover Calendar?</h3><p>The Vault FAQ, updated 18 September 2026: <em>&ldquo;Vault doesn&rsquo;t support services such as Calendar, Contacts, Keep, and Currents.&rdquo;</em></p><p>The supported-services page, same date, marks Calendar for retention, holds, and search and export, and lists &ldquo;Versions of primary calendar events&rdquo;.</p></div>
+      <div><h3>How many versions a hold keeps</h3><p>The holds page: <em>&ldquo;Only one version of an event is held per day.&rdquo;</em></p><p>The search page: <em>&ldquo;all of their revisions are retained for the duration of the hold.&rdquo;</em></p></div>
+      <div><h3>What Google&rsquo;s own agent server may do</h3><p>The Calendar MCP server, in developer preview since 22 April 2026, is described as letting agents <em>&ldquo;take actions, such as creating, updating, or deleting events&rdquo;</em>, and lists update and delete tools.</p><p>Its setup page tells developers to add three read-only scopes. Our record of <a href="abp-vault-google-workspace-mcp.html">Google&rsquo;s Workspace MCP servers</a> already carries the same kind of gap: &ldquo;schedule meetings&rdquo; advertised, read-only scopes permitted.</p></div>
+    </div>
+    <p class="gc-note"><b>One thing that did change in 2026.</b> The Workspace admin audit log for Calendar now lists an attribute &ldquo;By an agent &mdash; Action was performed with an AI agent (True or False)&rdquo;, and records the old and the new title when a title changes; other edits are recorded as &ldquo;{actor} modified {event_title}&rdquo;. Logs are kept six months. That is detection, for an admin. It is not a way back. <span class="gc-src" style="display:inline"><a href="https://support.google.com/a/answer/6110475?hl=en" target="_blank" rel="noopener">answer/6110475</a>, updated 18 September 2026.</span></p>
+  </div>
+</section>
+
+<section class="psection">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">05 · The first mistake</span>
+      <h2>One mistake is enough, <span class="g">because it is a warning.</span></h2>
+      <p>Users give a calendar agent very little room for error, and they are right to. The first batch of wrong meetings is not judged as one bad afternoon. It is read as proof of what the agent can do, and the user does the risk assessment then, after the fact: this can manage my calendar, and it can also destroy it; is that worth it? In the lead&rsquo;s experience, many answer no and switch it off. Usually it is a mistake that starts this, not an attack. Either way it is the same assessment, done too late and at the worst moment.</p>
+    </div>
+    <p class="gc-note">The same assessment can be done before the agent is switched on, calmly, by writing down what it can reach, what it is meant to do, and what can and cannot be undone. That is what the rest of this page does for Calendar.</p>
+  </div>
+</section>
+
+<section class="psection alt">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">06 · In a behaviour policy</span>
+      <h2>Calendar rows, <span class="g">with recovery beside each one.</span> <span class="gc-draft">Draft</span></h2>
+      <p>From the Calendar behaviour policies in draft, for an agent holding the scope that reads and edits events on all calendars. The reach is what the scope allows. The mandate is an example of what a person might authorise. The barrier column says what actually stands in the way, and a sentence in the agent&rsquo;s instructions is not a barrier: it is hope.</p>
+    </div>
+    <div class="gc-rows" role="table" aria-label="Draft behaviour-policy rows for an agent with Calendar edit access">
+      <div class="gc-row" role="row"><span role="columnheader">Capability</span><span role="columnheader">Undo in the product</span><span role="columnheader">Mandate, for example</span><span role="columnheader">What stands in the way</span></div>
+      <div class="gc-row" role="row"><span role="cell">Read events</span><span role="cell" data-k="Undo">not needed</span><span role="cell" data-k="Mandate">yes</span><span role="cell" data-k="In the way">nothing, and nothing needed</span></div>
+      <div class="gc-row" role="row"><span role="cell">Create an event</span><span role="cell" data-k="Undo">delete it; trash 30 days</span><span role="cell" data-k="Mandate">yes, on my calendar, up to ten a day</span><span role="cell" data-k="In the way">nothing enforces the ten; stated as an expectation</span></div>
+      <div class="gc-row" role="row"><span role="cell">Edit an event</span><span role="cell" data-k="Undo" class="none">none documented</span><span role="cell" data-k="Mandate">only events it created, one at a time, never ones with outside guests</span><span role="cell" data-k="In the way">nothing in the scope; the deployment would have to save the event&rsquo;s prior state somewhere the agent cannot write, before each edit</span></div>
+      <div class="gc-row" role="row"><span role="cell">Change the guest list</span><span role="cell" data-k="Undo" class="none">previous list discarded</span><span role="cell" data-k="Mandate">never without me</span><span role="cell" data-k="In the way">nothing in the scope</span></div>
+      <div class="gc-row" role="row"><span role="cell">Delete one event</span><span role="cell" data-k="Undo">trash, 30 days, from a computer</span><span role="cell" data-k="Mandate">only events it created</span><span role="cell" data-k="In the way">nothing in the scope; recoverable by me</span></div>
+      <div class="gc-row" role="row"><span role="cell">Delete &ldquo;this and following&rdquo;</span><span role="cell" data-k="Undo" class="none">none</span><span role="cell" data-k="Mandate">never</span><span role="cell" data-k="In the way">nothing in the scope</span></div>
+      <div class="gc-row" role="row"><span role="cell">Many edits in one run</span><span role="cell" data-k="Undo" class="none">none</span><span role="cell" data-k="Mandate">never more than five without asking</span><span role="cell" data-k="In the way">nothing in the scope; a limit the deployment would have to count</span></div>
+    </div>
+    <p class="gc-note">Read down the last column and the answer is the uncomfortable one: for most rows, nothing stands in the way except the agent&rsquo;s instructions. A behaviour policy does not grade that; it writes it down, row by row, so that whoever authorises the agent sees it before the first mistake rather than after. Where a barrier is wanted, the facts above say which: <b>a before-image of every event the agent edits, kept where the agent cannot reach</b>, because Google does not keep one for the user.</p>
+  </div>
+</section>
+
+<section class="psection">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">07 · Beyond calendars</span>
+      <h2>Most systems protect the delete <span class="g">and not the edit.</span></h2>
+      <p>Calendar is the clear example, not the unusual one. Customer databases, ticketing systems and CRMs often have a soft delete or a recycle bin, and an update that simply overwrites. Backups, where they exist, are usually daily. For every action an agent is granted, three questions belong in its behaviour policy: can this be undone, by whom, and how far back. Where the answers are <em>no</em>, <em>nobody</em> and <em>not at all</em>, that row is the one to read first.</p>
+    </div>
+    <p class="gc-note">Related: <a href="article-pilots-do-not-stay-in-production.html">The pilot worked. Then somebody asked what else it could do.</a> &mdash; on why the answer to that question is what keeps agents out of production &mdash; and <a href="article-approval-prompts.html">An approval prompt is not a human in the loop</a>.</p>
+  </div>
+</section>
+
+</div>
+
+<section class="pcta">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> One agent, one deployment</span>
+    <h2>Find out what your agent can change <span class="it">before it changes it.</span></h2>
+    <p>The free prompts have the agent list its own reach, including every tool that edits, in twenty minutes and with nothing collected. If you know a way to restore an edited Calendar event that Google&rsquo;s pages do not mention, tell us and we will correct this page with a date.</p>
+    <div class="cta-row"><a class="btn btn-green" href="try-it.html">Try the prompts</a><a class="btn btn-ghost" href="mailto:dinis.cruz@owasp.org?subject=Calendar%20edits%20article">Correct this page</a></div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>© 2026 RiskMandate · Autonomous Risk Management</span>
+    <span>The insurability layer for agentic AI. · <a class="footlink" href="versions.html">Versions</a> · <a class="footlink" href="admin/">Admin</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+var RM={core:{},services:{},components:{},data:{}};
+RM.data.currentPage="article-calendar-edits-cannot-be-undone";RM.data.pages=[{"name":"agent-behaviour-policy","label":"The sixteen examples","file":"agent-behaviour-policy.html","group":"Behaviour policies"},{"name":"abp","label":"What an ABP is","file":"abp.html","group":"Behaviour policies"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"Behaviour policies"},{"name":"licence-to-operate","label":"Licence to Operate","file":"licence-to-operate.html","group":"Behaviour policies"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"Behaviour policies"},{"name":"for-corporate","label":"You run agents today","file":"for-corporate.html","group":"Who it's for"},{"name":"for-founders","label":"You are a founder","file":"for-founders.html","group":"Who it's for"},{"name":"for-startups","label":"You are a startup","file":"for-startups.html","group":"Who it's for"},{"name":"insurance","label":"Make agents insurable","file":"insurance.html","group":"Insurance"},{"name":"insure-a-program","label":"Can you insure a program?","file":"insure-a-program.html","group":"Insurance"},{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"Insurance"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"Insurance"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"Insurance"},{"name":"pricing","label":"The four levels","file":"pricing.html","group":"Pricing"},{"name":"abp-reviewed","label":"The reviewed level","file":"abp-reviewed.html","group":"Pricing"},{"name":"reviewers","label":"Who runs your review","file":"reviewers.html","group":"Pricing"},{"name":"try-it","label":"Try it","file":"try-it.html"},{"name":"articles","label":"Articles","file":"articles.html"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"privacy","label":"Privacy","file":"privacy.html","group":"More"},{"name":"lab","label":"The Lab","file":"lab.html","group":"More"},{"name":"demos","label":"Live demos","file":"demos.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"uk-support","label":"UK support, in the open","file":"uk-support.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"admin","label":"Admin","file":"admin/","group":"More"}];RM.data.sections=[];
+
+'use strict';
+// components/dom.js — tiny DOM helpers shared by components. `el` builds an
+// element with attributes and children; text children always go in via
+// textContent. `renderMarkdownInto` turns core/markdown tokens into real DOM
+// nodes (never an HTML string), so fetched release notes cannot inject markup.
+
+RM.components.dom = (function () {
+  // A link in a markdown note may only go somewhere harmless: same-document,
+  // same-origin relative, https, or mailto. Anything else — javascript:, data:,
+  // a protocol-relative host — renders as the text it was, and goes nowhere.
+  var SAFE = /^(?:https:\/\/|mailto:|#|[^:/?#]*(?:[/?#]|$))/i;
+
+  /**
+   * @param {string} tag
+   * @param {Object<string,string>} [attrs]
+   * @param {Array<Node|string>} [children]
+   * @returns {HTMLElement}
+   */
+  function el(tag, attrs, children) {
+    var node = document.createElement(tag);
+    if (attrs) Object.keys(attrs).forEach(function (k) {
+      if (attrs[k] != null) node.setAttribute(k, attrs[k]);
+    });
+    (children || []).forEach(function (c) {
+      node.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
+    });
+    return node;
+  }
+
+  /**
+   * Render inline runs into a parent element. Emphasis runs carry child runs
+   * rather than a string, so a link or a code span inside **bold** renders as
+   * itself instead of as its own markdown source — hence the recursion.
+   */
+  function appendRuns(parent, runs) {
+    runs.forEach(function (run) {
+      if (run.t === 'strong' || run.t === 'em') {
+        var node = el(run.t);
+        if (run.runs) appendRuns(node, run.runs);
+        else          node.appendChild(document.createTextNode(run.v));
+        parent.appendChild(node);
+      }
+      else if (run.t === 'code') parent.appendChild(el('code', null, [run.v]));
+      else if (run.t === 'link') parent.appendChild(SAFE.test(run.href)
+        ? el('a', { href: run.href }, [run.v])
+        : document.createTextNode(run.v));
+      else parent.appendChild(document.createTextNode(run.v));
+    });
+  }
+
+  /**
+   * Render markdown block tokens into a container as DOM nodes.
+   * @param {HTMLElement} container
+   * @param {Array} blocks  output of RM.core.markdown.parse
+   */
+  function renderMarkdownInto(container, blocks) {
+    blocks.forEach(function (b) {
+      if (b.type === 'heading') {
+        var h = el('h' + (b.level + 1)); // ## release title -> h3, etc.
+        appendRuns(h, b.runs);
+        container.appendChild(h);
+      } else if (b.type === 'list') {
+        var ul = el('ul');
+        b.items.forEach(function (runs) {
+          var li = el('li');
+          appendRuns(li, runs);
+          ul.appendChild(li);
+        });
+        container.appendChild(ul);
+      } else {
+        var p = el('p');
+        appendRuns(p, b.runs);
+        container.appendChild(p);
+      }
+    });
+  }
+
+  return { el: el, appendRuns: appendRuns, renderMarkdownInto: renderMarkdownInto };
+})();
+
+
+'use strict';
+// components/nav.js — the behaviour on a page that is *not* a link.
+//   [data-to]   → smooth in-page scroll to an element id (no hash routing).
+//   [data-demo] → open a pre-filled demo enquiry email.
+//
+// v1.0.0 removed everything else that used to live here. Up to v0.14 the site
+// ran inside a host <iframe> and every navigation was a postMessage — rm-nav,
+// rm-back, rm-manifest, rm-read. A <button> is not a link, so nothing could be
+// deep-linked, bookmarked, opened in a new tab, or crawled. Now each page is
+// the document the server sent and each navigation is an <a href>, so the only
+// things left to wire are the two that genuinely are not navigation.
+//
+// The mobile drawer is still injected rather than templated: one file gives
+// every page a working menu below the header breakpoint, where .navlinks is
+// hidden by CSS.
+
+RM.components.nav = (function () {
+  // Every "Book a demo" control opens a mail client with a subject and a
+  // starting message. One place to change when booking becomes a real form.
+  var DEMO = {
+    to     : 'nrparekh@gmail.com',
+    subject: 'RiskMandate — demo request',
+    body   : [
+      'Hi,',
+      '',
+      'I would like to see a plug profile for one of the agents we already run.',
+      '',
+      'A little about us:',
+      '  • Organisation:',
+      '  • Roughly how many agents we are running:',
+      '  • The agent we would want to look at first:',
+      '  • Anything already in place (register, IdP, detection tooling):',
+      '',
+      'Thanks,'
+    ].join('\n')
+  };
+
+  function demoHref() {
+    return 'mailto:' + DEMO.to +
+      '?subject=' + encodeURIComponent(DEMO.subject) +
+      '&body='    + encodeURIComponent(DEMO.body);
+  }
+
+  function openDemo() { window.location.href = demoHref(); }
+
+  function scrollTo(doc, id) {
+    var t = doc.getElementById(id);
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Inject the hamburger toggle and wire the drawer open/close. Idempotent.
+  function wireMobileNav(doc) {
+    var top = doc.querySelector('.top');
+    if (!top) return;
+    var wrap  = top.querySelector('.wrap');
+    var links = top.querySelector('.navlinks');
+    if (!wrap || !links || top.querySelector('.navtoggle')) return;
+
+    var burger = doc.createElement('button');
+    burger.className = 'navtoggle';
+    burger.setAttribute('type', 'button');
+    burger.setAttribute('aria-label', 'Toggle navigation');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-controls', 'sitenav');
+    for (var i = 0; i < 3; i++) burger.appendChild(doc.createElement('span'));
+    links.id = links.id || 'sitenav';
+    var demo = wrap.querySelector('.demo');
+    if (demo) wrap.insertBefore(burger, demo); else wrap.appendChild(burger);
+
+    function set(open) {
+      top.classList.toggle('nav-open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    burger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      set(!top.classList.contains('nav-open'));
+    });
+    // Following a real nav link closes the drawer; the group header does not.
+    links.addEventListener('click', function (e) {
+      var b = e.target.closest('button, a');
+      if (b && !b.classList.contains('navgroup-btn')) set(false);
+    });
+    doc.addEventListener('click', function (e) {
+      if (top.classList.contains('nav-open') && !top.contains(e.target)) set(false);
+    });
+    doc.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+    var view = doc.defaultView || window;
+    view.addEventListener('resize', function () { if (view.innerWidth > 1040) set(false); });
+  }
+
+  /** @param {Document} doc */
+  function wire(doc) {
+    doc.querySelectorAll('[data-to]').forEach(function (elm) {
+      elm.addEventListener('click', function () { scrollTo(doc, elm.getAttribute('data-to')); });
+    });
+    doc.querySelectorAll('[data-demo], .demo').forEach(function (elm) {
+      elm.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); openDemo(); });
+    });
+    wireMobileNav(doc);
+  }
+
+  return { wire: wire, scrollTo: scrollTo, demoHref: demoHref, openDemo: openDemo };
+})();
+
+
+'use strict';
+// components/menu.js — <rm-menu>. The one shared header menu, on every page, so
+// the nav is built by a single piece of code. Renders the homepage's section
+// links first, then the top-level pages, marking the current page active.
+//
+// A run of contiguous pages sharing a `group` string collapses into one entry:
+// a hover/click dropdown labelled by the group, with the members as children. A
+// single-member group renders flat — no dropdown for one item.
+//
+// v1.0.0: every entry is an <a href>. The old menu emitted <button> elements
+// that asked a host frame to swap an iframe's srcdoc, which meant the links did
+// not exist as far as a crawler, a bookmark or a middle-click was concerned.
+// The group header stays a <button> because it opens a panel rather than going
+// anywhere — that is the one control here that is genuinely not a link.
+
+(function () {
+  var dom = RM.components.dom;
+
+  RM.components.Menu = class extends HTMLElement {
+    connectedCallback() {
+      var self = this;
+      this._onDocClick = function (e) {
+        self.querySelectorAll('.navgroup.open').forEach(function (g) {
+          if (!g.contains(e.target)) g.classList.remove('open');
+        });
+      };
+      document.addEventListener('click', this._onDocClick);
+      this._render();
+    }
+    disconnectedCallback() {
+      document.removeEventListener('click', this._onDocClick);
+    }
+
+    // On the homepage a section link scrolls; on any other page it is a link
+    // back to the homepage at that anchor. Same markup either way.
+    _section(s) {
+      var home = !(RM.data && RM.data.currentPage);
+      var a = dom.el('a', { class: 'seclink', href: home ? '#' + s.to : 'index.html#' + s.to }, [s.label]);
+      if (home) a.addEventListener('click', function (e) {
+        e.preventDefault();
+        RM.components.nav.scrollTo(document, s.to);
+      });
+      return a;
+    }
+
+    _pagelink(p, extra) {
+      var active = p.name === (RM.data && RM.data.currentPage);
+      var attrs  = { class: 'pagelink' + (extra ? ' ' + extra : '') + (active ? ' active' : ''), href: p.file };
+      if (active) attrs['aria-current'] = 'page';
+      return dom.el('a', attrs, [p.label]);
+    }
+
+    _group(name, members) {
+      var self    = this;
+      var current = RM.data && RM.data.currentPage;
+      var active  = members.some(function (m) { return m.name === current; });
+      var car     = dom.el('span',   { class: 'navgroup-car', 'aria-hidden': 'true' }, ['▾']);
+      var btn     = dom.el('button', { class: 'navgroup-btn' + (active ? ' active' : ''), type: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false' }, [name, car]);
+      var panel   = dom.el('div',    { class: 'navmenu' }, members.map(function (m) { return self._pagelink(m, 'navchild'); }));
+      var wrap    = dom.el('span',   { class: 'navgroup' + (active ? ' active' : '') }, [btn, panel]);
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = wrap.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      return wrap;
+    }
+
+    _render() {
+      var sections = (RM.data && RM.data.sections) || [];
+      var pages    = (RM.data && RM.data.pages)    || [];
+      var self     = this;
+      this.textContent = '';
+      sections.forEach(function (s) { self.appendChild(self._section(s)); });
+      var i = 0;
+      while (i < pages.length) {
+        var p = pages[i];
+        if (!p.group) { self.appendChild(self._pagelink(p)); i++; continue; }
+        var g = p.group, members = [];
+        while (i < pages.length && pages[i].group === g) { members.push(pages[i]); i++; }
+        if (members.length === 1) self.appendChild(self._pagelink(members[0]));
+        else                      self.appendChild(self._group(g, members));
+      }
+    }
+  };
+
+  customElements.define('rm-menu', RM.components.Menu);
+})();
+
+
+'use strict';
+// boot.js — inner-page composition root (version builds and dev.html). Custom
+// elements self-register on load; here we wire document-level nav behaviour.
+// The page runs inside the host's stage frame, so the host (not this page) signals
+// the SG/App host that the app is ready.
+
+(function () {
+  function start() { RM.components.nav.wire(document); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
+})();
+
+
+})();
+</script>
+</body>
+</html>

@@ -200,6 +200,29 @@ Each one is linked in full, as received, with nothing edited. Where a brief and 
 - **The government-sponsored travel.** The grant that paid for it was withdrawn in 2023; the page says what exists instead
 - **A matching page on sgit.ai.** That site is not in this repository; its partnerships section can link here
 
+### Pilots do not stay in production: the business sees the gap between mandate and reach, at machine speed, and declines to sign for it
+
+**sha256** 762fd1ea85c2d701f304331d507374b7668ec41bae90788498c2221cd7ac6e53
+
+**The real metric is not whether a pilot reached production but whether it stayed there.** The memo’s hypothesis: a pilot proves the agent can do the task in a curated world; production asks what else it can do, how many times, how fast, and on whose authority; and when the business models that, it declines to sign. It asks for the data behind it, for examples, and for the answer the site sells: limits in business units, set at design time.
+
+- [The pilot worked. Then somebody asked what else it could do.](article-pilots-do-not-stay-in-production.html) Fourteen surveys and forecasts with the causes each one names, three sources on staying in production, seven cases and two that do not fit, five variables beside the lethal trifecta, and a section on what the data does not show
+- **Data that tests the hypothesis.** No survey found asks whether the gap between reach and mandate stopped sign-off; the article says so and asks for cases
+- **A source for the credit approval at two in the morning.** None exists publicly; it is told as an anecdote and nothing more
+- **The operating limit from the insurance vault.** Not found in the published demo vaults; the article shows the shape with numbers labelled as invented
+
+### Calendar edits cannot be undone: integrity risk, and why the edit permission is the dangerous one
+
+**sha256** 0349fc94e7df55c387bd3a2a1e8adb413c0bd742759ff671ad47d7ef7979df84
+
+**A finding from drafting Calendar behaviour policies.** Google Calendar has a trash for deleted events but no way back from an edit, so an agent that edits many events leaves corruption that looks like a real calendar. The memo asks for the facts to be checked, including the trash period and who can restore; for the calendar-over-email point from early users; and for the conclusion: map each action by whether it can be undone, because an edit with no undo exposes more than a delete with one.
+
+- [A deleted meeting comes back. An edited one does not.](article-calendar-edits-cannot-be-undone.html) Every recovery fact quoted from Google’s own pages, for personal and Workspace accounts, three contradictions in those pages published unresolved, and the draft Calendar rows with recovery beside each
+- Two traps the memo did not have: deleting “this and following” events skips the trash, and an API patch to the guest list discards the previous list
+- **A qualification, not a contradiction.** The memo’s claim holds for personal accounts. Workspace editions with Vault keep earlier versions of primary-calendar events for an admin to export, though not to restore
+- **The Calendar behaviour policies.** In draft; the article quotes their rows and says so
+- **Evidence for calendar over email.** A handful of conversations, reported as that
+
 ## And the instructions that arrived as speech or a sentence.
 
 These have no digest to check, which makes them the ones most easily lost — a voice memo that changed the direction of the whole site leaves no artefact at all unless somebody writes it down. So they are recorded here in the same list, with the same two columns.

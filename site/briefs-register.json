@@ -459,6 +459,58 @@
         "A matching page on sgit.ai's partnerships section. That site is not in this repository; it can link here.",
         "Pages that refused an automated read (British Business Bank, london.gov.uk, blackhat.com, rsaconference.com, the Turing, the ABI) are marked unclear rather than filled from search results."
       ]
+    },
+    {
+      "id": "D14",
+      "title": "Pilots do not stay in production: the business sees the gap between mandate and reach, at machine speed, and declines to sign for it",
+      "version": null,
+      "type": "spoken brief, transcribed",
+      "dated": "2026-09-24",
+      "file": "assets/briefs/2026-09-24__transcript__pilots-do-not-stay-in-production.txt",
+      "bytes": 7036,
+      "sha256": "762fd1ea85c2d701f304331d507374b7668ec41bae90788498c2221cd7ac6e53",
+      "received": [
+        "2026-09-24T13:00Z"
+      ],
+      "duplicate_of": null,
+      "status": "partly",
+      "produced": [
+        {
+          "what": "The pilot worked. Then somebody asked what else it could do: fourteen surveys and forecasts with the causes each names, seven cases, five variables the lethal trifecta leaves out, and what the data does not show",
+          "url": "article-pilots-do-not-stay-in-production.html"
+        }
+      ],
+      "not_done": [
+        "Data that tests the hypothesis. No survey found asks whether the gap between reach and mandate stopped sign-off; the article says so and asks readers for cases.",
+        "The credit approval at two in the morning has no public source. It is told as an anecdote the author was told, and nothing more.",
+        "The operating limit, headroom and hard maximum the memo recalls from an insurance vault were not found in the published demo vaults; the article presents the shape with invented numbers, labelled as such."
+      ]
+    },
+    {
+      "id": "D15",
+      "title": "Calendar edits cannot be undone: integrity risk, and why the edit permission is the dangerous one",
+      "version": null,
+      "type": "spoken brief, transcribed",
+      "dated": "2026-09-24",
+      "file": "assets/briefs/2026-09-24__transcript__calendar-edits-cannot-be-undone.txt",
+      "bytes": 4998,
+      "sha256": "0349fc94e7df55c387bd3a2a1e8adb413c0bd742759ff671ad47d7ef7979df84",
+      "received": [
+        "2026-09-24T14:00Z"
+      ],
+      "duplicate_of": null,
+      "status": "partly",
+      "produced": [
+        {
+          "what": "A deleted meeting comes back. An edited one does not: what Google keeps after each action, in its own words, for personal and Workspace accounts; three contradictions in Google's pages; and the draft Calendar rows of a behaviour policy",
+          "url": "article-calendar-edits-cannot-be-undone.html"
+        }
+      ],
+      "not_done": [
+        "The Calendar behaviour policies themselves. They are in draft; the article quotes their rows and says so.",
+        "A restore for edited events. Google documents none for users; Workspace with Vault keeps earlier versions an admin can export, and the article says the memo's claim holds for personal accounts and needs that qualification for Workspace.",
+        "The early-user conversation (calendar over email) is reported as a handful of conversations, not a survey."
+      ]
     }
   ],
   "informal": [

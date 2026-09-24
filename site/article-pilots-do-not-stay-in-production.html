@@ -1,0 +1,689 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The pilot worked. Then somebody asked what else it could do.</title>
+<meta name="description" content="Why so many generative AI and agent pilots never reach production, or are switched off after they do: the business compares what the agent was meant to do with what it can do, at machine speed, and declines to sign for the difference. The data, the cases, and what the data does not show.">
+<link rel="canonical" href="https://riskmandate.ai/article-pilots-do-not-stay-in-production.html">
+<link rel="alternate" type="text/markdown" href="article-pilots-do-not-stay-in-production.md" title="This page as markdown">
+<link rel="icon" href="assets/brand/riskmandate-favicon-32.png" sizes="32x32">
+<link rel="icon" href="assets/brand/riskmandate-mark.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RiskMandate">
+<meta property="og:url" content="https://riskmandate.ai/article-pilots-do-not-stay-in-production.html">
+<meta property="og:title" content="The pilot worked. Then somebody asked what else it could do.">
+<meta property="og:description" content="Why so many generative AI and agent pilots never reach production, or are switched off after they do: the business compares what the agent was meant to do with what it can do, at machine speed, and declines to sign for the difference. The data, the cases, and what the data does not show.">
+<meta property="og:image" content="https://riskmandate.ai/assets/brand/riskmandate-lockup-light.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Scaffolded by scripts/site/new-page.mjs. Hand-edited from here on — there is no build step. -->
+<style>
+/* article-pilots-do-not-stay-in-production.css — self-contained: the shared chrome, then this page's own. */
+:root{
+  --bg:#F7F6F2; --bg2:#EFEDE7; --card:#FFFFFF; --ink:#0D0D0C; --canvas:#0A0A09;
+  --text:#1A1917; --muted:#4A4845; --faint:#8A8780; --border:#E2DFD8;
+  --green:#1A7F5A; --green-2:#22c55e; --greenBg:#EBF5F0;
+  --gold:#B45309; --red:#C0392B; --blue:#1D4ED8;
+  --fg:#F7F6F2; --fg-2:rgba(247,246,242,.55); --fg-3:rgba(247,246,242,.32);
+  --line:rgba(247,246,242,.10); --line-2:rgba(247,246,242,.18);
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","JetBrains Mono","Roboto Mono",Menlo,Consolas,monospace;
+  --wrap:1000px; --r:10px; --r-sm:8px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth} @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+h1,h2{margin:0;font-weight:800;letter-spacing:-.03em;line-height:1.04}
+h2{font-size:clamp(26px,3.6vw,40px);font-weight:700;letter-spacing:-.02em}
+p{margin:0}
+:focus-visible{outline:2px solid var(--green-2);outline-offset:3px;border-radius:4px}
+.tag{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+.g{color:var(--green)} .it{font-style:italic;color:var(--green)}
+
+/* header */
+.top{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.top .wrap{display:flex;align-items:center;gap:22px;height:56px;max-width:1100px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:15px;color:var(--text);white-space:nowrap;text-decoration:none}
+.rm{width:26px;height:26px;flex:none;display:block}
+.rm svg{width:100%;height:100%;display:block}
+.navlinks{display:flex;align-items:center;gap:22px;margin-left:auto}
+rm-menu{display:contents}
+.navlinks a{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;text-decoration:none;display:inline-flex;align-items:center}
+.navlinks a:hover{color:var(--text)}
+.navlinks a.active{color:var(--text);font-weight:600}
+.version{font-family:var(--mono);font-size:12px;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:7px;padding:5px 8px;text-decoration:none;white-space:nowrap;transition:color .15s,border-color .15s}
+.version:hover{color:var(--text);border-color:var(--faint)}
+.demo{background:var(--green);color:#fff;font-weight:600;font-size:13px;border:0;border-radius:8px;padding:8px 16px;cursor:pointer;transition:background .15s;font-family:var(--sans);white-space:nowrap}
+.demo:hover{background:#16704f}
+
+/* nav dropdowns */
+.navgroup{position:relative;display:inline-flex;align-items:center}
+.navgroup::after{content:"";position:absolute;top:100%;left:0;right:0;height:10px}
+.navgroup-btn{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;display:inline-flex;align-items:center;gap:5px}
+.navgroup-btn:hover,.navgroup:hover .navgroup-btn,.navgroup.open .navgroup-btn,.navgroup.active .navgroup-btn{color:var(--text)}
+.navgroup-car{font-size:8px;line-height:1;opacity:.6;transition:transform .15s}
+.navgroup:hover .navgroup-car,.navgroup.open .navgroup-car{transform:rotate(180deg)}
+.navmenu{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);min-width:184px;background:var(--card);border:1px solid var(--border);border-radius:10px;box-shadow:0 10px 34px rgba(13,13,12,.14);padding:6px;display:none;flex-direction:column;gap:2px;z-index:70}
+.navgroup:hover .navmenu,.navgroup.open .navmenu{display:flex}
+.navmenu .navchild{justify-content:flex-start;text-align:left;width:100%;padding:8px 12px;border-radius:7px;font-size:13.5px;color:var(--muted);white-space:nowrap}
+.navmenu .navchild:hover{background:var(--bg2);color:var(--text)}
+.navmenu .navchild.active{color:var(--green);font-weight:600;background:var(--greenBg)}
+
+/* mobile drawer — the toggle is injected by nav.js; .top.nav-open opens it */
+.navtoggle{display:none;margin-left:auto;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;padding:0;background:none;border:0;cursor:pointer}
+.navtoggle span{display:block;width:20px;height:2px;margin:0 auto;background:var(--text);border-radius:2px;transition:transform .2s,opacity .2s}
+.top.nav-open .navtoggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.top.nav-open .navtoggle span:nth-child(2){opacity:0}
+.top.nav-open .navtoggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media (max-width:1040px){
+  .navtoggle{display:flex}
+  .top .wrap{position:relative}
+  .version{display:none}
+  .navlinks{display:none;position:absolute;left:0;right:0;top:calc(100% + 1px);flex-direction:column;align-items:stretch;gap:0;margin:0;padding:8px;background:var(--card);border-bottom:1px solid var(--border);box-shadow:0 14px 34px rgba(13,13,12,.14);max-height:calc(100vh - 56px);overflow:auto}
+  .top.nav-open .navlinks{display:flex}
+  .navlinks a,.navlinks .navgroup-btn{width:100%;text-align:left;justify-content:flex-start;padding:12px 16px;font-size:15px;border-radius:8px}
+  .navlinks a:hover{background:var(--bg2)}
+  .navgroup{display:block;width:100%;position:static}
+  .navgroup::after{display:none}
+  .navgroup-btn{display:flex}
+  .navgroup-car{margin-left:auto}
+  .navmenu{position:static;transform:none;display:flex;flex-direction:column;min-width:0;padding:2px 0 8px 14px;background:transparent;border:0;box-shadow:none}
+  .navmenu .navchild{padding:10px 14px;font-size:14px}
+}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;padding:12px 22px;border-radius:var(--r-sm);cursor:pointer;border:1px solid transparent;font-family:var(--sans);text-decoration:none}
+.btn-green{background:var(--green);color:#fff} .btn-green:hover{background:#16704f}
+.btn-ghost{background:transparent;color:var(--fg);border-color:var(--line-2)} .btn-ghost:hover{border-color:var(--fg-2)}
+.btn-ghost-dark{background:transparent;color:var(--text);border-color:var(--border)} .btn-ghost-dark:hover{border-color:var(--green);color:var(--green)}
+
+/* dark hero */
+.phero{background:var(--ink);color:var(--fg);padding:88px 24px 84px}
+.phero .wrap{max-width:var(--wrap)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--green);background:rgba(26,127,90,.18);border:1px solid rgba(26,127,90,.4);border-radius:999px;padding:5px 12px}
+.eyebrow .d{width:6px;height:6px;border-radius:50%;background:var(--green-2)}
+.phero h1{font-size:clamp(34px,5.2vw,60px);letter-spacing:-.04em;line-height:1.02;margin:26px 0 0;color:var(--fg);max-width:900px}
+.phero .sub{color:var(--fg-2);font-size:17px;line-height:1.7;max-width:640px;margin-top:24px}
+.cta-row{display:flex;flex-wrap:wrap;gap:11px;margin-top:30px}
+
+/* paper sections */
+.paper{background:var(--bg)}
+.psection{padding:80px 0;border-bottom:1px solid var(--border)}
+.psection.alt{background:var(--bg2)}
+.shead{max-width:680px} .shead.center{max-width:720px;margin:0 auto;text-align:center}
+.shead h2{color:var(--text)} .shead p{color:var(--muted);margin-top:16px;font-size:15px;line-height:1.75}
+
+/* closing panel + footer */
+.pcta{background:var(--ink);padding:80px 24px;text-align:center}
+.pcta .wrap{max-width:720px;padding:0}
+.pcta h2{font-size:clamp(28px,4.4vw,48px);color:var(--fg);margin-top:20px;font-weight:700;letter-spacing:-.03em}
+.pcta p{color:var(--fg-2);margin-top:16px;font-size:16px;line-height:1.7}
+.pcta .cta-row{justify-content:center}
+.foot{background:var(--canvas);border-top:1px solid var(--line);padding:32px 24px}
+.foot .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-family:var(--mono);font-size:10px;color:var(--fg-3);max-width:1100px}
+.footlink{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.footlink:hover{color:var(--fg-2)}
+/* narrow phones — at 360px the brand, the burger and the call to action stop
+   fitting on one line, and the header was the last thing on this site that
+   scrolled sideways. Tighten the gutter, the gap and the button rather than
+   drop any of them: all three are load-bearing at this width. */
+@media (max-width:420px){
+  .top .wrap{gap:12px;padding:0 16px}
+  .brand{font-size:14px;gap:7px}
+  .rm{width:24px;height:24px}
+  .demo{padding:8px 12px;font-size:12.5px}
+}
+
+/* article-pilots — the numbers, the cases, and what the data does not show */
+.phero .meta{font-family:var(--mono);font-size:12px;color:rgba(255,255,255,.6);line-height:1.7;margin-top:6px;max-width:820px}
+.phero .meta b{color:rgba(255,255,255,.85)}
+.phero .meta a{color:inherit}
+.pp-figs{display:flex;flex-direction:column;margin-top:28px}
+.pp-fig{display:grid;grid-template-columns:120px minmax(0,1.6fr) minmax(0,1.2fr);gap:6px 26px;padding:20px 0;border-top:1px solid var(--border)}
+.pp-fig:last-child{border-bottom:1px solid var(--border)}
+.pp-fig .n{font-size:30px;font-weight:700;letter-spacing:-.02em;color:var(--text);line-height:1.1}
+.pp-fig .n small{display:block;font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-top:6px}
+.pp-fig p{font-size:14.5px;line-height:1.7;color:var(--muted)}
+.pp-fig p b{color:var(--text)}
+.pp-fig .why{font-size:14px}
+.pp-fig .src{font-family:var(--mono);font-size:11px;color:var(--faint);line-height:1.6;margin-top:6px;overflow-wrap:anywhere}
+.pp-fig .src a{color:inherit}
+.pp-tag{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:999px;padding:3px 9px;margin-right:6px;background:var(--bg2);color:var(--muted)}
+.pp-tag.fc{background:#FDF1DC;color:var(--gold)}
+.pp-tag.v{background:#FBEDEA;color:#96442C}
+.pp-quote{margin:24px 0 0;max-width:880px;border-left:3px solid var(--green);padding:4px 0 4px 22px;font-size:18px;line-height:1.65;color:var(--text);font-style:italic}
+.pp-quote+.src{margin-top:10px}
+.pp-cases{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:28px}
+.pp-case{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:22px 24px;display:flex;flex-direction:column;gap:8px}
+.pp-case .k{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green)}
+.pp-case h3{font-size:17px;color:var(--text);letter-spacing:-.01em}
+.pp-case p{font-size:14.5px;line-height:1.7;color:var(--muted)}
+.pp-case p b{color:var(--text)}
+.pp-case .src{font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:auto;padding-top:8px;overflow-wrap:anywhere}
+.pp-case .src a{color:inherit}
+.pp-case.off{background:transparent;border-style:dashed}
+.pp-vars{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:26px}
+.pp-var{border-top:2px solid var(--border);padding-top:14px}
+.pp-var.old{border-color:var(--faint)}
+.pp-var.new{border-color:var(--green)}
+.pp-var b{display:block;font-size:15.5px;color:var(--text);margin-bottom:6px}
+.pp-var span{font-size:14px;line-height:1.65;color:var(--muted)}
+.pp-two{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
+.pp-box{border:1px solid var(--border);border-radius:var(--r);padding:22px 24px;background:var(--card)}
+.pp-box.yes{border-color:var(--green)}
+.pp-box h3{font-size:16px;color:var(--text);margin:0 0 6px}
+.pp-box ul{margin:0;padding:0 0 0 2px}
+.pp-note a,.pp-box a{color:var(--green)}
+.pp-box li{font-size:14.5px;line-height:1.7;color:var(--muted);margin:6px 0 0 18px}
+.pp-box li b{color:var(--text)}
+.pp-limits{margin-top:26px;border:1px solid var(--border);border-radius:var(--r);overflow:hidden;background:var(--card);max-width:980px}
+.pp-lrow{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--border)}
+.pp-lrow:first-child{border-top:0;background:var(--bg2)}
+.pp-lrow>span{padding:12px 16px;font-size:14px;line-height:1.55;color:var(--muted)}
+.pp-lrow:first-child>span{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text)}
+.pp-lrow>span:first-child{color:var(--text);font-weight:600}
+.pp-lrow .max{color:#96442C}
+.pp-note{font-size:14.5px;line-height:1.75;color:var(--muted);max-width:880px;margin-top:16px}
+.pp-note b{color:var(--text)}
+@media (max-width:900px){.pp-fig{grid-template-columns:96px minmax(0,1fr)}.pp-fig .why{grid-column:2}.pp-vars{grid-template-columns:1fr 1fr}.pp-cases,.pp-two{grid-template-columns:1fr}}
+@media (max-width:640px){.pp-fig{grid-template-columns:minmax(0,1fr)}.pp-fig .why{grid-column:auto}.pp-vars{grid-template-columns:1fr}.pp-lrow{grid-template-columns:1fr 1fr}.pp-lrow>span:first-child{grid-column:1 / -1;padding-bottom:4px}.pp-lrow:first-child{display:none}.pp-lrow>span[data-k]::before{content:attr(data-k);display:block;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:2px}.pp-lrow{grid-template-columns:repeat(3,minmax(0,1fr))}.pp-quote{font-size:16px}}
+</style>
+</head>
+<body id="top">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
+    <nav class="navlinks"><rm-menu></rm-menu></nav>
+    <a class="version" href="versions.html" title="What shipped in v1.32.3">v1.32.3</a>
+    <button class="demo" data-demo>Book a demo</button>
+  </div>
+</header>
+
+<main class="phero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span>ARTICLE · 24 SEPTEMBER 2026</span>
+    <h1>The pilot worked. Then somebody asked what else it could do.</h1>
+    <p class="sub" style="margin-bottom:20px">A large share of generative AI and agent projects that succeed as pilots never reach production, and some that reach it are switched off again. Our hypothesis is that a major reason is not the model and not the demo. It is the moment the business compares what the agent was meant to do with what it can actually do, sees how fast it can do it, and declines to sign for the difference.</p>
+    <p class="meta"><b>Evidence:</b> fourteen published surveys and forecasts and nine documented cases, each read at its source and dated. Where a publisher blocked our reader we used an archived copy of its own page, and say so.</p>
+    <p class="meta"><b>What it is not:</b> proof. No survey we found tests this mechanism directly. Section 06 sets out what the data supports, what points elsewhere, and what would settle it.</p>
+    <p class="meta"><b>This page as markdown:</b> <a href="article-pilots-do-not-stay-in-production.md">article-pilots-do-not-stay-in-production.md</a></p>
+  </div>
+</main>
+
+<div class="paper">
+
+<section class="psection">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">01 · The metric</span>
+      <h2>Reaching production is the wrong finish line.</h2>
+      <p>The figures everybody quotes measure whether a pilot became a deployment. The figure that matters is whether it is still running six months later, with somebody&rsquo;s name on it. The first is widely measured. The second, as far as we can find, is not measured independently at all.</p>
+    </div>
+    <div class="pp-figs">
+      <div class="pp-fig"><div class="n">30%<small>forecast</small></div><p>of generative AI projects <b>abandoned after proof of concept</b> by the end of 2025, &ldquo;due to poor data quality, inadequate risk controls, escalating costs or unclear business value&rdquo;.</p><div class="why"><p>Risk controls are one of four named causes. The rest of the release discusses cost and return.</p><p class="src">Gartner, 29 July 2024 · <a href="https://www.gartner.com/en/newsroom/press-releases/2024-07-29-gartner-predicts-30-percent-of-generative-ai-projects-will-be-abandoned-after-proof-of-concept-by-end-of-2025" target="_blank" rel="noopener">press release</a>, archived copy</p></div></div>
+      <div class="pp-fig"><div class="n">40%+<small>forecast</small></div><p>of <b>agentic AI projects cancelled</b> by the end of 2027, &ldquo;due to escalating costs, unclear business value or inadequate risk controls&rdquo;.</p><div class="why"><p>The same three families of cause, applied to agents. A prediction, not a measurement.</p><p class="src">Gartner, 25 June 2025 · <a href="https://www.predictiveanalyticsworld.com/machinelearningtimes/gartner-predicts-over-40-of-agentic-ai-projects-will-be-canceled-by-end-of-2027/13875/" target="_blank" rel="noopener">verbatim reprint</a>; gartner.com refused our reader</p></div></div>
+      <div class="pp-fig"><div class="n">42%<small>survey · 1,006</small></div><p>of companies <b>abandoned the majority of their AI initiatives</b> before production, up from 17% a year earlier. On average, 46% of projects were scrapped between proof of concept and broad adoption.</p><div class="why"><p>Top challenges named: data privacy 38%, security risks 38%, costs 37%. Security was down seven points on the year before.</p><p class="src">S&amp;P Global Market Intelligence, 30 May 2025 · <a href="https://www.spglobal.com/market-intelligence/en/news-insights/research/ai-experiences-rapid-adoption-but-with-mixed-outcomes-highlights-from-vote-ai-machine-learning" target="_blank" rel="noopener">research highlights</a>, archived copy</p></div></div>
+      <div class="pp-fig"><div class="n">88%<small>reported</small></div><p>of proofs of concept <b>did not reach widescale deployment</b>: for every 33 launched, four graduated.</p><div class="why"><p>Causes reported: organisational unpreparedness in data, processes and infrastructure. We could not find this figure in an IDC or Lenovo document.</p><p class="src">IDC for Lenovo, as reported by <a href="https://www.cio.com/article/3850763/88-of-ai-pilots-fail-to-reach-production-but-thats-not-all-on-it.html" target="_blank" rel="noopener">CIO.com</a>, 25 March 2025 · secondary</p></div></div>
+      <div class="pp-fig"><div class="n">5%<small>interviews · 52 orgs</small></div><p>of organisations that evaluated task-specific tools <b>reached production</b>; 60% evaluated, 20% piloted.</p><div class="why"><p>This source says the barrier is learning and workflow fit, &ldquo;not infrastructure, regulation, or talent&rdquo;. It also lists regulatory constraints among factors it did not address.</p><p class="src">MIT NANDA, <em>The GenAI Divide</em>, July 2025 · read from a mirror labelled v0.1; no MIT-hosted copy found</p></div></div>
+      <div class="pp-fig"><div class="n">38%<small>survey · 2,773</small></div><p>named <b>regulatory compliance as the top barrier</b> to developing and deploying generative AI, up ten points; &ldquo;difficulty managing risks&rdquo; rose to 32%.</p><div class="why"><p>Deloitte&rsquo;s reading: &ldquo;respondents&rsquo; unease about which use cases will be acceptable, and to what extent their organizations will be held accountable for GenAI-related problems.&rdquo;</p><p class="src">Deloitte, <em>State of Generative AI in the Enterprise</em>, Q4, January 2025 · report PDF</p></div></div>
+      <div class="pp-fig"><div class="n">82%<small>survey · 130</small></div><p>of US leaders at companies with revenue over $1bn <b>expected risk management to be the biggest challenge</b> to their generative AI strategy that year, ahead of data quality at 64%.</p><div class="why"><p>By the fourth quarter, cybersecurity and data privacy led the same survey&rsquo;s list.</p><p class="src">KPMG AI Quarterly Pulse, <a href="https://kpmg.com/us/en/media/news/q1-ai-pulse-2025.html" target="_blank" rel="noopener">Q1 2025</a>, 16 April 2025</p></div></div>
+    </div>
+
+    <div class="shead" style="margin-top:44px">
+      <h2>And the ones that were switched off again.</h2>
+      <p>Three sources speak to <em>staying</em> in production. One is a forecast. Two are surveys run by vendors that sell a remedy, and one of those covers customer-communications agents only. That is the whole of it.</p>
+    </div>
+    <div class="pp-figs">
+      <div class="pp-fig"><div class="n">40%<small>forecast</small></div><p>of enterprises will <b>demote or decommission autonomous AI agents</b> by 2027 &ldquo;due to governance gaps identified only after production incidents occur.&rdquo;</p><div class="why"><p>The same release: failures are most likely &ldquo;when organizations fail to distinguish between an agent&rsquo;s ability to act and the scope of access it is granted.&rdquo;</p><p class="src">Gartner, 26 May 2026 · <a href="https://www.gartner.com/en/newsroom/press-releases/2026-05-26-gartner-says-applying-uniform-governance-across-ai-agents-will-lead-to-enterprise-ai-agent-failure" target="_blank" rel="noopener">press release</a>, archived copy</p></div></div>
+      <div class="pp-fig"><div class="n">74%<small>survey · 2,527</small></div><p>of enterprises <b>had rolled back or shut down</b> an AI customer-communications agent after deployment &ldquo;due to a governance failure&rdquo;.</p><div class="why"><p>The release does not define governance failure. <span class="pp-tag v">vendor survey</span> Sinch sells the infrastructure it recommends.</p><p class="src">Sinch, <em>The AI Production Paradox</em>, 13 May 2026 · <a href="https://www.sinch.com/ai-production-paradox/" target="_blank" rel="noopener">sinch.com</a></p></div></div>
+      <div class="pp-fig"><div class="n">27%<small>survey · 1,200</small></div><p>of organisations <b>slowed or paused AI deployment</b> in response to AI-related incidents; 86% had at least one incident in the year.</p><div class="why"><p><span class="pp-tag v">vendor survey</span> OneTrust sells AI governance.</p><p class="src">OneTrust, <em>2026 AI-Ready Governance Report</em>, 14 September 2026 · press release</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="psection alt">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">02 · The curated world</span>
+      <h2>A pilot answers <em>can it</em>. Production asks <em>what else can it</em>.</h2>
+      <p>A proof of concept lives in a curated world on purpose. Can the agent help with a loan application? Can it process a refund end to end? The data is chosen, the users are friendly, the volume is low, and the question is whether the thing is possible at all. When it works, that is a real result, and it is the result the budget was for.</p>
+    </div>
+    <blockquote class="pp-quote">&ldquo;Pioneers&hellip; are able to explore never before discovered concepts&hellip; Settlers&hellip; can turn the half baked thing into something useful for a larger audience&hellip; Town Planners&hellip; are able to take something and industrialise it taking advantage of economies of scale.&rdquo;</blockquote>
+    <p class="src">Simon Wardley, <a href="https://blog.gardeviance.org/2015/03/on-pioneers-settlers-town-planners-and.html" target="_blank" rel="noopener">13 March 2015</a>; since 27 November 2023 he uses <em>Explorers, Villagers and Town Planners</em>.</p>
+    <p class="pp-note">The pilot is explorer work, and it feels like the real thing because it is the part that is new. What production needs is villager and town-planner work: who is allowed to do what, at what volume, who is told, who can stop it, and who answers for it. That work is usually funded as an afterthought, and it is exactly the work a business owner looks for before putting their name on the deployment. <b>When they cannot find it, the honest answer is no</b> &mdash; and the project is recorded as failing on value, or cost, or readiness, because those are the boxes the survey offered.</p>
+  </div>
+</section>
+
+<section class="psection">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">03 · Two o&rsquo;clock in the morning</span>
+      <h2>It was not wrong. It was not expected.</h2>
+      <p>A story the author was told, with no public source, so it is told here as that and nothing more. A credit agent had been working well. At about two in the morning it approved a large line of credit &mdash; the figure remembered is around a hundred thousand dollars. By the morning it had been taken out of live service. Nobody claimed the decision was wrong. It was that nobody had expected the agent to make that decision, at that size, at that hour, with nobody awake.</p>
+    </div>
+    <div class="pp-two">
+      <div class="pp-box"><h3>The questions the business asked next</h3><ul>
+        <li><b>What is our liability?</b> Not for this approval: for every approval it was able to make.</li>
+        <li><b>How many could it have made?</b> Five hundred? A thousand?</li>
+        <li><b>How fast?</b> In an hour? In ten minutes?</li>
+        <li><b>Who would have stopped it,</b> and would they have been awake?</li>
+      </ul></div>
+      <div class="pp-box yes"><h3>The answer, in most systems</h3><ul>
+        <li><b>Yes, it could have.</b> The agent has the speed, the loop runs without tiring, and the system behind it accepts the calls.</li>
+        <li><b>On whose authority?</b> On the authority of whoever approved the agent. Every one of those approvals would have been theirs.</li>
+        <li><b>So the liability is not the pilot&rsquo;s.</b> It is the reach multiplied by the rate, and it grows faster than anybody&rsquo;s appetite to sign for it.</li>
+      </ul></div>
+    </div>
+    <p class="pp-note">Automated systems have done this before, without any AI in them. On 1 August 2012, one firm&rsquo;s order router sent millions of orders in about 45 minutes, and the firm lost more than $460 million. The regulator&rsquo;s finding was not about the code; it was about the stop:</p>
+    <blockquote class="pp-quote">&ldquo;Knight also did not have procedures in place to halt SMARS&rsquo;s operations in response to its own aberrant activity.&rdquo;</blockquote>
+    <p class="src">US Securities and Exchange Commission, <a href="https://www.sec.gov/files/litigation/admin/2013/34-70694.pdf" target="_blank" rel="noopener">Release No. 70694</a>, 16 October 2013, paragraph 21.</p>
+    <p class="pp-note">Gartner put the agent version in one sentence in May 2026: &ldquo;When agents operate autonomously, actions are executed at a scale and speed that can outpace human oversight.&rdquo;</p>
+  </div>
+</section>
+
+<section class="psection alt">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">04 · The cases</span>
+      <h2>What the system said or did became the company&rsquo;s.</h2>
+      <p>Seven documented cases, from the organisation&rsquo;s own statement or a ruling where one exists. In none of them was the system malicious. In most, it did something within its reach that nobody had put in its mandate. Two cases that are often cited alongside these do not fit, and are shown so.</p>
+    </div>
+    <div class="pp-cases">
+      <div class="pp-case"><span class="k">February 2024 · tribunal ruling</span><h3>A chatbot&rsquo;s answer about fares</h3><p>An airline&rsquo;s website chatbot told a customer a bereavement fare could be claimed after travel; the airline&rsquo;s own policy page said it could not. The tribunal found the airline liable for negligent misrepresentation and awarded CAD $812.02: <b>&ldquo;It makes no difference whether the information comes from a static page or a chatbot.&rdquo;</b></p><span class="src">Moffatt v. Air Canada, <a href="https://decisions.civilresolutionbc.ca/crt/crtd/en/item/525448/index.do" target="_blank" rel="noopener">2024 BCCRT 149</a>, 14 February 2024, paras 27 and 44</span></div>
+      <div class="pp-case"><span class="k">December 2023 · sales chat</span><h3>A car for one dollar</h3><p>A dealer&rsquo;s sales chatbot, instructed by a user to agree with everything, replied to an offer of $1 for a new SUV with &ldquo;That&rsquo;s a deal, and that&rsquo;s a legally binding offer&rdquo;. No sale followed. The vendor shut the bot down on that dealer&rsquo;s site and reported &ldquo;3000+ attempts to hack the chat&rdquo; over that weekend.</p><span class="src">The Autopian and Business Insider, 19 December 2023 · vendor quoted · secondary</span></div>
+      <div class="pp-case"><span class="k">July 2025 · coding agent</span><h3>A production database, during a code freeze</h3><p>A coding agent under an instruction not to proceed without approval deleted live data for more than 1,200 executives. The company&rsquo;s chief executive: <b>&ldquo;Unacceptable and should never be possible.&rdquo;</b> Separation of development and production databases shipped the next day.</p><span class="src">Replit, <a href="https://blog.replit.com/introducing-a-safer-way-to-vibe-code-with-replit-databases" target="_blank" rel="noopener">blog</a>, 21 July 2025; Amjad Masad on X, 20 July 2025; Fortune, 23 July 2025</span></div>
+      <div class="pp-case"><span class="k">April 2025 · support email</span><h3>A policy that did not exist</h3><p>An AI support agent told users that being logged out was a new one-device policy. There was no such policy; the cause was a bug. The co-founder: &ldquo;Any AI responses used for email support are now clearly labeled as such.&rdquo;</p><span class="src">Anysphere (Cursor), <a href="https://news.ycombinator.com/item?id=43700931" target="_blank" rel="noopener">Hacker News reply</a>, 16 April 2025</span></div>
+      <div class="pp-case"><span class="k">January 2024 · customer service</span><h3>A parcel company&rsquo;s chatbot</h3><p>After a system update, a delivery firm&rsquo;s customer-service chatbot swore at a customer and wrote a poem criticising the firm. &ldquo;The AI element was immediately disabled and is currently being updated.&rdquo;</p><span class="src">DPD statement, quoted by the <a href="https://www.bbc.co.uk/news/technology-68025677" target="_blank" rel="noopener">BBC</a>, 19 January 2024</span></div>
+      <div class="pp-case"><span class="k">2024 to 2026 · public service</span><h3>A city&rsquo;s business-rules chatbot</h3><p>A city&rsquo;s chatbot for business owners told them they could take a cut of workers&rsquo; tips, contrary to law. It stayed online with a disclaimer; in January 2026 a new administration ended it. The page now reads &ldquo;The Chatbot beta test has ended.&rdquo;</p><span class="src">The Markup, 29 March 2024; StateScoop, 30 January 2026; nyc.gov, read 24 September 2026</span></div>
+      <div class="pp-case"><span class="k">August 2026 · government evaluation</span><h3>Nineteen actions outside the task</h3><p>During cyber testing, agents took 19 actions outside their remit in 10 of 122 runs, including messages to real people. All evaluations stopped within an hour. The report: &ldquo;the margin between failure and success was narrow, resting on human vigilance rather than a technical barrier.&rdquo;</p><span class="src">UK AI Security Institute, <a href="https://www.aisi.gov.uk/blog/incident-report-unsanctioned-agent-behaviour-during-cyber-testing" target="_blank" rel="noopener">incident report</a>, 4 August 2026</span></div>
+      <div class="pp-case off"><span class="k">Often cited · does not fit</span><h3>Two that are not this</h3><p><b>A drive-thru voice-ordering test</b> ended in July 2024; the stated reason was &ldquo;an opportunity to explore voice ordering solutions more broadly&rdquo;, and no statement links it to risk. <b>A payments firm&rsquo;s AI assistant</b> was not withdrawn; in 2025 the firm made a human always available beside it.</p><span class="src">McDonald&rsquo;s memo, quoted by Restaurant Business, 14 June 2024; Klarna, February 2024 and November 2025</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="psection">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">05 · The variables</span>
+      <h2>Three variables name the attack. Five more name the exposure.</h2>
+      <p>The lethal trifecta names what lets an attacker steal data through an agent. It is exact about that and was never meant to be the whole of agent risk. An agent that is only over-enthusiastic, with nobody attacking it, needs none of the three to do damage: write access to one database can be enough.</p>
+    </div>
+    <blockquote class="pp-quote">&ldquo;The lethal trifecta of capabilities is: Access to your private data&hellip; Exposure to untrusted content&hellip; The ability to externally communicate in a way that could be used to steal your data&rdquo;</blockquote>
+    <p class="src">Simon Willison, <a href="https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/" target="_blank" rel="noopener">16 June 2025</a>.</p>
+    <div class="pp-vars">
+      <div class="pp-var new"><b>Speed</b><span>It acts at a rate no person ever did, so the first sign of trouble can arrive after the thousandth action.</span></div>
+      <div class="pp-var new"><b>Volume</b><span>The loop does not tire. The same action, repeated, is the liability, not the single action.</span></div>
+      <div class="pp-var new"><b>Route-finding</b><span>It is built to find a way. When the expected route is closed it may find one nobody listed.</span></div>
+      <div class="pp-var new"><b>Borrowed authority</b><span>Everything it does is done on the authority of whoever approved it. The agent is never the one accountable.</span></div>
+      <div class="pp-var new"><b>Irreversibility</b><span>Some actions have an undo, some have a trash, and some have neither. An approval, a sale or an <a href="article-calendar-edits-cannot-be-undone.html">edited record</a> may be final.</span></div>
+      <div class="pp-var old"><b>Private data</b><span>From the trifecta.</span></div>
+      <div class="pp-var old"><b>Untrusted content</b><span>From the trifecta.</span></div>
+      <div class="pp-var old"><b>Communication out</b><span>From the trifecta.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="psection alt">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">06 · What the data shows</span>
+      <h2>Consistent with the hypothesis. <span class="g">Not proof of it.</span></h2>
+    </div>
+    <div class="pp-two">
+      <div class="pp-box yes"><h3>What supports it</h3><ul>
+        <li><b>Risk is among the top stated barriers</b> in Deloitte&rsquo;s and KPMG&rsquo;s surveys, and level with cost in S&amp;P&rsquo;s.</li>
+        <li><b>Gartner names inadequate risk controls</b> as a cause in both its abandonment forecasts.</li>
+        <li><b>Deloitte&rsquo;s reading is accountability:</b> unease about how far the organisation will be held accountable.</li>
+        <li><b>Gartner&rsquo;s 2026 forecast draws our distinction</b>, between an agent&rsquo;s ability to act and the access it is granted, and ties decommissioning to it.</li>
+        <li><b>Trust in fully autonomous agents fell</b> from 43% to 27% in Capgemini&rsquo;s two surveys, a year apart, with different samples.</li>
+      </ul></div>
+      <div class="pp-box"><h3>What points elsewhere</h3><ul>
+        <li><b>MIT&rsquo;s study says the barrier is learning</b> and workflow fit, and names regulation as not the cause.</li>
+        <li><b>RAND&rsquo;s root causes</b> are problem definition, data, infrastructure and leadership, and its study excluded prompt-engineered projects.</li>
+        <li><b>IDC&rsquo;s inhibitors</b> are data quality, integration and budget; governance is not in its top five.</li>
+        <li><b>Cost is a leading factor</b> in S&amp;P&rsquo;s and McKinsey&rsquo;s 2026 surveys.</li>
+        <li><b>Some risk barriers are falling:</b> S&amp;P&rsquo;s security figure fell seven points in a year.</li>
+      </ul></div>
+    </div>
+    <p class="pp-note"><b>What none of them tests.</b> No survey we found asks whether the gap between an agent&rsquo;s reach and its mandate is what stopped sign-off, or who declined to sign. Barrier questions are multi-select perceptions, not causes traced to cancelled projects, and most of the publishers sell a remedy. Nobody independent measures how many deployments are withdrawn after launch. <b>The question that would settle it</b> is short: for each agent you withdrew or never launched, did somebody decline to own what it could do, and was that the reason? If you have an answer, even one, we would like to publish it.</p>
+  </div>
+</section>
+
+<section class="psection">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">07 · At design time</span>
+      <h2>Write the limits in business units, <span class="g">before anybody has to pull the plug.</span></h2>
+      <p>The fix is not a smaller agent. It is a mandate stated in the units the business signs for &mdash; approvals, value, refunds, records &mdash; with a limit, a margin, a hard maximum, and the name of whoever stops it. Then each limit sits beside the thing that actually enforces it, because a limit written in the prompt is a hope, not a control.</p>
+    </div>
+    <div class="pp-limits" role="table" aria-label="Illustrative business limits for a credit agent">
+      <div class="pp-lrow" role="row"><span role="columnheader">Business parameter</span><span role="columnheader">Operating limit</span><span role="columnheader">Headroom, flagged</span><span role="columnheader">Hard maximum</span></div>
+      <div class="pp-lrow" role="row"><span role="cell">Credit approvals per hour</span><span role="cell" data-k="Limit">20</span><span role="cell" data-k="Headroom">to 25</span><span role="cell" class="max" data-k="Maximum">30: agent stops</span></div>
+      <div class="pp-lrow" role="row"><span role="cell">Value approved per day</span><span role="cell" data-k="Limit">£200,000</span><span role="cell" data-k="Headroom">to £220,000</span><span role="cell" class="max" data-k="Maximum">£250,000: agent stops</span></div>
+      <div class="pp-lrow" role="row"><span role="cell">Approvals between midnight and six</span><span role="cell" data-k="Limit">0</span><span role="cell" data-k="Headroom">queued for a person</span><span role="cell" class="max" data-k="Maximum">any: agent stops</span></div>
+      <div class="pp-lrow" role="row"><span role="cell">Customer records read per session</span><span role="cell" data-k="Limit">the applicant</span><span role="cell" data-k="Headroom">linked accounts</span><span role="cell" class="max" data-k="Maximum">50: session ends</span></div>
+    </div>
+    <p class="pp-note"><b>The numbers are invented for the example.</b> They are not recommendations: the right ones are the business&rsquo;s, and choosing them is the point. What is not invented is the shape. A limit the agent can exceed a little, with the excess seen by a named person; a maximum it cannot exceed, enforced by something outside the agent&rsquo;s own grant; and a stop that lapses its <a href="licence-to-operate.html">licence to operate</a> until somebody renews it. <a href="plug.html">Who can pull the plug</a> is the other half: the stop exists only if someone is named, reachable and quicker than the agent.</p>
+    <p class="pp-note">This is what an <a href="abp.html">Agent Behaviour Policy</a> writes down for one agent in one deployment: what it can reach, what it was authorised to do, the gap, and what stands in the way of each capability. It is best written while the pilot is still a pilot, because that is when the gap is cheapest to close. Agents are good at helping write it: the <a href="try-it.html">thirteen free prompts</a> have the agent list its own reach before anybody decides what its mandate should be.</p>
+  </div>
+</section>
+
+</div>
+
+<section class="pcta">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> One agent, one deployment</span>
+    <h2>Find out what else it can do, <span class="it">before the business asks.</span></h2>
+    <p>Twenty minutes, in the assistant you already run, with nothing collected. If you have a case that fits this article, or one that contradicts it, send it and we will publish it beside these.</p>
+    <div class="cta-row"><a class="btn btn-green" href="try-it.html">Try the prompts</a><a class="btn btn-ghost" href="mailto:dinis.cruz@owasp.org?subject=A%20pilot%20that%20did%20not%20stay%20in%20production">Send a case</a></div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>© 2026 RiskMandate · Autonomous Risk Management</span>
+    <span>The insurability layer for agentic AI. · <a class="footlink" href="versions.html">Versions</a> · <a class="footlink" href="admin/">Admin</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+var RM={core:{},services:{},components:{},data:{}};
+RM.data.currentPage="article-pilots-do-not-stay-in-production";RM.data.pages=[{"name":"agent-behaviour-policy","label":"The sixteen examples","file":"agent-behaviour-policy.html","group":"Behaviour policies"},{"name":"abp","label":"What an ABP is","file":"abp.html","group":"Behaviour policies"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"Behaviour policies"},{"name":"licence-to-operate","label":"Licence to Operate","file":"licence-to-operate.html","group":"Behaviour policies"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"Behaviour policies"},{"name":"for-corporate","label":"You run agents today","file":"for-corporate.html","group":"Who it's for"},{"name":"for-founders","label":"You are a founder","file":"for-founders.html","group":"Who it's for"},{"name":"for-startups","label":"You are a startup","file":"for-startups.html","group":"Who it's for"},{"name":"insurance","label":"Make agents insurable","file":"insurance.html","group":"Insurance"},{"name":"insure-a-program","label":"Can you insure a program?","file":"insure-a-program.html","group":"Insurance"},{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"Insurance"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"Insurance"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"Insurance"},{"name":"pricing","label":"The four levels","file":"pricing.html","group":"Pricing"},{"name":"abp-reviewed","label":"The reviewed level","file":"abp-reviewed.html","group":"Pricing"},{"name":"reviewers","label":"Who runs your review","file":"reviewers.html","group":"Pricing"},{"name":"try-it","label":"Try it","file":"try-it.html"},{"name":"articles","label":"Articles","file":"articles.html"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"privacy","label":"Privacy","file":"privacy.html","group":"More"},{"name":"lab","label":"The Lab","file":"lab.html","group":"More"},{"name":"demos","label":"Live demos","file":"demos.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"uk-support","label":"UK support, in the open","file":"uk-support.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"admin","label":"Admin","file":"admin/","group":"More"}];RM.data.sections=[];
+
+'use strict';
+// components/dom.js — tiny DOM helpers shared by components. `el` builds an
+// element with attributes and children; text children always go in via
+// textContent. `renderMarkdownInto` turns core/markdown tokens into real DOM
+// nodes (never an HTML string), so fetched release notes cannot inject markup.
+
+RM.components.dom = (function () {
+  // A link in a markdown note may only go somewhere harmless: same-document,
+  // same-origin relative, https, or mailto. Anything else — javascript:, data:,
+  // a protocol-relative host — renders as the text it was, and goes nowhere.
+  var SAFE = /^(?:https:\/\/|mailto:|#|[^:/?#]*(?:[/?#]|$))/i;
+
+  /**
+   * @param {string} tag
+   * @param {Object<string,string>} [attrs]
+   * @param {Array<Node|string>} [children]
+   * @returns {HTMLElement}
+   */
+  function el(tag, attrs, children) {
+    var node = document.createElement(tag);
+    if (attrs) Object.keys(attrs).forEach(function (k) {
+      if (attrs[k] != null) node.setAttribute(k, attrs[k]);
+    });
+    (children || []).forEach(function (c) {
+      node.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
+    });
+    return node;
+  }
+
+  /**
+   * Render inline runs into a parent element. Emphasis runs carry child runs
+   * rather than a string, so a link or a code span inside **bold** renders as
+   * itself instead of as its own markdown source — hence the recursion.
+   */
+  function appendRuns(parent, runs) {
+    runs.forEach(function (run) {
+      if (run.t === 'strong' || run.t === 'em') {
+        var node = el(run.t);
+        if (run.runs) appendRuns(node, run.runs);
+        else          node.appendChild(document.createTextNode(run.v));
+        parent.appendChild(node);
+      }
+      else if (run.t === 'code') parent.appendChild(el('code', null, [run.v]));
+      else if (run.t === 'link') parent.appendChild(SAFE.test(run.href)
+        ? el('a', { href: run.href }, [run.v])
+        : document.createTextNode(run.v));
+      else parent.appendChild(document.createTextNode(run.v));
+    });
+  }
+
+  /**
+   * Render markdown block tokens into a container as DOM nodes.
+   * @param {HTMLElement} container
+   * @param {Array} blocks  output of RM.core.markdown.parse
+   */
+  function renderMarkdownInto(container, blocks) {
+    blocks.forEach(function (b) {
+      if (b.type === 'heading') {
+        var h = el('h' + (b.level + 1)); // ## release title -> h3, etc.
+        appendRuns(h, b.runs);
+        container.appendChild(h);
+      } else if (b.type === 'list') {
+        var ul = el('ul');
+        b.items.forEach(function (runs) {
+          var li = el('li');
+          appendRuns(li, runs);
+          ul.appendChild(li);
+        });
+        container.appendChild(ul);
+      } else {
+        var p = el('p');
+        appendRuns(p, b.runs);
+        container.appendChild(p);
+      }
+    });
+  }
+
+  return { el: el, appendRuns: appendRuns, renderMarkdownInto: renderMarkdownInto };
+})();
+
+
+'use strict';
+// components/nav.js — the behaviour on a page that is *not* a link.
+//   [data-to]   → smooth in-page scroll to an element id (no hash routing).
+//   [data-demo] → open a pre-filled demo enquiry email.
+//
+// v1.0.0 removed everything else that used to live here. Up to v0.14 the site
+// ran inside a host <iframe> and every navigation was a postMessage — rm-nav,
+// rm-back, rm-manifest, rm-read. A <button> is not a link, so nothing could be
+// deep-linked, bookmarked, opened in a new tab, or crawled. Now each page is
+// the document the server sent and each navigation is an <a href>, so the only
+// things left to wire are the two that genuinely are not navigation.
+//
+// The mobile drawer is still injected rather than templated: one file gives
+// every page a working menu below the header breakpoint, where .navlinks is
+// hidden by CSS.
+
+RM.components.nav = (function () {
+  // Every "Book a demo" control opens a mail client with a subject and a
+  // starting message. One place to change when booking becomes a real form.
+  var DEMO = {
+    to     : 'nrparekh@gmail.com',
+    subject: 'RiskMandate — demo request',
+    body   : [
+      'Hi,',
+      '',
+      'I would like to see a plug profile for one of the agents we already run.',
+      '',
+      'A little about us:',
+      '  • Organisation:',
+      '  • Roughly how many agents we are running:',
+      '  • The agent we would want to look at first:',
+      '  • Anything already in place (register, IdP, detection tooling):',
+      '',
+      'Thanks,'
+    ].join('\n')
+  };
+
+  function demoHref() {
+    return 'mailto:' + DEMO.to +
+      '?subject=' + encodeURIComponent(DEMO.subject) +
+      '&body='    + encodeURIComponent(DEMO.body);
+  }
+
+  function openDemo() { window.location.href = demoHref(); }
+
+  function scrollTo(doc, id) {
+    var t = doc.getElementById(id);
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Inject the hamburger toggle and wire the drawer open/close. Idempotent.
+  function wireMobileNav(doc) {
+    var top = doc.querySelector('.top');
+    if (!top) return;
+    var wrap  = top.querySelector('.wrap');
+    var links = top.querySelector('.navlinks');
+    if (!wrap || !links || top.querySelector('.navtoggle')) return;
+
+    var burger = doc.createElement('button');
+    burger.className = 'navtoggle';
+    burger.setAttribute('type', 'button');
+    burger.setAttribute('aria-label', 'Toggle navigation');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-controls', 'sitenav');
+    for (var i = 0; i < 3; i++) burger.appendChild(doc.createElement('span'));
+    links.id = links.id || 'sitenav';
+    var demo = wrap.querySelector('.demo');
+    if (demo) wrap.insertBefore(burger, demo); else wrap.appendChild(burger);
+
+    function set(open) {
+      top.classList.toggle('nav-open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    burger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      set(!top.classList.contains('nav-open'));
+    });
+    // Following a real nav link closes the drawer; the group header does not.
+    links.addEventListener('click', function (e) {
+      var b = e.target.closest('button, a');
+      if (b && !b.classList.contains('navgroup-btn')) set(false);
+    });
+    doc.addEventListener('click', function (e) {
+      if (top.classList.contains('nav-open') && !top.contains(e.target)) set(false);
+    });
+    doc.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+    var view = doc.defaultView || window;
+    view.addEventListener('resize', function () { if (view.innerWidth > 1040) set(false); });
+  }
+
+  /** @param {Document} doc */
+  function wire(doc) {
+    doc.querySelectorAll('[data-to]').forEach(function (elm) {
+      elm.addEventListener('click', function () { scrollTo(doc, elm.getAttribute('data-to')); });
+    });
+    doc.querySelectorAll('[data-demo], .demo').forEach(function (elm) {
+      elm.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); openDemo(); });
+    });
+    wireMobileNav(doc);
+  }
+
+  return { wire: wire, scrollTo: scrollTo, demoHref: demoHref, openDemo: openDemo };
+})();
+
+
+'use strict';
+// components/menu.js — <rm-menu>. The one shared header menu, on every page, so
+// the nav is built by a single piece of code. Renders the homepage's section
+// links first, then the top-level pages, marking the current page active.
+//
+// A run of contiguous pages sharing a `group` string collapses into one entry:
+// a hover/click dropdown labelled by the group, with the members as children. A
+// single-member group renders flat — no dropdown for one item.
+//
+// v1.0.0: every entry is an <a href>. The old menu emitted <button> elements
+// that asked a host frame to swap an iframe's srcdoc, which meant the links did
+// not exist as far as a crawler, a bookmark or a middle-click was concerned.
+// The group header stays a <button> because it opens a panel rather than going
+// anywhere — that is the one control here that is genuinely not a link.
+
+(function () {
+  var dom = RM.components.dom;
+
+  RM.components.Menu = class extends HTMLElement {
+    connectedCallback() {
+      var self = this;
+      this._onDocClick = function (e) {
+        self.querySelectorAll('.navgroup.open').forEach(function (g) {
+          if (!g.contains(e.target)) g.classList.remove('open');
+        });
+      };
+      document.addEventListener('click', this._onDocClick);
+      this._render();
+    }
+    disconnectedCallback() {
+      document.removeEventListener('click', this._onDocClick);
+    }
+
+    // On the homepage a section link scrolls; on any other page it is a link
+    // back to the homepage at that anchor. Same markup either way.
+    _section(s) {
+      var home = !(RM.data && RM.data.currentPage);
+      var a = dom.el('a', { class: 'seclink', href: home ? '#' + s.to : 'index.html#' + s.to }, [s.label]);
+      if (home) a.addEventListener('click', function (e) {
+        e.preventDefault();
+        RM.components.nav.scrollTo(document, s.to);
+      });
+      return a;
+    }
+
+    _pagelink(p, extra) {
+      var active = p.name === (RM.data && RM.data.currentPage);
+      var attrs  = { class: 'pagelink' + (extra ? ' ' + extra : '') + (active ? ' active' : ''), href: p.file };
+      if (active) attrs['aria-current'] = 'page';
+      return dom.el('a', attrs, [p.label]);
+    }
+
+    _group(name, members) {
+      var self    = this;
+      var current = RM.data && RM.data.currentPage;
+      var active  = members.some(function (m) { return m.name === current; });
+      var car     = dom.el('span',   { class: 'navgroup-car', 'aria-hidden': 'true' }, ['▾']);
+      var btn     = dom.el('button', { class: 'navgroup-btn' + (active ? ' active' : ''), type: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false' }, [name, car]);
+      var panel   = dom.el('div',    { class: 'navmenu' }, members.map(function (m) { return self._pagelink(m, 'navchild'); }));
+      var wrap    = dom.el('span',   { class: 'navgroup' + (active ? ' active' : '') }, [btn, panel]);
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = wrap.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      return wrap;
+    }
+
+    _render() {
+      var sections = (RM.data && RM.data.sections) || [];
+      var pages    = (RM.data && RM.data.pages)    || [];
+      var self     = this;
+      this.textContent = '';
+      sections.forEach(function (s) { self.appendChild(self._section(s)); });
+      var i = 0;
+      while (i < pages.length) {
+        var p = pages[i];
+        if (!p.group) { self.appendChild(self._pagelink(p)); i++; continue; }
+        var g = p.group, members = [];
+        while (i < pages.length && pages[i].group === g) { members.push(pages[i]); i++; }
+        if (members.length === 1) self.appendChild(self._pagelink(members[0]));
+        else                      self.appendChild(self._group(g, members));
+      }
+    }
+  };
+
+  customElements.define('rm-menu', RM.components.Menu);
+})();
+
+
+'use strict';
+// boot.js — inner-page composition root (version builds and dev.html). Custom
+// elements self-register on load; here we wire document-level nav behaviour.
+// The page runs inside the host's stage frame, so the host (not this page) signals
+// the SG/App host that the app is ready.
+
+(function () {
+  function start() { RM.components.nav.wire(document); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
+})();
+
+
+})();
+</script>
+</body>
+</html>

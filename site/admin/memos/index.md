@@ -5,7 +5,7 @@
 
 **2**received, nothing built yet*Archived and read, and nothing has been built from it yet.*
 
-**14**partly worked*read in full; a named part is not built*
+**16**partly worked*read in full; a named part is not built*
 
 **8**processed*something on the site exists because of it*
 
@@ -20,6 +20,14 @@ spoken brief, transcribed · 1 produced · 3 not done24 September 2026 · partly
 **[UK support, in the open: consolidate what the UK offers a startup at go-to-market, ask people what is missing, and let other founders use it](#D13)**
 
 spoken brief, transcribed · 2 produced · 3 not done24 September 2026 · partly
+
+**[Pilots do not stay in production: the business sees the gap between mandate and reach, at machine speed, and declines to sign for it](#D14)**
+
+spoken brief, transcribed · 1 produced · 3 not done24 September 2026 · partly
+
+**[Calendar edits cannot be undone: integrity risk, and why the edit permission is the dangerous one](#D15)**
+
+spoken brief, transcribed · 1 produced · 3 not done24 September 2026 · partly
 
 **[The named professional, and the assignment of the individual who does the £1,500 review](#D11)**
 
@@ -160,6 +168,38 @@ partly
 - Applying to anything. Every row says not started except Web Summit; which doors to try, starting with the Sovereign AI procurement challenge, is the lead's decision.
 - A matching page on sgit.ai's partnerships section. That site is not in this repository; it can link here.
 - Pages that refused an automated read (British Business Bank, london.gov.uk, blackhat.com, rsaconference.com, the Turing, the ABI) are marked unclear rather than filled from search results.
+
+D14 · spoken brief, transcribed · 24 September 2026
+
+## Pilots do not stay in production: the business sees the gap between mandate and reach, at machine speed, and declines to sign for it
+
+partly
+
+[the file as received](../../assets/briefs/2026-09-24__transcript__pilots-do-not-stay-in-production.txt) · `762fd1ea85c2…` · 7 KB
+
+**Produced.** [The pilot worked. Then somebody asked what else it could do: fourteen surveys and forecasts with the causes each names, seven cases, five variables the lethal trifecta leaves out, and what the data does not show](../../article-pilots-do-not-stay-in-production.html)
+
+**Not done.**
+
+- Data that tests the hypothesis. No survey found asks whether the gap between reach and mandate stopped sign-off; the article says so and asks readers for cases.
+- The credit approval at two in the morning has no public source. It is told as an anecdote the author was told, and nothing more.
+- The operating limit, headroom and hard maximum the memo recalls from an insurance vault were not found in the published demo vaults; the article presents the shape with invented numbers, labelled as such.
+
+D15 · spoken brief, transcribed · 24 September 2026
+
+## Calendar edits cannot be undone: integrity risk, and why the edit permission is the dangerous one
+
+partly
+
+[the file as received](../../assets/briefs/2026-09-24__transcript__calendar-edits-cannot-be-undone.txt) · `0349fc94e7df…` · 5 KB
+
+**Produced.** [A deleted meeting comes back. An edited one does not: what Google keeps after each action, in its own words, for personal and Workspace accounts; three contradictions in Google's pages; and the draft Calendar rows of a behaviour policy](../../article-calendar-edits-cannot-be-undone.html)
+
+**Not done.**
+
+- The Calendar behaviour policies themselves. They are in draft; the article quotes their rows and says so.
+- A restore for edited events. Google documents none for users; Workspace with Vault keeps earlier versions an admin can export, and the article says the memo's claim holds for personal accounts and needs that qualification for Workspace.
+- The early-user conversation (calendar over email) is reported as a handful of conversations, not a survey.
 
 D11 · spoken brief, transcribed · 22 September 2026
 

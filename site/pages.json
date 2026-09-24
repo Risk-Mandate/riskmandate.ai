@@ -312,6 +312,20 @@
       "unlisted": true
     },
     {
+      "name": "article-pilots-do-not-stay-in-production",
+      "label": "The pilot worked. Then somebody asked what else it could do.",
+      "file": "article-pilots-do-not-stay-in-production.html",
+      "group": "Articles",
+      "unlisted": true
+    },
+    {
+      "name": "article-calendar-edits-cannot-be-undone",
+      "label": "A deleted meeting comes back. An edited one does not.",
+      "file": "article-calendar-edits-cannot-be-undone.html",
+      "group": "Articles",
+      "unlisted": true
+    },
+    {
       "name": "agent-behaviour-policy-next",
       "file": "agent-behaviour-policy-next.html",
       "label": "Which Agent Behaviour Policy next?",
