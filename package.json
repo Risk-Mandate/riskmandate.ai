@@ -4,7 +4,7 @@
   "description": "Tooling for riskmandate.ai. The SITE has no dependencies \u2014 site/ is plain HTML and is deployed unchanged. This file exists only for the maintenance scripts under scripts/site/.",
   "scripts": {
     "generate": "node scripts/site/generate.mjs",
-    "check": "node --test tests/site/*.mjs && node scripts/site/generate.mjs --check && node scripts/site/build-admin.mjs --check && node scripts/site/build-abp-pages.mjs --check && node scripts/site/build-reviewer-pages.mjs --check && node scripts/site/render-pitch-deck.mjs --check && for d in site/vaults/*/; do s=$(basename \"$d\"); case \"$s\" in _template|_app) continue;; esac; node scripts/site/build-abp-vault.mjs \"$s\" --check || exit 1; done && node scripts/site/sync-modules.mjs --check && node scripts/site/render-lab-pdfs.mjs --check",
+    "check": "node --test tests/site/*.mjs && node scripts/site/generate.mjs --check && node scripts/site/build-admin.mjs --check && node scripts/site/build-abp-pages.mjs --check && node scripts/site/build-reviewer-pages.mjs --check && node scripts/site/build-uk-support.mjs --check && node scripts/site/render-pitch-deck.mjs --check && for d in site/vaults/*/; do s=$(basename \"$d\"); case \"$s\" in _template|_app) continue;; esac; node scripts/site/build-abp-vault.mjs \"$s\" --check || exit 1; done && node scripts/site/sync-modules.mjs --check && node scripts/site/render-lab-pdfs.mjs --check",
     "editions": "node scripts/site/render-lab-pdfs.mjs && node scripts/site/generate.mjs",
     "serve": "bash scripts/run-locally__riskmandate_ai.sh"
   },

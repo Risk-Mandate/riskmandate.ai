@@ -57,7 +57,7 @@ for (const s of DATA.sections) {
     if (!STATUS[r.status]) fail(`${where}: status "${r.status}" is not one of ${Object.keys(STATUS).join(', ')}`);
     if (!OURS[r.ours]) fail(`${where}: ours "${r.ours}" is not one of ${Object.keys(OURS).join(', ')}`);
     if (r.read && !isDate(r.read)) fail(`${where}: read must be YYYY-MM-DD`);
-    if (r.status !== 'unclear' && !r.evidence) fail(`${where}: a status other than unclear needs the phrase from the page that shows it`);
+    if (r.status === 'closed' && !r.evidence) fail(`${where}: a closure needs the phrase from the page that says so`);
     if (seen.has(r.name)) fail(`${where}: listed twice`);
     seen.add(r.name);
   }

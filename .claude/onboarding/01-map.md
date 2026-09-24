@@ -48,7 +48,7 @@ needed.
 | Try it | `try-it.html` (top-level, between Pricing and Articles) | hand-authored. The free step below the store's ladder: the four-step, thirteen-prompt workflow a person runs in their own assistant, hosted at [abp.sgit.ai/gmail](https://abp.sgit.ai/gmail/index.html). Says before the reader finds out that the result is a self report. `direction__the-next-phase-is-users.md` |
 | Articles | `articles.html` (top-level), `article-<slug>.html` (unlisted, group *Articles*) | hand-authored, scaffolded with `new-page.mjs` from `insure-a-program.html`. One argument per page, built on one deployment shape's behaviour policy and linking to it; every claim sourced and dated; the queue of unwritten ones is listed on the index, marked *not written* |
 | Summit | `summit.html`, `summit-booth.html` (private) | hand-authored |
-| More | `lab` (the Lab moved here from the top level in v1.19.0), `questions`, `briefs` (the register page), `work`, `work-abp-power-user`, `library`, `partners`, `feedback`, `brand`, `admin/` (a `link` entry: a folder, not a page) | hand-authored |
+| More | `lab` (the Lab moved here from the top level in v1.19.0), `questions`, `briefs` (the register page), `work`, `work-abp-power-user`, `library`, `partners`, `uk-support` (the UK support register, rendered from `uk-support.json`), `feedback`, `brand`, `admin/` (a `link` entry: a folder, not a page) | hand-authored |
 | Pricing | `pricing.html` | hand-authored; the store's four levels, each linked to `store.sgit.ai/d/t<n>/`; the level-3 prompt workflow; the plus-one-thing rule and a definition of done per level (v1.19.1) |
 | After payment | `paid-t1.html` … `paid-t4.html` (unlisted, noindex) | hand-authored (scaffolded with `new-page.mjs`); one per level, the payment link's success address: what arrives and when, what you do next, how the key reaches you, the definition of done, who to write to. `paid-t1.html` is the download: its zip manifest (`/*__DIST__*/`) is **stamped** by `build-abp-pages.mjs` from `site/vaults/*/dist/`. `after-payment.html` (in *More*) is the debrief for the store team: the link contract and what the store has to do. Brief D9 |
 | Records | `versions.html` + `versions/index.json` + `versions/<v>.md`; `briefs.html` + `briefs-register.json` + `assets/briefs/`; `lab-editions.json`; `vaults/index.json` | append-only. Never rewrite an entry |
@@ -72,6 +72,7 @@ menu entries (a group counts as one).
 | `render-abp-vault-pdf.mjs` | the PDF in a vault's `dist/` (Playwright) | yes | no |
 | `add-licence-chrome.mjs [--check]` | GitHub link in the header, licence line in the footer, every page | yes | yes |
 | `sync-modules.mjs [--check]` | push `scripts/site/modules/*.js` into every page that inlines it | yes | yes |
+| `build-uk-support.mjs [--check]` | render `site/uk-support.json` into `uk-support.html`; refuses a row without an official URL, and a closure without the phrase that says so | yes | yes |
 | `render-lab-pdfs.mjs [slug] [--all] [--check]` | cut a dated PDF edition of a Lab page when its content hash moved; register it | yes | yes (check) |
 | `render-booth-panel.mjs`, `render-business-card.mjs`, `render-brand-exports.mjs` | print assets | yes | no |
 | `scripts/site/abp/` | the library page's CSS and JS, and the product marks; live once, injected at build | — | — |

@@ -429,6 +429,36 @@
         "The graph's edges upward to risks and the board, and sideways to a customer's internal policies and documents. Standards edges run today; these are marked in design.",
         "Execution logs and evidence held in the vault beside the policy, as the memo's provenance store. Marked as where this goes, not as something that exists."
       ]
+    },
+    {
+      "id": "D13",
+      "title": "UK support, in the open: consolidate what the UK offers a startup at go-to-market, ask people what is missing, and let other founders use it",
+      "version": null,
+      "type": "spoken brief, transcribed",
+      "dated": "2026-09-24",
+      "file": "assets/briefs/2026-09-24__transcript__uk-support-in-the-open.txt",
+      "bytes": 2854,
+      "sha256": "0c528b8c5736930b4a4a87b5e816f38af0758a2cd42eb1ad9df6e0904eceeecc",
+      "received": [
+        "2026-09-24T12:00Z"
+      ],
+      "duplicate_of": null,
+      "status": "partly",
+      "produced": [
+        {
+          "what": "UK support, in the open: 79 programmes, events, schemes and networks, each read on its official page and dated, with our own status on every row",
+          "url": "uk-support.html"
+        },
+        {
+          "what": "The same register as data, for other founders to copy",
+          "url": "uk-support.json"
+        }
+      ],
+      "not_done": [
+        "Applying to anything. Every row says not started except Web Summit; which doors to try, starting with the Sovereign AI procurement challenge, is the lead's decision.",
+        "A matching page on sgit.ai's partnerships section. That site is not in this repository; it can link here.",
+        "Pages that refused an automated read (British Business Bank, london.gov.uk, blackhat.com, rsaconference.com, the Turing, the ABI) are marked unclear rather than filled from search results."
+      ]
     }
   ],
   "informal": [

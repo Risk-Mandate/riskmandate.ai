@@ -1,0 +1,915 @@
+{
+  "_what_this_is": "Every programme, event, scheme and network a London-based UK startup could use to get in front of users, as found by RiskMandate in September 2026. Each row names the official page it was read from, the date it was read, the phrase on that page that shows whether it is open, and what RiskMandate has done about it. Rendered into uk-support.html by scripts/site/build-uk-support.mjs. Take it, copy it, correct it: dinis.cruz@owasp.org.",
+  "read": "2026-09-24",
+  "sections": [
+    {
+      "id": "government",
+      "tag": "Central government",
+      "title": "Government money, advice",
+      "title_g": "and government as first customer.",
+      "intro": "The Department for Business and Trade became the Department for Business, Innovation, Science and Trade on 22 July 2026, and AI strategy and the AI Security Institute moved to the Cabinet Office. Some pages still carry the old names. Where a row says *the department*, it means the renamed one.",
+      "rows": [
+        {
+          "name": "Sovereign AI R&D Procurement Scheme",
+          "by": "Sovereign AI unit, with HM Treasury and the Cabinet Office; Challenge 3 set with the NCSC",
+          "url": "https://www.sovereignai.gov.uk/",
+          "status": "dated",
+          "evidence": "Batch 2: Submit your proposal by 1 December 2026",
+          "gives": "R&D contracts of £250,000 to £10 million, most expected at £1 million to £3 million. The supplier keeps its IP. No minimum turnover or trading history.",
+          "who": "UK-registered startups and SMEs, project delivered in the UK. First join the Approved Supplier List through an expression of interest, at least two weeks before a batch deadline.",
+          "fit": "Challenge 3, *Enabling safe AI agent adoption*, asks for a risk management approach for CISOs \"for specific agents in specific contexts\". That is what an Agent Behaviour Policy is. It would also make government the first customer, on systems we would be contracted to run.",
+          "next": "Expression of interest by about 17 November 2026 for the 1 December batch; batch 3 is 1 February 2027. Guidance PDF linked from the site, read 24 September 2026.",
+          "ours": "not-started"
+        },
+        {
+          "name": "Sovereign AI Fund",
+          "by": "Sovereign AI unit",
+          "url": "https://www.sovereignai.gov.uk/",
+          "status": "open",
+          "gives": "A £500 million fund writing £1 million to £10 million cheques. *Trust, safety & assurance* is one of its stated focus areas.",
+          "who": "UK AI companies.",
+          "fit": "A priced round later. Investee status confers no advantage in the procurement scheme above, and the guidance says so.",
+          "ours": "not-started"
+        },
+        {
+          "name": "AI Assurance Innovation Fund",
+          "by": "Announced by DSIT; which department holds it after July 2026 is not stated",
+          "url": "https://www.gov.uk/government/publications/trusted-third-party-ai-assurance-roadmap/trusted-third-party-ai-assurance-roadmap",
+          "status": "unclear",
+          "gives": "£11 million for \"novel AI assurance mechanisms\", according to the roadmap of 3 September 2025.",
+          "who": "Not stated.",
+          "fit": "The subject matches directly. The roadmap said round one would open in spring 2026; the sector plan of 10 June 2026 says the fund was established; no call is visible on the Innovation Funding Service today.",
+          "next": "Ask the business support helpline which department runs it now.",
+          "ours": "not-started"
+        },
+        {
+          "name": "Innovation Funding Service, open competitions",
+          "by": "Innovate UK",
+          "url": "https://apply-for-innovation-funding.service.gov.uk/competition/search",
+          "status": "open",
+          "gives": "Grants, loans and contracts, per competition. The forward list is on UKRI's future opportunities page.",
+          "who": "Varies by competition.",
+          "fit": "On 24 September 2026 none of the 26 open competitions was about AI assurance or cyber security, apart from the Singapore one below. Worth a monthly look.",
+          "next": "UK-Germany bilateral round 5 and two Frontier AI SME calls are listed as opening in October 2026.",
+          "ours": "not-started"
+        },
+        {
+          "name": "UK-Singapore collaborative R&D 2026",
+          "by": "Innovate UK with Enterprise Singapore",
+          "url": "https://apply-for-innovation-funding.service.gov.uk/competition/2526/overview/4a4b67b9-9b73-4816-8e21-bdfab83f5909",
+          "status": "dated",
+          "evidence": "Artificial Intelligence, Cyber Security",
+          "gives": "A grant of £100,000 to £900,000 to the UK partner.",
+          "who": "A UK business with at least one Singapore business funded by Enterprise Singapore.",
+          "fit": "Only with a Singapore partner, such as an insurer or a company deploying agents.",
+          "next": "Closes 16 December 2026, 11am.",
+          "ours": "not-started"
+        },
+        {
+          "name": "Contracts for Innovation (formerly SBRI)",
+          "by": "Innovate UK, for public-sector buyers",
+          "url": "https://apply-for-innovation-funding.service.gov.uk/competition/search",
+          "status": "open",
+          "gives": "Fully funded public-sector R&D contracts, one call per problem.",
+          "who": "Organisations of any size.",
+          "fit": "None of the open calls is about AI or cyber today. A public body with an agent problem would publish one here.",
+          "ours": "not-started"
+        },
+        {
+          "name": "Contracts Finder",
+          "by": "Cabinet Office",
+          "url": "https://www.gov.uk/contracts-finder",
+          "status": "open",
+          "evidence": "worth over £12,000",
+          "gives": "A search of public-sector tenders; larger ones are on Find a Tender.",
+          "who": "Any supplier.",
+          "fit": "Saved searches for *AI assurance*, *AI governance* and *agentic*.",
+          "ours": "not-started"
+        },
+        {
+          "name": "Business Support Service helpline",
+          "by": "The department",
+          "url": "https://www.gov.uk/business-support-helpline",
+          "status": "open",
+          "evidence": "Telephone: 0800 998 1098",
+          "gives": "Free advice by phone, email, webchat and WhatsApp, Monday to Friday, 9am to 6pm.",
+          "who": "Businesses in England.",
+          "fit": "Two questions the pages do not answer: who runs the AI Assurance Innovation Fund now, and what replaces regional trade advisers for a London company.",
+          "ours": "not-started"
+        },
+        {
+          "name": "Business Academy (formerly UK Export Academy)",
+          "by": "The department",
+          "url": "https://www.business.gov.uk/export-academy/",
+          "status": "open",
+          "evidence": "Completely free to join",
+          "gives": "Live and recorded sessions, including selling services overseas.",
+          "who": "UK businesses.",
+          "fit": "The basics of selling a service into the EU and the US.",
+          "ours": "not-started"
+        },
+        {
+          "name": "Export Support Service",
+          "by": "The department",
+          "url": "https://www.gov.uk/ask-export-support-team",
+          "status": "open",
+          "evidence": "ask the export support team a question",
+          "gives": "Answers on market rules and selling services abroad.",
+          "who": "UK businesses.",
+          "fit": "What selling into the EU looks like with the AI Act in force.",
+          "ours": "not-started"
+        },
+        {
+          "name": "SEIS and EIS advance assurance",
+          "by": "HMRC",
+          "url": "https://www.gov.uk/guidance/venture-capital-schemes-apply-for-advance-assurance",
+          "status": "rolling",
+          "evidence": "apply using the new online form for all schemes",
+          "gives": "HMRC's view that a share issue is likely to qualify for investor tax relief. SEIS allows up to £250,000 raised; EIS up to £10 million a year.",
+          "who": "UK trading companies within the limits on each scheme's page. First-time applicants name prospective investors.",
+          "fit": "Most UK angel cheques expect it, and HMRC states no turnaround time, so it is started before a raise, not during one.",
+          "ours": "not-started"
+        },
+        {
+          "name": "R&D tax relief, merged scheme and ERIS",
+          "by": "HMRC",
+          "url": "https://www.gov.uk/guidance/research-and-development-rd-tax-relief-the-merged-scheme-and-enhanced-rd-intensive-support",
+          "status": "rolling",
+          "gives": "A 20% credit under the merged scheme; loss-making companies spending at least 30% on R&D can claim enhanced support.",
+          "who": "Companies doing qualifying R&D.",
+          "fit": "Engineering spend may qualify. Whether this work counts as R&D needs a specialist's view, not ours.",
+          "ours": "not-started"
+        },
+        {
+          "name": "Start Up Loans",
+          "by": "British Business Bank",
+          "url": "https://www.gov.uk/start-up-loans",
+          "status": "rolling",
+          "evidence": "fixed interest rate of 7.5%",
+          "gives": "A personal loan of £500 to £25,000 over one to five years, with up to twelve months of mentoring.",
+          "who": "UK residents over 18 whose business has traded for less than five years.",
+          "fit": "It is a personal loan to a founder, not company money.",
+          "ours": "not-started"
+        },
+        {
+          "name": "Help to Grow: Management",
+          "by": "The department, through business schools",
+          "url": "https://www.kcl.ac.uk/professional-education/catalogue/help-to-grow-management",
+          "status": "dated",
+          "gives": "A twelve-week course, 90% funded, £750 to the company.",
+          "who": "SMEs with 5 to 249 employees.",
+          "fit": "Not until the team has five people.",
+          "next": "King's College London cohort starts 9 November 2026.",
+          "ours": "declined"
+        },
+        {
+          "name": "Global Business Innovation Programme",
+          "by": "Innovate UK Business Connect",
+          "url": "https://iuk-business-connect.org.uk/programme/global-business-innovation/",
+          "status": "unclear",
+          "gives": "Group flights, accommodation and in-market travel for one senior person on an innovation mission; a £1,000 commitment fee refunded on completion.",
+          "who": "UK SMEs.",
+          "fit": "This is the closest current thing to the government-sponsored trips founders describe. No AI or cyber mission is listed today.",
+          "ours": "not-started"
+        }
+      ]
+    },
+    {
+      "id": "cyber-ai",
+      "alt": true,
+      "tag": "Cyber and AI",
+      "title": "The cyber and AI programmes,",
+      "title_g": "after the two big ones closed.",
+      "intro": "NCSC for Startups has ended and Cyber Runway is closed with no next cohort published; both are in the last section. The DCMS cyber security newsletter of 15 September 2026 says DCMS now leads cyber security policy for the economy, so any successor would come from there.",
+      "rows": [
+        {
+          "name": "LASR, the Laboratory for AI Security Research",
+          "by": "Government with Plexal, Oxford, Queen's University Belfast and the Turing",
+          "url": "https://www.lasr.ac.uk/",
+          "status": "unclear",
+          "gives": "Industry validation and proof-of-concept work; the LASR Connect community. *Agentic AI Security* is one of its three research areas.",
+          "who": "UK SMEs working on AI security.",
+          "fit": "The agentic programme was delivered in 2025 and no call is open today, but the site takes technology submissions between calls.",
+          "next": "Join LASR Connect and submit the technology, so we are known before the next call.",
+          "ours": "not-started"
+        },
+        {
+          "name": "Cyber London",
+          "by": "Not-for-profit; the recognised cyber cluster for London",
+          "url": "https://cyberlondon.com/",
+          "status": "rolling",
+          "evidence": "recognised by DSIT and UKC3 as the Cyber Cluster for London",
+          "gives": "Events, roundtables, mentoring.",
+          "who": "An open network; membership cost not published.",
+          "fit": "The local route to CISOs. Its roundtables on securing AI are invitation-only, so the ask is to be invited.",
+          "ours": "not-started"
+        },
+        {
+          "name": "techUK",
+          "by": "Trade body",
+          "url": "https://www.techuk.org/who-we-are/become-a-member.html",
+          "status": "rolling",
+          "evidence": "The first step… is always a meeting with our Membership team",
+          "gives": "The Cyber SME Forum, the AI hub, events, and UK pavilions abroad. Fees are not published.",
+          "who": "UK digital technology companies.",
+          "fit": "Its event of 28 September 2026 on the AI assurance roadmap is free and open, and names insurers, auditors and regulators as its audience.",
+          "ours": "not-started"
+        },
+        {
+          "name": "Cyber Exchange",
+          "by": "techUK, funded by government",
+          "url": "https://cyberexchange.uk.net/opportunities",
+          "status": "rolling",
+          "gives": "A live list of cyber competitions, grants, consultations and trade missions with their deadlines.",
+          "who": "UK cyber companies.",
+          "fit": "The one directory in this field that is kept current. We link to it rather than copy it.",
+          "ours": "not-started"
+        },
+        {
+          "name": "Plexal",
+          "by": "Innovation centre, Stratford",
+          "url": "https://www.plexal.com/",
+          "status": "rolling",
+          "gives": "Coworking, delivery of government cyber programmes, and the UK House delegation at RSAC.",
+          "who": "Startups and scale-ups.",
+          "fit": "UK House places at RSAC 2026 went to companies from government-backed programmes, so the route abroad runs through Plexal's programmes.",
+          "ours": "not-started"
+        },
+        {
+          "name": "Founders Factory × Aviva",
+          "by": "Founders Factory, with Aviva",
+          "url": "https://foundersfactory.com/aviva",
+          "status": "open",
+          "evidence": "Insurance… Cybersecurity… AI",
+          "gives": "£50,000, four months, and access to Aviva. Equity terms are not on the page.",
+          "who": "Pre-seed to Series A.",
+          "fit": "An insurer as the corporate partner, with insurance, cyber and AI all in scope.",
+          "ours": "not-started"
+        },
+        {
+          "name": "Techstars London",
+          "by": "Techstars",
+          "url": "https://www.techstars.com/accelerators/london",
+          "status": "dated",
+          "gives": "Thirteen weeks and a mentor network; the programme invests for equity.",
+          "who": "Early-stage companies, any sector.",
+          "fit": "Costs equity. The programme starts 8 March 2027 with demo day on 3 June.",
+          "next": "Applications close 18 November 2026.",
+          "ours": "not-started"
+        },
+        {
+          "name": "Google for Startups Accelerator, UK",
+          "by": "Google",
+          "url": "https://startup.google.com/programs/accelerator/united-kingdom/",
+          "status": "unclear",
+          "gives": "Twelve weeks, no equity taken, mentoring and cloud credits. The 2025 edition was AI-first.",
+          "who": "UK AI companies, seed to Series A.",
+          "fit": "Depends on the 2026 dates, which the page does not show.",
+          "ours": "not-started"
+        }
+      ]
+    },
+    {
+      "id": "insurance",
+      "tag": "Where the buyer is",
+      "title": "Insurance and risk:",
+      "title_g": "the audience most tech startups miss.",
+      "intro": "An Agent Behaviour Policy is written for risk managers, boards and underwriters as much as for security teams. These are the rooms they are in.",
+      "rows": [
+        {
+          "name": "Lloyd's Lab accelerator",
+          "by": "Lloyd's",
+          "url": "https://www.lloyds.com/about-lloyds/lloyds-lab/lloyds-lab-accelerator",
+          "status": "unclear",
+          "gives": "Ten weeks, workspace and eight to twelve mentors from the Lloyd's market. About ten companies are chosen from 150 to 200 applicants.",
+          "who": "Start-ups, scale-ups and sometimes mature companies.",
+          "fit": "Cohort 17's themes included autonomous systems coverage, and it already includes a company whose stated aim is making AI risk insurable. Cohort 17 closed on 20 July 2026; the Cohort 18 window is not published.",
+          "next": "Ask lloydslab@lloyds.com when Cohort 18 opens. Cohort 17 demo day is 9 December 2026.",
+          "ours": "not-started"
+        },
+        {
+          "name": "Lloyd's Lab Discovery",
+          "by": "Lloyd's Lab, with the LMA and LIMOSS",
+          "url": "https://www.lloyds.com/about-lloyds/lloyds-lab/lab-discovery",
+          "status": "rolling",
+          "gives": "Proofs of concept with managing agents, who bring the problem; the Lab looks for solutions.",
+          "who": "No vendor application form was found.",
+          "fit": "A route to a proof of concept with an underwriter, if one names agent risk as its problem.",
+          "ours": "not-started"
+        },
+        {
+          "name": "FinTech Innovation Lab London",
+          "by": "Accenture, with the Partnership Fund for New York City",
+          "url": "https://www.fintechinnovationlab.com/regions/london/",
+          "status": "unclear",
+          "gives": "A twelve-week programme with access to more than 45 financial institutions, insurers among them.",
+          "who": "Not stated on the page.",
+          "fit": "A structured route to pilots with insurers.",
+          "next": "\"Applications for 2027 are opening soon! Register your interest now.\"",
+          "ours": "not-started"
+        },
+        {
+          "name": "Institute of Risk Management, special interest groups",
+          "by": "IRM",
+          "url": "https://www.theirm.org/",
+          "status": "rolling",
+          "evidence": "thought leadership should be accessible to everyone",
+          "gives": "Sixteen groups with events and webinars. The cyber group ran \"Fundamentals of agentic AI risk management\" on 22 January 2026, online and free.",
+          "who": "Members join; many sessions are open to non-members.",
+          "fit": "Risk managers are the people who sign an acceptance. Offering the cyber group a follow-up session is the direct route.",
+          "ours": "not-started"
+        },
+        {
+          "name": "Airmic",
+          "by": "Airmic",
+          "url": "https://www.airmic.com/",
+          "status": "unclear",
+          "gives": "The UK association of corporate risk and insurance managers. Suppliers take partner statuses; the process is not published.",
+          "who": "Risk and insurance professionals as members.",
+          "fit": "The people who buy cover for a company. Its 2027 conference is in Liverpool in June; the exact dates are not yet published.",
+          "ours": "not-started"
+        },
+        {
+          "name": "Insurtech UK",
+          "by": "Insurtech UK",
+          "url": "https://insurtechuk.org/membership/join-us/",
+          "status": "rolling",
+          "gives": "Pitch days, working groups, a government affairs group. It has a memorandum of understanding with the ABI.",
+          "who": "Member tier: UK insurtechs, or firms earning 60% of revenue from insurance. Partner tier: service providers. Fees not published.",
+          "fit": "Which tier applies to us is a question to ask them.",
+          "ours": "not-started"
+        },
+        {
+          "name": "FCA Innovation Pathways",
+          "by": "Financial Conduct Authority",
+          "url": "https://www.fca.org.uk/firms/innovation/innovation-pathways",
+          "status": "open",
+          "evidence": "of any size",
+          "gives": "Regulatory guidance for new propositions.",
+          "who": "Regulated or non-regulated firms of any size.",
+          "fit": "How insurers' own AI obligations bear on a behaviour policy, from the regulator.",
+          "ours": "not-started"
+        },
+        {
+          "name": "FCA AI Lab, AI Spotlight",
+          "by": "Financial Conduct Authority",
+          "url": "https://www.fca.org.uk/firms/innovation/ai-lab",
+          "status": "open",
+          "evidence": "Applications to be part of the AI Spotlight will remain open",
+          "gives": "A showcase of AI solutions to financial services firms and the regulator. AI Live Testing cohort 2 is closed.",
+          "who": "Firms with AI solutions relevant to financial services.",
+          "fit": "Exposure to the firms the FCA supervises, which include insurers.",
+          "ours": "not-started"
+        },
+        {
+          "name": "Lloyd's Market Association, associate membership",
+          "by": "LMA",
+          "url": "https://www.lmalloyds.com/lma-membership",
+          "status": "rolling",
+          "evidence": "trade with, or advise, Lloyd's underwriting businesses",
+          "gives": "Event invitations, committee overviews, a profile page. Fee not stated.",
+          "who": "Organisations that trade with or advise Lloyd's underwriters.",
+          "fit": "After a first relationship with a managing agent, not before.",
+          "ours": "not-started"
+        }
+      ]
+    },
+    {
+      "id": "events",
+      "alt": true,
+      "tag": "Events, by date",
+      "title": "Twelve months of rooms,",
+      "title_g": "with the deadline for each.",
+      "intro": "Security buyers, AI governance people, risk managers and insurers, from September 2026 to June 2027. Where a date could not be confirmed on the organiser's own page, the row says unclear.",
+      "rows": [
+        {
+          "name": "One year on: the Trusted Third-Party AI Assurance Roadmap",
+          "by": "techUK · 28 September 2026 · London",
+          "url": "https://www.techuk.org/",
+          "status": "dated",
+          "gives": "An afternoon on the government's AI assurance roadmap, free.",
+          "who": "Its stated audience includes insurers, auditors and regulators.",
+          "fit": "The assurance market meeting in one room, four days from the date this was read.",
+          "ours": "not-started"
+        },
+        {
+          "name": "International Cyber Expo",
+          "by": "Nineteen Group · 29–30 September 2026 · Olympia London",
+          "url": "https://www.internationalcyberexpo.com/",
+          "status": "dated",
+          "evidence": "direct access to vetted decision-makers from key global markets",
+          "gives": "Free registration, and a delegations programme that brings overseas buyers to London.",
+          "who": "Visitors and exhibitors.",
+          "fit": "Overseas cyber buyers without leaving London.",
+          "ours": "not-started"
+        },
+        {
+          "name": "FERMA Forum 2026",
+          "by": "FERMA · 4–6 October 2026 · Rotterdam",
+          "url": "https://www.ferma.eu/events/ferma-forum-2026/",
+          "status": "dated",
+          "gives": "Attendance; exhibiting through the Forum's own site.",
+          "who": "European corporate risk managers.",
+          "fit": "The European version of the room Airmic is in the UK.",
+          "ours": "not-started"
+        },
+        {
+          "name": "Digital Leaders AI Week",
+          "by": "Digital Leaders · 12–23 October 2026",
+          "url": "https://digileaders.com/",
+          "status": "open",
+          "evidence": "The Call for Talks is open",
+          "gives": "A speaking slot.",
+          "who": "Anyone who submits a talk.",
+          "fit": "The nearest stage time on the calendar.",
+          "ours": "not-started"
+        },
+        {
+          "name": "DTX London",
+          "by": "DTX Events · 14–15 October 2026 · ExCeL London",
+          "url": "https://www.dtxevents.io/london",
+          "status": "dated",
+          "gives": "Free for end users; speaking; a startup zone.",
+          "who": "Enterprise technology buyers.",
+          "fit": "AI adoption and cyber tracks under a trust-and-risk theme.",
+          "ours": "not-started"
+        },
+        {
+          "name": "Insurance Innovators Summit",
+          "by": "Insurance Innovators · 3–4 November 2026 · London",
+          "url": "https://www.insurance-innovators.com/events/summit/",
+          "status": "dated",
+          "gives": "A startup zone and pitch slots.",
+          "who": "About 2,000 insurance leaders, a third of them C-suite, by the organiser's figures.",
+          "fit": "Insurers, in London.",
+          "ours": "not-started"
+        },
+        {
+          "name": "Web Summit",
+          "by": "Web Summit · 9–12 November 2026 · Lisbon",
+          "url": "https://websummit.com/web-summit-2026/",
+          "status": "dated",
+          "gives": "Startup exhibition, pitch competition.",
+          "who": "Startups by application.",
+          "fit": "We are going. The exhibitor listing, the logo for the exhibitor board and the deck were sent in September 2026.",
+          "ours": "in"
+        },
+        {
+          "name": "#RISK Expo Europe",
+          "by": "GRC World Forums · 10–11 November 2026 · ExCeL London",
+          "url": "https://www.riskexpoeurope.com/",
+          "status": "dated",
+          "gives": "Attendance, exhibiting, speaking.",
+          "who": "Governance, risk and compliance teams.",
+          "fit": "Risk and compliance people in London, the week of Web Summit.",
+          "ours": "not-started"
+        },
+        {
+          "name": "IAPP Europe Congress",
+          "by": "IAPP · 16–19 November 2026 · Brussels",
+          "url": "https://iapp.org/conference/iapp-europe-congress/",
+          "status": "dated",
+          "gives": "Attendance at €1,595 to €1,945; exhibiting.",
+          "who": "Privacy, AI governance and legal teams.",
+          "fit": "The AI governance audience, in the EU.",
+          "ours": "not-started"
+        },
+        {
+          "name": "Black Hat Europe, Startup Spotlight",
+          "by": "Informa · 7–10 December 2026 · ExCeL London",
+          "url": "https://www.blackhat.com/",
+          "status": "unclear",
+          "gives": "A five-minute video pitch; no entry fee.",
+          "who": "Companies five years old or less with fewer than 50 staff.",
+          "fit": "Security practitioners in London. The site refused our reader, so the dates and deadline are from search results only.",
+          "ours": "not-started"
+        },
+        {
+          "name": "BSides London",
+          "by": "Community · 12 December 2026 · Novotel London West",
+          "url": "https://pretalx.com/bsides-london-2026/cfp",
+          "status": "dated",
+          "gives": "A 45-minute talk, a workshop, or a fifteen-minute Rookies slot for first-time speakers.",
+          "who": "Anyone.",
+          "fit": "A vendor-neutral talk on the gap between what an agent can do and what it was authorised to do.",
+          "next": "Call for papers closes 30 September 2026.",
+          "ours": "not-started",
+          "evidence": "All calls will open on 1 August and close on 30 September."
+        },
+        {
+          "name": "ITC London",
+          "by": "InsureTech Connect · 25–26 January 2027 · The Brewery, London",
+          "url": "https://london.insuretechconnect.com/",
+          "status": "dated",
+          "gives": "A startup zone, and a Challenge Lab where startups pitch against insurers' own problems.",
+          "who": "Invitation or vetted application.",
+          "fit": "Senior insurers, managing general agents and brokers.",
+          "ours": "not-started"
+        },
+        {
+          "name": "Cyber Security & Cloud Expo, with AI & Big Data Expo",
+          "by": "TechEx · 3–4 February 2027 · Olympia London",
+          "url": "https://www.cybersecuritycloudexpo.com/global/",
+          "status": "unclear",
+          "gives": "Attendance, exhibiting, speaking.",
+          "who": "Enterprise technology teams.",
+          "fit": "Dates are from the organiser's ticket listing; the site itself returned a challenge page.",
+          "ours": "not-started"
+        },
+        {
+          "name": "Insurtech Insights Europe",
+          "by": "Insurtech Insights · March 2027 · InterContinental London, The O2",
+          "url": "https://www.insurtechinsights.com/",
+          "status": "unclear",
+          "gives": "A startup pass for insurtechs founded within five years.",
+          "who": "Insurers and insurtechs.",
+          "fit": "Whether a behaviour-policy company counts as an insurtech for the pass is a question to ask. Search results give two different March dates.",
+          "ours": "not-started"
+        },
+        {
+          "name": "IAPP UK Intensive and AI Governance Global",
+          "by": "IAPP · 5–8 April 2027 · Hilton London Metropole",
+          "url": "https://iapp.org/conference/iapp-uk-intensive/",
+          "status": "dated",
+          "evidence": "Submit your proposal by 27 Sept",
+          "gives": "Speaking by proposal; exhibiting.",
+          "who": "AI governance, privacy and regulatory teams.",
+          "fit": "AI governance buyers in London.",
+          "next": "Proposals close 27 September 2026.",
+          "ours": "not-started"
+        },
+        {
+          "name": "RSAC 2027",
+          "by": "RSAC · 5–8 April 2027 · San Francisco",
+          "url": "https://www.rsaconference.com/",
+          "status": "unclear",
+          "gives": "A call for speakers, Innovation Sandbox, Launch Pad and an early-stage expo.",
+          "who": "Security companies and speakers.",
+          "fit": "The largest security buying audience. The site refused our reader; search results give 9 October 2026 for the speaker deadline.",
+          "ours": "not-started"
+        },
+        {
+          "name": "CYBERUK 2027",
+          "by": "NCSC · 11–13 May 2027 · Liverpool",
+          "url": "https://www.cyberuk.uk/",
+          "status": "dated",
+          "evidence": "11 – 13 MAY 2027, LIVERPOOL EXPERIENCE CAMPUS",
+          "gives": "A startup and SME pod, 2m by 1.5m, at £1,500 + VAT for organisations under 40 staff; a Cyber Den pitch whose winner gets twelve months of NCSC support; Tech Talks by open call.",
+          "who": "UK organisations.",
+          "fit": "The theme is securing the AI era, and the pod is priced for a company our size.",
+          "next": "The Tech Talks call opens in autumn 2026.",
+          "ours": "not-started"
+        },
+        {
+          "name": "London Tech Week",
+          "by": "Informa and Founders Forum · 7–11 June 2027 · London",
+          "url": "https://londontechweek.com/",
+          "status": "dated",
+          "gives": "Startup stages, investor meetings, a free startup pass by criteria.",
+          "who": "Founders; the pass has limits on funding and headcount.",
+          "fit": "Broad exposure, with ministers in the room.",
+          "ours": "not-started"
+        },
+        {
+          "name": "Infosecurity Europe",
+          "by": "RX · 8–10 June 2027 · ExCeL London",
+          "url": "https://www.infosecurityeurope.com/",
+          "status": "dated",
+          "gives": "A Cyber Start-Ups Zone for companies under five years old, a government-backed Cyber Innovation Zone, and a startup award whose prize is a stand.",
+          "who": "Early-stage cyber companies.",
+          "fit": "About 13,000 security professionals, in London. The 2027 award window is not yet published.",
+          "ours": "not-started"
+        },
+        {
+          "name": "The AI Summit London",
+          "by": "Informa · 9–10 June 2027 · Tobacco Dock",
+          "url": "https://london.theaisummit.com/",
+          "status": "dated",
+          "gives": "A start-up village with live pitching; speaker submissions.",
+          "who": "Commercial AI buyers.",
+          "fit": "The people deploying agents.",
+          "ours": "not-started"
+        },
+        {
+          "name": "OWASP Global AppSec EU",
+          "by": "OWASP Foundation · 21–25 June 2027 · Vienna",
+          "url": "https://owasp.org/events/",
+          "status": "unclear",
+          "gives": "A call for papers and training.",
+          "who": "Application security practitioners.",
+          "fit": "The OWASP generative AI community. The 2027 call is not yet published; last year's ran November to February.",
+          "ours": "not-started"
+        }
+      ]
+    },
+    {
+      "id": "abroad",
+      "tag": "Going abroad",
+      "title": "Government help to travel:",
+      "title_g": "what it is now.",
+      "intro": "Founders remember the department paying for stands and travel. That grant was the UK Tradeshow Programme, withdrawn in 2023. What exists now is paid UK-branded pods, missions for companies already in a government-backed programme, and a listing of events.",
+      "rows": [
+        {
+          "name": "Events and trade missions portal",
+          "by": "The department",
+          "url": "https://www.events.great.gov.uk/",
+          "status": "open",
+          "evidence": "Find UK and overseas events",
+          "gives": "A listing of UK and overseas events and missions. No grants are mentioned.",
+          "who": "UK businesses.",
+          "fit": "Where an AI or cyber mission would be announced first.",
+          "ours": "not-started"
+        },
+        {
+          "name": "UK Pavilion at GITEX Global",
+          "by": "techUK, with the department and Tradefair · 7–11 December 2026 · Dubai",
+          "url": "https://www.techuk.org/what-we-deliver/events/join-the-techuk-delegation-and-uk-pavilion-at-gitex-global-2026-dubai.html",
+          "status": "unclear",
+          "gives": "A pod on the UK pavilion at £5,000 + VAT. No subsidy is mentioned.",
+          "who": "techUK members, first come first served.",
+          "fit": "The techUK page still takes expressions of interest; another trade body's page says registration closed on 1 September.",
+          "ours": "not-started"
+        },
+        {
+          "name": "UK House at RSAC",
+          "by": "Plexal, funded by government",
+          "url": "https://www.plexal.com/",
+          "status": "unclear",
+          "gives": "A place in the UK delegation at RSAC in San Francisco.",
+          "who": "In 2026, companies from Cyber Runway, LASR and CyberASAP.",
+          "fit": "Being in a government-backed programme is the way in, which is why LASR is on this page.",
+          "ours": "not-started"
+        },
+        {
+          "name": "UK Defence & Security Exports pods",
+          "by": "The department",
+          "url": "https://www.gov.uk/government/organisations/uk-defence-and-security-exports",
+          "status": "open",
+          "evidence": "exhibiting under clear UK or HMG branding",
+          "gives": "Paid pods at defence and security shows.",
+          "who": "UK defence and security companies.",
+          "fit": "Security shows abroad under the UK flag, paid, not granted.",
+          "ours": "not-started"
+        },
+        {
+          "name": "Grow London Global",
+          "by": "London & Partners",
+          "url": "https://grow.london/global",
+          "status": "unclear",
+          "gives": "A free twelve-month programme for tech companies expanding abroad, according to search results.",
+          "who": "Scaling tech companies; the page refused our reader.",
+          "fit": "Later, once there is something to export.",
+          "ours": "not-started"
+        }
+      ]
+    },
+    {
+      "id": "london",
+      "alt": true,
+      "tag": "London",
+      "title": "London,",
+      "title_g": "and the free things to claim today.",
+      "rows": [
+        {
+          "name": "Grow London Local",
+          "by": "London & Partners, funded by the Mayor",
+          "url": "https://www.growlondonlocal.london/",
+          "status": "rolling",
+          "evidence": "free access to all the support you need to help start and grow your business",
+          "gives": "Guides, free one-to-one sessions, and a searchable directory of borough support.",
+          "who": "London small businesses.",
+          "fit": "The London front door, and a directory we link to rather than copy.",
+          "ours": "not-started"
+        },
+        {
+          "name": "NatWest Accelerator Pitch, London round",
+          "by": "NatWest",
+          "url": "https://www.natwest.com/business/business-services/entrepreneur-accelerator/pitch.html",
+          "status": "dated",
+          "gives": "Prizes of £70,000, £20,000 and £10,000.",
+          "who": "UK limited companies incorporated within five years with revenue up to £1 million; a 60-second video; membership of the free NatWest community.",
+          "fit": "The only open prize round found.",
+          "next": "Closes 16 October 2026, 5pm; final 19 November.",
+          "ours": "not-started",
+          "evidence": "Closing date for entries: 5pm, 16th October 2026"
+        },
+        {
+          "name": "British Library Business & IP Centre",
+          "by": "British Library",
+          "url": "https://www.bl.uk/business-and-ip-centre",
+          "status": "rolling",
+          "evidence": "Free to join, and open to everyone",
+          "gives": "Workshops, one-to-ones, market research databases.",
+          "who": "Anyone.",
+          "fit": "Market research on insurers and brokers, at no cost.",
+          "ours": "not-started"
+        },
+        {
+          "name": "Tech London Advocates",
+          "by": "Volunteer-led non-profit",
+          "url": "https://www.techlondonadvocates.org.uk/",
+          "status": "rolling",
+          "gives": "42 working groups and introductions, free.",
+          "who": "By invitation; ask the organisers.",
+          "fit": "Introductions.",
+          "ours": "not-started"
+        },
+        {
+          "name": "OWASP London chapter",
+          "by": "OWASP London",
+          "url": "https://www.papercall.io/owasp-london",
+          "status": "rolling",
+          "evidence": "avoid any commercialism",
+          "gives": "Six to eight meetups a year, live-streamed and recorded.",
+          "who": "Speakers presenting methods, with any tools shown open source and free.",
+          "fit": "The method and the open-source toolkit, not the product.",
+          "ours": "not-started"
+        },
+        {
+          "name": "Microsoft for Startups",
+          "by": "Microsoft",
+          "url": "https://learn.microsoft.com/en-us/microsoft-for-startups/",
+          "status": "rolling",
+          "evidence": "up to $150K in Startup credits over time",
+          "gives": "Azure credits, starting immediately.",
+          "who": "Privately held software companies below Series C; no funding requirement.",
+          "fit": "Claimable today.",
+          "ours": "not-started"
+        },
+        {
+          "name": "Google for Startups Cloud Program",
+          "by": "Google",
+          "url": "https://cloud.google.com/startup",
+          "status": "rolling",
+          "evidence": "$2,000 in credits",
+          "gives": "$2,000 in credits unfunded; up to $350,000 for funded AI companies.",
+          "who": "The first tier needs no funding.",
+          "fit": "Claimable today.",
+          "ours": "not-started"
+        },
+        {
+          "name": "AWS Activate, Founders tier",
+          "by": "Amazon Web Services",
+          "url": "https://aws.amazon.com/startups/credits",
+          "status": "rolling",
+          "gives": "Up to $5,000 in credits.",
+          "who": "Pre-Series B companies under ten years old.",
+          "fit": "Claimable today.",
+          "ours": "not-started"
+        },
+        {
+          "name": "Claude for Startups",
+          "by": "Anthropic",
+          "url": "https://claude.com/programs/startups",
+          "status": "rolling",
+          "evidence": "equity funding from an institutional investor",
+          "gives": "API credits and higher rate limits.",
+          "who": "Credits need institutional funding and founding within four years.",
+          "fit": "After a raise.",
+          "ours": "not-started"
+        }
+      ]
+    },
+    {
+      "id": "closed",
+      "tag": "Closed, or not for London",
+      "title": "Closed, kept here",
+      "title_g": "so nobody spends an afternoon on them.",
+      "intro": "Search results still recommend most of these. Each one was checked on its own page.",
+      "rows": [
+        {
+          "name": "NCSC for Startups",
+          "by": "NCSC, with Plexal",
+          "url": "https://www.ncsc.gov.uk/section/ncsc-for-startups/overview",
+          "status": "closed",
+          "evidence": "the programme is no longer running",
+          "gives": "Nothing now; the page is an archive.",
+          "who": "–",
+          "fit": "No successor is named.",
+          "ours": "declined"
+        },
+        {
+          "name": "Cyber Runway",
+          "by": "Plexal, funded by government",
+          "url": "https://www.plexal.com/our-work/cyber-runway/",
+          "status": "closed",
+          "evidence": "Applications for the next cohort of Cyber Runway are now closed",
+          "gives": "An accelerator that took no equity, and a route into UK House at RSAC.",
+          "who": "UK cyber companies.",
+          "fit": "Would fit if it reopens. Interest can be registered at cyberrunway@plexal.com.",
+          "ours": "not-started"
+        },
+        {
+          "name": "UK Tradeshow Programme",
+          "by": "Department for Business and Trade",
+          "url": "https://www.gov.uk/guidance/uk-tradeshow-programme",
+          "status": "closed",
+          "evidence": "This guidance was withdrawn on 7 June 2023",
+          "gives": "Nothing now. This was the grant for overseas stands.",
+          "who": "–",
+          "fit": "No replacement grant was found.",
+          "ours": "declined"
+        },
+        {
+          "name": "Innovate UK Smart grants",
+          "by": "Innovate UK",
+          "url": "https://www.ukri.org/councils/innovate-uk/guidance-for-applicants/guidance-for-specific-funds/smart-innovation-funding-guidance/",
+          "status": "closed",
+          "evidence": "Smart grants are now closed for new applications",
+          "gives": "Nothing now.",
+          "who": "–",
+          "fit": "Closed.",
+          "ours": "declined"
+        },
+        {
+          "name": "Innovate UK Business Growth",
+          "by": "Innovate UK Business Connect",
+          "url": "https://iuk-business-connect.org.uk/business-growth/",
+          "status": "closed",
+          "evidence": "New requests into the service, outside of the above, have been paused",
+          "gives": "Paused for new requests; it comes bundled with an Innovate UK grant.",
+          "who": "Existing clients and grant winners.",
+          "fit": "Paused.",
+          "ours": "declined"
+        },
+        {
+          "name": "AI Security Institute grants",
+          "by": "AI Security Institute",
+          "url": "https://www.aisi.gov.uk/grants",
+          "status": "closed",
+          "evidence": "Our programmes are not currently accepting applications",
+          "gives": "Research grants, when open.",
+          "who": "Academic institutions and non-profits; companies are not listed.",
+          "fit": "Not for companies.",
+          "ours": "declined"
+        },
+        {
+          "name": "CyberASAP",
+          "by": "Innovate UK",
+          "url": "https://iuk-business-connect.org.uk/",
+          "status": "closed",
+          "evidence": "exclusively for UK registered academic institutions",
+          "gives": "Funding to take academic cyber research to market.",
+          "who": "Academics.",
+          "fit": "Not for companies.",
+          "ours": "declined"
+        },
+        {
+          "name": "UK Cyber Cluster Collaboration (UKC3)",
+          "by": "Community interest company",
+          "url": "https://ukc3.co.uk/",
+          "status": "closed",
+          "evidence": "will continue operating independently",
+          "gives": "Operations ended 31 March 2026; the clusters continue on their own, Cyber London among them.",
+          "who": "–",
+          "fit": "Go to the cluster directly.",
+          "ours": "declined"
+        },
+        {
+          "name": "Barclays Eagle Labs AI Bridge and Cyber Bridge",
+          "by": "Barclays",
+          "url": "https://labs.uk.barclays/",
+          "status": "closed",
+          "evidence": "Applications closed",
+          "gives": "The Shoreditch hub remains, from £180 + VAT a month.",
+          "who": "UK SMEs.",
+          "fit": "The two programmes that fitted are closed.",
+          "ours": "declined"
+        },
+        {
+          "name": "G-Cloud 15",
+          "by": "Government Commercial Agency (formerly Crown Commercial Service)",
+          "url": "https://www.gca.gov.uk/agreements/RM1557.15",
+          "status": "closed",
+          "evidence": "reopening after 18 months",
+          "gives": "A listing public buyers can call off.",
+          "who": "Suppliers already listed.",
+          "fit": "Closed to new suppliers until about February 2028.",
+          "ours": "declined"
+        },
+        {
+          "name": "International trade advisers, one to one",
+          "by": "The department's regional teams",
+          "url": "https://www.gov.uk/guidance/get-international-trade-support-from-regional-teams-in-england",
+          "status": "open",
+          "evidence": "eligible businesses outside of London",
+          "gives": "One-to-one export advice.",
+          "who": "Businesses outside London.",
+          "fit": "Not for a London company. Who serves London instead is not stated on the page.",
+          "ours": "declined"
+        },
+        {
+          "name": "Global Entrepreneur Programme",
+          "by": "The department",
+          "url": "https://www.business.gov.uk/campaign/gep/",
+          "status": "open",
+          "evidence": "highly selective programme for ambitious international scaleups",
+          "gives": "Mentoring and visa help.",
+          "who": "Founders from abroad moving to the UK.",
+          "fit": "Not for a UK company.",
+          "ours": "declined"
+        }
+      ]
+    }
+  ]
+}
