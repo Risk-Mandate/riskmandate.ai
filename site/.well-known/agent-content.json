@@ -335,6 +335,11 @@
       "url": "https://riskmandate.ai/article-approval-prompts.html"
     },
     {
+      "name": "article-pilots-do-not-stay-in-production",
+      "label": "The pilot worked. Then somebody asked what else it could do.",
+      "url": "https://riskmandate.ai/article-pilots-do-not-stay-in-production.html"
+    },
+    {
       "name": "agent-behaviour-policy-next",
       "label": "Which Agent Behaviour Policy next?",
       "url": "https://riskmandate.ai/agent-behaviour-policy-next.html"

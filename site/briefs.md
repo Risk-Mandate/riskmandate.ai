@@ -200,6 +200,17 @@ Each one is linked in full, as received, with nothing edited. Where a brief and 
 - **The government-sponsored travel.** The grant that paid for it was withdrawn in 2023; the page says what exists instead
 - **A matching page on sgit.ai.** That site is not in this repository; its partnerships section can link here
 
+### Pilots do not stay in production: the business sees the gap between mandate and reach, at machine speed, and declines to sign for it
+
+**sha256** 762fd1ea85c2d701f304331d507374b7668ec41bae90788498c2221cd7ac6e53
+
+**The real metric is not whether a pilot reached production but whether it stayed there.** The memo’s hypothesis: a pilot proves the agent can do the task in a curated world; production asks what else it can do, how many times, how fast, and on whose authority; and when the business models that, it declines to sign. It asks for the data behind it, for examples, and for the answer the site sells: limits in business units, set at design time.
+
+- [The pilot worked. Then somebody asked what else it could do.](article-pilots-do-not-stay-in-production.html) Fourteen surveys and forecasts with the causes each one names, three sources on staying in production, seven cases and two that do not fit, five variables beside the lethal trifecta, and a section on what the data does not show
+- **Data that tests the hypothesis.** No survey found asks whether the gap between reach and mandate stopped sign-off; the article says so and asks for cases
+- **A source for the credit approval at two in the morning.** None exists publicly; it is told as an anecdote and nothing more
+- **The operating limit from the insurance vault.** Not found in the published demo vaults; the article shows the shape with numbers labelled as invented
+
 ## And the instructions that arrived as speech or a sentence.
 
 These have no digest to check, which makes them the ones most easily lost — a voice memo that changed the direction of the whole site leaves no artefact at all unless somebody writes it down. So they are recorded here in the same list, with the same two columns.
