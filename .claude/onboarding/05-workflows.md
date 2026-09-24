@@ -147,7 +147,12 @@ There is no template. The chrome is copied from a donor when a page is scaffolde
 `add-licence-chrome.mjs` shows the pattern for retrofitting one element to every page:
 an idempotent script with `--check`, run in CI. Do the same for anything new rather than
 sed-and-hope; then update `new-page.mjs`'s `FOOTER`/`header` constants so scaffolded pages
-carry it too.
+carry it too. A behaviour on every page (the drawer, the menu) lives in `scripts/site/modules/`
+and is pushed out by `sync-modules.mjs`. After either kind of change, rerun every page builder
+(`build-abp-pages`, `build-reviewer-pages`, `build-uk-support`, `build-business-cases`,
+`build-interview-pages`) before `npm run check`: the pages they cut from a donor carry the
+donor's chrome, and the check compares them byte for byte. The version chip is the example:
+v1.34.7 made it visible on a laptop and put it first in the phone drawer.
 
 ## Merge a branch into dev
 
