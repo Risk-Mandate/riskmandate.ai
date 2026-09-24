@@ -1,0 +1,64 @@
+{
+  "slug": "falco",
+  "status": "published",
+  "kind": "open-source",
+  "product": "Falco",
+  "vendor": "CNCF (graduated)",
+  "vendor_url": "https://falco.org/",
+  "licence": "Apache-2.0",
+  "involve": "https://falco.org/community/",
+  "category": "Runtime detection",
+  "title": "Falco, by the risk it changes",
+  "summary": "A runtime monitoring agent that watches kernel events and alerts on rules. Written as an answer, some of what the agent did on its host can be read back, for the events the rules match.",
+  "read": "2026-09-24",
+  "baseline": {
+    "preset": "typical",
+    "overrides": {
+      "q13": 2
+    },
+    "why": "The model's typical deployment, with the answers this project addresses stated as they are without it: what it did cannot be reconstructed."
+  },
+  "does": [
+    {
+      "text": "Real-time alerts on kernel and plugin events, by rule.",
+      "quote": "Falco is a monitoring and detection agent that observes events (such as Linux kernel events and other data sources through plugins ) and delivers real-time alerts based on custom rules.",
+      "url": "https://falco.org/docs/",
+      "read": "2026-09-24"
+    }
+  ],
+  "changes": [
+    {
+      "q": "q13",
+      "to": 1,
+      "kind": "setting",
+      "holder": "the deployer",
+      "why": "Partly: only events that match the deployed rules, and busy hosts may drop events.",
+      "basis": {
+        "quote": "Falco is a monitoring and detection agent that observes events (such as Linux kernel events and other data sources through plugins ) and delivers real-time alerts based on custom rules.",
+        "url": "https://falco.org/docs/",
+        "read": "2026-09-24"
+      }
+    }
+  ],
+  "reduces": [],
+  "adds": [],
+  "adds_note": "It runs with deep access to the host kernel. Its troubleshooting page describes busy servers on which it may drop events.",
+  "adoption": [
+    "Write rules for what the agent's processes should and should not do.",
+    "Send alerts somewhere a person reads them."
+  ],
+  "contradictions": [
+    {
+      "topic": "real time",
+      "text": "Real-time alerts on the documentation home page, and a troubleshooting page on busy servers where Falco may be dropping events.",
+      "urls": [
+        "https://falco.org/docs/",
+        "https://falco.org/docs/troubleshooting/dropping/"
+      ]
+    }
+  ],
+  "does_not_claim": [
+    "That it was tested. Nothing was installed or run; every change rests on the documentation quoted beside it."
+  ],
+  "next": "Published, and sent to the project's maintainers at the same time. If a change is wrong, or another answer should move, the case changes with the date they said so."
+}

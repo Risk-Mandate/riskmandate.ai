@@ -4,16 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>RiskMandate — the business case for agentgateway</title>
-<meta name="robots" content="noindex,nofollow">
-<meta name="description" content="agentgateway (the agentgateway project), by the risk it changes: the register for a stated agent deployment without it and with it, computed from a public model, from the operator to the board.">
+<meta name="description" content="agentgateway (Linux Foundation (Agentic AI Foundation)), by the risk it changes: the register for a stated agent deployment without it and with it, computed from a public model, from the operator to the board.">
 <link rel="canonical" href="https://riskmandate.ai/business-case-agentgateway.html">
+<link rel="alternate" type="text/markdown" href="business-case-agentgateway.md" title="This page as markdown">
 <link rel="icon" href="assets/brand/riskmandate-favicon-32.png" sizes="32x32">
 <link rel="icon" href="assets/brand/riskmandate-mark.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="RiskMandate">
 <meta property="og:url" content="https://riskmandate.ai/business-case-agentgateway.html">
 <meta property="og:title" content="RiskMandate — the business case for agentgateway">
-<meta property="og:description" content="agentgateway (the agentgateway project), by the risk it changes: the register for a stated agent deployment without it and with it, computed from a public model, from the operator to the board.">
+<meta property="og:description" content="agentgateway (Linux Foundation (Agentic AI Foundation)), by the risk it changes: the register for a stated agent deployment without it and with it, computed from a public model, from the operator to the board.">
 <meta property="og:image" content="https://riskmandate.ai/assets/brand/riskmandate-lockup-light.png">
 <meta name="twitter:card" content="summary_large_image">
 <!-- v1.0.0. Reconstructed from SG/Vault 7rfetjwz at v0.14.0;
@@ -286,6 +286,9 @@ table.lv td a{color:var(--green)}
 .bc-tr>span:first-child{color:var(--text);font-weight:600}
 .bc-t.ch .bc-tr{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1.6fr)}
 .bc-t.cat .bc-tr{grid-template-columns:minmax(0,1.2fr) minmax(0,1.6fr) minmax(0,1.4fr) minmax(0,1.3fr)}
+.bc-t.cs .bc-tr{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr) minmax(0,2.2fr) minmax(0,.7fr)}
+.bc-t.co .bc-tr{grid-template-columns:minmax(0,.8fr) minmax(0,1fr) minmax(0,2.2fr)}
+.bc-t+.bc-h{margin-top:30px}
 .bc-was{color:#96442C}
 .bc-now{color:var(--green);font-weight:600}
 .bc-src{display:block;font-family:var(--mono);font-size:10.5px;color:var(--faint);margin-top:6px;overflow-wrap:anywhere}
@@ -327,8 +330,8 @@ table.lv td a{color:var(--green)}
 .bc-pill.ours{background:var(--bg2);color:var(--muted)}
 .bc-cases{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:26px}
 @media (max-width:980px){.bc-alt{grid-template-columns:1fr 1fr}}
-@media (max-width:900px){.bc-three,.bc-cases{grid-template-columns:1fr}.bc-t .bc-tr:first-child{display:none}.bc-t.ch .bc-tr,.bc-t.cat .bc-tr{grid-template-columns:1fr 1fr}.bc-tr>span:first-child{grid-column:1 / -1;padding-bottom:2px}.bc-tr>span[data-k]::before{content:attr(data-k);display:block;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:2px}}
-@media (max-width:640px){.bc-alt,.bc-sum{grid-template-columns:1fr}.bc-t.ch .bc-tr,.bc-t.cat .bc-tr{grid-template-columns:1fr}.bc-risk{grid-template-columns:1fr}}
+@media (max-width:900px){.bc-three,.bc-cases{grid-template-columns:1fr}.bc-t .bc-tr:first-child{display:none}.bc-t.ch .bc-tr,.bc-t.cat .bc-tr,.bc-t.cs .bc-tr,.bc-t.co .bc-tr{grid-template-columns:1fr 1fr}.bc-tr>span:first-child{grid-column:1 / -1;padding-bottom:2px}.bc-tr>span[data-k]::before{content:attr(data-k);display:block;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:2px}}
+@media (max-width:640px){.bc-alt,.bc-sum{grid-template-columns:1fr}.bc-t.ch .bc-tr,.bc-t.cat .bc-tr,.bc-t.cs .bc-tr,.bc-t.co .bc-tr{grid-template-columns:1fr}.bc-risk{grid-template-columns:1fr}}
 </style>
 </head>
 <body id="top">
@@ -347,11 +350,12 @@ table.lv td a{color:var(--green)}
   <div class="wrap">
     <span class="eyebrow"><span class="d"></span> The business case · Gateway and egress proxy for agent traffic</span>
     <h1>agentgateway, by the risk it changes</h1>
-    <p class="sub" style="margin-bottom:20px">An open-source proxy for agent traffic, a Linux Foundation project under the Apache 2.0 licence, run by the deployer. Its documentation describes three things an agent deployment would feel: outbound destinations allowed only by route, MCP tools filtered by policy so an agent never sees the ones it is not allowed, and access logs kept in a database. Written as answers, that is three changes, each held by the deployer. Its documentation also says where it fails closed and where it fails open, which is part of the case.</p>
+    <p class="sub" style="margin-bottom:20px">An open-source proxy for agent traffic, run by the deployer. Its documentation describes three things an agent deployment would feel: outbound destinations allowed only by route, MCP tools filtered by policy so an agent never sees the ones it is not allowed, and access logs kept in a database. Its documentation also says where it fails closed and where it fails open, which is part of the case.</p>
     
-    <p class="bc-meta"><b>The deployment:</b> The model's typical deployment, with the three answers this product addresses stated as they are without it: the agent can reach the general internet, it can read and change the data in its reach through its tools, and what it did last Tuesday cannot be reconstructed.</p>
+    <p class="bc-meta"><b>Open source:</b> Apache-2.0 · Linux Foundation (Agentic AI Foundation) · <a href="https://discord.gg/y9efgEmppm" target="_blank" rel="noopener">get involved</a></p>
+    <p class="bc-meta"><b>The deployment:</b> The model's typical deployment, with the answers this project addresses stated as they are without it: can reach the general internet; can read and change the data in its reach; what it did cannot be reconstructed.</p>
     <p class="bc-meta"><b>The model:</b> the RiskGraph Explorer's 49 facts, 49 risks and 10 roles, copied into this site with its provenance; the register below is computed, not written. <a href="business-cases.html#method">How</a>.</p>
-    <p class="bc-meta"><b>Status:</b> a draft, not yet sent to the agentgateway project and not listed on the site. It may be wrong; it is here to be corrected.</p>
+    
   </div>
 </main>
 
@@ -363,7 +367,7 @@ table.lv td a{color:var(--green)}
         <span class="tag">01 · What it does</span>
         <h2>In its own words, <span class="g">and nothing more.</span></h2>
       </div>
-      <ul class="bc-list"><li>An egress proxy that decides where outbound traffic may go. <span class="bc-src">&ldquo;Agentgateway can act as an HTTP CONNECT proxy for outbound traffic. Clients point their proxy settings at agentgateway, and agentgateway decides which destinations they are allowed to reach.&rdquo; · <a href="https://agentgateway.dev/docs/standalone/latest/documentation/configuration/egress-proxy/" target="_blank" rel="noopener">agentgateway.dev</a>, read 24 September 2026</span></li><li>Authorisation on MCP tool calls, with disallowed tools removed from what the agent is shown. <span class="bc-src">&ldquo;If a tool or other resource is not allowed, the gateway automatically filters it from the list response, so unauthorized clients never see it.&rdquo; · <a href="https://agentgateway.dev/docs/standalone/latest/documentation/configuration/security/mcp-authz/" target="_blank" rel="noopener">agentgateway.dev</a>, read 24 September 2026</span></li><li>Access logs, to stdout by default and to a database when configured. <span class="bc-src">&ldquo;To persist access logs, you can configure agentgateway to write logs to a request_logs table in your database.&rdquo; · <a href="https://agentgateway.dev/docs/standalone/latest/documentation/observability/access-logs/database/" target="_blank" rel="noopener">agentgateway.dev</a>, read 24 September 2026</span></li>
+      <ul class="bc-list"><li>An egress proxy that decides where outbound traffic may go. <span class="bc-src">&ldquo;The destinations that clients are allowed to reach. A destination that matches no entry has no route.&rdquo; · <a href="https://agentgateway.dev/docs/standalone/latest/documentation/configuration/egress-proxy/" target="_blank" rel="noopener">agentgateway.dev</a>, read 24 September 2026</span></li><li>Authorisation on MCP tool calls, with disallowed tools removed from what the agent is shown. <span class="bc-src">&ldquo;If a tool or other resource is not allowed, the gateway automatically filters it from the list response, so unauthorized clients never see it.&rdquo; · <a href="https://agentgateway.dev/docs/standalone/latest/documentation/configuration/security/mcp-authz/" target="_blank" rel="noopener">agentgateway.dev</a>, read 24 September 2026</span></li><li>Access logs, to stdout by default and to a database when configured. <span class="bc-src">&ldquo;If neither config.logging.database nor config.database is set, no database log store is initialized and access logs are written to stdout only.&rdquo; · <a href="https://agentgateway.dev/docs/standalone/latest/documentation/observability/access-logs/database/" target="_blank" rel="noopener">agentgateway.dev</a>, read 24 September 2026</span></li>
       </ul>
     </div>
   </section>
@@ -377,9 +381,9 @@ table.lv td a{color:var(--green)}
       </div>
       <div class="bc-t ch" role="table">
       <div class="bc-tr" role="row"><span role="columnheader">The question</span><span role="columnheader">Without it</span><span role="columnheader">With it</span><span role="columnheader">How, and who holds it</span></div>
-      <div class="bc-tr" role="row"><span role="cell">Can it reach anything outside your network?</span><span role="cell" data-k="Without it" class="bc-was">Yes, general internet</span><span role="cell" data-k="With it" class="bc-now">Allow-listed only</span><span role="cell" data-k="How">a boundary, held by the deployer. Only for traffic that uses the proxy. The page says a client selects it through the standard environment variable; blocking direct egress for an agent that ignores that variable is left to the deployer. <span class="bc-src">&ldquo;The destinations that clients are allowed to reach. A destination that matches no entry has no route.&rdquo; · <a href="https://agentgateway.dev/docs/standalone/latest/documentation/configuration/egress-proxy/" target="_blank" rel="noopener">agentgateway.dev</a>, read 24 September 2026</span></span></div>
-      <div class="bc-tr" role="row"><span role="cell">What can it do with that data?</span><span role="cell" data-k="Without it" class="bc-was">Reads and changes it</span><span role="cell" data-k="With it" class="bc-now">Reads it</span><span role="cell" data-k="How">a boundary, held by the deployer. Only if the policy leaves the write tools out, and only for tools reached through the gateway. <span class="bc-src">&ldquo;MCP authorization policies run against specific MCP method invocations such as list_tools and call_tools.&rdquo; · <a href="https://agentgateway.dev/docs/standalone/latest/documentation/configuration/security/mcp-authz/" target="_blank" rel="noopener">agentgateway.dev</a>, read 24 September 2026</span></span></div>
-      <div class="bc-tr" role="row"><span role="cell">Could you reconstruct what it did last Tuesday?</span><span role="cell" data-k="Without it" class="bc-was">No</span><span role="cell" data-k="With it" class="bc-now">Partly</span><span role="cell" data-k="How">a setting, held by the deployer. Partly, not fully: the log covers what passed through the gateway, and nothing is persisted unless a database is configured. <span class="bc-src">&ldquo;If neither config.logging.database nor config.database is set, no database log store is initialized and access logs are written to stdout only.&rdquo; · <a href="https://agentgateway.dev/docs/standalone/latest/documentation/observability/access-logs/database/" target="_blank" rel="noopener">agentgateway.dev</a>, read 24 September 2026</span></span></div>
+      <div class="bc-tr" role="row"><span role="cell">Can it reach anything outside your network?</span><span role="cell" data-k="Without it" class="bc-was">Yes, general internet</span><span role="cell" data-k="With it" class="bc-now">Allow-listed only</span><span role="cell" data-k="How">a boundary, held by the deployer. Only for traffic that uses the proxy. A client selects it through the standard environment variable; blocking direct egress for an agent that ignores that variable is left to the deployer. <span class="bc-src">&ldquo;The destinations that clients are allowed to reach. A destination that matches no entry has no route.&rdquo; · <a href="https://agentgateway.dev/docs/standalone/latest/documentation/configuration/egress-proxy/" target="_blank" rel="noopener">agentgateway.dev</a>, read 24 September 2026</span></span></div>
+      <div class="bc-tr" role="row"><span role="cell">What can it do with that data?</span><span role="cell" data-k="Without it" class="bc-was">Reads and changes it</span><span role="cell" data-k="With it" class="bc-now">Reads it</span><span role="cell" data-k="How">a boundary, held by the deployer. Only if the policy leaves the write tools out, and only for tools reached through the gateway. Rules match on the tool name. <span class="bc-src">&ldquo;If a tool or other resource is not allowed, the gateway automatically filters it from the list response, so unauthorized clients never see it.&rdquo; · <a href="https://agentgateway.dev/docs/standalone/latest/documentation/configuration/security/mcp-authz/" target="_blank" rel="noopener">agentgateway.dev</a>, read 24 September 2026</span></span></div>
+      <div class="bc-tr" role="row"><span role="cell">Could you reconstruct what it did last Tuesday?</span><span role="cell" data-k="Without it" class="bc-was">No</span><span role="cell" data-k="With it" class="bc-now">Partly</span><span role="cell" data-k="How">a setting, held by the deployer. Partly: the log covers what passed through the gateway, and nothing is persisted unless a database is configured. <span class="bc-src">&ldquo;If neither config.logging.database nor config.database is set, no database log store is initialized and access logs are written to stdout only.&rdquo; · <a href="https://agentgateway.dev/docs/standalone/latest/documentation/observability/access-logs/database/" target="_blank" rel="noopener">agentgateway.dev</a>, read 24 September 2026</span></span></div>
     </div>
     </div>
   </section>
@@ -436,7 +440,18 @@ table.lv td a{color:var(--green)}
         <h2>Every product is also a new thing in the estate.</h2>
       </div>
       
-      <p class="bc-note">By design it is a proxy in the request path, so it is also something that can fail and something that has to be stopped. Its pages state the choice for guardrails: <em>failClosed (default): Deny the request… failOpen: Allow the request. Use when availability matters more than strict enforcement.</em> For HTTP authorisation rules they state both behaviours: a require expression that errors denies the request, and a deny expression that errors does not deny it. The page on external authorisation does not say what happens when the authorisation server is unreachable, and no page read says what happens to agent traffic when the gateway itself is down.</p>
+      <p class="bc-note">By design it is a proxy in the request path. For guardrails its pages state <em>failClosed (default): Deny the request… failOpen: Allow the request.</em> For HTTP authorisation rules they state both: a require expression that errors denies, and a deny expression that errors does not deny. No page read says what happens to agent traffic when the gateway itself is down.</p>
+    </div>
+  </section>
+
+  <section class="psection alt">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Free, but not free</span>
+        <h2>What adopting it takes, <span class="g">before any of this is true.</span></h2>
+        <p>An open-source project costs nothing to download and something to adopt. Every change above depends on the work below, and most of it is customisation to your own deployment.</p>
+      </div>
+      <ul class="bc-list"><li>Route the agent's model, tool and outbound traffic through it, and block the routes around it.</li><li>Write the MCP authorisation rules for the tools you actually expose.</li><li>Configure the log database, and decide who reads it.</li></ul>
     </div>
   </section>
 
@@ -444,10 +459,10 @@ table.lv td a{color:var(--green)}
     <div class="wrap">
       <div class="shead">
         <span class="tag">Where its pages disagree</span>
-        <h2>Published unresolved, <span class="g">for the agentgateway project to settle.</span></h2>
+        <h2>Published unresolved, <span class="g">for Linux Foundation (Agentic AI Foundation) to settle.</span></h2>
         <p>Each pair was read on the same day. We have not tested which is true, because that would mean testing somebody else&rsquo;s system.</p>
       </div>
-      <ul class="bc-list"><li><b>binds or gateways.</b> The configuration overview says binds is the deprecated predecessor to gateways and to use gateways and routes instead; the egress-proxy page's examples are written with binds. <span class="bc-src"><a href="https://agentgateway.dev/docs/standalone/latest/documentation/configuration/overview/" target="_blank" rel="noopener">overview</a> · <a href="https://agentgateway.dev/docs/standalone/latest/documentation/configuration/egress-proxy/" target="_blank" rel="noopener">egress-proxy</a></span></li><li><b>page dates.</b> Every documentation page carries the same modified time, 23 September 2026, which reads as a build stamp rather than the date each page was written. The case is dated by when it was read.</li>
+      <ul class="bc-list"><li><b>binds or gateways.</b> The configuration overview says binds is the deprecated predecessor to gateways; the egress-proxy page's examples are written with binds. <span class="bc-src"><a href="https://agentgateway.dev/docs/standalone/latest/documentation/configuration/overview/" target="_blank" rel="noopener">overview</a> · <a href="https://agentgateway.dev/docs/standalone/latest/documentation/configuration/egress-proxy/" target="_blank" rel="noopener">egress-proxy</a></span></li>
       </ul>
     </div>
   </section>
@@ -458,10 +473,10 @@ table.lv td a{color:var(--green)}
         <span class="tag">What this does not claim</span>
         <h2>The limits of the case, <span class="g">stated by the case.</span></h2>
       </div>
-      <ul class="bc-list"><li>That it can stop an agent. The egress proxy has a deny mode and routes appear to change at runtime, but no page presents either as a way to stop an agent, so the stopping questions are left as they were.</li><li>That it was tested. Nothing was run; every change rests on the documentation quoted beside it.</li><li>Anything about Solo.io's commercial products, which are not this case.</li>
+      <ul class="bc-list"><li>That it can stop an agent. No page presents a feature as a way to stop one, so the stopping questions are left as they were.</li><li>Anything about Solo.io's commercial products, which are not this case.</li><li>That it was tested. Nothing was installed or run; every change rests on the documentation quoted beside it.</li>
         <li>That the register is complete. It is one model, for one stated deployment. A different deployment changes the answers, and so the case.</li>
       </ul>
-      <p class="bc-note"><b>Next.</b> A draft, to be sent to the project's maintainers before it is listed. If a change is wrong, or a stopping answer should move, the case changes with the date they said so.</p>
+      <p class="bc-note"><b>Next.</b> Published, and sent to the project's maintainers at the same time. If a change is wrong, or another answer should move, the case changes with the date they said so.</p>
     </div>
   </section>
 

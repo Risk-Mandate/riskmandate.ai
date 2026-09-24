@@ -126,7 +126,7 @@ const CSS = `
 .bc-tr:first-child>span{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text)}
 .bc-tr>span:first-child{color:var(--text);font-weight:600}
 .bc-t.ch .bc-tr{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1.6fr)}
-.bc-t.cat .bc-tr{grid-template-columns:minmax(0,1.2fr) minmax(0,1.6fr) minmax(0,1.4fr) minmax(0,1.3fr)}
+.bc-t.cat .bc-tr{grid-template-columns:minmax(0,1.2fr) minmax(0,1.6fr) minmax(0,1.4fr) minmax(0,1.3fr)}\n.bc-t.cs .bc-tr{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr) minmax(0,2.2fr) minmax(0,.7fr)}\n.bc-t.co .bc-tr{grid-template-columns:minmax(0,.8fr) minmax(0,1fr) minmax(0,2.2fr)}\n.bc-t+.bc-h{margin-top:30px}
 .bc-was{color:#96442C}
 .bc-now{color:var(--green);font-weight:600}
 .bc-src{display:block;font-family:var(--mono);font-size:10.5px;color:var(--faint);margin-top:6px;overflow-wrap:anywhere}
@@ -168,8 +168,8 @@ const CSS = `
 .bc-pill.ours{background:var(--bg2);color:var(--muted)}
 .bc-cases{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:26px}
 @media (max-width:980px){.bc-alt{grid-template-columns:1fr 1fr}}
-@media (max-width:900px){.bc-three,.bc-cases{grid-template-columns:1fr}.bc-t .bc-tr:first-child{display:none}.bc-t.ch .bc-tr,.bc-t.cat .bc-tr{grid-template-columns:1fr 1fr}.bc-tr>span:first-child{grid-column:1 / -1;padding-bottom:2px}.bc-tr>span[data-k]::before{content:attr(data-k);display:block;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:2px}}
-@media (max-width:640px){.bc-alt,.bc-sum{grid-template-columns:1fr}.bc-t.ch .bc-tr,.bc-t.cat .bc-tr{grid-template-columns:1fr}.bc-risk{grid-template-columns:1fr}}
+@media (max-width:900px){.bc-three,.bc-cases{grid-template-columns:1fr}.bc-t .bc-tr:first-child{display:none}.bc-t.ch .bc-tr,.bc-t.cat .bc-tr,.bc-t.cs .bc-tr,.bc-t.co .bc-tr{grid-template-columns:1fr 1fr}.bc-tr>span:first-child{grid-column:1 / -1;padding-bottom:2px}.bc-tr>span[data-k]::before{content:attr(data-k);display:block;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:2px}}
+@media (max-width:640px){.bc-alt,.bc-sum{grid-template-columns:1fr}.bc-t.ch .bc-tr,.bc-t.cat .bc-tr,.bc-t.cs .bc-tr,.bc-t.co .bc-tr{grid-template-columns:1fr}.bc-risk{grid-template-columns:1fr}}
 `;
 
 // ------------------------------------------------------------------ cut a page from the donor
@@ -227,6 +227,7 @@ function casePage(c) {
     <h1>${esc(c.title)}</h1>
     <p class="sub" style="margin-bottom:20px">${txt(c.summary)}</p>
     ${c.disclosure ? `<p class="bc-meta"><b>Disclosure:</b> ${txt(c.disclosure)}</p>` : ''}
+    ${c.licence ? `<p class="bc-meta"><b>Open source:</b> ${esc(c.licence)} · ${esc(c.vendor)}${c.involve ? ` · <a href="${esc(c.involve)}" target="_blank" rel="noopener">get involved</a>` : ''}</p>` : ''}
     <p class="bc-meta"><b>The deployment:</b> ${txt(c.baseline.why)}</p>
     <p class="bc-meta"><b>The model:</b> the RiskGraph Explorer's ${M.facts ? Object.keys(M.facts).length : ''} facts, ${M.risks.length} risks and ${M.roles.length} roles, copied into this site with its provenance; the register below is computed, not written. <a href="business-cases.html#method">How</a>.</p>
     ${c.status === 'draft' ? `<p class="bc-meta"><b>Status:</b> a draft, not yet sent to ${esc(c.vendor)} and not listed on the site. It may be wrong; it is here to be corrected.</p>` : ''}
@@ -306,6 +307,17 @@ function casePage(c) {
     </div>
   </section>` : ''}
 
+  ${(c.adoption || []).length ? `<section class="psection alt">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Free, but not free</span>
+        <h2>What adopting it takes, <span class="g">before any of this is true.</span></h2>
+        <p>An open-source project costs nothing to download and something to adopt. Every change above depends on the work below, and most of it is customisation to your own deployment.</p>
+      </div>
+      <ul class="bc-list">${c.adoption.map((a) => `<li>${txt(a)}</li>`).join('')}</ul>
+    </div>
+  </section>` : ''}
+
   ${(c.contradictions || []).length ? `<section class="psection">
     <div class="wrap">
       <div class="shead">
@@ -350,7 +362,13 @@ function indexPage() {
     const R = k.result;
     return `<div class="bc-tr" role="row"><span role="cell">${esc(k.name)}<span class="bc-src">${esc(k.what)}</span></span><span role="cell" data-k="Answers it changes">${k.changes.map((c) => `${esc(Q[c.q].text)} <span class="bc-was">${esc(opt(c.q, k.base[c.q]))}</span> → <span class="bc-now">${esc(opt(c.q, c.to))}</span>`).join('<br>')}</span><span role="cell" data-k="Retired">${R.retired.length ? R.retired.map((r) => `${esc(r.ref)} ${esc(r.statement.toLowerCase())}`).join('; ') : 'none, for this deployment'}${R.added.length ? `<span class="bc-src">new: ${R.added.map((r) => esc(r.ref)).join(', ')}</span>` : ''}</span><span role="cell" data-k="What it adds">${txt(k.adds_text || 'not stated')}${(k.examples || []).length ? `<span class="bc-src">for example: ${k.examples.map((e) => `<a href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.name)}</a>`).join(', ')}</span>` : ''}</span></div>`;
   }).join('\n      ');
-  const caseCards = published.map((c) => `<div class="bc-card"><span class="k">${c.kind === 'ours' ? '<span class="bc-pill ours">our own</span>' : ''}${esc(c.category)}</span><h3><a href="business-case-${esc(c.slug)}.html">${esc(c.product)}${c.vendor && c.kind !== 'ours' ? ` · ${esc(c.vendor)}` : ''}</a></h3><p>${c.result.retired.length} retired, ${c.result.added.length} new, ${c.result.kept.length} unchanged, for the deployment it states. ${txt(c.summary.split('. ')[0])}.</p></div>`).join('\n      ');
+  const caseRow = (c) => `<div class="bc-tr" role="row"><span role="cell"><a href="business-case-${esc(c.slug)}.html">${esc(c.product)}</a><span class="bc-src">${esc(c.vendor)}${c.licence ? ' · ' + esc(c.licence) : ''}</span></span><span role="cell" data-k="Kind">${esc(c.category)}</span><span role="cell" data-k="Answers it changes">${c.changes.map((x) => `${esc(Q[x.q].text)} <span class="bc-was">${esc(opt(x.q, c.base[x.q]))}</span> → <span class="bc-now">${esc(opt(x.q, x.to))}</span> <span class="bc-src" style="display:inline">${esc(CHANGE_KIND[x.kind])}</span>`).join('<br>')}</span><span role="cell" data-k="Register">${c.result.retired.length} retired${c.result.added.length ? `, ${c.result.added.length} new` : ''}</span></div>`;
+  const caseTable = (list) => `<div class="bc-t cs" role="table"><div class="bc-tr" role="row"><span role="columnheader">Project</span><span role="columnheader">Kind</span><span role="columnheader">Answers it changes</span><span role="columnheader">Register</span></div>
+      ${list.map(caseRow).join('\n      ')}</div>`;
+  const ours = published.filter((c) => c.kind === 'ours'), open = published.filter((c) => c.kind === 'open-source').sort((a, b) => (!a.vendor.startsWith('OWASP')) - (!b.vendor.startsWith('OWASP')) || a.product.localeCompare(b.product)),
+        vendors = published.filter((c) => c.kind === 'vendor');
+  const companies = existsSync(join(DIR, 'companies.json')) ? JSON.parse(readFileSync(join(DIR, 'companies.json'), 'utf8')) : { items: [] };
+  const compRows = companies.items.map((k) => `<div class="bc-tr" role="row"><span role="cell"><a href="${esc(k.url)}" target="_blank" rel="noopener">${esc(k.company)}</a></span><span role="cell" data-k="Open project">${esc(k.project)}<span class="bc-src">${esc(k.home)}</span></span><span role="cell" data-k="What it sells on top">${txt(k.sells)}${k.quote ? `<span class="bc-src">&ldquo;${esc(k.quote)}&rdquo; · <a href="${esc(k.quote_url)}" target="_blank" rel="noopener">${esc(new URL(k.quote_url).hostname)}</a></span>` : ''}</span></div>`).join('\n      ');
 
   const body = `<main class="phero">
   <div class="wrap">
@@ -394,17 +412,35 @@ function indexPage() {
     </div>
   </section>
 
-  <section class="psection">
+  <section class="psection" id="cases">
     <div class="wrap">
       <div class="shead">
         <span class="tag">The cases</span>
-        <h2>Written so far.</h2>
+        <h2>${published.length} written so far, <span class="g">ours first.</span></h2>
+        <p>Our own product first, so the method is tested on us. Then open-source projects, OWASP&rsquo;s first, which anybody can deploy and nobody has to pay for, but which cost something to adopt and more to customise; each case says what. Cases about commercial products are drafted from their own documentation and sent to the company before they are listed.</p>
       </div>
-      <div class="bc-cases">
-      ${caseCards}
-      </div>
+      <p class="bc-h">Our own</p>
+      ${caseTable(ours)}
+      <p class="bc-h">Open source</p>
+      ${caseTable(open)}
+      ${vendors.length ? `<p class="bc-h">Commercial</p>${caseTable(vendors)}` : ''}
+      <p class="bc-note">Across the open-source projects, the answers that move are egress, access to data, the record, the account, stopping and undoing. None of them moves who owns the stop, the side effects of stopping, the procedure after it, or the class of data in reach. Those are decisions and documents, not software, which is where a behaviour policy and a <a href="licence-to-operate.html">licence to operate</a> come in.</p>
     </div>
   </section>
+
+  ${companies.items.length ? `<section class="psection alt" id="built-on-open-source">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Built on open source</span>
+        <h2>Companies that work the way we do, <span class="g">and whose projects are here.</span></h2>
+        <p>${txt(companies.intro || '')}</p>
+      </div>
+      <div class="bc-t co" role="table"><div class="bc-tr" role="row"><span role="columnheader">Company</span><span role="columnheader">Open project</span><span role="columnheader">What it sells on top</span></div>
+      ${compRows}
+      </div>
+      ${companies.note ? `<p class="bc-note">${txt(companies.note)}</p>` : ''}
+    </div>
+  </section>` : ''}
 
   ${categories.items.length ? `<section class="psection alt" id="categories">
     <div class="wrap">
@@ -432,7 +468,7 @@ function indexPage() {
         <li><b>No verdict on any product</b> and no ranking of one against another. The case says what changes if the documentation is right.</li>
         <li><b>No conformity language.</b> A product that touches an article of a regulation is shown as touching it, never as meeting it.</li>
         <li><b>What it adds is part of the case.</b> A product in the request path is also something that can fail, and something that has to be stopped.</li>
-        <li><b>Draft before published.</b> A case about somebody else&rsquo;s product is sent to them before it is listed, and changes with a date when they correct it.</li>
+        <li><b>Open source is published; commercial is sent first.</b> A case about an open-source project is published and sent to its maintainers at the same time. A case about a commercial product is sent to the company before it is listed. Either changes with a date when they correct it.</li>
       </ul>
     </div>
   </section>

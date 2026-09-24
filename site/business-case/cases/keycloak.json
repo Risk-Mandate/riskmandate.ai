@@ -1,0 +1,64 @@
+{
+  "slug": "keycloak",
+  "status": "published",
+  "kind": "open-source",
+  "product": "Keycloak",
+  "vendor": "CNCF (incubating)",
+  "vendor_url": "https://www.keycloak.org/",
+  "licence": "Apache-2.0",
+  "involve": "https://www.keycloak.org/community",
+  "category": "Identity",
+  "title": "Keycloak, by the risk it changes",
+  "summary": "An identity and access management server. Its standard token exchange lets a client exchange a token issued for one client for a token aimed at another, carrying the identity of the party on whose behalf the request is made. Written as an answer, an agent acting on a token that starts from a named person's login acts as that person, not as an ownerless service account.",
+  "read": "2026-09-24",
+  "baseline": {
+    "preset": "typical",
+    "overrides": {
+      "q14": 2
+    },
+    "why": "The model's typical deployment, with the answers this project addresses stated as they are without it: it acts under a service account nobody owns."
+  },
+  "does": [
+    {
+      "text": "Standard token exchange within a realm.",
+      "quote": "A client can exchange an existing Keycloak token created for a specific client for a new token targeted to a different client in the same realm.",
+      "url": "https://www.keycloak.org/securing-apps/token-exchange",
+      "read": "2026-09-24"
+    }
+  ],
+  "changes": [
+    {
+      "q": "q14",
+      "to": 0,
+      "kind": "setting",
+      "holder": "the deployer",
+      "why": "Only when the exchange starts from a named person's token and the systems downstream accept Keycloak tokens.",
+      "basis": {
+        "quote": "A client can exchange an existing Keycloak token created for a specific client for a new token targeted to a different client in the same realm.",
+        "url": "https://www.keycloak.org/securing-apps/token-exchange",
+        "read": "2026-09-24"
+      }
+    }
+  ],
+  "reduces": [],
+  "adds": [],
+  "adds_note": "It sits in the authentication path and holds the realm's users and sessions. Its page also says the exchanged tokens in a chain should be revoked, which is a job somebody has to own.",
+  "adoption": [
+    "Set up the realm, the clients and the exchange permissions.",
+    "Decide which person each agent acts for, and how that is recorded.",
+    "Keep delegation off until it is no longer marked experimental, as the page advises."
+  ],
+  "contradictions": [
+    {
+      "topic": "impersonation and delegation",
+      "text": "The capability list includes impersonating a user, while the same page says standard exchange supports only the first use case, calls delegation experimental and not for production, and describes the legacy exchange as a very loose implementation of the specification.",
+      "urls": [
+        "https://www.keycloak.org/securing-apps/token-exchange"
+      ]
+    }
+  ],
+  "does_not_claim": [
+    "That it was tested. Nothing was installed or run; every change rests on the documentation quoted beside it."
+  ],
+  "next": "Published, and sent to the project's maintainers at the same time. If a change is wrong, or another answer should move, the case changes with the date they said so."
+}

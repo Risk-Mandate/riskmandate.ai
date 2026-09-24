@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>RiskMandate — the business case for Agent Behaviour Policy</title>
-<meta name="description" content="Agent Behaviour Policy (RiskMandate), by the risk it changes: the register for a stated agent deployment without it and with it, computed from a public model, from the operator to the board.">
-<link rel="canonical" href="https://riskmandate.ai/business-case-riskmandate-abp.html">
-<link rel="alternate" type="text/markdown" href="business-case-riskmandate-abp.md" title="This page as markdown">
+<title>RiskMandate — the business case for OpenFGA</title>
+<meta name="description" content="OpenFGA (CNCF), by the risk it changes: the register for a stated agent deployment without it and with it, computed from a public model, from the operator to the board.">
+<link rel="canonical" href="https://riskmandate.ai/business-case-openfga.html">
+<link rel="alternate" type="text/markdown" href="business-case-openfga.md" title="This page as markdown">
 <link rel="icon" href="assets/brand/riskmandate-favicon-32.png" sizes="32x32">
 <link rel="icon" href="assets/brand/riskmandate-mark.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="RiskMandate">
-<meta property="og:url" content="https://riskmandate.ai/business-case-riskmandate-abp.html">
-<meta property="og:title" content="RiskMandate — the business case for Agent Behaviour Policy">
-<meta property="og:description" content="Agent Behaviour Policy (RiskMandate), by the risk it changes: the register for a stated agent deployment without it and with it, computed from a public model, from the operator to the board.">
+<meta property="og:url" content="https://riskmandate.ai/business-case-openfga.html">
+<meta property="og:title" content="RiskMandate — the business case for OpenFGA">
+<meta property="og:description" content="OpenFGA (CNCF), by the risk it changes: the register for a stated agent deployment without it and with it, computed from a public model, from the operator to the board.">
 <meta property="og:image" content="https://riskmandate.ai/assets/brand/riskmandate-lockup-light.png">
 <meta name="twitter:card" content="summary_large_image">
 <!-- v1.0.0. Reconstructed from SG/Vault 7rfetjwz at v0.14.0;
@@ -348,12 +348,12 @@ table.lv td a{color:var(--green)}
 
 <main class="phero">
   <div class="wrap">
-    <span class="eyebrow"><span class="d"></span> The business case · Mapping: the precondition for every other case</span>
-    <h1>An Agent Behaviour Policy, by the risk it changes</h1>
-    <p class="sub" style="margin-bottom:20px">The first case is our own product, so the method is tested on us before it is used on anybody else. An Agent Behaviour Policy changes no setting and blocks nothing. It writes down what one agent in one deployment can reach, what it was authorised to do, the gap, and what stands in the way. In the register that means two risks retired, one hidden risk named, and a handful reduced by instructions the agent is given, which the site calls expectations because they are hope, not control.</p>
-    <p class="bc-meta"><b>Disclosure:</b> This is RiskMandate's own product, and the case is written by RiskMandate. Read it with that in mind; the method is the same one the other cases use, and the model is public.</p>
+    <span class="eyebrow"><span class="d"></span> The business case · Authorisation</span>
+    <h1>OpenFGA, by the risk it changes</h1>
+    <p class="sub" style="margin-bottom:20px">A relationship-based authorisation service: a resource server asks whether a user has a relationship with an object, and refuses when the answer is no. Written as an answer, that is read-only access for an agent whose relationships allow only reading, where the server holding the data does the check.</p>
     
-    <p class="bc-meta"><b>The deployment:</b> The typical deployment from the model, as it is before anybody has mapped the agent: asked what it could reach at full speed, the honest answer is that nobody knows.</p>
+    <p class="bc-meta"><b>Open source:</b> Apache-2.0 · CNCF · <a href="https://github.com/openfga/community" target="_blank" rel="noopener">get involved</a></p>
+    <p class="bc-meta"><b>The deployment:</b> The model's typical deployment, with the answers this project addresses stated as they are without it: can read and change the data in its reach.</p>
     <p class="bc-meta"><b>The model:</b> the RiskGraph Explorer's 49 facts, 49 risks and 10 roles, copied into this site with its provenance; the register below is computed, not written. <a href="business-cases.html#method">How</a>.</p>
     
   </div>
@@ -365,9 +365,9 @@ table.lv td a{color:var(--green)}
     <div class="wrap">
       <div class="shead">
         <span class="tag">01 · What it does</span>
-        <h2>In our own words, <span class="g">and nothing more.</span></h2>
+        <h2>In its own words, <span class="g">and nothing more.</span></h2>
       </div>
-      <ul class="bc-list"><li>Enumerates what the agent can reach, from the vendor's own pages or a run we are entitled to make, and writes it down as the grant. <a href="abp.html">more</a></li><li>Records what the deployer authorised, as the mandate, and derives the gap between the two. <a href="abp.html">more</a></li><li>Names, for each capability, what stands in the way: nothing, an expectation, a setting or a boundary, and who holds it. <a href="how-it-works.html">more</a></li><li>Ships the instructions an agent reads, AGENTS.md and SKILL.md, so the mandate is also written where the agent will see it. <a href="agent-behaviour-policy.html">more</a></li>
+      <ul class="bc-list"><li>Check requests: does this user have this relationship with this object. <span class="bc-src">&ldquo;This section will illustrate how to perform a check request to determine whether a user has a certain relationship with an object.&rdquo; · <a href="https://openfga.dev/docs/getting-started/perform-check" target="_blank" rel="noopener">openfga.dev</a>, read 24 September 2026</span></li>
       </ul>
     </div>
   </section>
@@ -381,7 +381,7 @@ table.lv td a{color:var(--green)}
       </div>
       <div class="bc-t ch" role="table">
       <div class="bc-tr" role="row"><span role="columnheader">The question</span><span role="columnheader">Without it</span><span role="columnheader">With it</span><span role="columnheader">How, and who holds it</span></div>
-      <div class="bc-tr" role="row"><span role="cell">If it misbehaved at full speed, what could it reach?</span><span role="cell" data-k="Without it" class="bc-was">Don't know</span><span role="cell" data-k="With it" class="bc-now">Customer-facing</span><span role="cell" data-k="How">states the answer, held by the deployer. The policy does not change what the agent can reach. It replaces don't know with the answer. For the typical deployment that answer is customer-facing, and saying so is exactly what puts a new risk on the register.</span></div>
+      <div class="bc-tr" role="row"><span role="cell">What can it do with that data?</span><span role="cell" data-k="Without it" class="bc-was">Reads and changes it</span><span role="cell" data-k="With it" class="bc-now">Reads it</span><span role="cell" data-k="How">a boundary, held by the deployer. Only when the resource server, not the agent's own tool code, calls Check and refuses writes. If the agent's code makes the call, it is a setting, not a boundary. <span class="bc-src">&ldquo;This section will illustrate how to perform a check request to determine whether a user has a certain relationship with an object.&rdquo; · <a href="https://openfga.dev/docs/getting-started/perform-check" target="_blank" rel="noopener">openfga.dev</a>, read 24 September 2026</span></span></div>
     </div>
     </div>
   </section>
@@ -390,13 +390,13 @@ table.lv td a{color:var(--green)}
     <div class="wrap">
       <div class="shead">
         <span class="tag">03 · The register, before and after</span>
-        <h2>2 retired, 1 new, <span class="g">22 unchanged.</span></h2>
-        <p>Computed from the model for the deployment above: every risk that holds without it, and every risk that holds with it. A new entry is either one the change brought to light, where an answer replaced a don&rsquo;t know, or a narrower risk in place of a wider one, where the answer moved from no to partly. Either way the register is more exact, and a register that grows because something was found is working.</p>
+        <h2>2 retired, <span class="g">23 unchanged.</span></h2>
+        <p>Computed from the model for the deployment above: every risk that holds without it, and every risk that holds with it.</p>
       </div>
-      <div class="bc-sum"><div class="off"><span class="n">2</span><span class="l">retired</span></div><div class="new"><span class="n">1</span><span class="l">new</span></div><div><span class="n">24 → 23</span><span class="l">entries on the register</span></div></div>
-      <p class="bc-h">Retired</p><div class="bc-risks"><div class="bc-risk off"><span class="ref">RISK-8</span><div><b>The operator cannot state what the agent is entitled to reach</b><span>operational · SRE / platform on-call, Platform owner</span></div></div>
-      <div class="bc-risk off"><span class="ref">RISK-17</span><div><b>The scope of the agent's access cannot be reviewed</b><span>operational · CISO</span></div></div></div>
-      <p class="bc-h">New</p><div class="bc-risks"><div class="bc-risk new"><span class="ref">RISK-18</span><div><b>Customer-facing systems are reachable by the agent</b><span>operational · Customer-facing service owner, CISO, Chief Product Officer</span></div></div></div>
+      <div class="bc-sum"><div class="off"><span class="n">2</span><span class="l">retired</span></div><div class="new"><span class="n">0</span><span class="l">new</span></div><div><span class="n">25 → 23</span><span class="l">entries on the register</span></div></div>
+      <p class="bc-h">Retired</p><div class="bc-risks"><div class="bc-risk off"><span class="ref">RISK-16</span><div><b>Regulated data is modifiable by an agent</b><span>operational · CISO, DPO, Customer-facing service owner, Chief Product Officer</span></div></div>
+      <div class="bc-risk off"><span class="ref">RISK-26</span><div><b>Records the organisation answers for can change without a person deciding they should</b><span>operational · Board</span></div></div></div>
+      
     </div>
   </section>
 
@@ -408,36 +408,43 @@ table.lv td a{color:var(--green)}
         <p>Each risk is assigned to the roles it belongs to, and each role reports to another until the board. The count beside each role is the entries it holds without the product and with it.</p>
       </div>
       <div class="bc-alt">
-      <div class="bc-a"><h3>Operators</h3><span class="why">who run it, and are paged when it goes wrong</span><div class="bc-role"><b>SRE / platform on-call</b><span class="c">10 → 9 <span class="d">−1</span></span><span class="refs">retired RISK-8</span></div><div class="bc-role"><b>Customer-facing service owner</b><span class="c">1 → 2 +1</span><span class="refs">new RISK-18</span></div></div>
-      <div class="bc-a"><h3>Owners</h3><span class="why">who own what it may touch, and can say what happened</span><div class="bc-role"><b>Platform owner</b><span class="c">4 → 3 <span class="d">−1</span></span><span class="refs">retired RISK-8</span></div><div class="bc-role"><b>CISO</b><span class="c">8 → 8</span><span class="refs">retired RISK-17 · new RISK-18</span></div><div class="bc-role"><b>DPO</b><span class="c">6 → 6</span></div></div>
-      <div class="bc-a"><h3>Executives</h3><span class="why">who answer for speed, product, cost and the whole</span><div class="bc-role"><b>CTO</b><span class="c">3 → 3</span></div><div class="bc-role"><b>Chief Product Officer</b><span class="c">3 → 4 +1</span><span class="refs">new RISK-18</span></div><div class="bc-role"><b>CFO</b><span class="c">0 → 0</span></div><div class="bc-role"><b>CEO</b><span class="c">3 → 3</span></div></div>
-      <div class="bc-a"><h3>The board</h3><span class="why">who must be able to defend how it is run</span><div class="bc-role"><b>Board</b><span class="c">4 → 4</span></div></div>
+      <div class="bc-a"><h3>Operators</h3><span class="why">who run it, and are paged when it goes wrong</span><div class="bc-role"><b>SRE / platform on-call</b><span class="c">9 → 9</span></div><div class="bc-role"><b>Customer-facing service owner</b><span class="c">3 → 2 <span class="d">−1</span></span><span class="refs">retired RISK-16</span></div></div>
+      <div class="bc-a"><h3>Owners</h3><span class="why">who own what it may touch, and can say what happened</span><div class="bc-role"><b>Platform owner</b><span class="c">3 → 3</span></div><div class="bc-role"><b>CISO</b><span class="c">9 → 8 <span class="d">−1</span></span><span class="refs">retired RISK-16</span></div><div class="bc-role"><b>DPO</b><span class="c">7 → 6 <span class="d">−1</span></span><span class="refs">retired RISK-16</span></div></div>
+      <div class="bc-a"><h3>Executives</h3><span class="why">who answer for speed, product, cost and the whole</span><div class="bc-role"><b>CTO</b><span class="c">3 → 3</span></div><div class="bc-role"><b>Chief Product Officer</b><span class="c">5 → 4 <span class="d">−1</span></span><span class="refs">retired RISK-16</span></div><div class="bc-role"><b>CFO</b><span class="c">0 → 0</span></div><div class="bc-role"><b>CEO</b><span class="c">3 → 3</span></div></div>
+      <div class="bc-a"><h3>The board</h3><span class="why">who must be able to defend how it is run</span><div class="bc-role"><b>Board</b><span class="c">5 → 4 <span class="d">−1</span></span><span class="refs">retired RISK-26</span></div></div>
     </div>
       <p class="bc-h">At the board: the corporate register</p>
       <p class="bc-note">Corporate risks have no facts of their own. They hold while any risk that leads into them holds, so a single product rarely retires one. What it changes is how many reasons the board is being given.</p>
-      <div class="bc-risks"><div class="bc-risk"><span class="ref">CORP-1</span><div><b>Regulatory exposure — the organisation may be operating outside obligations it is subject to</b><span>still holds · risks leading into it: 2 before, 2 after</span></div></div>
-      <div class="bc-risk"><span class="ref">CORP-2</span><div><b>Customer harm — customers may be affected by decisions or changes nobody made</b><span>still holds · risks leading into it: 2 before, 2 after</span></div></div>
+      <div class="bc-risks"><div class="bc-risk"><span class="ref">CORP-1</span><div><b>Regulatory exposure — the organisation may be operating outside obligations it is subject to</b><span>still holds · risks leading into it: 3 before, 2 after</span></div></div>
+      <div class="bc-risk"><span class="ref">CORP-2</span><div><b>Customer harm — customers may be affected by decisions or changes nobody made</b><span>still holds · risks leading into it: 3 before, 2 after</span></div></div>
       <div class="bc-risk"><span class="ref">CORP-3</span><div><b>Operational resilience — the organisation may be unable to restore a service it depends on</b><span>still holds · risks leading into it: 1 before, 1 after</span></div></div>
       <div class="bc-risk"><span class="ref">CORP-6</span><div><b>Loss of control — the organisation operates a system it may not be able to stop or explain</b><span>still holds · risks leading into it: 2 before, 2 after</span></div></div></div>
     </div>
   </section>
 
-  <section class="psection">
+  
+
+  <section class="psection alt">
     <div class="wrap">
       <div class="shead">
-        <span class="tag">05 · Reduced, not retired</span>
-        <h2>What it asks the agent to do, <span class="g">and why that is hope.</span></h2>
+        <span class="tag">06 · What it adds</span>
+        <h2>Every product is also a new thing in the estate.</h2>
       </div>
-      <div class="bc-exp"><div><q>Ask before any change to production, and say what the change is.</q><span>an expectation · less likely: RISK-6 the production estate can be changed by an agent; RISK-15 the organisation acts through a system that acts without a person approving each action</span></div>
-        <div><q>Never edit more than five records in one run without asking; keep the prior state of anything you edit.</q><span>an expectation · less likely: RISK-32 part of what the agent changes can only be partly recovered</span></div>
-        <div><q>Read personal data only for the task in hand, and never copy it out of the system it is in.</q><span>an expectation · less likely: RISK-7 regulated data is readable by an agent; RISK-3 personal data is within reach of an automated actor</span></div></div>
-      <p class="bc-note">Each of these is a sentence the agent reads. It makes the behaviour less likely and bounds nothing: an agent can ignore it, misread it, or be told otherwise by something it reads. That is still better than silence, and it is why the other cases on this page exist. <a href="https://nhi.sgit.ai/hope/" target="_blank" rel="noopener">Hope is not a control</a>.</p>
+      
+      <p class="bc-note">It sits in the resource server's request path and stores relationship tuples. The pages read do not say what happens when it cannot be reached.</p>
     </div>
   </section>
 
-  
-
-  
+  <section class="psection alt">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Free, but not free</span>
+        <h2>What adopting it takes, <span class="g">before any of this is true.</span></h2>
+        <p>An open-source project costs nothing to download and something to adopt. Every change above depends on the work below, and most of it is customisation to your own deployment.</p>
+      </div>
+      <ul class="bc-list"><li>Model the relationships for your own resources, which is most of the work.</li><li>Wire the check into the server that holds the data, not into the agent.</li><li>Decide what the server does when the check cannot be made.</li></ul>
+    </div>
+  </section>
 
   
 
@@ -447,10 +454,10 @@ table.lv td a{color:var(--green)}
         <span class="tag">What this does not claim</span>
         <h2>The limits of the case, <span class="g">stated by the case.</span></h2>
       </div>
-      <ul class="bc-list"><li>That any risk is smaller because the agent was told not to do something. Expectations are listed as reductions in likelihood, never as retirements.</li><li>That the register after the policy is acceptable. Acceptability is a decision a named person makes, for an interval.</li><li>Anything about corporate risks. They hold while an agent runs in production with personal data in reach, with or without a behaviour policy.</li>
+      <ul class="bc-list"><li>That it was tested. Nothing was installed or run; every change rests on the documentation quoted beside it.</li>
         <li>That the register is complete. It is one model, for one stated deployment. A different deployment changes the answers, and so the case.</li>
       </ul>
-      <p class="bc-note"><b>Next.</b> Every other case on this page starts from a question somebody has already answered truthfully. That answer is what a behaviour policy produces, which is why this case comes first.</p>
+      <p class="bc-note"><b>Next.</b> Published, and sent to the project's maintainers at the same time. If a change is wrong, or another answer should move, the case changes with the date they said so.</p>
     </div>
   </section>
 
@@ -461,7 +468,7 @@ table.lv td a{color:var(--green)}
     <span class="eyebrow"><span class="d"></span> The same method, for your product</span>
     <h2>Make the case <span class="it">in the register&rsquo;s own terms.</span></h2>
     <p>If you build a security product for agents, the case for it can be written the same way: what it does in your own words, the answers it changes, and the register before and after. If a case here is wrong about you, tell us and it changes with a date.</p>
-    <div class="cta-row"><a class="btn btn-green" href="business-cases.html">All the cases</a><a class="btn btn-ghost" href="mailto:dinis.cruz@owasp.org?subject=Business%20case%20%C2%B7%20Agent%20Behaviour%20Policy">Write to us</a></div>
+    <div class="cta-row"><a class="btn btn-green" href="business-cases.html">All the cases</a><a class="btn btn-ghost" href="mailto:dinis.cruz@owasp.org?subject=Business%20case%20%C2%B7%20OpenFGA">Write to us</a></div>
   </div>
 </section>
 
@@ -477,7 +484,7 @@ table.lv td a{color:var(--green)}
 (function(){
 'use strict';
 var RM={core:{},services:{},components:{},data:{}};
-RM.data.currentPage="business-case-riskmandate-abp";RM.data.pages=[{"name":"agent-behaviour-policy","label":"The sixteen examples","file":"agent-behaviour-policy.html","group":"Behaviour policies"},{"name":"abp","label":"What an ABP is","file":"abp.html","group":"Behaviour policies"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"Behaviour policies"},{"name":"licence-to-operate","label":"Licence to Operate","file":"licence-to-operate.html","group":"Behaviour policies"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"Behaviour policies"},{"name":"for-corporate","label":"You run agents today","file":"for-corporate.html","group":"Who it's for"},{"name":"for-founders","label":"You are a founder","file":"for-founders.html","group":"Who it's for"},{"name":"for-startups","label":"You are a startup","file":"for-startups.html","group":"Who it's for"},{"name":"insurance","label":"Make agents insurable","file":"insurance.html","group":"Insurance"},{"name":"insure-a-program","label":"Can you insure a program?","file":"insure-a-program.html","group":"Insurance"},{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"Insurance"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"Insurance"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"Insurance"},{"name":"business-cases","label":"Business cases, by risk","file":"business-cases.html","group":"Insurance"},{"name":"pricing","label":"The four levels","file":"pricing.html","group":"Pricing"},{"name":"abp-reviewed","label":"The reviewed level","file":"abp-reviewed.html","group":"Pricing"},{"name":"reviewers","label":"Who runs your review","file":"reviewers.html","group":"Pricing"},{"name":"try-it","label":"Try it","file":"try-it.html"},{"name":"articles","label":"Articles","file":"articles.html"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"privacy","label":"Privacy","file":"privacy.html","group":"More"},{"name":"lab","label":"The Lab","file":"lab.html","group":"More"},{"name":"demos","label":"Live demos","file":"demos.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"uk-support","label":"UK support, in the open","file":"uk-support.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"admin","label":"Admin","file":"admin/","group":"More"}];RM.data.sections=[];
+RM.data.currentPage="business-case-openfga";RM.data.pages=[{"name":"agent-behaviour-policy","label":"The sixteen examples","file":"agent-behaviour-policy.html","group":"Behaviour policies"},{"name":"abp","label":"What an ABP is","file":"abp.html","group":"Behaviour policies"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"Behaviour policies"},{"name":"licence-to-operate","label":"Licence to Operate","file":"licence-to-operate.html","group":"Behaviour policies"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"Behaviour policies"},{"name":"for-corporate","label":"You run agents today","file":"for-corporate.html","group":"Who it's for"},{"name":"for-founders","label":"You are a founder","file":"for-founders.html","group":"Who it's for"},{"name":"for-startups","label":"You are a startup","file":"for-startups.html","group":"Who it's for"},{"name":"insurance","label":"Make agents insurable","file":"insurance.html","group":"Insurance"},{"name":"insure-a-program","label":"Can you insure a program?","file":"insure-a-program.html","group":"Insurance"},{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"Insurance"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"Insurance"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"Insurance"},{"name":"business-cases","label":"Business cases, by risk","file":"business-cases.html","group":"Insurance"},{"name":"pricing","label":"The four levels","file":"pricing.html","group":"Pricing"},{"name":"abp-reviewed","label":"The reviewed level","file":"abp-reviewed.html","group":"Pricing"},{"name":"reviewers","label":"Who runs your review","file":"reviewers.html","group":"Pricing"},{"name":"try-it","label":"Try it","file":"try-it.html"},{"name":"articles","label":"Articles","file":"articles.html"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"privacy","label":"Privacy","file":"privacy.html","group":"More"},{"name":"lab","label":"The Lab","file":"lab.html","group":"More"},{"name":"demos","label":"Live demos","file":"demos.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"uk-support","label":"UK support, in the open","file":"uk-support.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"admin","label":"Admin","file":"admin/","group":"More"}];RM.data.sections=[];
 
 'use strict';
 // components/dom.js — tiny DOM helpers shared by components. `el` builds an

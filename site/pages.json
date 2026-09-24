@@ -100,11 +100,10 @@
     },
     {
       "name": "business-case-agentgateway",
-      "label": "Business case · agentgateway (draft)",
+      "label": "Business case · agentgateway",
       "file": "business-case-agentgateway.html",
       "group": "Insurance",
-      "unlisted": true,
-      "private": true
+      "unlisted": true
     },
     {
       "name": "business-case-auth0-for-ai-agents",
@@ -113,6 +112,125 @@
       "group": "Insurance",
       "unlisted": true,
       "private": true
+    },
+    {
+      "name": "business-case-cedar",
+      "label": "Business case · Cedar",
+      "file": "business-case-cedar.html",
+      "group": "Insurance",
+      "unlisted": true
+    },
+    {
+      "name": "business-case-cilium",
+      "label": "Business case · Cilium network policy",
+      "file": "business-case-cilium.html",
+      "group": "Insurance",
+      "unlisted": true
+    },
+    {
+      "name": "business-case-falco",
+      "label": "Business case · Falco",
+      "file": "business-case-falco.html",
+      "group": "Insurance",
+      "unlisted": true
+    },
+    {
+      "name": "business-case-gvisor",
+      "label": "Business case · gVisor",
+      "file": "business-case-gvisor.html",
+      "group": "Insurance",
+      "unlisted": true
+    },
+    {
+      "name": "business-case-keycloak",
+      "label": "Business case · Keycloak",
+      "file": "business-case-keycloak.html",
+      "group": "Insurance",
+      "unlisted": true
+    },
+    {
+      "name": "business-case-langfuse",
+      "label": "Business case · Langfuse",
+      "file": "business-case-langfuse.html",
+      "group": "Insurance",
+      "unlisted": true
+    },
+    {
+      "name": "business-case-langgraph-hitl",
+      "label": "Business case · LangGraph and LangChain human-in-the-loop",
+      "file": "business-case-langgraph-hitl.html",
+      "group": "Insurance",
+      "unlisted": true
+    },
+    {
+      "name": "business-case-litellm",
+      "label": "Business case · LiteLLM",
+      "file": "business-case-litellm.html",
+      "group": "Insurance",
+      "unlisted": true
+    },
+    {
+      "name": "business-case-open-policy-agent",
+      "label": "Business case · Open Policy Agent",
+      "file": "business-case-open-policy-agent.html",
+      "group": "Insurance",
+      "unlisted": true
+    },
+    {
+      "name": "business-case-openbao",
+      "label": "Business case · OpenBao",
+      "file": "business-case-openbao.html",
+      "group": "Insurance",
+      "unlisted": true
+    },
+    {
+      "name": "business-case-openfga",
+      "label": "Business case · OpenFGA",
+      "file": "business-case-openfga.html",
+      "group": "Insurance",
+      "unlisted": true
+    },
+    {
+      "name": "business-case-owasp-coraza",
+      "label": "Business case · OWASP Coraza",
+      "file": "business-case-owasp-coraza.html",
+      "group": "Insurance",
+      "unlisted": true
+    },
+    {
+      "name": "business-case-owasp-threat-dragon",
+      "label": "Business case · OWASP Threat Dragon and pytm",
+      "file": "business-case-owasp-threat-dragon.html",
+      "group": "Insurance",
+      "unlisted": true
+    },
+    {
+      "name": "business-case-postgresql-pitr",
+      "label": "Business case · PostgreSQL point-in-time recovery",
+      "file": "business-case-postgresql-pitr.html",
+      "group": "Insurance",
+      "unlisted": true
+    },
+    {
+      "name": "business-case-squid",
+      "label": "Business case · Squid",
+      "file": "business-case-squid.html",
+      "group": "Insurance",
+      "unlisted": true
+    },
+    {
+      "name": "business-case-unleash",
+      "label": "Business case · Unleash",
+      "file": "business-case-unleash.html",
+      "group": "Insurance",
+      "unlisted": true
+    },
+    {
+      "name": "business-case-velero",
+      "label": "Business case · Velero",
+      "file": "business-case-velero.html",
+      "group": "Insurance",
+      "unlisted": true
     },
     {
       "name": "pricing",

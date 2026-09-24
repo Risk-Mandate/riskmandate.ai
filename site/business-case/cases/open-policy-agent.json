@@ -1,0 +1,84 @@
+{
+  "slug": "open-policy-agent",
+  "status": "published",
+  "kind": "open-source",
+  "product": "Open Policy Agent",
+  "vendor": "CNCF (graduated)",
+  "vendor_url": "https://www.openpolicyagent.org/",
+  "licence": "Apache-2.0",
+  "involve": "https://www.openpolicyagent.org/community",
+  "category": "Policy engine",
+  "title": "Open Policy Agent, by the risk it changes",
+  "summary": "A general-purpose policy engine: an application or a proxy asks it whether a request is allowed and enforces the answer. Its documentation is explicit that it decides and does not enforce, so the case holds only where something the agent cannot bypass, such as an Envoy proxy, asks it and obeys. Written as answers, that is read-only access where the policy says so, and a log of every decision.",
+  "read": "2026-09-24",
+  "baseline": {
+    "preset": "typical",
+    "overrides": {
+      "q11": 2,
+      "q13": 2
+    },
+    "why": "The model's typical deployment, with the answers this project addresses stated as they are without it: can read and change the data in its reach; what it did cannot be reconstructed."
+  },
+  "does": [
+    {
+      "text": "Allow and deny decisions, enforced by a proxy such as Envoy.",
+      "quote": "Guests have read-only access to the /people endpoint, admins can create users too as long as the name is not the same as the admin's name.",
+      "url": "https://www.openpolicyagent.org/docs/envoy/tutorial-standalone-envoy",
+      "read": "2026-09-24"
+    },
+    {
+      "text": "Decision logs, one event per decision.",
+      "quote": "Each event includes the policy that was queried, the input to the query, bundle metadata, and other information that enables auditing and offline debugging of policy decisions.",
+      "url": "https://www.openpolicyagent.org/docs/management-decision-logs",
+      "read": "2026-09-24"
+    }
+  ],
+  "changes": [
+    {
+      "q": "q11",
+      "to": 1,
+      "kind": "boundary",
+      "holder": "the deployer",
+      "why": "Only for requests that pass through an enforcement point the agent cannot bypass, and only if the policy leaves writes out.",
+      "basis": {
+        "quote": "Guests have read-only access to the /people endpoint, admins can create users too as long as the name is not the same as the admin's name.",
+        "url": "https://www.openpolicyagent.org/docs/envoy/tutorial-standalone-envoy",
+        "read": "2026-09-24"
+      }
+    },
+    {
+      "q": "q13",
+      "to": 1,
+      "kind": "setting",
+      "holder": "the deployer",
+      "why": "Partly: it records the decisions, not what the request then did. Drop rules can filter decisions out of the log.",
+      "basis": {
+        "quote": "Each event includes the policy that was queried, the input to the query, bundle metadata, and other information that enables auditing and offline debugging of policy decisions.",
+        "url": "https://www.openpolicyagent.org/docs/management-decision-logs",
+        "read": "2026-09-24"
+      }
+    }
+  ],
+  "reduces": [],
+  "adds": [],
+  "adds_note": "It adds a decision point in the request path, and its decision logs store the request input. Whether it fails open is the enforcement point's choice: Envoy's external authorisation filter has a setting that accepts the request when the authorisation service fails, which defaults to false, and OPA's Envoy plugin has a dry-run mode that allows every request.",
+  "adoption": [
+    "Put the enforcement point where the agent cannot route around it, and keep the policy bundle out of the agent's grant.",
+    "Write the policy in Rego for your own resources, which is the customisation the whole case depends on.",
+    "Decide where decision logs go and how long they are kept."
+  ],
+  "contradictions": [
+    {
+      "topic": "enforcement",
+      "text": "The same documentation describes an engine that unifies policy enforcement across the stack, and says OPA decouples policy decision-making from policy enforcement.",
+      "urls": [
+        "https://www.openpolicyagent.org/docs"
+      ]
+    }
+  ],
+  "does_not_claim": [
+    "That OPA enforces anything by itself. Its own documentation says it decides.",
+    "That it was tested. Nothing was installed or run; every change rests on the documentation quoted beside it."
+  ],
+  "next": "Published, and sent to the project's maintainers at the same time. If a change is wrong, or another answer should move, the case changes with the date they said so."
+}

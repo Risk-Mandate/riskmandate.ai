@@ -286,6 +286,9 @@ table.lv td a{color:var(--green)}
 .bc-tr>span:first-child{color:var(--text);font-weight:600}
 .bc-t.ch .bc-tr{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1.6fr)}
 .bc-t.cat .bc-tr{grid-template-columns:minmax(0,1.2fr) minmax(0,1.6fr) minmax(0,1.4fr) minmax(0,1.3fr)}
+.bc-t.cs .bc-tr{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr) minmax(0,2.2fr) minmax(0,.7fr)}
+.bc-t.co .bc-tr{grid-template-columns:minmax(0,.8fr) minmax(0,1fr) minmax(0,2.2fr)}
+.bc-t+.bc-h{margin-top:30px}
 .bc-was{color:#96442C}
 .bc-now{color:var(--green);font-weight:600}
 .bc-src{display:block;font-family:var(--mono);font-size:10.5px;color:var(--faint);margin-top:6px;overflow-wrap:anywhere}
@@ -327,8 +330,8 @@ table.lv td a{color:var(--green)}
 .bc-pill.ours{background:var(--bg2);color:var(--muted)}
 .bc-cases{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:26px}
 @media (max-width:980px){.bc-alt{grid-template-columns:1fr 1fr}}
-@media (max-width:900px){.bc-three,.bc-cases{grid-template-columns:1fr}.bc-t .bc-tr:first-child{display:none}.bc-t.ch .bc-tr,.bc-t.cat .bc-tr{grid-template-columns:1fr 1fr}.bc-tr>span:first-child{grid-column:1 / -1;padding-bottom:2px}.bc-tr>span[data-k]::before{content:attr(data-k);display:block;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:2px}}
-@media (max-width:640px){.bc-alt,.bc-sum{grid-template-columns:1fr}.bc-t.ch .bc-tr,.bc-t.cat .bc-tr{grid-template-columns:1fr}.bc-risk{grid-template-columns:1fr}}
+@media (max-width:900px){.bc-three,.bc-cases{grid-template-columns:1fr}.bc-t .bc-tr:first-child{display:none}.bc-t.ch .bc-tr,.bc-t.cat .bc-tr,.bc-t.cs .bc-tr,.bc-t.co .bc-tr{grid-template-columns:1fr 1fr}.bc-tr>span:first-child{grid-column:1 / -1;padding-bottom:2px}.bc-tr>span[data-k]::before{content:attr(data-k);display:block;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:2px}}
+@media (max-width:640px){.bc-alt,.bc-sum{grid-template-columns:1fr}.bc-t.ch .bc-tr,.bc-t.cat .bc-tr,.bc-t.cs .bc-tr,.bc-t.co .bc-tr{grid-template-columns:1fr}.bc-risk{grid-template-columns:1fr}}
 </style>
 </head>
 <body id="top">
@@ -348,6 +351,7 @@ table.lv td a{color:var(--green)}
     <span class="eyebrow"><span class="d"></span> The business case · Agent identity, with a human-approval step</span>
     <h1>Auth0 for AI Agents, by the risk it changes</h1>
     <p class="sub" style="margin-bottom:20px">A hosted identity service for agents. Its documentation describes two things an agent deployment would feel: an action that waits for the person it acts for to approve it, every time, and a token that keeps the user as the subject and names the agent as the actor. Written as answers, that is approval on each change, a named person's account instead of an ownerless one, and a partial record, because the log records tokens issued rather than what was done with them.</p>
+    
     
     <p class="bc-meta"><b>The deployment:</b> The model's typical deployment, with the three answers this product addresses stated as they are without it: the agent changes things on its own, it acts under a service account nobody owns, and what it did cannot be reconstructed.</p>
     <p class="bc-meta"><b>The model:</b> the RiskGraph Explorer's 49 facts, 49 risks and 10 roles, copied into this site with its provenance; the register below is computed, not written. <a href="business-cases.html#method">How</a>.</p>
@@ -436,6 +440,8 @@ table.lv td a{color:var(--green)}
       <p class="bc-note">A vendor-hosted tenant becomes a dependency for every approved action, and the approval channel becomes attack surface: the documentation itself describes email as <em>vulnerable to phishing attacks</em>. Token Vault means Auth0 stores the access and refresh tokens of the third-party services the agent calls. A request expires by default after 300 seconds and is then denied. No page read says what happens to an agent's actions when the service itself is unreachable.</p>
     </div>
   </section>
+
+  
 
   <section class="psection">
     <div class="wrap">

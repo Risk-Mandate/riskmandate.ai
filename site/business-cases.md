@@ -36,11 +36,21 @@ No case can be computed until somebody has answered the questions truthfully abo
 
 The model is the RiskGraph Explorer’s, from one of our [live demos](demos.html), copied into this site with its provenance. It is small on purpose: sixteen questions, readable in one sitting, so an argument about a case is an argument about an answer, not about a formula. Nothing on these pages is a score, and no case is a statement that a product works; it is a statement of what changes in the register if it does what its documentation says.
 
-## Written so far.
+## 19 written so far, ours first.
 
-### [Agent Behaviour Policy](business-case-riskmandate-abp.html)
+Our own product first, so the method is tested on us. Then open-source projects, OWASP’s first, which anybody can deploy and nobody has to pay for, but which cost something to adopt and more to customise; each case says what. Cases about commercial products are drafted from their own documentation and sent to the company before they are listed.
 
-2 retired, 1 new, 22 unchanged, for the deployment it states. The first case is our own product, so the method is tested on us before it is used on anybody else.
+Our own
+
+Open source
+
+Across the open-source projects, the answers that move are egress, access to data, the record, the account, stopping and undoing. None of them moves who owns the stop, the side effects of stopping, the procedure after it, or the class of data in reach. Those are decisions and documents, not software, which is where a behaviour policy and a [licence to operate](licence-to-operate.html) come in.
+
+## Companies that work the way we do, and whose projects are here.
+
+RiskMandate publishes its behaviour policies and toolkit openly and sells the work on top. These companies run the same model around projects in this section, or beside OWASP. They are here because the conversations the lead wants are with them: a case about their project is also a case for what they sell.
+
+The patterns, as facts. Some stay inside OWASP with a company alongside: DefectDojo, SAMM with Codific, secureCodeBox with iteratec. ZAP left OWASP in 2023, saying it could only be in one foundation, and became ZAP by Checkmarx in 2024. Several gave their project to a foundation and sell a distribution of it: Falco, Kyverno, agentgateway. Some sell a hosted control plane over an open engine. Two such companies closed in 2025: after the creators of Open Policy Agent joined Apple, OPA stayed a CNCF project with no change to its governance or licence; Aserto wound down as a commercial entity.
 
 ## 12 categories, computed the same way.
 
@@ -54,7 +64,7 @@ Two patterns are worth reading off the table. Most categories retire one or two 
 - **No verdict on any product** and no ranking of one against another. The case says what changes if the documentation is right.
 - **No conformity language.** A product that touches an article of a regulation is shown as touching it, never as meeting it.
 - **What it adds is part of the case.** A product in the request path is also something that can fail, and something that has to be stopped.
-- **Draft before published.** A case about somebody else’s product is sent to them before it is listed, and changes with a date when they correct it.
+- **Open source is published; commercial is sent first.** A case about an open-source project is published and sent to its maintainers at the same time. A case about a commercial product is sent to the company before it is listed. Either changes with a date when they correct it.
 
 ## Ask for a case, or correct one.
 

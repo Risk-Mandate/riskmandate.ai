@@ -1,0 +1,56 @@
+{
+  "slug": "openfga",
+  "status": "published",
+  "kind": "open-source",
+  "product": "OpenFGA",
+  "vendor": "CNCF",
+  "vendor_url": "https://openfga.dev/",
+  "licence": "Apache-2.0",
+  "involve": "https://github.com/openfga/community",
+  "category": "Authorisation",
+  "title": "OpenFGA, by the risk it changes",
+  "summary": "A relationship-based authorisation service: a resource server asks whether a user has a relationship with an object, and refuses when the answer is no. Written as an answer, that is read-only access for an agent whose relationships allow only reading, where the server holding the data does the check.",
+  "read": "2026-09-24",
+  "baseline": {
+    "preset": "typical",
+    "overrides": {
+      "q11": 2
+    },
+    "why": "The model's typical deployment, with the answers this project addresses stated as they are without it: can read and change the data in its reach."
+  },
+  "does": [
+    {
+      "text": "Check requests: does this user have this relationship with this object.",
+      "quote": "This section will illustrate how to perform a check request to determine whether a user has a certain relationship with an object.",
+      "url": "https://openfga.dev/docs/getting-started/perform-check",
+      "read": "2026-09-24"
+    }
+  ],
+  "changes": [
+    {
+      "q": "q11",
+      "to": 1,
+      "kind": "boundary",
+      "holder": "the deployer",
+      "why": "Only when the resource server, not the agent's own tool code, calls Check and refuses writes. If the agent's code makes the call, it is a setting, not a boundary.",
+      "basis": {
+        "quote": "This section will illustrate how to perform a check request to determine whether a user has a certain relationship with an object.",
+        "url": "https://openfga.dev/docs/getting-started/perform-check",
+        "read": "2026-09-24"
+      }
+    }
+  ],
+  "reduces": [],
+  "adds": [],
+  "adds_note": "It sits in the resource server's request path and stores relationship tuples. The pages read do not say what happens when it cannot be reached.",
+  "adoption": [
+    "Model the relationships for your own resources, which is most of the work.",
+    "Wire the check into the server that holds the data, not into the agent.",
+    "Decide what the server does when the check cannot be made."
+  ],
+  "contradictions": [],
+  "does_not_claim": [
+    "That it was tested. Nothing was installed or run; every change rests on the documentation quoted beside it."
+  ],
+  "next": "Published, and sent to the project's maintainers at the same time. If a change is wrong, or another answer should move, the case changes with the date they said so."
+}

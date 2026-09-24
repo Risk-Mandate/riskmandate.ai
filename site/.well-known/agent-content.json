@@ -175,6 +175,96 @@
       "url": "https://riskmandate.ai/business-case-riskmandate-abp.html"
     },
     {
+      "name": "business-case-agentgateway",
+      "label": "Business case · agentgateway",
+      "url": "https://riskmandate.ai/business-case-agentgateway.html"
+    },
+    {
+      "name": "business-case-cedar",
+      "label": "Business case · Cedar",
+      "url": "https://riskmandate.ai/business-case-cedar.html"
+    },
+    {
+      "name": "business-case-cilium",
+      "label": "Business case · Cilium network policy",
+      "url": "https://riskmandate.ai/business-case-cilium.html"
+    },
+    {
+      "name": "business-case-falco",
+      "label": "Business case · Falco",
+      "url": "https://riskmandate.ai/business-case-falco.html"
+    },
+    {
+      "name": "business-case-gvisor",
+      "label": "Business case · gVisor",
+      "url": "https://riskmandate.ai/business-case-gvisor.html"
+    },
+    {
+      "name": "business-case-keycloak",
+      "label": "Business case · Keycloak",
+      "url": "https://riskmandate.ai/business-case-keycloak.html"
+    },
+    {
+      "name": "business-case-langfuse",
+      "label": "Business case · Langfuse",
+      "url": "https://riskmandate.ai/business-case-langfuse.html"
+    },
+    {
+      "name": "business-case-langgraph-hitl",
+      "label": "Business case · LangGraph and LangChain human-in-the-loop",
+      "url": "https://riskmandate.ai/business-case-langgraph-hitl.html"
+    },
+    {
+      "name": "business-case-litellm",
+      "label": "Business case · LiteLLM",
+      "url": "https://riskmandate.ai/business-case-litellm.html"
+    },
+    {
+      "name": "business-case-open-policy-agent",
+      "label": "Business case · Open Policy Agent",
+      "url": "https://riskmandate.ai/business-case-open-policy-agent.html"
+    },
+    {
+      "name": "business-case-openbao",
+      "label": "Business case · OpenBao",
+      "url": "https://riskmandate.ai/business-case-openbao.html"
+    },
+    {
+      "name": "business-case-openfga",
+      "label": "Business case · OpenFGA",
+      "url": "https://riskmandate.ai/business-case-openfga.html"
+    },
+    {
+      "name": "business-case-owasp-coraza",
+      "label": "Business case · OWASP Coraza",
+      "url": "https://riskmandate.ai/business-case-owasp-coraza.html"
+    },
+    {
+      "name": "business-case-owasp-threat-dragon",
+      "label": "Business case · OWASP Threat Dragon and pytm",
+      "url": "https://riskmandate.ai/business-case-owasp-threat-dragon.html"
+    },
+    {
+      "name": "business-case-postgresql-pitr",
+      "label": "Business case · PostgreSQL point-in-time recovery",
+      "url": "https://riskmandate.ai/business-case-postgresql-pitr.html"
+    },
+    {
+      "name": "business-case-squid",
+      "label": "Business case · Squid",
+      "url": "https://riskmandate.ai/business-case-squid.html"
+    },
+    {
+      "name": "business-case-unleash",
+      "label": "Business case · Unleash",
+      "url": "https://riskmandate.ai/business-case-unleash.html"
+    },
+    {
+      "name": "business-case-velero",
+      "label": "Business case · Velero",
+      "url": "https://riskmandate.ai/business-case-velero.html"
+    },
+    {
       "name": "pricing",
       "label": "The four levels",
       "url": "https://riskmandate.ai/pricing.html"
