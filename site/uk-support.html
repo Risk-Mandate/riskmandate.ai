@@ -1,0 +1,2102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>UK support, in the open</title>
+<meta name="description" content="Every UK programme, event, scheme and network a London startup could use to get in front of users, read on the official page and dated, with what RiskMandate has done about each one. Written to be forwarded and corrected.">
+<link rel="canonical" href="https://riskmandate.ai/uk-support.html">
+<link rel="alternate" type="text/markdown" href="uk-support.md" title="This page as markdown">
+<link rel="icon" href="assets/brand/riskmandate-favicon-32.png" sizes="32x32">
+<link rel="icon" href="assets/brand/riskmandate-mark.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RiskMandate">
+<meta property="og:url" content="https://riskmandate.ai/uk-support.html">
+<meta property="og:title" content="UK support, in the open">
+<meta property="og:description" content="Every UK programme, event, scheme and network a London startup could use to get in front of users, read on the official page and dated, with what RiskMandate has done about each one. Written to be forwarded and corrected.">
+<meta property="og:image" content="https://riskmandate.ai/assets/brand/riskmandate-lockup-light.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Scaffolded by scripts/site/new-page.mjs. Hand-edited from here on — there is no build step. -->
+<style>
+/* uk-support.css — self-contained: the shared chrome, then this page's own. */
+:root{
+  --bg:#F7F6F2; --bg2:#EFEDE7; --card:#FFFFFF; --ink:#0D0D0C; --canvas:#0A0A09;
+  --text:#1A1917; --muted:#4A4845; --faint:#8A8780; --border:#E2DFD8;
+  --green:#1A7F5A; --green-2:#22c55e; --greenBg:#EBF5F0;
+  --gold:#B45309; --red:#C0392B; --blue:#1D4ED8;
+  --fg:#F7F6F2; --fg-2:rgba(247,246,242,.55); --fg-3:rgba(247,246,242,.32);
+  --line:rgba(247,246,242,.10); --line-2:rgba(247,246,242,.18);
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","JetBrains Mono","Roboto Mono",Menlo,Consolas,monospace;
+  --wrap:1000px; --r:10px; --r-sm:8px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth} @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+h1,h2{margin:0;font-weight:800;letter-spacing:-.03em;line-height:1.04}
+h2{font-size:clamp(26px,3.6vw,40px);font-weight:700;letter-spacing:-.02em}
+p{margin:0}
+:focus-visible{outline:2px solid var(--green-2);outline-offset:3px;border-radius:4px}
+.tag{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+.g{color:var(--green)} .it{font-style:italic;color:var(--green)}
+
+/* header */
+.top{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.top .wrap{display:flex;align-items:center;gap:22px;height:56px;max-width:1100px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:15px;color:var(--text);white-space:nowrap;text-decoration:none}
+.rm{width:26px;height:26px;flex:none;display:block}
+.rm svg{width:100%;height:100%;display:block}
+.navlinks{display:flex;align-items:center;gap:22px;margin-left:auto}
+rm-menu{display:contents}
+.navlinks a{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;text-decoration:none;display:inline-flex;align-items:center}
+.navlinks a:hover{color:var(--text)}
+.navlinks a.active{color:var(--text);font-weight:600}
+.version{font-family:var(--mono);font-size:12px;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:7px;padding:5px 8px;text-decoration:none;white-space:nowrap;transition:color .15s,border-color .15s}
+.version:hover{color:var(--text);border-color:var(--faint)}
+.demo{background:var(--green);color:#fff;font-weight:600;font-size:13px;border:0;border-radius:8px;padding:8px 16px;cursor:pointer;transition:background .15s;font-family:var(--sans);white-space:nowrap}
+.demo:hover{background:#16704f}
+
+/* nav dropdowns */
+.navgroup{position:relative;display:inline-flex;align-items:center}
+.navgroup::after{content:"";position:absolute;top:100%;left:0;right:0;height:10px}
+.navgroup-btn{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;display:inline-flex;align-items:center;gap:5px}
+.navgroup-btn:hover,.navgroup:hover .navgroup-btn,.navgroup.open .navgroup-btn,.navgroup.active .navgroup-btn{color:var(--text)}
+.navgroup-car{font-size:8px;line-height:1;opacity:.6;transition:transform .15s}
+.navgroup:hover .navgroup-car,.navgroup.open .navgroup-car{transform:rotate(180deg)}
+.navmenu{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);min-width:184px;background:var(--card);border:1px solid var(--border);border-radius:10px;box-shadow:0 10px 34px rgba(13,13,12,.14);padding:6px;display:none;flex-direction:column;gap:2px;z-index:70}
+.navgroup:hover .navmenu,.navgroup.open .navmenu{display:flex}
+.navmenu .navchild{justify-content:flex-start;text-align:left;width:100%;padding:8px 12px;border-radius:7px;font-size:13.5px;color:var(--muted);white-space:nowrap}
+.navmenu .navchild:hover{background:var(--bg2);color:var(--text)}
+.navmenu .navchild.active{color:var(--green);font-weight:600;background:var(--greenBg)}
+
+/* mobile drawer — the toggle is injected by nav.js; .top.nav-open opens it */
+.navtoggle{display:none;margin-left:auto;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;padding:0;background:none;border:0;cursor:pointer}
+.navtoggle span{display:block;width:20px;height:2px;margin:0 auto;background:var(--text);border-radius:2px;transition:transform .2s,opacity .2s}
+.top.nav-open .navtoggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.top.nav-open .navtoggle span:nth-child(2){opacity:0}
+.top.nav-open .navtoggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media (max-width:1040px){
+  .navtoggle{display:flex}
+  .top .wrap{position:relative}
+  .version{display:none}
+  .navlinks{display:none;position:absolute;left:0;right:0;top:calc(100% + 1px);flex-direction:column;align-items:stretch;gap:0;margin:0;padding:8px;background:var(--card);border-bottom:1px solid var(--border);box-shadow:0 14px 34px rgba(13,13,12,.14);max-height:calc(100vh - 56px);overflow:auto}
+  .top.nav-open .navlinks{display:flex}
+  .navlinks a,.navlinks .navgroup-btn{width:100%;text-align:left;justify-content:flex-start;padding:12px 16px;font-size:15px;border-radius:8px}
+  .navlinks a:hover{background:var(--bg2)}
+  .navgroup{display:block;width:100%;position:static}
+  .navgroup::after{display:none}
+  .navgroup-btn{display:flex}
+  .navgroup-car{margin-left:auto}
+  .navmenu{position:static;transform:none;display:flex;flex-direction:column;min-width:0;padding:2px 0 8px 14px;background:transparent;border:0;box-shadow:none}
+  .navmenu .navchild{padding:10px 14px;font-size:14px}
+}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;padding:12px 22px;border-radius:var(--r-sm);cursor:pointer;border:1px solid transparent;font-family:var(--sans);text-decoration:none}
+.btn-green{background:var(--green);color:#fff} .btn-green:hover{background:#16704f}
+.btn-ghost{background:transparent;color:var(--fg);border-color:var(--line-2)} .btn-ghost:hover{border-color:var(--fg-2)}
+.btn-ghost-dark{background:transparent;color:var(--text);border-color:var(--border)} .btn-ghost-dark:hover{border-color:var(--green);color:var(--green)}
+
+/* dark hero */
+.phero{background:var(--ink);color:var(--fg);padding:88px 24px 84px}
+.phero .wrap{max-width:var(--wrap)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--green);background:rgba(26,127,90,.18);border:1px solid rgba(26,127,90,.4);border-radius:999px;padding:5px 12px}
+.eyebrow .d{width:6px;height:6px;border-radius:50%;background:var(--green-2)}
+.phero h1{font-size:clamp(34px,5.2vw,60px);letter-spacing:-.04em;line-height:1.02;margin:26px 0 0;color:var(--fg);max-width:900px}
+.phero .sub{color:var(--fg-2);font-size:17px;line-height:1.7;max-width:640px;margin-top:24px}
+.cta-row{display:flex;flex-wrap:wrap;gap:11px;margin-top:30px}
+
+/* paper sections */
+.paper{background:var(--bg)}
+.psection{padding:80px 0;border-bottom:1px solid var(--border)}
+.psection.alt{background:var(--bg2)}
+.shead{max-width:680px} .shead.center{max-width:720px;margin:0 auto;text-align:center}
+.shead h2{color:var(--text)} .shead p{color:var(--muted);margin-top:16px;font-size:15px;line-height:1.75}
+
+/* closing panel + footer */
+.pcta{background:var(--ink);padding:80px 24px;text-align:center}
+.pcta .wrap{max-width:720px;padding:0}
+.pcta h2{font-size:clamp(28px,4.4vw,48px);color:var(--fg);margin-top:20px;font-weight:700;letter-spacing:-.03em}
+.pcta p{color:var(--fg-2);margin-top:16px;font-size:16px;line-height:1.7}
+.pcta .cta-row{justify-content:center}
+.foot{background:var(--canvas);border-top:1px solid var(--line);padding:32px 24px}
+.foot .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-family:var(--mono);font-size:10px;color:var(--fg-3);max-width:1100px}
+.footlink{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.footlink:hover{color:var(--fg-2)}
+/* narrow phones — at 360px the brand, the burger and the call to action stop
+   fitting on one line, and the header was the last thing on this site that
+   scrolled sideways. Tighten the gutter, the gap and the button rather than
+   drop any of them: all three are load-bearing at this width. */
+@media (max-width:420px){
+  .top .wrap{gap:12px;padding:0 16px}
+  .brand{font-size:14px;gap:7px}
+  .rm{width:24px;height:24px}
+  .demo{padding:8px 12px;font-size:12.5px}
+}
+
+/* uk-support.css — a register of doors, each with its source, its date and what we did about it */
+.us-toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.us-toc a{font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text);background:var(--card);border:1px solid var(--border);border-radius:999px;padding:7px 12px;text-decoration:none}
+.us-toc a:hover{border-color:var(--green);color:var(--green)}
+.us-toc a span{color:var(--faint);margin-left:4px}
+.us-tally{font-family:var(--mono);font-size:12px;color:var(--faint);margin-top:14px;line-height:1.7}
+.us-three{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+.us-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:22px 24px}
+.us-card .k{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green)}
+.us-card h3{font-size:17px;color:var(--text);margin:8px 0 8px;letter-spacing:-.01em}
+.us-card p{font-size:14.5px;line-height:1.7;color:var(--muted)}
+.us-need{margin-top:26px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 28px;max-width:960px}
+.us-need div{border-top:1px solid var(--border);padding-top:14px}
+.us-need b{display:block;font-size:15.5px;color:var(--text);margin-bottom:4px}
+.us-need span{font-size:14.5px;line-height:1.7;color:var(--muted)}
+.us-rows{display:flex;flex-direction:column;margin-top:28px}
+.us-row{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,2fr) minmax(0,1fr);gap:8px 26px;padding:22px 0;border-top:1px solid var(--border)}
+.us-row:last-child{border-bottom:1px solid var(--border)}
+.us-row h3{font-size:16.5px;letter-spacing:-.01em;line-height:1.35}
+.us-row h3 a{color:var(--text);text-decoration:none;border-bottom:1px solid var(--border)}
+.us-row h3 a:hover{color:var(--green);border-color:var(--green)}
+.us-by{display:block;font-family:var(--mono);font-size:11.5px;color:var(--faint);margin-top:6px;line-height:1.6}
+.us-body p{font-size:14.5px;line-height:1.7;color:var(--muted)}
+.us-body p+p{margin-top:6px}
+.us-body b{color:var(--text);font-weight:600}
+.us-gives{color:var(--text)!important}
+.us-state{display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+.us-chip{display:inline-flex;font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:999px;padding:4px 10px;white-space:nowrap}
+.us-chip.s-open,.us-chip.s-rolling{background:var(--greenBg);color:var(--green)}
+.us-chip.s-dated{background:#FDF1DC;color:var(--gold)}
+.us-chip.s-unclear{background:var(--bg2);color:var(--muted)}
+.us-chip.s-closed{background:#FBEDEA;color:#96442C}
+.us-chip[class*=" o-"]{background:transparent;border:1px solid var(--border);color:var(--muted)}
+.us-chip.o-applied,.us-chip.o-in,.us-chip.o-done{border-color:var(--green);color:var(--green)}
+.us-src{font-family:var(--mono);font-size:11px;color:var(--faint);line-height:1.6;margin-top:4px;overflow-wrap:anywhere}
+.us-first{counter-reset:f;display:flex;flex-direction:column;gap:0;margin-top:26px;max-width:920px}
+.us-first li{counter-increment:f;list-style:none;display:grid;grid-template-columns:34px minmax(0,1fr);gap:0 16px;padding:16px 0;border-top:1px solid var(--border)}
+.us-first li::before{content:counter(f);font-family:var(--mono);font-size:12px;font-weight:700;color:var(--green);background:var(--greenBg);border-radius:8px;width:30px;height:30px;display:grid;place-items:center}
+.us-first b{color:var(--text)}
+.us-first span{font-size:14.5px;line-height:1.7;color:var(--muted)}
+.us-ask{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+.us-rules{margin-top:22px;max-width:880px}
+.us-rules li{font-size:14.5px;line-height:1.75;color:var(--muted);margin:6px 0 0 18px}
+.us-rules b{color:var(--text)}
+@media (max-width:900px){.us-row{grid-template-columns:minmax(0,1fr) minmax(0,2fr)}.us-state{grid-column:1 / -1;flex-direction:row;flex-wrap:wrap;align-items:center}.us-three,.us-ask{grid-template-columns:1fr}}
+@media (max-width:640px){.us-row{grid-template-columns:minmax(0,1fr)}.us-need{grid-template-columns:1fr}.us-chip{white-space:normal}}
+.us-quote{margin:26px 0 0;max-width:900px;border-left:3px solid var(--green);padding:6px 0 6px 22px;font-size:18px;line-height:1.65;color:var(--text);font-style:italic}
+.us-dates{list-style:none;margin-top:26px;max-width:900px;display:flex;flex-direction:column}
+.us-dates li{display:grid;grid-template-columns:96px minmax(0,1fr);gap:0 18px;padding:12px 0;border-top:1px solid var(--border)}
+.us-dates li:last-child{border-bottom:1px solid var(--border)}
+.us-dates time{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--green);padding-top:2px}
+.us-dates span{font-size:15px;line-height:1.65;color:var(--muted)}
+.us-sec{padding-top:34px}
+.us-card h3 a{color:var(--text)}
+@media (max-width:640px){.us-dates li{grid-template-columns:78px minmax(0,1fr)}.us-quote{font-size:16px}}
+</style>
+</head>
+<body id="top">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
+    <nav class="navlinks"><rm-menu></rm-menu></nav>
+    <a class="version" href="versions.html" title="What shipped in v1.32.2">v1.32.2</a>
+    <button class="demo" data-demo>Book a demo</button>
+  </div>
+</header>
+
+<main class="phero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> UK support, in the open</span>
+    <h1>A UK startup with a product. <span class="it">Now it needs users.</span></h1>
+    <p class="sub">RiskMandate is a London company, and the product is ready. What we need now is traction: people using it, rooms to show it in, and introductions to the people who would buy it. The UK has a great deal of support for companies at exactly this point, spread across departments, agencies, trade bodies, banks and conferences. This page is every door we found, read on the official page and dated, with what we have done about each one, including nothing.</p>
+    <div class="cta-row">
+      <a class="btn btn-green" href="mailto:dinis.cruz@owasp.org?subject=UK%20support%20%C2%B7%20a%20door%20we%20missed">Tell us what is missing</a>
+      <a class="btn btn-ghost" href="#register">Go to the register</a>
+    </div>
+  </div>
+</main>
+
+<div class="paper">
+
+  <section class="psection">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Why it is public</span>
+        <h2>One page, <span class="g">three readers.</span></h2>
+        <p>The same research serves three people, so it is written once and published rather than kept in a notebook. Nothing on it would need to be confidential on either side, because all of it is on the programmes' own pages.</p>
+      </div>
+      <div class="us-three">
+        <div class="us-card"><span class="k">If you know us</span><h3>Am I missing something?</h3><p>This page is written to be forwarded. If you know a programme, an event, a person in a department or a room of risk managers that should be on it, the most useful thing you can send is its name and its link.</p></div>
+        <div class="us-card"><span class="k">If you are a founder too</span><h3>Take it.</h3><p>Most of this applies to any UK startup with a product and not enough users. The register is also published as data, <a href="uk-support.json">uk-support.json</a>, so you can copy it, filter it and keep your own status column.</p></div>
+        <div class="us-card"><span class="k">For us</span><h3>What we did, and what happened.</h3><p>Each row carries our own status. When we apply, speak, get turned down or get in, the row says so, with the date. A founder reading it later sees what the door was actually like to walk through, in facts rather than opinions.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="psection alt">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Where we are</span>
+        <h2>The product is on sale. <span class="g">What we need is users.</span></h2>
+        <p>Sixteen template Agent Behaviour Policies are published as encrypted vaults with their read keys, the thirteen prompts are free, and the first three levels can be bought from the store today; the fourth is waiting on its payment link. We exhibited at Startup Summit Lisbon in September 2026 and are going to Web Summit in November. What we do not yet have is a steady stream of people using it, and every lesson we have learnt so far came from somebody using it.</p>
+      </div>
+      <div class="us-need">
+        <div><b>People who run agents</b><span>Security teams and developers who will run the prompts against an agent they already have and tell us what surprised them.</span></div>
+        <div><b>Stage time in the right rooms</b><span>Security conferences, and the risk and insurance events most technology startups never go to, because that is where the buyer of a behaviour policy sits.</span></div>
+        <div><b>Introductions</b><span>A CISO deploying agents, a risk manager asked to accept one, an underwriter asked to cover one. One conversation each changes the product.</span></div>
+        <div><b>A way abroad</b><span>RSAC, GITEX, the EU. The EU AI Act is in force, and the question an ABP answers travels with it.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="psection">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">What changed this year</span>
+        <h2>Three things we did not expect, <span class="g">and why search results are out of date.</span></h2>
+      </div>
+      <div class="us-three">
+        <div class="us-card"><span class="k">22 July 2026</span><h3>The departments moved.</h3><p>The Department for Business and Trade became the Department for Business, Innovation, Science and Trade. AI strategy, public-sector AI adoption and the AI Security Institute moved to the Cabinet Office, and DCMS now leads cyber security policy for the economy. Many pages, and most search results, still use the old names. <a href="https://www.gov.uk/government/news/machinery-of-government-changes-fact-sheet" target="_blank" rel="noopener">gov.uk fact sheet</a>, read 24 September 2026.</p></div>
+        <div class="us-card"><span class="k">Since 2023</span><h3>The travel grant is gone.</h3><p>The support founders remember, where the department paid towards a stand and the trip, was the UK Tradeshow Programme, withdrawn on 7 June 2023, and the Internationalisation Fund, closed in January 2023. What exists now is paid UK-branded pods, missions for companies already inside a government-backed programme, and an events listing. No grant towards exhibiting abroad was open on the day we read.</p></div>
+        <div class="us-card"><span class="k">2025 to 2026</span><h3>The two cyber programmes closed.</h3><p>NCSC for Startups has ended and its page is an archive. Cyber Runway is closed with no next cohort published. The routes still open are conferences, the London cyber cluster, LASR for AI security, and accelerators run with insurers.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="psection alt" id="sovereign">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">The one that describes what we build</span>
+        <h2>A government challenge <span class="g">for agents in specific contexts.</span></h2>
+        <p>The Sovereign AI R&amp;D Procurement Scheme, announced on 31 August 2026, buys R&amp;D from UK startups in batches every two months. Its third challenge is set with the National Cyber Security Centre, and its competition guidance words it like this:</p>
+      </div>
+      <blockquote class="us-quote">&ldquo;Enabling safe AI agent adoption &ndash; Produce an evidence-based, operational, and ideally automated risk management approach for CISOs to support risk-based decision-making for specific agents in specific contexts. The risk management approach should include both resilience and cyber security risks. &hellip; Solutions that support wide-scale adoption, such as those built on open-source frameworks, will be preferred.&rdquo;</blockquote>
+      <p class="src">Competition guidance, Sovereign AI R&amp;D Procurement Scheme, linked from <a href="https://www.sovereignai.gov.uk/" target="_blank" rel="noopener">sovereignai.gov.uk</a>, read 24 September 2026. Contracts of £250,000 to £10 million. Batch deadlines 1 October 2026, 1 December 2026 and 1 February 2027; the expression of interest is due at least two weeks before. An Agent Behaviour Policy is one agent in one deployment, and the toolkit is open source. We have not applied yet. Whether to is the lead&rsquo;s decision, and this row will say what it was.</p>
+    </div>
+  </section>
+
+  <section class="psection">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">The next twelve weeks</span>
+        <h2>Dates, <span class="g">nearest first.</span></h2>
+        <p>Everything in the register with a deadline before the end of the year. Each one links to its row.</p>
+      </div>
+      <ol class="us-dates">
+        <li><time>27 Sep</time><span>IAPP UK Intensive and AI Governance Global, London, April 2027: proposals close. <a href="#events">Events</a></span></li>
+        <li><time>28 Sep</time><span>techUK, one year on from the AI assurance roadmap, London, free. <a href="#events">Events</a></span></li>
+        <li><time>29&ndash;30 Sep</time><span>International Cyber Expo, Olympia, free, with overseas buyer delegations. <a href="#events">Events</a></span></li>
+        <li><time>30 Sep</time><span>BSides London: the call for papers closes. <a href="#events">Events</a></span></li>
+        <li><time>12&ndash;23 Oct</time><span>Digital Leaders AI Week: the call for talks is open. <a href="#events">Events</a></span></li>
+        <li><time>16 Oct</time><span>NatWest Accelerator Pitch, London round: entries close at 5pm. <a href="#london">London</a></span></li>
+        <li><time>~17 Nov</time><span>Sovereign AI procurement: expression of interest for the 1 December batch. <a href="#sovereign">Above</a></span></li>
+        <li><time>18 Nov</time><span>Techstars London: applications close. <a href="#cyber-ai">Cyber and AI</a></span></li>
+        <li><time>16 Dec</time><span>UK-Singapore collaborative R&amp;D: closes, with a Singapore partner only. <a href="#government">Government</a></span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="psection alt" id="register">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">The register</span>
+        <h2>Every door, <span class="g">with its source and its date.</span></h2>
+        <p>Two chips on each row. The first is what the programme&rsquo;s own page said on the day it was read: open, rolling, a date, closed, or unclear when the page refused our reader or said nothing. The second is what we have done about it. The quote beside them is the phrase on the page that shows the status.</p>
+      </div>
+      <!-- toc:start -->
+      <nav class="us-toc" aria-label="Sections"><a href="#government">Central government <span>15</span></a><a href="#cyber-ai">Cyber and AI <span>8</span></a><a href="#insurance">Where the buyer is <span>9</span></a><a href="#events">Events, by date <span>21</span></a><a href="#abroad">Going abroad <span>5</span></a><a href="#london">London <span>9</span></a><a href="#closed">Closed, or not for London <span>12</span></a></nav>
+      <p class="us-tally">79 entries, read 24 September 2026: 15 open, 19 rolling, 20 with a date, 15 unclear, 10 closed and kept so nobody spends an afternoon on them.</p>
+      <!-- toc:end -->
+    </div>
+  </section>
+
+  <!-- register:start -->
+      <section class="psection us-sec" id="government">
+        <div class="wrap">
+          <div class="shead">
+            <span class="tag">Central government</span>
+            <h2>Government money, advice <span class="g">and government as first customer.</span></h2>
+            <p>The Department for Business and Trade became the Department for Business, Innovation, Science and Trade on 22 July 2026, and AI strategy and the AI Security Institute moved to the Cabinet Office. Some pages still carry the old names. Where a row says <em>the department</em>, it means the renamed one.</p>
+          </div>
+          <div class="us-rows">
+          <article class="us-row" data-status="dated" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.sovereignai.gov.uk/" target="_blank" rel="noopener">Sovereign AI R&amp;D Procurement Scheme</a></h3>
+              <span class="us-by">Sovereign AI unit, with HM Treasury and the Cabinet Office; Challenge 3 set with the NCSC</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">R&amp;D contracts of £250,000 to £10 million, most expected at £1 million to £3 million. The supplier keeps its IP. No minimum turnover or trading history.</p>
+              <p class="us-who"><b>Who it is for.</b> UK-registered startups and SMEs, project delivered in the UK. First join the Approved Supplier List through an expression of interest, at least two weeks before a batch deadline.</p>
+              <p class="us-fit"><b>For us.</b> Challenge 3, <em>Enabling safe AI agent adoption</em>, asks for a risk management approach for CISOs &quot;for specific agents in specific contexts&quot;. That is what an Agent Behaviour Policy is. It would also make government the first customer, on systems we would be contracted to run.</p>
+              <p class="us-next"><b>Next.</b> Expression of interest by about 17 November 2026 for the 1 December batch; batch 3 is 1 February 2027. Guidance PDF linked from the site, read 24 September 2026.</p>
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-dated">Dated</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">&ldquo;Batch 2: Submit your proposal by 1 December 2026&rdquo; &middot; sovereignai.gov.uk, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="open" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.sovereignai.gov.uk/" target="_blank" rel="noopener">Sovereign AI Fund</a></h3>
+              <span class="us-by">Sovereign AI unit</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">A £500 million fund writing £1 million to £10 million cheques. <em>Trust, safety &amp; assurance</em> is one of its stated focus areas.</p>
+              <p class="us-who"><b>Who it is for.</b> UK AI companies.</p>
+              <p class="us-fit"><b>For us.</b> A priced round later. Investee status confers no advantage in the procurement scheme above, and the guidance says so.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-open">Open</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">sovereignai.gov.uk, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="unclear" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.gov.uk/government/publications/trusted-third-party-ai-assurance-roadmap/trusted-third-party-ai-assurance-roadmap" target="_blank" rel="noopener">AI Assurance Innovation Fund</a></h3>
+              <span class="us-by">Announced by DSIT; which department holds it after July 2026 is not stated</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">£11 million for &quot;novel AI assurance mechanisms&quot;, according to the roadmap of 3 September 2025.</p>
+              <p class="us-who"><b>Who it is for.</b> Not stated.</p>
+              <p class="us-fit"><b>For us.</b> The subject matches directly. The roadmap said round one would open in spring 2026; the sector plan of 10 June 2026 says the fund was established; no call is visible on the Innovation Funding Service today.</p>
+              <p class="us-next"><b>Next.</b> Ask the business support helpline which department runs it now.</p>
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-unclear">Unclear</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">gov.uk, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="open" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://apply-for-innovation-funding.service.gov.uk/competition/search" target="_blank" rel="noopener">Innovation Funding Service, open competitions</a></h3>
+              <span class="us-by">Innovate UK</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">Grants, loans and contracts, per competition. The forward list is on UKRI's future opportunities page.</p>
+              <p class="us-who"><b>Who it is for.</b> Varies by competition.</p>
+              <p class="us-fit"><b>For us.</b> On 24 September 2026 none of the 26 open competitions was about AI assurance or cyber security, apart from the Singapore one below. Worth a monthly look.</p>
+              <p class="us-next"><b>Next.</b> UK-Germany bilateral round 5 and two Frontier AI SME calls are listed as opening in October 2026.</p>
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-open">Open</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">apply-for-innovation-funding.service.gov.uk, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="dated" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://apply-for-innovation-funding.service.gov.uk/competition/2526/overview/4a4b67b9-9b73-4816-8e21-bdfab83f5909" target="_blank" rel="noopener">UK-Singapore collaborative R&amp;D 2026</a></h3>
+              <span class="us-by">Innovate UK with Enterprise Singapore</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">A grant of £100,000 to £900,000 to the UK partner.</p>
+              <p class="us-who"><b>Who it is for.</b> A UK business with at least one Singapore business funded by Enterprise Singapore.</p>
+              <p class="us-fit"><b>For us.</b> Only with a Singapore partner, such as an insurer or a company deploying agents.</p>
+              <p class="us-next"><b>Next.</b> Closes 16 December 2026, 11am.</p>
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-dated">Dated</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">&ldquo;Artificial Intelligence, Cyber Security&rdquo; &middot; apply-for-innovation-funding.service.gov.uk, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="open" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://apply-for-innovation-funding.service.gov.uk/competition/search" target="_blank" rel="noopener">Contracts for Innovation (formerly SBRI)</a></h3>
+              <span class="us-by">Innovate UK, for public-sector buyers</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">Fully funded public-sector R&amp;D contracts, one call per problem.</p>
+              <p class="us-who"><b>Who it is for.</b> Organisations of any size.</p>
+              <p class="us-fit"><b>For us.</b> None of the open calls is about AI or cyber today. A public body with an agent problem would publish one here.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-open">Open</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">apply-for-innovation-funding.service.gov.uk, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="open" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.gov.uk/contracts-finder" target="_blank" rel="noopener">Contracts Finder</a></h3>
+              <span class="us-by">Cabinet Office</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">A search of public-sector tenders; larger ones are on Find a Tender.</p>
+              <p class="us-who"><b>Who it is for.</b> Any supplier.</p>
+              <p class="us-fit"><b>For us.</b> Saved searches for <em>AI assurance</em>, <em>AI governance</em> and <em>agentic</em>.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-open">Open</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">&ldquo;worth over £12,000&rdquo; &middot; gov.uk, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="open" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.gov.uk/business-support-helpline" target="_blank" rel="noopener">Business Support Service helpline</a></h3>
+              <span class="us-by">The department</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">Free advice by phone, email, webchat and WhatsApp, Monday to Friday, 9am to 6pm.</p>
+              <p class="us-who"><b>Who it is for.</b> Businesses in England.</p>
+              <p class="us-fit"><b>For us.</b> Two questions the pages do not answer: who runs the AI Assurance Innovation Fund now, and what replaces regional trade advisers for a London company.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-open">Open</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">&ldquo;Telephone: 0800 998 1098&rdquo; &middot; gov.uk, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="open" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.business.gov.uk/export-academy/" target="_blank" rel="noopener">Business Academy (formerly UK Export Academy)</a></h3>
+              <span class="us-by">The department</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">Live and recorded sessions, including selling services overseas.</p>
+              <p class="us-who"><b>Who it is for.</b> UK businesses.</p>
+              <p class="us-fit"><b>For us.</b> The basics of selling a service into the EU and the US.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-open">Open</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">&ldquo;Completely free to join&rdquo; &middot; business.gov.uk, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="open" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.gov.uk/ask-export-support-team" target="_blank" rel="noopener">Export Support Service</a></h3>
+              <span class="us-by">The department</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">Answers on market rules and selling services abroad.</p>
+              <p class="us-who"><b>Who it is for.</b> UK businesses.</p>
+              <p class="us-fit"><b>For us.</b> What selling into the EU looks like with the AI Act in force.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-open">Open</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">&ldquo;ask the export support team a question&rdquo; &middot; gov.uk, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="rolling" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.gov.uk/guidance/venture-capital-schemes-apply-for-advance-assurance" target="_blank" rel="noopener">SEIS and EIS advance assurance</a></h3>
+              <span class="us-by">HMRC</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">HMRC's view that a share issue is likely to qualify for investor tax relief. SEIS allows up to £250,000 raised; EIS up to £10 million a year.</p>
+              <p class="us-who"><b>Who it is for.</b> UK trading companies within the limits on each scheme's page. First-time applicants name prospective investors.</p>
+              <p class="us-fit"><b>For us.</b> Most UK angel cheques expect it, and HMRC states no turnaround time, so it is started before a raise, not during one.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-rolling">Rolling</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">&ldquo;apply using the new online form for all schemes&rdquo; &middot; gov.uk, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="rolling" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.gov.uk/guidance/research-and-development-rd-tax-relief-the-merged-scheme-and-enhanced-rd-intensive-support" target="_blank" rel="noopener">R&amp;D tax relief, merged scheme and ERIS</a></h3>
+              <span class="us-by">HMRC</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">A 20% credit under the merged scheme; loss-making companies spending at least 30% on R&amp;D can claim enhanced support.</p>
+              <p class="us-who"><b>Who it is for.</b> Companies doing qualifying R&amp;D.</p>
+              <p class="us-fit"><b>For us.</b> Engineering spend may qualify. Whether this work counts as R&amp;D needs a specialist's view, not ours.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-rolling">Rolling</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">gov.uk, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="rolling" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.gov.uk/start-up-loans" target="_blank" rel="noopener">Start Up Loans</a></h3>
+              <span class="us-by">British Business Bank</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">A personal loan of £500 to £25,000 over one to five years, with up to twelve months of mentoring.</p>
+              <p class="us-who"><b>Who it is for.</b> UK residents over 18 whose business has traded for less than five years.</p>
+              <p class="us-fit"><b>For us.</b> It is a personal loan to a founder, not company money.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-rolling">Rolling</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">&ldquo;fixed interest rate of 7.5%&rdquo; &middot; gov.uk, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="dated" data-ours="declined">
+            <div class="us-name">
+              <h3><a href="https://www.kcl.ac.uk/professional-education/catalogue/help-to-grow-management" target="_blank" rel="noopener">Help to Grow: Management</a></h3>
+              <span class="us-by">The department, through business schools</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">A twelve-week course, 90% funded, £750 to the company.</p>
+              <p class="us-who"><b>Who it is for.</b> SMEs with 5 to 249 employees.</p>
+              <p class="us-fit"><b>For us.</b> Not until the team has five people.</p>
+              <p class="us-next"><b>Next.</b> King's College London cohort starts 9 November 2026.</p>
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-dated">Dated</span>
+              <span class="us-chip o-declined">Not for us</span>
+              <span class="us-src">kcl.ac.uk, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="unclear" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://iuk-business-connect.org.uk/programme/global-business-innovation/" target="_blank" rel="noopener">Global Business Innovation Programme</a></h3>
+              <span class="us-by">Innovate UK Business Connect</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">Group flights, accommodation and in-market travel for one senior person on an innovation mission; a £1,000 commitment fee refunded on completion.</p>
+              <p class="us-who"><b>Who it is for.</b> UK SMEs.</p>
+              <p class="us-fit"><b>For us.</b> This is the closest current thing to the government-sponsored trips founders describe. No AI or cyber mission is listed today.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-unclear">Unclear</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">iuk-business-connect.org.uk, read 24 September 2026</span>
+            </div>
+          </article>
+          </div>
+        </div>
+      </section>
+      <section class="psection alt us-sec" id="cyber-ai">
+        <div class="wrap">
+          <div class="shead">
+            <span class="tag">Cyber and AI</span>
+            <h2>The cyber and AI programmes, <span class="g">after the two big ones closed.</span></h2>
+            <p>NCSC for Startups has ended and Cyber Runway is closed with no next cohort published; both are in the last section. The DCMS cyber security newsletter of 15 September 2026 says DCMS now leads cyber security policy for the economy, so any successor would come from there.</p>
+          </div>
+          <div class="us-rows">
+          <article class="us-row" data-status="unclear" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.lasr.ac.uk/" target="_blank" rel="noopener">LASR, the Laboratory for AI Security Research</a></h3>
+              <span class="us-by">Government with Plexal, Oxford, Queen's University Belfast and the Turing</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">Industry validation and proof-of-concept work; the LASR Connect community. <em>Agentic AI Security</em> is one of its three research areas.</p>
+              <p class="us-who"><b>Who it is for.</b> UK SMEs working on AI security.</p>
+              <p class="us-fit"><b>For us.</b> The agentic programme was delivered in 2025 and no call is open today, but the site takes technology submissions between calls.</p>
+              <p class="us-next"><b>Next.</b> Join LASR Connect and submit the technology, so we are known before the next call.</p>
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-unclear">Unclear</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">lasr.ac.uk, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="rolling" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://cyberlondon.com/" target="_blank" rel="noopener">Cyber London</a></h3>
+              <span class="us-by">Not-for-profit; the recognised cyber cluster for London</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">Events, roundtables, mentoring.</p>
+              <p class="us-who"><b>Who it is for.</b> An open network; membership cost not published.</p>
+              <p class="us-fit"><b>For us.</b> The local route to CISOs. Its roundtables on securing AI are invitation-only, so the ask is to be invited.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-rolling">Rolling</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">&ldquo;recognised by DSIT and UKC3 as the Cyber Cluster for London&rdquo; &middot; cyberlondon.com, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="rolling" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.techuk.org/who-we-are/become-a-member.html" target="_blank" rel="noopener">techUK</a></h3>
+              <span class="us-by">Trade body</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">The Cyber SME Forum, the AI hub, events, and UK pavilions abroad. Fees are not published.</p>
+              <p class="us-who"><b>Who it is for.</b> UK digital technology companies.</p>
+              <p class="us-fit"><b>For us.</b> Its event of 28 September 2026 on the AI assurance roadmap is free and open, and names insurers, auditors and regulators as its audience.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-rolling">Rolling</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">&ldquo;The first step… is always a meeting with our Membership team&rdquo; &middot; techuk.org, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="rolling" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://cyberexchange.uk.net/opportunities" target="_blank" rel="noopener">Cyber Exchange</a></h3>
+              <span class="us-by">techUK, funded by government</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">A live list of cyber competitions, grants, consultations and trade missions with their deadlines.</p>
+              <p class="us-who"><b>Who it is for.</b> UK cyber companies.</p>
+              <p class="us-fit"><b>For us.</b> The one directory in this field that is kept current. We link to it rather than copy it.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-rolling">Rolling</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">cyberexchange.uk.net, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="rolling" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.plexal.com/" target="_blank" rel="noopener">Plexal</a></h3>
+              <span class="us-by">Innovation centre, Stratford</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">Coworking, delivery of government cyber programmes, and the UK House delegation at RSAC.</p>
+              <p class="us-who"><b>Who it is for.</b> Startups and scale-ups.</p>
+              <p class="us-fit"><b>For us.</b> UK House places at RSAC 2026 went to companies from government-backed programmes, so the route abroad runs through Plexal's programmes.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-rolling">Rolling</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">plexal.com, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="open" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://foundersfactory.com/aviva" target="_blank" rel="noopener">Founders Factory × Aviva</a></h3>
+              <span class="us-by">Founders Factory, with Aviva</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">£50,000, four months, and access to Aviva. Equity terms are not on the page.</p>
+              <p class="us-who"><b>Who it is for.</b> Pre-seed to Series A.</p>
+              <p class="us-fit"><b>For us.</b> An insurer as the corporate partner, with insurance, cyber and AI all in scope.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-open">Open</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">&ldquo;Insurance… Cybersecurity… AI&rdquo; &middot; foundersfactory.com, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="dated" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.techstars.com/accelerators/london" target="_blank" rel="noopener">Techstars London</a></h3>
+              <span class="us-by">Techstars</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">Thirteen weeks and a mentor network; the programme invests for equity.</p>
+              <p class="us-who"><b>Who it is for.</b> Early-stage companies, any sector.</p>
+              <p class="us-fit"><b>For us.</b> Costs equity. The programme starts 8 March 2027 with demo day on 3 June.</p>
+              <p class="us-next"><b>Next.</b> Applications close 18 November 2026.</p>
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-dated">Dated</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">techstars.com, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="unclear" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://startup.google.com/programs/accelerator/united-kingdom/" target="_blank" rel="noopener">Google for Startups Accelerator, UK</a></h3>
+              <span class="us-by">Google</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">Twelve weeks, no equity taken, mentoring and cloud credits. The 2025 edition was AI-first.</p>
+              <p class="us-who"><b>Who it is for.</b> UK AI companies, seed to Series A.</p>
+              <p class="us-fit"><b>For us.</b> Depends on the 2026 dates, which the page does not show.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-unclear">Unclear</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">startup.google.com, read 24 September 2026</span>
+            </div>
+          </article>
+          </div>
+        </div>
+      </section>
+      <section class="psection us-sec" id="insurance">
+        <div class="wrap">
+          <div class="shead">
+            <span class="tag">Where the buyer is</span>
+            <h2>Insurance and risk: <span class="g">the audience most tech startups miss.</span></h2>
+            <p>An Agent Behaviour Policy is written for risk managers, boards and underwriters as much as for security teams. These are the rooms they are in.</p>
+          </div>
+          <div class="us-rows">
+          <article class="us-row" data-status="unclear" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.lloyds.com/about-lloyds/lloyds-lab/lloyds-lab-accelerator" target="_blank" rel="noopener">Lloyd's Lab accelerator</a></h3>
+              <span class="us-by">Lloyd's</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">Ten weeks, workspace and eight to twelve mentors from the Lloyd's market. About ten companies are chosen from 150 to 200 applicants.</p>
+              <p class="us-who"><b>Who it is for.</b> Start-ups, scale-ups and sometimes mature companies.</p>
+              <p class="us-fit"><b>For us.</b> Cohort 17's themes included autonomous systems coverage, and it already includes a company whose stated aim is making AI risk insurable. Cohort 17 closed on 20 July 2026; the Cohort 18 window is not published.</p>
+              <p class="us-next"><b>Next.</b> Ask lloydslab@lloyds.com when Cohort 18 opens. Cohort 17 demo day is 9 December 2026.</p>
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-unclear">Unclear</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">lloyds.com, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="rolling" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.lloyds.com/about-lloyds/lloyds-lab/lab-discovery" target="_blank" rel="noopener">Lloyd's Lab Discovery</a></h3>
+              <span class="us-by">Lloyd's Lab, with the LMA and LIMOSS</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">Proofs of concept with managing agents, who bring the problem; the Lab looks for solutions.</p>
+              <p class="us-who"><b>Who it is for.</b> No vendor application form was found.</p>
+              <p class="us-fit"><b>For us.</b> A route to a proof of concept with an underwriter, if one names agent risk as its problem.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-rolling">Rolling</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">lloyds.com, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="unclear" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.fintechinnovationlab.com/regions/london/" target="_blank" rel="noopener">FinTech Innovation Lab London</a></h3>
+              <span class="us-by">Accenture, with the Partnership Fund for New York City</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">A twelve-week programme with access to more than 45 financial institutions, insurers among them.</p>
+              <p class="us-who"><b>Who it is for.</b> Not stated on the page.</p>
+              <p class="us-fit"><b>For us.</b> A structured route to pilots with insurers.</p>
+              <p class="us-next"><b>Next.</b> &quot;Applications for 2027 are opening soon! Register your interest now.&quot;</p>
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-unclear">Unclear</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">fintechinnovationlab.com, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="rolling" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.theirm.org/" target="_blank" rel="noopener">Institute of Risk Management, special interest groups</a></h3>
+              <span class="us-by">IRM</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">Sixteen groups with events and webinars. The cyber group ran &quot;Fundamentals of agentic AI risk management&quot; on 22 January 2026, online and free.</p>
+              <p class="us-who"><b>Who it is for.</b> Members join; many sessions are open to non-members.</p>
+              <p class="us-fit"><b>For us.</b> Risk managers are the people who sign an acceptance. Offering the cyber group a follow-up session is the direct route.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-rolling">Rolling</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">&ldquo;thought leadership should be accessible to everyone&rdquo; &middot; theirm.org, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="unclear" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.airmic.com/" target="_blank" rel="noopener">Airmic</a></h3>
+              <span class="us-by">Airmic</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">The UK association of corporate risk and insurance managers. Suppliers take partner statuses; the process is not published.</p>
+              <p class="us-who"><b>Who it is for.</b> Risk and insurance professionals as members.</p>
+              <p class="us-fit"><b>For us.</b> The people who buy cover for a company. Its 2027 conference is in Liverpool in June; the exact dates are not yet published.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-unclear">Unclear</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">airmic.com, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="rolling" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://insurtechuk.org/membership/join-us/" target="_blank" rel="noopener">Insurtech UK</a></h3>
+              <span class="us-by">Insurtech UK</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">Pitch days, working groups, a government affairs group. It has a memorandum of understanding with the ABI.</p>
+              <p class="us-who"><b>Who it is for.</b> Member tier: UK insurtechs, or firms earning 60% of revenue from insurance. Partner tier: service providers. Fees not published.</p>
+              <p class="us-fit"><b>For us.</b> Which tier applies to us is a question to ask them.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-rolling">Rolling</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">insurtechuk.org, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="open" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.fca.org.uk/firms/innovation/innovation-pathways" target="_blank" rel="noopener">FCA Innovation Pathways</a></h3>
+              <span class="us-by">Financial Conduct Authority</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">Regulatory guidance for new propositions.</p>
+              <p class="us-who"><b>Who it is for.</b> Regulated or non-regulated firms of any size.</p>
+              <p class="us-fit"><b>For us.</b> How insurers' own AI obligations bear on a behaviour policy, from the regulator.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-open">Open</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">&ldquo;of any size&rdquo; &middot; fca.org.uk, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="open" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.fca.org.uk/firms/innovation/ai-lab" target="_blank" rel="noopener">FCA AI Lab, AI Spotlight</a></h3>
+              <span class="us-by">Financial Conduct Authority</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">A showcase of AI solutions to financial services firms and the regulator. AI Live Testing cohort 2 is closed.</p>
+              <p class="us-who"><b>Who it is for.</b> Firms with AI solutions relevant to financial services.</p>
+              <p class="us-fit"><b>For us.</b> Exposure to the firms the FCA supervises, which include insurers.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-open">Open</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">&ldquo;Applications to be part of the AI Spotlight will remain open&rdquo; &middot; fca.org.uk, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="rolling" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.lmalloyds.com/lma-membership" target="_blank" rel="noopener">Lloyd's Market Association, associate membership</a></h3>
+              <span class="us-by">LMA</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">Event invitations, committee overviews, a profile page. Fee not stated.</p>
+              <p class="us-who"><b>Who it is for.</b> Organisations that trade with or advise Lloyd's underwriters.</p>
+              <p class="us-fit"><b>For us.</b> After a first relationship with a managing agent, not before.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-rolling">Rolling</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">&ldquo;trade with, or advise, Lloyd's underwriting businesses&rdquo; &middot; lmalloyds.com, read 24 September 2026</span>
+            </div>
+          </article>
+          </div>
+        </div>
+      </section>
+      <section class="psection alt us-sec" id="events">
+        <div class="wrap">
+          <div class="shead">
+            <span class="tag">Events, by date</span>
+            <h2>Twelve months of rooms, <span class="g">with the deadline for each.</span></h2>
+            <p>Security buyers, AI governance people, risk managers and insurers, from September 2026 to June 2027. Where a date could not be confirmed on the organiser's own page, the row says unclear.</p>
+          </div>
+          <div class="us-rows">
+          <article class="us-row" data-status="dated" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.techuk.org/" target="_blank" rel="noopener">One year on: the Trusted Third-Party AI Assurance Roadmap</a></h3>
+              <span class="us-by">techUK · 28 September 2026 · London</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">An afternoon on the government's AI assurance roadmap, free.</p>
+              <p class="us-who"><b>Who it is for.</b> Its stated audience includes insurers, auditors and regulators.</p>
+              <p class="us-fit"><b>For us.</b> The assurance market meeting in one room, four days from the date this was read.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-dated">Dated</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">techuk.org, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="dated" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.internationalcyberexpo.com/" target="_blank" rel="noopener">International Cyber Expo</a></h3>
+              <span class="us-by">Nineteen Group · 29–30 September 2026 · Olympia London</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">Free registration, and a delegations programme that brings overseas buyers to London.</p>
+              <p class="us-who"><b>Who it is for.</b> Visitors and exhibitors.</p>
+              <p class="us-fit"><b>For us.</b> Overseas cyber buyers without leaving London.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-dated">Dated</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">&ldquo;direct access to vetted decision-makers from key global markets&rdquo; &middot; internationalcyberexpo.com, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="dated" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.ferma.eu/events/ferma-forum-2026/" target="_blank" rel="noopener">FERMA Forum 2026</a></h3>
+              <span class="us-by">FERMA · 4–6 October 2026 · Rotterdam</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">Attendance; exhibiting through the Forum's own site.</p>
+              <p class="us-who"><b>Who it is for.</b> European corporate risk managers.</p>
+              <p class="us-fit"><b>For us.</b> The European version of the room Airmic is in the UK.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-dated">Dated</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">ferma.eu, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="open" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://digileaders.com/" target="_blank" rel="noopener">Digital Leaders AI Week</a></h3>
+              <span class="us-by">Digital Leaders · 12–23 October 2026</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">A speaking slot.</p>
+              <p class="us-who"><b>Who it is for.</b> Anyone who submits a talk.</p>
+              <p class="us-fit"><b>For us.</b> The nearest stage time on the calendar.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-open">Open</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">&ldquo;The Call for Talks is open&rdquo; &middot; digileaders.com, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="dated" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.dtxevents.io/london" target="_blank" rel="noopener">DTX London</a></h3>
+              <span class="us-by">DTX Events · 14–15 October 2026 · ExCeL London</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">Free for end users; speaking; a startup zone.</p>
+              <p class="us-who"><b>Who it is for.</b> Enterprise technology buyers.</p>
+              <p class="us-fit"><b>For us.</b> AI adoption and cyber tracks under a trust-and-risk theme.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-dated">Dated</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">dtxevents.io, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="dated" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.insurance-innovators.com/events/summit/" target="_blank" rel="noopener">Insurance Innovators Summit</a></h3>
+              <span class="us-by">Insurance Innovators · 3–4 November 2026 · London</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">A startup zone and pitch slots.</p>
+              <p class="us-who"><b>Who it is for.</b> About 2,000 insurance leaders, a third of them C-suite, by the organiser's figures.</p>
+              <p class="us-fit"><b>For us.</b> Insurers, in London.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-dated">Dated</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">insurance-innovators.com, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="dated" data-ours="in">
+            <div class="us-name">
+              <h3><a href="https://websummit.com/web-summit-2026/" target="_blank" rel="noopener">Web Summit</a></h3>
+              <span class="us-by">Web Summit · 9–12 November 2026 · Lisbon</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">Startup exhibition, pitch competition.</p>
+              <p class="us-who"><b>Who it is for.</b> Startups by application.</p>
+              <p class="us-fit"><b>For us.</b> We are going. The exhibitor listing, the logo for the exhibitor board and the deck were sent in September 2026.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-dated">Dated</span>
+              <span class="us-chip o-in">In it</span>
+              <span class="us-src">websummit.com, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="dated" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.riskexpoeurope.com/" target="_blank" rel="noopener">#RISK Expo Europe</a></h3>
+              <span class="us-by">GRC World Forums · 10–11 November 2026 · ExCeL London</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">Attendance, exhibiting, speaking.</p>
+              <p class="us-who"><b>Who it is for.</b> Governance, risk and compliance teams.</p>
+              <p class="us-fit"><b>For us.</b> Risk and compliance people in London, the week of Web Summit.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-dated">Dated</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">riskexpoeurope.com, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="dated" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://iapp.org/conference/iapp-europe-congress/" target="_blank" rel="noopener">IAPP Europe Congress</a></h3>
+              <span class="us-by">IAPP · 16–19 November 2026 · Brussels</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">Attendance at €1,595 to €1,945; exhibiting.</p>
+              <p class="us-who"><b>Who it is for.</b> Privacy, AI governance and legal teams.</p>
+              <p class="us-fit"><b>For us.</b> The AI governance audience, in the EU.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-dated">Dated</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">iapp.org, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="unclear" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.blackhat.com/" target="_blank" rel="noopener">Black Hat Europe, Startup Spotlight</a></h3>
+              <span class="us-by">Informa · 7–10 December 2026 · ExCeL London</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">A five-minute video pitch; no entry fee.</p>
+              <p class="us-who"><b>Who it is for.</b> Companies five years old or less with fewer than 50 staff.</p>
+              <p class="us-fit"><b>For us.</b> Security practitioners in London. The site refused our reader, so the dates and deadline are from search results only.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-unclear">Unclear</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">blackhat.com, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="dated" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://pretalx.com/bsides-london-2026/cfp" target="_blank" rel="noopener">BSides London</a></h3>
+              <span class="us-by">Community · 12 December 2026 · Novotel London West</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">A 45-minute talk, a workshop, or a fifteen-minute Rookies slot for first-time speakers.</p>
+              <p class="us-who"><b>Who it is for.</b> Anyone.</p>
+              <p class="us-fit"><b>For us.</b> A vendor-neutral talk on the gap between what an agent can do and what it was authorised to do.</p>
+              <p class="us-next"><b>Next.</b> Call for papers closes 30 September 2026.</p>
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-dated">Dated</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">&ldquo;All calls will open on 1 August and close on 30 September.&rdquo; &middot; pretalx.com, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="dated" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://london.insuretechconnect.com/" target="_blank" rel="noopener">ITC London</a></h3>
+              <span class="us-by">InsureTech Connect · 25–26 January 2027 · The Brewery, London</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">A startup zone, and a Challenge Lab where startups pitch against insurers' own problems.</p>
+              <p class="us-who"><b>Who it is for.</b> Invitation or vetted application.</p>
+              <p class="us-fit"><b>For us.</b> Senior insurers, managing general agents and brokers.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-dated">Dated</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">london.insuretechconnect.com, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="unclear" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.cybersecuritycloudexpo.com/global/" target="_blank" rel="noopener">Cyber Security &amp; Cloud Expo, with AI &amp; Big Data Expo</a></h3>
+              <span class="us-by">TechEx · 3–4 February 2027 · Olympia London</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">Attendance, exhibiting, speaking.</p>
+              <p class="us-who"><b>Who it is for.</b> Enterprise technology teams.</p>
+              <p class="us-fit"><b>For us.</b> Dates are from the organiser's ticket listing; the site itself returned a challenge page.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-unclear">Unclear</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">cybersecuritycloudexpo.com, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="unclear" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.insurtechinsights.com/" target="_blank" rel="noopener">Insurtech Insights Europe</a></h3>
+              <span class="us-by">Insurtech Insights · March 2027 · InterContinental London, The O2</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">A startup pass for insurtechs founded within five years.</p>
+              <p class="us-who"><b>Who it is for.</b> Insurers and insurtechs.</p>
+              <p class="us-fit"><b>For us.</b> Whether a behaviour-policy company counts as an insurtech for the pass is a question to ask. Search results give two different March dates.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-unclear">Unclear</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">insurtechinsights.com, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="dated" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://iapp.org/conference/iapp-uk-intensive/" target="_blank" rel="noopener">IAPP UK Intensive and AI Governance Global</a></h3>
+              <span class="us-by">IAPP · 5–8 April 2027 · Hilton London Metropole</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">Speaking by proposal; exhibiting.</p>
+              <p class="us-who"><b>Who it is for.</b> AI governance, privacy and regulatory teams.</p>
+              <p class="us-fit"><b>For us.</b> AI governance buyers in London.</p>
+              <p class="us-next"><b>Next.</b> Proposals close 27 September 2026.</p>
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-dated">Dated</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">&ldquo;Submit your proposal by 27 Sept&rdquo; &middot; iapp.org, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="unclear" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.rsaconference.com/" target="_blank" rel="noopener">RSAC 2027</a></h3>
+              <span class="us-by">RSAC · 5–8 April 2027 · San Francisco</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">A call for speakers, Innovation Sandbox, Launch Pad and an early-stage expo.</p>
+              <p class="us-who"><b>Who it is for.</b> Security companies and speakers.</p>
+              <p class="us-fit"><b>For us.</b> The largest security buying audience. The site refused our reader; search results give 9 October 2026 for the speaker deadline.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-unclear">Unclear</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">rsaconference.com, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="dated" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.cyberuk.uk/" target="_blank" rel="noopener">CYBERUK 2027</a></h3>
+              <span class="us-by">NCSC · 11–13 May 2027 · Liverpool</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">A startup and SME pod, 2m by 1.5m, at £1,500 + VAT for organisations under 40 staff; a Cyber Den pitch whose winner gets twelve months of NCSC support; Tech Talks by open call.</p>
+              <p class="us-who"><b>Who it is for.</b> UK organisations.</p>
+              <p class="us-fit"><b>For us.</b> The theme is securing the AI era, and the pod is priced for a company our size.</p>
+              <p class="us-next"><b>Next.</b> The Tech Talks call opens in autumn 2026.</p>
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-dated">Dated</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">&ldquo;11 – 13 MAY 2027, LIVERPOOL EXPERIENCE CAMPUS&rdquo; &middot; cyberuk.uk, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="dated" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://londontechweek.com/" target="_blank" rel="noopener">London Tech Week</a></h3>
+              <span class="us-by">Informa and Founders Forum · 7–11 June 2027 · London</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">Startup stages, investor meetings, a free startup pass by criteria.</p>
+              <p class="us-who"><b>Who it is for.</b> Founders; the pass has limits on funding and headcount.</p>
+              <p class="us-fit"><b>For us.</b> Broad exposure, with ministers in the room.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-dated">Dated</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">londontechweek.com, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="dated" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.infosecurityeurope.com/" target="_blank" rel="noopener">Infosecurity Europe</a></h3>
+              <span class="us-by">RX · 8–10 June 2027 · ExCeL London</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">A Cyber Start-Ups Zone for companies under five years old, a government-backed Cyber Innovation Zone, and a startup award whose prize is a stand.</p>
+              <p class="us-who"><b>Who it is for.</b> Early-stage cyber companies.</p>
+              <p class="us-fit"><b>For us.</b> About 13,000 security professionals, in London. The 2027 award window is not yet published.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-dated">Dated</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">infosecurityeurope.com, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="dated" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://london.theaisummit.com/" target="_blank" rel="noopener">The AI Summit London</a></h3>
+              <span class="us-by">Informa · 9–10 June 2027 · Tobacco Dock</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">A start-up village with live pitching; speaker submissions.</p>
+              <p class="us-who"><b>Who it is for.</b> Commercial AI buyers.</p>
+              <p class="us-fit"><b>For us.</b> The people deploying agents.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-dated">Dated</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">london.theaisummit.com, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="unclear" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://owasp.org/events/" target="_blank" rel="noopener">OWASP Global AppSec EU</a></h3>
+              <span class="us-by">OWASP Foundation · 21–25 June 2027 · Vienna</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">A call for papers and training.</p>
+              <p class="us-who"><b>Who it is for.</b> Application security practitioners.</p>
+              <p class="us-fit"><b>For us.</b> The OWASP generative AI community. The 2027 call is not yet published; last year's ran November to February.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-unclear">Unclear</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">owasp.org, read 24 September 2026</span>
+            </div>
+          </article>
+          </div>
+        </div>
+      </section>
+      <section class="psection us-sec" id="abroad">
+        <div class="wrap">
+          <div class="shead">
+            <span class="tag">Going abroad</span>
+            <h2>Government help to travel: <span class="g">what it is now.</span></h2>
+            <p>Founders remember the department paying for stands and travel. That grant was the UK Tradeshow Programme, withdrawn in 2023. What exists now is paid UK-branded pods, missions for companies already in a government-backed programme, and a listing of events.</p>
+          </div>
+          <div class="us-rows">
+          <article class="us-row" data-status="open" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.events.great.gov.uk/" target="_blank" rel="noopener">Events and trade missions portal</a></h3>
+              <span class="us-by">The department</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">A listing of UK and overseas events and missions. No grants are mentioned.</p>
+              <p class="us-who"><b>Who it is for.</b> UK businesses.</p>
+              <p class="us-fit"><b>For us.</b> Where an AI or cyber mission would be announced first.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-open">Open</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">&ldquo;Find UK and overseas events&rdquo; &middot; events.great.gov.uk, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="unclear" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.techuk.org/what-we-deliver/events/join-the-techuk-delegation-and-uk-pavilion-at-gitex-global-2026-dubai.html" target="_blank" rel="noopener">UK Pavilion at GITEX Global</a></h3>
+              <span class="us-by">techUK, with the department and Tradefair · 7–11 December 2026 · Dubai</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">A pod on the UK pavilion at £5,000 + VAT. No subsidy is mentioned.</p>
+              <p class="us-who"><b>Who it is for.</b> techUK members, first come first served.</p>
+              <p class="us-fit"><b>For us.</b> The techUK page still takes expressions of interest; another trade body's page says registration closed on 1 September.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-unclear">Unclear</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">techuk.org, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="unclear" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.plexal.com/" target="_blank" rel="noopener">UK House at RSAC</a></h3>
+              <span class="us-by">Plexal, funded by government</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">A place in the UK delegation at RSAC in San Francisco.</p>
+              <p class="us-who"><b>Who it is for.</b> In 2026, companies from Cyber Runway, LASR and CyberASAP.</p>
+              <p class="us-fit"><b>For us.</b> Being in a government-backed programme is the way in, which is why LASR is on this page.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-unclear">Unclear</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">plexal.com, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="open" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.gov.uk/government/organisations/uk-defence-and-security-exports" target="_blank" rel="noopener">UK Defence &amp; Security Exports pods</a></h3>
+              <span class="us-by">The department</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">Paid pods at defence and security shows.</p>
+              <p class="us-who"><b>Who it is for.</b> UK defence and security companies.</p>
+              <p class="us-fit"><b>For us.</b> Security shows abroad under the UK flag, paid, not granted.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-open">Open</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">&ldquo;exhibiting under clear UK or HMG branding&rdquo; &middot; gov.uk, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="unclear" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://grow.london/global" target="_blank" rel="noopener">Grow London Global</a></h3>
+              <span class="us-by">London &amp; Partners</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">A free twelve-month programme for tech companies expanding abroad, according to search results.</p>
+              <p class="us-who"><b>Who it is for.</b> Scaling tech companies; the page refused our reader.</p>
+              <p class="us-fit"><b>For us.</b> Later, once there is something to export.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-unclear">Unclear</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">grow.london, read 24 September 2026</span>
+            </div>
+          </article>
+          </div>
+        </div>
+      </section>
+      <section class="psection alt us-sec" id="london">
+        <div class="wrap">
+          <div class="shead">
+            <span class="tag">London</span>
+            <h2>London, <span class="g">and the free things to claim today.</span></h2>
+            
+          </div>
+          <div class="us-rows">
+          <article class="us-row" data-status="rolling" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.growlondonlocal.london/" target="_blank" rel="noopener">Grow London Local</a></h3>
+              <span class="us-by">London &amp; Partners, funded by the Mayor</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">Guides, free one-to-one sessions, and a searchable directory of borough support.</p>
+              <p class="us-who"><b>Who it is for.</b> London small businesses.</p>
+              <p class="us-fit"><b>For us.</b> The London front door, and a directory we link to rather than copy.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-rolling">Rolling</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">&ldquo;free access to all the support you need to help start and grow your business&rdquo; &middot; growlondonlocal.london, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="dated" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.natwest.com/business/business-services/entrepreneur-accelerator/pitch.html" target="_blank" rel="noopener">NatWest Accelerator Pitch, London round</a></h3>
+              <span class="us-by">NatWest</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">Prizes of £70,000, £20,000 and £10,000.</p>
+              <p class="us-who"><b>Who it is for.</b> UK limited companies incorporated within five years with revenue up to £1 million; a 60-second video; membership of the free NatWest community.</p>
+              <p class="us-fit"><b>For us.</b> The only open prize round found.</p>
+              <p class="us-next"><b>Next.</b> Closes 16 October 2026, 5pm; final 19 November.</p>
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-dated">Dated</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">&ldquo;Closing date for entries: 5pm, 16th October 2026&rdquo; &middot; natwest.com, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="rolling" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.bl.uk/business-and-ip-centre" target="_blank" rel="noopener">British Library Business &amp; IP Centre</a></h3>
+              <span class="us-by">British Library</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">Workshops, one-to-ones, market research databases.</p>
+              <p class="us-who"><b>Who it is for.</b> Anyone.</p>
+              <p class="us-fit"><b>For us.</b> Market research on insurers and brokers, at no cost.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-rolling">Rolling</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">&ldquo;Free to join, and open to everyone&rdquo; &middot; bl.uk, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="rolling" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.techlondonadvocates.org.uk/" target="_blank" rel="noopener">Tech London Advocates</a></h3>
+              <span class="us-by">Volunteer-led non-profit</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">42 working groups and introductions, free.</p>
+              <p class="us-who"><b>Who it is for.</b> By invitation; ask the organisers.</p>
+              <p class="us-fit"><b>For us.</b> Introductions.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-rolling">Rolling</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">techlondonadvocates.org.uk, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="rolling" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.papercall.io/owasp-london" target="_blank" rel="noopener">OWASP London chapter</a></h3>
+              <span class="us-by">OWASP London</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">Six to eight meetups a year, live-streamed and recorded.</p>
+              <p class="us-who"><b>Who it is for.</b> Speakers presenting methods, with any tools shown open source and free.</p>
+              <p class="us-fit"><b>For us.</b> The method and the open-source toolkit, not the product.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-rolling">Rolling</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">&ldquo;avoid any commercialism&rdquo; &middot; papercall.io, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="rolling" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://learn.microsoft.com/en-us/microsoft-for-startups/" target="_blank" rel="noopener">Microsoft for Startups</a></h3>
+              <span class="us-by">Microsoft</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">Azure credits, starting immediately.</p>
+              <p class="us-who"><b>Who it is for.</b> Privately held software companies below Series C; no funding requirement.</p>
+              <p class="us-fit"><b>For us.</b> Claimable today.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-rolling">Rolling</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">&ldquo;up to $150K in Startup credits over time&rdquo; &middot; learn.microsoft.com, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="rolling" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://cloud.google.com/startup" target="_blank" rel="noopener">Google for Startups Cloud Program</a></h3>
+              <span class="us-by">Google</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">$2,000 in credits unfunded; up to $350,000 for funded AI companies.</p>
+              <p class="us-who"><b>Who it is for.</b> The first tier needs no funding.</p>
+              <p class="us-fit"><b>For us.</b> Claimable today.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-rolling">Rolling</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">&ldquo;$2,000 in credits&rdquo; &middot; cloud.google.com, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="rolling" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://aws.amazon.com/startups/credits" target="_blank" rel="noopener">AWS Activate, Founders tier</a></h3>
+              <span class="us-by">Amazon Web Services</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">Up to $5,000 in credits.</p>
+              <p class="us-who"><b>Who it is for.</b> Pre-Series B companies under ten years old.</p>
+              <p class="us-fit"><b>For us.</b> Claimable today.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-rolling">Rolling</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">aws.amazon.com, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="rolling" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://claude.com/programs/startups" target="_blank" rel="noopener">Claude for Startups</a></h3>
+              <span class="us-by">Anthropic</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">API credits and higher rate limits.</p>
+              <p class="us-who"><b>Who it is for.</b> Credits need institutional funding and founding within four years.</p>
+              <p class="us-fit"><b>For us.</b> After a raise.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-rolling">Rolling</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">&ldquo;equity funding from an institutional investor&rdquo; &middot; claude.com, read 24 September 2026</span>
+            </div>
+          </article>
+          </div>
+        </div>
+      </section>
+      <section class="psection us-sec" id="closed">
+        <div class="wrap">
+          <div class="shead">
+            <span class="tag">Closed, or not for London</span>
+            <h2>Closed, kept here <span class="g">so nobody spends an afternoon on them.</span></h2>
+            <p>Search results still recommend most of these. Each one was checked on its own page.</p>
+          </div>
+          <div class="us-rows">
+          <article class="us-row" data-status="closed" data-ours="declined">
+            <div class="us-name">
+              <h3><a href="https://www.ncsc.gov.uk/section/ncsc-for-startups/overview" target="_blank" rel="noopener">NCSC for Startups</a></h3>
+              <span class="us-by">NCSC, with Plexal</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">Nothing now; the page is an archive.</p>
+              <p class="us-who"><b>Who it is for.</b> –</p>
+              <p class="us-fit"><b>For us.</b> No successor is named.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-closed">Closed</span>
+              <span class="us-chip o-declined">Not for us</span>
+              <span class="us-src">&ldquo;the programme is no longer running&rdquo; &middot; ncsc.gov.uk, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="closed" data-ours="not-started">
+            <div class="us-name">
+              <h3><a href="https://www.plexal.com/our-work/cyber-runway/" target="_blank" rel="noopener">Cyber Runway</a></h3>
+              <span class="us-by">Plexal, funded by government</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">An accelerator that took no equity, and a route into UK House at RSAC.</p>
+              <p class="us-who"><b>Who it is for.</b> UK cyber companies.</p>
+              <p class="us-fit"><b>For us.</b> Would fit if it reopens. Interest can be registered at cyberrunway@plexal.com.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-closed">Closed</span>
+              <span class="us-chip o-not-started">Not started</span>
+              <span class="us-src">&ldquo;Applications for the next cohort of Cyber Runway are now closed&rdquo; &middot; plexal.com, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="closed" data-ours="declined">
+            <div class="us-name">
+              <h3><a href="https://www.gov.uk/guidance/uk-tradeshow-programme" target="_blank" rel="noopener">UK Tradeshow Programme</a></h3>
+              <span class="us-by">Department for Business and Trade</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">Nothing now. This was the grant for overseas stands.</p>
+              <p class="us-who"><b>Who it is for.</b> –</p>
+              <p class="us-fit"><b>For us.</b> No replacement grant was found.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-closed">Closed</span>
+              <span class="us-chip o-declined">Not for us</span>
+              <span class="us-src">&ldquo;This guidance was withdrawn on 7 June 2023&rdquo; &middot; gov.uk, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="closed" data-ours="declined">
+            <div class="us-name">
+              <h3><a href="https://www.ukri.org/councils/innovate-uk/guidance-for-applicants/guidance-for-specific-funds/smart-innovation-funding-guidance/" target="_blank" rel="noopener">Innovate UK Smart grants</a></h3>
+              <span class="us-by">Innovate UK</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">Nothing now.</p>
+              <p class="us-who"><b>Who it is for.</b> –</p>
+              <p class="us-fit"><b>For us.</b> Closed.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-closed">Closed</span>
+              <span class="us-chip o-declined">Not for us</span>
+              <span class="us-src">&ldquo;Smart grants are now closed for new applications&rdquo; &middot; ukri.org, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="closed" data-ours="declined">
+            <div class="us-name">
+              <h3><a href="https://iuk-business-connect.org.uk/business-growth/" target="_blank" rel="noopener">Innovate UK Business Growth</a></h3>
+              <span class="us-by">Innovate UK Business Connect</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">Paused for new requests; it comes bundled with an Innovate UK grant.</p>
+              <p class="us-who"><b>Who it is for.</b> Existing clients and grant winners.</p>
+              <p class="us-fit"><b>For us.</b> Paused.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-closed">Closed</span>
+              <span class="us-chip o-declined">Not for us</span>
+              <span class="us-src">&ldquo;New requests into the service, outside of the above, have been paused&rdquo; &middot; iuk-business-connect.org.uk, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="closed" data-ours="declined">
+            <div class="us-name">
+              <h3><a href="https://www.aisi.gov.uk/grants" target="_blank" rel="noopener">AI Security Institute grants</a></h3>
+              <span class="us-by">AI Security Institute</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">Research grants, when open.</p>
+              <p class="us-who"><b>Who it is for.</b> Academic institutions and non-profits; companies are not listed.</p>
+              <p class="us-fit"><b>For us.</b> Not for companies.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-closed">Closed</span>
+              <span class="us-chip o-declined">Not for us</span>
+              <span class="us-src">&ldquo;Our programmes are not currently accepting applications&rdquo; &middot; aisi.gov.uk, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="closed" data-ours="declined">
+            <div class="us-name">
+              <h3><a href="https://iuk-business-connect.org.uk/" target="_blank" rel="noopener">CyberASAP</a></h3>
+              <span class="us-by">Innovate UK</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">Funding to take academic cyber research to market.</p>
+              <p class="us-who"><b>Who it is for.</b> Academics.</p>
+              <p class="us-fit"><b>For us.</b> Not for companies.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-closed">Closed</span>
+              <span class="us-chip o-declined">Not for us</span>
+              <span class="us-src">&ldquo;exclusively for UK registered academic institutions&rdquo; &middot; iuk-business-connect.org.uk, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="closed" data-ours="declined">
+            <div class="us-name">
+              <h3><a href="https://ukc3.co.uk/" target="_blank" rel="noopener">UK Cyber Cluster Collaboration (UKC3)</a></h3>
+              <span class="us-by">Community interest company</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">Operations ended 31 March 2026; the clusters continue on their own, Cyber London among them.</p>
+              <p class="us-who"><b>Who it is for.</b> –</p>
+              <p class="us-fit"><b>For us.</b> Go to the cluster directly.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-closed">Closed</span>
+              <span class="us-chip o-declined">Not for us</span>
+              <span class="us-src">&ldquo;will continue operating independently&rdquo; &middot; ukc3.co.uk, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="closed" data-ours="declined">
+            <div class="us-name">
+              <h3><a href="https://labs.uk.barclays/" target="_blank" rel="noopener">Barclays Eagle Labs AI Bridge and Cyber Bridge</a></h3>
+              <span class="us-by">Barclays</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">The Shoreditch hub remains, from £180 + VAT a month.</p>
+              <p class="us-who"><b>Who it is for.</b> UK SMEs.</p>
+              <p class="us-fit"><b>For us.</b> The two programmes that fitted are closed.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-closed">Closed</span>
+              <span class="us-chip o-declined">Not for us</span>
+              <span class="us-src">&ldquo;Applications closed&rdquo; &middot; labs.uk.barclays, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="closed" data-ours="declined">
+            <div class="us-name">
+              <h3><a href="https://www.gca.gov.uk/agreements/RM1557.15" target="_blank" rel="noopener">G-Cloud 15</a></h3>
+              <span class="us-by">Government Commercial Agency (formerly Crown Commercial Service)</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">A listing public buyers can call off.</p>
+              <p class="us-who"><b>Who it is for.</b> Suppliers already listed.</p>
+              <p class="us-fit"><b>For us.</b> Closed to new suppliers until about February 2028.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-closed">Closed</span>
+              <span class="us-chip o-declined">Not for us</span>
+              <span class="us-src">&ldquo;reopening after 18 months&rdquo; &middot; gca.gov.uk, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="open" data-ours="declined">
+            <div class="us-name">
+              <h3><a href="https://www.gov.uk/guidance/get-international-trade-support-from-regional-teams-in-england" target="_blank" rel="noopener">International trade advisers, one to one</a></h3>
+              <span class="us-by">The department's regional teams</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">One-to-one export advice.</p>
+              <p class="us-who"><b>Who it is for.</b> Businesses outside London.</p>
+              <p class="us-fit"><b>For us.</b> Not for a London company. Who serves London instead is not stated on the page.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-open">Open</span>
+              <span class="us-chip o-declined">Not for us</span>
+              <span class="us-src">&ldquo;eligible businesses outside of London&rdquo; &middot; gov.uk, read 24 September 2026</span>
+            </div>
+          </article>
+          <article class="us-row" data-status="open" data-ours="declined">
+            <div class="us-name">
+              <h3><a href="https://www.business.gov.uk/campaign/gep/" target="_blank" rel="noopener">Global Entrepreneur Programme</a></h3>
+              <span class="us-by">The department</span>
+            </div>
+            <div class="us-body">
+              <p class="us-gives">Mentoring and visa help.</p>
+              <p class="us-who"><b>Who it is for.</b> Founders from abroad moving to the UK.</p>
+              <p class="us-fit"><b>For us.</b> Not for a UK company.</p>
+              
+            </div>
+            <div class="us-state">
+              <span class="us-chip s-open">Open</span>
+              <span class="us-chip o-declined">Not for us</span>
+              <span class="us-src">&ldquo;highly selective programme for ambitious international scaleups&rdquo; &middot; business.gov.uk, read 24 September 2026</span>
+            </div>
+          </article>
+          </div>
+        </div>
+      </section>
+  <!-- register:end -->
+
+  <section class="psection">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Where we would start</span>
+        <h2>Eight doors, <span class="g">in the order we would try them.</span></h2>
+        <p>Chosen for who is in the room rather than for the size of the prize. The lead decides; the register&rsquo;s status column changes when something is sent.</p>
+      </div>
+      <ol class="us-first">
+        <li><span><b>The Sovereign AI procurement challenge.</b> Its text describes the product, and it would make government the first customer.</span></li>
+        <li><span><b>BSides London and OWASP London.</b> A talk on the method, not the product, in front of the people who run agents.</span></li>
+        <li><span><b>IAPP AI Governance Global.</b> The AI governance audience in London, with proposals closing first.</span></li>
+        <li><span><b>CYBERUK 2027.</b> A £1,500 pod, a pitch to the NCSC, and a theme of securing the AI era.</span></li>
+        <li><span><b>Lloyd&rsquo;s Lab and the FinTech Innovation Lab.</b> The two structured routes to underwriters. Both windows are yet to open, so the step is to ask when.</span></li>
+        <li><span><b>The Institute of Risk Management and Airmic.</b> Risk managers sign acceptances; the IRM cyber group already ran a session on agentic AI risk.</span></li>
+        <li><span><b>Founders Factory with Aviva.</b> An accelerator with an insurer as the partner, open now.</span></li>
+        <li><span><b>The cloud credits that need no funding.</b> Microsoft and Google, today, because they cost an afternoon.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="psection alt">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Directories that already exist</span>
+        <h2>Where to look <span class="g">after this page.</span></h2>
+        <p>This page is not the first list. These are kept up to date by the people who run them, and we link to them rather than copy them.</p>
+      </div>
+      <div class="us-three">
+        <div class="us-card"><span class="k">gov.uk</span><h3><a href="https://www.gov.uk/business-finance-support" target="_blank" rel="noopener">Finance and support for your business</a></h3><p>127 schemes, filterable by region, stage, type of support, industry and size. Read 24 September 2026.</p></div>
+        <div class="us-card"><span class="k">techUK</span><h3><a href="https://cyberexchange.uk.net/opportunities" target="_blank" rel="noopener">Cyber Exchange opportunities</a></h3><p>Cyber competitions, grants, consultations and trade missions, with deadlines.</p></div>
+        <div class="us-card"><span class="k">London &amp; Partners</span><h3><a href="https://www.growlondonlocal.london/" target="_blank" rel="noopener">Grow London Local</a></h3><p>The London front door for small businesses, with a searchable directory of borough support.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="psection">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">How this page is written</span>
+        <h2>The same rules <span class="g">as the rest of the site.</span></h2>
+      </div>
+      <ul class="us-rules">
+        <li><b>The programme&rsquo;s own page, read and dated.</b> Every row links to the official page it was read from. Where a page refused our reader, the row says unclear and says why, rather than trusting a search result.</li>
+        <li><b>The status is what the page said.</b> A closure carries the words that close it. Dates we could not confirm with the organiser are marked unclear.</li>
+        <li><b>No verdict on any programme.</b> What it gives, who it is for, and what it would be for us. Whether it was worth it is for the status column to show over time, in facts.</li>
+        <li><b>Closed ones stay.</b> Search results still recommend most of them, and an afternoon spent on a closed programme is an afternoon not spent on users.</li>
+        <li><b>It will go out of date.</b> The register says the date it was read. If a row is wrong, tell us, and it changes with a new date.</li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+
+<section class="pcta" id="ask">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> Am I missing something?</span>
+    <h2>Send the door <span class="it">we have not found.</span></h2>
+    <p>Its name and its link is enough. If you have been through it, what happened, as facts: the dates, what was asked, what came of it. If a row is wrong or has closed, that too. And if you would introduce us to a CISO, a risk manager or an underwriter who is deciding about an agent, that is the most useful message of all.</p>
+    <div class="cta-row"><a class="btn btn-green" href="mailto:dinis.cruz@owasp.org?subject=UK%20support%20%C2%B7%20a%20door%20we%20missed">Email the lead</a><a class="btn btn-ghost" href="try-it.html">Try the prompts yourself</a></div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>© 2026 RiskMandate · Autonomous Risk Management</span>
+    <span>The insurability layer for agentic AI. · <a class="footlink" href="versions.html">Versions</a> · <a class="footlink" href="admin/">Admin</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+var RM={core:{},services:{},components:{},data:{}};
+RM.data.currentPage="uk-support";RM.data.pages=[{"name":"agent-behaviour-policy","label":"The sixteen examples","file":"agent-behaviour-policy.html","group":"Behaviour policies"},{"name":"abp","label":"What an ABP is","file":"abp.html","group":"Behaviour policies"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"Behaviour policies"},{"name":"licence-to-operate","label":"Licence to Operate","file":"licence-to-operate.html","group":"Behaviour policies"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"Behaviour policies"},{"name":"for-corporate","label":"You run agents today","file":"for-corporate.html","group":"Who it's for"},{"name":"for-founders","label":"You are a founder","file":"for-founders.html","group":"Who it's for"},{"name":"for-startups","label":"You are a startup","file":"for-startups.html","group":"Who it's for"},{"name":"insurance","label":"Make agents insurable","file":"insurance.html","group":"Insurance"},{"name":"insure-a-program","label":"Can you insure a program?","file":"insure-a-program.html","group":"Insurance"},{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"Insurance"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"Insurance"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"Insurance"},{"name":"pricing","label":"The four levels","file":"pricing.html","group":"Pricing"},{"name":"abp-reviewed","label":"The reviewed level","file":"abp-reviewed.html","group":"Pricing"},{"name":"reviewers","label":"Who runs your review","file":"reviewers.html","group":"Pricing"},{"name":"try-it","label":"Try it","file":"try-it.html"},{"name":"articles","label":"Articles","file":"articles.html"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"privacy","label":"Privacy","file":"privacy.html","group":"More"},{"name":"lab","label":"The Lab","file":"lab.html","group":"More"},{"name":"demos","label":"Live demos","file":"demos.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"uk-support","label":"UK support, in the open","file":"uk-support.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"admin","label":"Admin","file":"admin/","group":"More"}];RM.data.sections=[];
+
+'use strict';
+// components/dom.js — tiny DOM helpers shared by components. `el` builds an
+// element with attributes and children; text children always go in via
+// textContent. `renderMarkdownInto` turns core/markdown tokens into real DOM
+// nodes (never an HTML string), so fetched release notes cannot inject markup.
+
+RM.components.dom = (function () {
+  // A link in a markdown note may only go somewhere harmless: same-document,
+  // same-origin relative, https, or mailto. Anything else — javascript:, data:,
+  // a protocol-relative host — renders as the text it was, and goes nowhere.
+  var SAFE = /^(?:https:\/\/|mailto:|#|[^:/?#]*(?:[/?#]|$))/i;
+
+  /**
+   * @param {string} tag
+   * @param {Object<string,string>} [attrs]
+   * @param {Array<Node|string>} [children]
+   * @returns {HTMLElement}
+   */
+  function el(tag, attrs, children) {
+    var node = document.createElement(tag);
+    if (attrs) Object.keys(attrs).forEach(function (k) {
+      if (attrs[k] != null) node.setAttribute(k, attrs[k]);
+    });
+    (children || []).forEach(function (c) {
+      node.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
+    });
+    return node;
+  }
+
+  /**
+   * Render inline runs into a parent element. Emphasis runs carry child runs
+   * rather than a string, so a link or a code span inside **bold** renders as
+   * itself instead of as its own markdown source — hence the recursion.
+   */
+  function appendRuns(parent, runs) {
+    runs.forEach(function (run) {
+      if (run.t === 'strong' || run.t === 'em') {
+        var node = el(run.t);
+        if (run.runs) appendRuns(node, run.runs);
+        else          node.appendChild(document.createTextNode(run.v));
+        parent.appendChild(node);
+      }
+      else if (run.t === 'code') parent.appendChild(el('code', null, [run.v]));
+      else if (run.t === 'link') parent.appendChild(SAFE.test(run.href)
+        ? el('a', { href: run.href }, [run.v])
+        : document.createTextNode(run.v));
+      else parent.appendChild(document.createTextNode(run.v));
+    });
+  }
+
+  /**
+   * Render markdown block tokens into a container as DOM nodes.
+   * @param {HTMLElement} container
+   * @param {Array} blocks  output of RM.core.markdown.parse
+   */
+  function renderMarkdownInto(container, blocks) {
+    blocks.forEach(function (b) {
+      if (b.type === 'heading') {
+        var h = el('h' + (b.level + 1)); // ## release title -> h3, etc.
+        appendRuns(h, b.runs);
+        container.appendChild(h);
+      } else if (b.type === 'list') {
+        var ul = el('ul');
+        b.items.forEach(function (runs) {
+          var li = el('li');
+          appendRuns(li, runs);
+          ul.appendChild(li);
+        });
+        container.appendChild(ul);
+      } else {
+        var p = el('p');
+        appendRuns(p, b.runs);
+        container.appendChild(p);
+      }
+    });
+  }
+
+  return { el: el, appendRuns: appendRuns, renderMarkdownInto: renderMarkdownInto };
+})();
+
+
+'use strict';
+// components/nav.js — the behaviour on a page that is *not* a link.
+//   [data-to]   → smooth in-page scroll to an element id (no hash routing).
+//   [data-demo] → open a pre-filled demo enquiry email.
+//
+// v1.0.0 removed everything else that used to live here. Up to v0.14 the site
+// ran inside a host <iframe> and every navigation was a postMessage — rm-nav,
+// rm-back, rm-manifest, rm-read. A <button> is not a link, so nothing could be
+// deep-linked, bookmarked, opened in a new tab, or crawled. Now each page is
+// the document the server sent and each navigation is an <a href>, so the only
+// things left to wire are the two that genuinely are not navigation.
+//
+// The mobile drawer is still injected rather than templated: one file gives
+// every page a working menu below the header breakpoint, where .navlinks is
+// hidden by CSS.
+
+RM.components.nav = (function () {
+  // Every "Book a demo" control opens a mail client with a subject and a
+  // starting message. One place to change when booking becomes a real form.
+  var DEMO = {
+    to     : 'nrparekh@gmail.com',
+    subject: 'RiskMandate — demo request',
+    body   : [
+      'Hi,',
+      '',
+      'I would like to see a plug profile for one of the agents we already run.',
+      '',
+      'A little about us:',
+      '  • Organisation:',
+      '  • Roughly how many agents we are running:',
+      '  • The agent we would want to look at first:',
+      '  • Anything already in place (register, IdP, detection tooling):',
+      '',
+      'Thanks,'
+    ].join('\n')
+  };
+
+  function demoHref() {
+    return 'mailto:' + DEMO.to +
+      '?subject=' + encodeURIComponent(DEMO.subject) +
+      '&body='    + encodeURIComponent(DEMO.body);
+  }
+
+  function openDemo() { window.location.href = demoHref(); }
+
+  function scrollTo(doc, id) {
+    var t = doc.getElementById(id);
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Inject the hamburger toggle and wire the drawer open/close. Idempotent.
+  function wireMobileNav(doc) {
+    var top = doc.querySelector('.top');
+    if (!top) return;
+    var wrap  = top.querySelector('.wrap');
+    var links = top.querySelector('.navlinks');
+    if (!wrap || !links || top.querySelector('.navtoggle')) return;
+
+    var burger = doc.createElement('button');
+    burger.className = 'navtoggle';
+    burger.setAttribute('type', 'button');
+    burger.setAttribute('aria-label', 'Toggle navigation');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-controls', 'sitenav');
+    for (var i = 0; i < 3; i++) burger.appendChild(doc.createElement('span'));
+    links.id = links.id || 'sitenav';
+    var demo = wrap.querySelector('.demo');
+    if (demo) wrap.insertBefore(burger, demo); else wrap.appendChild(burger);
+
+    function set(open) {
+      top.classList.toggle('nav-open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    burger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      set(!top.classList.contains('nav-open'));
+    });
+    // Following a real nav link closes the drawer; the group header does not.
+    links.addEventListener('click', function (e) {
+      var b = e.target.closest('button, a');
+      if (b && !b.classList.contains('navgroup-btn')) set(false);
+    });
+    doc.addEventListener('click', function (e) {
+      if (top.classList.contains('nav-open') && !top.contains(e.target)) set(false);
+    });
+    doc.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+    var view = doc.defaultView || window;
+    view.addEventListener('resize', function () { if (view.innerWidth > 1040) set(false); });
+  }
+
+  /** @param {Document} doc */
+  function wire(doc) {
+    doc.querySelectorAll('[data-to]').forEach(function (elm) {
+      elm.addEventListener('click', function () { scrollTo(doc, elm.getAttribute('data-to')); });
+    });
+    doc.querySelectorAll('[data-demo], .demo').forEach(function (elm) {
+      elm.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); openDemo(); });
+    });
+    wireMobileNav(doc);
+  }
+
+  return { wire: wire, scrollTo: scrollTo, demoHref: demoHref, openDemo: openDemo };
+})();
+
+
+'use strict';
+// components/menu.js — <rm-menu>. The one shared header menu, on every page, so
+// the nav is built by a single piece of code. Renders the homepage's section
+// links first, then the top-level pages, marking the current page active.
+//
+// A run of contiguous pages sharing a `group` string collapses into one entry:
+// a hover/click dropdown labelled by the group, with the members as children. A
+// single-member group renders flat — no dropdown for one item.
+//
+// v1.0.0: every entry is an <a href>. The old menu emitted <button> elements
+// that asked a host frame to swap an iframe's srcdoc, which meant the links did
+// not exist as far as a crawler, a bookmark or a middle-click was concerned.
+// The group header stays a <button> because it opens a panel rather than going
+// anywhere — that is the one control here that is genuinely not a link.
+
+(function () {
+  var dom = RM.components.dom;
+
+  RM.components.Menu = class extends HTMLElement {
+    connectedCallback() {
+      var self = this;
+      this._onDocClick = function (e) {
+        self.querySelectorAll('.navgroup.open').forEach(function (g) {
+          if (!g.contains(e.target)) g.classList.remove('open');
+        });
+      };
+      document.addEventListener('click', this._onDocClick);
+      this._render();
+    }
+    disconnectedCallback() {
+      document.removeEventListener('click', this._onDocClick);
+    }
+
+    // On the homepage a section link scrolls; on any other page it is a link
+    // back to the homepage at that anchor. Same markup either way.
+    _section(s) {
+      var home = !(RM.data && RM.data.currentPage);
+      var a = dom.el('a', { class: 'seclink', href: home ? '#' + s.to : 'index.html#' + s.to }, [s.label]);
+      if (home) a.addEventListener('click', function (e) {
+        e.preventDefault();
+        RM.components.nav.scrollTo(document, s.to);
+      });
+      return a;
+    }
+
+    _pagelink(p, extra) {
+      var active = p.name === (RM.data && RM.data.currentPage);
+      var attrs  = { class: 'pagelink' + (extra ? ' ' + extra : '') + (active ? ' active' : ''), href: p.file };
+      if (active) attrs['aria-current'] = 'page';
+      return dom.el('a', attrs, [p.label]);
+    }
+
+    _group(name, members) {
+      var self    = this;
+      var current = RM.data && RM.data.currentPage;
+      var active  = members.some(function (m) { return m.name === current; });
+      var car     = dom.el('span',   { class: 'navgroup-car', 'aria-hidden': 'true' }, ['▾']);
+      var btn     = dom.el('button', { class: 'navgroup-btn' + (active ? ' active' : ''), type: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false' }, [name, car]);
+      var panel   = dom.el('div',    { class: 'navmenu' }, members.map(function (m) { return self._pagelink(m, 'navchild'); }));
+      var wrap    = dom.el('span',   { class: 'navgroup' + (active ? ' active' : '') }, [btn, panel]);
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = wrap.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      return wrap;
+    }
+
+    _render() {
+      var sections = (RM.data && RM.data.sections) || [];
+      var pages    = (RM.data && RM.data.pages)    || [];
+      var self     = this;
+      this.textContent = '';
+      sections.forEach(function (s) { self.appendChild(self._section(s)); });
+      var i = 0;
+      while (i < pages.length) {
+        var p = pages[i];
+        if (!p.group) { self.appendChild(self._pagelink(p)); i++; continue; }
+        var g = p.group, members = [];
+        while (i < pages.length && pages[i].group === g) { members.push(pages[i]); i++; }
+        if (members.length === 1) self.appendChild(self._pagelink(members[0]));
+        else                      self.appendChild(self._group(g, members));
+      }
+    }
+  };
+
+  customElements.define('rm-menu', RM.components.Menu);
+})();
+
+
+'use strict';
+// boot.js — inner-page composition root (version builds and dev.html). Custom
+// elements self-register on load; here we wire document-level nav behaviour.
+// The page runs inside the host's stage frame, so the host (not this page) signals
+// the SG/App host that the app is ready.
+
+(function () {
+  function start() { RM.components.nav.wire(document); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
+})();
+
+
+})();
+</script>
+</body>
+</html>

@@ -187,6 +187,19 @@ Each one is linked in full, as received, with nothing edited. Where a brief and 
 - **The graph’s edges upward to risks and the board, and sideways to internal policies and documents.** Standards edges run in every vault today; these are marked in design
 - **Execution logs and evidence in the vault beside the policy.** The memo’s provenance store, marked as where this goes
 
+### UK support, in the open: consolidate what the UK offers a startup at go-to-market, ask people what is missing, and let other founders use it
+
+**sha256** 0c528b8c5736930b4a4a87b5e816f38af0758a2cd42eb1ad9df6e0904eceeecc
+
+**The product is ready and the challenge is now users.** The memo asks for one public page, modelled on the partnership pages on sgit.ai, that consolidates the UK’s support for a London startup at this point: departments, programmes, events, and the kind of government-sponsored travel founders remember. It serves three readers: people the lead knows, asked whether anything is missing; other founders, who can use it; and RiskMandate, which records what happened at each door.
+
+- [UK support, in the open](uk-support.html): every entry read on its official page and dated, with the page’s own status, our status, and the closed programmes kept
+- [The register as data](uk-support.json), rendered into the page by a script that refuses a row without a source, and a closure without the words that close it
+- The finding the memo did not expect: the Sovereign AI procurement scheme’s third challenge, set with the NCSC, describes an Agent Behaviour Policy
+- **Applying to anything.** Every row says not started except Web Summit; which doors to try is the lead’s decision
+- **The government-sponsored travel.** The grant that paid for it was withdrawn in 2023; the page says what exists instead
+- **A matching page on sgit.ai.** That site is not in this repository; its partnerships section can link here
+
 ## And the instructions that arrived as speech or a sentence.
 
 These have no digest to check, which makes them the ones most easily lost — a voice memo that changed the direction of the whole site leaves no artefact at all unless somebody writes it down. So they are recorded here in the same list, with the same two columns.

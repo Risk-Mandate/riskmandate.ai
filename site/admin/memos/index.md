@@ -5,7 +5,7 @@
 
 **2**received, nothing built yet*Archived and read, and nothing has been built from it yet.*
 
-**13**partly worked*read in full; a named part is not built*
+**14**partly worked*read in full; a named part is not built*
 
 **8**processed*something on the site exists because of it*
 
@@ -16,6 +16,10 @@ The queue. A document or a memo from the project lead arrives — a dev brief as
 **[How it technically works: prompts first, then hope is not a control, then fit, integrate, graph, and the vault as provenance](#D12)**
 
 spoken brief, transcribed · 1 produced · 3 not done24 September 2026 · partly
+
+**[UK support, in the open: consolidate what the UK offers a startup at go-to-market, ask people what is missing, and let other founders use it](#D13)**
+
+spoken brief, transcribed · 2 produced · 3 not done24 September 2026 · partly
 
 **[The named professional, and the assignment of the individual who does the £1,500 review](#D11)**
 
@@ -140,6 +144,22 @@ partly
 - Connectors to a customer's own control planes (identity provider, cloud IAM, proxy, CI). Described as built per engagement and productised as they mature; none exists as a product and the page says so.
 - The graph's edges upward to risks and the board, and sideways to a customer's internal policies and documents. Standards edges run today; these are marked in design.
 - Execution logs and evidence held in the vault beside the policy, as the memo's provenance store. Marked as where this goes, not as something that exists.
+
+D13 · spoken brief, transcribed · 24 September 2026
+
+## UK support, in the open: consolidate what the UK offers a startup at go-to-market, ask people what is missing, and let other founders use it
+
+partly
+
+[the file as received](../../assets/briefs/2026-09-24__transcript__uk-support-in-the-open.txt) · `0c528b8c5736…` · 3 KB
+
+**Produced.** [UK support, in the open: 79 programmes, events, schemes and networks, each read on its official page and dated, with our own status on every row](../../uk-support.html) · [The same register as data, for other founders to copy](../../uk-support.json)
+
+**Not done.**
+
+- Applying to anything. Every row says not started except Web Summit; which doors to try, starting with the Sovereign AI procurement challenge, is the lead's decision.
+- A matching page on sgit.ai's partnerships section. That site is not in this repository; it can link here.
+- Pages that refused an automated read (British Business Bank, london.gov.uk, blackhat.com, rsaconference.com, the Turing, the ABI) are marked unclear rather than filled from search results.
 
 D11 · spoken brief, transcribed · 22 September 2026
 

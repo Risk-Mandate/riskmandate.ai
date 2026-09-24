@@ -61,6 +61,9 @@ jobs:
       - name: The reviewer pages are derived from site/reviewers/
         run: node scripts/site/build-reviewer-pages.mjs --check
 
+      - name: The UK support page is derived from site/uk-support.json
+        run: node scripts/site/build-uk-support.mjs --check
+
       - name: The pitch deck's numbers still match the site
         run: node scripts/site/render-pitch-deck.mjs --check
 

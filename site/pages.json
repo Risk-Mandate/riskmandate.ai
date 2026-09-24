@@ -162,6 +162,12 @@
       "group": "More"
     },
     {
+      "name": "uk-support",
+      "label": "UK support, in the open",
+      "file": "uk-support.html",
+      "group": "More"
+    },
+    {
       "name": "brand",
       "label": "Brand",
       "file": "brand.html",

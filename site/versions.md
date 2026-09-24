@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.32.2** · 2026-09-24 — UK support, in the open
+  Notes: https://riskmandate.ai/versions/1.32.2.md · Source: `git:v1.32.2`
 - **v1.32.1** · 2026-09-24 — The ladder has steps
   Notes: https://riskmandate.ai/versions/1.32.1.md · Source: `git:v1.32.1`
 - **v1.32.0** · 2026-09-24 — How it works, in the order it happens
