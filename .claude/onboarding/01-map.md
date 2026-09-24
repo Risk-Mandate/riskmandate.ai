@@ -37,7 +37,7 @@ needed.
 
 | Family | Files | Source of truth |
 |---|---|---|
-| Home | `index.html` | hand-authored. Leads with the ABP; the ladder says we are on rung one |
+| Home | `index.html` | hand-authored. Leads with the ABP; the ladder says we are on the first step |
 | The problem | `plug`, `acceptable`, `acceptance`, `grant-gap` | hand-authored, older voice |
 | Insurance, the answer page | `insure-a-program.html` | hand-authored, 18 Sept 2026; every claim dated and linked to its source; the AIUC blueprint (July 2026) and RAND RR-A5130-1 (16 Sept 2026) are the two anchors |
 | The model | `abp.html` (the ABP page), `how-it-works`, `agents` (llms.txt etc.), `ramm`, `scenarios`, `statics` | hand-authored |
@@ -45,7 +45,7 @@ needed.
 | Vaults | `site/vaults/<slug>/` ×15 pushed + `claude-gmail-connector` built and unpushed, `_template/`, `_app/`; instances (a customer's copy, anonymised) under `vaults-instances/`, built with `ABP_VAULT_DIR=…` and never deployed | inputs: `vault.json`, `data/grant.json`, `data/mandate.json`, `data/scenarios.json`, `data/vocabulary/`. Everything else **generated** by `build-abp-vault.mjs` |
 | Live demos | `demos.html`, `demo-*.html` ×6 | hand-authored; each embeds an sgit vault with a public read key |
 | Lab | `lab.html` (in *More*), `lab-*.html` ×7 (unlisted, linked from `lab.html`) | hand-authored; every meaningful state cut as a dated PDF in `assets/lab/`, registered in `lab-editions.json` |
-| Try it | `try-it.html` (top-level, between Pricing and Articles) | hand-authored. The free rung below the store's ladder: the four-step, thirteen-prompt workflow a person runs in their own assistant, hosted at [abp.sgit.ai/gmail](https://abp.sgit.ai/gmail/index.html). Says before the reader finds out that the result is a self report. `direction__the-next-phase-is-users.md` |
+| Try it | `try-it.html` (top-level, between Pricing and Articles) | hand-authored. The free step below the store's ladder: the four-step, thirteen-prompt workflow a person runs in their own assistant, hosted at [abp.sgit.ai/gmail](https://abp.sgit.ai/gmail/index.html). Says before the reader finds out that the result is a self report. `direction__the-next-phase-is-users.md` |
 | Articles | `articles.html` (top-level), `article-<slug>.html` (unlisted, group *Articles*) | hand-authored, scaffolded with `new-page.mjs` from `insure-a-program.html`. One argument per page, built on one deployment shape's behaviour policy and linking to it; every claim sourced and dated; the queue of unwritten ones is listed on the index, marked *not written* |
 | Summit | `summit.html`, `summit-booth.html` (private) | hand-authored |
 | More | `lab` (the Lab moved here from the top level in v1.19.0), `questions`, `briefs` (the register page), `work`, `work-abp-power-user`, `library`, `partners`, `feedback`, `brand`, `admin/` (a `link` entry: a folder, not a page) | hand-authored |

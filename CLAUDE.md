@@ -4,7 +4,7 @@ This is the public site for RiskMandate, served byte for byte from `site/` by Gi
 No build step, no framework. The site sells the **Agent Behaviour Policy** (ABP): for one
 agent in one deployment, everything it can do, what it was authorised to do, the gap, and
 what stands in the way. Fifteen template policies exist as encrypted vaults, read live on
-`agent-behaviour-policy.html`. The Insurability Index is where this goes; we are on rung one.
+`agent-behaviour-policy.html`. The Insurability Index is where this goes; we are on the first step.
 
 **Do not re-read the repository to learn it.** `.claude/onboarding/` is the condensed version
 of everything a previous agent had to read in full. Start at `.claude/onboarding/00-start-here.md`
@@ -28,7 +28,7 @@ style problem; it is a correctness problem, and the site's own tests catch some 
 7. **Never reproduce a standards body's text.** Titles only. The EU regulation may be quoted.
 8. **Do not manufacture assurance.** A prohibition carries its barrier; a number carries its
    provenance; a claim carries its date.
-9. **British English.** *Behaviour*, *authorise*, *licence* (noun). The site's voice is plain,
+9. **British English.** *Behaviour*, *authorise*, *licence* (noun). Never *rung*: the lead finds it an odd word, so the ladder has *steps*. The site's voice is plain,
    sourced and unhurried; it says what was not done beside what was.
 10. **No write credential in `site/`, ever.** Read keys are public by design and printed on
     purpose. A test fails the build if anything write-shaped lands in the deployed tree.

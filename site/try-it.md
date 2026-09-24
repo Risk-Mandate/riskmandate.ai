@@ -80,7 +80,7 @@ The prompts are a few days old. If one returns something odd, if a step assumes 
 - **What we do with it:** fix the prompt, and say in the release notes what changed. Every change to this site ships with a note somebody wrote.
 - **What we will not do:** ask you to connect anything to us, collect your mail, or put you on a list. There is nothing to sign up to on this page.
 
-## A rung at a time, and the first one is the one you just did.
+## A step at a time, and the first one is the one you just did.
 
 Everything below is optional, and none of it is needed to get value out of the twenty minutes above.
 

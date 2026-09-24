@@ -93,7 +93,7 @@ A read-only model of the environment the agent is actually in: the assets, the t
 
 ### The Index, and the acceptance
 
-The two combined, dated, with a named owner and an expiry — so the decision comes back. This is what RiskMandate is, and it is the only rung with a score on it.
+The two combined, dated, with a named owner and an expiry — so the decision comes back. This is what RiskMandate is, and it is the only one of the three with a score on it.
 
 The people who sell do not sign, which is why the label and the prescription are separate products rather than two sections of one.
 

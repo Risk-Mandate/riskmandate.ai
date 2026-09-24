@@ -477,17 +477,19 @@ rm-index-card { display: block; }
 
 
 /* ===== the ladder ===== */
+/* the six level colours, carried over from the home page the ladder used to live on (it moved without them) */
+:root { --lad-0:#6B6560; --lad-1:#96442C; --lad-2:#8A6011; --lad-3:#2E7A4C; --lad-4:#147A4A; --lad-5:#39BE7F; }
 rm-index-ladder { display: block; margin-top: 38px; }
-.lad-rungs {
+.lad-levels {
     display:               grid;
     grid-template-columns:  repeat(6, 1fr);
     gap:                   10px;
     align-items:           end;
     margin-bottom:         14px;
 }
-@media (max-width: 860px) { .lad-rungs { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 560px) { .lad-rungs { grid-template-columns: repeat(2, 1fr); } }
-.lad-rung {
+@media (max-width: 860px) { .lad-levels { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 560px) { .lad-levels { grid-template-columns: repeat(2, 1fr); } }
+.lad-level {
     position:        relative;
     text-align:      left;
     border-radius:   var(--r);
@@ -501,18 +503,18 @@ rm-index-ladder { display: block; margin-top: 38px; }
     font-family:     var(--sans);
     transition:      transform .18s ease;
 }
-.lad-rung:hover { transform: translateY(-3px); }
-.lad-rung.on { box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--text); }
+.lad-level:hover { transform: translateY(-3px); }
+.lad-level.on { box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--text); }
 .lad-code { font-family: var(--mono); font-size: 12px; font-weight: 600; margin-bottom: 6px; opacity: .95; }
 .lad-name { font-size: 15px; font-weight: 700; line-height: 1.2; letter-spacing: -.02em; }
 .lad-band { font-family: var(--mono); font-size: 11px; margin-top: 6px; opacity: .88; }
-.lad-rung.r0 { background: var(--lad-0); height: 104px; }
-.lad-rung.r1 { background: var(--lad-1); height: 128px; }
-.lad-rung.r2 { background: var(--lad-2); height: 152px; }
-.lad-rung.r3 { background: var(--lad-3); height: 176px; }
-.lad-rung.r4 { background: var(--lad-4); height: 200px; }
-.lad-rung.r5 { background: var(--lad-5); height: 224px; color: var(--ink); }
-@media (max-width: 860px) { .lad-rung { height: auto !important; min-height: 112px; } }
+.lad-level.r0 { background: var(--lad-0); height: 104px; }
+.lad-level.r1 { background: var(--lad-1); height: 128px; }
+.lad-level.r2 { background: var(--lad-2); height: 152px; }
+.lad-level.r3 { background: var(--lad-3); height: 176px; }
+.lad-level.r4 { background: var(--lad-4); height: 200px; }
+.lad-level.r5 { background: var(--lad-5); height: 224px; color: var(--ink); }
+@media (max-width: 860px) { .lad-level { height: auto !important; min-height: 112px; } }
 .lad-detail {
     background:            var(--card);
     border:                1px solid var(--border);
@@ -583,19 +585,19 @@ a.ch:hover{border-color:var(--green)}
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
     <a class="ghlink" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener" aria-label="The source, on GitHub" title="Open source · Apache-2.0 code · CC BY 4.0 pages"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a>
-      <a class="version" href="versions.html" title="What shipped in v1.32.0">v1.32.0</a>
+      <a class="version" href="versions.html" title="What shipped in v1.32.1">v1.32.1</a>
     <button class="demo" data-demo>Book a demo</button>
   </div>
 </header>
 
 <main class="phero">
   <div class="wrap">
-    <span class="eyebrow"><span class="d"></span> Rung three &middot; where this goes</span>
+    <span class="eyebrow"><span class="d"></span> Step three &middot; where this goes</span>
     <h1>Make your agents <span class="it">insurable.</span></h1>
-    <p class="sub">Carriers are filing to exclude AI. Cover comes back when somebody can evidence what an agent can reach and what actually contains it. That evidence is what a behaviour policy and a licence to operate produce &mdash; which is why we sell those first, and why this page is the argument for the rung above them rather than the thing on sale.</p>
+    <p class="sub">Carriers are filing to exclude AI. Cover comes back when somebody can evidence what an agent can reach and what actually contains it. That evidence is what a behaviour policy and a licence to operate produce &mdash; which is why we sell those first, and why this page is the argument for the step above them rather than the thing on sale.</p>
     <div class="cta-row">
       <button class="btn btn-green" data-to="problem">Why cover is being withdrawn &darr;</button>
-      <a class="btn btn-ghost" href="licence-to-operate.html">The rung below this one</a>
+      <a class="btn btn-ghost" href="licence-to-operate.html">The step below this one</a>
     </div>
   </div>
 </main>
@@ -614,7 +616,7 @@ a.ch:hover{border-color:var(--green)}
         <a class="ch" href="licence-to-operate.html"><span class="chn">02</span><h3>Licence to Operate</h3><p>The organisation authorises that policy, for an interval, with each condition beside its enforcer.</p><span class="chs">Template ships, unissued</span></a>
         <span class="ch here"><span class="chn">03</span><h3>Insurable</h3><p>The record an underwriter will accept, scored and dated, with the residual risk owned.</p><span class="chs">This page &middot; design</span></span>
       </div>
-      <p class="ins-note">Everything below is the argument for rung three and the published design for it, kept in full. It is deliberately not on the home page any more: the home page sells what exists.</p>
+      <p class="ins-note">Everything below is the argument for step three and the published design for it, kept in full. It is deliberately not on the home page any more: the home page sells what exists.</p>
     </div>
   </section>
 
@@ -714,9 +716,9 @@ a.ch:hover{border-color:var(--green)}
   <section class="ins-section alt" id="levels">
     <div class="wrap">
       <div class="shead">
-        <span class="tag">The Insurability Index &middot; rung three</span>
+        <span class="tag">The Insurability Index &middot; step three</span>
         <h2>Six levels. <span class="g">One number, eventually.</span></h2>
-        <p>This is the design for the top rung: where an agent estate sits, what an underwriter will offer at each level, and the gap to the next one as a work order. Select a level to see what it buys. It is published before it is built on purpose, so the commitment stays checkable afterwards.</p>
+        <p>This is the design for step three: where an agent estate sits, what an underwriter will offer at each level, and the gap to the next one as a work order. Select a level to see what it buys. It is published before it is built on purpose, so the commitment stays checkable afterwards.</p>
       </div>
       <rm-index-ladder></rm-index-ladder>
       <p class="ins-note">The Index is a composite of five dimensions, weighted by how much each one moves a price. It is composed from behaviour policies rather than from a form: each one states capabilities and the barrier against each, so the number is an aggregate of rows that can be checked individually. Weights are set by underwriting judgement today and re-fit as loss experience accumulates — we say so rather than implying an actuarial precision that does not yet exist.</p>
@@ -781,7 +783,7 @@ a.ch:hover{border-color:var(--green)}
   <section class="ins-section">
     <div class="wrap ins-mech">
       <div class="shead">
-        <span class="tag">The mechanic &middot; rung three</span>
+        <span class="tag">The mechanic &middot; step three</span>
         <h2>Every risk gets an owner <span class="g">and an expiry.</span></h2>
         <p>A finding sitting in a backlog is not a decision, and an underwriter cannot price it. RiskMandate puts each risk through one of three doors, assigned to a named person for a stated interval. When the interval ends, the decision comes back.</p>
       </div>
@@ -795,7 +797,7 @@ a.ch:hover{border-color:var(--green)}
           <s>Revisit next quarter</s>
           <span>There is no fourth door. Silence is not a decision anyone can underwrite.</span>
       </div>
-      <p class="ins-note">The acceptance workflow is a published approach rather than a running system: a risk is accepted by a named person for a stated period, and the interval is what brings the decision back. Implementation is not claimed. It belongs to the third rung, and it needs the first one underneath it &mdash; there is nothing to accept until somebody has written down what the agent can actually do.
+      <p class="ins-note">The acceptance workflow is a published approach rather than a running system: a risk is accepted by a named person for a stated period, and the interval is what brings the decision back. Implementation is not claimed. It belongs to the third step, and it needs the first one underneath it &mdash; there is nothing to accept until somebody has written down what the agent can actually do.
         </div>
       </div>
     </div>
@@ -1153,7 +1155,7 @@ RM.components.nav = (function () {
 //
 // Two pieces of the insurability homepage that need behaviour rather than
 // markup: the sample Index card (score counts up when it scrolls into view)
-// and the six-level ladder (select a rung, read what it buys).
+// and the six-level ladder (select a level, read what it buys).
 //
 // House rules followed: native custom elements, no framework, no bundler;
 // every node built through dom.el rather than innerHTML; data-* as the
@@ -1286,16 +1288,16 @@ RM.components.nav = (function () {
       var self = this;
       this._rungs = [];
 
-      var rungs = dom.el('div', { class: 'lad-rungs', role: 'group', 'aria-label': 'Insurability levels' });
+      var levels = dom.el('div', { class: 'lad-levels', role: 'group', 'aria-label': 'Insurability levels' });
       LEVELS.forEach(function (L, i) {
-        var b = dom.el('button', { class: 'lad-rung r' + i, type: 'button', 'aria-pressed': 'false' }, [
+        var b = dom.el('button', { class: 'lad-level r' + i, type: 'button', 'aria-pressed': 'false' }, [
           dom.el('span', { class: 'lad-code' }, [L.code]),
           dom.el('span', { class: 'lad-name' }, [L.name]),
           dom.el('span', { class: 'lad-band' }, [L.band])
         ]);
         b.addEventListener('click', function () { self.select(i); });
         self._rungs.push(b);
-        rungs.appendChild(b);
+        levels.appendChild(b);
       });
 
       this._code = dom.el('span', { class: 'lad-dcode' });
@@ -1312,7 +1314,7 @@ RM.components.nav = (function () {
         ])
       ]);
 
-      this.appendChild(rungs);
+      this.appendChild(levels);
       this.appendChild(detail);
       this.select(START);
     }

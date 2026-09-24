@@ -150,7 +150,7 @@ The templates describe a shape; your deployment has a mandate, an owner and an i
 
 And then the document has somewhere to go.
 
-A [Licence to Operate](licence-to-operate.html) turns the description into something signed: the organisation is the authority, the behaviour policy is the instrument, the agent is the licensee, for an interval, with every condition printed beside what enforces it. Above that sits insurance, which needs both. We are on the first rung, and we say so.
+A [Licence to Operate](licence-to-operate.html) turns the description into something signed: the organisation is the authority, the behaviour policy is the instrument, the agent is the licensee, for an interval, with every condition printed beside what enforces it. Above that sits insurance, which needs both. We are on the first step, and we say so.
 
 **The worked example.** Claude with the Gmail connector: Anthropic's [Use Google Workspace connectors](https://support.claude.com/en/articles/10166901-use-google-workspace-connectors) and Google's [Gmail API scopes](https://developers.google.com/workspace/gmail/api/auth/scopes), both read 16 September 2026; the connector's directory listing and Google's consent screens as captured by the deployer the same day; four of the six rows exercised on an account the deployer runs. The record, the evidence and the contradictions are in [that shape's behaviour policy](abp-vault-claude-gmail-connector.html).** The model.** The twenty-three primitives, the four barriers, the undo classes and the evidence tiers are published as a versioned vocabulary and pinned into every vault, so a policy written today can still be read against the one it was computed with.
 

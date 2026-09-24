@@ -95,7 +95,7 @@ So the honest answer to _can you insure an agent in its deployment_ is: yes, two
 
 ## Make agents insurable, starting from the bottom.
 
-RiskMandate is not a carrier, a broker or an MGA, and does not sell or place cover. The strategy is to make agents insurable by producing the evidence underwriters price against, in the order the evidence has to exist. The bottom rung is the part that exists today and is for sale: **Agent Behaviour Policies**, and the means for anyone to create one.
+RiskMandate is not a carrier, a broker or an MGA, and does not sell or place cover. The strategy is to make agents insurable by producing the evidence underwriters price against, in the order the evidence has to exist. The first step is the part that exists today and is for sale: **Agent Behaviour Policies**, and the means for anyone to create one.
 
 ### Agent Behaviour Policy
 

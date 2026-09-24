@@ -347,3 +347,21 @@ test('the privacy page tells the truth: no analytics, no cookie, nothing loaded 
   assert.match(privacy, /GitHub Pages/, 'privacy.html no longer discloses who hosts the site');
   assert.match(privacy, /vault\.sgraph\.ai/, 'privacy.html no longer discloses the embedded vault host');
 });
+
+test('no page says rung: the ladder has steps', () => {
+  // The lead's instruction: it is not a common word and it reads oddly. The
+  // append-only records keep it (release notes, the brief register, registered
+  // briefs), because they say what was true on their date; every page and every
+  // twin says step. Class names and CSS comments are stripped before looking, so
+  // this reads what a visitor or a model reading llms.txt would read.
+  const blank = (m) => m.replace(/[^\n]/g, ' ');
+  const twins = readdirSync(SITE).filter(f => f.endsWith('.md') && f !== 'versions.md');
+  for (const f of [...html, ...twins, 'llms.txt']) {
+    const s = read(f)
+      .replace(/<style[\s\S]*?<\/style>/g, blank)
+      .replace(/\/\*[\s\S]*?\*\//g, blank)
+      .replace(/class="[^"]*"/g, blank);
+    const m = s.match(/.{0,60}\brungs?\b.{0,60}/i);
+    assert.ok(!m, `${f} says rung: …${m?.[0].trim()}…`);
+  }
+});

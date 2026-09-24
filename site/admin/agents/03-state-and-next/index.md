@@ -37,7 +37,7 @@ the site's; check `site/versions/index.json` for the current version before trus
   the AI warranties and liability covers of 2023–26, the exclusions, the first insured agent
   deployment (AIUC / ElevenLabs, Feb 2026), and the AIUC blueprint's line that the deployment, not
   the model, is the unit of risk. The underwriting questions mapped to the parts of an ABP; the
-  three rungs as the strategy. Two sources refused a direct read (RAND's page, Justia) and the page
+  three steps as the strategy. Two sources refused a direct read (RAND's page, Justia) and the page
   says so.
 - **Articles** (`articles.html`, **top-level**, between Pricing and More — six top-level entries, cap is seven): the article family (menu label *Articles* from v1.27.2; it was *Writing*). Three published. *In this session, the agent holds the union of everything it has ever been allowed to do* (20 Sept, `article-union-of-every-session.html`; retitled 21 Sept around the union, which is the transferable idea): how the permission union forms at the credential, the client and the deployment, each in the vendor's own words; six questions a deployer would ask with four of them silent on the help page; standing privilege named; the mandate written per purpose as the one lever left; a drawn diagram of the union accumulating across four conversations. Every article ends in a **Where this connects** card grid — other articles, the shape's behaviour policy, and the sibling sites (abp.sgit.ai, nhi.sgit.ai, store.sgit.ai), external cards marked in gold with an arrow. *Somebody will ask
   what your agent can do* (20 Sept, `article-what-is-an-abp.html`) is the introduction: the three
@@ -50,7 +50,7 @@ the site's; check `site/versions/index.json` for the current version before trus
   from the vault, and where the accountability lands. The evidence is capture 13 in that vault's
   `evidence/`. Five more are listed on the index as *not written*, each with a record already
   behind it.
-- **Try it** (`try-it.html`, top-level, v1.28.0): the free rung below the store's ladder and the
+- **Try it** (`try-it.html`, top-level, v1.28.0): the free step below the store's ladder and the
   first surface aimed at a stranger rather than a reader. Four steps, thirteen prompts, run in the
   person's own assistant against their own mailbox, hosted at abp.sgit.ai/gmail; what they end up
   with (grant, mandate, delta); what it honestly is not (a self report, said before they find out);

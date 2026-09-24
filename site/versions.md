@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.32.1** · 2026-09-24 — The ladder has steps
+  Notes: https://riskmandate.ai/versions/1.32.1.md · Source: `git:v1.32.1`
 - **v1.32.0** · 2026-09-24 — How it works, in the order it happens
   Notes: https://riskmandate.ai/versions/1.32.0.md · Source: `git:v1.32.0`
 - **v1.31.1** · 2026-09-23 — The deck carries the direction, not just the day

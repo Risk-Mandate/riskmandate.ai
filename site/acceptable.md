@@ -68,7 +68,7 @@ Ask someone to accept a risk and they will do neither — treat acceptance as a 
 
 ### Anything under a week is an incident
 
-The rung simply names which grade. If you picked a short interval, you have already declared an incident — the only question left is whether the organisation is behaving like it.
+The interval simply names which grade. If you picked a short interval, you have already declared an incident — the only question left is whether the organisation is behaving like it.
 
 ### Distance to the line sets the clock
 

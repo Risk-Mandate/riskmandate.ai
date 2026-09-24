@@ -24,7 +24,7 @@ Diligence questions about agents are new enough that most answers are improvised
 
 ## It is also the bottom of the insurance chain.
 
-The same document is rung one of three: describe the agent, licence it, insure it. That matters to a founder because the thing an acquirer or a carrier eventually wants is built from this and not from a questionnaire. [The chain is set out here](insurance.html).
+The same document is step one of three: describe the agent, licence it, insure it. That matters to a founder because the thing an acquirer or a carrier eventually wants is built from this and not from a questionnaire. [The chain is set out here](insurance.html).
 
 ## One thing, at four levels.
 

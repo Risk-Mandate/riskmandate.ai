@@ -10,7 +10,7 @@ Source: https://riskmandate.ai/insurance.html
 
 # Make your agents insurable.
 
-Carriers are filing to exclude AI. Cover comes back when somebody can evidence what an agent can reach and what actually contains it. That evidence is what a behaviour policy and a licence to operate produce — which is why we sell those first, and why this page is the argument for the rung above them rather than the thing on sale.
+Carriers are filing to exclude AI. Cover comes back when somebody can evidence what an agent can reach and what actually contains it. That evidence is what a behaviour policy and a licence to operate produce — which is why we sell those first, and why this page is the argument for the step above them rather than the thing on sale.
 
 ## Three things, in one order.
 
@@ -28,7 +28,7 @@ The organisation authorises that policy, for an interval, with each condition be
 
 The record an underwriter will accept, scored and dated, with the residual risk owned.
 
-Everything below is the argument for rung three and the published design for it, kept in full. It is deliberately not on the home page any more: the home page sells what exists.
+Everything below is the argument for step three and the published design for it, kept in full. It is deliberately not on the home page any more: the home page sells what exists.
 
 ## Cover is being withdrawn. Evidence buys it back.
 
@@ -66,7 +66,7 @@ Underwriting agentic risk today runs on self-reported answers. The same three qu
 
 ## Six levels. One number, eventually.
 
-This is the design for the top rung: where an agent estate sits, what an underwriter will offer at each level, and the gap to the next one as a work order. Select a level to see what it buys. It is published before it is built on purpose, so the commitment stays checkable afterwards.
+This is the design for step three: where an agent estate sits, what an underwriter will offer at each level, and the gap to the next one as a work order. Select a level to see what it buys. It is published before it is built on purpose, so the commitment stays checkable afterwards.
 
 The Index is a composite of five dimensions, weighted by how much each one moves a price. It is composed from behaviour policies rather than from a form: each one states capabilities and the barrier against each, so the number is an aggregate of rows that can be checked individually. Weights are set by underwriting judgement today and re-fit as loss experience accumulates — we say so rather than implying an actuarial precision that does not yet exist.
 

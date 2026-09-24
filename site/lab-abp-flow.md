@@ -43,7 +43,7 @@ Do you know what your agent can actually do?
 
 Not what it did — what it _can_. Pick the setup closest to yours and read the policy we already wrote for it. It is free, there is no account, and we need no access to anything of yours.
 
-_**Why it changes.** The page currently closes on the Insurability Index, which is the prescription — three rungs above where a stranger can start. The Index does not go away; the long-term argument, mapping an organisation's whole risk, moves into a section rather than off the site. The front page sells the label. The section describes the estate the label is the first step into._
+_**Why it changes.** The page currently closes on the Insurability Index, which is the prescription — three steps above where a stranger can start. The Index does not go away; the long-term argument, mapping an organisation's whole risk, moves into a section rather than off the site. The front page sells the label. The section describes the estate the label is the first step into._
 
 ## Self-select. Five shapes, and one of them is yours.
 

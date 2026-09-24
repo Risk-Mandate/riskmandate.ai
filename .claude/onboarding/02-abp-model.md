@@ -104,7 +104,7 @@ bound X; a control of type Y at layer Z would bound X.* That is the partner moti
 | Prescription | the Insurability Index + risk acceptance | combines the two, dated, expiring | **yes** | a named person |
 
 riskmandate.ai is the prescription layer commercially and sells the label today. **We are on
-rung one** and the homepage says so. The Index's six levels and five dimensions are a published
+the first step** and the homepage says so. The Index's six levels and five dimensions are a published
 design, not a running calculation. *Licence to Operate*: the organisation is the authority, the
 ABP is the instrument, the agent is the licensee; *mandate to operate* is retired.
 

@@ -2,7 +2,7 @@
 
 # Licence to Operate
 
-The organisation is the authority, the behaviour policy is the instrument, the agent is the licensee. The rung between describing an agent and insuring it.
+The organisation is the authority, the behaviour policy is the instrument, the agent is the licensee. The step between describing an agent and insuring it.
 
 Source: https://riskmandate.ai/licence-to-operate.html
 
@@ -26,7 +26,7 @@ The last row is the one that does the work. A condition with nothing enforcing i
 
 ## You cannot license what nobody has described.
 
-This is the whole reason the work starts one rung down. A licence is an authorisation of specific capabilities; if nobody has enumerated the capabilities, the licence authorises a shape rather than a thing, and it is worth exactly what the enumeration was worth.
+This is the whole reason the work starts one step down. A licence is an authorisation of specific capabilities; if nobody has enumerated the capabilities, the licence authorises a shape rather than a thing, and it is worth exactly what the enumeration was worth.
 
 ### Agent Behaviour Policy
 
@@ -44,7 +44,7 @@ The record an underwriter will accept, scored and dated, with the residual risk 
 
 The licence ships as `LICENCE-TO-OPERATE.md` inside the vault, so the agent can read the terms it runs under and a person can read the same terms without a portal. [Every published vault carries one](abp-vaults.html), unissued, with the authority and the interval left blank until somebody fills them in.
 
-Status, stated plainly. The file exists and ships in every published vault today, as a **template**: unsigned, unissued, with the authority and the interval blank. What does not exist is the countersigned form — a licence somebody outside your organisation would accept as evidence — which is what rung three needs and what we have not built. We are not going to describe that as available because the file is.
+Status, stated plainly. The file exists and ships in every published vault today, as a **template**: unsigned, unissued, with the authority and the interval blank. What does not exist is the countersigned form — a licence somebody outside your organisation would accept as evidence — which is what step three needs and what we have not built. We are not going to describe that as available because the file is.
 
 ## One thing, at four levels.
 

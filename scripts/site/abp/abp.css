@@ -60,10 +60,10 @@
 .vd-status.live{color:#fff;background:var(--green);border:1px solid var(--green)}
 .vd-status.stall{color:var(--red);background:#FBEDEA;border:1px solid rgba(192,57,43,.3)}
 .ab-ladder{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:26px}
-.ab-rung{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:18px 20px}
-.ab-rung .n{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.16em;color:var(--green)}
-.ab-rung h3{font-size:16px;margin:8px 0 6px;color:var(--text)}
-.ab-rung p{font-size:13.5px;color:var(--muted);line-height:1.6}
+.ab-tier{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:18px 20px}
+.ab-tier .n{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.16em;color:var(--green)}
+.ab-tier h3{font-size:16px;margin:8px 0 6px;color:var(--text)}
+.ab-tier p{font-size:13.5px;color:var(--muted);line-height:1.6}
 .ab-vaultlist{display:flex;flex-direction:column;gap:14px;margin-top:26px}
 .ab-vault{border:1px solid var(--border);border-radius:var(--r);background:var(--card);padding:22px 26px}
 .ab-vault .head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}

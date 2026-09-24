@@ -88,6 +88,25 @@
             "assets/lab/lab-network-reach--v1--2026-09-12.pdf"
           ],
           "note": "Re-cut to carry lab-abp-flow v3. The only change in the whole Lab is the one sentence described against that edition."
+        },
+        {
+          "v": 6,
+          "date": "2026-09-24",
+          "file": "assets/lab/lab--the-whole-lab--v6--2026-09-24.pdf",
+          "bytes": 2008471,
+          "sha256": "28d9107d12ec8909d66b671ca90f38f274974f933dc6014cc99df9b37d73cd7b",
+          "content": "f9737ecd324c765862d26ef45130b1cc8892f078a52533f3948760de203145fe",
+          "pages": 85,
+          "combines": [
+            "assets/lab/lab-connector-grants--v2--2026-09-12.pdf",
+            "assets/lab/lab-abp-flow--v4--2026-09-24.pdf",
+            "assets/lab/lab-abp-requests--v2--2026-09-12.pdf",
+            "assets/lab/lab-shape-collector--v1--2026-09-12.pdf",
+            "assets/lab/lab-commit-author--v1--2026-09-12.pdf",
+            "assets/lab/lab-network-reach--v1--2026-09-12.pdf",
+            "assets/lab/lab-vault-delivered--v1--2026-09-15.pdf"
+          ],
+          "note": "Re-cut because one word changed in Lab 02; see its v4. Nothing else in the Lab moved."
         }
       ]
     },
@@ -121,6 +140,15 @@
           "sha256": "e72c58ced81ea46e2e32664602703fc81ad8664791e13581358ab638faa56bca",
           "content": "b36f125b4dc5e2a8f12c9e02abe3a03ef7ae809b84c6844e55a53978c6e4cb79",
           "note": "One sentence changed, and it was a claim rather than a phrasing. The delivery stage said “nothing in it is authored except the mandate”, in the same breath as calling the thing a corrected draft. Both cannot be true. The corrections are most of what makes a policy the customer’s, so the sentence now says that instead. Nothing else on the page moved."
+        },
+        {
+          "v": 4,
+          "date": "2026-09-24",
+          "file": "assets/lab/lab-abp-flow--v4--2026-09-24.pdf",
+          "bytes": 256674,
+          "sha256": "db8985e21de922706366b3bf8c8d362368f8ad63e9bb18124f0e7e62693b3a4e",
+          "content": "e73cc90d1e9fac5d42566cedc569edcad64ae21da440923d7f3261449c57f991",
+          "note": "One word changed, in the sentence that says how far above a stranger the Index sits: the ladder now has steps, the word the rest of the site uses. The argument is identical to v3."
         }
       ]
     },

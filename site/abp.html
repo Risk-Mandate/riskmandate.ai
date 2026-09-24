@@ -164,16 +164,16 @@ table.m .no{color:var(--faint)}
 .pcard .said{font-size:17px;line-height:1.5;margin-top:12px;color:var(--text);font-weight:600}
 .pcard .why{font-size:13.5px;color:var(--muted);margin-top:10px;line-height:1.6}
 
-/* the three-rung ladder */
-.rungs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:36px}
-@media (max-width:860px){.rungs{grid-template-columns:1fr}}
-.rung{border:1px solid var(--border);border-radius:var(--r);background:var(--card);padding:24px;display:flex;flex-direction:column;gap:10px}
-.rung.here{border:2px solid var(--green);background:var(--greenBg)}
-.rung .n{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
-.rung.here .n{color:var(--green)}
-.rung h3{margin:0;font-size:19px;font-weight:700;letter-spacing:-.01em;color:var(--text)}
-.rung p{font-size:13.5px;color:var(--muted);line-height:1.6}
-.rung .meta{margin-top:auto;padding-top:12px;border-top:1px solid var(--border);font-family:var(--mono);font-size:11px;color:var(--faint);display:flex;flex-direction:column;gap:3px}
+/* the three-tier ladder */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:36px}
+@media (max-width:860px){.tiers{grid-template-columns:1fr}}
+.tier{border:1px solid var(--border);border-radius:var(--r);background:var(--card);padding:24px;display:flex;flex-direction:column;gap:10px}
+.tier.here{border:2px solid var(--green);background:var(--greenBg)}
+.tier .n{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+.tier.here .n{color:var(--green)}
+.tier h3{margin:0;font-size:19px;font-weight:700;letter-spacing:-.01em;color:var(--text)}
+.tier p{font-size:13.5px;color:var(--muted);line-height:1.6}
+.tier .meta{margin-top:auto;padding-top:12px;border-top:1px solid var(--border);font-family:var(--mono);font-size:11px;color:var(--faint);display:flex;flex-direction:column;gap:3px}
 
 /* source-bytes strip — every figure on this page comes from somewhere */
 .src{margin-top:28px;font-family:var(--mono);font-size:11.5px;color:var(--faint);line-height:1.7}
@@ -209,7 +209,7 @@ table.m .no{color:var(--faint)}
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
     <a class="ghlink" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener" aria-label="The source, on GitHub" title="Open source · Apache-2.0 code · CC BY 4.0 pages"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a>
-      <a class="version" href="versions.html" title="What shipped in v1.32.0">v1.32.0</a>
+      <a class="version" href="versions.html" title="What shipped in v1.32.1">v1.32.1</a>
     <button class="demo" data-demo>Get in touch</button>
   </div>
 </header>
@@ -346,23 +346,23 @@ table.m .no{color:var(--faint)}
         <h2>The label, the record, <span class="g">and the prescription.</span></h2>
         <p>A label describes a substance and never says <em>this is safe for you</em>. A patient record supplies the context. A prescribing decision combines the two, and a named professional signs it and carries the responsibility. Three things, and only the third can hold a number.</p>
       </div>
-      <div class="rungs">
-        <div class="rung">
+      <div class="tiers">
+        <div class="tier">
           <span class="n">The label</span>
           <h3>The behaviour policy</h3>
           <p>What the agent can do, what you authorised, the gap, and what is in the way. Context-free, so it is the same document wherever the agent runs.</p>
           <span class="meta"><span>no score</span><span>nobody signs it</span></span>
         </div>
-        <div class="rung">
+        <div class="tier">
           <span class="n">The patient record</span>
           <h3>The twin</h3>
           <p>A read-only model of the environment the agent is actually in: the assets, the tools, the data, what is connected to what. This is where the grant stops being a deployment shape and becomes yours.</p>
           <span class="meta"><span>derived from reality</span><span>never in the request path</span></span>
         </div>
-        <div class="rung here">
+        <div class="tier here">
           <span class="n">The prescription</span>
           <h3>The Index, and the acceptance</h3>
-          <p>The two combined, dated, with a named owner and an expiry — so the decision comes back. This is what RiskMandate is, and it is the only rung with a score on it.</p>
+          <p>The two combined, dated, with a named owner and an expiry — so the decision comes back. This is what RiskMandate is, and it is the only one of the three with a score on it.</p>
           <span class="meta"><span>scored</span><span>signed by a named professional</span></span>
         </div>
       </div>
