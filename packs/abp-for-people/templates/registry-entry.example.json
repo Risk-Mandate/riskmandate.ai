@@ -1,0 +1,18 @@
+{
+  "slug": "example-org",
+  "person": "Name as they publish it",
+  "organisation": "Example Organisation",
+  "shape": "claude-gmail-connector",
+  "vault_id": "abcd1234",
+  "read_key": "<64 hex, from sgit vault derive-keys>",
+  "vault_key": "<sgit_private_vault_…:abcd1234 — the write credential, here only>",
+  "link": "https://dev.vault.sgraph.ai/en-gb/#<read_key>:<vault_id>",
+  "created": "YYYY-MM-DD",
+  "status": "built",
+  "sent": null,
+  "opened": null,
+  "replied": null,
+  "corrections": [],
+  "feedback": [],
+  "publish": "no"
+}

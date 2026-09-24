@@ -3,17 +3,21 @@
 > Every document under docs/ on riskmandate.ai, rendered as a page: direction briefs, reviews, workflows, architecture and research, newest first.
 > Source: https://riskmandate.ai/admin/briefs/ · noindex · written by scripts/site/build-admin.mjs
 
-**24**documents under docs/*one page each, rendered from the file*
+**25**documents under docs/*one page each, rendered from the file*
 
 **8**direction briefs*the product and the site*
 
 **4**reviews*read against a named source*
 
-**2**workflows*run once, written to run again*
+**3**workflows*run once, written to run again*
 
 These were written here, by the agent maintaining the site, in response to [the memos and documents that arrived](../../admin/memos/). Each is read against a named source and dated. Add a file under `docs/` and rerun `build-admin.mjs`: it has a page here and a test fails until it does.
 
 ## Newest first
+
+**[A behaviour policy for everybody the lead talks to, made by an agent from a zip](../../admin/briefs/workflow__abp-vaults-for-people-we-know/)**
+
+Users. The product is ready and the objective this quarter is people trying it. A behaviour policy about someone else's example deployment is a demo; one about their organisation, sent the day after a conversation, is an invitation to correct it, which is…24 September 2026 · workflow
 
 **[The reviewer manifest: one source for who does the work, addressed to the store team](../../admin/briefs/workflow__the-reviewer-manifest-and-who-owns-a-person-page/)**
 
@@ -146,6 +150,10 @@ What the customer does, what we do, and what arrives, so the level-3 page on bot
 The Agent Behaviour Policy is not a new product. It is the primitive the rest of RiskMandate was already made of, now named, published, and — critically — sellable this week at ten pounds.11 September 2026 · direction
 
 ## Workflows · a process run once, written down so it can be run again
+
+**[A behaviour policy for everybody the lead talks to, made by an agent from a zip](../../admin/briefs/workflow__abp-vaults-for-people-we-know/)**
+
+Users. The product is ready and the objective this quarter is people trying it. A behaviour policy about someone else's example deployment is a demo; one about their organisation, sent the day after a conversation, is an invitation to correct it, which is…24 September 2026 · workflow
 
 **[The reviewer manifest: one source for who does the work, addressed to the store team](../../admin/briefs/workflow__the-reviewer-manifest-and-who-owns-a-person-page/)**
 

@@ -5,7 +5,7 @@
 
 **2**received, nothing built yet*Archived and read, and nothing has been built from it yet.*
 
-**18**partly worked*read in full; a named part is not built*
+**19**partly worked*read in full; a named part is not built*
 
 **8**processed*something on the site exists because of it*
 
@@ -36,6 +36,10 @@ spoken brief, transcribed · 3 produced · 3 not done24 September 2026 · partly
 **[OWASP and open source first: a semantic graph of OWASP, business cases for the open-source projects that reduce risk, and the companies built on open source](#D17)**
 
 spoken brief, transcribed · 3 produced · 3 not done24 September 2026 · partly
+
+**[A behaviour policy for everybody the lead talks to: a brief and a zip for a new agent, three vaults, and controls so nothing leaks across](#D18)**
+
+spoken brief, transcribed · 2 produced · 3 not done24 September 2026 · partly
 
 **[The named professional, and the assignment of the individual who does the £1,500 review](#D11)**
 
@@ -240,6 +244,22 @@ partly
 - Business cases for OWASP documents such as the Top 10s, ASVS and SAMM. They change what a team knows, not what an agent can reach, so they sit in the graph rather than as cases; the bridge shows which cases change the answers each Agentic Top 10 item depends on.
 - Three Agentic Top 10 items touch nothing in the model: supply chain, memory and context, and agents talking to agents. The model has to grow for those.
 - Outreach to OWASP projects, maintainers and the companies. The lead's, after review.
+
+D18 · spoken brief, transcribed · 24 September 2026
+
+## A behaviour policy for everybody the lead talks to: a brief and a zip for a new agent, three vaults, and controls so nothing leaks across
+
+partly
+
+[the file as received](../../assets/briefs/2026-09-24__transcript__abp-vaults-for-people-we-know.txt) · `db4b98aef049…` · 2 KB
+
+**Produced.** [The brief: three vaults (the existing app vault as the UI, a private keys vault, one vault per person), the controls against leaking across, the workflow, and what the feedback loop is meant to learn](../../admin/briefs/workflow__abp-vaults-for-people-we-know/index.html) · [The pack for the new agent: instructions, templates, a scaffolder, a leak gate proved against six planted leaks, the site's own builder and every catalogue deployment, and one fictional example built and checked; kept in the repository at packs/dist/, not on the site](../../briefs.html)
+
+**Not done.**
+
+- The keys vault itself. The first session creates it and gives its key to the lead, so the steps are exercised once with the lead watching.
+- A way for a person to send corrections from inside their vault. Today they reply to the lead; a form is a question for the app vault.
+- Any person's vault. The pack has been run end to end on a fictional organisation only.
 
 D11 · spoken brief, transcribed · 22 September 2026
 

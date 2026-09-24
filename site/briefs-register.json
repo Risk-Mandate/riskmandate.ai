@@ -579,6 +579,36 @@
         "Three Agentic Top 10 items touch nothing in the model: supply chain, memory and context, and agents talking to agents. The model has to grow for those.",
         "Outreach to OWASP projects, maintainers and the companies. The lead's, after review."
       ]
+    },
+    {
+      "id": "D18",
+      "title": "A behaviour policy for everybody the lead talks to: a brief and a zip for a new agent, three vaults, and controls so nothing leaks across",
+      "version": null,
+      "type": "spoken brief, transcribed",
+      "dated": "2026-09-24",
+      "file": "assets/briefs/2026-09-24__transcript__abp-vaults-for-people-we-know.txt",
+      "bytes": 1786,
+      "sha256": "db4b98aef049e05716c3789105ce4a56e4e96fd0939774fd912bea329c8b7624",
+      "received": [
+        "2026-09-24T17:00Z"
+      ],
+      "duplicate_of": null,
+      "status": "partly",
+      "produced": [
+        {
+          "what": "The brief: three vaults (the existing app vault as the UI, a private keys vault, one vault per person), the controls against leaking across, the workflow, and what the feedback loop is meant to learn",
+          "url": "admin/briefs/workflow__abp-vaults-for-people-we-know/index.html"
+        },
+        {
+          "what": "The pack for the new agent: instructions, templates, a scaffolder, a leak gate proved against six planted leaks, the site's own builder and every catalogue deployment, and one fictional example built and checked; kept in the repository at packs/dist/, not on the site",
+          "url": "briefs.html"
+        }
+      ],
+      "not_done": [
+        "The keys vault itself. The first session creates it and gives its key to the lead, so the steps are exercised once with the lead watching.",
+        "A way for a person to send corrections from inside their vault. Today they reply to the lead; a form is a question for the app vault.",
+        "Any person's vault. The pack has been run end to end on a fictional organisation only."
+      ]
     }
   ],
   "informal": [
