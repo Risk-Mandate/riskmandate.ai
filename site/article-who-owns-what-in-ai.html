@@ -1,0 +1,889 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Who owns what in AI. And how accountability holds on the way up.</title>
+<meta name="description" content="A LinkedIn infographic maps thirteen roles to what each owns in AI and what it protects. Every company will redraw it. What joins its levels, so that accountability holds on the way up, is risk acceptance with the Agent Behaviour Policy underneath: one agent worked from its eight rows to the board, seven rules, six weeks, and the model in enough detail to build.">
+<link rel="canonical" href="https://riskmandate.ai/article-who-owns-what-in-ai.html">
+<link rel="alternate" type="text/markdown" href="article-who-owns-what-in-ai.md" title="This page as markdown">
+<link rel="icon" href="assets/brand/riskmandate-favicon-32.png" sizes="32x32">
+<link rel="icon" href="assets/brand/riskmandate-mark.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RiskMandate">
+<meta property="og:url" content="https://riskmandate.ai/article-who-owns-what-in-ai.html">
+<meta property="og:title" content="Who owns what in AI. And how accountability holds on the way up.">
+<meta property="og:description" content="A LinkedIn infographic maps thirteen roles to what each owns in AI and what it protects. Every company will redraw it. What joins its levels, so that accountability holds on the way up, is risk acceptance with the Agent Behaviour Policy underneath: one agent worked from its eight rows to the board, seven rules, six weeks, and the model in enough detail to build.">
+<meta property="og:image" content="https://riskmandate.ai/assets/brand/riskmandate-lockup-light.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Scaffolded by scripts/site/new-page.mjs. Hand-edited from here on — there is no build step. -->
+<style>
+/* article-who-owns-what-in-ai.css — self-contained: the shared chrome, then this page's own. */
+:root{
+  --bg:#F7F6F2; --bg2:#EFEDE7; --card:#FFFFFF; --ink:#0D0D0C; --canvas:#0A0A09;
+  --text:#1A1917; --muted:#4A4845; --faint:#8A8780; --border:#E2DFD8;
+  --green:#1A7F5A; --green-2:#22c55e; --greenBg:#EBF5F0;
+  --gold:#B45309; --red:#C0392B; --blue:#1D4ED8;
+  --fg:#F7F6F2; --fg-2:rgba(247,246,242,.55); --fg-3:rgba(247,246,242,.32);
+  --line:rgba(247,246,242,.10); --line-2:rgba(247,246,242,.18);
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","JetBrains Mono","Roboto Mono",Menlo,Consolas,monospace;
+  --wrap:1000px; --r:10px; --r-sm:8px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth} @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+h1,h2{margin:0;font-weight:800;letter-spacing:-.03em;line-height:1.04}
+h2{font-size:clamp(26px,3.6vw,40px);font-weight:700;letter-spacing:-.02em}
+p{margin:0}
+:focus-visible{outline:2px solid var(--green-2);outline-offset:3px;border-radius:4px}
+.tag{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+.g{color:var(--green)} .it{font-style:italic;color:var(--green)}
+
+/* header */
+.top{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.top .wrap{display:flex;align-items:center;gap:22px;height:56px;max-width:1100px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:15px;color:var(--text);white-space:nowrap;text-decoration:none}
+.rm{width:26px;height:26px;flex:none;display:block}
+.rm svg{width:100%;height:100%;display:block}
+.navlinks{display:flex;align-items:center;gap:22px;margin-left:auto}
+rm-menu{display:contents}
+.navlinks a{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;text-decoration:none;display:inline-flex;align-items:center}
+.navlinks a:hover{color:var(--text)}
+.navlinks a.active{color:var(--text);font-weight:600}
+.version{font-family:var(--mono);font-size:12px;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:7px;padding:5px 8px;text-decoration:none;white-space:nowrap;transition:color .15s,border-color .15s}
+.version:hover{color:var(--text);border-color:var(--faint)}
+.demo{background:var(--green);color:#fff;font-weight:600;font-size:13px;border:0;border-radius:8px;padding:8px 16px;cursor:pointer;transition:background .15s;font-family:var(--sans);white-space:nowrap}
+.demo:hover{background:#16704f}
+
+/* nav dropdowns */
+.navgroup{position:relative;display:inline-flex;align-items:center}
+.navgroup::after{content:"";position:absolute;top:100%;left:0;right:0;height:10px}
+.navgroup-btn{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;display:inline-flex;align-items:center;gap:5px}
+.navgroup-btn:hover,.navgroup:hover .navgroup-btn,.navgroup.open .navgroup-btn,.navgroup.active .navgroup-btn{color:var(--text)}
+.navgroup-car{font-size:8px;line-height:1;opacity:.6;transition:transform .15s}
+.navgroup:hover .navgroup-car,.navgroup.open .navgroup-car{transform:rotate(180deg)}
+.navmenu{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);min-width:184px;background:var(--card);border:1px solid var(--border);border-radius:10px;box-shadow:0 10px 34px rgba(13,13,12,.14);padding:6px;display:none;flex-direction:column;gap:2px;z-index:70}
+.navgroup:hover .navmenu,.navgroup.open .navmenu{display:flex}
+.navmenu .navchild{justify-content:flex-start;text-align:left;width:100%;padding:8px 12px;border-radius:7px;font-size:13.5px;color:var(--muted);white-space:nowrap}
+.navmenu .navchild:hover{background:var(--bg2);color:var(--text)}
+.navmenu .navchild.active{color:var(--green);font-weight:600;background:var(--greenBg)}
+
+/* mobile drawer — the toggle is injected by nav.js; .top.nav-open opens it */
+.navtoggle{display:none;margin-left:auto;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;padding:0;background:none;border:0;cursor:pointer}
+.navtoggle span{display:block;width:20px;height:2px;margin:0 auto;background:var(--text);border-radius:2px;transition:transform .2s,opacity .2s}
+.top.nav-open .navtoggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.top.nav-open .navtoggle span:nth-child(2){opacity:0}
+.top.nav-open .navtoggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media (max-width:1040px){
+  .navtoggle{display:flex}
+  .top .wrap{position:relative}
+  .version{display:none}
+  .navlinks{display:none;position:absolute;left:0;right:0;top:calc(100% + 1px);flex-direction:column;align-items:stretch;gap:0;margin:0;padding:8px;background:var(--card);border-bottom:1px solid var(--border);box-shadow:0 14px 34px rgba(13,13,12,.14);max-height:calc(100vh - 56px);overflow:auto}
+  .top.nav-open .navlinks{display:flex}
+  .navlinks a,.navlinks .navgroup-btn{width:100%;text-align:left;justify-content:flex-start;padding:12px 16px;font-size:15px;border-radius:8px}
+  .navlinks a:hover{background:var(--bg2)}
+  .navgroup{display:block;width:100%;position:static}
+  .navgroup::after{display:none}
+  .navgroup-btn{display:flex}
+  .navgroup-car{margin-left:auto}
+  .navmenu{position:static;transform:none;display:flex;flex-direction:column;min-width:0;padding:2px 0 8px 14px;background:transparent;border:0;box-shadow:none}
+  .navmenu .navchild{padding:10px 14px;font-size:14px}
+}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;padding:12px 22px;border-radius:var(--r-sm);cursor:pointer;border:1px solid transparent;font-family:var(--sans);text-decoration:none}
+.btn-green{background:var(--green);color:#fff} .btn-green:hover{background:#16704f}
+.btn-ghost{background:transparent;color:var(--fg);border-color:var(--line-2)} .btn-ghost:hover{border-color:var(--fg-2)}
+.btn-ghost-dark{background:transparent;color:var(--text);border-color:var(--border)} .btn-ghost-dark:hover{border-color:var(--green);color:var(--green)}
+
+/* dark hero */
+.phero{background:var(--ink);color:var(--fg);padding:88px 24px 84px}
+.phero .wrap{max-width:var(--wrap)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--green);background:rgba(26,127,90,.18);border:1px solid rgba(26,127,90,.4);border-radius:999px;padding:5px 12px}
+.eyebrow .d{width:6px;height:6px;border-radius:50%;background:var(--green-2)}
+.phero h1{font-size:clamp(34px,5.2vw,60px);letter-spacing:-.04em;line-height:1.02;margin:26px 0 0;color:var(--fg);max-width:900px}
+.phero .sub{color:var(--fg-2);font-size:17px;line-height:1.7;max-width:640px;margin-top:24px}
+.cta-row{display:flex;flex-wrap:wrap;gap:11px;margin-top:30px}
+
+/* paper sections */
+.paper{background:var(--bg)}
+.psection{padding:80px 0;border-bottom:1px solid var(--border)}
+.psection.alt{background:var(--bg2)}
+.shead{max-width:680px} .shead.center{max-width:720px;margin:0 auto;text-align:center}
+.shead h2{color:var(--text)} .shead p{color:var(--muted);margin-top:16px;font-size:15px;line-height:1.75}
+
+/* closing panel + footer */
+.pcta{background:var(--ink);padding:80px 24px;text-align:center}
+.pcta .wrap{max-width:720px;padding:0}
+.pcta h2{font-size:clamp(28px,4.4vw,48px);color:var(--fg);margin-top:20px;font-weight:700;letter-spacing:-.03em}
+.pcta p{color:var(--fg-2);margin-top:16px;font-size:16px;line-height:1.7}
+.pcta .cta-row{justify-content:center}
+.foot{background:var(--canvas);border-top:1px solid var(--line);padding:32px 24px}
+.foot .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-family:var(--mono);font-size:10px;color:var(--fg-3);max-width:1100px}
+.footlink{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.footlink:hover{color:var(--fg-2)}
+/* narrow phones — at 360px the brand, the burger and the call to action stop
+   fitting on one line, and the header was the last thing on this site that
+   scrolled sideways. Tighten the gutter, the gap and the button rather than
+   drop any of them: all three are load-bearing at this width. */
+@media (max-width:420px){
+  .top .wrap{gap:12px;padding:0 16px}
+  .brand{font-size:14px;gap:7px}
+  .rm{width:24px;height:24px}
+  .demo{padding:8px 12px;font-size:12.5px}
+}
+
+/* article-who-owns-what-in-ai — a role map read sideways, and the edges that carry accountability upwards */
+.phero .meta{font-family:var(--mono);font-size:12px;color:rgba(255,255,255,.6);line-height:1.7;margin-top:6px;max-width:820px}
+.phero .meta b{color:rgba(255,255,255,.85)}
+.phero .meta a{color:inherit}
+.wo-note{font-size:15px;line-height:1.75;color:var(--muted);max-width:880px;margin-top:16px}
+.wo-note b,.wo-note em{color:var(--text)}
+.wo-note a,.wo-cell a,.wo-rule a{color:var(--green)}
+.wo-quote{margin:24px 0 0;max-width:880px;border-left:3px solid var(--green);padding:4px 0 4px 22px;font-size:18px;line-height:1.65;color:var(--text);font-style:italic}
+.wo-src{font-family:var(--mono);font-size:11px;color:var(--faint);line-height:1.6;margin-top:8px;overflow-wrap:anywhere}
+.wo-src a{color:inherit}
+.wo-k{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+
+/* tables that turn into cards on a phone */
+.wo-t{margin-top:26px;border:1px solid var(--border);border-radius:var(--r);background:var(--card);overflow:hidden}
+.wo-r{display:grid;border-top:1px solid var(--border)}
+.wo-r:first-child{border-top:0;background:var(--bg2)}
+.wo-r>span{padding:11px 14px;font-size:13.5px;line-height:1.6;color:var(--muted)}
+.wo-r>span+span{border-left:1px solid var(--border)}
+.wo-r:first-child>span{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text)}
+.wo-r>span:first-child{color:var(--text);font-weight:600}
+.wo-r .q{font-style:italic}
+.wo-r .none{color:var(--red)}
+.wo-r .ok{color:var(--green)}
+.wo-r .off{color:var(--faint)}
+.wo-t.map .wo-r{grid-template-columns:minmax(0,.8fr) minmax(0,1.3fr) minmax(0,1.3fr)}
+.wo-t.rows .wo-r{grid-template-columns:minmax(0,1.5fr) minmax(0,.55fr) minmax(0,1.1fr) minmax(0,1fr) minmax(0,.8fr)}
+.wo-t.voices .wo-r{grid-template-columns:minmax(0,.75fr) minmax(0,1.7fr) minmax(0,1fr) minmax(0,.7fr)}
+.wo-t.more .wo-r{grid-template-columns:minmax(0,.75fr) minmax(0,1fr) minmax(0,1.3fr) minmax(0,.7fr) minmax(0,1fr)}
+.wo-t.model .wo-r{grid-template-columns:minmax(0,.7fr) minmax(0,1.4fr) minmax(0,1.3fr)}
+.wo-t.edges .wo-r{grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.6fr)}
+.wo-t code,.wo-note code,.wo-rule code{font-family:var(--mono);font-size:.9em;background:var(--bg2);border-radius:4px;padding:1px 5px;overflow-wrap:anywhere}
+.wo-t.rows code{overflow-wrap:normal}
+.wo-r:first-child code{background:none;padding:0}
+
+/* the counts */
+.wo-counts{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:22px;max-width:880px}
+.wo-count{border:1px solid var(--border);border-radius:var(--r);background:var(--card);padding:14px 16px}
+.wo-count b{display:block;font-size:28px;font-weight:800;letter-spacing:-.03em;color:var(--text);line-height:1.1}
+.wo-count span{display:block;font-size:12.5px;line-height:1.5;color:var(--muted);margin-top:4px}
+
+/* two columns: sideways and upwards */
+.wo-two{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
+.wo-box{border:1px solid var(--border);border-radius:var(--r);padding:22px 24px;background:var(--card)}
+.wo-box.up{border-color:var(--green)}
+.wo-box h3{font-size:17px;color:var(--text);margin:8px 0 8px;letter-spacing:-.01em}
+.wo-box p{font-size:14.5px;line-height:1.7;color:var(--muted)}
+.wo-box p+p{margin-top:8px}
+.wo-box ol{margin:10px 0 0;padding-left:20px;font-size:14px;line-height:1.7;color:var(--muted)}
+
+/* the chain, board at the top */
+.wo-chain{margin-top:28px;max-width:760px;display:flex;flex-direction:column;gap:0}
+.wo-step{position:relative;border:1px solid var(--border);border-radius:var(--r);background:var(--card);padding:14px 18px 14px 18px;display:grid;grid-template-columns:120px minmax(0,1fr);gap:4px 18px}
+.wo-step+.wo-step{margin-top:26px}
+.wo-step+.wo-step::before{content:"";position:absolute;left:58px;top:-26px;height:26px;border-left:2px solid var(--green)}
+.wo-step+.wo-step::after{content:"";position:absolute;left:53px;top:-10px;border:6px solid transparent;border-bottom:8px solid var(--green);border-top:0}
+.wo-step .who{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green);padding-top:3px}
+.wo-step p{font-size:14.5px;line-height:1.6;color:var(--text)}
+.wo-step .how{grid-column:2;font-size:12.5px;color:var(--faint);font-family:var(--mono);line-height:1.55}
+.wo-step.fact{background:var(--bg2);border-style:dashed}
+.wo-step.fact .who{color:var(--muted)}
+.wo-step.top{border-color:var(--green);border-width:2px}
+.wo-chain-k{font-family:var(--mono);font-size:10.5px;color:var(--faint);margin-top:10px}
+
+/* the rules */
+.wo-rules{counter-reset:r;display:flex;flex-direction:column;margin-top:24px;max-width:900px}
+.wo-rule{position:relative;padding:18px 0 18px 54px;border-top:1px solid var(--border)}
+.wo-rule:last-child{border-bottom:1px solid var(--border)}
+.wo-rule::before{counter-increment:r;content:counter(r,decimal-leading-zero);position:absolute;left:0;top:19px;font-family:var(--mono);font-size:13px;font-weight:700;color:var(--green)}
+.wo-rule h3{font-size:16px;color:var(--text);margin:0 0 6px;letter-spacing:-.01em}
+.wo-rule p{font-size:14.5px;line-height:1.7;color:var(--muted)}
+.wo-rule p+p{margin-top:8px}
+
+/* the six weeks */
+.wo-days{display:flex;flex-direction:column;margin-top:26px;max-width:920px;border-left:2px solid var(--border);margin-left:6px}
+.wo-day{position:relative;padding:4px 0 22px 26px}
+.wo-day::before{content:"";position:absolute;left:-7px;top:9px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--green)}
+.wo-day.bad::before{border-color:var(--red)}
+.wo-day.done::before{background:var(--green)}
+.wo-day .d{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.wo-day h3{font-size:15.5px;color:var(--text);margin:2px 0 4px;letter-spacing:-.01em}
+.wo-day p{font-size:14.5px;line-height:1.7;color:var(--muted)}
+
+/* what exists */
+.wo-exists{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+.wo-exists ul{margin:10px 0 0;padding-left:18px;font-size:14px;line-height:1.7;color:var(--muted)}
+.wo-exists li+li{margin-top:6px}
+.wo-exists a{color:var(--green)}
+
+@media (max-width:900px){
+  .wo-t .wo-r{grid-template-columns:1fr 1fr !important}
+  .wo-t .wo-r:first-child{display:none}
+  .wo-t .wo-r>span:first-child{grid-column:1 / -1;border-bottom:1px solid var(--border)}
+  .wo-t .wo-r>span:nth-child(2){border-left:0}
+  .wo-t .wo-r>span:nth-child(n+4){border-top:1px dashed var(--border)}
+  .wo-t .wo-r>span:nth-child(4){border-left:0}
+  .wo-t .wo-r>span[data-k]::before{content:attr(data-k);display:block;font-family:var(--mono);font-size:9.5px;font-weight:700;font-style:normal;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:3px}
+  .wo-t.map .wo-r>span:nth-child(3){border-left:1px solid var(--border)}
+  .wo-counts{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .wo-two,.wo-exists{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .wo-t .wo-r{grid-template-columns:1fr !important}
+  .wo-t .wo-r>span+span{border-left:0 !important;border-top:1px dashed var(--border)}
+  .wo-t .wo-r>span:first-child{border-bottom:0}
+  .wo-counts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .wo-step{grid-template-columns:1fr}
+  .wo-step .how{grid-column:1}
+  .wo-quote{font-size:16px}
+  .wo-rule{padding-left:40px}
+}
+
+.ghlink{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:8px;color:var(--muted);border:1px solid transparent}.ghlink:hover{color:var(--text);border-color:var(--border)}
+.footlic{display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap}.footlic a{color:inherit}.ccicon{vertical-align:-3px;margin:0 2px}
+@media (max-width:1400px) and (min-width:901px){.ghlink,header.top a.version{display:none}header.top .wrap{gap:14px}}</style>
+</head>
+<body id="top">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
+    <nav class="navlinks"><rm-menu></rm-menu></nav>
+    <a class="ghlink" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener" aria-label="The source, on GitHub" title="Open source · Apache-2.0 code · CC BY 4.0 pages"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a>
+      <a class="version" href="versions.html" title="What shipped in v1.34.4">v1.34.4</a>
+    <button class="demo" data-demo>Book a demo</button>
+  </div>
+</header>
+
+<main class="phero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span>ARTICLE · 24 SEPTEMBER 2026</span>
+    <h1>Who owns what in AI. And how accountability holds on the way up.</h1>
+    <p class="sub" style="margin-bottom:20px">An infographic shared on LinkedIn, <em>Who owns what in AI (By Role)</em>, maps thirteen roles, from the board to all employees, to what each one owns in AI and what that protects. It is a good place to start, and every company will redraw it for itself. What a one-page map has no room for is the other direction: how a risk that begins with one agent&rsquo;s access travels to the board, in whose words, accepted by whom, and until when. This article adds that direction, works it through on one agent, and ends with the model in enough detail to build.</p>
+    <p class="meta"><b>Responding to:</b> &ldquo;Who owns what in AI (By Role)&rdquo;, by Alex Miguel Meyer, shared on LinkedIn and sent to us on 24 September 2026. Its rows are quoted in section 01 so the argument can be followed; the image is the author&rsquo;s and is not reproduced here.</p>
+    <p class="meta"><b>The worked example:</b> an invented company and an invented agent. Nobody&rsquo;s system was tested. The one product fact used is quoted from the vendor&rsquo;s own page, with its date.</p>
+    <p class="meta"><b>This page as markdown:</b> <a href="article-who-owns-what-in-ai.md">article-who-owns-what-in-ai.md</a></p>
+  </div>
+</main>
+
+<div class="paper">
+
+<section class="psection">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">01 · The map</span>
+      <h2>Thirteen roles, what each owns, <span class="g">and what it protects.</span></h2>
+      <p>The infographic&rsquo;s subtitle is &ldquo;Different roles. Clear ownership. Better outcomes.&rdquo; It reads left to right: a role, an arrow to what that role owns in AI, and an arrow to what the ownership protects. Its thirteen rows, as written:</p>
+    </div>
+    <div class="wo-t map" role="table" aria-label="The thirteen rows of Who owns what in AI (By Role), quoted">
+      <div class="wo-r" role="row"><span role="columnheader">Role</span><span role="columnheader">What they own</span><span role="columnheader">What it protects</span></div>
+      <div class="wo-r" role="row"><span role="cell">CEO / Leadership</span><span role="cell" class="q" data-k="What they own">AI vision, strategy and business outcomes</span><span role="cell" class="q" data-k="What it protects">Long-term value and competitiveness</span></div>
+      <div class="wo-r" role="row"><span role="cell">Board</span><span role="cell" class="q" data-k="What they own">Oversight, risk appetite and accountability</span><span role="cell" class="q" data-k="What it protects">Trust, compliance and sustainable growth</span></div>
+      <div class="wo-r" role="row"><span role="cell">CFO</span><span role="cell" class="q" data-k="What they own">Investment, ROI and financial controls</span><span role="cell" class="q" data-k="What it protects">Financial discipline and value creation</span></div>
+      <div class="wo-r" role="row"><span role="cell">COO</span><span role="cell" class="q" data-k="What they own">Operational integration and process change</span><span role="cell" class="q" data-k="What it protects">Efficient, scalable operations</span></div>
+      <div class="wo-r" role="row"><span role="cell">CTO / IT</span><span role="cell" class="q" data-k="What they own">Technology infrastructure, security and system reliability</span><span role="cell" class="q" data-k="What it protects">Stable, secure and resilient systems</span></div>
+      <div class="wo-r" role="row"><span role="cell">CIO / Data</span><span role="cell" class="q" data-k="What they own">Data quality, access and data governance</span><span role="cell" class="q" data-k="What it protects">Accurate, trusted data for better decisions</span></div>
+      <div class="wo-r" role="row"><span role="cell">CISO</span><span role="cell" class="q" data-k="What they own">Threat management and data protection</span><span role="cell" class="q" data-k="What it protects">Reduced risk and organisational safety</span></div>
+      <div class="wo-r" role="row"><span role="cell">Legal</span><span role="cell" class="q" data-k="What they own">Regulatory compliance, contracts and IP rights</span><span role="cell" class="q" data-k="What it protects">Legal protection and responsible use</span></div>
+      <div class="wo-r" role="row"><span role="cell">HR</span><span role="cell" class="q" data-k="What they own">People readiness, upskilling and change management</span><span role="cell" class="q" data-k="What it protects">A future-ready workforce and higher adoption</span></div>
+      <div class="wo-r" role="row"><span role="cell">Marketing</span><span role="cell" class="q" data-k="What they own">Responsible content use and brand consistency</span><span role="cell" class="q" data-k="What it protects">Brand trust and customer confidence</span></div>
+      <div class="wo-r" role="row"><span role="cell">Sales</span><span role="cell" class="q" data-k="What they own">Ethical use in customer engagement and pipelines</span><span role="cell" class="q" data-k="What it protects">Customer trust and revenue growth</span></div>
+      <div class="wo-r" role="row"><span role="cell">Product</span><span role="cell" class="q" data-k="What they own">AI features, user experience and model performance</span><span role="cell" class="q" data-k="What it protects">Customer value and product-market fit</span></div>
+      <div class="wo-r" role="row"><span role="cell">All Employees</span><span role="cell" class="q" data-k="What they own">Responsible day-to-day use and feedback from the field</span><span role="cell" class="q" data-k="What it protects">Safe, practical and high-impact adoption</span></div>
+    </div>
+    <p class="wo-src">Source: &ldquo;Who owns what in AI (By Role)&rdquo;, Alex Miguel Meyer, LinkedIn. Text transcribed from the image on 24 September 2026.</p>
+    <p class="wo-note"><b>Why we are building on it.</b> The lead&rsquo;s reaction on seeing it was that it is a very good mapping, and the reason is specific: it is about levels of responsibility. It puts AI on every role&rsquo;s desk rather than on IT&rsquo;s alone. It gives the board &ldquo;oversight, risk appetite and accountability&rdquo;. And it ends with all employees, who are the people actually connecting agents to their mail, their calendars and their customers&rsquo; records. Everything below depends on those three things.</p>
+    <p class="wo-note"><b>What it is, and what it is not.</b> Across its thirteen rows, the word <em>risk</em> appears twice, in the board&rsquo;s row and the CISO&rsquo;s, and <em>accountability</em> once, in the board&rsquo;s. No row mentions an agent. None of that is an omission to point at: a one-page map of who owns which area is a different object from a record of who answers for a given risk. The second is what this article is about, and it needs the first.</p>
+  </div>
+</section>
+
+<section class="psection alt">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">02 · Every company redraws it</span>
+      <h2>A generic map, <span class="g">and yours will differ.</span></h2>
+      <p>Every company that uses a map like this will have its own levels of responsibility. In a twenty-person startup the CEO is also the CFO and signs for security. A bank adds a chief risk officer and a data protection officer. A UK government department has a senior information risk owner. That is how it should be. Our own framework is generic in the same way, and it is adjusted everywhere it is used. So the useful question is not whose map is right. It is which parts a company may change and which parts must stay fixed, so that accountability still holds after the adjusting.</p>
+    </div>
+    <div class="wo-two">
+      <div class="wo-box"><span class="wo-k">Each company sets</span><h3>The people, the lines and the limits.</h3>
+        <ol>
+          <li>The roles, and what the company calls them.</li>
+          <li>Who reports to whom, up to the board.</li>
+          <li>What each role may accept, and for how long: the board&rsquo;s risk appetite, handed down.</li>
+          <li>The words each role uses for a risk.</li>
+          <li>How long silence is allowed before a risk moves up. A week, in the example below.</li>
+        </ol>
+      </div>
+      <div class="wo-box up"><span class="wo-k">Stays fixed everywhere</span><h3>The grammar.</h3>
+        <ol>
+          <li>Every risk has one holder at a time.</li>
+          <li>Every holder answers to somebody, and every path ends at the board.</li>
+          <li>Nothing is denied. A risk is accepted for a stated interval, the work to end it is funded, or it is fixed.</li>
+          <li>Silence is not a decision. An unaccepted risk moves up.</li>
+          <li>Every risk names the facts that make it true and the facts that would end it.</li>
+          <li>The behaviour policy scores nothing.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="psection">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">03 · Sideways and upwards</span>
+      <h2>The map runs sideways. <span class="g">Accountability runs upwards.</span></h2>
+      <p>Every arrow on the map points to the right: a role, what it owns, what that protects. That is the right shape for describing areas. A risk does not stay inside one area, though. It starts at a fact somewhere low, such as a connector&rsquo;s scope or a setting nobody changed. From there it has to travel until it reaches somebody with the authority to accept it, fund the work that ends it, or fix it.</p>
+    </div>
+    <div class="wo-two">
+      <div class="wo-box"><span class="wo-k">Sideways</span><h3>The middle column is a routing table.</h3><p>When a risk appears, &ldquo;what they own&rdquo; says whose area it touches. Customer data leaving the company is the CIO&rsquo;s and the CISO&rsquo;s. Mail to customers is Sales&rsquo;. What goes out under the company&rsquo;s name is Marketing&rsquo;s. Read this way, the map already does half the work: it says where a risk lands.</p></div>
+      <div class="wo-box up"><span class="wo-k">Upwards</span><h3>The organisation chart is the escalation path.</h3><p>Each holder answers to somebody, and the chain ends at the board. Three verbs travel along this path that the map does not draw: <b>accepts</b>, for a stated interval; <b>answers to</b>, when the holder cannot or does not decide; and <b>can stop</b>, which says who can switch the agent off, and how quickly.</p></div>
+    </div>
+    <p class="wo-note">Both directions are needed, and joining them is the whole design. The map says which holder a risk goes to. The chain says where it goes next when that holder has no authority to accept it, or simply does not decide. What keeps accountability intact on the way up is that the risk is carried: the same exposure, in each holder&rsquo;s own words, linked to the one below it and not retyped.</p>
+  </div>
+</section>
+
+<section class="psection alt">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">04 · Where a risk starts</span>
+      <h2>One agent, <span class="g">and its Agent Behaviour Policy.</span></h2>
+      <p>The example is invented, and deliberately ordinary. A company of about two hundred people sells software to other businesses. A sales representative connects an AI assistant to their own email, calendar and customer relationship management system (the CRM), so it can draft follow-ups and suggest meeting times. Their manager says yes. Nobody else is asked, because nothing about it looks like a decision.</p>
+      <p>An <b>Agent Behaviour Policy</b> (ABP) is the record of one agent in one deployment. It lists everything the agent can do (the <em>grant</em>), what it was authorised to do (the <em>mandate</em>), the gap between the two, and what stands in the way of each thing in the gap. It scores nothing. For this agent it has eight rows:</p>
+    </div>
+    <div class="wo-t rows" role="table" aria-label="The eight rows of the example agent's behaviour policy">
+      <div class="wo-r" role="row"><span role="columnheader">What it can do</span><span role="columnheader">Authorised?</span><span role="columnheader">What stands in the way</span><span role="columnheader">Can it be undone?</span><span role="columnheader">In the vocabulary</span></div>
+      <div class="wo-r" role="row"><span role="cell">1 · Read the rep&rsquo;s mail, including mail from anybody outside the company</span><span role="cell" class="ok" data-k="Authorised?">yes</span><span role="cell" data-k="In the way">not needed</span><span role="cell" data-k="Undo">nothing changes</span><span role="cell" data-k="Vocabulary"><code>read.<wbr>message.<wbr>tenant</code></span></div>
+      <div class="wo-r" role="row"><span role="cell">2 · Write drafts for the rep</span><span role="cell" class="ok" data-k="Authorised?">yes</span><span role="cell" data-k="In the way">not needed</span><span role="cell" data-k="Undo">yes: a draft is not sent</span><span role="cell" data-k="Vocabulary">outside the 23 primitives; recorded as written</span></div>
+      <div class="wo-r" role="row"><span role="cell">3 · Send mail as the rep, to anybody</span><span role="cell" class="none" data-k="Authorised?">no: drafts only</span><span role="cell" data-k="In the way"><b>an expectation</b>: its instructions say &ldquo;always ask before sending&rdquo;</span><span role="cell" class="none" data-k="Undo">no, once sent</span><span role="cell" data-k="Vocabulary"><code>send.<wbr>message.<wbr>world</code></span></div>
+      <div class="wo-r" role="row"><span role="cell">4 · Read every CRM record the rep can see</span><span role="cell" class="ok" data-k="Authorised?">yes</span><span role="cell" data-k="In the way">not needed</span><span role="cell" data-k="Undo">nothing changes</span><span role="cell" data-k="Vocabulary">outside the 23; recorded as written</span></div>
+      <div class="wo-r" role="row"><span role="cell">5 · Update any CRM record the rep can update, not only the rep&rsquo;s own accounts</span><span role="cell" class="none" data-k="Authorised?">only logging calls on the rep&rsquo;s own accounts</span><span role="cell" class="none" data-k="In the way">nothing</span><span role="cell" data-k="Undo">as far as the CRM keeps history</span><span role="cell" data-k="Vocabulary">outside the 23; recorded as written</span></div>
+      <div class="wo-r" role="row"><span role="cell">6 · Export CRM records in bulk</span><span role="cell" class="none" data-k="Authorised?">no</span><span role="cell" class="none" data-k="In the way">nothing</span><span role="cell" class="none" data-k="Undo">no: data that has left cannot be recalled</span><span role="cell" data-k="Vocabulary">outside the 23; recorded as written</span></div>
+      <div class="wo-r" role="row"><span role="cell">7 · Create, edit and delete events on every calendar the rep can edit, including the shared calendar the company books customer meetings on</span><span role="cell" class="none" data-k="Authorised?">no: it suggests times, and the rep books</span><span role="cell" class="none" data-k="In the way">nothing</span><span role="cell" class="none" data-k="Undo">a delete often goes to a trash; an edit often cannot be restored</span><span role="cell" data-k="Vocabulary">outside the 23: no primitive names a calendar event</span></div>
+      <div class="wo-r" role="row"><span role="cell">8 · Act in each account as the rep</span><span role="cell" class="ok" data-k="Authorised?">yes: it has to</span><span role="cell" data-k="In the way">not needed</span><span role="cell" data-k="Undo">not an action</span><span role="cell" data-k="Vocabulary"><code>authenticate-as.<wbr>credential.<wbr>tenant</code></span></div>
+    </div>
+    <div class="wo-counts" aria-label="The four counts, and shortfall">
+      <div class="wo-count"><b>8</b><span>in the grant</span></div>
+      <div class="wo-count"><b>4</b><span>in the mandate</span></div>
+      <div class="wo-count"><b>4</b><span>excess: can, and was not asked to</span></div>
+      <div class="wo-count"><b>4</b><span>unbounded excess: nothing out of the agent&rsquo;s reach in the way</span></div>
+      <div class="wo-count"><b>0</b><span>shortfall: asked to, and cannot</span></div>
+    </div>
+    <p class="wo-note"><b>How to read the barrier column.</b> What stands in the way is one of four kinds, weakest first: <em>nothing</em>; an <em>expectation</em>, a rule in prose that nothing enforces, such as a line in the agent&rsquo;s instructions; a <em>setting</em> the agent&rsquo;s own account could switch off; and a <em>boundary</em>, enforced by something the agent cannot reach. Only a boundary is a control. That is why row 3 counts as unbounded even though the instructions forbid it. Unbounded excess is the one number a control can move: each real control turns a row into a boundary, and the count falls.</p>
+    <p class="wo-note"><b>On row 7:</b> in Google Calendar, for example, a deleted event stays in the trash for 30 days, and Google&rsquo;s pages document no way for a user to restore an edited one (read 24 September 2026; the details are in <a href="article-calendar-edits-cannot-be-undone.html">a separate article</a>). <b>On row 8:</b> unless the product marks what an agent did, every record shows the rep did it.</p>
+    <p class="wo-note"><b>Rows 1, 3 and 4 together</b> are what Simon Willison named the lethal trifecta: &ldquo;Access to your private data… Exposure to untrusted content… The ability to externally communicate in a way that could be used to steal your data&rdquo; (<a href="https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/" target="_blank" rel="noopener">16 June 2025</a>). This agent has all three, and an instruction is the only thing in the way.</p>
+    <p class="wo-note"><b>From rows to risks.</b> Each row in the gap is a fact, with its source. The facts establish five risks. At first each is written the way the person who connected the agent would say it:</p>
+    <div class="wo-t edges" role="table" aria-label="Five risks, the facts that establish them, and the facts that would end them">
+      <div class="wo-r" role="row"><span role="columnheader">The risk, as the rep would say it</span><span role="columnheader">Established by</span><span role="columnheader">Ended by</span></div>
+      <div class="wo-r" role="row"><span role="cell">R1 · &ldquo;It can send as me, to anybody, before I have read it.&rdquo;</span><span role="cell" data-k="Established by">row 3, with only an expectation in the way</span><span role="cell" data-k="Ended by">sending that needs approval the agent cannot give itself (a boundary), or sending removed from the grant</span></div>
+      <div class="wo-r" role="row"><span role="cell">R2 · &ldquo;An email from a stranger could tell it to send our customer data out.&rdquo;</span><span role="cell" data-k="Established by">rows 1, 3 and 4, all together</span><span role="cell" data-k="Ended by">any one of the three removed, or bounded</span></div>
+      <div class="wo-r" role="row"><span role="cell">R3 · &ldquo;It can take the customer list out.&rdquo;</span><span role="cell" data-k="Established by">row 6</span><span role="cell" data-k="Ended by">export removed from the grant, or bounded</span></div>
+      <div class="wo-r" role="row"><span role="cell">R4 · &ldquo;It can change accounts that are not mine.&rdquo;</span><span role="cell" data-k="Established by">row 5</span><span role="cell" data-k="Ended by">the CRM limiting the rep, and so the agent, to the rep&rsquo;s own accounts</span></div>
+      <div class="wo-r" role="row"><span role="cell">R5 · &ldquo;It can rearrange the shared calendar, and nobody could see what it said before.&rdquo;</span><span role="cell" data-k="Established by">row 7</span><span role="cell" data-k="Ended by">calendar access narrowed to the rep&rsquo;s own calendar, or a copy of every event kept before each edit, somewhere the agent cannot write</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="psection">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">05 · One exposure, thirteen voices</span>
+      <h2>The same agent, <span class="g">in each role&rsquo;s own words.</span></h2>
+      <p>Here is the agent&rsquo;s exposure as each of the map&rsquo;s thirteen roles would put it, from the bottom of the company to the top. The map&rsquo;s middle column decides whom it reaches. Its right-hand column says what each of them stands to lose, quoted as written. Each statement is linked to the risks below it and never retyped, so when those end, the ones above know.</p>
+    </div>
+    <div class="wo-t voices" role="table" aria-label="The example agent's exposure in the words of each of the thirteen roles">
+      <div class="wo-r" role="row"><span role="columnheader">Role</span><span role="columnheader">The exposure, in their words</span><span role="columnheader">What the map says it protects</span><span role="columnheader">Comes from</span></div>
+      <div class="wo-r" role="row"><span role="cell">All Employees</span><span role="cell" data-k="In their words">&ldquo;It can do more than I asked it to, and it all looks like me.&rdquo;</span><span role="cell" class="q" data-k="The map: protects">Safe, practical and high-impact adoption</span><span role="cell" data-k="From">R1 to R5</span></div>
+      <div class="wo-r" role="row"><span role="cell">Sales</span><span role="cell" data-k="In their words">&ldquo;Mail can reach our customers that nobody in the team wrote or read, and account records can change without the account&rsquo;s owner knowing.&rdquo;</span><span role="cell" class="q" data-k="The map: protects">Customer trust and revenue growth</span><span role="cell" data-k="From">R1, R4</span></div>
+      <div class="wo-r" role="row"><span role="cell">Marketing</span><span role="cell" data-k="In their words">&ldquo;Messages can go out in the company&rsquo;s name that nobody reviewed.&rdquo;</span><span role="cell" class="q" data-k="The map: protects">Brand trust and customer confidence</span><span role="cell" data-k="From">R1</span></div>
+      <div class="wo-r" role="row"><span role="cell">CIO / Data</span><span role="cell" data-k="In their words">&ldquo;Customer records can be changed or exported through an agent, and the record says a person did it.&rdquo;</span><span role="cell" class="q" data-k="The map: protects">Accurate, trusted data for better decisions</span><span role="cell" data-k="From">R3, R4</span></div>
+      <div class="wo-r" role="row"><span role="cell">CISO</span><span role="cell" data-k="In their words">&ldquo;A stranger&rsquo;s email reaches an agent that holds customer data and can send mail anywhere, with nothing but an instruction in the way.&rdquo;</span><span role="cell" class="q" data-k="The map: protects">Reduced risk and organisational safety</span><span role="cell" data-k="From">R2</span></div>
+      <div class="wo-r" role="row"><span role="cell">Legal</span><span role="cell" data-k="In their words">&ldquo;Personal data about customers can leave through an agent, and a message nobody approved can say something to a customer we then have to stand behind.&rdquo;</span><span role="cell" class="q" data-k="The map: protects">Legal protection and responsible use</span><span role="cell" data-k="From">R1, R2, R3</span></div>
+      <div class="wo-r" role="row"><span role="cell">COO</span><span role="cell" data-k="In their words">&ldquo;The calendar the company books customer meetings on can be rearranged, with no way back, and the day runs on it.&rdquo;</span><span role="cell" class="q" data-k="The map: protects">Efficient, scalable operations</span><span role="cell" data-k="From">R5</span></div>
+      <div class="wo-r" role="row"><span role="cell">CTO / IT</span><span role="cell" data-k="In their words">&ldquo;We allow a connector that grants more than this use needs, and nothing we run narrows it.&rdquo;</span><span role="cell" class="q" data-k="The map: protects">Stable, secure and resilient systems</span><span role="cell" data-k="From">R1 to R5</span></div>
+      <div class="wo-r" role="row"><span role="cell">HR</span><span role="cell" data-k="In their words">&ldquo;We encourage people to adopt agents without telling them what an agent can do beyond what they ask of it.&rdquo;</span><span role="cell" class="q" data-k="The map: protects">A future-ready workforce and higher adoption</span><span role="cell" data-k="From">the rows, not one risk</span></div>
+      <div class="wo-r" role="row"><span role="cell">Product</span><span role="cell" class="off" data-k="In their words">Not on this path. It would be if the agent were part of what the company sells.</span><span role="cell" class="q" data-k="The map: protects">Customer value and product-market fit</span><span role="cell" class="off" data-k="From">none</span></div>
+      <div class="wo-r" role="row"><span role="cell">CFO</span><span role="cell" data-k="In their words">&ldquo;A customer relationship we paid to win can be damaged in an afternoon, and we have not asked whether our cover responds to something an agent did.&rdquo;</span><span role="cell" class="q" data-k="The map: protects">Financial discipline and value creation</span><span role="cell" data-k="From">R1, R2, R3</span></div>
+      <div class="wo-r" role="row"><span role="cell">CEO / Leadership</span><span role="cell" data-k="In their words">&ldquo;Customers can hear from us in ways we did not decide, and I could not say who accepted that.&rdquo;</span><span role="cell" class="q" data-k="The map: protects">Long-term value and competitiveness</span><span role="cell" data-k="From">R1, R2, R5</span></div>
+      <div class="wo-r" role="row"><span role="cell">Board</span><span role="cell" data-k="In their words">&ldquo;We cannot say what our agents can do beyond what they were authorised to do, or who accepted the difference, and until when.&rdquo;</span><span role="cell" class="q" data-k="The map: protects">Trust, compliance and sustainable growth</span><span role="cell" data-k="From">every open risk</span></div>
+    </div>
+    <p class="wo-note"><b>Now follow one risk up.</b> R2, the stranger&rsquo;s email, starts with the rep. The rep has no authority to accept it, so it goes at once to the role whose area it touches, the CISO. From there it follows the reporting lines. The chart below is this example company&rsquo;s; yours will differ.</p>
+    <div class="wo-chain" aria-label="Risk R2 followed from the facts up to the board">
+      <div class="wo-step top"><span class="who">Board</span><p>&ldquo;We cannot say what our agents can do beyond what they were authorised to do, or who accepted the difference.&rdquo;</p><span class="how">sees it from the day it is established, with its holder and its expiry; holds it only if the CEO does not decide</span></div>
+      <div class="wo-step"><span class="who">CEO</span><p>&ldquo;A customer could learn from somebody else that their data left us in an email we never meant to send.&rdquo;</p><span class="how">receives it if the CTO does not decide within a week</span></div>
+      <div class="wo-step"><span class="who">CTO / IT</span><p>&ldquo;A connector we allow lets an outside sender steer an agent that holds customer data.&rdquo;</p><span class="how">receives it if the CISO does not decide within a week; in this company the CISO reports to the CTO</span></div>
+      <div class="wo-step"><span class="who">CISO</span><p>&ldquo;Untrusted input reaches an agent with private data and a way out, and only an instruction stands in the way.&rdquo;</p><span class="how">placed here: the map gives the CISO &ldquo;threat management and data protection&rdquo;</span></div>
+      <div class="wo-step"><span class="who">The rep</span><p>&ldquo;An email from a stranger could tell it to send our customer data out.&rdquo;</p><span class="how">where it starts; the rep may accept risks inside their own work, and customer data leaving is not, so it moves on at once</span></div>
+      <div class="wo-step fact"><span class="who">The facts</span><p>Rows 1, 3 and 4 of the ABP: reads mail from anybody; reads the CRM; sends to anybody, with only an expectation in the way.</p><span class="how">recomputed whenever the grant or the mandate changes</span></div>
+    </div>
+    <p class="wo-chain-k">Read from the bottom. Each arrow is a named edge: a fact establishes a risk, a risk is translated into the holder&rsquo;s words, a holder answers to the role above.</p>
+  </div>
+</section>
+
+<section class="psection alt">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">06 · Holding it on the way up</span>
+      <h2>Seven rules <span class="g">that keep accountability intact.</span></h2>
+      <p>These are what join the map to the chart. They are how Risk Mandate works: the acceptance loop, with the ABP underneath it supplying the facts. Most are published on this site already, and are gathered here so that the article stands on its own: the three doors and their intervals, silence, facts that end risks, and the stop. Two are new in this article: authority delegated from the board, and placing a risk by the map.</p>
+    </div>
+    <div class="wo-rules">
+      <div class="wo-rule"><h3>The board&rsquo;s risk appetite becomes authority to accept.</h3><p>The map gives the board &ldquo;oversight, risk appetite and accountability&rdquo;. Appetite becomes usable when it is handed down, one role at a time, as a limit on what that role may accept and for how long. In the example: the rep may accept what stays inside their own mailbox, calendar and drafts, for up to a month. The head of Sales may accept what touches the team&rsquo;s customer mail and records, for up to a month. The CIO and the CISO may accept customer data at risk, inside the company or leaving it, for up to three months. The CEO may accept what reaches customers at scale or cannot be undone across the company. The board keeps whatever its appetite statement reserves to itself.</p><p>Authority is written as <em>kinds of consequence</em> and <em>lengths of time</em>, not as scores. Both can be argued with, and both can be checked.</p></div>
+      <div class="wo-rule"><h3>A risk is placed by the map, and moves by the chart.</h3><p>A new risk is offered first to the nearest holder, usually the person who connected the agent. If it is outside their authority, it goes straight to the role whose area it touches: the map&rsquo;s middle column. From there it follows reporting lines until it meets an authority that covers it. It has one holder at a time. Everyone else it touches is <em>informed</em>, and informed is not the same as holding.</p></div>
+      <div class="wo-rule"><h3>There is no deny. There are three doors, each with an interval.</h3><p>A risk exists as soon as the facts do, whether or not anybody has signed for it. So the choice is never yes or no. It is: <b>accept</b> it for a stated interval; <b>fund</b> the work that will end it, and accept it for as long as that work takes; or <b>fix</b> it now. The interval is the decision. Anything under a week is an incident, and should be treated as one. A month is a piece of funded work. Six months, near the line of what the business finds acceptable, is a named decision to wait.</p></div>
+      <div class="wo-rule"><h3>Silence goes up.</h3><p>A risk nobody has accepted is critical for whoever holds it, because until somebody accepts it that person is accountable for it. If the holder does nothing within the time the company has set (a week, in the example), the risk moves to the person they answer to. When an acceptance expires, the same decision comes back to the same desk with whatever has changed since. If it is not renewed, it goes up.</p></div>
+      <div class="wo-rule"><h3>Translate, never retype.</h3><p>Each holder receives the risk in their own words, as a new statement linked to the one below it. The CISO&rsquo;s sentence and the rep&rsquo;s are different sentences about the same facts. When the lower one ends, the upper one ends too, unless another source still holds it up. A retyped risk is disconnected the moment it is written; a translated one knows when it is over.</p></div>
+      <div class="wo-rule"><h3>Facts end risks. People do not close them.</h3><p>The ABP is recomputed whenever the grant or the mandate changes. When a row moves to a boundary, or leaves the grant, the facts it established end, and every risk that needed them ceases. The new ABP version is the evidence. Nobody closes a risk by saying it is closed.</p></div>
+      <div class="wo-rule"><h3>Somebody can stop the agent, within the shortest interval accepted.</h3><p>If a holder accepts a risk for four hours, somebody must be able to switch the agent off within four hours. Every chain records who can stop the agent and how long it takes: the rep can disconnect it, and IT can revoke the connector for the whole company. An interval nobody can honour is a finding. <a href="plug.html">The plug profile</a> is where that gets written down.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="psection">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">07 · Six weeks, one agent</span>
+      <h2>The five risks, <span class="g">from the day it was connected.</span></h2>
+      <p>Invented dates, and the mechanics are the point. Watch where each risk goes, who decides, and what ends it.</p>
+    </div>
+    <div class="wo-days">
+      <div class="wo-day bad"><span class="d">Day 0</span><h3>Connected. Eight rows, four in the gap, none bounded.</h3><p>The ABP is written from the connector&rsquo;s consent screen, the products&rsquo; own pages and ten minutes with the rep about what they want it for. Five risks are established. <b>The person who connected the agent can accept none of them</b>: every one reaches past their own work. R1 and R4 go to the head of Sales, R2 to the CISO, R3 to the CIO, and R5 to the COO, whose map row is &ldquo;operational integration&rdquo;. The board&rsquo;s view shows five new risks, each with a holder, none accepted yet.</p></div>
+      <div class="wo-day"><span class="d">Day 2</span><h3>Sales funds one fix and asks for another.</h3><p>The head of Sales <b>funds</b> R1: accepted for two weeks while IT adds an approval step to sending that the agent cannot give itself. For R4 they choose <b>fix</b>: they ask the CRM administrator to limit reps to their own accounts.</p></div>
+      <div class="wo-day"><span class="d">Day 3</span><h3>The CISO and the CIO accept, with actions.</h3><p>The CISO <b>accepts</b> R2 for two weeks and records why that is enough: R2 needs rows 1, 3 and 4 together, so R1&rsquo;s fix ends it too. The CIO <b>funds</b> R3: accepted for a month while export is removed from the connector&rsquo;s scope, a change IT has to schedule.</p></div>
+      <div class="wo-day done"><span class="d">Day 4</span><h3>R4 ceases, on evidence.</h3><p>The CRM now limits the rep to their own accounts. ABP version 2 is recomputed: row 5&rsquo;s barrier is a boundary, held by the CRM administrator, out of the agent&rsquo;s reach. The fact behind R4 no longer holds, and R4 ceases, citing version 2. Sales&rsquo; and the CIO&rsquo;s statements lose that source.</p></div>
+      <div class="wo-day bad"><span class="d">Day 7</span><h3>Silence: R5 moves up.</h3><p>The COO has not acted on R5 in a week. It moves to the CEO, whom the COO answers to, and it is now critical there.</p></div>
+      <div class="wo-day done"><span class="d">Day 10</span><h3>The CEO fixes R5, and a smaller risk takes its place.</h3><p>The CEO asks IT to narrow the agent&rsquo;s calendar access to the rep&rsquo;s own calendar. ABP version 3: R5 ceases. The agent can still edit the rep&rsquo;s own events, which is more than suggesting times, so a smaller risk is established: &ldquo;it can change my own meetings&rdquo;. That one is inside the rep&rsquo;s authority, and the rep accepts it for a month.</p></div>
+      <div class="wo-day done"><span class="d">Day 15</span><h3>The approval step goes live. R1 and R2 cease together.</h3><p>Sending now needs the rep&rsquo;s approval, somewhere the agent cannot reach. ABP version 4: row 3&rsquo;s barrier is a boundary. R1 ceases. R2 needed all three rows, loses the sending one and ceases too. The lethal trifecta is broken on evidence, not on an instruction.</p></div>
+      <div class="wo-day"><span class="d">Day 33</span><h3>R3&rsquo;s month runs out with the work not done.</h3><p>The scope change was scheduled and has not shipped. The decision returns to the CIO, who renews for one more month with a date for the change. The renewal is a new acceptance, and the old one stays in the record.</p></div>
+      <div class="wo-day"><span class="d">Day 42</span><h3>What the board sees.</h3><p>Two open risks, each with a name and a date: R3, held by the CIO, accepted until day 63, with the work scheduled; and the rep&rsquo;s own-calendar risk, accepted on day 10 for a month and renewed on day 40 until day 70. Four risks ceased, each citing the ABP version that ended it. None unaccepted. For the agent, unbounded excess went from four to two. That is not a score. It is a count anybody can recompute from the ABP versions.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="psection alt">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">08 · The map, with four more columns</span>
+      <h2>The same thirteen rows, <span class="g">with what a one-page map has no room for.</span></h2>
+      <p>For the example company and this one agent. The first column is the map&rsquo;s; the other four are what the acceptance loop adds. Another company would fill them differently, and another agent would change the second column entirely.</p>
+    </div>
+    <div class="wo-t more" role="table" aria-label="The thirteen roles with what each holds, may accept, answers to and can stop, in the example">
+      <div class="wo-r" role="row"><span role="columnheader">Role</span><span role="columnheader">Holds, in the example</span><span role="columnheader">May accept</span><span role="columnheader">Answers to</span><span role="columnheader">Can stop the agent</span></div>
+      <div class="wo-r" role="row"><span role="cell">CEO / Leadership</span><span role="cell" data-k="Holds">R5, after the COO&rsquo;s silence, until it fixed it</span><span role="cell" data-k="May accept">what reaches customers at scale, or cannot be undone across the company</span><span role="cell" data-k="Answers to">the board</span><span role="cell" data-k="Can stop">by telling IT</span></div>
+      <div class="wo-r" role="row"><span role="cell">Board</span><span role="cell" data-k="Holds">nothing directly; sees every risk and its expiry</span><span role="cell" data-k="May accept">sets the appetite; keeps what it reserves</span><span role="cell" data-k="Answers to">the owners</span><span role="cell" data-k="Can stop">through the CEO</span></div>
+      <div class="wo-r" role="row"><span role="cell">CFO</span><span role="cell" data-k="Holds">nothing; informed of R1, R2 and R3</span><span role="cell" data-k="May accept">financial exposure within budget, up to three months</span><span role="cell" data-k="Answers to">the CEO</span><span role="cell" class="off" data-k="Can stop">no</span></div>
+      <div class="wo-r" role="row"><span role="cell">COO</span><span role="cell" data-k="Holds">R5, for a week, then let it go up</span><span role="cell" data-k="May accept">how the company&rsquo;s shared operations run, up to a month</span><span role="cell" data-k="Answers to">the CEO</span><span role="cell" class="off" data-k="Can stop">no</span></div>
+      <div class="wo-r" role="row"><span role="cell">CTO / IT</span><span role="cell" data-k="Holds">nothing; did the work behind two of the endings, and has the third scheduled</span><span role="cell" data-k="May accept">changes to technology, up to three months</span><span role="cell" data-k="Answers to">the CEO</span><span role="cell" class="ok" data-k="Can stop">yes: revokes the connector for the company</span></div>
+      <div class="wo-r" role="row"><span role="cell">CIO / Data</span><span role="cell" data-k="Holds">R3, renewed once</span><span role="cell" data-k="May accept">customer data at risk, inside the company or leaving it, up to three months</span><span role="cell" data-k="Answers to">the CTO</span><span role="cell" data-k="Can stop">through IT</span></div>
+      <div class="wo-r" role="row"><span role="cell">CISO</span><span role="cell" data-k="Holds">R2, until it ceased</span><span role="cell" data-k="May accept">threats to data and systems, up to three months</span><span role="cell" data-k="Answers to">the CTO</span><span role="cell" class="ok" data-k="Can stop">yes, through IT, and may order it in an incident</span></div>
+      <div class="wo-r" role="row"><span role="cell">Legal</span><span role="cell" data-k="Holds">nothing; informed of R1, R2 and R3</span><span role="cell" data-k="May accept">legal exposure; would hold a risk that a message could commit the company</span><span role="cell" data-k="Answers to">the CEO</span><span role="cell" class="off" data-k="Can stop">no</span></div>
+      <div class="wo-r" role="row"><span role="cell">HR</span><span role="cell" data-k="Holds">nothing</span><span role="cell" data-k="May accept">how people are asked to adopt agents</span><span role="cell" data-k="Answers to">the COO</span><span role="cell" class="off" data-k="Can stop">no</span></div>
+      <div class="wo-r" role="row"><span role="cell">Marketing</span><span role="cell" data-k="Holds">nothing; informed of R1</span><span role="cell" data-k="May accept">what goes out under the company&rsquo;s name</span><span role="cell" data-k="Answers to">the CEO</span><span role="cell" class="off" data-k="Can stop">no</span></div>
+      <div class="wo-r" role="row"><span role="cell">Sales</span><span role="cell" data-k="Holds">R1 and R4, until they ceased</span><span role="cell" data-k="May accept">the team&rsquo;s customer mail and records, up to a month</span><span role="cell" data-k="Answers to">the CEO</span><span role="cell" class="ok" data-k="Can stop">yes: can tell the rep to disconnect it</span></div>
+      <div class="wo-r" role="row"><span role="cell">Product</span><span role="cell" class="off" data-k="Holds">not on this path</span><span role="cell" data-k="May accept">what the product does to a customer</span><span role="cell" data-k="Answers to">the CEO</span><span role="cell" class="off" data-k="Can stop">no</span></div>
+      <div class="wo-r" role="row"><span role="cell">All Employees</span><span role="cell" data-k="Holds">the smaller calendar risk from day 10</span><span role="cell" data-k="May accept">what stays inside their own mailbox, calendar and drafts, up to a month</span><span role="cell" data-k="Answers to">their manager</span><span role="cell" class="ok" data-k="Can stop">yes: disconnects it</span></div>
+    </div>
+    <p class="wo-note"><b>Read down the last column.</b> Of thirteen roles, four can stop this agent, and only two can do it without asking anybody: the rep and IT. That is normal. It becomes a finding only when an acceptance is shorter than the time the stop takes, or when nobody on the risk&rsquo;s path can stop it at all.</p>
+  </div>
+</section>
+
+<section class="psection">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">09 · To build it</span>
+      <h2>The model, <span class="g">in enough detail to implement.</span></h2>
+      <p>Everything above fits in a semantic graph: nodes, and edges that are verbs. Every verb has a named inverse, so each link reads correctly from either end. There is no generic &ldquo;relates to&rdquo;, because an edge without a verb constrains nothing. Nothing is deleted: a new version supersedes the old one, and both stay.</p>
+    </div>
+    <div class="wo-t model" role="table" aria-label="The node types">
+      <div class="wo-r" role="row"><span role="columnheader">Node</span><span role="columnheader">What it holds</span><span role="columnheader">Who writes it</span></div>
+      <div class="wo-r" role="row"><span role="cell">Role</span><span role="cell" data-k="Holds">the company&rsquo;s name for it; what it owns (the map&rsquo;s middle column), used to place risks</span><span role="cell" data-k="Written by">the company</span></div>
+      <div class="wo-r" role="row"><span role="cell">Person</span><span role="cell" data-k="Holds">who holds which roles. One person may hold several: in a startup the CEO is often the CFO too</span><span role="cell" data-k="Written by">the company</span></div>
+      <div class="wo-r" role="row"><span role="cell">Authority</span><span role="cell" data-k="Holds">for one role: the kinds of consequence it may accept, and the longest interval</span><span role="cell" data-k="Written by">delegated down from the board&rsquo;s appetite</span></div>
+      <div class="wo-r" role="row"><span role="cell">Agent</span><span role="cell" data-k="Holds">one agent in one deployment, and who connected it</span><span role="cell" data-k="Written by">whoever connects it</span></div>
+      <div class="wo-r" role="row"><span role="cell">ABP version</span><span role="cell" data-k="Holds">the grant, the mandate, the gap and the barrier for each row, with sources and dates; the four counts; never edited</span><span role="cell" data-k="Written by">the grant is read from the deployment and the vendor&rsquo;s pages; the mandate comes from the person who connected it; the gap is computed</span></div>
+      <div class="wo-r" role="row"><span role="cell">Fact</span><span role="cell" data-k="Holds">a statement one or more rows make true, with its source</span><span role="cell" data-k="Written by">derived from the ABP; never typed</span></div>
+      <div class="wo-r" role="row"><span role="cell">Risk</span><span role="cell" data-k="Holds">a statement in one role&rsquo;s words; the facts it needs; the facts that would end it; its state (open, accepted, ceased)</span><span role="cell" data-k="Written by">the holder, in their words, linked to the risk below</span></div>
+      <div class="wo-r" role="row"><span role="cell">Acceptance</span><span role="cell" data-k="Holds">who, on which date, which door (accept, fund, fix), for how long, with what action; its expiry</span><span role="cell" data-k="Written by">the person who signs it, never somebody on their behalf</span></div>
+    </div>
+    <div class="wo-t edges" role="table" aria-label="The edges, each with its inverse">
+      <div class="wo-r" role="row"><span role="columnheader">Edge</span><span role="columnheader">Inverse</span><span role="columnheader">From → to, and what it means</span></div>
+      <div class="wo-r" role="row"><span role="cell"><code>records</code></span><span role="cell" data-k="Inverse"><code>recorded_in</code></span><span role="cell" data-k="Means">ABP version → fact: a row makes this true</span></div>
+      <div class="wo-r" role="row"><span role="cell"><code>establishes</code></span><span role="cell" data-k="Inverse"><code>established_by</code></span><span role="cell" data-k="Means">fact → risk: needed for the risk to hold</span></div>
+      <div class="wo-r" role="row"><span role="cell"><code>ends</code></span><span role="cell" data-k="Inverse"><code>ended_by</code></span><span role="cell" data-k="Means">fact → risk: if this holds, the risk ceases</span></div>
+      <div class="wo-r" role="row"><span role="cell"><code>translates_into</code></span><span role="cell" data-k="Inverse"><code>translated_from</code></span><span role="cell" data-k="Means">risk → the same exposure in a higher role&rsquo;s words</span></div>
+      <div class="wo-r" role="row"><span role="cell"><code>held_by</code></span><span role="cell" data-k="Inverse"><code>holds</code></span><span role="cell" data-k="Means">risk → role: exactly one at a time</span></div>
+      <div class="wo-r" role="row"><span role="cell"><code>informs</code></span><span role="cell" data-k="Inverse"><code>informed_by</code></span><span role="cell" data-k="Means">risk → role: its area is touched, and it does not hold the risk</span></div>
+      <div class="wo-r" role="row"><span role="cell"><code>answers_to</code></span><span role="cell" data-k="Inverse"><code>oversees</code></span><span role="cell" data-k="Means">role → role, ending at the board: the escalation path</span></div>
+      <div class="wo-r" role="row"><span role="cell"><code>delegated_from</code></span><span role="cell" data-k="Inverse"><code>delegates</code></span><span role="cell" data-k="Means">authority → the authority above it, ending at the board&rsquo;s appetite</span></div>
+      <div class="wo-r" role="row"><span role="cell"><code>empowers</code></span><span role="cell" data-k="Inverse"><code>empowered_by</code></span><span role="cell" data-k="Means">authority → role</span></div>
+      <div class="wo-r" role="row"><span role="cell"><code>accepts</code></span><span role="cell" data-k="Inverse"><code>accepted_by</code></span><span role="cell" data-k="Means">acceptance → risk, for its interval</span></div>
+      <div class="wo-r" role="row"><span role="cell"><code>signed_by</code></span><span role="cell" data-k="Inverse"><code>signed</code></span><span role="cell" data-k="Means">acceptance → person</span></div>
+      <div class="wo-r" role="row"><span role="cell"><code>can_stop</code></span><span role="cell" data-k="Inverse"><code>stoppable_by</code></span><span role="cell" data-k="Means">role → agent, with how long the stop takes</span></div>
+      <div class="wo-r" role="row"><span role="cell"><code>supersedes</code></span><span role="cell" data-k="Inverse"><code>superseded_by</code></span><span role="cell" data-k="Means">ABP version → ABP version; acceptance → acceptance</span></div>
+    </div>
+    <div class="wo-rules">
+      <div class="wo-rule"><h3>Placement</h3><p>When a risk is established, offer it to the role of the person who connected the agent. If its consequence is outside that role&rsquo;s authority, place it with the role whose <em>owns</em> matches the consequence. If that role&rsquo;s authority does not cover it either, walk <code>answers_to</code> until one does, or until the board. Add <code>informs</code> to every other role whose area it touches.</p></div>
+      <div class="wo-rule"><h3>The clock</h3><p>An open risk with no acceptance starts the silence timer the company set. When the timer runs out, move the risk one step up <code>answers_to</code> and restart the timer. An acceptance sets an expiry. At expiry, return the risk to the same holder with what has changed since. If it is not renewed within the silence timer, move it up. An acceptance longer than the holder&rsquo;s authority allows is refused, not trimmed.</p></div>
+      <div class="wo-rule"><h3>Cease</h3><p>On every new ABP version, re-derive the facts. A risk ceases when a fact it needs no longer holds, or when a fact that <code>ends</code> it now holds. Record the ABP version that ended it. Then walk <code>translates_into</code>: a risk above ceases when none of the risks it was translated from still hold.</p></div>
+      <div class="wo-rule"><h3>The stop check</h3><p>For each acceptance, compare its interval with the fastest <code>can_stop</code> on the risk&rsquo;s path. If the acceptance is shorter than the stop, raise a finding. The same finding stands if nobody on the path can stop the agent at all.</p></div>
+      <div class="wo-rule"><h3>The board&rsquo;s view</h3><p>A list, never a score: every open risk, its holder, the door chosen, the expiry and the action, with unaccepted risks first. Then the ceased ones and the ABP versions that ended them. For each agent, the four counts: grant, mandate, excess, unbounded excess. Whatever the board has reserved to itself comes first.</p></div>
+    </div>
+    <p class="wo-note"><b>Nothing in this model scores anything.</b> Kinds of consequence and lengths of time do the work a score usually does, and unlike a score, a person can argue with them. The ABP never rates the agent; it says what the agent can do, on a date, with sources.</p>
+  </div>
+</section>
+
+<section class="psection alt">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">10 · What exists, and what does not</span>
+      <h2>What runs today, <span class="g">and what this article proposes.</span></h2>
+    </div>
+    <div class="wo-exists">
+      <div class="wo-box"><span class="wo-k">Exists</span><h3>The record, and the loop on paper.</h3>
+        <ul>
+          <li>The ABP format, and <a href="agent-behaviour-policy.html">sixteen example ABPs</a>, free, with the grant, the mandate, the gap and the barriers computed for each.</li>
+          <li>The 23 capability primitives and the four barrier kinds used in section 04.</li>
+          <li>A risk engine behind <a href="business-cases.html">our business cases</a>. It computes which risks hold from facts, and carries them up ten roles to the board.</li>
+          <li>What <a href="acceptable.html">acceptable</a> means, the intervals, and why an unaccepted risk is critical.</li>
+          <li>The question of <a href="plug.html">who can stop an agent</a>, and how fast.</li>
+        </ul>
+      </div>
+      <div class="wo-box"><span class="wo-k">Does not exist yet</span><h3>The engine, and seven of the thirteen roles.</h3>
+        <ul>
+          <li>Software that records acceptances, runs the clocks and moves silence upwards.</li>
+          <li>Authority as data. Delegating the board&rsquo;s appetite into kinds of consequence and lengths of time is proposed here for the first time.</li>
+          <li>Seven of the map&rsquo;s roles. Our model has ten: the CEO, the board, the CFO, the CTO, the CISO and Product are in it, alongside roles the map does not have, such as a data protection officer. The COO, CIO / Data, Legal, HR, Marketing, Sales and all employees are not.</li>
+          <li>Translation. Each role&rsquo;s wording is written by hand today.</li>
+          <li>Real grants at scale. The ABPs are templates, read from vendors&rsquo; own pages, with some rows measured on accounts we are entitled to use.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="wo-note">What we would ask of anybody who draws a map like the one in section 01, including its author: keep the middle column, because it is what places a risk. Then add one arrow pointing up. And if you have drawn your company&rsquo;s version of the map, we would like to see which of the four extra columns you could fill in today.</p>
+  </div>
+</section>
+
+</div>
+
+<section class="pcta">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> One agent, one deployment</span>
+    <h2>Start at the bottom of the chain: <span class="it">what can your agent do?</span></h2>
+    <p>Every risk in this article came from eight rows. The free prompts have your agent list its own reach in about twenty minutes, with nothing collected. The ABP puts that next to what you authorised, and the gap is where the acceptance loop begins.</p>
+    <div class="cta-row"><a class="btn btn-green" href="try-it.html">Try the prompts</a><a class="btn btn-ghost" href="mailto:dinis.cruz@owasp.org?subject=Who%20owns%20what%20in%20AI">Tell us how your company draws it</a></div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>© 2026 RiskMandate · Autonomous Risk Management</span>
+    <span>The insurability layer for agentic AI. · <a class="footlink" href="versions.html">Versions</a> · <a class="footlink" href="admin/">Admin</a></span>
+    <span class="footlic"><a href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener">Open source on GitHub</a> · code Apache-2.0 · pages and policies <a rel="license" href="https://creativecommons.org/licenses/by/4.0/" target="_blank" title="Creative Commons Attribution 4.0 — take it, credit it"><svg class="ccicon" width="38" height="16" viewBox="0 0 76 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="2.5"></circle><text x="16" y="21" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14" font-weight="800" fill="currentColor">CC</text><circle cx="60" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="2.5"></circle><text x="60" y="21" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14" font-weight="800" fill="currentColor">BY</text></svg> CC BY 4.0</a> · <a href="https://open-source.sgit.ai/" target="_blank" rel="noopener">why</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+var RM={core:{},services:{},components:{},data:{}};
+RM.data.currentPage="article-who-owns-what-in-ai";RM.data.pages=[{"name":"agent-behaviour-policy","label":"The sixteen examples","file":"agent-behaviour-policy.html","group":"Behaviour policies"},{"name":"abp","label":"What an ABP is","file":"abp.html","group":"Behaviour policies"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"Behaviour policies"},{"name":"licence-to-operate","label":"Licence to Operate","file":"licence-to-operate.html","group":"Behaviour policies"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"Behaviour policies"},{"name":"for-corporate","label":"You run agents today","file":"for-corporate.html","group":"Who it's for"},{"name":"for-founders","label":"You are a founder","file":"for-founders.html","group":"Who it's for"},{"name":"for-startups","label":"You are a startup","file":"for-startups.html","group":"Who it's for"},{"name":"insurance","label":"Make agents insurable","file":"insurance.html","group":"Insurance"},{"name":"insure-a-program","label":"Can you insure a program?","file":"insure-a-program.html","group":"Insurance"},{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"Insurance"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"Insurance"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"Insurance"},{"name":"business-cases","label":"Business cases, by risk","file":"business-cases.html","group":"Insurance"},{"name":"owasp-graph","label":"OWASP, as a graph","file":"owasp-graph.html","group":"Insurance"},{"name":"pricing","label":"The four levels","file":"pricing.html","group":"Pricing"},{"name":"abp-reviewed","label":"The reviewed level","file":"abp-reviewed.html","group":"Pricing"},{"name":"reviewers","label":"Who runs your review","file":"reviewers.html","group":"Pricing"},{"name":"try-it","label":"Try it","file":"try-it.html"},{"name":"articles","label":"Articles","file":"articles.html"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"privacy","label":"Privacy","file":"privacy.html","group":"More"},{"name":"lab","label":"The Lab","file":"lab.html","group":"More"},{"name":"demos","label":"Live demos","file":"demos.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"uk-support","label":"UK support, in the open","file":"uk-support.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"admin","label":"Admin","file":"admin/","group":"More"}];RM.data.sections=[];
+
+'use strict';
+// components/dom.js — tiny DOM helpers shared by components. `el` builds an
+// element with attributes and children; text children always go in via
+// textContent. `renderMarkdownInto` turns core/markdown tokens into real DOM
+// nodes (never an HTML string), so fetched release notes cannot inject markup.
+
+RM.components.dom = (function () {
+  // A link in a markdown note may only go somewhere harmless: same-document,
+  // same-origin relative, https, or mailto. Anything else — javascript:, data:,
+  // a protocol-relative host — renders as the text it was, and goes nowhere.
+  var SAFE = /^(?:https:\/\/|mailto:|#|[^:/?#]*(?:[/?#]|$))/i;
+
+  /**
+   * @param {string} tag
+   * @param {Object<string,string>} [attrs]
+   * @param {Array<Node|string>} [children]
+   * @returns {HTMLElement}
+   */
+  function el(tag, attrs, children) {
+    var node = document.createElement(tag);
+    if (attrs) Object.keys(attrs).forEach(function (k) {
+      if (attrs[k] != null) node.setAttribute(k, attrs[k]);
+    });
+    (children || []).forEach(function (c) {
+      node.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
+    });
+    return node;
+  }
+
+  /**
+   * Render inline runs into a parent element. Emphasis runs carry child runs
+   * rather than a string, so a link or a code span inside **bold** renders as
+   * itself instead of as its own markdown source — hence the recursion.
+   */
+  function appendRuns(parent, runs) {
+    runs.forEach(function (run) {
+      if (run.t === 'strong' || run.t === 'em') {
+        var node = el(run.t);
+        if (run.runs) appendRuns(node, run.runs);
+        else          node.appendChild(document.createTextNode(run.v));
+        parent.appendChild(node);
+      }
+      else if (run.t === 'code') parent.appendChild(el('code', null, [run.v]));
+      else if (run.t === 'link') parent.appendChild(SAFE.test(run.href)
+        ? el('a', { href: run.href }, [run.v])
+        : document.createTextNode(run.v));
+      else parent.appendChild(document.createTextNode(run.v));
+    });
+  }
+
+  /**
+   * Render markdown block tokens into a container as DOM nodes.
+   * @param {HTMLElement} container
+   * @param {Array} blocks  output of RM.core.markdown.parse
+   */
+  function renderMarkdownInto(container, blocks) {
+    blocks.forEach(function (b) {
+      if (b.type === 'heading') {
+        var h = el('h' + (b.level + 1)); // ## release title -> h3, etc.
+        appendRuns(h, b.runs);
+        container.appendChild(h);
+      } else if (b.type === 'list') {
+        var ul = el('ul');
+        b.items.forEach(function (runs) {
+          var li = el('li');
+          appendRuns(li, runs);
+          ul.appendChild(li);
+        });
+        container.appendChild(ul);
+      } else {
+        var p = el('p');
+        appendRuns(p, b.runs);
+        container.appendChild(p);
+      }
+    });
+  }
+
+  return { el: el, appendRuns: appendRuns, renderMarkdownInto: renderMarkdownInto };
+})();
+
+
+'use strict';
+// components/nav.js — the behaviour on a page that is *not* a link.
+//   [data-to]   → smooth in-page scroll to an element id (no hash routing).
+//   [data-demo] → open a pre-filled demo enquiry email.
+//
+// v1.0.0 removed everything else that used to live here. Up to v0.14 the site
+// ran inside a host <iframe> and every navigation was a postMessage — rm-nav,
+// rm-back, rm-manifest, rm-read. A <button> is not a link, so nothing could be
+// deep-linked, bookmarked, opened in a new tab, or crawled. Now each page is
+// the document the server sent and each navigation is an <a href>, so the only
+// things left to wire are the two that genuinely are not navigation.
+//
+// The mobile drawer is still injected rather than templated: one file gives
+// every page a working menu below the header breakpoint, where .navlinks is
+// hidden by CSS.
+
+RM.components.nav = (function () {
+  // Every "Book a demo" control opens a mail client with a subject and a
+  // starting message. One place to change when booking becomes a real form.
+  var DEMO = {
+    to     : 'nrparekh@gmail.com',
+    subject: 'RiskMandate — demo request',
+    body   : [
+      'Hi,',
+      '',
+      'I would like to see a plug profile for one of the agents we already run.',
+      '',
+      'A little about us:',
+      '  • Organisation:',
+      '  • Roughly how many agents we are running:',
+      '  • The agent we would want to look at first:',
+      '  • Anything already in place (register, IdP, detection tooling):',
+      '',
+      'Thanks,'
+    ].join('\n')
+  };
+
+  function demoHref() {
+    return 'mailto:' + DEMO.to +
+      '?subject=' + encodeURIComponent(DEMO.subject) +
+      '&body='    + encodeURIComponent(DEMO.body);
+  }
+
+  function openDemo() { window.location.href = demoHref(); }
+
+  function scrollTo(doc, id) {
+    var t = doc.getElementById(id);
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Inject the hamburger toggle and wire the drawer open/close. Idempotent.
+  function wireMobileNav(doc) {
+    var top = doc.querySelector('.top');
+    if (!top) return;
+    var wrap  = top.querySelector('.wrap');
+    var links = top.querySelector('.navlinks');
+    if (!wrap || !links || top.querySelector('.navtoggle')) return;
+
+    var burger = doc.createElement('button');
+    burger.className = 'navtoggle';
+    burger.setAttribute('type', 'button');
+    burger.setAttribute('aria-label', 'Toggle navigation');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-controls', 'sitenav');
+    for (var i = 0; i < 3; i++) burger.appendChild(doc.createElement('span'));
+    links.id = links.id || 'sitenav';
+    var demo = wrap.querySelector('.demo');
+    if (demo) wrap.insertBefore(burger, demo); else wrap.appendChild(burger);
+
+    function set(open) {
+      top.classList.toggle('nav-open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    burger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      set(!top.classList.contains('nav-open'));
+    });
+    // Following a real nav link closes the drawer; the group header does not.
+    links.addEventListener('click', function (e) {
+      var b = e.target.closest('button, a');
+      if (b && !b.classList.contains('navgroup-btn')) set(false);
+    });
+    doc.addEventListener('click', function (e) {
+      if (top.classList.contains('nav-open') && !top.contains(e.target)) set(false);
+    });
+    doc.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+    var view = doc.defaultView || window;
+    view.addEventListener('resize', function () { if (view.innerWidth > 1040) set(false); });
+  }
+
+  /** @param {Document} doc */
+  function wire(doc) {
+    doc.querySelectorAll('[data-to]').forEach(function (elm) {
+      elm.addEventListener('click', function () { scrollTo(doc, elm.getAttribute('data-to')); });
+    });
+    doc.querySelectorAll('[data-demo], .demo').forEach(function (elm) {
+      elm.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); openDemo(); });
+    });
+    wireMobileNav(doc);
+  }
+
+  return { wire: wire, scrollTo: scrollTo, demoHref: demoHref, openDemo: openDemo };
+})();
+
+
+'use strict';
+// components/menu.js — <rm-menu>. The one shared header menu, on every page, so
+// the nav is built by a single piece of code. Renders the homepage's section
+// links first, then the top-level pages, marking the current page active.
+//
+// A run of contiguous pages sharing a `group` string collapses into one entry:
+// a hover/click dropdown labelled by the group, with the members as children. A
+// single-member group renders flat — no dropdown for one item.
+//
+// v1.0.0: every entry is an <a href>. The old menu emitted <button> elements
+// that asked a host frame to swap an iframe's srcdoc, which meant the links did
+// not exist as far as a crawler, a bookmark or a middle-click was concerned.
+// The group header stays a <button> because it opens a panel rather than going
+// anywhere — that is the one control here that is genuinely not a link.
+
+(function () {
+  var dom = RM.components.dom;
+
+  RM.components.Menu = class extends HTMLElement {
+    connectedCallback() {
+      var self = this;
+      this._onDocClick = function (e) {
+        self.querySelectorAll('.navgroup.open').forEach(function (g) {
+          if (!g.contains(e.target)) g.classList.remove('open');
+        });
+      };
+      document.addEventListener('click', this._onDocClick);
+      this._render();
+    }
+    disconnectedCallback() {
+      document.removeEventListener('click', this._onDocClick);
+    }
+
+    // On the homepage a section link scrolls; on any other page it is a link
+    // back to the homepage at that anchor. Same markup either way.
+    _section(s) {
+      var home = !(RM.data && RM.data.currentPage);
+      var a = dom.el('a', { class: 'seclink', href: home ? '#' + s.to : 'index.html#' + s.to }, [s.label]);
+      if (home) a.addEventListener('click', function (e) {
+        e.preventDefault();
+        RM.components.nav.scrollTo(document, s.to);
+      });
+      return a;
+    }
+
+    _pagelink(p, extra) {
+      var active = p.name === (RM.data && RM.data.currentPage);
+      var attrs  = { class: 'pagelink' + (extra ? ' ' + extra : '') + (active ? ' active' : ''), href: p.file };
+      if (active) attrs['aria-current'] = 'page';
+      return dom.el('a', attrs, [p.label]);
+    }
+
+    _group(name, members) {
+      var self    = this;
+      var current = RM.data && RM.data.currentPage;
+      var active  = members.some(function (m) { return m.name === current; });
+      var car     = dom.el('span',   { class: 'navgroup-car', 'aria-hidden': 'true' }, ['▾']);
+      var btn     = dom.el('button', { class: 'navgroup-btn' + (active ? ' active' : ''), type: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false' }, [name, car]);
+      var panel   = dom.el('div',    { class: 'navmenu' }, members.map(function (m) { return self._pagelink(m, 'navchild'); }));
+      var wrap    = dom.el('span',   { class: 'navgroup' + (active ? ' active' : '') }, [btn, panel]);
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = wrap.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      return wrap;
+    }
+
+    _render() {
+      var sections = (RM.data && RM.data.sections) || [];
+      var pages    = (RM.data && RM.data.pages)    || [];
+      var self     = this;
+      this.textContent = '';
+      sections.forEach(function (s) { self.appendChild(self._section(s)); });
+      var i = 0;
+      while (i < pages.length) {
+        var p = pages[i];
+        if (!p.group) { self.appendChild(self._pagelink(p)); i++; continue; }
+        var g = p.group, members = [];
+        while (i < pages.length && pages[i].group === g) { members.push(pages[i]); i++; }
+        if (members.length === 1) self.appendChild(self._pagelink(members[0]));
+        else                      self.appendChild(self._group(g, members));
+      }
+    }
+  };
+
+  customElements.define('rm-menu', RM.components.Menu);
+})();
+
+
+'use strict';
+// boot.js — inner-page composition root (version builds and dev.html). Custom
+// elements self-register on load; here we wire document-level nav behaviour.
+// The page runs inside the host's stage frame, so the host (not this page) signals
+// the SG/App host that the app is ready.
+
+(function () {
+  function start() { RM.components.nav.wire(document); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
+})();
+
+
+})();
+</script>
+</body>
+</html>

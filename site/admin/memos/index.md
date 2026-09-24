@@ -5,7 +5,7 @@
 
 **2**received, nothing built yet*Archived and read, and nothing has been built from it yet.*
 
-**20**partly worked*read in full; a named part is not built*
+**21**partly worked*read in full; a named part is not built*
 
 **8**processed*something on the site exists because of it*
 
@@ -44,6 +44,10 @@ spoken brief, transcribed · 2 produced · 3 not done24 September 2026 · partly
 **[An interview page, and a ChatGPT voice prompt to run it: a reusable pattern, and the first page, for a founder who knows UK events and marketing](#D19)**
 
 build brief from the sgit.ai site team, the page as served, kept byte for byte · 2 produced · 3 not done24 September 2026 · partly
+
+**[Ask the ABP questions in the interview, and answer a LinkedIn role map as a stand-alone article: a generic framework, adjusted in every company, with accountability that holds on the way up](#D20)**
+
+spoken brief, transcribed · 2 produced · 3 not done24 September 2026 · partly
 
 **[The named professional, and the assignment of the individual who does the £1,500 review](#D11)**
 
@@ -280,6 +284,22 @@ partly
 - Running the prompt once in ChatGPT voice mode. This agent has no ChatGPT account; the lead runs it and checks the summary has all ten sections.
 - The prompt is the brief's, with two phrases corrected to what the site states: the home page names the CEO, CTO and CISO, not an insurer; and the Licence to Operate page makes the behaviour policy the instrument, not the evidence.
 - Sending the summary back into a vault through a write-only lane, which the brief marks as later.
+
+D20 · spoken brief, transcribed · 24 September 2026
+
+## Ask the ABP questions in the interview, and answer a LinkedIn role map as a stand-alone article: a generic framework, adjusted in every company, with accountability that holds on the way up
+
+partly
+
+[the file as received](../../assets/briefs/2026-09-24__transcript__who-owns-what-in-ai-and-abp-interview-questions.txt) · `2219d9a05179…` · 1 KB
+
+**Produced.** [The founder interview's first part: six questions on the Agent Behaviour Policy (its name, explaining it back after one hearing, what it adds, whether the market understands the problem, its value to the people who would use it, whether it should sell); thirty minutes, sixteen summary sections](../../interview-founder-marketing.html) · [The article: the infographic's thirteen rows quoted and credited; what each company sets and what stays fixed; the middle column as a routing table and the organisation chart as the escalation path; one invented agent from eight ABP rows to the board; seven rules; six weeks; the model as nodes, edges with inverses and computations](../../article-who-owns-what-in-ai.html)
+
+**Not done.**
+
+- The LinkedIn post's own address and date. The article credits the infographic by title and author and says when it reached us; the link is the lead's to add.
+- Running the longer interview prompt once in ChatGPT voice mode, and checking the summary has all sixteen sections.
+- The seven roles the article needs and the model lacks (COO, CIO / Data, Legal, HR, Marketing, Sales, all employees), authority as data, and an engine that runs the clocks. The article says so in its section 10.
 
 D11 · spoken brief, transcribed · 22 September 2026
 

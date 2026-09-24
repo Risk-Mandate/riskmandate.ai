@@ -265,7 +265,7 @@ table.t code{font-family:var(--mono);font-size:11.5px;background:var(--bg2);padd
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
     <a class="ghlink" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener" aria-label="The source, on GitHub" title="Open source · Apache-2.0 code · CC BY 4.0 pages"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a>
-      <a class="version" href="versions.html" title="What shipped in v1.34.3">v1.34.3</a>
+      <a class="version" href="versions.html" title="What shipped in v1.34.4">v1.34.4</a>
     <button class="demo" data-demo>Get in touch</button>
   </div>
 </header>
@@ -952,6 +952,38 @@ table.t code{font-family:var(--mono);font-size:11.5px;background:var(--bg2);padd
           </div>
         </div>
 
+        <div class="doc">
+          <div class="dh">
+            <span class="did">D20</span>
+            <h3>Ask the ABP questions in the interview, and answer a LinkedIn role map as a stand-alone article: a generic framework, adjusted in every company, with accountability that holds on the way up</h3>
+            <span class="st partly">Partly</span>
+          </div>
+          <div class="dmeta">
+            <span><b>type</b> spoken brief, transcribed</span>
+            <span><b>dated</b> 24 Sept 2026</span><span><b>received</b> 24 Sept</span>
+            <span><b>1,252 bytes</b></span>
+          </div>
+          <p class="dig"><b>sha256</b> 2219d9a051791da925288f494be02fdbcf9a05709b12a70acc42ec4ff565d6ab</p>
+          <p class="dnote"><b>Two asks in one note.</b> First, the founder interview should also ask about the Agent Behaviour Policy itself: its name, whether it can be explained, what it adds, whether the market understands it, its value to the people who would use it, and whether it should sell. Second, an article of a kind the lead wants to write more of: take something strong seen on LinkedIn, here a map of who owns what in AI by role, and show our world on top of it. The map is a generic framework, as ours is, and every company adjusts it; what risk acceptance and the ABP add is the connection that keeps accountability intact on the way up. Written as a full document, so the details can be implemented.</p>
+          <div class="out">
+            <div class="ok">
+              <span class="k">What it produced</span>
+              <ul>
+                <li><a href="interview-founder-marketing.html">The interview&rsquo;s first part</a>: six questions on the ABP, a test of explaining it back after one hearing, thirty minutes, sixteen summary sections</li>
+                <li><a href="article-who-owns-what-in-ai.html">The article</a>: the map&rsquo;s rows quoted and credited; what each company sets and what stays fixed; one invented agent from eight ABP rows to the board; seven rules; six weeks; the model as nodes, edges and computations</li>
+              </ul>
+            </div>
+            <div>
+              <span class="k">What it asked for and has not got</span>
+              <ul>
+                <li><strong>The post&rsquo;s own link and date.</strong> The article credits the infographic by title and author, and says when it reached us</li>
+                <li><strong>A run of the longer prompt in ChatGPT voice mode.</strong> The lead&rsquo;s, checking all sixteen sections come back</li>
+                <li><strong>The build.</strong> Seven of the map&rsquo;s roles are not in our model, authority is not yet data, and no engine runs the clocks; the article says so</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -1194,7 +1226,7 @@ sha256sum my-brief.md
       </div>
       <div class="rule">
         <p>A register that only lists what was done is a press release.</p>
-        <p>Every entry above carries what it asked for and did not get, and on most of the nineteen that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.</p>
+        <p>Every entry above carries what it asked for and did not get, and on most of the twenty that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.</p>
       </div>
       <ul class="plist">
         <li><strong>The file is the record, not this page.</strong> <a href="briefs-register.json">briefs-register.json</a> is what a program should read; this page renders it for people. If the two ever disagree, the file is right and the page is stale.</li>
@@ -1211,8 +1243,8 @@ sha256sum my-brief.md
 <section class="pcta">
   <div class="wrap">
     <span class="eyebrow"><span class="d"></span> The register</span>
-    <h2>Nineteen items. None untouched, and none finished.</h2>
-    <p>Every item now names something it produced and something it did not. Ten of the nineteen are marked <em>partly</em>, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.</p>
+    <h2>Twenty items. None untouched, and none finished.</h2>
+    <p>Every item now names something it produced and something it did not. Seventeen of the twenty are marked <em>partly</em>, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.</p>
     <div class="cta-row">
       <a class="btn btn-green" href="lab.html">See what did get built →</a>
       <a class="btn btn-ghost" href="briefs-register.json">The register as JSON</a>

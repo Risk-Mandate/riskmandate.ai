@@ -486,6 +486,13 @@
       "unlisted": true
     },
     {
+      "name": "article-who-owns-what-in-ai",
+      "label": "Who owns what in AI. And how accountability holds on the way up.",
+      "file": "article-who-owns-what-in-ai.html",
+      "group": "Articles",
+      "unlisted": true
+    },
+    {
       "name": "agent-behaviour-policy-next",
       "file": "agent-behaviour-policy-next.html",
       "label": "Which Agent Behaviour Policy next?",

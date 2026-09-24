@@ -52,7 +52,14 @@ the site's; check `site/versions/index.json` for the current version before trus
   asked what else it could do* (`article-pilots-do-not-stay-in-production.html`), the surveys with
   the causes each names and a section saying no survey tests the mechanism; and *A deleted meeting
   comes back. An edited one does not* (`article-calendar-edits-cannot-be-undone.html`), Google's
-  own recovery facts per action and the draft Calendar rows. Five more are listed on the index as *not written*, each with a record already
+  own recovery facts per action and the draft Calendar rows. A third on 24 Sept, from D20, is the
+  first of a kind the lead wants more of, **a reply to something strong seen on LinkedIn, with our
+  world on top**: *Who owns what in AI. And how accountability holds on the way up*
+  (`article-who-owns-what-in-ai.html`). It quotes and credits a role-ownership infographic, reads
+  its middle column as a routing table and the organisation chart as the escalation path, and walks
+  one invented agent from eight ABP rows to the board; section 09 is the model to build from (nodes,
+  edges with inverses, placement, clock, cease, stop check, board view). Keep such replies stand-alone,
+  factual about the source, and long enough to implement from. Five more are listed on the index as *not written*, each with a record already
   behind it.
 - **Try it** (`try-it.html`, top-level, v1.28.0): the free step below the store's ladder and the
   first surface aimed at a stranger rather than a reader. Four steps, thirteen prompts, run in the
