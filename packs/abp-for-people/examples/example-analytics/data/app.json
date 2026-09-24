@@ -1,0 +1,26 @@
+{
+  "type": "riskmandate/abp-app-context/v1",
+  "dist": {
+    "example-analytics.zip": {
+      "bytes": 193977,
+      "sha256": "c07f4fa6f5535153b61d3ddb72e8e3c41d6609a6b1b681bd2128ca964f8710af"
+    }
+  },
+  "research_open": 6,
+  "blocked": 4,
+  "blocks_held": 4,
+  "barriers_held": 4,
+  "scenarios": 8,
+  "consequences": 11,
+  "consequences_open": 5,
+  "routes_out": 2,
+  "licence": {
+    "kind": "cc-by-4.0"
+  },
+  "copy": "draft",
+  "app_vault": {
+    "vault_id": "vbhmlulo",
+    "entry": "index.html",
+    "version": "v5"
+  }
+}

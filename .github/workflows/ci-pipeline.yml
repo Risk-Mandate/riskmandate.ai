@@ -67,6 +67,9 @@ jobs:
       - name: The business cases are computed from site/business-case/
         run: node scripts/site/build-business-cases.mjs --check
 
+      - name: The ABP-for-people pack matches its sources
+        run: node scripts/packs/build-abp-people-pack.mjs --check
+
       - name: The pitch deck's numbers still match the site
         run: node scripts/site/render-pitch-deck.mjs --check
 

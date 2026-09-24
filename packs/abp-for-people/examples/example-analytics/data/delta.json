@@ -1,0 +1,44 @@
+{
+  "type": "abp/delta/v1",
+  "profile": "anthropic/gmail-connector/default",
+  "mandate": "find-and-draft-for-client-work",
+  "grant_version": "2026-09-16",
+  "mandate_version": "2026-09-24",
+  "vocabulary_version": "v0.3.0",
+  "computed_at": "2026-09-24T20:57:15Z",
+  "computed_by": "riskmandate.ai build-abp-vault.mjs (abp.delta/v1 semantics)",
+  "excess": [
+    "send.message.world",
+    "authenticate-as.credential.tenant",
+    "create.schedule.tenant",
+    "read.credential.host",
+    "read.record.history"
+  ],
+  "excess_refused": [
+    "send.message.world",
+    "create.schedule.tenant",
+    "read.credential.host"
+  ],
+  "excess_unstated": [
+    "authenticate-as.credential.tenant",
+    "read.record.history"
+  ],
+  "unbounded_excess": [
+    "send.message.world",
+    "create.schedule.tenant",
+    "read.credential.host",
+    "read.record.history"
+  ],
+  "shortfall": [],
+  "aligned": [
+    "read.message.tenant"
+  ],
+  "derived_never_authored": "No field in this record is writable by a person. The way to change a delta is to change a grant or a mandate, and then recompute.",
+  "counts": {
+    "excess": 5,
+    "unbounded_excess": 4,
+    "shortfall": 0,
+    "aligned": 1
+  },
+  "id": "anthropic__gmail-connector__default__find-and-draft-for-client-work"
+}

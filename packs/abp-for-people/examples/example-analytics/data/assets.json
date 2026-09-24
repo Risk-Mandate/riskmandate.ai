@@ -1,0 +1,67 @@
+{
+  "type": "riskmandate/abp-assets/v1",
+  "_what_this_is": "What is in this deployment for the grant to act on. An asset is what turns a capability into a consequence: reading a mailbox is only reading credentials if the mailbox holds any. `present` is assumed | confirmed | absent; `configurable` marks an assumption the deployer can untick in the correction; `rights` names who else holds rights over the asset — the sender of a message, the employer that owns the mailbox. This site's extension of abp.sgit.ai v0.3.0, declared as such until the model site sanctions one.",
+  "authored": "2026-09-16",
+  "authored_by": "the site, as a starting point — assumed present until the deployer says otherwise; the assumption is the thing to argue with",
+  "assets": [
+    {
+      "id": "asset.mail-from-others",
+      "statement": "Messages other people sent to this account, and their contents and attachments' metadata.",
+      "present": "confirmed",
+      "configurable": false,
+      "rights": "the senders retain rights over what they sent; where the mailbox is a corporate one, the employer's policy governs it too. Authorisation to read a message is not, on its face, authorisation to forward it.",
+      "source": "read.message.tenant reads every message the account can read; a mailbox that has received mail contains mail from others by definition",
+      "links": { "gdpr": ["gdpr.art5", "gdpr.art6"] }
+    },
+    {
+      "id": "asset.secrets-in-mail",
+      "statement": "Secrets that have arrived in the mailbox: passwords sent in plain text, API keys, invitations, and one-time codes.",
+      "present": "assumed",
+      "configurable": true,
+      "rights": "the account holder, and whoever issued each secret",
+      "source": "inferred: password resets, one-time codes and invitations arrive in a mailbox, and reading messages reads them — no tool or scope on either vendor's page separates a secret from any other message",
+      "links": { "attack": ["attack.T1552.008"] }
+    },
+    {
+      "id": "asset.accounts-registered-to-this-address",
+      "statement": "Other accounts, on other services, that use this email address to sign in or to reset a password.",
+      "present": "assumed",
+      "configurable": true,
+      "rights": "the account holder",
+      "source": "inferred: most email addresses are the recovery address for other accounts; a reset link or a one-time code for any of them arrives here",
+      "links": { "attack": ["attack.T1098", "attack.T1078"] }
+    },
+    {
+      "id": "asset.the-owners-filing",
+      "statement": "The account holder's own information design over the mailbox: labels, read and unread state, stars, archive, and any filters already in place.",
+      "present": "confirmed",
+      "configurable": false,
+      "rights": "the account holder — this is how they find things",
+      "source": "measured 2026-09-16: asked for the account's settings, Claude returned the label structure with thread and unread counts",
+      "links": { "attack": ["attack.T1565.001"] }
+    },
+    {
+      "id": "asset.contacts",
+      "statement": "The addresses of everyone the account has corresponded with, and the addresses inside the messages it holds.",
+      "present": "confirmed",
+      "configurable": false,
+      "rights": "the correspondents",
+      "source": "read.message.tenant reads senders, recipients and message bodies, which are where addresses live",
+      "links": { "attack": ["attack.T1589.002"] }
+    },
+    {
+      "id": "asset.claude-web-tools",
+      "statement": "In this deployment Claude also has web search and web fetch switched on, so it can open a link and retrieve a page.",
+      "present": "confirmed",
+      "configurable": true,
+      "rights": "not an asset in the mailbox — a capability of the assistant beside the connector, recorded here because it is what a reset link needs to become an account takeover, and because whether it is on is the deployer's setting",
+      "source": "Anthropic: web search is available on Fable 5.1, Opus 5, Sonnet 5 and others; \"when web search is toggled on, Claude can also retrieve content directly from web pages when provided with specific URLs. This feature, called web fetch, allows Claude to access and analyze the full content of\" a page. Confirmed for this deployment by the project lead, 2026-09-16.",
+      "evidence": "documented",
+      "links": { "attack": ["attack.T1567"] }
+    }
+  ],
+  "provenance": {
+    "note": "Authored on this site as the starting assets for the Gmail-connector shape. An asset is assumed present unless a vendor page or the deployer says otherwise; `present: assumed` is shown as its own word wherever it appears, never silently as present.",
+    "licence": "CC BY 4.0"
+  }
+}

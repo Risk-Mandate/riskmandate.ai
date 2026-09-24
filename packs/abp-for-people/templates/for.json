@@ -1,0 +1,12 @@
+{
+  "type": "riskmandate/abp-prepared-for/v1",
+  "_": "Who this vault was prepared for, and every public source it relies on. Nothing private goes here: the lead's notes from the conversation live in the keys vault, never in this one.",
+  "organisation": "{{ORG}}",
+  "person": "{{PERSON}}",
+  "prepared": "{{DATE}}",
+  "shape": "{{SHAPE_SLUG}}",
+  "shape_why": "",
+  "sources": [],
+  "assumptions": [],
+  "not_found": []
+}

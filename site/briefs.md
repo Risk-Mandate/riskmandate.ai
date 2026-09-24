@@ -249,6 +249,18 @@ Each one is linked in full, as received, with nothing edited. Where a brief and 
 - **Three agentic items the model cannot express.** Supply chain, memory and context, and agents talking to agents: the model has to grow
 - **The outreach.** To OWASP projects, maintainers and companies; the lead’s, after review
 
+### A behaviour policy for everybody the lead talks to: a brief and a zip for a new agent, three vaults, and controls so nothing leaks across
+
+**sha256** db4b98aef049e05716c3789105ce4a56e4e96fd0939774fd912bea329c8b7624
+
+**Users, one conversation at a time.** After talking to somebody, the lead gives a new agent a zip, a website and a sentence; the agent researches the organisation’s public pages and builds an Agent Behaviour Policy vault for them, to send as a demo they can correct and try. Three vaults: one for the keys, one for the UI, one per person, with controls so nothing leaks from one person to another, and each person’s vault written so it could be public one day.
+
+- [The brief](admin/briefs/workflow__abp-vaults-for-people-we-know/index.html): the existing app vault is the UI, a private keys vault holds every write key and the lead’s notes, one vault per person holds only public material; the workflow; what the feedback loop is meant to learn
+- The pack, kept in the repository at `packs/dist/` rather than on the site: instructions, templates, a scaffolder, a leak gate proved against six planted leaks, the site’s own builder with every catalogue deployment, and one fictional example built and checked
+- **The keys vault.** The first session creates it and gives its key to the lead, so the steps are exercised once with the lead watching
+- **Corrections from inside a vault.** Today a person replies to the lead; a form is a question for the app vault
+- **A real person’s vault.** The pack has been run end to end on a fictional organisation only
+
 ## And the instructions that arrived as speech or a sentence.
 
 These have no digest to check, which makes them the ones most easily lost — a voice memo that changed the direction of the whole site leaves no artefact at all unless somebody writes it down. So they are recorded here in the same list, with the same two columns.

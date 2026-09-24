@@ -1,0 +1,6 @@
+{
+  "type": "riskmandate/abp-people-registry/v1",
+  "_": "PRIVATE. Every person vault created, with its keys. The vault_key is the write credential for that person's vault: it lives here and nowhere else. read_key and vault_id make the shareable link. This file never leaves the keys vault.",
+  "app_vault": { "vault_id": "vbhmlulo", "note": "the renderer every person vault loads; public read key in toolkit/site/vaults/index.json" },
+  "people": []
+}

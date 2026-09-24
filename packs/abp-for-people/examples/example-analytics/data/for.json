@@ -1,0 +1,24 @@
+{
+  "type": "riskmandate/abp-prepared-for/v1",
+  "_": "Who this vault was prepared for, and every public source it relies on. Nothing private goes here: the lead's notes from the conversation live in the keys vault, never in this one.",
+  "organisation": "Example Analytics",
+  "person": "A. Reader",
+  "prepared": "2026-09-24",
+  "shape": "claude-gmail-connector",
+  "shape_why": "Example Analytics is an invented organisation used to show the shape of a person's vault. For a real one, this says which page showed which assistant they use, or which function made this deployment the likeliest.",
+  "sources": [
+    {
+      "url": "https://example.org/about",
+      "read": "2026-09-24",
+      "supports": "What the organisation does (a reserved example domain: this organisation is fictional)."
+    }
+  ],
+  "assumptions": [
+    "That client work runs through a shared Gmail workspace.",
+    "That consultants, not the assistant, send anything to a client.",
+    "That nobody has switched on Calendar or Drive for the assistant."
+  ],
+  "not_found": [
+    "Which AI assistant they use: an example has no public pages."
+  ]
+}

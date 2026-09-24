@@ -1,0 +1,118 @@
+{
+  "type": "riskmandate/abp-scenarios/v1",
+  "_what_this_is": "Alternative mandates for the same grant. Each scenario is a deployer's sentence and the primitives it wants and refuses; everything else is unstated. The grant never changes; the delta is recomputed per scenario. Written on this site as starting points to be argued with.",
+  "authored": "2026-09-24",
+  "scenarios": [
+    {
+      "id": "find-an-email",
+      "tier": "normal",
+      "label": "Find what the client agreed",
+      "description": "Find the thread with a client and quote back what was agreed on scope and dates.",
+      "want": [
+        "read.message.tenant"
+      ],
+      "do_not_want": [
+        "send.message.world",
+        "read.credential.host"
+      ]
+    },
+    {
+      "id": "summarise-the-week",
+      "tier": "normal",
+      "label": "Summarise a project's week",
+      "description": "Summarise everything that came in about one project this week, for the Monday call.",
+      "want": [
+        "read.message.tenant"
+      ],
+      "do_not_want": [
+        "send.message.world",
+        "read.credential.host"
+      ]
+    },
+    {
+      "id": "auto-file-with-a-filter",
+      "tier": "normal",
+      "label": "File invoices as they arrive",
+      "description": "Create a filter that labels supplier invoices as they arrive, a rule that keeps running after the chat ends.",
+      "want": [
+        "read.message.tenant",
+        "create.schedule.tenant"
+      ],
+      "do_not_want": [
+        "send.message.world"
+      ]
+    },
+    {
+      "id": "draft-replies-for-me",
+      "tier": "advanced",
+      "label": "Draft the client reply",
+      "description": "Draft a reply to the client from the thread, for a consultant to read and send.",
+      "want": [
+        "read.message.tenant"
+      ],
+      "do_not_want": [
+        "send.message.world"
+      ]
+    },
+    {
+      "id": "reply-within-approval",
+      "tier": "advanced",
+      "label": "Chase an overdue data delivery",
+      "description": "Send a polite chase to a client whose data is late, without a consultant reading it first.",
+      "want": [
+        "read.message.tenant",
+        "send.message.world"
+      ],
+      "do_not_want": [
+        "read.credential.host"
+      ]
+    },
+    {
+      "id": "approvals-off",
+      "tier": "advanced",
+      "label": "Tidy the shared inbox",
+      "description": "Move, label and archive a shared project inbox so it matches the project list.",
+      "want": [
+        "read.message.tenant",
+        "send.message.world"
+      ],
+      "do_not_want": []
+    },
+    {
+      "id": "do-not-attack-the-company",
+      "tier": "advanced",
+      "label": "Read and draft, and never turn on the company",
+      "description": "Read the inbox and draft replies, and never send mass mail, create a forwarding filter, or rearrange the filing — the consequences that attack the account holder's own organisation.",
+      "want": [
+        "read.message.tenant"
+      ],
+      "do_not_want": [
+        "send.message.world",
+        "create.schedule.tenant"
+      ],
+      "refuses_consequences": [
+        "consequence.mass-send",
+        "consequence.standing-forward",
+        "consequence.rearrange-the-inbox",
+        "consequence.provoke-suspension"
+      ]
+    },
+    {
+      "id": "do-not-attack-anyone-else",
+      "tier": "advanced",
+      "label": "Never attack anybody else from this account",
+      "description": "Whatever else it does, the agent must never send payloads or pretexts to other people or organisations from this account, and never forward mail it was given only to read.",
+      "want": [
+        "read.message.tenant"
+      ],
+      "do_not_want": [
+        "send.message.world"
+      ],
+      "refuses_consequences": [
+        "consequence.attack-others-from-this-account",
+        "consequence.forward-any-message",
+        "consequence.reset-passwords"
+      ]
+    }
+  ]
+}
