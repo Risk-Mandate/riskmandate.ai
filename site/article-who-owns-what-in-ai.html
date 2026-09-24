@@ -254,7 +254,16 @@ rm-menu{display:contents}
 .wo-scroll{overflow-x:auto;margin-top:18px;-webkit-overflow-scrolling:touch}
 .wo-canvas{min-width:760px}
 .wo-canvas.tall svg{aspect-ratio:1000/700}.wo-canvas.short svg{aspect-ratio:1000/390}.wo-canvas.mid svg{aspect-ratio:1000/400}
-.wo-halo.carries{fill:var(--wo-warm);r:34;opacity:.55}
+.wo-halo.carries{r:34;opacity:.55}
+.wo-halo.hot.carries{fill:var(--wo-hot)}
+.wo-org.on.hot{stroke:var(--red)}
+.wo-badge.hot circle{fill:var(--red)}
+.wo-risk.residual .wo-risk-core{stroke-dasharray:none;stroke-width:2.5}
+.wo-proxy rect{fill:var(--greenBg);stroke:var(--green);stroke-width:1.4}.wo-proxy.off{display:none}.wo-proxy-t{font-family:var(--mono);font-size:9px;fill:var(--green)}
+.wo-btn.small{font-size:12px;padding:6px 10px;margin-top:4px;align-self:flex-start}
+.wo-lg.residual{background:var(--wo-green-soft);border-color:var(--green);border-width:3px}
+.wo-lg.path-hot{width:22px;height:4px;border:0;border-radius:2px;background:var(--red)}
+.wo-pulse.hot{fill:var(--red)}
 .wo-org.on{stroke:var(--green);stroke-width:2.2;opacity:.7}
 .wo-badge circle{fill:var(--text)}.wo-badge.off{display:none}
 .wo-badge-t{font-family:var(--mono);font-size:10px;font-weight:700;fill:var(--card)}
@@ -318,7 +327,7 @@ rm-menu{display:contents}
 .wo-risk:hover .wo-risk-core,.wo-risk:focus .wo-risk-core{stroke-width:3}
 @keyframes wo-ring{0%{r:17;opacity:.9}100%{r:30;opacity:0}}
 .wo-pulse{fill:var(--green);opacity:.9}.wo-pulse.down{fill:var(--faint)}
-.wo-ctl{display:grid;grid-template-columns:1.2fr 1fr 1.4fr 1.4fr;gap:14px 18px;margin-top:18px}
+.wo-ctl{display:grid;grid-template-columns:1.1fr .8fr 1.9fr 1.3fr;gap:14px 18px;margin-top:18px}
 .wo-ctl-g{display:flex;flex-direction:column;gap:6px}
 .wo-ctl-g .wo-k{margin-bottom:2px}
 .wo-ctl label{font-size:13.5px;line-height:1.45;color:var(--text);display:flex;gap:8px;align-items:flex-start;cursor:pointer}
@@ -332,7 +341,7 @@ rm-menu{display:contents}
 .wo-status b{color:var(--text)}
 .wo-day{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green)}
 .wo-say{margin-top:10px;min-height:1.6em;font-size:14px;line-height:1.6;color:var(--text);font-style:italic}
-.wo-counts.small{grid-template-columns:repeat(7,minmax(0,1fr));max-width:none;margin-top:14px}
+.wo-counts.small{grid-template-columns:repeat(8,minmax(0,1fr));max-width:none;margin-top:14px}
 .wo-counts.small .wo-count{padding:10px 12px}.wo-counts.small .wo-count b{font-size:22px}.wo-counts.small .wo-count span{font-size:11.5px}
 .wo-legend{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:14px;font-size:12.5px;color:var(--muted)}
 .wo-legend span{display:inline-flex;align-items:center;gap:7px}
@@ -384,7 +393,7 @@ rm-menu{display:contents}
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
     <a class="ghlink" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener" aria-label="The source, on GitHub" title="Open source · Apache-2.0 code · CC BY 4.0 pages"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a>
-      <a class="version" href="versions.html" title="What shipped in v1.34.7">v1.34.7</a>
+      <a class="version" href="versions.html" title="What shipped in v1.34.8">v1.34.8</a>
     <button class="demo" data-demo>Book a demo</button>
   </div>
 </header>
@@ -518,7 +527,10 @@ rm-menu{display:contents}
       <div class="wo-r" role="row"><span role="cell">R4 · &ldquo;It can change accounts that are not mine.&rdquo;</span><span role="cell" data-k="Established by">row 5</span><span role="cell" data-k="Ended by">the CRM limiting the rep, and so the agent, to the rep&rsquo;s own accounts</span></div>
       <div class="wo-r" role="row"><span role="cell">R5 · &ldquo;It can rearrange the shared calendar, and nobody could see what it said before.&rdquo;</span><span role="cell" data-k="Established by">row 7</span><span role="cell" data-k="Ended by">calendar access narrowed to the rep&rsquo;s own calendar, or a copy of every event kept before each edit, somewhere the agent cannot write</span></div>
       <div class="wo-r" role="row"><span role="cell">R7 · &ldquo;It reads every customer&rsquo;s mail to the whole team, not only mine.&rdquo;</span><span role="cell" data-k="Established by">row 9</span><span role="cell" data-k="Ended by">the shared inbox out of the agent&rsquo;s reach, which the mail scope cannot do by itself: the delegation would have to be removed from the account</span></div>
+      <div class="wo-r" role="row"><span role="cell">RL · &ldquo;Customer mail goes to the model provider, and what we tell customers does not say so.&rdquo;</span><span role="cell" data-k="Established by">row 1: everything the agent reads is sent to the provider to be read</span><span role="cell" data-k="Ended by">processing terms with the provider, and a notice to customers that says so. Legal holds it</span></div>
+      <div class="wo-r" role="row"><span role="cell">RC · &ldquo;Nothing in our cover says whether an act of the agent, as the rep, is covered.&rdquo;</span><span role="cell" data-k="Established by">row 8: it acts as staff</span><span role="cell" data-k="Ended by">the insurer confirming, in writing, what it covers. The CFO holds it</span></div>
     </div>
+    <p class="wo-note"><b>A control does not make a risk zero. It trades a red risk for a green one.</b> Every control in this article carries a residual risk of its own, smaller, inside somebody&rsquo;s authority, and accepted the day the control lands: an approval step is a person clicking, and people get worn down (the CISO&rsquo;s); a message approved in a hurry still goes out (the rep&rsquo;s); a CRM that limits reps to their own accounts still takes wrong entries at machine speed (Sales&rsquo;); a proxy that carries out every write under the ABP&rsquo;s rules is now the thing that can fail, and its log is a copy of customer data (the CTO&rsquo;s, and Legal&rsquo;s). These belong in the record beside the risks they replaced, because they are what the business is actually running once the controls are in, and because the ABP is where the controls are written down: each one is a barrier on a row, with who holds it. The figure in section 05 draws them in green.</p>
   </div>
 </section>
 
@@ -560,7 +572,7 @@ rm-menu{display:contents}
       <div class="wo-fig-head">
         <span class="wo-k">Figure · the blast radius</span>
         <h3>Connect the assistant, and watch the risks travel up. Then end them.</h3>
-        <p>Drawn from the article&rsquo;s own data. Play the six weeks of section 07, or change the record yourself: connect and disconnect, add the controls, and see which facts stop holding. A risk lights up when every fact it needs holds and none is bounded; it drifts to the role that holds it, and lights the whole path above that role to the board, because a risk never stops with its holder: everyone above carries it. The number on a role is how many risks it holds or carries. A risk ceases when one of its facts changes, citing the ABP version that changed it. Colour is the state of an acceptance, never a rating. Hover or click a role to see what it holds, carries and is informed of; hover a risk for what establishes it and what it reaches. Only the roles this agent&rsquo;s path touches are drawn: Marketing, Product and HR are in the tables and not here.</p>
+        <p>Drawn from the article&rsquo;s own data. Play the six weeks of section 07, or change the record yourself: connect and disconnect, add the controls, and see which facts stop holding. A risk lights up when every fact it needs holds and none is bounded; it drifts to the role that holds it, and lights the whole path above that role to the board, because a risk never stops with its holder: everyone above carries it. <b>The colour travels up the path too</b>: while anything below a role is unaccepted, that role&rsquo;s path is red, whatever else it holds. The number on a role is how many risks it holds or carries. A risk ceases when one of its facts changes, citing the ABP version that changed it, <b>and what takes its place is the control&rsquo;s own residual risk</b>, in green: smaller, inside its holder&rsquo;s own authority, accepted when it appears. That is what a control does to a risk. It does not make it zero; it turns a red one into a green one that somebody can live with. Put every control on and every path to the board is green, and the risks that remain are the ones the business runs the assistant to take. Colour is the state of an acceptance, never a rating. Hover or click a role to see what it holds, carries and is informed of; hover a risk for what establishes it and what it reaches. Only the roles this agent&rsquo;s path touches are drawn: Marketing, Product and HR are in the tables and not here.</p>
       </div>
       <div class="wo-ctl">
         <div class="wo-ctl-g">
@@ -579,6 +591,11 @@ rm-menu{display:contents}
           <label><input type="checkbox" id="wo-t-crmLimit"> The CRM limits the rep to their own accounts</label>
           <label><input type="checkbox" id="wo-t-noExport"> Export removed from the scope</label>
           <label><input type="checkbox" id="wo-t-calOwn"> Calendar narrowed to the rep&rsquo;s own</label>
+          <label><input type="checkbox" id="wo-t-shared"> The shared-inbox delegation removed from the account</label>
+          <label><input type="checkbox" id="wo-t-proxy"> An execution proxy carries out every write under the ABP&rsquo;s rules</label>
+          <label><input type="checkbox" id="wo-t-terms"> Processing terms with the provider, and a notice to customers that says so</label>
+          <label><input type="checkbox" id="wo-t-cover"> The insurer confirms, in writing, what it covers when the agent acts as staff</label>
+          <button type="button" class="wo-btn ghost small" id="wo-b-all">Connect everything, with every control</button>
         </div>
         <div class="wo-ctl-g">
           <span class="wo-k">Expectations: in the agent&rsquo;s instructions</span>
@@ -596,7 +613,8 @@ rm-menu{display:contents}
         <div class="wo-count"><b id="wo-c-excess">0</b><span>excess</span></div>
         <div class="wo-count"><b id="wo-c-unbounded">0</b><span>unbounded excess</span></div>
         <div class="wo-count"><b id="wo-c-open">0</b><span>open risks</span></div>
-        <div class="wo-count"><b id="wo-c-unaccepted">0</b><span>unaccepted</span></div>
+        <div class="wo-count"><b id="wo-c-unaccepted">0</b><span>unaccepted: red</span></div>
+        <div class="wo-count"><b id="wo-c-accepted">0</b><span>accepted: green</span></div>
         <div class="wo-count"><b id="wo-c-abp">&ndash;</b><span>ABP version</span></div>
       </div>
       <div class="wo-legend">
@@ -610,6 +628,8 @@ rm-menu{display:contents}
         <span><i class="wo-lg halo-car"></i> role carrying a risk held below it</span>
         <span><i class="wo-lg badge">3</i> risks held or carried</span>
         <span><i class="wo-lg big"></i> a larger circle needs more facts</span>
+        <span><i class="wo-lg residual"></i> the residual risk of a control</span>
+        <span><i class="wo-lg path-hot"></i> a path carrying an unaccepted risk</span>
       </div>
       <p class="wo-note"><b>Try the last switch on its own.</b> Connect the mail and the CRM, then tick the instructions. Every row in the gap changes from <em>nothing in the way</em> to <em>an expectation</em>, the mandate is now precise about the business process, and the risks stay lit: unbounded excess does not move. That is the honest picture of an instruction. It is worth writing down, because it says what the agent was told, and the ABP is where it is written. It is not a control. The mail connector in the example, like the real ones we have recorded, grants the whole mailbox: on our <a href="abp-vault-claude-gmail-connector.html">Gmail record</a>, Google&rsquo;s consent screen offers three lines to tick, each for the whole account, and none for one folder, one customer or one business process (read 16 September 2026). So the mandate can say <em>only follow-ups on my own accounts</em>, and the grant cannot. The gap between those two sentences is the risk, and the boundary switches above are what end it.</p>
     </div>
@@ -643,22 +663,22 @@ rm-menu{display:contents}
       <p>Invented dates, and the mechanics are the point. Watch where each risk goes, who decides, and what ends it.</p>
     </div>
     <div class="wo-days">
-      <div class="wo-day bad"><span class="d">Day 0</span><h3>Connected. Nine rows, five in the gap, none bounded.</h3><p>The ABP is written from the connector&rsquo;s consent screen, the products&rsquo; own pages and ten minutes with the rep about what they want it for. Seven risks are established. <b>The person who connected the agent can accept one of them</b>, R0, which stays inside their own work, and they do, by connecting. Every other one reaches past it. R1, R4 and R7 go to the head of Sales, R2 to the CISO, R3 to the CIO, and R5 to the COO, whose map row is &ldquo;operational integration&rdquo;. Each of them also lights the path above its holder to the board: the CTO carries what the CIO and the CISO hold, and the CEO carries all of it. The board&rsquo;s view shows six new risks with holders and none accepted, and one accepted by the rep.</p></div>
+      <div class="wo-day bad"><span class="d">Day 0</span><h3>Connected. Nine rows, five in the gap, none bounded.</h3><p>The ABP is written from the connector&rsquo;s consent screen, the products&rsquo; own pages and ten minutes with the rep about what they want it for. Nine risks are established. <b>The person who connected the agent can accept one of them</b>, R0, which stays inside their own work, and they do, by connecting. Every other one reaches past it. R1, R4 and R7 go to the head of Sales, R2 to the CISO, R3 to the CIO, R5 to the COO, whose map row is &ldquo;operational integration&rdquo;, RL to Legal and RC to the CFO. Each of them also lights the path above its holder to the board, in red while it is unaccepted: the CTO carries what the CIO and the CISO hold, and the CEO carries all of it. The board&rsquo;s view shows eight new risks with holders and none accepted, and one accepted by the rep.</p></div>
       <div class="wo-day"><span class="d">Day 2</span><h3>Sales accepts one, funds one, and asks for a fix.</h3><p>The head of Sales <b>accepts</b> R7 for a month: the team&rsquo;s customer mail is inside Sales&rsquo; own authority, and reading it is a risk the team can live with while it decides whether the delegation should stay. Then Sales <b>funds</b> R1: accepted for two weeks while IT adds an approval step to sending that the agent cannot give itself. For R4 they choose <b>fix</b>: they ask the CRM administrator to limit reps to their own accounts.</p></div>
-      <div class="wo-day"><span class="d">Day 3</span><h3>The CISO and the CIO accept, with actions.</h3><p>The CISO <b>accepts</b> R2 for two weeks and records why that is enough: R2 needs rows 1, 3 and 4 together, so R1&rsquo;s fix ends it too. The CIO <b>funds</b> R3: accepted for a month while export is removed from the connector&rsquo;s scope, a change IT has to schedule.</p></div>
-      <div class="wo-day done"><span class="d">Day 4</span><h3>R4 ceases, on evidence.</h3><p>The CRM now limits the rep to their own accounts. ABP version 2 is recomputed: row 5&rsquo;s barrier is a boundary, held by the CRM administrator, out of the agent&rsquo;s reach. The fact behind R4 no longer holds, and R4 ceases, citing version 2. Sales&rsquo; and the CIO&rsquo;s statements lose that source.</p></div>
+      <div class="wo-day"><span class="d">Day 3</span><h3>The CISO, the CIO, Legal and the CFO accept, with actions.</h3><p>The CISO <b>accepts</b> R2 for two weeks and records why that is enough: R2 needs rows 1, 3 and 4 together, so R1&rsquo;s fix ends it too. The CIO <b>funds</b> R3: accepted for a month while export is removed from the connector&rsquo;s scope, a change IT has to schedule. Legal <b>funds</b> RL for three months: processing terms with the model provider, and the notice to customers rewritten to say where their mail goes. The CFO <b>funds</b> RC for three months: the broker is asked, in writing, what the cover says about an agent acting as staff. Neither of those is a technical control, and both end a risk, because each changes a fact the risk was established on.</p></div>
+      <div class="wo-day done"><span class="d">Day 4</span><h3>R4 ceases, on evidence. Its residual takes its place.</h3><p>The CRM now limits the rep to their own accounts. ABP version 2 is recomputed: row 5&rsquo;s barrier is a boundary, held by the CRM administrator, out of the agent&rsquo;s reach. The fact behind R4 no longer holds, and R4 ceases, citing version 2. Sales&rsquo; and the CIO&rsquo;s statements lose that source. What is left is G2: wrong entries on a rep&rsquo;s own accounts still happen, at machine speed. It is inside Sales&rsquo; authority, and Sales accepts it the same day.</p></div>
       <div class="wo-day bad"><span class="d">Day 7</span><h3>Silence: R5 moves up.</h3><p>The COO has not acted on R5 in a week. It moves to the CEO, whom the COO answers to, and it is now critical there.</p></div>
       <div class="wo-day done"><span class="d">Day 10</span><h3>The CEO fixes R5, and a smaller risk takes its place.</h3><p>The CEO asks IT to narrow the agent&rsquo;s calendar access to the rep&rsquo;s own calendar. ABP version 3: R5 ceases. The agent can still edit the rep&rsquo;s own events, which is more than suggesting times, so a smaller risk is established: &ldquo;it can change my own meetings&rdquo;. That one is inside the rep&rsquo;s authority, and the rep accepts it for a month.</p></div>
-      <div class="wo-day done"><span class="d">Day 15</span><h3>The approval step goes live. R1 and R2 cease together.</h3><p>Sending now needs the rep&rsquo;s approval, somewhere the agent cannot reach. ABP version 4: row 3&rsquo;s barrier is a boundary. R1 ceases. R2 needed all three rows, loses the sending one and ceases too. The lethal trifecta is broken on evidence, not on an instruction.</p></div>
+      <div class="wo-day done"><span class="d">Day 15</span><h3>The approval step goes live. R1 and R2 cease together; two residuals appear.</h3><p>Sending now needs the rep&rsquo;s approval, somewhere the agent cannot reach. ABP version 4: row 3&rsquo;s barrier is a boundary. R1 ceases. R2 needed all three rows, loses the sending one and ceases too. The lethal trifecta is broken on evidence, not on an instruction. Two residuals are established and accepted the same day: G1, a message the rep approves in a hurry still goes out as them, which is the rep&rsquo;s; and G4, that an approval is a person clicking and people get worn down, which is the CISO&rsquo;s.</p></div>
       <div class="wo-day"><span class="d">Day 33</span><h3>Three acceptances run out, and are renewed.</h3><p>The scope change was scheduled and has not shipped. R3 returns to the CIO, who renews for one more month with a date for the change. R0 came back to the rep on day 30 and R7 to Sales on day 32, and both were renewed. Each renewal is a new acceptance, and the old ones stay in the record.</p></div>
-      <div class="wo-day"><span class="d">Day 42</span><h3>What the board sees.</h3><p>Four open risks, each with a name and a date: R3, held by the CIO, accepted until day 63, with the work scheduled; R7, held by Sales, until day 62; and two inside the rep&rsquo;s own authority, R0 until day 60 and R6, the own-calendar risk, accepted on day 10 and renewed on day 40 until day 70. Four risks ceased, each citing the ABP version that ended it. None unaccepted. For the agent, unbounded excess went from five to three. That is not a score. It is a count anybody can recompute from the ABP versions.</p></div>
+      <div class="wo-day"><span class="d">Day 42</span><h3>What the board sees.</h3><p>Nine open risks, each with a name and a date, and none unaccepted, so every path to the board is green. Four are still funded or accepted from the gap: R3, held by the CIO until day 63 with the work scheduled; R7, held by Sales until day 62; RL, Legal&rsquo;s, and RC, the CFO&rsquo;s, both until day 93. Five are inside their holders&rsquo; own authority: R0 and R6, the rep&rsquo;s; and the residuals of the two controls that landed, G2 with Sales, G1 with the rep and G4 with the CISO. Four risks ceased, each citing the ABP version that ended it. For the agent, unbounded excess went from five to three. That is not a score. It is a count anybody can recompute from the ABP versions.</p></div>
     </div>
 
     <div class="wo-fig">
       <div class="wo-fig-head">
         <span class="wo-k">Figure · six weeks on one strip</span>
         <h3>Who held each risk, in which state, and what ended it.</h3>
-        <p>The same six weeks as a strip: one line per risk, day 0 to day 42. A hatched bar is a funded acceptance; the small arrow on R5 is the week of silence that moved it from the COO to the CEO; each ending names the ABP version whose facts ended the risk. R0, R3, R6 and R7 run past the edge: all four were renewed, and each carries a date. R0 is the one inside the rep&rsquo;s own authority: accepted from the day the agent was connected, which is the level the business already lives with.</p>
+        <p>The same six weeks as a strip: one line per risk, day 0 to day 42. A hatched bar is a funded acceptance; the small arrow on R5 is the week of silence that moved it from the COO to the CEO; each ending names the ABP version whose facts ended the risk. The last three lines start where a control lands: they are its residual risks, accepted by their holders from that day. R0 is the one inside the rep&rsquo;s own authority from the day the agent was connected, which is the level the business already lives with. Everything that runs past the edge was renewed, and carries a date.</p>
       </div>
       <div class="wo-scroll"><div id="wo-figB" class="wo-canvas short"></div></div>
     </div>
@@ -676,17 +696,17 @@ rm-menu{display:contents}
       <div class="wo-r" role="row"><span role="columnheader">Role</span><span role="columnheader">Holds, in the example</span><span role="columnheader">May accept</span><span role="columnheader">Answers to</span><span role="columnheader">Can stop the agent</span></div>
       <div class="wo-r" role="row"><span role="cell">CEO / Leadership</span><span role="cell" data-k="Holds">R5, after the COO&rsquo;s silence, until it fixed it</span><span role="cell" data-k="May accept">what reaches customers at scale, or cannot be undone across the company</span><span role="cell" data-k="Answers to">the board</span><span role="cell" data-k="Can stop">by telling IT</span></div>
       <div class="wo-r" role="row"><span role="cell">Board</span><span role="cell" data-k="Holds">nothing directly; sees every risk and its expiry</span><span role="cell" data-k="May accept">sets the appetite; keeps what it reserves</span><span role="cell" data-k="Answers to">the owners</span><span role="cell" data-k="Can stop">through the CEO</span></div>
-      <div class="wo-r" role="row"><span role="cell">CFO</span><span role="cell" data-k="Holds">nothing; informed of R1, R2 and R3</span><span role="cell" data-k="May accept">financial exposure within budget, up to three months</span><span role="cell" data-k="Answers to">the CEO</span><span role="cell" class="off" data-k="Can stop">no</span></div>
+      <div class="wo-r" role="row"><span role="cell">CFO</span><span role="cell" data-k="Holds">RC, funded for three months while the insurer answers</span><span role="cell" data-k="May accept">financial exposure within budget, up to three months</span><span role="cell" data-k="Answers to">the CEO</span><span role="cell" class="off" data-k="Can stop">no</span></div>
       <div class="wo-r" role="row"><span role="cell">COO</span><span role="cell" data-k="Holds">R5, for a week, then let it go up</span><span role="cell" data-k="May accept">how the company&rsquo;s shared operations run, up to a month</span><span role="cell" data-k="Answers to">the CEO</span><span role="cell" class="off" data-k="Can stop">no</span></div>
       <div class="wo-r" role="row"><span role="cell">CTO / IT</span><span role="cell" data-k="Holds">nothing; did the work behind two of the endings, and has the third scheduled</span><span role="cell" data-k="May accept">changes to technology, up to three months</span><span role="cell" data-k="Answers to">the CEO</span><span role="cell" class="ok" data-k="Can stop">yes: revokes the connector for the company</span></div>
       <div class="wo-r" role="row"><span role="cell">CIO / Data</span><span role="cell" data-k="Holds">R3, renewed once</span><span role="cell" data-k="May accept">customer data at risk, inside the company or leaving it, up to three months</span><span role="cell" data-k="Answers to">the CTO</span><span role="cell" data-k="Can stop">through IT</span></div>
-      <div class="wo-r" role="row"><span role="cell">CISO</span><span role="cell" data-k="Holds">R2, until it ceased</span><span role="cell" data-k="May accept">threats to data and systems, up to three months</span><span role="cell" data-k="Answers to">the CTO</span><span role="cell" class="ok" data-k="Can stop">yes, through IT, and may order it in an incident</span></div>
-      <div class="wo-r" role="row"><span role="cell">Legal</span><span role="cell" data-k="Holds">nothing; informed of R1, R2, R3 and R7</span><span role="cell" data-k="May accept">legal exposure; would hold a risk that a message could commit the company</span><span role="cell" data-k="Answers to">the CEO</span><span role="cell" class="off" data-k="Can stop">no</span></div>
+      <div class="wo-r" role="row"><span role="cell">CISO</span><span role="cell" data-k="Holds">R2, until it ceased; G4, the residual of the approval step</span><span role="cell" data-k="May accept">threats to data and systems, up to three months</span><span role="cell" data-k="Answers to">the CTO</span><span role="cell" class="ok" data-k="Can stop">yes, through IT, and may order it in an incident</span></div>
+      <div class="wo-r" role="row"><span role="cell">Legal</span><span role="cell" data-k="Holds">RL, funded for three months while terms and the notice are done; informed of R1, R2, R3 and R7</span><span role="cell" data-k="May accept">legal exposure; would hold a risk that a message could commit the company</span><span role="cell" data-k="Answers to">the CEO</span><span role="cell" class="off" data-k="Can stop">no</span></div>
       <div class="wo-r" role="row"><span role="cell">HR</span><span role="cell" data-k="Holds">nothing</span><span role="cell" data-k="May accept">how people are asked to adopt agents</span><span role="cell" data-k="Answers to">the COO</span><span role="cell" class="off" data-k="Can stop">no</span></div>
       <div class="wo-r" role="row"><span role="cell">Marketing</span><span role="cell" data-k="Holds">nothing; informed of R1</span><span role="cell" data-k="May accept">what goes out under the company&rsquo;s name</span><span role="cell" data-k="Answers to">the CEO</span><span role="cell" class="off" data-k="Can stop">no</span></div>
-      <div class="wo-r" role="row"><span role="cell">Sales</span><span role="cell" data-k="Holds">R1 and R4, until they ceased; R7, renewed once</span><span role="cell" data-k="May accept">the team&rsquo;s customer mail and records, up to a month</span><span role="cell" data-k="Answers to">the CEO</span><span role="cell" class="ok" data-k="Can stop">yes: can tell the rep to disconnect it</span></div>
+      <div class="wo-r" role="row"><span role="cell">Sales</span><span role="cell" data-k="Holds">R1 and R4, until they ceased; R7, renewed once; G2, the residual of the CRM limit</span><span role="cell" data-k="May accept">the team&rsquo;s customer mail and records, up to a month</span><span role="cell" data-k="Answers to">the CEO</span><span role="cell" class="ok" data-k="Can stop">yes: can tell the rep to disconnect it</span></div>
       <div class="wo-r" role="row"><span role="cell">Product</span><span role="cell" class="off" data-k="Holds">not on this path</span><span role="cell" data-k="May accept">what the product does to a customer</span><span role="cell" data-k="Answers to">the CEO</span><span role="cell" class="off" data-k="Can stop">no</span></div>
-      <div class="wo-r" role="row"><span role="cell">All Employees</span><span role="cell" data-k="Holds">R0 from day 0, and R6 from day 10, both inside their own authority</span><span role="cell" data-k="May accept">what stays inside their own mailbox, calendar and drafts, up to a month</span><span role="cell" data-k="Answers to">their manager</span><span role="cell" class="ok" data-k="Can stop">yes: disconnects it</span></div>
+      <div class="wo-r" role="row"><span role="cell">All Employees</span><span role="cell" data-k="Holds">R0 from day 0, R6 from day 10 and G1 from day 15, all inside their own authority</span><span role="cell" data-k="May accept">what stays inside their own mailbox, calendar and drafts, up to a month</span><span role="cell" data-k="Answers to">their manager</span><span role="cell" class="ok" data-k="Can stop">yes: disconnects it</span></div>
     </div>
     <p class="wo-note"><b>Read down the last column.</b> Of thirteen roles, four can stop this agent, and only two can do it without asking anybody: the rep and IT. That is normal. It becomes a finding only when an acceptance is shorter than the time the stop takes, or when nobody on the risk&rsquo;s path can stop it at all.</p>
   </div>
@@ -798,8 +818,8 @@ rm-menu{display:contents}
 
 <script>
 // The three figures on this page are drawn by this script from the article's own data: the
-// nine rows, the risks, the roles and the six weeks. Nothing is loaded from anywhere, nothing is
-// sent, and every piece of text goes in through textContent.
+// nine rows, the risks, the roles, the controls and the six weeks. Nothing is loaded from
+// anywhere, nothing is sent, and every piece of text goes in through textContent.
 (function () {
 'use strict';
 var NS = 'http://www.w3.org/2000/svg';
@@ -858,53 +878,72 @@ var ROWS = [
 ];
 var ROW = {}; ROWS.forEach(function (r) { ROW[r.id] = r; });
 var ROW_Y = 500;
+// The controls. A boundary bounds rows; a removal takes a row out of the grant; a fact control
+// (terms, cover) changes a fact a risk was established on. The proxy is the one in the middle:
+// it carries out every write under the ABP's rules, so it bounds every write row at once.
+var CTLS = ['approval', 'crmLimit', 'noExport', 'calOwn', 'shared', 'proxy', 'terms', 'cover'];
 // kind is the consequence in words, which is what the holder's authority is written in; undo is a
-// property of the action. Neither is a score. auto marks a risk inside the holder's own authority,
-// which they accept on connecting: the level the business already lives with.
+// property of the action. Neither is a score. auto marks a risk inside the holder's own
+// authority, accepted when it is established: the level the business lives with. A risk with
+// withCtl exists only once one of those controls is in place: it is the control's own residual
+// risk, and it is what the red risks become. endsCtl names a control that ends the risk by
+// changing a fact it was established on.
 var RISKS = [
-  { id: 'R0', needs: ['r1'],             role: 'rep',   x0: 80,  label: 'R0 · reads everything in my inbox, including what is not about work', kind: 'inside the rep’s own work', undo: 'nothing changes', auto: 'accepted', informs: [] },
-  { id: 'R1', needs: ['r3'],             role: 'sales', x0: 200, label: 'R1 · sends as me, to anybody',                          kind: 'reaches customers; cannot be undone', undo: 'no, once sent', informs: ['legal', 'cfo', 'cto'] },
-  { id: 'R2', needs: ['r1', 'r3', 'r4'], role: 'ciso',  x0: 330, label: 'R2 · a stranger’s mail steers it to send customer data out', kind: 'customer data leaves the company', undo: 'no, once sent', informs: ['legal', 'cfo', 'cto'] },
-  { id: 'R3', needs: ['r6'],             role: 'cio',   x0: 470, label: 'R3 · takes the customer list out',                     kind: 'customer data leaves the company', undo: 'no', informs: ['legal', 'cfo', 'cto'] },
-  { id: 'R4', needs: ['r5'],             role: 'sales', x0: 610, label: 'R4 · changes accounts that are not mine',               kind: 'the team’s records', undo: 'as far as the CRM keeps history', informs: ['cio', 'cto'] },
-  { id: 'R5', needs: ['r7'],             role: 'coo',   x0: 750, label: 'R5 · rearranges the shared calendar',                  kind: 'the company’s shared operations; cannot be undone', undo: 'an edit often cannot be restored', informs: ['cto'] },
-  { id: 'R6', needs: ['r7b'],            role: 'rep',   x0: 750, label: 'R6 · changes my own meetings',                        kind: 'inside the rep’s own work', undo: 'an edit often cannot be restored', informs: [] },
-  { id: 'R7', needs: ['r9'],             role: 'sales', x0: 890, label: 'R7 · reads every customer’s mail to the whole team, not only mine', kind: 'the team’s customer mail', undo: 'nothing changes', informs: ['legal', 'cto'] }
+  { id: 'R0', needs: ['r1'],             role: 'rep',   x0: 60,  auto: 'accepted', label: 'R0 · reads all my mail to do its job, including what is not about work', kind: 'inside the rep’s own work', undo: 'nothing changes', informs: [] },
+  { id: 'R1', needs: ['r3'],             role: 'sales', x0: 160, label: 'R1 · sends as me, to anybody',                          kind: 'reaches customers; cannot be undone', undo: 'no, once sent', informs: ['legal', 'cfo', 'cto'] },
+  { id: 'R2', needs: ['r1', 'r3', 'r4'], role: 'ciso',  x0: 270, label: 'R2 · a stranger’s mail steers it to send customer data out', kind: 'customer data leaves the company', undo: 'no, once sent', informs: ['legal', 'cfo', 'cto'] },
+  { id: 'R3', needs: ['r6'],             role: 'cio',   x0: 380, label: 'R3 · takes the customer list out',                     kind: 'customer data leaves the company', undo: 'no', informs: ['legal', 'cfo', 'cto'] },
+  { id: 'R4', needs: ['r5'],             role: 'sales', x0: 490, label: 'R4 · changes accounts that are not mine',               kind: 'the team’s records', undo: 'as far as the CRM keeps history', informs: ['cio', 'cto'] },
+  { id: 'R5', needs: ['r7'],             role: 'coo',   x0: 600, label: 'R5 · rearranges the shared calendar',                  kind: 'the company’s shared operations; cannot be undone', undo: 'an edit often cannot be restored', informs: ['cto'] },
+  { id: 'R6', needs: ['r7b'],            role: 'rep',   x0: 600, auto: 'accepted', label: 'R6 · changes my own meetings',       kind: 'inside the rep’s own work', undo: 'an edit often cannot be restored', informs: [] },
+  { id: 'R7', needs: ['r9'],             role: 'sales', x0: 710, label: 'R7 · reads every customer’s mail to the whole team, not only mine', kind: 'the team’s customer mail', undo: 'nothing changes', informs: ['legal', 'cto'] },
+  { id: 'RL', needs: ['r1'],             role: 'legal', x0: 820, endsCtl: 'terms', label: 'RL · customer mail goes to the model provider, and what we tell customers does not say so', kind: 'personal data, and a promise to customers', undo: 'no: what was sent was sent', informs: ['ciso', 'cfo'] },
+  { id: 'RC', needs: ['r8'],             role: 'cfo',   x0: 930, endsCtl: 'cover', label: 'RC · nothing in our cover says whether an act of the agent, as the rep, is covered', kind: 'an uninsured loss', undo: 'not an action', informs: ['legal'] },
+  // the residual risks: what a red risk becomes once a control is in place
+  { id: 'G1', needs: ['r3'], withCtl: ['approval', 'proxy'], role: 'rep',   x0: 160, auto: 'accepted', label: 'G1 · a message I approve in a hurry still goes out as me', kind: 'inside the rep’s own work', undo: 'no, once sent', informs: [] },
+  { id: 'G2', needs: ['r5'], withCtl: ['crmLimit', 'proxy'], role: 'sales', x0: 490, auto: 'accepted', label: 'G2 · wrong entries on a rep’s own accounts still happen, at machine speed', kind: 'the team’s records', undo: 'as far as the CRM keeps history', informs: [] },
+  { id: 'G3', needs: ['r4'], withCtl: ['noExport', 'proxy'], role: 'cio',   x0: 380, auto: 'accepted', label: 'G3 · records still leave one at a time, in what the agent reads and drafts', kind: 'customer data, one record at a time', undo: 'no', informs: [] },
+  { id: 'G4', needs: ['r3'], withCtl: ['approval', 'proxy'], role: 'ciso',  x0: 270, auto: 'accepted', label: 'G4 · the approval is a person clicking, and people get worn down', kind: 'a control that depends on attention', undo: 'no, once sent', informs: [] },
+  { id: 'G5', needs: ['r8'], withCtl: ['proxy'],             role: 'cto',   x0: 500, auto: 'accepted', label: 'G5 · the proxy is now the thing that can fail, and every write goes through it', kind: 'a control that can be misconfigured', undo: 'depends on what went through', informs: [] },
+  { id: 'G6', needs: ['r8'], withCtl: ['proxy'],             role: 'coo',   x0: 320, auto: 'accepted', label: 'G6 · the proxy is on the path of every action: when it is down, the assistant stops', kind: 'availability', undo: 'not an action', informs: [] },
+  { id: 'G7', needs: ['r1'], withCtl: ['proxy'],             role: 'legal', x0: 680, auto: 'accepted', label: 'G7 · the proxy’s log holds a copy of customer mail and records, which is itself personal data to protect', kind: 'personal data, in a log', undo: 'a log can be deleted', informs: [] },
+  { id: 'G8', needs: ['r8'], withCtl: ['cover'],             role: 'cfo',   x0: 150, auto: 'accepted', label: 'G8 · cover carries an excess and conditions we have to keep meeting, and the ABP is one of them', kind: 'a cost, and a promise to the insurer', undo: 'not an action', informs: [] }
 ];
 var RISK = {}; RISKS.forEach(function (k) { RISK[k.id] = k; });
 var RISK_Y = 392;
 
 function freshState() {
-  return { conn: { mail: false, crm: false, cal: false }, ctl: { approval: false, crmLimit: false, noExport: false, calOwn: false }, instr: false, acc: {}, abp: 0, day: null, note: '' };
+  var ctl = {}; CTLS.forEach(function (c) { ctl[c] = false; });
+  return { conn: { mail: false, crm: false, cal: false }, ctl: ctl, instr: false, acc: {}, abp: 0, day: null, note: '' };
 }
 function rowPresent(S, r) {
   if (r.conn === 'any') return S.conn.mail || S.conn.crm || S.conn.cal;
   if (!S.conn[r.conn]) return false;
   if (r.id === 'r6' && S.ctl.noExport) return false;
+  if (r.id === 'r9' && S.ctl.shared) return false;
   if (r.id === 'r7' && S.ctl.calOwn) return false;
   if (r.id === 'r7b' && !S.ctl.calOwn) return false;
   return true;
 }
 function rowBarrier(S, r) {
   if (r.mandate) return 'not-needed';
+  if (S.ctl.proxy && r.id !== 'r9') return 'boundary';     // the proxy carries out every write; it cannot stop a read
   if (r.id === 'r3' && S.ctl.approval) return 'boundary';
   if (r.id === 'r5' && S.ctl.crmLimit) return 'boundary';
   return S.instr ? 'expectation' : 'none';
 }
 function riskHolds(S, k) {
-  return k.needs.every(function (id) { var r = ROW[id]; return rowPresent(S, r) && rowBarrier(S, r) !== 'boundary'; });
+  if (k.withCtl && !k.withCtl.some(function (c) { return S.ctl[c]; })) return false;
+  if (k.endsCtl && S.ctl[k.endsCtl]) return false;
+  return k.needs.every(function (id) { var r = ROW[id]; if (!rowPresent(S, r)) return false; if (k.withCtl) return true; return rowBarrier(S, r) !== 'boundary'; });
 }
 function roleById(id) { for (var i = 0; i < ROLES.length; i++) if (ROLES[i].id === id) return ROLES[i]; return null; }
 function roleLabel(id) { var r = roleById(id); return r ? r.label : id; }
-// the path a risk travels: its holder, then every role above, ending at the board
 function chain(holder) { var out = [], r = roleById(holder); while (r) { out.push(r.id); r = r.to ? roleById(r.to) : null; } return out; }
-// Acceptance records follow the facts: a risk that starts to hold is unaccepted with its placed
-// holder, or accepted if it is inside that holder's own authority; one that stops holding ceases,
-// citing the ABP version that ended it.
 function settle(S) {
   RISKS.forEach(function (k) {
     var holds = riskHolds(S, k), a = S.acc[k.id];
-    if (holds && (!a || a.state === 'ceased')) S.acc[k.id] = k.auto ? { state: k.auto, holder: k.role, note: 'inside ' + roleLabel(k.role).replace('The rep', 'the rep') + '’s own authority: accepted on connecting, for a month' }
+    if (holds && (!a || a.state === 'ceased')) S.acc[k.id] = k.auto ? { state: k.auto, holder: k.role, note: 'inside ' + roleLabel(k.role).replace('The rep', 'the rep') + '’s own authority: accepted when established, for a month' + (k.withCtl ? '; the residual of a control' : '') }
                                                           : { state: 'unaccepted', holder: k.role, note: 'placed with ' + roleLabel(k.role) + ', not yet accepted' };
     else if (!holds && a && a.state !== 'ceased') { a.state = 'ceased'; a.note = 'ceased on ABP version ' + S.abp; a.holder = null; }
   });
@@ -914,28 +953,28 @@ function counts(S) {
   var g = 0, m = 0, e = 0, u = 0, open = 0, un = 0;
   ROWS.forEach(function (r) { if (!rowPresent(S, r)) return; g++; if (r.mandate) m++; else { e++; if (rowBarrier(S, r) !== 'boundary') u++; } });
   live(S).forEach(function (k) { open++; if (S.acc[k.id].state === 'unaccepted') un++; });
-  return { grant: g, mandate: m, excess: e, unbounded: u, open: open, unaccepted: un };
+  return { grant: g, mandate: m, excess: e, unbounded: u, open: open, unaccepted: un, accepted: open - un };
 }
 
 var STEPS = [
   { day: 0,  title: 'Connected. Nine rows, five in the gap, none bounded.', apply: function (S) { S.conn.mail = S.conn.crm = S.conn.cal = true; S.abp = 1; settle(S); },
-    note: 'Seven risks are established. R0 is inside the rep’s own authority and the rep accepts it on connecting. The other six are placed by the map: R1, R4 and R7 with Sales, R2 with the CISO, R3 with the CIO, R5 with the COO. Every one of them reaches the board.' },
+    note: 'Nine risks are established. R0 is inside the rep’s own authority and the rep accepts it on connecting. The other eight are placed by the map: R1, R4 and R7 with Sales, R2 with the CISO, R3 with the CIO, R5 with the COO, RL with Legal, RC with the CFO. Every one of them reaches the board, and every path is red.' },
   { day: 2,  title: 'Sales accepts one, funds one, and asks for a fix.', apply: function (S) { S.acc.R7 = { state: 'accepted', holder: 'sales', note: 'accepted by Sales for a month: the team’s customer mail is inside Sales’ authority' }; S.acc.R1 = { state: 'funded', holder: 'sales', note: 'funded by Sales for two weeks: an approval step on sending' }; S.acc.R4 = { state: 'funded', holder: 'sales', note: 'fix chosen by Sales: limit reps to their own accounts' }; },
     note: 'R7 is inside Sales’ authority and is accepted for a month. R1 is accepted for two weeks while IT adds an approval step to sending. R4: the CRM administrator is asked to limit reps to their own accounts.' },
-  { day: 3,  title: 'The CISO and the CIO accept, with actions.', apply: function (S) { S.acc.R2 = { state: 'accepted', holder: 'ciso', note: 'accepted by the CISO for two weeks: R1’s fix ends it too' }; S.acc.R3 = { state: 'funded', holder: 'cio', note: 'funded by the CIO for a month: export removed from the scope' }; },
-    note: 'R2 needs rows 1, 3 and 4 together, so the approval step will end it as well. R3 is accepted for a month while export is removed from the connector’s scope.' },
-  { day: 4,  title: 'R4 ceases, on evidence.', apply: function (S) { S.ctl.crmLimit = true; S.abp = 2; settle(S); },
-    note: 'The CRM now limits the rep to their own accounts. ABP version 2: row 5’s barrier is a boundary. The fact behind R4 no longer holds, so R4 ceases, citing version 2.' },
+  { day: 3,  title: 'The CISO, the CIO, Legal and the CFO accept, with actions.', apply: function (S) { S.acc.R2 = { state: 'accepted', holder: 'ciso', note: 'accepted by the CISO for two weeks: R1’s fix ends it too' }; S.acc.R3 = { state: 'funded', holder: 'cio', note: 'funded by the CIO for a month: export removed from the scope' }; S.acc.RL = { state: 'funded', holder: 'legal', note: 'funded by Legal for three months: processing terms with the provider, and the notice to customers rewritten' }; S.acc.RC = { state: 'funded', holder: 'cfo', note: 'funded by the CFO for three months: the broker asked, in writing, what the cover says about an agent acting as staff' }; },
+    note: 'R2 needs rows 1, 3 and 4 together, so the approval step will end it as well. R3 is accepted for a month while export is removed from the scope. Legal and the CFO each accept for three months, with the work that ends theirs named: terms and a notice; a written answer from the insurer.' },
+  { day: 4,  title: 'R4 ceases, on evidence. Its residual takes its place.', apply: function (S) { S.ctl.crmLimit = true; S.abp = 2; settle(S); },
+    note: 'The CRM now limits the rep to their own accounts. ABP version 2: row 5’s barrier is a boundary. R4 ceases, citing version 2. What is left is G2, wrong entries on the rep’s own accounts, which is inside Sales’ authority and is accepted.' },
   { day: 7,  title: 'Silence: R5 moves up.', apply: function (S) { S.acc.R5 = { state: 'unaccepted', holder: 'ceo', note: 'moved up after a week of silence at the COO; critical at the CEO' }; },
-    note: 'The COO has not acted on R5 in a week. It moves to the CEO, whom the COO answers to. The CEO already carried it; now the CEO holds it.' },
-  { day: 10, title: 'The CEO fixes R5, and a smaller risk takes its place.', apply: function (S) { S.ctl.calOwn = true; S.abp = 3; settle(S); S.acc.R6 = { state: 'accepted', holder: 'rep', note: 'accepted by the rep for a month: inside their own authority' }; },
-    note: 'Calendar access is narrowed to the rep’s own calendar. ABP version 3: R5 ceases. The agent can still edit the rep’s own events, so R6 is established, and it is inside the rep’s authority.' },
-  { day: 15, title: 'The approval step goes live. R1 and R2 cease together.', apply: function (S) { S.ctl.approval = true; S.abp = 4; settle(S); },
-    note: 'Sending now needs the rep’s approval, somewhere the agent cannot reach. ABP version 4: row 3’s barrier is a boundary. R1 ceases; R2 loses one of its three facts and ceases too.' },
+    note: 'The COO has not acted on R5 in a week. It moves to the CEO, whom the COO answers to. The CEO already carried it, in red; now the CEO holds it.' },
+  { day: 10, title: 'The CEO fixes R5, and a smaller risk takes its place.', apply: function (S) { S.ctl.calOwn = true; S.abp = 3; settle(S); },
+    note: 'Calendar access is narrowed to the rep’s own calendar. ABP version 3: R5 ceases. The agent can still edit the rep’s own events, so R6 is established, inside the rep’s authority, and accepted.' },
+  { day: 15, title: 'The approval step goes live. R1 and R2 cease; two residuals appear.', apply: function (S) { S.ctl.approval = true; S.abp = 4; settle(S); },
+    note: 'Sending now needs the rep’s approval, somewhere the agent cannot reach. ABP version 4: row 3’s barrier is a boundary. R1 ceases; R2 loses one of its three facts and ceases too. G1, a message approved in a hurry, is the rep’s; G4, that an approval is a person clicking, is the CISO’s. Both are accepted.' },
   { day: 33, title: 'Three acceptances run out, and are renewed.', apply: function (S) { S.acc.R3 = { state: 'funded', holder: 'cio', note: 'renewed by the CIO for one more month, with a date for the change' }; S.acc.R7 = { state: 'accepted', holder: 'sales', note: 'renewed by Sales on day 32, until day 62' }; S.acc.R0 = { state: 'accepted', holder: 'rep', note: 'renewed by the rep on day 30, until day 60' }; },
     note: 'R3 returns to the CIO with the work not done, and is renewed for a month with a date for the scope change. R7 and R0 come back to their desks too and are renewed. Every old acceptance stays in the record.' },
   { day: 42, title: 'What the board sees.', apply: function (S) { S.acc.R6 = { state: 'accepted', holder: 'rep', note: 'renewed by the rep on day 40, until day 70' }; },
-    note: 'Four open risks, each with a name and a date, two of them inside the rep’s own authority. Four ceased, each citing the ABP version that ended it. None unaccepted. Unbounded excess went from five to three.' }
+    note: 'Nine open risks and none unaccepted: four still funded or accepted from the gap (R3, R7, RL, RC), and five inside their holders’ own authority, three of them the residuals of controls. Four ceased, each citing the ABP version that ended it. Unbounded excess went from five to three. Every path to the board is green.' }
 ];
 
 function figureA() {
@@ -965,6 +1004,10 @@ function figureA() {
   var agent = sv('g', { 'class': 'wo-agent' }, gNodes);
   sv('rect', { x: 440, y: 656, width: 120, height: 32, rx: 8 }, agent);
   stext(500, 677, 'the assistant', 'wo-agent-t', agent);
+  // the proxy sits between the assistant and its connections when it is on
+  var proxyG = sv('g', { 'class': 'wo-proxy off' }, gNodes);
+  sv('rect', { x: 430, y: 640, width: 140, height: 16, rx: 4 }, proxyG);
+  stext(500, 652, 'execution proxy', 'wo-proxy-t', proxyG);
   CONNS.forEach(function (c) {
     sv('line', { x1: 500, y1: 656, x2: c.x, y2: c.y + 14, 'class': 'wo-org' }, gChart);
     var g = sv('g', { 'class': 'wo-conn off' }, gNodes);
@@ -978,19 +1021,19 @@ function figureA() {
     var g = sv('g', { 'class': 'wo-row absent' }, gNodes);
     sv('circle', { cx: r.x, cy: ROW_Y, r: 11 }, g);
     stext(r.x, ROW_Y + 4, r.n, 'wo-row-n', g);
-    stext(r.x, ROW_Y + (i % 2 ? 42 : 30), r.label, 'wo-row-t', g); // staggered, so nine labels fit
+    stext(r.x, ROW_Y + (i % 2 ? 42 : 30), r.label, 'wo-row-t', g);
     rowG[r.id] = g;
   });
+  function radius(k) { return 13 + 3 * (k.needs.length - 1); }
   RISKS.forEach(function (k) {
     pos[k.id] = { x: k.x0, y: RISK_Y, tx: k.x0, ty: RISK_Y };
     k.needs.forEach(function (id) { edgeRowRisk[k.id + ':' + id] = sv('line', { 'class': 'wo-e wo-e-est' }, gEdges); });
     edgeRiskRole[k.id] = sv('line', { 'class': 'wo-e wo-e-held' }, gEdges);
-    var rr = 13 + 3 * (k.needs.length - 1); // a compound risk is drawn larger: it needs more facts, and touches more of the estate
     var g = sv('g', { 'class': 'wo-risk gone', tabindex: '0', role: 'button', 'aria-label': k.label }, gNodes);
-    sv('circle', { r: rr + 4, 'class': 'wo-risk-ring' }, g);
-    sv('circle', { r: rr, 'class': 'wo-risk-core' }, g);
+    sv('circle', { r: radius(k) + 4, 'class': 'wo-risk-ring' }, g);
+    sv('circle', { r: radius(k), 'class': 'wo-risk-core' }, g);
     stext(0, 4, k.id, 'wo-risk-t', g);
-    var tip = function () { var a = S.acc[k.id]; say(k.label + '. Established by row' + (k.needs.length > 1 ? 's ' : ' ') + k.needs.map(function (id) { return ROW[id].n; }).join(', ') + '. Consequence: ' + k.kind + '. Undo: ' + k.undo + '. ' + (a ? (a.state === 'ceased' ? a.note + '.' : 'Held by ' + roleLabel(a.holder) + ', ' + a.note + '. Reaches ' + chain(a.holder).map(roleLabel).join(' → ') + '.') : 'Not established: its facts do not hold.')); };
+    var tip = function () { var a = S.acc[k.id]; say(k.label + '. ' + (k.withCtl ? 'The residual of a control, established by row ' : 'Established by row' + (k.needs.length > 1 ? 's ' : ' ')) + k.needs.map(function (id) { return ROW[id].n; }).join(', ') + (k.withCtl ? ' with the control in place' : '') + '. Consequence: ' + k.kind + '. Undo: ' + k.undo + '. ' + (a ? (a.state === 'ceased' ? a.note + '.' : 'Held by ' + roleLabel(a.holder) + ', ' + a.note + '. Reaches ' + chain(a.holder).map(roleLabel).join(' → ') + '.') : 'Not established: its facts do not hold.')); };
     g.addEventListener('mouseenter', tip); g.addEventListener('focus', tip); g.addEventListener('click', tip);
     riskG[k.id] = g;
   });
@@ -998,12 +1041,12 @@ function figureA() {
   var cap = byId('wo-figA-say'), dayEl = byId('wo-figA-day'), titleEl = byId('wo-figA-title'), noteEl = byId('wo-figA-note'), roleEl = byId('wo-figA-role'), listEl = byId('wo-figA-list');
   function say(s) { cap.textContent = s; }
 
-  // what each role holds, carries from below, and is informed of, right now
   function roleLoad() {
-    var L = {}; ROLES.forEach(function (r) { L[r.id] = { holds: [], carries: [], informed: [] }; });
+    var L = {}; ROLES.forEach(function (r) { L[r.id] = { holds: [], carries: [], informed: [], worst: null }; });
     live(S).forEach(function (k) {
-      var a = S.acc[k.id], c = chain(a.holder);
+      var a = S.acc[k.id], c = chain(a.holder), un = a.state === 'unaccepted';
       L[c[0]].holds.push(k.id); c.slice(1).forEach(function (id) { L[id].carries.push(k.id); });
+      c.forEach(function (id) { if (un) L[id].worst = 'unaccepted'; else if (!L[id].worst) L[id].worst = 'accepted'; });
       k.informs.forEach(function (id) { if (L[id] && c.indexOf(id) < 0) L[id].informed.push(k.id); });
     });
     return L;
@@ -1038,38 +1081,39 @@ function figureA() {
       else { p.tx = k.x0; p.ty = RISK_Y; }
     });
     var lv = live(S).sort(function (a, b) { return pos[a.id].tx - pos[b.id].tx; });
-    for (var pass = 0; pass < 6; pass++) for (var i = 1; i < lv.length; i++) { var q = pos[lv[i - 1].id], w = pos[lv[i].id], gap = w.tx - q.tx; if (gap < 46) { q.tx -= (46 - gap) / 2; w.tx += (46 - gap) / 2; } }
+    for (var pass = 0; pass < 8; pass++) for (var i = 1; i < lv.length; i++) { var q = pos[lv[i - 1].id], w = pos[lv[i].id], gap = w.tx - q.tx; if (gap < 46) { q.tx -= (46 - gap) / 2; w.tx += (46 - gap) / 2; } }
+    lv.forEach(function (k) { var p = pos[k.id]; if (p.tx < 40) p.tx = 40; if (p.tx > 960) p.tx = 960; });
   }
   function paint() {
     var c = counts(S), L = roleLoad();
     CONNS.forEach(function (cn) { connG[cn.id].setAttribute('class', 'wo-conn ' + (S.conn[cn.id] ? 'on' : 'off')); });
+    proxyG.setAttribute('class', 'wo-proxy ' + (S.ctl.proxy ? 'on' : 'off'));
     ROWS.forEach(function (r) {
       var present = rowPresent(S, r), b = rowBarrier(S, r);
       var replaced = (r.id === 'r7' && S.ctl.calOwn) || (r.id === 'r7b' && !S.ctl.calOwn);
       rowG[r.id].setAttribute('class', 'wo-row ' + (present ? 'b-' + b + (r.mandate ? ' in-mandate' : ' in-excess') : replaced ? 'hidden' : 'absent'));
       edgeConnRow[r.id].setAttribute('class', 'wo-e wo-e-conn' + (present ? ' on' : ''));
     });
-    var hot = {}, path = {};
     RISKS.forEach(function (k) {
       var a = S.acc[k.id], on = a && a.state !== 'ceased';
-      riskG[k.id].setAttribute('class', 'wo-risk ' + (on ? 's-' + a.state : (a ? 'ceased' : 'gone')));
+      riskG[k.id].setAttribute('class', 'wo-risk ' + (on ? 's-' + a.state + (k.withCtl ? ' residual' : '') : (a ? 'ceased' : 'gone')));
       k.needs.forEach(function (id) { edgeRowRisk[k.id + ':' + id].setAttribute('class', 'wo-e wo-e-est' + (on ? ' on' : '')); });
       edgeRiskRole[k.id].setAttribute('class', 'wo-e wo-e-held' + (on ? ' on s-' + a.state : ''));
-      if (on) { var ch = chain(a.holder); if (a.state === 'unaccepted') hot[a.holder] = true; ch.forEach(function (id) { path[id] = true; }); }
     });
+    // a role is red if anything it holds or carries is unaccepted: the colour travels up the path
     ROLES.forEach(function (r) {
-      var l = L[r.id], n = l.holds.length + l.carries.length;
-      halo[r.id].setAttribute('class', 'wo-halo' + (hot[r.id] ? ' hot' : l.holds.length ? ' warm' : l.carries.length ? ' carries' : l.informed.length ? ' faint' : ''));
-      if (orgE[r.id]) orgE[r.id].setAttribute('class', 'wo-org' + (path[r.id] ? ' on' : ''));
-      badge[r.id].setAttribute('class', 'wo-badge' + (n ? '' : ' off')); badgeT[r.id].textContent = n ? String(n) : '';
+      var l = L[r.id], n = l.holds.length + l.carries.length, red = l.worst === 'unaccepted';
+      halo[r.id].setAttribute('class', 'wo-halo' + (n ? (red ? ' hot' : ' warm') + (l.holds.length ? '' : ' carries') : l.informed.length ? ' faint' : ''));
+      if (orgE[r.id]) orgE[r.id].setAttribute('class', 'wo-org' + (n ? (red ? ' on hot' : ' on') : ''));
+      badge[r.id].setAttribute('class', 'wo-badge' + (n ? (red ? ' hot' : '') : ' off')); badgeT[r.id].textContent = n ? String(n) : '';
     });
-    ['grant', 'mandate', 'excess', 'unbounded', 'open', 'unaccepted'].forEach(function (k) { var e = byId('wo-c-' + k); if (e) e.textContent = String(c[k]); });
+    ['grant', 'mandate', 'excess', 'unbounded', 'open', 'unaccepted', 'accepted'].forEach(function (k) { var e = byId('wo-c-' + k); if (e) e.textContent = String(c[k]); });
     var v = byId('wo-c-abp'); if (v) v.textContent = S.abp ? 'v' + S.abp : '–';
     dayEl.textContent = S.day == null ? (S.abp ? 'Explore' : 'Not connected') : 'Day ' + S.day;
     titleEl.textContent = S.title || (S.abp ? 'Your own changes, applied to the record.' : 'Nothing is connected, so nothing holds.');
     noteEl.textContent = S.note || '';
     ['mail', 'crm', 'cal'].forEach(function (id) { var e = byId('wo-t-' + id); if (e) e.checked = !!S.conn[id]; });
-    ['approval', 'crmLimit', 'noExport', 'calOwn'].forEach(function (id) { var e = byId('wo-t-' + id); if (e) e.checked = !!S.ctl[id]; });
+    CTLS.forEach(function (id) { var e = byId('wo-t-' + id); if (e) e.checked = !!S.ctl[id]; });
     var ie = byId('wo-t-instr'); if (ie) ie.checked = !!S.instr;
     showRole(); showList();
     layoutTargets();
@@ -1078,7 +1122,7 @@ function figureA() {
   }
   function draw() {
     RISKS.forEach(function (k) {
-      var p = pos[k.id], a = S.acc[k.id], rr = 13 + 3 * (k.needs.length - 1);
+      var p = pos[k.id], a = S.acc[k.id], rr = radius(k);
       riskG[k.id].setAttribute('transform', 'translate(' + p.x.toFixed(1) + ' ' + p.y.toFixed(1) + ')');
       k.needs.forEach(function (id) { var e = edgeRowRisk[k.id + ':' + id]; e.setAttribute('x1', ROW[id].x); e.setAttribute('y1', ROW_Y - 11); e.setAttribute('x2', p.x.toFixed(1)); e.setAttribute('y2', (p.y + rr + 4).toFixed(1)); });
       var e = edgeRiskRole[k.id];
@@ -1104,14 +1148,12 @@ function figureA() {
     }
     requestAnimationFrame(frame);
   }
-  // when a risk is established, a dot runs from each fact through the risk and up the whole
-  // chain to the board; when one ceases, a dot runs back down to the fact that ended it
   function pulseNew(before) {
     RISKS.forEach(function (k) {
       var a = S.acc[k.id], was = before[k.id];
       if (a && a.state !== 'ceased' && !(was && was.state !== 'ceased')) {
         var up = chain(a.holder).map(function (id) { var r = roleById(id); return [r.x, r.y]; });
-        k.needs.forEach(function (id) { pulse([[ROW[id].x, ROW_Y], [pos[k.id].tx, RISK_Y]].concat(up), 'up'); });
+        k.needs.forEach(function (id) { pulse([[ROW[id].x, ROW_Y], [pos[k.id].tx, RISK_Y]].concat(up), a.state === 'unaccepted' ? 'up hot' : 'up'); });
       }
       if (was && was.state !== 'ceased' && (!a || a.state === 'ceased')) pulse([[pos[k.id].x, RISK_Y], [ROW[k.needs[0]].x, ROW_Y]], 'down');
     });
@@ -1145,8 +1187,9 @@ function figureA() {
     byId('wo-b-prev').disabled = true; byId('wo-b-next').disabled = false;
   }
   ['mail', 'crm', 'cal'].forEach(function (id) { var e = byId('wo-t-' + id); if (e) e.addEventListener('change', function () { explore(function (S) { S.conn[id] = e.checked; }); }); });
-  ['approval', 'crmLimit', 'noExport', 'calOwn'].forEach(function (id) { var e = byId('wo-t-' + id); if (e) e.addEventListener('change', function () { explore(function (S) { S.ctl[id] = e.checked; }); }); });
+  CTLS.forEach(function (id) { var e = byId('wo-t-' + id); if (e) e.addEventListener('change', function () { explore(function (S) { S.ctl[id] = e.checked; }); }); });
   var ie = byId('wo-t-instr'); if (ie) ie.addEventListener('change', function () { explore(function (S) { S.instr = ie.checked; }); });
+  byId('wo-b-all').addEventListener('click', function () { explore(function (S) { S.conn.mail = S.conn.crm = S.conn.cal = true; CTLS.forEach(function (c) { S.ctl[c] = true; }); }); });
   byId('wo-b-play').addEventListener('click', play);
   byId('wo-b-next').addEventListener('click', function () { goto(Math.min(STEPS.length - 1, stepIndex + 1)); });
   byId('wo-b-prev').addEventListener('click', function () { if (stepIndex <= 0) reset(); else goto(stepIndex - 1); });
@@ -1165,12 +1208,17 @@ var STRIP = [
   { id: 'R4', segs: [[0, 2, 'unaccepted', 'Sales'], [2, 4, 'fix', 'Sales · fix']], end: [4, 'v2'] },
   { id: 'R5', segs: [[0, 7, 'unaccepted', 'COO'], [7, 10, 'unaccepted', 'CEO · moved up']], end: [10, 'v3'], up: 7 },
   { id: 'R6', segs: [[10, 40, 'accepted', 'the rep · 1 month'], [40, 42, 'accepted', 'renewed · to day 70']], end: null },
-  { id: 'R7', segs: [[0, 2, 'unaccepted', 'Sales'], [2, 32, 'accepted', 'Sales · 1 month'], [32, 42, 'accepted', 'renewed · to day 62']], end: null }
+  { id: 'R7', segs: [[0, 2, 'unaccepted', 'Sales'], [2, 32, 'accepted', 'Sales · 1 month'], [32, 42, 'accepted', 'renewed · to day 62']], end: null },
+  { id: 'RL', segs: [[0, 3, 'unaccepted', 'Legal'], [3, 42, 'funded', 'Legal · 3 months · terms and a notice']], end: null },
+  { id: 'RC', segs: [[0, 3, 'unaccepted', 'CFO'], [3, 42, 'funded', 'CFO · 3 months · the insurer asked in writing']], end: null },
+  { id: 'G2', segs: [[4, 42, 'accepted', 'Sales · the residual of the CRM limit']], end: null },
+  { id: 'G1', segs: [[15, 42, 'accepted', 'the rep · the residual of the approval step']], end: null },
+  { id: 'G4', segs: [[15, 42, 'accepted', 'CISO · the residual of the approval step']], end: null }
 ];
 function figureB() {
   var host = byId('wo-figB'); if (!host) return;
   var W = 1000, X0 = 90, X1 = 970, Y0 = 46, RH = 38, N = STRIP.length;
-  var svg = sv('svg', { viewBox: '0 0 ' + W + ' ' + (Y0 + RH * N + 40), 'class': 'wo-svg', role: 'img', 'aria-label': 'Eight risks across forty-two days: who held each, in which state, and the ABP version that ended it' }, host);
+  var svg = sv('svg', { viewBox: '0 0 ' + W + ' ' + (Y0 + RH * N + 40), 'class': 'wo-svg', role: 'img', 'aria-label': 'Thirteen risks across forty-two days: who held each, in which state, and the ABP version that ended it' }, host);
   var defs = sv('defs', null, svg), pat = sv('pattern', { id: 'wo-hatch', width: 6, height: 6, patternUnits: 'userSpaceOnUse', patternTransform: 'rotate(45)' }, defs);
   sv('rect', { width: 6, height: 6, 'class': 'wo-hatch-bg' }, pat); sv('rect', { width: 2, height: 6, 'class': 'wo-hatch-fg' }, pat);
   var dx = function (d) { return X0 + (X1 - X0) * d / 42; };

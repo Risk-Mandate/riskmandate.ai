@@ -79,6 +79,8 @@ An **Agent Behaviour Policy** (ABP) is the record of one agent in one deployment
 
 **From rows to risks.** Each row is a fact, with its source, and rows in the mandate establish risks too: the difference is that those are inside the authority of the person who connected the agent, and they accept them by connecting. That is the level the business already lives with, and it belongs in the record so that the line between it and the gap is visible. The facts establish seven risks. At first each is written the way the rep would say it:
 
+**A control does not make a risk zero. It trades a red risk for a green one.** Every control in this article carries a residual risk of its own, smaller, inside somebody’s authority, and accepted the day the control lands: an approval step is a person clicking, and people get worn down (the CISO’s); a message approved in a hurry still goes out (the rep’s); a CRM that limits reps to their own accounts still takes wrong entries at machine speed (Sales’); a proxy that carries out every write under the ABP’s rules is now the thing that can fail, and its log is a copy of customer data (the CTO’s, and Legal’s). These belong in the record beside the risks they replaced, because they are what the business is actually running once the controls are in, and because the ABP is where the controls are written down: each one is a barrier on a row, with who holds it. The figure in section 05 draws them in green.
+
 ## The same agent, in each role’s own words.
 
 Here is the agent’s exposure as each of the map’s thirteen roles would put it, from the bottom of the company to the top. The map’s middle column decides whom it reaches. Its right-hand column says what each of them stands to lose, quoted as written. Each statement is linked to the risks below it and never retyped, so when those end, the ones above know.
@@ -101,7 +103,7 @@ Read from the bottom. Each arrow is a named edge: a fact establishes a risk, a r
 
 ### Connect the assistant, and watch the risks travel up. Then end them.
 
-Drawn from the article’s own data. Play the six weeks of section 07, or change the record yourself: connect and disconnect, add the controls, and see which facts stop holding. A risk lights up when every fact it needs holds and none is bounded; it drifts to the role that holds it, and lights the whole path above that role to the board, because a risk never stops with its holder: everyone above carries it. The number on a role is how many risks it holds or carries. A risk ceases when one of its facts changes, citing the ABP version that changed it. Colour is the state of an acceptance, never a rating. Hover or click a role to see what it holds, carries and is informed of; hover a risk for what establishes it and what it reaches. Only the roles this agent’s path touches are drawn: Marketing, Product and HR are in the tables and not here.
+Drawn from the article’s own data. Play the six weeks of section 07, or change the record yourself: connect and disconnect, add the controls, and see which facts stop holding. A risk lights up when every fact it needs holds and none is bounded; it drifts to the role that holds it, and lights the whole path above that role to the board, because a risk never stops with its holder: everyone above carries it. **The colour travels up the path too**: while anything below a role is unaccepted, that role’s path is red, whatever else it holds. The number on a role is how many risks it holds or carries. A risk ceases when one of its facts changes, citing the ABP version that changed it, **and what takes its place is the control’s own residual risk**, in green: smaller, inside its holder’s own authority, accepted when it appears. That is what a control does to a risk. It does not make it zero; it turns a red one into a green one that somebody can live with. Put every control on and every path to the board is green, and the risks that remain are the ones the business runs the assistant to take. Colour is the state of an acceptance, never a rating. Hover or click a role to see what it holds, carries and is informed of; hover a risk for what establishes it and what it reaches. Only the roles this agent’s path touches are drawn: Marketing, Product and HR are in the tables and not here.
 
 **Try the last switch on its own.** Connect the mail and the CRM, then tick the instructions. Every row in the gap changes from _nothing in the way_ to _an expectation_, the mandate is now precise about the business process, and the risks stay lit: unbounded excess does not move. That is the honest picture of an instruction. It is worth writing down, because it says what the agent was told, and the ABP is where it is written. It is not a control. The mail connector in the example, like the real ones we have recorded, grants the whole mailbox: on our [Gmail record](abp-vault-claude-gmail-connector.html), Google’s consent screen offers three lines to tick, each for the whole account, and none for one folder, one customer or one business process (read 16 September 2026). So the mandate can say _only follow-ups on my own accounts_, and the grant cannot. The gap between those two sentences is the risk, and the boundary switches above are what end it.
 
@@ -145,19 +147,19 @@ Invented dates, and the mechanics are the point. Watch where each risk goes, who
 
 ### Connected. Nine rows, five in the gap, none bounded.
 
-The ABP is written from the connector’s consent screen, the products’ own pages and ten minutes with the rep about what they want it for. Seven risks are established. **The person who connected the agent can accept one of them**, R0, which stays inside their own work, and they do, by connecting. Every other one reaches past it. R1, R4 and R7 go to the head of Sales, R2 to the CISO, R3 to the CIO, and R5 to the COO, whose map row is “operational integration”. Each of them also lights the path above its holder to the board: the CTO carries what the CIO and the CISO hold, and the CEO carries all of it. The board’s view shows six new risks with holders and none accepted, and one accepted by the rep.
+The ABP is written from the connector’s consent screen, the products’ own pages and ten minutes with the rep about what they want it for. Nine risks are established. **The person who connected the agent can accept one of them**, R0, which stays inside their own work, and they do, by connecting. Every other one reaches past it. R1, R4 and R7 go to the head of Sales, R2 to the CISO, R3 to the CIO, R5 to the COO, whose map row is “operational integration”, RL to Legal and RC to the CFO. Each of them also lights the path above its holder to the board, in red while it is unaccepted: the CTO carries what the CIO and the CISO hold, and the CEO carries all of it. The board’s view shows eight new risks with holders and none accepted, and one accepted by the rep.
 
 ### Sales accepts one, funds one, and asks for a fix.
 
 The head of Sales **accepts** R7 for a month: the team’s customer mail is inside Sales’ own authority, and reading it is a risk the team can live with while it decides whether the delegation should stay. Then Sales **funds** R1: accepted for two weeks while IT adds an approval step to sending that the agent cannot give itself. For R4 they choose **fix**: they ask the CRM administrator to limit reps to their own accounts.
 
-### The CISO and the CIO accept, with actions.
+### The CISO, the CIO, Legal and the CFO accept, with actions.
 
-The CISO **accepts** R2 for two weeks and records why that is enough: R2 needs rows 1, 3 and 4 together, so R1’s fix ends it too. The CIO **funds** R3: accepted for a month while export is removed from the connector’s scope, a change IT has to schedule.
+The CISO **accepts** R2 for two weeks and records why that is enough: R2 needs rows 1, 3 and 4 together, so R1’s fix ends it too. The CIO **funds** R3: accepted for a month while export is removed from the connector’s scope, a change IT has to schedule. Legal **funds** RL for three months: processing terms with the model provider, and the notice to customers rewritten to say where their mail goes. The CFO **funds** RC for three months: the broker is asked, in writing, what the cover says about an agent acting as staff. Neither of those is a technical control, and both end a risk, because each changes a fact the risk was established on.
 
-### R4 ceases, on evidence.
+### R4 ceases, on evidence. Its residual takes its place.
 
-The CRM now limits the rep to their own accounts. ABP version 2 is recomputed: row 5’s barrier is a boundary, held by the CRM administrator, out of the agent’s reach. The fact behind R4 no longer holds, and R4 ceases, citing version 2. Sales’ and the CIO’s statements lose that source.
+The CRM now limits the rep to their own accounts. ABP version 2 is recomputed: row 5’s barrier is a boundary, held by the CRM administrator, out of the agent’s reach. The fact behind R4 no longer holds, and R4 ceases, citing version 2. Sales’ and the CIO’s statements lose that source. What is left is G2: wrong entries on a rep’s own accounts still happen, at machine speed. It is inside Sales’ authority, and Sales accepts it the same day.
 
 ### Silence: R5 moves up.
 
@@ -167,9 +169,9 @@ The COO has not acted on R5 in a week. It moves to the CEO, whom the COO answers
 
 The CEO asks IT to narrow the agent’s calendar access to the rep’s own calendar. ABP version 3: R5 ceases. The agent can still edit the rep’s own events, which is more than suggesting times, so a smaller risk is established: “it can change my own meetings”. That one is inside the rep’s authority, and the rep accepts it for a month.
 
-### The approval step goes live. R1 and R2 cease together.
+### The approval step goes live. R1 and R2 cease together; two residuals appear.
 
-Sending now needs the rep’s approval, somewhere the agent cannot reach. ABP version 4: row 3’s barrier is a boundary. R1 ceases. R2 needed all three rows, loses the sending one and ceases too. The lethal trifecta is broken on evidence, not on an instruction.
+Sending now needs the rep’s approval, somewhere the agent cannot reach. ABP version 4: row 3’s barrier is a boundary. R1 ceases. R2 needed all three rows, loses the sending one and ceases too. The lethal trifecta is broken on evidence, not on an instruction. Two residuals are established and accepted the same day: G1, a message the rep approves in a hurry still goes out as them, which is the rep’s; and G4, that an approval is a person clicking and people get worn down, which is the CISO’s.
 
 ### Three acceptances run out, and are renewed.
 
@@ -177,11 +179,11 @@ The scope change was scheduled and has not shipped. R3 returns to the CIO, who r
 
 ### What the board sees.
 
-Four open risks, each with a name and a date: R3, held by the CIO, accepted until day 63, with the work scheduled; R7, held by Sales, until day 62; and two inside the rep’s own authority, R0 until day 60 and R6, the own-calendar risk, accepted on day 10 and renewed on day 40 until day 70. Four risks ceased, each citing the ABP version that ended it. None unaccepted. For the agent, unbounded excess went from five to three. That is not a score. It is a count anybody can recompute from the ABP versions.
+Nine open risks, each with a name and a date, and none unaccepted, so every path to the board is green. Four are still funded or accepted from the gap: R3, held by the CIO until day 63 with the work scheduled; R7, held by Sales until day 62; RL, Legal’s, and RC, the CFO’s, both until day 93. Five are inside their holders’ own authority: R0 and R6, the rep’s; and the residuals of the two controls that landed, G2 with Sales, G1 with the rep and G4 with the CISO. Four risks ceased, each citing the ABP version that ended it. For the agent, unbounded excess went from five to three. That is not a score. It is a count anybody can recompute from the ABP versions.
 
 ### Who held each risk, in which state, and what ended it.
 
-The same six weeks as a strip: one line per risk, day 0 to day 42. A hatched bar is a funded acceptance; the small arrow on R5 is the week of silence that moved it from the COO to the CEO; each ending names the ABP version whose facts ended the risk. R0, R3, R6 and R7 run past the edge: all four were renewed, and each carries a date. R0 is the one inside the rep’s own authority: accepted from the day the agent was connected, which is the level the business already lives with.
+The same six weeks as a strip: one line per risk, day 0 to day 42. A hatched bar is a funded acceptance; the small arrow on R5 is the week of silence that moved it from the COO to the CEO; each ending names the ABP version whose facts ended the risk. The last three lines start where a control lands: they are its residual risks, accepted by their holders from that day. R0 is the one inside the rep’s own authority from the day the agent was connected, which is the level the business already lives with. Everything that runs past the edge was renewed, and carries a date.
 
 ## The same thirteen rows, with what a one-page map has no room for.
 
