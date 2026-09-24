@@ -5,7 +5,7 @@
 
 **2**received, nothing built yet*Archived and read, and nothing has been built from it yet.*
 
-**23**partly worked*read in full; a named part is not built*
+**24**partly worked*read in full; a named part is not built*
 
 **8**processed*something on the site exists because of it*
 
@@ -56,6 +56,10 @@ spoken brief, transcribed · 2 produced · 3 not done24 September 2026 · partly
 **[Risks always flow upwards: the roles above carry the aggregate, click a role to see what it holds, list every risk that holds now, and show the level of risk the business already accepts against the gap outside it](#D22)**
 
 spoken brief, transcribed · 3 produced · 2 not done24 September 2026 · partly
+
+**[Red travels up the path, and a control does not make a risk zero: it leaves a green one. Enough controls, including a proxy in the middle, to make every path green; risks for the CFO and Legal](#D23)**
+
+spoken brief, transcribed · 2 produced · 2 not done24 September 2026 · partly
 
 **[The named professional, and the assignment of the individual who does the £1,500 review](#D11)**
 
@@ -339,6 +343,21 @@ partly
 
 - A quantity of impact or potential loss on a risk. The figure gives each risk a consequence in words and an undo property, and no number: the article's own rule is that kinds of consequence do the work of a score, and a loss figure is the lead's decision.
 - Other scenarios. The figure runs one agent; the lead said to keep it so for now.
+
+D23 · spoken brief, transcribed · 24 September 2026
+
+## Red travels up the path, and a control does not make a risk zero: it leaves a green one. Enough controls, including a proxy in the middle, to make every path green; risks for the CFO and Legal
+
+partly
+
+[the file as received](../../assets/briefs/2026-09-24__transcript__red-travels-up-and-controls-leave-green-risks.txt) · `d47dbfda7dd3…` · 2 KB
+
+**Produced.** [The colour travels up: while anything below a role is unaccepted, that role's path, halo and count are red. Four more controls, one of them an execution proxy that carries out every write under the ABP's rules and bounds every write row at once; two fact controls, processing terms with the provider and the insurer's written answer, which end Legal's and the CFO's risks. Every control has a residual risk, green, inside its holder's authority, accepted when it appears; with every control on, every path to the board is green and nine green risks remain. A button does it in one click](../../article-who-owns-what-in-ai.html) · [Two more held risks in the article: RL with Legal (customer mail goes to the model provider, and the notice does not say so) and RC with the CFO (nothing in the cover says whether an act of the agent as staff is covered). The tables, the six weeks and the strip follow: nine risks on day 0, nine open and none unaccepted on day 42](../../article-who-owns-what-in-ai.html)
+
+**Not done.**
+
+- The effectiveness of a control. The figure takes every control as working, as the lead said to for now; a control that is on and not working is a fact the ABP's evidence tiers exist to record, and it is not modelled here.
+- Residual risks are drawn from a fixed list. In a real record they would be written by each holder in their own words when the control lands.
 
 D11 · spoken brief, transcribed · 22 September 2026
 

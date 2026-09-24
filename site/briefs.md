@@ -309,6 +309,17 @@ Each one is linked in full, as received, with nothing edited. Where a brief and 
 - **A quantity of impact or potential loss.** Each risk carries a consequence in words and an undo property, and no number: the article’s own rule is that kinds of consequence do the work of a score, and a loss figure is the lead’s decision
 - **Other scenarios.** One agent, as the lead asked for now
 
+### Red travels up the path, and a control does not make a risk zero: it leaves a green one. Enough controls, including a proxy in the middle, to make every path green; risks for the CFO and Legal
+
+**sha256** d47dbfda7dd3e53314dc72b41922ae0a723cfd13202722bd468488be5ff2560a
+
+**Two details, and a scenario the figure could not yet show.** The rep’s path was green while the CEO’s and the board’s stayed green above a red risk; if a role carries a red, its path is red. And there was no way to make everything green: add enough controls, such as a proxy in the middle that carries out the actions, and the functionality should be all green, because the green risks are the functionality, accepted once the controls are in. As controls go on, the risks should be seen going down. Risks for the CFO and Legal were missing. Take the controls as working, for now.
+
+- [The colour travels up](article-who-owns-what-in-ai.html): while anything below a role is unaccepted, its path, halo and count are red. Four more controls, one an execution proxy that bounds every write row at once, two that end a risk by changing a fact: terms with the provider, the insurer’s written answer. Every control leaves a residual risk, green, inside its holder’s authority; with every control on, every path is green and nine green risks remain. A button does it in one click
+- RL with Legal and RC with the CFO, in the tables, the six weeks and the strip: nine risks on day 0, nine open and none unaccepted on day 42
+- **The effectiveness of a control.** Every control is taken as working, as the lead said to for now; a control that is on and not working is what the ABP’s evidence tiers record, and it is not modelled here
+- **Residuals in the holder’s own words.** The figure draws them from a fixed list; a real record would have each holder write theirs when the control lands
+
 ## And the instructions that arrived as speech or a sentence.
 
 These have no digest to check, which makes them the ones most easily lost — a voice memo that changed the direction of the whole site leaves no artefact at all unless somebody writes it down. So they are recorded here in the same list, with the same two columns.
@@ -388,7 +399,7 @@ sha256sum my-brief.md
 
 A register that only lists what was done is a press release.
 
-Every entry above carries what it asked for and did not get, and on most of the twenty-two that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.
+Every entry above carries what it asked for and did not get, and on most of the twenty-three that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.
 
 - **The file is the record, not this page.** [briefs-register.json](briefs-register.json) is what a program should read; this page renders it for people. If the two ever disagree, the file is right and the page is stale.
 - **Every archived document is byte-identical to what arrived.** Nothing is edited, reformatted or trimmed — including the parts we think are wrong. Where we disagree with a brief, the disagreement is published on the page it produced and marked as ours.
@@ -397,6 +408,6 @@ Every entry above carries what it asked for and did not get, and on most of the 
 
 Register maintained by hand alongside the work, and checked in CI: every document listed must exist at the path given and match its recorded digest, and every file in `assets/briefs/` must appear in the register. Last reconciled 16 September 2026.
 
-## Twenty-two items. None untouched, and none finished.
+## Twenty-three items. None untouched, and none finished.
 
-Every item now names something it produced and something it did not. Nineteen of the twenty-two are marked _partly_, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.
+Every item now names something it produced and something it did not. Twenty of the twenty-three are marked _partly_, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.
