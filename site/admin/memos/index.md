@@ -5,7 +5,7 @@
 
 **2**received, nothing built yet*Archived and read, and nothing has been built from it yet.*
 
-**21**partly worked*read in full; a named part is not built*
+**22**partly worked*read in full; a named part is not built*
 
 **8**processed*something on the site exists because of it*
 
@@ -46,6 +46,10 @@ spoken brief, transcribed · 2 produced · 3 not done24 September 2026 · partly
 build brief from the sgit.ai site team, the page as served, kept byte for byte · 2 produced · 3 not done24 September 2026 · partly
 
 **[Ask the ABP questions in the interview, and answer a LinkedIn role map as a stand-alone article: a generic framework, adjusted in every company, with accountability that holds on the way up](#D20)**
+
+spoken brief, transcribed · 2 produced · 3 not done24 September 2026 · partly
+
+**[Graph visualisations for the role-ownership article: the blast radius as the employee connects and disconnects, the flows played out, the evidence, and the settings a mail scope cannot narrow](#D21)**
 
 spoken brief, transcribed · 2 produced · 3 not done24 September 2026 · partly
 
@@ -300,6 +304,22 @@ partly
 - The LinkedIn post's own address and date. The article credits the infographic by title and author and says when it reached us; the link is the lead's to add.
 - Running the longer interview prompt once in ChatGPT voice mode, and checking the summary has all sixteen sections.
 - The seven roles the article needs and the model lacks (COO, CIO / Data, Legal, HR, Marketing, Sales, all employees), authority as data, and an engine that runs the clocks. The article says so in its section 10.
+
+D21 · spoken brief, transcribed · 24 September 2026
+
+## Graph visualisations for the role-ownership article: the blast radius as the employee connects and disconnects, the flows played out, the evidence, and the settings a mail scope cannot narrow
+
+partly
+
+[the file as received](../../assets/briefs/2026-09-24__transcript__graph-visualisations-for-the-role-ownership-article.txt) · `524b59f30d44…` · 2 KB
+
+**Produced.** [Three figures drawn by the page's own script from the article's data: the blast radius, which plays the six weeks or takes the reader's own changes (connect, disconnect, boundaries, instructions) and recomputes the rows, the risks, their holders and the counts; the six weeks as a strip; and the ontology, every verb readable from both ends](../../article-who-owns-what-in-ai.html) · [The instruction switch: the mandate becomes precise about the business process, every row in the gap gains an expectation, and unbounded excess does not move. The mail scope fact is cited from the Gmail record: three consent lines, each for the whole account](../../article-who-owns-what-in-ai.html)
+
+**Not done.**
+
+- Blast radius as a number. The figure shows which roles a risk reaches and who holds it; it does not size the consequence, because the article scores nothing.
+- Real grants. The figure runs on the article's invented agent; wiring it to a published ABP vault, so a real grant drives the same picture, is the next step.
+- The flows of evidence downward. A ceased risk cites its ABP version in text; the figure does not yet animate the evidence travelling back to the version.
 
 D11 · spoken brief, transcribed · 22 September 2026
 

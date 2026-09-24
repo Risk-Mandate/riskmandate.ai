@@ -246,6 +246,110 @@ rm-menu{display:contents}
   .wo-rule{padding-left:40px}
 }
 
+/* the figures: drawn by the page's script from the article's data */
+:root{--wo-hot:rgba(192,57,43,.16);--wo-warm:rgba(26,127,90,.16);--wo-faint:rgba(26,25,23,.07);--wo-red-soft:#E8C4BE;--wo-green-soft:#BFE3D3;--wo-gold-soft:#F3DDB5}
+.wo-fig{margin-top:34px;border:1px solid var(--border);border-radius:var(--r);background:var(--card);padding:22px 24px 20px}
+.wo-fig-head h3{font-size:19px;color:var(--text);margin:8px 0 8px;letter-spacing:-.015em}
+.wo-fig-head p{font-size:14.5px;line-height:1.7;color:var(--muted);max-width:880px}
+.wo-scroll{overflow-x:auto;margin-top:18px;-webkit-overflow-scrolling:touch}
+.wo-canvas{min-width:760px}
+.wo-canvas.tall svg{aspect-ratio:1000/700}.wo-canvas.short svg{aspect-ratio:1000/300}.wo-canvas.mid svg{aspect-ratio:1000/400}
+.wo-svg{width:100%;height:auto;display:block;font-family:var(--sans)}
+.wo-band{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.12em;fill:var(--faint)}
+.wo-org{stroke:var(--border);stroke-width:1.5}
+.wo-halo{fill:transparent;transition:fill .5s,r .5s}
+.wo-halo.faint{fill:var(--wo-faint)}.wo-halo.warm{fill:var(--wo-warm);r:38}.wo-halo.hot{fill:var(--wo-hot);r:42}
+.wo-role rect{fill:var(--card);stroke:var(--border);stroke-width:1.4}
+.wo-role:hover rect,.wo-role:focus rect{stroke:var(--green)}
+.wo-role{cursor:pointer;outline:none}
+.wo-role-t{font-size:12.5px;font-weight:600;fill:var(--text)}
+.wo-agent rect{fill:var(--ink)}.wo-agent-t{font-family:var(--mono);font-size:11px;fill:var(--fg)}
+.wo-conn rect{fill:var(--bg2);stroke:var(--border);stroke-width:1.4;transition:fill .3s,stroke .3s}
+.wo-conn.on rect{fill:var(--greenBg);stroke:var(--green)}
+.wo-conn-t{font-size:12px;font-weight:600;fill:var(--text)}
+.wo-conn.off .wo-conn-t{fill:var(--faint)}
+.wo-e{fill:none;stroke-width:1.4;transition:opacity .45s}
+.wo-e-conn{stroke:var(--green);opacity:0}.wo-e-conn.on{opacity:.45}
+.wo-e-est{stroke:var(--faint);opacity:0}.wo-e-est.on{opacity:.55}
+.wo-e-held{stroke:var(--green);stroke-width:2;opacity:0}.wo-e-held.on{opacity:.8}.wo-e-held.on.s-unaccepted{stroke:var(--red)}
+.wo-row circle{fill:var(--card);stroke:var(--border);stroke-width:2;transition:fill .35s,stroke .35s}
+.wo-row .wo-row-n{font-family:var(--mono);font-size:10.5px;font-weight:700;fill:var(--text)}
+.wo-row .wo-row-t{font-size:10px;fill:var(--muted)}
+.wo-row.absent{opacity:.28}
+.wo-row.hidden{opacity:0}
+.wo-row.in-mandate circle{fill:var(--greenBg);stroke:var(--green)}
+.wo-row.b-none circle{fill:var(--wo-red-soft);stroke:var(--red)}
+.wo-row.b-expectation circle{fill:var(--card);stroke:var(--red);stroke-dasharray:3 2.5}
+.wo-row.b-boundary circle{fill:var(--card);stroke:var(--green);stroke-width:3}
+.wo-risk{cursor:pointer;outline:none;transition:opacity .5s}
+.wo-risk.gone{opacity:0;pointer-events:none}
+.wo-risk.ceased{opacity:.22}
+.wo-risk-core{fill:var(--card);stroke:var(--faint);stroke-width:2}
+.wo-risk-ring{fill:none;stroke:transparent;stroke-width:2}
+.wo-risk.s-unaccepted .wo-risk-core{fill:var(--wo-red-soft);stroke:var(--red)}
+.wo-risk.s-unaccepted .wo-risk-ring{stroke:var(--red);animation:wo-ring 1.6s ease-out infinite}
+.wo-risk.s-accepted .wo-risk-core,.wo-risk.s-funded .wo-risk-core{fill:var(--wo-green-soft);stroke:var(--green)}
+.wo-risk.s-funded .wo-risk-core{stroke-dasharray:4 2.5}
+.wo-risk.ceased .wo-risk-core{fill:var(--bg2);stroke:var(--faint);stroke-dasharray:2 2}
+.wo-risk-t{font-family:var(--mono);font-size:10.5px;font-weight:700;fill:var(--text)}
+.wo-risk:hover .wo-risk-core,.wo-risk:focus .wo-risk-core{stroke-width:3}
+@keyframes wo-ring{0%{r:17;opacity:.9}100%{r:30;opacity:0}}
+.wo-pulse{fill:var(--green);opacity:.9}.wo-pulse.down{fill:var(--faint)}
+.wo-ctl{display:grid;grid-template-columns:1.2fr 1fr 1.4fr 1.4fr;gap:14px 18px;margin-top:18px}
+.wo-ctl-g{display:flex;flex-direction:column;gap:6px}
+.wo-ctl-g .wo-k{margin-bottom:2px}
+.wo-ctl label{font-size:13.5px;line-height:1.45;color:var(--text);display:flex;gap:8px;align-items:flex-start;cursor:pointer}
+.wo-ctl input{margin:3px 0 0;accent-color:var(--green);flex:none}
+.wo-btns{display:flex;flex-wrap:wrap;gap:6px}
+.wo-btn{font-family:var(--sans);font-size:13px;font-weight:600;padding:8px 13px;border-radius:var(--r-sm);border:1px solid var(--green);background:var(--green);color:var(--card);cursor:pointer}
+.wo-btn.ghost{background:transparent;color:var(--text);border-color:var(--border)}
+.wo-btn.ghost:hover{border-color:var(--green);color:var(--green)}
+.wo-btn:disabled{opacity:.4;cursor:default}
+.wo-status{margin-top:16px;padding:12px 14px;border-radius:var(--r-sm);background:var(--bg2);font-size:14px;line-height:1.6;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline}
+.wo-status b{color:var(--text)}
+.wo-day{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green)}
+.wo-say{margin-top:10px;min-height:1.6em;font-size:14px;line-height:1.6;color:var(--text);font-style:italic}
+.wo-counts.small{grid-template-columns:repeat(7,minmax(0,1fr));max-width:none;margin-top:14px}
+.wo-counts.small .wo-count{padding:10px 12px}.wo-counts.small .wo-count b{font-size:22px}.wo-counts.small .wo-count span{font-size:11.5px}
+.wo-legend{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:14px;font-size:12.5px;color:var(--muted)}
+.wo-legend span{display:inline-flex;align-items:center;gap:7px}
+.wo-lg{display:inline-block;width:14px;height:14px;border-radius:50%;border:2px solid var(--border);background:var(--card);flex:none}
+.wo-lg.row-none{background:var(--wo-red-soft);border-color:var(--red)}
+.wo-lg.row-exp{border-color:var(--red);border-style:dashed}
+.wo-lg.row-bnd{border-color:var(--green);border-width:3px}
+.wo-lg.row-mand{background:var(--greenBg);border-color:var(--green)}
+.wo-lg.risk-un{background:var(--wo-red-soft);border-color:var(--red);box-shadow:0 0 0 3px var(--wo-hot)}
+.wo-lg.risk-acc{background:var(--wo-green-soft);border-color:var(--green)}
+.wo-lg.halo-inf{background:var(--wo-faint);border-color:transparent}
+/* the strip */
+.wo-grid{stroke:var(--border);stroke-width:1}
+.wo-strip-id{font-family:var(--mono);font-size:12px;font-weight:700;fill:var(--text)}
+.wo-seg rect{stroke-width:1.5}
+.wo-seg.s-unaccepted rect{fill:var(--wo-red-soft);stroke:var(--red)}
+.wo-seg.s-accepted rect{fill:var(--wo-green-soft);stroke:var(--green)}
+.wo-seg.s-funded rect{fill:url(#wo-hatch);stroke:var(--green)}
+.wo-seg.s-fix rect{fill:var(--card);stroke:var(--green);stroke-dasharray:4 3}
+.wo-hatch-bg{fill:var(--wo-green-soft)}.wo-hatch-fg{fill:var(--card)}
+.wo-seg-t{font-size:11px;fill:var(--text)}
+.wo-end line{stroke:var(--text);stroke-width:2}
+.wo-end-t{font-family:var(--mono);font-size:10px;fill:var(--text)}
+.wo-up path{fill:var(--red)}
+.wo-leg{font-size:11.5px;fill:var(--muted)}
+/* the ontology */
+.wo-oe{fill:none;stroke:var(--faint);stroke-width:1.6;transition:stroke .2s,stroke-width .2s}
+.wo-oe.dashed{stroke-dasharray:5 4}
+.wo-oe.lit{stroke:var(--green);stroke-width:2.6}
+.wo-arrow{fill:var(--faint)}
+.wo-on rect{fill:var(--card);stroke:var(--text);stroke-width:1.5}
+.wo-on-t{font-size:13px;font-weight:600;fill:var(--text)}
+.wo-ol{cursor:pointer;outline:none}
+.wo-ol rect{fill:var(--bg2);stroke:var(--border);stroke-width:1}
+.wo-ol:hover rect,.wo-ol:focus rect{stroke:var(--green);fill:var(--greenBg)}
+.wo-ol-t{font-family:var(--mono);font-size:10.5px;fill:var(--text)}
+@media (max-width:900px){.wo-ctl{grid-template-columns:1fr 1fr}.wo-counts.small{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (max-width:640px){.wo-ctl{grid-template-columns:1fr}.wo-counts.small{grid-template-columns:repeat(2,minmax(0,1fr))}.wo-fig{padding:18px 16px}}
+@media (prefers-reduced-motion:reduce){.wo-risk.s-unaccepted .wo-risk-ring{animation:none;stroke:var(--red);opacity:.5}.wo-halo,.wo-e,.wo-risk,.wo-conn rect,.wo-row circle{transition:none}}
+
 .ghlink{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:8px;color:var(--muted);border:1px solid transparent}.ghlink:hover{color:var(--text);border-color:var(--border)}
 .footlic{display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap}.footlic a{color:inherit}.ccicon{vertical-align:-3px;margin:0 2px}
 @media (max-width:1400px) and (min-width:901px){.ghlink,header.top a.version{display:none}header.top .wrap{gap:14px}}</style>
@@ -257,7 +361,7 @@ rm-menu{display:contents}
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
     <a class="ghlink" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener" aria-label="The source, on GitHub" title="Open source · Apache-2.0 code · CC BY 4.0 pages"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a>
-      <a class="version" href="versions.html" title="What shipped in v1.34.4">v1.34.4</a>
+      <a class="version" href="versions.html" title="What shipped in v1.34.5">v1.34.5</a>
     <button class="demo" data-demo>Book a demo</button>
   </div>
 </header>
@@ -269,6 +373,7 @@ rm-menu{display:contents}
     <p class="sub" style="margin-bottom:20px">An infographic shared on LinkedIn, <em>Who owns what in AI (By Role)</em>, maps thirteen roles, from the board to all employees, to what each one owns in AI and what that protects. It is a good place to start, and every company will redraw it for itself. What a one-page map has no room for is the other direction: how a risk that begins with one agent&rsquo;s access travels to the board, in whose words, accepted by whom, and until when. This article adds that direction, works it through on one agent, and ends with the model in enough detail to build.</p>
     <p class="meta"><b>Responding to:</b> &ldquo;Who owns what in AI (By Role)&rdquo;, by Alex Miguel Meyer, shared on LinkedIn and sent to us on 24 September 2026. Its rows are quoted in section 01 so the argument can be followed; the image is the author&rsquo;s and is not reproduced here.</p>
     <p class="meta"><b>The worked example:</b> an invented company and an invented agent. Nobody&rsquo;s system was tested. The one product fact used is quoted from the vendor&rsquo;s own page, with its date.</p>
+    <p class="meta"><b>The figures:</b> three on this page are drawn by script from the article&rsquo;s own data, and one of them can be played and changed. The page loads nothing from anywhere and sends nothing.</p>
     <p class="meta"><b>This page as markdown:</b> <a href="article-who-owns-what-in-ai.md">article-who-owns-what-in-ai.md</a></p>
   </div>
 </main>
@@ -424,6 +529,59 @@ rm-menu{display:contents}
       <div class="wo-step fact"><span class="who">The facts</span><p>Rows 1, 3 and 4 of the ABP: reads mail from anybody; reads the CRM; sends to anybody, with only an expectation in the way.</p><span class="how">recomputed whenever the grant or the mandate changes</span></div>
     </div>
     <p class="wo-chain-k">Read from the bottom. Each arrow is a named edge: a fact establishes a risk, a risk is translated into the holder&rsquo;s words, a holder answers to the role above.</p>
+
+    <div class="wo-fig" id="wo-figA-wrap">
+      <div class="wo-fig-head">
+        <span class="wo-k">Figure · the blast radius</span>
+        <h3>Connect the assistant, and watch the risks travel up. Then end them.</h3>
+        <p>Drawn from the article&rsquo;s own data. Play the six weeks of section 07, or change the record yourself: connect and disconnect, add the controls, and see which facts stop holding. A risk lights up when every fact it needs holds and none is bounded; it ceases when one of them changes, citing the ABP version that changed it. Colour is the state of an acceptance, never a rating. Hover a role to read the exposure in its words; hover a risk for what establishes it.</p>
+      </div>
+      <div class="wo-ctl">
+        <div class="wo-ctl-g">
+          <span class="wo-k">The six weeks</span>
+          <div class="wo-btns"><button type="button" class="wo-btn" id="wo-b-play">Play the six weeks</button><button type="button" class="wo-btn ghost" id="wo-b-prev">Back</button><button type="button" class="wo-btn ghost" id="wo-b-next">Step</button><button type="button" class="wo-btn ghost" id="wo-b-reset">Disconnect everything</button></div>
+        </div>
+        <div class="wo-ctl-g">
+          <span class="wo-k">Connections</span>
+          <label><input type="checkbox" id="wo-t-mail"> Mail</label>
+          <label><input type="checkbox" id="wo-t-crm"> CRM</label>
+          <label><input type="checkbox" id="wo-t-cal"> Calendar</label>
+        </div>
+        <div class="wo-ctl-g">
+          <span class="wo-k">Boundaries: out of the agent&rsquo;s reach</span>
+          <label><input type="checkbox" id="wo-t-approval"> Sending needs the rep&rsquo;s approval</label>
+          <label><input type="checkbox" id="wo-t-crmLimit"> The CRM limits the rep to their own accounts</label>
+          <label><input type="checkbox" id="wo-t-noExport"> Export removed from the scope</label>
+          <label><input type="checkbox" id="wo-t-calOwn"> Calendar narrowed to the rep&rsquo;s own</label>
+        </div>
+        <div class="wo-ctl-g">
+          <span class="wo-k">Expectations: in the agent&rsquo;s instructions</span>
+          <label><input type="checkbox" id="wo-t-instr"> &ldquo;Only follow-ups on my own accounts. Never delete or edit anything without a copy. Never export.&rdquo;</label>
+        </div>
+      </div>
+      <div class="wo-status"><span class="wo-day" id="wo-figA-day">Not connected</span><b id="wo-figA-title">Nothing is connected, so nothing holds.</b><span id="wo-figA-note"></span></div>
+      <div class="wo-scroll"><div id="wo-figA" class="wo-canvas tall"></div></div>
+      <p class="wo-say" id="wo-figA-say" aria-live="polite"></p>
+      <div class="wo-counts small" aria-label="The counts, recomputed from the record">
+        <div class="wo-count"><b id="wo-c-grant">0</b><span>in the grant</span></div>
+        <div class="wo-count"><b id="wo-c-mandate">0</b><span>in the mandate</span></div>
+        <div class="wo-count"><b id="wo-c-excess">0</b><span>excess</span></div>
+        <div class="wo-count"><b id="wo-c-unbounded">0</b><span>unbounded excess</span></div>
+        <div class="wo-count"><b id="wo-c-open">0</b><span>open risks</span></div>
+        <div class="wo-count"><b id="wo-c-unaccepted">0</b><span>unaccepted</span></div>
+        <div class="wo-count"><b id="wo-c-abp">&ndash;</b><span>ABP version</span></div>
+      </div>
+      <div class="wo-legend">
+        <span><i class="wo-lg row-none"></i> row in the gap, nothing in the way</span>
+        <span><i class="wo-lg row-exp"></i> an expectation in the way</span>
+        <span><i class="wo-lg row-bnd"></i> a boundary in the way</span>
+        <span><i class="wo-lg row-mand"></i> in the mandate</span>
+        <span><i class="wo-lg risk-un"></i> risk, unaccepted</span>
+        <span><i class="wo-lg risk-acc"></i> risk, accepted or funded</span>
+        <span><i class="wo-lg halo-inf"></i> role informed</span>
+      </div>
+      <p class="wo-note"><b>Try the last switch on its own.</b> Connect the mail and the CRM, then tick the instructions. Every row in the gap changes from <em>nothing in the way</em> to <em>an expectation</em>, the mandate is now precise about the business process, and the risks stay lit: unbounded excess does not move. That is the honest picture of an instruction. It is worth writing down, because it says what the agent was told, and the ABP is where it is written. It is not a control. The mail connector in the example, like the real ones we have recorded, grants the whole mailbox: on our <a href="abp-vault-claude-gmail-connector.html">Gmail record</a>, Google&rsquo;s consent screen offers three lines to tick, each for the whole account, and none for one folder, one customer or one business process (read 16 September 2026). So the mandate can say <em>only follow-ups on my own accounts</em>, and the grant cannot. The gap between those two sentences is the risk, and the boundary switches above are what end it.</p>
+    </div>
   </div>
 </section>
 
@@ -463,6 +621,15 @@ rm-menu{display:contents}
       <div class="wo-day done"><span class="d">Day 15</span><h3>The approval step goes live. R1 and R2 cease together.</h3><p>Sending now needs the rep&rsquo;s approval, somewhere the agent cannot reach. ABP version 4: row 3&rsquo;s barrier is a boundary. R1 ceases. R2 needed all three rows, loses the sending one and ceases too. The lethal trifecta is broken on evidence, not on an instruction.</p></div>
       <div class="wo-day"><span class="d">Day 33</span><h3>R3&rsquo;s month runs out with the work not done.</h3><p>The scope change was scheduled and has not shipped. The decision returns to the CIO, who renews for one more month with a date for the change. The renewal is a new acceptance, and the old one stays in the record.</p></div>
       <div class="wo-day"><span class="d">Day 42</span><h3>What the board sees.</h3><p>Two open risks, each with a name and a date: R3, held by the CIO, accepted until day 63, with the work scheduled; and the rep&rsquo;s own-calendar risk, accepted on day 10 for a month and renewed on day 40 until day 70. Four risks ceased, each citing the ABP version that ended it. None unaccepted. For the agent, unbounded excess went from four to two. That is not a score. It is a count anybody can recompute from the ABP versions.</p></div>
+    </div>
+
+    <div class="wo-fig">
+      <div class="wo-fig-head">
+        <span class="wo-k">Figure · six weeks on one strip</span>
+        <h3>Who held each risk, in which state, and what ended it.</h3>
+        <p>The same six weeks as a strip: one line per risk, day 0 to day 42. A hatched bar is a funded acceptance; the small arrow on R5 is the week of silence that moved it from the COO to the CEO; each ending names the ABP version whose facts ended the risk. R3 and R6 run past the edge: both were renewed, and both carry a date.</p>
+      </div>
+      <div class="wo-scroll"><div id="wo-figB" class="wo-canvas short"></div></div>
     </div>
   </div>
 </section>
@@ -528,6 +695,16 @@ rm-menu{display:contents}
       <div class="wo-r" role="row"><span role="cell"><code>can_stop</code></span><span role="cell" data-k="Inverse"><code>stoppable_by</code></span><span role="cell" data-k="Means">role → agent, with how long the stop takes</span></div>
       <div class="wo-r" role="row"><span role="cell"><code>supersedes</code></span><span role="cell" data-k="Inverse"><code>superseded_by</code></span><span role="cell" data-k="Means">ABP version → ABP version; acceptance → acceptance</span></div>
     </div>
+
+    <div class="wo-fig">
+      <div class="wo-fig-head">
+        <span class="wo-k">Figure · the ontology</span>
+        <h3>Eight node types, thirteen verbs, every verb with an inverse.</h3>
+        <p>The tables above, drawn. The bottom row is the evidence: an agent, the versions of its behaviour policy, and the facts each version records. The middle is the risk and its acceptance. The top is the people: roles, the authority delegated to each, and the person who signs. A dashed edge is one of the two that can end or inform without holding. Hover a verb to read it from both ends.</p>
+      </div>
+      <div class="wo-scroll"><div id="wo-figC" class="wo-canvas mid"></div></div>
+      <p class="wo-say" id="wo-figC-say" aria-live="polite">Hover or focus a verb.</p>
+    </div>
     <div class="wo-rules">
       <div class="wo-rule"><h3>Placement</h3><p>When a risk is established, offer it to the role of the person who connected the agent. If its consequence is outside that role&rsquo;s authority, place it with the role whose <em>owns</em> matches the consequence. If that role&rsquo;s authority does not cover it either, walk <code>answers_to</code> until one does, or until the board. Add <code>informs</code> to every other role whose area it touches.</p></div>
       <div class="wo-rule"><h3>The clock</h3><p>An open risk with no acceptance starts the silence timer the company set. When the timer runs out, move the risk one step up <code>answers_to</code> and restart the timer. An acceptance sets an expiry. At expiry, return the risk to the same holder with what has changed since. If it is not renewed within the silence timer, move it up. An acceptance longer than the holder&rsquo;s authority allows is refused, not trimmed.</p></div>
@@ -588,6 +765,436 @@ rm-menu{display:contents}
   </div>
 </footer>
 
+<script>
+// The three figures on this page are drawn by this script from the article's own data: the
+// eight rows, the five risks, the thirteen roles and the six weeks. Nothing is loaded from
+// anywhere, nothing is sent, and every piece of text goes in through textContent.
+(function () {
+'use strict';
+var NS = 'http://www.w3.org/2000/svg';
+var REDUCED = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+function sv(tag, attrs, parent) { var n = document.createElementNS(NS, tag); if (attrs) Object.keys(attrs).forEach(function (k) { if (attrs[k] != null) n.setAttribute(k, attrs[k]); }); if (parent) parent.appendChild(n); return n; }
+function stext(x, y, s, cls, parent, anchor) { var t = sv('text', { x: x, y: y, 'class': cls, 'text-anchor': anchor || 'middle' }, parent); t.textContent = s; return t; }
+function ht(tag, cls, text, parent) { var n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; if (parent) parent.appendChild(n); return n; }
+function byId(id) { return document.getElementById(id); }
+
+/* ---------- Figure A: the blast radius ---------- */
+
+var ROLES = [
+  { id: 'board',   label: 'Board',       to: null,    x: 500, y: 40 },
+  { id: 'ceo',     label: 'CEO',         to: 'board', x: 500, y: 112 },
+  { id: 'cfo',     label: 'CFO',         to: 'ceo',   x: 125, y: 190 },
+  { id: 'coo',     label: 'COO',         to: 'ceo',   x: 230, y: 190 },
+  { id: 'cto',     label: 'CTO / IT',    to: 'ceo',   x: 420, y: 190 },
+  { id: 'legal',   label: 'Legal',       to: 'ceo',   x: 580, y: 190 },
+  { id: 'mkt',     label: 'Marketing',   to: 'ceo',   x: 700, y: 190 },
+  { id: 'sales',   label: 'Sales',       to: 'ceo',   x: 820, y: 190 },
+  { id: 'product', label: 'Product',     to: 'ceo',   x: 935, y: 190 },
+  { id: 'hr',      label: 'HR',          to: 'coo',   x: 230, y: 268 },
+  { id: 'cio',     label: 'CIO / Data',  to: 'cto',   x: 350, y: 268 },
+  { id: 'ciso',    label: 'CISO',        to: 'cto',   x: 490, y: 268 },
+  { id: 'rep',     label: 'The rep',     to: 'sales', x: 820, y: 268 }
+];
+var VOICE = {
+  board: 'Board: “We cannot say what our agents can do beyond what they were authorised to do, or who accepted the difference, and until when.”',
+  ceo: 'CEO: “Customers can hear from us in ways we did not decide, and I could not say who accepted that.”',
+  cfo: 'CFO: “A customer relationship we paid to win can be damaged in an afternoon, and we have not asked whether our cover responds to something an agent did.”',
+  coo: 'COO: “The calendar the company books customer meetings on can be rearranged, with no way back, and the day runs on it.”',
+  cto: 'CTO / IT: “We allow a connector that grants more than this use needs, and nothing we run narrows it.”',
+  legal: 'Legal: “Personal data about customers can leave through an agent, and a message nobody approved can say something to a customer we then have to stand behind.”',
+  mkt: 'Marketing: “Messages can go out in the company’s name that nobody reviewed.”',
+  sales: 'Sales: “Mail can reach our customers that nobody in the team wrote or read, and account records can change without the account’s owner knowing.”',
+  product: 'Product: not on this path. It would be if the agent were part of what the company sells.',
+  hr: 'HR: “We encourage people to adopt agents without telling them what an agent can do beyond what they ask of it.”',
+  cio: 'CIO / Data: “Customer records can be changed or exported through an agent, and the record says a person did it.”',
+  ciso: 'CISO: “A stranger’s email reaches an agent that holds customer data and can send mail anywhere, with nothing but an instruction in the way.”',
+  rep: 'The rep: “It can do more than I asked it to, and it all looks like me.”'
+};
+var CONNS = [
+  { id: 'mail', label: 'Mail', x: 290, y: 612 },
+  { id: 'crm',  label: 'CRM',  x: 500, y: 612 },
+  { id: 'cal',  label: 'Calendar', x: 710, y: 612 }
+];
+var ROWS = [
+  { id: 1, label: 'Read mail',            conn: 'mail', mandate: true },
+  { id: 2, label: 'Write drafts',         conn: 'mail', mandate: true },
+  { id: 3, label: 'Send as the rep',      conn: 'mail', mandate: false },
+  { id: 4, label: 'Read CRM',             conn: 'crm',  mandate: true },
+  { id: 5, label: 'Update any record',    conn: 'crm',  mandate: false },
+  { id: 6, label: 'Export in bulk',       conn: 'crm',  mandate: false },
+  { id: 7, label: 'Edit every calendar',  conn: 'cal',  mandate: false },
+  { id: 8, label: 'Act as the rep',       conn: 'any',  mandate: true },
+  { id: 9, label: 'Edit own calendar',    conn: 'cal',  mandate: false }
+];
+var ROW_X = { 1: 135, 2: 240, 3: 345, 4: 450, 5: 555, 6: 660, 7: 765, 8: 900, 9: 765 };
+var ROW_Y = 500;
+var RISKS = [
+  { id: 'R1', needs: [3],       role: 'sales', x0: 160, label: 'R1 · sends as me, to anybody',                    informs: ['mkt', 'legal', 'cfo', 'cto'] },
+  { id: 'R2', needs: [1, 3, 4], role: 'ciso',  x0: 330, label: 'R2 · a stranger’s mail steers it to send data out', informs: ['legal', 'cfo', 'cto'] },
+  { id: 'R3', needs: [6],       role: 'cio',   x0: 500, label: 'R3 · takes the customer list out',                informs: ['legal', 'cfo', 'cto'] },
+  { id: 'R4', needs: [5],       role: 'sales', x0: 670, label: 'R4 · changes accounts that are not mine',          informs: ['cio', 'cto'] },
+  { id: 'R5', needs: [7],       role: 'coo',   x0: 840, label: 'R5 · rearranges the shared calendar',             informs: ['cto'] },
+  { id: 'R6', needs: [9],       role: 'rep',   x0: 840, label: 'R6 · changes my own meetings',                    informs: [] }
+];
+var RISK_Y = 392;
+
+function freshState() {
+  return { conn: { mail: false, crm: false, cal: false }, ctl: { approval: false, crmLimit: false, noExport: false, calOwn: false }, instr: false, acc: {}, abp: 0, day: null, note: '' };
+}
+function rowPresent(S, r) {
+  if (r.conn === 'any') return S.conn.mail || S.conn.crm || S.conn.cal;
+  if (!S.conn[r.conn]) return false;
+  if (r.id === 6 && S.ctl.noExport) return false;
+  if (r.id === 7 && S.ctl.calOwn) return false;
+  if (r.id === 9 && !S.ctl.calOwn) return false;
+  return true;
+}
+function rowBarrier(S, r) {
+  if (r.mandate) return 'not-needed';
+  if (r.id === 3 && S.ctl.approval) return 'boundary';
+  if (r.id === 5 && S.ctl.crmLimit) return 'boundary';
+  return S.instr ? 'expectation' : 'none';
+}
+function riskHolds(S, k) {
+  return k.needs.every(function (id) { var r = ROWS[id - 1]; return rowPresent(S, r) && rowBarrier(S, r) !== 'boundary'; });
+}
+// Acceptance records follow the facts: a risk that starts to hold is unaccepted with its
+// placed holder; one that stops holding ceases, citing the ABP version that ended it.
+function settle(S) {
+  RISKS.forEach(function (k) {
+    var holds = riskHolds(S, k), a = S.acc[k.id];
+    if (holds && (!a || a.state === 'ceased')) S.acc[k.id] = { state: 'unaccepted', holder: k.role, note: 'placed with ' + roleLabel(k.role) + ', not yet accepted' };
+    else if (!holds && a && a.state !== 'ceased') { a.state = 'ceased'; a.note = 'ceased on ABP version ' + S.abp; a.holder = null; }
+  });
+}
+function roleLabel(id) { for (var i = 0; i < ROLES.length; i++) if (ROLES[i].id === id) return ROLES[i].label; return id; }
+function roleById(id) { for (var i = 0; i < ROLES.length; i++) if (ROLES[i].id === id) return ROLES[i]; return null; }
+function counts(S) {
+  var g = 0, m = 0, e = 0, u = 0, open = 0, un = 0;
+  ROWS.forEach(function (r) { if (!rowPresent(S, r)) return; g++; if (r.mandate) m++; else { e++; if (rowBarrier(S, r) !== 'boundary') u++; } });
+  RISKS.forEach(function (k) { var a = S.acc[k.id]; if (a && a.state !== 'ceased') { open++; if (a.state === 'unaccepted') un++; } });
+  return { grant: g, mandate: m, excess: e, unbounded: u, open: open, unaccepted: un };
+}
+
+var STEPS = [
+  { day: 0,  title: 'Connected. Eight rows, four in the gap, none bounded.', apply: function (S) { S.conn.mail = S.conn.crm = S.conn.cal = true; S.abp = 1; settle(S); },
+    note: 'Five risks are established from the rows and placed by the map: R1 and R4 with Sales, R2 with the CISO, R3 with the CIO, R5 with the COO. The rep can accept none of them. The board sees five, none accepted.' },
+  { day: 2,  title: 'Sales funds one fix and asks for another.', apply: function (S) { S.acc.R1 = { state: 'funded', holder: 'sales', note: 'funded by Sales for two weeks: an approval step on sending' }; S.acc.R4 = { state: 'funded', holder: 'sales', note: 'fix chosen by Sales: limit reps to their own accounts' }; },
+    note: 'R1: accepted for two weeks while IT adds an approval step to sending. R4: the CRM administrator is asked to limit reps to their own accounts.' },
+  { day: 3,  title: 'The CISO and the CIO accept, with actions.', apply: function (S) { S.acc.R2 = { state: 'accepted', holder: 'ciso', note: 'accepted by the CISO for two weeks: R1’s fix ends it too' }; S.acc.R3 = { state: 'funded', holder: 'cio', note: 'funded by the CIO for a month: export removed from the scope' }; },
+    note: 'R2 needs rows 1, 3 and 4 together, so the approval step will end it as well. R3 is accepted for a month while export is removed from the connector’s scope.' },
+  { day: 4,  title: 'R4 ceases, on evidence.', apply: function (S) { S.ctl.crmLimit = true; S.abp = 2; settle(S); },
+    note: 'The CRM now limits the rep to their own accounts. ABP version 2: row 5’s barrier is a boundary. The fact behind R4 no longer holds, so R4 ceases, citing version 2.' },
+  { day: 7,  title: 'Silence: R5 moves up.', apply: function (S) { S.acc.R5 = { state: 'unaccepted', holder: 'ceo', note: 'moved up after a week of silence at the COO; critical at the CEO' }; },
+    note: 'The COO has not acted on R5 in a week. It moves to the CEO, whom the COO answers to.' },
+  { day: 10, title: 'The CEO fixes R5, and a smaller risk takes its place.', apply: function (S) { S.ctl.calOwn = true; S.abp = 3; settle(S); S.acc.R6 = { state: 'accepted', holder: 'rep', note: 'accepted by the rep for a month: inside their own authority' }; },
+    note: 'Calendar access is narrowed to the rep’s own calendar. ABP version 3: R5 ceases. The agent can still edit the rep’s own events, so R6 is established, and it is inside the rep’s authority.' },
+  { day: 15, title: 'The approval step goes live. R1 and R2 cease together.', apply: function (S) { S.ctl.approval = true; S.abp = 4; settle(S); },
+    note: 'Sending now needs the rep’s approval, somewhere the agent cannot reach. ABP version 4: row 3’s barrier is a boundary. R1 ceases; R2 loses one of its three facts and ceases too.' },
+  { day: 33, title: 'R3’s month runs out with the work not done.', apply: function (S) { S.acc.R3 = { state: 'funded', holder: 'cio', note: 'renewed by the CIO for one more month, with a date for the change' }; },
+    note: 'The decision returns to the CIO, who renews for a month with a date for the scope change. The old acceptance stays in the record.' },
+  { day: 42, title: 'What the board sees.', apply: function (S) { S.acc.R6 = { state: 'accepted', holder: 'rep', note: 'renewed by the rep on day 40, until day 70' }; },
+    note: 'Two open risks, each with a name and a date. Four ceased, each citing the ABP version that ended it. None unaccepted. Unbounded excess went from four to two.' }
+];
+
+function figureA() {
+  var host = byId('wo-figA'); if (!host) return;
+  var svg = sv('svg', { viewBox: '0 0 1000 700', 'class': 'wo-svg', role: 'img', 'aria-label': 'The agent at the bottom, its rows and risks above it, and the thirteen roles up to the board' }, host);
+  var S = freshState();
+  var stepIndex = -1, playing = null;
+  var pos = {}; // current drawn positions of risks
+  var halo = {}, roleG = {}, connG = {}, rowG = {}, riskG = {}, edgeRowRisk = {}, edgeRiskRole = {}, edgeConnRow = {};
+
+  // layers, bottom first
+  var gHalo = sv('g', null, svg), gChart = sv('g', null, svg), gEdges = sv('g', null, svg), gNodes = sv('g', null, svg), gPulse = sv('g', null, svg);
+
+  // band labels
+  [['BOARD', 40], ['ROLES', 190], ['RISKS', RISK_Y], ['THE ABP', ROW_Y], ['CONNECTS', 612], ['AGENT', 672]].forEach(function (b) {
+    stext(14, b[1] + 4, b[0], 'wo-band', gChart, 'start');
+  });
+  // org chart
+  ROLES.forEach(function (r) {
+    if (r.to) { var p = roleById(r.to); sv('line', { x1: r.x, y1: r.y - 14, x2: p.x, y2: p.y + 14, 'class': 'wo-org' }, gChart); }
+  });
+  ROLES.forEach(function (r) {
+    halo[r.id] = sv('circle', { cx: r.x, cy: r.y, r: 30, 'class': 'wo-halo' }, gHalo);
+    var g = sv('g', { 'class': 'wo-role', tabindex: '0', role: 'button', 'aria-label': r.label }, gNodes);
+    sv('rect', { x: r.x - 46, y: r.y - 14, width: 92, height: 28, rx: 14 }, g);
+    stext(r.x, r.y + 4, r.label, 'wo-role-t', g);
+    g.addEventListener('mouseenter', function () { say(VOICE[r.id]); });
+    g.addEventListener('focus', function () { say(VOICE[r.id]); });
+    g.addEventListener('click', function () { say(VOICE[r.id]); });
+    roleG[r.id] = g;
+  });
+  // agent and connections
+  var agent = sv('g', { 'class': 'wo-agent' }, gNodes);
+  sv('rect', { x: 440, y: 656, width: 120, height: 32, rx: 8 }, agent);
+  stext(500, 677, 'the assistant', 'wo-agent-t', agent);
+  CONNS.forEach(function (c) {
+    sv('line', { x1: 500, y1: 656, x2: c.x, y2: c.y + 14, 'class': 'wo-org' }, gChart);
+    var g = sv('g', { 'class': 'wo-conn off' }, gNodes);
+    sv('rect', { x: c.x - 50, y: c.y - 14, width: 100, height: 28, rx: 6 }, g);
+    stext(c.x, c.y + 4, c.label, 'wo-conn-t', g);
+    connG[c.id] = g;
+    ROWS.forEach(function (r) { if (r.conn === c.id) edgeConnRow[r.id] = sv('line', { x1: c.x, y1: c.y - 14, x2: ROW_X[r.id], y2: ROW_Y + 12, 'class': 'wo-e wo-e-conn' }, gEdges); });
+  });
+  edgeConnRow[8] = sv('line', { x1: 500, y1: 656, x2: ROW_X[8], y2: ROW_Y + 12, 'class': 'wo-e wo-e-conn' }, gEdges);
+  // rows
+  ROWS.forEach(function (r) {
+    var g = sv('g', { 'class': 'wo-row absent' }, gNodes);
+    sv('circle', { cx: ROW_X[r.id], cy: ROW_Y, r: 11 }, g);
+    stext(ROW_X[r.id], ROW_Y + 4, String(r.id), 'wo-row-n', g);
+    stext(ROW_X[r.id], ROW_Y + 30, r.label, 'wo-row-t', g);
+    rowG[r.id] = g;
+  });
+  // risks
+  RISKS.forEach(function (k) {
+    pos[k.id] = { x: k.x0, y: RISK_Y, tx: k.x0, ty: RISK_Y };
+    k.needs.forEach(function (id) { edgeRowRisk[k.id + ':' + id] = sv('line', { 'class': 'wo-e wo-e-est' }, gEdges); });
+    edgeRiskRole[k.id] = sv('line', { 'class': 'wo-e wo-e-held' }, gEdges);
+    var g = sv('g', { 'class': 'wo-risk gone', tabindex: '0', role: 'button', 'aria-label': k.label }, gNodes);
+    sv('circle', { r: 17, 'class': 'wo-risk-ring' }, g);
+    sv('circle', { r: 13, 'class': 'wo-risk-core' }, g);
+    stext(0, 4, k.id, 'wo-risk-t', g);
+    var tip = function () { var a = S.acc[k.id]; say(k.label + '. Established by row' + (k.needs.length > 1 ? 's ' : ' ') + k.needs.join(', ') + '. ' + (a ? (a.state === 'ceased' ? a.note + '.' : 'Held by ' + roleLabel(a.holder) + ': ' + a.note + '.') : 'Not established: its facts do not hold.')); };
+    g.addEventListener('mouseenter', tip); g.addEventListener('focus', tip); g.addEventListener('click', tip);
+    riskG[k.id] = g;
+  });
+
+  var cap = byId('wo-figA-say'), dayEl = byId('wo-figA-day'), titleEl = byId('wo-figA-title'), noteEl = byId('wo-figA-note');
+  function say(s) { cap.textContent = s; }
+
+  function layoutTargets() {
+    var byHolder = {};
+    RISKS.forEach(function (k) { var a = S.acc[k.id]; if (a && a.state !== 'ceased') { (byHolder[a.holder] = byHolder[a.holder] || []).push(k.id); } });
+    RISKS.forEach(function (k) {
+      var a = S.acc[k.id], p = pos[k.id];
+      if (a && a.state !== 'ceased') {
+        var r = roleById(a.holder), sibs = byHolder[a.holder], i = sibs.indexOf(k.id);
+        p.tx = r.x + (sibs.length > 1 ? (i - (sibs.length - 1) / 2) * 44 : 0); p.ty = RISK_Y;
+      } else { p.tx = k.x0; p.ty = RISK_Y; }
+    });
+    // two risks with holders side by side would sit on each other: push them apart
+    var live = RISKS.filter(function (k) { var a = S.acc[k.id]; return a && a.state !== 'ceased'; }).sort(function (a, b) { return pos[a.id].tx - pos[b.id].tx; });
+    for (var pass = 0; pass < 6; pass++) for (var i = 1; i < live.length; i++) {
+      var q = pos[live[i - 1].id], w = pos[live[i].id], gap = w.tx - q.tx;
+      if (gap < 44) { q.tx -= (44 - gap) / 2; w.tx += (44 - gap) / 2; }
+    }
+  }
+  function paint() {
+    var c = counts(S);
+    CONNS.forEach(function (cn) { connG[cn.id].setAttribute('class', 'wo-conn ' + (S.conn[cn.id] ? 'on' : 'off')); });
+    ROWS.forEach(function (r) {
+      var present = rowPresent(S, r), b = rowBarrier(S, r);
+      var replaced = (r.id === 7 && S.ctl.calOwn) || (r.id === 9 && !S.ctl.calOwn); // rows 7 and 9 share a slot: only one is ever drawn
+      rowG[r.id].setAttribute('class', 'wo-row ' + (present ? 'b-' + b + (r.mandate ? ' in-mandate' : ' in-excess') : replaced ? 'hidden' : 'absent'));
+      edgeConnRow[r.id].setAttribute('class', 'wo-e wo-e-conn' + (present ? ' on' : ''));
+    });
+    var hot = {}, warm = {}, faint = {};
+    RISKS.forEach(function (k) {
+      var a = S.acc[k.id], on = a && a.state !== 'ceased';
+      riskG[k.id].setAttribute('class', 'wo-risk ' + (on ? 's-' + a.state : (a ? 'ceased' : 'gone')));
+      k.needs.forEach(function (id) { edgeRowRisk[k.id + ':' + id].setAttribute('class', 'wo-e wo-e-est' + (on ? ' on' : '')); });
+      edgeRiskRole[k.id].setAttribute('class', 'wo-e wo-e-held' + (on ? ' on s-' + a.state : ''));
+      if (on) { (a.state === 'unaccepted' ? hot : warm)[a.holder] = true; k.informs.forEach(function (id) { faint[id] = true; }); faint.board = true; }
+    });
+    ROLES.forEach(function (r) { halo[r.id].setAttribute('class', 'wo-halo' + (hot[r.id] ? ' hot' : warm[r.id] ? ' warm' : faint[r.id] ? ' faint' : '')); });
+    ['grant', 'mandate', 'excess', 'unbounded', 'open', 'unaccepted'].forEach(function (k) { var e = byId('wo-c-' + k); if (e) e.textContent = String(c[k]); });
+    var v = byId('wo-c-abp'); if (v) v.textContent = S.abp ? 'v' + S.abp : '–';
+    dayEl.textContent = S.day == null ? (S.abp ? 'Explore' : 'Not connected') : 'Day ' + S.day;
+    titleEl.textContent = S.title || (S.abp ? 'Your own changes, applied to the record.' : 'Nothing is connected, so nothing holds.');
+    noteEl.textContent = S.note || '';
+    // controls mirror the state
+    ['mail', 'crm', 'cal'].forEach(function (id) { var e = byId('wo-t-' + id); if (e) e.checked = !!S.conn[id]; });
+    ['approval', 'crmLimit', 'noExport', 'calOwn'].forEach(function (id) { var e = byId('wo-t-' + id); if (e) e.checked = !!S.ctl[id]; });
+    var ie = byId('wo-t-instr'); if (ie) ie.checked = !!S.instr;
+    layoutTargets();
+    if (REDUCED) { RISKS.forEach(function (k) { pos[k.id].x = pos[k.id].tx; pos[k.id].y = pos[k.id].ty; }); }
+    draw();
+  }
+  function draw() {
+    RISKS.forEach(function (k) {
+      var p = pos[k.id], a = S.acc[k.id];
+      riskG[k.id].setAttribute('transform', 'translate(' + p.x.toFixed(1) + ' ' + p.y.toFixed(1) + ')');
+      k.needs.forEach(function (id) { var e = edgeRowRisk[k.id + ':' + id]; e.setAttribute('x1', ROW_X[id]); e.setAttribute('y1', ROW_Y - 11); e.setAttribute('x2', p.x.toFixed(1)); e.setAttribute('y2', (p.y + 17).toFixed(1)); });
+      var e = edgeRiskRole[k.id];
+      if (a && a.state !== 'ceased') { var r = roleById(a.holder); e.setAttribute('x1', p.x.toFixed(1)); e.setAttribute('y1', (p.y - 17).toFixed(1)); e.setAttribute('x2', r.x); e.setAttribute('y2', r.y + 14); }
+    });
+  }
+  var raf = null;
+  function tick() {
+    var moving = false;
+    RISKS.forEach(function (k) { var p = pos[k.id]; var dx = p.tx - p.x, dy = p.ty - p.y; if (Math.abs(dx) > 0.3 || Math.abs(dy) > 0.3) { p.x += dx * 0.14; p.y += dy * 0.14; moving = true; } else { p.x = p.tx; p.y = p.ty; } });
+    draw();
+    raf = moving ? requestAnimationFrame(tick) : null;
+  }
+  function animate() { paint(); if (!REDUCED && !raf) raf = requestAnimationFrame(tick); }
+  // a dot that travels up a path: row → risk → holder, when a risk is established
+  function pulse(points, cls) {
+    if (REDUCED || points.length < 2) return;
+    var dot = sv('circle', { r: 5, 'class': 'wo-pulse ' + (cls || '') }, gPulse), t0 = null, total = 900;
+    function frame(ts) {
+      if (!t0) t0 = ts; var u = Math.min(1, (ts - t0) / total), seg = u * (points.length - 1), i = Math.min(points.length - 2, Math.floor(seg)), f = seg - i;
+      var a = points[i], b = points[i + 1];
+      dot.setAttribute('cx', (a[0] + (b[0] - a[0]) * f).toFixed(1)); dot.setAttribute('cy', (a[1] + (b[1] - a[1]) * f).toFixed(1));
+      if (u < 1) requestAnimationFrame(frame); else gPulse.removeChild(dot);
+    }
+    requestAnimationFrame(frame);
+  }
+  function pulseNew(before) {
+    RISKS.forEach(function (k) {
+      var a = S.acc[k.id], was = before[k.id];
+      if (a && a.state !== 'ceased' && !(was && was.state !== 'ceased')) {
+        var r = roleById(a.holder);
+        k.needs.forEach(function (id) { pulse([[ROW_X[id], ROW_Y], [pos[k.id].tx, RISK_Y], [r.x, r.y]], 'up'); });
+      }
+      if (was && was.state !== 'ceased' && (!a || a.state === 'ceased')) pulse([[pos[k.id].x, RISK_Y], [ROW_X[k.needs[0]], ROW_Y]], 'down');
+    });
+  }
+  function snapshotAcc() { var o = {}; Object.keys(S.acc).forEach(function (k) { o[k] = { state: S.acc[k].state }; }); return o; }
+
+  function goto(i) {
+    stop();
+    var before = snapshotAcc();
+    S = freshState();
+    for (var j = 0; j <= i; j++) STEPS[j].apply(S);
+    stepIndex = i; S.day = STEPS[i].day; S.title = STEPS[i].title; S.note = STEPS[i].note;
+    say('');
+    animate(); pulseNew(before);
+    byId('wo-b-prev').disabled = i <= 0; byId('wo-b-next').disabled = i >= STEPS.length - 1;
+  }
+  function reset() { stop(); var before = snapshotAcc(); S = freshState(); stepIndex = -1; say(''); animate(); pulseNew(before); byId('wo-b-prev').disabled = true; byId('wo-b-next').disabled = false; }
+  function stop() { if (playing) { clearInterval(playing); playing = null; byId('wo-b-play').textContent = 'Play the six weeks'; } }
+  function play() {
+    if (playing) { stop(); return; }
+    if (stepIndex >= STEPS.length - 1) { stepIndex = -1; }
+    byId('wo-b-play').textContent = 'Pause';
+    goto(stepIndex + 1); byId('wo-b-play').textContent = 'Pause';
+    playing = setInterval(function () { if (stepIndex >= STEPS.length - 1) { stop(); return; } goto(stepIndex + 1); byId('wo-b-play').textContent = 'Pause'; }, REDUCED ? 2600 : 3200);
+  }
+  // free exploration: any toggle leaves the timeline and applies to the record as it stands
+  function explore(fn) {
+    stop(); var before = snapshotAcc();
+    fn(S); S.day = null; S.title = null; S.note = null;
+    if (S.conn.mail || S.conn.crm || S.conn.cal) { if (!S.abp) S.abp = 1; else S.abp += 1; } else { S.abp = S.abp ? S.abp + 1 : 0; }
+    settle(S); stepIndex = -1;
+    animate(); pulseNew(before);
+    byId('wo-b-prev').disabled = true; byId('wo-b-next').disabled = false;
+  }
+  ['mail', 'crm', 'cal'].forEach(function (id) { var e = byId('wo-t-' + id); if (e) e.addEventListener('change', function () { explore(function (S) { S.conn[id] = e.checked; }); }); });
+  ['approval', 'crmLimit', 'noExport', 'calOwn'].forEach(function (id) { var e = byId('wo-t-' + id); if (e) e.addEventListener('change', function () { explore(function (S) { S.ctl[id] = e.checked; }); }); });
+  var ie = byId('wo-t-instr'); if (ie) ie.addEventListener('change', function () { explore(function (S) { S.instr = ie.checked; }); });
+  byId('wo-b-play').addEventListener('click', play);
+  byId('wo-b-next').addEventListener('click', function () { goto(Math.min(STEPS.length - 1, stepIndex + 1)); });
+  byId('wo-b-prev').addEventListener('click', function () { if (stepIndex <= 0) reset(); else goto(stepIndex - 1); });
+  byId('wo-b-reset').addEventListener('click', reset);
+  byId('wo-b-prev').disabled = true;
+  paint();
+}
+
+/* ---------- Figure B: six weeks as a strip ---------- */
+
+var STRIP = [
+  { id: 'R1', segs: [[0, 2, 'unaccepted', 'Sales'], [2, 15, 'funded', 'Sales · 2 weeks']], end: [15, 'v4'] },
+  { id: 'R2', segs: [[0, 3, 'unaccepted', 'CISO'], [3, 15, 'accepted', 'CISO · 2 weeks']], end: [15, 'v4'] },
+  { id: 'R3', segs: [[0, 3, 'unaccepted', 'CIO'], [3, 33, 'funded', 'CIO · 1 month'], [33, 42, 'funded', 'renewed · to day 63']], end: null },
+  { id: 'R4', segs: [[0, 2, 'unaccepted', 'Sales'], [2, 4, 'fix', 'Sales · fix']], end: [4, 'v2'] },
+  { id: 'R5', segs: [[0, 7, 'unaccepted', 'COO'], [7, 10, 'unaccepted', 'CEO · moved up']], end: [10, 'v3'], up: 7 },
+  { id: 'R6', segs: [[10, 40, 'accepted', 'the rep · 1 month'], [40, 42, 'accepted', 'renewed · to day 70']], end: null }
+];
+function figureB() {
+  var host = byId('wo-figB'); if (!host) return;
+  var W = 1000, X0 = 90, X1 = 970, Y0 = 46, RH = 38;
+  var svg = sv('svg', { viewBox: '0 0 ' + W + ' 300', 'class': 'wo-svg', role: 'img', 'aria-label': 'Six risks across forty-two days: who held each, in which state, and the ABP version that ended it' }, host);
+  var defs = sv('defs', null, svg), pat = sv('pattern', { id: 'wo-hatch', width: 6, height: 6, patternUnits: 'userSpaceOnUse', patternTransform: 'rotate(45)' }, defs);
+  sv('rect', { width: 6, height: 6, 'class': 'wo-hatch-bg' }, pat); sv('rect', { width: 2, height: 6, 'class': 'wo-hatch-fg' }, pat);
+  var dx = function (d) { return X0 + (X1 - X0) * d / 42; };
+  [0, 7, 14, 21, 28, 35, 42].forEach(function (d) { sv('line', { x1: dx(d), y1: Y0 - 14, x2: dx(d), y2: Y0 + RH * 6 - 8, 'class': 'wo-grid' }, svg); stext(dx(d), Y0 - 20, 'day ' + d, 'wo-band', svg); });
+  STRIP.forEach(function (r, i) {
+    var y = Y0 + i * RH;
+    stext(X0 - 12, y + 16, r.id, 'wo-strip-id', svg, 'end');
+    r.segs.forEach(function (s) {
+      var g = sv('g', { 'class': 'wo-seg s-' + s[2] }, svg);
+      sv('rect', { x: dx(s[0]), y: y + 2, width: Math.max(2, dx(s[1]) - dx(s[0])), height: 24, rx: 4 }, g);
+      if (dx(s[1]) - dx(s[0]) > 90) stext(dx(s[0]) + 8, y + 18, s[3], 'wo-seg-t', g, 'start');
+      else if (s[1] >= 42) stext(dx(s[1]), y - 2, s[3], 'wo-seg-t', g, 'end');
+      var t = sv('title', null, g); t.textContent = r.id + ', day ' + s[0] + ' to ' + s[1] + ': ' + s[2] + ' · ' + s[3];
+    });
+    if (r.end) { var g2 = sv('g', { 'class': 'wo-end' }, svg); sv('line', { x1: dx(r.end[0]), y1: y - 2, x2: dx(r.end[0]), y2: y + 30 }, g2); stext(dx(r.end[0]) + 6, y + 18, 'ceased · ABP ' + r.end[1], 'wo-end-t', g2, 'start'); }
+    if (r.up != null) { var g3 = sv('g', { 'class': 'wo-up' }, svg); sv('path', { d: 'M' + dx(r.up) + ' ' + (y + 30) + ' l-5 8 h10 z' }, g3); }
+  });
+  var ly = Y0 + RH * 6 + 8, lx = X0;
+  [['unaccepted', 'unaccepted: critical for the holder'], ['accepted', 'accepted, for an interval'], ['funded', 'funded: accepted while the work runs'], ['fix', 'fix chosen']].forEach(function (l) {
+    var g = sv('g', { 'class': 'wo-seg s-' + l[0] }, svg); sv('rect', { x: lx, y: ly, width: 26, height: 14, rx: 3 }, g); stext(lx + 32, ly + 11, l[1], 'wo-leg', svg, 'start'); lx += 34 + l[1].length * 6.6;
+  });
+}
+
+/* ---------- Figure C: the ontology ---------- */
+
+var ONODES = [
+  { id: 'agent', label: 'Agent',       x: 90,  y: 330 }, { id: 'abp', label: 'ABP version', x: 280, y: 330 },
+  { id: 'fact',  label: 'Fact',        x: 440, y: 330 }, { id: 'risk', label: 'Risk',       x: 650, y: 215 },
+  { id: 'acc',   label: 'Acceptance',  x: 880, y: 215 }, { id: 'role', label: 'Role',       x: 650, y: 90 },
+  { id: 'auth',  label: 'Authority',   x: 420, y: 90 },  { id: 'person', label: 'Person',   x: 880, y: 90 }
+];
+var OEDGES = [
+  ['abp', 'fact', 'records', 'recorded_in', 'ABP version → fact: a row makes this true'],
+  ['fact', 'risk', 'establishes', 'established_by', 'fact → risk: needed for the risk to hold', 0],
+  ['fact', 'risk', 'ends', 'ended_by', 'fact → risk: if this holds, the risk ceases', 1],
+  ['risk', 'risk', 'translates_into', 'translated_from', 'risk → the same exposure in a higher role’s words'],
+  ['risk', 'role', 'held_by', 'holds', 'risk → role: exactly one at a time', 0],
+  ['risk', 'role', 'informs', 'informed_by', 'risk → role: its area is touched, and it does not hold the risk', 1],
+  ['role', 'role', 'answers_to', 'oversees', 'role → role, ending at the board: the escalation path'],
+  ['auth', 'auth', 'delegated_from', 'delegates', 'authority → the authority above it, ending at the board’s appetite'],
+  ['auth', 'role', 'empowers', 'empowered_by', 'authority → role'],
+  ['acc', 'risk', 'accepts', 'accepted_by', 'acceptance → risk, for its interval'],
+  ['acc', 'person', 'signed_by', 'signed', 'acceptance → person'],
+  ['role', 'agent', 'can_stop', 'stoppable_by', 'role → agent, with how long the stop takes'],
+  ['abp', 'abp', 'supersedes', 'superseded_by', 'ABP version → ABP version; acceptance → acceptance']
+];
+function figureC() {
+  var host = byId('wo-figC'); if (!host) return;
+  var svg = sv('svg', { viewBox: '0 0 1000 400', 'class': 'wo-svg', role: 'img', 'aria-label': 'Eight node types joined by thirteen verbs, each with an inverse' }, host);
+  var defs = sv('defs', null, svg), m = sv('marker', { id: 'wo-arrow', viewBox: '0 0 10 10', refX: 9, refY: 5, markerWidth: 7, markerHeight: 7, orient: 'auto-start-reverse' }, defs);
+  sv('path', { d: 'M0 0 L10 5 L0 10 z', 'class': 'wo-arrow' }, m);
+  var N = {}; ONODES.forEach(function (n) { N[n.id] = n; });
+  var cap = byId('wo-figC-say');
+  var gE = sv('g', null, svg), gN = sv('g', null, svg), gL = sv('g', null, svg);
+  function edgePath(e) {
+    var a = N[e[0]], b = N[e[1]], k = e[5] || 0;
+    if (a === b) {
+      var dn = a.id === 'risk' ? 1 : -1; // the risk's loop hangs below, out of the way of the role's edges
+      return { d: 'M' + (a.x - 22) + ' ' + (a.y + 18 * dn) + ' C ' + (a.x - 60) + ' ' + (a.y + 80 * dn) + ', ' + (a.x + 60) + ' ' + (a.y + 80 * dn) + ', ' + (a.x + 22) + ' ' + (a.y + 18 * dn), lx: a.x, ly: a.y + (dn > 0 ? 74 : -66) };
+    }
+    var dx = b.x - a.x, dy = b.y - a.y, len = Math.sqrt(dx * dx + dy * dy), nx = -dy / len, ny = dx / len;
+    var off = (k === 0 ? -1 : 1) * (e[5] == null ? 0 : 22);
+    var ax = a.x + dx / len * 58, ay = a.y + dy / len * 20, bx = b.x - dx / len * 58, by = b.y - dy / len * 20;
+    var mx = (ax + bx) / 2 + nx * off, my = (ay + by) / 2 + ny * off;
+    var t = e[5] == null ? 0.5 : (k === 0 ? 0.3 : 0.7), u = 1 - t; // a pair of parallel edges labels each at a different point
+    return { d: 'M' + ax + ' ' + ay + ' Q ' + mx + ' ' + my + ' ' + bx + ' ' + by, lx: u * u * ax + 2 * u * t * mx + t * t * bx, ly: u * u * ay + 2 * u * t * my + t * t * by - 4 };
+  }
+  var paths = [];
+  OEDGES.forEach(function (e) {
+    var p = edgePath(e);
+    var path = sv('path', { d: p.d, 'class': 'wo-oe' + (e[2] === 'ends' || e[2] === 'informs' ? ' dashed' : ''), 'marker-end': 'url(#wo-arrow)' }, gE);
+    var g = sv('g', { 'class': 'wo-ol', tabindex: '0', role: 'button', 'aria-label': e[2] + ', inverse ' + e[3] }, gL);
+    var t = stext(p.lx, p.ly, e[2], 'wo-ol-t', g);
+    var bb = { w: e[2].length * 6.4 + 12 };
+    var r = sv('rect', { x: p.lx - bb.w / 2, y: p.ly - 11, width: bb.w, height: 15, rx: 3 }, g); g.insertBefore(r, t);
+    var show = function () { paths.forEach(function (q) { q.setAttribute('class', q.getAttribute('class').replace(' lit', '')); }); path.setAttribute('class', path.getAttribute('class') + ' lit'); cap.textContent = e[2] + ' · inverse ' + e[3] + ' · ' + e[4]; };
+    g.addEventListener('mouseenter', show); g.addEventListener('focus', show); g.addEventListener('click', show);
+    paths.push(path);
+  });
+  ONODES.forEach(function (n) {
+    var g = sv('g', { 'class': 'wo-on' }, gN);
+    sv('rect', { x: n.x - 56, y: n.y - 18, width: 112, height: 36, rx: 8 }, g);
+    stext(n.x, n.y + 5, n.label, 'wo-on-t', g);
+  });
+}
+
+figureA(); figureB(); figureC();
+})();
+</script>
 <script>
 (function(){
 'use strict';
