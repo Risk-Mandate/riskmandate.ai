@@ -87,7 +87,7 @@ Three figures for `article-who-owns-what-in-ai.html`, drawn by the page's own sc
 
 **External state.** Vaults built and unpushed: none · Release I will claim at merge: yes, a patch
 
-**Status.** [x] Figures built and exercised in Chromium: counts match the article; no errors; nothing loaded from elsewhere · [ ] Release, merge, CI green, live
+**Status.** [x] Figures built and exercised in Chromium: counts match the article; no errors; nothing loaded from elsewhere · [x] Release v1.34.5 cut · [ ] Merge, CI green, live
 
 ## Task briefs — 14
 

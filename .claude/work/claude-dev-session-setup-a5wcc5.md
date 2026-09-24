@@ -17,4 +17,5 @@ the ontology. Nothing else on the site changes except the register and the relea
 
 ## Status
 - [x] Figures built and exercised in Chromium: counts match the article; no errors; nothing loaded from elsewhere
-- [ ] Release, merge, CI green, live
+- [x] Release v1.34.5 cut
+- [ ] Merge, CI green, live
