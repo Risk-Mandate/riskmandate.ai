@@ -1,0 +1,75 @@
+{
+  "_": "Stakeholders a risk can be assigned to. reports_to is the escalation edge — a risk rises along it until a role accepts it. null = the top.",
+  "items": [
+    {
+      "id": "RO-sre",
+      "label": "SRE / platform on-call",
+      "reports_to": "RO-platform",
+      "note": null,
+      "lens": "keeping the service up, and being the one paged when it is not"
+    },
+    {
+      "id": "RO-platform",
+      "label": "Platform owner",
+      "reports_to": "RO-cto",
+      "note": null,
+      "lens": "what runs in production and what it is allowed to touch"
+    },
+    {
+      "id": "RO-service",
+      "label": "Customer-facing service owner",
+      "reports_to": "RO-cpo",
+      "note": null,
+      "lens": "what the customer experiences when this goes wrong"
+    },
+    {
+      "id": "RO-ciso",
+      "label": "CISO",
+      "reports_to": "RO-cto",
+      "note": "The line worth arguing about: every security risk escalates through the person accountable for delivery.",
+      "lens": "whether the organisation can say what happened, and prove it"
+    },
+    {
+      "id": "RO-cto",
+      "label": "CTO",
+      "reports_to": "RO-ceo",
+      "note": null,
+      "lens": "whether the estate can be changed safely at the speed the business wants"
+    },
+    {
+      "id": "RO-cpo",
+      "label": "Chief Product Officer",
+      "reports_to": "RO-ceo",
+      "note": "Owns what the product does to a customer, which is where an agent's output lands.",
+      "lens": "what the product does to the people who use it"
+    },
+    {
+      "id": "RO-cfo",
+      "label": "CFO",
+      "reports_to": "RO-ceo",
+      "note": "Owns the money shape of an exposure: cost of loss, cost of control, cost of stopping.",
+      "lens": "what this costs, and what it costs if it goes wrong"
+    },
+    {
+      "id": "RO-dpo",
+      "label": "DPO",
+      "reports_to": "RO-cfo",
+      "note": "Sits under the CFO here, which is the common corporate arrangement. GDPR Art. 38(3) requires the DPO to report to the highest management level — so this line is the one to argue about in a real estate, and moving it is a single field.",
+      "lens": "whether a person's data is handled lawfully and can be accounted for"
+    },
+    {
+      "id": "RO-ceo",
+      "label": "CEO",
+      "reports_to": "RO-board",
+      "note": "Appointed by the board, and reports to it. Every executive line converges here first.",
+      "lens": "the whole of it, because everything arrives here eventually"
+    },
+    {
+      "id": "RO-board",
+      "label": "Board",
+      "reports_to": null,
+      "note": "Everything arrives here. Acceptance below decides whether the board must ACT on it, never whether it sees it.",
+      "lens": "whether the organisation is being run in a way they can defend"
+    }
+  ]
+}

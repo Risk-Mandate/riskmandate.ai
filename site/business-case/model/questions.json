@@ -1,0 +1,425 @@
+{
+  "_": "Evidence. Every option establishes at least one fact, and no two options in a question establish the same set — otherwise an answer would change nothing on screen. One question may carry `gates`: until the twin it names is in the estate, every other question is disabled — because with no agent there is genuinely nothing else to say.",
+  "items": [
+    {
+      "id": "q1",
+      "text": "Do you have an AI agent — and where does it run?",
+      "options": [
+        [
+          "Yes, in production",
+          [
+            "F-1"
+          ]
+        ],
+        [
+          "Yes, but only in test or QA",
+          [
+            "F-2"
+          ]
+        ],
+        [
+          "No",
+          [
+            "F-3"
+          ]
+        ]
+      ],
+      "status": "live",
+      "group": "start",
+      "gates": "TW-agent"
+    },
+    {
+      "id": "qD",
+      "text": "What kind of data is in its reach?",
+      "options": [
+        [
+          "Nothing personal",
+          [
+            "F-35"
+          ]
+        ],
+        [
+          "Personal data — names, accounts, contact details",
+          [
+            "F-36"
+          ]
+        ],
+        [
+          "Special category or card data — health, biometric, payment",
+          [
+            "F-37"
+          ]
+        ]
+      ],
+      "status": "proposed",
+      "group": "context"
+    },
+    {
+      "id": "qE",
+      "text": "Does its output affect a decision about a person?",
+      "options": [
+        [
+          "No — it touches systems, not people",
+          [
+            "F-38"
+          ]
+        ],
+        [
+          "It informs a person who decides",
+          [
+            "F-39"
+          ]
+        ],
+        [
+          "It decides",
+          [
+            "F-40"
+          ]
+        ]
+      ],
+      "status": "proposed",
+      "group": "context"
+    },
+    {
+      "id": "q11",
+      "text": "What can it do with that data?",
+      "options": [
+        [
+          "Cannot see it",
+          [
+            "F-32"
+          ]
+        ],
+        [
+          "Reads it",
+          [
+            "F-33"
+          ]
+        ],
+        [
+          "Reads and changes it",
+          [
+            "F-33",
+            "F-34"
+          ]
+        ]
+      ],
+      "status": "proposed",
+      "group": "context"
+    },
+    {
+      "id": "q9",
+      "text": "Can it change things in production, or only read and report?",
+      "options": [
+        [
+          "Read and report only",
+          [
+            "F-4"
+          ]
+        ],
+        [
+          "Changes, with a person approving each one",
+          [
+            "F-5",
+            "F-6"
+          ]
+        ],
+        [
+          "Changes on its own",
+          [
+            "F-5",
+            "F-7"
+          ]
+        ]
+      ],
+      "status": "proposed",
+      "group": "estate"
+    },
+    {
+      "id": "q6",
+      "text": "If it misbehaved at full speed, what could it reach?",
+      "options": [
+        [
+          "Internal only",
+          [
+            "F-23"
+          ]
+        ],
+        [
+          "Customer-facing",
+          [
+            "F-24"
+          ]
+        ],
+        [
+          "Don't know",
+          [
+            "F-25"
+          ]
+        ]
+      ],
+      "status": "live",
+      "group": "reach"
+    },
+    {
+      "id": "q15",
+      "text": "Can it reach anything outside your network?",
+      "options": [
+        [
+          "No egress",
+          [
+            "F-47"
+          ]
+        ],
+        [
+          "Allow-listed only",
+          [
+            "F-48"
+          ]
+        ],
+        [
+          "Yes, general internet",
+          [
+            "F-49"
+          ]
+        ]
+      ],
+      "status": "proposed",
+      "group": "reach"
+    },
+    {
+      "id": "q2",
+      "text": "Is there a named person who owns stopping it?",
+      "options": [
+        [
+          "Named person",
+          [
+            "F-8"
+          ]
+        ],
+        [
+          "A team, loosely",
+          [
+            "F-9"
+          ]
+        ],
+        [
+          "Nobody named",
+          [
+            "F-10"
+          ]
+        ]
+      ],
+      "status": "live",
+      "group": "accountability"
+    },
+    {
+      "id": "q3",
+      "text": "If you had to stop it right now — could you?",
+      "options": [
+        [
+          "Yes, one action",
+          [
+            "F-11"
+          ]
+        ],
+        [
+          "Yes, eventually",
+          [
+            "F-12"
+          ]
+        ],
+        [
+          "Honestly, no",
+          [
+            "F-13"
+          ]
+        ]
+      ],
+      "status": "live",
+      "group": "stopping"
+    },
+    {
+      "id": "q4",
+      "text": "How long would stopping actually take?",
+      "options": [
+        [
+          "Minutes",
+          [
+            "F-14"
+          ]
+        ],
+        [
+          "Under an hour",
+          [
+            "F-15"
+          ]
+        ],
+        [
+          "Don't know",
+          [
+            "F-16"
+          ]
+        ]
+      ],
+      "status": "live",
+      "group": "stopping"
+    },
+    {
+      "id": "q12",
+      "text": "Have you ever actually stopped it?",
+      "options": [
+        [
+          "Yes, in production",
+          [
+            "F-17"
+          ]
+        ],
+        [
+          "Only in test",
+          [
+            "F-18"
+          ]
+        ],
+        [
+          "Never",
+          [
+            "F-19"
+          ]
+        ]
+      ],
+      "status": "proposed",
+      "group": "stopping"
+    },
+    {
+      "id": "q5",
+      "text": "Do you know the side effects of stopping it?",
+      "options": [
+        [
+          "Mapped",
+          [
+            "F-20"
+          ]
+        ],
+        [
+          "Partly",
+          [
+            "F-21"
+          ]
+        ],
+        [
+          "No",
+          [
+            "F-22"
+          ]
+        ]
+      ],
+      "status": "live",
+      "group": "stopping"
+    },
+    {
+      "id": "q7",
+      "text": "Could its worst change be undone?",
+      "options": [
+        [
+          "Fully reversible",
+          [
+            "F-26"
+          ]
+        ],
+        [
+          "Partly",
+          [
+            "F-27"
+          ]
+        ],
+        [
+          "Some changes are forever",
+          [
+            "F-28"
+          ]
+        ]
+      ],
+      "status": "live",
+      "group": "reversibility"
+    },
+    {
+      "id": "q8",
+      "text": "Is there a written procedure for after you pull the plug?",
+      "options": [
+        [
+          "Written and tested",
+          [
+            "F-29"
+          ]
+        ],
+        [
+          "Written",
+          [
+            "F-30"
+          ]
+        ],
+        [
+          "No",
+          [
+            "F-31"
+          ]
+        ]
+      ],
+      "status": "live",
+      "group": "recovery"
+    },
+    {
+      "id": "q13",
+      "text": "Could you reconstruct what it did last Tuesday?",
+      "options": [
+        [
+          "Fully",
+          [
+            "F-41"
+          ]
+        ],
+        [
+          "Partly",
+          [
+            "F-42"
+          ]
+        ],
+        [
+          "No",
+          [
+            "F-43"
+          ]
+        ]
+      ],
+      "status": "proposed",
+      "group": "observability"
+    },
+    {
+      "id": "q14",
+      "text": "Whose account does it act under?",
+      "options": [
+        [
+          "A named person's",
+          [
+            "F-44"
+          ]
+        ],
+        [
+          "A team's",
+          [
+            "F-45"
+          ]
+        ],
+        [
+          "A service account nobody owns",
+          [
+            "F-46"
+          ]
+        ]
+      ],
+      "status": "proposed",
+      "group": "observability"
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "_": "Ready-made answer sets. `answers` maps question id to option index. The first is the empty state — it clears everything rather than setting anything.",
+  "items": [
+    {
+      "id": "clear",
+      "label": "New",
+      "note": "Clear every answer and start again.",
+      "answers": {}
+    },
+    {
+      "id": "typical",
+      "label": "Typical",
+      "note": "What most visitors describe: an agent in production, personal data in reach, and nobody who has ever stopped it.",
+      "answers": {
+        "q1": 0,
+        "qD": 1,
+        "qE": 1,
+        "q11": 1,
+        "q9": 2,
+        "q6": 1,
+        "q15": 1,
+        "q2": 1,
+        "q3": 1,
+        "q4": 2,
+        "q12": 2,
+        "q5": 1,
+        "q7": 1,
+        "q8": 1,
+        "q13": 1,
+        "q14": 2
+      },
+      "accept": {
+        "RO-sre|RISK-2": {
+          "days": 14,
+          "focus": "reduce",
+          "because": "Stop path is being made single-action this sprint."
+        },
+        "RO-platform|RISK-1": {
+          "days": 365,
+          "focus": "tolerate",
+          "because": "We run an autonomous system on purpose. The level is where we want it."
+        },
+        "RO-dpo|RISK-3": {
+          "days": 180,
+          "focus": "learn",
+          "because": "No telemetry on what it actually reads. Measuring first."
+        },
+        "RO-platform|RISK-6": {
+          "days": 90,
+          "focus": "tolerate",
+          "because": "Change volume is low and every change is logged. Nothing to do."
+        }
+      }
+    },
+    {
+      "id": "exposed",
+      "label": "Exposed",
+      "note": "Special-category data, an output that decides about a person, and no stop path at all.",
+      "answers": {
+        "q1": 0,
+        "qD": 2,
+        "qE": 2,
+        "q11": 2,
+        "q9": 2,
+        "q6": 1,
+        "q15": 2,
+        "q2": 2,
+        "q3": 2,
+        "q4": 2,
+        "q12": 2,
+        "q5": 2,
+        "q7": 2,
+        "q8": 2,
+        "q13": 2,
+        "q14": 2
+      },
+      "accept": {}
+    },
+    {
+      "id": "governed",
+      "label": "Governed",
+      "note": "Every good answer — and still a register, because the agent exists, it can be stopped only by interrupting a service, and the data in its reach is what it is.",
+      "answers": {
+        "q1": 0,
+        "qD": 0,
+        "qE": 0,
+        "q11": 0,
+        "q9": 0,
+        "q6": 0,
+        "q15": 0,
+        "q2": 0,
+        "q3": 0,
+        "q4": 0,
+        "q12": 0,
+        "q5": 0,
+        "q7": 0,
+        "q8": 0,
+        "q13": 0,
+        "q14": 0
+      },
+      "accept": {
+        "RO-platform|RISK-1": {
+          "days": 365,
+          "focus": "tolerate",
+          "because": "Reviewed annually. The level is where the board wants it."
+        },
+        "RO-board|RISK-1": {
+          "days": 365,
+          "focus": "tolerate",
+          "because": "We run an autonomous system on purpose. This is the entry that says so."
+        },
+        "RO-sre|RISK-2": {
+          "days": 180,
+          "focus": "tolerate",
+          "because": "Runbook exercised monthly; the interruption is bounded and understood."
+        }
+      }
+    }
+  ]
+}

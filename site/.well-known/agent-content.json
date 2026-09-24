@@ -165,6 +165,16 @@
       "url": "https://riskmandate.ai/ramm.html"
     },
     {
+      "name": "business-cases",
+      "label": "Business cases, by risk",
+      "url": "https://riskmandate.ai/business-cases.html"
+    },
+    {
+      "name": "business-case-riskmandate-abp",
+      "label": "Business case · Agent Behaviour Policy",
+      "url": "https://riskmandate.ai/business-case-riskmandate-abp.html"
+    },
+    {
       "name": "pricing",
       "label": "The four levels",
       "url": "https://riskmandate.ai/pricing.html"

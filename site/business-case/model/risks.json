@@ -1,0 +1,1794 @@
+{
+  "_": "needs[]: every fact required. ceases_on[]: any fact that retires it. assigned_to[]: roles. provisions[]: {key} always applies; {key,when:[facts]} only in that context. leads_to[]: risks this one CAUSES or makes worse — a different edge from the facts that establish it. Cycles are allowed and meaningful: a control nobody dares use and a control that does not exist each produce the other. layer: 'operational' entries are established by facts; 'corporate' entries are established by the operational ones that lead INTO them — the answer to 'why does this matter' three or four hops up. The corporate tier is the register a board already keeps. needs_any[]: established if ANY of these hold (needs[] is ALL). layer 'inherent' entries are true because the thing EXISTS — reducible, not removable, and the reason a well-run estate still has a register.",
+  "items": [
+    {
+      "ref": "RISK-1",
+      "layer": "inherent",
+      "statement": "An autonomous system operates in the estate",
+      "why": "Running one at all is a decision, and this is the entry that names it. No control removes it — every control below changes its size.",
+      "needs": [],
+      "needs_any": [
+        "F-1",
+        "F-2"
+      ],
+      "ceases_on": [
+        "F-3"
+      ],
+      "assigned_to": [
+        "RO-platform",
+        "RO-cto",
+        "RO-board"
+      ],
+      "reduced_by": [
+        "scoping what it may touch",
+        "staging its changes",
+        "every control below — all of which reduce it"
+      ],
+      "provisions": [
+        {
+          "key": "aia-26"
+        },
+        {
+          "key": "aia-9"
+        }
+      ],
+      "leads_to": [
+        {
+          "ref": "CORP-6",
+          "why": "the decision to operate it is the exposure this names"
+        }
+      ]
+    },
+    {
+      "ref": "RISK-2",
+      "layer": "inherent",
+      "statement": "Stopping the agent is itself a service interruption",
+      "why": "Even a stop that takes one action and one minute is an outage. A perfect stop control does not make stopping free.",
+      "needs": [],
+      "needs_any": [
+        "F-1",
+        "F-2"
+      ],
+      "ceases_on": [
+        "F-3"
+      ],
+      "assigned_to": [
+        "RO-sre",
+        "RO-service"
+      ],
+      "reduced_by": [
+        "a staged stop",
+        "a standby path",
+        "a maintenance window"
+      ],
+      "provisions": [
+        {
+          "key": "nis2-21"
+        }
+      ],
+      "leads_to": [
+        {
+          "ref": "CORP-3",
+          "why": "the cost of using the control is part of resilience"
+        }
+      ]
+    },
+    {
+      "ref": "RISK-3",
+      "layer": "inherent",
+      "statement": "Personal data is within reach of an automated actor",
+      "why": "Not a failing — a scope. The moment personal data is reachable by something that is not a person, the regime applies to everything downstream.",
+      "needs": [
+        "F-36"
+      ],
+      "needs_any": [],
+      "ceases_on": [
+        "F-35"
+      ],
+      "assigned_to": [
+        "RO-dpo",
+        "RO-ciso"
+      ],
+      "reduced_by": [
+        "minimisation",
+        "tokenisation",
+        "field-level restriction"
+      ],
+      "provisions": [
+        {
+          "key": "gdpr-5"
+        },
+        {
+          "key": "gdpr-32"
+        }
+      ],
+      "leads_to": [
+        {
+          "ref": "CORP-1",
+          "why": "scope is what the regime attaches to"
+        }
+      ]
+    },
+    {
+      "ref": "RISK-4",
+      "layer": "inherent",
+      "statement": "Special category or payment data is within reach of an automated actor",
+      "why": "The same scope, narrower grounds, and a materially larger number behind any incident.",
+      "needs": [
+        "F-37"
+      ],
+      "needs_any": [],
+      "ceases_on": [
+        "F-35"
+      ],
+      "assigned_to": [
+        "RO-dpo",
+        "RO-ciso",
+        "RO-cfo"
+      ],
+      "reduced_by": [
+        "removing it from reach",
+        "tokenisation",
+        "a DPIA that names this actor"
+      ],
+      "provisions": [
+        {
+          "key": "gdpr-9"
+        },
+        {
+          "key": "gdpr-35"
+        },
+        {
+          "key": "pci-3"
+        }
+      ],
+      "leads_to": [
+        {
+          "ref": "CORP-1",
+          "why": "narrower grounds, same attachment"
+        },
+        {
+          "ref": "CORP-4",
+          "why": "this is where the number comes from"
+        }
+      ]
+    },
+    {
+      "ref": "RISK-5",
+      "layer": "inherent",
+      "statement": "A person is affected by something the organisation automated",
+      "why": "Whether it decides or merely informs, a person is on the other end of it. That is true of a well-run system too.",
+      "needs": [],
+      "needs_any": [
+        "F-39",
+        "F-40"
+      ],
+      "ceases_on": [
+        "F-38"
+      ],
+      "assigned_to": [
+        "RO-cpo",
+        "RO-dpo"
+      ],
+      "reduced_by": [
+        "a human with authority to overturn",
+        "a route to contest",
+        "measuring how often the human differs"
+      ],
+      "provisions": [
+        {
+          "key": "aia-14"
+        },
+        {
+          "key": "gdpr-22"
+        }
+      ],
+      "leads_to": [
+        {
+          "ref": "CORP-2",
+          "why": "a person on the other end is what customer harm means"
+        }
+      ]
+    },
+    {
+      "ref": "RISK-6",
+      "statement": "The production estate can be changed by an agent",
+      "needs": [
+        "F-5"
+      ],
+      "ceases_on": [
+        "F-4",
+        "F-3"
+      ],
+      "assigned_to": [
+        "RO-sre",
+        "RO-platform"
+      ],
+      "why": "They hold the estate. A change they did not make can still be one they must live with.",
+      "reduced_by": [
+        "narrowing what it may change",
+        "staging changes behind a gate"
+      ],
+      "provisions": [
+        {
+          "key": "aia-12"
+        },
+        {
+          "key": "aia-26"
+        }
+      ],
+      "leads_to": [
+        {
+          "ref": "RISK-15",
+          "why": "a system that can change production is the thing being delegated to"
+        },
+        {
+          "ref": "RISK-22",
+          "why": "you cannot have an irreversible change without the power to change"
+        }
+      ],
+      "layer": "operational",
+      "needs_any": []
+    },
+    {
+      "ref": "RISK-7",
+      "statement": "Regulated data is readable by an agent",
+      "needs": [
+        "F-33"
+      ],
+      "ceases_on": [
+        "F-32"
+      ],
+      "assigned_to": [
+        "RO-ciso",
+        "RO-dpo"
+      ],
+      "why": "Read access to personal data is the DPO's subject as much as the CISO's, and they escalate differently.",
+      "reduced_by": [
+        "field-level restriction",
+        "tokenisation",
+        "minimisation"
+      ],
+      "provisions": [
+        {
+          "key": "gdpr-32",
+          "when": [
+            "F-36"
+          ]
+        },
+        {
+          "key": "gdpr-5",
+          "when": [
+            "F-36"
+          ]
+        },
+        {
+          "key": "gdpr-9",
+          "when": [
+            "F-37"
+          ]
+        },
+        {
+          "key": "pci-7",
+          "when": [
+            "F-37"
+          ]
+        }
+      ],
+      "leads_to": [
+        {
+          "ref": "RISK-16",
+          "why": "read access is the step before write access, and the same principal holds both"
+        }
+      ],
+      "layer": "operational",
+      "needs_any": []
+    },
+    {
+      "ref": "RISK-8",
+      "statement": "The operator cannot state what the agent is entitled to reach",
+      "needs": [
+        "F-25"
+      ],
+      "ceases_on": [
+        "F-23"
+      ],
+      "assigned_to": [
+        "RO-sre",
+        "RO-platform"
+      ],
+      "why": "Bounding the problem needs the surface, and the surface is not written down.",
+      "reduced_by": [
+        "segmentation",
+        "a partial inventory"
+      ],
+      "provisions": [
+        {
+          "key": "aia-12"
+        }
+      ],
+      "leads_to": [
+        {
+          "ref": "RISK-17",
+          "why": "you cannot review a scope nobody has written down"
+        },
+        {
+          "ref": "RISK-18",
+          "why": "an unenumerated reach is how customer systems end up inside it"
+        }
+      ],
+      "layer": "operational",
+      "needs_any": []
+    },
+    {
+      "ref": "RISK-9",
+      "statement": "Stopping the agent takes more than one action",
+      "needs": [
+        "F-12"
+      ],
+      "ceases_on": [
+        "F-11"
+      ],
+      "assigned_to": [
+        "RO-sre"
+      ],
+      "why": "Each extra action is another thing to get right while something is going wrong.",
+      "reduced_by": [
+        "a runbook",
+        "pre-staged commands"
+      ],
+      "provisions": [
+        {
+          "key": "aia-14"
+        }
+      ],
+      "leads_to": [
+        {
+          "ref": "RISK-19",
+          "why": "a multi-step stop is the one nobody has timed"
+        }
+      ],
+      "layer": "operational",
+      "needs_any": []
+    },
+    {
+      "ref": "RISK-10",
+      "statement": "What else stops when the agent stops is unknown to the people who would stop it",
+      "needs": [
+        "F-22"
+      ],
+      "ceases_on": [
+        "F-20"
+      ],
+      "assigned_to": [
+        "RO-sre",
+        "RO-service",
+        "RO-cpo"
+      ],
+      "why": "They must decide to stop it without knowing the cost of stopping it.",
+      "reduced_by": [
+        "a partial map",
+        "a staged stop"
+      ],
+      "provisions": [
+        {
+          "key": "aia-9"
+        }
+      ],
+      "leads_to": [
+        {
+          "ref": "RISK-20",
+          "why": "unknown effects are an incomplete map by another name"
+        },
+        {
+          "ref": "RISK-30",
+          "why": "the operator's uncertainty becomes the estate's"
+        }
+      ],
+      "layer": "operational",
+      "needs_any": []
+    },
+    {
+      "ref": "RISK-11",
+      "statement": "The operator cannot identify who authorises a stop",
+      "needs": [
+        "F-10"
+      ],
+      "ceases_on": [
+        "F-8"
+      ],
+      "assigned_to": [
+        "RO-sre"
+      ],
+      "why": "Finding out is work, and it happens while the agent is still running.",
+      "reduced_by": [
+        "an on-call rota",
+        "an escalation tree"
+      ],
+      "provisions": [
+        {
+          "key": "aia-26"
+        }
+      ],
+      "leads_to": [
+        {
+          "ref": "RISK-21",
+          "why": "nobody named is how authority ends up with a group"
+        },
+        {
+          "ref": "RISK-31",
+          "why": "the operator's search is the organisation's gap"
+        }
+      ],
+      "layer": "operational",
+      "needs_any": []
+    },
+    {
+      "ref": "RISK-12",
+      "statement": "No procedure exists for the period after a stop",
+      "needs": [
+        "F-31"
+      ],
+      "ceases_on": [
+        "F-30",
+        "F-29"
+      ],
+      "assigned_to": [
+        "RO-sre",
+        "RO-platform"
+      ],
+      "why": "Stopping it is the start of the work, and the rest has never been written down.",
+      "reduced_by": [
+        "a sequence someone remembers"
+      ],
+      "provisions": [
+        {
+          "key": "nis2-21"
+        }
+      ],
+      "leads_to": [
+        {
+          "ref": "RISK-23",
+          "why": "a procedure that does not exist has not been exercised"
+        },
+        {
+          "ref": "RISK-40",
+          "why": "the missing procedure IS the undefined half"
+        }
+      ],
+      "layer": "operational",
+      "needs_any": []
+    },
+    {
+      "ref": "RISK-13",
+      "statement": "What the agent did cannot be reconstructed",
+      "needs": [
+        "F-43"
+      ],
+      "ceases_on": [
+        "F-41"
+      ],
+      "assigned_to": [
+        "RO-sre",
+        "RO-ciso"
+      ],
+      "why": "Diagnosis starts from a record that is not being kept; so does an investigation.",
+      "reduced_by": [
+        "partial logging",
+        "sampling"
+      ],
+      "provisions": [
+        {
+          "key": "aia-12"
+        },
+        {
+          "key": "gdpr-5",
+          "when": [
+            "F-36"
+          ]
+        }
+      ],
+      "leads_to": [
+        {
+          "ref": "RISK-24",
+          "why": "no reconstruction and partial reconstruction differ by degree"
+        },
+        {
+          "ref": "RISK-33",
+          "why": "you cannot account for what you cannot reconstruct"
+        }
+      ],
+      "layer": "operational",
+      "needs_any": []
+    },
+    {
+      "ref": "RISK-14",
+      "statement": "The agent's actions cannot be attributed to a person",
+      "needs": [
+        "F-46"
+      ],
+      "ceases_on": [
+        "F-44"
+      ],
+      "assigned_to": [
+        "RO-ciso",
+        "RO-dpo"
+      ],
+      "why": "Accountability requires demonstrability, and there is no line from an action to somebody answerable.",
+      "reduced_by": [
+        "service-account mapping",
+        "approval records"
+      ],
+      "provisions": [
+        {
+          "key": "aia-26"
+        },
+        {
+          "key": "gdpr-5",
+          "when": [
+            "F-36"
+          ]
+        },
+        {
+          "key": "pci-7",
+          "when": [
+            "F-37"
+          ]
+        }
+      ],
+      "leads_to": [
+        {
+          "ref": "RISK-25",
+          "why": "unattributable and team-attributable are the same gap at two depths"
+        },
+        {
+          "ref": "RISK-33",
+          "why": "no name on an action is no answer to 'by whose authority'"
+        }
+      ],
+      "layer": "operational",
+      "needs_any": []
+    },
+    {
+      "ref": "RISK-15",
+      "statement": "The organisation acts through a system that acts without a person approving each action",
+      "needs": [
+        "F-7"
+      ],
+      "ceases_on": [
+        "F-6",
+        "F-3"
+      ],
+      "assigned_to": [
+        "RO-cto",
+        "RO-board"
+      ],
+      "why": "Delegating action to a system that decides is a choice about how the organisation operates.",
+      "reduced_by": [
+        "nothing below removes it — controls change what it does, not that it decides"
+      ],
+      "provisions": [
+        {
+          "key": "aia-26"
+        },
+        {
+          "key": "aia-6",
+          "when": [
+            "F-40"
+          ]
+        },
+        {
+          "key": "gdpr-22",
+          "when": [
+            "F-40"
+          ]
+        }
+      ],
+      "leads_to": [
+        {
+          "ref": "RISK-26",
+          "why": "records change because nobody approves the change"
+        },
+        {
+          "ref": "RISK-27",
+          "why": "acting without approval is what makes the decision the system's"
+        },
+        {
+          "ref": "CORP-6",
+          "why": "running it at all is the decision this names"
+        },
+        {
+          "ref": "CORP-1",
+          "why": "autonomy is what most of the regime attaches to"
+        }
+      ],
+      "layer": "operational",
+      "needs_any": []
+    },
+    {
+      "ref": "RISK-16",
+      "statement": "Regulated data is modifiable by an agent",
+      "needs": [
+        "F-34"
+      ],
+      "ceases_on": [
+        "F-32"
+      ],
+      "assigned_to": [
+        "RO-ciso",
+        "RO-dpo",
+        "RO-service",
+        "RO-cpo"
+      ],
+      "why": "Modification is a different exposure from reading: integrity, not only confidentiality.",
+      "reduced_by": [
+        "read-only access",
+        "approval on writes"
+      ],
+      "provisions": [
+        {
+          "key": "gdpr-32",
+          "when": [
+            "F-36"
+          ]
+        },
+        {
+          "key": "gdpr-9",
+          "when": [
+            "F-37"
+          ]
+        },
+        {
+          "key": "pci-3",
+          "when": [
+            "F-37"
+          ]
+        }
+      ],
+      "leads_to": [
+        {
+          "ref": "RISK-26",
+          "why": "the modification is what alters the record"
+        }
+      ],
+      "layer": "operational",
+      "needs_any": []
+    },
+    {
+      "ref": "RISK-17",
+      "statement": "The scope of the agent's access cannot be reviewed",
+      "needs": [
+        "F-25"
+      ],
+      "ceases_on": [
+        "F-23"
+      ],
+      "assigned_to": [
+        "RO-ciso"
+      ],
+      "why": "Review, rating and treatment all rest on a scope nobody holds.",
+      "reduced_by": [
+        "periodic entitlement review",
+        "least privilege by default"
+      ],
+      "provisions": [
+        {
+          "key": "aia-9"
+        },
+        {
+          "key": "aia-72"
+        },
+        {
+          "key": "gdpr-32",
+          "when": [
+            "F-36"
+          ]
+        }
+      ],
+      "leads_to": [
+        {
+          "ref": "RISK-29",
+          "why": "an unreviewable scope cannot be sized against a window"
+        }
+      ],
+      "layer": "operational",
+      "needs_any": []
+    },
+    {
+      "ref": "RISK-18",
+      "statement": "Customer-facing systems are reachable by the agent",
+      "needs": [
+        "F-24"
+      ],
+      "ceases_on": [
+        "F-23"
+      ],
+      "assigned_to": [
+        "RO-service",
+        "RO-ciso",
+        "RO-cpo"
+      ],
+      "why": "The service owner carries the customer impact; the CISO carries the posture that now extends to it.",
+      "reduced_by": [
+        "segmentation",
+        "scoping the agent to internal systems"
+      ],
+      "provisions": [
+        {
+          "key": "aia-9"
+        }
+      ],
+      "leads_to": [
+        {
+          "ref": "RISK-28",
+          "why": "customer-facing usually means outward-facing"
+        }
+      ],
+      "layer": "operational",
+      "needs_any": []
+    },
+    {
+      "ref": "RISK-19",
+      "statement": "The time a stop takes is unknown to the people who would perform it",
+      "needs": [
+        "F-16"
+      ],
+      "ceases_on": [
+        "F-14",
+        "F-15"
+      ],
+      "assigned_to": [
+        "RO-sre",
+        "RO-platform"
+      ],
+      "why": "They are the only people who can measure it, and until they do the number exists nowhere.",
+      "reduced_by": [
+        "an estimate — which is not a measurement"
+      ],
+      "provisions": [
+        {
+          "key": "aia-14"
+        }
+      ],
+      "leads_to": [
+        {
+          "ref": "RISK-29",
+          "why": "an unmeasured time cannot be compared to anything"
+        }
+      ],
+      "layer": "operational",
+      "needs_any": []
+    },
+    {
+      "ref": "RISK-20",
+      "statement": "The dependency map behind the stop control is incomplete",
+      "needs": [
+        "F-21"
+      ],
+      "ceases_on": [
+        "F-20"
+      ],
+      "assigned_to": [
+        "RO-sre"
+      ],
+      "why": "A partial map is the one that surprises you, because it reads as a map.",
+      "reduced_by": [
+        "completing it"
+      ],
+      "provisions": [
+        {
+          "key": "aia-9"
+        }
+      ],
+      "leads_to": [
+        {
+          "ref": "RISK-30",
+          "why": "a partial map is the one that surprises you"
+        }
+      ],
+      "layer": "operational",
+      "needs_any": []
+    },
+    {
+      "ref": "RISK-21",
+      "statement": "Stop authority sits with a group rather than a person",
+      "needs": [
+        "F-9"
+      ],
+      "ceases_on": [
+        "F-8"
+      ],
+      "assigned_to": [
+        "RO-sre",
+        "RO-ciso"
+      ],
+      "why": "A group cannot be paged. The SRE finds that out during the incident.",
+      "reduced_by": [
+        "a named deputy",
+        "a rota with one name at a time"
+      ],
+      "provisions": [
+        {
+          "key": "aia-26"
+        }
+      ],
+      "leads_to": [
+        {
+          "ref": "RISK-31",
+          "why": "a group cannot hold what one person must exercise"
+        }
+      ],
+      "layer": "operational",
+      "needs_any": []
+    },
+    {
+      "ref": "RISK-22",
+      "statement": "Some changes the agent makes cannot be reversed by the operator",
+      "needs": [
+        "F-28"
+      ],
+      "ceases_on": [
+        "F-26"
+      ],
+      "assigned_to": [
+        "RO-sre",
+        "RO-platform"
+      ],
+      "why": "Undo is the operator's whole toolkit for a bad change, and for this class it is empty.",
+      "reduced_by": [
+        "journalling",
+        "a gate on the irreversible class"
+      ],
+      "provisions": [
+        {
+          "key": "aia-9"
+        }
+      ],
+      "leads_to": [
+        {
+          "ref": "RISK-32",
+          "why": "irreversible and partly-reversible are the same class seen twice"
+        },
+        {
+          "ref": "RISK-37",
+          "why": "undo missing at the operator is recovery missing at the estate"
+        }
+      ],
+      "layer": "operational",
+      "needs_any": []
+    },
+    {
+      "ref": "RISK-23",
+      "statement": "The post-stop procedure has never been exercised",
+      "needs": [
+        "F-30"
+      ],
+      "ceases_on": [
+        "F-29"
+      ],
+      "assigned_to": [
+        "RO-sre"
+      ],
+      "why": "A procedure never run is a hypothesis about a bad day.",
+      "reduced_by": [
+        "a walkthrough",
+        "a tabletop"
+      ],
+      "provisions": [
+        {
+          "key": "nis2-21"
+        }
+      ],
+      "leads_to": [
+        {
+          "ref": "RISK-40",
+          "why": "unexercised is undefined in the only way that matters"
+        }
+      ],
+      "layer": "operational",
+      "needs_any": []
+    },
+    {
+      "ref": "RISK-24",
+      "statement": "Only part of what the agent did can be reconstructed",
+      "needs": [
+        "F-42"
+      ],
+      "ceases_on": [
+        "F-41"
+      ],
+      "assigned_to": [
+        "RO-sre"
+      ],
+      "why": "A partial record answers the easy questions and runs out at the one that matters.",
+      "reduced_by": [
+        "raising the retention or the detail"
+      ],
+      "provisions": [
+        {
+          "key": "aia-12"
+        }
+      ],
+      "leads_to": [
+        {
+          "ref": "RISK-33",
+          "why": "a partial record runs out at the question that matters"
+        }
+      ],
+      "layer": "operational",
+      "needs_any": []
+    },
+    {
+      "ref": "RISK-25",
+      "statement": "The agent's actions reach a team rather than a person",
+      "needs": [
+        "F-45"
+      ],
+      "ceases_on": [
+        "F-44"
+      ],
+      "assigned_to": [
+        "RO-ciso"
+      ],
+      "why": "A team is closer than a service account and still not a name on a decision.",
+      "reduced_by": [
+        "a named owner for the account"
+      ],
+      "provisions": [
+        {
+          "key": "aia-26"
+        }
+      ],
+      "leads_to": [
+        {
+          "ref": "RISK-33",
+          "why": "a team is not a name on a decision"
+        }
+      ],
+      "layer": "operational",
+      "needs_any": []
+    },
+    {
+      "ref": "RISK-26",
+      "statement": "Records the organisation answers for can change without a person deciding they should",
+      "needs": [
+        "F-34",
+        "F-7"
+      ],
+      "ceases_on": [
+        "F-6",
+        "F-32"
+      ],
+      "assigned_to": [
+        "RO-board"
+      ],
+      "why": "The organisation is answerable for those records whether or not anybody chose the change.",
+      "reduced_by": [
+        "nothing below removes it while both facts hold"
+      ],
+      "provisions": [
+        {
+          "key": "gdpr-5",
+          "when": [
+            "F-36"
+          ]
+        },
+        {
+          "key": "gdpr-22",
+          "when": [
+            "F-40"
+          ]
+        }
+      ],
+      "leads_to": [
+        {
+          "ref": "CORP-1",
+          "why": "the record is what the regime asks about"
+        },
+        {
+          "ref": "CORP-2",
+          "why": "the record is somebody's"
+        }
+      ],
+      "layer": "operational",
+      "needs_any": []
+    },
+    {
+      "ref": "RISK-27",
+      "statement": "A decision about a person is made without a person making it",
+      "needs": [
+        "F-40"
+      ],
+      "ceases_on": [
+        "F-38",
+        "F-39"
+      ],
+      "assigned_to": [
+        "RO-dpo",
+        "RO-ciso",
+        "RO-board",
+        "RO-cpo"
+      ],
+      "why": "This is where the system stops being infrastructure. The DPO's route to the board exists for exactly this.",
+      "reduced_by": [
+        "a human with authority to overturn",
+        "a documented right to contest"
+      ],
+      "provisions": [
+        {
+          "key": "gdpr-22"
+        },
+        {
+          "key": "aia-6"
+        },
+        {
+          "key": "aia-14"
+        }
+      ],
+      "leads_to": [
+        {
+          "ref": "RISK-34",
+          "why": "once the system decides, the human sign-off is what oversight rests on"
+        },
+        {
+          "ref": "CORP-2",
+          "why": "this is what customer harm looks like in practice"
+        },
+        {
+          "ref": "CORP-1",
+          "why": "and it is the provision most often cited"
+        }
+      ],
+      "layer": "operational",
+      "needs_any": []
+    },
+    {
+      "ref": "RISK-28",
+      "statement": "The agent can reach systems outside the estate",
+      "needs": [
+        "F-49"
+      ],
+      "ceases_on": [
+        "F-47",
+        "F-48"
+      ],
+      "assigned_to": [
+        "RO-ciso",
+        "RO-cfo"
+      ],
+      "why": "Egress is the difference between a contained failure and an exfiltration.",
+      "reduced_by": [
+        "egress allow-listing",
+        "proxy inspection"
+      ],
+      "provisions": [
+        {
+          "key": "nis2-21"
+        },
+        {
+          "key": "gdpr-32",
+          "when": [
+            "F-36"
+          ]
+        },
+        {
+          "key": "pci-3",
+          "when": [
+            "F-37"
+          ]
+        }
+      ],
+      "leads_to": [
+        {
+          "ref": "CORP-4",
+          "why": "egress is what makes a loss unbounded"
+        },
+        {
+          "ref": "CORP-2",
+          "why": "and what makes it visible outside"
+        }
+      ],
+      "layer": "operational",
+      "needs_any": []
+    },
+    {
+      "ref": "RISK-29",
+      "statement": "The stop capability cannot be compared to any exposure window",
+      "needs": [
+        "F-16"
+      ],
+      "ceases_on": [
+        "F-14",
+        "F-15"
+      ],
+      "assigned_to": [
+        "RO-ciso"
+      ],
+      "why": "Sizing the control depends on a number nobody has.",
+      "reduced_by": [
+        "sizing to an assumed worst case"
+      ],
+      "provisions": [
+        {
+          "key": "aia-9"
+        }
+      ],
+      "leads_to": [
+        {
+          "ref": "RISK-42",
+          "why": "a control nobody can size is a claim nobody can make"
+        }
+      ],
+      "layer": "operational",
+      "needs_any": []
+    },
+    {
+      "ref": "RISK-30",
+      "statement": "Using the stop control has consequences the estate has not mapped",
+      "needs": [
+        "F-22"
+      ],
+      "ceases_on": [
+        "F-20"
+      ],
+      "assigned_to": [
+        "RO-ciso"
+      ],
+      "why": "A control with unmapped consequences is one people hesitate over — which is how a working control goes unused.",
+      "reduced_by": [
+        "a documented dependency map",
+        "a rehearsed partial stop"
+      ],
+      "provisions": [
+        {
+          "key": "aia-14"
+        },
+        {
+          "key": "nis2-21"
+        }
+      ],
+      "leads_to": [
+        {
+          "ref": "RISK-35",
+          "why": "a control people hesitate over is a control that is not used"
+        }
+      ],
+      "layer": "operational",
+      "needs_any": []
+    },
+    {
+      "ref": "RISK-31",
+      "statement": "No role holds the authority the stop control requires",
+      "needs": [
+        "F-10"
+      ],
+      "ceases_on": [
+        "F-8"
+      ],
+      "assigned_to": [
+        "RO-ciso",
+        "RO-cto"
+      ],
+      "why": "Assigning authority is theirs to do; nobody below can grant it to themselves.",
+      "reduced_by": [
+        "written delegation",
+        "pre-authorisation under defined conditions"
+      ],
+      "provisions": [
+        {
+          "key": "aia-26"
+        }
+      ],
+      "leads_to": [
+        {
+          "ref": "RISK-36",
+          "why": "unassigned authority arrives at the top unowned"
+        },
+        {
+          "ref": "RISK-35",
+          "why": "a control nobody may use is a control that does not work"
+        }
+      ],
+      "layer": "operational",
+      "needs_any": []
+    },
+    {
+      "ref": "RISK-32",
+      "statement": "Part of what the agent changes can only be partly recovered",
+      "needs": [
+        "F-27"
+      ],
+      "ceases_on": [
+        "F-26"
+      ],
+      "assigned_to": [
+        "RO-sre"
+      ],
+      "why": "Partial recovery is the case nobody rehearses, because it is neither of the two they planned for.",
+      "reduced_by": [
+        "identifying which changes fall in it"
+      ],
+      "provisions": [
+        {
+          "key": "aia-9"
+        }
+      ],
+      "leads_to": [
+        {
+          "ref": "RISK-37",
+          "why": "partial recovery is still not recovery"
+        }
+      ],
+      "layer": "operational",
+      "needs_any": []
+    },
+    {
+      "ref": "RISK-33",
+      "statement": "The organisation could not account for what its agent did",
+      "needs": [
+        "F-43",
+        "F-46"
+      ],
+      "ceases_on": [
+        "F-41",
+        "F-44"
+      ],
+      "assigned_to": [
+        "RO-board"
+      ],
+      "why": "After an incident it is asked what happened and by whose authority. Both answers depend on records.",
+      "reduced_by": [
+        "nothing below removes it until the records exist"
+      ],
+      "provisions": [
+        {
+          "key": "gdpr-5"
+        },
+        {
+          "key": "aia-73",
+          "when": [
+            "F-40"
+          ]
+        }
+      ],
+      "leads_to": [
+        {
+          "ref": "CORP-5",
+          "why": "this is accountability failure, stated"
+        },
+        {
+          "ref": "CORP-1",
+          "why": "and the regime's first question"
+        }
+      ],
+      "layer": "operational",
+      "needs_any": []
+    },
+    {
+      "ref": "RISK-34",
+      "statement": "Oversight of a decision about a person may be nominal rather than real",
+      "needs": [
+        "F-39"
+      ],
+      "ceases_on": [
+        "F-38",
+        "F-40"
+      ],
+      "assigned_to": [
+        "RO-dpo",
+        "RO-ciso",
+        "RO-cpo"
+      ],
+      "why": "A person signing off what a system produced is oversight only if they can realistically disagree with it.",
+      "reduced_by": [
+        "time and information to overturn",
+        "measuring how often the human differs"
+      ],
+      "provisions": [
+        {
+          "key": "aia-14"
+        },
+        {
+          "key": "aia-26"
+        }
+      ],
+      "leads_to": [
+        {
+          "ref": "CORP-2",
+          "why": "nominal oversight is harm nobody caught"
+        }
+      ],
+      "layer": "operational",
+      "needs_any": []
+    },
+    {
+      "ref": "RISK-35",
+      "statement": "The agent cannot be stopped",
+      "needs": [
+        "F-13"
+      ],
+      "ceases_on": [
+        "F-11",
+        "F-12"
+      ],
+      "assigned_to": [
+        "RO-sre",
+        "RO-platform"
+      ],
+      "why": "The SRE is the person who would have to do it.",
+      "reduced_by": [
+        "isolating it at the network layer"
+      ],
+      "provisions": [
+        {
+          "key": "aia-14"
+        }
+      ],
+      "leads_to": [
+        {
+          "ref": "RISK-38",
+          "why": "no stop path is why none has ever been demonstrated"
+        },
+        {
+          "ref": "RISK-42",
+          "why": "the organisation cannot claim what the operator cannot do"
+        }
+      ],
+      "layer": "operational",
+      "needs_any": []
+    },
+    {
+      "ref": "RISK-36",
+      "statement": "No individual is accountable for the decision to stop the agent",
+      "needs": [
+        "F-10"
+      ],
+      "ceases_on": [
+        "F-8"
+      ],
+      "assigned_to": [
+        "RO-board"
+      ],
+      "why": "An exposure with no owner arrives here by default rather than by decision.",
+      "reduced_by": [
+        "naming an owner at any level below"
+      ],
+      "provisions": [
+        {
+          "key": "aia-26"
+        },
+        {
+          "key": "gdpr-5",
+          "when": [
+            "F-36"
+          ]
+        }
+      ],
+      "leads_to": [
+        {
+          "ref": "CORP-5",
+          "why": "an unowned decision is an unanswerable question"
+        }
+      ],
+      "layer": "operational",
+      "needs_any": []
+    },
+    {
+      "ref": "RISK-37",
+      "statement": "Recovery is not available for part of the agent's action space",
+      "needs": [
+        "F-28"
+      ],
+      "ceases_on": [
+        "F-26"
+      ],
+      "assigned_to": [
+        "RO-ciso"
+      ],
+      "why": "Most of the control set assumes detect-then-restore. Here that assumption does not hold.",
+      "reduced_by": [
+        "moving the control earlier — approval, simulation, scope"
+      ],
+      "provisions": [
+        {
+          "key": "aia-9"
+        },
+        {
+          "key": "gdpr-32",
+          "when": [
+            "F-36"
+          ]
+        }
+      ],
+      "leads_to": [
+        {
+          "ref": "RISK-39",
+          "why": "no recovery is what makes an outcome permanent"
+        },
+        {
+          "ref": "RISK-40",
+          "why": "if recovery is unavailable the post-stop half has nothing to do"
+        }
+      ],
+      "layer": "operational",
+      "needs_any": []
+    },
+    {
+      "ref": "RISK-38",
+      "statement": "The estate has no demonstrated means of interrupting the agent",
+      "needs": [
+        "F-19"
+      ],
+      "ceases_on": [
+        "F-17"
+      ],
+      "assigned_to": [
+        "RO-ciso"
+      ],
+      "why": "An intervention capability never carried out is a claim, not an assurance.",
+      "reduced_by": [
+        "a written procedure",
+        "a rehearsal outside production"
+      ],
+      "provisions": [
+        {
+          "key": "aia-14"
+        },
+        {
+          "key": "aia-9"
+        }
+      ],
+      "leads_to": [
+        {
+          "ref": "RISK-41",
+          "why": "undemonstrated in production is at best demonstrated elsewhere"
+        },
+        {
+          "ref": "RISK-42",
+          "why": "an undemonstrated control cannot support a claim made at board level"
+        }
+      ],
+      "layer": "operational",
+      "needs_any": []
+    },
+    {
+      "ref": "RISK-39",
+      "statement": "Some outcomes of the agent's operation are permanent",
+      "needs": [
+        "F-28"
+      ],
+      "ceases_on": [
+        "F-26"
+      ],
+      "assigned_to": [
+        "RO-board",
+        "RO-cfo"
+      ],
+      "why": "Accepting an exposure that can be repaired and one that cannot are different decisions.",
+      "reduced_by": [
+        "nothing below removes it — the class of change is a property of the domain"
+      ],
+      "provisions": [
+        {
+          "key": "aia-73"
+        },
+        {
+          "key": "gdpr-35",
+          "when": [
+            "F-37"
+          ]
+        }
+      ],
+      "leads_to": [
+        {
+          "ref": "CORP-4",
+          "why": "permanence is what removes the ceiling"
+        },
+        {
+          "ref": "CORP-3",
+          "why": "and what recovery cannot reach"
+        }
+      ],
+      "layer": "operational",
+      "needs_any": []
+    },
+    {
+      "ref": "RISK-40",
+      "statement": "The recovery half of the stop control is undefined",
+      "needs": [
+        "F-31"
+      ],
+      "ceases_on": [
+        "F-29"
+      ],
+      "assigned_to": [
+        "RO-ciso"
+      ],
+      "why": "The register records a stop capability and stops there; the time that hurts is after it.",
+      "reduced_by": [
+        "writing it",
+        "exercising it"
+      ],
+      "provisions": [
+        {
+          "key": "nis2-21"
+        },
+        {
+          "key": "aia-14"
+        }
+      ],
+      "leads_to": [
+        {
+          "ref": "RISK-43",
+          "why": "the estate's gap is the organisation's missing plan"
+        }
+      ],
+      "layer": "operational",
+      "needs_any": []
+    },
+    {
+      "ref": "RISK-41",
+      "statement": "The stop control has been proved only outside production",
+      "needs": [
+        "F-18"
+      ],
+      "ceases_on": [
+        "F-17"
+      ],
+      "assigned_to": [
+        "RO-ciso",
+        "RO-sre"
+      ],
+      "why": "A rehearsal in test is real evidence and not the same evidence. Production is where the dependencies are.",
+      "reduced_by": [
+        "a production game day"
+      ],
+      "provisions": [
+        {
+          "key": "aia-14"
+        }
+      ],
+      "leads_to": [
+        {
+          "ref": "RISK-38",
+          "why": "a test-only rehearsal leaves production undemonstrated"
+        }
+      ],
+      "layer": "operational",
+      "needs_any": []
+    },
+    {
+      "ref": "RISK-42",
+      "statement": "The organisation cannot state whether it can halt a system it operates",
+      "needs": [
+        "F-13",
+        "F-16"
+      ],
+      "ceases_on": [
+        "F-11",
+        "F-14"
+      ],
+      "assigned_to": [
+        "RO-board",
+        "RO-cfo"
+      ],
+      "why": "A regulator, an insurer or a customer will ask, and it must be answerable here.",
+      "reduced_by": [
+        "nothing below removes it until both are true"
+      ],
+      "provisions": [
+        {
+          "key": "nis2-23"
+        },
+        {
+          "key": "aia-73",
+          "when": [
+            "F-40"
+          ]
+        }
+      ],
+      "leads_to": [
+        {
+          "ref": "CORP-6",
+          "why": "this is the sentence the board cannot say"
+        },
+        {
+          "ref": "CORP-3",
+          "why": "and the reason service may not come back"
+        }
+      ],
+      "layer": "operational",
+      "needs_any": []
+    },
+    {
+      "ref": "RISK-43",
+      "statement": "The organisation has no plan for the period after the agent is stopped",
+      "needs": [
+        "F-31"
+      ],
+      "ceases_on": [
+        "F-29"
+      ],
+      "assigned_to": [
+        "RO-board"
+      ],
+      "why": "Reportable clocks and customer-visible outage both run through the part nobody has planned.",
+      "reduced_by": [
+        "nothing below removes it until the procedure exists"
+      ],
+      "provisions": [
+        {
+          "key": "nis2-23"
+        }
+      ],
+      "leads_to": [
+        {
+          "ref": "CORP-3",
+          "why": "the recovery half is the resilience half"
+        }
+      ],
+      "layer": "operational",
+      "needs_any": []
+    },
+    {
+      "ref": "CORP-1",
+      "layer": "corporate",
+      "statement": "Regulatory exposure — the organisation may be operating outside obligations it is subject to",
+      "why": "The board's question is not whether a control is missing. It is whether the organisation is currently outside something it is answerable to, and whether it could tell.",
+      "needs": [],
+      "ceases_on": [],
+      "assigned_to": [
+        "RO-dpo",
+        "RO-board"
+      ],
+      "reduced_by": [
+        "a defensible record of what was decided and when"
+      ],
+      "provisions": [
+        {
+          "key": "aia-6"
+        },
+        {
+          "key": "gdpr-5"
+        },
+        {
+          "key": "nis2-23"
+        }
+      ],
+      "leads_to": [],
+      "needs_any": []
+    },
+    {
+      "ref": "CORP-2",
+      "layer": "corporate",
+      "statement": "Customer harm — customers may be affected by decisions or changes nobody made",
+      "why": "The exposure the organisation is judged on publicly, and the one a product function owns before a security function does.",
+      "needs": [],
+      "ceases_on": [],
+      "assigned_to": [
+        "RO-cpo",
+        "RO-ceo"
+      ],
+      "reduced_by": [
+        "a human with authority to overturn",
+        "a route for a customer to contest"
+      ],
+      "provisions": [
+        {
+          "key": "gdpr-22"
+        },
+        {
+          "key": "aia-14"
+        }
+      ],
+      "leads_to": [],
+      "needs_any": []
+    },
+    {
+      "ref": "CORP-3",
+      "layer": "corporate",
+      "statement": "Operational resilience — the organisation may be unable to restore a service it depends on",
+      "why": "Not whether an incident happens, but whether the organisation comes back from one, and how long that takes.",
+      "needs": [],
+      "ceases_on": [],
+      "assigned_to": [
+        "RO-cto",
+        "RO-ceo"
+      ],
+      "reduced_by": [
+        "a rehearsed recovery",
+        "a measured time to restore"
+      ],
+      "provisions": [
+        {
+          "key": "nis2-21"
+        },
+        {
+          "key": "nis2-23"
+        }
+      ],
+      "leads_to": [],
+      "needs_any": []
+    },
+    {
+      "ref": "CORP-4",
+      "layer": "corporate",
+      "statement": "Unquantified financial exposure — the organisation cannot price its own downside",
+      "why": "An exposure with no ceiling cannot be insured, provisioned for, or traded off against the cost of fixing it.",
+      "needs": [],
+      "ceases_on": [],
+      "assigned_to": [
+        "RO-cfo",
+        "RO-board"
+      ],
+      "reduced_by": [
+        "bounding the blast radius",
+        "a stated worst case"
+      ],
+      "provisions": [
+        {
+          "key": "aia-73"
+        }
+      ],
+      "leads_to": [],
+      "needs_any": []
+    },
+    {
+      "ref": "CORP-5",
+      "layer": "corporate",
+      "statement": "Accountability failure — the organisation cannot demonstrate who decided what",
+      "why": "Every regime here asks the same question after the event: what happened, and by whose authority. Both answers are records or they are nothing.",
+      "needs": [],
+      "ceases_on": [],
+      "assigned_to": [
+        "RO-ceo",
+        "RO-board"
+      ],
+      "reduced_by": [
+        "attributable identity",
+        "approval records"
+      ],
+      "provisions": [
+        {
+          "key": "gdpr-5"
+        },
+        {
+          "key": "aia-12"
+        },
+        {
+          "key": "aia-26"
+        }
+      ],
+      "leads_to": [],
+      "needs_any": []
+    },
+    {
+      "ref": "CORP-6",
+      "layer": "corporate",
+      "statement": "Loss of control — the organisation operates a system it may not be able to stop or explain",
+      "why": "The one that belongs at the top by its nature. Running an autonomous system at all is a decision, and this is the entry that names it.",
+      "needs": [],
+      "ceases_on": [],
+      "assigned_to": [
+        "RO-board",
+        "RO-ceo"
+      ],
+      "reduced_by": [
+        "nothing below removes it while the system runs — controls change its size"
+      ],
+      "provisions": [
+        {
+          "key": "aia-9"
+        },
+        {
+          "key": "aia-14"
+        },
+        {
+          "key": "aia-26"
+        }
+      ],
+      "leads_to": [],
+      "needs_any": []
+    }
+  ]
+}

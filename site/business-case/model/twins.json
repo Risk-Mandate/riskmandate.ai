@@ -1,0 +1,160 @@
+{
+  "_": "Things in the estate. x/y place the node in the estate view — the agent sits at the centre and everything else on an ellipse round it, so every edge is a spoke and none crosses a node. exists_facts: ANY of these puts the twin in the estate. presence_facts: the facts that ANSWER whether it is here at all — exempt from the gate, so 'no agent' renders as an edge rather than a blank screen. depends_on: it cannot be there unless that one is.",
+  "items": [
+    {
+      "id": "TW-agent",
+      "label": "The agent",
+      "kind": "Agent",
+      "note": "The subject. Everything else is what it touches or what governs it.",
+      "exists_facts": [
+        "F-1",
+        "F-2"
+      ],
+      "x": 520,
+      "y": 350,
+      "presence_facts": [
+        "F-1",
+        "F-2",
+        "F-3"
+      ]
+    },
+    {
+      "id": "TW-prod",
+      "label": "The production estate",
+      "kind": "Platform",
+      "note": "In scope as a concept whether or not the agent is there yet. Where the agent runs changes the IMPACT of a finding, never whether the finding is true.",
+      "x": 657,
+      "y": 147,
+      "presence_facts": [
+        "F-1",
+        "F-2",
+        "F-3"
+      ]
+    },
+    {
+      "id": "TW-custsys",
+      "label": "Customer-facing systems",
+      "kind": "Platform",
+      "note": "",
+      "x": 858,
+      "y": 149,
+      "depends_on": "TW-agent"
+    },
+    {
+      "id": "TW-custdata",
+      "label": "The data in its reach",
+      "kind": "Data",
+      "note": "Its CLASS is what decides whether any of the rest matters.",
+      "x": 840,
+      "y": 281,
+      "depends_on": "TW-agent"
+    },
+    {
+      "id": "TW-decision",
+      "label": "Decisions its output affects",
+      "kind": "Process",
+      "note": "Where an agent stops being infrastructure.",
+      "depends_on": "TW-agent",
+      "x": 973,
+      "y": 381
+    },
+    {
+      "id": "TW-egress",
+      "label": "Outbound network access",
+      "kind": "Network",
+      "note": "",
+      "x": 520,
+      "y": 50
+    },
+    {
+      "id": "TW-entitlements",
+      "label": "Its entitlements",
+      "kind": "Access",
+      "note": "Promoted to a node so 'we do not know what it can reach' is a visible edge rather than a silent gap.",
+      "depends_on": "TW-agent",
+      "x": 185,
+      "y": 373
+    },
+    {
+      "id": "TW-approval",
+      "label": "The approval step",
+      "kind": "Control",
+      "note": "",
+      "depends_on": "TW-agent",
+      "x": 126,
+      "y": 500
+    },
+    {
+      "id": "TW-authority",
+      "label": "Stop authority",
+      "kind": "Authority",
+      "note": "Held by a person, a group, or nobody — and the third is an edge like the others.",
+      "depends_on": "TW-agent",
+      "x": 322,
+      "y": 530
+    },
+    {
+      "id": "TW-stop",
+      "label": "The stop control",
+      "kind": "Control",
+      "note": "One node, four questions: whether it exists, how long it takes, what it takes down, and whether it has ever been used.",
+      "depends_on": "TW-agent",
+      "x": 425,
+      "y": 643
+    },
+    {
+      "id": "TW-deps",
+      "label": "Services that depend on it",
+      "kind": "Platform",
+      "note": "",
+      "depends_on": "TW-agent",
+      "x": 812,
+      "y": 461
+    },
+    {
+      "id": "TW-runbook",
+      "label": "The post-stop procedure",
+      "kind": "Process",
+      "note": "",
+      "depends_on": "TW-agent",
+      "x": 787,
+      "y": 593
+    },
+    {
+      "id": "TW-changes",
+      "label": "The changes it makes",
+      "kind": "Change",
+      "note": "",
+      "depends_on": "TW-agent",
+      "x": 590,
+      "y": 567
+    },
+    {
+      "id": "TW-identity",
+      "label": "The account it acts under",
+      "kind": "Identity",
+      "note": "",
+      "depends_on": "TW-agent",
+      "x": 87,
+      "y": 257
+    },
+    {
+      "id": "TW-log",
+      "label": "The record of its actions",
+      "kind": "Data",
+      "note": "",
+      "depends_on": "TW-agent",
+      "x": 270,
+      "y": 201
+    },
+    {
+      "id": "TW-nonprod",
+      "label": "Test and QA environments",
+      "kind": "Platform",
+      "note": "An agent here is real and carries almost none of the exposure. Separating it from production is what makes 'yes, but only in QA' an answer rather than a hedge.",
+      "depends_on": "TW-agent",
+      "x": 335,
+      "y": 76
+    }
+  ]
+}
