@@ -5,7 +5,7 @@
 
 **2**received, nothing built yet*Archived and read, and nothing has been built from it yet.*
 
-**19**partly worked*read in full; a named part is not built*
+**20**partly worked*read in full; a named part is not built*
 
 **8**processed*something on the site exists because of it*
 
@@ -40,6 +40,10 @@ spoken brief, transcribed · 3 produced · 3 not done24 September 2026 · partly
 **[A behaviour policy for everybody the lead talks to: a brief and a zip for a new agent, three vaults, and controls so nothing leaks across](#D18)**
 
 spoken brief, transcribed · 2 produced · 3 not done24 September 2026 · partly
+
+**[An interview page, and a ChatGPT voice prompt to run it: a reusable pattern, and the first page, for a founder who knows UK events and marketing](#D19)**
+
+build brief from the sgit.ai site team, the page as served, kept byte for byte · 2 produced · 3 not done24 September 2026 · partly
 
 **[The named professional, and the assignment of the individual who does the £1,500 review](#D11)**
 
@@ -260,6 +264,22 @@ partly
 - The keys vault itself. The first session creates it and gives its key to the lead, so the steps are exercised once with the lead watching.
 - A way for a person to send corrections from inside their vault. Today they reply to the lead; a form is a question for the app vault.
 - Any person's vault. The pack has been run end to end on a fictional organisation only.
+
+D19 · build brief from the sgit.ai site team, the page as served, kept byte for byte · 24 September 2026
+
+## An interview page, and a ChatGPT voice prompt to run it: a reusable pattern, and the first page, for a founder who knows UK events and marketing
+
+partly
+
+[the file as received](../../assets/briefs/2026-09-24__sgit-brief__riskmandate-interview-page-and-voice-prompt.html.txt) · `c4734574a343…` · 25 KB · sgit.ai v0.6.7
+
+**Produced.** [The first interview page, with the six parts in the brief's order, a copy button that copies the prompt exactly, and nothing loaded or sent](../../interview-founder-marketing.html) · [The pattern as a template: site/interviews/_template.json and scripts/site/build-interview-pages.mjs, so the next page is a JSON file](../../admin/agents/05-workflows/index.html)
+
+**Not done.**
+
+- Running the prompt once in ChatGPT voice mode. This agent has no ChatGPT account; the lead runs it and checks the summary has all ten sections.
+- The prompt is the brief's, with two phrases corrected to what the site states: the home page names the CEO, CTO and CISO, not an insurer; and the Licence to Operate page makes the behaviour policy the instrument, not the evidence.
+- Sending the summary back into a vault through a write-only lane, which the brief marks as later.
 
 D11 · spoken brief, transcribed · 22 September 2026
 

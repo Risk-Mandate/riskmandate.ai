@@ -609,6 +609,37 @@
         "A way for a person to send corrections from inside their vault. Today they reply to the lead; a form is a question for the app vault.",
         "Any person's vault. The pack has been run end to end on a fictional organisation only."
       ]
+    },
+    {
+      "id": "D19",
+      "title": "An interview page, and a ChatGPT voice prompt to run it: a reusable pattern, and the first page, for a founder who knows UK events and marketing",
+      "version": "sgit.ai v0.6.7",
+      "type": "build brief from the sgit.ai site team, the page as served, kept byte for byte",
+      "dated": "2026-09-24",
+      "source_url": "https://sgit.ai/docs/briefs/riskmandate-interview-page-and-voice-prompt.html",
+      "file": "assets/briefs/2026-09-24__sgit-brief__riskmandate-interview-page-and-voice-prompt.html.txt",
+      "bytes": 25621,
+      "sha256": "c4734574a34364f4e5837a05197a207430ed8429e8fa17bf64332f73219910c4",
+      "received": [
+        "2026-09-24T18:00Z"
+      ],
+      "duplicate_of": null,
+      "status": "partly",
+      "produced": [
+        {
+          "what": "The first interview page, with the six parts in the brief's order, a copy button that copies the prompt exactly, and nothing loaded or sent",
+          "url": "interview-founder-marketing.html"
+        },
+        {
+          "what": "The pattern as a template: site/interviews/_template.json and scripts/site/build-interview-pages.mjs, so the next page is a JSON file",
+          "url": "admin/agents/05-workflows/index.html"
+        }
+      ],
+      "not_done": [
+        "Running the prompt once in ChatGPT voice mode. This agent has no ChatGPT account; the lead runs it and checks the summary has all ten sections.",
+        "The prompt is the brief's, with two phrases corrected to what the site states: the home page names the CEO, CTO and CISO, not an insurer; and the Licence to Operate page makes the behaviour policy the instrument, not the evidence.",
+        "Sending the summary back into a vault through a write-only lane, which the brief marks as later."
+      ]
     }
   ],
   "informal": [

@@ -261,6 +261,18 @@ Each one is linked in full, as received, with nothing edited. Where a brief and 
 - **Corrections from inside a vault.** Today a person replies to the lead; a form is a question for the app vault
 - **A real person’s vault.** The pack has been run end to end on a fictional organisation only
 
+### An interview page, and a ChatGPT voice prompt to run it: a reusable pattern, and the first page, for a founder who knows UK events and marketing
+
+**sha256** c4734574a34364f4e5837a05197a207430ed8429e8fa17bf64332f73219910c4
+
+**Expert feedback from people whose knowledge is in their heads.** Asking a busy founder to read a site and write feedback rarely works; asking them to talk for twenty minutes usually does. The brief asks for a page that carries a prompt the reader pastes into ChatGPT, which interviews them by voice and writes a structured summary they send back: a reusable pattern of six parts, and the first page on it, for a founder who is good at UK events, marketing and content. The prompt is to be used exactly, changed only where the site states a fact differently.
+
+- [The first interview page](interview-founder-marketing.html): the six parts in order, a copy button tested to copy the prompt exactly, nothing loaded and nothing sent
+- The pattern as a template, so the next page is one JSON file and one command
+- **A run in ChatGPT voice mode.** This agent has no ChatGPT account; the lead runs it once and checks the summary has all ten sections
+- **The prompt exactly as written.** Two phrases were corrected to what the site states: the home page names the CEO, CTO and CISO, not an insurer; and the behaviour policy is the licence’s instrument, not its evidence
+- **Sending the summary back into a vault.** The brief marks it as later
+
 ## And the instructions that arrived as speech or a sentence.
 
 These have no digest to check, which makes them the ones most easily lost — a voice memo that changed the direction of the whole site leaves no artefact at all unless somebody writes it down. So they are recorded here in the same list, with the same two columns.
