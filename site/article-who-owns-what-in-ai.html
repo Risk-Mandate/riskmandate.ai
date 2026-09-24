@@ -282,6 +282,7 @@ rm-menu{display:contents}
 .wo-lr.s-unaccepted .k{color:var(--red)}
 .wo-list-empty{padding:10px 12px;font-size:13px;color:var(--muted)}
 .wo-lg.halo-car{background:var(--wo-warm);border-color:transparent}
+.wo-lg.badge.hot{background:var(--red);border-color:var(--red)}
 .wo-lg.badge{background:var(--text);border-color:var(--text);color:var(--card);font-family:var(--mono);font-size:9px;font-weight:700;font-style:normal;display:inline-grid;place-items:center;width:16px;height:16px}
 .wo-lg.big{width:20px;height:20px;background:var(--wo-red-soft);border-color:var(--red)}
 @media (max-width:900px){.wo-lr{grid-template-columns:1fr 1fr}.wo-lr.head{display:none}.wo-lr>span:first-child{grid-column:1 / -1}.wo-lr>span:nth-child(2){border-left:0}.wo-lr>span:nth-child(4){border-left:0}.wo-lr>span:nth-child(n+4){border-top:1px dashed var(--border)}}
@@ -393,7 +394,7 @@ rm-menu{display:contents}
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
     <a class="ghlink" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener" aria-label="The source, on GitHub" title="Open source · Apache-2.0 code · CC BY 4.0 pages"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a>
-      <a class="version" href="versions.html" title="What shipped in v1.34.8">v1.34.8</a>
+      <a class="version" href="versions.html" title="What shipped in v1.34.9">v1.34.9</a>
     <button class="demo" data-demo>Book a demo</button>
   </div>
 </header>
@@ -572,7 +573,7 @@ rm-menu{display:contents}
       <div class="wo-fig-head">
         <span class="wo-k">Figure · the blast radius</span>
         <h3>Connect the assistant, and watch the risks travel up. Then end them.</h3>
-        <p>Drawn from the article&rsquo;s own data. Play the six weeks of section 07, or change the record yourself: connect and disconnect, add the controls, and see which facts stop holding. A risk lights up when every fact it needs holds and none is bounded; it drifts to the role that holds it, and lights the whole path above that role to the board, because a risk never stops with its holder: everyone above carries it. <b>The colour travels up the path too</b>: while anything below a role is unaccepted, that role&rsquo;s path is red, whatever else it holds. The number on a role is how many risks it holds or carries. A risk ceases when one of its facts changes, citing the ABP version that changed it, <b>and what takes its place is the control&rsquo;s own residual risk</b>, in green: smaller, inside its holder&rsquo;s own authority, accepted when it appears. That is what a control does to a risk. It does not make it zero; it turns a red one into a green one that somebody can live with. Put every control on and every path to the board is green, and the risks that remain are the ones the business runs the assistant to take. Colour is the state of an acceptance, never a rating. Hover or click a role to see what it holds, carries and is informed of; hover a risk for what establishes it and what it reaches. Only the roles this agent&rsquo;s path touches are drawn: Marketing, Product and HR are in the tables and not here.</p>
+        <p>Drawn from the article&rsquo;s own data. Play the six weeks of section 07, or change the record yourself: connect and disconnect, add the controls, and see which facts stop holding. A risk lights up when every fact it needs holds and none is bounded; it drifts to the role that holds it, and lights the whole path above that role to the board, because a risk never stops with its holder: everyone above carries it. <b>The colour travels up the path too</b>: while anything below a role is unaccepted, that role&rsquo;s path is red, whatever else it holds. The circles on a role are how many risks reach it, held or carried: red for the unaccepted, black for the accepted, both when both arrive. A risk ceases when one of its facts changes, citing the ABP version that changed it, <b>and what takes its place is the control&rsquo;s own residual risk</b>, in green: smaller, inside its holder&rsquo;s own authority, accepted when it appears. That is what a control does to a risk. It does not make it zero; it turns a red one into a green one that somebody can live with. Put every control on and every path to the board is green, and the risks that remain are the ones the business runs the assistant to take. Colour is the state of an acceptance, never a rating. Hover or click a role to see what it holds, carries and is informed of; hover a risk for what establishes it and what it reaches. Only the roles this agent&rsquo;s path touches are drawn: Marketing, Product and HR are in the tables and not here.</p>
       </div>
       <div class="wo-ctl">
         <div class="wo-ctl-g">
@@ -626,7 +627,8 @@ rm-menu{display:contents}
         <span><i class="wo-lg risk-acc"></i> risk, accepted or funded</span>
         <span><i class="wo-lg halo-inf"></i> role informed</span>
         <span><i class="wo-lg halo-car"></i> role carrying a risk held below it</span>
-        <span><i class="wo-lg badge">3</i> risks held or carried</span>
+        <span><i class="wo-lg badge hot">3</i> unaccepted risks reaching the role</span>
+        <span><i class="wo-lg badge">3</i> accepted risks reaching the role</span>
         <span><i class="wo-lg big"></i> a larger circle needs more facts</span>
         <span><i class="wo-lg residual"></i> the residual risk of a control</span>
         <span><i class="wo-lg path-hot"></i> a path carrying an unaccepted risk</span>
@@ -994,9 +996,14 @@ function figureA() {
     var g = sv('g', { 'class': 'wo-role', tabindex: '0', role: 'button', 'aria-label': r.label }, gNodes);
     sv('rect', { x: r.x - 46, y: r.y - 14, width: 92, height: 28, rx: 14 }, g);
     stext(r.x, r.y + 4, r.label, 'wo-role-t', g);
-    badge[r.id] = sv('g', { 'class': 'wo-badge off' }, g);
-    sv('circle', { cx: r.x + 44, cy: r.y - 12, r: 10 }, badge[r.id]);
-    badgeT[r.id] = stext(r.x + 44, r.y - 8.5, '', 'wo-badge-t', badge[r.id]);
+    // two counts can reach a role at once: a red circle for the unaccepted risks, a black one for
+    // the accepted. One circle when only one kind arrives, two side by side when both do.
+    badge[r.id] = {}; badgeT[r.id] = {};
+    ['hot', 'acc'].forEach(function (kind) {
+      var bg = sv('g', { 'class': 'wo-badge off' + (kind === 'hot' ? ' hot' : '') }, g);
+      sv('circle', { cx: r.x + 44, cy: r.y - 12, r: 10 }, bg);
+      badge[r.id][kind] = bg; badgeT[r.id][kind] = stext(r.x + 44, r.y - 8.5, '', 'wo-badge-t', bg);
+    });
     var pick = function () { selectedRole = r.id; showRole(); };
     g.addEventListener('mouseenter', pick); g.addEventListener('focus', pick); g.addEventListener('click', pick);
     roleG[r.id] = g;
@@ -1042,11 +1049,11 @@ function figureA() {
   function say(s) { cap.textContent = s; }
 
   function roleLoad() {
-    var L = {}; ROLES.forEach(function (r) { L[r.id] = { holds: [], carries: [], informed: [], worst: null }; });
+    var L = {}; ROLES.forEach(function (r) { L[r.id] = { holds: [], carries: [], informed: [], worst: null, hot: 0, acc: 0 }; });
     live(S).forEach(function (k) {
       var a = S.acc[k.id], c = chain(a.holder), un = a.state === 'unaccepted';
       L[c[0]].holds.push(k.id); c.slice(1).forEach(function (id) { L[id].carries.push(k.id); });
-      c.forEach(function (id) { if (un) L[id].worst = 'unaccepted'; else if (!L[id].worst) L[id].worst = 'accepted'; });
+      c.forEach(function (id) { if (un) { L[id].worst = 'unaccepted'; L[id].hot++; } else { if (!L[id].worst) L[id].worst = 'accepted'; L[id].acc++; } });
       k.informs.forEach(function (id) { if (L[id] && c.indexOf(id) < 0) L[id].informed.push(k.id); });
     });
     return L;
@@ -1105,7 +1112,10 @@ function figureA() {
       var l = L[r.id], n = l.holds.length + l.carries.length, red = l.worst === 'unaccepted';
       halo[r.id].setAttribute('class', 'wo-halo' + (n ? (red ? ' hot' : ' warm') + (l.holds.length ? '' : ' carries') : l.informed.length ? ' faint' : ''));
       if (orgE[r.id]) orgE[r.id].setAttribute('class', 'wo-org' + (n ? (red ? ' on hot' : ' on') : ''));
-      badge[r.id].setAttribute('class', 'wo-badge' + (n ? (red ? ' hot' : '') : ' off')); badgeT[r.id].textContent = n ? String(n) : '';
+      var both = l.hot && l.acc;
+      badge[r.id].hot.setAttribute('class', 'wo-badge hot' + (l.hot ? '' : ' off')); badgeT[r.id].hot.textContent = l.hot ? String(l.hot) : '';
+      badge[r.id].acc.setAttribute('class', 'wo-badge' + (l.acc ? '' : ' off')); badgeT[r.id].acc.textContent = l.acc ? String(l.acc) : '';
+      badge[r.id].acc.setAttribute('transform', both ? 'translate(22 0)' : ''); // the black one steps aside when the red one is there
     });
     ['grant', 'mandate', 'excess', 'unbounded', 'open', 'unaccepted', 'accepted'].forEach(function (k) { var e = byId('wo-c-' + k); if (e) e.textContent = String(c[k]); });
     var v = byId('wo-c-abp'); if (v) v.textContent = S.abp ? 'v' + S.abp : '–';

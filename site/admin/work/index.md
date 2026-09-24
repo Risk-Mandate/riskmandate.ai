@@ -75,11 +75,19 @@ a decision the lead owns, listed in the state fileneeds the lead
 
 a decision the lead owns, listed in the state fileneeds the lead
 
-## In flight — 0 branches
+## In flight — 1 branch
 
 One file per branch under `.claude/work/`. [How a work file is written](../../admin/work/about-work-files/).
 
-Nothing in flight.
+### [claude/dev-session-setup-a5wcc5](../../admin/work/branches/claude-dev-session-setup-a5wcc5/)
+
+started 24 September 2026 · task brief: the lead in chat, a follow-up to D23
+
+One change to the blast-radius figure: a role shows a red circle for the unaccepted risks that reach it and a black one for the accepted, both when both arrive.
+
+**External state.** Vaults built and unpushed: none · Release I will claim at merge: yes, v1.34.9, cut
+
+**Status.** [x] Checked in Chromium: day 4 the board shows 1 red and 8 black; with every control on, 9 black · [ ] Merge, CI green, live
 
 ## Task briefs — 14
 
