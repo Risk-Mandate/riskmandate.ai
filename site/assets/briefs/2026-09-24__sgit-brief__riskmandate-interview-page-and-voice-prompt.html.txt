@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en" data-root="../../">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>For RiskMandate.ai: an interview page, and a ChatGPT voice prompt to run it</title>
+<meta name="description" content="A build brief to the RiskMandate.ai team for a reusable interview page: send someone a link, they paste a prompt into ChatGPT, it interviews them by voice for about twenty minutes, and writes up their ideas, a thirty, sixty and ninety day action plan, and candid feedback. The first page is for a founder strong in UK events, marketing and content, testing RiskMandate's value proposition and name. The full prompt is included, ready to use.">
+<link rel="canonical" href="https://sgit.ai/docs/briefs/riskmandate-interview-page-and-voice-prompt.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="sgit.ai">
+<meta property="og:url" content="https://sgit.ai/docs/briefs/riskmandate-interview-page-and-voice-prompt.html">
+<meta property="og:title" content="For RiskMandate.ai: an interview page, and a ChatGPT voice prompt to run it">
+<meta property="og:description" content="A build brief to the RiskMandate.ai team for a reusable interview page: send someone a link, they paste a prompt into ChatGPT, it interviews them by voice for about twenty minutes, and writes up their ideas, a thirty, sixty and ninety day action plan, and candid feedback. The first page is for a founder strong in UK events, marketing and content, testing RiskMandate's value proposition and name. The full prompt is included, ready to use.">
+<meta property="og:image" content="https://sgit.ai/og/default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="For RiskMandate.ai: an interview page, and a ChatGPT voice prompt to run it">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://sgit.ai/og/default.jpg">
+<link rel="alternate" type="text/markdown" href="riskmandate-interview-page-and-voice-prompt.md" title="This page as markdown">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "name": "For RiskMandate.ai: an interview page, and a ChatGPT voice prompt to run it", "headline": "For RiskMandate.ai: an interview page, and a ChatGPT voice prompt to run it", "description": "A build brief to the RiskMandate.ai team for a reusable interview page: send someone a link, they paste a prompt into ChatGPT, it interviews them by voice for about twenty minutes, and writes up their ideas, a thirty, sixty and ninety day action plan, and candid feedback. The first page is for a founder strong in UK events, marketing and content, testing RiskMandate's value proposition and name. The full prompt is included, ready to use.", "url": "https://sgit.ai/docs/briefs/riskmandate-interview-page-and-voice-prompt.html", "inLanguage": "en", "isPartOf": {"@type": "WebSite", "name": "sgit.ai", "url": "https://sgit.ai"}, "about": {"@type": "SoftwareApplication", "name": "sgit", "sameAs": "https://pypi.org/project/sgit-ai/"}}</script>
+<style>html{background:#faf9f5}body{margin:0;background:#faf9f5;color:#1c1d21;font-family:ui-sans-serif,system-ui,sans-serif;opacity:0;transition:opacity .25s;animation:sg-reveal 0s linear 1.6s forwards}html.ready body{opacity:1;animation:none}@keyframes sg-reveal{to{opacity:1}}</style><noscript><style>body{opacity:1;animation:none}</style></noscript>
+</head>
+<body>
+
+<nav class="site"><div class="row">
+  <a class="brand" href="../../index.html">sgit<span>.ai</span></a>
+  <span class="stage-pill">beta</span>
+  <a class="ver" href="../../admin/versions.html" title="Site release history">v0.6.7</a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Menu">Menu</button>
+  <div class="nav-items">
+ <div class="ni ni-has">
+ <a class="nl" href="../../why/index.html">Why<span class="caret">&#9662;</span></a>
+ <div class="sub">
+ <a class="sl" href="../../why/index.html">Why sgit exists</a>
+ <a class="sl" href="../../investors/index.html">Investors</a>
+ <a class="sl" href="../../startups/index.html">Startups</a>
+ <a class="sl" href="../../startups/business-plans.html">Business plans</a>
+ <a class="sl" href="../../about/index.html">About the author</a>
+ <a class="sl" href="../../partnerships/index.html">Partnerships</a>
+ </div>
+ </div>
+ <div class="ni ni-has">
+ <a class="nl here" href="../../docs/index.html">Docs<span class="caret">&#9662;</span></a>
+ <div class="sub">
+ <a class="sl" href="../../docs/index.html">Documentation</a>
+ <a class="sl" href="../../docs/guidance/index.html">Vault guidance</a>
+ <a class="sl" href="../../try/index.html">Try it in the browser</a>
+ <a class="sl" href="../../api/index.html">HTTP API</a>
+ <a class="sl" href="../../docs/credentials.html">Credentials</a>
+ <a class="sl" href="../../docs/vault/index.html">SG/Vault</a>
+ <a class="sl" href="../../deploy/index.html">Deploy</a>
+ <a class="sl" href="../../skills/index.html">Skills</a>
+ <a class="sl here" href="../../docs/briefs/index.html">Briefs</a>
+ </div>
+ </div>
+ <div class="ni ni-has">
+ <a class="nl" href="../../demos/vaults/index.html">Vaults<span class="caret">&#9662;</span></a>
+ <div class="sub">
+ <a class="sl" href="../../demos/vaults/index.html">Published vaults</a>
+ <a class="sl" href="../../catalogue/index.html">Catalogue</a>
+ <a class="sl" href="../../demos/index.html">Demos</a>
+ <a class="sl" href="../../demos/fractal-graphs/index.html">Fractal graphs</a>
+ <a class="sl" href="../../demos/fractal-graphs/performance.html">Performance & cost</a>
+ </div>
+ </div>
+ <div class="ni ni-has">
+ <a class="nl" href="../../compare/index.html">Evidence<span class="caret">&#9662;</span></a>
+ <div class="sub">
+ <a class="sl" href="../../compare/index.html">Comparisons</a>
+ <a class="sl" href="../../demos/fractal-graphs/performance.html">Performance & cost</a>
+ <a class="sl" href="../../case-studies/index.html">Case studies</a>
+ <a class="sl" href="../../lessons/index.html">Lessons learned</a>
+ <a class="sl" href="../../use-cases/index.html">Use cases</a>
+ </div>
+ </div>
+ <div class="ni ni-has">
+ <a class="nl" href="../../updates/index.html">Updates<span class="caret">&#9662;</span></a>
+ <div class="sub">
+ <a class="sl" href="../../updates/index.html">Updates</a>
+ <a class="sl" href="../../articles/index.html">Articles</a>
+ <a class="sl" href="../../admin/versions.html">Version log</a>
+ </div>
+ </div>
+ <div class="ni ni-has">
+ <a class="nl" href="../../team/index.html">Team<span class="caret">&#9662;</span></a>
+ <div class="sub">
+ <a class="sl" href="../../team/index.html">How the site is run</a>
+ <a class="sl" href="../../team/index.html#roles">Roles</a>
+ <a class="sl" href="../../team/prompts.html">Starting prompts</a>
+ <a class="sl" href="../../team/board.html">The board</a>
+ </div>
+ </div>
+ <div class="ni ni-has">
+ <a class="nl" href="../../network/index.html">Network<span class="caret">&#9662;</span></a>
+ <div class="sub">
+ <a class="sl" href="../../network/index.html">All sites</a>
+ <a class="sl" href="../../network/nhi.html">nhi</a>
+ <a class="sl" href="../../network/pki.html">pki</a>
+ <a class="sl" href="../../network/graphs.html">graphs</a>
+ <a class="sl" href="../../network/sg-sentinel.html">sg-sentinel</a>
+ </div>
+ </div>
+ <div class="ni"><a class="nl" href="../../security/index.html">Security</a></div>
+  </div>
+  <a class="gh" href="https://github.com/SGit-AI/SGit-AI__CLI">&#9733; GitHub</a>
+</div></nav>
+
+<div class="llmschip"><a href="../llms.txt" title="Regenerated on every release. If this page changed and that stamp did not, the index has not caught up."><span class="llmschip-k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 9-3 3 3 3"/><path d="m16 9 3 3-3 3"/></svg>for agents</span><span class="llmschip-p">/docs/llms.txt</span><span class="llmschip-m">v0.6.7 &middot; 24 Sep 2026</span></a></div>
+<main class="doc">
+  <p class="crumb"><a href="../../index.html">Home</a> / <a href="index.html">Briefs</a> / RiskMandate interview page</p>
+  <h1>For RiskMandate.ai: an interview page, and a ChatGPT voice prompt to run it</h1>
+<p><b>A build brief from the sgit.ai site team to the RiskMandate.ai team.</b> Status: open. Written 24 September 2026.</p>
+<p>The founder wants expert feedback on RiskMandate from people whose time is scarce and whose knowledge is mostly in their heads. The first is a startup founder who has been unusually good at getting into UK events, at marketing and promotion, at content that spreads, and at making things happen. Asking such a person to read a site and write feedback rarely works. Asking them to talk for twenty minutes usually does.</p>
+<p>So the ask is a page on riskmandate.ai that a person can be sent a link to. The page carries a prompt they copy into ChatGPT. ChatGPT then interviews them in voice mode, and at the end writes up their ideas, an action plan and their candid feedback, which they send back.</p>
+<p>This will not be the last one. The same shape will be wanted for investors, for security leaders, for insurers and for GRC practitioners. So the brief asks for a reusable page pattern, and then for the first page built on it.</p>
+<p>The prompt is written out in full below and is ready to use today. The founder can send it directly while the page is being built.</p>
+<h2>What to read first</h2>
+<ul>
+<li><a href="https://riskmandate.ai/">riskmandate.ai's home page</a>: the value proposition the interview will test, in the site's own words: "Know what your agents can do. Not what they did. What they can."</li>
+<li><a href="https://riskmandate.ai/for-corporate.html">For corporate</a> and <a href="https://riskmandate.ai/licence-to-operate.html">Licence to operate</a>: the two framings the interviewee is most likely to react to.</li>
+<li><a href="https://riskmandate.ai/agent-behaviour-policy.html">The published behaviour policies</a>: the sixteen free examples, which are the most shareable thing RiskMandate has.</li>
+<li><a href="https://sgit.ai/docs/briefs/riskmandate-partnership-risk-and-sgit-mapping.html">The earlier brief from sgit.ai to RiskMandate</a>, for the house rules on facts and claims.</li>
+</ul>
+<h2>Part A: the interview page pattern</h2>
+<p>A page that exists to be sent to one kind of person, and that turns twenty minutes of their talking into written, usable feedback. Every page built on the pattern has the same six parts, in this order:</p>
+<ol>
+<li><b>Who this is for, and why you.</b> Two sentences. Written to the reader, generic enough to send to anyone in that group, specific enough that they know why they were chosen.</li>
+<li><b>What we want to learn.</b> Three to six bullets. The reader should know the questions before agreeing to answer them.</li>
+<li><b>How it works, in three steps.</b> Copy the prompt. Paste it into a new ChatGPT chat and switch to voice. Talk for about twenty minutes, then send us the summary it writes.</li>
+<li><b>The prompt</b>, in a box with a copy button, and a note that it also works typed, or in another assistant.</li>
+<li><b>What happens to your answers.</b> Nothing is sent anywhere by the page. The conversation stays in the reader's own ChatGPT account until they choose to send the summary. Ask them not to share anything confidential about their own company or clients.</li>
+<li><b>Send it back.</b> One clear route: an email address, or a form. See "Later" for a better one.</li>
+</ol>
+<p>Rules for every interview page:</p>
+<ul>
+<li><b>No tracking of what people paste.</b> The page is static. The prompt runs in the reader's own assistant.</li>
+<li><b>The prompt tells the assistant what RiskMandate is</b>, in a few plain sentences, because the interviewee may never have seen the site.</li>
+<li><b>One question at a time, short turns, in plain speech.</b> Voice mode reads everything aloud, so no lists, tables or long preambles during the interview.</li>
+<li><b>The reader controls the length.</b> About twenty minutes, and "skip" or "wrap up" work at any time.</li>
+<li><b>The write-up is the product.</b> The final summary must be structured, specific and attributed to the interviewee's own words where it matters.</li>
+<li><b>Candour is asked for explicitly.</b> The most useful feedback is the unflattering kind, and the prompt says so.</li>
+</ul>
+<h2>Part B: the first page, for a founder who knows events, marketing and content</h2>
+<p><b>Proposed path:</b> <code>riskmandate.ai/interview/founder-marketing.html</code>, or wherever the site keeps pages of this kind.</p>
+<p><b>Who it is for:</b> founders and operators who are good at getting into events, at marketing and promotion, at content that spreads, and at making things happen, particularly in the UK.</p>
+<p><b>What we want to learn:</b></p>
+<ul>
+<li>Whether the value proposition lands, and how they would say it instead.</li>
+<li>Whether the name RiskMandate works.</li>
+<li>Who RiskMandate should reach first, and where those people gather.</li>
+<li>Which UK events to be at, and how to get on stage or in the room.</li>
+<li>Which content angles and formats would spread.</li>
+<li>What they would do in the first thirty, sixty and ninety days.</li>
+</ul>
+<h3>The prompt</h3>
+<p>Paste everything between the lines as the first message in a new ChatGPT chat, then switch to voice mode.</p>
+<hr>
+<p>You are going to interview me, by voice, to help a startup called RiskMandate. Be a warm, curious, efficient interviewer. I have about twenty minutes.</p>
+<p><b>What RiskMandate is.</b> RiskMandate.ai helps organisations know what their AI agents can do. Its line is: "Know what your agents can do. Not what they did. What they can." Its main product is an Agent Behaviour Policy: a short record, for one AI agent in one deployment, of everything the agent can actually reach, what the business authorised it to do, and the gap between the two, written so that a CEO, a CTO, a CISO and an insurer can all stand behind the same document. It builds towards a "licence to operate" for each agent: the business as the authority, the policy as the evidence, and the agent operating on stated terms for a stated period. Sixteen example policies are published free, for tools such as Claude Code, ChatGPT and Gmail connectors. The context: insurers are starting to exclude AI from cover, and businesses answer for what their agents do. RiskMandate is UK-based, early-stage and founder-led, and it is not an insurer.</p>
+<p><b>Who I am.</b> I am a founder who is good at events, marketing, promotion, content that spreads and making things happen. Treat me as the expert. You do not need to explain marketing to me.</p>
+<p><b>What RiskMandate wants from me:</b></p>
+<ol>
+<li>Whether the value proposition lands, and how I would say it.</li>
+<li>Whether the name "RiskMandate" works.</li>
+<li>Who to reach first, and where they gather.</li>
+<li>Which UK events matter, and how to get on stage or into the room.</li>
+<li>Content angles and formats that would spread.</li>
+<li>A practical action plan for the next thirty, sixty and ninety days.</li>
+<li>My most candid criticism.</li>
+</ol>
+<p><b>How to run the interview:</b></p>
+<ul>
+<li>Start by asking my name, what I do now, and one thing I have promoted that went well. Keep that part to two minutes.</li>
+<li>Then give me the one-paragraph description of RiskMandate above, in your own words, and ask for my first reaction before anything else.</li>
+<li>Then work through the seven topics. Ask one question at a time. Keep your turns short: this is voice, so no lists, no headings, and no long summaries while we talk.</li>
+<li>Follow up when I say something interesting. Ask for specifics: names of events, formats, examples, numbers, people or types of people.</li>
+<li>Ask me to be blunt, and do not argue with criticism. If I am vague, ask for an example.</li>
+<li>About every five minutes, tell me in one sentence how far through we are.</li>
+<li>If I say "skip", move on. If I say "wrap up", go straight to the summary.</li>
+<li>Do not invent facts about RiskMandate. If I ask something you do not know, say so and note it as a question for the founder.</li>
+</ul>
+<p><b>When we finish, write a summary in text</b>, not read aloud, with these sections:</p>
+<ol>
+<li><b>First reaction</b>, in my words.</li>
+<li><b>The value proposition</b>: what landed, what did not, and up to three one-line rewrites I suggested or agreed with.</li>
+<li><b>The name</b>: my verdict, my reasons, and any alternatives or taglines I liked.</li>
+<li><b>Who to reach first</b>, and where they gather.</li>
+<li><b>Events</b>: a list of named UK events or kinds of event, with how to get in for each.</li>
+<li><b>Content angles</b>: the hooks and formats I suggested, each with one example post, talk title or headline.</li>
+<li><b>Action plan</b>: a table with next 30 days, 60 days and 90 days, and for each item who does it and what "done" looks like.</li>
+<li><b>Candid criticism</b>: the hardest points I made, in my words.</li>
+<li><b>Introductions I offered</b>, if any.</li>
+<li><b>Open questions</b> for the founder.</li>
+</ol>
+<p>Then ask me whether I am happy for this summary to be shared with RiskMandate's founder, and remind me to copy it and send it back.</p>
+<hr>
+<h3>Why the prompt is built this way</h3>
+<ul>
+<li><b>The description of RiskMandate is inside the prompt</b>, because the interviewee may never open the site. It uses the site's own words and claims only what the site claims, including that RiskMandate is not an insurer.</li>
+<li><b>The interviewee is treated as the expert.</b> People who are good at promotion lose patience with being explained to.</li>
+<li><b>Voice rules are explicit</b>, because voice mode will otherwise read out long structured answers.</li>
+<li><b>The summary is the deliverable</b>, with fixed sections, so answers from several interviewees can be compared side by side.</li>
+<li><b>Consent is asked at the end</b>, before anything is shared.</li>
+</ul>
+<h2>Later: sending the summary back without email</h2>
+<p>An sgit vault can receive messages through a write-only <a href="https://sgit.ai/api/append-lanes.html">append lane</a>. A token that can only write is safe to publish, as <a href="https://sgit.ai/docs/briefs/vault-telemetry-append-lanes.html">the telemetry brief</a> explains. A "send it back" box on the page could append the pasted summary straight into a RiskMandate vault, encrypted, with nothing stored anywhere else. Worth doing once there are several interviews to compare. Not needed for the first.</p>
+<h2>Before you call it done</h2>
+<ul>
+<li>The page has the six parts, in order, and reads well on a phone.</li>
+<li>The copy button copies the prompt exactly, including the line breaks.</li>
+<li>The prompt has been run once, end to end, in ChatGPT voice mode, and the summary came back with all ten sections.</li>
+<li>Nothing on the page or in the prompt claims more than riskmandate.ai already claims.</li>
+<li>The pattern is written down as a template, so the next interview page takes an hour, not a day.</li>
+</ul>
+<h2>Likely next pages on the same pattern</h2>
+<ul>
+<li>An investor, on the fundraising story.</li>
+<li>A CISO, on whether they would buy a behaviour policy, and at what price.</li>
+<li>An insurer or broker, on what evidence would change a decision about cover.</li>
+<li>A GRC practitioner, on the acceptance loop described in "Every risk is already accepted" on sgit.ai.</li>
+</ul>
+<h2>The prompt to hand the builder agent</h2>
+<pre class="shell">
+You are working on riskmandate.ai. Read this brief in full.
+
+Part A. Create a reusable "interview page" template with six parts in this order: who this is for and why you; what we want to learn; how it works in three steps (copy, paste into a new ChatGPT chat and switch to voice, talk about twenty minutes and send the summary back); the prompt in a box with a copy button; what happens to your answers (nothing is sent by the page; do not share confidential information); and how to send it back. The page is static, with no tracking.
+
+Part B. Build the first page on the template, for founders who are good at UK events, marketing, promotion and content that spreads, at /interview/founder-marketing.html or the site's equivalent. Use the prompt in this brief exactly, and only change it to correct a fact about RiskMandate that the site states differently.
+
+Run the prompt once in ChatGPT voice mode and check that the summary has all ten sections. Finish with the checklist under "Before you call it done".
+</pre>
+  <p class="small dim">The canonical markdown copy of this brief lives in the SGit-AI__CLI repository, under <code>team/humans/dinis_cruz/claude-code-web/09/24/</code>.</p>
+  <div class="pagenav"><a href="index.html">← All briefs</a><a href="riskmandate-partnership-risk-and-sgit-mapping.html">The earlier RiskMandate brief →</a></div>
+</main>
+
+<footer class="site"><div class="cols">
+  <div>
+    <div class="brandline">sgit<span>.ai</span></div>
+    <p>sgit is git for encrypted vaults, clone, commit, branch and merge files that are encrypted with AES-256-GCM before they leave your machine. Open source, Apache-2.0, in beta and powering production workflows.</p>
+    <p class="vaultnote">🔒 Thirty vaults on this site open in your browser with published read keys, every byte decrypted client-side, none of it readable by the server that stores it. The pages that describe them are ordinary static files. The medium is the message.</p>
+    <p class="verline">site <a href="../../admin/versions.html">v0.6.7</a> · <a href="../../admin/index.html">engineering</a> · <a href="riskmandate-interview-page-and-voice-prompt.md" title="The same page as plain markdown, for agents, and for reading without the styling">this page as markdown</a></p>
+  </div>
+  <div>
+    <h4>Docs</h4>
+    <a href="../../docs/what-is-sgit.html">What is sgit</a>
+    <a href="../../docs/guidance/index.html">Working on a vault: start here</a>
+    <a href="../../docs/surfaces.html">Three surfaces</a>
+    <a href="../../docs/installation.html">Installation</a>
+    <a href="../../docs/quickstart.html">Quickstart</a>
+    <a href="../../docs/sgit-for-git-users.html">sgit for git users</a>
+    <a href="../../docs/agents.html">Working with AI agents</a>
+    <a href="../../docs/limitations.html">When NOT to use sgit</a>
+  </div>
+  <div>
+    <h4>SG/Vault platform</h4>
+    <a href="../../docs/vault/index.html">SG/Vault &amp; the platform</a>
+    <a href="../../docs/vault/vault-apps.html">Building vault apps</a>
+    <a href="../../docs/vault/sg-bridge.html">The window.sg bridge</a>
+    <a href="../../docs/vault/content-authoring.html">Content authoring</a>
+    <a href="../../docs/vault/sub-vaults.html">Sub-vaults</a>
+    <a href="../../docs/vault/git-and-vaults.html">Git repos inside vaults</a>
+    <a href="../../docs/vault/reading-a-vault-file.html">Reading a vault file</a>
+    <a href="../../docs/vault/static-hosting.html">Static hosting</a>
+    <a href="https://sgraph.ai">More at sgraph.ai</a>
+  </div>
+  <div>
+    <h4>Project</h4>
+    <a href="https://github.com/SGit-AI/SGit-AI__CLI">GitHub</a>
+    <a href="../../security/index.html">Security</a>
+    <a href="../../why/index.html">Why does this exist?</a>
+    <a href="../../use-cases/index.html">Use cases</a>
+    <a href="../../case-studies/index.html">Case studies</a>
+    <a href="../../skills/index.html">Skills for AI agents</a>
+    <a href="../../docs/briefs/index.html">Cross-team briefs</a>
+    <a href="../../llms.txt">llms.txt</a>
+    <a href="../../llms-full.txt">llms-full.txt</a>
+    <a href="../../admin/index.html">Admin &amp; engineering</a>
+    <a href="../../admin/versions.html">Release history</a>
+  </div>
+</div></footer>
+
+<script>
+(function(){var R=document.documentElement.getAttribute('data-root')||'';var V='?v=' + 'v0.6.7';var C=[R,'','../','/'].filter(function(v,i,a){return a.indexOf(v)===i});
+function wait(ms){return new Promise(function(res){var t=Date.now();(function p(){if(window.sg)return res(window.sg);if(Date.now()-t>ms)return res(null);setTimeout(p,60)})()})}
+function grab(sg,p){return new Promise(function(res){(async function(){if(sg&&sg.vfs&&sg.vfs.readText){try{var t=await sg.vfs.readText(p);if(t)return res(t)}catch(e){}}try{var r=await fetch(p+V);if(r.ok)return res(await r.text())}catch(e){}res(null)})()})}
+async function css(sg){for(var i=0;i<C.length;i++){var p=C[i]+'assets/site.css';if(sg&&sg.loadCss){try{await sg.loadCss(p);return}catch(e){}}var t=await grab(sg,p);if(t){var s=document.createElement('style');s.textContent=t;document.head.appendChild(s);return}}}
+async function js(sg,name){name=name||'assets/site.js';for(var i=0;i<C.length;i++){var p=C[i]+name;if(sg&&sg.loadJs){try{await sg.loadJs(p);return}catch(e){}}var t=await grab(sg,p);if(t){try{(0,eval)(t)}catch(e){console.error('[site] js failed',name,e)}return}}}
+async function boot(){var inVault=false;try{inVault=(window!==window.parent)||location.protocol==='blob:'}catch(e){inVault=true}
+var sg=inVault?await wait(2500):null;window.__sgitBoot={roots:C,grab:function(p){return grab(sg,p)},version:V};await css(sg);await js(sg);document.documentElement.classList.add('ready');js(sg,'assets/site-chat.js');try{window.parent&&window.parent.postMessage({type:'sg-app-ready'},'*')}catch(e){}}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();})();
+</script>
+</body>
+</html>

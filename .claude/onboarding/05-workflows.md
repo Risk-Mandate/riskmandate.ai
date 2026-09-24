@@ -87,6 +87,27 @@ serves the site on a local port). It appends to `lab-editions.json` with the dig
 `note` to the entry saying what separates this edition from the last. Then `generate.mjs` lists
 it on the page. Never edit or remove an edition.
 
+## Add an interview page
+
+A page sent to one kind of person (a founder, an investor, a CISO, an insurer), carrying a prompt
+they paste into their own assistant, which interviews them by voice and writes a summary they send
+back. The pattern is sgit.ai's brief of 24 September 2026 (D19).
+
+```bash
+cp site/interviews/_template.json site/interviews/<slug>.json   # fill every field; the prompt exactly as it is to be copied
+node scripts/site/build-interview-pages.mjs                     # writes site/interview-<slug>.html
+# add interview-<slug>.html to site/pages.json: group More, unlisted, inside the More run
+node scripts/site/generate.mjs && npm run check
+```
+
+- Six parts, always in this order: who it is for and why you; what we want to learn (three to six);
+  how it works in three steps; the prompt with a copy button; what happens to your answers; send it
+  back. The generator enforces the order; do not hand-edit the page.
+- The prompt says what RiskMandate is using only what the site claims. Record every change you make
+  to a prompt someone else wrote in the JSON's `source.changes`.
+- Static, no tracking: the page loads nothing and sends nothing. Before publishing, run the prompt
+  once in the assistant it names and check the summary has every section it asks for.
+
 ## Write a brief
 
 `docs/briefs/<kind>__<slug>.md`. Header: title as a claim, date, author `@website-agent`,

@@ -321,6 +321,13 @@
       "group": "More"
     },
     {
+      "name": "interview-founder-marketing",
+      "label": "Interview · founders who know events and marketing",
+      "file": "interview-founder-marketing.html",
+      "group": "More",
+      "unlisted": true
+    },
+    {
       "name": "brand",
       "label": "Brand",
       "file": "brand.html",

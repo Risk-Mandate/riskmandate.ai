@@ -75,6 +75,7 @@ menu entries (a group counts as one).
 | `sync-modules.mjs [--check]` | push `scripts/site/modules/*.js` into every page that inlines it | yes | yes |
 | `build-uk-support.mjs [--check]` | render `site/uk-support.json` into `uk-support.html`; refuses a row without an official URL, and a closure without the phrase that says so | yes | yes |
 | `build-business-cases.mjs [--check]` | the business-cases section and one page per case, computed from `site/business-case/` (the RiskGraph model copy, `cases/*.json`, `categories.json`); refuses a change without a basis, a vendor basis without quote, URL and date, an expectation that claims to retire anything, and a model file that no longer matches its digest | yes | yes |
+| `build-interview-pages.mjs [--check]` | interview pages from `site/interviews/<slug>.json` (files starting `_` are templates): six parts in a fixed order, a prompt that copies exactly, nothing loaded or sent | yes | yes |
 | `scripts/packs/build-abp-people-pack.mjs [--check] [--out DIR]` | the zip a new agent is given to make ABP vaults for people the lead meets: `packs/abp-for-people/` plus this repo's builder, template, loader and every catalogue deployment's inputs, deterministic; refuses anything write-shaped | yes | yes |
 | `render-lab-pdfs.mjs [slug] [--all] [--check]` | cut a dated PDF edition of a Lab page when its content hash moved; register it | yes | yes (check) |
 | `render-booth-panel.mjs`, `render-business-card.mjs`, `render-brand-exports.mjs` | print assets | yes | no |

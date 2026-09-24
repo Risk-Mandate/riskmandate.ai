@@ -1,0 +1,14 @@
+{
+  "_": "The interview-page pattern. Copy this file to site/interviews/<slug>.json, fill every field, run node scripts/site/build-interview-pages.mjs, add interview-<slug>.html to site/pages.json (unlisted, group More), then generate.mjs. The page is static and sends nothing anywhere; the prompt runs in the reader's own assistant. Rules for the prompt: say what RiskMandate is in a few plain sentences using only what the site claims, one question at a time and short turns for voice, the reader controls the length ('skip', 'wrap up'), ask for candour explicitly, end with a structured written summary with fixed sections, and ask consent before it is shared. Files beginning with _ are not built.",
+  "slug": "who-this-is-for",
+  "audience": "A short name for the group, for the page's eyebrow",
+  "title": "Twenty minutes of your advice, by voice",
+  "who": "One sentence, to the reader: who this page is for. Generic enough to send to anyone in the group.",
+  "why_you": "One sentence: why they were chosen. Specific enough that they know.",
+  "learn": ["Three to six things we want to learn, so they know the questions before agreeing to answer them."],
+  "minutes": 20,
+  "assistant": "ChatGPT",
+  "prompt": "The whole prompt, exactly as it is to be copied, with its line breaks.",
+  "send": { "email": "dinis.cruz@owasp.org", "subject": "Interview summary: <group>" },
+  "source": { "brief": "where the prompt came from", "url": "https://…", "read": "YYYY-MM-DD", "changes": ["every change made to the prompt, and why"] }
+}
