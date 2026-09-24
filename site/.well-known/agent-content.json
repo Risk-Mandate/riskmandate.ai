@@ -170,6 +170,11 @@
       "url": "https://riskmandate.ai/business-cases.html"
     },
     {
+      "name": "owasp-graph",
+      "label": "OWASP, as a graph",
+      "url": "https://riskmandate.ai/owasp-graph.html"
+    },
+    {
       "name": "business-case-riskmandate-abp",
       "label": "Business case · Agent Behaviour Policy",
       "url": "https://riskmandate.ai/business-case-riskmandate-abp.html"

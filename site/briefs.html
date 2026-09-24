@@ -855,6 +855,39 @@ table.t code{font-family:var(--mono);font-size:11.5px;background:var(--bg2);padd
           </div>
         </div>
 
+        <div class="doc">
+          <div class="dh">
+            <span class="did">D17</span>
+            <h3>OWASP and open source first: a semantic graph of OWASP, business cases for the open-source projects that reduce risk, and the companies built on open source</h3>
+            <span class="st partly">Partly</span>
+          </div>
+          <div class="dmeta">
+            <span><b>type</b> spoken brief, transcribed</span>
+            <span><b>dated</b> 24 Sept 2026</span><span><b>received</b> 24 Sept</span>
+            <span><b>3,011 bytes</b></span>
+          </div>
+          <p class="dig"><b>sha256</b> 3686c72fb430e18cf55612574ae81e302b61475c4f207bec62a2bbd780a42ca8</p>
+          <p class="dnote"><b>Start the business cases with open source, and with OWASP in particular.</b> The lead is closely involved with OWASP and wants to bring RiskMandate&rsquo;s ideas and standards there. The memo asks for a semantic graph of OWASP, which it says does not exist, zoomable from the foundation to one item because every document has its own ontology joined to a wider one; for cases for open-source projects that reduce risk, since free is never free and customising is the work; and for the companies built on open source, to connect with.</p>
+          <div class="out">
+            <div class="ok">
+              <span class="k">What it produced</span>
+              <ul>
+                <li><a href="owasp-graph.html">OWASP, as a graph</a>: 52 projects and documents in four families, 110 items of eleven lists by title, 62 relationships OWASP states, and the Agentic Top 10 joined to the model and to the cases that change its answers. The data is published to be offered to OWASP</li>
+                <li>Eighteen <a href="business-cases.html#cases">open-source cases</a>, OWASP first, every change quoted from the project&rsquo;s own documentation and checked, each with what adopting it takes</li>
+                <li>Eighteen <a href="business-cases.html#built-on-open-source">companies built on open source</a>, quoting only what was checked word for word</li>
+              </ul>
+            </div>
+            <div>
+              <span class="k">What it asked for and has not got</span>
+              <ul>
+                <li><strong>Cases for OWASP&rsquo;s documents.</strong> The Top 10s, ASVS and SAMM change what a team knows, not what an agent can reach; they sit in the graph, and the bridge shows which cases change the answers each agentic item depends on</li>
+                <li><strong>Three agentic items the model cannot express.</strong> Supply chain, memory and context, and agents talking to agents: the model has to grow</li>
+                <li><strong>The outreach.</strong> To OWASP projects, maintainers and companies; the lead&rsquo;s, after review</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -1135,7 +1168,7 @@ sha256sum my-brief.md
 (function(){
 'use strict';
 var RM={core:{},services:{},components:{},data:{}};
-RM.data.currentPage="briefs";RM.data.pages=[{"name":"agent-behaviour-policy","label":"The sixteen examples","file":"agent-behaviour-policy.html","group":"Behaviour policies"},{"name":"abp","label":"What an ABP is","file":"abp.html","group":"Behaviour policies"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"Behaviour policies"},{"name":"licence-to-operate","label":"Licence to Operate","file":"licence-to-operate.html","group":"Behaviour policies"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"Behaviour policies"},{"name":"for-corporate","label":"You run agents today","file":"for-corporate.html","group":"Who it's for"},{"name":"for-founders","label":"You are a founder","file":"for-founders.html","group":"Who it's for"},{"name":"for-startups","label":"You are a startup","file":"for-startups.html","group":"Who it's for"},{"name":"insurance","label":"Make agents insurable","file":"insurance.html","group":"Insurance"},{"name":"insure-a-program","label":"Can you insure a program?","file":"insure-a-program.html","group":"Insurance"},{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"Insurance"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"Insurance"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"Insurance"},{"name":"business-cases","label":"Business cases, by risk","file":"business-cases.html","group":"Insurance"},{"name":"pricing","label":"The four levels","file":"pricing.html","group":"Pricing"},{"name":"abp-reviewed","label":"The reviewed level","file":"abp-reviewed.html","group":"Pricing"},{"name":"reviewers","label":"Who runs your review","file":"reviewers.html","group":"Pricing"},{"name":"try-it","label":"Try it","file":"try-it.html"},{"name":"articles","label":"Articles","file":"articles.html"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"privacy","label":"Privacy","file":"privacy.html","group":"More"},{"name":"lab","label":"The Lab","file":"lab.html","group":"More"},{"name":"demos","label":"Live demos","file":"demos.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"uk-support","label":"UK support, in the open","file":"uk-support.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"admin","label":"Admin","file":"admin/","group":"More"}];RM.data.sections=[];
+RM.data.currentPage="briefs";RM.data.pages=[{"name":"agent-behaviour-policy","label":"The sixteen examples","file":"agent-behaviour-policy.html","group":"Behaviour policies"},{"name":"abp","label":"What an ABP is","file":"abp.html","group":"Behaviour policies"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"Behaviour policies"},{"name":"licence-to-operate","label":"Licence to Operate","file":"licence-to-operate.html","group":"Behaviour policies"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"Behaviour policies"},{"name":"for-corporate","label":"You run agents today","file":"for-corporate.html","group":"Who it's for"},{"name":"for-founders","label":"You are a founder","file":"for-founders.html","group":"Who it's for"},{"name":"for-startups","label":"You are a startup","file":"for-startups.html","group":"Who it's for"},{"name":"insurance","label":"Make agents insurable","file":"insurance.html","group":"Insurance"},{"name":"insure-a-program","label":"Can you insure a program?","file":"insure-a-program.html","group":"Insurance"},{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"Insurance"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"Insurance"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"Insurance"},{"name":"business-cases","label":"Business cases, by risk","file":"business-cases.html","group":"Insurance"},{"name":"owasp-graph","label":"OWASP, as a graph","file":"owasp-graph.html","group":"Insurance"},{"name":"pricing","label":"The four levels","file":"pricing.html","group":"Pricing"},{"name":"abp-reviewed","label":"The reviewed level","file":"abp-reviewed.html","group":"Pricing"},{"name":"reviewers","label":"Who runs your review","file":"reviewers.html","group":"Pricing"},{"name":"try-it","label":"Try it","file":"try-it.html"},{"name":"articles","label":"Articles","file":"articles.html"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"privacy","label":"Privacy","file":"privacy.html","group":"More"},{"name":"lab","label":"The Lab","file":"lab.html","group":"More"},{"name":"demos","label":"Live demos","file":"demos.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"uk-support","label":"UK support, in the open","file":"uk-support.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"admin","label":"Admin","file":"admin/","group":"More"}];RM.data.sections=[];
 
 'use strict';
 // components/dom.js — tiny DOM helpers shared by components. `el` builds an

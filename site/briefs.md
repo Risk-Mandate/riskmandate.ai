@@ -236,6 +236,19 @@ Each one is linked in full, as received, with nothing edited. Where a brief and 
 - **A semantic graph per product.** A case is written as the answers a product changes among sixteen questions; what the questions do not ask about cannot yet be expressed
 - **The outreach.** The lead’s, after review
 
+### OWASP and open source first: a semantic graph of OWASP, business cases for the open-source projects that reduce risk, and the companies built on open source
+
+**sha256** 3686c72fb430e18cf55612574ae81e302b61475c4f207bec62a2bbd780a42ca8
+
+**Start the business cases with open source, and with OWASP in particular.** The lead is closely involved with OWASP and wants to bring RiskMandate’s ideas and standards there. The memo asks for a semantic graph of OWASP, which it says does not exist, zoomable from the foundation to one item because every document has its own ontology joined to a wider one; for cases for open-source projects that reduce risk, since free is never free and customising is the work; and for the companies built on open source, to connect with.
+
+- [OWASP, as a graph](owasp-graph.html): 52 projects and documents in four families, 110 items of eleven lists by title, 62 relationships OWASP states, and the Agentic Top 10 joined to the model and to the cases that change its answers. The data is published to be offered to OWASP
+- Eighteen [open-source cases](business-cases.html#cases), OWASP first, every change quoted from the project’s own documentation and checked, each with what adopting it takes
+- Eighteen [companies built on open source](business-cases.html#built-on-open-source), quoting only what was checked word for word
+- **Cases for OWASP’s documents.** The Top 10s, ASVS and SAMM change what a team knows, not what an agent can reach; they sit in the graph, and the bridge shows which cases change the answers each agentic item depends on
+- **Three agentic items the model cannot express.** Supply chain, memory and context, and agents talking to agents: the model has to grow
+- **The outreach.** To OWASP projects, maintainers and companies; the lead’s, after review
+
 ## And the instructions that arrived as speech or a sentence.
 
 These have no digest to check, which makes them the ones most easily lost — a voice memo that changed the direction of the whole site leaves no artefact at all unless somebody writes it down. So they are recorded here in the same list, with the same two columns.

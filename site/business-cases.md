@@ -44,7 +44,7 @@ Our own
 
 Open source
 
-Across the open-source projects, the answers that move are egress, access to data, the record, the account, stopping and undoing. None of them moves who owns the stop, the side effects of stopping, the procedure after it, or the class of data in reach. Those are decisions and documents, not software, which is where a behaviour policy and a [licence to operate](licence-to-operate.html) come in.
+Across the open-source projects, the answers that move are egress, access to data, the record, the account, stopping and undoing. None of them moves who owns the stop, the side effects of stopping, the procedure after it, or the class of data in reach. Those are decisions and documents, not software, which is where a behaviour policy and a [licence to operate](licence-to-operate.html) come in. How OWASP’s own projects relate to each other, and to these answers, is mapped in [OWASP, as a graph](owasp-graph.html).
 
 ## Companies that work the way we do, and whose projects are here.
 

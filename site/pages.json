@@ -92,6 +92,12 @@
       "group": "Insurance"
     },
     {
+      "name": "owasp-graph",
+      "label": "OWASP, as a graph",
+      "file": "owasp-graph.html",
+      "group": "Insurance"
+    },
+    {
       "name": "business-case-riskmandate-abp",
       "label": "Business case · Agent Behaviour Policy",
       "file": "business-case-riskmandate-abp.html",

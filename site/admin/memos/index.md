@@ -5,7 +5,7 @@
 
 **2**received, nothing built yet*Archived and read, and nothing has been built from it yet.*
 
-**17**partly worked*read in full; a named part is not built*
+**18**partly worked*read in full; a named part is not built*
 
 **8**processed*something on the site exists because of it*
 
@@ -30,6 +30,10 @@ spoken brief, transcribed · 1 produced · 3 not done24 September 2026 · partly
 spoken brief, transcribed · 1 produced · 3 not done24 September 2026 · partly
 
 **[Business cases by risk reduced: the register without a security product and with it, from the operator to the board, starting with our own](#D16)**
+
+spoken brief, transcribed · 3 produced · 3 not done24 September 2026 · partly
+
+**[OWASP and open source first: a semantic graph of OWASP, business cases for the open-source projects that reduce risk, and the companies built on open source](#D17)**
 
 spoken brief, transcribed · 3 produced · 3 not done24 September 2026 · partly
 
@@ -220,6 +224,22 @@ partly
 - The two named cases (agentgateway; Auth0 for AI Agents) are built as drafts, unlisted and marked noindex, until the lead decides to send them to the vendors.
 - A semantic graph per product beyond the model's sixteen questions. A case is written as the answers a product changes; products that act on things the questions do not ask about cannot yet be expressed.
 - Outreach to the vendors. It is the lead's, after review.
+
+D17 · spoken brief, transcribed · 24 September 2026
+
+## OWASP and open source first: a semantic graph of OWASP, business cases for the open-source projects that reduce risk, and the companies built on open source
+
+partly
+
+[the file as received](../../assets/briefs/2026-09-24__transcript__owasp-and-open-source-first.txt) · `3686c72fb430…` · 3 KB
+
+**Produced.** [OWASP, as a graph: the foundation, four families, 52 projects and documents, 110 items of eleven lists by title, and the relationships OWASP states, joined to the risk model through the Agentic Top 10](../../owasp-graph.html) · [Eighteen open-source business cases, OWASP first, each change backed by the project's own words and each with what adopting it takes](../../business-cases.html#cases) · [Eighteen companies built on or beside an open-source project, with only the quotes that were checked word for word](../../business-cases.html#built-on-open-source)
+
+**Not done.**
+
+- Business cases for OWASP documents such as the Top 10s, ASVS and SAMM. They change what a team knows, not what an agent can reach, so they sit in the graph rather than as cases; the bridge shows which cases change the answers each Agentic Top 10 item depends on.
+- Three Agentic Top 10 items touch nothing in the model: supply chain, memory and context, and agents talking to agents. The model has to grow for those.
+- Outreach to OWASP projects, maintainers and the companies. The lead's, after review.
 
 D11 · spoken brief, transcribed · 22 September 2026
 
