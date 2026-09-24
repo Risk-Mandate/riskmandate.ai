@@ -1,6 +1,8 @@
 # riskmandate.ai — everything here is public except the working pages below,
 # which are ours rather than yours and carry noindex as well.
 User-agent: *
+Disallow: /business-case-agentgateway.html
+Disallow: /business-case-auth0-for-ai-agents.html
 Allow: /
 
 Sitemap: https://riskmandate.ai/sitemap.xml

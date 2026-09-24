@@ -11,7 +11,7 @@
 
 **12**open tasks*of 17 in the queue · 1 done*
 
-**18**memos not fully worked*of 26 received*
+**19**memos not fully worked*of 27 received*
 
 **24**briefs written here*one page each*
 

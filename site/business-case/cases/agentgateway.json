@@ -1,0 +1,46 @@
+{
+  "slug": "agentgateway",
+  "status": "draft",
+  "kind": "vendor",
+  "product": "agentgateway",
+  "vendor": "the agentgateway project",
+  "vendor_url": "https://agentgateway.dev/",
+  "category": "Gateway and egress proxy for agent traffic",
+  "title": "agentgateway, by the risk it changes",
+  "summary": "An open-source proxy for agent traffic, a Linux Foundation project under the Apache 2.0 licence, run by the deployer. Its documentation describes three things an agent deployment would feel: outbound destinations allowed only by route, MCP tools filtered by policy so an agent never sees the ones it is not allowed, and access logs kept in a database. Written as answers, that is three changes, each held by the deployer. Its documentation also says where it fails closed and where it fails open, which is part of the case.",
+  "read": "2026-09-24",
+  "baseline": {
+    "preset": "typical",
+    "overrides": { "q15": 2, "q11": 2, "q13": 2 },
+    "why": "The model's typical deployment, with the three answers this product addresses stated as they are without it: the agent can reach the general internet, it can read and change the data in its reach through its tools, and what it did last Tuesday cannot be reconstructed."
+  },
+  "does": [
+    { "text": "An egress proxy that decides where outbound traffic may go.", "quote": "Agentgateway can act as an HTTP CONNECT proxy for outbound traffic. Clients point their proxy settings at agentgateway, and agentgateway decides which destinations they are allowed to reach.", "url": "https://agentgateway.dev/docs/standalone/latest/documentation/configuration/egress-proxy/", "read": "2026-09-24" },
+    { "text": "Authorisation on MCP tool calls, with disallowed tools removed from what the agent is shown.", "quote": "If a tool or other resource is not allowed, the gateway automatically filters it from the list response, so unauthorized clients never see it.", "url": "https://agentgateway.dev/docs/standalone/latest/documentation/configuration/security/mcp-authz/", "read": "2026-09-24" },
+    { "text": "Access logs, to stdout by default and to a database when configured.", "quote": "To persist access logs, you can configure agentgateway to write logs to a request_logs table in your database.", "url": "https://agentgateway.dev/docs/standalone/latest/documentation/observability/access-logs/database/", "read": "2026-09-24" }
+  ],
+  "changes": [
+    { "q": "q15", "to": 1, "kind": "boundary", "holder": "the deployer",
+      "why": "Only for traffic that uses the proxy. The page says a client selects it through the standard environment variable; blocking direct egress for an agent that ignores that variable is left to the deployer.",
+      "basis": { "quote": "The destinations that clients are allowed to reach. A destination that matches no entry has no route.", "url": "https://agentgateway.dev/docs/standalone/latest/documentation/configuration/egress-proxy/", "read": "2026-09-24" } },
+    { "q": "q11", "to": 1, "kind": "boundary", "holder": "the deployer",
+      "why": "Only if the policy leaves the write tools out, and only for tools reached through the gateway.",
+      "basis": { "quote": "MCP authorization policies run against specific MCP method invocations such as list_tools and call_tools.", "url": "https://agentgateway.dev/docs/standalone/latest/documentation/configuration/security/mcp-authz/", "read": "2026-09-24" } },
+    { "q": "q13", "to": 1, "kind": "setting", "holder": "the deployer",
+      "why": "Partly, not fully: the log covers what passed through the gateway, and nothing is persisted unless a database is configured.",
+      "basis": { "quote": "If neither config.logging.database nor config.database is set, no database log store is initialized and access logs are written to stdout only.", "url": "https://agentgateway.dev/docs/standalone/latest/documentation/observability/access-logs/database/", "read": "2026-09-24" } }
+  ],
+  "reduces": [],
+  "adds": [],
+  "adds_note": "By design it is a proxy in the request path, so it is also something that can fail and something that has to be stopped. Its pages state the choice for guardrails: *failClosed (default): Deny the request… failOpen: Allow the request. Use when availability matters more than strict enforcement.* For HTTP authorisation rules they state both behaviours: a require expression that errors denies the request, and a deny expression that errors does not deny it. The page on external authorisation does not say what happens when the authorisation server is unreachable, and no page read says what happens to agent traffic when the gateway itself is down.",
+  "contradictions": [
+    { "topic": "binds or gateways", "text": "The configuration overview says binds is the deprecated predecessor to gateways and to use gateways and routes instead; the egress-proxy page's examples are written with binds.", "urls": ["https://agentgateway.dev/docs/standalone/latest/documentation/configuration/overview/", "https://agentgateway.dev/docs/standalone/latest/documentation/configuration/egress-proxy/"] },
+    { "topic": "page dates", "text": "Every documentation page carries the same modified time, 23 September 2026, which reads as a build stamp rather than the date each page was written. The case is dated by when it was read." }
+  ],
+  "does_not_claim": [
+    "That it can stop an agent. The egress proxy has a deny mode and routes appear to change at runtime, but no page presents either as a way to stop an agent, so the stopping questions are left as they were.",
+    "That it was tested. Nothing was run; every change rests on the documentation quoted beside it.",
+    "Anything about Solo.io's commercial products, which are not this case."
+  ],
+  "next": "A draft, to be sent to the project's maintainers before it is listed. If a change is wrong, or a stopping answer should move, the case changes with the date they said so."
+}

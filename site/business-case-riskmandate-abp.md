@@ -29,13 +29,13 @@ The first case is our own product, so the method is tested on us before it is us
 
 The model asks sixteen questions about an agent deployment. A product’s effect is written as the answers it changes, and each change says what kind of change it is: a statement of what is true, an expectation the agent is asked to meet, a setting, or a boundary enforced by something the agent’s grant does not include.
 
-## 2 retired, 1 named, 22 unchanged.
+## 2 retired, 1 new, 22 unchanged.
 
-Computed from the model for the deployment above: every risk that holds without it, and every risk that holds with it. A named risk is one that was always there and that the change brings onto the register; a register that grows because something was found is working.
+Computed from the model for the deployment above: every risk that holds without it, and every risk that holds with it. A new entry is either one the change brought to light, where an answer replaced a don’t know, or a narrower risk in place of a wider one, where the answer moved from no to partly. Either way the register is more exact, and a register that grows because something was found is working.
 
 Retired
 
-Named
+New
 
 ## Who carries less, and who carries the same.
 

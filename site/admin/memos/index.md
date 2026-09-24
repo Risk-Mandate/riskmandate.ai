@@ -5,7 +5,7 @@
 
 **2**received, nothing built yet*Archived and read, and nothing has been built from it yet.*
 
-**16**partly worked*read in full; a named part is not built*
+**17**partly worked*read in full; a named part is not built*
 
 **8**processed*something on the site exists because of it*
 
@@ -28,6 +28,10 @@ spoken brief, transcribed · 1 produced · 3 not done24 September 2026 · partly
 **[Calendar edits cannot be undone: integrity risk, and why the edit permission is the dangerous one](#D15)**
 
 spoken brief, transcribed · 1 produced · 3 not done24 September 2026 · partly
+
+**[Business cases by risk reduced: the register without a security product and with it, from the operator to the board, starting with our own](#D16)**
+
+spoken brief, transcribed · 3 produced · 3 not done24 September 2026 · partly
 
 **[The named professional, and the assignment of the individual who does the £1,500 review](#D11)**
 
@@ -200,6 +204,22 @@ partly
 - The Calendar behaviour policies themselves. They are in draft; the article quotes their rows and says so.
 - A restore for edited events. Google documents none for users; Workspace with Vault keeps earlier versions an admin can export, and the article says the memo's claim holds for personal accounts and needs that qualification for Workspace.
 - The early-user conversation (calendar over email) is reported as a handful of conversations, not a survey.
+
+D16 · spoken brief, transcribed · 24 September 2026
+
+## Business cases by risk reduced: the register without a security product and with it, from the operator to the board, starting with our own
+
+partly
+
+[the file as received](../../assets/briefs/2026-09-24__transcript__business-case-by-risk-reduced.txt) · `1dabf7f55b1c…` · 6 KB
+
+**Produced.** [Business cases, by the risk they change: the method, the rules, and twelve categories computed against the typical deployment](../../business-cases.html) · [The first case, our own: an Agent Behaviour Policy retires two risks, names one hidden one, and lists three expectations as reductions, never retirements](../../business-case-riskmandate-abp.html) · [The engine and a copy of the RiskGraph Explorer model with its provenance, so every register is computed rather than written](../../business-case/model/PROVENANCE.md)
+
+**Not done.**
+
+- The two named cases (agentgateway; Auth0 for AI Agents) are built as drafts, unlisted and marked noindex, until the lead decides to send them to the vendors.
+- A semantic graph per product beyond the model's sixteen questions. A case is written as the answers a product changes; products that act on things the questions do not ask about cannot yet be expressed.
+- Outreach to the vendors. It is the lead's, after review.
 
 D11 · spoken brief, transcribed · 22 September 2026
 

@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>RiskMandate — business cases, by the risk they change</title>
-<meta name="description" content="The business case for a security product is the difference between the risk register without it and with it, from the operator to the board. Computed from a public model, our own product first, then others in their own words.">
-<link rel="canonical" href="https://riskmandate.ai/business-cases.html">
-<link rel="alternate" type="text/markdown" href="business-cases.md" title="This page as markdown">
+<title>RiskMandate — the business case for agentgateway</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="agentgateway (the agentgateway project), by the risk it changes: the register for a stated agent deployment without it and with it, computed from a public model, from the operator to the board.">
+<link rel="canonical" href="https://riskmandate.ai/business-case-agentgateway.html">
 <link rel="icon" href="assets/brand/riskmandate-favicon-32.png" sizes="32x32">
 <link rel="icon" href="assets/brand/riskmandate-mark.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="RiskMandate">
-<meta property="og:url" content="https://riskmandate.ai/business-cases.html">
-<meta property="og:title" content="RiskMandate — business cases, by the risk they change">
-<meta property="og:description" content="The business case for a security product is the difference between the risk register without it and with it, from the operator to the board. Computed from a public model, our own product first, then others in their own words.">
+<meta property="og:url" content="https://riskmandate.ai/business-case-agentgateway.html">
+<meta property="og:title" content="RiskMandate — the business case for agentgateway">
+<meta property="og:description" content="agentgateway (the agentgateway project), by the risk it changes: the register for a stated agent deployment without it and with it, computed from a public model, from the operator to the board.">
 <meta property="og:image" content="https://riskmandate.ai/assets/brand/riskmandate-lockup-light.png">
 <meta name="twitter:card" content="summary_large_image">
 <!-- v1.0.0. Reconstructed from SG/Vault 7rfetjwz at v0.14.0;
@@ -345,10 +345,13 @@ table.lv td a{color:var(--green)}
 
 <main class="phero">
   <div class="wrap">
-    <span class="eyebrow"><span class="d"></span> Business cases, by the risk they change</span>
-    <h1>A security product is worth <span class="it">the risks it retires.</span></h1>
-    <p class="sub">The business case for a security product is a difference: the risk register for an agent deployment without it, and the register with it, from the operator who is paged to the board that has to defend it. This section writes that difference down, computed from a public model, for our own product first and then for others&rsquo;, in their own words.</p>
-    <div class="cta-row"><a class="btn btn-green" href="business-case-riskmandate-abp.html">The first case: ours</a><a class="btn btn-ghost" href="#method">How it is computed</a></div>
+    <span class="eyebrow"><span class="d"></span> The business case · Gateway and egress proxy for agent traffic</span>
+    <h1>agentgateway, by the risk it changes</h1>
+    <p class="sub" style="margin-bottom:20px">An open-source proxy for agent traffic, a Linux Foundation project under the Apache 2.0 licence, run by the deployer. Its documentation describes three things an agent deployment would feel: outbound destinations allowed only by route, MCP tools filtered by policy so an agent never sees the ones it is not allowed, and access logs kept in a database. Written as answers, that is three changes, each held by the deployer. Its documentation also says where it fails closed and where it fails open, which is part of the case.</p>
+    
+    <p class="bc-meta"><b>The deployment:</b> The model's typical deployment, with the three answers this product addresses stated as they are without it: the agent can reach the general internet, it can read and change the data in its reach through its tools, and what it did last Tuesday cannot be reconstructed.</p>
+    <p class="bc-meta"><b>The model:</b> the RiskGraph Explorer's 49 facts, 49 risks and 10 roles, copied into this site with its provenance; the register below is computed, not written. <a href="business-cases.html#method">How</a>.</p>
+    <p class="bc-meta"><b>Status:</b> a draft, not yet sent to the agentgateway project and not listed on the site. It may be wrong; it is here to be corrected.</p>
   </div>
 </main>
 
@@ -357,85 +360,108 @@ table.lv td a{color:var(--green)}
   <section class="psection">
     <div class="wrap">
       <div class="shead">
-        <span class="tag">Who it is for</span>
-        <h2>Three readers, <span class="g">one register.</span></h2>
+        <span class="tag">01 · What it does</span>
+        <h2>In its own words, <span class="g">and nothing more.</span></h2>
       </div>
-      <div class="bc-three">
-        <div class="bc-card"><span class="k">If you buy security</span><h3>A case in your own terms.</h3><p>Not a feature list: which entries leave your register, whose they were, and what reaches the board. And which ones a product only makes less likely, said as that.</p></div>
-        <div class="bc-card"><span class="k">If you build it</span><h3>A case you did not have to write.</h3><p>Many security products are sold on capability. This maps the capability to the risks it changes, at every altitude, in terms a CFO and a board can read. If it is wrong about you, it changes.</p></div>
-        <div class="bc-card"><span class="k">And us</span><h3>Every case starts with a map.</h3><p>No case can be computed until somebody has answered the questions truthfully about one agent in one deployment. That answer is what an Agent Behaviour Policy produces.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="psection alt" id="method">
-    <div class="wrap">
-      <div class="shead">
-        <span class="tag">How it is computed</span>
-        <h2>Five steps, <span class="g">none of them by hand.</span></h2>
-      </div>
-      <ol class="bc-steps">
-        <li><span><b>State the deployment.</b> Sixteen questions about one agent: where it runs, what data it can reach, whether it can change production, whether anybody can stop it, and whether what it changes can be undone. Every case says which answers it starts from.</span></li>
-        <li><span><b>Write what the product does, in its own words.</b> From the vendor&rsquo;s documentation, quoted and dated. Never from testing their product: we do not test somebody else&rsquo;s system.</span></li>
-        <li><span><b>Write the answers it changes.</b> Each change says what kind it is: stating what is true, an expectation the agent is asked to meet, a setting, or a boundary the agent&rsquo;s grant does not include. An expectation never retires a risk; it is listed as a reduction.</span></li>
-        <li><span><b>Compute both registers.</b> The model&rsquo;s 49 facts establish or retire its 49 risks by fixed rules, and corporate risks roll up from the ones that lead into them.</span></li>
-        <li><span><b>Read it by altitude.</b> Each risk belongs to named roles, and each role reports up to the board. The case is the difference at each level.</span></li>
-      </ol>
-      <p class="bc-note">The model is the RiskGraph Explorer&rsquo;s, from one of our <a href="demos.html">live demos</a>, copied into this site with its provenance. It is small on purpose: sixteen questions, readable in one sitting, so an argument about a case is an argument about an answer, not about a formula. Nothing on these pages is a score, and no case is a statement that a product works; it is a statement of what changes in the register if it does what its documentation says.</p>
-    </div>
-  </section>
-
-  <section class="psection">
-    <div class="wrap">
-      <div class="shead">
-        <span class="tag">The cases</span>
-        <h2>Written so far.</h2>
-      </div>
-      <div class="bc-cases">
-      <div class="bc-card"><span class="k"><span class="bc-pill ours">our own</span>Mapping: the precondition for every other case</span><h3><a href="business-case-riskmandate-abp.html">Agent Behaviour Policy</a></h3><p>2 retired, 1 new, 22 unchanged, for the deployment it states. The first case is our own product, so the method is tested on us before it is used on anybody else.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="psection alt" id="categories">
-    <div class="wrap">
-      <div class="shead">
-        <span class="tag">Kinds of product</span>
-        <h2>12 categories, <span class="g">computed the same way.</span></h2>
-        <p>Twelve kinds of product that could sit around an agent, each computed against the typical deployment with its own questions answered as they would be without it. Every row is our reading of what the category does, not any vendor’s claim, and the change is conservative on purpose: where a category could move an answer to <em>partly</em> or <em>fully</em>, the row says <em>partly</em>.</p>
-      </div>
-      <div class="bc-t cat" role="table">
-      <div class="bc-tr" role="row"><span role="columnheader">Category</span><span role="columnheader">Answers it changes</span><span role="columnheader">Retired, for the stated deployment</span><span role="columnheader">What it adds</span></div>
-      <div class="bc-tr" role="row"><span role="cell">AI gateways and egress proxies<span class="bc-src">Between the agent and model providers or the internet: routing, limiting and logging outbound calls.</span></span><span role="cell" data-k="Answers it changes">Can it reach anything outside your network? <span class="bc-was">Yes, general internet</span> → <span class="bc-now">Allow-listed only</span><br>Could you reconstruct what it did last Tuesday? <span class="bc-was">No</span> → <span class="bc-now">Partly</span></span><span role="cell" data-k="Retired">RISK-13 what the agent did cannot be reconstructed; RISK-28 the agent can reach systems outside the estate; RISK-33 the organisation could not account for what its agent did; CORP-4 unquantified financial exposure — the organisation cannot price its own downside; CORP-5 accountability failure — the organisation cannot demonstrate who decided what<span class="bc-src">new: RISK-24</span></span><span role="cell" data-k="What it adds">Another service in the request path; provider keys held in one place; a log store holding prompts and data.<span class="bc-src">for example: <a href="https://agentgateway.dev/docs/" target="_blank" rel="noopener">agentgateway</a>, <a href="https://docs.litellm.ai/docs/simple_proxy" target="_blank" rel="noopener">LiteLLM</a>, <a href="https://developers.cloudflare.com/ai-gateway/" target="_blank" rel="noopener">Cloudflare AI Gateway</a>, <a href="https://developer.konghq.com/ai-gateway/" target="_blank" rel="noopener">Kong AI Gateway</a></span></span></div>
-      <div class="bc-tr" role="row"><span role="cell">MCP gateways<span class="bc-src">In front of MCP tool servers: filtering, authorising and logging tool calls.</span></span><span role="cell" data-k="Answers it changes">What can it do with that data? <span class="bc-was">Reads and changes it</span> → <span class="bc-now">Reads it</span><br>Could you reconstruct what it did last Tuesday? <span class="bc-was">No</span> → <span class="bc-now">Partly</span></span><span role="cell" data-k="Retired">RISK-13 what the agent did cannot be reconstructed; RISK-16 regulated data is modifiable by an agent; RISK-26 records the organisation answers for can change without a person deciding they should; RISK-33 the organisation could not account for what its agent did; CORP-5 accountability failure — the organisation cannot demonstrate who decided what<span class="bc-src">new: RISK-24</span></span><span role="cell" data-k="What it adds">In the request path; holds credentials for many tool servers; a log of every tool call.<span class="bc-src">for example: <a href="https://docs.docker.com/ai/mcp-catalog-and-toolkit/mcp-gateway/" target="_blank" rel="noopener">Docker MCP Gateway</a>, <a href="https://ibm.github.io/mcp-context-forge/" target="_blank" rel="noopener">IBM ContextForge</a>, <a href="https://github.com/microsoft/mcp-gateway" target="_blank" rel="noopener">Microsoft mcp-gateway</a></span></span></div>
-      <div class="bc-tr" role="row"><span role="cell">Agent identity and non-human identity<span class="bc-src">Each agent its own identity, with an owner, delegation, and a record of the tokens it is issued.</span></span><span role="cell" data-k="Answers it changes">Whose account does it act under? <span class="bc-was">A service account nobody owns</span> → <span class="bc-now">A named person's</span><br>Could you reconstruct what it did last Tuesday? <span class="bc-was">No</span> → <span class="bc-now">Partly</span></span><span role="cell" data-k="Retired">RISK-13 what the agent did cannot be reconstructed; RISK-14 the agent's actions cannot be attributed to a person; RISK-33 the organisation could not account for what its agent did; CORP-5 accountability failure — the organisation cannot demonstrate who decided what<span class="bc-src">new: RISK-24</span></span><span role="cell" data-k="What it adds">The identity provider becomes a dependency for every token; stored third-party tokens; delegated access that stays open.<span class="bc-src">for example: <a href="https://auth0.com/ai/docs/intro/overview" target="_blank" rel="noopener">Auth0 for AI Agents</a>, <a href="https://learn.microsoft.com/en-us/entra/agent-id/" target="_blank" rel="noopener">Microsoft Entra Agent ID</a>, <a href="https://spiffe.io/docs/latest/" target="_blank" rel="noopener">SPIFFE/SPIRE</a>, <a href="https://docs.aembit.io/" target="_blank" rel="noopener">Aembit</a></span></span></div>
-      <div class="bc-tr" role="row"><span role="cell">Sandboxes and isolated execution<span class="bc-src">Short-lived, isolated compute for the code an agent runs.</span></span><span role="cell" data-k="Answers it changes">Can it reach anything outside your network? <span class="bc-was">Yes, general internet</span> → <span class="bc-now">No egress</span><br>If it misbehaved at full speed, what could it reach? <span class="bc-was">Don't know</span> → <span class="bc-now">Internal only</span></span><span role="cell" data-k="Retired">RISK-8 the operator cannot state what the agent is entitled to reach; RISK-17 the scope of the agent's access cannot be reviewed; RISK-28 the agent can reach systems outside the estate; CORP-4 unquantified financial exposure — the organisation cannot price its own downside</span><span role="cell" data-k="What it adds">Often a hosted runtime, so code and data go to the vendor; new API keys; an escape surface.<span class="bc-src">for example: <a href="https://e2b.dev/docs" target="_blank" rel="noopener">E2B</a>, <a href="https://www.daytona.io/docs" target="_blank" rel="noopener">Daytona</a>, <a href="https://gvisor.dev/docs/" target="_blank" rel="noopener">gVisor</a></span></span></div>
-      <div class="bc-tr" role="row"><span role="cell">Runtime monitoring and tracing<span class="bc-src">Traces of prompts, tool calls and outputs, so what the agent did can be read back.</span></span><span role="cell" data-k="Answers it changes">Could you reconstruct what it did last Tuesday? <span class="bc-was">No</span> → <span class="bc-now">Partly</span></span><span role="cell" data-k="Retired">RISK-13 what the agent did cannot be reconstructed; RISK-33 the organisation could not account for what its agent did; CORP-5 accountability failure — the organisation cannot demonstrate who decided what<span class="bc-src">new: RISK-24</span></span><span role="cell" data-k="What it adds">A telemetry store holding prompts and personal data; an SDK inside the agent; often a hosted processor.<span class="bc-src">for example: <a href="https://langfuse.com/docs" target="_blank" rel="noopener">Langfuse</a>, <a href="https://arize.com/docs/phoenix" target="_blank" rel="noopener">Arize Phoenix</a>, <a href="https://opentelemetry.io/docs/specs/semconv/gen-ai/" target="_blank" rel="noopener">OpenTelemetry GenAI conventions</a></span></span></div>
-      <div class="bc-tr" role="row"><span role="cell">Policy engines, policy as code<span class="bc-src">Allow and deny decisions made outside the agent's own code, per action.</span></span><span role="cell" data-k="Answers it changes">What can it do with that data? <span class="bc-was">Reads and changes it</span> → <span class="bc-now">Reads it</span></span><span role="cell" data-k="Retired">RISK-16 regulated data is modifiable by an agent; RISK-26 records the organisation answers for can change without a person deciding they should</span><span role="cell" data-k="What it adds">A decision point in the path; a fail-open or fail-closed choice somebody has to make; policy distribution.<span class="bc-src">for example: <a href="https://www.openpolicyagent.org/docs" target="_blank" rel="noopener">Open Policy Agent</a>, <a href="https://docs.cedarpolicy.com/" target="_blank" rel="noopener">Cedar</a>, <a href="https://openfga.dev/docs" target="_blank" rel="noopener">OpenFGA</a></span></span></div>
-      <div class="bc-tr" role="row"><span role="cell">Human approval layers<span class="bc-src">An action waits until a named person approves it.</span></span><span role="cell" data-k="Answers it changes">Can it change things in production, or only read and report? <span class="bc-was">Changes on its own</span> → <span class="bc-now">Changes, with a person approving each one</span></span><span role="cell" data-k="Retired">RISK-15 the organisation acts through a system that acts without a person approving each action</span><span role="cell" data-k="What it adds">The notification channel becomes attack surface; a dependency on the approval service; what happens at timeout.<span class="bc-src">for example: <a href="https://auth0.com/ai/docs/intro/asynchronous-authorization" target="_blank" rel="noopener">Auth0 CIBA</a>, <a href="https://docs.langchain.com/oss/python/langgraph/interrupts" target="_blank" rel="noopener">LangGraph interrupts</a>, <a href="https://openai.github.io/openai-agents-python/human_in_the_loop/" target="_blank" rel="noopener">OpenAI Agents SDK</a></span></span></div>
-      <div class="bc-tr" role="row"><span role="cell">Data masking and DLP for AI<span class="bc-src">Personal or special-category data detected and redacted before the model or its tools see it.</span></span><span role="cell" data-k="Answers it changes">What can it do with that data? <span class="bc-was">Reads it</span> → <span class="bc-now">Cannot see it</span></span><span role="cell" data-k="Retired">RISK-7 regulated data is readable by an agent</span><span role="cell" data-k="What it adds">The inspecting service sees everything in the clear; in the path; what it misses is not measured.<span class="bc-src">for example: <a href="https://microsoft.github.io/presidio/" target="_blank" rel="noopener">Microsoft Presidio</a>, <a href="https://cloud.google.com/sensitive-data-protection/docs" target="_blank" rel="noopener">Google Sensitive Data Protection</a>, <a href="https://docs.nightfall.ai/" target="_blank" rel="noopener">Nightfall</a></span></span></div>
-      <div class="bc-tr" role="row"><span role="cell">Backup and point-in-time restore<span class="bc-src">Snapshots of the data and configuration an agent changes, and a way to put them back.</span></span><span role="cell" data-k="Answers it changes">Could its worst change be undone? <span class="bc-was">Some changes are forever</span> → <span class="bc-now">Partly</span></span><span role="cell" data-k="Retired">RISK-22 some changes the agent makes cannot be reversed by the operator; RISK-37 recovery is not available for part of the agent's action space; RISK-39 some outcomes of the agent's operation are permanent; CORP-4 unquantified financial exposure — the organisation cannot price its own downside<span class="bc-src">new: RISK-32</span></span><span role="cell" data-k="What it adds">A second full copy of the data; a backup credential with wide read access. Anything changed since the last snapshot is still lost, which is why the row says partly.<span class="bc-src">for example: <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html" target="_blank" rel="noopener">AWS Backup</a>, <a href="https://help.salesforce.com/s/articleView?id=platform.backup_restore_overview.htm" target="_blank" rel="noopener">Salesforce Backup</a>, <a href="https://www.postgresql.org/docs/current/continuous-archiving.html" target="_blank" rel="noopener">PostgreSQL point-in-time recovery</a></span></span></div>
-      <div class="bc-tr" role="row"><span role="cell">Kill switches and agent control planes<span class="bc-src">A runtime switch that turns an agent or one of its capabilities off without a redeploy.</span></span><span role="cell" data-k="Answers it changes">If you had to stop it right now — could you? <span class="bc-was">Yes, eventually</span> → <span class="bc-now">Yes, one action</span><br>How long would stopping actually take? <span class="bc-was">Don't know</span> → <span class="bc-now">Minutes</span></span><span role="cell" data-k="Retired">RISK-9 stopping the agent takes more than one action; RISK-19 the time a stop takes is unknown to the people who would perform it; RISK-29 the stop capability cannot be compared to any exposure window</span><span role="cell" data-k="What it adds">The switch's own service is a dependency, and what its client does when that service is unreachable decides whether it fails open or closed. Having a switch is not having used one: whether it was ever pulled in production stays unanswered.<span class="bc-src">for example: <a href="https://docs.getunleash.io/" target="_blank" rel="noopener">Unleash</a>, <a href="https://github.com/microsoft/agent-governance-toolkit" target="_blank" rel="noopener">Microsoft Agent Governance Toolkit</a>, <a href="https://launchdarkly.com/docs/home/agentcontrol" target="_blank" rel="noopener">LaunchDarkly AgentControl</a></span></span></div>
-      <div class="bc-tr" role="row"><span role="cell">Browser isolation for agents<span class="bc-src">Remote, disposable browsers for agents that browse the web.</span></span><span role="cell" data-k="Answers it changes">Can it reach anything outside your network? <span class="bc-was">Yes, general internet</span> → <span class="bc-now">Allow-listed only</span><br>Could you reconstruct what it did last Tuesday? <span class="bc-was">No</span> → <span class="bc-now">Partly</span></span><span role="cell" data-k="Retired">RISK-13 what the agent did cannot be reconstructed; RISK-28 the agent can reach systems outside the estate; RISK-33 the organisation could not account for what its agent did; CORP-4 unquantified financial exposure — the organisation cannot price its own downside; CORP-5 accountability failure — the organisation cannot demonstrate who decided what<span class="bc-src">new: RISK-24</span></span><span role="cell" data-k="What it adds">The vendor sees page content and logged-in sessions; stored cookies and browser contexts.<span class="bc-src">for example: <a href="https://docs.browserbase.com/" target="_blank" rel="noopener">Browserbase</a>, <a href="https://developers.cloudflare.com/browser-rendering/" target="_blank" rel="noopener">Cloudflare Browser Rendering</a>, <a href="https://docs.steel.dev/" target="_blank" rel="noopener">Steel</a></span></span></div>
-      <div class="bc-tr" role="row"><span role="cell">AI security posture management<span class="bc-src">Finds agents, models and their permissions across cloud accounts.</span></span><span role="cell" data-k="Answers it changes">If it misbehaved at full speed, what could it reach? <span class="bc-was">Don't know</span> → <span class="bc-now">Customer-facing</span></span><span role="cell" data-k="Retired">RISK-8 the operator cannot state what the agent is entitled to reach; RISK-17 the scope of the agent's access cannot be reviewed<span class="bc-src">new: RISK-18</span></span><span role="cell" data-k="What it adds">Read access across the cloud estate; a new inventory of sensitive findings. Like a behaviour policy, it mostly turns an unknown into an answer rather than changing the exposure.<span class="bc-src">for example: <a href="https://learn.microsoft.com/en-us/azure/defender-for-cloud/ai-security-posture" target="_blank" rel="noopener">Microsoft Defender for Cloud AI-SPM</a>, <a href="https://docs.paloaltonetworks.com/prisma-airs" target="_blank" rel="noopener">Palo Alto Networks Prisma AIRS</a></span></span></div>
-      </div>
-      <p class="bc-note">Two patterns are worth reading off the table. Most categories retire one or two entries each, so the case for any single product is narrow and exact rather than broad, and a register gets small by combining them. And every category adds something: a service in the request path, a store of prompts, a credential with wide reach. The case is only honest with that column in it.</p>
-    </div>
-  </section>
-
-  <section class="psection">
-    <div class="wrap">
-      <div class="shead">
-        <span class="tag">The rules</span>
-        <h2>What a case will and will not say.</h2>
-      </div>
-      <ul class="bc-list">
-        <li><b>The vendor&rsquo;s words, quoted and dated,</b> for anything a product does. Where their pages disagree, both are shown.</li>
-        <li><b>No verdict on any product</b> and no ranking of one against another. The case says what changes if the documentation is right.</li>
-        <li><b>No conformity language.</b> A product that touches an article of a regulation is shown as touching it, never as meeting it.</li>
-        <li><b>What it adds is part of the case.</b> A product in the request path is also something that can fail, and something that has to be stopped.</li>
-        <li><b>Draft before published.</b> A case about somebody else&rsquo;s product is sent to them before it is listed, and changes with a date when they correct it.</li>
+      <ul class="bc-list"><li>An egress proxy that decides where outbound traffic may go. <span class="bc-src">&ldquo;Agentgateway can act as an HTTP CONNECT proxy for outbound traffic. Clients point their proxy settings at agentgateway, and agentgateway decides which destinations they are allowed to reach.&rdquo; · <a href="https://agentgateway.dev/docs/standalone/latest/documentation/configuration/egress-proxy/" target="_blank" rel="noopener">agentgateway.dev</a>, read 24 September 2026</span></li><li>Authorisation on MCP tool calls, with disallowed tools removed from what the agent is shown. <span class="bc-src">&ldquo;If a tool or other resource is not allowed, the gateway automatically filters it from the list response, so unauthorized clients never see it.&rdquo; · <a href="https://agentgateway.dev/docs/standalone/latest/documentation/configuration/security/mcp-authz/" target="_blank" rel="noopener">agentgateway.dev</a>, read 24 September 2026</span></li><li>Access logs, to stdout by default and to a database when configured. <span class="bc-src">&ldquo;To persist access logs, you can configure agentgateway to write logs to a request_logs table in your database.&rdquo; · <a href="https://agentgateway.dev/docs/standalone/latest/documentation/observability/access-logs/database/" target="_blank" rel="noopener">agentgateway.dev</a>, read 24 September 2026</span></li>
       </ul>
+    </div>
+  </section>
+
+  <section class="psection alt">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">02 · The answers it changes</span>
+        <h2>Same deployment, <span class="g">different answers.</span></h2>
+        <p>The model asks sixteen questions about an agent deployment. A product&rsquo;s effect is written as the answers it changes, and each change says what kind of change it is: a statement of what is true, an expectation the agent is asked to meet, a setting, or a boundary enforced by something the agent&rsquo;s grant does not include.</p>
+      </div>
+      <div class="bc-t ch" role="table">
+      <div class="bc-tr" role="row"><span role="columnheader">The question</span><span role="columnheader">Without it</span><span role="columnheader">With it</span><span role="columnheader">How, and who holds it</span></div>
+      <div class="bc-tr" role="row"><span role="cell">Can it reach anything outside your network?</span><span role="cell" data-k="Without it" class="bc-was">Yes, general internet</span><span role="cell" data-k="With it" class="bc-now">Allow-listed only</span><span role="cell" data-k="How">a boundary, held by the deployer. Only for traffic that uses the proxy. The page says a client selects it through the standard environment variable; blocking direct egress for an agent that ignores that variable is left to the deployer. <span class="bc-src">&ldquo;The destinations that clients are allowed to reach. A destination that matches no entry has no route.&rdquo; · <a href="https://agentgateway.dev/docs/standalone/latest/documentation/configuration/egress-proxy/" target="_blank" rel="noopener">agentgateway.dev</a>, read 24 September 2026</span></span></div>
+      <div class="bc-tr" role="row"><span role="cell">What can it do with that data?</span><span role="cell" data-k="Without it" class="bc-was">Reads and changes it</span><span role="cell" data-k="With it" class="bc-now">Reads it</span><span role="cell" data-k="How">a boundary, held by the deployer. Only if the policy leaves the write tools out, and only for tools reached through the gateway. <span class="bc-src">&ldquo;MCP authorization policies run against specific MCP method invocations such as list_tools and call_tools.&rdquo; · <a href="https://agentgateway.dev/docs/standalone/latest/documentation/configuration/security/mcp-authz/" target="_blank" rel="noopener">agentgateway.dev</a>, read 24 September 2026</span></span></div>
+      <div class="bc-tr" role="row"><span role="cell">Could you reconstruct what it did last Tuesday?</span><span role="cell" data-k="Without it" class="bc-was">No</span><span role="cell" data-k="With it" class="bc-now">Partly</span><span role="cell" data-k="How">a setting, held by the deployer. Partly, not fully: the log covers what passed through the gateway, and nothing is persisted unless a database is configured. <span class="bc-src">&ldquo;If neither config.logging.database nor config.database is set, no database log store is initialized and access logs are written to stdout only.&rdquo; · <a href="https://agentgateway.dev/docs/standalone/latest/documentation/observability/access-logs/database/" target="_blank" rel="noopener">agentgateway.dev</a>, read 24 September 2026</span></span></div>
+    </div>
+    </div>
+  </section>
+
+  <section class="psection">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">03 · The register, before and after</span>
+        <h2>7 retired, 1 new, <span class="g">22 unchanged.</span></h2>
+        <p>Computed from the model for the deployment above: every risk that holds without it, and every risk that holds with it. A new entry is either one the change brought to light, where an answer replaced a don&rsquo;t know, or a narrower risk in place of a wider one, where the answer moved from no to partly. Either way the register is more exact, and a register that grows because something was found is working.</p>
+      </div>
+      <div class="bc-sum"><div class="off"><span class="n">7</span><span class="l">retired</span></div><div class="new"><span class="n">1</span><span class="l">new</span></div><div><span class="n">29 → 23</span><span class="l">entries on the register</span></div></div>
+      <p class="bc-h">Retired</p><div class="bc-risks"><div class="bc-risk off"><span class="ref">RISK-13</span><div><b>What the agent did cannot be reconstructed</b><span>operational · SRE / platform on-call, CISO</span></div></div>
+      <div class="bc-risk off"><span class="ref">RISK-16</span><div><b>Regulated data is modifiable by an agent</b><span>operational · CISO, DPO, Customer-facing service owner, Chief Product Officer</span></div></div>
+      <div class="bc-risk off"><span class="ref">RISK-26</span><div><b>Records the organisation answers for can change without a person deciding they should</b><span>operational · Board</span></div></div>
+      <div class="bc-risk off"><span class="ref">RISK-28</span><div><b>The agent can reach systems outside the estate</b><span>operational · CISO, CFO</span></div></div>
+      <div class="bc-risk off"><span class="ref">RISK-33</span><div><b>The organisation could not account for what its agent did</b><span>operational · Board</span></div></div>
+      <div class="bc-risk off"><span class="ref">CORP-4</span><div><b>Unquantified financial exposure — the organisation cannot price its own downside</b><span>corporate · CFO, Board</span></div></div>
+      <div class="bc-risk off"><span class="ref">CORP-5</span><div><b>Accountability failure — the organisation cannot demonstrate who decided what</b><span>corporate · CEO, Board</span></div></div></div>
+      <p class="bc-h">New</p><div class="bc-risks"><div class="bc-risk new"><span class="ref">RISK-24</span><div><b>Only part of what the agent did can be reconstructed</b><span>operational · SRE / platform on-call</span></div></div></div>
+    </div>
+  </section>
+
+  <section class="psection alt">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">04 · From the operator to the board</span>
+        <h2>Who carries less, <span class="g">and who carries the same.</span></h2>
+        <p>Each risk is assigned to the roles it belongs to, and each role reports to another until the board. The count beside each role is the entries it holds without the product and with it.</p>
+      </div>
+      <div class="bc-alt">
+      <div class="bc-a"><h3>Operators</h3><span class="why">who run it, and are paged when it goes wrong</span><div class="bc-role"><b>SRE / platform on-call</b><span class="c">9 → 9</span><span class="refs">retired RISK-13 · new RISK-24</span></div><div class="bc-role"><b>Customer-facing service owner</b><span class="c">3 → 2 <span class="d">−1</span></span><span class="refs">retired RISK-16</span></div></div>
+      <div class="bc-a"><h3>Owners</h3><span class="why">who own what it may touch, and can say what happened</span><div class="bc-role"><b>Platform owner</b><span class="c">3 → 3</span></div><div class="bc-role"><b>CISO</b><span class="c">11 → 8 <span class="d">−3</span></span><span class="refs">retired RISK-13, RISK-16, RISK-28</span></div><div class="bc-role"><b>DPO</b><span class="c">7 → 6 <span class="d">−1</span></span><span class="refs">retired RISK-16</span></div></div>
+      <div class="bc-a"><h3>Executives</h3><span class="why">who answer for speed, product, cost and the whole</span><div class="bc-role"><b>CTO</b><span class="c">3 → 3</span></div><div class="bc-role"><b>Chief Product Officer</b><span class="c">5 → 4 <span class="d">−1</span></span><span class="refs">retired RISK-16</span></div><div class="bc-role"><b>CFO</b><span class="c">2 → 0 <span class="d">−2</span></span><span class="refs">retired RISK-28, CORP-4</span></div><div class="bc-role"><b>CEO</b><span class="c">4 → 3 <span class="d">−1</span></span><span class="refs">retired CORP-5</span></div></div>
+      <div class="bc-a"><h3>The board</h3><span class="why">who must be able to defend how it is run</span><div class="bc-role"><b>Board</b><span class="c">8 → 4 <span class="d">−4</span></span><span class="refs">retired RISK-26, RISK-33, CORP-4, CORP-5</span></div></div>
+    </div>
+      <p class="bc-h">At the board: the corporate register</p>
+      <p class="bc-note">Corporate risks have no facts of their own. They hold while any risk that leads into them holds, so a single product rarely retires one. What it changes is how many reasons the board is being given.</p>
+      <div class="bc-risks"><div class="bc-risk"><span class="ref">CORP-1</span><div><b>Regulatory exposure — the organisation may be operating outside obligations it is subject to</b><span>still holds · risks leading into it: 4 before, 2 after</span></div></div>
+      <div class="bc-risk"><span class="ref">CORP-2</span><div><b>Customer harm — customers may be affected by decisions or changes nobody made</b><span>still holds · risks leading into it: 4 before, 2 after</span></div></div>
+      <div class="bc-risk"><span class="ref">CORP-3</span><div><b>Operational resilience — the organisation may be unable to restore a service it depends on</b><span>still holds · risks leading into it: 1 before, 1 after</span></div></div>
+      <div class="bc-risk off"><span class="ref">CORP-4</span><div><b>Unquantified financial exposure — the organisation cannot price its own downside</b><span>retired · risks leading into it: 1 before, 0 after</span></div></div>
+      <div class="bc-risk off"><span class="ref">CORP-5</span><div><b>Accountability failure — the organisation cannot demonstrate who decided what</b><span>retired · risks leading into it: 1 before, 0 after</span></div></div>
+      <div class="bc-risk"><span class="ref">CORP-6</span><div><b>Loss of control — the organisation operates a system it may not be able to stop or explain</b><span>still holds · risks leading into it: 2 before, 2 after</span></div></div></div>
+    </div>
+  </section>
+
+  
+
+  <section class="psection alt">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">06 · What it adds</span>
+        <h2>Every product is also a new thing in the estate.</h2>
+      </div>
+      
+      <p class="bc-note">By design it is a proxy in the request path, so it is also something that can fail and something that has to be stopped. Its pages state the choice for guardrails: <em>failClosed (default): Deny the request… failOpen: Allow the request. Use when availability matters more than strict enforcement.</em> For HTTP authorisation rules they state both behaviours: a require expression that errors denies the request, and a deny expression that errors does not deny it. The page on external authorisation does not say what happens when the authorisation server is unreachable, and no page read says what happens to agent traffic when the gateway itself is down.</p>
+    </div>
+  </section>
+
+  <section class="psection">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Where its pages disagree</span>
+        <h2>Published unresolved, <span class="g">for the agentgateway project to settle.</span></h2>
+        <p>Each pair was read on the same day. We have not tested which is true, because that would mean testing somebody else&rsquo;s system.</p>
+      </div>
+      <ul class="bc-list"><li><b>binds or gateways.</b> The configuration overview says binds is the deprecated predecessor to gateways and to use gateways and routes instead; the egress-proxy page's examples are written with binds. <span class="bc-src"><a href="https://agentgateway.dev/docs/standalone/latest/documentation/configuration/overview/" target="_blank" rel="noopener">overview</a> · <a href="https://agentgateway.dev/docs/standalone/latest/documentation/configuration/egress-proxy/" target="_blank" rel="noopener">egress-proxy</a></span></li><li><b>page dates.</b> Every documentation page carries the same modified time, 23 September 2026, which reads as a build stamp rather than the date each page was written. The case is dated by when it was read.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="psection">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">What this does not claim</span>
+        <h2>The limits of the case, <span class="g">stated by the case.</span></h2>
+      </div>
+      <ul class="bc-list"><li>That it can stop an agent. The egress proxy has a deny mode and routes appear to change at runtime, but no page presents either as a way to stop an agent, so the stopping questions are left as they were.</li><li>That it was tested. Nothing was run; every change rests on the documentation quoted beside it.</li><li>Anything about Solo.io's commercial products, which are not this case.</li>
+        <li>That the register is complete. It is one model, for one stated deployment. A different deployment changes the answers, and so the case.</li>
+      </ul>
+      <p class="bc-note"><b>Next.</b> A draft, to be sent to the project's maintainers before it is listed. If a change is wrong, or a stopping answer should move, the case changes with the date they said so.</p>
     </div>
   </section>
 
@@ -443,10 +469,10 @@ table.lv td a{color:var(--green)}
 
 <section class="pcta">
   <div class="wrap">
-    <span class="eyebrow"><span class="d"></span> Build or buy security for agents?</span>
-    <h2>Ask for a case, <span class="it">or correct one.</span></h2>
-    <p>If you build a product for agent security and would like its case written, or you have read a case about your product and it is wrong, write to us. If you run agents, the case for anything starts with a map of one of them.</p>
-    <div class="cta-row"><a class="btn btn-green" href="mailto:dinis.cruz@owasp.org?subject=A%20business%20case">Write to us</a><a class="btn btn-ghost" href="try-it.html">Map one agent, free</a></div>
+    <span class="eyebrow"><span class="d"></span> The same method, for your product</span>
+    <h2>Make the case <span class="it">in the register&rsquo;s own terms.</span></h2>
+    <p>If you build a security product for agents, the case for it can be written the same way: what it does in your own words, the answers it changes, and the register before and after. If a case here is wrong about you, tell us and it changes with a date.</p>
+    <div class="cta-row"><a class="btn btn-green" href="business-cases.html">All the cases</a><a class="btn btn-ghost" href="mailto:dinis.cruz@owasp.org?subject=Business%20case%20%C2%B7%20agentgateway">Write to us</a></div>
   </div>
 </section>
 
@@ -462,7 +488,7 @@ table.lv td a{color:var(--green)}
 (function(){
 'use strict';
 var RM={core:{},services:{},components:{},data:{}};
-RM.data.currentPage="business-cases";RM.data.pages=[{"name":"agent-behaviour-policy","label":"The sixteen examples","file":"agent-behaviour-policy.html","group":"Behaviour policies"},{"name":"abp","label":"What an ABP is","file":"abp.html","group":"Behaviour policies"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"Behaviour policies"},{"name":"licence-to-operate","label":"Licence to Operate","file":"licence-to-operate.html","group":"Behaviour policies"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"Behaviour policies"},{"name":"for-corporate","label":"You run agents today","file":"for-corporate.html","group":"Who it's for"},{"name":"for-founders","label":"You are a founder","file":"for-founders.html","group":"Who it's for"},{"name":"for-startups","label":"You are a startup","file":"for-startups.html","group":"Who it's for"},{"name":"insurance","label":"Make agents insurable","file":"insurance.html","group":"Insurance"},{"name":"insure-a-program","label":"Can you insure a program?","file":"insure-a-program.html","group":"Insurance"},{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"Insurance"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"Insurance"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"Insurance"},{"name":"business-cases","label":"Business cases, by risk","file":"business-cases.html","group":"Insurance"},{"name":"pricing","label":"The four levels","file":"pricing.html","group":"Pricing"},{"name":"abp-reviewed","label":"The reviewed level","file":"abp-reviewed.html","group":"Pricing"},{"name":"reviewers","label":"Who runs your review","file":"reviewers.html","group":"Pricing"},{"name":"try-it","label":"Try it","file":"try-it.html"},{"name":"articles","label":"Articles","file":"articles.html"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"privacy","label":"Privacy","file":"privacy.html","group":"More"},{"name":"lab","label":"The Lab","file":"lab.html","group":"More"},{"name":"demos","label":"Live demos","file":"demos.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"uk-support","label":"UK support, in the open","file":"uk-support.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"admin","label":"Admin","file":"admin/","group":"More"}];RM.data.sections=[];
+RM.data.currentPage="business-case-agentgateway";RM.data.pages=[{"name":"agent-behaviour-policy","label":"The sixteen examples","file":"agent-behaviour-policy.html","group":"Behaviour policies"},{"name":"abp","label":"What an ABP is","file":"abp.html","group":"Behaviour policies"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"Behaviour policies"},{"name":"licence-to-operate","label":"Licence to Operate","file":"licence-to-operate.html","group":"Behaviour policies"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"Behaviour policies"},{"name":"for-corporate","label":"You run agents today","file":"for-corporate.html","group":"Who it's for"},{"name":"for-founders","label":"You are a founder","file":"for-founders.html","group":"Who it's for"},{"name":"for-startups","label":"You are a startup","file":"for-startups.html","group":"Who it's for"},{"name":"insurance","label":"Make agents insurable","file":"insurance.html","group":"Insurance"},{"name":"insure-a-program","label":"Can you insure a program?","file":"insure-a-program.html","group":"Insurance"},{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"Insurance"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"Insurance"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"Insurance"},{"name":"business-cases","label":"Business cases, by risk","file":"business-cases.html","group":"Insurance"},{"name":"pricing","label":"The four levels","file":"pricing.html","group":"Pricing"},{"name":"abp-reviewed","label":"The reviewed level","file":"abp-reviewed.html","group":"Pricing"},{"name":"reviewers","label":"Who runs your review","file":"reviewers.html","group":"Pricing"},{"name":"try-it","label":"Try it","file":"try-it.html"},{"name":"articles","label":"Articles","file":"articles.html"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"privacy","label":"Privacy","file":"privacy.html","group":"More"},{"name":"lab","label":"The Lab","file":"lab.html","group":"More"},{"name":"demos","label":"Live demos","file":"demos.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"uk-support","label":"UK support, in the open","file":"uk-support.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"admin","label":"Admin","file":"admin/","group":"More"}];RM.data.sections=[];
 
 'use strict';
 // components/dom.js — tiny DOM helpers shared by components. `el` builds an

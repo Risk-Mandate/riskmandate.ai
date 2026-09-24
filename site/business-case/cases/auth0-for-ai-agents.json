@@ -1,0 +1,48 @@
+{
+  "slug": "auth0-for-ai-agents",
+  "status": "draft",
+  "kind": "vendor",
+  "product": "Auth0 for AI Agents",
+  "vendor": "Okta (Auth0)",
+  "vendor_url": "https://auth0.com/ai",
+  "category": "Agent identity, with a human-approval step",
+  "title": "Auth0 for AI Agents, by the risk it changes",
+  "summary": "A hosted identity service for agents. Its documentation describes two things an agent deployment would feel: an action that waits for the person it acts for to approve it, every time, and a token that keeps the user as the subject and names the agent as the actor. Written as answers, that is approval on each change, a named person's account instead of an ownerless one, and a partial record, because the log records tokens issued rather than what was done with them.",
+  "read": "2026-09-24",
+  "baseline": {
+    "preset": "typical",
+    "overrides": { "q9": 2, "q14": 2, "q13": 2 },
+    "why": "The model's typical deployment, with the three answers this product addresses stated as they are without it: the agent changes things on its own, it acts under a service account nobody owns, and what it did cannot be reconstructed."
+  },
+  "does": [
+    { "text": "Asynchronous authorisation: the tool waits for the user's decision.", "quote": "If the request is approved, the tool execution will continue. If the request is rejected, the tool execution will not continue.", "url": "https://auth0.com/ai/docs/get-started/asynchronous-authorization", "read": "2026-09-24" },
+    { "text": "Every approval request is decided afresh.", "quote": "A CIBA flow always requires a response, either an approval or decline, from the authorizing user, and existing grants are not checked.", "url": "https://auth0.com/docs/get-started/authentication-and-authorization-flow/client-initiated-backchannel-authentication-flow/user-authorization-with-ciba", "read": "2026-09-24" },
+    { "text": "Delegated tokens that keep the user as the subject and name the agent.", "quote": "The agent exchanges the user's access token for a delegated token that retains the user as the subject and identifies the agent as the actor.", "url": "https://auth0.com/docs/ai-agents-mcp/agent-as-principal", "read": "2026-09-24" }
+  ],
+  "changes": [
+    { "q": "q9", "to": 1, "kind": "boundary", "holder": "the vendor, which runs it; the deployer, which chooses the tools that wait; and the user, who decides each request",
+      "why": "Only for the tools the deployer wraps with the approval step, and only if the API behind each tool requires the token the approval issues. The pages do not say the second part; it is our reading.",
+      "basis": { "quote": "A CIBA flow always requires a response, either an approval or decline, from the authorizing user, and existing grants are not checked.", "url": "https://auth0.com/docs/get-started/authentication-and-authorization-flow/client-initiated-backchannel-authentication-flow/user-authorization-with-ciba", "read": "2026-09-24" } },
+    { "q": "q14", "to": 0, "kind": "setting", "holder": "the deployer",
+      "why": "In the delegated mode. The same page offers an autonomous mode in which the agent calls APIs as itself; in that mode this answer does not move.",
+      "basis": { "quote": "The agent exchanges the user's access token for a delegated token that retains the user as the subject and identifies the agent as the actor.", "url": "https://auth0.com/docs/ai-agents-mcp/agent-as-principal", "read": "2026-09-24" } },
+    { "q": "q13", "to": 1, "kind": "setting", "holder": "the vendor",
+      "why": "Partly: the log is written when a token is issued, not when it is used, and it is kept for one to thirty days depending on the plan.",
+      "basis": { "quote": "is also written to tenant logs on every token issuance, giving you a complete per-agent audit trail", "url": "https://auth0.com/docs/ai-agents-mcp/agent-as-principal", "read": "2026-09-24" } }
+  ],
+  "reduces": [],
+  "adds": [],
+  "adds_note": "A vendor-hosted tenant becomes a dependency for every approved action, and the approval channel becomes attack surface: the documentation itself describes email as *vulnerable to phishing attacks*. Token Vault means Auth0 stores the access and refresh tokens of the third-party services the agent calls. A request expires by default after 300 seconds and is then denied. No page read says what happens to an agent's actions when the service itself is unreachable.",
+  "contradictions": [
+    { "topic": "SMS", "text": "The asynchronous-authorisation page's summary says approvals arrive via push notification, SMS, or email; the channel list on the same page, and on the CIBA flow page, names only push and email.", "urls": ["https://auth0.com/ai/docs/intro/asynchronous-authorization", "https://auth0.com/docs/get-started/authentication-and-authorization-flow/client-initiated-backchannel-authentication-flow"] },
+    { "topic": "audit trail", "text": "A complete per-agent audit trail, on the agent page, beside logs written on every token issuance, kept one to thirty days by plan, with no real-time logs, on the logs pages.", "urls": ["https://auth0.com/docs/ai-agents-mcp/agent-as-principal", "https://auth0.com/docs/deploy-monitor/logs"] },
+    { "topic": "MFA", "text": "If MFA is not configured for the tenant the request fails, on one page; if the user is not enrolled for push, it falls back to email rather than rejecting, on another. One may be about the tenant and one about the user; they read differently.", "urls": ["https://auth0.com/docs/get-started/authentication-and-authorization-flow/client-initiated-backchannel-authentication-flow/user-authorization-with-ciba", "https://auth0.com/docs/get-started/applications/configure-client-initiated-backchannel-authentication"] },
+    { "topic": "plans", "text": "An Enterprise plan or an add-on is required, on the CIBA flow page; email notifications are available on Essentials, Professional and Enterprise, on the AI page.", "urls": ["https://auth0.com/docs/get-started/authentication-and-authorization-flow/client-initiated-backchannel-authentication-flow", "https://auth0.com/ai/docs/intro/asynchronous-authorization"] }
+  ],
+  "does_not_claim": [
+    "That approval stops the action by itself. It does when the API behind the tool requires the approved token; the pages do not say whether that is required, so the case says it is conditional.",
+    "Anything about the agent-as-principal feature beyond its page, which is marked Early Access.",
+    "That it was tested. Nothing was run; every change rests on the documentation quoted beside it."
+  ],
+  "next": "A draft, to be sent to the product's owners before it is listed. If a change is wrong, the case changes with the date they said so."
+}

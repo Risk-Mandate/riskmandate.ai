@@ -174,13 +174,15 @@ const CSS = `
 
 // ------------------------------------------------------------------ cut a page from the donor
 const donor = readFileSync(join(SITE, 'pricing.html'), 'utf8');
-function cut(name, title, desc, body) {
+function cut(name, title, desc, body, noindex = false) {
   let head = donor.slice(0, donor.indexOf('<body'));
+  if (noindex) head = head.replace(/<\/title>/, '</title>\n<meta name="robots" content="noindex,nofollow">');
   head = head.replace(/<title>.*?<\/title>/s, `<title>${esc(title)}</title>`);
   head = head.replace(/(<meta name="description" content=")[^"]*(")/, `$1${esc(desc)}$2`);
   head = head.replace(/(<meta property="og:title" content=")[^"]*(")/, `$1${esc(title)}$2`);
   head = head.replace(/(<meta property="og:description" content=")[^"]*(")/, `$1${esc(desc)}$2`);
   head = head.split('pricing.html').join(`${name}.html`).split('href="pricing.md"').join(`href="${name}.md"`);
+  if (noindex) head = head.replace(/<link rel="alternate" type="text\/markdown"[^>]*>\n?/, '');   // a draft has no twin
   head = head.replace('</style>', CSS + '</style>');
   const bodyStart = donor.indexOf('<body'), scriptAt = donor.indexOf('<script>', bodyStart);
   const donorBody = donor.slice(bodyStart, scriptAt);
@@ -202,7 +204,7 @@ const altitudes = (res) => `<div class="bc-alt">${ALTITUDES.map((a) => `
       <div class="bc-a"><h3>${esc(a.label)}</h3><span class="why">${esc(a.note)}</span>${a.roles.map((id) => {
         const r = res.byRole.find((x) => x.role.id === id);
         const d = r.before.length - r.after.length;
-        return `<div class="bc-role"><b>${esc(ROLE[id].label)}</b><span class="c">${r.before.length} → ${r.after.length}${d > 0 ? ` <span class="d">−${d}</span>` : d < 0 ? ` +${-d}` : ''}</span>${r.retired.length || r.added.length ? `<span class="refs">${r.retired.length ? 'retired ' + r.retired.join(', ') : ''}${r.retired.length && r.added.length ? ' · ' : ''}${r.added.length ? 'named ' + r.added.join(', ') : ''}</span>` : ''}</div>`;
+        return `<div class="bc-role"><b>${esc(ROLE[id].label)}</b><span class="c">${r.before.length} → ${r.after.length}${d > 0 ? ` <span class="d">−${d}</span>` : d < 0 ? ` +${-d}` : ''}</span>${r.retired.length || r.added.length ? `<span class="refs">${r.retired.length ? 'retired ' + r.retired.join(', ') : ''}${r.retired.length && r.added.length ? ' · ' : ''}${r.added.length ? 'new ' + r.added.join(', ') : ''}</span>` : ''}</div>`;
       }).join('')}</div>`).join('')}
     </div>`;
 
@@ -259,12 +261,12 @@ function casePage(c) {
     <div class="wrap">
       <div class="shead">
         <span class="tag">03 · The register, before and after</span>
-        <h2>${R.retired.length} retired${R.added.length ? `, ${R.added.length} named` : ''}, <span class="g">${R.kept.length} unchanged.</span></h2>
-        <p>Computed from the model for the deployment above: every risk that holds without it, and every risk that holds with it.${R.added.length ? ' A named risk is one that was always there and that the change brings onto the register; a register that grows because something was found is working.' : ''}</p>
+        <h2>${R.retired.length} retired${R.added.length ? `, ${R.added.length} new` : ''}, <span class="g">${R.kept.length} unchanged.</span></h2>
+        <p>Computed from the model for the deployment above: every risk that holds without it, and every risk that holds with it.${R.added.length ? ' A new entry is either one the change brought to light, where an answer replaced a don&rsquo;t know, or a narrower risk in place of a wider one, where the answer moved from no to partly. Either way the register is more exact, and a register that grows because something was found is working.' : ''}</p>
       </div>
-      <div class="bc-sum"><div class="off"><span class="n">${R.retired.length}</span><span class="l">retired</span></div><div class="new"><span class="n">${R.added.length}</span><span class="l">named</span></div><div><span class="n">${R.before.size} → ${R.afterRisks.size}</span><span class="l">entries on the register</span></div></div>
+      <div class="bc-sum"><div class="off"><span class="n">${R.retired.length}</span><span class="l">retired</span></div><div class="new"><span class="n">${R.added.length}</span><span class="l">new</span></div><div><span class="n">${R.before.size} → ${R.afterRisks.size}</span><span class="l">entries on the register</span></div></div>
       ${R.retired.length ? `<p class="bc-h">Retired</p><div class="bc-risks">${R.retired.map((r) => riskRow(r, 'off')).join('\n      ')}</div>` : ''}
-      ${R.added.length ? `<p class="bc-h">Named</p><div class="bc-risks">${R.added.map((r) => riskRow(r, 'new')).join('\n      ')}</div>` : ''}
+      ${R.added.length ? `<p class="bc-h">New</p><div class="bc-risks">${R.added.map((r) => riskRow(r, 'new')).join('\n      ')}</div>` : ''}
     </div>
   </section>
 
@@ -304,6 +306,18 @@ function casePage(c) {
     </div>
   </section>` : ''}
 
+  ${(c.contradictions || []).length ? `<section class="psection">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Where its pages disagree</span>
+        <h2>Published unresolved, <span class="g">for ${esc(c.vendor)} to settle.</span></h2>
+        <p>Each pair was read on the same day. We have not tested which is true, because that would mean testing somebody else&rsquo;s system.</p>
+      </div>
+      <ul class="bc-list">${c.contradictions.map((x) => `<li><b>${esc(x.topic)}.</b> ${txt(x.text)}${x.urls ? ` <span class="bc-src">${x.urls.map((u) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(new URL(u).pathname.split('/').filter(Boolean).pop() || new URL(u).hostname)}</a>`).join(' · ')}</span>` : ''}</li>`).join('')}
+      </ul>
+    </div>
+  </section>` : ''}
+
   <section class="psection">
     <div class="wrap">
       <div class="shead">
@@ -327,16 +341,16 @@ function casePage(c) {
     <div class="cta-row"><a class="btn btn-green" href="business-cases.html">All the cases</a><a class="btn btn-ghost" href="mailto:dinis.cruz@owasp.org?subject=Business%20case%20%C2%B7%20${encodeURIComponent(c.product)}">Write to us</a></div>
   </div>
 </section>`;
-  return cut(name, title, desc, body);
+  return cut(name, title, desc, body, c.status === 'draft');
 }
 
 // ------------------------------------------------------------------ the section page
 function indexPage() {
   const catRows = categories.items.map((k) => {
     const R = k.result;
-    return `<div class="bc-tr" role="row"><span role="cell">${esc(k.name)}<span class="bc-src">${esc(k.what)}</span></span><span role="cell" data-k="Answers it changes">${k.changes.map((c) => `${esc(Q[c.q].text)} <span class="bc-was">${esc(opt(c.q, k.base[c.q]))}</span> → <span class="bc-now">${esc(opt(c.q, c.to))}</span>`).join('<br>')}</span><span role="cell" data-k="Retired">${R.retired.length ? R.retired.map((r) => `${esc(r.ref)} ${esc(r.statement.toLowerCase())}`).join('; ') : 'none, for this deployment'}${R.added.length ? `<span class="bc-src">named: ${R.added.map((r) => esc(r.ref)).join(', ')}</span>` : ''}</span><span role="cell" data-k="What it adds">${txt(k.adds_text || 'not stated')}${(k.examples || []).length ? `<span class="bc-src">for example: ${k.examples.map((e) => `<a href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.name)}</a>`).join(', ')}</span>` : ''}</span></div>`;
+    return `<div class="bc-tr" role="row"><span role="cell">${esc(k.name)}<span class="bc-src">${esc(k.what)}</span></span><span role="cell" data-k="Answers it changes">${k.changes.map((c) => `${esc(Q[c.q].text)} <span class="bc-was">${esc(opt(c.q, k.base[c.q]))}</span> → <span class="bc-now">${esc(opt(c.q, c.to))}</span>`).join('<br>')}</span><span role="cell" data-k="Retired">${R.retired.length ? R.retired.map((r) => `${esc(r.ref)} ${esc(r.statement.toLowerCase())}`).join('; ') : 'none, for this deployment'}${R.added.length ? `<span class="bc-src">new: ${R.added.map((r) => esc(r.ref)).join(', ')}</span>` : ''}</span><span role="cell" data-k="What it adds">${txt(k.adds_text || 'not stated')}${(k.examples || []).length ? `<span class="bc-src">for example: ${k.examples.map((e) => `<a href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.name)}</a>`).join(', ')}</span>` : ''}</span></div>`;
   }).join('\n      ');
-  const caseCards = published.map((c) => `<div class="bc-card"><span class="k">${c.kind === 'ours' ? '<span class="bc-pill ours">our own</span>' : ''}${esc(c.category)}</span><h3><a href="business-case-${esc(c.slug)}.html">${esc(c.product)}${c.vendor && c.kind !== 'ours' ? ` · ${esc(c.vendor)}` : ''}</a></h3><p>${c.result.retired.length} retired, ${c.result.added.length} named, ${c.result.kept.length} unchanged, for the deployment it states. ${txt(c.summary.split('. ')[0])}.</p></div>`).join('\n      ');
+  const caseCards = published.map((c) => `<div class="bc-card"><span class="k">${c.kind === 'ours' ? '<span class="bc-pill ours">our own</span>' : ''}${esc(c.category)}</span><h3><a href="business-case-${esc(c.slug)}.html">${esc(c.product)}${c.vendor && c.kind !== 'ours' ? ` · ${esc(c.vendor)}` : ''}</a></h3><p>${c.result.retired.length} retired, ${c.result.added.length} new, ${c.result.kept.length} unchanged, for the deployment it states. ${txt(c.summary.split('. ')[0])}.</p></div>`).join('\n      ');
 
   const body = `<main class="phero">
   <div class="wrap">

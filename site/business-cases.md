@@ -40,7 +40,13 @@ The model is the RiskGraph Explorer’s, from one of our [live demos](demos.html
 
 ### [Agent Behaviour Policy](business-case-riskmandate-abp.html)
 
-2 retired, 1 named, 22 unchanged, for the deployment it states. The first case is our own product, so the method is tested on us before it is used on anybody else.
+2 retired, 1 new, 22 unchanged, for the deployment it states. The first case is our own product, so the method is tested on us before it is used on anybody else.
+
+## 12 categories, computed the same way.
+
+Twelve kinds of product that could sit around an agent, each computed against the typical deployment with its own questions answered as they would be without it. Every row is our reading of what the category does, not any vendor’s claim, and the change is conservative on purpose: where a category could move an answer to _partly_ or _fully_, the row says _partly_.
+
+Two patterns are worth reading off the table. Most categories retire one or two entries each, so the case for any single product is narrow and exact rather than broad, and a register gets small by combining them. And every category adds something: a service in the request path, a store of prompts, a credential with wide reach. The case is only honest with that column in it.
 
 ## What a case will and will not say.
 

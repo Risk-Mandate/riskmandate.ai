@@ -99,6 +99,22 @@
       "unlisted": true
     },
     {
+      "name": "business-case-agentgateway",
+      "label": "Business case · agentgateway (draft)",
+      "file": "business-case-agentgateway.html",
+      "group": "Insurance",
+      "unlisted": true,
+      "private": true
+    },
+    {
+      "name": "business-case-auth0-for-ai-agents",
+      "label": "Business case · Auth0 for AI Agents (draft)",
+      "file": "business-case-auth0-for-ai-agents.html",
+      "group": "Insurance",
+      "unlisted": true,
+      "private": true
+    },
+    {
       "name": "pricing",
       "label": "The four levels",
       "file": "pricing.html",
