@@ -67,9 +67,22 @@ RM.components.nav = (function () {
     var demo = wrap.querySelector('.demo');
     if (demo) wrap.insertBefore(burger, demo); else wrap.appendChild(burger);
 
+    // The header's version chip has no room below the drawer breakpoint, so the drawer carries
+    // it instead: the first entry, cloned from the chip while the drawer is open, so that a
+    // phone can confirm which version it is looking at without scrolling.
+    var chip = wrap.querySelector('a.version'), row = null;
     function set(open) {
       top.classList.toggle('nav-open', open);
       burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (row) { row.parentNode.removeChild(row); row = null; }
+      if (open && chip) {
+        row = doc.createElement('a');
+        row.className = 'navversion';
+        row.href = chip.getAttribute('href');
+        row.title = chip.getAttribute('title') || '';
+        row.textContent = 'Version ' + chip.textContent + ' · what shipped';
+        links.insertBefore(row, links.firstChild);
+      }
     }
     burger.addEventListener('click', function (e) {
       e.stopPropagation();
