@@ -365,3 +365,16 @@ test('no page says rung: the ladder has steps', () => {
     assert.ok(!m, `${f} says rung: …${m?.[0].trim()}…`);
   }
 });
+
+test('each menu group is one run in pages.json, so the menu cannot split a group in two', () => {
+  // generate.mjs builds the menu from consecutive runs of the same group. An entry for group A
+  // placed among group B's entries splits B into two dropdowns and promotes the stray entry to
+  // the top level; on 24 September 2026 that pushed the header past 1280px on every page.
+  const seen = new Set(); let last = null;
+  for (const p of listed.filter(p => !p.unlisted && p.group)) {
+    if (p.group !== last) {
+      assert.ok(!seen.has(p.group), `pages.json: "${p.name}" starts a second run of group "${p.group}" — keep a group's entries together`);
+      seen.add(p.group); last = p.group;
+    }
+  }
+});

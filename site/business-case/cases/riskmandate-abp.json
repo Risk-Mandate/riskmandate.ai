@@ -1,0 +1,46 @@
+{
+  "slug": "riskmandate-abp",
+  "status": "published",
+  "kind": "ours",
+  "product": "Agent Behaviour Policy",
+  "vendor": "RiskMandate",
+  "vendor_url": "https://riskmandate.ai/",
+  "category": "Mapping: the precondition for every other case",
+  "title": "An Agent Behaviour Policy, by the risk it changes",
+  "summary": "The first case is our own product, so the method is tested on us before it is used on anybody else. An Agent Behaviour Policy changes no setting and blocks nothing. It writes down what one agent in one deployment can reach, what it was authorised to do, the gap, and what stands in the way. In the register that means two risks retired, one hidden risk named, and a handful reduced by instructions the agent is given, which the site calls expectations because they are hope, not control.",
+  "disclosure": "This is RiskMandate's own product, and the case is written by RiskMandate. Read it with that in mind; the method is the same one the other cases use, and the model is public.",
+  "read": "2026-09-24",
+  "baseline": {
+    "preset": "typical",
+    "overrides": { "q6": 2 },
+    "why": "The typical deployment from the model, as it is before anybody has mapped the agent: asked what it could reach at full speed, the honest answer is that nobody knows."
+  },
+  "does": [
+    { "text": "Enumerates what the agent can reach, from the vendor's own pages or a run we are entitled to make, and writes it down as the grant.", "link": "abp.html" },
+    { "text": "Records what the deployer authorised, as the mandate, and derives the gap between the two.", "link": "abp.html" },
+    { "text": "Names, for each capability, what stands in the way: nothing, an expectation, a setting or a boundary, and who holds it.", "link": "how-it-works.html" },
+    { "text": "Ships the instructions an agent reads, AGENTS.md and SKILL.md, so the mandate is also written where the agent will see it.", "link": "agent-behaviour-policy.html" }
+  ],
+  "changes": [
+    {
+      "q": "q6",
+      "to": 1,
+      "kind": "states",
+      "holder": "the deployer",
+      "why": "The policy does not change what the agent can reach. It replaces don't know with the answer. For the typical deployment that answer is customer-facing, and saying so is exactly what puts a new risk on the register."
+    }
+  ],
+  "reduces": [
+    { "risks": ["RISK-6", "RISK-15"], "instruction": "Ask before any change to production, and say what the change is.", "barrier": "expectation" },
+    { "risks": ["RISK-32"], "instruction": "Never edit more than five records in one run without asking; keep the prior state of anything you edit.", "barrier": "expectation" },
+    { "risks": ["RISK-7", "RISK-3"], "instruction": "Read personal data only for the task in hand, and never copy it out of the system it is in.", "barrier": "expectation" }
+  ],
+  "reduces_note": "Each of these is a sentence the agent reads. It makes the behaviour less likely and bounds nothing: an agent can ignore it, misread it, or be told otherwise by something it reads. That is still better than silence, and it is why the other cases on this page exist.",
+  "adds": [],
+  "does_not_claim": [
+    "That any risk is smaller because the agent was told not to do something. Expectations are listed as reductions in likelihood, never as retirements.",
+    "That the register after the policy is acceptable. Acceptability is a decision a named person makes, for an interval.",
+    "Anything about corporate risks. They hold while an agent runs in production with personal data in reach, with or without a behaviour policy."
+  ],
+  "next": "Every other case on this page starts from a question somebody has already answered truthfully. That answer is what a behaviour policy produces, which is why this case comes first."
+}

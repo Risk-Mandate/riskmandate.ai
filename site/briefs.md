@@ -223,6 +223,19 @@ Each one is linked in full, as received, with nothing edited. Where a brief and 
 - **The Calendar behaviour policies.** In draft; the article quotes their rows and says so
 - **Evidence for calendar over email.** A handful of conversations, reported as that
 
+### Business cases by risk reduced: the register without a security product and with it, from the operator to the board, starting with our own
+
+**sha256** 1dabf7f55b1cef3af6cacef62d5fcd0c46d0adb58ea96277cff8e7e79926dade
+
+**A section rather than an article, and win-win-win.** The business case for a security product is the risk register without it and with it, at every altitude from the operator to the board. Start with RiskMandate’s own product, including what a hope-level instruction to the agent is worth; research the categories of security product for agents; pick targets; publish the cases and use them to start conversations with the vendors. The memo asks whether earlier work already covers the risks and their owners: it does, in the RiskGraph Explorer vault, and the section runs on that model.
+
+- [Business cases, by the risk they change](business-cases.html): the method, the rules, and twelve categories of product computed against the typical deployment, each with what it adds
+- [The first case, our own](business-case-riskmandate-abp.html): two risks retired, one hidden risk named, and three expectations listed as reductions, never retirements
+- An engine that reproduces the Explorer’s rules, and a copy of its model with digests, so every register on these pages is computed rather than written
+- **The named cases, published.** Two are built as drafts, unlisted and marked noindex, until the lead decides to send them to the vendors
+- **A semantic graph per product.** A case is written as the answers a product changes among sixteen questions; what the questions do not ask about cannot yet be expressed
+- **The outreach.** The lead’s, after review
+
 ## And the instructions that arrived as speech or a sentence.
 
 These have no digest to check, which makes them the ones most easily lost — a voice memo that changed the direction of the whole site leaves no artefact at all unless somebody writes it down. So they are recorded here in the same list, with the same two columns.

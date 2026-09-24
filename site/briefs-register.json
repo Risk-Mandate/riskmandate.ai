@@ -511,6 +511,40 @@
         "A restore for edited events. Google documents none for users; Workspace with Vault keeps earlier versions an admin can export, and the article says the memo's claim holds for personal accounts and needs that qualification for Workspace.",
         "The early-user conversation (calendar over email) is reported as a handful of conversations, not a survey."
       ]
+    },
+    {
+      "id": "D16",
+      "title": "Business cases by risk reduced: the register without a security product and with it, from the operator to the board, starting with our own",
+      "version": null,
+      "type": "spoken brief, transcribed",
+      "dated": "2026-09-24",
+      "file": "assets/briefs/2026-09-24__transcript__business-case-by-risk-reduced.txt",
+      "bytes": 6092,
+      "sha256": "1dabf7f55b1cef3af6cacef62d5fcd0c46d0adb58ea96277cff8e7e79926dade",
+      "received": [
+        "2026-09-24T15:00Z"
+      ],
+      "duplicate_of": null,
+      "status": "partly",
+      "produced": [
+        {
+          "what": "Business cases, by the risk they change: the method, the rules, and twelve categories computed against the typical deployment",
+          "url": "business-cases.html"
+        },
+        {
+          "what": "The first case, our own: an Agent Behaviour Policy retires two risks, names one hidden one, and lists three expectations as reductions, never retirements",
+          "url": "business-case-riskmandate-abp.html"
+        },
+        {
+          "what": "The engine and a copy of the RiskGraph Explorer model with its provenance, so every register is computed rather than written",
+          "url": "business-case/model/PROVENANCE.md"
+        }
+      ],
+      "not_done": [
+        "The two named cases (agentgateway; Auth0 for AI Agents) are built as drafts, unlisted and marked noindex, until the lead decides to send them to the vendors.",
+        "A semantic graph per product beyond the model's sixteen questions. A case is written as the answers a product changes; products that act on things the questions do not ask about cannot yet be expressed.",
+        "Outreach to the vendors. It is the lead's, after review."
+      ]
     }
   ],
   "informal": [

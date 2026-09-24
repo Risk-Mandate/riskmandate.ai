@@ -1,0 +1,353 @@
+{
+  "_": "Every fact is a triple, and every object is a node — so every answer moves an edge in the estate view rather than nudging a counter. polarity: exposure supports risks; assurance supports none and retires what it contradicts. implies: this fact also claims a classification.",
+  "items": [
+    {
+      "id": "F-1",
+      "subject": "TW-agent",
+      "predicate": "runs-in",
+      "object": "TW-prod",
+      "polarity": "exposure"
+    },
+    {
+      "id": "F-2",
+      "subject": "TW-agent",
+      "predicate": "runs-only-in",
+      "object": "TW-nonprod",
+      "polarity": "assurance"
+    },
+    {
+      "id": "F-3",
+      "subject": "TW-agent",
+      "predicate": "absent-from",
+      "object": "TW-prod",
+      "polarity": "assurance"
+    },
+    {
+      "id": "F-4",
+      "subject": "TW-agent",
+      "predicate": "reads-only-from",
+      "object": "TW-prod",
+      "polarity": "assurance"
+    },
+    {
+      "id": "F-5",
+      "subject": "TW-agent",
+      "predicate": "can-change",
+      "object": "TW-prod",
+      "polarity": "exposure"
+    },
+    {
+      "id": "F-6",
+      "subject": "TW-approval",
+      "predicate": "gates",
+      "object": "TW-agent",
+      "polarity": "assurance"
+    },
+    {
+      "id": "F-7",
+      "subject": "TW-approval",
+      "predicate": "absent-for",
+      "object": "TW-agent",
+      "polarity": "exposure"
+    },
+    {
+      "id": "F-8",
+      "subject": "TW-authority",
+      "predicate": "held-by-a-person-for",
+      "object": "TW-agent",
+      "polarity": "assurance"
+    },
+    {
+      "id": "F-9",
+      "subject": "TW-authority",
+      "predicate": "held-by-a-group-for",
+      "object": "TW-agent",
+      "polarity": "exposure"
+    },
+    {
+      "id": "F-10",
+      "subject": "TW-authority",
+      "predicate": "held-by-nobody-for",
+      "object": "TW-agent",
+      "polarity": "exposure"
+    },
+    {
+      "id": "F-11",
+      "subject": "TW-stop",
+      "predicate": "stops-in-one-action",
+      "object": "TW-agent",
+      "polarity": "assurance"
+    },
+    {
+      "id": "F-12",
+      "subject": "TW-stop",
+      "predicate": "stops-in-many-actions",
+      "object": "TW-agent",
+      "polarity": "exposure"
+    },
+    {
+      "id": "F-13",
+      "subject": "TW-stop",
+      "predicate": "cannot-stop",
+      "object": "TW-agent",
+      "polarity": "exposure"
+    },
+    {
+      "id": "F-14",
+      "subject": "TW-stop",
+      "predicate": "measured-in-minutes-for",
+      "object": "TW-agent",
+      "polarity": "assurance"
+    },
+    {
+      "id": "F-15",
+      "subject": "TW-stop",
+      "predicate": "measured-in-hours-for",
+      "object": "TW-agent",
+      "polarity": "assurance"
+    },
+    {
+      "id": "F-16",
+      "subject": "TW-stop",
+      "predicate": "never-timed-for",
+      "object": "TW-agent",
+      "polarity": "exposure"
+    },
+    {
+      "id": "F-17",
+      "subject": "TW-stop",
+      "predicate": "proven-in-production-on",
+      "object": "TW-agent",
+      "polarity": "assurance"
+    },
+    {
+      "id": "F-18",
+      "subject": "TW-stop",
+      "predicate": "proven-in-test-only-on",
+      "object": "TW-agent",
+      "polarity": "exposure"
+    },
+    {
+      "id": "F-19",
+      "subject": "TW-stop",
+      "predicate": "never-exercised-on",
+      "object": "TW-agent",
+      "polarity": "exposure"
+    },
+    {
+      "id": "F-20",
+      "subject": "TW-stop",
+      "predicate": "effects-mapped-on",
+      "object": "TW-deps",
+      "polarity": "assurance"
+    },
+    {
+      "id": "F-21",
+      "subject": "TW-stop",
+      "predicate": "effects-partly-mapped-on",
+      "object": "TW-deps",
+      "polarity": "exposure"
+    },
+    {
+      "id": "F-22",
+      "subject": "TW-stop",
+      "predicate": "effects-unmapped-on",
+      "object": "TW-deps",
+      "polarity": "exposure"
+    },
+    {
+      "id": "F-23",
+      "subject": "TW-entitlements",
+      "predicate": "bound-to-internal-for",
+      "object": "TW-agent",
+      "polarity": "assurance"
+    },
+    {
+      "id": "F-24",
+      "subject": "TW-agent",
+      "predicate": "can-reach",
+      "object": "TW-custsys",
+      "polarity": "exposure"
+    },
+    {
+      "id": "F-25",
+      "subject": "TW-entitlements",
+      "predicate": "unenumerated-for",
+      "object": "TW-agent",
+      "polarity": "exposure"
+    },
+    {
+      "id": "F-26",
+      "subject": "TW-changes",
+      "predicate": "fully-reversible-by",
+      "object": "TW-agent",
+      "polarity": "assurance"
+    },
+    {
+      "id": "F-27",
+      "subject": "TW-changes",
+      "predicate": "partly-reversible-by",
+      "object": "TW-agent",
+      "polarity": "exposure"
+    },
+    {
+      "id": "F-28",
+      "subject": "TW-changes",
+      "predicate": "irreversible-by",
+      "object": "TW-agent",
+      "polarity": "exposure"
+    },
+    {
+      "id": "F-29",
+      "subject": "TW-runbook",
+      "predicate": "exercised-for",
+      "object": "TW-agent",
+      "polarity": "assurance"
+    },
+    {
+      "id": "F-30",
+      "subject": "TW-runbook",
+      "predicate": "written-but-untested-for",
+      "object": "TW-agent",
+      "polarity": "exposure"
+    },
+    {
+      "id": "F-31",
+      "subject": "TW-runbook",
+      "predicate": "absent-for",
+      "object": "TW-agent",
+      "polarity": "exposure"
+    },
+    {
+      "id": "F-32",
+      "subject": "TW-agent",
+      "predicate": "cannot-access",
+      "object": "TW-custdata",
+      "polarity": "assurance"
+    },
+    {
+      "id": "F-33",
+      "subject": "TW-agent",
+      "predicate": "can-read",
+      "object": "TW-custdata",
+      "polarity": "exposure"
+    },
+    {
+      "id": "F-34",
+      "subject": "TW-agent",
+      "predicate": "can-modify",
+      "object": "TW-custdata",
+      "polarity": "exposure"
+    },
+    {
+      "id": "F-35",
+      "subject": "TW-custdata",
+      "predicate": "classified-as",
+      "object": "CL-none",
+      "polarity": "assurance",
+      "implies": "CL-none"
+    },
+    {
+      "id": "F-36",
+      "subject": "TW-custdata",
+      "predicate": "classified-as",
+      "object": "CL-personal",
+      "polarity": "exposure",
+      "implies": "CL-personal"
+    },
+    {
+      "id": "F-37",
+      "subject": "TW-custdata",
+      "predicate": "classified-as",
+      "object": "CL-special",
+      "polarity": "exposure",
+      "implies": "CL-special"
+    },
+    {
+      "id": "F-38",
+      "subject": "TW-decision",
+      "predicate": "untouched-by",
+      "object": "TW-agent",
+      "polarity": "assurance"
+    },
+    {
+      "id": "F-39",
+      "subject": "TW-decision",
+      "predicate": "informed-by",
+      "object": "TW-agent",
+      "polarity": "exposure",
+      "implies": "CL-informs"
+    },
+    {
+      "id": "F-40",
+      "subject": "TW-decision",
+      "predicate": "made-by",
+      "object": "TW-agent",
+      "polarity": "exposure",
+      "implies": "CL-decides"
+    },
+    {
+      "id": "F-41",
+      "subject": "TW-log",
+      "predicate": "reconstructs",
+      "object": "TW-agent",
+      "polarity": "assurance"
+    },
+    {
+      "id": "F-42",
+      "subject": "TW-log",
+      "predicate": "partly-reconstructs",
+      "object": "TW-agent",
+      "polarity": "exposure"
+    },
+    {
+      "id": "F-43",
+      "subject": "TW-log",
+      "predicate": "cannot-reconstruct",
+      "object": "TW-agent",
+      "polarity": "exposure"
+    },
+    {
+      "id": "F-44",
+      "subject": "TW-identity",
+      "predicate": "attributable-to-a-person-for",
+      "object": "TW-agent",
+      "polarity": "assurance"
+    },
+    {
+      "id": "F-45",
+      "subject": "TW-identity",
+      "predicate": "attributable-only-to-a-team-for",
+      "object": "TW-agent",
+      "polarity": "exposure"
+    },
+    {
+      "id": "F-46",
+      "subject": "TW-identity",
+      "predicate": "unattributable-for",
+      "object": "TW-agent",
+      "polarity": "exposure"
+    },
+    {
+      "id": "F-47",
+      "subject": "TW-agent",
+      "predicate": "cannot-reach",
+      "object": "TW-egress",
+      "polarity": "assurance"
+    },
+    {
+      "id": "F-48",
+      "subject": "TW-agent",
+      "predicate": "allow-listed-to",
+      "object": "TW-egress",
+      "polarity": "assurance"
+    },
+    {
+      "id": "F-49",
+      "subject": "TW-agent",
+      "predicate": "can-reach",
+      "object": "TW-egress",
+      "polarity": "exposure"
+    }
+  ]
+}

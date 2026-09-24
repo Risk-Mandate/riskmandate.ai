@@ -1,0 +1,101 @@
+{
+  "_": "Regulatory provisions. A summary says what the provision is ABOUT, never what the reader failed to do.",
+  "items": [
+    {
+      "id": "aia-6",
+      "instrument": "EU AI Act",
+      "ref": "Art. 6 + Annex III",
+      "summary": "Classification as high-risk, by the use the system is put to."
+    },
+    {
+      "id": "aia-9",
+      "instrument": "EU AI Act",
+      "ref": "Art. 9",
+      "summary": "Risk management across the lifecycle."
+    },
+    {
+      "id": "aia-12",
+      "instrument": "EU AI Act",
+      "ref": "Art. 12",
+      "summary": "Record-keeping sufficient to trace how the system operated."
+    },
+    {
+      "id": "aia-14",
+      "instrument": "EU AI Act",
+      "ref": "Art. 14",
+      "summary": "Human oversight, including the ability to intervene or interrupt."
+    },
+    {
+      "id": "aia-26",
+      "instrument": "EU AI Act",
+      "ref": "Art. 26",
+      "summary": "Deployer obligations — oversight by persons with competence and authority."
+    },
+    {
+      "id": "aia-72",
+      "instrument": "EU AI Act",
+      "ref": "Art. 72",
+      "summary": "Post-market monitoring — deployed behaviour watched, not assumed."
+    },
+    {
+      "id": "aia-73",
+      "instrument": "EU AI Act",
+      "ref": "Art. 73",
+      "summary": "Serious incident reporting, with a clock that starts on awareness."
+    },
+    {
+      "id": "gdpr-5",
+      "instrument": "GDPR",
+      "ref": "Art. 5(2)",
+      "summary": "Accountability — being able to demonstrate how processing was handled."
+    },
+    {
+      "id": "gdpr-9",
+      "instrument": "GDPR",
+      "ref": "Art. 9",
+      "summary": "Special categories of personal data, and the narrower grounds for handling them."
+    },
+    {
+      "id": "gdpr-22",
+      "instrument": "GDPR",
+      "ref": "Art. 22",
+      "summary": "Decisions with legal or similarly significant effect, made without human involvement."
+    },
+    {
+      "id": "gdpr-32",
+      "instrument": "GDPR",
+      "ref": "Art. 32",
+      "summary": "Security of processing appropriate to the risk."
+    },
+    {
+      "id": "gdpr-35",
+      "instrument": "GDPR",
+      "ref": "Art. 35",
+      "summary": "Data protection impact assessment where processing is likely to be high risk."
+    },
+    {
+      "id": "nis2-21",
+      "instrument": "NIS2",
+      "ref": "Art. 21",
+      "summary": "Risk-management measures including incident handling."
+    },
+    {
+      "id": "nis2-23",
+      "instrument": "NIS2",
+      "ref": "Art. 23",
+      "summary": "Incident reporting, with early-warning timescales."
+    },
+    {
+      "id": "pci-3",
+      "instrument": "PCI DSS",
+      "ref": "Req. 3",
+      "summary": "Protect stored account data."
+    },
+    {
+      "id": "pci-7",
+      "instrument": "PCI DSS",
+      "ref": "Req. 7",
+      "summary": "Restrict access to cardholder data by business need to know."
+    }
+  ]
+}

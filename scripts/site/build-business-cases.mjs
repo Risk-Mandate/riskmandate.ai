@@ -1,0 +1,467 @@
+// build-business-cases.mjs — the business case for a security product, by the risk it changes.
+//
+//   node scripts/site/build-business-cases.mjs [--check]
+//
+// Reads   site/business-case/model/        the RiskGraph Explorer's model, copied (PROVENANCE.md)
+//         site/business-case/cases/*.json   one product each: a stated deployment, and the answers
+//                                           the product changes, each backed by its own words
+//         site/business-case/categories.json   the same, for kinds of product rather than products
+// Writes  site/business-cases.html          the section: the method, the cases, the categories
+//         site/business-case-<slug>.html    one page per case
+//
+// The principle is the lead's: the register with the product in place should be smaller than
+// the register without it, at every altitude from the operator to the board, and that difference
+// is the business case. Nothing here is asserted by hand. The register before and after is
+// computed by the same three rules the Explorer runs (scripts/site/business-case/engine.mjs), so a
+// vendor who disagrees can check the arithmetic and argue with the answers, which is the only
+// thing worth arguing with.
+//
+// Refusals: a change with no basis; a basis that is a vendor's words without a URL and a date; a
+// case whose status is not published or draft; a reduction that claims to retire anything. A
+// draft is built but kept out of the menu and the index until the lead publishes it.
+
+import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
+import { dirname, join, resolve }                               from 'node:path';
+import { fileURLToPath }                                        from 'node:url';
+import { loadModel, compute }                                   from './business-case/engine.mjs';
+
+const ROOT  = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
+const SITE  = join(ROOT, 'site');
+const DIR   = join(SITE, 'business-case');
+const CHECK = process.argv.includes('--check');
+const M     = loadModel(join(DIR, 'model'));
+
+// The model is a copy of a vault's data. PROVENANCE.md records each file's digest at the time
+// of copying; a file that no longer matches has drifted from the vault it claims to be.
+{
+  const { createHash } = await import('node:crypto');
+  const prov = readFileSync(join(DIR, 'model', 'PROVENANCE.md'), 'utf8');
+  for (const [, file, want] of prov.matchAll(/- `([a-z]+\.json)` ([0-9a-f]{64})/g)) {
+    const have = createHash('sha256').update(readFileSync(join(DIR, 'model', file))).digest('hex');
+    if (have !== want) { console.error(`business cases: model/${file} does not match its digest in PROVENANCE.md — re-copy it from the vault, or update the note with the vault version it came from`); process.exit(1); }
+  }
+}
+const esc   = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+const txt   = (s) => esc(s).replace(/\*([^*]+)\*/g, '<em>$1</em>');
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const niceDate = (d) => `${parseInt(d.slice(8, 10), 10)} ${MONTHS[parseInt(d.slice(5, 7), 10) - 1]} ${d.slice(0, 4)}`;
+const fail = (m) => { console.error(`business cases: ${m}`); process.exit(1); };
+
+const Q    = Object.fromEntries(M.questions.map((q) => [q.id, q]));
+const RISK = Object.fromEntries(M.risks.map((r) => [r.ref, r]));
+const ROLE = Object.fromEntries(M.roles.map((r) => [r.id, r]));
+const opt  = (q, i) => Q[q].options[i][0];
+
+// Four altitudes, from the person paged to the people who answer for the organisation.
+const ALTITUDES = [
+  { id: 'operator',  label: 'Operators',  roles: ['RO-sre', 'RO-service'],               note: 'who run it, and are paged when it goes wrong' },
+  { id: 'owner',     label: 'Owners',     roles: ['RO-platform', 'RO-ciso', 'RO-dpo'],    note: 'who own what it may touch, and can say what happened' },
+  { id: 'executive', label: 'Executives', roles: ['RO-cto', 'RO-cpo', 'RO-cfo', 'RO-ceo'], note: 'who answer for speed, product, cost and the whole' },
+  { id: 'board',     label: 'The board',  roles: ['RO-board'],                            note: 'who must be able to defend how it is run' }
+];
+const CHANGE_KIND = { states: 'states the answer', expectation: 'an expectation', setting: 'a setting', boundary: 'a boundary' };
+
+// ------------------------------------------------------------------ read and check the inputs
+const baselineOf = (b) => {
+  const preset = M.presets.find((p) => p.id === (b.preset || 'typical'));
+  if (!preset) fail(`unknown preset ${b.preset}`);
+  const out = { ...preset.answers, ...(b.overrides || {}) };
+  for (const [q, i] of Object.entries(out)) if (!Q[q] || !Q[q].options[i]) fail(`baseline answer ${q}=${i} is not in the model`);
+  return out;
+};
+const checkChanges = (where, list, needBasis) => {
+  for (const c of list) {
+    if (!Q[c.q] || !Q[c.q].options[c.to]) fail(`${where}: change ${c.q}→${c.to} is not in the model`);
+    if (!CHANGE_KIND[c.kind]) fail(`${where}: change kind "${c.kind}" is not one of ${Object.keys(CHANGE_KIND).join(', ')}`);
+    if (needBasis && !(c.why || c.basis)) fail(`${where}: change ${c.q} has no basis`);
+    if (c.basis && (!/^https:\/\//.test(c.basis.url || '') || !c.basis.read || !c.basis.quote))
+      fail(`${where}: a basis in somebody else's words needs quote, url and read date`);
+  }
+};
+
+const cases = readdirSync(join(DIR, 'cases')).filter((f) => f.endsWith('.json')).sort()
+  .map((f) => JSON.parse(readFileSync(join(DIR, 'cases', f), 'utf8')));
+for (const c of cases) {
+  if (!['published', 'draft'].includes(c.status)) fail(`${c.slug}: status must be published or draft`);
+  checkChanges(c.slug, [...c.changes, ...(c.adds || [])], true);
+  for (const r of c.reduces || []) {
+    if (r.barrier !== 'expectation') fail(`${c.slug}: a reduction is an expectation; anything stronger is a change`);
+    for (const ref of r.risks) if (!RISK[ref]) fail(`${c.slug}: reduces unknown risk ${ref}`);
+  }
+  c.base = baselineOf(c.baseline);
+  c.result = compute(M, c.base, [...c.changes, ...(c.adds || [])]);
+}
+const categories = existsSync(join(DIR, 'categories.json')) ? JSON.parse(readFileSync(join(DIR, 'categories.json'), 'utf8')) : { items: [] };
+for (const k of categories.items) {
+  checkChanges(`category ${k.id}`, [...k.changes, ...(k.adds || [])], false);
+  k.base = baselineOf(k.baseline || {});
+  k.result = compute(M, k.base, [...k.changes, ...(k.adds || [])]);
+}
+const published = cases.filter((c) => c.status === 'published');
+
+// ------------------------------------------------------------------ the page's own CSS
+const CSS = `
+/* business cases — the register with a product and without it, from operator to board */
+.bc-meta{font-family:var(--mono);font-size:12px;color:rgba(255,255,255,.6);line-height:1.7;margin-top:6px;max-width:840px}
+.bc-meta b{color:rgba(255,255,255,.85)}
+.bc-meta a{color:inherit}
+.bc-note{font-size:15px;line-height:1.75;color:var(--muted);max-width:880px;margin-top:16px}
+.bc-note b{color:var(--text)}
+.bc-note a,.bc-card a,.bc-t a{color:var(--green)}
+.bc-three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:28px}
+.bc-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:22px 24px}
+.bc-card .k{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green)}
+.bc-card h3{font-size:17px;color:var(--text);margin:8px 0 8px;letter-spacing:-.01em}
+.bc-card p{font-size:14.5px;line-height:1.7;color:var(--muted)}
+.bc-steps{counter-reset:s;margin-top:26px;max-width:940px;display:flex;flex-direction:column}
+.bc-steps li{counter-increment:s;list-style:none;display:grid;grid-template-columns:34px minmax(0,1fr);gap:0 16px;padding:16px 0;border-top:1px solid var(--border)}
+.bc-steps li:last-child{border-bottom:1px solid var(--border)}
+.bc-steps li::before{content:counter(s);font-family:var(--mono);font-size:12px;font-weight:700;color:var(--green);background:var(--greenBg);border-radius:8px;width:30px;height:30px;display:grid;place-items:center}
+.bc-steps b{color:var(--text)}
+.bc-steps span{font-size:15px;line-height:1.7;color:var(--muted)}
+.bc-t{margin-top:24px;border:1px solid var(--border);border-radius:var(--r);background:var(--card);overflow:hidden}
+.bc-tr{display:grid;border-top:1px solid var(--border)}
+.bc-tr:first-child{border-top:0;background:var(--bg2)}
+.bc-tr>span{padding:12px 16px;font-size:14px;line-height:1.6;color:var(--muted);min-width:0;overflow-wrap:anywhere}
+.bc-tr:first-child>span{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text)}
+.bc-tr>span:first-child{color:var(--text);font-weight:600}
+.bc-t.ch .bc-tr{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1.6fr)}
+.bc-t.cat .bc-tr{grid-template-columns:minmax(0,1.2fr) minmax(0,1.6fr) minmax(0,1.4fr) minmax(0,1.3fr)}
+.bc-was{color:#96442C}
+.bc-now{color:var(--green);font-weight:600}
+.bc-src{display:block;font-family:var(--mono);font-size:10.5px;color:var(--faint);margin-top:6px;overflow-wrap:anywhere}
+.bc-src a{color:inherit}
+.bc-sum{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:26px}
+.bc-sum>div{border:1px solid var(--border);border-radius:var(--r);background:var(--card);padding:18px 20px}
+.bc-sum .n{font-size:30px;font-weight:700;color:var(--text);letter-spacing:-.02em}
+.bc-sum .l{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-top:4px;display:block}
+.bc-sum .off .n{color:var(--green)}
+.bc-sum .new .n{color:var(--gold)}
+.bc-risks{margin-top:14px;display:flex;flex-direction:column;gap:8px;max-width:960px}
+.bc-risk{display:grid;grid-template-columns:86px minmax(0,1fr);gap:0 14px;padding:12px 16px;border:1px solid var(--border);border-radius:10px;background:var(--card)}
+.bc-risk .ref{font-family:var(--mono);font-size:11.5px;font-weight:700;color:var(--muted);padding-top:2px}
+.bc-risk b{display:block;font-size:14.5px;color:var(--text);font-weight:600}
+.bc-risk span{font-size:13px;color:var(--faint);line-height:1.6}
+.bc-risk.off{border-color:var(--green)}
+.bc-risk.off .ref{color:var(--green)}
+.bc-risk.new{border-color:#E6C98F}
+.bc-risk.new .ref{color:var(--gold)}
+.bc-h{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text);margin-top:28px}
+.bc-alt{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:26px}
+.bc-a{border:1px solid var(--border);border-radius:var(--r);background:var(--card);padding:18px 18px;display:flex;flex-direction:column;gap:10px}
+.bc-a h3{font-size:16px;color:var(--text)}
+.bc-a .why{font-size:12.5px;color:var(--faint);line-height:1.55}
+.bc-role{border-top:1px solid var(--border);padding-top:10px}
+.bc-role b{display:block;font-size:13.5px;color:var(--text)}
+.bc-role .c{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.bc-role .c .d{color:var(--green);font-weight:700}
+.bc-role .refs{display:block;font-family:var(--mono);font-size:10.5px;color:var(--faint);margin-top:3px}
+.bc-exp{margin-top:22px;display:flex;flex-direction:column;gap:10px;max-width:960px}
+.bc-exp>div{border:1px dashed var(--border);border-radius:10px;padding:14px 18px;background:transparent}
+.bc-exp q{display:block;font-style:italic;color:var(--text);font-size:15px;quotes:"\\201C" "\\201D"}
+.bc-exp span{display:block;font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:6px}
+.bc-list{margin-top:18px;max-width:900px}
+.bc-list li{font-size:14.5px;line-height:1.75;color:var(--muted);margin:6px 0 0 18px}
+.bc-list b{color:var(--text)}
+.bc-pill{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:999px;padding:3px 9px;background:var(--greenBg);color:var(--green);margin-right:6px}
+.bc-pill.draft{background:#FDF1DC;color:var(--gold)}
+.bc-pill.ours{background:var(--bg2);color:var(--muted)}
+.bc-cases{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:26px}
+@media (max-width:980px){.bc-alt{grid-template-columns:1fr 1fr}}
+@media (max-width:900px){.bc-three,.bc-cases{grid-template-columns:1fr}.bc-t .bc-tr:first-child{display:none}.bc-t.ch .bc-tr,.bc-t.cat .bc-tr{grid-template-columns:1fr 1fr}.bc-tr>span:first-child{grid-column:1 / -1;padding-bottom:2px}.bc-tr>span[data-k]::before{content:attr(data-k);display:block;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:2px}}
+@media (max-width:640px){.bc-alt,.bc-sum{grid-template-columns:1fr}.bc-t.ch .bc-tr,.bc-t.cat .bc-tr{grid-template-columns:1fr}.bc-risk{grid-template-columns:1fr}}
+`;
+
+// ------------------------------------------------------------------ cut a page from the donor
+const donor = readFileSync(join(SITE, 'pricing.html'), 'utf8');
+function cut(name, title, desc, body, noindex = false) {
+  let head = donor.slice(0, donor.indexOf('<body'));
+  if (noindex) head = head.replace(/<\/title>/, '</title>\n<meta name="robots" content="noindex,nofollow">');
+  head = head.replace(/<title>.*?<\/title>/s, `<title>${esc(title)}</title>`);
+  head = head.replace(/(<meta name="description" content=")[^"]*(")/, `$1${esc(desc)}$2`);
+  head = head.replace(/(<meta property="og:title" content=")[^"]*(")/, `$1${esc(title)}$2`);
+  head = head.replace(/(<meta property="og:description" content=")[^"]*(")/, `$1${esc(desc)}$2`);
+  head = head.split('pricing.html').join(`${name}.html`).split('href="pricing.md"').join(`href="${name}.md"`);
+  if (noindex) head = head.replace(/<link rel="alternate" type="text\/markdown"[^>]*>\n?/, '');   // a draft has no twin
+  head = head.replace('</style>', CSS + '</style>');
+  const bodyStart = donor.indexOf('<body'), scriptAt = donor.indexOf('<script>', bodyStart);
+  const donorBody = donor.slice(bodyStart, scriptAt);
+  const hdr  = donorBody.match(/<header class="top">.*?<\/header>/s)[0];
+  const foot = donorBody.match(/<footer class="foot">.*?<\/footer>/s)[0];
+  const tail = donor.slice(scriptAt).replace('RM.data.currentPage="pricing"', `RM.data.currentPage="${name}"`);
+  return head + '<body id="top">\n\n' + hdr + '\n\n' + body + '\n\n' + foot + '\n\n' + tail;
+}
+
+// ------------------------------------------------------------------ pieces
+const riskRow = (r, cls) => `<div class="bc-risk ${cls}"><span class="ref">${esc(r.ref)}</span><div><b>${esc(r.statement)}</b><span>${esc(r.layer)} · ${(r.assigned_to || []).map((id) => esc(ROLE[id].label)).join(', ')}</span></div></div>`;
+
+const changeTable = (base, list) => `<div class="bc-t ch" role="table">
+      <div class="bc-tr" role="row"><span role="columnheader">The question</span><span role="columnheader">Without it</span><span role="columnheader">With it</span><span role="columnheader">How, and who holds it</span></div>
+      ${list.map((c) => `<div class="bc-tr" role="row"><span role="cell">${esc(Q[c.q].text)}</span><span role="cell" data-k="Without it" class="bc-was">${esc(opt(c.q, base[c.q]))}</span><span role="cell" data-k="With it" class="bc-now">${esc(opt(c.q, c.to))}</span><span role="cell" data-k="How">${esc(CHANGE_KIND[c.kind])}, held by ${esc(c.holder || 'not stated')}.${c.why ? ' ' + txt(c.why) : ''}${c.basis ? ` <span class="bc-src">&ldquo;${esc(c.basis.quote)}&rdquo; · <a href="${esc(c.basis.url)}" target="_blank" rel="noopener">${esc(new URL(c.basis.url).hostname)}</a>, read ${esc(niceDate(c.basis.read))}</span>` : ''}</span></div>`).join('\n      ')}
+    </div>`;
+
+const altitudes = (res) => `<div class="bc-alt">${ALTITUDES.map((a) => `
+      <div class="bc-a"><h3>${esc(a.label)}</h3><span class="why">${esc(a.note)}</span>${a.roles.map((id) => {
+        const r = res.byRole.find((x) => x.role.id === id);
+        const d = r.before.length - r.after.length;
+        return `<div class="bc-role"><b>${esc(ROLE[id].label)}</b><span class="c">${r.before.length} → ${r.after.length}${d > 0 ? ` <span class="d">−${d}</span>` : d < 0 ? ` +${-d}` : ''}</span>${r.retired.length || r.added.length ? `<span class="refs">${r.retired.length ? 'retired ' + r.retired.join(', ') : ''}${r.retired.length && r.added.length ? ' · ' : ''}${r.added.length ? 'new ' + r.added.join(', ') : ''}</span>` : ''}</div>`;
+      }).join('')}</div>`).join('')}
+    </div>`;
+
+const corporate = (res) => {
+  const corp = M.risks.filter((r) => r.layer === 'corporate');
+  const feeds = (set, ref) => M.risks.filter((x) => set.has(x.ref) && x.leads_to.some((l) => l.ref === ref)).length;
+  return corp.filter((r) => res.before.has(r.ref) || res.afterRisks.has(r.ref)).map((r) =>
+    `<div class="bc-risk${res.afterRisks.has(r.ref) ? '' : ' off'}"><span class="ref">${esc(r.ref)}</span><div><b>${esc(r.statement)}</b><span>${res.afterRisks.has(r.ref) ? 'still holds' : 'retired'} · risks leading into it: ${feeds(res.before, r.ref)} before, ${feeds(res.afterRisks, r.ref)} after</span></div></div>`).join('\n      ');
+};
+
+// ------------------------------------------------------------------ one page per case
+function casePage(c) {
+  const R = c.result;
+  const name = `business-case-${c.slug}`;
+  const title = `RiskMandate — the business case for ${c.product}`;
+  const desc = `${c.product}${c.vendor ? ` (${c.vendor})` : ''}, by the risk it changes: the register for a stated agent deployment without it and with it, computed from a public model, from the operator to the board.`;
+  const body = `<main class="phero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> The business case · ${esc(c.category)}</span>
+    <h1>${esc(c.title)}</h1>
+    <p class="sub" style="margin-bottom:20px">${txt(c.summary)}</p>
+    ${c.disclosure ? `<p class="bc-meta"><b>Disclosure:</b> ${txt(c.disclosure)}</p>` : ''}
+    <p class="bc-meta"><b>The deployment:</b> ${txt(c.baseline.why)}</p>
+    <p class="bc-meta"><b>The model:</b> the RiskGraph Explorer's ${M.facts ? Object.keys(M.facts).length : ''} facts, ${M.risks.length} risks and ${M.roles.length} roles, copied into this site with its provenance; the register below is computed, not written. <a href="business-cases.html#method">How</a>.</p>
+    ${c.status === 'draft' ? `<p class="bc-meta"><b>Status:</b> a draft, not yet sent to ${esc(c.vendor)} and not listed on the site. It may be wrong; it is here to be corrected.</p>` : ''}
+  </div>
+</main>
+
+<div class="paper">
+
+  <section class="psection">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">01 · What it does</span>
+        <h2>In ${c.kind === 'ours' ? 'our' : 'its'} own words, <span class="g">and nothing more.</span></h2>
+      </div>
+      <ul class="bc-list">${c.does.map((d) => `<li>${txt(d.text)}${d.link ? ` <a href="${esc(d.link)}">${d.link.startsWith('http') ? esc(new URL(d.link).hostname) : 'more'}</a>` : ''}${d.url ? ` <span class="bc-src">&ldquo;${esc(d.quote)}&rdquo; · <a href="${esc(d.url)}" target="_blank" rel="noopener">${esc(new URL(d.url).hostname)}</a>, read ${esc(niceDate(d.read))}</span>` : ''}</li>`).join('')}
+      </ul>
+    </div>
+  </section>
+
+  <section class="psection alt">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">02 · The answers it changes</span>
+        <h2>Same deployment, <span class="g">different answers.</span></h2>
+        <p>The model asks sixteen questions about an agent deployment. A product&rsquo;s effect is written as the answers it changes, and each change says what kind of change it is: a statement of what is true, an expectation the agent is asked to meet, a setting, or a boundary enforced by something the agent&rsquo;s grant does not include.</p>
+      </div>
+      ${changeTable(c.base, c.changes)}
+    </div>
+  </section>
+
+  <section class="psection">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">03 · The register, before and after</span>
+        <h2>${R.retired.length} retired${R.added.length ? `, ${R.added.length} new` : ''}, <span class="g">${R.kept.length} unchanged.</span></h2>
+        <p>Computed from the model for the deployment above: every risk that holds without it, and every risk that holds with it.${R.added.length ? ' A new entry is either one the change brought to light, where an answer replaced a don&rsquo;t know, or a narrower risk in place of a wider one, where the answer moved from no to partly. Either way the register is more exact, and a register that grows because something was found is working.' : ''}</p>
+      </div>
+      <div class="bc-sum"><div class="off"><span class="n">${R.retired.length}</span><span class="l">retired</span></div><div class="new"><span class="n">${R.added.length}</span><span class="l">new</span></div><div><span class="n">${R.before.size} → ${R.afterRisks.size}</span><span class="l">entries on the register</span></div></div>
+      ${R.retired.length ? `<p class="bc-h">Retired</p><div class="bc-risks">${R.retired.map((r) => riskRow(r, 'off')).join('\n      ')}</div>` : ''}
+      ${R.added.length ? `<p class="bc-h">New</p><div class="bc-risks">${R.added.map((r) => riskRow(r, 'new')).join('\n      ')}</div>` : ''}
+    </div>
+  </section>
+
+  <section class="psection alt">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">04 · From the operator to the board</span>
+        <h2>Who carries less, <span class="g">and who carries the same.</span></h2>
+        <p>Each risk is assigned to the roles it belongs to, and each role reports to another until the board. The count beside each role is the entries it holds without the product and with it.</p>
+      </div>
+      ${altitudes(R)}
+      <p class="bc-h">At the board: the corporate register</p>
+      <p class="bc-note">Corporate risks have no facts of their own. They hold while any risk that leads into them holds, so a single product rarely retires one. What it changes is how many reasons the board is being given.</p>
+      <div class="bc-risks">${corporate(R)}</div>
+    </div>
+  </section>
+
+  ${(c.reduces || []).length ? `<section class="psection">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">05 · Reduced, not retired</span>
+        <h2>What it asks the agent to do, <span class="g">and why that is hope.</span></h2>
+      </div>
+      <div class="bc-exp">${c.reduces.map((r) => `<div><q>${esc(r.instruction)}</q><span>an expectation · less likely: ${r.risks.map((x) => `${esc(x)} ${esc(RISK[x].statement.toLowerCase())}`).join('; ')}</span></div>`).join('\n        ')}</div>
+      ${c.reduces_note ? `<p class="bc-note">${txt(c.reduces_note)} <a href="https://nhi.sgit.ai/hope/" target="_blank" rel="noopener">Hope is not a control</a>.</p>` : ''}
+    </div>
+  </section>` : ''}
+
+  ${(c.adds || []).length || c.adds_note ? `<section class="psection alt">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">06 · What it adds</span>
+        <h2>Every product is also a new thing in the estate.</h2>
+      </div>
+      ${(c.adds || []).length ? changeTable(c.base, c.adds) : ''}
+      ${c.adds_note ? `<p class="bc-note">${txt(c.adds_note)}</p>` : ''}
+    </div>
+  </section>` : ''}
+
+  ${(c.contradictions || []).length ? `<section class="psection">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Where its pages disagree</span>
+        <h2>Published unresolved, <span class="g">for ${esc(c.vendor)} to settle.</span></h2>
+        <p>Each pair was read on the same day. We have not tested which is true, because that would mean testing somebody else&rsquo;s system.</p>
+      </div>
+      <ul class="bc-list">${c.contradictions.map((x) => `<li><b>${esc(x.topic)}.</b> ${txt(x.text)}${x.urls ? ` <span class="bc-src">${x.urls.map((u) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(new URL(u).pathname.split('/').filter(Boolean).pop() || new URL(u).hostname)}</a>`).join(' · ')}</span>` : ''}</li>`).join('')}
+      </ul>
+    </div>
+  </section>` : ''}
+
+  <section class="psection">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">What this does not claim</span>
+        <h2>The limits of the case, <span class="g">stated by the case.</span></h2>
+      </div>
+      <ul class="bc-list">${c.does_not_claim.map((d) => `<li>${txt(d)}</li>`).join('')}
+        <li>That the register is complete. It is one model, for one stated deployment. A different deployment changes the answers, and so the case.</li>
+      </ul>
+      ${c.next ? `<p class="bc-note"><b>Next.</b> ${txt(c.next)}</p>` : ''}
+    </div>
+  </section>
+
+</div>
+
+<section class="pcta">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> The same method, for your product</span>
+    <h2>Make the case <span class="it">in the register&rsquo;s own terms.</span></h2>
+    <p>If you build a security product for agents, the case for it can be written the same way: what it does in your own words, the answers it changes, and the register before and after. If a case here is wrong about you, tell us and it changes with a date.</p>
+    <div class="cta-row"><a class="btn btn-green" href="business-cases.html">All the cases</a><a class="btn btn-ghost" href="mailto:dinis.cruz@owasp.org?subject=Business%20case%20%C2%B7%20${encodeURIComponent(c.product)}">Write to us</a></div>
+  </div>
+</section>`;
+  return cut(name, title, desc, body, c.status === 'draft');
+}
+
+// ------------------------------------------------------------------ the section page
+function indexPage() {
+  const catRows = categories.items.map((k) => {
+    const R = k.result;
+    return `<div class="bc-tr" role="row"><span role="cell">${esc(k.name)}<span class="bc-src">${esc(k.what)}</span></span><span role="cell" data-k="Answers it changes">${k.changes.map((c) => `${esc(Q[c.q].text)} <span class="bc-was">${esc(opt(c.q, k.base[c.q]))}</span> → <span class="bc-now">${esc(opt(c.q, c.to))}</span>`).join('<br>')}</span><span role="cell" data-k="Retired">${R.retired.length ? R.retired.map((r) => `${esc(r.ref)} ${esc(r.statement.toLowerCase())}`).join('; ') : 'none, for this deployment'}${R.added.length ? `<span class="bc-src">new: ${R.added.map((r) => esc(r.ref)).join(', ')}</span>` : ''}</span><span role="cell" data-k="What it adds">${txt(k.adds_text || 'not stated')}${(k.examples || []).length ? `<span class="bc-src">for example: ${k.examples.map((e) => `<a href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.name)}</a>`).join(', ')}</span>` : ''}</span></div>`;
+  }).join('\n      ');
+  const caseCards = published.map((c) => `<div class="bc-card"><span class="k">${c.kind === 'ours' ? '<span class="bc-pill ours">our own</span>' : ''}${esc(c.category)}</span><h3><a href="business-case-${esc(c.slug)}.html">${esc(c.product)}${c.vendor && c.kind !== 'ours' ? ` · ${esc(c.vendor)}` : ''}</a></h3><p>${c.result.retired.length} retired, ${c.result.added.length} new, ${c.result.kept.length} unchanged, for the deployment it states. ${txt(c.summary.split('. ')[0])}.</p></div>`).join('\n      ');
+
+  const body = `<main class="phero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> Business cases, by the risk they change</span>
+    <h1>A security product is worth <span class="it">the risks it retires.</span></h1>
+    <p class="sub">The business case for a security product is a difference: the risk register for an agent deployment without it, and the register with it, from the operator who is paged to the board that has to defend it. This section writes that difference down, computed from a public model, for our own product first and then for others&rsquo;, in their own words.</p>
+    <div class="cta-row"><a class="btn btn-green" href="business-case-riskmandate-abp.html">The first case: ours</a><a class="btn btn-ghost" href="#method">How it is computed</a></div>
+  </div>
+</main>
+
+<div class="paper">
+
+  <section class="psection">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Who it is for</span>
+        <h2>Three readers, <span class="g">one register.</span></h2>
+      </div>
+      <div class="bc-three">
+        <div class="bc-card"><span class="k">If you buy security</span><h3>A case in your own terms.</h3><p>Not a feature list: which entries leave your register, whose they were, and what reaches the board. And which ones a product only makes less likely, said as that.</p></div>
+        <div class="bc-card"><span class="k">If you build it</span><h3>A case you did not have to write.</h3><p>Many security products are sold on capability. This maps the capability to the risks it changes, at every altitude, in terms a CFO and a board can read. If it is wrong about you, it changes.</p></div>
+        <div class="bc-card"><span class="k">And us</span><h3>Every case starts with a map.</h3><p>No case can be computed until somebody has answered the questions truthfully about one agent in one deployment. That answer is what an Agent Behaviour Policy produces.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="psection alt" id="method">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">How it is computed</span>
+        <h2>Five steps, <span class="g">none of them by hand.</span></h2>
+      </div>
+      <ol class="bc-steps">
+        <li><span><b>State the deployment.</b> Sixteen questions about one agent: where it runs, what data it can reach, whether it can change production, whether anybody can stop it, and whether what it changes can be undone. Every case says which answers it starts from.</span></li>
+        <li><span><b>Write what the product does, in its own words.</b> From the vendor&rsquo;s documentation, quoted and dated. Never from testing their product: we do not test somebody else&rsquo;s system.</span></li>
+        <li><span><b>Write the answers it changes.</b> Each change says what kind it is: stating what is true, an expectation the agent is asked to meet, a setting, or a boundary the agent&rsquo;s grant does not include. An expectation never retires a risk; it is listed as a reduction.</span></li>
+        <li><span><b>Compute both registers.</b> The model&rsquo;s ${Object.keys(M.facts).length} facts establish or retire its ${M.risks.length} risks by fixed rules, and corporate risks roll up from the ones that lead into them.</span></li>
+        <li><span><b>Read it by altitude.</b> Each risk belongs to named roles, and each role reports up to the board. The case is the difference at each level.</span></li>
+      </ol>
+      <p class="bc-note">The model is the RiskGraph Explorer&rsquo;s, from one of our <a href="demos.html">live demos</a>, copied into this site with its provenance. It is small on purpose: sixteen questions, readable in one sitting, so an argument about a case is an argument about an answer, not about a formula. Nothing on these pages is a score, and no case is a statement that a product works; it is a statement of what changes in the register if it does what its documentation says.</p>
+    </div>
+  </section>
+
+  <section class="psection">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">The cases</span>
+        <h2>Written so far.</h2>
+      </div>
+      <div class="bc-cases">
+      ${caseCards}
+      </div>
+    </div>
+  </section>
+
+  ${categories.items.length ? `<section class="psection alt" id="categories">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Kinds of product</span>
+        <h2>${categories.items.length} categories, <span class="g">computed the same way.</span></h2>
+        <p>${txt(categories.intro || '')}</p>
+      </div>
+      <div class="bc-t cat" role="table">
+      <div class="bc-tr" role="row"><span role="columnheader">Category</span><span role="columnheader">Answers it changes</span><span role="columnheader">Retired, for the stated deployment</span><span role="columnheader">What it adds</span></div>
+      ${catRows}
+      </div>
+      ${categories.note ? `<p class="bc-note">${txt(categories.note)}</p>` : ''}
+    </div>
+  </section>` : ''}
+
+  <section class="psection">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">The rules</span>
+        <h2>What a case will and will not say.</h2>
+      </div>
+      <ul class="bc-list">
+        <li><b>The vendor&rsquo;s words, quoted and dated,</b> for anything a product does. Where their pages disagree, both are shown.</li>
+        <li><b>No verdict on any product</b> and no ranking of one against another. The case says what changes if the documentation is right.</li>
+        <li><b>No conformity language.</b> A product that touches an article of a regulation is shown as touching it, never as meeting it.</li>
+        <li><b>What it adds is part of the case.</b> A product in the request path is also something that can fail, and something that has to be stopped.</li>
+        <li><b>Draft before published.</b> A case about somebody else&rsquo;s product is sent to them before it is listed, and changes with a date when they correct it.</li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+
+<section class="pcta">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> Build or buy security for agents?</span>
+    <h2>Ask for a case, <span class="it">or correct one.</span></h2>
+    <p>If you build a product for agent security and would like its case written, or you have read a case about your product and it is wrong, write to us. If you run agents, the case for anything starts with a map of one of them.</p>
+    <div class="cta-row"><a class="btn btn-green" href="mailto:dinis.cruz@owasp.org?subject=A%20business%20case">Write to us</a><a class="btn btn-ghost" href="try-it.html">Map one agent, free</a></div>
+  </div>
+</section>`;
+  return cut('business-cases', 'RiskMandate — business cases, by the risk they change',
+    'The business case for a security product is the difference between the risk register without it and with it, from the operator to the board. Computed from a public model, our own product first, then others in their own words.', body);
+}
+
+// ------------------------------------------------------------------ write, or check
+const outputs = { 'business-cases.html': indexPage() };
+for (const c of cases) outputs[`business-case-${c.slug}.html`] = casePage(c);
+const stale = [];
+for (const [file, want] of Object.entries(outputs)) {
+  const path = join(SITE, file);
+  const have = existsSync(path) ? readFileSync(path, 'utf8') : null;
+  if (have === want) continue;
+  if (CHECK) stale.push(file); else writeFileSync(path, want);
+}
+if (CHECK) {
+  if (stale.length) fail(`stale: ${stale.join(', ')} — run build-business-cases.mjs`);
+  console.log(`business cases: ${Object.keys(outputs).length} pages up to date`);
+} else console.log(`business cases: wrote ${Object.keys(outputs).length} pages (${cases.length} case${cases.length === 1 ? '' : 's'}, ${categories.items.length} categories)`);
