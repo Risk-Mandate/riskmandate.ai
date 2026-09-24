@@ -57,7 +57,7 @@ the site's; check `site/versions/index.json` for the current version before trus
   world on top**: *Who owns what in AI. And how accountability holds on the way up*
   (`article-who-owns-what-in-ai.html`). It quotes and credits a role-ownership infographic, reads
   its middle column as a routing table and the organisation chart as the escalation path, and walks
-  one invented agent from eight ABP rows to the board; section 09 is the model to build from (nodes,
+  one invented agent from nine ABP rows to the board; section 09 is the model to build from (nodes,
   edges with inverses, placement, clock, cease, stop check, board view). Its three figures (D21) are
   drawn by an inline script from the article's data, `createElementNS` and `textContent` only, nothing
   loaded: the blast radius can be played or changed, and its counts are the engine's. Keep such replies stand-alone,

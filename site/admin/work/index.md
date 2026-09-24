@@ -75,11 +75,19 @@ a decision the lead owns, listed in the state fileneeds the lead
 
 a decision the lead owns, listed in the state fileneeds the lead
 
-## In flight — 0 branches
+## In flight — 1 branch
 
 One file per branch under `.claude/work/`. [How a work file is written](../../admin/work/about-work-files/).
 
-Nothing in flight.
+### [claude/dev-session-setup-a5wcc5](../../admin/work/branches/claude-dev-session-setup-a5wcc5/)
+
+started 24 September 2026 · task brief: D22, the lead in chat
+
+The blast-radius figure on `article-who-owns-what-in-ai.html` rebuilt so risks flow up to the board, with a role panel and a live list; the accepted level (row 1 own mail, row 9 shared inbox) through the article's tables and six weeks. Nothing else changes except the register and the release.
+
+**External state.** Vaults built and unpushed: none · Release I will claim at merge: yes, v1.34.6, cut
+
+**Status.** [x] Figure rebuilt and exercised in Chromium: counts match the article; no errors; nothing loaded · [ ] Merge, CI green, live
 
 ## Task briefs — 14
 

@@ -7,17 +7,17 @@
 
 **2**waiting on somebody outside*the store's agent, the model site*
 
-**0**branches in flight*one work file each*
+**1**branches in flight*one work file each*
 
 **12**open tasks*of 17 in the queue · 1 done*
 
-**24**memos not fully worked*of 32 received*
+**25**memos not fully worked*of 33 received*
 
 **25**briefs written here*one page each*
 
 **16**vaults built and pushed*4 measured · 8 asked for*
 
-**103**releases*8 Lab editions*
+**104**releases*8 Lab editions*
 
 ## Needs the lead — 9
 
@@ -59,13 +59,13 @@ a decision the lead owns, openD6
 
 a decision the lead owns, openD7
 
-## In flight — 0 branches
+## In flight — 1 branch
 
 One file per branch under `.claude/work/`, written before the work starts and deleted when it merges. Read every one before claiming a task.
 
-**Nothing in flight.**
+**[claude/dev-session-setup-a5wcc5](../admin/work/branches/claude-dev-session-setup-a5wcc5/)**
 
-No work file under .claude/work/.
+The blast-radius figure on `article-who-owns-what-in-ai.html` rebuilt so risks flow up to the board, with a role panel and a live list; the accepted level (row 1 own mail, row 9 shared inbox) through the article's tables and six weeks. Nothing else changes except the register and the release. since 24 September 2026
 
 ## How work gets here
 

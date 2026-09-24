@@ -297,6 +297,18 @@ Each one is linked in full, as received, with nothing edited. Where a brief and 
 - **Real grants.** The figure runs on the invented agent; wiring it to a published ABP vault is the next step
 - **Evidence flowing downward.** A ceased risk cites its ABP version in text; the figure does not yet animate the evidence travelling back to the version
 
+### Risks always flow upwards: the roles above carry the aggregate, click a role to see what it holds, list every risk that holds now, and show the level of risk the business already accepts against the gap outside it
+
+**sha256** 19de617c22e7226307413fbee045912c6af4fe56c453db8010d98209747c31a1
+
+**A risk does not stop with its holder.** The first figure implied it did: connect the CRM and two risks sat with the CIO and Sales. They reach the CTO, the CEO and the board, and the people at the top get the aggregate; the CEO carries the calendar risk and the mail risk both. So: light the path upward, let each stakeholder be clicked to see the risks they carry, list every risk that holds at any moment, and show that reading the rep’s own mail is a risk the business already accepts, which is different from reading every mailbox the account can open. Drop the roles nothing reaches; keep Legal and the CFO.
+
+- [The blast radius rebuilt](article-who-owns-what-in-ai.html): every live risk lights the path from its holder to the board, every role above carries a count, a role’s panel lists what it holds, carries and is informed of, and a table lists every risk that holds now with the chain it reaches
+- The accepted level: row 1 is the rep’s own mail and establishes R0, accepted by the rep on connecting; row 9, the shared sales inbox, is outside the mandate and establishes R7. The tables, counts and six weeks follow: nine rows, five in the gap, unbounded excess five, then four, then three
+- Marketing, Product and HR leave the figure; Legal and the CFO are informed of every risk that touches a customer or their data; a compound risk is drawn larger by the facts it needs
+- **A quantity of impact or potential loss.** Each risk carries a consequence in words and an undo property, and no number: the article’s own rule is that kinds of consequence do the work of a score, and a loss figure is the lead’s decision
+- **Other scenarios.** One agent, as the lead asked for now
+
 ## And the instructions that arrived as speech or a sentence.
 
 These have no digest to check, which makes them the ones most easily lost — a voice memo that changed the direction of the whole site leaves no artefact at all unless somebody writes it down. So they are recorded here in the same list, with the same two columns.
@@ -376,7 +388,7 @@ sha256sum my-brief.md
 
 A register that only lists what was done is a press release.
 
-Every entry above carries what it asked for and did not get, and on most of the twenty-one that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.
+Every entry above carries what it asked for and did not get, and on most of the twenty-two that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.
 
 - **The file is the record, not this page.** [briefs-register.json](briefs-register.json) is what a program should read; this page renders it for people. If the two ever disagree, the file is right and the page is stale.
 - **Every archived document is byte-identical to what arrived.** Nothing is edited, reformatted or trimmed — including the parts we think are wrong. Where we disagree with a brief, the disagreement is published on the page it produced and marked as ours.
@@ -385,6 +397,6 @@ Every entry above carries what it asked for and did not get, and on most of the 
 
 Register maintained by hand alongside the work, and checked in CI: every document listed must exist at the path given and match its recorded digest, and every file in `assets/briefs/` must appear in the register. Last reconciled 16 September 2026.
 
-## Twenty-one items. None untouched, and none finished.
+## Twenty-two items. None untouched, and none finished.
 
-Every item now names something it produced and something it did not. Eighteen of the twenty-one are marked _partly_, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.
+Every item now names something it produced and something it did not. Nineteen of the twenty-two are marked _partly_, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.

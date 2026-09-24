@@ -700,6 +700,39 @@
         "Real grants. The figure runs on the article's invented agent; wiring it to a published ABP vault, so a real grant drives the same picture, is the next step.",
         "The flows of evidence downward. A ceased risk cites its ABP version in text; the figure does not yet animate the evidence travelling back to the version."
       ]
+    },
+    {
+      "id": "D22",
+      "title": "Risks always flow upwards: the roles above carry the aggregate, click a role to see what it holds, list every risk that holds now, and show the level of risk the business already accepts against the gap outside it",
+      "version": null,
+      "type": "spoken brief, transcribed",
+      "dated": "2026-09-24",
+      "file": "assets/briefs/2026-09-24__transcript__risks-flow-upwards-and-the-accepted-level.txt",
+      "bytes": 4635,
+      "sha256": "19de617c22e7226307413fbee045912c6af4fe56c453db8010d98209747c31a1",
+      "received": [
+        "2026-09-24T23:30Z"
+      ],
+      "duplicate_of": null,
+      "status": "partly",
+      "produced": [
+        {
+          "what": "The blast radius rebuilt: every live risk lights the path from its holder to the board, every role above carries a count, a role's panel lists what it holds, carries and is informed of, and a table lists every risk that holds at that moment with the chain it reaches, its consequence in words and whether it can be undone",
+          "url": "article-who-owns-what-in-ai.html"
+        },
+        {
+          "what": "The accepted level: row 1 is the rep's own mail and establishes R0, inside the rep's authority and accepted on connecting; a new row 9, the shared sales inbox, is outside the mandate and establishes R7. The article's tables, counts and six weeks follow: nine rows, five in the gap, unbounded excess five, then four, then three",
+          "url": "article-who-owns-what-in-ai.html"
+        },
+        {
+          "what": "Marketing, Product and HR leave the figure; Legal and the CFO are informed of every risk that touches customer data or a customer. A compound risk is drawn larger by the number of facts it needs",
+          "url": "article-who-owns-what-in-ai.html"
+        }
+      ],
+      "not_done": [
+        "A quantity of impact or potential loss on a risk. The figure gives each risk a consequence in words and an undo property, and no number: the article's own rule is that kinds of consequence do the work of a score, and a loss figure is the lead's decision.",
+        "Other scenarios. The figure runs one agent; the lead said to keep it so for now."
+      ]
     }
   ],
   "informal": [

@@ -5,7 +5,7 @@
 
 **2**received, nothing built yet*Archived and read, and nothing has been built from it yet.*
 
-**22**partly worked*read in full; a named part is not built*
+**23**partly worked*read in full; a named part is not built*
 
 **8**processed*something on the site exists because of it*
 
@@ -52,6 +52,10 @@ spoken brief, transcribed · 2 produced · 3 not done24 September 2026 · partly
 **[Graph visualisations for the role-ownership article: the blast radius as the employee connects and disconnects, the flows played out, the evidence, and the settings a mail scope cannot narrow](#D21)**
 
 spoken brief, transcribed · 2 produced · 3 not done24 September 2026 · partly
+
+**[Risks always flow upwards: the roles above carry the aggregate, click a role to see what it holds, list every risk that holds now, and show the level of risk the business already accepts against the gap outside it](#D22)**
+
+spoken brief, transcribed · 3 produced · 2 not done24 September 2026 · partly
 
 **[The named professional, and the assignment of the individual who does the £1,500 review](#D11)**
 
@@ -320,6 +324,21 @@ partly
 - Blast radius as a number. The figure shows which roles a risk reaches and who holds it; it does not size the consequence, because the article scores nothing.
 - Real grants. The figure runs on the article's invented agent; wiring it to a published ABP vault, so a real grant drives the same picture, is the next step.
 - The flows of evidence downward. A ceased risk cites its ABP version in text; the figure does not yet animate the evidence travelling back to the version.
+
+D22 · spoken brief, transcribed · 24 September 2026
+
+## Risks always flow upwards: the roles above carry the aggregate, click a role to see what it holds, list every risk that holds now, and show the level of risk the business already accepts against the gap outside it
+
+partly
+
+[the file as received](../../assets/briefs/2026-09-24__transcript__risks-flow-upwards-and-the-accepted-level.txt) · `19de617c22e7…` · 5 KB
+
+**Produced.** [The blast radius rebuilt: every live risk lights the path from its holder to the board, every role above carries a count, a role's panel lists what it holds, carries and is informed of, and a table lists every risk that holds at that moment with the chain it reaches, its consequence in words and whether it can be undone](../../article-who-owns-what-in-ai.html) · [The accepted level: row 1 is the rep's own mail and establishes R0, inside the rep's authority and accepted on connecting; a new row 9, the shared sales inbox, is outside the mandate and establishes R7. The article's tables, counts and six weeks follow: nine rows, five in the gap, unbounded excess five, then four, then three](../../article-who-owns-what-in-ai.html) · [Marketing, Product and HR leave the figure; Legal and the CFO are informed of every risk that touches customer data or a customer. A compound risk is drawn larger by the number of facts it needs](../../article-who-owns-what-in-ai.html)
+
+**Not done.**
+
+- A quantity of impact or potential loss on a risk. The figure gives each risk a consequence in words and an undo property, and no number: the article's own rule is that kinds of consequence do the work of a score, and a loss figure is the lead's decision.
+- Other scenarios. The figure runs one agent; the lead said to keep it so for now.
 
 D11 · spoken brief, transcribed · 22 September 2026
 

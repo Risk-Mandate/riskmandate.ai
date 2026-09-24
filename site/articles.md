@@ -16,7 +16,7 @@ Each of these takes one thing a deployment actually does, shows the screen or th
 
 ### [Who owns what in AI. And how accountability holds on the way up.](article-who-owns-what-in-ai.html)
 
-A reply to an infographic on LinkedIn that maps thirteen roles to what each owns in AI and what that protects. Every company will redraw a map like it, and so it should. The map runs sideways, and accountability runs upwards: its middle column says where a risk lands, and the organisation chart says where it goes when nobody decides. One invented agent worked from the eight rows of its behaviour policy to the board: the same exposure in thirteen voices, seven rules, six weeks, and the model in enough detail to build. Three figures are drawn by the page from its own data, and one can be played: connect the assistant and watch the risks travel up, add a boundary and watch them end.
+A reply to an infographic on LinkedIn that maps thirteen roles to what each owns in AI and what that protects. Every company will redraw a map like it, and so it should. The map runs sideways, and accountability runs upwards: its middle column says where a risk lands, and the organisation chart says where it goes when nobody decides. One invented agent worked from the nine rows of its behaviour policy to the board: the same exposure in thirteen voices, seven rules, six weeks, and the model in enough detail to build. Three figures are drawn by the page from its own data, and one can be played: connect the assistant and watch the risks travel up, add a boundary and watch them end.
 
 ### [A deleted meeting comes back. An edited one does not.](article-calendar-edits-cannot-be-undone.html)
 
