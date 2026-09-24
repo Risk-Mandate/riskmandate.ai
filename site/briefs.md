@@ -211,6 +211,18 @@ Each one is linked in full, as received, with nothing edited. Where a brief and 
 - **A source for the credit approval at two in the morning.** None exists publicly; it is told as an anecdote and nothing more
 - **The operating limit from the insurance vault.** Not found in the published demo vaults; the article shows the shape with numbers labelled as invented
 
+### Calendar edits cannot be undone: integrity risk, and why the edit permission is the dangerous one
+
+**sha256** 0349fc94e7df55c387bd3a2a1e8adb413c0bd742759ff671ad47d7ef7979df84
+
+**A finding from drafting Calendar behaviour policies.** Google Calendar has a trash for deleted events but no way back from an edit, so an agent that edits many events leaves corruption that looks like a real calendar. The memo asks for the facts to be checked, including the trash period and who can restore; for the calendar-over-email point from early users; and for the conclusion: map each action by whether it can be undone, because an edit with no undo exposes more than a delete with one.
+
+- [A deleted meeting comes back. An edited one does not.](article-calendar-edits-cannot-be-undone.html) Every recovery fact quoted from Google’s own pages, for personal and Workspace accounts, three contradictions in those pages published unresolved, and the draft Calendar rows with recovery beside each
+- Two traps the memo did not have: deleting “this and following” events skips the trash, and an API patch to the guest list discards the previous list
+- **A qualification, not a contradiction.** The memo’s claim holds for personal accounts. Workspace editions with Vault keep earlier versions of primary-calendar events for an admin to export, though not to restore
+- **The Calendar behaviour policies.** In draft; the article quotes their rows and says so
+- **Evidence for calendar over email.** A handful of conversations, reported as that
+
 ## And the instructions that arrived as speech or a sentence.
 
 These have no digest to check, which makes them the ones most easily lost — a voice memo that changed the direction of the whole site leaves no artefact at all unless somebody writes it down. So they are recorded here in the same list, with the same two columns.

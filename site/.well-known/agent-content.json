@@ -340,6 +340,11 @@
       "url": "https://riskmandate.ai/article-pilots-do-not-stay-in-production.html"
     },
     {
+      "name": "article-calendar-edits-cannot-be-undone",
+      "label": "A deleted meeting comes back. An edited one does not.",
+      "url": "https://riskmandate.ai/article-calendar-edits-cannot-be-undone.html"
+    },
+    {
       "name": "agent-behaviour-policy-next",
       "label": "Which Agent Behaviour Policy next?",
       "url": "https://riskmandate.ai/agent-behaviour-policy-next.html"

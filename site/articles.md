@@ -14,6 +14,10 @@ Each of these takes one thing a deployment actually does, shows the screen or th
 
 ## Written so far.
 
+### [A deleted meeting comes back. An edited one does not.](article-calendar-edits-cannot-be-undone.html)
+
+Google Calendar keeps a deleted event in a trash for 30 days and documents no way for a user to restore an edited one. An agent allowed to edit can leave fifty meetings that look right and are wrong, with nothing to restore them from, which makes edit the dangerous permission and delete the recoverable one. What Google keeps after each action, in its own words, for personal and Workspace accounts; three places where Google's pages disagree, published unresolved; and the draft Calendar rows of a behaviour policy, with recovery beside each.
+
 ### [The pilot worked. Then somebody asked what else it could do.](article-pilots-do-not-stay-in-production.html)
 
 Most generative AI and agent pilots never reach production, and some that do are switched off again. The hypothesis: the business compares what the agent was meant to do with what it can do, at machine speed and on somebody's authority, and declines to sign for the difference. Fourteen surveys and forecasts with the causes each one names, seven cases where what a system said or did became the company's, five variables the lethal trifecta leaves out, and a plain account of what the data does not show. Then the fix: limits written in business units at design time, each beside what enforces it.
