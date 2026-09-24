@@ -26,6 +26,8 @@ const IN    = join(SITE, 'interviews');
 const CHECK = process.argv.includes('--check');
 const esc   = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const fail  = (m) => { console.error(`interview pages: ${m}`); process.exit(1); };
+// The length is written in words on the page, so it has to follow the JSON rather than be typed twice.
+const words = (n = 20) => ({ 15: 'fifteen minutes', 20: 'twenty minutes', 25: 'twenty-five minutes', 30: 'half an hour', 45: 'forty-five minutes' })[n] || `${n} minutes`;
 
 const pages = readdirSync(IN).filter((f) => f.endsWith('.json') && !f.startsWith('_')).sort()
   .map((f) => JSON.parse(readFileSync(join(IN, f), 'utf8')));
@@ -173,7 +175,7 @@ function page(p) {
       <div class="shead">
         <span class="tag">Send it back</span>
         <h2>One email, <span class="g">with the summary pasted in.</span></h2>
-        <p>Copy the summary the assistant writes at the end, and paste it into an email. Thank you: this is the most useful twenty minutes anybody can give RiskMandate right now.</p>
+        <p>Copy the summary the assistant writes at the end, and paste it into an email. Thank you: this is the most useful ${words(p.minutes)} anybody can give RiskMandate right now.</p>
       </div>
       <div class="cta-row"><a class="btn btn-green" href="${esc(mail)}">Email the summary</a><a class="btn btn-ghost" href="index.html">What RiskMandate is</a></div>
     </div>
@@ -181,7 +183,7 @@ function page(p) {
 
 </div>`;
   return cut(name, `RiskMandate — ${p.title}`,
-    `${p.who} A prompt you copy into your own assistant, which interviews you by voice for about twenty minutes and writes up a summary you send back. Nothing is sent by this page.`, body);
+    `${p.who} A prompt you copy into your own assistant, which interviews you by voice for about ${words(p.minutes)} and writes up a summary you send back. Nothing is sent by this page.`, body);
 }
 
 const outputs = Object.fromEntries(pages.map((p) => [`interview-${p.slug}.html`, page(p)]));
