@@ -7,7 +7,7 @@
     "oneLine": "The insurability layer for agentic AI.",
     "summary": "Carriers are filing to exclude AI from cover, and the way back is evidence an underwriter will accept. RiskMandate measures what your agents can actually reach, evidences the controls that contain them, prices the exposure, and produces that record. Underneath the insurance framing is a risk model: a grant is what a credential technically permits, a mandate is what the holder is authorised and expected to do, and the gap between them is exposure nobody ever accepted. A deployed agent already has access, so a real risk cannot be denied — only accepted, by a named owner, for an interval, with an expiry that brings the decision back. RiskMandate is read-only and never in the request path: it defines the mandate and measures the gap; it does not enforce it. It is built on SG/Vault — zero-knowledge, PKI, provenance, no database — so you hold the keys.",
     "throughLine": "Measure what the agents can reach, name who owns it, evidence that the controls hold, and let the acceptance expire so the decision comes back.",
-    "version": "1.33.0"
+    "version": "1.34.0"
   },
   "artifacts": {
     "index": "https://riskmandate.ai/llms.txt",
@@ -170,9 +170,104 @@
       "url": "https://riskmandate.ai/business-cases.html"
     },
     {
+      "name": "owasp-graph",
+      "label": "OWASP, as a graph",
+      "url": "https://riskmandate.ai/owasp-graph.html"
+    },
+    {
       "name": "business-case-riskmandate-abp",
       "label": "Business case · Agent Behaviour Policy",
       "url": "https://riskmandate.ai/business-case-riskmandate-abp.html"
+    },
+    {
+      "name": "business-case-agentgateway",
+      "label": "Business case · agentgateway",
+      "url": "https://riskmandate.ai/business-case-agentgateway.html"
+    },
+    {
+      "name": "business-case-cedar",
+      "label": "Business case · Cedar",
+      "url": "https://riskmandate.ai/business-case-cedar.html"
+    },
+    {
+      "name": "business-case-cilium",
+      "label": "Business case · Cilium network policy",
+      "url": "https://riskmandate.ai/business-case-cilium.html"
+    },
+    {
+      "name": "business-case-falco",
+      "label": "Business case · Falco",
+      "url": "https://riskmandate.ai/business-case-falco.html"
+    },
+    {
+      "name": "business-case-gvisor",
+      "label": "Business case · gVisor",
+      "url": "https://riskmandate.ai/business-case-gvisor.html"
+    },
+    {
+      "name": "business-case-keycloak",
+      "label": "Business case · Keycloak",
+      "url": "https://riskmandate.ai/business-case-keycloak.html"
+    },
+    {
+      "name": "business-case-langfuse",
+      "label": "Business case · Langfuse",
+      "url": "https://riskmandate.ai/business-case-langfuse.html"
+    },
+    {
+      "name": "business-case-langgraph-hitl",
+      "label": "Business case · LangGraph and LangChain human-in-the-loop",
+      "url": "https://riskmandate.ai/business-case-langgraph-hitl.html"
+    },
+    {
+      "name": "business-case-litellm",
+      "label": "Business case · LiteLLM",
+      "url": "https://riskmandate.ai/business-case-litellm.html"
+    },
+    {
+      "name": "business-case-open-policy-agent",
+      "label": "Business case · Open Policy Agent",
+      "url": "https://riskmandate.ai/business-case-open-policy-agent.html"
+    },
+    {
+      "name": "business-case-openbao",
+      "label": "Business case · OpenBao",
+      "url": "https://riskmandate.ai/business-case-openbao.html"
+    },
+    {
+      "name": "business-case-openfga",
+      "label": "Business case · OpenFGA",
+      "url": "https://riskmandate.ai/business-case-openfga.html"
+    },
+    {
+      "name": "business-case-owasp-coraza",
+      "label": "Business case · OWASP Coraza",
+      "url": "https://riskmandate.ai/business-case-owasp-coraza.html"
+    },
+    {
+      "name": "business-case-owasp-threat-dragon",
+      "label": "Business case · OWASP Threat Dragon and pytm",
+      "url": "https://riskmandate.ai/business-case-owasp-threat-dragon.html"
+    },
+    {
+      "name": "business-case-postgresql-pitr",
+      "label": "Business case · PostgreSQL point-in-time recovery",
+      "url": "https://riskmandate.ai/business-case-postgresql-pitr.html"
+    },
+    {
+      "name": "business-case-squid",
+      "label": "Business case · Squid",
+      "url": "https://riskmandate.ai/business-case-squid.html"
+    },
+    {
+      "name": "business-case-unleash",
+      "label": "Business case · Unleash",
+      "url": "https://riskmandate.ai/business-case-unleash.html"
+    },
+    {
+      "name": "business-case-velero",
+      "label": "Business case · Velero",
+      "url": "https://riskmandate.ai/business-case-velero.html"
     },
     {
       "name": "pricing",
@@ -585,5 +680,5 @@
     ]
   },
   "licence": "CC BY 4.0 (library content)",
-  "generated": "v1.33.0"
+  "generated": "v1.34.0"
 }

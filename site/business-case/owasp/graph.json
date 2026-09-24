@@ -1,0 +1,1845 @@
+{
+ "_": "A semantic graph of OWASP, as found by RiskMandate on 24 September 2026: the foundation, its families of projects, each project or document, and the numbered items of eleven lists, titles only, with the relationships OWASP's own pages state. Levels are the live project pages', with disputed ones marked. The bridge to the RiskGraph model is RiskMandate's reading, not OWASP's. Offered to OWASP: take it.",
+ "read": "2026-09-24",
+ "nodes": [
+  {
+   "id": "owasp",
+   "kind": "org",
+   "name": "OWASP Foundation",
+   "url": "https://owasp.org/",
+   "what": "An open community for software security: projects, chapters and conferences, each project with its own documents, tools and lists."
+  },
+  {
+   "id": "g-genai",
+   "kind": "group",
+   "name": "The GenAI Security Project",
+   "parent": "owasp",
+   "url": "https://genai.owasp.org/",
+   "level": "Flagship",
+   "what": "The umbrella project for generative AI and agent security, renamed from the LLM Top 10 project on 26 March 2025, with its own initiatives and documents."
+  },
+  {
+   "id": "g-ai",
+   "kind": "group",
+   "name": "Other OWASP AI projects",
+   "parent": "owasp",
+   "what": "AI and agent projects that sit beside the GenAI Security Project, each its own OWASP project."
+  },
+  {
+   "id": "g-std",
+   "kind": "group",
+   "name": "Standards, lists and guides an agent deployment touches",
+   "parent": "owasp",
+   "what": "OWASP work that predates agents but applies to the systems they run in and call."
+  },
+  {
+   "id": "g-tool",
+   "kind": "group",
+   "name": "Tools",
+   "parent": "owasp",
+   "what": "Software an organisation can run, several with a business case on this site."
+  },
+  {
+   "id": "llm10-2025",
+   "kind": "document",
+   "name": "OWASP Top 10 for LLM Applications 2025",
+   "parent": "g-genai",
+   "url": "https://genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025/",
+   "version": "17 November 2024",
+   "what": "Ten risk categories for applications built on large language models."
+  },
+  {
+   "id": "llm10-2026",
+   "kind": "document",
+   "name": "OWASP Top 10 for LLM Applications 2026",
+   "parent": "g-genai",
+   "url": "https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/",
+   "version": "August 2026",
+   "what": "The edition that replaces 2025, ranked by community vote and incident data, with a different order."
+  },
+  {
+   "id": "asi-top10",
+   "kind": "document",
+   "name": "OWASP Top 10 for Agentic Applications for 2026",
+   "parent": "g-genai",
+   "url": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+   "version": "9 December 2025",
+   "what": "Ten risk categories for agents that plan and act."
+  },
+  {
+   "id": "asi-tm",
+   "kind": "document",
+   "name": "Agentic AI – Threats and Mitigations",
+   "parent": "g-genai",
+   "url": "https://genai.owasp.org/resource/agentic-ai-threats-and-mitigations/",
+   "version": "17 February 2025",
+   "what": "The detailed agent threat taxonomy the Agentic Top 10 relies on."
+  },
+  {
+   "id": "asi-secure-guide",
+   "kind": "document",
+   "name": "Securing Agentic Applications Guide 1.0",
+   "parent": "g-genai",
+   "url": "https://genai.owasp.org/resource/securing-agentic-applications-guide-1-0/",
+   "version": "27 July 2025",
+   "what": "Guidance for building and deploying agent applications."
+  },
+  {
+   "id": "asi-mas-tm",
+   "kind": "document",
+   "name": "Multi-Agentic System Threat Modeling Guide v1.0",
+   "parent": "g-genai",
+   "url": "https://genai.owasp.org/resource/multi-agentic-system-threat-modeling-guide-v1-0/",
+   "version": "23 April 2025",
+   "what": "The threat taxonomy applied to systems of several agents."
+  },
+  {
+   "id": "asi-state",
+   "kind": "document",
+   "name": "State of Agentic AI Security and Governance 2.01",
+   "parent": "g-genai",
+   "url": "https://genai.owasp.org/resource/state-of-agentic-ai-security-and-governance/",
+   "version": "1 June 2026",
+   "what": "An overview of frameworks and regulation for agents."
+  },
+  {
+   "id": "asi-ans",
+   "kind": "document",
+   "name": "Agent Name Service (ANS) v1.0",
+   "parent": "g-genai",
+   "url": "https://genai.owasp.org/resource/agent-name-service-ans-for-secure-al-agent-discovery-v1-0/",
+   "version": "14 May 2025",
+   "what": "A proposed scheme for naming and discovering agents."
+  },
+  {
+   "id": "acs",
+   "kind": "document",
+   "name": "Agent Control Standard (ACS)",
+   "parent": "g-genai",
+   "url": "https://genai.owasp.org/resource/agent-control-standard-acs/",
+   "version": "1 September 2026",
+   "what": "Standard hooks for inspecting and controlling agents at runtime, donated to the project."
+  },
+  {
+   "id": "mcp-server-guide",
+   "kind": "document",
+   "name": "A Practical Guide for Secure MCP Server Development",
+   "parent": "g-genai",
+   "url": "https://genai.owasp.org/resource/a-practical-guide-for-secure-mcp-server-development/",
+   "version": "16 February 2026",
+   "what": "Guidance for people who build MCP servers."
+  },
+  {
+   "id": "mcp-3p-cheatsheet",
+   "kind": "document",
+   "name": "Cheat Sheet: Securely Using Third-Party MCP Servers 1.0",
+   "parent": "g-genai",
+   "url": "https://genai.owasp.org/resource/cheatsheet-a-practical-guide-for-securely-using-third-party-mcp-servers-1-0/",
+   "version": "4 November 2025",
+   "what": "Guidance for people who use MCP servers written by others."
+  },
+  {
+   "id": "redteam-guide",
+   "kind": "document",
+   "name": "GenAI Red Teaming Guide",
+   "parent": "g-genai",
+   "url": "https://genai.owasp.org/resource/genai-red-teaming-guide/",
+   "version": "22 January 2025",
+   "what": "A method for adversarial testing of generative AI systems."
+  },
+  {
+   "id": "redteam-vendor-criteria",
+   "kind": "document",
+   "name": "Vendor Evaluation Criteria for AI Red Teaming Providers and Tooling v1.0",
+   "parent": "g-genai",
+   "url": "https://genai.owasp.org/resource/owasp-vendor-evaluation-criteria-for-ai-red-teaming-providers-tooling-v1-0/",
+   "version": "4 February 2026",
+   "what": "Questions to ask red-teaming vendors."
+  },
+  {
+   "id": "llm-checklist",
+   "kind": "document",
+   "name": "LLM Applications Cybersecurity and Governance Checklist v1.1",
+   "parent": "g-genai",
+   "url": "https://genai.owasp.org/resource/llm-applications-cybersecurity-and-governance-checklist-english/",
+   "version": "7 May 2024",
+   "what": "A checklist for leaders adopting large language models."
+  },
+  {
+   "id": "landscape-agentic",
+   "kind": "document",
+   "name": "AI Security Solutions Landscape for Agentic AI, Q2 2026",
+   "parent": "g-genai",
+   "url": "https://genai.owasp.org/resource/ai-security-solutions-landscape-for-agentic-ai-q2-2026/",
+   "version": "17 March 2026",
+   "what": "A quarterly map of tools by lifecycle stage, for agents."
+  },
+  {
+   "id": "landscape-llm",
+   "kind": "document",
+   "name": "AI Security Solutions Landscape for LLM and GenAI Apps, Q2 2026",
+   "parent": "g-genai",
+   "url": "https://genai.owasp.org/resource/al-security-solutions-landscape-for-llm-and-gen-al-apps-q2-2026/",
+   "version": "17 March 2026",
+   "what": "The same map, for LLM applications."
+  },
+  {
+   "id": "landscape-redteam",
+   "kind": "document",
+   "name": "Solutions Landscape for AI and Agentic Red Teaming, Q2 2026",
+   "parent": "g-genai",
+   "url": "https://genai.owasp.org/resource/ai-security-solutions-landscape-for-ai-and-agentic-red-teaming-q2-2026/",
+   "version": "9 April 2026",
+   "what": "The same map, for red-teaming tools."
+  },
+  {
+   "id": "dsgai",
+   "kind": "document",
+   "name": "GenAI Data Security Risks and Mitigations 2026 v1.0",
+   "parent": "g-genai",
+   "url": "https://genai.owasp.org/resource/owasp-genai-data-security-risks-mitigations-2026/",
+   "version": "17 March 2026",
+   "what": "Data-layer risks for generative AI systems."
+  },
+  {
+   "id": "crosswalk",
+   "kind": "document",
+   "name": "GenAI Security Industry Framework Crosswalk",
+   "parent": "g-genai",
+   "url": "https://genai.owasp.org/resource/genai-security-industry-framework-crosswalk/",
+   "version": "1 September 2026",
+   "what": "Maps the project's risks to controls in outside frameworks."
+  },
+  {
+   "id": "aiuc1-crosswalk",
+   "kind": "document",
+   "name": "AIUC-1 Crosswalk of the Agentic Top 10",
+   "parent": "g-genai",
+   "url": "https://genai.owasp.org/resource/aiuc-1-crosswalks-owasp-top-10-for-agentic-applications/",
+   "version": "25 May 2026",
+   "what": "A two-way mapping between AIUC-1 and the Agentic Top 10."
+  },
+  {
+   "id": "compass",
+   "kind": "document",
+   "name": "Threat Defense COMPASS 1.0",
+   "parent": "g-genai",
+   "url": "https://genai.owasp.org/resource/owasp-genai-security-project-threat-defense-compass-1-0/",
+   "version": "10 September 2025",
+   "what": "A worksheet method for prioritising AI threats."
+  },
+  {
+   "id": "ir-guide",
+   "kind": "document",
+   "name": "GenAI Incident Response Guide 1.0",
+   "parent": "g-genai",
+   "url": "https://genai.owasp.org/resource/genai-incident-response-guide-1-0/",
+   "version": "28 July 2025",
+   "what": "Incident response for generative AI systems."
+  },
+  {
+   "id": "aibom-gen",
+   "kind": "document",
+   "name": "OWASP AIBOM Generator",
+   "parent": "g-genai",
+   "url": "https://genai.owasp.org/resource/owasp-aibom-generator/",
+   "version": "17 December 2025",
+   "what": "A tool that writes AI bills of materials in CycloneDX format."
+  },
+  {
+   "id": "finbot",
+   "kind": "document",
+   "name": "FinBot Agentic AI CTF",
+   "parent": "g-genai",
+   "url": "https://genai.owasp.org/resource/finbot-agentic-ai-capture-the-flag-ctf-application/",
+   "version": "12 August 2025",
+   "what": "A deliberately vulnerable agent application for training."
+  },
+  {
+   "id": "ai-exchange",
+   "kind": "project",
+   "name": "OWASP AI Exchange",
+   "parent": "g-ai",
+   "url": "https://owaspai.org/",
+   "level": "Flagship",
+   "type": "Documentation",
+   "what": "Reference guidance on AI threats and controls, continuously updated.",
+   "disputed": true
+  },
+  {
+   "id": "aitg",
+   "kind": "project",
+   "name": "OWASP AI Testing Guide",
+   "parent": "g-ai",
+   "url": "https://github.com/OWASP/www-project-ai-testing-guide",
+   "level": "Incubator",
+   "type": "Other",
+   "what": "A method and test cases for testing AI systems; v1, 26 November 2025.",
+   "disputed": true
+  },
+  {
+   "id": "aivss",
+   "kind": "project",
+   "name": "OWASP AI Vulnerability Scoring System (AIVSS)",
+   "parent": "g-ai",
+   "url": "https://owasp.org/projects/ai-vulnerability-scoring-system-aivss",
+   "level": "Incubator",
+   "type": "Other",
+   "what": "A scoring method, starting with agent risks; v0.8."
+  },
+  {
+   "id": "aisvs",
+   "kind": "project",
+   "name": "OWASP AI Security Verification Standard (AISVS)",
+   "parent": "g-ai",
+   "url": "https://github.com/OWASP/AISVS",
+   "level": "Incubator",
+   "type": "Standards",
+   "what": "Testable security requirements for AI systems; 1.0, June 2026."
+  },
+  {
+   "id": "ml-top10",
+   "kind": "project",
+   "name": "OWASP Machine Learning Security Top Ten",
+   "parent": "g-ai",
+   "url": "https://github.com/OWASP/www-project-machine-learning-security-top-10",
+   "level": "Lab",
+   "type": "Other",
+   "what": "Ten risk categories for machine-learning systems; the 2023 list, marked in draft.",
+   "disputed": true
+  },
+  {
+   "id": "mcp-top10",
+   "kind": "project",
+   "name": "OWASP MCP Top 10",
+   "parent": "g-ai",
+   "url": "https://owasp.org/projects/mcp-top-10",
+   "level": "Production",
+   "type": "Documentation",
+   "what": "Ten risk categories for MCP systems; a 2025 beta, next release announced for October 2026.",
+   "disputed": true
+  },
+  {
+   "id": "nhi-top10",
+   "kind": "project",
+   "name": "OWASP Non-Human Identities Top 10",
+   "parent": "g-ai",
+   "url": "https://owasp.org/www-project-non-human-identities-top-10/2025/",
+   "level": "Incubator",
+   "type": "Other",
+   "what": "Ten risk categories for machine identities: keys, tokens, service accounts; 2025 edition."
+  },
+  {
+   "id": "ast10",
+   "kind": "project",
+   "name": "OWASP Agentic Skills Top 10",
+   "parent": "g-ai",
+   "url": "https://owasp.org/projects/agentic-skills-top-10",
+   "level": "Incubator",
+   "type": "Documentation",
+   "what": "Ten risk categories for agent skills, the layer that carries out an agent's actions; in public review."
+  },
+  {
+   "id": "aibom",
+   "kind": "project",
+   "name": "OWASP AIBOM",
+   "parent": "g-ai",
+   "url": "https://owaspaibom.org/",
+   "type": "Code",
+   "what": "Inventories of the parts of an AI system."
+  },
+  {
+   "id": "asvs",
+   "kind": "project",
+   "name": "OWASP ASVS",
+   "parent": "g-std",
+   "url": "https://owasp.org/projects/asvs",
+   "level": "Flagship",
+   "type": "Standards",
+   "what": "Security requirements for web applications; 5.0.0, May 2025."
+  },
+  {
+   "id": "samm",
+   "kind": "project",
+   "name": "OWASP SAMM",
+   "parent": "g-std",
+   "url": "https://owaspsamm.org/",
+   "level": "Flagship",
+   "type": "Standards",
+   "what": "A maturity model for software security programmes; v2.0."
+  },
+  {
+   "id": "top10",
+   "kind": "project",
+   "name": "OWASP Top 10: 2025",
+   "parent": "g-std",
+   "url": "https://top10.owasp.org/2025",
+   "level": "Flagship",
+   "type": "Documentation",
+   "what": "Ten web application risk categories; the 2025 edition."
+  },
+  {
+   "id": "api-top10",
+   "kind": "project",
+   "name": "OWASP API Security Top 10",
+   "parent": "g-std",
+   "url": "https://owasp.org/projects/api-security-project",
+   "level": "Production",
+   "type": "Documentation",
+   "what": "Ten API risk categories; the 2023 edition.",
+   "disputed": true
+  },
+  {
+   "id": "cyclonedx",
+   "kind": "project",
+   "name": "CycloneDX (ECMA-424)",
+   "parent": "g-std",
+   "url": "https://cyclonedx.org/",
+   "level": "Flagship",
+   "type": "Standards",
+   "what": "A bill-of-materials standard with a machine-learning variant; specification 1.7."
+  },
+  {
+   "id": "scvs",
+   "kind": "project",
+   "name": "Software Component Verification Standard",
+   "parent": "g-std",
+   "url": "https://owasp.org/www-project-software-component-verification-standard/",
+   "level": "Lab",
+   "type": "Other",
+   "what": "Supply-chain verification controls; 1.0."
+  },
+  {
+   "id": "cicd-top10",
+   "kind": "project",
+   "name": "Top 10 CI/CD Security Risks",
+   "parent": "g-std",
+   "url": "https://owasp.org/projects/top-10-cicd-security-risks",
+   "level": "Lab",
+   "type": "Other",
+   "what": "Ten build-pipeline risk categories."
+  },
+  {
+   "id": "k8s-top10",
+   "kind": "project",
+   "name": "Kubernetes Top Ten",
+   "parent": "g-std",
+   "url": "https://kubernetes-top10.owasp.org/",
+   "level": "Incubator",
+   "type": "Documentation",
+   "what": "Ten Kubernetes risk categories; the 2025 list."
+  },
+  {
+   "id": "cheatsheets",
+   "kind": "project",
+   "name": "Cheat Sheet Series",
+   "parent": "g-std",
+   "url": "https://cheatsheetseries.owasp.org/",
+   "level": "Flagship",
+   "type": "Documentation",
+   "what": "Short guides, one topic each."
+  },
+  {
+   "id": "tm-project",
+   "kind": "project",
+   "name": "Threat Modeling Project",
+   "parent": "g-std",
+   "url": "https://owasp.org/projects/threat-modeling-project",
+   "level": "Lab",
+   "type": "Documentation",
+   "what": "The entry point for OWASP's threat-modelling guidance, including agentic threat modelling.",
+   "disputed": true
+  },
+  {
+   "id": "threat-dragon",
+   "kind": "project",
+   "name": "Threat Dragon",
+   "parent": "g-tool",
+   "url": "https://owasp.org/www-project-threat-dragon/",
+   "level": "Production",
+   "type": "Tool",
+   "what": "Threat models as data-flow diagrams.",
+   "case": "owasp-threat-dragon"
+  },
+  {
+   "id": "pytm",
+   "kind": "project",
+   "name": "pytm",
+   "parent": "g-tool",
+   "url": "https://owasp.org/www-project-pytm/",
+   "level": "Production",
+   "type": "Code",
+   "what": "Threat models written as Python code.",
+   "case": "owasp-threat-dragon"
+  },
+  {
+   "id": "coraza",
+   "kind": "project",
+   "name": "Coraza Web Application Firewall",
+   "parent": "g-tool",
+   "url": "https://coraza.io/",
+   "level": "Production",
+   "type": "Code",
+   "what": "A web application firewall engine.",
+   "case": "owasp-coraza"
+  },
+  {
+   "id": "crs",
+   "kind": "project",
+   "name": "Core Rule Set (CRS)",
+   "parent": "g-tool",
+   "url": "https://coreruleset.org/",
+   "level": "Flagship",
+   "type": "Code",
+   "what": "Detection rules for web application firewalls."
+  },
+  {
+   "id": "dtrack",
+   "kind": "project",
+   "name": "Dependency-Track",
+   "parent": "g-tool",
+   "url": "https://dependencytrack.org/",
+   "level": "Flagship",
+   "type": "Tool",
+   "what": "Tracks component risk from bills of materials."
+  },
+  {
+   "id": "dcheck",
+   "kind": "project",
+   "name": "Dependency-Check",
+   "parent": "g-tool",
+   "url": "https://owasp.org/www-project-dependency-check/",
+   "level": "Flagship",
+   "type": "Tool",
+   "what": "Finds known vulnerable dependencies."
+  },
+  {
+   "id": "defectdojo",
+   "kind": "project",
+   "name": "DefectDojo",
+   "parent": "g-tool",
+   "url": "https://owasp.org/www-project-defectdojo/",
+   "level": "Flagship",
+   "type": "Tool",
+   "what": "Collects and manages security findings."
+  },
+  {
+   "id": "juice-shop",
+   "kind": "project",
+   "name": "Juice Shop",
+   "parent": "g-tool",
+   "url": "https://owasp.org/www-project-juice-shop/",
+   "level": "Flagship",
+   "type": "Tool",
+   "what": "A deliberately vulnerable web application for training."
+  },
+  {
+   "id": "wrongsecrets",
+   "kind": "project",
+   "name": "WrongSecrets",
+   "parent": "g-tool",
+   "url": "https://owasp.org/www-project-wrongsecrets/",
+   "level": "Production",
+   "type": "Tool",
+   "what": "Secrets-management training exercises."
+  },
+  {
+   "id": "x-atlas",
+   "kind": "external",
+   "name": "MITRE ATLAS"
+  },
+  {
+   "id": "x-attack",
+   "kind": "external",
+   "name": "MITRE ATT&CK"
+  },
+  {
+   "id": "x-cwe",
+   "kind": "external",
+   "name": "MITRE CWE"
+  },
+  {
+   "id": "x-ai-rmf",
+   "kind": "external",
+   "name": "NIST AI RMF (AI 100-1)"
+  },
+  {
+   "id": "x-600-1",
+   "kind": "external",
+   "name": "NIST AI 600-1"
+  },
+  {
+   "id": "x-aicm",
+   "kind": "external",
+   "name": "CSA AI Controls Matrix"
+  },
+  {
+   "id": "x-42001",
+   "kind": "external",
+   "name": "ISO/IEC 42001"
+  },
+  {
+   "id": "x-27090",
+   "kind": "external",
+   "name": "ISO/IEC 27090"
+  },
+  {
+   "id": "x-aia",
+   "kind": "external",
+   "name": "EU AI Act"
+  },
+  {
+   "id": "x-aiuc1",
+   "kind": "external",
+   "name": "AIUC-1"
+  },
+  {
+   "id": "x-saif",
+   "kind": "external",
+   "name": "Google SAIF"
+  },
+  {
+   "id": "x-aml",
+   "kind": "external",
+   "name": "NIST AML taxonomy"
+  },
+  {
+   "id": "x-maestro",
+   "kind": "external",
+   "name": "CSA MAESTRO"
+  },
+  {
+   "id": "x-zap",
+   "kind": "external",
+   "name": "ZAP (left OWASP, 1 August 2023)"
+  },
+  {
+   "id": "llm10-2025:LLM01:2025",
+   "kind": "item",
+   "name": "LLM01:2025 Prompt Injection",
+   "parent": "llm10-2025"
+  },
+  {
+   "id": "llm10-2025:LLM02:2025",
+   "kind": "item",
+   "name": "LLM02:2025 Sensitive Information Disclosure",
+   "parent": "llm10-2025"
+  },
+  {
+   "id": "llm10-2025:LLM03:2025",
+   "kind": "item",
+   "name": "LLM03:2025 Supply Chain",
+   "parent": "llm10-2025"
+  },
+  {
+   "id": "llm10-2025:LLM04:2025",
+   "kind": "item",
+   "name": "LLM04:2025 Data and Model Poisoning",
+   "parent": "llm10-2025"
+  },
+  {
+   "id": "llm10-2025:LLM05:2025",
+   "kind": "item",
+   "name": "LLM05:2025 Improper Output Handling",
+   "parent": "llm10-2025"
+  },
+  {
+   "id": "llm10-2025:LLM06:2025",
+   "kind": "item",
+   "name": "LLM06:2025 Excessive Agency",
+   "parent": "llm10-2025"
+  },
+  {
+   "id": "llm10-2025:LLM07:2025",
+   "kind": "item",
+   "name": "LLM07:2025 System Prompt Leakage",
+   "parent": "llm10-2025"
+  },
+  {
+   "id": "llm10-2025:LLM08:2025",
+   "kind": "item",
+   "name": "LLM08:2025 Vector and Embedding Weaknesses",
+   "parent": "llm10-2025"
+  },
+  {
+   "id": "llm10-2025:LLM09:2025",
+   "kind": "item",
+   "name": "LLM09:2025 Misinformation",
+   "parent": "llm10-2025"
+  },
+  {
+   "id": "llm10-2025:LLM10:2025",
+   "kind": "item",
+   "name": "LLM10:2025 Unbounded Consumption",
+   "parent": "llm10-2025"
+  },
+  {
+   "id": "llm10-2026:LLM01:2026",
+   "kind": "item",
+   "name": "LLM01:2026 Prompt Injection",
+   "parent": "llm10-2026"
+  },
+  {
+   "id": "llm10-2026:LLM02:2026",
+   "kind": "item",
+   "name": "LLM02:2026 Sensitive Information Disclosure",
+   "parent": "llm10-2026"
+  },
+  {
+   "id": "llm10-2026:LLM03:2026",
+   "kind": "item",
+   "name": "LLM03:2026 Excessive Agency",
+   "parent": "llm10-2026"
+  },
+  {
+   "id": "llm10-2026:LLM04:2026",
+   "kind": "item",
+   "name": "LLM04:2026 Supply Chain",
+   "parent": "llm10-2026"
+  },
+  {
+   "id": "llm10-2026:LLM05:2026",
+   "kind": "item",
+   "name": "LLM05:2026 Data and Model Poisoning",
+   "parent": "llm10-2026"
+  },
+  {
+   "id": "llm10-2026:LLM06:2026",
+   "kind": "item",
+   "name": "LLM06:2026 Unbounded Consumption",
+   "parent": "llm10-2026"
+  },
+  {
+   "id": "llm10-2026:LLM07:2026",
+   "kind": "item",
+   "name": "LLM07:2026 Misinformation",
+   "parent": "llm10-2026"
+  },
+  {
+   "id": "llm10-2026:LLM08:2026",
+   "kind": "item",
+   "name": "LLM08:2026 Hidden Context Exposure",
+   "parent": "llm10-2026"
+  },
+  {
+   "id": "llm10-2026:LLM09:2026",
+   "kind": "item",
+   "name": "LLM09:2026 Vector and Embedding Weaknesses",
+   "parent": "llm10-2026"
+  },
+  {
+   "id": "llm10-2026:LLM10:2026",
+   "kind": "item",
+   "name": "LLM10:2026 Improper Output Handling",
+   "parent": "llm10-2026"
+  },
+  {
+   "id": "asi-top10:ASI01",
+   "kind": "item",
+   "name": "ASI01 Agent Goal Hijack",
+   "parent": "asi-top10"
+  },
+  {
+   "id": "asi-top10:ASI02",
+   "kind": "item",
+   "name": "ASI02 Tool Misuse and Exploitation",
+   "parent": "asi-top10"
+  },
+  {
+   "id": "asi-top10:ASI03",
+   "kind": "item",
+   "name": "ASI03 Identity and Privilege Abuse",
+   "parent": "asi-top10"
+  },
+  {
+   "id": "asi-top10:ASI04",
+   "kind": "item",
+   "name": "ASI04 Agentic Supply Chain Vulnerabilities",
+   "parent": "asi-top10"
+  },
+  {
+   "id": "asi-top10:ASI05",
+   "kind": "item",
+   "name": "ASI05 Unexpected Code Execution (RCE)",
+   "parent": "asi-top10"
+  },
+  {
+   "id": "asi-top10:ASI06",
+   "kind": "item",
+   "name": "ASI06 Memory & Context Poisoning",
+   "parent": "asi-top10"
+  },
+  {
+   "id": "asi-top10:ASI07",
+   "kind": "item",
+   "name": "ASI07 Insecure Inter-Agent Communication",
+   "parent": "asi-top10"
+  },
+  {
+   "id": "asi-top10:ASI08",
+   "kind": "item",
+   "name": "ASI08 Cascading Failures",
+   "parent": "asi-top10"
+  },
+  {
+   "id": "asi-top10:ASI09",
+   "kind": "item",
+   "name": "ASI09 Human-Agent Trust Exploitation",
+   "parent": "asi-top10"
+  },
+  {
+   "id": "asi-top10:ASI10",
+   "kind": "item",
+   "name": "ASI10 Rogue Agents",
+   "parent": "asi-top10"
+  },
+  {
+   "id": "ml-top10:ML01:2023",
+   "kind": "item",
+   "name": "ML01:2023 Input Manipulation Attack",
+   "parent": "ml-top10"
+  },
+  {
+   "id": "ml-top10:ML02:2023",
+   "kind": "item",
+   "name": "ML02:2023 Data Poisoning Attack",
+   "parent": "ml-top10"
+  },
+  {
+   "id": "ml-top10:ML03:2023",
+   "kind": "item",
+   "name": "ML03:2023 Model Inversion Attack",
+   "parent": "ml-top10"
+  },
+  {
+   "id": "ml-top10:ML04:2023",
+   "kind": "item",
+   "name": "ML04:2023 Membership Inference Attack",
+   "parent": "ml-top10"
+  },
+  {
+   "id": "ml-top10:ML05:2023",
+   "kind": "item",
+   "name": "ML05:2023 Model Theft",
+   "parent": "ml-top10"
+  },
+  {
+   "id": "ml-top10:ML06:2023",
+   "kind": "item",
+   "name": "ML06:2023 AI Supply Chain Attacks",
+   "parent": "ml-top10"
+  },
+  {
+   "id": "ml-top10:ML07:2023",
+   "kind": "item",
+   "name": "ML07:2023 Transfer Learning Attack",
+   "parent": "ml-top10"
+  },
+  {
+   "id": "ml-top10:ML08:2023",
+   "kind": "item",
+   "name": "ML08:2023 Model Skewing",
+   "parent": "ml-top10"
+  },
+  {
+   "id": "ml-top10:ML09:2023",
+   "kind": "item",
+   "name": "ML09:2023 Output Integrity Attack",
+   "parent": "ml-top10"
+  },
+  {
+   "id": "ml-top10:ML10:2023",
+   "kind": "item",
+   "name": "ML10:2023 Model Poisoning",
+   "parent": "ml-top10"
+  },
+  {
+   "id": "nhi-top10:NHI1:2025",
+   "kind": "item",
+   "name": "NHI1:2025 Improper Offboarding",
+   "parent": "nhi-top10"
+  },
+  {
+   "id": "nhi-top10:NHI2:2025",
+   "kind": "item",
+   "name": "NHI2:2025 Secret Leakage",
+   "parent": "nhi-top10"
+  },
+  {
+   "id": "nhi-top10:NHI3:2025",
+   "kind": "item",
+   "name": "NHI3:2025 Vulnerable Third-Party NHI",
+   "parent": "nhi-top10"
+  },
+  {
+   "id": "nhi-top10:NHI4:2025",
+   "kind": "item",
+   "name": "NHI4:2025 Insecure Authentication",
+   "parent": "nhi-top10"
+  },
+  {
+   "id": "nhi-top10:NHI5:2025",
+   "kind": "item",
+   "name": "NHI5:2025 Overprivileged NHI",
+   "parent": "nhi-top10"
+  },
+  {
+   "id": "nhi-top10:NHI6:2025",
+   "kind": "item",
+   "name": "NHI6:2025 Insecure Cloud Deployment Configurations",
+   "parent": "nhi-top10"
+  },
+  {
+   "id": "nhi-top10:NHI7:2025",
+   "kind": "item",
+   "name": "NHI7:2025 Long-Lived Secrets",
+   "parent": "nhi-top10"
+  },
+  {
+   "id": "nhi-top10:NHI8:2025",
+   "kind": "item",
+   "name": "NHI8:2025 Environment Isolation",
+   "parent": "nhi-top10"
+  },
+  {
+   "id": "nhi-top10:NHI9:2025",
+   "kind": "item",
+   "name": "NHI9:2025 NHI Reuse",
+   "parent": "nhi-top10"
+  },
+  {
+   "id": "nhi-top10:NHI10:2025",
+   "kind": "item",
+   "name": "NHI10:2025 Human Use of NHI",
+   "parent": "nhi-top10"
+  },
+  {
+   "id": "api-top10:API1:2023",
+   "kind": "item",
+   "name": "API1:2023 Broken Object Level Authorization",
+   "parent": "api-top10"
+  },
+  {
+   "id": "api-top10:API2:2023",
+   "kind": "item",
+   "name": "API2:2023 Broken Authentication",
+   "parent": "api-top10"
+  },
+  {
+   "id": "api-top10:API3:2023",
+   "kind": "item",
+   "name": "API3:2023 Broken Object Property Level Authorization",
+   "parent": "api-top10"
+  },
+  {
+   "id": "api-top10:API4:2023",
+   "kind": "item",
+   "name": "API4:2023 Unrestricted Resource Consumption",
+   "parent": "api-top10"
+  },
+  {
+   "id": "api-top10:API5:2023",
+   "kind": "item",
+   "name": "API5:2023 Broken Function Level Authorization",
+   "parent": "api-top10"
+  },
+  {
+   "id": "api-top10:API6:2023",
+   "kind": "item",
+   "name": "API6:2023 Unrestricted Access to Sensitive Business Flows",
+   "parent": "api-top10"
+  },
+  {
+   "id": "api-top10:API7:2023",
+   "kind": "item",
+   "name": "API7:2023 Server Side Request Forgery",
+   "parent": "api-top10"
+  },
+  {
+   "id": "api-top10:API8:2023",
+   "kind": "item",
+   "name": "API8:2023 Security Misconfiguration",
+   "parent": "api-top10"
+  },
+  {
+   "id": "api-top10:API9:2023",
+   "kind": "item",
+   "name": "API9:2023 Improper Inventory Management",
+   "parent": "api-top10"
+  },
+  {
+   "id": "api-top10:API10:2023",
+   "kind": "item",
+   "name": "API10:2023 Unsafe Consumption of APIs",
+   "parent": "api-top10"
+  },
+  {
+   "id": "mcp-top10:MCP01:2025",
+   "kind": "item",
+   "name": "MCP01:2025 Token Mismanagement & Secret Exposure",
+   "parent": "mcp-top10"
+  },
+  {
+   "id": "mcp-top10:MCP02:2025",
+   "kind": "item",
+   "name": "MCP02:2025 Privilege Escalation via Scope Creep",
+   "parent": "mcp-top10"
+  },
+  {
+   "id": "mcp-top10:MCP03:2025",
+   "kind": "item",
+   "name": "MCP03:2025 Tool Poisoning",
+   "parent": "mcp-top10"
+  },
+  {
+   "id": "mcp-top10:MCP04:2025",
+   "kind": "item",
+   "name": "MCP04:2025 Software Supply Chain Attacks & Dependency Tampering",
+   "parent": "mcp-top10"
+  },
+  {
+   "id": "mcp-top10:MCP05:2025",
+   "kind": "item",
+   "name": "MCP05:2025 Command Injection & Execution",
+   "parent": "mcp-top10"
+  },
+  {
+   "id": "mcp-top10:MCP06:2025",
+   "kind": "item",
+   "name": "MCP06:2025 Intent Flow Subversion",
+   "parent": "mcp-top10"
+  },
+  {
+   "id": "mcp-top10:MCP07:2025",
+   "kind": "item",
+   "name": "MCP07:2025 Insufficient Authentication & Authorization",
+   "parent": "mcp-top10"
+  },
+  {
+   "id": "mcp-top10:MCP08:2025",
+   "kind": "item",
+   "name": "MCP08:2025 Lack of Audit and Telemetry",
+   "parent": "mcp-top10"
+  },
+  {
+   "id": "mcp-top10:MCP09:2025",
+   "kind": "item",
+   "name": "MCP09:2025 Shadow MCP Servers",
+   "parent": "mcp-top10"
+  },
+  {
+   "id": "mcp-top10:MCP10:2025",
+   "kind": "item",
+   "name": "MCP10:2025 Context Injection & Over-Sharing",
+   "parent": "mcp-top10"
+  },
+  {
+   "id": "top10:A01:2025",
+   "kind": "item",
+   "name": "A01:2025 Broken Access Control",
+   "parent": "top10"
+  },
+  {
+   "id": "top10:A02:2025",
+   "kind": "item",
+   "name": "A02:2025 Security Misconfiguration",
+   "parent": "top10"
+  },
+  {
+   "id": "top10:A03:2025",
+   "kind": "item",
+   "name": "A03:2025 Software Supply Chain Failures",
+   "parent": "top10"
+  },
+  {
+   "id": "top10:A04:2025",
+   "kind": "item",
+   "name": "A04:2025 Cryptographic Failures",
+   "parent": "top10"
+  },
+  {
+   "id": "top10:A05:2025",
+   "kind": "item",
+   "name": "A05:2025 Injection",
+   "parent": "top10"
+  },
+  {
+   "id": "top10:A06:2025",
+   "kind": "item",
+   "name": "A06:2025 Insecure Design",
+   "parent": "top10"
+  },
+  {
+   "id": "top10:A07:2025",
+   "kind": "item",
+   "name": "A07:2025 Authentication Failures",
+   "parent": "top10"
+  },
+  {
+   "id": "top10:A08:2025",
+   "kind": "item",
+   "name": "A08:2025 Software or Data Integrity Failures",
+   "parent": "top10"
+  },
+  {
+   "id": "top10:A09:2025",
+   "kind": "item",
+   "name": "A09:2025 Security Logging and Alerting Failures",
+   "parent": "top10"
+  },
+  {
+   "id": "top10:A10:2025",
+   "kind": "item",
+   "name": "A10:2025 Mishandling of Exceptional Conditions",
+   "parent": "top10"
+  },
+  {
+   "id": "ast10:AST01",
+   "kind": "item",
+   "name": "AST01 Malicious Skills",
+   "parent": "ast10"
+  },
+  {
+   "id": "ast10:AST02",
+   "kind": "item",
+   "name": "AST02 Supply Chain Compromise",
+   "parent": "ast10"
+  },
+  {
+   "id": "ast10:AST03",
+   "kind": "item",
+   "name": "AST03 Over-Privileged Skills",
+   "parent": "ast10"
+  },
+  {
+   "id": "ast10:AST04",
+   "kind": "item",
+   "name": "AST04 Insecure Metadata",
+   "parent": "ast10"
+  },
+  {
+   "id": "ast10:AST05",
+   "kind": "item",
+   "name": "AST05 Untrusted External Instructions",
+   "parent": "ast10"
+  },
+  {
+   "id": "ast10:AST06",
+   "kind": "item",
+   "name": "AST06 Weak Isolation",
+   "parent": "ast10"
+  },
+  {
+   "id": "ast10:AST07",
+   "kind": "item",
+   "name": "AST07 Update Drift",
+   "parent": "ast10"
+  },
+  {
+   "id": "ast10:AST08",
+   "kind": "item",
+   "name": "AST08 Poor Scanning",
+   "parent": "ast10"
+  },
+  {
+   "id": "ast10:AST09",
+   "kind": "item",
+   "name": "AST09 No Governance",
+   "parent": "ast10"
+  },
+  {
+   "id": "ast10:AST10",
+   "kind": "item",
+   "name": "AST10 Cross-Platform Reuse",
+   "parent": "ast10"
+  },
+  {
+   "id": "cicd-top10:CICD-SEC-1",
+   "kind": "item",
+   "name": "CICD-SEC-1 Insufficient Flow Control Mechanisms",
+   "parent": "cicd-top10"
+  },
+  {
+   "id": "cicd-top10:CICD-SEC-2",
+   "kind": "item",
+   "name": "CICD-SEC-2 Inadequate Identity and Access Management",
+   "parent": "cicd-top10"
+  },
+  {
+   "id": "cicd-top10:CICD-SEC-3",
+   "kind": "item",
+   "name": "CICD-SEC-3 Dependency Chain Abuse",
+   "parent": "cicd-top10"
+  },
+  {
+   "id": "cicd-top10:CICD-SEC-4",
+   "kind": "item",
+   "name": "CICD-SEC-4 Poisoned Pipeline Execution (PPE)",
+   "parent": "cicd-top10"
+  },
+  {
+   "id": "cicd-top10:CICD-SEC-5",
+   "kind": "item",
+   "name": "CICD-SEC-5 Insufficient PBAC (Pipeline-Based Access Controls)",
+   "parent": "cicd-top10"
+  },
+  {
+   "id": "cicd-top10:CICD-SEC-6",
+   "kind": "item",
+   "name": "CICD-SEC-6 Insufficient Credential Hygiene",
+   "parent": "cicd-top10"
+  },
+  {
+   "id": "cicd-top10:CICD-SEC-7",
+   "kind": "item",
+   "name": "CICD-SEC-7 Insecure System Configuration",
+   "parent": "cicd-top10"
+  },
+  {
+   "id": "cicd-top10:CICD-SEC-8",
+   "kind": "item",
+   "name": "CICD-SEC-8 Ungoverned Usage of 3rd Party Services",
+   "parent": "cicd-top10"
+  },
+  {
+   "id": "cicd-top10:CICD-SEC-9",
+   "kind": "item",
+   "name": "CICD-SEC-9 Improper Artifact Integrity Validation",
+   "parent": "cicd-top10"
+  },
+  {
+   "id": "cicd-top10:CICD-SEC-10",
+   "kind": "item",
+   "name": "CICD-SEC-10 Insufficient Logging and Visibility",
+   "parent": "cicd-top10"
+  },
+  {
+   "id": "k8s-top10:K01",
+   "kind": "item",
+   "name": "K01 Insecure Workload Configurations",
+   "parent": "k8s-top10"
+  },
+  {
+   "id": "k8s-top10:K02",
+   "kind": "item",
+   "name": "K02 Overly Permissive Authorization Configurations",
+   "parent": "k8s-top10"
+  },
+  {
+   "id": "k8s-top10:K03",
+   "kind": "item",
+   "name": "K03 Secrets Management Failures",
+   "parent": "k8s-top10"
+  },
+  {
+   "id": "k8s-top10:K04",
+   "kind": "item",
+   "name": "K04 Lack Of Cluster Level Policy Enforcement",
+   "parent": "k8s-top10"
+  },
+  {
+   "id": "k8s-top10:K05",
+   "kind": "item",
+   "name": "K05 Missing Network Segmentation Controls",
+   "parent": "k8s-top10"
+  },
+  {
+   "id": "k8s-top10:K06",
+   "kind": "item",
+   "name": "K06 Overly Exposed Kubernetes Components",
+   "parent": "k8s-top10"
+  },
+  {
+   "id": "k8s-top10:K07",
+   "kind": "item",
+   "name": "K07 Misconfigured And Vulnerable Cluster Components",
+   "parent": "k8s-top10"
+  },
+  {
+   "id": "k8s-top10:K08",
+   "kind": "item",
+   "name": "K08 Cluster To Cloud Lateral Movement",
+   "parent": "k8s-top10"
+  },
+  {
+   "id": "k8s-top10:K09",
+   "kind": "item",
+   "name": "K09 Broken Authentication Mechanisms",
+   "parent": "k8s-top10"
+  },
+  {
+   "id": "k8s-top10:K10",
+   "kind": "item",
+   "name": "K10 Inadequate Logging And Monitoring",
+   "parent": "k8s-top10"
+  }
+ ],
+ "edges": [
+  {
+   "from": "llm10-2026",
+   "to": "llm10-2025",
+   "rel": "supersedes",
+   "url": "https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/"
+  },
+  {
+   "from": "llm10-2026:LLM08:2026",
+   "to": "llm10-2025:LLM07:2025",
+   "rel": "renames and broadens",
+   "url": "https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/",
+   "quote": "What used to be System Prompt Leakage is now Hidden Context Exposure"
+  },
+  {
+   "from": "llm10-2026",
+   "to": "asi-top10",
+   "rel": "hands agent risks over to",
+   "url": "https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/",
+   "quote": "the risk moves to the OWASP Agentic Top 10"
+  },
+  {
+   "from": "llm10-2026",
+   "to": "dsgai",
+   "rel": "maps to",
+   "url": "https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/"
+  },
+  {
+   "from": "llm10-2026",
+   "to": "aivss",
+   "rel": "maps to",
+   "url": "https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/"
+  },
+  {
+   "from": "asi-top10",
+   "to": "asi-tm",
+   "rel": "relies on",
+   "url": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+   "quote": "our foundational and detailed taxonomy that this Top 10 relies upon"
+  },
+  {
+   "from": "asi-top10",
+   "to": "llm10-2025",
+   "rel": "maps to",
+   "url": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/"
+  },
+  {
+   "from": "asi-top10",
+   "to": "aivss",
+   "rel": "maps to",
+   "url": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/"
+  },
+  {
+   "from": "asi-top10",
+   "to": "cyclonedx",
+   "rel": "complemented by",
+   "url": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+   "quote": "CycloneDX helps organizations answer, “What components and tools are in my AI system?”"
+  },
+  {
+   "from": "asi-top10",
+   "to": "aibom",
+   "rel": "intends to align with",
+   "url": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/"
+  },
+  {
+   "from": "nhi-top10",
+   "to": "asi-top10",
+   "rel": "mapped to",
+   "url": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/"
+  },
+  {
+   "from": "asi-secure-guide",
+   "to": "asi-tm",
+   "rel": "complements",
+   "url": "https://genai.owasp.org/resource/securing-agentic-applications-guide-1-0/"
+  },
+  {
+   "from": "asi-mas-tm",
+   "to": "asi-tm",
+   "rel": "builds on",
+   "url": "https://genai.owasp.org/resource/multi-agentic-system-threat-modeling-guide-v1-0/"
+  },
+  {
+   "from": "landscape-agentic",
+   "to": "asi-tm",
+   "rel": "organised by",
+   "url": "https://genai.owasp.org/resource/ai-security-solutions-landscape-for-agentic-ai-q2-2026/"
+  },
+  {
+   "from": "acs",
+   "to": "g-genai",
+   "rel": "donated to",
+   "url": "https://genai.owasp.org/resource/agent-control-standard-acs/"
+  },
+  {
+   "from": "aibom-gen",
+   "to": "cyclonedx",
+   "rel": "writes",
+   "url": "https://genai.owasp.org/resource/owasp-aibom-generator/"
+  },
+  {
+   "from": "aisvs",
+   "to": "asvs",
+   "rel": "modelled on",
+   "url": "https://github.com/OWASP/AISVS"
+  },
+  {
+   "from": "aisvs",
+   "to": "llm10-2025",
+   "rel": "complements",
+   "url": "https://github.com/OWASP/AISVS"
+  },
+  {
+   "from": "aisvs",
+   "to": "asi-top10",
+   "rel": "complements",
+   "url": "https://github.com/OWASP/AISVS"
+  },
+  {
+   "from": "ai-exchange",
+   "to": "ml-top10",
+   "rel": "aligns with",
+   "url": "https://owaspai.org/"
+  },
+  {
+   "from": "ai-exchange",
+   "to": "llm10-2026",
+   "rel": "cross-references",
+   "url": "https://owaspai.org/"
+  },
+  {
+   "from": "aitg",
+   "to": "llm10-2025",
+   "rel": "draws on",
+   "url": "https://github.com/OWASP/www-project-ai-testing-guide"
+  },
+  {
+   "from": "aitg",
+   "to": "ai-exchange",
+   "rel": "maps to",
+   "url": "https://github.com/OWASP/www-project-ai-testing-guide"
+  },
+  {
+   "from": "aitg",
+   "to": "redteam-guide",
+   "rel": "acknowledges",
+   "url": "https://github.com/OWASP/www-project-ai-testing-guide"
+  },
+  {
+   "from": "tm-project",
+   "to": "asi-mas-tm",
+   "rel": "references",
+   "url": "https://owasp.org/projects/threat-modeling-project"
+  },
+  {
+   "from": "tm-project",
+   "to": "asi-top10",
+   "rel": "references",
+   "url": "https://owasp.org/projects/threat-modeling-project"
+  },
+  {
+   "from": "tm-project",
+   "to": "threat-dragon",
+   "rel": "lists",
+   "url": "https://owasp.org/projects/threat-modeling-project"
+  },
+  {
+   "from": "tm-project",
+   "to": "pytm",
+   "rel": "lists",
+   "url": "https://owasp.org/projects/threat-modeling-project"
+  },
+  {
+   "from": "top10:A03:2025",
+   "to": "cyclonedx",
+   "rel": "references",
+   "url": "https://top10.owasp.org/2025"
+  },
+  {
+   "from": "top10:A03:2025",
+   "to": "dtrack",
+   "rel": "references",
+   "url": "https://top10.owasp.org/2025"
+  },
+  {
+   "from": "top10",
+   "to": "asvs",
+   "rel": "references",
+   "url": "https://top10.owasp.org/2025"
+  },
+  {
+   "from": "top10",
+   "to": "samm",
+   "rel": "references",
+   "url": "https://top10.owasp.org/2025"
+  },
+  {
+   "from": "cheatsheets",
+   "to": "asvs",
+   "rel": "bridges to",
+   "url": "https://cheatsheetseries.owasp.org/"
+  },
+  {
+   "from": "coraza",
+   "to": "crs",
+   "rel": "compatible with",
+   "url": "https://coraza.io/",
+   "quote": "100% compatible with OWASP Core Ruleset"
+  },
+  {
+   "from": "crs",
+   "to": "top10",
+   "rel": "defends against",
+   "url": "https://coreruleset.org/"
+  },
+  {
+   "from": "api-top10",
+   "to": "asvs",
+   "rel": "recommends",
+   "url": "https://owasp.org/projects/api-security-project"
+  },
+  {
+   "from": "ast10",
+   "to": "mcp-top10",
+   "rel": "positions itself beside",
+   "url": "https://owasp.org/projects/agentic-skills-top-10",
+   "quote": "MCP = how the model talks to tools; AST10 = what those tools actually do."
+  },
+  {
+   "from": "dtrack",
+   "to": "cyclonedx",
+   "rel": "consumes",
+   "url": "https://dependencytrack.org/"
+  },
+  {
+   "from": "x-zap",
+   "to": "owasp",
+   "rel": "left",
+   "url": "https://www.zaproxy.org/blog/2023-08-01-zap-is-joining-the-software-security-project/",
+   "quote": "ZAP can only be in one foundation, so regretfully ZAP will be leaving OWASP."
+  },
+  {
+   "from": "llm10-2026",
+   "to": "x-atlas",
+   "rel": "maps to",
+   "url": "https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/"
+  },
+  {
+   "from": "llm10-2026",
+   "to": "x-attack",
+   "rel": "maps to",
+   "url": "https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/"
+  },
+  {
+   "from": "llm10-2026",
+   "to": "x-cwe",
+   "rel": "maps to",
+   "url": "https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/"
+  },
+  {
+   "from": "llm10-2026",
+   "to": "x-600-1",
+   "rel": "maps to",
+   "url": "https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/"
+  },
+  {
+   "from": "llm10-2026",
+   "to": "x-ai-rmf",
+   "rel": "maps to",
+   "url": "https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/"
+  },
+  {
+   "from": "llm10-2026",
+   "to": "x-aicm",
+   "rel": "maps to",
+   "url": "https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/"
+  },
+  {
+   "from": "crosswalk",
+   "to": "x-ai-rmf",
+   "rel": "maps to",
+   "url": "https://genai.owasp.org/resource/genai-security-industry-framework-crosswalk/"
+  },
+  {
+   "from": "crosswalk",
+   "to": "x-42001",
+   "rel": "maps to",
+   "url": "https://genai.owasp.org/resource/genai-security-industry-framework-crosswalk/"
+  },
+  {
+   "from": "crosswalk",
+   "to": "x-atlas",
+   "rel": "maps to",
+   "url": "https://genai.owasp.org/resource/genai-security-industry-framework-crosswalk/"
+  },
+  {
+   "from": "crosswalk",
+   "to": "x-aia",
+   "rel": "maps to",
+   "url": "https://genai.owasp.org/resource/genai-security-industry-framework-crosswalk/"
+  },
+  {
+   "from": "aiuc1-crosswalk",
+   "to": "x-aiuc1",
+   "rel": "maps both ways",
+   "url": "https://genai.owasp.org/resource/aiuc-1-crosswalks-owasp-top-10-for-agentic-applications/"
+  },
+  {
+   "from": "aiuc1-crosswalk",
+   "to": "asi-top10",
+   "rel": "maps both ways",
+   "url": "https://genai.owasp.org/resource/aiuc-1-crosswalks-owasp-top-10-for-agentic-applications/"
+  },
+  {
+   "from": "aisvs",
+   "to": "x-ai-rmf",
+   "rel": "provides controls for",
+   "url": "https://github.com/OWASP/AISVS"
+  },
+  {
+   "from": "aisvs",
+   "to": "x-42001",
+   "rel": "provides controls for",
+   "url": "https://github.com/OWASP/AISVS"
+  },
+  {
+   "from": "ai-exchange",
+   "to": "x-aia",
+   "rel": "feeds into",
+   "url": "https://owaspai.org/"
+  },
+  {
+   "from": "ai-exchange",
+   "to": "x-27090",
+   "rel": "feeds into",
+   "url": "https://owaspai.org/"
+  },
+  {
+   "from": "ai-exchange",
+   "to": "x-atlas",
+   "rel": "references",
+   "url": "https://owaspai.org/"
+  },
+  {
+   "from": "aitg",
+   "to": "x-ai-rmf",
+   "rel": "maps to",
+   "url": "https://github.com/OWASP/www-project-ai-testing-guide"
+  },
+  {
+   "from": "aitg",
+   "to": "x-42001",
+   "rel": "maps to",
+   "url": "https://github.com/OWASP/www-project-ai-testing-guide"
+  },
+  {
+   "from": "aitg",
+   "to": "x-aml",
+   "rel": "maps to",
+   "url": "https://github.com/OWASP/www-project-ai-testing-guide"
+  },
+  {
+   "from": "aitg",
+   "to": "x-saif",
+   "rel": "maps to",
+   "url": "https://github.com/OWASP/www-project-ai-testing-guide"
+  },
+  {
+   "from": "ast10",
+   "to": "x-maestro",
+   "rel": "maps to",
+   "url": "https://owasp.org/projects/agentic-skills-top-10"
+  },
+  {
+   "from": "asi-ans",
+   "to": "x-maestro",
+   "rel": "supports",
+   "url": "https://genai.owasp.org/resource/agent-name-service-ans-for-secure-al-agent-discovery-v1-0/"
+  }
+ ],
+ "bridge": [
+  {
+   "item": "asi-top10:ASI01",
+   "questions": [
+    "q9",
+    "q15",
+    "q11"
+   ],
+   "risks": [
+    "RISK-15",
+    "RISK-28",
+    "RISK-16"
+   ],
+   "why": "A hijacked agent does what its reach allows: the answers that bound it are whether it changes things on its own, where it can send data, and what it can do to the data in reach."
+  },
+  {
+   "item": "asi-top10:ASI02",
+   "questions": [
+    "q11",
+    "q9",
+    "q7"
+   ],
+   "risks": [
+    "RISK-16",
+    "RISK-6",
+    "RISK-22"
+   ],
+   "why": "Misuse of a tool is bounded by what the tool may change, whether a person approves it, and whether the change can be undone."
+  },
+  {
+   "item": "asi-top10:ASI03",
+   "questions": [
+    "q14",
+    "q6"
+   ],
+   "risks": [
+    "RISK-14",
+    "RISK-8",
+    "RISK-17"
+   ],
+   "why": "Whose account the agent acts under, and whether anybody can state what it is entitled to reach."
+  },
+  {
+   "item": "asi-top10:ASI04",
+   "questions": [],
+   "risks": [],
+   "why": "Not in the model: none of its sixteen questions asks where the agent's components came from."
+  },
+  {
+   "item": "asi-top10:ASI05",
+   "questions": [
+    "q15",
+    "q9"
+   ],
+   "risks": [
+    "RISK-28",
+    "RISK-6"
+   ],
+   "why": "Code the agent runs reaches what the agent can reach; isolation and egress are the answers that bound it."
+  },
+  {
+   "item": "asi-top10:ASI06",
+   "questions": [],
+   "risks": [],
+   "why": "Not in the model: it has no question about what the agent remembers or which context it trusts."
+  },
+  {
+   "item": "asi-top10:ASI07",
+   "questions": [],
+   "risks": [],
+   "why": "Not in the model: it describes one agent, not agents talking to each other."
+  },
+  {
+   "item": "asi-top10:ASI08",
+   "questions": [
+    "q5",
+    "q3"
+   ],
+   "risks": [
+    "RISK-10",
+    "RISK-20",
+    "RISK-30",
+    "RISK-2"
+   ],
+   "why": "Whether the side effects of stopping are known, and whether stopping is one action."
+  },
+  {
+   "item": "asi-top10:ASI09",
+   "questions": [
+    "qE",
+    "q9"
+   ],
+   "risks": [
+    "RISK-34",
+    "RISK-27"
+   ],
+   "why": "Whether the agent's output decides about a person, and whether a person approves each change."
+  },
+  {
+   "item": "asi-top10:ASI10",
+   "questions": [
+    "q3",
+    "q4",
+    "q12",
+    "q13"
+   ],
+   "risks": [
+    "RISK-35",
+    "RISK-9",
+    "RISK-38",
+    "RISK-13"
+   ],
+   "why": "Whether it can be stopped, how fast, whether that has ever been done, and whether what it did can be read back."
+  }
+ ],
+ "contradictions": [
+  {
+   "topic": "Project levels",
+   "text": "OWASP records a project's level in three places: the live project page, the committee's level file and the project's own page source. For several projects they disagree: the AI Exchange is Flagship on the live page, Incubator in the committee file and level 4 in its own source; the AI Testing Guide is Incubator on the live page and level 4 in its source; the MCP Top 10 is Production on the live page and level 2 in both others. This graph shows the live page's level and marks the disputed ones.",
+   "urls": [
+    "https://github.com/OWASP/owasp.github.io/blob/main/_data/project_levels.json"
+   ]
+  },
+  {
+   "topic": "The sixth MCP item",
+   "text": "MCP06:2025 is titled Intent Flow Subversion in the project's repository and Prompt Injection via Contextual Payloads on the live project page. This graph uses the repository's title.",
+   "urls": [
+    "https://github.com/OWASP/www-project-mcp-top-10",
+    "https://owasp.org/projects/mcp-top-10"
+   ]
+  },
+  {
+   "topic": "The date of the 2026 LLM Top 10",
+   "text": "3 August in the project's feed, 4 August on the page and the cover, and a placeholder, publication date to be set, inside the document.",
+   "urls": [
+    "https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/"
+   ]
+  },
+  {
+   "topic": "The ML Top 10's status",
+   "text": "Lab on the live site; an Incubator badge and in draft on its own page.",
+   "urls": [
+    "https://github.com/OWASP/www-project-machine-learning-security-top-10"
+   ]
+  },
+  {
+   "topic": "What the AI Testing Guide is",
+   "text": "It calls itself a standard; the live site lists it as an Incubator project of type Other.",
+   "urls": [
+    "https://github.com/OWASP/www-project-ai-testing-guide"
+   ]
+  }
+ ],
+ "involve": [
+  {
+   "name": "OWASP Slack",
+   "url": "https://owasp.org/slack/invite"
+  },
+  {
+   "name": "GenAI Security Project: contributing",
+   "url": "https://genai.owasp.org/contributing/"
+  },
+  {
+   "name": "GenAI Security Project: meetings",
+   "url": "https://genai.owasp.org/meetings/"
+  },
+  {
+   "name": "MCP Top 10 on GitHub",
+   "url": "https://github.com/owasp/www-project-mcp-top-10"
+  },
+  {
+   "name": "NHI Top 10 on GitHub",
+   "url": "https://github.com/OWASP/www-project-non-human-identities-top-10"
+  },
+  {
+   "name": "AI Testing Guide on GitHub",
+   "url": "https://github.com/OWASP/www-project-ai-testing-guide"
+  },
+  {
+   "name": "AI Exchange",
+   "url": "https://owaspai.org/"
+  },
+  {
+   "name": "Cheat Sheet Series on GitHub",
+   "url": "https://github.com/OWASP/CheatSheetSeries"
+  }
+ ]
+}

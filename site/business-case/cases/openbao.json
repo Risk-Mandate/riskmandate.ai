@@ -1,0 +1,79 @@
+{
+  "slug": "openbao",
+  "status": "published",
+  "kind": "open-source",
+  "product": "OpenBao",
+  "vendor": "OpenSSF (Linux Foundation)",
+  "vendor_url": "https://openbao.org/",
+  "licence": "MPL-2.0",
+  "involve": "https://openbao.org/community/",
+  "category": "Secrets and dynamic credentials",
+  "title": "OpenBao, by the risk it changes",
+  "summary": "A secrets manager that issues dynamic credentials with leases. Revoking a lease invalidates the secret at once, and a prefix revokes every lease under it in one command. Written as answers, an agent whose credentials all come from OpenBao can be stopped in one action, in minutes.",
+  "read": "2026-09-24",
+  "baseline": {
+    "preset": "typical",
+    "overrides": {
+      "q3": 1,
+      "q4": 2
+    },
+    "why": "The model's typical deployment, with the answers this project addresses stated as they are without it: stopping it takes more than one action; nobody knows how long stopping it would take."
+  },
+  "does": [
+    {
+      "text": "Leases on every dynamic secret, revocable one at a time or by prefix.",
+      "quote": "When a lease is revoked, it invalidates that secret immediately and prevents any further renewals.",
+      "url": "https://openbao.org/docs/concepts/lease/",
+      "read": "2026-09-24"
+    }
+  ],
+  "changes": [
+    {
+      "q": "q3",
+      "to": 0,
+      "kind": "boundary",
+      "holder": "the deployer",
+      "why": "Only if every credential the agent holds is an OpenBao dynamic secret. Revocation stops later use; it does not undo what is already in flight.",
+      "basis": {
+        "quote": "When a lease is revoked, it invalidates that secret immediately and prevents any further renewals.",
+        "url": "https://openbao.org/docs/concepts/lease/",
+        "read": "2026-09-24"
+      }
+    },
+    {
+      "q": "q4",
+      "to": 0,
+      "kind": "boundary",
+      "holder": "the deployer",
+      "why": "Minutes: one command, if somebody knows which prefix belongs to the agent.",
+      "basis": {
+        "quote": "When a lease is revoked, it invalidates that secret immediately and prevents any further renewals.",
+        "url": "https://openbao.org/docs/concepts/lease/",
+        "read": "2026-09-24"
+      }
+    }
+  ],
+  "reduces": [],
+  "adds": [],
+  "adds_note": "It holds every secret it issues, which makes it the most sensitive system in the estate. Its audit documentation says it fails closed: *OpenBao will not respond to requests when no enabled audit devices can record them.*",
+  "adoption": [
+    "Move the agent's credentials to dynamic secrets, which means every system it calls has to support them.",
+    "Give each agent its own prefix, so one command stops one agent and nothing else.",
+    "Write down who may run the revocation, and practise it."
+  ],
+  "contradictions": [
+    {
+      "topic": "revocation",
+      "text": "The lease page says revocation invalidates a secret immediately; the revoke command documents a force option that deletes the lease even if the secret engine's revocation fails.",
+      "urls": [
+        "https://openbao.org/docs/concepts/lease/",
+        "https://openbao.org/docs/commands/lease/revoke/"
+      ]
+    }
+  ],
+  "does_not_claim": [
+    "That stopping has been exercised. Whether it was ever done in production is a different question, and it stays unanswered.",
+    "That it was tested. Nothing was installed or run; every change rests on the documentation quoted beside it."
+  ],
+  "next": "Published, and sent to the project's maintainers at the same time. If a change is wrong, or another answer should move, the case changes with the date they said so."
+}

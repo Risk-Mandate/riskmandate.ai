@@ -15,7 +15,26 @@
   <url><loc>https://riskmandate.ai/scenarios.html</loc><priority>0.7</priority></url>
   <url><loc>https://riskmandate.ai/ramm.html</loc><priority>0.7</priority></url>
   <url><loc>https://riskmandate.ai/business-cases.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/owasp-graph.html</loc><priority>0.7</priority></url>
   <url><loc>https://riskmandate.ai/business-case-riskmandate-abp.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/business-case-agentgateway.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/business-case-cedar.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/business-case-cilium.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/business-case-falco.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/business-case-gvisor.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/business-case-keycloak.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/business-case-langfuse.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/business-case-langgraph-hitl.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/business-case-litellm.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/business-case-open-policy-agent.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/business-case-openbao.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/business-case-openfga.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/business-case-owasp-coraza.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/business-case-owasp-threat-dragon.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/business-case-postgresql-pitr.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/business-case-squid.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/business-case-unleash.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/business-case-velero.html</loc><priority>0.7</priority></url>
   <url><loc>https://riskmandate.ai/pricing.html</loc><priority>0.7</priority></url>
   <url><loc>https://riskmandate.ai/abp-reviewed.html</loc><priority>0.7</priority></url>
   <url><loc>https://riskmandate.ai/reviewers.html</loc><priority>0.7</priority></url>

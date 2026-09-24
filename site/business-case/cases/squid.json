@@ -1,0 +1,56 @@
+{
+  "slug": "squid",
+  "status": "published",
+  "kind": "open-source",
+  "product": "Squid",
+  "vendor": "Squid Software Foundation",
+  "vendor_url": "https://www.squid-cache.org/",
+  "licence": "GPL-2.0-or-later",
+  "involve": "https://www.squid-cache.org/Support/",
+  "category": "Egress allow-list",
+  "title": "Squid, by the risk it changes",
+  "summary": "A forward proxy that can act as an allow-list for outbound web traffic. With no access lines it denies, and destinations can be allowed by domain. Written as an answer, the agent reaches the domains on the list.",
+  "read": "2026-09-24",
+  "baseline": {
+    "preset": "typical",
+    "overrides": {
+      "q15": 2
+    },
+    "why": "The model's typical deployment, with the answers this project addresses stated as they are without it: can reach the general internet."
+  },
+  "does": [
+    {
+      "text": "Access control lists by destination domain.",
+      "quote": "If there are no \"access\" lines present, the default is to deny the request.",
+      "url": "https://www.squid-cache.org/Doc/config/http_access/",
+      "read": "2026-09-24"
+    }
+  ],
+  "changes": [
+    {
+      "q": "q15",
+      "to": 1,
+      "kind": "boundary",
+      "holder": "the deployer",
+      "why": "Only if the network blocks direct egress, so that the agent cannot route around the proxy.",
+      "basis": {
+        "quote": "If there are no \"access\" lines present, the default is to deny the request.",
+        "url": "https://www.squid-cache.org/Doc/config/http_access/",
+        "read": "2026-09-24"
+      }
+    }
+  ],
+  "reduces": [],
+  "adds": [],
+  "adds_note": "It sits in the request path. Its documentation also states a default worth reading twice: *If none of the \"access\" lines cause a match, the default is the opposite of the last line in the list. If the last line was deny, the default is allow.*",
+  "adoption": [
+    "Write the domain list for the agent, and end it with an explicit deny.",
+    "Block direct egress at the network, or the proxy is optional.",
+    "Keep the configuration out of the agent's grant."
+  ],
+  "contradictions": [],
+  "does_not_claim": [
+    "That it was tested. Nothing was installed or run; every change rests on the documentation quoted beside it."
+  ],
+  "next": "Published, and sent to the project's maintainers at the same time. If a change is wrong, or another answer should move, the case changes with the date they said so."
+}

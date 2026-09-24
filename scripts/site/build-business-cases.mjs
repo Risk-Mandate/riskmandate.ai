@@ -126,7 +126,7 @@ const CSS = `
 .bc-tr:first-child>span{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text)}
 .bc-tr>span:first-child{color:var(--text);font-weight:600}
 .bc-t.ch .bc-tr{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1.6fr)}
-.bc-t.cat .bc-tr{grid-template-columns:minmax(0,1.2fr) minmax(0,1.6fr) minmax(0,1.4fr) minmax(0,1.3fr)}
+.bc-t.cat .bc-tr{grid-template-columns:minmax(0,1.2fr) minmax(0,1.6fr) minmax(0,1.4fr) minmax(0,1.3fr)}\n.bc-t.cs .bc-tr{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr) minmax(0,2.2fr) minmax(0,.7fr)}\n.bc-t.co .bc-tr{grid-template-columns:minmax(0,.8fr) minmax(0,1fr) minmax(0,2.2fr)}\n.bc-t+.bc-h{margin-top:30px}
 .bc-was{color:#96442C}
 .bc-now{color:var(--green);font-weight:600}
 .bc-src{display:block;font-family:var(--mono);font-size:10.5px;color:var(--faint);margin-top:6px;overflow-wrap:anywhere}
@@ -168,8 +168,8 @@ const CSS = `
 .bc-pill.ours{background:var(--bg2);color:var(--muted)}
 .bc-cases{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:26px}
 @media (max-width:980px){.bc-alt{grid-template-columns:1fr 1fr}}
-@media (max-width:900px){.bc-three,.bc-cases{grid-template-columns:1fr}.bc-t .bc-tr:first-child{display:none}.bc-t.ch .bc-tr,.bc-t.cat .bc-tr{grid-template-columns:1fr 1fr}.bc-tr>span:first-child{grid-column:1 / -1;padding-bottom:2px}.bc-tr>span[data-k]::before{content:attr(data-k);display:block;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:2px}}
-@media (max-width:640px){.bc-alt,.bc-sum{grid-template-columns:1fr}.bc-t.ch .bc-tr,.bc-t.cat .bc-tr{grid-template-columns:1fr}.bc-risk{grid-template-columns:1fr}}
+@media (max-width:900px){.bc-three,.bc-cases{grid-template-columns:1fr}.bc-t .bc-tr:first-child{display:none}.bc-t.ch .bc-tr,.bc-t.cat .bc-tr,.bc-t.cs .bc-tr,.bc-t.co .bc-tr{grid-template-columns:1fr 1fr}.bc-tr>span:first-child{grid-column:1 / -1;padding-bottom:2px}.bc-tr>span[data-k]::before{content:attr(data-k);display:block;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:2px}}
+@media (max-width:640px){.bc-alt,.bc-sum{grid-template-columns:1fr}.bc-t.ch .bc-tr,.bc-t.cat .bc-tr,.bc-t.cs .bc-tr,.bc-t.co .bc-tr{grid-template-columns:1fr}.bc-risk{grid-template-columns:1fr}}
 `;
 
 // ------------------------------------------------------------------ cut a page from the donor
@@ -227,6 +227,7 @@ function casePage(c) {
     <h1>${esc(c.title)}</h1>
     <p class="sub" style="margin-bottom:20px">${txt(c.summary)}</p>
     ${c.disclosure ? `<p class="bc-meta"><b>Disclosure:</b> ${txt(c.disclosure)}</p>` : ''}
+    ${c.licence ? `<p class="bc-meta"><b>Open source:</b> ${esc(c.licence)} · ${esc(c.vendor)}${c.involve ? ` · <a href="${esc(c.involve)}" target="_blank" rel="noopener">get involved</a>` : ''}</p>` : ''}
     <p class="bc-meta"><b>The deployment:</b> ${txt(c.baseline.why)}</p>
     <p class="bc-meta"><b>The model:</b> the RiskGraph Explorer's ${M.facts ? Object.keys(M.facts).length : ''} facts, ${M.risks.length} risks and ${M.roles.length} roles, copied into this site with its provenance; the register below is computed, not written. <a href="business-cases.html#method">How</a>.</p>
     ${c.status === 'draft' ? `<p class="bc-meta"><b>Status:</b> a draft, not yet sent to ${esc(c.vendor)} and not listed on the site. It may be wrong; it is here to be corrected.</p>` : ''}
@@ -306,6 +307,17 @@ function casePage(c) {
     </div>
   </section>` : ''}
 
+  ${(c.adoption || []).length ? `<section class="psection alt">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Free, but not free</span>
+        <h2>What adopting it takes, <span class="g">before any of this is true.</span></h2>
+        <p>An open-source project costs nothing to download and something to adopt. Every change above depends on the work below, and most of it is customisation to your own deployment.</p>
+      </div>
+      <ul class="bc-list">${c.adoption.map((a) => `<li>${txt(a)}</li>`).join('')}</ul>
+    </div>
+  </section>` : ''}
+
   ${(c.contradictions || []).length ? `<section class="psection">
     <div class="wrap">
       <div class="shead">
@@ -350,7 +362,13 @@ function indexPage() {
     const R = k.result;
     return `<div class="bc-tr" role="row"><span role="cell">${esc(k.name)}<span class="bc-src">${esc(k.what)}</span></span><span role="cell" data-k="Answers it changes">${k.changes.map((c) => `${esc(Q[c.q].text)} <span class="bc-was">${esc(opt(c.q, k.base[c.q]))}</span> → <span class="bc-now">${esc(opt(c.q, c.to))}</span>`).join('<br>')}</span><span role="cell" data-k="Retired">${R.retired.length ? R.retired.map((r) => `${esc(r.ref)} ${esc(r.statement.toLowerCase())}`).join('; ') : 'none, for this deployment'}${R.added.length ? `<span class="bc-src">new: ${R.added.map((r) => esc(r.ref)).join(', ')}</span>` : ''}</span><span role="cell" data-k="What it adds">${txt(k.adds_text || 'not stated')}${(k.examples || []).length ? `<span class="bc-src">for example: ${k.examples.map((e) => `<a href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.name)}</a>`).join(', ')}</span>` : ''}</span></div>`;
   }).join('\n      ');
-  const caseCards = published.map((c) => `<div class="bc-card"><span class="k">${c.kind === 'ours' ? '<span class="bc-pill ours">our own</span>' : ''}${esc(c.category)}</span><h3><a href="business-case-${esc(c.slug)}.html">${esc(c.product)}${c.vendor && c.kind !== 'ours' ? ` · ${esc(c.vendor)}` : ''}</a></h3><p>${c.result.retired.length} retired, ${c.result.added.length} new, ${c.result.kept.length} unchanged, for the deployment it states. ${txt(c.summary.split('. ')[0])}.</p></div>`).join('\n      ');
+  const caseRow = (c) => `<div class="bc-tr" role="row"><span role="cell"><a href="business-case-${esc(c.slug)}.html">${esc(c.product)}</a><span class="bc-src">${esc(c.vendor)}${c.licence ? ' · ' + esc(c.licence) : ''}</span></span><span role="cell" data-k="Kind">${esc(c.category)}</span><span role="cell" data-k="Answers it changes">${c.changes.map((x) => `${esc(Q[x.q].text)} <span class="bc-was">${esc(opt(x.q, c.base[x.q]))}</span> → <span class="bc-now">${esc(opt(x.q, x.to))}</span> <span class="bc-src" style="display:inline">${esc(CHANGE_KIND[x.kind])}</span>`).join('<br>')}</span><span role="cell" data-k="Register">${c.result.retired.length} retired${c.result.added.length ? `, ${c.result.added.length} new` : ''}</span></div>`;
+  const caseTable = (list) => `<div class="bc-t cs" role="table"><div class="bc-tr" role="row"><span role="columnheader">Project</span><span role="columnheader">Kind</span><span role="columnheader">Answers it changes</span><span role="columnheader">Register</span></div>
+      ${list.map(caseRow).join('\n      ')}</div>`;
+  const ours = published.filter((c) => c.kind === 'ours'), open = published.filter((c) => c.kind === 'open-source').sort((a, b) => (!a.vendor.startsWith('OWASP')) - (!b.vendor.startsWith('OWASP')) || a.product.localeCompare(b.product)),
+        vendors = published.filter((c) => c.kind === 'vendor');
+  const companies = existsSync(join(DIR, 'companies.json')) ? JSON.parse(readFileSync(join(DIR, 'companies.json'), 'utf8')) : { items: [] };
+  const compRows = companies.items.map((k) => `<div class="bc-tr" role="row"><span role="cell"><a href="${esc(k.url)}" target="_blank" rel="noopener">${esc(k.company)}</a></span><span role="cell" data-k="Open project">${esc(k.project)}<span class="bc-src">${esc(k.home)}</span></span><span role="cell" data-k="What it sells on top">${txt(k.sells)}${k.quote ? `<span class="bc-src">&ldquo;${esc(k.quote)}&rdquo; · <a href="${esc(k.quote_url)}" target="_blank" rel="noopener">${esc(new URL(k.quote_url).hostname)}</a></span>` : ''}</span></div>`).join('\n      ');
 
   const body = `<main class="phero">
   <div class="wrap">
@@ -394,17 +412,35 @@ function indexPage() {
     </div>
   </section>
 
-  <section class="psection">
+  <section class="psection" id="cases">
     <div class="wrap">
       <div class="shead">
         <span class="tag">The cases</span>
-        <h2>Written so far.</h2>
+        <h2>${published.length} written so far, <span class="g">ours first.</span></h2>
+        <p>Our own product first, so the method is tested on us. Then open-source projects, OWASP&rsquo;s first, which anybody can deploy and nobody has to pay for, but which cost something to adopt and more to customise; each case says what. Cases about commercial products are drafted from their own documentation and sent to the company before they are listed.</p>
       </div>
-      <div class="bc-cases">
-      ${caseCards}
-      </div>
+      <p class="bc-h">Our own</p>
+      ${caseTable(ours)}
+      <p class="bc-h">Open source</p>
+      ${caseTable(open)}
+      ${vendors.length ? `<p class="bc-h">Commercial</p>${caseTable(vendors)}` : ''}
+      <p class="bc-note">Across the open-source projects, the answers that move are egress, access to data, the record, the account, stopping and undoing. None of them moves who owns the stop, the side effects of stopping, the procedure after it, or the class of data in reach. Those are decisions and documents, not software, which is where a behaviour policy and a <a href="licence-to-operate.html">licence to operate</a> come in. How OWASP&rsquo;s own projects relate to each other, and to these answers, is mapped in <a href="owasp-graph.html">OWASP, as a graph</a>.</p>
     </div>
   </section>
+
+  ${companies.items.length ? `<section class="psection alt" id="built-on-open-source">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Built on open source</span>
+        <h2>Companies that work the way we do, <span class="g">and whose projects are here.</span></h2>
+        <p>${txt(companies.intro || '')}</p>
+      </div>
+      <div class="bc-t co" role="table"><div class="bc-tr" role="row"><span role="columnheader">Company</span><span role="columnheader">Open project</span><span role="columnheader">What it sells on top</span></div>
+      ${compRows}
+      </div>
+      ${companies.note ? `<p class="bc-note">${txt(companies.note)}</p>` : ''}
+    </div>
+  </section>` : ''}
 
   ${categories.items.length ? `<section class="psection alt" id="categories">
     <div class="wrap">
@@ -432,7 +468,7 @@ function indexPage() {
         <li><b>No verdict on any product</b> and no ranking of one against another. The case says what changes if the documentation is right.</li>
         <li><b>No conformity language.</b> A product that touches an article of a regulation is shown as touching it, never as meeting it.</li>
         <li><b>What it adds is part of the case.</b> A product in the request path is also something that can fail, and something that has to be stopped.</li>
-        <li><b>Draft before published.</b> A case about somebody else&rsquo;s product is sent to them before it is listed, and changes with a date when they correct it.</li>
+        <li><b>Open source is published; commercial is sent first.</b> A case about an open-source project is published and sent to its maintainers at the same time. A case about a commercial product is sent to the company before it is listed. Either changes with a date when they correct it.</li>
       </ul>
     </div>
   </section>
@@ -451,9 +487,173 @@ function indexPage() {
     'The business case for a security product is the difference between the risk register without it and with it, from the operator to the board. Computed from a public model, our own product first, then others in their own words.', body);
 }
 
+// ------------------------------------------------------------------ OWASP, as a graph
+const GRAPH = existsSync(join(DIR, 'owasp', 'graph.json')) ? JSON.parse(readFileSync(join(DIR, 'owasp', 'graph.json'), 'utf8')) : null;
+if (GRAPH) {
+  const ids = new Set(GRAPH.nodes.map((n) => n.id));
+  for (const e of GRAPH.edges) if (!ids.has(e.from) || !ids.has(e.to)) fail(`owasp graph: edge ${e.from} → ${e.to} names a node that does not exist`);
+  for (const n of GRAPH.nodes) if (n.parent && !ids.has(n.parent)) fail(`owasp graph: ${n.id} has unknown parent ${n.parent}`);
+  for (const b of GRAPH.bridge) { if (!ids.has(b.item)) fail(`owasp graph: bridge names unknown item ${b.item}`);
+    for (const q of b.questions) if (!Q[q]) fail(`owasp graph: bridge names unknown question ${q}`);
+    for (const r of b.risks) if (!RISK[r]) fail(`owasp graph: bridge names unknown risk ${r}`); }
+}
+const OG_CSS = `
+.og-zoom{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-top:26px}
+.og-z{border:1px solid var(--border);border-radius:var(--r);background:var(--card);padding:16px 18px}
+.og-z .n{font-size:28px;font-weight:700;color:var(--text);letter-spacing:-.02em}
+.og-z .l{display:block;font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-top:4px}
+.og-z p{font-size:13px;color:var(--muted);line-height:1.55;margin-top:6px}
+.og-rows{display:flex;flex-direction:column;margin-top:24px}
+.og-row{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,2fr);gap:6px 26px;padding:18px 0;border-top:1px solid var(--border)}
+.og-row:last-child{border-bottom:1px solid var(--border)}
+.og-row h3{font-size:16px;line-height:1.4;letter-spacing:-.01em}
+.og-row h3 a{color:var(--text);text-decoration:none;border-bottom:1px solid var(--border)}
+.og-meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.og-b{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:3px 9px;background:var(--bg2);color:var(--muted)}
+.og-b.lv{background:var(--greenBg);color:var(--green)}
+.og-b.dp{background:#FDF1DC;color:var(--gold)}
+.og-b.cs{background:var(--text);color:var(--bg)}
+.og-b.cs a{color:inherit;text-decoration:none}
+.og-row p{font-size:14.5px;line-height:1.7;color:var(--muted)}
+.og-rel{margin-top:8px;font-size:13px;line-height:1.7;color:var(--muted)}
+.og-rel b{color:var(--text);font-weight:600}
+.og-rel a{color:var(--green)}
+.og-rel q{font-style:italic;quotes:"\\201C" "\\201D"}
+.og-row details{margin-top:10px}
+.og-row summary{cursor:pointer;font-family:var(--mono);font-size:11.5px;font-weight:700;color:var(--green)}
+.og-row ol{margin:8px 0 0 18px}
+.og-row ol li{font-size:13.5px;line-height:1.7;color:var(--muted)}
+.og-row ol li a{color:var(--muted)}
+.og-bridge .bc-tr{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr) minmax(0,1.2fr) minmax(0,1.3fr)}
+@media (max-width:900px){.og-zoom{grid-template-columns:1fr 1fr}.og-row{grid-template-columns:minmax(0,1fr)}.og-bridge .bc-tr{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.og-zoom,.og-bridge .bc-tr{grid-template-columns:1fr}}
+`;
+const aid = (id) => 'n-' + id.replace(/[^a-z0-9]+/gi, '-').toLowerCase();
+function owaspPage() {
+  const G = GRAPH, byId = Object.fromEntries(G.nodes.map((n) => [n.id, n]));
+  const kids = (id) => G.nodes.filter((n) => n.parent === id);
+  const out = (id) => G.edges.filter((e) => e.from === id), inn = (id) => G.edges.filter((e) => e.to === id);
+  const nm = (id) => byId[id].kind === 'item' ? byId[id].name : byId[id].name;
+  const link = (id) => { const n = byId[id]; const tgt = n.kind === 'item' ? aid(n.parent) : aid(id); return `<a href="#${tgt}">${esc(nm(id))}</a>`; };
+  const rel = (id) => {
+    const o = out(id).map((e) => `<b>${esc(e.rel)}</b> ${link(e.to)}${e.quote ? ` <q>${esc(e.quote)}</q>` : ''}`);
+    const i = inn(id).map((e) => `${link(e.from)} <b>${esc(e.rel)}</b> this`);
+    const itemLinks = kids(id).flatMap((k) => [...out(k.id).map((e) => `${esc(k.name.split(' ')[0])} <b>${esc(e.rel)}</b> ${link(e.to)}${e.quote ? ` <q>${esc(e.quote)}</q>` : ''}`)]);
+    const all = [...o, ...itemLinks, ...i];
+    return all.length ? `<div class="og-rel">${all.join('<br>')}</div>` : '';
+  };
+  const casesBySlug = Object.fromEntries(published.map((c) => [c.slug, c]));
+  const row = (n) => { const items = kids(n.id).filter((k) => k.kind === 'item');
+    return `<div class="og-row" id="${aid(n.id)}"><div><h3>${n.url ? `<a href="${esc(n.url)}" target="_blank" rel="noopener">${esc(n.name)}</a>` : esc(n.name)}</h3><div class="og-meta">${n.level ? `<span class="og-b lv">${esc(n.level)}</span>` : ''}${n.disputed ? '<span class="og-b dp">level disputed</span>' : ''}${n.type ? `<span class="og-b">${esc(n.type)}</span>` : ''}${n.kind === 'document' ? '<span class="og-b">document</span>' : ''}${n.version ? `<span class="og-b">${esc(n.version)}</span>` : ''}${n.case && casesBySlug[n.case] ? `<span class="og-b cs"><a href="business-case-${esc(n.case)}.html">business case</a></span>` : ''}</div></div>
+      <div><p>${txt(n.what || '')}</p>${rel(n.id)}${items.length ? `<details><summary>${items.length} items, titles only</summary><ol>${items.map((k) => `<li>${esc(k.name)}</li>`).join('')}</ol></details>` : ''}</div></div>`; };
+  const fam = G.nodes.filter((n) => n.kind === 'group');
+  const count = (k) => G.nodes.filter((n) => n.kind === k).length;
+  const casesFor = (qs) => published.filter((c) => c.kind !== 'ours' && c.changes.some((x) => qs.includes(x.q)));
+  const bridgeRows = G.bridge.map((b) => `<div class="bc-tr" role="row"><span role="cell">${esc(byId[b.item].name)}</span><span role="cell" data-k="The answers that bound it">${b.questions.length ? b.questions.map((q) => esc(Q[q].text)).join('<br>') : '<span class="bc-was">not in the model</span>'}<span class="bc-src">${txt(b.why)}</span></span><span role="cell" data-k="Model risks">${b.risks.map((r) => `${esc(r)} ${esc(RISK[r].statement.toLowerCase())}`).join('<br>') || '–'}</span><span role="cell" data-k="Open-source cases that change those answers">${b.questions.length ? (casesFor(b.questions).map((c) => `<a href="business-case-${esc(c.slug)}.html">${esc(c.product)}</a>`).join(', ') || 'none yet') : '–'}</span></div>`).join('\n      ');
+  const ext = G.nodes.filter((n) => n.kind === 'external');
+  const body = `<main class="phero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> OWASP, as a graph</span>
+    <h1>Every OWASP document has its own ontology. <span class="it">Here they are joined.</span></h1>
+    <p class="sub">OWASP is a foundation of projects, each project a set of documents or tools, each document a list of numbered items with its own vocabulary, and each of those pointing at the others and at frameworks outside. This page is that structure as one graph you can zoom through, from the foundation to a single item, with every relationship taken from OWASP&rsquo;s own pages. Then it joins the graph to the risk model the rest of this section runs on.</p>
+    <p class="bc-meta"><b>Read:</b> OWASP&rsquo;s own pages, 24 September 2026. Items are titles only. Levels are the live project pages&rsquo;, and disputed ones are marked.</p>
+    <p class="bc-meta"><b>The data:</b> <a href="business-case/owasp/graph.json">graph.json</a>, offered to OWASP to take, correct and keep. The bridge to our model is our reading, not OWASP&rsquo;s.</p>
+  </div>
+</main>
+
+<div class="paper">
+
+  <section class="psection">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Zoom</span>
+        <h2>Five levels, <span class="g">one graph.</span></h2>
+        <p>The fractal part is that each level has the same shape as the one above it: a thing, its parts, and the edges to other things. A reader can stop at any level and still be holding something whole.</p>
+      </div>
+      <div class="og-zoom">
+        <div class="og-z"><span class="n">1</span><span class="l">Foundation</span><p>OWASP itself.</p></div>
+        <div class="og-z"><span class="n">${fam.length}</span><span class="l">Families</span><p>How this page groups the projects.</p></div>
+        <div class="og-z"><span class="n">${count('project') + count('document')}</span><span class="l">Projects and documents</span><p>Each with its level, type and date.</p></div>
+        <div class="og-z"><span class="n">${count('item')}</span><span class="l">Items</span><p>The numbered entries of ${new Set(G.nodes.filter((n) => n.kind === 'item').map((n) => n.parent)).size} lists.</p></div>
+        <div class="og-z"><span class="n">${G.edges.length}</span><span class="l">Relationships</span><p>Stated by OWASP, including ${ext.length} frameworks outside it.</p></div>
+      </div>
+    </div>
+  </section>
+
+  ${fam.map((f, i) => `<section class="psection${i % 2 === 0 ? ' alt' : ''}" id="${aid(f.id)}">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Family ${i + 1} of ${fam.length}</span>
+        <h2>${esc(f.name)}</h2>
+        <p>${txt(f.what)}${f.level ? ` The project is ${esc(f.level)} on its live page.` : ''}</p>
+      </div>
+      <div class="og-rows">${kids(f.id).map(row).join('\n      ')}</div>
+    </div>
+  </section>`).join('\n\n  ')}
+
+  <section class="psection${fam.length % 2 === 0 ? ' alt' : ''}" id="outside">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Outside OWASP</span>
+        <h2>The frameworks OWASP maps to, <span class="g">titles only.</span></h2>
+      </div>
+      <div class="og-rows">${ext.map((n) => `<div class="og-row" id="${aid(n.id)}"><div><h3>${esc(n.name)}</h3></div><div>${rel(n.id)}</div></div>`).join('\n      ')}</div>
+    </div>
+  </section>
+
+  <section class="psection${fam.length % 2 === 1 ? ' alt' : ''}" id="bridge">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Where OWASP meets our model</span>
+        <h2>The Agentic Top 10, <span class="g">joined to the register.</span></h2>
+        <p>For each item, the answers in our model that bound it, the risks those answers establish, and the open-source cases on this site that change those answers. This is our reading, stated as ours. Three items touch nothing in the model; that is a finding about the model, and it says where the model has to grow.</p>
+      </div>
+      <div class="bc-t og-bridge" role="table"><div class="bc-tr" role="row"><span role="columnheader">Item</span><span role="columnheader">The answers that bound it</span><span role="columnheader">Model risks</span><span role="columnheader">Cases that change those answers</span></div>
+      ${bridgeRows}
+      </div>
+    </div>
+  </section>
+
+  <section class="psection" id="disagree">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Where OWASP&rsquo;s pages disagree</span>
+        <h2>Published unresolved, <span class="g">for the projects to settle.</span></h2>
+      </div>
+      <ul class="bc-list">${G.contradictions.map((x) => `<li><b>${esc(x.topic)}.</b> ${txt(x.text)} <span class="bc-src">${x.urls.map((u) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(u.replace(/^https:\/\//, ''))}</a>`).join(' · ')}</span></li>`).join('')}</ul>
+    </div>
+  </section>
+
+  <section class="psection alt" id="involve">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Why this is here, and where it should live</span>
+        <h2>A graph OWASP does not have yet, <span class="g">offered to OWASP.</span></h2>
+        <p>The lead is closely involved with OWASP, and the intent is to offer this graph, and in time the Agent Behaviour Policy format, to OWASP rather than keep them here. Until then the data is published so anybody can take it, and it changes with a date when a project corrects it.</p>
+      </div>
+      <ul class="bc-list">${G.involve.map((x) => `<li><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.name)}</a></li>`).join('')}</ul>
+    </div>
+  </section>
+
+</div>
+
+<section class="pcta">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> From a list to a register</span>
+    <h2>An item names a risk. <span class="it">A behaviour policy says whether yours has it.</span></h2>
+    <p>The Top 10s say what can go wrong with agents in general. What goes wrong with yours depends on what it can reach, which is what a behaviour policy writes down, and which projects change it, which is what the business cases compute.</p>
+    <div class="cta-row"><a class="btn btn-green" href="business-cases.html">The business cases</a><a class="btn btn-ghost" href="try-it.html">Map one agent, free</a></div>
+  </div>
+</section>`;
+  const html = cut('owasp-graph', 'RiskMandate — OWASP, as a graph',
+    'A semantic graph of OWASP: the foundation, its AI and agent projects, the standards and tools an agent deployment touches, the items of eleven lists by title, and the relationships OWASP states between them, joined to the risk model behind the business cases.', body);
+  return html.replace('</style>', OG_CSS + '</style>');
+}
+
 // ------------------------------------------------------------------ write, or check
 const outputs = { 'business-cases.html': indexPage() };
 for (const c of cases) outputs[`business-case-${c.slug}.html`] = casePage(c);
+if (GRAPH) outputs['owasp-graph.html'] = owaspPage();
 const stale = [];
 for (const [file, want] of Object.entries(outputs)) {
   const path = join(SITE, file);

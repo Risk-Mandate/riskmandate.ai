@@ -1,0 +1,56 @@
+{
+  "slug": "cedar",
+  "status": "published",
+  "kind": "open-source",
+  "product": "Cedar",
+  "vendor": "CNCF (sandbox)",
+  "vendor_url": "https://www.cedarpolicy.com/",
+  "licence": "Apache-2.0",
+  "involve": "https://github.com/cedar-policy/cedar",
+  "category": "Policy engine",
+  "title": "Cedar, by the risk it changes",
+  "summary": "A policy language and engine whose decisions default to deny: if no policy permits a request, the answer is no. Written as an answer, that is read-only access where only reading is permitted and the application holding the data enforces the decision.",
+  "read": "2026-09-24",
+  "baseline": {
+    "preset": "typical",
+    "overrides": {
+      "q11": 2
+    },
+    "why": "The model's typical deployment, with the answers this project addresses stated as they are without it: can read and change the data in its reach."
+  },
+  "does": [
+    {
+      "text": "Authorisation decisions that deny when nothing permits.",
+      "quote": "Otherwise (i.e., no policy is satisfied), the final result is Deny.",
+      "url": "https://docs.cedarpolicy.com/auth/authorization.html",
+      "read": "2026-09-24"
+    }
+  ],
+  "changes": [
+    {
+      "q": "q11",
+      "to": 1,
+      "kind": "boundary",
+      "holder": "the deployer",
+      "why": "Only where the application holding the resource enforces the decision the agent cannot override.",
+      "basis": {
+        "quote": "Otherwise (i.e., no policy is satisfied), the final result is Deny.",
+        "url": "https://docs.cedarpolicy.com/auth/authorization.html",
+        "read": "2026-09-24"
+      }
+    }
+  ],
+  "reduces": [],
+  "adds": [],
+  "adds_note": "Its documentation states that a policy whose evaluation errors is skipped: *if a policy's evaluation returns error, the policy does not factor into the authorization response*. A forbid policy that errors therefore does not deny.",
+  "adoption": [
+    "Write the policies for your own resources and actions.",
+    "Test the forbid policies for errors, because an erroring forbid is skipped.",
+    "Enforce in the application that holds the data."
+  ],
+  "contradictions": [],
+  "does_not_claim": [
+    "That it was tested. Nothing was installed or run; every change rests on the documentation quoted beside it."
+  ],
+  "next": "Published, and sent to the project's maintainers at the same time. If a change is wrong, or another answer should move, the case changes with the date they said so."
+}

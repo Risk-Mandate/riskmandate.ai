@@ -1,0 +1,55 @@
+{
+  "slug": "postgresql-pitr",
+  "status": "published",
+  "kind": "open-source",
+  "product": "PostgreSQL point-in-time recovery",
+  "vendor": "PostgreSQL Global Development Group",
+  "vendor_url": "https://www.postgresql.org/",
+  "licence": "PostgreSQL Licence",
+  "involve": "https://www.postgresql.org/community/",
+  "category": "Backup and restore",
+  "title": "PostgreSQL point-in-time recovery, by the risk it changes",
+  "summary": "Continuous archiving of the write-ahead log, so a database can be restored to any moment since its base backup. Written as an answer, what an agent changes in the database can be undone, for the whole cluster at once.",
+  "read": "2026-09-24",
+  "baseline": {
+    "preset": "typical",
+    "overrides": {
+      "q7": 2
+    },
+    "why": "The model's typical deployment, with the answers this project addresses stated as they are without it: some of what it changes cannot be undone."
+  },
+  "does": [
+    {
+      "text": "Restore to any point in time since the base backup.",
+      "quote": "it is possible to restore the database to its state at any time since your base backup was taken.",
+      "url": "https://www.postgresql.org/docs/current/continuous-archiving.html",
+      "read": "2026-09-24"
+    }
+  ],
+  "changes": [
+    {
+      "q": "q7",
+      "to": 1,
+      "kind": "setting",
+      "holder": "the deployer",
+      "why": "Partly, not fully: its documentation says this can only restore an entire database cluster, not a subset, so undoing the agent's changes also undoes everybody else's since that moment.",
+      "basis": {
+        "quote": "it is possible to restore the database to its state at any time since your base backup was taken.",
+        "url": "https://www.postgresql.org/docs/current/continuous-archiving.html",
+        "read": "2026-09-24"
+      }
+    }
+  ],
+  "reduces": [],
+  "adds": [],
+  "adds_note": "Its documentation warns that if the file system holding the write-ahead log fills up, *PostgreSQL will do a PANIC shutdown*, so archiving has to be monitored.",
+  "adoption": [
+    "Configure archiving and base backups, and monitor the archive.",
+    "Plan how to recover one agent's changes without losing everyone else's, because a restore is all or nothing."
+  ],
+  "contradictions": [],
+  "does_not_claim": [
+    "That it was tested. Nothing was installed or run; every change rests on the documentation quoted beside it."
+  ],
+  "next": "Published, and sent to the project's maintainers at the same time. If a change is wrong, or another answer should move, the case changes with the date they said so."
+}

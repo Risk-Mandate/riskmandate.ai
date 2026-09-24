@@ -545,6 +545,40 @@
         "A semantic graph per product beyond the model's sixteen questions. A case is written as the answers a product changes; products that act on things the questions do not ask about cannot yet be expressed.",
         "Outreach to the vendors. It is the lead's, after review."
       ]
+    },
+    {
+      "id": "D17",
+      "title": "OWASP and open source first: a semantic graph of OWASP, business cases for the open-source projects that reduce risk, and the companies built on open source",
+      "version": null,
+      "type": "spoken brief, transcribed",
+      "dated": "2026-09-24",
+      "file": "assets/briefs/2026-09-24__transcript__owasp-and-open-source-first.txt",
+      "bytes": 3011,
+      "sha256": "3686c72fb430e18cf55612574ae81e302b61475c4f207bec62a2bbd780a42ca8",
+      "received": [
+        "2026-09-24T16:00Z"
+      ],
+      "duplicate_of": null,
+      "status": "partly",
+      "produced": [
+        {
+          "what": "OWASP, as a graph: the foundation, four families, 52 projects and documents, 110 items of eleven lists by title, and the relationships OWASP states, joined to the risk model through the Agentic Top 10",
+          "url": "owasp-graph.html"
+        },
+        {
+          "what": "Eighteen open-source business cases, OWASP first, each change backed by the project's own words and each with what adopting it takes",
+          "url": "business-cases.html#cases"
+        },
+        {
+          "what": "Eighteen companies built on or beside an open-source project, with only the quotes that were checked word for word",
+          "url": "business-cases.html#built-on-open-source"
+        }
+      ],
+      "not_done": [
+        "Business cases for OWASP documents such as the Top 10s, ASVS and SAMM. They change what a team knows, not what an agent can reach, so they sit in the graph rather than as cases; the bridge shows which cases change the answers each Agentic Top 10 item depends on.",
+        "Three Agentic Top 10 items touch nothing in the model: supply chain, memory and context, and agents talking to agents. The model has to grow for those.",
+        "Outreach to OWASP projects, maintainers and the companies. The lead's, after review."
+      ]
     }
   ],
   "informal": [

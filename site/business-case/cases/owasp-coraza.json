@@ -1,0 +1,58 @@
+{
+  "slug": "owasp-coraza",
+  "status": "published",
+  "kind": "open-source",
+  "product": "OWASP Coraza",
+  "vendor": "OWASP",
+  "vendor_url": "https://coraza.io/",
+  "licence": "Apache-2.0",
+  "involve": "https://owasp.org/www-project-coraza-web-application-firewall/",
+  "category": "Web application firewall",
+  "title": "OWASP Coraza, by the risk it changes",
+  "summary": "An OWASP web application firewall that can sit in front of the HTTP traffic an agent sends or receives. Its documentation describes an audit engine that logs complete transactions. Written as an answer, that is a partial record of what the agent did, for the traffic that passes through it, once somebody switches the audit engine on: its default is off.",
+  "read": "2026-09-24",
+  "baseline": {
+    "preset": "typical",
+    "overrides": {
+      "q13": 2
+    },
+    "why": "The model's typical deployment, with the answers this project addresses stated as they are without it: what it did cannot be reconstructed."
+  },
+  "does": [
+    {
+      "text": "An audit engine that records complete HTTP transactions.",
+      "quote": "The SecAuditEngine directive is used to configure the audit engine, which logs complete transactions.",
+      "url": "https://coraza.io/docs/seclang/directives/",
+      "read": "2026-09-24"
+    }
+  ],
+  "changes": [
+    {
+      "q": "q13",
+      "to": 1,
+      "kind": "setting",
+      "holder": "the deployer",
+      "why": "Partly, and only for HTTP traffic routed through Coraza with SecAuditEngine turned on. It records the request and the response, not what the other side did next.",
+      "basis": {
+        "quote": "The SecAuditEngine directive is used to configure the audit engine, which logs complete transactions.",
+        "url": "https://coraza.io/docs/seclang/directives/",
+        "read": "2026-09-24"
+      }
+    }
+  ],
+  "reduces": [],
+  "adds": [],
+  "adds_note": "It sits in the request path, and its audit log stores complete transactions, headers and bodies included, which makes the log itself something to protect. Its documentation states the rule engine's default as *Default: Off*, and describes a *DetectionOnly* mode that processes rules but never blocks, and in which only the first bytes of a request body are inspected.",
+  "adoption": [
+    "Run it where the agent's HTTP traffic has to pass, and keep its configuration out of the agent's own reach.",
+    "Turn the audit engine on, decide where the log lives, and decide who may read it.",
+    "Tune the Core Rule Set to the traffic you actually have, which is where most of the effort goes."
+  ],
+  "contradictions": [],
+  "does_not_claim": [
+    "That it blocks anything by default. Its rule engine is off until somebody turns it on.",
+    "Anything the Core Rule Set detects. Attack detection does not answer any of the model's sixteen questions, so it is not in this case.",
+    "That it was tested. Nothing was installed or run; every change rests on the documentation quoted beside it."
+  ],
+  "next": "Published, and sent to the project's maintainers at the same time. If a change is wrong, or another answer should move, the case changes with the date they said so."
+}

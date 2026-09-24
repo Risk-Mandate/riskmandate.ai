@@ -1,0 +1,56 @@
+{
+  "slug": "velero",
+  "status": "published",
+  "kind": "open-source",
+  "product": "Velero",
+  "vendor": "CNCF (sandbox)",
+  "vendor_url": "https://velero.io/",
+  "licence": "Apache-2.0",
+  "involve": "https://velero.io/community/",
+  "category": "Backup and restore",
+  "title": "Velero, by the risk it changes",
+  "summary": "Backup and restore for Kubernetes resources and persistent volumes. Written as an answer, what an agent changes in a cluster can be partly undone, as of the last backup.",
+  "read": "2026-09-24",
+  "baseline": {
+    "preset": "typical",
+    "overrides": {
+      "q7": 2
+    },
+    "why": "The model's typical deployment, with the answers this project addresses stated as they are without it: some of what it changes cannot be undone."
+  },
+  "does": [
+    {
+      "text": "Backups of cluster resources and volumes, and restores.",
+      "quote": "If the resource already exists in the target cluster",
+      "url": "https://velero.io/docs/v1.18/restore-reference/",
+      "read": "2026-09-24"
+    }
+  ],
+  "changes": [
+    {
+      "q": "q7",
+      "to": 1,
+      "kind": "setting",
+      "holder": "the deployer",
+      "why": "Partly: as of the last backup, for Kubernetes resources and volumes only. A resource that still exists is skipped on restore unless an existing-resource policy says otherwise, which matters when the agent changed something rather than deleting it.",
+      "basis": {
+        "quote": "If the resource already exists in the target cluster",
+        "url": "https://velero.io/docs/v1.18/restore-reference/",
+        "read": "2026-09-24"
+      }
+    }
+  ],
+  "reduces": [],
+  "adds": [],
+  "adds_note": "A backup is a second copy of the data, and the credential that takes it can read everything in scope. Anything changed since the last backup is still lost.",
+  "adoption": [
+    "Schedule backups often enough for the agent's rate of change.",
+    "Set the existing-resource policy, so an edit can be reverted and not only a deletion.",
+    "Practise a restore."
+  ],
+  "contradictions": [],
+  "does_not_claim": [
+    "That it was tested. Nothing was installed or run; every change rests on the documentation quoted beside it."
+  ],
+  "next": "Published, and sent to the project's maintainers at the same time. If a change is wrong, or another answer should move, the case changes with the date they said so."
+}

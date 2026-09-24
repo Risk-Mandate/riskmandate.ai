@@ -1,0 +1,70 @@
+{
+  "slug": "unleash",
+  "status": "published",
+  "kind": "open-source",
+  "product": "Unleash",
+  "vendor": "Unleash (company-maintained)",
+  "vendor_url": "https://www.getunleash.io/",
+  "licence": "AGPL-3.0 (server); Apache-2.0 (Node SDK)",
+  "involve": "https://slack.unleash.run",
+  "category": "Kill switch and feature flags",
+  "title": "Unleash, by the risk it changes",
+  "summary": "A feature-flag service with a documented kill-switch flag type. Written as answers, an agent that checks a kill switch before it acts can be stopped in one action, within the SDK's refresh interval.",
+  "read": "2026-09-24",
+  "baseline": {
+    "preset": "typical",
+    "overrides": {
+      "q3": 1,
+      "q4": 2
+    },
+    "why": "The model's typical deployment, with the answers this project addresses stated as they are without it: stopping it takes more than one action; nobody knows how long stopping it would take."
+  },
+  "does": [
+    {
+      "text": "A kill-switch flag type, to disable part of a system gracefully.",
+      "quote": "Kill switch Gracefully degrade system functionality.",
+      "url": "https://docs.getunleash.io/concepts/feature-flags",
+      "read": "2026-09-24"
+    }
+  ],
+  "changes": [
+    {
+      "q": "q3",
+      "to": 0,
+      "kind": "setting",
+      "holder": "the deployer",
+      "why": "Only if the agent's code checks the flag before acting. The check runs inside the agent's process, which is why it is a setting.",
+      "basis": {
+        "quote": "Kill switch Gracefully degrade system functionality.",
+        "url": "https://docs.getunleash.io/concepts/feature-flags",
+        "read": "2026-09-24"
+      }
+    },
+    {
+      "q": "q4",
+      "to": 0,
+      "kind": "setting",
+      "holder": "the deployer",
+      "why": "Minutes: backend SDKs refresh flags every fifteen seconds by default.",
+      "basis": {
+        "quote": "Default refresh interval 15s",
+        "url": "https://docs.getunleash.io/sdks",
+        "read": "2026-09-24"
+      }
+    }
+  ],
+  "reduces": [],
+  "adds": [],
+  "adds_note": "The flag service is a dependency. Its documentation says a broken connection means SDKs get no new updates, and that without flag data all flags evaluate as disabled or as their default. For a kill switch written as an inverted flag, disabled means the agent keeps running: read those two pages together.",
+  "adoption": [
+    "Check the flag in the agent's code before every action that matters.",
+    "Choose the default for when the flag service is unreachable, and make it the safe one.",
+    "Name who may flip it."
+  ],
+  "contradictions": [],
+  "does_not_claim": [
+    "That the switch has been used. Having a switch is not having pulled one in production.",
+    "That it was tested. Nothing was installed or run; every change rests on the documentation quoted beside it."
+  ],
+  "next": "Published, and sent to the project's maintainers at the same time. If a change is wrong, or another answer should move, the case changes with the date they said so."
+}

@@ -1,0 +1,63 @@
+{
+  "slug": "litellm",
+  "status": "published",
+  "kind": "open-source",
+  "product": "LiteLLM",
+  "vendor": "BerriAI (company-maintained)",
+  "vendor_url": "https://docs.litellm.ai/",
+  "licence": "MIT, except the enterprise directory",
+  "involve": "https://docs.litellm.ai/",
+  "category": "Gateway and MCP gateway",
+  "title": "LiteLLM, by the risk it changes",
+  "summary": "An open-source gateway in front of model providers and MCP servers. Its documentation describes access control on MCP tools: when a client lists or calls tools, the gateway enforces the permissions configured for it. Written as an answer, an agent granted read tools only can read and not change.",
+  "read": "2026-09-24",
+  "baseline": {
+    "preset": "typical",
+    "overrides": {
+      "q11": 2
+    },
+    "why": "The model's typical deployment, with the answers this project addresses stated as they are without it: can read and change the data in its reach."
+  },
+  "does": [
+    {
+      "text": "Access control on listing and calling MCP tools.",
+      "quote": "When a client attempts to list or call tools, LiteLLM enforces access controls based on configured permissions.",
+      "url": "https://docs.litellm.ai/docs/mcp_control",
+      "read": "2026-09-24"
+    }
+  ],
+  "changes": [
+    {
+      "q": "q11",
+      "to": 1,
+      "kind": "boundary",
+      "holder": "the deployer",
+      "why": "Only if the agent's key carries an explicit grant, because an empty grant list means no restriction, and only if the agent holds no direct credential for the MCP servers.",
+      "basis": {
+        "quote": "When a client attempts to list or call tools, LiteLLM enforces access controls based on configured permissions.",
+        "url": "https://docs.litellm.ai/docs/mcp_control",
+        "read": "2026-09-24"
+      }
+    }
+  ],
+  "reduces": [],
+  "adds": [],
+  "adds_note": "It sits in the request path and holds the provider keys. On rate limits, its page states that servers without an entry are uncapped.",
+  "adoption": [
+    "Give every agent its own key with an explicit tool grant.",
+    "Remove the agent's direct credentials for the MCP servers."
+  ],
+  "contradictions": [
+    {
+      "topic": "restriction by default",
+      "text": "The page says access control ensures that only authorised entities can discover and use MCP tools, and also that an empty grant list means no restriction.",
+      "urls": [
+        "https://docs.litellm.ai/docs/mcp_control"
+      ]
+    }
+  ],
+  "does_not_claim": [
+    "That it was tested. Nothing was installed or run; every change rests on the documentation quoted beside it."
+  ],
+  "next": "Published, and sent to the project's maintainers at the same time. If a change is wrong, or another answer should move, the case changes with the date they said so."
+}

@@ -1,0 +1,65 @@
+{
+  "slug": "langfuse",
+  "status": "published",
+  "kind": "open-source",
+  "product": "Langfuse",
+  "vendor": "ClickHouse (company-maintained)",
+  "vendor_url": "https://langfuse.com/",
+  "licence": "MIT, except the ee directories",
+  "involve": "https://discord.com/invite/7NXusRtqYU",
+  "category": "Observability and tracing",
+  "title": "Langfuse, by the risk it changes",
+  "summary": "Open-source tracing for LLM applications and agents: structured logs of each request, with the prompt, the response and the tools called. Written as an answer, what the agent did can be partly reconstructed, from inside the agent's own code.",
+  "read": "2026-09-24",
+  "baseline": {
+    "preset": "typical",
+    "overrides": {
+      "q13": 2
+    },
+    "why": "The model's typical deployment, with the answers this project addresses stated as they are without it: what it did cannot be reconstructed."
+  },
+  "does": [
+    {
+      "text": "Application tracing of prompts, responses and tool steps.",
+      "quote": "structured logs of every request that capture the exact prompt sent, the model's response, token usage, latency, and any tools or retrieval steps in between.",
+      "url": "https://langfuse.com/docs/observability/overview",
+      "read": "2026-09-24"
+    }
+  ],
+  "changes": [
+    {
+      "q": "q13",
+      "to": 1,
+      "kind": "setting",
+      "holder": "the deployer",
+      "why": "Partly, and a setting: the instrumentation runs inside the agent's own process, and events not flushed before it exits are lost.",
+      "basis": {
+        "quote": "structured logs of every request that capture the exact prompt sent, the model's response, token usage, latency, and any tools or retrieval steps in between.",
+        "url": "https://langfuse.com/docs/observability/overview",
+        "read": "2026-09-24"
+      }
+    }
+  ],
+  "reduces": [],
+  "adds": [],
+  "adds_note": "It stores exact prompts and responses, which may include personal data, and the agent holds Langfuse keys. Some self-hosted add-on features require a licence key.",
+  "adoption": [
+    "Instrument the agent and its tools, and flush before exit.",
+    "Decide what may be stored, and redact before it is.",
+    "Keep the trace store out of the agent's write reach, or the record is the agent's to edit."
+  ],
+  "contradictions": [
+    {
+      "topic": "every request",
+      "text": "The overview speaks of structured logs of every request; the FAQ on missing traces says to flush events manually before the application exits to avoid losing them.",
+      "urls": [
+        "https://langfuse.com/docs/observability/overview",
+        "https://langfuse.com/faq/all/missing-traces"
+      ]
+    }
+  ],
+  "does_not_claim": [
+    "That it was tested. Nothing was installed or run; every change rests on the documentation quoted beside it."
+  ],
+  "next": "Published, and sent to the project's maintainers at the same time. If a change is wrong, or another answer should move, the case changes with the date they said so."
+}

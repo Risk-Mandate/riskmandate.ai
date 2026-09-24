@@ -1,0 +1,57 @@
+{
+  "slug": "owasp-threat-dragon",
+  "status": "published",
+  "kind": "open-source",
+  "product": "OWASP Threat Dragon and pytm",
+  "vendor": "OWASP",
+  "vendor_url": "https://owasp.org/www-project-threat-dragon/",
+  "licence": "Apache-2.0 (Threat Dragon); MIT (pytm)",
+  "involve": "https://owasp.org/www-project-threat-dragon/",
+  "category": "Threat modelling",
+  "title": "OWASP Threat Dragon and pytm, by the risk it changes",
+  "summary": "Two OWASP threat-modelling tools: Threat Dragon draws data-flow diagrams with their threats and remediations, and pytm generates them from a description of the system written as code. Like a behaviour policy, a threat model changes nothing about what the agent can reach. It can replace *nobody knows* with an answer, as far as the people drawing it know the system.",
+  "read": "2026-09-24",
+  "baseline": {
+    "preset": "typical",
+    "overrides": {
+      "q6": 2
+    },
+    "why": "The model's typical deployment, with the answers this project addresses stated as they are without it: nobody knows what it could reach at full speed."
+  },
+  "does": [
+    {
+      "text": "Threat models as data-flow diagrams, with threats and remediations.",
+      "quote": "Threat Dragon provides an environment to create threat models as data-flow diagrams, along with associated threats and remediations.",
+      "url": "https://www.threatdragon.com/docs/",
+      "read": "2026-09-24"
+    }
+  ],
+  "changes": [
+    {
+      "q": "q6",
+      "to": 1,
+      "kind": "states",
+      "holder": "the deployer",
+      "why": "The weakest mapping on this page, stated as such: neither tool discovers reach; the answer is only as good as what the people drawing the model know. For the typical deployment the answer is customer-facing.",
+      "basis": {
+        "quote": "Threat Dragon provides an environment to create threat models as data-flow diagrams, along with associated threats and remediations.",
+        "url": "https://www.threatdragon.com/docs/",
+        "read": "2026-09-24"
+      }
+    }
+  ],
+  "reduces": [],
+  "adds": [],
+  "adds_note": "Threat Dragon stores models in a repository or a drive the deployer chooses, so it needs a credential for that store. A threat model is a document: it goes out of date the day the deployment changes unless somebody keeps it.",
+  "adoption": [
+    "Draw one agent in one deployment, not the architecture in general: the tools, the credentials and what each reaches.",
+    "Keep the model beside the deployment and change it when the deployment changes.",
+    "Customise the threat library for agents: the OWASP Top 10 for Agentic Applications is the obvious place to start."
+  ],
+  "contradictions": [],
+  "does_not_claim": [
+    "That a diagram retires a risk by itself. It names reach; it bounds nothing.",
+    "That it was tested. Nothing was installed or run; every change rests on the documentation quoted beside it."
+  ],
+  "next": "Published, and sent to the project's maintainers at the same time. If a change is wrong, or another answer should move, the case changes with the date they said so."
+}

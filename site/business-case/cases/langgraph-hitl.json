@@ -1,0 +1,55 @@
+{
+  "slug": "langgraph-hitl",
+  "status": "published",
+  "kind": "open-source",
+  "product": "LangGraph and LangChain human-in-the-loop",
+  "vendor": "LangChain (company-maintained)",
+  "vendor_url": "https://docs.langchain.com/",
+  "licence": "MIT",
+  "involve": "https://forum.langchain.com/",
+  "category": "Human approval",
+  "title": "LangGraph and LangChain human-in-the-loop, by the risk it changes",
+  "summary": "Middleware that checks each tool call against a policy and, when intervention is needed, interrupts execution until a person responds. Written as an answer, the agent changes things with a person approving each change, for the tools configured.",
+  "read": "2026-09-24",
+  "baseline": {
+    "preset": "typical",
+    "overrides": {
+      "q9": 2
+    },
+    "why": "The model's typical deployment, with the answers this project addresses stated as they are without it: it changes things on its own."
+  },
+  "does": [
+    {
+      "text": "An interrupt that halts execution until a person responds.",
+      "quote": "If intervention is needed, the middleware issues an interrupt that halts execution.",
+      "url": "https://docs.langchain.com/oss/python/langchain/human-in-the-loop",
+      "read": "2026-09-24"
+    }
+  ],
+  "changes": [
+    {
+      "q": "q9",
+      "to": 1,
+      "kind": "setting",
+      "holder": "the deployer",
+      "why": "Only for the tools configured to interrupt, and a setting because the agent still holds the credentials to act without asking.",
+      "basis": {
+        "quote": "If intervention is needed, the middleware issues an interrupt that halts execution.",
+        "url": "https://docs.langchain.com/oss/python/langchain/human-in-the-loop",
+        "read": "2026-09-24"
+      }
+    }
+  ],
+  "reduces": [],
+  "adds": [],
+  "adds_note": "Its interrupts page says the runtime restarts the entire node from the beginning when it resumes, so any code that ran before the interrupt runs again, which matters if that code changed something.",
+  "adoption": [
+    "Choose the tools that must wait, and show the person what the call will do.",
+    "Make the code before an interrupt safe to run twice."
+  ],
+  "contradictions": [],
+  "does_not_claim": [
+    "That it was tested. Nothing was installed or run; every change rests on the documentation quoted beside it."
+  ],
+  "next": "Published, and sent to the project's maintainers at the same time. If a change is wrong, or another answer should move, the case changes with the date they said so."
+}

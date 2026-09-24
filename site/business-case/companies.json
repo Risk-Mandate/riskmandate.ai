@@ -1,0 +1,160 @@
+{
+  "_": "Companies built on, or beside, an open-source project, in security, identity and AI security. Read 24 September 2026. A quote appears only where it was checked word for word on the page linked; the rest are plain descriptions in our words, with the page they come from.",
+  "read": "2026-09-24",
+  "intro": "RiskMandate publishes its behaviour policies and toolkit openly and sells the work on top. These companies run the same model around projects in this section, or beside OWASP. They are here because the conversations the lead wants are with them: a case about their project is also a case for what they sell.",
+  "note": "The patterns, as facts. Some stay inside OWASP with a company alongside: DefectDojo, SAMM with Codific, secureCodeBox with iteratec. ZAP left OWASP in 2023, saying it could only be in one foundation, and became ZAP by Checkmarx in 2024. Several gave their project to a foundation and sell a distribution of it: Falco, Kyverno, agentgateway. Some sell a hosted control plane over an open engine. Two such companies closed in 2025: after the creators of Open Policy Agent joined Apple, OPA stayed a CNCF project with no change to its governance or licence; Aserto wound down as a commercial entity.",
+  "items": [
+    {
+      "company": "Codific",
+      "url": "https://codific.com/codific-owasp-samm/",
+      "project": "OWASP SAMM; Open SAMMY",
+      "home": "OWASP",
+      "sells": "A tool for running SAMM assessments, whose second version became the OWASP project Open SAMMY, with a commercial edition alongside.",
+      "quote": "Several of our team members are core contributors to the OWASP SAMM project",
+      "quote_url": "https://codific.com/codific-owasp-samm/"
+    },
+    {
+      "company": "DefectDojo, Inc.",
+      "url": "https://defectdojo.com/",
+      "project": "DefectDojo",
+      "home": "OWASP (flagship)",
+      "sells": "A hosted Pro edition of the OWASP project.",
+      "quote": "DefectDojo, Inc. hosts a Pro edition of this software for commercial purposes.",
+      "quote_url": "https://docs.defectdojo.com/get_started/about/about_defectdojo/"
+    },
+    {
+      "company": "iteratec",
+      "url": "https://www.securecodebox.io/",
+      "project": "secureCodeBox",
+      "home": "OWASP (lab)",
+      "sells": "Support for the OWASP scanning orchestrator it helps to maintain, as part of its security services.",
+      "quote": "in cooperation with OWASP and with friendly support from iteratec",
+      "quote_url": "https://www.securecodebox.io/"
+    },
+    {
+      "company": "Checkmarx",
+      "url": "https://www.zaproxy.org/blog/2024-09-24-zap-has-joined-forces-with-checkmarx/",
+      "project": "ZAP",
+      "home": "Left OWASP in 2023; ZAP by Checkmarx since 2024",
+      "sells": "An enterprise dynamic-testing product built by the ZAP leaders it hired, alongside the open project.",
+      "quote": "ZAP will stay under the control of the ZAP Core Team, remain open source, and stay licensed under Apache v2.",
+      "quote_url": "https://www.zaproxy.org/blog/2024-09-24-zap-has-joined-forces-with-checkmarx/"
+    },
+    {
+      "company": "Solo.io",
+      "url": "https://www.solo.io/",
+      "project": "agentgateway; kgateway",
+      "home": "Linux Foundation (Agentic AI Foundation); CNCF",
+      "sells": "An enterprise edition of agentgateway for MCP and agent-to-agent traffic in production.",
+      "quote": "remains vendor-agnostic and community-driven",
+      "quote_url": "https://www.solo.io/blog/solo-contributes-agentgateway-linux-foundation"
+    },
+    {
+      "company": "BerriAI",
+      "url": "https://docs.litellm.ai/",
+      "project": "LiteLLM",
+      "home": "Company-maintained",
+      "sells": "Support, custom integrations and single sign-on under a commercial licence that covers the enterprise directory; the rest is MIT."
+    },
+    {
+      "company": "Langfuse (ClickHouse)",
+      "url": "https://langfuse.com/blog/joining-clickhouse",
+      "project": "Langfuse",
+      "home": "Company-maintained",
+      "sells": "A hosted cloud for the open tracing project, now part of ClickHouse.",
+      "quote": "Langfuse stays open source and self‑hostable.",
+      "quote_url": "https://langfuse.com/blog/joining-clickhouse"
+    },
+    {
+      "company": "Permit.io",
+      "url": "https://www.permit.io/",
+      "project": "OPAL; built on OPA and Cedar",
+      "home": "Company-maintained",
+      "sells": "Authorisation as a service, for applications, APIs and AI agents.",
+      "quote": "Fine-grained authorization as a service",
+      "quote_url": "https://www.permit.io/"
+    },
+    {
+      "company": "Cerbos",
+      "url": "https://www.cerbos.dev/",
+      "project": "Cerbos",
+      "home": "Company-maintained",
+      "sells": "A hosted control plane for writing and distributing policy to the open decision point."
+    },
+    {
+      "company": "Ory",
+      "url": "https://www.ory.com/",
+      "project": "Hydra, Kratos, Keto, Oathkeeper",
+      "home": "Company-maintained",
+      "sells": "A managed identity cloud and an enterprise licence over the open services.",
+      "quote": "Fully-managed cloud IAM",
+      "quote_url": "https://www.ory.com/"
+    },
+    {
+      "company": "Defakto",
+      "url": "https://www.defakto.security/",
+      "project": "SPIFFE and SPIRE",
+      "home": "CNCF (graduated)",
+      "sells": "A non-human identity platform based on SPIFFE, including identities for AI agents.",
+      "quote": "real identities to operate safely and at scale",
+      "quote_url": "https://www.defakto.security/blog/defakto-secures-30-75-m-series-b-to-set-a-new-standard-in-non-human-identity-security/"
+    },
+    {
+      "company": "Red Hat",
+      "url": "https://access.redhat.com/products/red-hat-build-keycloak/",
+      "project": "Keycloak",
+      "home": "CNCF (incubating)",
+      "sells": "A supported build of Keycloak."
+    },
+    {
+      "company": "ZITADEL",
+      "url": "https://zitadel.com/",
+      "project": "ZITADEL",
+      "home": "Company-maintained",
+      "sells": "A hosted cloud and commercial licences; the project moved from Apache-2.0 to AGPL-3.0 in 2025."
+    },
+    {
+      "company": "ControlPlane",
+      "url": "https://control-plane.io/enterprise-for-openbao/",
+      "project": "OpenBao",
+      "home": "OpenSSF (Linux Foundation)",
+      "sells": "Enterprise support for a foundation project it contributes to but does not own.",
+      "quote": "The open source Vault alternative, backed by its #1 contributor",
+      "quote_url": "https://control-plane.io/enterprise-for-openbao/"
+    },
+    {
+      "company": "Sysdig",
+      "url": "https://www.sysdig.com/opensource",
+      "project": "Falco",
+      "home": "CNCF (graduated)",
+      "sells": "A runtime security product powered by the project it created and gave to CNCF.",
+      "quote": "contributed to the CNCF",
+      "quote_url": "https://www.sysdig.com/opensource"
+    },
+    {
+      "company": "Nirmata",
+      "url": "https://nirmata.com/kyverno-oss/",
+      "project": "Kyverno",
+      "home": "CNCF (graduated 2026)",
+      "sells": "An enterprise edition of the policy engine it created and gave to CNCF."
+    },
+    {
+      "company": "Anchore",
+      "url": "https://anchore.com/opensource/",
+      "project": "Syft and Grype",
+      "home": "Company-maintained",
+      "sells": "An enterprise platform over its open SBOM and vulnerability tools.",
+      "quote": "Anchore Enterprise builds on open source Syft and Grype",
+      "quote_url": "https://anchore.com/opensource/"
+    },
+    {
+      "company": "Interlynk",
+      "url": "https://www.interlynk.io/open-source-toolkit",
+      "project": "sbomqs, sbomasm and others",
+      "home": "Company-maintained",
+      "sells": "A platform for continuous SBOM monitoring over its open toolkit.",
+      "quote": "The toolkit is free and open source.",
+      "quote_url": "https://www.interlynk.io/open-source-toolkit"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "slug": "gvisor",
+  "status": "published",
+  "kind": "open-source",
+  "product": "gVisor",
+  "vendor": "Google (open source)",
+  "vendor_url": "https://gvisor.dev/",
+  "licence": "Apache-2.0",
+  "involve": "https://gvisor.dev/community/",
+  "category": "Sandbox",
+  "title": "gVisor, by the risk it changes",
+  "summary": "A sandboxed container runtime. Its networking can be disabled entirely, leaving only a loopback inside the sandbox. Written as an answer, code the agent runs there reaches nothing outside.",
+  "read": "2026-09-24",
+  "baseline": {
+    "preset": "typical",
+    "overrides": {
+      "q15": 2
+    },
+    "why": "The model's typical deployment, with the answers this project addresses stated as they are without it: can reach the general internet."
+  },
+  "does": [
+    {
+      "text": "A sandbox whose external networking can be switched off.",
+      "quote": "To completely isolate the host and network from the sandbox, external networking can be disabled.",
+      "url": "https://gvisor.dev/docs/user_guide/networking/",
+      "read": "2026-09-24"
+    }
+  ],
+  "changes": [
+    {
+      "q": "q15",
+      "to": 0,
+      "kind": "boundary",
+      "holder": "the deployer",
+      "why": "Only for code the agent runs inside the sandbox, not for the agent's own tools outside it.",
+      "basis": {
+        "quote": "To completely isolate the host and network from the sandbox, external networking can be disabled.",
+        "url": "https://gvisor.dev/docs/user_guide/networking/",
+        "read": "2026-09-24"
+      }
+    }
+  ],
+  "reduces": [],
+  "adds": [],
+  "adds_note": "Its host-network option *decreases the isolation to the host*, so the choice of network mode is part of the case.",
+  "adoption": [
+    "Run the agent's code execution in the sandbox, not the agent itself, unless that is intended.",
+    "Choose the network mode deliberately and keep it out of the agent's control."
+  ],
+  "contradictions": [],
+  "does_not_claim": [
+    "That it was tested. Nothing was installed or run; every change rests on the documentation quoted beside it."
+  ],
+  "next": "Published, and sent to the project's maintainers at the same time. If a change is wrong, or another answer should move, the case changes with the date they said so."
+}

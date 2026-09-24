@@ -1,0 +1,56 @@
+{
+  "slug": "cilium",
+  "status": "published",
+  "kind": "open-source",
+  "product": "Cilium network policy",
+  "vendor": "CNCF",
+  "vendor_url": "https://cilium.io/",
+  "licence": "Apache-2.0",
+  "involve": "https://cilium.io/get-involved",
+  "category": "Egress control",
+  "title": "Cilium network policy, by the risk it changes",
+  "summary": "Network policy for Kubernetes workloads. An egress rule puts the endpoint into default-deny for outbound traffic, and a DNS-name rule allows named destinations only. Written as an answer, the agent's workload reaches the destinations on the list and nothing else.",
+  "read": "2026-09-24",
+  "baseline": {
+    "preset": "typical",
+    "overrides": {
+      "q15": 2
+    },
+    "why": "The model's typical deployment, with the answers this project addresses stated as they are without it: can reach the general internet."
+  },
+  "does": [
+    {
+      "text": "Egress default-deny once a rule applies, with allow-lists by DNS name.",
+      "quote": "If any rule selects an Endpoint and the rule has an egress section, the endpoint goes into default-deny mode for egress.",
+      "url": "https://docs.cilium.io/en/stable/security/policy/intro/",
+      "read": "2026-09-24"
+    }
+  ],
+  "changes": [
+    {
+      "q": "q15",
+      "to": 1,
+      "kind": "boundary",
+      "holder": "the deployer",
+      "why": "Only for the agent's own workload, and only while the policy is enforced: its documentation also describes a mode in which enforcement is disabled.",
+      "basis": {
+        "quote": "If any rule selects an Endpoint and the rule has an egress section, the endpoint goes into default-deny mode for egress.",
+        "url": "https://docs.cilium.io/en/stable/security/policy/intro/",
+        "read": "2026-09-24"
+      }
+    }
+  ],
+  "reduces": [],
+  "adds": [],
+  "adds_note": "By default, *all egress and ingress traffic is allowed for all endpoints*, so nothing changes until a policy is written. Rules by DNS name depend on the Cilium agent pod being available.",
+  "adoption": [
+    "Write the egress policy for the agent's workload, destination by destination.",
+    "Keep the policy out of the agent's own reach in the cluster.",
+    "Decide what happens when a new destination is needed, and who approves it."
+  ],
+  "contradictions": [],
+  "does_not_claim": [
+    "That it was tested. Nothing was installed or run; every change rests on the documentation quoted beside it."
+  ],
+  "next": "Published, and sent to the project's maintainers at the same time. If a change is wrong, or another answer should move, the case changes with the date they said so."
+}

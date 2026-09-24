@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.34.0** · 2026-09-24 — OWASP and open source first
+  Notes: https://riskmandate.ai/versions/1.34.0.md · Source: `git:v1.34.0`
 - **v1.33.0** · 2026-09-24 — Business cases, by the risk they change
   Notes: https://riskmandate.ai/versions/1.33.0.md · Source: `git:v1.33.0`
 - **v1.32.3** · 2026-09-24 — Two articles: pilots that do not stay, and edits that cannot be undone
