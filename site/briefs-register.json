@@ -670,6 +670,36 @@
         "Running the longer interview prompt once in ChatGPT voice mode, and checking the summary has all sixteen sections.",
         "The seven roles the article needs and the model lacks (COO, CIO / Data, Legal, HR, Marketing, Sales, all employees), authority as data, and an engine that runs the clocks. The article says so in its section 10."
       ]
+    },
+    {
+      "id": "D21",
+      "title": "Graph visualisations for the role-ownership article: the blast radius as the employee connects and disconnects, the flows played out, the evidence, and the settings a mail scope cannot narrow",
+      "version": null,
+      "type": "spoken brief, transcribed",
+      "dated": "2026-09-24",
+      "file": "assets/briefs/2026-09-24__transcript__graph-visualisations-for-the-role-ownership-article.txt",
+      "bytes": 1957,
+      "sha256": "524b59f30d4407f354272061f0e9c10e0ed45d5161d9ef19ad8007324a03bf5f",
+      "received": [
+        "2026-09-24T23:00Z"
+      ],
+      "duplicate_of": null,
+      "status": "partly",
+      "produced": [
+        {
+          "what": "Three figures drawn by the page's own script from the article's data: the blast radius, which plays the six weeks or takes the reader's own changes (connect, disconnect, boundaries, instructions) and recomputes the rows, the risks, their holders and the counts; the six weeks as a strip; and the ontology, every verb readable from both ends",
+          "url": "article-who-owns-what-in-ai.html"
+        },
+        {
+          "what": "The instruction switch: the mandate becomes precise about the business process, every row in the gap gains an expectation, and unbounded excess does not move. The mail scope fact is cited from the Gmail record: three consent lines, each for the whole account",
+          "url": "article-who-owns-what-in-ai.html"
+        }
+      ],
+      "not_done": [
+        "Blast radius as a number. The figure shows which roles a risk reaches and who holds it; it does not size the consequence, because the article scores nothing.",
+        "Real grants. The figure runs on the article's invented agent; wiring it to a published ABP vault, so a real grant drives the same picture, is the next step.",
+        "The flows of evidence downward. A ceased risk cites its ABP version in text; the figure does not yet animate the evidence travelling back to the version."
+      ]
     }
   ],
   "informal": [

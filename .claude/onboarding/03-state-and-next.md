@@ -55,7 +55,9 @@ the site's; check `site/versions/index.json` for the current version before trus
   (`article-who-owns-what-in-ai.html`). It quotes and credits a role-ownership infographic, reads
   its middle column as a routing table and the organisation chart as the escalation path, and walks
   one invented agent from eight ABP rows to the board; section 09 is the model to build from (nodes,
-  edges with inverses, placement, clock, cease, stop check, board view). Keep such replies stand-alone,
+  edges with inverses, placement, clock, cease, stop check, board view). Its three figures (D21) are
+  drawn by an inline script from the article's data, `createElementNS` and `textContent` only, nothing
+  loaded: the blast radius can be played or changed, and its counts are the engine's. Keep such replies stand-alone,
   factual about the source, and long enough to implement from. Five more are listed on the index as *not written*, each with a record already
   behind it.
 - **Try it** (`try-it.html`, top-level, v1.28.0): the free step below the store's ladder and the

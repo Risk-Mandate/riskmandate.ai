@@ -16,6 +16,8 @@ An infographic shared on LinkedIn, _Who owns what in AI (By Role)_, maps thirtee
 
 **The worked example:** an invented company and an invented agent. Nobody’s system was tested. The one product fact used is quoted from the vendor’s own page, with its date.
 
+**The figures:** three on this page are drawn by script from the article’s own data, and one of them can be played and changed. The page loads nothing from anywhere and sends nothing.
+
 **This page as markdown:** [article-who-owns-what-in-ai.md](article-who-owns-what-in-ai.md)
 
 ## Thirteen roles, what each owns, and what it protects.
@@ -97,6 +99,12 @@ Rows 1, 3 and 4 of the ABP: reads mail from anybody; reads the CRM; sends to any
 
 Read from the bottom. Each arrow is a named edge: a fact establishes a risk, a risk is translated into the holder’s words, a holder answers to the role above.
 
+### Connect the assistant, and watch the risks travel up. Then end them.
+
+Drawn from the article’s own data. Play the six weeks of section 07, or change the record yourself: connect and disconnect, add the controls, and see which facts stop holding. A risk lights up when every fact it needs holds and none is bounded; it ceases when one of them changes, citing the ABP version that changed it. Colour is the state of an acceptance, never a rating. Hover a role to read the exposure in its words; hover a risk for what establishes it.
+
+**Try the last switch on its own.** Connect the mail and the CRM, then tick the instructions. Every row in the gap changes from _nothing in the way_ to _an expectation_, the mandate is now precise about the business process, and the risks stay lit: unbounded excess does not move. That is the honest picture of an instruction. It is worth writing down, because it says what the agent was told, and the ABP is where it is written. It is not a control. The mail connector in the example, like the real ones we have recorded, grants the whole mailbox: on our [Gmail record](abp-vault-claude-gmail-connector.html), Google’s consent screen offers three lines to tick, each for the whole account, and none for one folder, one customer or one business process (read 16 September 2026). So the mandate can say _only follow-ups on my own accounts_, and the grant cannot. The gap between those two sentences is the risk, and the boundary switches above are what end it.
+
 ## Seven rules that keep accountability intact.
 
 These are what join the map to the chart. They are how Risk Mandate works: the acceptance loop, with the ABP underneath it supplying the facts. Most are published on this site already, and are gathered here so that the article stands on its own: the three doors and their intervals, silence, facts that end risks, and the stop. Two are new in this article: authority delegated from the board, and placing a risk by the map.
@@ -171,6 +179,10 @@ The scope change was scheduled and has not shipped. The decision returns to the 
 
 Two open risks, each with a name and a date: R3, held by the CIO, accepted until day 63, with the work scheduled; and the rep’s own-calendar risk, accepted on day 10 for a month and renewed on day 40 until day 70. Four risks ceased, each citing the ABP version that ended it. None unaccepted. For the agent, unbounded excess went from four to two. That is not a score. It is a count anybody can recompute from the ABP versions.
 
+### Who held each risk, in which state, and what ended it.
+
+The same six weeks as a strip: one line per risk, day 0 to day 42. A hatched bar is a funded acceptance; the small arrow on R5 is the week of silence that moved it from the COO to the CEO; each ending names the ABP version whose facts ended the risk. R3 and R6 run past the edge: both were renewed, and both carry a date.
+
 ## The same thirteen rows, with what a one-page map has no room for.
 
 For the example company and this one agent. The first column is the map’s; the other four are what the acceptance loop adds. Another company would fill them differently, and another agent would change the second column entirely.
@@ -180,6 +192,12 @@ For the example company and this one agent. The first column is the map’s; the
 ## The model, in enough detail to implement.
 
 Everything above fits in a semantic graph: nodes, and edges that are verbs. Every verb has a named inverse, so each link reads correctly from either end. There is no generic “relates to”, because an edge without a verb constrains nothing. Nothing is deleted: a new version supersedes the old one, and both stay.
+
+### Eight node types, thirteen verbs, every verb with an inverse.
+
+The tables above, drawn. The bottom row is the evidence: an agent, the versions of its behaviour policy, and the facts each version records. The middle is the risk and its acceptance. The top is the people: roles, the authority delegated to each, and the person who signs. A dashed edge is one of the two that can end or inform without holding. Hover a verb to read it from both ends.
+
+Hover or focus a verb.
 
 ### Placement
 

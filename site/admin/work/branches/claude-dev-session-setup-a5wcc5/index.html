@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>handover · RiskMandate admin</title>
-<meta name="description" content=".claude/commands/handover.md, rendered as a console page.">
+<title>claude/dev-session-setup-a5wcc5 · RiskMandate admin</title>
+<meta name="description" content=".claude/work/claude-dev-session-setup-a5wcc5.md, rendered as a console page.">
 <meta name="robots" content="noindex,follow">
-<link rel="canonical" href="https://riskmandate.ai/admin/agents/commands/handover/">
+<link rel="canonical" href="https://riskmandate.ai/admin/work/branches/claude-dev-session-setup-a5wcc5/">
 <link rel="alternate" type="text/markdown" href="index.md" title="This page as markdown">
 <link rel="icon" href="../../../../assets/brand/riskmandate-favicon-32.png" sizes="32x32">
 <link rel="icon" href="../../../../assets/brand/riskmandate-mark.svg" type="image/svg+xml">
@@ -26,12 +26,17 @@
     <p class="rail__note"><b>Public, and not advertised.</b> Every page here is noindex, out of <code>sitemap.xml</code> and out of <code>llms.txt</code>. Anybody handed the address reads every word. <a href="../../../../">Back to the site</a>.</p>
   </nav>
 <main class="main">
-<p class="crumb"><a href="../../../../admin/">admin</a> / <a href="../../../../admin/agents/">agents</a> / commands/handover.md</p>
-<div class="page-head"><div><h1>handover</h1><p>A prompt for a common job; a slash command in Claude Code. The source is <a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/.claude/commands/handover.md" target="_blank" rel="noopener"><code>.claude/commands/handover.md</code></a>; this page is that file, rendered.</p></div></div>
-<article class="doc"><hr>
-<p>description: End the session cleanly — checks green, work file current, onboarding docs not stale, a final message the next agent can start from ---</p>
-<p>Close out this session.</p>
-<ol><li><code>npm run check</code>. If red, fix it or say exactly what is red and why in the final message.</li><li><code>git status</code> clean, everything committed and pushed to this branch with <code>git push -u origin &lt;branch&gt;</code>.</li><li><code>.claude/work/&lt;branch&gt;.md</code>: current. If the branch merged, delete it. If not, it says what is<p> done, what is not, which vaults are built and unpushed, and what the next agent should do first.</p></li><li>Anything you changed that <code>.claude/onboarding/</code> describes: the description updated in the<p> same push. <code>03-state-and-next.md</code> if the state moved.</p></li><li>Final message, in this order: what shipped (with page names and the version if one was cut),<p> what was not done and why, what needs the lead (keys, decisions, pushes to vaults), and the one thing the next agent should read first.</p></li></ol></article>
+<p class="crumb"><a href="../../../../admin/">admin</a> / <a href="../../../../admin/work/">work</a> / work/claude-dev-session-setup-a5wcc5.md</p>
+<div class="page-head"><div><h1>claude/dev-session-setup-a5wcc5</h1><p>A work file: one branch, in flight, dated 24 September 2026. The source is <a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/.claude/work/claude-dev-session-setup-a5wcc5.md" target="_blank" rel="noopener"><code>.claude/work/claude-dev-session-setup-a5wcc5.md</code></a>; this page is that file, rendered.</p></div></div>
+<article class="doc"><p><strong>Started:</strong> 2026-09-24 · <strong>Agent session:</strong> <a href="https://claude.ai/code/session_01Qs56bjDQRKzHnusF4aXJUJ" target="_blank" rel="noopener">https://claude.ai/code/session_01Qs56bjDQRKzHnusF4aXJUJ</a> · <strong>Task brief:</strong> D21, the lead in chat</p>
+<h2 id="scope">Scope</h2>
+<p>Three figures for <code>article-who-owns-what-in-ai.html</code>, drawn by the page's own script from the article's data: the blast radius (played or changed by the reader), the six weeks as a strip, and the ontology. Nothing else on the site changes except the register and the release.</p>
+<h2 id="files-and-surfaces-i-expect-to-touch">Files and surfaces I expect to touch</h2>
+<ul><li><code>site/article-who-owns-what-in-ai.html</code> (+ twin), <code>site/articles.html</code>, <code>site/briefs.html</code>, the register</li><li>generated files, regenerated</li></ul>
+<h2 id="external-state">External state</h2>
+<ul><li>Vaults built and unpushed: none</li><li>Release I will claim at merge: yes, a patch</li></ul>
+<h2 id="status">Status</h2>
+<ul><li>[x] Figures built and exercised in Chromium: counts match the article; no errors; nothing loaded from elsewhere</li><li>[ ] Release, merge, CI green, live</li></ul></article>
 <div class="c-foot"><b>An operations surface</b> for the people and agents building this site, public because every page here is. It is not a selling page and nothing on it is for sale. <a href="../../../../">The site</a> · <a href="../../../../agent-behaviour-policy.html">the library</a> · <a href="../../../../versions.html">every release</a> · <a href="https://github.com/Risk-Mandate/riskmandate.ai/tree/dev/">the repository</a> · <a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/scripts/site/build-admin.mjs">the script that wrote this page</a>.</div>
 </main>
 </div>

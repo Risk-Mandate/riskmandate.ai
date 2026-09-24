@@ -7,11 +7,11 @@
 
 **2**waiting on somebody outside*the store's agent, the model site*
 
-**0**branches in flight*one work file each*
+**1**branches in flight*one work file each*
 
 **12**open tasks*of 17 in the queue · 1 done*
 
-**23**memos not fully worked*of 31 received*
+**24**memos not fully worked*of 32 received*
 
 **25**briefs written here*one page each*
 
@@ -59,13 +59,13 @@ a decision the lead owns, openD6
 
 a decision the lead owns, openD7
 
-## In flight — 0 branches
+## In flight — 1 branch
 
 One file per branch under `.claude/work/`, written before the work starts and deleted when it merges. Read every one before claiming a task.
 
-**Nothing in flight.**
+**[claude/dev-session-setup-a5wcc5](../admin/work/branches/claude-dev-session-setup-a5wcc5/)**
 
-No work file under .claude/work/.
+Three figures for `article-who-owns-what-in-ai.html`, drawn by the page's own script from the article's data: the blast radius (played or changed by the reader), the six weeks as a strip, and the ontology. Nothing else on the site changes except the register and the release. since 24 September 2026
 
 ## How work gets here
 

@@ -75,11 +75,19 @@ a decision the lead owns, listed in the state fileneeds the lead
 
 a decision the lead owns, listed in the state fileneeds the lead
 
-## In flight — 0 branches
+## In flight — 1 branch
 
 One file per branch under `.claude/work/`. [How a work file is written](../../admin/work/about-work-files/).
 
-Nothing in flight.
+### [claude/dev-session-setup-a5wcc5](../../admin/work/branches/claude-dev-session-setup-a5wcc5/)
+
+started 24 September 2026 · task brief: D21, the lead in chat
+
+Three figures for `article-who-owns-what-in-ai.html`, drawn by the page's own script from the article's data: the blast radius (played or changed by the reader), the six weeks as a strip, and the ontology. Nothing else on the site changes except the register and the release.
+
+**External state.** Vaults built and unpushed: none · Release I will claim at merge: yes, a patch
+
+**Status.** [x] Figures built and exercised in Chromium: counts match the article; no errors; nothing loaded from elsewhere · [ ] Release, merge, CI green, live
 
 ## Task briefs — 14
 

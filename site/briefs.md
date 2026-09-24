@@ -285,6 +285,18 @@ Each one is linked in full, as received, with nothing edited. Where a brief and 
 - **A run of the longer prompt in ChatGPT voice mode.** The lead’s, checking all sixteen sections come back
 - **The build.** Seven of the map’s roles are not in our model, authority is not yet data, and no engine runs the clocks; the article says so
 
+### Graph visualisations for the role-ownership article: the blast radius as the employee connects and disconnects, the flows played out, the evidence, and the settings a mail scope cannot narrow
+
+**sha256** 524b59f30d4407f354272061f0e9c10e0ed45d5161d9ef19ad8007324a03bf5f
+
+**Show it, not only say it.** The article has the ontology and the taxonomy at the bottom, so draw them: a series of visualisations, animated in the page, that show the interconnection, the blast radius growing as an employee connects the assistant to their mail and shrinking when they disconnect it, the flows played out, and the evidence. Include the settings that cannot be prevented: a mail scope grants the whole mailbox, and what the behaviour policy adds is instructions and a mandate narrowed to one business process.
+
+- [Three figures](article-who-owns-what-in-ai.html), drawn by the page’s own script from the article’s data: the blast radius, which plays the six weeks or takes the reader’s own changes and recomputes the rows, the risks, their holders and the counts; the six weeks as a strip; and the ontology, every verb readable from both ends
+- The instruction switch: the mandate becomes precise about the business process, every row in the gap gains an expectation, and unbounded excess does not move. The mail scope fact is cited from the Gmail record
+- **Blast radius as a number.** The figure shows which roles a risk reaches and who holds it; it does not size the consequence, because the article scores nothing
+- **Real grants.** The figure runs on the invented agent; wiring it to a published ABP vault is the next step
+- **Evidence flowing downward.** A ceased risk cites its ABP version in text; the figure does not yet animate the evidence travelling back to the version
+
 ## And the instructions that arrived as speech or a sentence.
 
 These have no digest to check, which makes them the ones most easily lost — a voice memo that changed the direction of the whole site leaves no artefact at all unless somebody writes it down. So they are recorded here in the same list, with the same two columns.
@@ -364,7 +376,7 @@ sha256sum my-brief.md
 
 A register that only lists what was done is a press release.
 
-Every entry above carries what it asked for and did not get, and on most of the twenty that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.
+Every entry above carries what it asked for and did not get, and on most of the twenty-one that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.
 
 - **The file is the record, not this page.** [briefs-register.json](briefs-register.json) is what a program should read; this page renders it for people. If the two ever disagree, the file is right and the page is stale.
 - **Every archived document is byte-identical to what arrived.** Nothing is edited, reformatted or trimmed — including the parts we think are wrong. Where we disagree with a brief, the disagreement is published on the page it produced and marked as ours.
@@ -373,6 +385,6 @@ Every entry above carries what it asked for and did not get, and on most of the 
 
 Register maintained by hand alongside the work, and checked in CI: every document listed must exist at the path given and match its recorded digest, and every file in `assets/briefs/` must appear in the register. Last reconciled 16 September 2026.
 
-## Twenty items. None untouched, and none finished.
+## Twenty-one items. None untouched, and none finished.
 
-Every item now names something it produced and something it did not. Seventeen of the twenty are marked _partly_, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.
+Every item now names something it produced and something it did not. Eighteen of the twenty-one are marked _partly_, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.
