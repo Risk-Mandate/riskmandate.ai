@@ -2,7 +2,7 @@
 
 # Who owns what in AI. And how accountability holds on the way up.
 
-A LinkedIn infographic maps thirteen roles to what each owns in AI and what it protects. Every company will redraw it. What joins its levels, so that accountability holds on the way up, is risk acceptance with the Agent Behaviour Policy underneath: one agent worked from its eight rows to the board, seven rules, six weeks, and the model in enough detail to build.
+A LinkedIn infographic maps thirteen roles to what each owns in AI and what it protects. Every company will redraw it. What joins its levels, so that accountability holds on the way up, is risk acceptance with the Agent Behaviour Policy underneath: one agent worked from its nine rows to the board, seven rules, six weeks, and the model in enough detail to build.
 
 Source: https://riskmandate.ai/article-who-owns-what-in-ai.html
 
@@ -69,15 +69,15 @@ Both directions are needed, and joining them is the whole design. The map says w
 
 The example is invented, and deliberately ordinary. A company of about two hundred people sells software to other businesses. A sales representative connects an AI assistant to their own email, calendar and customer relationship management system (the CRM), so it can draft follow-ups and suggest meeting times. Their manager says yes. Nobody else is asked, because nothing about it looks like a decision.
 
-An **Agent Behaviour Policy** (ABP) is the record of one agent in one deployment. It lists everything the agent can do (the _grant_), what it was authorised to do (the _mandate_), the gap between the two, and what stands in the way of each thing in the gap. It scores nothing. For this agent it has eight rows:
+An **Agent Behaviour Policy** (ABP) is the record of one agent in one deployment. It lists everything the agent can do (the _grant_), what it was authorised to do (the _mandate_), the gap between the two, and what stands in the way of each thing in the gap. It scores nothing. For this agent it has nine rows. One of them, the last, is the reason the table is worth reading twice: the mandate says _my own mail_, and the grant does not know the difference.
 
 **How to read the barrier column.** What stands in the way is one of four kinds, weakest first: _nothing_; an _expectation_, a rule in prose that nothing enforces, such as a line in the agent’s instructions; a _setting_ the agent’s own account could switch off; and a _boundary_, enforced by something the agent cannot reach. Only a boundary is a control. That is why row 3 counts as unbounded even though the instructions forbid it. Unbounded excess is the one number a control can move: each real control turns a row into a boundary, and the count falls.
 
 **On row 7:** in Google Calendar, for example, a deleted event stays in the trash for 30 days, and Google’s pages document no way for a user to restore an edited one (read 24 September 2026; the details are in [a separate article](article-calendar-edits-cannot-be-undone.html)). **On row 8:** unless the product marks what an agent did, every record shows the rep did it.
 
-**Rows 1, 3 and 4 together** are what Simon Willison named the lethal trifecta: “Access to your private data… Exposure to untrusted content… The ability to externally communicate in a way that could be used to steal your data” ([16 June 2025](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/)). This agent has all three, and an instruction is the only thing in the way.
+**Rows 1, 3 and 4 together** are what Simon Willison named the lethal trifecta: “Access to your private data… Exposure to untrusted content… The ability to externally communicate in a way that could be used to steal your data” ([16 June 2025](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/)). This agent has all three, and an instruction is the only thing in the way. Row 9 widens the first of them from the rep’s mail to the whole team’s.
 
-**From rows to risks.** Each row in the gap is a fact, with its source. The facts establish five risks. At first each is written the way the person who connected the agent would say it:
+**From rows to risks.** Each row is a fact, with its source, and rows in the mandate establish risks too: the difference is that those are inside the authority of the person who connected the agent, and they accept them by connecting. That is the level the business already lives with, and it belongs in the record so that the line between it and the gap is visible. The facts establish seven risks. At first each is written the way the rep would say it:
 
 ## The same agent, in each role’s own words.
 
@@ -101,7 +101,7 @@ Read from the bottom. Each arrow is a named edge: a fact establishes a risk, a r
 
 ### Connect the assistant, and watch the risks travel up. Then end them.
 
-Drawn from the article’s own data. Play the six weeks of section 07, or change the record yourself: connect and disconnect, add the controls, and see which facts stop holding. A risk lights up when every fact it needs holds and none is bounded; it ceases when one of them changes, citing the ABP version that changed it. Colour is the state of an acceptance, never a rating. Hover a role to read the exposure in its words; hover a risk for what establishes it.
+Drawn from the article’s own data. Play the six weeks of section 07, or change the record yourself: connect and disconnect, add the controls, and see which facts stop holding. A risk lights up when every fact it needs holds and none is bounded; it drifts to the role that holds it, and lights the whole path above that role to the board, because a risk never stops with its holder: everyone above carries it. The number on a role is how many risks it holds or carries. A risk ceases when one of its facts changes, citing the ABP version that changed it. Colour is the state of an acceptance, never a rating. Hover or click a role to see what it holds, carries and is informed of; hover a risk for what establishes it and what it reaches. Only the roles this agent’s path touches are drawn: Marketing, Product and HR are in the tables and not here.
 
 **Try the last switch on its own.** Connect the mail and the CRM, then tick the instructions. Every row in the gap changes from _nothing in the way_ to _an expectation_, the mandate is now precise about the business process, and the risks stay lit: unbounded excess does not move. That is the honest picture of an instruction. It is worth writing down, because it says what the agent was told, and the ABP is where it is written. It is not a control. The mail connector in the example, like the real ones we have recorded, grants the whole mailbox: on our [Gmail record](abp-vault-claude-gmail-connector.html), Google’s consent screen offers three lines to tick, each for the whole account, and none for one folder, one customer or one business process (read 16 September 2026). So the mandate can say _only follow-ups on my own accounts_, and the grant cannot. The gap between those two sentences is the risk, and the boundary switches above are what end it.
 
@@ -143,13 +143,13 @@ If a holder accepts a risk for four hours, somebody must be able to switch the a
 
 Invented dates, and the mechanics are the point. Watch where each risk goes, who decides, and what ends it.
 
-### Connected. Eight rows, four in the gap, none bounded.
+### Connected. Nine rows, five in the gap, none bounded.
 
-The ABP is written from the connector’s consent screen, the products’ own pages and ten minutes with the rep about what they want it for. Five risks are established. **The person who connected the agent can accept none of them**: every one reaches past their own work. R1 and R4 go to the head of Sales, R2 to the CISO, R3 to the CIO, and R5 to the COO, whose map row is “operational integration”. The board’s view shows five new risks, each with a holder, none accepted yet.
+The ABP is written from the connector’s consent screen, the products’ own pages and ten minutes with the rep about what they want it for. Seven risks are established. **The person who connected the agent can accept one of them**, R0, which stays inside their own work, and they do, by connecting. Every other one reaches past it. R1, R4 and R7 go to the head of Sales, R2 to the CISO, R3 to the CIO, and R5 to the COO, whose map row is “operational integration”. Each of them also lights the path above its holder to the board: the CTO carries what the CIO and the CISO hold, and the CEO carries all of it. The board’s view shows six new risks with holders and none accepted, and one accepted by the rep.
 
-### Sales funds one fix and asks for another.
+### Sales accepts one, funds one, and asks for a fix.
 
-The head of Sales **funds** R1: accepted for two weeks while IT adds an approval step to sending that the agent cannot give itself. For R4 they choose **fix**: they ask the CRM administrator to limit reps to their own accounts.
+The head of Sales **accepts** R7 for a month: the team’s customer mail is inside Sales’ own authority, and reading it is a risk the team can live with while it decides whether the delegation should stay. Then Sales **funds** R1: accepted for two weeks while IT adds an approval step to sending that the agent cannot give itself. For R4 they choose **fix**: they ask the CRM administrator to limit reps to their own accounts.
 
 ### The CISO and the CIO accept, with actions.
 
@@ -171,17 +171,17 @@ The CEO asks IT to narrow the agent’s calendar access to the rep’s own calen
 
 Sending now needs the rep’s approval, somewhere the agent cannot reach. ABP version 4: row 3’s barrier is a boundary. R1 ceases. R2 needed all three rows, loses the sending one and ceases too. The lethal trifecta is broken on evidence, not on an instruction.
 
-### R3’s month runs out with the work not done.
+### Three acceptances run out, and are renewed.
 
-The scope change was scheduled and has not shipped. The decision returns to the CIO, who renews for one more month with a date for the change. The renewal is a new acceptance, and the old one stays in the record.
+The scope change was scheduled and has not shipped. R3 returns to the CIO, who renews for one more month with a date for the change. R0 came back to the rep on day 30 and R7 to Sales on day 32, and both were renewed. Each renewal is a new acceptance, and the old ones stay in the record.
 
 ### What the board sees.
 
-Two open risks, each with a name and a date: R3, held by the CIO, accepted until day 63, with the work scheduled; and the rep’s own-calendar risk, accepted on day 10 for a month and renewed on day 40 until day 70. Four risks ceased, each citing the ABP version that ended it. None unaccepted. For the agent, unbounded excess went from four to two. That is not a score. It is a count anybody can recompute from the ABP versions.
+Four open risks, each with a name and a date: R3, held by the CIO, accepted until day 63, with the work scheduled; R7, held by Sales, until day 62; and two inside the rep’s own authority, R0 until day 60 and R6, the own-calendar risk, accepted on day 10 and renewed on day 40 until day 70. Four risks ceased, each citing the ABP version that ended it. None unaccepted. For the agent, unbounded excess went from five to three. That is not a score. It is a count anybody can recompute from the ABP versions.
 
 ### Who held each risk, in which state, and what ended it.
 
-The same six weeks as a strip: one line per risk, day 0 to day 42. A hatched bar is a funded acceptance; the small arrow on R5 is the week of silence that moved it from the COO to the CEO; each ending names the ABP version whose facts ended the risk. R3 and R6 run past the edge: both were renewed, and both carry a date.
+The same six weeks as a strip: one line per risk, day 0 to day 42. A hatched bar is a funded acceptance; the small arrow on R5 is the week of silence that moved it from the COO to the CEO; each ending names the ABP version whose facts ended the risk. R0, R3, R6 and R7 run past the edge: all four were renewed, and each carries a date. R0 is the one inside the rep’s own authority: accepted from the day the agent was connected, which is the level the business already lives with.
 
 ## The same thirteen rows, with what a one-page map has no room for.
 

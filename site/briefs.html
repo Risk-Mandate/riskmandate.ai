@@ -265,7 +265,7 @@ table.t code{font-family:var(--mono);font-size:11.5px;background:var(--bg2);padd
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
     <a class="ghlink" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener" aria-label="The source, on GitHub" title="Open source · Apache-2.0 code · CC BY 4.0 pages"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a>
-      <a class="version" href="versions.html" title="What shipped in v1.34.5">v1.34.5</a>
+      <a class="version" href="versions.html" title="What shipped in v1.34.6">v1.34.6</a>
     <button class="demo" data-demo>Get in touch</button>
   </div>
 </header>
@@ -1016,6 +1016,38 @@ table.t code{font-family:var(--mono);font-size:11.5px;background:var(--bg2);padd
           </div>
         </div>
 
+        <div class="doc">
+          <div class="dh">
+            <span class="did">D22</span>
+            <h3>Risks always flow upwards: the roles above carry the aggregate, click a role to see what it holds, list every risk that holds now, and show the level of risk the business already accepts against the gap outside it</h3>
+            <span class="st partly">Partly</span>
+          </div>
+          <div class="dmeta">
+            <span><b>type</b> spoken brief, transcribed</span>
+            <span><b>dated</b> 24 Sept 2026</span><span><b>received</b> 24 Sept</span>
+            <span><b>4,635 bytes</b></span>
+          </div>
+          <p class="dig"><b>sha256</b> 19de617c22e7226307413fbee045912c6af4fe56c453db8010d98209747c31a1</p>
+          <p class="dnote"><b>A risk does not stop with its holder.</b> The first figure implied it did: connect the CRM and two risks sat with the CIO and Sales. They reach the CTO, the CEO and the board, and the people at the top get the aggregate; the CEO carries the calendar risk and the mail risk both. So: light the path upward, let each stakeholder be clicked to see the risks they carry, list every risk that holds at any moment, and show that reading the rep&rsquo;s own mail is a risk the business already accepts, which is different from reading every mailbox the account can open. Drop the roles nothing reaches; keep Legal and the CFO.</p>
+          <div class="out">
+            <div class="ok">
+              <span class="k">What it produced</span>
+              <ul>
+                <li><a href="article-who-owns-what-in-ai.html">The blast radius rebuilt</a>: every live risk lights the path from its holder to the board, every role above carries a count, a role&rsquo;s panel lists what it holds, carries and is informed of, and a table lists every risk that holds now with the chain it reaches</li>
+                <li>The accepted level: row 1 is the rep&rsquo;s own mail and establishes R0, accepted by the rep on connecting; row 9, the shared sales inbox, is outside the mandate and establishes R7. The tables, counts and six weeks follow: nine rows, five in the gap, unbounded excess five, then four, then three</li>
+                <li>Marketing, Product and HR leave the figure; Legal and the CFO are informed of every risk that touches a customer or their data; a compound risk is drawn larger by the facts it needs</li>
+              </ul>
+            </div>
+            <div>
+              <span class="k">What it asked for and has not got</span>
+              <ul>
+                <li><strong>A quantity of impact or potential loss.</strong> Each risk carries a consequence in words and an undo property, and no number: the article&rsquo;s own rule is that kinds of consequence do the work of a score, and a loss figure is the lead&rsquo;s decision</li>
+                <li><strong>Other scenarios.</strong> One agent, as the lead asked for now</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -1258,7 +1290,7 @@ sha256sum my-brief.md
       </div>
       <div class="rule">
         <p>A register that only lists what was done is a press release.</p>
-        <p>Every entry above carries what it asked for and did not get, and on most of the twenty-one that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.</p>
+        <p>Every entry above carries what it asked for and did not get, and on most of the twenty-two that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.</p>
       </div>
       <ul class="plist">
         <li><strong>The file is the record, not this page.</strong> <a href="briefs-register.json">briefs-register.json</a> is what a program should read; this page renders it for people. If the two ever disagree, the file is right and the page is stale.</li>
@@ -1275,8 +1307,8 @@ sha256sum my-brief.md
 <section class="pcta">
   <div class="wrap">
     <span class="eyebrow"><span class="d"></span> The register</span>
-    <h2>Twenty-one items. None untouched, and none finished.</h2>
-    <p>Every item now names something it produced and something it did not. Eighteen of the twenty-one are marked <em>partly</em>, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.</p>
+    <h2>Twenty-two items. None untouched, and none finished.</h2>
+    <p>Every item now names something it produced and something it did not. Nineteen of the twenty-two are marked <em>partly</em>, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.</p>
     <div class="cta-row">
       <a class="btn btn-green" href="lab.html">See what did get built →</a>
       <a class="btn btn-ghost" href="briefs-register.json">The register as JSON</a>
