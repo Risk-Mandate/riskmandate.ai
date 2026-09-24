@@ -14,6 +14,10 @@ dist/
 # …except a behaviour-policy vault's dist/: the zip and the PDF are what the buyer downloads,
 # served from site/ like everything else, and --check verifies the zip against the generator.
 !site/vaults/*/dist/
+# …and the ABP-for-people pack: the zip is the deliverable and CI compares it byte for byte,
+# and the example vault inside it carries its own dist/ like every other vault.
+!packs/dist/
+!packs/abp-for-people/examples/*/dist/
 downloads/
 eggs/
 .eggs/
