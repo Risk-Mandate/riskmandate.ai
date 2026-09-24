@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>new-vault · RiskMandate admin</title>
-<meta name="description" content="Add the vault $ARGUMENTS following .claude/onboarding/05-workflows.md → Add a vault and the model in .claude/onboarding/02-abp-model.md. Read site/vaults/gmail-readonly/data/grant.json as the example of a documented grant and…">
+<title>claude/dev-session-setup-a5wcc5 · RiskMandate admin</title>
+<meta name="description" content=".claude/work/claude-dev-session-setup-a5wcc5.md, rendered as a console page.">
 <meta name="robots" content="noindex,follow">
-<link rel="canonical" href="https://riskmandate.ai/admin/agents/commands/new-vault/">
+<link rel="canonical" href="https://riskmandate.ai/admin/work/branches/claude-dev-session-setup-a5wcc5/">
 <link rel="alternate" type="text/markdown" href="index.md" title="This page as markdown">
 <link rel="icon" href="../../../../assets/brand/riskmandate-favicon-32.png" sizes="32x32">
 <link rel="icon" href="../../../../assets/brand/riskmandate-mark.svg" type="image/svg+xml">
@@ -26,14 +26,17 @@
     <p class="rail__note"><b>Public, and not advertised.</b> Every page here is noindex, out of <code>sitemap.xml</code> and out of <code>llms.txt</code>. Anybody handed the address reads every word. <a href="../../../../">Back to the site</a>.</p>
   </nav>
 <main class="main">
-<p class="crumb"><a href="../../../../admin/">admin</a> / <a href="../../../../admin/agents/">agents</a> / commands/new-vault.md</p>
-<div class="page-head"><div><h1>new-vault</h1><p>A prompt for a common job; a slash command in Claude Code. The source is <a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/.claude/commands/new-vault.md" target="_blank" rel="noopener"><code>.claude/commands/new-vault.md</code></a>; this page is that file, rendered.</p></div></div>
-<article class="doc"><hr>
-<p>description: Add a behaviour-policy template vault for a new deployment shape, from the vendor's own pages or a measured grant argument-hint: &lt;slug&gt; &lt;shape, e.g. slack/bot-token/default&gt; [measured|documented] ---</p>
-<p>Add the vault $ARGUMENTS following <code>.claude/onboarding/05-workflows.md</code> → <em>Add a vault</em> and the model in <code>.claude/onboarding/02-abp-model.md</code>. Read <code>site/vaults/gmail-readonly/data/grant.json</code> as the example of a documented grant and <code>site/vaults/n8n-owner-api-key/data/grant.json</code> as the example of a measured one.</p>
-<p>Rules that decide whether the vault is publishable:</p>
-<ul><li>Never test somebody else's system. A documented row quotes the vendor's page with URL and the<p>date read, in the row's <code>note</code>. A measured row exists only for a system we are entitled to run, with the session record in <code>history/</code>.</p></li><li>The credential is the grant, not a barrier. <code>material</code> on every row. Note the door: one row,<p>several <code>via</code>. What the pages could not settle goes in <code>research_needed</code>; where the vendor's own pages disagree, <code>contradictions</code>, unresolved; what the grammar cannot name, <code>not_in_grammar</code>.</p></li><li>The mandate is a starting point in the deployer's words, sorted over the 23 primitives.<p>Six scenarios, three normal and three advanced, none wanting and refusing the same row.</p></li><li>No score, anywhere.</li></ul>
-<p>Then: <code>build-abp-vault.mjs &lt;slug&gt;</code> and <code>--check</code>; add the catalogue entry to <code>site/vaults/index.json</code> without <code>vid</code>/<code>key</code> (the lead pushes and fills them); <code>build-abp-pages.mjs</code>; <code>generate.mjs</code>; <code>npm run check</code>. Record in <code>.claude/work/&lt;branch&gt;.md</code> that the vault is built and unpushed, and list the open questions count. Add a line to <code>.claude/onboarding/03-state-and-next.md</code>.</p></article>
+<p class="crumb"><a href="../../../../admin/">admin</a> / <a href="../../../../admin/work/">work</a> / work/claude-dev-session-setup-a5wcc5.md</p>
+<div class="page-head"><div><h1>claude/dev-session-setup-a5wcc5</h1><p>A work file: one branch, in flight, dated 24 September 2026. The source is <a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/.claude/work/claude-dev-session-setup-a5wcc5.md" target="_blank" rel="noopener"><code>.claude/work/claude-dev-session-setup-a5wcc5.md</code></a>; this page is that file, rendered.</p></div></div>
+<article class="doc"><p><strong>Started:</strong> 2026-09-24 · <strong>Agent session:</strong> <a href="https://claude.ai/code/session_01Qs56bjDQRKzHnusF4aXJUJ" target="_blank" rel="noopener">https://claude.ai/code/session_01Qs56bjDQRKzHnusF4aXJUJ</a> · <strong>Task brief:</strong> ad hoc, from the lead in chat</p>
+<h2 id="scope">Scope</h2>
+<p>Two things. The founder interview page gets a first part on the Agent Behaviour Policy itself: its name, whether it can be explained back after one hearing, what it adds, whether the market understands the problem, its value to the people who would use it, and whether it should sell. Then a stand-alone article answering a role-ownership infographic seen on LinkedIn: the mapping is good, every company will draw its own, and what joins the levels so that accountability holds on the way up is risk acceptance and the ABP. Written as a full document, detailed enough to implement from.</p>
+<h2 id="files-and-surfaces-i-expect-to-touch">Files and surfaces I expect to touch</h2>
+<ul><li><code>site/interviews/founder-marketing.json</code>, <code>scripts/site/build-interview-pages.mjs</code> (+ the page, regenerated)</li><li><code>site/article-&lt;slug&gt;.html</code> (new), <code>site/articles.html</code>, <code>site/pages.json</code></li><li>the brief register (the lead's note as a brief), onboarding state</li><li>generated files, regenerated</li></ul>
+<h2 id="external-state">External state</h2>
+<ul><li>Vaults built and unpushed: none</li><li>Release I will claim at merge: yes, a patch</li></ul>
+<h2 id="status">Status</h2>
+<ul><li>[x] Interview page: ABP questions, thirty minutes, copy tested in a browser</li><li>[x] Article: <code>article-who-owns-what-in-ai.html</code>, D20 registered</li><li>[ ] Release, merge, CI green, live</li></ul></article>
 <div class="c-foot"><b>An operations surface</b> for the people and agents building this site, public because every page here is. It is not a selling page and nothing on it is for sale. <a href="../../../../">The site</a> · <a href="../../../../agent-behaviour-policy.html">the library</a> · <a href="../../../../versions.html">every release</a> · <a href="https://github.com/Risk-Mandate/riskmandate.ai/tree/dev/">the repository</a> · <a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/scripts/site/build-admin.mjs">the script that wrote this page</a>.</div>
 </main>
 </div>

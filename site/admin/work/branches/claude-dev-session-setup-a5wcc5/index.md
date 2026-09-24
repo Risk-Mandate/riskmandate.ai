@@ -1,5 +1,8 @@
 # claude/dev-session-setup-a5wcc5
 
+> Rendered from .claude/work/claude-dev-session-setup-a5wcc5.md in the repository. The text below is that file.
+> Source: https://riskmandate.ai/admin/work/branches/claude-dev-session-setup-a5wcc5/ · noindex · written by scripts/site/build-admin.mjs
+
 **Started:** 2026-09-24 · **Agent session:** https://claude.ai/code/session_01Qs56bjDQRKzHnusF4aXJUJ · **Task brief:** ad hoc, from the lead in chat
 
 ## Scope

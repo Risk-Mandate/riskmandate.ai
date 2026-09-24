@@ -75,11 +75,19 @@ a decision the lead owns, listed in the state fileneeds the lead
 
 a decision the lead owns, listed in the state fileneeds the lead
 
-## In flight — 0 branches
+## In flight — 1 branch
 
 One file per branch under `.claude/work/`. [How a work file is written](../../admin/work/about-work-files/).
 
-Nothing in flight.
+### [claude/dev-session-setup-a5wcc5](../../admin/work/branches/claude-dev-session-setup-a5wcc5/)
+
+started 24 September 2026 · task brief: ad hoc, from the lead in chat
+
+Two things. The founder interview page gets a first part on the Agent Behaviour Policy itself: its name, whether it can be explained back after one hearing, what it adds, whether the market understands the problem, its value to the people who would use it, and whether it should sell. Then a stand-alone article answering a role-ownership infographic seen on LinkedIn: the mapping is good, every company will draw its own, and what joins the levels so that accountability holds on the way up is risk acceptance and the ABP. Written as a full document, detailed enough to implement from.
+
+**External state.** Vaults built and unpushed: none · Release I will claim at merge: yes, a patch
+
+**Status.** [x] Interview page: ABP questions, thirty minutes, copy tested in a browser · [x] Article: `article-who-owns-what-in-ai.html`, D20 registered · [ ] Release, merge, CI green, live
 
 ## Task briefs — 14
 

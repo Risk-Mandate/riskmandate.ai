@@ -273,6 +273,18 @@ Each one is linked in full, as received, with nothing edited. Where a brief and 
 - **The prompt exactly as written.** Two phrases were corrected to what the site states: the home page names the CEO, CTO and CISO, not an insurer; and the behaviour policy is the licence’s instrument, not its evidence
 - **Sending the summary back into a vault.** The brief marks it as later
 
+### Ask the ABP questions in the interview, and answer a LinkedIn role map as a stand-alone article: a generic framework, adjusted in every company, with accountability that holds on the way up
+
+**sha256** 2219d9a051791da925288f494be02fdbcf9a05709b12a70acc42ec4ff565d6ab
+
+**Two asks in one note.** First, the founder interview should also ask about the Agent Behaviour Policy itself: its name, whether it can be explained, what it adds, whether the market understands it, its value to the people who would use it, and whether it should sell. Second, an article of a kind the lead wants to write more of: take something strong seen on LinkedIn, here a map of who owns what in AI by role, and show our world on top of it. The map is a generic framework, as ours is, and every company adjusts it; what risk acceptance and the ABP add is the connection that keeps accountability intact on the way up. Written as a full document, so the details can be implemented.
+
+- [The interview’s first part](interview-founder-marketing.html): six questions on the ABP, a test of explaining it back after one hearing, thirty minutes, sixteen summary sections
+- [The article](article-who-owns-what-in-ai.html): the map’s rows quoted and credited; what each company sets and what stays fixed; one invented agent from eight ABP rows to the board; seven rules; six weeks; the model as nodes, edges and computations
+- **The post’s own link and date.** The article credits the infographic by title and author, and says when it reached us
+- **A run of the longer prompt in ChatGPT voice mode.** The lead’s, checking all sixteen sections come back
+- **The build.** Seven of the map’s roles are not in our model, authority is not yet data, and no engine runs the clocks; the article says so
+
 ## And the instructions that arrived as speech or a sentence.
 
 These have no digest to check, which makes them the ones most easily lost — a voice memo that changed the direction of the whole site leaves no artefact at all unless somebody writes it down. So they are recorded here in the same list, with the same two columns.
@@ -352,7 +364,7 @@ sha256sum my-brief.md
 
 A register that only lists what was done is a press release.
 
-Every entry above carries what it asked for and did not get, and on most of the nineteen that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.
+Every entry above carries what it asked for and did not get, and on most of the twenty that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.
 
 - **The file is the record, not this page.** [briefs-register.json](briefs-register.json) is what a program should read; this page renders it for people. If the two ever disagree, the file is right and the page is stale.
 - **Every archived document is byte-identical to what arrived.** Nothing is edited, reformatted or trimmed — including the parts we think are wrong. Where we disagree with a brief, the disagreement is published on the page it produced and marked as ours.
@@ -361,6 +373,6 @@ Every entry above carries what it asked for and did not get, and on most of the 
 
 Register maintained by hand alongside the work, and checked in CI: every document listed must exist at the path given and match its recorded digest, and every file in `assets/briefs/` must appear in the register. Last reconciled 16 September 2026.
 
-## Nineteen items. None untouched, and none finished.
+## Twenty items. None untouched, and none finished.
 
-Every item now names something it produced and something it did not. Ten of the nineteen are marked _partly_, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.
+Every item now names something it produced and something it did not. Seventeen of the twenty are marked _partly_, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.

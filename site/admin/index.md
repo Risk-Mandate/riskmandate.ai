@@ -7,11 +7,11 @@
 
 **2**waiting on somebody outside*the store's agent, the model site*
 
-**0**branches in flight*one work file each*
+**1**branches in flight*one work file each*
 
 **12**open tasks*of 17 in the queue · 1 done*
 
-**22**memos not fully worked*of 30 received*
+**23**memos not fully worked*of 31 received*
 
 **25**briefs written here*one page each*
 
@@ -59,13 +59,13 @@ a decision the lead owns, openD6
 
 a decision the lead owns, openD7
 
-## In flight — 0 branches
+## In flight — 1 branch
 
 One file per branch under `.claude/work/`, written before the work starts and deleted when it merges. Read every one before claiming a task.
 
-**Nothing in flight.**
+**[claude/dev-session-setup-a5wcc5](../admin/work/branches/claude-dev-session-setup-a5wcc5/)**
 
-No work file under .claude/work/.
+Two things. The founder interview page gets a first part on the Agent Behaviour Policy itself: its name, whether it can be explained back after one hearing, what it adds, whether the market understands the problem, its value to the people who would use it, and whether it should sell. Then a stand-alone article answering a role-ownership infographic seen on LinkedIn: the mapping is good, every company will draw its own, and what joins the levels so that accountability holds on the way up is risk acceptance and the ABP. Written as a full document, detailed enough to implement from. since 24 September 2026
 
 ## How work gets here
 

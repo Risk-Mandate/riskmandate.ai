@@ -14,6 +14,10 @@ Each of these takes one thing a deployment actually does, shows the screen or th
 
 ## Written so far.
 
+### [Who owns what in AI. And how accountability holds on the way up.](article-who-owns-what-in-ai.html)
+
+A reply to an infographic on LinkedIn that maps thirteen roles to what each owns in AI and what that protects. Every company will redraw a map like it, and so it should. The map runs sideways, and accountability runs upwards: its middle column says where a risk lands, and the organisation chart says where it goes when nobody decides. One invented agent worked from the eight rows of its behaviour policy to the board: the same exposure in thirteen voices, seven rules, six weeks, and the model in enough detail to build.
+
 ### [A deleted meeting comes back. An edited one does not.](article-calendar-edits-cannot-be-undone.html)
 
 Google Calendar keeps a deleted event in a trash for 30 days and documents no way for a user to restore an edited one. An agent allowed to edit can leave fifty meetings that look right and are wrong, with nothing to restore them from, which makes edit the dangerous permission and delete the recoverable one. What Google keeps after each action, in its own words, for personal and Workspace accounts; three places where Google's pages disagree, published unresolved; and the draft Calendar rows of a behaviour policy, with recovery beside each.
