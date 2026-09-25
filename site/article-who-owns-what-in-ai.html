@@ -320,14 +320,23 @@ rm-menu{display:contents}
 .wo-risk-core{fill:var(--card);stroke:var(--faint);stroke-width:2}
 .wo-risk-ring{fill:none;stroke:transparent;stroke-width:2}
 .wo-risk.s-unaccepted .wo-risk-core{fill:var(--wo-red-soft);stroke:var(--red)}
-.wo-risk.s-unaccepted .wo-risk-ring{stroke:var(--red);animation:wo-ring 1.6s ease-out infinite}
+.wo-risk.s-unaccepted .wo-risk-ring{stroke:var(--red);opacity:.45}
 .wo-risk.s-accepted .wo-risk-core,.wo-risk.s-funded .wo-risk-core{fill:var(--wo-green-soft);stroke:var(--green)}
 .wo-risk.s-funded .wo-risk-core{stroke-dasharray:4 2.5}
 .wo-risk.ceased .wo-risk-core{fill:var(--bg2);stroke:var(--faint);stroke-dasharray:2 2}
 .wo-risk-t{font-family:var(--mono);font-size:10.5px;font-weight:700;fill:var(--text)}
 .wo-risk:hover .wo-risk-core,.wo-risk:focus .wo-risk-core{stroke-width:3}
-@keyframes wo-ring{0%{r:17;opacity:.9}100%{r:30;opacity:0}}
 .wo-pulse{fill:var(--green);opacity:.9}.wo-pulse.down{fill:var(--faint)}
+/* a selection sticks: what it touches keeps its colour, the rest fades */
+.wo-role.dim,.wo-conn.dim{opacity:.22}.wo-halo.dim{opacity:.12}.wo-org.dim{opacity:.2}.wo-badge.dim{opacity:.2}
+.wo-risk.dim:not(.gone){opacity:.12}.wo-e.dim{opacity:.05}.wo-row.dim:not(.hidden){opacity:.12}.wo-agent.dim,.wo-proxy.dim{opacity:.3}
+.wo-role,.wo-conn,.wo-agent,.wo-halo,.wo-org,.wo-badge,.wo-row{transition:opacity .35s}
+.wo-conn,.wo-agent{cursor:pointer;outline:none}
+.wo-role.sel rect,.wo-conn.sel rect{stroke:var(--text);stroke-width:2.6}
+.wo-agent.sel rect{stroke:var(--green);stroke-width:3}
+.wo-risk.sel .wo-risk-ring{stroke:var(--text);stroke-width:2.6;opacity:1}
+.wo-lr.dim{opacity:.35}
+.wo-panel-hint{margin-top:6px;font-size:12px;color:var(--faint)}
 .wo-ctl{display:grid;grid-template-columns:1.1fr .8fr 1.9fr 1.3fr;gap:14px 18px;margin-top:18px}
 .wo-ctl-g{display:flex;flex-direction:column;gap:6px}
 .wo-ctl-g .wo-k{margin-bottom:2px}
@@ -381,7 +390,7 @@ rm-menu{display:contents}
 .wo-ol-t{font-family:var(--mono);font-size:10.5px;fill:var(--text)}
 @media (max-width:900px){.wo-ctl{grid-template-columns:1fr 1fr}.wo-counts.small{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media (max-width:640px){.wo-ctl{grid-template-columns:1fr}.wo-counts.small{grid-template-columns:repeat(2,minmax(0,1fr))}.wo-fig{padding:18px 16px}}
-@media (prefers-reduced-motion:reduce){.wo-risk.s-unaccepted .wo-risk-ring{animation:none;stroke:var(--red);opacity:.5}.wo-halo,.wo-e,.wo-risk,.wo-conn rect,.wo-row circle{transition:none}}
+@media (prefers-reduced-motion:reduce){.wo-halo,.wo-e,.wo-risk,.wo-conn rect,.wo-row circle{transition:none}}
 
 .ghlink{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:8px;color:var(--muted);border:1px solid transparent}.ghlink:hover{color:var(--text);border-color:var(--border)}
 .footlic{display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap}.footlic a{color:inherit}.ccicon{vertical-align:-3px;margin:0 2px}
@@ -394,7 +403,7 @@ rm-menu{display:contents}
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
     <a class="ghlink" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener" aria-label="The source, on GitHub" title="Open source · Apache-2.0 code · CC BY 4.0 pages"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a>
-      <a class="version" href="versions.html" title="What shipped in v1.34.9">v1.34.9</a>
+      <a class="version" href="versions.html" title="What shipped in v1.34.10">v1.34.10</a>
     <button class="demo" data-demo>Book a demo</button>
   </div>
 </header>
@@ -573,7 +582,7 @@ rm-menu{display:contents}
       <div class="wo-fig-head">
         <span class="wo-k">Figure · the blast radius</span>
         <h3>Connect the assistant, and watch the risks travel up. Then end them.</h3>
-        <p>Drawn from the article&rsquo;s own data. Play the six weeks of section 07, or change the record yourself: connect and disconnect, add the controls, and see which facts stop holding. A risk lights up when every fact it needs holds and none is bounded; it drifts to the role that holds it, and lights the whole path above that role to the board, because a risk never stops with its holder: everyone above carries it. <b>The colour travels up the path too</b>: while anything below a role is unaccepted, that role&rsquo;s path is red, whatever else it holds. The circles on a role are how many risks reach it, held or carried: red for the unaccepted, black for the accepted, both when both arrive. A risk ceases when one of its facts changes, citing the ABP version that changed it, <b>and what takes its place is the control&rsquo;s own residual risk</b>, in green: smaller, inside its holder&rsquo;s own authority, accepted when it appears. That is what a control does to a risk. It does not make it zero; it turns a red one into a green one that somebody can live with. Put every control on and every path to the board is green, and the risks that remain are the ones the business runs the assistant to take. Colour is the state of an acceptance, never a rating. Hover or click a role to see what it holds, carries and is informed of; hover a risk for what establishes it and what it reaches. Only the roles this agent&rsquo;s path touches are drawn: Marketing, Product and HR are in the tables and not here.</p>
+        <p>Drawn from the article&rsquo;s own data. Play the six weeks of section 07, or change the record yourself: connect and disconnect, add the controls, and see which facts stop holding. A risk lights up when every fact it needs holds and none is bounded; it drifts to the role that holds it, and lights the whole path above that role to the board, because a risk never stops with its holder: everyone above carries it. <b>The colour travels up the path too</b>: while anything below a role is unaccepted, that role&rsquo;s path is red, whatever else it holds. The circles on a role are how many risks reach it, held or carried: red for the unaccepted, black for the accepted, both when both arrive. A risk ceases when one of its facts changes, citing the ABP version that changed it, <b>and what takes its place is the control&rsquo;s own residual risk</b>, in green: smaller, inside its holder&rsquo;s own authority, accepted when it appears. That is what a control does to a risk. It does not make it zero; it turns a red one into a green one that somebody can live with. Put every control on and every path to the board is green, and the risks that remain are the ones the business runs the assistant to take. Colour is the state of an acceptance, never a rating. Click a role, a risk, a connection or the assistant and everything it touches keeps its colour while the rest fades: the facts below it and how far it goes up. The panel under the figure says what it is, and what holds because of it. Click it again, or the background, to see everything. Only the roles this agent&rsquo;s path touches are drawn: Marketing, Product and HR are in the tables and not here.</p>
       </div>
       <div class="wo-ctl">
         <div class="wo-ctl-g">
@@ -983,7 +992,7 @@ function figureA() {
   var host = byId('wo-figA'); if (!host) return;
   var svg = sv('svg', { viewBox: '0 0 1000 700', 'class': 'wo-svg', role: 'img', 'aria-label': 'The agent at the bottom, its rows and risks above it, and the roles up to the board' }, host);
   var S = freshState();
-  var stepIndex = -1, playing = null, selectedRole = null;
+  var stepIndex = -1, playing = null, sel = null, hover = null; // sel sticks on click; hover only previews while nothing is selected
   var pos = {}, halo = {}, roleG = {}, badge = {}, badgeT = {}, orgE = {}, connG = {}, rowG = {}, riskG = {}, edgeRowRisk = {}, edgeRiskRole = {}, edgeConnRow = {};
 
   var gHalo = sv('g', null, svg), gChart = sv('g', null, svg), gEdges = sv('g', null, svg), gNodes = sv('g', null, svg), gPulse = sv('g', null, svg);
@@ -1004,13 +1013,14 @@ function figureA() {
       sv('circle', { cx: r.x + 44, cy: r.y - 12, r: 10 }, bg);
       badge[r.id][kind] = bg; badgeT[r.id][kind] = stext(r.x + 44, r.y - 8.5, '', 'wo-badge-t', bg);
     });
-    var pick = function () { selectedRole = r.id; showRole(); };
-    g.addEventListener('mouseenter', pick); g.addEventListener('focus', pick); g.addEventListener('click', pick);
+    wireNode(g, 'role', r.id);
     roleG[r.id] = g;
   });
   var agent = sv('g', { 'class': 'wo-agent' }, gNodes);
   sv('rect', { x: 440, y: 656, width: 120, height: 32, rx: 8 }, agent);
   stext(500, 677, 'the assistant', 'wo-agent-t', agent);
+  agent.setAttribute('tabindex', '0'); agent.setAttribute('role', 'button'); agent.setAttribute('aria-label', 'the assistant');
+  wireNode(agent, 'agent', 'agent');
   // the proxy sits between the assistant and its connections when it is on
   var proxyG = sv('g', { 'class': 'wo-proxy off' }, gNodes);
   sv('rect', { x: 430, y: 640, width: 140, height: 16, rx: 4 }, proxyG);
@@ -1020,6 +1030,8 @@ function figureA() {
     var g = sv('g', { 'class': 'wo-conn off' }, gNodes);
     sv('rect', { x: c.x - 50, y: c.y - 14, width: 100, height: 28, rx: 6 }, g);
     stext(c.x, c.y + 4, c.label, 'wo-conn-t', g);
+    g.setAttribute('tabindex', '0'); g.setAttribute('role', 'button'); g.setAttribute('aria-label', c.label);
+    wireNode(g, 'conn', c.id);
     connG[c.id] = g;
     ROWS.forEach(function (r) { if (r.conn === c.id) edgeConnRow[r.id] = sv('line', { x1: c.x, y1: c.y - 14, x2: r.x, y2: ROW_Y + 12, 'class': 'wo-e wo-e-conn' }, gEdges); });
   });
@@ -1040,10 +1052,18 @@ function figureA() {
     sv('circle', { r: radius(k) + 4, 'class': 'wo-risk-ring' }, g);
     sv('circle', { r: radius(k), 'class': 'wo-risk-core' }, g);
     stext(0, 4, k.id, 'wo-risk-t', g);
-    var tip = function () { var a = S.acc[k.id]; say(k.label + '. ' + (k.withCtl ? 'The residual of a control, established by row ' : 'Established by row' + (k.needs.length > 1 ? 's ' : ' ')) + k.needs.map(function (id) { return ROW[id].n; }).join(', ') + (k.withCtl ? ' with the control in place' : '') + '. Consequence: ' + k.kind + '. Undo: ' + k.undo + '. ' + (a ? (a.state === 'ceased' ? a.note + '.' : 'Held by ' + roleLabel(a.holder) + ', ' + a.note + '. Reaches ' + chain(a.holder).map(roleLabel).join(' → ') + '.') : 'Not established: its facts do not hold.')); };
-    g.addEventListener('mouseenter', tip); g.addEventListener('focus', tip); g.addEventListener('click', tip);
+    wireNode(g, 'risk', k.id);
     riskG[k.id] = g;
   });
+  // a click selects and sticks: everything the thing touches keeps its colour and the rest fades;
+  // a second click, or a click on the background, clears it. A hover only previews the panel.
+  function wireNode(g, type, id) {
+    g.addEventListener('click', function (e) { e.stopPropagation(); sel = (sel && sel.type === type && sel.id === id) ? null : { type: type, id: id }; hover = null; paint(); });
+    g.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); g.dispatchEvent(new Event('click')); } });
+    var pv = function () { if (!sel) { hover = { type: type, id: id }; showPanel(); } };
+    g.addEventListener('mouseenter', pv); g.addEventListener('focus', pv);
+  }
+  svg.addEventListener('click', function () { if (sel) { sel = null; paint(); } });
 
   var cap = byId('wo-figA-say'), dayEl = byId('wo-figA-day'), titleEl = byId('wo-figA-title'), noteEl = byId('wo-figA-note'), roleEl = byId('wo-figA-role'), listEl = byId('wo-figA-list');
   function say(s) { cap.textContent = s; }
@@ -1058,15 +1078,57 @@ function figureA() {
     });
     return L;
   }
-  function showRole() {
-    clear(roleEl); if (!selectedRole) return;
-    var r = roleById(selectedRole), L = roleLoad()[selectedRole];
-    ht('b', null, r.label, roleEl); ht('span', 'wo-role-v', ' ' + VOICE[r.id], roleEl);
-    var ul = ht('ul', null, null, roleEl);
-    var line = function (k, ids) { var li = ht('li', null, null, ul); ht('b', null, k + ' ', li); li.appendChild(document.createTextNode(ids.length ? ids.map(function (id) { var a = S.acc[id]; return id + ' (' + a.state + (a.holder && a.holder !== r.id ? ', held by ' + roleLabel(a.holder) : '') + ')'; }).join(' · ') : 'nothing')); };
-    line('Holds:', L.holds); line('Carries from below:', L.carries); line('Informed of:', L.informed);
-    var li = ht('li', null, null, ul); ht('b', null, 'The map says it protects: ', li); li.appendChild(document.createTextNode(r.protects + '.'));
+  var CONN_TEXT = {
+    mail: 'The rep signed in and ticked the consent lines. Each line covers the whole account, so together they grant rows 1, 2, 3 and 9: reading the rep’s own mail, reading the shared sales inbox the rep is delegated to, drafting, and sending as the rep. There is no line for one folder, one customer or one business process. The mandate can say “my own mail, drafts only”; the scope cannot.',
+    crm: 'The agent uses the rep’s own login, so it inherits the rep’s permission whole: rows 4, 5 and 6, read every record the rep can see, update any of them, export in bulk. What narrows it is the CRM’s own permission model, a control the CRM administrator holds, not the agent.',
+    cal: 'Row 7: create, edit and delete events on every calendar the rep can edit, including the shared one the company books customer meetings on. A delete usually goes to a trash for a while; an edit usually cannot be restored, which is why edit is the dangerous permission here.',
+    agent: 'It acts as the rep in every account it is connected to (row 8): everything it does is recorded as the rep. Its grant is the union of its connections; its mandate is what the rep asked for: draft follow-ups, suggest meeting times, log calls on the rep’s own accounts. The gap between the two is where the red risks come from. With the execution proxy on, every write goes through the proxy, which carries it out only under the ABP’s rules.'
+  };
+  function riskIds(ids) { return ids.length ? ids.map(function (id) { var a = S.acc[id]; return id + ' (' + a.state + (a.holder ? ', ' + roleLabel(a.holder) : '') + ')'; }).join(' · ') : 'none'; }
+  function showPanel() {
+    clear(roleEl); var v = sel || hover; if (!v) return;
+    var ul, li, lv = live(S);
+    if (v.type === 'role') {
+      var r = roleById(v.id), L = roleLoad()[v.id];
+      ht('b', null, r.label, roleEl); ht('span', 'wo-role-v', ' ' + VOICE[r.id], roleEl);
+      ul = ht('ul', null, null, roleEl);
+      var line = function (k, ids) { var l = ht('li', null, null, ul); ht('b', null, k + ' ', l); l.appendChild(document.createTextNode(ids.length ? ids.map(function (id) { var a = S.acc[id]; return id + ' (' + a.state + (a.holder && a.holder !== r.id ? ', held by ' + roleLabel(a.holder) : '') + ')'; }).join(' · ') : 'nothing')); };
+      line('Holds:', L.holds); line('Carries from below:', L.carries); line('Informed of:', L.informed);
+      li = ht('li', null, null, ul); ht('b', null, 'The map says it protects: ', li); li.appendChild(document.createTextNode(r.protects + '.'));
+    } else if (v.type === 'risk') {
+      var k = RISK[v.id], a = S.acc[k.id];
+      ht('b', null, k.label, roleEl);
+      ul = ht('ul', null, null, roleEl);
+      li = ht('li', null, null, ul); ht('b', null, (k.withCtl ? 'The residual of a control, established by row ' : 'Established by row' + (k.needs.length > 1 ? 's ' : ' ')), li); li.appendChild(document.createTextNode(k.needs.map(function (id) { return ROW[id].n + ' (' + ROW[id].label.toLowerCase() + ')'; }).join(', ') + (k.withCtl ? ', with the control in place' : '') + '.'));
+      li = ht('li', null, null, ul); ht('b', null, 'Consequence: ', li); li.appendChild(document.createTextNode(k.kind + '. Undo: ' + k.undo + '.'));
+      li = ht('li', null, null, ul);
+      if (a && a.state !== 'ceased') { ht('b', null, 'Held by ' + roleLabel(a.holder) + ', ' + a.state + '. ', li); li.appendChild(document.createTextNode(a.note + '. Reaches ' + chain(a.holder).map(roleLabel).join(' → ') + '.')); }
+      else { ht('b', null, a ? 'Ceased. ' : 'Not established. ', li); li.appendChild(document.createTextNode(a ? a.note + '.' : 'Its facts do not hold.')); }
+    } else {
+      var isAgent = v.type === 'agent', c = isAgent ? null : CONNS.filter(function (x) { return x.id === v.id; })[0];
+      ht('b', null, isAgent ? 'The assistant' : c.label + ' connection' + (S.conn[v.id] ? ', connected' : ', not connected'), roleEl); ht('span', 'wo-role-v', ' ' + CONN_TEXT[v.id], roleEl);
+      ul = ht('ul', null, null, roleEl);
+      var rows = ROWS.filter(function (r) { return rowPresent(S, r) && (isAgent || r.conn === v.id); });
+      li = ht('li', null, null, ul); ht('b', null, 'Rows in the grant now: ', li); li.appendChild(document.createTextNode(rows.length ? rows.map(function (r) { return r.n + ' ' + r.label.toLowerCase() + (r.mandate ? ' (in the mandate)' : ' (' + rowBarrier(S, r).replace('-', ' ') + ' in the way)'); }).join(' · ') : 'none'));
+      var from = lv.filter(function (k) { return isAgent || k.needs.some(function (id) { return ROW[id].conn === v.id; }); });
+      li = ht('li', null, null, ul); ht('b', null, 'Risks that hold because of it: ', li); li.appendChild(document.createTextNode(riskIds(from.map(function (k) { return k.id; }))));
+      if (from.length) { var tops = {}; from.forEach(function (k) { chain(S.acc[k.id].holder).forEach(function (id) { tops[id] = true; }); }); li = ht('li', null, null, ul); ht('b', null, 'Roles they reach: ', li); li.appendChild(document.createTextNode(ROLES.filter(function (r) { return tops[r.id]; }).map(function (r) { return r.label; }).join(', ') + '.')); }
+    }
+    if (sel) ht('p', 'wo-panel-hint', 'Selected. Everything it touches keeps its colour; click it again, or the background, to see everything.', roleEl);
   }
+  // what a selection touches: the rows and connections below it, and every role up to the board
+  function focusSet() {
+    if (!sel) return null;
+    var F = { roles: {}, risks: {}, rows: {}, conns: {}, agent: false }, lv = live(S);
+    function addRisk(k) { F.risks[k.id] = true; F.agent = true; k.needs.forEach(function (id) { F.rows[id] = true; var c = ROW[id].conn; if (c !== 'any') F.conns[c] = true; }); var a = S.acc[k.id]; if (a && a.holder) chain(a.holder).forEach(function (id) { F.roles[id] = true; }); }
+    if (sel.type === 'risk') { var k = RISK[sel.id], a = S.acc[k.id]; if (a && a.state !== 'ceased') addRisk(k); else { F.risks[k.id] = true; k.needs.forEach(function (id) { F.rows[id] = true; }); } }
+    else if (sel.type === 'role') { chain(sel.id).forEach(function (id) { F.roles[id] = true; }); lv.forEach(function (k) { if (chain(S.acc[k.id].holder).indexOf(sel.id) >= 0) addRisk(k); }); }
+    else if (sel.type === 'conn') { F.conns[sel.id] = true; F.agent = true; ROWS.forEach(function (r) { if (r.conn === sel.id && rowPresent(S, r)) F.rows[r.id] = true; }); lv.forEach(function (k) { if (k.needs.some(function (id) { return ROW[id].conn === sel.id; })) addRisk(k); }); }
+    else { F.agent = true; CONNS.forEach(function (c) { if (S.conn[c.id]) F.conns[c.id] = true; }); ROWS.forEach(function (r) { if (rowPresent(S, r)) F.rows[r.id] = true; }); lv.forEach(addRisk); }
+    return F;
+  }
+  var F = null;
+  function dimIf(el, on) { var c = el.getAttribute('class').replace(/ dim| sel/g, ''); el.setAttribute('class', c + (on ? ' dim' : '')); }
   function showList() {
     clear(listEl);
     var open = live(S);
@@ -1074,7 +1136,7 @@ function figureA() {
     var head = ht('div', 'wo-lr head', null, listEl);
     ['Risk', 'Holder and state', 'Reaches', 'Consequence', 'Undo'].forEach(function (h) { ht('span', null, h, head); });
     open.forEach(function (k) {
-      var a = S.acc[k.id], row = ht('div', 'wo-lr s-' + a.state, null, listEl);
+      var a = S.acc[k.id], row = ht('div', 'wo-lr s-' + a.state + (F && !F.risks[k.id] ? ' dim' : ''), null, listEl);
       ht('span', 'k', k.label, row); ht('span', null, roleLabel(a.holder) + ' · ' + a.state + (a.note ? ' · ' + a.note : ''), row);
       ht('span', 'mono', chain(a.holder).map(roleLabel).join(' → '), row); ht('span', null, k.kind, row); ht('span', null, k.undo, row);
     });
@@ -1118,6 +1180,13 @@ function figureA() {
       badge[r.id].acc.setAttribute('transform', both ? 'translate(22 0)' : ''); // the black one steps aside when the red one is there
     });
     ['grant', 'mandate', 'excess', 'unbounded', 'open', 'unaccepted', 'accepted'].forEach(function (k) { var e = byId('wo-c-' + k); if (e) e.textContent = String(c[k]); });
+    F = focusSet();
+    ROLES.forEach(function (r) { var d = F && !F.roles[r.id]; dimIf(roleG[r.id], d); dimIf(halo[r.id], d); if (orgE[r.id]) dimIf(orgE[r.id], F && !(F.roles[r.id] && F.roles[r.to])); dimIf(badge[r.id].hot, d); dimIf(badge[r.id].acc, d); });
+    RISKS.forEach(function (k) { var d = F && !F.risks[k.id]; dimIf(riskG[k.id], d); k.needs.forEach(function (id) { dimIf(edgeRowRisk[k.id + ':' + id], d); }); dimIf(edgeRiskRole[k.id], d); });
+    ROWS.forEach(function (r) { var d = F && !F.rows[r.id]; dimIf(rowG[r.id], d); dimIf(edgeConnRow[r.id], d); });
+    CONNS.forEach(function (cn) { dimIf(connG[cn.id], F && !F.conns[cn.id]); });
+    dimIf(agent, F && !F.agent); dimIf(proxyG, F && !F.agent);
+    if (sel) { var se = sel.type === 'role' ? roleG[sel.id] : sel.type === 'risk' ? riskG[sel.id] : sel.type === 'conn' ? connG[sel.id] : agent; se.setAttribute('class', se.getAttribute('class') + ' sel'); }
     var v = byId('wo-c-abp'); if (v) v.textContent = S.abp ? 'v' + S.abp : '–';
     dayEl.textContent = S.day == null ? (S.abp ? 'Explore' : 'Not connected') : 'Day ' + S.day;
     titleEl.textContent = S.title || (S.abp ? 'Your own changes, applied to the record.' : 'Nothing is connected, so nothing holds.');
@@ -1125,7 +1194,7 @@ function figureA() {
     ['mail', 'crm', 'cal'].forEach(function (id) { var e = byId('wo-t-' + id); if (e) e.checked = !!S.conn[id]; });
     CTLS.forEach(function (id) { var e = byId('wo-t-' + id); if (e) e.checked = !!S.ctl[id]; });
     var ie = byId('wo-t-instr'); if (ie) ie.checked = !!S.instr;
-    showRole(); showList();
+    showPanel(); showList();
     layoutTargets();
     if (REDUCED) RISKS.forEach(function (k) { pos[k.id].x = pos[k.id].tx; pos[k.id].y = pos[k.id].ty; });
     draw();

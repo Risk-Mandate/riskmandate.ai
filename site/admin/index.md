@@ -17,7 +17,7 @@
 
 **16**vaults built and pushed*4 measured · 8 asked for*
 
-**107**releases*8 Lab editions*
+**108**releases*8 Lab editions*
 
 ## Needs the lead — 9
 
