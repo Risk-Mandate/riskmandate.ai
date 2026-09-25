@@ -5,7 +5,7 @@
 
 **2**received, nothing built yet*Archived and read, and nothing has been built from it yet.*
 
-**28**partly worked*read in full; a named part is not built*
+**29**partly worked*read in full; a named part is not built*
 
 **8**processed*something on the site exists because of it*
 
@@ -28,6 +28,10 @@ spoken brief, transcribed · 3 produced · 3 not done25 September 2026 · partly
 **[The risk propagation visualiser, on every business case: the risks a product retires and the ones it brings, played live](#D27)**
 
 spoken brief, transcribed · 1 produced · 2 not done25 September 2026 · partly
+
+**[A brief for a ChatGPT image model: funny merchandise for people who hold the risk, for Amazon Merch on Demand, that somebody who has never heard of RiskMandate would buy](#D28)**
+
+spoken brief, transcribed · 1 produced · 3 not done25 September 2026 · partly
 
 **[How it technically works: prompts first, then hope is not a control, then fit, integrate, graph, and the vault as provenance](#D12)**
 
@@ -246,6 +250,22 @@ partly
 
 - The acceptance loop. The article's figure has holders, intervals and silence; a case's figure has the register only, because the model has no acceptance records. Adding them is the Risk Acceptance Office's work, not a case's.
 - A capture guide for the cases, like the visualiser's article. The figure is the same grammar; the guide covers it.
+
+D28 · spoken brief, transcribed · 25 September 2026
+
+## A brief for a ChatGPT image model: funny merchandise for people who hold the risk, for Amazon Merch on Demand, that somebody who has never heard of RiskMandate would buy
+
+partly
+
+[the file as received](../../assets/briefs/2026-09-25__transcript__merch-brief-for-a-chatgpt-image-model.txt) · `396705a31466…` · 1 KB
+
+**Produced.** [The brief, on the console with a markdown twin to hand to the image model: what RiskMandate is in one paragraph, who buys the shirt and why, the brand kit and where the files are, the print rules, forty-odd taglines in six families with the joke explained, twelve design concepts with and without a figure, what a design must never carry, the prompt to paste, and the output the lead wants back](../../admin/briefs/merch__funny-designs-for-people-who-hold-the-risk/index.html)
+
+**Not done.**
+
+- The designs. The image model makes them; the lead chooses.
+- Amazon's current artwork specification. The brief states the usual one and says to confirm it on the account before uploading.
+- A trade-mark check on the taglines before they go on sale, which the brief asks for.
 
 D12 · spoken brief, transcribed · 24 September 2026
 

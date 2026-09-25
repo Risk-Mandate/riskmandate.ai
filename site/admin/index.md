@@ -11,13 +11,13 @@
 
 **12**open tasks*of 17 in the queue · 1 done*
 
-**30**memos not fully worked*of 38 received*
+**31**memos not fully worked*of 39 received*
 
-**25**briefs written here*one page each*
+**26**briefs written here*one page each*
 
 **16**vaults built and pushed*4 measured · 8 asked for*
 
-**114**releases*8 Lab editions*
+**115**releases*8 Lab editions*
 
 ## Needs the lead — 9
 

@@ -3,7 +3,7 @@
 > Every document under docs/ on riskmandate.ai, rendered as a page: direction briefs, reviews, workflows, architecture and research, newest first.
 > Source: https://riskmandate.ai/admin/briefs/ · noindex · written by scripts/site/build-admin.mjs
 
-**25**documents under docs/*one page each, rendered from the file*
+**26**documents under docs/*one page each, rendered from the file*
 
 **8**direction briefs*the product and the site*
 
@@ -14,6 +14,10 @@
 These were written here, by the agent maintaining the site, in response to [the memos and documents that arrived](../../admin/memos/). Each is read against a named source and dated. Add a file under `docs/` and rerun `build-admin.mjs`: it has a page here and a test fails until it does.
 
 ## Newest first
+
+**[Merch for people who hold the risk: a brief for an image model](../../admin/briefs/merch__funny-designs-for-people-who-hold-the-risk/)**
+
+Shirts and hoodies that a stranger buys. The buyer does not know RiskMandate and does not need to. They buy it because the line is funny and true about risk, or because somebody they know holds the risk at work and will laugh, or because it is December.…25 September 2026 · merch
 
 **[A behaviour policy for everybody the lead talks to, made by an agent from a zip](../../admin/briefs/workflow__abp-vaults-for-people-we-know/)**
 
