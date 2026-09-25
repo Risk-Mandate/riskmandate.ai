@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.34.11** · 2026-09-25 — A walk never turns
+  Notes: https://riskmandate.ai/versions/1.34.11.md · Source: `git:v1.34.11`
 - **v1.34.10** · 2026-09-25 — Click, and the rest fades
   Notes: https://riskmandate.ai/versions/1.34.10.md · Source: `git:v1.34.10`
 - **v1.34.9** · 2026-09-24 — Two circles on a role
