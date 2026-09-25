@@ -787,6 +787,40 @@
         "Captures of a real agent. Every picture is of the invented example; running the figure on a published ABP vault is the next step the article names.",
         "A capture per role for all thirteen of the map's roles: the article shows the ones the argument needs (the rep, Sales, Legal, the CIO, the CEO, the board), not each one."
       ]
+    },
+    {
+      "id": "D25",
+      "title": "A business case for Topgent: the open-source tool that measures what the agents on a machine can reach is most of an ABP's first pass; explain it from the buyer's desk; and say how to commercialise it, including sgit.ai vaults as its packaging",
+      "version": null,
+      "type": "spoken brief, transcribed",
+      "dated": "2026-09-25",
+      "file": "assets/briefs/2026-09-25__transcript__a-business-case-for-topgent.txt",
+      "bytes": 1237,
+      "sha256": "33d4cba3b31729c874ab1839c5f694d73363a221a152782465eaf418655690ae",
+      "received": [
+        "2026-09-25T15:30Z"
+      ],
+      "duplicate_of": null,
+      "status": "partly",
+      "produced": [
+        {
+          "what": "The case, computed like the others from the repository's own pages: what it does in its words, four answers it changes (what it could reach, what it did, whether and how fast it can be stopped), the register before and after, what it adds, what adopting it takes, one place its pages disagree, what the case does not claim",
+          "url": "business-case-topgent.html"
+        },
+        {
+          "what": "Two sections no other case has: the ABP mapping, object by object, of what a Topgent run fills (the grant, measured) and what it leaves to the ABP (the mandate, the delta, the barrier); and the tool explained from the buyer's desk, with a figure of what a run produces and who reads each part",
+          "url": "business-case-topgent.html"
+        },
+        {
+          "what": "Seven commercialisation notes from this site and open-source.sgit.ai: sell the maintained build; packaging not open core; the buyer is the person who signs and the product for them is the ABP; a vault per machine in sgit.ai as the custom UI and data storage; the mandate on the screen; OWASP and the summits; what not to do",
+          "url": "business-case-topgent.html"
+        }
+      ],
+      "not_done": [
+        "A Topgent-fed ABP. The case says a run is most of the first pass; no run has been made, because that would mean running it, and the first one should be on a machine of ours with the author watching.",
+        "The lead's own reply to the author. The page is the material; the message is the lead's.",
+        "The two screenshots. They are a private conversation and are not archived; the case uses the repository only."
+      ]
     }
   ],
   "informal": [

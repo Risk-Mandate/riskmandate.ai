@@ -112,6 +112,13 @@
       "unlisted": true
     },
     {
+      "name": "business-case-topgent",
+      "label": "Business case · Topgent",
+      "file": "business-case-topgent.html",
+      "group": "Insurance",
+      "unlisted": true
+    },
+    {
       "name": "business-case-auth0-for-ai-agents",
       "label": "Business case · Auth0 for AI Agents (draft)",
       "file": "business-case-auth0-for-ai-agents.html",

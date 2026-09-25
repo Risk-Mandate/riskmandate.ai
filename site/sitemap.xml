@@ -18,6 +18,7 @@
   <url><loc>https://riskmandate.ai/owasp-graph.html</loc><priority>0.7</priority></url>
   <url><loc>https://riskmandate.ai/business-case-riskmandate-abp.html</loc><priority>0.7</priority></url>
   <url><loc>https://riskmandate.ai/business-case-agentgateway.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/business-case-topgent.html</loc><priority>0.7</priority></url>
   <url><loc>https://riskmandate.ai/business-case-cedar.html</loc><priority>0.7</priority></url>
   <url><loc>https://riskmandate.ai/business-case-cilium.html</loc><priority>0.7</priority></url>
   <url><loc>https://riskmandate.ai/business-case-falco.html</loc><priority>0.7</priority></url>
