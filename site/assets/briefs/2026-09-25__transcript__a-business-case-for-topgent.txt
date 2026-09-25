@@ -1,0 +1,13 @@
+That is a great article :)
+
+Now, on the topic of RiskMandate making the business case for security products, can you add one for this (see pic1 and pic2)
+
+Start with making a strong business case for their platform since it will (I think but please correct me if I'm wrong) collect a lot of the data that we need to create the first pass of ABPs (so that we can then look at reducing the size of those ABPs and blast radius)
+
+Since all is open source already we can publish
+
+Also see if you can create some nice Infographics and explanation of what this tool does (ideally it would be great to add value to him by having a better explanation (specially from a buyer point of view) that they do :) )
+
+At the end add some ideas (based on what we do and open-source.sgit.ai) for the commercialisation of his product / service, including how sgit.ai vaults could be used to package what they do in a custom application UI and data storage
+
+[pic1 and pic2 were two screenshots of a LinkedIn conversation with the author of Topgent, github.com/farikonsec/topgent, asking for feedback on commercialising it and making it friendlier to non-technical users. They are not archived: the conversation is private. The case uses the repository only.]

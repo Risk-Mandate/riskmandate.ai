@@ -168,8 +168,25 @@ const CSS = `
 .bc-pill.ours{background:var(--bg2);color:var(--muted)}
 .bc-cases{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:26px}
 @media (max-width:980px){.bc-alt{grid-template-columns:1fr 1fr}}
-@media (max-width:900px){.bc-three,.bc-cases{grid-template-columns:1fr}.bc-t .bc-tr:first-child{display:none}.bc-t.ch .bc-tr,.bc-t.cat .bc-tr,.bc-t.cs .bc-tr,.bc-t.co .bc-tr{grid-template-columns:1fr 1fr}.bc-tr>span:first-child{grid-column:1 / -1;padding-bottom:2px}.bc-tr>span[data-k]::before{content:attr(data-k);display:block;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:2px}}
-@media (max-width:640px){.bc-alt,.bc-sum{grid-template-columns:1fr}.bc-t.ch .bc-tr,.bc-t.cat .bc-tr,.bc-t.cs .bc-tr,.bc-t.co .bc-tr{grid-template-columns:1fr}.bc-risk{grid-template-columns:1fr}}
+@media (max-width:900px){.bc-three,.bc-cases{grid-template-columns:1fr}.bc-t .bc-tr:first-child{display:none}.bc-t.ch .bc-tr,.bc-t.cat .bc-tr,.bc-t.cs .bc-tr,.bc-t.co .bc-tr,.bc-t.feed .bc-tr{grid-template-columns:1fr 1fr}.bc-tr>span:first-child{grid-column:1 / -1;padding-bottom:2px}.bc-tr>span[data-k]::before{content:attr(data-k);display:block;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:2px}}
+.bc-t.feed .bc-tr{grid-template-columns:minmax(0,.8fr) minmax(0,1.1fr) minmax(0,1.6fr) minmax(0,1.1fr)}
+.bc-points,.bc-ideas{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px}
+.bc-points>div,.bc-ideas>div{border:1px solid var(--border);border-radius:var(--r);background:var(--card);padding:18px 20px}
+.bc-points h3,.bc-ideas h3{font-size:15.5px;color:var(--text);margin:0 0 6px;letter-spacing:-.01em}
+.bc-points p,.bc-ideas p{font-size:14px;line-height:1.7;color:var(--muted)}
+.bcf{margin:26px 0 0;max-width:1000px}
+.bcf svg{width:100%;height:auto;display:block;border:1px solid var(--border);border-radius:var(--r);background:var(--card);font-family:var(--sans)}
+.bcf figcaption{margin-top:10px;font-family:var(--mono);font-size:11px;line-height:1.7;color:var(--faint)}
+.bcf-title{font-size:15px;font-weight:700;fill:var(--text)}
+.bcf-box{fill:var(--bg2);stroke:var(--border);stroke-width:1.2}
+.bcf-reader{fill:var(--greenBg);stroke:var(--green);stroke-width:1.2}
+.bcf-k{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.12em;fill:var(--green)}
+.bcf-t{font-size:13.5px;font-weight:700;fill:var(--text)}
+.bcf-who{font-size:13px;font-weight:700;fill:var(--text)}
+.bcf-d{font-size:11px;fill:var(--muted)}
+.bcf-arrow{stroke:var(--faint);stroke-width:1.6;fill:none}.bcf-mk{fill:var(--faint)}
+@media (max-width:900px){.bc-points,.bc-ideas{grid-template-columns:1fr}.bcf{overflow-x:auto}.bcf svg{min-width:760px}}
+@media (max-width:640px){.bc-alt,.bc-sum{grid-template-columns:1fr}.bc-t.ch .bc-tr,.bc-t.cat .bc-tr,.bc-t.cs .bc-tr,.bc-t.co .bc-tr,.bc-t.feed .bc-tr{grid-template-columns:1fr}.bc-risk{grid-template-columns:1fr}}
 `;
 
 // ------------------------------------------------------------------ cut a page from the donor
@@ -216,6 +233,35 @@ const corporate = (res) => {
 };
 
 // ------------------------------------------------------------------ one page per case
+// A buyer's figure: numbered steps left to right, then who reads what. Drawn from the case's data;
+// every string goes through esc, and the widths come from the count of steps.
+function flowFigure(f) {
+  const n = f.steps.length, W = 1000, pad = 20, gap = 14, bw = (W - pad * 2 - gap * (n - 1)) / n, bh = 168, y0 = 54;
+  const wrap = (t, max) => { const words = String(t).split(' '), lines = []; let cur = ''; for (const w of words) { if ((cur + ' ' + w).trim().length > max) { lines.push(cur.trim()); cur = w; } else cur += ' ' + w; } if (cur.trim()) lines.push(cur.trim()); return lines; };
+  const steps = f.steps.map((st, i) => {
+    const x = pad + i * (bw + gap), tl = wrap(st.t, Math.floor((bw - 28) / 8.2)).slice(0, 2), lines = wrap(st.d, Math.floor((bw - 28) / 5.9)), dy = y0 + 50 + (tl.length - 1) * 17;
+    return `<g><rect x="${x}" y="${y0}" width="${bw}" height="${bh}" rx="10" class="bcf-box"/>
+      <text x="${x + 14}" y="${y0 + 24}" class="bcf-k">${esc(st.k)}</text>
+      ${tl.map((l, j) => `<text x="${x + 14}" y="${y0 + 46 + j * 17}" class="bcf-t">${esc(l)}</text>`).join('')}
+      ${lines.slice(0, 6).map((l, j) => `<text x="${x + 14}" y="${dy + 16 + j * 14}" class="bcf-d">${esc(l)}</text>`).join('')}
+      ${i < n - 1 ? `<path d="M${x + bw + 2} ${y0 + bh / 2} l${gap - 4} 0" class="bcf-arrow" marker-end="url(#bcf-m)"/>` : ''}</g>`;
+  }).join('\n    ');
+  const ry = y0 + bh + 34, rn = f.readers.length, rw = (W - pad * 2 - gap * (rn - 1)) / rn;
+  const readers = f.readers.map((r, i) => {
+    const x = pad + i * (rw + gap), lines = wrap(r.gets, Math.floor((rw - 28) / 5.9));
+    return `<g><rect x="${x}" y="${ry}" width="${rw}" height="${92}" rx="10" class="bcf-reader"/>
+      <text x="${x + 14}" y="${ry + 24}" class="bcf-who">${esc(r.who)}</text>
+      ${lines.slice(0, 4).map((l, j) => `<text x="${x + 14}" y="${ry + 44 + j * 14}" class="bcf-d">${esc(l)}</text>`).join('')}</g>`;
+  }).join('\n    ');
+  const H = ry + 92 + 20;
+  return `<figure class="bcf"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(f.title)}"><defs><marker id="bcf-m" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="bcf-mk"/></marker></defs>
+    <text x="${pad}" y="28" class="bcf-title">${esc(f.title)}</text>
+    ${steps}
+    <text x="${pad}" y="${ry - 12}" class="bcf-k">WHO READS IT</text>
+    ${readers}
+  </svg><figcaption>Drawn from the product&rsquo;s own pages, read on the date at the top of this case. Nothing was run.</figcaption></figure>`;
+}
+
 function casePage(c) {
   const R = c.result;
   const name = `business-case-${c.slug}`;
@@ -327,6 +373,45 @@ function casePage(c) {
       </div>
       <ul class="bc-list">${c.contradictions.map((x) => `<li><b>${esc(x.topic)}.</b> ${txt(x.text)}${x.urls ? ` <span class="bc-src">${x.urls.map((u) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(new URL(u).pathname.split('/').filter(Boolean).pop() || new URL(u).hostname)}</a>`).join(' · ')}</span>` : ''}</li>`).join('')}
       </ul>
+    </div>
+  </section>` : ''}
+
+  ${c.abp_feed ? `<section class="psection alt">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">What it gives an Agent Behaviour Policy</span>
+        <h2>Four objects, <span class="g">and which of them a run fills.</span></h2>
+        <p>${txt(c.abp_feed.intro)}</p>
+      </div>
+      <div class="bc-t feed" role="table" aria-label="What a run of the product gives each object of an Agent Behaviour Policy">
+        <div class="bc-tr" role="row"><span role="columnheader">The ABP object</span><span role="columnheader">What the product supplies</span><span role="columnheader">How it becomes the ABP</span><span role="columnheader">What stays open</span></div>
+        ${c.abp_feed.rows.map((r) => `<div class="bc-tr" role="row"><span role="cell">${esc(r.abp)}</span><span role="cell" data-k="Supplies">${txt(r.from)}</span><span role="cell" data-k="Becomes">${txt(r.how)}</span><span role="cell" data-k="Open">${txt(r.gap)}</span></div>`).join('\n        ')}
+      </div>
+      ${c.abp_feed.note ? `<p class="bc-note">${txt(c.abp_feed.note)}</p>` : ''}
+    </div>
+  </section>` : ''}
+
+  ${c.explainer ? `<section class="psection">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">From the buyer&rsquo;s desk</span>
+        <h2>What it does, <span class="g">for the person who signs.</span></h2>
+        <p>${txt(c.explainer.intro)}</p>
+      </div>
+      ${c.explainer.figure ? flowFigure(c.explainer.figure) : ''}
+      <div class="bc-points">${(c.explainer.points || []).map((x) => `<div><h3>${esc(x.h)}</h3><p>${txt(x.p)}</p></div>`).join('\n        ')}</div>
+    </div>
+  </section>` : ''}
+
+  ${c.commercialise ? `<section class="psection alt">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Taking it to market</span>
+        <h2>Notes on commercialising it, <span class="g">with nothing closed.</span></h2>
+        <p>${txt(c.commercialise.intro)}</p>
+      </div>
+      <div class="bc-ideas">${(c.commercialise.ideas || []).map((x) => `<div><h3>${esc(x.h)}</h3><p>${txt(x.p)}</p></div>`).join('\n        ')}</div>
+      <p class="bc-note">The position these rest on is published at <a href="https://open-source.sgit.ai/" target="_blank" rel="noopener">open-source.sgit.ai</a>, with its counter-cases; the vault pattern is the one this site&rsquo;s own behaviour policies use, described on <a href="how-it-works.html">how it works</a>.</p>
     </div>
   </section>` : ''}
 

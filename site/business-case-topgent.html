@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>RiskMandate — the business case for Squid</title>
-<meta name="description" content="Squid (Squid Software Foundation), by the risk it changes: the register for a stated agent deployment without it and with it, computed from a public model, from the operator to the board.">
-<link rel="canonical" href="https://riskmandate.ai/business-case-squid.html">
-<link rel="alternate" type="text/markdown" href="business-case-squid.md" title="This page as markdown">
+<title>RiskMandate — the business case for Topgent</title>
+<meta name="description" content="Topgent (Hadosec (Farhad Rahimli)), by the risk it changes: the register for a stated agent deployment without it and with it, computed from a public model, from the operator to the board.">
+<link rel="canonical" href="https://riskmandate.ai/business-case-topgent.html">
+<link rel="alternate" type="text/markdown" href="business-case-topgent.md" title="This page as markdown">
 <link rel="icon" href="assets/brand/riskmandate-favicon-32.png" sizes="32x32">
 <link rel="icon" href="assets/brand/riskmandate-mark.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="RiskMandate">
-<meta property="og:url" content="https://riskmandate.ai/business-case-squid.html">
-<meta property="og:title" content="RiskMandate — the business case for Squid">
-<meta property="og:description" content="Squid (Squid Software Foundation), by the risk it changes: the register for a stated agent deployment without it and with it, computed from a public model, from the operator to the board.">
+<meta property="og:url" content="https://riskmandate.ai/business-case-topgent.html">
+<meta property="og:title" content="RiskMandate — the business case for Topgent">
+<meta property="og:description" content="Topgent (Hadosec (Farhad Rahimli)), by the risk it changes: the register for a stated agent deployment without it and with it, computed from a public model, from the operator to the board.">
 <meta property="og:image" content="https://riskmandate.ai/assets/brand/riskmandate-lockup-light.png">
 <meta name="twitter:card" content="summary_large_image">
 <!-- v1.0.0. Reconstructed from SG/Vault 7rfetjwz at v0.14.0;
@@ -365,12 +365,12 @@ table.lv td a{color:var(--green)}
 
 <main class="phero">
   <div class="wrap">
-    <span class="eyebrow"><span class="d"></span> The business case · Egress allow-list</span>
-    <h1>Squid, by the risk it changes</h1>
-    <p class="sub" style="margin-bottom:20px">A forward proxy that can act as an allow-list for outbound web traffic. With no access lines it denies, and destinations can be allowed by domain. Written as an answer, the agent reaches the domains on the list.</p>
-    
-    <p class="bc-meta"><b>Open source:</b> GPL-2.0-or-later · Squid Software Foundation · <a href="https://www.squid-cache.org/Support/" target="_blank" rel="noopener">get involved</a></p>
-    <p class="bc-meta"><b>The deployment:</b> The model's typical deployment, with the answers this project addresses stated as they are without it: can reach the general internet.</p>
+    <span class="eyebrow"><span class="d"></span> The business case · Host-level agent inventory and stop</span>
+    <h1>Topgent, by the risk it changes</h1>
+    <p class="sub" style="margin-bottom:20px">An open-source, local-only tool that lists the AI agents running on a machine and shows, for each, what it can reach, what it has connected to, which model it uses, and stops one after re-checking its identity. Its README describes three kinds of access kept apart, evidence on every finding, a seven-day network history, exports as JSON and a CycloneDX AI-BOM, and a page of limits. For RiskMandate the case is specific: a Topgent run is most of the first pass of an Agent Behaviour Policy for a developer machine, measured rather than read from a vendor's pages, and the ABP is what turns a blast radius into a mandate and a gap.</p>
+    <p class="bc-meta"><b>Disclosure:</b> The author wrote to RiskMandate's lead on 25 September 2026 asking where to take the project. This case is the answer, published because the project is open source. Everything on this page comes from the repository's own pages, read on that date; nothing comes from the conversation.</p>
+    <p class="bc-meta"><b>Open source:</b> Apache-2.0 · Hadosec (Farhad Rahimli) · <a href="https://github.com/farikonsec/topgent/issues" target="_blank" rel="noopener">get involved</a></p>
+    <p class="bc-meta"><b>The deployment:</b> The model's typical deployment, moved to what a coding agent on a developer's machine usually looks like without it: nobody can say what the agent could reach if it misbehaved, what it did last Tuesday cannot be reconstructed, stopping it is possible eventually, and nobody knows how long that takes.</p>
     <p class="bc-meta"><b>The model:</b> the RiskGraph Explorer's 49 facts, 49 risks and 10 roles, copied into this site with its provenance; the register below is computed, not written. <a href="business-cases.html#method">How</a>.</p>
     
   </div>
@@ -384,7 +384,7 @@ table.lv td a{color:var(--green)}
         <span class="tag">01 · What it does</span>
         <h2>In its own words, <span class="g">and nothing more.</span></h2>
       </div>
-      <ul class="bc-list"><li>Access control lists by destination domain. <span class="bc-src">&ldquo;If there are no &quot;access&quot; lines present, the default is to deny the request.&rdquo; · <a href="https://www.squid-cache.org/Doc/config/http_access/" target="_blank" rel="noopener">www.squid-cache.org</a>, read 24 September 2026</span></li>
+      <ul class="bc-list"><li>Lists the AI agents running on the machine, and what each one can reach, has connected to, and is running as a model. Everything runs locally. <span class="bc-src">&ldquo;Topgent lists the AI agents running on your machine and shows what each one can reach, what it has connected to, and which model it is using. It scores each agent, records grade changes, and can terminate one after re-checking its identity at the moment of the kill. Everything runs locally.&rdquo; · <a href="https://github.com/farikonsec/topgent#readme" target="_blank" rel="noopener">github.com</a>, read 25 September 2026</span></li><li>Keeps three kinds of access apart, each with its evidence: declared, observed, and what the account can read now. <span class="bc-src">&ldquo;What the agent declares, what it was seen doing, and what its account can currently read. Each carries its evidence: account_readable where the kernel answered, path_resolves where only the path could be established.&rdquo; · <a href="https://github.com/farikonsec/topgent#readme" target="_blank" rel="noopener">github.com</a>, read 25 September 2026</span></li><li>Records network history for seven days: endpoints, listeners, private-network peers and cloud metadata access. <span class="bc-src">&ldquo;Endpoints, listeners, private-network peers and cloud metadata access for seven days, with the country and announcing network of each address, resolved from a table compiled into the binary.&rdquo; · <a href="https://github.com/farikonsec/topgent#readme" target="_blank" rel="noopener">github.com</a>, read 25 September 2026</span></li><li>Stops an agent after re-checking its identity, and reports which sensors are working so an empty result is not read as a clean one. <span class="bc-src">&ldquo;Revalidates (PID, start time) immediately before signalling.&rdquo; · <a href="https://github.com/farikonsec/topgent#readme" target="_blank" rel="noopener">github.com</a>, read 25 September 2026</span></li><li>Exports the session and a CycloneDX AI-BOM, and runs as a CI gate with a stated exit code per outcome. <span class="bc-src">&ldquo;The session and a CycloneDX AI-BOM, as JSON or as a self-contained HTML file with a stated redaction level.&rdquo; · <a href="https://github.com/farikonsec/topgent#readme" target="_blank" rel="noopener">github.com</a>, read 25 September 2026</span></li><li>Collects metadata only, and says so. <span class="bc-src">&ldquo;Topgent collects metadata. It does not read prompts, responses, file contents or packet payloads, and it does not decrypt TLS.&rdquo; · <a href="https://github.com/farikonsec/topgent#readme" target="_blank" rel="noopener">github.com</a>, read 25 September 2026</span></li>
       </ul>
     </div>
   </section>
@@ -398,7 +398,10 @@ table.lv td a{color:var(--green)}
       </div>
       <div class="bc-t ch" role="table">
       <div class="bc-tr" role="row"><span role="columnheader">The question</span><span role="columnheader">Without it</span><span role="columnheader">With it</span><span role="columnheader">How, and who holds it</span></div>
-      <div class="bc-tr" role="row"><span role="cell">Can it reach anything outside your network?</span><span role="cell" data-k="Without it" class="bc-was">Yes, general internet</span><span role="cell" data-k="With it" class="bc-now">Allow-listed only</span><span role="cell" data-k="How">a boundary, held by the deployer. Only if the network blocks direct egress, so that the agent cannot route around the proxy. <span class="bc-src">&ldquo;If there are no &quot;access&quot; lines present, the default is to deny the request.&rdquo; · <a href="https://www.squid-cache.org/Doc/config/http_access/" target="_blank" rel="noopener">www.squid-cache.org</a>, read 24 September 2026</span></span></div>
+      <div class="bc-tr" role="row"><span role="cell">If it misbehaved at full speed, what could it reach?</span><span role="cell" data-k="Without it" class="bc-was">Don't know</span><span role="cell" data-k="With it" class="bc-now">Internal only</span><span role="cell" data-k="How">states the answer, held by the machine's owner. For the host it runs on, and for the account it runs as: reachable paths are asked of the kernel, and the answer is about the account, not the process. Confinement is not evaluated, so a sandboxed agent may be reported as reaching more than it can. Whether that reach is internal only or customer-facing is still the deployer's to say; what changes is that the reach is a list rather than a shrug. <span class="bc-src">&ldquo;Reachability asks the kernel through faccessat with AT_EACCESS, so access-control lists are included and a file that stats but cannot be opened is not reported.&rdquo; · <a href="https://github.com/farikonsec/topgent/blob/main/THREAT-MODEL.md" target="_blank" rel="noopener">github.com</a>, read 25 September 2026</span></span></div>
+      <div class="bc-tr" role="row"><span role="cell">Could you reconstruct what it did last Tuesday?</span><span role="cell" data-k="Without it" class="bc-was">No</span><span role="cell" data-k="With it" class="bc-now">Partly</span><span role="cell" data-k="How">a setting, held by the machine's owner. Partly: a seven-day history of endpoints and an event journal, kept as metadata, for processes that lived long enough to be seen between two sweeps. Not prompts, not file contents, not short-lived processes. <span class="bc-src">&ldquo;A process that starts and exits between two sweeps is never seen. Measured on all three platforms: every resident process found, none of the short-lived ones.&rdquo; · <a href="https://github.com/farikonsec/topgent#readme" target="_blank" rel="noopener">github.com</a>, read 25 September 2026</span></span></div>
+      <div class="bc-tr" role="row"><span role="cell">If you had to stop it right now — could you?</span><span role="cell" data-k="Without it" class="bc-was">Yes, eventually</span><span role="cell" data-k="With it" class="bc-now">Yes, one action</span><span role="cell" data-k="How">a setting, held by the machine's owner. One command, guarded against stopping the wrong process. It is a setting rather than a boundary because Topgent runs unprivileged under the same account as the agent: an agent with the user's privileges can stop Topgent first, and the threat model says so. <span class="bc-src">&ldquo;An agent that stops Topgent before modifying the file leaves no finding. Topgent is not a tamper-proof agent and does not claim to be.&rdquo; · <a href="https://github.com/farikonsec/topgent/blob/main/THREAT-MODEL.md" target="_blank" rel="noopener">github.com</a>, read 25 September 2026</span></span></div>
+      <div class="bc-tr" role="row"><span role="cell">How long would stopping actually take?</span><span role="cell" data-k="Without it" class="bc-was">Don't know</span><span role="cell" data-k="With it" class="bc-now">Minutes</span><span role="cell" data-k="How">a setting, held by the machine's owner. Minutes, on the machine where it runs, for a person at that machine. Fleet management is out of scope, so this is one host at a time. <span class="bc-src">&ldquo;Prompt capture, file-content collection, TLS decryption, cloud accounts, and fleet management are out of scope. Topgent reads data the operating system already exposes to an unprivileged process.&rdquo; · <a href="https://github.com/farikonsec/topgent/blob/main/ROADMAP.md" target="_blank" rel="noopener">github.com</a>, read 25 September 2026</span></span></div>
     </div>
     </div>
   </section>
@@ -407,13 +410,19 @@ table.lv td a{color:var(--green)}
     <div class="wrap">
       <div class="shead">
         <span class="tag">03 · The register, before and after</span>
-        <h2>2 retired, <span class="g">23 unchanged.</span></h2>
-        <p>Computed from the model for the deployment above: every risk that holds without it, and every risk that holds with it.</p>
+        <h2>8 retired, 1 new, <span class="g">18 unchanged.</span></h2>
+        <p>Computed from the model for the deployment above: every risk that holds without it, and every risk that holds with it. A new entry is either one the change brought to light, where an answer replaced a don&rsquo;t know, or a narrower risk in place of a wider one, where the answer moved from no to partly. Either way the register is more exact, and a register that grows because something was found is working.</p>
       </div>
-      <div class="bc-sum"><div class="off"><span class="n">2</span><span class="l">retired</span></div><div class="new"><span class="n">0</span><span class="l">new</span></div><div><span class="n">25 → 23</span><span class="l">entries on the register</span></div></div>
-      <p class="bc-h">Retired</p><div class="bc-risks"><div class="bc-risk off"><span class="ref">RISK-28</span><div><b>The agent can reach systems outside the estate</b><span>operational · CISO, CFO</span></div></div>
-      <div class="bc-risk off"><span class="ref">CORP-4</span><div><b>Unquantified financial exposure — the organisation cannot price its own downside</b><span>corporate · CFO, Board</span></div></div></div>
-      
+      <div class="bc-sum"><div class="off"><span class="n">8</span><span class="l">retired</span></div><div class="new"><span class="n">1</span><span class="l">new</span></div><div><span class="n">26 → 19</span><span class="l">entries on the register</span></div></div>
+      <p class="bc-h">Retired</p><div class="bc-risks"><div class="bc-risk off"><span class="ref">RISK-8</span><div><b>The operator cannot state what the agent is entitled to reach</b><span>operational · SRE / platform on-call, Platform owner</span></div></div>
+      <div class="bc-risk off"><span class="ref">RISK-9</span><div><b>Stopping the agent takes more than one action</b><span>operational · SRE / platform on-call</span></div></div>
+      <div class="bc-risk off"><span class="ref">RISK-13</span><div><b>What the agent did cannot be reconstructed</b><span>operational · SRE / platform on-call, CISO</span></div></div>
+      <div class="bc-risk off"><span class="ref">RISK-17</span><div><b>The scope of the agent's access cannot be reviewed</b><span>operational · CISO</span></div></div>
+      <div class="bc-risk off"><span class="ref">RISK-19</span><div><b>The time a stop takes is unknown to the people who would perform it</b><span>operational · SRE / platform on-call, Platform owner</span></div></div>
+      <div class="bc-risk off"><span class="ref">RISK-29</span><div><b>The stop capability cannot be compared to any exposure window</b><span>operational · CISO</span></div></div>
+      <div class="bc-risk off"><span class="ref">RISK-33</span><div><b>The organisation could not account for what its agent did</b><span>operational · Board</span></div></div>
+      <div class="bc-risk off"><span class="ref">CORP-5</span><div><b>Accountability failure — the organisation cannot demonstrate who decided what</b><span>corporate · CEO, Board</span></div></div></div>
+      <p class="bc-h">New</p><div class="bc-risks"><div class="bc-risk new"><span class="ref">RISK-24</span><div><b>Only part of what the agent did can be reconstructed</b><span>operational · SRE / platform on-call</span></div></div></div>
     </div>
   </section>
 
@@ -425,17 +434,17 @@ table.lv td a{color:var(--green)}
         <p>Each risk is assigned to the roles it belongs to, and each role reports to another until the board. The count beside each role is the entries it holds without the product and with it.</p>
       </div>
       <div class="bc-alt">
-      <div class="bc-a"><h3>Operators</h3><span class="why">who run it, and are paged when it goes wrong</span><div class="bc-role"><b>SRE / platform on-call</b><span class="c">9 → 9</span></div><div class="bc-role"><b>Customer-facing service owner</b><span class="c">2 → 2</span></div></div>
-      <div class="bc-a"><h3>Owners</h3><span class="why">who own what it may touch, and can say what happened</span><div class="bc-role"><b>Platform owner</b><span class="c">3 → 3</span></div><div class="bc-role"><b>CISO</b><span class="c">9 → 8 <span class="d">−1</span></span><span class="refs">retired RISK-28</span></div><div class="bc-role"><b>DPO</b><span class="c">6 → 6</span></div></div>
-      <div class="bc-a"><h3>Executives</h3><span class="why">who answer for speed, product, cost and the whole</span><div class="bc-role"><b>CTO</b><span class="c">3 → 3</span></div><div class="bc-role"><b>Chief Product Officer</b><span class="c">4 → 4</span></div><div class="bc-role"><b>CFO</b><span class="c">2 → 0 <span class="d">−2</span></span><span class="refs">retired RISK-28, CORP-4</span></div><div class="bc-role"><b>CEO</b><span class="c">3 → 3</span></div></div>
-      <div class="bc-a"><h3>The board</h3><span class="why">who must be able to defend how it is run</span><div class="bc-role"><b>Board</b><span class="c">5 → 4 <span class="d">−1</span></span><span class="refs">retired CORP-4</span></div></div>
+      <div class="bc-a"><h3>Operators</h3><span class="why">who run it, and are paged when it goes wrong</span><div class="bc-role"><b>SRE / platform on-call</b><span class="c">10 → 7 <span class="d">−3</span></span><span class="refs">retired RISK-8, RISK-9, RISK-13, RISK-19 · new RISK-24</span></div><div class="bc-role"><b>Customer-facing service owner</b><span class="c">1 → 1</span></div></div>
+      <div class="bc-a"><h3>Owners</h3><span class="why">who own what it may touch, and can say what happened</span><div class="bc-role"><b>Platform owner</b><span class="c">4 → 2 <span class="d">−2</span></span><span class="refs">retired RISK-8, RISK-19</span></div><div class="bc-role"><b>CISO</b><span class="c">9 → 6 <span class="d">−3</span></span><span class="refs">retired RISK-13, RISK-17, RISK-29</span></div><div class="bc-role"><b>DPO</b><span class="c">6 → 6</span></div></div>
+      <div class="bc-a"><h3>Executives</h3><span class="why">who answer for speed, product, cost and the whole</span><div class="bc-role"><b>CTO</b><span class="c">3 → 3</span></div><div class="bc-role"><b>Chief Product Officer</b><span class="c">3 → 3</span></div><div class="bc-role"><b>CFO</b><span class="c">0 → 0</span></div><div class="bc-role"><b>CEO</b><span class="c">4 → 3 <span class="d">−1</span></span><span class="refs">retired CORP-5</span></div></div>
+      <div class="bc-a"><h3>The board</h3><span class="why">who must be able to defend how it is run</span><div class="bc-role"><b>Board</b><span class="c">6 → 4 <span class="d">−2</span></span><span class="refs">retired RISK-33, CORP-5</span></div></div>
     </div>
       <p class="bc-h">At the board: the corporate register</p>
       <p class="bc-note">Corporate risks have no facts of their own. They hold while any risk that leads into them holds, so a single product rarely retires one. What it changes is how many reasons the board is being given.</p>
-      <div class="bc-risks"><div class="bc-risk"><span class="ref">CORP-1</span><div><b>Regulatory exposure — the organisation may be operating outside obligations it is subject to</b><span>still holds · risks leading into it: 2 before, 2 after</span></div></div>
-      <div class="bc-risk"><span class="ref">CORP-2</span><div><b>Customer harm — customers may be affected by decisions or changes nobody made</b><span>still holds · risks leading into it: 3 before, 2 after</span></div></div>
+      <div class="bc-risks"><div class="bc-risk"><span class="ref">CORP-1</span><div><b>Regulatory exposure — the organisation may be operating outside obligations it is subject to</b><span>still holds · risks leading into it: 3 before, 2 after</span></div></div>
+      <div class="bc-risk"><span class="ref">CORP-2</span><div><b>Customer harm — customers may be affected by decisions or changes nobody made</b><span>still holds · risks leading into it: 2 before, 2 after</span></div></div>
       <div class="bc-risk"><span class="ref">CORP-3</span><div><b>Operational resilience — the organisation may be unable to restore a service it depends on</b><span>still holds · risks leading into it: 1 before, 1 after</span></div></div>
-      <div class="bc-risk off"><span class="ref">CORP-4</span><div><b>Unquantified financial exposure — the organisation cannot price its own downside</b><span>retired · risks leading into it: 1 before, 0 after</span></div></div>
+      <div class="bc-risk off"><span class="ref">CORP-5</span><div><b>Accountability failure — the organisation cannot demonstrate who decided what</b><span>retired · risks leading into it: 1 before, 0 after</span></div></div>
       <div class="bc-risk"><span class="ref">CORP-6</span><div><b>Loss of control — the organisation operates a system it may not be able to stop or explain</b><span>still holds · risks leading into it: 2 before, 2 after</span></div></div></div>
     </div>
   </section>
@@ -449,7 +458,7 @@ table.lv td a{color:var(--green)}
         <h2>Every product is also a new thing in the estate.</h2>
       </div>
       
-      <p class="bc-note">It sits in the request path. Its documentation also states a default worth reading twice: <em>If none of the &quot;access&quot; lines cause a match, the default is the opposite of the last line in the list. If the last line was deny, the default is allow.</em></p>
+      <p class="bc-note">A report and a journal on disk that describe the host in detail, user-readable, which the threat model lists as an asset (<em>Discloses which agents run, what they reached, and host paths</em>) and does not redact at display time. An optional capture helper that holds a raw-socket capability, granted by the user. Binaries that are not yet code-signed, with verification left to a checksum. And a score per agent, which this case does not use: the ABP carries no score, and the facts under Topgent's score are what the case takes.</p>
     </div>
   </section>
 
@@ -460,17 +469,111 @@ table.lv td a{color:var(--green)}
         <h2>What adopting it takes, <span class="g">before any of this is true.</span></h2>
         <p>An open-source project costs nothing to download and something to adopt. Every change above depends on the work below, and most of it is customisation to your own deployment.</p>
       </div>
-      <ul class="bc-list"><li>Write the domain list for the agent, and end it with an explicit deny.</li><li>Block direct egress at the network, or the proxy is optional.</li><li>Keep the configuration out of the agent's grant.</li></ul>
+      <ul class="bc-list"><li>Run topgent doctor first, and read which sensors are unsupported, need permission or are degraded on that machine; a result with no findings is not a clean result until the sensors say so.</li><li>Decide whether to grant packet capture, separately on each platform, and to whom; without it, connections that open and close between two sweeps are not seen.</li><li>Decide who reads the report and journal in ~/.config/topgent, and how a report is redacted before it is shared, because Topgent does not redact for you.</li><li>Run it under the account the agent runs under, on every machine that matters, one at a time; agents under another account are graded not evaluated, and there is no fleet view.</li><li>Add the CI check where a pipeline runs an agent, with a threshold, and decide what a coverage failure (exit 3) does to the build.</li><li>Verify SHA256SUMS on every download, and approve the unsigned binary once on macOS and Windows.</li></ul>
     </div>
   </section>
 
-  
+  <section class="psection">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Where its pages disagree</span>
+        <h2>Published unresolved, <span class="g">for Hadosec (Farhad Rahimli) to settle.</span></h2>
+        <p>Each pair was read on the same day. We have not tested which is true, because that would mean testing somebody else&rsquo;s system.</p>
+      </div>
+      <ul class="bc-list"><li><b>reachable access on Windows.</b> The roadmap's capability table ticks <em>Declared, observed, and reachable access</em> for Windows. The README's limits say <em>Windows reachability is unavailable. There is no AccessCheck in this build, so every Windows answer is path_resolves and no reachability finding can be raised.</em> The threat model says the same as the README. <span class="bc-src"><a href="https://github.com/farikonsec/topgent/blob/main/ROADMAP.md" target="_blank" rel="noopener">ROADMAP.md</a> · <a href="https://github.com/farikonsec/topgent#readme" target="_blank" rel="noopener">topgent</a></span></li>
+      </ul>
+    </div>
+  </section>
 
-  
+  <section class="psection alt">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">What it gives an Agent Behaviour Policy</span>
+        <h2>Four objects, <span class="g">and which of them a run fills.</span></h2>
+        <p>The reason this case matters more to RiskMandate than most: a Topgent run on a developer's machine is most of the first pass of an Agent Behaviour Policy for the agents on that machine, and it is measured, on a machine the deployer is entitled to run, rather than read from a vendor's pages. The ABP has four objects. Topgent's output fills the first with evidence, gives the second something to be corrected against, and leaves the third and fourth to the ABP, which is where the blast radius becomes a mandate and a gap.</p>
+      </div>
+      <div class="bc-t feed" role="table" aria-label="What a run of the product gives each object of an Agent Behaviour Policy">
+        <div class="bc-tr" role="row"><span role="columnheader">The ABP object</span><span role="columnheader">What the product supplies</span><span role="columnheader">How it becomes the ABP</span><span role="columnheader">What stays open</span></div>
+        <div class="bc-tr" role="row"><span role="cell">The grant: what the agent can do</span><span role="cell" data-k="Supplies">Reachable paths, asked of the kernel; observed activity; declared access</span><span role="cell" data-k="Becomes">Rows in the ABP's vocabulary: read.file.host and write.file.host with the paths as reach; execute.process.host from the process tree; send.endpoint.allowed or send.endpoint.world from the network history; read.credential.host where a reachable path is a credential store. Evidence tier: measured, because the deployer ran it on their own machine. Declared access stays documented; observed becomes observed.</span><span role="cell" data-k="Open">Confinement is not evaluated, so a sandboxed agent's rows may be wider than its real reach: the ABP marks such rows measured for the account, not the process.</span></div>
+        <div class="bc-tr" role="row"><span role="cell">The mandate: what it was authorised to do</span><span role="cell" data-k="Supplies">Nothing. Topgent does not know what the person meant the agent to do.</span><span role="cell" data-k="Becomes">Elicited from the person who installed the agent, in minutes, as the ABP does today. The Topgent inventory is the list they correct: for each reachable path and endpoint, wanted or not.</span><span role="cell" data-k="Open">This is the step Topgent's grade stands in for, and the ABP replaces: a grade says how much reach; a mandate says how much was meant.</span></div>
+        <div class="bc-tr" role="row"><span role="cell">The delta: excess and shortfall</span><span role="cell" data-k="Supplies">Derived, never typed</span><span role="cell" data-k="Becomes">Every measured row not in the mandate is excess; the ABP recomputes it when either side moves. The blast radius Topgent draws is the excess before anyone has said what was meant.</span><span role="cell" data-k="Open">None: this is arithmetic once the first two exist.</span></div>
+        <div class="bc-tr" role="row"><span role="cell">The barrier: what stands in the way of each row</span><span role="cell" data-k="Supplies">The evidence kind on each finding, the sensor coverage, and the guarded stop</span><span role="cell" data-k="Becomes">account_readable and path_resolves say how the row was established. The stop is recorded as the plug for that host: one command, minutes, held by the machine's owner, a setting rather than a boundary because the same account can stop the sensor. Where Topgent reports a sensor as unsupported, the ABP's row says so rather than saying nothing.</span><span role="cell" data-k="Open">Topgent does not bound anything; it reports and stops. Every row it produces starts with none or expectation as its barrier, which is the honest starting point.</span></div>
+        <div class="bc-tr" role="row"><span role="cell">Provenance</span><span role="cell" data-k="Supplies">Content-addressed, chained evidence records with signed checkpoints; the AI-BOM export</span><span role="cell" data-k="Becomes">The evidence file behind a measured row. The ABP's vault keeps the run beside the policy, with the version and the date, and the offline verifier checks the bundle against a key the deployer already holds.</span><span role="cell" data-k="Open">A signature proves the chain was not altered after signing, and nothing about whether the sensor was right; the tool's own threat model says so, and the ABP repeats it.</span></div>
+      </div>
+      <p class="bc-note">What Topgent sees is one developer machine. The sixteen ABPs published on this site are for connectors and hosted agents, read from vendors' pages; a Topgent-fed ABP would be the first of a third kind, for the agents on a laptop, and the first whose grant is measured row by row rather than documented.</p>
+    </div>
+  </section>
 
-  
+  <section class="psection">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">From the buyer&rsquo;s desk</span>
+        <h2>What it does, <span class="g">for the person who signs.</span></h2>
+        <p>Its README is written for the person who will run it. The person who will pay for it is usually somebody else: the one who has to sign for what the agents on a hundred laptops can reach. This is the tool from that desk, using only what its pages say.</p>
+      </div>
+      <figure class="bcf"><svg viewBox="0 0 1000 368" role="img" aria-label="What a run produces, and who reads each part"><defs><marker id="bcf-m" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="bcf-mk"/></marker></defs>
+    <text x="20" y="28" class="bcf-title">What a run produces, and who reads each part</text>
+    <g><rect x="20" y="54" width="180.8" height="168" rx="10" class="bcf-box"/>
+      <text x="34" y="78" class="bcf-k">01</text>
+      <text x="34" y="100" class="bcf-t">Finds the agents</text>
+      <text x="34" y="120" class="bcf-d">Nineteen families,</text><text x="34" y="134" class="bcf-d">matched on the</text><text x="34" y="148" class="bcf-d">executable's path, not</text><text x="34" y="162" class="bcf-d">its name. An agent under</text><text x="34" y="176" class="bcf-d">another account is marked</text><text x="34" y="190" class="bcf-d">not evaluated, never</text>
+      <path d="M202.8 138 l10 0" class="bcf-arrow" marker-end="url(#bcf-m)"/></g>
+    <g><rect x="214.8" y="54" width="180.8" height="168" rx="10" class="bcf-box"/>
+      <text x="228.8" y="78" class="bcf-k">02</text>
+      <text x="228.8" y="100" class="bcf-t">Asks what each can</text><text x="228.8" y="117" class="bcf-t">reach</text>
+      <text x="228.8" y="137" class="bcf-d">Files and directories the</text><text x="228.8" y="151" class="bcf-d">account can read, asked</text><text x="228.8" y="165" class="bcf-d">of the kernel. Endpoints,</text><text x="228.8" y="179" class="bcf-d">listeners and peers it</text><text x="228.8" y="193" class="bcf-d">talked to, for seven</text><text x="228.8" y="207" class="bcf-d">days.</text>
+      <path d="M397.6 138 l10 0" class="bcf-arrow" marker-end="url(#bcf-m)"/></g>
+    <g><rect x="409.6" y="54" width="180.8" height="168" rx="10" class="bcf-box"/>
+      <text x="423.6" y="78" class="bcf-k">03</text>
+      <text x="423.6" y="100" class="bcf-t">Says how it knows</text>
+      <text x="423.6" y="120" class="bcf-d">Declared, observed,</text><text x="423.6" y="134" class="bcf-d">reachable: kept apart,</text><text x="423.6" y="148" class="bcf-d">each with its evidence.</text><text x="423.6" y="162" class="bcf-d">Sensor coverage is</text><text x="423.6" y="176" class="bcf-d">reported, so nothing</text><text x="423.6" y="190" class="bcf-d">found is different from</text>
+      <path d="M592.4000000000001 138 l10 0" class="bcf-arrow" marker-end="url(#bcf-m)"/></g>
+    <g><rect x="604.4000000000001" y="54" width="180.8" height="168" rx="10" class="bcf-box"/>
+      <text x="618.4000000000001" y="78" class="bcf-k">04</text>
+      <text x="618.4000000000001" y="100" class="bcf-t">Writes it down</text>
+      <text x="618.4000000000001" y="120" class="bcf-d">A report and a journal on</text><text x="618.4000000000001" y="134" class="bcf-d">the machine; an AI-BOM in</text><text x="618.4000000000001" y="148" class="bcf-d">a standard format; a CI</text><text x="618.4000000000001" y="162" class="bcf-d">gate with an exit code</text><text x="618.4000000000001" y="176" class="bcf-d">per outcome.</text>
+      <path d="M787.2 138 l10 0" class="bcf-arrow" marker-end="url(#bcf-m)"/></g>
+    <g><rect x="799.2" y="54" width="180.8" height="168" rx="10" class="bcf-box"/>
+      <text x="813.2" y="78" class="bcf-k">05</text>
+      <text x="813.2" y="100" class="bcf-t">Can stop one</text>
+      <text x="813.2" y="120" class="bcf-d">One command, after</text><text x="813.2" y="134" class="bcf-d">re-checking the process</text><text x="813.2" y="148" class="bcf-d">is the one it was. On one</text><text x="813.2" y="162" class="bcf-d">machine, by the person at</text><text x="813.2" y="176" class="bcf-d">it.</text>
+      </g>
+    <text x="20" y="244" class="bcf-k">WHO READS IT</text>
+    <g><rect x="20" y="256" width="310.6666666666667" height="92" rx="10" class="bcf-reader"/>
+      <text x="34" y="280" class="bcf-who">The developer</text>
+      <text x="34" y="300" class="bcf-d">top for agents: what is running, what it can</text><text x="34" y="314" class="bcf-d">reach, and a stop.</text></g>
+    <g><rect x="344.6666666666667" y="256" width="310.6666666666667" height="92" rx="10" class="bcf-reader"/>
+      <text x="358.6666666666667" y="280" class="bcf-who">The security lead</text>
+      <text x="358.6666666666667" y="300" class="bcf-d">An inventory across machines, one run at a</text><text x="358.6666666666667" y="314" class="bcf-d">time, with evidence on every line and a list of</text><text x="358.6666666666667" y="328" class="bcf-d">what the sensor could not see.</text></g>
+    <g><rect x="669.3333333333334" y="256" width="310.6666666666667" height="92" rx="10" class="bcf-reader"/>
+      <text x="683.3333333333334" y="280" class="bcf-who">The person who signs</text>
+      <text x="683.3333333333334" y="300" class="bcf-d">The grant, measured. Not yet a mandate, not yet</text><text x="683.3333333333334" y="314" class="bcf-d">a gap: that is the ABP's work, and it starts</text><text x="683.3333333333334" y="328" class="bcf-d">here.</text></g>
+  </svg><figcaption>Drawn from the product&rsquo;s own pages, read on the date at the top of this case. Nothing was run.</figcaption></figure>
+      <div class="bc-points"><div><h3>It measures; it does not guess.</h3><p>Three kinds of access kept apart, and each finding carries how it was established. That is rarer than it sounds. Most tools in this space report a permission the way a page describes it; this one asks the kernel, and says when it could only resolve a path.</p></div>
+        <div><h3>It says what it cannot see, on the same page.</h3><p>Short-lived processes, Windows reachability, confinement, other accounts, dropped events: six limits in the README, and a threat model with a residual risk under every mitigation. A buyer can read the gap before the sale rather than after the incident.</p></div>
+        <div><h3>It reads metadata, and stores nothing it should not.</h3><p>No prompts, no file contents, no payloads, no decryption, no server, no account, no listening socket. The one thing it does write, the report, is named as an asset to protect.</p></div>
+        <div><h3>It is one machine at a time, by design.</h3><p>No fleet view, no cloud accounts. On a developer's laptop that is the right shape. For an organisation it means a run per machine and somebody to gather them, which is where the packaging ideas below start.</p></div>
+        <div><h3>It grades, and a buyer does not have to.</h3><p>Every point of the score names its factor and its evidence. RiskMandate's position is that a behaviour policy carries no score, so this case takes the evidence and leaves the grade; a buyer can do either, because the two are kept apart in the output.</p></div></div>
+    </div>
+  </section>
 
-  
+  <section class="psection alt">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Taking it to market</span>
+        <h2>Notes on commercialising it, <span class="g">with nothing closed.</span></h2>
+        <p>The author asked how to commercialise it and how to make it less like a network analyser to a non-technical user. These are RiskMandate's notes, from what this site does and from the position at open-source.sgit.ai: open source is a strategy, not a charity; the moat is not the code; what is sold is trust and the maintained build. None of it needs anything closed.</p>
+      </div>
+      <div class="bc-ideas"><div><h3>Sell the maintained build, not the code.</h3><p>The repository already does the hard part of the open-source pitch: releases on three platforms, checksums, CI, fuzzing, a threat model. What a company pays for is the signed binary, the package-manager install, the verified agent families for their fleet, and somebody to call. The cost argument from open-source.sgit.ai applies as written: anyone can take the code, and it will cost them the year it took to write; or they pay for next week's release.</p></div>
+        <div><h3>Packaging, not open core.</h3><p>Keep one repository and ship subsets. The desktop app for a developer, the CLI and CI gate for a platform team, a stripped build with no capture helper for a locked-down estate. The test from open-source.sgit.ai: does the customer build contain anything the public repository does not? Keep the answer no, and say so on the download page.</p></div>
+        <div><h3>The buyer is the person who signs, and the product for them is the ABP.</h3><p>A developer wants top. A CISO wants an inventory. The person who has to say what the agents were authorised to do wants a behaviour policy per machine, and Topgent's output is the measured half of one. A service that turns a Topgent run into an Agent Behaviour Policy, corrected with the developer in ten minutes, is a product with a price on this site already: the four levels on the pricing page, with Topgent as the measuring step for level 3 and level 4.</p></div>
+        <div><h3>A vault per machine, in sgit.ai.</h3><p>Package what a run produces as an encrypted vault the customer holds the keys to: the report, the journal, the AI-BOM and the signed evidence bundle, versioned, with a read key that can be handed to an auditor or an insurer and a write key that stays with the owner. This site's sixteen ABPs are built that way, with the renderer in one application vault and a loader in every data vault, so the same pattern gives Topgent a custom application UI on top of its own data without a server, an account or a hosted database, all of which its threat model is proud not to have. A fleet is then a list of vaults, and the fleet view the roadmap leaves out becomes a page that reads them.</p></div>
+        <div><h3>Less like a network analyser: put the mandate on the screen.</h3><p>The reason the tool feels like Wireshark to a non-technical user is that it shows everything with equal weight. The ABP fixes that: once the person has said what they meant the agent to do, the screen shows the gap, which is short, in words, with a consequence on each line. Section 05 of the role-ownership article draws that picture for one agent; Topgent could draw it for the agents on the machine in front of the person.</p></div>
+        <div><h3>Start from OWASP and the summits.</h3><p>The tool's vocabulary already names MITRE ATLAS techniques and exports CycloneDX. The route to a first hundred users on this site's experience is not a sales team; it is an OWASP project page, a talk at a chapter, and a case like this one that a security lead can forward to the person who signs. This site offers to be that case, and to keep it corrected.</p></div>
+        <div><h3>What not to do.</h3><p>Do not add a server before there is a customer who wants one; the no-server design is the strongest line in the threat model. Do not sell the score; sell the evidence under it, because a score is the first thing a buyer's own risk function will want to replace with theirs. Do not close the detection rules to slow an adversary; the threat model already assumes they are public, and the roadmap's signed builds do more for trust than secrecy would.</p></div></div>
+      <p class="bc-note">The position these rest on is published at <a href="https://open-source.sgit.ai/" target="_blank" rel="noopener">open-source.sgit.ai</a>, with its counter-cases; the vault pattern is the one this site&rsquo;s own behaviour policies use, described on <a href="how-it-works.html">how it works</a>.</p>
+    </div>
+  </section>
 
   <section class="psection">
     <div class="wrap">
@@ -478,10 +581,10 @@ table.lv td a{color:var(--green)}
         <span class="tag">What this does not claim</span>
         <h2>The limits of the case, <span class="g">stated by the case.</span></h2>
       </div>
-      <ul class="bc-list"><li>That it was tested. Nothing was installed or run; every change rests on the documentation quoted beside it.</li>
+      <ul class="bc-list"><li>That it was tested. Nothing was installed or run; every change rests on the repository's pages quoted beside it.</li><li>That its score is used. Topgent grades each agent; the ABP grades nothing, and this case takes the facts under the grade (the reachable paths, the endpoints, the model, the evidence on each) and leaves the grade with the tool.</li><li>That it sees what a confined process can do, an agent under another account, a short-lived process, or a fleet. Its own pages say each of these.</li><li>Anything from the author's message to the lead. The disclosure says the message exists; the page uses the repository only.</li>
         <li>That the register is complete. It is one model, for one stated deployment. A different deployment changes the answers, and so the case.</li>
       </ul>
-      <p class="bc-note"><b>Next.</b> Published, and sent to the project's maintainers at the same time. If a change is wrong, or another answer should move, the case changes with the date they said so.</p>
+      <p class="bc-note"><b>Next.</b> Published, and sent to the author the same day, with the ABP mapping and the commercialisation notes below as the answer to the question asked. If a change is wrong, or another answer should move, the case changes with the date they said so.</p>
     </div>
   </section>
 
@@ -492,7 +595,7 @@ table.lv td a{color:var(--green)}
     <span class="eyebrow"><span class="d"></span> The same method, for your product</span>
     <h2>Make the case <span class="it">in the register&rsquo;s own terms.</span></h2>
     <p>If you build a security product for agents, the case for it can be written the same way: what it does in your own words, the answers it changes, and the register before and after. If a case here is wrong about you, tell us and it changes with a date.</p>
-    <div class="cta-row"><a class="btn btn-green" href="business-cases.html">All the cases</a><a class="btn btn-ghost" href="mailto:dinis.cruz@owasp.org?subject=Business%20case%20%C2%B7%20Squid">Write to us</a></div>
+    <div class="cta-row"><a class="btn btn-green" href="business-cases.html">All the cases</a><a class="btn btn-ghost" href="mailto:dinis.cruz@owasp.org?subject=Business%20case%20%C2%B7%20Topgent">Write to us</a></div>
   </div>
 </section>
 
@@ -508,7 +611,7 @@ table.lv td a{color:var(--green)}
 (function(){
 'use strict';
 var RM={core:{},services:{},components:{},data:{}};
-RM.data.currentPage="business-case-squid";RM.data.pages=[{"name":"agent-behaviour-policy","label":"The sixteen examples","file":"agent-behaviour-policy.html","group":"Behaviour policies"},{"name":"abp","label":"What an ABP is","file":"abp.html","group":"Behaviour policies"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"Behaviour policies"},{"name":"licence-to-operate","label":"Licence to Operate","file":"licence-to-operate.html","group":"Behaviour policies"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"Behaviour policies"},{"name":"for-corporate","label":"You run agents today","file":"for-corporate.html","group":"Who it's for"},{"name":"for-founders","label":"You are a founder","file":"for-founders.html","group":"Who it's for"},{"name":"for-startups","label":"You are a startup","file":"for-startups.html","group":"Who it's for"},{"name":"insurance","label":"Make agents insurable","file":"insurance.html","group":"Insurance"},{"name":"insure-a-program","label":"Can you insure a program?","file":"insure-a-program.html","group":"Insurance"},{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"Insurance"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"Insurance"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"Insurance"},{"name":"business-cases","label":"Business cases, by risk","file":"business-cases.html","group":"Insurance"},{"name":"owasp-graph","label":"OWASP, as a graph","file":"owasp-graph.html","group":"Insurance"},{"name":"pricing","label":"The four levels","file":"pricing.html","group":"Pricing"},{"name":"abp-reviewed","label":"The reviewed level","file":"abp-reviewed.html","group":"Pricing"},{"name":"reviewers","label":"Who runs your review","file":"reviewers.html","group":"Pricing"},{"name":"try-it","label":"Try it","file":"try-it.html"},{"name":"articles","label":"Articles","file":"articles.html"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"privacy","label":"Privacy","file":"privacy.html","group":"More"},{"name":"lab","label":"The Lab","file":"lab.html","group":"More"},{"name":"demos","label":"Live demos","file":"demos.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"uk-support","label":"UK support, in the open","file":"uk-support.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"admin","label":"Admin","file":"admin/","group":"More"}];RM.data.sections=[];
+RM.data.currentPage="business-case-topgent";RM.data.pages=[{"name":"agent-behaviour-policy","label":"The sixteen examples","file":"agent-behaviour-policy.html","group":"Behaviour policies"},{"name":"abp","label":"What an ABP is","file":"abp.html","group":"Behaviour policies"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"Behaviour policies"},{"name":"licence-to-operate","label":"Licence to Operate","file":"licence-to-operate.html","group":"Behaviour policies"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"Behaviour policies"},{"name":"for-corporate","label":"You run agents today","file":"for-corporate.html","group":"Who it's for"},{"name":"for-founders","label":"You are a founder","file":"for-founders.html","group":"Who it's for"},{"name":"for-startups","label":"You are a startup","file":"for-startups.html","group":"Who it's for"},{"name":"insurance","label":"Make agents insurable","file":"insurance.html","group":"Insurance"},{"name":"insure-a-program","label":"Can you insure a program?","file":"insure-a-program.html","group":"Insurance"},{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"Insurance"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"Insurance"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"Insurance"},{"name":"business-cases","label":"Business cases, by risk","file":"business-cases.html","group":"Insurance"},{"name":"owasp-graph","label":"OWASP, as a graph","file":"owasp-graph.html","group":"Insurance"},{"name":"pricing","label":"The four levels","file":"pricing.html","group":"Pricing"},{"name":"abp-reviewed","label":"The reviewed level","file":"abp-reviewed.html","group":"Pricing"},{"name":"reviewers","label":"Who runs your review","file":"reviewers.html","group":"Pricing"},{"name":"try-it","label":"Try it","file":"try-it.html"},{"name":"articles","label":"Articles","file":"articles.html"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"privacy","label":"Privacy","file":"privacy.html","group":"More"},{"name":"lab","label":"The Lab","file":"lab.html","group":"More"},{"name":"demos","label":"Live demos","file":"demos.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"uk-support","label":"UK support, in the open","file":"uk-support.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"admin","label":"Admin","file":"admin/","group":"More"}];RM.data.sections=[];
 
 'use strict';
 // components/dom.js — tiny DOM helpers shared by components. `el` builds an

@@ -5,7 +5,7 @@
 
 **2**received, nothing built yet*Archived and read, and nothing has been built from it yet.*
 
-**25**partly worked*read in full; a named part is not built*
+**26**partly worked*read in full; a named part is not built*
 
 **8**processed*something on the site exists because of it*
 
@@ -16,6 +16,10 @@ The queue. A document or a memo from the project lead arrives — a dev brief as
 **[An article on the risk propagation visualiser: user stories first, then the story, business analysis, and the technical analysis last, with captures of the figure at every step, each connection alone and combined, each control alone and all of them](#D24)**
 
 spoken brief, transcribed · 1 produced · 2 not done25 September 2026 · partly
+
+**[A business case for Topgent: the open-source tool that measures what the agents on a machine can reach is most of an ABP's first pass; explain it from the buyer's desk; and say how to commercialise it, including sgit.ai vaults as its packaging](#D25)**
+
+spoken brief, transcribed · 3 produced · 3 not done25 September 2026 · partly
 
 **[How it technically works: prompts first, then hope is not a control, then fit, integrate, graph, and the vault as provenance](#D12)**
 
@@ -187,6 +191,22 @@ partly
 
 - Captures of a real agent. Every picture is of the invented example; running the figure on a published ABP vault is the next step the article names.
 - A capture per role for all thirteen of the map's roles: the article shows the ones the argument needs (the rep, Sales, Legal, the CIO, the CEO, the board), not each one.
+
+D25 · spoken brief, transcribed · 25 September 2026
+
+## A business case for Topgent: the open-source tool that measures what the agents on a machine can reach is most of an ABP's first pass; explain it from the buyer's desk; and say how to commercialise it, including sgit.ai vaults as its packaging
+
+partly
+
+[the file as received](../../assets/briefs/2026-09-25__transcript__a-business-case-for-topgent.txt) · `33d4cba3b317…` · 1 KB
+
+**Produced.** [The case, computed like the others from the repository's own pages: what it does in its words, four answers it changes (what it could reach, what it did, whether and how fast it can be stopped), the register before and after, what it adds, what adopting it takes, one place its pages disagree, what the case does not claim](../../business-case-topgent.html) · [Two sections no other case has: the ABP mapping, object by object, of what a Topgent run fills (the grant, measured) and what it leaves to the ABP (the mandate, the delta, the barrier); and the tool explained from the buyer's desk, with a figure of what a run produces and who reads each part](../../business-case-topgent.html) · [Seven commercialisation notes from this site and open-source.sgit.ai: sell the maintained build; packaging not open core; the buyer is the person who signs and the product for them is the ABP; a vault per machine in sgit.ai as the custom UI and data storage; the mandate on the screen; OWASP and the summits; what not to do](../../business-case-topgent.html)
+
+**Not done.**
+
+- A Topgent-fed ABP. The case says a run is most of the first pass; no run has been made, because that would mean running it, and the first one should be on a machine of ours with the author watching.
+- The lead's own reply to the author. The page is the material; the message is the lead's.
+- The two screenshots. They are a private conversation and are not archived; the case uses the repository only.
 
 D12 · spoken brief, transcribed · 24 September 2026
 

@@ -1,0 +1,104 @@
+{
+  "slug": "topgent",
+  "status": "published",
+  "kind": "open-source",
+  "product": "Topgent",
+  "vendor": "Hadosec (Farhad Rahimli)",
+  "vendor_url": "https://github.com/farikonsec/topgent",
+  "licence": "Apache-2.0",
+  "involve": "https://github.com/farikonsec/topgent/issues",
+  "category": "Host-level agent inventory and stop",
+  "title": "Topgent, by the risk it changes",
+  "summary": "An open-source, local-only tool that lists the AI agents running on a machine and shows, for each, what it can reach, what it has connected to, which model it uses, and stops one after re-checking its identity. Its README describes three kinds of access kept apart, evidence on every finding, a seven-day network history, exports as JSON and a CycloneDX AI-BOM, and a page of limits. For RiskMandate the case is specific: a Topgent run is most of the first pass of an Agent Behaviour Policy for a developer machine, measured rather than read from a vendor's pages, and the ABP is what turns a blast radius into a mandate and a gap.",
+  "disclosure": "The author wrote to RiskMandate's lead on 25 September 2026 asking where to take the project. This case is the answer, published because the project is open source. Everything on this page comes from the repository's own pages, read on that date; nothing comes from the conversation.",
+  "read": "2026-09-25",
+  "baseline": {
+    "preset": "typical",
+    "overrides": { "q6": 2, "q13": 2, "q3": 1, "q4": 2 },
+    "why": "The model's typical deployment, moved to what a coding agent on a developer's machine usually looks like without it: nobody can say what the agent could reach if it misbehaved, what it did last Tuesday cannot be reconstructed, stopping it is possible eventually, and nobody knows how long that takes."
+  },
+  "does": [
+    { "text": "Lists the AI agents running on the machine, and what each one can reach, has connected to, and is running as a model. Everything runs locally.", "quote": "Topgent lists the AI agents running on your machine and shows what each one can reach, what it has connected to, and which model it is using. It scores each agent, records grade changes, and can terminate one after re-checking its identity at the moment of the kill. Everything runs locally.", "url": "https://github.com/farikonsec/topgent#readme", "read": "2026-09-25" },
+    { "text": "Keeps three kinds of access apart, each with its evidence: declared, observed, and what the account can read now.", "quote": "What the agent declares, what it was seen doing, and what its account can currently read. Each carries its evidence: account_readable where the kernel answered, path_resolves where only the path could be established.", "url": "https://github.com/farikonsec/topgent#readme", "read": "2026-09-25" },
+    { "text": "Records network history for seven days: endpoints, listeners, private-network peers and cloud metadata access.", "quote": "Endpoints, listeners, private-network peers and cloud metadata access for seven days, with the country and announcing network of each address, resolved from a table compiled into the binary.", "url": "https://github.com/farikonsec/topgent#readme", "read": "2026-09-25" },
+    { "text": "Stops an agent after re-checking its identity, and reports which sensors are working so an empty result is not read as a clean one.", "quote": "Revalidates (PID, start time) immediately before signalling.", "url": "https://github.com/farikonsec/topgent#readme", "read": "2026-09-25" },
+    { "text": "Exports the session and a CycloneDX AI-BOM, and runs as a CI gate with a stated exit code per outcome.", "quote": "The session and a CycloneDX AI-BOM, as JSON or as a self-contained HTML file with a stated redaction level.", "url": "https://github.com/farikonsec/topgent#readme", "read": "2026-09-25" },
+    { "text": "Collects metadata only, and says so.", "quote": "Topgent collects metadata. It does not read prompts, responses, file contents or packet payloads, and it does not decrypt TLS.", "url": "https://github.com/farikonsec/topgent#readme", "read": "2026-09-25" }
+  ],
+  "changes": [
+    { "q": "q6", "to": 0, "kind": "states", "holder": "the machine's owner", "why": "For the host it runs on, and for the account it runs as: reachable paths are asked of the kernel, and the answer is about the account, not the process. Confinement is not evaluated, so a sandboxed agent may be reported as reaching more than it can. Whether that reach is internal only or customer-facing is still the deployer's to say; what changes is that the reach is a list rather than a shrug.", "basis": { "quote": "Reachability asks the kernel through faccessat with AT_EACCESS, so access-control lists are included and a file that stats but cannot be opened is not reported.", "url": "https://github.com/farikonsec/topgent/blob/main/THREAT-MODEL.md", "read": "2026-09-25" } },
+    { "q": "q13", "to": 1, "kind": "setting", "holder": "the machine's owner", "why": "Partly: a seven-day history of endpoints and an event journal, kept as metadata, for processes that lived long enough to be seen between two sweeps. Not prompts, not file contents, not short-lived processes.", "basis": { "quote": "A process that starts and exits between two sweeps is never seen. Measured on all three platforms: every resident process found, none of the short-lived ones.", "url": "https://github.com/farikonsec/topgent#readme", "read": "2026-09-25" } },
+    { "q": "q3", "to": 0, "kind": "setting", "holder": "the machine's owner", "why": "One command, guarded against stopping the wrong process. It is a setting rather than a boundary because Topgent runs unprivileged under the same account as the agent: an agent with the user's privileges can stop Topgent first, and the threat model says so.", "basis": { "quote": "An agent that stops Topgent before modifying the file leaves no finding. Topgent is not a tamper-proof agent and does not claim to be.", "url": "https://github.com/farikonsec/topgent/blob/main/THREAT-MODEL.md", "read": "2026-09-25" } },
+    { "q": "q4", "to": 0, "kind": "setting", "holder": "the machine's owner", "why": "Minutes, on the machine where it runs, for a person at that machine. Fleet management is out of scope, so this is one host at a time.", "basis": { "quote": "Prompt capture, file-content collection, TLS decryption, cloud accounts, and fleet management are out of scope. Topgent reads data the operating system already exposes to an unprivileged process.", "url": "https://github.com/farikonsec/topgent/blob/main/ROADMAP.md", "read": "2026-09-25" } }
+  ],
+  "reduces": [],
+  "adds": [],
+  "adds_note": "A report and a journal on disk that describe the host in detail, user-readable, which the threat model lists as an asset (*Discloses which agents run, what they reached, and host paths*) and does not redact at display time. An optional capture helper that holds a raw-socket capability, granted by the user. Binaries that are not yet code-signed, with verification left to a checksum. And a score per agent, which this case does not use: the ABP carries no score, and the facts under Topgent's score are what the case takes.",
+  "adoption": [
+    "Run topgent doctor first, and read which sensors are unsupported, need permission or are degraded on that machine; a result with no findings is not a clean result until the sensors say so.",
+    "Decide whether to grant packet capture, separately on each platform, and to whom; without it, connections that open and close between two sweeps are not seen.",
+    "Decide who reads the report and journal in ~/.config/topgent, and how a report is redacted before it is shared, because Topgent does not redact for you.",
+    "Run it under the account the agent runs under, on every machine that matters, one at a time; agents under another account are graded not evaluated, and there is no fleet view.",
+    "Add the CI check where a pipeline runs an agent, with a threshold, and decide what a coverage failure (exit 3) does to the build.",
+    "Verify SHA256SUMS on every download, and approve the unsigned binary once on macOS and Windows."
+  ],
+  "contradictions": [
+    { "topic": "reachable access on Windows", "text": "The roadmap's capability table ticks *Declared, observed, and reachable access* for Windows. The README's limits say *Windows reachability is unavailable. There is no AccessCheck in this build, so every Windows answer is path_resolves and no reachability finding can be raised.* The threat model says the same as the README.", "urls": ["https://github.com/farikonsec/topgent/blob/main/ROADMAP.md", "https://github.com/farikonsec/topgent#readme"] }
+  ],
+  "does_not_claim": [
+    "That it was tested. Nothing was installed or run; every change rests on the repository's pages quoted beside it.",
+    "That its score is used. Topgent grades each agent; the ABP grades nothing, and this case takes the facts under the grade (the reachable paths, the endpoints, the model, the evidence on each) and leaves the grade with the tool.",
+    "That it sees what a confined process can do, an agent under another account, a short-lived process, or a fleet. Its own pages say each of these.",
+    "Anything from the author's message to the lead. The disclosure says the message exists; the page uses the repository only."
+  ],
+  "next": "Published, and sent to the author the same day, with the ABP mapping and the commercialisation notes below as the answer to the question asked. If a change is wrong, or another answer should move, the case changes with the date they said so.",
+  "abp_feed": {
+    "intro": "The reason this case matters more to RiskMandate than most: a Topgent run on a developer's machine is most of the first pass of an Agent Behaviour Policy for the agents on that machine, and it is measured, on a machine the deployer is entitled to run, rather than read from a vendor's pages. The ABP has four objects. Topgent's output fills the first with evidence, gives the second something to be corrected against, and leaves the third and fourth to the ABP, which is where the blast radius becomes a mandate and a gap.",
+    "rows": [
+      { "abp": "The grant: what the agent can do", "from": "Reachable paths, asked of the kernel; observed activity; declared access", "how": "Rows in the ABP's vocabulary: read.file.host and write.file.host with the paths as reach; execute.process.host from the process tree; send.endpoint.allowed or send.endpoint.world from the network history; read.credential.host where a reachable path is a credential store. Evidence tier: measured, because the deployer ran it on their own machine. Declared access stays documented; observed becomes observed.", "gap": "Confinement is not evaluated, so a sandboxed agent's rows may be wider than its real reach: the ABP marks such rows measured for the account, not the process." },
+      { "abp": "The mandate: what it was authorised to do", "from": "Nothing. Topgent does not know what the person meant the agent to do.", "how": "Elicited from the person who installed the agent, in minutes, as the ABP does today. The Topgent inventory is the list they correct: for each reachable path and endpoint, wanted or not.", "gap": "This is the step Topgent's grade stands in for, and the ABP replaces: a grade says how much reach; a mandate says how much was meant." },
+      { "abp": "The delta: excess and shortfall", "from": "Derived, never typed", "how": "Every measured row not in the mandate is excess; the ABP recomputes it when either side moves. The blast radius Topgent draws is the excess before anyone has said what was meant.", "gap": "None: this is arithmetic once the first two exist." },
+      { "abp": "The barrier: what stands in the way of each row", "from": "The evidence kind on each finding, the sensor coverage, and the guarded stop", "how": "account_readable and path_resolves say how the row was established. The stop is recorded as the plug for that host: one command, minutes, held by the machine's owner, a setting rather than a boundary because the same account can stop the sensor. Where Topgent reports a sensor as unsupported, the ABP's row says so rather than saying nothing.", "gap": "Topgent does not bound anything; it reports and stops. Every row it produces starts with none or expectation as its barrier, which is the honest starting point." },
+      { "abp": "Provenance", "from": "Content-addressed, chained evidence records with signed checkpoints; the AI-BOM export", "how": "The evidence file behind a measured row. The ABP's vault keeps the run beside the policy, with the version and the date, and the offline verifier checks the bundle against a key the deployer already holds.", "gap": "A signature proves the chain was not altered after signing, and nothing about whether the sensor was right; the tool's own threat model says so, and the ABP repeats it." }
+    ],
+    "note": "What Topgent sees is one developer machine. The sixteen ABPs published on this site are for connectors and hosted agents, read from vendors' pages; a Topgent-fed ABP would be the first of a third kind, for the agents on a laptop, and the first whose grant is measured row by row rather than documented."
+  },
+  "explainer": {
+    "intro": "Its README is written for the person who will run it. The person who will pay for it is usually somebody else: the one who has to sign for what the agents on a hundred laptops can reach. This is the tool from that desk, using only what its pages say.",
+    "figure": {
+      "kind": "flow",
+      "title": "What a run produces, and who reads each part",
+      "steps": [
+        { "k": "01", "t": "Finds the agents", "d": "Nineteen families, matched on the executable's path, not its name. An agent under another account is marked not evaluated, never clean." },
+        { "k": "02", "t": "Asks what each can reach", "d": "Files and directories the account can read, asked of the kernel. Endpoints, listeners and peers it talked to, for seven days." },
+        { "k": "03", "t": "Says how it knows", "d": "Declared, observed, reachable: kept apart, each with its evidence. Sensor coverage is reported, so nothing found is different from nothing looked at." },
+        { "k": "04", "t": "Writes it down", "d": "A report and a journal on the machine; an AI-BOM in a standard format; a CI gate with an exit code per outcome." },
+        { "k": "05", "t": "Can stop one", "d": "One command, after re-checking the process is the one it was. On one machine, by the person at it." }
+      ],
+      "readers": [
+        { "who": "The developer", "gets": "top for agents: what is running, what it can reach, and a stop." },
+        { "who": "The security lead", "gets": "An inventory across machines, one run at a time, with evidence on every line and a list of what the sensor could not see." },
+        { "who": "The person who signs", "gets": "The grant, measured. Not yet a mandate, not yet a gap: that is the ABP's work, and it starts here." }
+      ]
+    },
+    "points": [
+      { "h": "It measures; it does not guess.", "p": "Three kinds of access kept apart, and each finding carries how it was established. That is rarer than it sounds. Most tools in this space report a permission the way a page describes it; this one asks the kernel, and says when it could only resolve a path." },
+      { "h": "It says what it cannot see, on the same page.", "p": "Short-lived processes, Windows reachability, confinement, other accounts, dropped events: six limits in the README, and a threat model with a residual risk under every mitigation. A buyer can read the gap before the sale rather than after the incident." },
+      { "h": "It reads metadata, and stores nothing it should not.", "p": "No prompts, no file contents, no payloads, no decryption, no server, no account, no listening socket. The one thing it does write, the report, is named as an asset to protect." },
+      { "h": "It is one machine at a time, by design.", "p": "No fleet view, no cloud accounts. On a developer's laptop that is the right shape. For an organisation it means a run per machine and somebody to gather them, which is where the packaging ideas below start." },
+      { "h": "It grades, and a buyer does not have to.", "p": "Every point of the score names its factor and its evidence. RiskMandate's position is that a behaviour policy carries no score, so this case takes the evidence and leaves the grade; a buyer can do either, because the two are kept apart in the output." }
+    ]
+  },
+  "commercialise": {
+    "intro": "The author asked how to commercialise it and how to make it less like a network analyser to a non-technical user. These are RiskMandate's notes, from what this site does and from the position at open-source.sgit.ai: open source is a strategy, not a charity; the moat is not the code; what is sold is trust and the maintained build. None of it needs anything closed.",
+    "ideas": [
+      { "h": "Sell the maintained build, not the code.", "p": "The repository already does the hard part of the open-source pitch: releases on three platforms, checksums, CI, fuzzing, a threat model. What a company pays for is the signed binary, the package-manager install, the verified agent families for their fleet, and somebody to call. The cost argument from open-source.sgit.ai applies as written: anyone can take the code, and it will cost them the year it took to write; or they pay for next week's release." },
+      { "h": "Packaging, not open core.", "p": "Keep one repository and ship subsets. The desktop app for a developer, the CLI and CI gate for a platform team, a stripped build with no capture helper for a locked-down estate. The test from open-source.sgit.ai: does the customer build contain anything the public repository does not? Keep the answer no, and say so on the download page." },
+      { "h": "The buyer is the person who signs, and the product for them is the ABP.", "p": "A developer wants top. A CISO wants an inventory. The person who has to say what the agents were authorised to do wants a behaviour policy per machine, and Topgent's output is the measured half of one. A service that turns a Topgent run into an Agent Behaviour Policy, corrected with the developer in ten minutes, is a product with a price on this site already: the four levels on the pricing page, with Topgent as the measuring step for level 3 and level 4." },
+      { "h": "A vault per machine, in sgit.ai.", "p": "Package what a run produces as an encrypted vault the customer holds the keys to: the report, the journal, the AI-BOM and the signed evidence bundle, versioned, with a read key that can be handed to an auditor or an insurer and a write key that stays with the owner. This site's sixteen ABPs are built that way, with the renderer in one application vault and a loader in every data vault, so the same pattern gives Topgent a custom application UI on top of its own data without a server, an account or a hosted database, all of which its threat model is proud not to have. A fleet is then a list of vaults, and the fleet view the roadmap leaves out becomes a page that reads them." },
+      { "h": "Less like a network analyser: put the mandate on the screen.", "p": "The reason the tool feels like Wireshark to a non-technical user is that it shows everything with equal weight. The ABP fixes that: once the person has said what they meant the agent to do, the screen shows the gap, which is short, in words, with a consequence on each line. Section 05 of the role-ownership article draws that picture for one agent; Topgent could draw it for the agents on the machine in front of the person." },
+      { "h": "Start from OWASP and the summits.", "p": "The tool's vocabulary already names MITRE ATLAS techniques and exports CycloneDX. The route to a first hundred users on this site's experience is not a sales team; it is an OWASP project page, a talk at a chapter, and a case like this one that a security lead can forward to the person who signs. This site offers to be that case, and to keep it corrected." },
+      { "h": "What not to do.", "p": "Do not add a server before there is a customer who wants one; the no-server design is the strongest line in the threat model. Do not sell the score; sell the evidence under it, because a score is the first thing a buyer's own risk function will want to replace with theirs. Do not close the detection rules to slow an adversary; the threat model already assumes they are public, and the roadmap's signed builds do more for trust than secrecy would." }
+    ]
+  }
+}

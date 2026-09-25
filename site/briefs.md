@@ -330,6 +330,19 @@ Each one is linked in full, as received, with nothing edited. Where a brief and 
 - **Captures of a real agent.** Every picture is of the invented example; running the figure on a published ABP vault is the next step
 - **A capture per role.** The article shows the roles the argument needs, not all thirteen
 
+### A business case for Topgent: the open-source tool that measures what the agents on a machine can reach is most of an ABP’s first pass; explain it from the buyer’s desk; and say how to commercialise it, including sgit.ai vaults as its packaging
+
+**sha256** 33d4cba3b31729c874ab1839c5f694d73363a221a152782465eaf418655690ae
+
+**A case, an explanation and a route to market, for somebody else’s open-source tool.** The author of Topgent asked the lead where to take it. The lead’s note: make the business case, because a run collects much of what an ABP’s first pass needs; explain what it does from a buyer’s point of view, with infographics; and add commercialisation ideas from this site and open-source.sgit.ai, including sgit.ai vaults as a custom application UI and data storage. Publish, because it is all open source.
+
+- [The case](business-case-topgent.html), computed like the others from the repository’s pages: what it does in its words, four answers it changes, the register before and after, what it adds, what adopting it takes, one place its pages disagree, what the case does not claim
+- Two sections no other case has, which the generator now supports: the ABP mapping, object by object, of what a run fills and what it leaves open; and the tool from the buyer’s desk, with a figure of what a run produces and who reads each part
+- Seven commercialisation notes: the maintained build; packaging not open core; the buyer is the person who signs; a vault per machine; the mandate on the screen; OWASP and the summits; what not to do. A new category, host-level agent inventory and stop
+- **A Topgent-fed ABP.** No run was made, because that means running it; the first should be on a machine of ours, with the author watching
+- **The reply to the author.** The page is the material; the message is the lead’s
+- **The two screenshots.** A private conversation, not archived; the case uses the repository only
+
 ## And the instructions that arrived as speech or a sentence.
 
 These have no digest to check, which makes them the ones most easily lost — a voice memo that changed the direction of the whole site leaves no artefact at all unless somebody writes it down. So they are recorded here in the same list, with the same two columns.
@@ -409,7 +422,7 @@ sha256sum my-brief.md
 
 A register that only lists what was done is a press release.
 
-Every entry above carries what it asked for and did not get, and on most of the twenty-four that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.
+Every entry above carries what it asked for and did not get, and on most of the twenty-five that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.
 
 - **The file is the record, not this page.** [briefs-register.json](briefs-register.json) is what a program should read; this page renders it for people. If the two ever disagree, the file is right and the page is stale.
 - **Every archived document is byte-identical to what arrived.** Nothing is edited, reformatted or trimmed — including the parts we think are wrong. Where we disagree with a brief, the disagreement is published on the page it produced and marked as ours.
@@ -418,6 +431,6 @@ Every entry above carries what it asked for and did not get, and on most of the 
 
 Register maintained by hand alongside the work, and checked in CI: every document listed must exist at the path given and match its recorded digest, and every file in `assets/briefs/` must appear in the register. Last reconciled 16 September 2026.
 
-## Twenty-four items. None untouched, and none finished.
+## Twenty-five items. None untouched, and none finished.
 
-Every item now names something it produced and something it did not. Twenty-one of the twenty-four are marked _partly_, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.
+Every item now names something it produced and something it did not. Twenty-two of the twenty-five are marked _partly_, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.
