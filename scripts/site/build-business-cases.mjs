@@ -236,24 +236,24 @@ const corporate = (res) => {
 // A buyer's figure: numbered steps left to right, then who reads what. Drawn from the case's data;
 // every string goes through esc, and the widths come from the count of steps.
 function flowFigure(f) {
-  const n = f.steps.length, W = 1000, pad = 20, gap = 14, bw = (W - pad * 2 - gap * (n - 1)) / n, bh = 168, y0 = 54;
+  const n = f.steps.length, W = 1000, pad = 20, gap = 14, bw = (W - pad * 2 - gap * (n - 1)) / n, bh = 200, y0 = 54;
   const wrap = (t, max) => { const words = String(t).split(' '), lines = []; let cur = ''; for (const w of words) { if ((cur + ' ' + w).trim().length > max) { lines.push(cur.trim()); cur = w; } else cur += ' ' + w; } if (cur.trim()) lines.push(cur.trim()); return lines; };
   const steps = f.steps.map((st, i) => {
     const x = pad + i * (bw + gap), tl = wrap(st.t, Math.floor((bw - 28) / 8.2)).slice(0, 2), lines = wrap(st.d, Math.floor((bw - 28) / 5.9)), dy = y0 + 50 + (tl.length - 1) * 17;
     return `<g><rect x="${x}" y="${y0}" width="${bw}" height="${bh}" rx="10" class="bcf-box"/>
       <text x="${x + 14}" y="${y0 + 24}" class="bcf-k">${esc(st.k)}</text>
       ${tl.map((l, j) => `<text x="${x + 14}" y="${y0 + 46 + j * 17}" class="bcf-t">${esc(l)}</text>`).join('')}
-      ${lines.slice(0, 6).map((l, j) => `<text x="${x + 14}" y="${dy + 16 + j * 14}" class="bcf-d">${esc(l)}</text>`).join('')}
+      ${lines.slice(0, 8).map((l, j) => `<text x="${x + 14}" y="${dy + 16 + j * 14}" class="bcf-d">${esc(l)}</text>`).join('')}
       ${i < n - 1 ? `<path d="M${x + bw + 2} ${y0 + bh / 2} l${gap - 4} 0" class="bcf-arrow" marker-end="url(#bcf-m)"/>` : ''}</g>`;
   }).join('\n    ');
   const ry = y0 + bh + 34, rn = f.readers.length, rw = (W - pad * 2 - gap * (rn - 1)) / rn;
   const readers = f.readers.map((r, i) => {
     const x = pad + i * (rw + gap), lines = wrap(r.gets, Math.floor((rw - 28) / 5.9));
-    return `<g><rect x="${x}" y="${ry}" width="${rw}" height="${92}" rx="10" class="bcf-reader"/>
+    return `<g><rect x="${x}" y="${ry}" width="${rw}" height="${104}" rx="10" class="bcf-reader"/>
       <text x="${x + 14}" y="${ry + 24}" class="bcf-who">${esc(r.who)}</text>
-      ${lines.slice(0, 4).map((l, j) => `<text x="${x + 14}" y="${ry + 44 + j * 14}" class="bcf-d">${esc(l)}</text>`).join('')}</g>`;
+      ${lines.slice(0, 5).map((l, j) => `<text x="${x + 14}" y="${ry + 44 + j * 14}" class="bcf-d">${esc(l)}</text>`).join('')}</g>`;
   }).join('\n    ');
-  const H = ry + 92 + 20;
+  const H = ry + 104 + 20;
   return `<figure class="bcf"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(f.title)}"><defs><marker id="bcf-m" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="bcf-mk"/></marker></defs>
     <text x="${pad}" y="28" class="bcf-title">${esc(f.title)}</text>
     ${steps}

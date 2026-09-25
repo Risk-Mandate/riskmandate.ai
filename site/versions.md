@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.34.14** · 2026-09-25 — The figure, unclipped
+  Notes: https://riskmandate.ai/versions/1.34.14.md · Source: `git:v1.34.14`
 - **v1.34.13** · 2026-09-25 — The business case for Topgent
   Notes: https://riskmandate.ai/versions/1.34.13.md · Source: `git:v1.34.13`
 - **v1.34.12** · 2026-09-25 — How to read the visualiser
