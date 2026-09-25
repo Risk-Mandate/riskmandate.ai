@@ -762,6 +762,31 @@
         "The effectiveness of a control. The figure takes every control as working, as the lead said to for now; a control that is on and not working is a fact the ABP's evidence tiers exist to record, and it is not modelled here.",
         "Residual risks are drawn from a fixed list. In a real record they would be written by each holder in their own words when the control lands."
       ]
+    },
+    {
+      "id": "D24",
+      "title": "An article on the risk propagation visualiser: user stories first, then the story, business analysis, and the technical analysis last, with captures of the figure at every step, each connection alone and combined, each control alone and all of them",
+      "version": null,
+      "type": "spoken brief, transcribed",
+      "dated": "2026-09-25",
+      "file": "assets/briefs/2026-09-25__transcript__an-article-on-the-risk-propagation-visualiser.txt",
+      "bytes": 1110,
+      "sha256": "f3849c17c9fb3a451428040b20b47921d738abab0224c49e961758cf7548ae65",
+      "received": [
+        "2026-09-25T02:00Z"
+      ],
+      "duplicate_of": null,
+      "status": "partly",
+      "produced": [
+        {
+          "what": "The article, in the order asked: seven user stories; the six weeks as a story; how to read the six bands, the two colours and a click; each connection alone (CRM, Mail, Calendar), then combined, where the trifecta appears; eight controls one at a time and then all of them, with a table of what each ends and leaves; the business analysis and five questions for a room; the technical analysis down to the one-way walk. Thirty-four captures, each taken by script in the state its caption names",
+          "url": "article-risk-propagation-visualiser.html"
+        }
+      ],
+      "not_done": [
+        "Captures of a real agent. Every picture is of the invented example; running the figure on a published ABP vault is the next step the article names.",
+        "A capture per role for all thirteen of the map's roles: the article shows the ones the argument needs (the rep, Sales, Legal, the CIO, the CEO, the board), not each one."
+      ]
     }
   ],
   "informal": [

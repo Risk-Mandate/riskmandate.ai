@@ -57,7 +57,10 @@ the site's; check `site/versions/index.json` for the current version before trus
   one invented agent from nine ABP rows to the board; section 09 is the model to build from (nodes,
   edges with inverses, placement, clock, cease, stop check, board view). Its three figures (D21) are
   drawn by an inline script from the article's data, `createElementNS` and `textContent` only, nothing
-  loaded: the blast radius can be played or changed, and its counts are the engine's. Keep such replies stand-alone,
+  loaded: the blast radius can be played or changed, and its counts are the engine's. Its guide, *One agent, and every desk it reaches* (`article-risk-propagation-visualiser.html`, D24, 25 Sept), reads the
+  figure with thirty-four captures in `site/assets/articles/risk-propagation/`, taken by
+  `scripts/site/capture-risk-propagation.mjs` (Playwright, run by hand against a local server, not in CI);
+  re-capture after any change to the figure, or the guide's pictures will disagree with it. Keep such replies stand-alone,
   factual about the source, and long enough to implement from. Five more are listed on the index as *not written*, each with a record already
   behind it.
 - **Try it** (`try-it.html`, top-level, v1.28.0): the free step below the store's ladder and the

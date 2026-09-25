@@ -75,11 +75,19 @@ a decision the lead owns, listed in the state fileneeds the lead
 
 a decision the lead owns, listed in the state fileneeds the lead
 
-## In flight — 0 branches
+## In flight — 1 branch
 
 One file per branch under `.claude/work/`. [How a work file is written](../../admin/work/about-work-files/).
 
-Nothing in flight.
+### [claude/dev-session-setup-a5wcc5](../../admin/work/branches/claude-dev-session-setup-a5wcc5/)
+
+started 25 September 2026 · task brief: D24, the lead in chat
+
+A guide to the risk propagation visualiser as its own article, with captures of the figure in every state the guide names. The figure itself does not change; its page gains one link.
+
+**External state.** Vaults built and unpushed: none · Release I will claim at merge: yes, v1.34.12, cut
+
+**Status.** [x] Captures taken by script; article written in the order asked · [ ] Page checked in Chromium at 1280 and 390; every image resolves · [ ] Merge, CI green, live
 
 ## Task briefs — 14
 

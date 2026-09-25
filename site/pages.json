@@ -493,6 +493,13 @@
       "unlisted": true
     },
     {
+      "name": "article-risk-propagation-visualiser",
+      "label": "One agent, and every desk it reaches. How to read the risk propagation visualiser.",
+      "file": "article-risk-propagation-visualiser.html",
+      "group": "Articles",
+      "unlisted": true
+    },
+    {
       "name": "agent-behaviour-policy-next",
       "file": "agent-behaviour-policy-next.html",
       "label": "Which Agent Behaviour Policy next?",

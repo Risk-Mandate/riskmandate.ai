@@ -5,13 +5,17 @@
 
 **2**received, nothing built yet*Archived and read, and nothing has been built from it yet.*
 
-**24**partly worked*read in full; a named part is not built*
+**25**partly worked*read in full; a named part is not built*
 
 **8**processed*something on the site exists because of it*
 
 **0**superseded*kept because the reasoning is the record*
 
 The queue. A document or a memo from the project lead arrives — a dev brief as a file, a voice memo as a transcript, an instruction in the thread — and is archived exactly as received: files by SHA-256 in [the register](../../briefs-register.json), so an identical file arriving again is recognised before anybody reads it; speech and chat as an entry with no digest. Then it is read into [a brief](../../admin/briefs/), and the brief is broken into [units of work](../../admin/work/). What was said and what we made of it are kept apart on purpose.
+
+**[An article on the risk propagation visualiser: user stories first, then the story, business analysis, and the technical analysis last, with captures of the figure at every step, each connection alone and combined, each control alone and all of them](#D24)**
+
+spoken brief, transcribed · 1 produced · 2 not done25 September 2026 · partly
 
 **[How it technically works: prompts first, then hope is not a control, then fit, integrate, graph, and the vault as provenance](#D12)**
 
@@ -168,6 +172,21 @@ Task briefs under `.claude/briefs/`, each sized for one agent and naming the fil
 The row moves on [the board](../../admin/work/); the register's *status* and *not done* say what the memo still owes.
 
 ## What happened to each of them
+
+D24 · spoken brief, transcribed · 25 September 2026
+
+## An article on the risk propagation visualiser: user stories first, then the story, business analysis, and the technical analysis last, with captures of the figure at every step, each connection alone and combined, each control alone and all of them
+
+partly
+
+[the file as received](../../assets/briefs/2026-09-25__transcript__an-article-on-the-risk-propagation-visualiser.txt) · `f3849c17c9fb…` · 1 KB
+
+**Produced.** [The article, in the order asked: seven user stories; the six weeks as a story; how to read the six bands, the two colours and a click; each connection alone (CRM, Mail, Calendar), then combined, where the trifecta appears; eight controls one at a time and then all of them, with a table of what each ends and leaves; the business analysis and five questions for a room; the technical analysis down to the one-way walk. Thirty-four captures, each taken by script in the state its caption names](../../article-risk-propagation-visualiser.html)
+
+**Not done.**
+
+- Captures of a real agent. Every picture is of the invented example; running the figure on a published ABP vault is the next step the article names.
+- A capture per role for all thirteen of the map's roles: the article shows the ones the argument needs (the rep, Sales, Legal, the CIO, the CEO, the board), not each one.
 
 D12 · spoken brief, transcribed · 24 September 2026
 

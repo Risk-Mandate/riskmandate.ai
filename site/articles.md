@@ -14,6 +14,10 @@ Each of these takes one thing a deployment actually does, shows the screen or th
 
 ## Written so far.
 
+### [One agent, and every desk it reaches. How to read the risk propagation visualiser.](article-risk-propagation-visualiser.html)
+
+The guide to the figure on the role-ownership article, which draws one agent's risks live. Who it is for, in seven user stories; the six weeks as a story; how to read the six bands, two colours and a click; each connection on its own and then combined, where a risk appears that none of them has alone; eight controls one at a time and then all of them, each trading a red risk for a green one; what a business gets from the picture and the five questions to ask in a room; and how it works, down to the walk that goes one way per hop. Thirty-four captures of the figure, each in the state its caption names.
+
 ### [Who owns what in AI. And how accountability holds on the way up.](article-who-owns-what-in-ai.html)
 
 A reply to an infographic on LinkedIn that maps thirteen roles to what each owns in AI and what that protects. Every company will redraw a map like it, and so it should. The map runs sideways, and accountability runs upwards: its middle column says where a risk lands, and the organisation chart says where it goes when nobody decides. One invented agent worked from the nine rows of its behaviour policy to the board: the same exposure in thirteen voices, seven rules, six weeks, and the model in enough detail to build. Three figures are drawn by the page from its own data, and one can be played: connect the assistant and watch the risks travel up, add a boundary and watch them end.
