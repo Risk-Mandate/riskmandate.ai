@@ -48,6 +48,10 @@ At the board: the corporate register
 
 Corporate risks have no facts of their own. They hold while any risk that leads into them holds, so a single product rarely retires one. What it changes is how many reasons the board is being given.
 
+## Switch its changes on, and watch the register move.
+
+The same picture as [the risk propagation visualiser](article-risk-propagation-visualiser.html), drawn for this case. The model’s ten roles up to the board; every risk that holds for the deployment above, placed with the roles the model assigns it to; and, at the bottom, each answer the product changes, as a switch. The page carries the model and the engine, so a switch recomputes the register here exactly as it was computed for the tables above. Red is a risk that holds; faded is one the product retired; amber is one it brought. Click a role, a risk, a change or the product to see only what it touches. Nothing is scored.
+
 ## Every product is also a new thing in the estate.
 
 The flag service is a dependency. Its documentation says a broken connection means SDKs get no new updates, and that without flag data all flags evaluate as disabled or as their default. For a kill switch written as an inverted flag, disabled means the agent keeps running: read those two pages together.

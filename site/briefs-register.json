@@ -855,6 +855,31 @@
         "The Calendar policies themselves, still in draft.",
         "The message to Cloudgeni, which is the lead's."
       ]
+    },
+    {
+      "id": "D27",
+      "title": "The risk propagation visualiser, on every business case: the risks a product retires and the ones it brings, played live",
+      "version": null,
+      "type": "spoken brief, transcribed",
+      "dated": "2026-09-25",
+      "file": "assets/briefs/2026-09-25__transcript__the-register-played-live-on-every-case.txt",
+      "bytes": 444,
+      "sha256": "b0a0b9bcf447faa5ac5a43c88da94035f2aefa0c8af5439691516b582a010721",
+      "received": [
+        "2026-09-25T19:00Z"
+      ],
+      "duplicate_of": null,
+      "status": "partly",
+      "produced": [
+        {
+          "what": "Every case page carries the figure: the model's ten roles up to the board, every risk that holds for the stated deployment placed with the roles the model assigns it, the corporate register above them, and each of the product's changes as a switch. The page carries the model and the engine, so a switch recomputes the register in the browser exactly as the build did; checked on three cases against the tables. Red holds, faded retired, amber brought; a role's circles count what it holds and what it no longer holds; click-to-focus with the one-way walk",
+          "url": "business-case-cloudgeni.html"
+        }
+      ],
+      "not_done": [
+        "The acceptance loop. The article's figure has holders, intervals and silence; a case's figure has the register only, because the model has no acceptance records. Adding them is the Risk Acceptance Office's work, not a case's.",
+        "A capture guide for the cases, like the visualiser's article. The figure is the same grammar; the guide covers it."
+      ]
     }
   ],
   "informal": [

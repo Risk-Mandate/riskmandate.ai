@@ -1,0 +1,3 @@
+Great now let's try something, can you review the spectacular dynamic visualizations that we published in https://riskmandate.ai/article-who-owns-what-in-ai.html and described in detail here https://riskmandate.ai/article-risk-propagation-visualiser.html
+
+Then what about creating one of these for our case studies, since wouldn't this provide a very visual example of the risks reduced (and introduced) by these two security products/services

@@ -200,7 +200,7 @@ function cut(name, title, desc, body, noindex = false) {
   head = head.replace(/(<meta property="og:description" content=")[^"]*(")/, `$1${esc(desc)}$2`);
   head = head.split('pricing.html').join(`${name}.html`).split('href="pricing.md"').join(`href="${name}.md"`);
   if (noindex) head = head.replace(/<link rel="alternate" type="text\/markdown"[^>]*>\n?/, '');   // a draft has no twin
-  head = head.replace('</style>', CSS + '</style>');
+  head = head.replace('</style>', CSS + LIVE_CSS + '</style>');
   const bodyStart = donor.indexOf('<body'), scriptAt = donor.indexOf('<script>', bodyStart);
   const donorBody = donor.slice(bodyStart, scriptAt);
   const hdr  = donorBody.match(/<header class="top">.*?<\/header>/s)[0];
@@ -233,6 +233,318 @@ const corporate = (res) => {
 };
 
 // ------------------------------------------------------------------ one page per case
+// ------------------------------------------------------------------ the register, played live
+// The same figure as the role-ownership article's blast radius, for a business case: the model's
+// ten roles up to the board, every risk that holds for the stated deployment, and the product's
+// changes as switches. The page carries the model and the engine, so switching a change recomputes
+// the register in the browser exactly as the build computed it above. Every string reaches the
+// page through textContent.
+const liveModel = () => ({
+  questions: M.questions.map((q) => ({ id: q.id, text: q.text, options: q.options.map((o) => [o[0], o[1]]) })),
+  facts: Object.values(M.facts).map((f) => ({ id: f.id, subject: f.subject, predicate: f.predicate, object: f.object })),
+  twins: Object.values(M.twins).map((t) => ({ id: t.id, label: t.label, exists_facts: t.exists_facts || null, presence_facts: t.presence_facts || null, depends_on: t.depends_on || null })),
+  risks: M.risks.map((r) => ({ ref: r.ref, layer: r.layer, statement: r.statement, why: r.why || '', needs: r.needs || [], needs_any: r.needs_any || [], ceases_on: r.ceases_on || [], leads_to: (r.leads_to || []).map((l) => l.ref), assigned_to: r.assigned_to || [] })),
+  roles: M.roles.map((r) => ({ id: r.id, label: r.label, reports_to: r.reports_to, lens: r.lens || '' }))
+});
+const jsonForScript = (o) => JSON.stringify(o).replace(/<\//g, '<\\/').replace(/<!--/g, '<\\!--');
+
+function liveFigure(c) {
+  const changes = [...c.changes.map((x) => ({ ...x, adds: false })), ...(c.adds || []).map((x) => ({ ...x, adds: true }))];
+  const data = {
+    product: c.product, baseline: c.base,
+    changes: changes.map((x, i) => ({ id: 'c' + i, q: x.q, to: x.to, from: c.base[x.q], kind: x.kind, holder: x.holder || '', why: x.why || '', adds: x.adds }))
+  };
+  return `<section class="psection">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">05 · The register, played live</span>
+        <h2>Switch its changes on, <span class="g">and watch the register move.</span></h2>
+        <p>The same picture as <a href="article-risk-propagation-visualiser.html">the risk propagation visualiser</a>, drawn for this case. The model&rsquo;s ten roles up to the board; every risk that holds for the deployment above, placed with the roles the model assigns it to; and, at the bottom, each answer the product changes, as a switch. The page carries the model and the engine, so a switch recomputes the register here exactly as it was computed for the tables above. Red is a risk that holds; faded is one the product retired; amber is one it brought. Click a role, a risk, a change or the product to see only what it touches. Nothing is scored.</p>
+      </div>
+      <div class="bl-ctl">
+        <div class="bl-ctl-g"><span class="bl-k">The product</span><div class="bl-btns"><button type="button" class="bl-btn" id="bl-b-all">With ${esc(c.product)}</button><button type="button" class="bl-btn ghost" id="bl-b-none">Without it</button></div></div>
+        <div class="bl-ctl-g" id="bl-switches"><span class="bl-k">The answers it changes${(c.adds || []).length ? ', and what it adds' : ''}</span></div>
+      </div>
+      <div class="bl-status"><b id="bl-title"></b><span id="bl-note"></span></div>
+      <div class="bl-scroll"><div id="bl-fig" class="bl-canvas"></div></div>
+      <div class="bl-panel" id="bl-panel" aria-live="polite"></div>
+      <div class="bl-counts" aria-label="The register, recomputed">
+        <div><b id="bl-c-before">0</b><span>entries without it</span></div>
+        <div><b id="bl-c-now">0</b><span>entries now</span></div>
+        <div><b id="bl-c-retired">0</b><span>retired</span></div>
+        <div><b id="bl-c-added">0</b><span>brought by it</span></div>
+        <div><b id="bl-c-board">0</b><span>reasons the board is given</span></div>
+      </div>
+      <div class="bl-legend">
+        <span><i class="bl-lg hold"></i> holds</span><span><i class="bl-lg gone"></i> retired by the product</span><span><i class="bl-lg new"></i> brought by the product</span><span><i class="bl-lg corp"></i> a corporate risk, at the board</span><span><i class="bl-lg badge">3</i> risks a role holds now</span><span><i class="bl-lg badge off">−2</i> risks it no longer holds</span><span><i class="bl-lg sw"></i> a change, on</span>
+      </div>
+      <div class="bl-list-wrap"><span class="bl-k">Every risk on the register now</span><div class="bl-list" id="bl-list"></div></div>
+    </div>
+  </section>
+<script>
+(function () {
+'use strict';
+var MODEL = ${jsonForScript(liveModel())};
+var CASE = ${jsonForScript(data)};
+${LIVE_SCRIPT}
+})();
+</script>`;
+}
+
+const LIVE_SCRIPT = String.raw`var NS = 'http://www.w3.org/2000/svg';
+var REDUCED = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+function sv(tag, attrs, parent) { var n = document.createElementNS(NS, tag); if (attrs) Object.keys(attrs).forEach(function (k) { if (attrs[k] != null) n.setAttribute(k, attrs[k]); }); if (parent) parent.appendChild(n); return n; }
+function stext(x, y, s, cls, parent, anchor) { var t = sv('text', { x: x, y: y, 'class': cls, 'text-anchor': anchor || 'middle' }, parent); t.textContent = s; return t; }
+function ht(tag, cls, text, parent) { var n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; if (parent) parent.appendChild(n); return n; }
+function byId(id) { return document.getElementById(id); }
+function clear(n) { while (n.firstChild) n.removeChild(n.firstChild); }
+var host = byId('bl-fig'); if (!host) return;
+
+/* ---- the engine, as the build ran it ---- */
+var FACT = {}, TWIN = {}, RISK = {}, ROLE = {}, Q = {};
+MODEL.facts.forEach(function (f) { FACT[f.id] = f; }); MODEL.twins.forEach(function (t) { TWIN[t.id] = t; });
+MODEL.risks.forEach(function (r) { RISK[r.ref] = r; }); MODEL.roles.forEach(function (r) { ROLE[r.id] = r; }); MODEL.questions.forEach(function (q) { Q[q.id] = q; });
+function inEstate(twinId, raw) { var tw = TWIN[twinId]; if (!tw) return true; if (tw.exists_facts && !tw.exists_facts.some(function (x) { return raw[x]; })) return false; return tw.depends_on ? inEstate(tw.depends_on, raw) : true; }
+function factsFor(answers) {
+  var raw = {}; MODEL.questions.forEach(function (q) { var i = answers[q.id]; if (i == null) return; q.options[i][1].forEach(function (f) { raw[f] = true; }); });
+  var out = {};
+  Object.keys(raw).forEach(function (id) { var f = FACT[id], tw = TWIN[f.subject]; if (tw && (tw.presence_facts || tw.exists_facts || []).indexOf(id) >= 0) { out[id] = true; return; } if (!inEstate(f.subject, raw) || !inEstate(f.object, raw)) return; out[id] = true; });
+  return out;
+}
+function risksFor(facts) {
+  var refs = {};
+  MODEL.risks.forEach(function (r) { if (r.layer === 'corporate') return; if (!r.needs.every(function (f) { return facts[f]; })) return; if (r.needs_any.length && !r.needs_any.some(function (f) { return facts[f]; })) return; if (r.ceases_on.some(function (f) { return facts[f]; })) return; refs[r.ref] = true; });
+  var grew = true;
+  while (grew) { grew = false; MODEL.risks.forEach(function (r) { if (refs[r.ref] || r.layer !== 'corporate') return; if (MODEL.risks.some(function (x) { return refs[x.ref] && x.leads_to.indexOf(r.ref) >= 0; })) { refs[r.ref] = true; grew = true; } }); }
+  return refs;
+}
+function chain(roleId) { var out = []; for (var r = ROLE[roleId]; r; r = r.reports_to ? ROLE[r.reports_to] : null) out.push(r.id); return out; }
+function answersWith(on) { var a = {}; Object.keys(CASE.baseline).forEach(function (k) { a[k] = CASE.baseline[k]; }); CASE.changes.forEach(function (c) { if (on[c.id]) a[c.q] = c.to; }); return a; }
+function factText(id) { var f = FACT[id]; if (!f) return id; var s = TWIN[f.subject] ? TWIN[f.subject].label : f.subject, o = TWIN[f.object] ? TWIN[f.object].label : f.object; return s + ' ' + f.predicate.replace(/-/g, ' ') + ' ' + o; }
+
+/* ---- state ---- */
+var on = {}; CASE.changes.forEach(function (c) { on[c.id] = true; });
+var sel = null, hover = null;
+var before = risksFor(factsFor(answersWith({})));
+var allOn = {}; CASE.changes.forEach(function (c) { allOn[c.id] = true; });
+var withAll = risksFor(factsFor(answersWith(allOn)));
+var shown = MODEL.risks.filter(function (r) { return before[r.ref] || withAll[r.ref]; });
+var oper = shown.filter(function (r) { return r.layer !== 'corporate'; }), corp = shown.filter(function (r) { return r.layer === 'corporate'; });
+
+/* ---- layout ---- */
+var POS = { 'RO-board': [500, 40], 'RO-ceo': [500, 112], 'RO-cto': [290, 190], 'RO-cpo': [560, 190], 'RO-cfo': [810, 190], 'RO-platform': [170, 268], 'RO-ciso': [400, 268], 'RO-service': [620, 268], 'RO-dpo': [810, 268], 'RO-sre': [170, 346] };
+var CORP_Y = 428, RISK_Y = 516, CH_Y = 622, PROD_Y = 686, W = 1000;
+function depth(id) { return chain(id).length; }
+function homeRole(r) { var best = null; r.assigned_to.forEach(function (id) { if (!POS[id]) return; if (!best || depth(id) > depth(best)) best = id; }); return best || 'RO-board'; }
+oper.sort(function (a, b) { var pa = POS[homeRole(a)], pb = POS[homeRole(b)]; return (pa[0] - pb[0]) || (pb[1] - pa[1]) || (parseInt(a.ref.replace(/\D/g, ''), 10) - parseInt(b.ref.replace(/\D/g, ''), 10)); });
+function spread(list, y, x0, x1) { var n = list.length, out = {}; list.forEach(function (r, i) { out[r.ref] = [n === 1 ? (x0 + x1) / 2 : x0 + (x1 - x0) * i / (n - 1), y]; }); return out; }
+var RP = spread(oper, RISK_Y, 60, 940); var CP = spread(corp, CORP_Y, 140, 860);
+var nCh = CASE.changes.length, chW = Math.min(180, (W - 150 - 12 * (nCh - 1)) / nCh); // the band label needs the left edge
+var CHP = {}; CASE.changes.forEach(function (c, i) { var total = nCh * chW + 12 * (nCh - 1); CHP[c.id] = [130 + (W - 140 - total) / 2 + i * (chW + 12) + chW / 2, CH_Y]; });
+function short(s, n) { return s.length > n ? s.slice(0, n - 1).replace(/\s+\S*$/, '') + '…' : s; }
+
+/* ---- draw once ---- */
+var svg = sv('svg', { viewBox: '0 0 ' + W + ' 720', 'class': 'bl-svg', role: 'img', 'aria-label': 'The register for this case, as a picture: the product at the bottom, its changes, the risks, and the roles up to the board' }, host);
+var gHalo = sv('g', null, svg), gChart = sv('g', null, svg), gEdges = sv('g', null, svg), gNodes = sv('g', null, svg);
+[['BOARD', 40], ['ROLES', 190], ['CORPORATE', CORP_Y], ['RISKS', RISK_Y], ['CHANGES', CH_Y], ['THE PRODUCT', PROD_Y]].forEach(function (b) { stext(12, b[1] + 4, b[0], 'bl-band', gChart, 'start'); });
+var orgE = {}, halo = {}, roleG = {}, badge = {}, badgeT = {};
+MODEL.roles.forEach(function (r) { if (r.reports_to && POS[r.id] && POS[r.reports_to]) orgE[r.id] = sv('line', { x1: POS[r.id][0], y1: POS[r.id][1] - 14, x2: POS[r.reports_to][0], y2: POS[r.reports_to][1] + 14, 'class': 'bl-org' }, gChart); });
+function wire(g, type, id) {
+  g.addEventListener('click', function (e) { e.stopPropagation(); sel = (sel && sel.type === type && sel.id === id) ? null : { type: type, id: id }; hover = null; paint(); });
+  g.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); g.dispatchEvent(new Event('click')); } });
+  var pv = function () { if (!sel) { hover = { type: type, id: id }; showPanel(); } };
+  g.addEventListener('mouseenter', pv); g.addEventListener('focus', pv);
+}
+svg.addEventListener('click', function () { if (sel) { sel = null; paint(); } });
+MODEL.roles.forEach(function (r) {
+  var p = POS[r.id]; if (!p) return;
+  halo[r.id] = sv('circle', { cx: p[0], cy: p[1], r: 30, 'class': 'bl-halo' }, gHalo);
+  var g = sv('g', { 'class': 'bl-role', tabindex: '0', role: 'button', 'aria-label': r.label }, gNodes);
+  sv('rect', { x: p[0] - 64, y: p[1] - 14, width: 128, height: 28, rx: 14 }, g);
+  stext(p[0], p[1] + 4, short(r.label, 24), 'bl-role-t', g);
+  badge[r.id] = {}; badgeT[r.id] = {};
+  [['hot', 0], ['off', 22]].forEach(function (k) { var bg = sv('g', { 'class': 'bl-badge ' + k[0] + ' hidden', transform: 'translate(' + k[1] + ' 0)' }, g); sv('circle', { cx: p[0] + 62, cy: p[1] - 12, r: 10 }, bg); badge[r.id][k[0]] = bg; badgeT[r.id][k[0]] = stext(p[0] + 62, p[1] - 8.5, '', 'bl-badge-t', bg); });
+  wire(g, 'role', r.id); roleG[r.id] = g;
+});
+var prod = sv('g', { 'class': 'bl-prod', tabindex: '0', role: 'button', 'aria-label': CASE.product }, gNodes);
+sv('rect', { x: 500 - 90, y: PROD_Y - 16, width: 180, height: 32, rx: 8 }, prod); stext(500, PROD_Y + 5, short(CASE.product, 26), 'bl-prod-t', prod); wire(prod, 'product', 'product');
+var chG = {}, chE = {}, riskG = {}, riskE = {}, chRiskE = {}, corpE = {};
+CASE.changes.forEach(function (c) {
+  var p = CHP[c.id]; chE[c.id] = sv('line', { x1: 500, y1: PROD_Y - 16, x2: p[0], y2: p[1] + 18, 'class': 'bl-e bl-e-prod' }, gEdges);
+  var g = sv('g', { 'class': 'bl-ch', tabindex: '0', role: 'button', 'aria-label': Q[c.q].text }, gNodes);
+  sv('rect', { x: p[0] - chW / 2, y: p[1] - 18, width: chW, height: 36, rx: 8 }, g);
+  stext(p[0], p[1] - 3, short(c.q + ' · ' + Q[c.q].options[c.to][0], Math.floor(chW / 6.2)), 'bl-ch-t', g);
+  stext(p[0], p[1] + 11, c.kind === 'states' ? 'states the answer' : c.kind === 'expectation' ? 'an expectation' : c.kind === 'setting' ? 'a setting' : 'a boundary', 'bl-ch-k', g);
+  wire(g, 'change', c.id); chG[c.id] = g;
+});
+shown.forEach(function (r) {
+  var p = r.layer === 'corporate' ? CP[r.ref] : RP[r.ref];
+  riskE[r.ref] = {}; r.assigned_to.forEach(function (id) { if (POS[id]) riskE[r.ref][id] = sv('line', { x1: p[0], y1: p[1] - 12, x2: POS[id][0], y2: POS[id][1] + 14, 'class': 'bl-e bl-e-held' }, gEdges); });
+  if (r.layer !== 'corporate') { chRiskE[r.ref] = {}; CASE.changes.forEach(function (c) { chRiskE[r.ref][c.id] = sv('line', { x1: CHP[c.id][0], y1: CH_Y - 18, x2: p[0], y2: p[1] + 12, 'class': 'bl-e bl-e-ch' }, gEdges); });
+    corpE[r.ref] = {}; r.leads_to.forEach(function (ref) { if (CP[ref]) corpE[r.ref][ref] = sv('line', { x1: p[0], y1: p[1] - 12, x2: CP[ref][0], y2: CP[ref][1] + 12, 'class': 'bl-e bl-e-corp' }, gEdges); }); }
+  var g = sv('g', { 'class': 'bl-risk', tabindex: '0', role: 'button', 'aria-label': r.ref + ': ' + r.statement, transform: 'translate(' + p[0] + ' ' + p[1] + ')' }, gNodes);
+  sv('circle', { r: r.layer === 'corporate' ? 13 : 11, 'class': 'bl-risk-core' }, g);
+  stext(0, 3.5, r.ref.replace('RISK-', '').replace('CORP-', 'C'), 'bl-risk-t', g);
+  wire(g, 'risk', r.ref); riskG[r.ref] = g;
+});
+
+/* ---- the switches ---- */
+var swHost = byId('bl-switches');
+CASE.changes.forEach(function (c) {
+  var l = ht('label', 'bl-sw' + (c.adds ? ' adds' : ''), null, swHost), i = ht('input', null, null, l); i.type = 'checkbox'; i.checked = true; i.id = 'bl-t-' + c.id;
+  l.appendChild(document.createTextNode(' ' + Q[c.q].text + ' '));
+  ht('em', null, Q[c.q].options[c.from][0] + ' → ' + Q[c.q].options[c.to][0], l);
+  i.addEventListener('change', function () { on[c.id] = i.checked; sel = null; paint(); });
+});
+byId('bl-b-all').addEventListener('click', function () { CASE.changes.forEach(function (c) { on[c.id] = true; }); sel = null; paint(); });
+byId('bl-b-none').addEventListener('click', function () { CASE.changes.forEach(function (c) { on[c.id] = false; }); sel = null; paint(); });
+
+/* ---- compute and paint ---- */
+var cur = {}, marg = {};
+function compute() {
+  cur = risksFor(factsFor(answersWith(on)));
+  // what each switch that is on does at the margin: the risks it retires or brings, given the others
+  marg = {};
+  CASE.changes.forEach(function (c) { if (!on[c.id]) { marg[c.id] = { retires: {}, brings: {} }; return; } var off = {}; Object.keys(on).forEach(function (k) { off[k] = on[k]; }); off[c.id] = false; var without = risksFor(factsFor(answersWith(off))); var m = { retires: {}, brings: {} }; Object.keys(without).forEach(function (ref) { if (!cur[ref]) m.retires[ref] = true; }); Object.keys(cur).forEach(function (ref) { if (!without[ref]) m.brings[ref] = true; }); marg[c.id] = m; });
+}
+function state(ref) { if (cur[ref]) return before[ref] ? 'hold' : 'new'; return before[ref] ? 'gone' : 'absent'; }
+function loads() {
+  var L = {}; MODEL.roles.forEach(function (r) { L[r.id] = { holds: [], gone: [], carries: [] }; });
+  shown.forEach(function (r) { var s = state(r.ref); r.assigned_to.forEach(function (id) { if (!L[id]) return; if (s === 'hold' || s === 'new') L[id].holds.push(r.ref); else if (s === 'gone') L[id].gone.push(r.ref); }); });
+  shown.forEach(function (r) { var s = state(r.ref); if (s !== 'hold' && s !== 'new') return; var touched = {}; r.assigned_to.forEach(function (id) { chain(id).forEach(function (x) { touched[x] = true; }); }); Object.keys(touched).forEach(function (id) { if (L[id] && r.assigned_to.indexOf(id) < 0 && L[id].carries.indexOf(r.ref) < 0) L[id].carries.push(r.ref); }); });
+  return L;
+}
+/* the walk goes one way per hop: product → changes → risks → roles up; role → risks it holds → changes that touch them */
+function focusSet() {
+  if (!sel) return null;
+  var F = { roles: {}, risks: {}, changes: {}, product: false };
+  function riskUp(ref) { F.risks[ref] = true; var r = RISK[ref]; r.assigned_to.forEach(function (id) { chain(id).forEach(function (x) { F.roles[x] = true; }); }); r.leads_to.forEach(function (c2) { if (cur[c2] || before[c2]) { F.risks[c2] = true; RISK[c2].assigned_to.forEach(function (id) { chain(id).forEach(function (x) { F.roles[x] = true; }); }); } }); }
+  function riskDown(ref) { F.risks[ref] = true; CASE.changes.forEach(function (c) { if (marg[c.id].retires[ref] || marg[c.id].brings[ref]) { F.changes[c.id] = true; F.product = true; } }); }
+  if (sel.type === 'product') { F.product = true; CASE.changes.forEach(function (c) { if (on[c.id]) { F.changes[c.id] = true; Object.keys(marg[c.id].retires).concat(Object.keys(marg[c.id].brings)).forEach(riskUp); } }); }
+  else if (sel.type === 'change') { F.product = true; F.changes[sel.id] = true; Object.keys(marg[sel.id].retires).concat(Object.keys(marg[sel.id].brings)).forEach(riskUp); }
+  else if (sel.type === 'risk') { riskUp(sel.id); riskDown(sel.id); var r = RISK[sel.id]; if (r.layer === 'corporate') shown.forEach(function (x) { if (x.leads_to.indexOf(sel.id) >= 0 && (cur[x.ref] || before[x.ref])) { F.risks[x.ref] = true; riskDown(x.ref); } }); }
+  else if (sel.type === 'role') { chain(sel.id).forEach(function (x) { F.roles[x] = true; }); shown.forEach(function (r) { var s = state(r.ref); if (s === 'absent') return; var reaches = r.assigned_to.some(function (id) { return chain(id).indexOf(sel.id) >= 0; }); if (reaches) { F.risks[r.ref] = true; r.assigned_to.forEach(function (id) { chain(id).forEach(function (x) { F.roles[x] = true; }); }); riskDown(r.ref); } }); }
+  return F;
+}
+function cls(el, base, extra) { el.setAttribute('class', base + (extra ? ' ' + extra : '')); }
+var panel = byId('bl-panel'), list = byId('bl-list');
+function showPanel() {
+  clear(panel); var v = sel || hover; if (!v) return;
+  var ul, li;
+  if (v.type === 'risk') { var r = RISK[v.id], s = state(v.id);
+    ht('b', null, r.ref + ' · ' + r.statement, panel); ht('span', 'bl-v', ' ' + (s === 'hold' ? 'Holds, with and without the product.' : s === 'new' ? 'Brought by the product: it holds only with the changes on.' : s === 'gone' ? 'Retired by the product.' : 'Does not hold for this deployment.'), panel);
+    ul = ht('ul', null, null, panel);
+    if (r.why) { li = ht('li', null, null, ul); ht('b', null, 'Why it is on the register: ', li); li.appendChild(document.createTextNode(r.why)); }
+    if (r.layer === 'corporate') { li = ht('li', null, null, ul); ht('b', null, 'A corporate risk: ', li); li.appendChild(document.createTextNode('no facts of its own; it holds while any risk that leads into it holds. Leading in now: ' + (shown.filter(function (x) { return x.leads_to.indexOf(r.ref) >= 0 && cur[x.ref]; }).map(function (x) { return x.ref; }).join(', ') || 'none') + '.')); }
+    else { li = ht('li', null, null, ul); ht('b', null, 'Established by: ', li); li.appendChild(document.createTextNode((r.needs.map(factText).concat(r.needs_any.length ? ['any of: ' + r.needs_any.map(factText).join(' / ')] : []).join('; ') || 'nothing in particular') + '.'));
+      li = ht('li', null, null, ul); ht('b', null, 'Ends when: ', li); li.appendChild(document.createTextNode(r.ceases_on.length ? r.ceases_on.map(factText).join('; ') + '.' : 'no fact in the model ends it; only its needs going away.'));
+      var touch = CASE.changes.filter(function (c) { return marg[c.id].retires[r.ref] || marg[c.id].brings[r.ref]; }); li = ht('li', null, null, ul); ht('b', null, 'Changed by: ', li); li.appendChild(document.createTextNode(touch.length ? touch.map(function (c) { return Q[c.q].text + ' → ' + Q[c.q].options[c.to][0] + (marg[c.id].retires[r.ref] ? ' (retires it)' : ' (brings it)'); }).join('; ') : 'none of the product’s changes, as switched.')); }
+    li = ht('li', null, null, ul); ht('b', null, 'Assigned to: ', li); li.appendChild(document.createTextNode(r.assigned_to.map(function (id) { return ROLE[id] ? ROLE[id].label : id; }).join(', ') + '.'));
+  } else if (v.type === 'role') { var ro = ROLE[v.id], L = loads()[v.id];
+    ht('b', null, ro.label, panel); if (ro.lens) ht('span', 'bl-v', ' Lens: ' + ro.lens + '.', panel);
+    ul = ht('ul', null, null, panel);
+    [['Holds now:', L.holds], ['No longer holds, with the product:', L.gone], ['Carries from below:', L.carries]].forEach(function (x) { li = ht('li', null, null, ul); ht('b', null, x[0] + ' ', li); li.appendChild(document.createTextNode(x[1].length ? x[1].map(function (ref) { return ref + ' ' + short(RISK[ref].statement, 60); }).join(' · ') : 'nothing')); });
+  } else if (v.type === 'change') { var c = CASE.changes.filter(function (x) { return x.id === v.id; })[0];
+    ht('b', null, Q[c.q].text, panel); ht('span', 'bl-v', ' ' + Q[c.q].options[c.from][0] + ' → ' + Q[c.q].options[c.to][0] + '. ' + (c.kind === 'states' ? 'It states the answer.' : c.kind === 'expectation' ? 'An expectation: the agent is asked, and nothing enforces it.' : c.kind === 'setting' ? 'A setting: a switch somebody holds.' : 'A boundary: enforced by something the agent’s grant does not include.') + (c.holder ? ' Held by ' + c.holder + '.' : ''), panel);
+    ul = ht('ul', null, null, panel);
+    if (c.why) { li = ht('li', null, null, ul); ht('b', null, 'How, and how far: ', li); li.appendChild(document.createTextNode(c.why)); }
+    li = ht('li', null, null, ul); ht('b', null, (on[c.id] ? 'Retires, as switched: ' : 'Switched off. Would retire: '), li); var rt = Object.keys(marg[c.id].retires); if (!on[c.id]) { var only = {}; only[c.id] = true; var alone = risksFor(factsFor(answersWith(only))); rt = Object.keys(before).filter(function (ref) { return !alone[ref]; }); } li.appendChild(document.createTextNode(rt.length ? rt.join(', ') : 'nothing on its own'));
+    var br = Object.keys(marg[c.id].brings); if (br.length) { li = ht('li', null, null, ul); ht('b', null, 'Brings: ', li); li.appendChild(document.createTextNode(br.join(', '))); }
+  } else { ht('b', null, CASE.product, panel); ht('span', 'bl-v', ' ' + CASE.changes.filter(function (c) { return on[c.id]; }).length + ' of ' + CASE.changes.length + ' changes on. Retired: ' + Object.keys(before).filter(function (ref) { return !cur[ref]; }).length + '. Brought: ' + Object.keys(cur).filter(function (ref) { return !before[ref]; }).length + '. Click a change to see what it alone does.', panel); }
+  if (sel) ht('p', 'bl-hint', 'Selected. Click it again, or the background, to see everything.', panel);
+}
+function showList(F) {
+  clear(list);
+  var rows = shown.filter(function (r) { return cur[r.ref]; });
+  if (!rows.length) { ht('p', 'bl-empty', 'Nothing on the register: every risk’s facts have gone.', list); return; }
+  var head = ht('div', 'bl-lr head', null, list); ['Risk', 'State', 'Assigned to', 'Layer'].forEach(function (h) { ht('span', null, h, head); });
+  rows.forEach(function (r) { var s = state(r.ref), row = ht('div', 'bl-lr s-' + s + (F && !F.risks[r.ref] ? ' dim' : ''), null, list); ht('span', 'k', r.ref + ' · ' + r.statement, row); ht('span', null, s === 'new' ? 'brought by the product' : 'holds', row); ht('span', null, r.assigned_to.map(function (id) { return ROLE[id] ? ROLE[id].label : id; }).join(', '), row); ht('span', 'mono', r.layer, row); });
+}
+function paint() {
+  compute();
+  var F = focusSet(), L = loads();
+  var nOn = CASE.changes.filter(function (c) { return on[c.id]; }).length;
+  byId('bl-title').textContent = nOn === 0 ? 'Without ' + CASE.product + '.' : nOn === CASE.changes.length ? 'With ' + CASE.product + ': every change on.' : nOn + ' of ' + CASE.changes.length + ' changes on.';
+  byId('bl-note').textContent = ' ' + Object.keys(cur).length + ' entries on the register; ' + Object.keys(before).filter(function (ref) { return !cur[ref]; }).length + ' retired, ' + Object.keys(cur).filter(function (ref) { return !before[ref]; }).length + ' brought.';
+  CASE.changes.forEach(function (c) { var e = byId('bl-t-' + c.id); if (e) e.checked = !!on[c.id]; cls(chG[c.id], 'bl-ch', (on[c.id] ? 'on' : 'off') + (F && !F.changes[c.id] ? ' dim' : '') + (sel && sel.type === 'change' && sel.id === c.id ? ' sel' : '')); cls(chE[c.id], 'bl-e bl-e-prod', (on[c.id] ? 'on' : '') + (F && !(F.changes[c.id] && F.product) ? ' dim' : '')); });
+  cls(prod, 'bl-prod', (nOn ? 'on' : '') + (F && !F.product ? ' dim' : '') + (sel && sel.type === 'product' ? ' sel' : ''));
+  shown.forEach(function (r) {
+    var s = state(r.ref), d = F && !F.risks[r.ref];
+    cls(riskG[r.ref], 'bl-risk s-' + s, (r.layer === 'corporate' ? 'corp' : '') + (d ? ' dim' : '') + (sel && sel.type === 'risk' && sel.id === r.ref ? ' sel' : ''));
+    Object.keys(riskE[r.ref]).forEach(function (id) { cls(riskE[r.ref][id], 'bl-e bl-e-held', (s === 'hold' || s === 'new' ? 'on s-' + s : s === 'gone' ? 'gone' : '') + (F && !(F.risks[r.ref] && F.roles[id]) ? ' dim' : '')); });
+    if (chRiskE[r.ref]) Object.keys(chRiskE[r.ref]).forEach(function (cid) { var m = marg[cid]; cls(chRiskE[r.ref][cid], 'bl-e bl-e-ch', (m.retires[r.ref] ? 'retires' : m.brings[r.ref] ? 'brings' : '') + (F && !(F.risks[r.ref] && F.changes[cid]) ? ' dim' : '')); });
+    if (corpE[r.ref]) Object.keys(corpE[r.ref]).forEach(function (ref) { cls(corpE[r.ref][ref], 'bl-e bl-e-corp', (cur[r.ref] && cur[ref] ? 'on' : '') + (F && !(F.risks[r.ref] && F.risks[ref]) ? ' dim' : '')); });
+  });
+  MODEL.roles.forEach(function (r) { if (!POS[r.id]) return; var l = L[r.id], d = F && !F.roles[r.id];
+    cls(halo[r.id], 'bl-halo', (l.holds.length ? 'hot' : l.carries.length ? 'carries' : l.gone.length ? 'cleared' : '') + (d ? ' dim' : ''));
+    cls(roleG[r.id], 'bl-role', (d ? 'dim' : '') + (sel && sel.type === 'role' && sel.id === r.id ? ' sel' : ''));
+    if (orgE[r.id]) cls(orgE[r.id], 'bl-org', ((l.holds.length || l.carries.length) ? 'on' : '') + (F && !(F.roles[r.id] && F.roles[r.reports_to]) ? ' dim' : ''));
+    cls(badge[r.id].hot, 'bl-badge hot', (l.holds.length ? '' : 'hidden') + (d ? ' dim' : '')); badgeT[r.id].hot.textContent = l.holds.length ? String(l.holds.length) : '';
+    cls(badge[r.id].off, 'bl-badge off', (l.gone.length ? '' : 'hidden') + (d ? ' dim' : '')); badgeT[r.id].off.textContent = l.gone.length ? '−' + l.gone.length : '';
+    badge[r.id].off.setAttribute('transform', l.holds.length ? 'translate(22 0)' : '');
+  });
+  byId('bl-c-before').textContent = String(Object.keys(before).length); byId('bl-c-now').textContent = String(Object.keys(cur).length);
+  byId('bl-c-retired').textContent = String(Object.keys(before).filter(function (ref) { return !cur[ref]; }).length); byId('bl-c-added').textContent = String(Object.keys(cur).filter(function (ref) { return !before[ref]; }).length);
+  byId('bl-c-board').textContent = String(shown.filter(function (r) { return cur[r.ref] && r.assigned_to.indexOf('RO-board') >= 0; }).length);
+  showPanel(); showList(F);
+}
+paint();`;
+
+const LIVE_CSS = `
+/* the register, played live */
+:root{--bl-hot:rgba(192,57,43,.16);--bl-warm:rgba(26,127,90,.16);--bl-faint:rgba(26,25,23,.07);--bl-red-soft:#E8C4BE;--bl-gold-soft:#F3DDB5;--bl-green-soft:#BFE3D3}
+.bl-ctl{display:grid;grid-template-columns:.7fr 1.6fr;gap:14px 18px;margin-top:22px}
+.bl-ctl-g{display:flex;flex-direction:column;gap:6px}
+.bl-k{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:2px}
+.bl-btns{display:flex;flex-wrap:wrap;gap:6px}
+.bl-btn{font-family:var(--sans);font-size:13px;font-weight:600;padding:8px 13px;border-radius:var(--r-sm);border:1px solid var(--green);background:var(--green);color:var(--card);cursor:pointer}
+.bl-btn.ghost{background:transparent;color:var(--text);border-color:var(--border)}.bl-btn.ghost:hover{border-color:var(--green);color:var(--green)}
+.bl-sw{font-size:13.5px;line-height:1.45;color:var(--text);display:flex;gap:8px;align-items:flex-start;cursor:pointer}
+.bl-sw input{margin:3px 0 0;accent-color:var(--green);flex:none}.bl-sw em{color:var(--muted);font-style:normal;font-family:var(--mono);font-size:11.5px}
+.bl-sw.adds{color:var(--gold)}
+.bl-status{margin-top:16px;padding:12px 14px;border-radius:var(--r-sm);background:var(--bg2);font-size:14px;line-height:1.6;color:var(--muted)}
+.bl-status b{color:var(--text)}
+.bl-scroll{overflow-x:auto;margin-top:18px;-webkit-overflow-scrolling:touch}.bl-canvas{min-width:760px}.bl-canvas svg{aspect-ratio:1000/720}
+.bl-svg{width:100%;height:auto;display:block;font-family:var(--sans)}
+.bl-band{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.12em;fill:var(--faint)}
+.bl-org{stroke:var(--border);stroke-width:1.5;transition:opacity .35s}.bl-org.on{stroke:var(--red);stroke-width:2;opacity:.7}.bl-org.dim{opacity:.2}
+.bl-halo{fill:transparent;transition:fill .5s,opacity .35s}.bl-halo.hot{fill:var(--bl-hot);r:42}.bl-halo.carries{fill:var(--bl-hot);r:34;opacity:.55}.bl-halo.cleared{fill:var(--bl-warm)}.bl-halo.dim{opacity:.12}
+.bl-role{cursor:pointer;outline:none;transition:opacity .35s}.bl-role rect{fill:var(--card);stroke:var(--border);stroke-width:1.4}.bl-role:hover rect,.bl-role:focus rect{stroke:var(--green)}.bl-role.sel rect{stroke:var(--text);stroke-width:2.6}.bl-role.dim{opacity:.22}
+.bl-role-t{font-size:12px;font-weight:600;fill:var(--text)}
+.bl-badge circle{fill:var(--red)}.bl-badge.off circle{fill:var(--faint)}.bl-badge.hidden{display:none}.bl-badge.dim{opacity:.2}.bl-badge-t{font-family:var(--mono);font-size:10px;font-weight:700;fill:var(--card)}
+.bl-prod{cursor:pointer;outline:none;transition:opacity .35s}.bl-prod rect{fill:var(--bg2);stroke:var(--border);stroke-width:1.4}.bl-prod.on rect{fill:var(--greenBg);stroke:var(--green)}.bl-prod.sel rect{stroke:var(--text);stroke-width:2.6}.bl-prod.dim{opacity:.3}
+.bl-prod-t{font-size:12.5px;font-weight:700;fill:var(--text)}
+.bl-ch{cursor:pointer;outline:none;transition:opacity .35s}.bl-ch rect{fill:var(--card);stroke:var(--border);stroke-width:1.4;transition:fill .3s,stroke .3s}.bl-ch.on rect{fill:var(--greenBg);stroke:var(--green)}.bl-ch.sel rect{stroke:var(--text);stroke-width:2.6}.bl-ch.dim{opacity:.22}
+.bl-ch-t{font-size:10.5px;font-weight:600;fill:var(--text)}.bl-ch-k{font-family:var(--mono);font-size:9px;fill:var(--faint)}.bl-ch.off .bl-ch-t{fill:var(--faint)}
+.bl-e{fill:none;stroke-width:1.4;transition:opacity .45s;opacity:0}
+.bl-e-prod{stroke:var(--green)}.bl-e-prod.on{opacity:.45}
+.bl-e-held{stroke:var(--red);stroke-width:1.6}.bl-e-held.on{opacity:.55}.bl-e-held.on.s-new{stroke:var(--gold)}.bl-e-held.gone{opacity:.12;stroke-dasharray:3 3}
+.bl-e-ch{stroke:var(--green);stroke-dasharray:4 3}.bl-e-ch.retires{opacity:.5}.bl-e-ch.brings{opacity:.5;stroke:var(--gold)}
+.bl-e-corp{stroke:var(--faint)}.bl-e-corp.on{opacity:.45}
+.bl-e.dim{opacity:.04}
+.bl-risk{cursor:pointer;outline:none;transition:opacity .45s}.bl-risk-core{fill:var(--card);stroke:var(--faint);stroke-width:2}
+.bl-risk.s-hold .bl-risk-core{fill:var(--bl-red-soft);stroke:var(--red)}.bl-risk.s-new .bl-risk-core{fill:var(--bl-gold-soft);stroke:var(--gold)}
+.bl-risk.s-gone{opacity:.28}.bl-risk.s-gone .bl-risk-core{fill:var(--bg2);stroke:var(--faint);stroke-dasharray:2 2}.bl-risk.s-absent{opacity:0;pointer-events:none}
+.bl-risk.corp .bl-risk-core{stroke-width:2.5}.bl-risk.sel .bl-risk-core{stroke:var(--text);stroke-width:3}.bl-risk.dim:not(.s-absent){opacity:.1}
+.bl-risk-t{font-family:var(--mono);font-size:9.5px;font-weight:700;fill:var(--text)}
+.bl-panel{margin-top:10px;font-size:13.5px;line-height:1.6;color:var(--muted);min-height:1.6em}.bl-panel b{color:var(--text)}.bl-panel .bl-v{font-style:italic}.bl-panel ul{margin:6px 0 0;padding-left:18px}.bl-hint{margin-top:6px;font-size:12px;color:var(--faint)}
+.bl-counts{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:14px}
+.bl-counts>div{border:1px solid var(--border);border-radius:var(--r);background:var(--card);padding:10px 12px}.bl-counts b{display:block;font-size:22px;font-weight:800;letter-spacing:-.03em;color:var(--text);line-height:1.1}.bl-counts span{display:block;font-size:11.5px;line-height:1.5;color:var(--muted);margin-top:4px}
+.bl-legend{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:14px;font-size:12.5px;color:var(--muted)}.bl-legend span{display:inline-flex;align-items:center;gap:7px}
+.bl-lg{display:inline-block;width:14px;height:14px;border-radius:50%;border:2px solid var(--border);background:var(--card);flex:none}
+.bl-lg.hold{background:var(--bl-red-soft);border-color:var(--red)}.bl-lg.gone{border-color:var(--faint);border-style:dashed;opacity:.6}.bl-lg.new{background:var(--bl-gold-soft);border-color:var(--gold)}.bl-lg.corp{border-color:var(--red);border-width:3px}
+.bl-lg.badge{background:var(--red);border-color:var(--red);color:var(--card);font-family:var(--mono);font-size:9px;font-weight:700;font-style:normal;display:inline-grid;place-items:center;width:18px;height:16px;border-radius:999px}.bl-lg.badge.off{background:var(--faint);border-color:var(--faint)}
+.bl-lg.sw{border-radius:4px;background:var(--greenBg);border-color:var(--green)}
+.bl-list-wrap{margin-top:16px}.bl-list{margin-top:8px;border:1px solid var(--border);border-radius:var(--r-sm);overflow:hidden;background:var(--card)}
+.bl-lr{display:grid;grid-template-columns:minmax(0,2.2fr) minmax(0,.8fr) minmax(0,1.4fr) minmax(0,.6fr);border-top:1px solid var(--border)}.bl-lr:first-child{border-top:0}.bl-lr.head{background:var(--bg2)}
+.bl-lr>span{padding:8px 10px;font-size:12.5px;line-height:1.5;color:var(--muted)}.bl-lr>span+span{border-left:1px solid var(--border)}
+.bl-lr.head>span{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text)}
+.bl-lr .k{color:var(--text);font-weight:600}.bl-lr .mono{font-family:var(--mono);font-size:11px}.bl-lr.s-new .k{color:var(--gold)}.bl-lr.dim{opacity:.35}.bl-empty{padding:10px 12px;font-size:13px;color:var(--muted)}
+@media (max-width:900px){.bl-ctl{grid-template-columns:1fr}.bl-counts{grid-template-columns:repeat(3,minmax(0,1fr))}.bl-lr{grid-template-columns:1fr 1fr}.bl-lr.head{display:none}.bl-lr>span:first-child{grid-column:1 / -1}.bl-lr>span:nth-child(2){border-left:0}.bl-lr>span:nth-child(n+4){border-top:1px dashed var(--border)}.bl-lr>span:nth-child(4){border-left:0}}
+@media (max-width:640px){.bl-counts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (prefers-reduced-motion:reduce){.bl-org,.bl-halo,.bl-role,.bl-prod,.bl-ch,.bl-e,.bl-risk{transition:none}}
+`;
+
 // A buyer's figure: numbered steps left to right, then who reads what. Drawn from the case's data;
 // every string goes through esc, and the widths come from the count of steps.
 function flowFigure(f) {
@@ -331,10 +643,12 @@ function casePage(c) {
     </div>
   </section>
 
+  ${liveFigure(c)}
+
   ${(c.reduces || []).length ? `<section class="psection">
     <div class="wrap">
       <div class="shead">
-        <span class="tag">05 · Reduced, not retired</span>
+        <span class="tag">06 · Reduced, not retired</span>
         <h2>What it asks the agent to do, <span class="g">and why that is hope.</span></h2>
       </div>
       <div class="bc-exp">${c.reduces.map((r) => `<div><q>${esc(r.instruction)}</q><span>an expectation · less likely: ${r.risks.map((x) => `${esc(x)} ${esc(RISK[x].statement.toLowerCase())}`).join('; ')}</span></div>`).join('\n        ')}</div>
@@ -345,7 +659,7 @@ function casePage(c) {
   ${(c.adds || []).length || c.adds_note ? `<section class="psection alt">
     <div class="wrap">
       <div class="shead">
-        <span class="tag">06 · What it adds</span>
+        <span class="tag">07 · What it adds</span>
         <h2>Every product is also a new thing in the estate.</h2>
       </div>
       ${(c.adds || []).length ? changeTable(c.base, c.adds) : ''}
