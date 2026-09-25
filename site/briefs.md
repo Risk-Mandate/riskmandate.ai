@@ -366,6 +366,17 @@ Each one is linked in full, as received, with nothing edited. Where a brief and 
 - **The acceptance loop.** A case’s figure has the register only; the model has no acceptance records
 - **A capture guide for the cases.** The grammar is the visualiser’s, and its guide covers it
 
+### A brief for a ChatGPT image model: funny merchandise for people who hold the risk, for Amazon Merch on Demand, that somebody who has never heard of RiskMandate would buy
+
+**sha256** 396705a31466592d82d40e1e27775eeb2224b2285dfd0bd77d00ac2a03f12b38
+
+**Merch that sells to strangers.** The lead has a Merch on Demand account used for The Cyber Boardroom’s hoodies and t-shirts, and wants RiskMandate designs that somebody outside RiskMandate would buy: funny taglines about risk, plays on words, positioning, some with a small figure and some without, the logo present, a gift for a person who is into risk. A brief to hand to a ChatGPT image model by link.
+
+- [The brief](admin/briefs/merch__funny-designs-for-people-who-hold-the-risk/index.html), on the console with a markdown twin to hand over: RiskMandate in a paragraph, who buys and why, the brand kit, the print rules, forty-odd taglines in six families with the joke explained, twelve concepts, what a design must never carry, the prompt to paste, and what to send back
+- **The designs.** The image model makes them; the lead chooses
+- **Amazon’s current artwork specification**, to confirm on the account before uploading
+- **A trade-mark check** on the taglines before they go on sale
+
 ## And the instructions that arrived as speech or a sentence.
 
 These have no digest to check, which makes them the ones most easily lost — a voice memo that changed the direction of the whole site leaves no artefact at all unless somebody writes it down. So they are recorded here in the same list, with the same two columns.
@@ -445,7 +456,7 @@ sha256sum my-brief.md
 
 A register that only lists what was done is a press release.
 
-Every entry above carries what it asked for and did not get, and on most of the twenty-seven that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.
+Every entry above carries what it asked for and did not get, and on most of the twenty-eight that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.
 
 - **The file is the record, not this page.** [briefs-register.json](briefs-register.json) is what a program should read; this page renders it for people. If the two ever disagree, the file is right and the page is stale.
 - **Every archived document is byte-identical to what arrived.** Nothing is edited, reformatted or trimmed — including the parts we think are wrong. Where we disagree with a brief, the disagreement is published on the page it produced and marked as ours.
@@ -454,6 +465,6 @@ Every entry above carries what it asked for and did not get, and on most of the 
 
 Register maintained by hand alongside the work, and checked in CI: every document listed must exist at the path given and match its recorded digest, and every file in `assets/briefs/` must appear in the register. Last reconciled 16 September 2026.
 
-## Twenty-seven items. None untouched, and none finished.
+## Twenty-eight items. None untouched, and none finished.
 
-Every item now names something it produced and something it did not. Twenty-four of the twenty-seven are marked _partly_, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.
+Every item now names something it produced and something it did not. Twenty-five of the twenty-eight are marked _partly_, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.

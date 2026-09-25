@@ -75,11 +75,19 @@ a decision the lead owns, listed in the state fileneeds the lead
 
 a decision the lead owns, listed in the state fileneeds the lead
 
-## In flight — 0 branches
+## In flight — 1 branch
 
 One file per branch under `.claude/work/`. [How a work file is written](../../admin/work/about-work-files/).
 
-Nothing in flight.
+### [claude/dev-session-setup-a5wcc5](../../admin/work/branches/claude-dev-session-setup-a5wcc5/)
+
+started 25 September 2026 · task brief: D28, the lead in chat
+
+A brief for an image model, in `docs/briefs/`, rendered by the console; the register; the release.
+
+**External state.** Vaults built and unpushed: none · Release I will claim at merge: yes, v1.34.17, cut
+
+**Status.** [x] Brief written; map line added; D28 registered · [ ] Console built; the twin link checked; merge, CI green, live
 
 ## Task briefs — 14
 

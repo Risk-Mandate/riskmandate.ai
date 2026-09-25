@@ -880,6 +880,32 @@
         "The acceptance loop. The article's figure has holders, intervals and silence; a case's figure has the register only, because the model has no acceptance records. Adding them is the Risk Acceptance Office's work, not a case's.",
         "A capture guide for the cases, like the visualiser's article. The figure is the same grammar; the guide covers it."
       ]
+    },
+    {
+      "id": "D28",
+      "title": "A brief for a ChatGPT image model: funny merchandise for people who hold the risk, for Amazon Merch on Demand, that somebody who has never heard of RiskMandate would buy",
+      "version": null,
+      "type": "spoken brief, transcribed",
+      "dated": "2026-09-25",
+      "file": "assets/briefs/2026-09-25__transcript__merch-brief-for-a-chatgpt-image-model.txt",
+      "bytes": 1433,
+      "sha256": "396705a31466592d82d40e1e27775eeb2224b2285dfd0bd77d00ac2a03f12b38",
+      "received": [
+        "2026-09-25T20:00Z"
+      ],
+      "duplicate_of": null,
+      "status": "partly",
+      "produced": [
+        {
+          "what": "The brief, on the console with a markdown twin to hand to the image model: what RiskMandate is in one paragraph, who buys the shirt and why, the brand kit and where the files are, the print rules, forty-odd taglines in six families with the joke explained, twelve design concepts with and without a figure, what a design must never carry, the prompt to paste, and the output the lead wants back",
+          "url": "admin/briefs/merch__funny-designs-for-people-who-hold-the-risk/index.html"
+        }
+      ],
+      "not_done": [
+        "The designs. The image model makes them; the lead chooses.",
+        "Amazon's current artwork specification. The brief states the usual one and says to confirm it on the account before uploading.",
+        "A trade-mark check on the taglines before they go on sale, which the brief asks for."
+      ]
     }
   ],
   "informal": [
