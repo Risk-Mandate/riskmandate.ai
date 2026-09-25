@@ -119,6 +119,13 @@
       "unlisted": true
     },
     {
+      "name": "business-case-cloudgeni",
+      "label": "Business case · Cloudgeni and Opengeni",
+      "file": "business-case-cloudgeni.html",
+      "group": "Insurance",
+      "unlisted": true
+    },
+    {
       "name": "business-case-auth0-for-ai-agents",
       "label": "Business case · Auth0 for AI Agents (draft)",
       "file": "business-case-auth0-for-ai-agents.html",

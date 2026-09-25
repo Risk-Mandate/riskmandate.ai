@@ -5,7 +5,7 @@
 
 **2**received, nothing built yet*Archived and read, and nothing has been built from it yet.*
 
-**26**partly worked*read in full; a named part is not built*
+**27**partly worked*read in full; a named part is not built*
 
 **8**processed*something on the site exists because of it*
 
@@ -18,6 +18,10 @@ The queue. A document or a memo from the project lead arrives — a dev brief as
 spoken brief, transcribed · 1 produced · 2 not done25 September 2026 · partly
 
 **[A business case for Topgent: the open-source tool that measures what the agents on a machine can reach is most of an ABP's first pass; explain it from the buyer's desk; and say how to commercialise it, including sgit.ai vaults as its packaging](#D25)**
+
+spoken brief, transcribed · 3 produced · 3 not done25 September 2026 · partly
+
+**[A business case for Cloudgeni and Opengeni, the harness the Gmail and Calendar behaviour policies will be piloted in: the risks it reduces, and the size and blast radius of an ABP inside it](#D26)**
 
 spoken brief, transcribed · 3 produced · 3 not done25 September 2026 · partly
 
@@ -207,6 +211,22 @@ partly
 - A Topgent-fed ABP. The case says a run is most of the first pass; no run has been made, because that would mean running it, and the first one should be on a machine of ours with the author watching.
 - The lead's own reply to the author. The page is the material; the message is the lead's.
 - The two screenshots. They are a private conversation and are not archived; the case uses the repository only.
+
+D26 · spoken brief, transcribed · 25 September 2026
+
+## A business case for Cloudgeni and Opengeni, the harness the Gmail and Calendar behaviour policies will be piloted in: the risks it reduces, and the size and blast radius of an ABP inside it
+
+partly
+
+[the file as received](../../assets/briefs/2026-09-25__transcript__a-business-case-for-cloudgeni.txt) · `ecff4157737b…` · 0 KB
+
+**Produced.** [The case, computed like the others from Cloudgeni's documentation and Opengeni's README: six things they do in their words, five answers changed (changes need a person, what it did is replayable, it can be stopped in one action in minutes, its reach is stated at dispatch), the register before and after, what it adds, what adopting it takes, two places the pages disagree, what the case does not claim](../../business-case-cloudgeni.html) · [The harness mapped against the published Gmail ABP row by row: which of its four unbounded rows a run inside Opengeni would bound, and how, with the projection that unbounded excess goes from four to nought and two residual risks appear; the Calendar before-image as the pilot's first design decision](../../business-case-cloudgeni.html) · [The run from the buyer's desk, with a figure; and six notes on the pilot and the case as a product, including a vault per run as the evidence pack](../../business-case-cloudgeni.html)
+
+**Not done.**
+
+- The measurement. Every ABP entry is a projection from the pages; the pilot's first deliverable is the Gmail policy measured inside the harness, and that replaces the projection with its date.
+- The Calendar policies themselves, still in draft.
+- The message to Cloudgeni, which is the lead's.
 
 D12 · spoken brief, transcribed · 24 September 2026
 

@@ -468,6 +468,58 @@
           "url": "https://github.com/farikonsec/topgent"
         }
       ]
+    },
+    {
+      "id": "harness",
+      "name": "Agent harnesses and runtimes",
+      "what": "Around the agent: the session, the sandbox it runs in, the approvals that pause it, and the log of every step, held by an operator rather than by the agent.",
+      "baseline": {
+        "overrides": {
+          "q9": 2,
+          "q13": 2,
+          "q3": 1,
+          "q4": 2,
+          "q6": 2
+        }
+      },
+      "changes": [
+        {
+          "q": "q9",
+          "to": 1,
+          "kind": "boundary"
+        },
+        {
+          "q": "q13",
+          "to": 0,
+          "kind": "setting"
+        },
+        {
+          "q": "q3",
+          "to": 0,
+          "kind": "setting"
+        },
+        {
+          "q": "q4",
+          "to": 0,
+          "kind": "setting"
+        },
+        {
+          "q": "q6",
+          "to": 0,
+          "kind": "boundary"
+        }
+      ],
+      "adds_text": "A control plane holding prompts, repository content and the log; the harness's own components; an approval that is a person clicking.",
+      "examples": [
+        {
+          "name": "Opengeni",
+          "url": "https://github.com/Cloudgeni-ai/opengeni"
+        },
+        {
+          "name": "Cloudgeni",
+          "url": "https://docs.cloudgeni.ai/trust/security-commitment"
+        }
+      ]
     }
   ]
 }

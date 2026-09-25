@@ -36,7 +36,7 @@ No case can be computed until somebody has answered the questions truthfully abo
 
 The model is the RiskGraph Explorer’s, from one of our [live demos](demos.html), copied into this site with its provenance. It is small on purpose: sixteen questions, readable in one sitting, so an argument about a case is an argument about an answer, not about a formula. Nothing on these pages is a score, and no case is a statement that a product works; it is a statement of what changes in the register if it does what its documentation says.
 
-## 20 written so far, ours first.
+## 21 written so far, ours first.
 
 Our own product first, so the method is tested on us. Then open-source projects, OWASP’s first, which anybody can deploy and nobody has to pay for, but which cost something to adopt and more to customise; each case says what. Cases about commercial products are drafted from their own documentation and sent to the company before they are listed.
 
@@ -52,7 +52,7 @@ RiskMandate publishes its behaviour policies and toolkit openly and sells the wo
 
 The patterns, as facts. Some stay inside OWASP with a company alongside: DefectDojo, SAMM with Codific, secureCodeBox with iteratec. ZAP left OWASP in 2023, saying it could only be in one foundation, and became ZAP by Checkmarx in 2024. Several gave their project to a foundation and sell a distribution of it: Falco, Kyverno, agentgateway. Some sell a hosted control plane over an open engine. Two such companies closed in 2025: after the creators of Open Policy Agent joined Apple, OPA stayed a CNCF project with no change to its governance or licence; Aserto wound down as a commercial entity.
 
-## 13 categories, computed the same way.
+## 14 categories, computed the same way.
 
 Twelve kinds of product that could sit around an agent, each computed against the typical deployment with its own questions answered as they would be without it. Every row is our reading of what the category does, not any vendor’s claim, and the change is conservative on purpose: where a category could move an answer to _partly_ or _fully_, the row says _partly_.
 

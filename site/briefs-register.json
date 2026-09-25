@@ -821,6 +821,40 @@
         "The lead's own reply to the author. The page is the material; the message is the lead's.",
         "The two screenshots. They are a private conversation and are not archived; the case uses the repository only."
       ]
+    },
+    {
+      "id": "D26",
+      "title": "A business case for Cloudgeni and Opengeni, the harness the Gmail and Calendar behaviour policies will be piloted in: the risks it reduces, and the size and blast radius of an ABP inside it",
+      "version": null,
+      "type": "spoken brief, transcribed",
+      "dated": "2026-09-25",
+      "file": "assets/briefs/2026-09-25__transcript__a-business-case-for-cloudgeni.txt",
+      "bytes": 489,
+      "sha256": "ecff4157737b19bc45d675548c03424f690c1d9d1bd2e62dbaca99a5f5fc9b96",
+      "received": [
+        "2026-09-25T17:00Z"
+      ],
+      "duplicate_of": null,
+      "status": "partly",
+      "produced": [
+        {
+          "what": "The case, computed like the others from Cloudgeni's documentation and Opengeni's README: six things they do in their words, five answers changed (changes need a person, what it did is replayable, it can be stopped in one action in minutes, its reach is stated at dispatch), the register before and after, what it adds, what adopting it takes, two places the pages disagree, what the case does not claim",
+          "url": "business-case-cloudgeni.html"
+        },
+        {
+          "what": "The harness mapped against the published Gmail ABP row by row: which of its four unbounded rows a run inside Opengeni would bound, and how, with the projection that unbounded excess goes from four to nought and two residual risks appear; the Calendar before-image as the pilot's first design decision",
+          "url": "business-case-cloudgeni.html"
+        },
+        {
+          "what": "The run from the buyer's desk, with a figure; and six notes on the pilot and the case as a product, including a vault per run as the evidence pack",
+          "url": "business-case-cloudgeni.html"
+        }
+      ],
+      "not_done": [
+        "The measurement. Every ABP entry is a projection from the pages; the pilot's first deliverable is the Gmail policy measured inside the harness, and that replaces the projection with its date.",
+        "The Calendar policies themselves, still in draft.",
+        "The message to Cloudgeni, which is the lead's."
+      ]
     }
   ],
   "informal": [

@@ -75,11 +75,19 @@ a decision the lead owns, listed in the state fileneeds the lead
 
 a decision the lead owns, listed in the state fileneeds the lead
 
-## In flight — 0 branches
+## In flight — 1 branch
 
 One file per branch under `.claude/work/`. [How a work file is written](../../admin/work/about-work-files/).
 
-Nothing in flight.
+### [claude/dev-session-setup-a5wcc5](../../admin/work/branches/claude-dev-session-setup-a5wcc5/)
+
+started 25 September 2026 · task brief: D26, the lead in chat
+
+A business case for Cloudgeni and Opengeni, with the harness mapped against the published Gmail ABP. A new category. The register. The generator lets a case name its market section's heading.
+
+**External state.** Vaults built and unpushed: none · Release I will claim at merge: yes, v1.34.15, cut
+
+**Status.** [x] Case written from the public pages, dated; nothing from the call · [ ] Page built and checked in Chromium; the figure measured for overflow · [ ] Merge, CI green, live
 
 ## Task briefs — 14
 
