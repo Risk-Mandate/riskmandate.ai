@@ -1,0 +1,5 @@
+Great, now can you write a comprehensive and thorough attitude just about this graph visualisation, where you use lots of screenshots (with strategic nodes clicked and sections/paths highlighted) to explain what is going on , and how to read (and use) this super powerful tool / Risk propagation visualizer
+
+Let's start with the user, as this is a business function, the use case, right? And explain that and then walk it through actually some of the multiple scenarios and including the remediation and the controls. And it might be worth doing each of them uh, of the three, you know, um, in isolation and then start looking at them combined. So you have the, the CRM, the mail and the calendar, or the mail, CRM and calendar, and you can start showing them in action. Individual, then you show them and combine, and then you start to show also including each one as far as the remediation goes and how does it affect the risks.
+
+ Start with  The user stories. The story. The narrative. Then we enter business analysis. And end with the technical analysis of what's going on. Because this is super powerful.

@@ -1,0 +1,774 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>One agent, and every desk it reaches. How to read the risk propagation visualiser.</title>
+<meta name="description" content="A guide to the figure that draws one agent's risks live: who it is for, the six-week story, how to read the bands and colours, each connection alone and then combined, each control alone and then all of them, what a business gets from it, and how it works. Every picture is a capture of the figure in the state its caption names.">
+<link rel="canonical" href="https://riskmandate.ai/article-risk-propagation-visualiser.html">
+<link rel="alternate" type="text/markdown" href="article-risk-propagation-visualiser.md" title="This page as markdown">
+<link rel="icon" href="assets/brand/riskmandate-favicon-32.png" sizes="32x32">
+<link rel="icon" href="assets/brand/riskmandate-mark.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RiskMandate">
+<meta property="og:url" content="https://riskmandate.ai/article-risk-propagation-visualiser.html">
+<meta property="og:title" content="One agent, and every desk it reaches. How to read the risk propagation visualiser.">
+<meta property="og:description" content="A guide to the figure that draws one agent's risks live: who it is for, the six-week story, how to read the bands and colours, each connection alone and then combined, each control alone and then all of them, what a business gets from it, and how it works. Every picture is a capture of the figure in the state its caption names.">
+<meta property="og:image" content="https://riskmandate.ai/assets/brand/riskmandate-lockup-light.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Scaffolded by scripts/site/new-page.mjs. Hand-edited from here on — there is no build step. -->
+<style>
+/* article-risk-propagation-visualiser.css — self-contained: the shared chrome, then this page's own. */
+:root{
+  --bg:#F7F6F2; --bg2:#EFEDE7; --card:#FFFFFF; --ink:#0D0D0C; --canvas:#0A0A09;
+  --text:#1A1917; --muted:#4A4845; --faint:#8A8780; --border:#E2DFD8;
+  --green:#1A7F5A; --green-2:#22c55e; --greenBg:#EBF5F0;
+  --gold:#B45309; --red:#C0392B; --blue:#1D4ED8;
+  --fg:#F7F6F2; --fg-2:rgba(247,246,242,.55); --fg-3:rgba(247,246,242,.32);
+  --line:rgba(247,246,242,.10); --line-2:rgba(247,246,242,.18);
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","JetBrains Mono","Roboto Mono",Menlo,Consolas,monospace;
+  --wrap:1000px; --r:10px; --r-sm:8px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth} @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+h1,h2{margin:0;font-weight:800;letter-spacing:-.03em;line-height:1.04}
+h2{font-size:clamp(26px,3.6vw,40px);font-weight:700;letter-spacing:-.02em}
+p{margin:0}
+:focus-visible{outline:2px solid var(--green-2);outline-offset:3px;border-radius:4px}
+.tag{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+.g{color:var(--green)} .it{font-style:italic;color:var(--green)}
+
+/* header */
+.top{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.top .wrap{display:flex;align-items:center;gap:22px;height:56px;max-width:1100px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:15px;color:var(--text);white-space:nowrap;text-decoration:none}
+.rm{width:26px;height:26px;flex:none;display:block}
+.rm svg{width:100%;height:100%;display:block}
+.navlinks{display:flex;align-items:center;gap:22px;margin-left:auto}
+rm-menu{display:contents}
+.navlinks a{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;text-decoration:none;display:inline-flex;align-items:center}
+.navlinks a:hover{color:var(--text)}
+.navlinks a.active{color:var(--text);font-weight:600}
+.version{font-family:var(--mono);font-size:12px;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:7px;padding:5px 8px;text-decoration:none;white-space:nowrap;transition:color .15s,border-color .15s}
+.version:hover{color:var(--text);border-color:var(--faint)}
+.demo{background:var(--green);color:#fff;font-weight:600;font-size:13px;border:0;border-radius:8px;padding:8px 16px;cursor:pointer;transition:background .15s;font-family:var(--sans);white-space:nowrap}
+.demo:hover{background:#16704f}
+
+/* nav dropdowns */
+.navgroup{position:relative;display:inline-flex;align-items:center}
+.navgroup::after{content:"";position:absolute;top:100%;left:0;right:0;height:10px}
+.navgroup-btn{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;display:inline-flex;align-items:center;gap:5px}
+.navgroup-btn:hover,.navgroup:hover .navgroup-btn,.navgroup.open .navgroup-btn,.navgroup.active .navgroup-btn{color:var(--text)}
+.navgroup-car{font-size:8px;line-height:1;opacity:.6;transition:transform .15s}
+.navgroup:hover .navgroup-car,.navgroup.open .navgroup-car{transform:rotate(180deg)}
+.navmenu{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);min-width:184px;background:var(--card);border:1px solid var(--border);border-radius:10px;box-shadow:0 10px 34px rgba(13,13,12,.14);padding:6px;display:none;flex-direction:column;gap:2px;z-index:70}
+.navgroup:hover .navmenu,.navgroup.open .navmenu{display:flex}
+.navmenu .navchild{justify-content:flex-start;text-align:left;width:100%;padding:8px 12px;border-radius:7px;font-size:13.5px;color:var(--muted);white-space:nowrap}
+.navmenu .navchild:hover{background:var(--bg2);color:var(--text)}
+.navmenu .navchild.active{color:var(--green);font-weight:600;background:var(--greenBg)}
+
+/* mobile drawer — the toggle is injected by nav.js; .top.nav-open opens it */
+.navtoggle{display:none;margin-left:auto;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;padding:0;background:none;border:0;cursor:pointer}
+.navtoggle span{display:block;width:20px;height:2px;margin:0 auto;background:var(--text);border-radius:2px;transition:transform .2s,opacity .2s}
+.top.nav-open .navtoggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.top.nav-open .navtoggle span:nth-child(2){opacity:0}
+.top.nav-open .navtoggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media (max-width:1040px){
+  .navtoggle{display:flex}
+  .top .wrap{position:relative}
+  .version{display:none}
+  .navlinks{display:none;position:absolute;left:0;right:0;top:calc(100% + 1px);flex-direction:column;align-items:stretch;gap:0;margin:0;padding:8px;background:var(--card);border-bottom:1px solid var(--border);box-shadow:0 14px 34px rgba(13,13,12,.14);max-height:calc(100vh - 56px);overflow:auto}
+  .top.nav-open .navlinks{display:flex}
+  .navlinks a,.navlinks .navgroup-btn{width:100%;text-align:left;justify-content:flex-start;padding:12px 16px;font-size:15px;border-radius:8px}
+  .navlinks a:hover{background:var(--bg2)}
+  .navgroup{display:block;width:100%;position:static}
+  .navgroup::after{display:none}
+  .navgroup-btn{display:flex}
+  .navgroup-car{margin-left:auto}
+  .navmenu{position:static;transform:none;display:flex;flex-direction:column;min-width:0;padding:2px 0 8px 14px;background:transparent;border:0;box-shadow:none}
+  .navmenu .navchild{padding:10px 14px;font-size:14px}
+}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;padding:12px 22px;border-radius:var(--r-sm);cursor:pointer;border:1px solid transparent;font-family:var(--sans);text-decoration:none}
+.btn-green{background:var(--green);color:#fff} .btn-green:hover{background:#16704f}
+.btn-ghost{background:transparent;color:var(--fg);border-color:var(--line-2)} .btn-ghost:hover{border-color:var(--fg-2)}
+.btn-ghost-dark{background:transparent;color:var(--text);border-color:var(--border)} .btn-ghost-dark:hover{border-color:var(--green);color:var(--green)}
+
+/* dark hero */
+.phero{background:var(--ink);color:var(--fg);padding:88px 24px 84px}
+.phero .wrap{max-width:var(--wrap)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--green);background:rgba(26,127,90,.18);border:1px solid rgba(26,127,90,.4);border-radius:999px;padding:5px 12px}
+.eyebrow .d{width:6px;height:6px;border-radius:50%;background:var(--green-2)}
+.phero h1{font-size:clamp(34px,5.2vw,60px);letter-spacing:-.04em;line-height:1.02;margin:26px 0 0;color:var(--fg);max-width:900px}
+.phero .sub{color:var(--fg-2);font-size:17px;line-height:1.7;max-width:640px;margin-top:24px}
+.cta-row{display:flex;flex-wrap:wrap;gap:11px;margin-top:30px}
+
+/* paper sections */
+.paper{background:var(--bg)}
+.psection{padding:80px 0;border-bottom:1px solid var(--border)}
+.psection.alt{background:var(--bg2)}
+.shead{max-width:680px} .shead.center{max-width:720px;margin:0 auto;text-align:center}
+.shead h2{color:var(--text)} .shead p{color:var(--muted);margin-top:16px;font-size:15px;line-height:1.75}
+
+/* closing panel + footer */
+.pcta{background:var(--ink);padding:80px 24px;text-align:center}
+.pcta .wrap{max-width:720px;padding:0}
+.pcta h2{font-size:clamp(28px,4.4vw,48px);color:var(--fg);margin-top:20px;font-weight:700;letter-spacing:-.03em}
+.pcta p{color:var(--fg-2);margin-top:16px;font-size:16px;line-height:1.7}
+.pcta .cta-row{justify-content:center}
+.foot{background:var(--canvas);border-top:1px solid var(--line);padding:32px 24px}
+.foot .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-family:var(--mono);font-size:10px;color:var(--fg-3);max-width:1100px}
+.footlink{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.footlink:hover{color:var(--fg-2)}
+/* narrow phones — at 360px the brand, the burger and the call to action stop
+   fitting on one line, and the header was the last thing on this site that
+   scrolled sideways. Tighten the gutter, the gap and the button rather than
+   drop any of them: all three are load-bearing at this width. */
+@media (max-width:420px){
+  .top .wrap{gap:12px;padding:0 16px}
+  .brand{font-size:14px;gap:7px}
+  .rm{width:24px;height:24px}
+  .demo{padding:8px 12px;font-size:12.5px}
+}
+
+/* article-risk-propagation-visualiser — reading a figure, with the figure's own pictures */
+.phero .meta{font-family:var(--mono);font-size:12px;color:rgba(255,255,255,.6);line-height:1.7;margin-top:6px;max-width:820px}
+.phero .meta b{color:rgba(255,255,255,.85)}
+.phero .meta a{color:inherit}
+.rp-note{font-size:15px;line-height:1.75;color:var(--muted);max-width:880px;margin-top:16px}
+.rp-note b,.rp-note em{color:var(--text)}
+.rp-note a,.rp-cell a,.rp-story a,.rp-fig a{color:var(--green)}
+.rp-note code,.rp-t code{font-family:var(--mono);font-size:.9em;background:var(--bg2);border-radius:4px;padding:1px 5px;overflow-wrap:anywhere}
+.rp-k{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+.rp-fig{margin:26px 0 0;max-width:1000px}
+.rp-fig img{display:block;width:100%;height:auto;border:1px solid var(--border);border-radius:var(--r);background:var(--card)}
+.rp-fig.narrow{max-width:760px}
+.rp-fig figcaption{margin-top:10px;font-family:var(--mono);font-size:11px;line-height:1.7;color:var(--faint)}
+.rp-fig figcaption b{color:var(--text);font-weight:600}
+.rp-two{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:26px;max-width:1000px}
+.rp-two .rp-fig{margin-top:0}
+.rp-stories{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
+.rp-story{border:1px solid var(--border);border-radius:var(--r);padding:20px 22px;background:var(--card)}
+.rp-story h3{font-size:16px;color:var(--text);margin:6px 0 8px;letter-spacing:-.01em}
+.rp-story p{font-size:14px;line-height:1.7;color:var(--muted)}
+.rp-story p+p{margin-top:8px}
+.rp-story .q{font-style:italic;color:var(--text)}
+.rp-t{margin-top:26px;border:1px solid var(--border);border-radius:var(--r);background:var(--card);overflow:hidden;max-width:1000px}
+.rp-r{display:grid;border-top:1px solid var(--border)}
+.rp-r:first-child{border-top:0;background:var(--bg2)}
+.rp-r>span{padding:11px 14px;font-size:13.5px;line-height:1.6;color:var(--muted)}
+.rp-r>span+span{border-left:1px solid var(--border)}
+.rp-r:first-child>span{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text)}
+.rp-r>span:first-child{color:var(--text);font-weight:600}
+.rp-r .red{color:var(--red)}.rp-r .grn{color:var(--green)}
+.rp-t.read .rp-r{grid-template-columns:minmax(0,.7fr) minmax(0,1.6fr) minmax(0,1.3fr)}
+.rp-t.ctl .rp-r{grid-template-columns:minmax(0,1.1fr) minmax(0,1.2fr) minmax(0,.9fr) minmax(0,1.2fr) minmax(0,.5fr)}
+.rp-t.model .rp-r{grid-template-columns:minmax(0,.8fr) minmax(0,1.6fr) minmax(0,1.2fr)}
+.rp-t.iso .rp-r{grid-template-columns:minmax(0,.7fr) minmax(0,.9fr) minmax(0,1.2fr) minmax(0,1.2fr) minmax(0,.9fr)}
+.rp-rules{counter-reset:r;display:flex;flex-direction:column;margin-top:24px;max-width:900px}
+.rp-rule{position:relative;padding:18px 0 18px 54px;border-top:1px solid var(--border)}
+.rp-rule:last-child{border-bottom:1px solid var(--border)}
+.rp-rule::before{counter-increment:r;content:counter(r,decimal-leading-zero);position:absolute;left:0;top:19px;font-family:var(--mono);font-size:13px;font-weight:700;color:var(--green)}
+.rp-rule h3{font-size:16px;color:var(--text);margin:0 0 6px;letter-spacing:-.01em}
+.rp-rule p{font-size:14.5px;line-height:1.7;color:var(--muted)}
+.rp-rule p+p{margin-top:8px}
+.rp-qs{margin:22px 0 0;padding:0;list-style:none;max-width:880px;display:flex;flex-direction:column}
+.rp-qs li{padding:12px 0 12px 30px;border-top:1px solid var(--border);font-size:15px;line-height:1.65;color:var(--text);position:relative}
+.rp-qs li:last-child{border-bottom:1px solid var(--border)}
+.rp-qs li::before{content:"?";position:absolute;left:4px;top:12px;font-family:var(--mono);font-weight:700;color:var(--green)}
+.rp-qs li span{display:block;font-size:13.5px;color:var(--muted);margin-top:2px}
+.rp-code{margin:22px 0 0;max-width:880px;background:var(--ink);color:var(--fg);border-radius:var(--r);padding:18px 20px;font-family:var(--mono);font-size:12.5px;line-height:1.7;overflow-x:auto;white-space:pre}
+@media (max-width:900px){
+  .rp-two,.rp-stories{grid-template-columns:1fr}
+  .rp-t .rp-r{grid-template-columns:1fr 1fr !important}
+  .rp-t .rp-r:first-child{display:none}
+  .rp-t .rp-r>span:first-child{grid-column:1 / -1;border-bottom:1px solid var(--border)}
+  .rp-t .rp-r>span:nth-child(2){border-left:0}
+  .rp-t .rp-r>span:nth-child(n+4){border-top:1px dashed var(--border)}
+  .rp-t .rp-r>span:nth-child(4){border-left:0}
+  .rp-t .rp-r>span[data-k]::before{content:attr(data-k);display:block;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:3px}
+}
+@media (max-width:640px){
+  .rp-t .rp-r{grid-template-columns:1fr !important}
+  .rp-t .rp-r>span+span{border-left:0 !important;border-top:1px dashed var(--border)}
+  .rp-t .rp-r>span:first-child{border-bottom:0}
+  .rp-rule{padding-left:40px}
+}
+
+.ghlink{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:8px;color:var(--muted);border:1px solid transparent}.ghlink:hover{color:var(--text);border-color:var(--border)}
+.footlic{display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap}.footlic a{color:inherit}.ccicon{vertical-align:-3px;margin:0 2px}
+@media (max-width:1400px) and (min-width:901px){.ghlink{display:none}header.top .wrap{gap:14px}}</style>
+</head>
+<body id="top">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
+    <nav class="navlinks"><rm-menu></rm-menu></nav>
+    <a class="ghlink" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener" aria-label="The source, on GitHub" title="Open source · Apache-2.0 code · CC BY 4.0 pages"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a>
+      <a class="version" href="versions.html" title="What shipped in v1.34.12">v1.34.12</a>
+    <button class="demo" data-demo>Book a demo</button>
+  </div>
+</header>
+
+<main class="phero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span>ARTICLE · 25 SEPTEMBER 2026</span>
+    <h1>One agent, and every desk it reaches. How to read the risk propagation visualiser.</h1>
+    <p class="sub" style="margin-bottom:20px">A sales rep connects an assistant to their mail, their CRM and their calendar. Nine things it can now do; four of them were asked for. Every one of the other five is a risk from that moment, held by somebody, carried by everybody above them, and it does not stop until it reaches the board. The visualiser draws that, live: connect and disconnect, add a control, and watch the red travel up and the green take its place. This is the guide to reading it and using it: who it is for, the story it tells, what a business gets from it, and how it works.</p>
+    <p class="meta"><b>The figure:</b> on <a href="article-who-owns-what-in-ai.html#wo-figA-wrap">Who owns what in AI</a>, section 05. Every picture here is a capture of it, in the state the caption names, taken on 25 September 2026.</p>
+    <p class="meta"><b>The example:</b> an invented company and an invented agent. Nobody&rsquo;s system was tested. Two product facts are used, both quoted from vendors&rsquo; pages on the article the figure sits on.</p>
+    <p class="meta"><b>This page as markdown:</b> <a href="article-risk-propagation-visualiser.md">article-risk-propagation-visualiser.md</a></p>
+  </div>
+</main>
+
+<div class="paper">
+
+<section class="psection">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">01 · Who it is for</span>
+      <h2>Seven people, <span class="g">one picture.</span></h2>
+      <p>This is a business function before it is a security one. The people who need the picture are the ones who own the consequences, and most of them will never read an Agent Behaviour Policy row by row. Each of them arrives with one question, and the visualiser is built so that one click answers it.</p>
+    </div>
+    <div class="rp-stories">
+      <div class="rp-story"><span class="rp-k">The rep, who connected it</span><h3>&ldquo;What did I just switch on?&rdquo;</h3><p class="q">As the person who connected the assistant, I want to see what it can do beyond what I asked, so that I am not the last to find out.</p><p>Click the assistant. Every row it can reach lights, the ones in the mandate in green and the rest in red, and the panel says which risks hold because of it. Click <em>the rep</em> and the picture narrows to what is inside their own authority: reading their own mail, and later their own calendar.</p></div>
+      <div class="rp-story"><span class="rp-k">The head of Sales, who said yes</span><h3>&ldquo;What am I now answerable for?&rdquo;</h3><p class="q">As the manager who approved it, I want to see the risks placed with me and what would end them, so that I can accept, fund or fix with my eyes open.</p><p>Click <em>Sales</em>: the risks it holds, the ones it carries from the rep, and the path up to the CEO. The list under the figure gives each one its state, the fact that established it, and the control that would end it.</p></div>
+      <div class="rp-story"><span class="rp-k">The CISO and the CIO</span><h3>&ldquo;Which fact makes this true, and which control ends it?&rdquo;</h3><p class="q">As the person the map routes data risks to, I want to see the risk in terms of facts and barriers, so that I can argue about a fact and not an opinion.</p><p>Click R2, the stranger&rsquo;s email: three rows light, two connections, one chain. Tick the approval step and watch it cease, citing the ABP version, and watch the residual appear in its place.</p></div>
+      <div class="rp-story"><span class="rp-k">Legal and the CFO</span><h3>&ldquo;Why is this on my desk?&rdquo;</h3><p class="q">As a role that is usually informed and rarely asked, I want to see the risk that is mine to hold and the fact that ends it, so that a contract or a written answer counts as a control.</p><p>Click <em>Legal</em>: one risk, that customer mail goes to the provider and the notice does not say so. Tick the terms and it ceases. The CFO&rsquo;s is the cover. Neither is technical, and both end a risk.</p></div>
+      <div class="rp-story"><span class="rp-k">The CEO</span><h3>&ldquo;What reaches me, and how much of it is red?&rdquo;</h3><p class="q">As the person every path runs through, I want the aggregate and the colour, so that I know how many risks nobody has signed for.</p><p>The two circles on the CEO: red for the unaccepted risks reaching them, black for the accepted. Click the CEO and every risk below stays lit, with its holder; the panel lists what the CEO holds and what they carry.</p></div>
+      <div class="rp-story"><span class="rp-k">The board</span><h3>&ldquo;Who has accepted this, and until when?&rdquo;</h3><p class="q">As the board, I want the two questions answered for every open risk, so that oversight is a list with names and dates on it.</p><p>The list under the figure is the board&rsquo;s view: every risk that holds, its holder, its state, when its acceptance runs out, and the chain it reaches. Day 42 of the six weeks is what a good quarter looks like: nine open, none unaccepted, every path green.</p></div>
+      <div class="rp-story"><span class="rp-k">The person who writes the behaviour policy</span><h3>&ldquo;Is the record right?&rdquo;</h3><p class="q">As the author of the ABP, I want the figure to be computed from my rows and nothing else, so that a wrong picture means a wrong row, and I can fix the row.</p><p>Everything drawn comes from the rows, the risks, the roles and the controls in the page&rsquo;s own data. Section 08 says how. If the picture disagrees with the deployment, the row is wrong, and the row is the thing to correct.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="psection alt">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">02 · The story</span>
+      <h2>Six weeks, <span class="g">from a Monday morning.</span></h2>
+      <p>A company of two hundred people sells software to other businesses. On a Monday a sales rep connects an assistant to their email, their calendar and the CRM, so it can draft follow-ups and suggest meeting times. Their manager says yes. Nobody else is asked, because nothing about it looks like a decision. Press <em>Play the six weeks</em> and this is what the figure shows.</p>
+    </div>
+    <figure class="rp-fig"><img src="assets/articles/risk-propagation/00-not-connected.webp" width="1353" height="948" loading="lazy" alt="The figure with nothing connected: the assistant at the bottom, three grey connections, nine faint rows, no risks, and the roles up to the board with no colour on any of them."><figcaption><b>Before the Monday.</b> Nothing is connected, so nothing holds. The rows are the nine things the assistant could do; they are faint because none of them is in the grant yet.</figcaption></figure>
+    <figure class="rp-fig"><img src="assets/articles/risk-propagation/42-all-three.webp" width="1353" height="948" loading="lazy" alt="All three connections on: nine rows lit, nine risks in the risks band, each drifted under the role that holds it, and every path from those roles to the board in red. The board shows a red 8 and a black 1."><figcaption><b>Day 0, the moment of connection.</b> Nine rows in the grant, four in the mandate (green), five in the gap (red). Nine risks are established at once. Eight are placed by the map with the role whose area they touch and are unaccepted, so their paths are red all the way up. One, R0, is inside the rep&rsquo;s own authority and the rep accepts it by connecting: the green one. The board reads <em>8 red, 1 black</em>.</figcaption></figure>
+    <p class="rp-note"><b>Day 2 and 3.</b> The holders decide. The head of Sales accepts R7 for a month (the team&rsquo;s customer mail is inside Sales&rsquo; authority), funds R1 for two weeks while IT adds an approval step to sending, and asks the CRM administrator to fix R4. The CISO accepts R2 for two weeks, noting that R1&rsquo;s fix ends it too. The CIO funds R3 for a month while export is removed from the scope. Legal funds RL for three months: processing terms with the provider and a notice to customers. The CFO funds RC for three months: the broker is asked, in writing, what the cover says about an agent acting as staff.</p>
+    <figure class="rp-fig"><img src="assets/articles/risk-propagation/50-day3-accepted.webp" width="1353" height="948" loading="lazy" alt="Day 3: the same nine risks, now green except R5 at the COO, which is still red; the board shows a red 1 and a black 8."><figcaption><b>Day 3.</b> Eight of nine accepted or funded, and their paths are green. R5, the shared calendar, sits with the COO, who has not decided, so the COO&rsquo;s path is still red, and the board reads <em>1 red, 8 black</em>. Nothing about the agent has changed yet; what changed is that people signed.</figcaption></figure>
+    <div class="rp-two">
+      <figure class="rp-fig"><img src="assets/articles/risk-propagation/51-day4-crm-limit.webp" width="1353" height="948" loading="lazy" alt="Day 4: row 5 now has a thick green ring, R4 has faded, and a new green risk G2 sits with Sales."><figcaption><b>Day 4, the first control lands.</b> The CRM limits the rep to their own accounts. Row 5&rsquo;s barrier becomes a boundary (the thick green ring), the fact behind R4 no longer holds, and R4 ceases, citing ABP version 2. G2 takes its place: wrong entries on the rep&rsquo;s own accounts still happen, at machine speed. It is Sales&rsquo; and it is accepted.</figcaption></figure>
+      <figure class="rp-fig"><img src="assets/articles/risk-propagation/52-day7-r5-moves-up.webp" width="1353" height="948" loading="lazy" alt="Day 7: R5 has drifted from under the COO to under the CEO, its edge red; the COO no longer carries anything."><figcaption><b>Day 7, silence.</b> The COO has not acted on R5 in a week. It moves to the CEO, whom the COO answers to. The CEO was already carrying it in red; now the CEO holds it, and it is critical there.</figcaption></figure>
+    </div>
+    <div class="rp-two">
+      <figure class="rp-fig"><img src="assets/articles/risk-propagation/53-day10-calendar-narrowed.webp" width="1353" height="948" loading="lazy" alt="Day 10: row 7 is replaced by row 7b, edit own calendar; R5 has faded and R6 sits green with the rep; every path is green and the board reads 9."><figcaption><b>Day 10.</b> The CEO narrows calendar access to the rep&rsquo;s own calendar. Row 7 leaves the grant and row 7b arrives; R5 ceases on ABP version 3. The assistant can still edit the rep&rsquo;s own events, so R6 is established, inside the rep&rsquo;s authority, and accepted. For the first time every path to the board is green.</figcaption></figure>
+      <figure class="rp-fig"><img src="assets/articles/risk-propagation/54-day15-approval.webp" width="1353" height="948" loading="lazy" alt="Day 15: row 3 has a thick green ring, R1 and R2 have faded, and G1 sits with the rep and G4 with the CISO, both green."><figcaption><b>Day 15.</b> The approval step goes live: sending needs the rep&rsquo;s approval, somewhere the assistant cannot reach. Row 3 is bounded; R1 ceases; R2 needed all three of its rows, loses one and ceases too. The lethal trifecta is broken on evidence. Two residuals appear: G1, a message approved in a hurry still goes out (the rep&rsquo;s), and G4, an approval is a person clicking and people get worn down (the CISO&rsquo;s).</figcaption></figure>
+    </div>
+    <figure class="rp-fig"><img src="assets/articles/risk-propagation/55-day42-board.webp" width="1353" height="950" loading="lazy" alt="Day 42: nine green risks, four faded ceased ones, every path green, the board reading 9 in black."><figcaption><b>Day 42, what the board sees.</b> Nine open risks and none unaccepted: four still funded or accepted from the gap (R3, R7, RL, RC), five inside their holders&rsquo; own authority, three of them the residuals of controls. Four ceased, each citing the version that ended it. Unbounded excess went from five to three.</figcaption></figure>
+    <figure class="rp-fig"><img src="assets/articles/risk-propagation/80-strip.webp" width="1353" height="530" loading="lazy" alt="The six weeks as a strip: thirteen lines, one per risk, coloured by state across forty-two days, with endings marked by ABP version and a small arrow on R5 at day 7."><figcaption><b>The same six weeks on one strip.</b> Red is unaccepted, green accepted, hatched is funded. The small arrow on R5 is the week of silence. The last three lines begin where a control landed: the residuals, accepted from that day.</figcaption></figure>
+    <p class="rp-note">That is the whole story, and it is a story about people signing and facts changing. Nobody argued a risk down. Each one ended because a row changed, and the record says which version changed it.</p>
+  </div>
+</section>
+
+<section class="psection">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">03 · How to read it</span>
+      <h2>Six bands, two colours, <span class="g">and a click.</span></h2>
+      <p>The figure is drawn bottom up, the way the risk travels. Everything below the roles is the behaviour policy; everything from the roles up is the organisation.</p>
+    </div>
+    <div class="rp-t read" role="table" aria-label="The six bands of the figure">
+      <div class="rp-r" role="row"><span role="columnheader">Band</span><span role="columnheader">What it shows</span><span role="columnheader">What to click for</span></div>
+      <div class="rp-r" role="row"><span role="cell">Agent</span><span role="cell" data-k="Shows">The assistant, acting as the rep in every account. When the execution proxy is on, it is drawn between the assistant and its connections.</span><span role="cell" data-k="Click for">Everything the assistant can reach, and every risk that holds because of it.</span></div>
+      <div class="rp-r" role="row"><span role="cell">Connects</span><span role="cell" data-k="Shows">Mail, CRM, Calendar. Green when connected.</span><span role="cell" data-k="Click for">The rows that connection grants, the risks they establish and the roles they reach; and why the scope cannot be narrower.</span></div>
+      <div class="rp-r" role="row"><span role="cell">The ABP</span><span role="cell" data-k="Shows">The nine rows. Green: in the mandate. Red fill: in the gap with nothing in the way. Red dashes: an expectation in the way. Thick green ring: a boundary in the way. Faint: not in the grant.</span><span role="cell" data-k="Click for">Rows are not clickable; a risk or a connection lights the rows it involves.</span></div>
+      <div class="rp-r" role="row"><span role="cell">Risks</span><span role="cell" data-k="Shows">One circle per risk that holds. Red: unaccepted. Green: accepted or funded. Larger: needs more facts. Faded and dashed: ceased. Each drifts to sit under its holder.</span><span role="cell" data-k="Click for">What establishes it, its consequence, whether it can be undone, who holds it, and how far up it reaches.</span></div>
+      <div class="rp-r" role="row"><span role="cell">Roles</span><span role="cell" data-k="Shows">The organisation chart the company drew. A halo: something reaches this role. Red path: an unaccepted risk is below. Two circles: red counts the unaccepted risks reaching the role, black the accepted.</span><span role="cell" data-k="Click for">What it holds, what it carries from below, what it is informed of, and what the map says it protects.</span></div>
+      <div class="rp-r" role="row"><span role="cell">Board</span><span role="cell" data-k="Shows">Where every path ends. Its two circles are the totals.</span><span role="cell" data-k="Click for">Every open risk, since every one reaches it.</span></div>
+    </div>
+    <figure class="rp-fig"><img src="assets/articles/risk-propagation/02-legend.webp" width="1353" height="152" loading="lazy" alt="The figure's legend: row states, risk states, halos, the two badge colours, larger circles, residual risks and a red path."><figcaption><b>The legend, as it appears under the figure.</b> Colour is the state of an acceptance. It is never a rating, and nothing on the page is scored.</figcaption></figure>
+    <figure class="rp-fig"><img src="assets/articles/risk-propagation/01-controls.webp" width="1353" height="567" loading="lazy" alt="The controls above the figure: play, back, step and disconnect buttons; three connection checkboxes; eight control checkboxes under the heading controls, as boundaries; one instructions checkbox; and a button to connect everything with every control."><figcaption><b>The controls.</b> Left to right: the six weeks, replayed step by step; the three connections; eight controls, each a boundary the assistant cannot reach or a fact somebody changed; and the instructions, which are an expectation and not a control. The last button connects everything and turns every control on at once.</figcaption></figure>
+    <div class="rp-rules">
+      <div class="rp-rule"><h3>A click sticks; the rest fades.</h3><p>Click a role, a risk, a connection or the assistant. Everything it touches keeps its colour; everything else fades, in the picture and in the list. Click it again, or the background, to see everything. Hovering only previews the panel.</p></div>
+      <div class="rp-rule"><h3>The walk goes one way.</h3><p>From a connection the walk goes up: its rows, the risks they establish, the roles they reach. It does not come back down from a risk to that risk&rsquo;s other rows. So clicking the CRM never lights the Mail, even though R2 needs both. Click R2 itself to see both.</p></div>
+      <div class="rp-rule"><h3>Colour travels up.</h3><p>A role&rsquo;s path is red while anything below it is unaccepted, whatever else it holds. The two circles say how much of each.</p></div>
+      <div class="rp-rule"><h3>The counts are the engine&rsquo;s.</h3><p>Under the figure: rows in the grant, in the mandate, in excess, in unbounded excess; risks open, unaccepted, accepted; and the ABP version. They are recomputed from the record on every change, and they match the article&rsquo;s tables because they come from the same data.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="psection alt">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">04 · One connection at a time</span>
+      <h2>Three connections, <span class="g">each on its own.</span></h2>
+      <p>Press <em>Disconnect everything</em>, then tick one connection. This is the cleanest way to see what a single scope does to a company, because nothing else is in the picture.</p>
+    </div>
+    <p class="rp-note"><b>The CRM alone.</b> Three rows: read every record the rep can see (in the mandate), update any record, export in bulk. Three risks: R3, the customer list leaves, held by the CIO; R4, accounts that are not the rep&rsquo;s change, held by Sales; and RC, the cover question, held by the CFO, because the assistant acts as the rep the moment anything is connected.</p>
+    <figure class="rp-fig"><img src="assets/articles/risk-propagation/11-crm-selected.webp" width="1353" height="948" loading="lazy" alt="The CRM connection selected with a dark outline: rows 4, 5 and 6 lit, R3 and R4 red under the CIO and Sales, red paths through the CTO and CEO to the board; everything else faded, including RC and the CFO."><figcaption><b>The CRM, selected.</b> The walk goes up from the connection: rows 4, 5 and 6; R3 and R4; CIO → CTO → CEO → Board and Sales → CEO → Board. RC fades even though it holds, because it comes from row 8, which hangs off the assistant, not the CRM.</figcaption></figure>
+    <div class="rp-two">
+      <figure class="rp-fig"><img src="assets/articles/risk-propagation/11b-crm-panel.webp" width="1353" height="275" loading="lazy" alt="The panel for the CRM connection: the agent uses the rep's own login and inherits the rep's permission whole; rows in the grant now; risks that hold because of it; roles they reach."><figcaption><b>The CRM&rsquo;s panel.</b> Why the scope is what it is: the assistant uses the rep&rsquo;s login and inherits the rep&rsquo;s permission whole. What narrows it is the CRM&rsquo;s own permission model, held by the CRM administrator.</figcaption></figure>
+      <figure class="rp-fig"><img src="assets/articles/risk-propagation/12-ceo-panel-crm.webp" width="1353" height="210" loading="lazy" alt="The CEO's panel with the CRM connected: holds nothing; carries from below R3 held by CIO / Data, R4 held by Sales, RC held by CFO."><figcaption><b>The CEO&rsquo;s panel, same state.</b> Holds nothing; carries three from below. This is the aggregate: the CEO did not connect anything and is answerable for all of it.</figcaption></figure>
+    </div>
+    <figure class="rp-fig"><img src="assets/articles/risk-propagation/13b-crm-counts.webp" width="1353" height="128" loading="lazy" alt="The counts with the CRM alone: 4 in the grant, 2 in the mandate, 2 excess, 2 unbounded excess, 3 open risks, 3 unaccepted, 0 accepted, ABP version 1."><figcaption><b>The counts.</b> Four in the grant, two in the mandate, two in excess, none bounded. Three risks, all unaccepted. The board reads <em>3 red</em>.</figcaption></figure>
+    <p class="rp-note"><b>The Mail alone.</b> Four rows: read the rep&rsquo;s own mail and write drafts (in the mandate), send as the rep, and read the shared sales inbox the rep is delegated to. Five risks: R0, reading everything in the rep&rsquo;s inbox, which is the rep&rsquo;s own and accepted; R1, sending as the rep to anybody, and R7, reading every customer&rsquo;s mail to the whole team, both Sales&rsquo;; RL, customer mail going to the model provider without the notice saying so, Legal&rsquo;s; and RC.</p>
+    <div class="rp-two">
+      <figure class="rp-fig"><img src="assets/articles/risk-propagation/21-mail-r0-selected.webp" width="1353" height="948" loading="lazy" alt="R0 selected: row 1 and the Mail lit, R0 green under the rep, and the path the rep to Sales to the CEO to the board in green; everything else faded."><figcaption><b>R0, selected.</b> The accepted level. Reading the rep&rsquo;s own mail is what the assistant is for, and it is a risk anyway: everything in that inbox, including what is not about work. The rep accepts it by connecting. Its path is green, and it reaches the board like every other.</figcaption></figure>
+      <figure class="rp-fig"><img src="assets/articles/risk-propagation/22-mail-legal-selected.webp" width="1353" height="948" loading="lazy" alt="Legal selected: RL red beneath it, row 1 and the Mail lit, the path Legal to CEO to board in red; everything else faded."><figcaption><b>Legal, selected.</b> One risk, and it is Legal&rsquo;s to hold rather than to be told about: customer mail goes to the model provider to be read, and what the company tells customers does not say so. It is established by row 1, the same row as R0. One fact, two holders, two consequences.</figcaption></figure>
+    </div>
+    <figure class="rp-fig narrow"><img src="assets/articles/risk-propagation/22b-legal-panel.webp" width="1353" height="243" loading="lazy" alt="Legal's panel: its sentence, holds RL unaccepted, carries nothing, informed of R1 and R7, the map says it protects legal protection and responsible use."><figcaption><b>Legal&rsquo;s panel.</b> Holds RL; informed of R1 and R7. Informed is not holding: the halo is faint for those, and they do not count on Legal&rsquo;s circle.</figcaption></figure>
+    <p class="rp-note"><b>The Calendar alone.</b> One row: create, edit and delete events on every calendar the rep can edit, including the shared one the company books customer meetings on. One risk from it, R5, the shared calendar rearranged with no way back, held by the COO, whose map row is operational integration; and RC again.</p>
+    <figure class="rp-fig"><img src="assets/articles/risk-propagation/30-calendar-only.webp" width="1353" height="948" loading="lazy" alt="Calendar connected alone: row 7 lit red, R5 red under the COO, RC red under the CFO, paths from both to the CEO and the board in red."><figcaption><b>The Calendar alone.</b> Two rows in the grant, one in the mandate. The COO holds R5. The board reads <em>2 red</em>. The calendar is the smallest connection and the one whose edits cannot be undone, which is why it is the one that moves up on silence in the story.</figcaption></figure>
+    <div class="rp-t iso" role="table" aria-label="Each connection on its own">
+      <div class="rp-r" role="row"><span role="columnheader">Connection</span><span role="columnheader">Rows: grant / mandate</span><span role="columnheader">Risks, and who holds them</span><span role="columnheader">Reaches</span><span role="columnheader">The board reads</span></div>
+      <div class="rp-r" role="row"><span role="cell">CRM</span><span role="cell" data-k="Rows">4 / 2 (rows 4, 5, 6 and 8)</span><span role="cell" data-k="Risks">R3 CIO · R4 Sales · RC CFO</span><span role="cell" data-k="Reaches">CIO, CTO, Sales, CFO, CEO, board</span><span role="cell" data-k="Board" class="red">3 red</span></div>
+      <div class="rp-r" role="row"><span role="cell">Mail</span><span role="cell" data-k="Rows">5 / 3 (rows 1, 2, 3, 9 and 8)</span><span role="cell" data-k="Risks">R0 the rep, accepted · R1 Sales · R7 Sales · RL Legal · RC CFO</span><span role="cell" data-k="Reaches">the rep, Sales, Legal, CFO, CEO, board</span><span role="cell" data-k="Board"><span class="red">4 red</span>, 1 black</span></div>
+      <div class="rp-r" role="row"><span role="cell">Calendar</span><span role="cell" data-k="Rows">2 / 1 (rows 7 and 8)</span><span role="cell" data-k="Risks">R5 COO · RC CFO</span><span role="cell" data-k="Reaches">COO, CFO, CEO, board</span><span role="cell" data-k="Board" class="red">2 red</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="psection">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">05 · Combined</span>
+      <h2>Together, <span class="g">a risk that none of them has alone.</span></h2>
+      <p>Connections do not add up; they multiply. R2 is the example: it needs the assistant to read mail from anybody, to read the CRM, and to send to anybody. The Mail alone gives two of those. The CRM alone gives one. Together they give all three, and a risk appears that neither connection has on its own.</p>
+    </div>
+    <figure class="rp-fig"><img src="assets/articles/risk-propagation/41-r2-trifecta-selected.webp" width="1353" height="948" loading="lazy" alt="Mail and CRM connected, R2 selected: rows 1, 3 and 4 lit, both connections lit, R2 red and larger than the others under the CISO, the path CISO to CTO to CEO to board in red; everything else faded."><figcaption><b>Mail and CRM connected, R2 selected.</b> Three rows, two connections, one holder. R2 is drawn larger because it needs three facts, and it is the lethal trifecta: private data, untrusted content, a way out. Nothing is in the way but an instruction.</figcaption></figure>
+    <figure class="rp-fig narrow"><img src="assets/articles/risk-propagation/41b-r2-panel.webp" width="1353" height="177" loading="lazy" alt="R2's panel: established by rows 1 (read own mail), 3 (send as the rep), 4 (read CRM); consequence customer data leaves the company; undo no, once sent; held by CISO, unaccepted; reaches CISO, CTO / IT, CEO, Board."><figcaption><b>R2&rsquo;s panel.</b> Established by three rows; ends when any one of them is bounded or removed. That is why the approval step on day 15 ends R2 as well as R1.</figcaption></figure>
+    <p class="rp-note"><b>All three.</b> Nine rows, nine risks, eight red. Every one of the thirteen roles the map named is either on a path or informed, except the three the figure leaves out because nothing reaches them. This is the state the six weeks start from.</p>
+    <figure class="rp-fig"><img src="assets/articles/risk-propagation/44-ceo-selected.webp" width="1353" height="948" loading="lazy" alt="All three connected, the CEO selected: every risk stays lit under its holder, every path to the CEO and the board red, and the whole ABP band lit; only Legal's and the CFO's informed halos differ."><figcaption><b>All three connected, the CEO selected.</b> Everything stays lit, because everything reaches the CEO. The CEO holds nothing and carries eight red and one black. This is the picture of a decision nobody made.</figcaption></figure>
+    <div class="rp-two">
+      <figure class="rp-fig"><img src="assets/articles/risk-propagation/44b-ceo-panel.webp" width="1353" height="275" loading="lazy" alt="The CEO's panel with all three connected: holds nothing; carries from below R0 accepted held by the rep, R1 held by Sales, R2 held by CISO, R3 held by CIO, R4 held by Sales, R5 held by COO, R7 held by Sales, RL held by Legal, RC held by CFO."><figcaption><b>The CEO&rsquo;s panel.</b> Nine carried, one of them accepted. Each names its holder, so the CEO knows whose desk to walk to.</figcaption></figure>
+      <figure class="rp-fig"><img src="assets/articles/risk-propagation/45-rep-selected.webp" width="1353" height="948" loading="lazy" alt="All three connected, the rep selected: only R0 stays lit, row 1 and the Mail, and the green path the rep to Sales to CEO to board; everything else faded."><figcaption><b>The rep, selected.</b> One risk, and it is green: the rep holds only what is inside their own authority. Everything else the rep switched on belongs to somebody else, which is the point.</figcaption></figure>
+    </div>
+    <figure class="rp-fig"><img src="assets/articles/risk-propagation/43-all-list.webp" width="1353" height="1010" loading="lazy" alt="The list under the figure with all three connected: nine rows, each with the risk, its holder and state, the chain it reaches, its consequence and whether it can be undone; eight are marked unaccepted."><figcaption><b>Every risk that holds, all three connected.</b> The board&rsquo;s list: who holds it, in what state, how far it reaches, what it would cost in words, and whether it can be undone. Eight of nine say <em>not yet accepted</em>.</figcaption></figure>
+  </div>
+</section>
+
+<section class="psection alt">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">06 · Remediation</span>
+      <h2>Eight controls, one at a time, <span class="g">then all of them.</span></h2>
+      <p>Start from everything connected and tick one control. Each control does one of three things: it puts a boundary on a row the assistant cannot reach; it removes a row from the grant; or it changes a fact a risk was established on. Every one of them ends a risk, and every one leaves a residual risk behind, green, inside somebody&rsquo;s authority. That is what a control is: a trade of a red risk for a green one somebody can live with.</p>
+    </div>
+    <div class="rp-t ctl" role="table" aria-label="Each control, what it does, what it ends, what it leaves">
+      <div class="rp-r" role="row"><span role="columnheader">Control</span><span role="columnheader">What it does to the record</span><span role="columnheader">Ends</span><span role="columnheader">Leaves, in green</span><span role="columnheader">Unbounded excess</span></div>
+      <div class="rp-r" role="row"><span role="cell">Sending needs the rep&rsquo;s approval</span><span role="cell" data-k="Does">Row 3 gains a boundary</span><span role="cell" data-k="Ends" class="grn">R1, and R2 with it</span><span role="cell" data-k="Leaves">G1 with the rep: a message approved in a hurry still goes out. G4 with the CISO: an approval is a person clicking</span><span role="cell" data-k="Unbounded">5 → 4</span></div>
+      <div class="rp-r" role="row"><span role="cell">The CRM limits the rep to their own accounts</span><span role="cell" data-k="Does">Row 5 gains a boundary</span><span role="cell" data-k="Ends" class="grn">R4</span><span role="cell" data-k="Leaves">G2 with Sales: wrong entries on the rep&rsquo;s own accounts, at machine speed</span><span role="cell" data-k="Unbounded">5 → 4</span></div>
+      <div class="rp-r" role="row"><span role="cell">Export removed from the scope</span><span role="cell" data-k="Does">Row 6 leaves the grant</span><span role="cell" data-k="Ends" class="grn">R3</span><span role="cell" data-k="Leaves">nothing new (G3 appears only with the proxy)</span><span role="cell" data-k="Unbounded">5 → 4</span></div>
+      <div class="rp-r" role="row"><span role="cell">Calendar narrowed to the rep&rsquo;s own</span><span role="cell" data-k="Does">Row 7 leaves; row 7b arrives</span><span role="cell" data-k="Ends" class="grn">R5</span><span role="cell" data-k="Leaves">R6 with the rep: their own meetings can change</span><span role="cell" data-k="Unbounded">5 → 5: the narrower row is still in the gap</span></div>
+      <div class="rp-r" role="row"><span role="cell">The shared-inbox delegation removed</span><span role="cell" data-k="Does">Row 9 leaves the grant</span><span role="cell" data-k="Ends" class="grn">R7</span><span role="cell" data-k="Leaves">nothing</span><span role="cell" data-k="Unbounded">5 → 4</span></div>
+      <div class="rp-r" role="row"><span role="cell">An execution proxy carries out every write under the ABP&rsquo;s rules</span><span role="cell" data-k="Does">Every write row gains a boundary at once; reads are untouched</span><span role="cell" data-k="Ends" class="grn">R1, R2, R4, R5, R3</span><span role="cell" data-k="Leaves">G1, G2, G4 as above; G3 with the CIO: records still leave one at a time; G5 with the CTO: the proxy is now the thing that can fail; G6 with the COO: when it is down, the assistant stops; G7 with Legal: its log is a copy of customer data</span><span role="cell" data-k="Unbounded">5 → 1: only the shared inbox, a read</span></div>
+      <div class="rp-r" role="row"><span role="cell">Processing terms with the provider, and a notice to customers</span><span role="cell" data-k="Does">Changes a fact; no row moves</span><span role="cell" data-k="Ends" class="grn">RL</span><span role="cell" data-k="Leaves">nothing</span><span role="cell" data-k="Unbounded">5 → 5</span></div>
+      <div class="rp-r" role="row"><span role="cell">The insurer confirms, in writing, what it covers</span><span role="cell" data-k="Does">Changes a fact; no row moves</span><span role="cell" data-k="Ends" class="grn">RC</span><span role="cell" data-k="Leaves">G8 with the CFO: an excess, and conditions to keep meeting, the ABP among them</span><span role="cell" data-k="Unbounded">5 → 5</span></div>
+    </div>
+    <div class="rp-two">
+      <figure class="rp-fig"><img src="assets/articles/risk-propagation/60-control-approval.webp" width="1353" height="948" loading="lazy" alt="Everything connected with the approval step on: row 3 has a thick green ring, R1 and R2 have faded, G1 sits green with the rep and G4 with the CISO; the rest of the risks are still red."><figcaption><b>The approval step alone.</b> One boundary, two risks ended, two residuals. The CISO&rsquo;s path turns green; the others stay red.</figcaption></figure>
+      <figure class="rp-fig"><img src="assets/articles/risk-propagation/65-control-proxy.webp" width="1353" height="948" loading="lazy" alt="Everything connected with the execution proxy on: a small green proxy box between the assistant and its connections, every write row with a thick green ring, five red risks gone, eight green residuals across the CTO, COO, Legal, CIO, CISO, Sales and the rep; three risks still red."><figcaption><b>The proxy alone.</b> One control in the middle bounds every write. Five risks end and seven residuals appear, spread across seven holders, because the proxy is now on the path of everything. Three stay red: the shared inbox (a read the proxy cannot stop), Legal&rsquo;s and the CFO&rsquo;s (facts, not writes).</figcaption></figure>
+    </div>
+    <figure class="rp-fig narrow"><img src="assets/articles/risk-propagation/65b-proxy-agent-panel.webp" width="1353" height="404" loading="lazy" alt="The assistant's panel with the proxy on: it acts as the rep in every account; with the proxy every write goes through it under the ABP's rules; rows in the grant now, each write row marked boundary in the way; risks that hold because of it; roles they reach."><figcaption><b>The assistant&rsquo;s panel with the proxy on.</b> Every write row reads <em>boundary in the way</em>; the reads still read <em>in the mandate</em> or <em>nothing in the way</em>.</figcaption></figure>
+    <div class="rp-two">
+      <figure class="rp-fig"><img src="assets/articles/risk-propagation/66-control-terms.webp" width="1353" height="948" loading="lazy" alt="Everything connected with the processing terms on: RL has faded and Legal's path is no longer red; every other risk unchanged."><figcaption><b>The terms alone.</b> No row moves and a risk ends anyway, because the fact it was established on has changed. Legal&rsquo;s path clears. A contract is a control.</figcaption></figure>
+      <figure class="rp-fig"><img src="assets/articles/risk-propagation/68-instructions-only.webp" width="1353" height="948" loading="lazy" alt="Everything connected with the instructions on: every row in the gap now has a red dashed ring instead of a red fill; every risk is still red; nothing else has changed."><figcaption><b>The instructions alone.</b> Every row in the gap changes from <em>nothing in the way</em> to <em>an expectation</em>, and every risk stays lit. Unbounded excess does not move. An instruction is worth writing down, because it is what the assistant was told and the ABP is where that is written. It is not a control.</figcaption></figure>
+    </div>
+    <figure class="rp-fig"><img src="assets/articles/risk-propagation/70-every-control.webp" width="1353" height="948" loading="lazy" alt="Everything connected with every control on: no red anywhere; nine green risks, G1 to G8 and R0, spread under seven holders; every path to the board green; the board reads 9 in black; the proxy drawn between the assistant and its connections."><figcaption><b>Every control on.</b> The button under the controls does this in one click. Nine green risks remain and no red: what is left is what the business runs the assistant to take, plus what the controls themselves cost. Unbounded excess is nought.</figcaption></figure>
+    <div class="rp-two">
+      <figure class="rp-fig"><img src="assets/articles/risk-propagation/71b-every-control-counts.webp" width="1353" height="129" loading="lazy" alt="The counts with every control on: 7 in the grant, 4 in the mandate, 3 excess, 0 unbounded excess, 9 open risks, 0 unaccepted, 9 accepted, ABP version 1."><figcaption><b>The counts with every control on.</b> Seven in the grant, because export and the shared inbox left it. Three in excess, all bounded. Nine open, nine accepted.</figcaption></figure>
+      <figure class="rp-fig"><img src="assets/articles/risk-propagation/72-every-control-minus-proxy.webp" width="1353" height="948" loading="lazy" alt="Every control on except the proxy: seven green risks; the proxy's own residuals G3, G5, G6 and G7 have gone; still no red."><figcaption><b>Every control except the proxy.</b> Still no red: the approval step and the CRM limit bound the two writes that mattered. What changes is that four residuals disappear, the ones the proxy itself created. A control has a cost in risks too, and the picture shows it.</figcaption></figure>
+    </div>
+    <p class="rp-note"><b>Read the table&rsquo;s last column twice.</b> Unbounded excess is the one count a control can move, and only a boundary moves it. The terms and the cover end a risk each and move it not at all, because they change what the company has promised, not what the assistant can do. Both kinds of control are real. Only one kind shows up in the ABP&rsquo;s counts, which is why the risks are drawn as well as the rows.</p>
+  </div>
+</section>
+
+<section class="psection">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">07 · Business analysis</span>
+      <h2>What a business gets <span class="g">from the picture.</span></h2>
+    </div>
+    <div class="rp-rules">
+      <div class="rp-rule"><h3>The line between the accepted level and the gap.</h3><p>A business runs an assistant to take some risk: reading the rep&rsquo;s mail is a risk, and it is the job. The picture draws that risk in green from the first second, inside the rep&rsquo;s authority. Everything red is outside somebody&rsquo;s authority and waiting for a signature. The line between the two is the mandate, and the visualiser is the first place most companies will see their mandate as a line rather than a paragraph.</p></div>
+      <div class="rp-rule"><h3>Who holds what, and the aggregate at the top.</h3><p>Nine risks, seven holders, one CEO carrying all of them. The map placed each risk with the role whose area it touches; the chart carries it up. The two circles on the CEO are the number most boards have never seen: how many risks reach the top, and how many of them nobody has signed for. A board that can read <em>1 red, 8 black</em> can ask one question instead of nine.</p></div>
+      <div class="rp-rule"><h3>The business case for each control, with no score in it.</h3><p>Every control in section 06 is described the same way: which row it bounds or removes, which risks end, which residuals appear, and where unbounded excess goes. That is a business case a CFO can read: <em>this control turns R1 and R2, held by Sales and the CISO and carried by the CEO, into G1 and G4, held by the rep and the CISO, and accepted.</em> No rating, no traffic light, no number anybody has to defend. The consequence is in words and the holder is a name.</p></div>
+      <div class="rp-rule"><h3>Controls that are not technical.</h3><p>The terms with the provider and the insurer&rsquo;s written answer end a risk each. Legal and the CFO usually appear on risk registers as people to inform. Here they hold something, and the thing that ends it is on their desk, not IT&rsquo;s. That is a change in who does risk management, and it is the change the acceptance loop asks for.</p></div>
+      <div class="rp-rule"><h3>Silence is visible.</h3><p>Day 7 is the picture of the thing registers never show: a risk nobody decided on, moving to the boss. It was already on the CEO&rsquo;s path in red; now it is the CEO&rsquo;s to hold. The COO did nothing wrong by the register&rsquo;s standards, because the register would still say <em>open</em>. The chart says <em>moved up</em>.</p></div>
+      <div class="rp-rule"><h3>What it does not tell you.</h3><p>Three things, on purpose. It does not say how likely anything is. It does not put a number on a loss; the consequence is in words, and if a holder wants to attach a figure it is their estimate, signed with their acceptance, not the picture&rsquo;s. And it takes every control as working: a control that is on and not working is a fact the ABP&rsquo;s evidence tiers exist to record, and it is not modelled here.</p></div>
+    </div>
+    <p class="rp-note"><b>How to use it in a room.</b> Put it on the screen with the six weeks at day 0. Ask the questions in order.</p>
+    <ul class="rp-qs">
+      <li>Which of these did we mean to switch on?<span>The mandate. Green rows are the answer; red rows are the gap. If the person who connected it says a red row was meant, the mandate is wrong, not the picture: correct the row.</span></li>
+      <li>Who holds each red one, and until when?<span>Click each holder. The panel says what they hold and the list says what state it is in. A risk with no acceptance is critical for whoever holds it today.</span></li>
+      <li>What ends it?<span>Click the risk. The panel names the rows that establish it, so the control is the thing that bounds or removes one of them. Section 06&rsquo;s table is the menu.</span></li>
+      <li>What does the control leave behind, and who accepts that?<span>Tick it and look for the green. A residual with no holder willing to accept it is a control the company is not ready for.</span></li>
+      <li>Who can stop the assistant, and how fast?<span>Not on this figure; it is on <a href="plug.html">the plug profile</a>. An acceptance shorter than the stop is a finding.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="psection alt">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">08 · Technical analysis</span>
+      <h2>How it works, <span class="g">and how to build one.</span></h2>
+      <p>The figure is a few hundred lines of script inside the page, with no library and nothing loaded from anywhere. It is worth describing in full, because the same model runs the article&rsquo;s tables and could run on a real behaviour policy.</p>
+    </div>
+    <div class="rp-t model" role="table" aria-label="The data the figure is drawn from">
+      <div class="rp-r" role="row"><span role="columnheader">Data</span><span role="columnheader">What it holds</span><span role="columnheader">Where it comes from</span></div>
+      <div class="rp-r" role="row"><span role="cell">Roles</span><span role="cell" data-k="Holds">id, label, the role it answers to, what the map says it protects, its sentence about the exposure</span><span role="cell" data-k="From">the article&rsquo;s sections 05 and 08; the chart is the example company&rsquo;s</span></div>
+      <div class="rp-r" role="row"><span role="cell">Connections</span><span role="cell" data-k="Holds">Mail, CRM, Calendar; on or off</span><span role="cell" data-k="From">the reader, or a step of the six weeks</span></div>
+      <div class="rp-r" role="row"><span role="cell">Rows</span><span role="cell" data-k="Holds">the ABP&rsquo;s nine rows: which connection grants each, whether it is in the mandate, its label; row 7b replaces row 7 when the calendar is narrowed</span><span role="cell" data-k="From">the article&rsquo;s section 04 table</span></div>
+      <div class="rp-r" role="row"><span role="cell">Risks</span><span role="cell" data-k="Holds">the rows it needs; the role the map places it with; its consequence in words; whether it can be undone; the roles it informs; whether it is inside its holder&rsquo;s own authority; for a residual, which controls create it; for a fact risk, which control ends it</span><span role="cell" data-k="From">the section 04 risk table, and the residuals named in the text</span></div>
+      <div class="rp-r" role="row"><span role="cell">Controls</span><span role="cell" data-k="Holds">eight switches, and the instructions</span><span role="cell" data-k="From">the controls named in the six weeks and in this article&rsquo;s section 06</span></div>
+      <div class="rp-r" role="row"><span role="cell">Steps</span><span role="cell" data-k="Holds">nine days of the six weeks, each a function that changes the state, with a title and a note</span><span role="cell" data-k="From">the article&rsquo;s section 07</span></div>
+    </div>
+    <div class="rp-rules">
+      <div class="rp-rule"><h3>The state, and what holds.</h3><p>The state is small: which connections are on, which controls are on, whether the instructions are in, the acceptance record per risk, the ABP version, and the day. From it, three functions decide everything. A row is <em>present</em> if its connection is on and no control has removed it. A row&rsquo;s <em>barrier</em> is <code>not needed</code> if it is in the mandate, <code>boundary</code> if a control bounds it (the proxy bounds every write at once), <code>expectation</code> if the instructions are in, else <code>none</code>. A risk <em>holds</em> if every row it needs is present and none is bounded; a residual holds only when one of its controls is on; a fact risk stops holding when its control is on.</p></div>
+      <div class="rp-rule"><h3>The acceptance record follows the facts.</h3><p>After any change, <code>settle()</code> walks the risks. One that starts to hold gets a record: unaccepted, placed with its role; or accepted, if it is inside that role&rsquo;s own authority. One that stops holding is marked ceased, citing the ABP version that changed. A step of the six weeks can overwrite a record, which is how a holder&rsquo;s decision is applied. Nothing is ever deleted; the strip in section 02 is the same records laid out by day.</p></div>
+      <div class="rp-rule"><h3>The chain, and the colour.</h3><p><code>chain(holder)</code> walks <em>answers_to</em> from the holder to the board. For every live risk, its holder <em>holds</em> it and every role above <em>carries</em> it. A role&rsquo;s red circle counts the unaccepted risks in that set, its black circle the accepted; its path is red if the red count is above zero. That is the whole of the propagation: a risk reaches every role on its chain, and the colour is the worst state on the chain below.</p></div>
+      <div class="rp-rule"><h3>The walk goes one way per hop.</h3><p>Each node type has an upward navigation and a downward one, as functions: up from the assistant to its connections, from a connection to its rows, from a row to the risks that need it, from a risk to its holder, from a role to the role above. Down is the inverse. A selection walks up from the node and down from the node, and never turns. This is why selecting the CRM does not light the Mail: the walk reaches R2 going up from row 4, and does not come back down R2&rsquo;s other rows. It is the same rule the ontology figure states: every verb has an inverse, and a query follows one of them.</p></div>
+      <div class="rp-rule"><h3>Drawing.</h3><p>Everything is SVG created by script: <code>createElementNS</code> for the nodes, <code>textContent</code> for every string, no <code>innerHTML</code> anywhere, no library. Classes carry the state and CSS carries the colour, so a page with its script disabled still shows the shell. Risks have a home position and a target under their holder; a small loop moves them a fraction of the distance each frame, and a separation pass keeps two risks from sitting on each other. When a risk is established, a dot runs from each fact through the risk and up the whole chain; when one ceases, a dot runs back down to the fact. Readers who prefer reduced motion get the same picture without the movement.</p></div>
+      <div class="rp-rule"><h3>Deterministic.</h3><p>The six weeks are replayed from a fresh state up to the chosen day on every step, so stepping back and forward always gives the same picture, and the counts under the figure match the article&rsquo;s tables because they are computed from the same rows. The captures on this page were taken by a script that set each state the caption names and photographed the result.</p></div>
+      <div class="rp-rule"><h3>What is invented, and what is not.</h3><p>The company, the rep, the nine rows, the risks, the holders and the six weeks are invented, and say so. Two facts are quoted from vendors: that Google&rsquo;s Gmail consent lines each cover the whole account (our Gmail record, read 16 September 2026), and that Google Calendar documents no way to restore an edited event (our Calendar article, 24 September 2026). Every control is assumed to work.</p></div>
+      <div class="rp-rule"><h3>To run it on a real agent.</h3><p>Replace the rows with a published behaviour policy&rsquo;s grant and mandate; the sixteen examples on this site already compute the gap and the barrier per row. Replace the roles with the company&rsquo;s chart. Have each holder write their risks in their own words, with the rows that establish them and the facts that would end them. The engine does not change. That is the next step, and it is not built.</p></div>
+    </div>
+    <figure class="rp-fig"><img src="assets/articles/risk-propagation/81-ontology.webp" width="1353" height="543" loading="lazy" alt="The ontology figure: eight node types, agent, ABP version, fact, risk, acceptance, role, authority and person, joined by thirteen verbs each with an inverse."><figcaption><b>The ontology the walk follows.</b> <em>recorded_in</em>, <em>establishes</em> and <em>held_by</em> go up; their inverses go down. The visualiser is this graph, drawn for one agent and walked one way at a time.</figcaption></figure>
+    <p class="rp-note"><b>Related.</b> The figure lives on <a href="article-who-owns-what-in-ai.html">Who owns what in AI. And how accountability holds on the way up</a>, which carries the tables the figure is drawn from and the model in section 09. What an Agent Behaviour Policy is, row by row: <a href="article-what-is-an-abp.html">the introduction</a>. Why an edit is worse than a delete: <a href="article-calendar-edits-cannot-be-undone.html">the Calendar article</a>. Why pilots stop: <a href="article-pilots-do-not-stay-in-production.html">the pilots article</a>.</p>
+  </div>
+</section>
+
+</div>
+
+<section class="pcta">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> One agent, one deployment</span>
+    <h2>Draw it for the agent <span class="it">you actually run.</span></h2>
+    <p>The picture starts with the rows, and the rows come from the deployment. The free prompts have your agent list its own reach in about twenty minutes, with nothing collected. From there the gap, the holders and the paths follow.</p>
+    <div class="cta-row"><a class="btn btn-green" href="try-it.html">Try the prompts</a><a class="btn btn-ghost" href="article-who-owns-what-in-ai.html#wo-figA-wrap">Open the visualiser</a></div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>© 2026 RiskMandate · Autonomous Risk Management</span>
+    <span>The insurability layer for agentic AI. · <a class="footlink" href="versions.html">Versions</a> · <a class="footlink" href="admin/">Admin</a></span>
+    <span class="footlic"><a href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener">Open source on GitHub</a> · code Apache-2.0 · pages and policies <a rel="license" href="https://creativecommons.org/licenses/by/4.0/" target="_blank" title="Creative Commons Attribution 4.0 — take it, credit it"><svg class="ccicon" width="38" height="16" viewBox="0 0 76 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="2.5"></circle><text x="16" y="21" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14" font-weight="800" fill="currentColor">CC</text><circle cx="60" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="2.5"></circle><text x="60" y="21" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14" font-weight="800" fill="currentColor">BY</text></svg> CC BY 4.0</a> · <a href="https://open-source.sgit.ai/" target="_blank" rel="noopener">why</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+var RM={core:{},services:{},components:{},data:{}};
+RM.data.currentPage="article-risk-propagation-visualiser";RM.data.pages=[{"name":"agent-behaviour-policy","label":"The sixteen examples","file":"agent-behaviour-policy.html","group":"Behaviour policies"},{"name":"abp","label":"What an ABP is","file":"abp.html","group":"Behaviour policies"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"Behaviour policies"},{"name":"licence-to-operate","label":"Licence to Operate","file":"licence-to-operate.html","group":"Behaviour policies"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"Behaviour policies"},{"name":"for-corporate","label":"You run agents today","file":"for-corporate.html","group":"Who it's for"},{"name":"for-founders","label":"You are a founder","file":"for-founders.html","group":"Who it's for"},{"name":"for-startups","label":"You are a startup","file":"for-startups.html","group":"Who it's for"},{"name":"insurance","label":"Make agents insurable","file":"insurance.html","group":"Insurance"},{"name":"insure-a-program","label":"Can you insure a program?","file":"insure-a-program.html","group":"Insurance"},{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"Insurance"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"Insurance"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"Insurance"},{"name":"business-cases","label":"Business cases, by risk","file":"business-cases.html","group":"Insurance"},{"name":"owasp-graph","label":"OWASP, as a graph","file":"owasp-graph.html","group":"Insurance"},{"name":"pricing","label":"The four levels","file":"pricing.html","group":"Pricing"},{"name":"abp-reviewed","label":"The reviewed level","file":"abp-reviewed.html","group":"Pricing"},{"name":"reviewers","label":"Who runs your review","file":"reviewers.html","group":"Pricing"},{"name":"try-it","label":"Try it","file":"try-it.html"},{"name":"articles","label":"Articles","file":"articles.html"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"privacy","label":"Privacy","file":"privacy.html","group":"More"},{"name":"lab","label":"The Lab","file":"lab.html","group":"More"},{"name":"demos","label":"Live demos","file":"demos.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"uk-support","label":"UK support, in the open","file":"uk-support.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"admin","label":"Admin","file":"admin/","group":"More"}];RM.data.sections=[];
+
+'use strict';
+// components/dom.js — tiny DOM helpers shared by components. `el` builds an
+// element with attributes and children; text children always go in via
+// textContent. `renderMarkdownInto` turns core/markdown tokens into real DOM
+// nodes (never an HTML string), so fetched release notes cannot inject markup.
+
+RM.components.dom = (function () {
+  // A link in a markdown note may only go somewhere harmless: same-document,
+  // same-origin relative, https, or mailto. Anything else — javascript:, data:,
+  // a protocol-relative host — renders as the text it was, and goes nowhere.
+  var SAFE = /^(?:https:\/\/|mailto:|#|[^:/?#]*(?:[/?#]|$))/i;
+
+  /**
+   * @param {string} tag
+   * @param {Object<string,string>} [attrs]
+   * @param {Array<Node|string>} [children]
+   * @returns {HTMLElement}
+   */
+  function el(tag, attrs, children) {
+    var node = document.createElement(tag);
+    if (attrs) Object.keys(attrs).forEach(function (k) {
+      if (attrs[k] != null) node.setAttribute(k, attrs[k]);
+    });
+    (children || []).forEach(function (c) {
+      node.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
+    });
+    return node;
+  }
+
+  /**
+   * Render inline runs into a parent element. Emphasis runs carry child runs
+   * rather than a string, so a link or a code span inside **bold** renders as
+   * itself instead of as its own markdown source — hence the recursion.
+   */
+  function appendRuns(parent, runs) {
+    runs.forEach(function (run) {
+      if (run.t === 'strong' || run.t === 'em') {
+        var node = el(run.t);
+        if (run.runs) appendRuns(node, run.runs);
+        else          node.appendChild(document.createTextNode(run.v));
+        parent.appendChild(node);
+      }
+      else if (run.t === 'code') parent.appendChild(el('code', null, [run.v]));
+      else if (run.t === 'link') parent.appendChild(SAFE.test(run.href)
+        ? el('a', { href: run.href }, [run.v])
+        : document.createTextNode(run.v));
+      else parent.appendChild(document.createTextNode(run.v));
+    });
+  }
+
+  /**
+   * Render markdown block tokens into a container as DOM nodes.
+   * @param {HTMLElement} container
+   * @param {Array} blocks  output of RM.core.markdown.parse
+   */
+  function renderMarkdownInto(container, blocks) {
+    blocks.forEach(function (b) {
+      if (b.type === 'heading') {
+        var h = el('h' + (b.level + 1)); // ## release title -> h3, etc.
+        appendRuns(h, b.runs);
+        container.appendChild(h);
+      } else if (b.type === 'list') {
+        var ul = el('ul');
+        b.items.forEach(function (runs) {
+          var li = el('li');
+          appendRuns(li, runs);
+          ul.appendChild(li);
+        });
+        container.appendChild(ul);
+      } else {
+        var p = el('p');
+        appendRuns(p, b.runs);
+        container.appendChild(p);
+      }
+    });
+  }
+
+  return { el: el, appendRuns: appendRuns, renderMarkdownInto: renderMarkdownInto };
+})();
+
+
+'use strict';
+// components/nav.js — the behaviour on a page that is *not* a link.
+//   [data-to]   → smooth in-page scroll to an element id (no hash routing).
+//   [data-demo] → open a pre-filled demo enquiry email.
+//
+// v1.0.0 removed everything else that used to live here. Up to v0.14 the site
+// ran inside a host <iframe> and every navigation was a postMessage — rm-nav,
+// rm-back, rm-manifest, rm-read. A <button> is not a link, so nothing could be
+// deep-linked, bookmarked, opened in a new tab, or crawled. Now each page is
+// the document the server sent and each navigation is an <a href>, so the only
+// things left to wire are the two that genuinely are not navigation.
+//
+// The mobile drawer is still injected rather than templated: one file gives
+// every page a working menu below the header breakpoint, where .navlinks is
+// hidden by CSS.
+
+RM.components.nav = (function () {
+  // Every "Book a demo" control opens a mail client with a subject and a
+  // starting message. One place to change when booking becomes a real form.
+  var DEMO = {
+    to     : 'nrparekh@gmail.com',
+    subject: 'RiskMandate — demo request',
+    body   : [
+      'Hi,',
+      '',
+      'I would like to see a plug profile for one of the agents we already run.',
+      '',
+      'A little about us:',
+      '  • Organisation:',
+      '  • Roughly how many agents we are running:',
+      '  • The agent we would want to look at first:',
+      '  • Anything already in place (register, IdP, detection tooling):',
+      '',
+      'Thanks,'
+    ].join('\n')
+  };
+
+  function demoHref() {
+    return 'mailto:' + DEMO.to +
+      '?subject=' + encodeURIComponent(DEMO.subject) +
+      '&body='    + encodeURIComponent(DEMO.body);
+  }
+
+  function openDemo() { window.location.href = demoHref(); }
+
+  function scrollTo(doc, id) {
+    var t = doc.getElementById(id);
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Inject the hamburger toggle and wire the drawer open/close. Idempotent.
+  function wireMobileNav(doc) {
+    var top = doc.querySelector('.top');
+    if (!top) return;
+    var wrap  = top.querySelector('.wrap');
+    var links = top.querySelector('.navlinks');
+    if (!wrap || !links || top.querySelector('.navtoggle')) return;
+
+    var burger = doc.createElement('button');
+    burger.className = 'navtoggle';
+    burger.setAttribute('type', 'button');
+    burger.setAttribute('aria-label', 'Toggle navigation');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-controls', 'sitenav');
+    for (var i = 0; i < 3; i++) burger.appendChild(doc.createElement('span'));
+    links.id = links.id || 'sitenav';
+    var demo = wrap.querySelector('.demo');
+    if (demo) wrap.insertBefore(burger, demo); else wrap.appendChild(burger);
+
+    // The header's version chip has no room below the drawer breakpoint, so the drawer carries
+    // it instead: the first entry, cloned from the chip while the drawer is open, so that a
+    // phone can confirm which version it is looking at without scrolling.
+    var chip = wrap.querySelector('a.version'), row = null;
+    function set(open) {
+      top.classList.toggle('nav-open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (row) { row.parentNode.removeChild(row); row = null; }
+      if (open && chip) {
+        row = doc.createElement('a');
+        row.className = 'navversion';
+        row.href = chip.getAttribute('href');
+        row.title = chip.getAttribute('title') || '';
+        row.textContent = 'Version ' + chip.textContent + ' · what shipped';
+        links.insertBefore(row, links.firstChild);
+      }
+    }
+    burger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      set(!top.classList.contains('nav-open'));
+    });
+    // Following a real nav link closes the drawer; the group header does not.
+    links.addEventListener('click', function (e) {
+      var b = e.target.closest('button, a');
+      if (b && !b.classList.contains('navgroup-btn')) set(false);
+    });
+    doc.addEventListener('click', function (e) {
+      if (top.classList.contains('nav-open') && !top.contains(e.target)) set(false);
+    });
+    doc.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+    var view = doc.defaultView || window;
+    view.addEventListener('resize', function () { if (view.innerWidth > 1040) set(false); });
+  }
+
+  /** @param {Document} doc */
+  function wire(doc) {
+    doc.querySelectorAll('[data-to]').forEach(function (elm) {
+      elm.addEventListener('click', function () { scrollTo(doc, elm.getAttribute('data-to')); });
+    });
+    doc.querySelectorAll('[data-demo], .demo').forEach(function (elm) {
+      elm.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); openDemo(); });
+    });
+    wireMobileNav(doc);
+  }
+
+  return { wire: wire, scrollTo: scrollTo, demoHref: demoHref, openDemo: openDemo };
+})();
+
+
+'use strict';
+// components/menu.js — <rm-menu>. The one shared header menu, on every page, so
+// the nav is built by a single piece of code. Renders the homepage's section
+// links first, then the top-level pages, marking the current page active.
+//
+// A run of contiguous pages sharing a `group` string collapses into one entry:
+// a hover/click dropdown labelled by the group, with the members as children. A
+// single-member group renders flat — no dropdown for one item.
+//
+// v1.0.0: every entry is an <a href>. The old menu emitted <button> elements
+// that asked a host frame to swap an iframe's srcdoc, which meant the links did
+// not exist as far as a crawler, a bookmark or a middle-click was concerned.
+// The group header stays a <button> because it opens a panel rather than going
+// anywhere — that is the one control here that is genuinely not a link.
+
+(function () {
+  var dom = RM.components.dom;
+
+  RM.components.Menu = class extends HTMLElement {
+    connectedCallback() {
+      var self = this;
+      this._onDocClick = function (e) {
+        self.querySelectorAll('.navgroup.open').forEach(function (g) {
+          if (!g.contains(e.target)) g.classList.remove('open');
+        });
+      };
+      document.addEventListener('click', this._onDocClick);
+      this._render();
+    }
+    disconnectedCallback() {
+      document.removeEventListener('click', this._onDocClick);
+    }
+
+    // On the homepage a section link scrolls; on any other page it is a link
+    // back to the homepage at that anchor. Same markup either way.
+    _section(s) {
+      var home = !(RM.data && RM.data.currentPage);
+      var a = dom.el('a', { class: 'seclink', href: home ? '#' + s.to : 'index.html#' + s.to }, [s.label]);
+      if (home) a.addEventListener('click', function (e) {
+        e.preventDefault();
+        RM.components.nav.scrollTo(document, s.to);
+      });
+      return a;
+    }
+
+    _pagelink(p, extra) {
+      var active = p.name === (RM.data && RM.data.currentPage);
+      var attrs  = { class: 'pagelink' + (extra ? ' ' + extra : '') + (active ? ' active' : ''), href: p.file };
+      if (active) attrs['aria-current'] = 'page';
+      return dom.el('a', attrs, [p.label]);
+    }
+
+    _group(name, members) {
+      var self    = this;
+      var current = RM.data && RM.data.currentPage;
+      var active  = members.some(function (m) { return m.name === current; });
+      var car     = dom.el('span',   { class: 'navgroup-car', 'aria-hidden': 'true' }, ['▾']);
+      var btn     = dom.el('button', { class: 'navgroup-btn' + (active ? ' active' : ''), type: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false' }, [name, car]);
+      var panel   = dom.el('div',    { class: 'navmenu' }, members.map(function (m) { return self._pagelink(m, 'navchild'); }));
+      var wrap    = dom.el('span',   { class: 'navgroup' + (active ? ' active' : '') }, [btn, panel]);
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = wrap.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      return wrap;
+    }
+
+    _render() {
+      var sections = (RM.data && RM.data.sections) || [];
+      var pages    = (RM.data && RM.data.pages)    || [];
+      var self     = this;
+      this.textContent = '';
+      sections.forEach(function (s) { self.appendChild(self._section(s)); });
+      var i = 0;
+      while (i < pages.length) {
+        var p = pages[i];
+        if (!p.group) { self.appendChild(self._pagelink(p)); i++; continue; }
+        var g = p.group, members = [];
+        while (i < pages.length && pages[i].group === g) { members.push(pages[i]); i++; }
+        if (members.length === 1) self.appendChild(self._pagelink(members[0]));
+        else                      self.appendChild(self._group(g, members));
+      }
+    }
+  };
+
+  customElements.define('rm-menu', RM.components.Menu);
+})();
+
+
+'use strict';
+// boot.js — inner-page composition root (version builds and dev.html). Custom
+// elements self-register on load; here we wire document-level nav behaviour.
+// The page runs inside the host's stage frame, so the host (not this page) signals
+// the SG/App host that the app is ready.
+
+(function () {
+  function start() { RM.components.nav.wire(document); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
+})();
+
+
+})();
+</script>
+</body>
+</html>

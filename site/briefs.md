@@ -320,6 +320,16 @@ Each one is linked in full, as received, with nothing edited. Where a brief and 
 - **The effectiveness of a control.** Every control is taken as working, as the lead said to for now; a control that is on and not working is what the ABP’s evidence tiers record, and it is not modelled here
 - **Residuals in the holder’s own words.** The figure draws them from a fixed list; a real record would have each holder write theirs when the control lands
 
+### An article on the risk propagation visualiser: user stories first, then the story, business analysis, and the technical analysis last, with captures of the figure at every step, each connection alone and combined, each control alone and all of them
+
+**sha256** f3849c17c9fb3a451428040b20b47921d738abab0224c49e961758cf7548ae65
+
+**Explain the tool, with pictures.** A thorough article on the graph visualisation alone, with many captures, strategic nodes clicked and paths highlighted, that says what is going on and how to read and use it. Start with the user, because it is a business function; then the scenarios, each of the three connections in isolation and then combined; then remediation and the controls, and how each one affects the risks. The order: user stories, the story, business analysis, technical analysis.
+
+- [The article](article-risk-propagation-visualiser.html), in that order: seven user stories; the six weeks as a story; the six bands, two colours and a click; CRM, Mail and Calendar alone, then combined, where the trifecta appears; eight controls one at a time and then all of them, with a table of what each ends and leaves; the business analysis and five questions for a room; the technical analysis down to the one-way walk. Thirty-four captures, each taken by script in the state its caption names
+- **Captures of a real agent.** Every picture is of the invented example; running the figure on a published ABP vault is the next step
+- **A capture per role.** The article shows the roles the argument needs, not all thirteen
+
 ## And the instructions that arrived as speech or a sentence.
 
 These have no digest to check, which makes them the ones most easily lost — a voice memo that changed the direction of the whole site leaves no artefact at all unless somebody writes it down. So they are recorded here in the same list, with the same two columns.
@@ -399,7 +409,7 @@ sha256sum my-brief.md
 
 A register that only lists what was done is a press release.
 
-Every entry above carries what it asked for and did not get, and on most of the twenty-three that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.
+Every entry above carries what it asked for and did not get, and on most of the twenty-four that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.
 
 - **The file is the record, not this page.** [briefs-register.json](briefs-register.json) is what a program should read; this page renders it for people. If the two ever disagree, the file is right and the page is stale.
 - **Every archived document is byte-identical to what arrived.** Nothing is edited, reformatted or trimmed — including the parts we think are wrong. Where we disagree with a brief, the disagreement is published on the page it produced and marked as ours.
@@ -408,6 +418,6 @@ Every entry above carries what it asked for and did not get, and on most of the 
 
 Register maintained by hand alongside the work, and checked in CI: every document listed must exist at the path given and match its recorded digest, and every file in `assets/briefs/` must appear in the register. Last reconciled 16 September 2026.
 
-## Twenty-three items. None untouched, and none finished.
+## Twenty-four items. None untouched, and none finished.
 
-Every item now names something it produced and something it did not. Twenty of the twenty-three are marked _partly_, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.
+Every item now names something it produced and something it did not. Twenty-one of the twenty-four are marked _partly_, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.
