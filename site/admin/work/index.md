@@ -75,11 +75,17 @@ a decision the lead owns, listed in the state fileneeds the lead
 
 a decision the lead owns, listed in the state fileneeds the lead
 
-## In flight — 0 branches
+## In flight — 1 branch
 
 One file per branch under `.claude/work/`. [How a work file is written](../../admin/work/about-work-files/).
 
-Nothing in flight.
+### [claude/dev-session-setup-a5wcc5](../../admin/work/branches/claude-dev-session-setup-a5wcc5/)
+
+started 25 September 2026 · task brief: D25, a follow-up
+
+The buyer's figure on the Topgent case, unclipped. Generator only, plus the release.
+
+**Status.** [x] Measured in Chromium: no text past any box edge, every description ends on its last word · [ ] Merge, CI green, live
 
 ## Task briefs — 14
 
