@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>RiskMandate — the business case for gVisor</title>
-<meta name="description" content="gVisor (Google (open source)), by the risk it changes: the register for a stated agent deployment without it and with it, computed from a public model, from the operator to the board.">
-<link rel="canonical" href="https://riskmandate.ai/business-case-gvisor.html">
-<link rel="alternate" type="text/markdown" href="business-case-gvisor.md" title="This page as markdown">
+<title>RiskMandate — the business case for Cloudgeni, on Opengeni</title>
+<meta name="description" content="Cloudgeni, on Opengeni (Cloudgeni (Oslo)), by the risk it changes: the register for a stated agent deployment without it and with it, computed from a public model, from the operator to the board.">
+<link rel="canonical" href="https://riskmandate.ai/business-case-cloudgeni.html">
+<link rel="alternate" type="text/markdown" href="business-case-cloudgeni.md" title="This page as markdown">
 <link rel="icon" href="assets/brand/riskmandate-favicon-32.png" sizes="32x32">
 <link rel="icon" href="assets/brand/riskmandate-mark.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="RiskMandate">
-<meta property="og:url" content="https://riskmandate.ai/business-case-gvisor.html">
-<meta property="og:title" content="RiskMandate — the business case for gVisor">
-<meta property="og:description" content="gVisor (Google (open source)), by the risk it changes: the register for a stated agent deployment without it and with it, computed from a public model, from the operator to the board.">
+<meta property="og:url" content="https://riskmandate.ai/business-case-cloudgeni.html">
+<meta property="og:title" content="RiskMandate — the business case for Cloudgeni, on Opengeni">
+<meta property="og:description" content="Cloudgeni, on Opengeni (Cloudgeni (Oslo)), by the risk it changes: the register for a stated agent deployment without it and with it, computed from a public model, from the operator to the board.">
 <meta property="og:image" content="https://riskmandate.ai/assets/brand/riskmandate-lockup-light.png">
 <meta name="twitter:card" content="summary_large_image">
 <!-- v1.0.0. Reconstructed from SG/Vault 7rfetjwz at v0.14.0;
@@ -365,12 +365,12 @@ table.lv td a{color:var(--green)}
 
 <main class="phero">
   <div class="wrap">
-    <span class="eyebrow"><span class="d"></span> The business case · Sandbox</span>
-    <h1>gVisor, by the risk it changes</h1>
-    <p class="sub" style="margin-bottom:20px">A sandboxed container runtime. Its networking can be disabled entirely, leaving only a loopback inside the sandbox. Written as an answer, code the agent runs there reaches nothing outside.</p>
-    
-    <p class="bc-meta"><b>Open source:</b> Apache-2.0 · Google (open source) · <a href="https://gvisor.dev/community/" target="_blank" rel="noopener">get involved</a></p>
-    <p class="bc-meta"><b>The deployment:</b> The model's typical deployment, with the answers this project addresses stated as they are without it: can reach the general internet.</p>
+    <span class="eyebrow"><span class="d"></span> The business case · Agent harnesses and runtimes</span>
+    <h1>Cloudgeni and Opengeni, by the risk they change</h1>
+    <p class="sub" style="margin-bottom:20px">Cloudgeni runs AI agents against cloud infrastructure and delivers every change as a pull request; its documentation says agents do not deploy, cloud access is read-first, and runs are scoped. It runs on Opengeni, an open-source harness whose README describes durable sessions, tool approvals that pause a run for a person, a replayable event log of every step, and execution in a managed sandbox or on a machine you own. For RiskMandate the case is the harness: put an agent with a behaviour policy inside it and the rows that today rest on an instruction or a setting gain a boundary the agent cannot reach. The published Gmail ABP is the worked example.</p>
+    <p class="bc-meta"><b>Disclosure:</b> RiskMandate's lead spoke with one of Cloudgeni's founders on 25 September 2026, and the two companies are setting up a pilot: running the agents behind RiskMandate's Gmail and Calendar behaviour policies inside Opengeni. This case was written before the pilot, from Cloudgeni's and Opengeni's public pages only, read on that date. Nothing from the conversation is on this page; when the pilot produces a measured result, the case changes with the date.</p>
+    <p class="bc-meta"><b>Open source:</b> Apache-2.0 for Opengeni, the harness it runs on; Cloudgeni itself is a hosted service · Cloudgeni (Oslo) · <a href="https://github.com/Cloudgeni-ai/opengeni" target="_blank" rel="noopener">get involved</a></p>
+    <p class="bc-meta"><b>The deployment:</b> The model's typical deployment, moved to what an infrastructure agent usually looks like without a harness: it changes production on its own, what it did cannot be reconstructed, stopping it is possible eventually, nobody knows how long that takes, and nobody can say what it could reach if it misbehaved.</p>
     <p class="bc-meta"><b>The model:</b> the RiskGraph Explorer's 49 facts, 49 risks and 10 roles, copied into this site with its provenance; the register below is computed, not written. <a href="business-cases.html#method">How</a>.</p>
     
   </div>
@@ -384,7 +384,7 @@ table.lv td a{color:var(--green)}
         <span class="tag">01 · What it does</span>
         <h2>In its own words, <span class="g">and nothing more.</span></h2>
       </div>
-      <ul class="bc-list"><li>A sandbox whose external networking can be switched off. <span class="bc-src">&ldquo;To completely isolate the host and network from the sandbox, external networking can be disabled.&rdquo; · <a href="https://gvisor.dev/docs/user_guide/networking/" target="_blank" rel="noopener">gvisor.dev</a>, read 24 September 2026</span></li>
+      <ul class="bc-list"><li>Runs agents against cloud infrastructure and delivers the result as a pull request, not a deployment. <span class="bc-src">&ldquo;Agents do not deploy. No direct apply, deploy, or production cloud mutation. Cloud access is read-first. Inventory, findings, resource context, and validation inputs. Changes land as PRs. Your team reviews, merges, and deploys. Runs are scoped. Selected repositories, integrations, tools, and organization data only.&rdquo; · <a href="https://docs.cloudgeni.ai/trust/security-commitment" target="_blank" rel="noopener">docs.cloudgeni.ai</a>, read 25 September 2026</span></li><li>Keeps deployment credentials out of the agent's hands by design. <span class="bc-src">&ldquo;Deployment-grade credentials should stay in customer CI/CD. Cloudgeni can generate and validate the proposed IaC; the final plan/apply or deploy step remains customer-controlled.&rdquo; · <a href="https://docs.cloudgeni.ai/trust/security-commitment" target="_blank" rel="noopener">docs.cloudgeni.ai</a>, read 25 September 2026</span></li><li>Records what a run did: messages, tool output, credential use and audit events, exportable through the API and the CLI. <span class="bc-src">&ldquo;Session messages, tool output, scan state, credential usage, audit events, and telemetry are persisted for review.&rdquo; · <a href="https://docs.cloudgeni.ai/trust/security-commitment" target="_blank" rel="noopener">docs.cloudgeni.ai</a>, read 25 September 2026</span></li><li>Runs on Opengeni, an open-source harness that holds the session, the approvals and the log around any agent. <span class="bc-src">&ldquo;Opengeni is a production-ready agentic service: it runs AI agents that do real work, keeps a session going for hours or days, records every step in a replayable event log, stops for a human when an action needs approval, and puts each session either in a managed sandbox or directly on a machine you own.&rdquo; · <a href="https://github.com/Cloudgeni-ai/opengeni#readme" target="_blank" rel="noopener">github.com</a>, read 25 September 2026</span></li><li>Pauses a run for a person before a risky tool call, and resumes the exact call after the answer. <span class="bc-src">&ldquo;Tool approvals gate risky actions. Agents can ask structured questions and resume the exact tool call after the answer, even across restarts.&rdquo; · <a href="https://github.com/Cloudgeni-ai/opengeni#readme" target="_blank" rel="noopener">github.com</a>, read 25 September 2026</span></li><li>Stores organisation-specific guidance as versioned policies the agent is given as context: an expectation, in this site's vocabulary, and named as guidance on its own page. <span class="bc-src">&ldquo;Custom policies are reusable guidance that Cloudgeni applies in analysis and agent workflows.&rdquo; · <a href="https://docs.cloudgeni.ai/features/custom-policies" target="_blank" rel="noopener">docs.cloudgeni.ai</a>, read 25 September 2026</span></li>
       </ul>
     </div>
   </section>
@@ -398,7 +398,11 @@ table.lv td a{color:var(--green)}
       </div>
       <div class="bc-t ch" role="table">
       <div class="bc-tr" role="row"><span role="columnheader">The question</span><span role="columnheader">Without it</span><span role="columnheader">With it</span><span role="columnheader">How, and who holds it</span></div>
-      <div class="bc-tr" role="row"><span role="cell">Can it reach anything outside your network?</span><span role="cell" data-k="Without it" class="bc-was">Yes, general internet</span><span role="cell" data-k="With it" class="bc-now">No egress</span><span role="cell" data-k="How">a boundary, held by the deployer. Only for code the agent runs inside the sandbox, not for the agent's own tools outside it. <span class="bc-src">&ldquo;To completely isolate the host and network from the sandbox, external networking can be disabled.&rdquo; · <a href="https://gvisor.dev/docs/user_guide/networking/" target="_blank" rel="noopener">gvisor.dev</a>, read 24 September 2026</span></span></div>
+      <div class="bc-tr" role="row"><span role="cell">Can it change things in production, or only read and report?</span><span role="cell" data-k="Without it" class="bc-was">Changes on its own</span><span role="cell" data-k="With it" class="bc-now">Changes, with a person approving each one</span><span role="cell" data-k="How">a boundary, held by the customer's reviewers, and their CI/CD. A boundary because the deployment credential is not in the agent's grant: the agent writes a branch and a pull request, and a person merges. It holds for changes that go through the Git path. A Connected Machine, which Opengeni drives directly, reaches whatever that machine reaches, and is the customer's own choice. <span class="bc-src">&ldquo;The product is not designed around the agent writing directly to production infrastructure.&rdquo; · <a href="https://docs.cloudgeni.ai/features/ai-devops" target="_blank" rel="noopener">docs.cloudgeni.ai</a>, read 25 September 2026</span></span></div>
+      <div class="bc-tr" role="row"><span role="cell">Could you reconstruct what it did last Tuesday?</span><span role="cell" data-k="Without it" class="bc-was">No</span><span role="cell" data-k="With it" class="bc-now">Fully</span><span role="cell" data-k="How">a setting, held by the operator of the harness. For what the session did: every event in the log, replayable. A setting rather than a boundary because the log is the operator's to keep, export or delete, and because what a Connected Machine did outside the session's tool calls is not in it. <span class="bc-src">&ldquo;Every event lands in Postgres. Live streams backfill from it, so a browser reload, a new client, or an audit replays the same history.&rdquo; · <a href="https://github.com/Cloudgeni-ai/opengeni#readme" target="_blank" rel="noopener">github.com</a>, read 25 September 2026</span></span></div>
+      <div class="bc-tr" role="row"><span role="cell">If you had to stop it right now — could you?</span><span role="cell" data-k="Without it" class="bc-was">Yes, eventually</span><span role="cell" data-k="With it" class="bc-now">Yes, one action</span><span role="cell" data-k="How">a setting, held by the operator of the harness. One action, from the session: a person interrupts, or the run pauses itself at an approval. A setting because the harness's own operator holds it, and an agent on a Connected Machine is stopped by stopping the machine. <span class="bc-src">&ldquo;The agent keeps working until it completes the goal with evidence, pauses with a rationale, or a human interrupts.&rdquo; · <a href="https://github.com/Cloudgeni-ai/opengeni#readme" target="_blank" rel="noopener">github.com</a>, read 25 September 2026</span></span></div>
+      <div class="bc-tr" role="row"><span role="cell">How long would stopping actually take?</span><span role="cell" data-k="Without it" class="bc-was">Don't know</span><span role="cell" data-k="With it" class="bc-now">Minutes</span><span role="cell" data-k="How">a setting, held by the operator of the harness. Minutes, for a person watching the session. The pages do not state a time; the interrupt is a control in the session's own interface. <span class="bc-src">&ldquo;Give agents work from the web app and follow along, or call the same session API from your own product and let Opengeni hold the state, history, approvals, and outputs.&rdquo; · <a href="https://github.com/Cloudgeni-ai/opengeni#readme" target="_blank" rel="noopener">github.com</a>, read 25 September 2026</span></span></div>
+      <div class="bc-tr" role="row"><span role="cell">If it misbehaved at full speed, what could it reach?</span><span role="cell" data-k="Without it" class="bc-was">Don't know</span><span role="cell" data-k="With it" class="bc-now">Internal only</span><span role="cell" data-k="How">a boundary, held by whoever configures the run's scope and sandbox. For a run in a managed sandbox with selected context and task-specific tools, what it could reach is the list it was given, read-first on the cloud side. Whether that list is internal only is the customer's to say; what changes is that the reach is stated at dispatch rather than discovered afterwards. On a Connected Machine the reach is the machine's. <span class="bc-src">&ldquo;The agent receives selected context, task-specific tools, and an ephemeral run context.&rdquo; · <a href="https://docs.cloudgeni.ai/trust/security-commitment" target="_blank" rel="noopener">docs.cloudgeni.ai</a>, read 25 September 2026</span></span></div>
     </div>
     </div>
   </section>
@@ -407,12 +411,19 @@ table.lv td a{color:var(--green)}
     <div class="wrap">
       <div class="shead">
         <span class="tag">03 · The register, before and after</span>
-        <h2>2 retired, <span class="g">23 unchanged.</span></h2>
+        <h2>9 retired, <span class="g">17 unchanged.</span></h2>
         <p>Computed from the model for the deployment above: every risk that holds without it, and every risk that holds with it.</p>
       </div>
-      <div class="bc-sum"><div class="off"><span class="n">2</span><span class="l">retired</span></div><div class="new"><span class="n">0</span><span class="l">new</span></div><div><span class="n">25 → 23</span><span class="l">entries on the register</span></div></div>
-      <p class="bc-h">Retired</p><div class="bc-risks"><div class="bc-risk off"><span class="ref">RISK-28</span><div><b>The agent can reach systems outside the estate</b><span>operational · CISO, CFO</span></div></div>
-      <div class="bc-risk off"><span class="ref">CORP-4</span><div><b>Unquantified financial exposure — the organisation cannot price its own downside</b><span>corporate · CFO, Board</span></div></div></div>
+      <div class="bc-sum"><div class="off"><span class="n">9</span><span class="l">retired</span></div><div class="new"><span class="n">0</span><span class="l">new</span></div><div><span class="n">26 → 17</span><span class="l">entries on the register</span></div></div>
+      <p class="bc-h">Retired</p><div class="bc-risks"><div class="bc-risk off"><span class="ref">RISK-8</span><div><b>The operator cannot state what the agent is entitled to reach</b><span>operational · SRE / platform on-call, Platform owner</span></div></div>
+      <div class="bc-risk off"><span class="ref">RISK-9</span><div><b>Stopping the agent takes more than one action</b><span>operational · SRE / platform on-call</span></div></div>
+      <div class="bc-risk off"><span class="ref">RISK-13</span><div><b>What the agent did cannot be reconstructed</b><span>operational · SRE / platform on-call, CISO</span></div></div>
+      <div class="bc-risk off"><span class="ref">RISK-15</span><div><b>The organisation acts through a system that acts without a person approving each action</b><span>operational · CTO, Board</span></div></div>
+      <div class="bc-risk off"><span class="ref">RISK-17</span><div><b>The scope of the agent's access cannot be reviewed</b><span>operational · CISO</span></div></div>
+      <div class="bc-risk off"><span class="ref">RISK-19</span><div><b>The time a stop takes is unknown to the people who would perform it</b><span>operational · SRE / platform on-call, Platform owner</span></div></div>
+      <div class="bc-risk off"><span class="ref">RISK-29</span><div><b>The stop capability cannot be compared to any exposure window</b><span>operational · CISO</span></div></div>
+      <div class="bc-risk off"><span class="ref">RISK-33</span><div><b>The organisation could not account for what its agent did</b><span>operational · Board</span></div></div>
+      <div class="bc-risk off"><span class="ref">CORP-5</span><div><b>Accountability failure — the organisation cannot demonstrate who decided what</b><span>corporate · CEO, Board</span></div></div></div>
       
     </div>
   </section>
@@ -425,18 +436,18 @@ table.lv td a{color:var(--green)}
         <p>Each risk is assigned to the roles it belongs to, and each role reports to another until the board. The count beside each role is the entries it holds without the product and with it.</p>
       </div>
       <div class="bc-alt">
-      <div class="bc-a"><h3>Operators</h3><span class="why">who run it, and are paged when it goes wrong</span><div class="bc-role"><b>SRE / platform on-call</b><span class="c">9 → 9</span></div><div class="bc-role"><b>Customer-facing service owner</b><span class="c">2 → 2</span></div></div>
-      <div class="bc-a"><h3>Owners</h3><span class="why">who own what it may touch, and can say what happened</span><div class="bc-role"><b>Platform owner</b><span class="c">3 → 3</span></div><div class="bc-role"><b>CISO</b><span class="c">9 → 8 <span class="d">−1</span></span><span class="refs">retired RISK-28</span></div><div class="bc-role"><b>DPO</b><span class="c">6 → 6</span></div></div>
-      <div class="bc-a"><h3>Executives</h3><span class="why">who answer for speed, product, cost and the whole</span><div class="bc-role"><b>CTO</b><span class="c">3 → 3</span></div><div class="bc-role"><b>Chief Product Officer</b><span class="c">4 → 4</span></div><div class="bc-role"><b>CFO</b><span class="c">2 → 0 <span class="d">−2</span></span><span class="refs">retired RISK-28, CORP-4</span></div><div class="bc-role"><b>CEO</b><span class="c">3 → 3</span></div></div>
-      <div class="bc-a"><h3>The board</h3><span class="why">who must be able to defend how it is run</span><div class="bc-role"><b>Board</b><span class="c">5 → 4 <span class="d">−1</span></span><span class="refs">retired CORP-4</span></div></div>
+      <div class="bc-a"><h3>Operators</h3><span class="why">who run it, and are paged when it goes wrong</span><div class="bc-role"><b>SRE / platform on-call</b><span class="c">10 → 6 <span class="d">−4</span></span><span class="refs">retired RISK-8, RISK-9, RISK-13, RISK-19</span></div><div class="bc-role"><b>Customer-facing service owner</b><span class="c">1 → 1</span></div></div>
+      <div class="bc-a"><h3>Owners</h3><span class="why">who own what it may touch, and can say what happened</span><div class="bc-role"><b>Platform owner</b><span class="c">4 → 2 <span class="d">−2</span></span><span class="refs">retired RISK-8, RISK-19</span></div><div class="bc-role"><b>CISO</b><span class="c">9 → 6 <span class="d">−3</span></span><span class="refs">retired RISK-13, RISK-17, RISK-29</span></div><div class="bc-role"><b>DPO</b><span class="c">6 → 6</span></div></div>
+      <div class="bc-a"><h3>Executives</h3><span class="why">who answer for speed, product, cost and the whole</span><div class="bc-role"><b>CTO</b><span class="c">3 → 2 <span class="d">−1</span></span><span class="refs">retired RISK-15</span></div><div class="bc-role"><b>Chief Product Officer</b><span class="c">3 → 3</span></div><div class="bc-role"><b>CFO</b><span class="c">0 → 0</span></div><div class="bc-role"><b>CEO</b><span class="c">4 → 3 <span class="d">−1</span></span><span class="refs">retired CORP-5</span></div></div>
+      <div class="bc-a"><h3>The board</h3><span class="why">who must be able to defend how it is run</span><div class="bc-role"><b>Board</b><span class="c">6 → 3 <span class="d">−3</span></span><span class="refs">retired RISK-15, RISK-33, CORP-5</span></div></div>
     </div>
       <p class="bc-h">At the board: the corporate register</p>
       <p class="bc-note">Corporate risks have no facts of their own. They hold while any risk that leads into them holds, so a single product rarely retires one. What it changes is how many reasons the board is being given.</p>
-      <div class="bc-risks"><div class="bc-risk"><span class="ref">CORP-1</span><div><b>Regulatory exposure — the organisation may be operating outside obligations it is subject to</b><span>still holds · risks leading into it: 2 before, 2 after</span></div></div>
-      <div class="bc-risk"><span class="ref">CORP-2</span><div><b>Customer harm — customers may be affected by decisions or changes nobody made</b><span>still holds · risks leading into it: 3 before, 2 after</span></div></div>
+      <div class="bc-risks"><div class="bc-risk"><span class="ref">CORP-1</span><div><b>Regulatory exposure — the organisation may be operating outside obligations it is subject to</b><span>still holds · risks leading into it: 3 before, 1 after</span></div></div>
+      <div class="bc-risk"><span class="ref">CORP-2</span><div><b>Customer harm — customers may be affected by decisions or changes nobody made</b><span>still holds · risks leading into it: 2 before, 2 after</span></div></div>
       <div class="bc-risk"><span class="ref">CORP-3</span><div><b>Operational resilience — the organisation may be unable to restore a service it depends on</b><span>still holds · risks leading into it: 1 before, 1 after</span></div></div>
-      <div class="bc-risk off"><span class="ref">CORP-4</span><div><b>Unquantified financial exposure — the organisation cannot price its own downside</b><span>retired · risks leading into it: 1 before, 0 after</span></div></div>
-      <div class="bc-risk"><span class="ref">CORP-6</span><div><b>Loss of control — the organisation operates a system it may not be able to stop or explain</b><span>still holds · risks leading into it: 2 before, 2 after</span></div></div></div>
+      <div class="bc-risk off"><span class="ref">CORP-5</span><div><b>Accountability failure — the organisation cannot demonstrate who decided what</b><span>retired · risks leading into it: 1 before, 0 after</span></div></div>
+      <div class="bc-risk"><span class="ref">CORP-6</span><div><b>Loss of control — the organisation operates a system it may not be able to stop or explain</b><span>still holds · risks leading into it: 2 before, 1 after</span></div></div></div>
     </div>
   </section>
 
@@ -449,7 +460,7 @@ table.lv td a{color:var(--green)}
         <h2>Every product is also a new thing in the estate.</h2>
       </div>
       
-      <p class="bc-note">Its host-network option <em>decreases the isolation to the host</em>, so the choice of network mode is part of the case.</p>
+      <p class="bc-note">A control plane holding the run's material: its own page lists <em>infrastructure metadata, selected repository content, findings, prompts, generated changes, and audit events</em>, and the privacy policy on cloudgeni.ai says scan data is <em>typically retained for 2 years</em>. A cloud read credential per account: on AWS its setup page creates a user with the managed ReadOnlyAccess policy; on Azure the manual setup assigns Reader, Cost Management Reader, Security Reader, Log Analytics Reader and <em>Storage Account Key Operator Service Role</em>, the last of which is not a read role by name and is not explained on the page read. The harness's own components, which the README lists for a self-host: Postgres, NATS, Temporal, object storage, the API, workers and the web app. And, in local development, the README's default that the agent runs commands directly on the developer's machine rather than in a container, with the sandbox as an option to turn on.</p>
     </div>
   </section>
 
@@ -460,17 +471,117 @@ table.lv td a{color:var(--green)}
         <h2>What adopting it takes, <span class="g">before any of this is true.</span></h2>
         <p>An open-source project costs nothing to download and something to adopt. Every change above depends on the work below, and most of it is customisation to your own deployment.</p>
       </div>
-      <ul class="bc-list"><li>Run the agent's code execution in the sandbox, not the agent itself, unless that is intended.</li><li>Choose the network mode deliberately and keep it out of the agent's control.</li></ul>
+      <ul class="bc-list"><li>Decide the sandbox: a managed sandbox for the run, or a Connected Machine, which is driven directly and reaches what the machine reaches. The boundaries in this case assume the sandbox.</li><li>Write the approval rules: which tool calls pause for a person, and who that person is. An approval is a person clicking, and the residual risk of that is the CISO's to accept.</li><li>Keep deployment credentials in the customer's CI/CD, as the trust page says, and check that no run context carries one.</li><li>Decide who reads the event log, how long it is kept, and what is redacted before it is exported; the log is the evidence and also a copy of what the agent saw.</li><li>Grant the cloud read roles the setup page names and no more; on Azure, ask what the Storage Account Key Operator role is for before assigning it.</li><li>If self-hosting, run the reference deployment and own its components; if using the managed service, read what the control plane holds and where.</li></ul>
     </div>
   </section>
 
-  
+  <section class="psection">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">Where its pages disagree</span>
+        <h2>Published unresolved, <span class="g">for Cloudgeni (Oslo) to settle.</span></h2>
+        <p>Each pair was read on the same day. We have not tested which is true, because that would mean testing somebody else&rsquo;s system.</p>
+      </div>
+      <ul class="bc-list"><li><b>does a change ever merge on its own.</b> The marketing site, in its own text, says <em>Autonomy is a policy — routine changes merge on their own, critical paths wait for review.</em> The documentation's trust page says <em>Changes land as PRs. Your team reviews, merges, and deploys</em>, and the AI DevOps page says the product <em>is not designed around the agent writing directly to production infrastructure.</em> Whether a routine change can merge without a person is left to Cloudgeni to state. <span class="bc-src"><a href="https://cloudgeni.ai/" target="_blank" rel="noopener">cloudgeni.ai</a> · <a href="https://docs.cloudgeni.ai/trust/security-commitment" target="_blank" rel="noopener">security-commitment</a></span></li><li><b>which clouds.</b> cloudgeni.ai/llms.txt, last updated 15 September 2025 by its own header, lists AWS and Azure. The documentation's FAQ lists AWS, Azure, GCP, Kubernetes, OCI, Exoscale and OpenShift. Both were served on 25 September 2026. <span class="bc-src"><a href="https://cloudgeni.ai/llms.txt" target="_blank" rel="noopener">llms.txt</a> · <a href="https://docs.cloudgeni.ai/faq" target="_blank" rel="noopener">faq</a></span></li>
+      </ul>
+    </div>
+  </section>
 
-  
+  <section class="psection alt">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">What it gives an Agent Behaviour Policy</span>
+        <h2>Four objects, <span class="g">and which of them a run fills.</span></h2>
+        <p>The pilot's question, stated in the ABP's terms. RiskMandate's published behaviour policy for Claude's Gmail connector has six rows, a mandate of read and draft, never send, and four rows of unbounded excess: four things the agent can do that nobody asked for, with nothing out of its reach in the way. A harness does not change what the connector grants. What it changes is the barrier column. The table takes each Gmail row as it stands today, from the vault, and says what Opengeni's pages would let a run inside it do to that row. Every entry in the third column is a projection from the pages, not a measurement; the pilot is the measurement.</p>
+      </div>
+      <div class="bc-t feed" role="table" aria-label="What a run of the product gives each object of an Agent Behaviour Policy">
+        <div class="bc-tr" role="row"><span role="columnheader">The ABP object</span><span role="columnheader">What the product supplies</span><span role="columnheader">How it becomes the ABP</span><span role="columnheader">What stays open</span></div>
+        <div class="bc-tr" role="row"><span role="cell">send.message.world · send mail as the person, to anybody</span><span role="cell" data-k="Supplies">Today: a setting. Claude's per-action approval prompt, which the person's own account can switch to always allow. In excess, refused by the mandate, unbounded.</span><span role="cell" data-k="Becomes">Inside the harness the send becomes a tool call that <em>stops for a human when an action needs approval</em>, held by the operator of the harness, outside the agent's account. That is a boundary. The row leaves unbounded excess.</span><span role="cell" data-k="Open">The approval is a person clicking; the residual is the CISO's. And the harness must hold the Gmail credential itself, so the send goes through it and not around it.</span></div>
+        <div class="bc-tr" role="row"><span role="cell">create.schedule.tenant · create something that outlives the session</span><span role="cell" data-k="Supplies">Today: a setting, behind the same approval prompt. In excess, refused, unbounded.</span><span role="cell" data-k="Becomes">A run inside Opengeni has its own sessions, goals and schedules, owned by the harness and its operator. Whether the agent can still create a schedule in Claude's own tenant depends on which surface the pilot connects the mailbox through; if the agent's only surface is the harness, the row leaves the grant.</span><span role="cell" data-k="Open">Open until the pilot decides the surface. The case counts it as bounded only if the Claude surface is not in the run.</span></div>
+        <div class="bc-tr" role="row"><span role="cell">read.credential.host · read credentials on the host</span><span role="cell" data-k="Supplies">Today: nothing in the way, inferred. In excess, refused, unbounded.</span><span role="cell" data-k="Becomes">In a managed sandbox there is no host of the person's to read: <em>an ephemeral run context</em>, with <em>task-specific tools</em>. The row leaves the grant for a sandboxed run.</span><span role="cell" data-k="Open">On a Connected Machine the row is the machine's, and the README says the machine is driven directly. The pilot should run in the sandbox.</span></div>
+        <div class="bc-tr" role="row"><span role="cell">read.record.history · read shell history and past sessions</span><span role="cell" data-k="Supplies">Today: nothing in the way, measured. In excess, unstated, unbounded.</span><span role="cell" data-k="Becomes">The same: the sandbox holds no history of the person's. What it holds is the harness's own replayable log, which is a different record with a different owner.</span><span role="cell" data-k="Open">The log is a copy of what the agent read, including mail. Who may read the log becomes Legal's row, as it was for the proxy in the role-ownership article.</span></div>
+        <div class="bc-tr" role="row"><span role="cell">authenticate-as.credential.tenant · act in the mailbox as the person</span><span role="cell" data-k="Supplies">Today: a boundary, the OAuth consent, revocable by the person. In excess, unstated, bounded.</span><span role="cell" data-k="Becomes">Unchanged in kind. The credential moves from the person's Claude session to the harness, so revoking it means revoking the harness's grant, and the person should know that.</span><span role="cell" data-k="Open">Where the harness keeps it, and who can read the harness's secrets, is the trust page's <em>secrets</em> row in Opengeni's governance layer; the pilot reads that page.</span></div>
+        <div class="bc-tr" role="row"><span role="cell">read.message.tenant · read the mailbox</span><span role="cell" data-k="Supplies">Today: a boundary, the consent's read line. Aligned with the mandate.</span><span role="cell" data-k="Becomes">Unchanged. The mandate wants it; the harness does not narrow a read scope that Google issues for the whole mailbox. The instructions in the run say which mail is for the job; that stays an expectation.</span><span role="cell" data-k="Open">The same fact this site records on every mail connector: the scope covers the account, not the business process.</span></div>
+        <div class="bc-tr" role="row"><span role="cell">The Calendar policies, in draft</span><span role="cell" data-k="Supplies">Their dangerous row is an edit that Google documents no way to restore.</span><span role="cell" data-k="Becomes">A harness that pauses before the edit tool call, and whose log records the event as it stood before the call, is the barrier the Calendar article asked for: <em>a before-image of every event the agent edits, kept where the agent cannot reach</em>. Opengeni's replayable log is where that before-image would live.</span><span role="cell" data-k="Open">Only if the tool reads the event before it writes it, and the log keeps the read. That is a design decision for the pilot, and it is the one worth making first.</span></div>
+      </div>
+      <p class="bc-note">The projection, if the pilot runs in the sandbox and the mailbox is reached only through the harness: the Gmail policy's unbounded excess goes from four to nought, its excess stays at five, and two residual risks appear where none was recorded, the approval that is a person clicking and the log that is a copy of mail. The register above is the model's; these counts are the vault's, and the pilot will replace them with measured ones.</p>
+    </div>
+  </section>
 
-  
+  <section class="psection">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">From the buyer&rsquo;s desk</span>
+        <h2>What it does, <span class="g">for the person who signs.</span></h2>
+        <p>Cloudgeni's pages are written for the platform engineer. The person who has to sign for an agent that touches production wants three things from a harness: that it cannot deploy, that it stops for a person, and that afterwards somebody can say what it did. This is the run from that desk, in the order the trust page gives it.</p>
+      </div>
+      <figure class="bcf"><svg viewBox="0 0 1000 412" role="img" aria-label="One run, from the task to the pull request"><defs><marker id="bcf-m" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="bcf-mk"/></marker></defs>
+    <text x="20" y="28" class="bcf-title">One run, from the task to the pull request</text>
+    <g><rect x="20" y="54" width="148.33333333333334" height="200" rx="10" class="bcf-box"/>
+      <text x="34" y="78" class="bcf-k">01</text>
+      <text x="34" y="100" class="bcf-t">A task starts</text>
+      <text x="34" y="120" class="bcf-d">A prompt, a</text><text x="34" y="134" class="bcf-d">schedule, a webhook,</text><text x="34" y="148" class="bcf-d">a scan result or a</text><text x="34" y="162" class="bcf-d">drift item creates</text><text x="34" y="176" class="bcf-d">work.</text>
+      <path d="M170.33333333333334 154 l10 0" class="bcf-arrow" marker-end="url(#bcf-m)"/></g>
+    <g><rect x="182.33333333333334" y="54" width="148.33333333333334" height="200" rx="10" class="bcf-box"/>
+      <text x="196.33333333333334" y="78" class="bcf-k">02</text>
+      <text x="196.33333333333334" y="100" class="bcf-t">The scope is</text><text x="196.33333333333334" y="117" class="bcf-t">resolved</text>
+      <text x="196.33333333333334" y="137" class="bcf-d">Organisation,</text><text x="196.33333333333334" y="151" class="bcf-d">workspace,</text><text x="196.33333333333334" y="165" class="bcf-d">repository,</text><text x="196.33333333333334" y="179" class="bcf-d">integration and</text><text x="196.33333333333334" y="193" class="bcf-d">actor, before</text><text x="196.33333333333334" y="207" class="bcf-d">anything is</text><text x="196.33333333333334" y="221" class="bcf-d">dispatched.</text>
+      <path d="M332.6666666666667 154 l10 0" class="bcf-arrow" marker-end="url(#bcf-m)"/></g>
+    <g><rect x="344.6666666666667" y="54" width="148.33333333333334" height="200" rx="10" class="bcf-box"/>
+      <text x="358.6666666666667" y="78" class="bcf-k">03</text>
+      <text x="358.6666666666667" y="100" class="bcf-t">A worker runs</text><text x="358.6666666666667" y="117" class="bcf-t">the agent</text>
+      <text x="358.6666666666667" y="137" class="bcf-d">In a managed sandbox</text><text x="358.6666666666667" y="151" class="bcf-d">or on a machine you</text><text x="358.6666666666667" y="165" class="bcf-d">own, with selected</text><text x="358.6666666666667" y="179" class="bcf-d">context,</text><text x="358.6666666666667" y="193" class="bcf-d">task-specific tools</text><text x="358.6666666666667" y="207" class="bcf-d">and an ephemeral run</text><text x="358.6666666666667" y="221" class="bcf-d">context.</text>
+      <path d="M495 154 l10 0" class="bcf-arrow" marker-end="url(#bcf-m)"/></g>
+    <g><rect x="507" y="54" width="148.33333333333334" height="200" rx="10" class="bcf-box"/>
+      <text x="521" y="78" class="bcf-k">04</text>
+      <text x="521" y="100" class="bcf-t">It stops for a</text><text x="521" y="117" class="bcf-t">person</text>
+      <text x="521" y="137" class="bcf-d">A risky tool call</text><text x="521" y="151" class="bcf-d">pauses the run; the</text><text x="521" y="165" class="bcf-d">answer resumes the</text><text x="521" y="179" class="bcf-d">exact call, even</text><text x="521" y="193" class="bcf-d">across restarts.</text>
+      <path d="M657.3333333333334 154 l10 0" class="bcf-arrow" marker-end="url(#bcf-m)"/></g>
+    <g><rect x="669.3333333333334" y="54" width="148.33333333333334" height="200" rx="10" class="bcf-box"/>
+      <text x="683.3333333333334" y="78" class="bcf-k">05</text>
+      <text x="683.3333333333334" y="100" class="bcf-t">Every step is</text><text x="683.3333333333334" y="117" class="bcf-t">recorded</text>
+      <text x="683.3333333333334" y="137" class="bcf-d">Messages, tool</text><text x="683.3333333333334" y="151" class="bcf-d">output, credential</text><text x="683.3333333333334" y="165" class="bcf-d">use and audit</text><text x="683.3333333333334" y="179" class="bcf-d">events, in a</text><text x="683.3333333333334" y="193" class="bcf-d">replayable log.</text>
+      <path d="M819.6666666666667 154 l10 0" class="bcf-arrow" marker-end="url(#bcf-m)"/></g>
+    <g><rect x="831.6666666666667" y="54" width="148.33333333333334" height="200" rx="10" class="bcf-box"/>
+      <text x="845.6666666666667" y="78" class="bcf-k">06</text>
+      <text x="845.6666666666667" y="100" class="bcf-t">The result is</text><text x="845.6666666666667" y="117" class="bcf-t">a pull request</text>
+      <text x="845.6666666666667" y="137" class="bcf-d">Your team reviews,</text><text x="845.6666666666667" y="151" class="bcf-d">merges and deploys.</text><text x="845.6666666666667" y="165" class="bcf-d">The deployment</text><text x="845.6666666666667" y="179" class="bcf-d">credential never</text><text x="845.6666666666667" y="193" class="bcf-d">left your CI/CD.</text>
+      </g>
+    <text x="20" y="276" class="bcf-k">WHO READS IT</text>
+    <g><rect x="20" y="288" width="310.6666666666667" height="104" rx="10" class="bcf-reader"/>
+      <text x="34" y="312" class="bcf-who">The platform engineer</text>
+      <text x="34" y="332" class="bcf-d">Findings turned into reviewed IaC, drift into</text><text x="34" y="346" class="bcf-d">pull requests, and an agent that works with</text><text x="34" y="360" class="bcf-d">repo and cloud context.</text></g>
+    <g><rect x="344.6666666666667" y="288" width="310.6666666666667" height="104" rx="10" class="bcf-reader"/>
+      <text x="358.6666666666667" y="312" class="bcf-who">The CISO</text>
+      <text x="358.6666666666667" y="332" class="bcf-d">Read-first cloud access, a scoped run, an</text><text x="358.6666666666667" y="346" class="bcf-d">approval gate, and a log that can be exported</text><text x="358.6666666666667" y="360" class="bcf-d">to the SIEM.</text></g>
+    <g><rect x="669.3333333333334" y="288" width="310.6666666666667" height="104" rx="10" class="bcf-reader"/>
+      <text x="683.3333333333334" y="312" class="bcf-who">The person who signs</text>
+      <text x="683.3333333333334" y="332" class="bcf-d">An agent whose excess is bounded by the harness</text><text x="683.3333333333334" y="346" class="bcf-d">rather than by its instructions: the ABP's</text><text x="683.3333333333334" y="360" class="bcf-d">barrier column moved, with evidence per run.</text></g>
+  </svg><figcaption>Drawn from the product&rsquo;s own pages, read on the date at the top of this case. Nothing was run.</figcaption></figure>
+      <div class="bc-points"><div><h3>It cannot deploy, because it does not hold the credential.</h3><p>This is the strongest line on the trust page and the reason the case gives it a boundary rather than a setting. A control that works because the agent's grant does not include the thing is the only kind this site counts as a control.</p></div>
+        <div><h3>The harness is separate from the agent, and open source.</h3><p>Opengeni's README says it <em>is not the agent; it is everything the agent needs around it.</em> That is exactly the shape a behaviour policy wants: the agent's grant on one side, the barriers on the other, held by somebody else.</p></div>
+        <div><h3>An approval is a boundary and a residual risk at once.</h3><p>The run pauses for a person. The person can be worn down, and the pause is only as good as the rule that decides which calls pause. The case counts the boundary and names the residual.</p></div>
+        <div><h3>The log is the evidence and a copy of what the agent saw.</h3><p>Replayable history is what makes last Tuesday reconstructable. It is also where a customer's mail or repository content now lives, for as long as the operator keeps it. Both are true; the second belongs to Legal.</p></div>
+        <div><h3>Two ways to run, two different pictures.</h3><p>In a managed sandbox the reach is what the run was given. On a Connected Machine the reach is the machine's. Every boundary in this case is for the first; a buyer should ask which one they are getting.</p></div></div>
+    </div>
+  </section>
 
-  
+  <section class="psection alt">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">The pilot, and the case as a product</span>
+        <h2>What the two companies can make together</h2>
+        <p>RiskMandate's offer to Cloudgeni, and to every product on this section, is the same: the business case in the register's terms, computed and dated, with the behaviour policy's counts moving as the proof. These are the notes for this one.</p>
+      </div>
+      <div class="bc-ideas"><div><h3>The first deliverable is a measured Gmail ABP inside Opengeni.</h3><p>Take the published Gmail policy, run its agent in the harness, and recompute the delta from what the harness actually bounded. The projection above says unbounded excess goes from four to nought; the measurement will say what it really does, row by row, with the evidence in the run's own log. That document is the pilot's output and the case's next version.</p></div>
+        <div><h3>The Calendar before-image is the demonstration to lead with.</h3><p>Google keeps no version of an edited event. A harness that pauses before the edit and keeps the event as it was in its replayable log is a control nobody else on this site has, for a risk that stops calendar agents being adopted at all. It is small, it is specific, and a buyer can see it in one screen.</p></div>
+        <div><h3>Sell the harness by the answers it changes.</h3><p>Five answers move on this page, each with its kind and its holder. A page like this for each agent shape Cloudgeni's customers run, computed from the same model, is a sales document a CISO can forward to the person who signs. RiskMandate writes them; Cloudgeni corrects them; both carry a date.</p></div>
+        <div><h3>A vault per run, or per agent, as the evidence pack.</h3><p>Opengeni already keeps a replayable log. An encrypted vault the customer holds the keys to, with the behaviour policy beside the run's log and the delta recomputed per version, is the artefact an auditor or an insurer is handed: a read key, not a login. This site's policies are built that way; the pilot can package its first result the same way.</p></div>
+        <div><h3>Open source the way open-source.sgit.ai describes it.</h3><p>Opengeni is Apache-2.0 with a managed service on top, which is packaging so long as the self-host and the service run the same code. The test from open-source.sgit.ai is one question, asked at each release: does the managed service contain anything the repository does not? Say the answer on the download page, and the trust page gets stronger.</p></div>
+        <div><h3>What not to claim.</h3><p>That the harness makes an agent safe. It bounds what the grant gives; it does not narrow the grant. The mail scope still covers the mailbox, the read is still whole, and the instructions are still an expectation. The case is strong because it says which rows move and which do not.</p></div></div>
+      <p class="bc-note">The position these rest on is published at <a href="https://open-source.sgit.ai/" target="_blank" rel="noopener">open-source.sgit.ai</a>, with its counter-cases; the vault pattern is the one this site&rsquo;s own behaviour policies use, described on <a href="how-it-works.html">how it works</a>.</p>
+    </div>
+  </section>
 
   <section class="psection">
     <div class="wrap">
@@ -478,10 +589,10 @@ table.lv td a{color:var(--green)}
         <span class="tag">What this does not claim</span>
         <h2>The limits of the case, <span class="g">stated by the case.</span></h2>
       </div>
-      <ul class="bc-list"><li>That it was tested. Nothing was installed or run; every change rests on the documentation quoted beside it.</li>
+      <ul class="bc-list"><li>That it was tested. Nothing was installed or run; every change rests on the pages quoted beside it. The pilot is where a measured result will come from, and it has not started.</li><li>That a Connected Machine is bounded. The README says machines are driven directly; every boundary above is for a run in a managed sandbox, and the case says so on each line.</li><li>That custom policies are a control. Their page calls them guidance; in this site's vocabulary that is an expectation, and it is listed with what the product does rather than with what it changes.</li><li>Anything from the conversation with the founder. The disclosure says it took place and that a pilot is planned; the page uses the public pages only.</li>
         <li>That the register is complete. It is one model, for one stated deployment. A different deployment changes the answers, and so the case.</li>
       </ul>
-      <p class="bc-note"><b>Next.</b> Published, and sent to the project's maintainers at the same time. If a change is wrong, or another answer should move, the case changes with the date they said so.</p>
+      <p class="bc-note"><b>Next.</b> Published, and sent to Cloudgeni the same day. The pilot's first deliverable is the Gmail behaviour policy measured inside Opengeni, with the counts below recomputed from what the harness actually bounded; that result replaces the projection in the ABP section, with its date.</p>
     </div>
   </section>
 
@@ -492,7 +603,7 @@ table.lv td a{color:var(--green)}
     <span class="eyebrow"><span class="d"></span> The same method, for your product</span>
     <h2>Make the case <span class="it">in the register&rsquo;s own terms.</span></h2>
     <p>If you build a security product for agents, the case for it can be written the same way: what it does in your own words, the answers it changes, and the register before and after. If a case here is wrong about you, tell us and it changes with a date.</p>
-    <div class="cta-row"><a class="btn btn-green" href="business-cases.html">All the cases</a><a class="btn btn-ghost" href="mailto:dinis.cruz@owasp.org?subject=Business%20case%20%C2%B7%20gVisor">Write to us</a></div>
+    <div class="cta-row"><a class="btn btn-green" href="business-cases.html">All the cases</a><a class="btn btn-ghost" href="mailto:dinis.cruz@owasp.org?subject=Business%20case%20%C2%B7%20Cloudgeni%2C%20on%20Opengeni">Write to us</a></div>
   </div>
 </section>
 
@@ -508,7 +619,7 @@ table.lv td a{color:var(--green)}
 (function(){
 'use strict';
 var RM={core:{},services:{},components:{},data:{}};
-RM.data.currentPage="business-case-gvisor";RM.data.pages=[{"name":"agent-behaviour-policy","label":"The sixteen examples","file":"agent-behaviour-policy.html","group":"Behaviour policies"},{"name":"abp","label":"What an ABP is","file":"abp.html","group":"Behaviour policies"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"Behaviour policies"},{"name":"licence-to-operate","label":"Licence to Operate","file":"licence-to-operate.html","group":"Behaviour policies"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"Behaviour policies"},{"name":"for-corporate","label":"You run agents today","file":"for-corporate.html","group":"Who it's for"},{"name":"for-founders","label":"You are a founder","file":"for-founders.html","group":"Who it's for"},{"name":"for-startups","label":"You are a startup","file":"for-startups.html","group":"Who it's for"},{"name":"insurance","label":"Make agents insurable","file":"insurance.html","group":"Insurance"},{"name":"insure-a-program","label":"Can you insure a program?","file":"insure-a-program.html","group":"Insurance"},{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"Insurance"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"Insurance"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"Insurance"},{"name":"business-cases","label":"Business cases, by risk","file":"business-cases.html","group":"Insurance"},{"name":"owasp-graph","label":"OWASP, as a graph","file":"owasp-graph.html","group":"Insurance"},{"name":"pricing","label":"The four levels","file":"pricing.html","group":"Pricing"},{"name":"abp-reviewed","label":"The reviewed level","file":"abp-reviewed.html","group":"Pricing"},{"name":"reviewers","label":"Who runs your review","file":"reviewers.html","group":"Pricing"},{"name":"try-it","label":"Try it","file":"try-it.html"},{"name":"articles","label":"Articles","file":"articles.html"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"privacy","label":"Privacy","file":"privacy.html","group":"More"},{"name":"lab","label":"The Lab","file":"lab.html","group":"More"},{"name":"demos","label":"Live demos","file":"demos.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"uk-support","label":"UK support, in the open","file":"uk-support.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"admin","label":"Admin","file":"admin/","group":"More"}];RM.data.sections=[];
+RM.data.currentPage="business-case-cloudgeni";RM.data.pages=[{"name":"agent-behaviour-policy","label":"The sixteen examples","file":"agent-behaviour-policy.html","group":"Behaviour policies"},{"name":"abp","label":"What an ABP is","file":"abp.html","group":"Behaviour policies"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"Behaviour policies"},{"name":"licence-to-operate","label":"Licence to Operate","file":"licence-to-operate.html","group":"Behaviour policies"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"Behaviour policies"},{"name":"for-corporate","label":"You run agents today","file":"for-corporate.html","group":"Who it's for"},{"name":"for-founders","label":"You are a founder","file":"for-founders.html","group":"Who it's for"},{"name":"for-startups","label":"You are a startup","file":"for-startups.html","group":"Who it's for"},{"name":"insurance","label":"Make agents insurable","file":"insurance.html","group":"Insurance"},{"name":"insure-a-program","label":"Can you insure a program?","file":"insure-a-program.html","group":"Insurance"},{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"Insurance"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"Insurance"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"Insurance"},{"name":"business-cases","label":"Business cases, by risk","file":"business-cases.html","group":"Insurance"},{"name":"owasp-graph","label":"OWASP, as a graph","file":"owasp-graph.html","group":"Insurance"},{"name":"pricing","label":"The four levels","file":"pricing.html","group":"Pricing"},{"name":"abp-reviewed","label":"The reviewed level","file":"abp-reviewed.html","group":"Pricing"},{"name":"reviewers","label":"Who runs your review","file":"reviewers.html","group":"Pricing"},{"name":"try-it","label":"Try it","file":"try-it.html"},{"name":"articles","label":"Articles","file":"articles.html"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"privacy","label":"Privacy","file":"privacy.html","group":"More"},{"name":"lab","label":"The Lab","file":"lab.html","group":"More"},{"name":"demos","label":"Live demos","file":"demos.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"uk-support","label":"UK support, in the open","file":"uk-support.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"admin","label":"Admin","file":"admin/","group":"More"}];RM.data.sections=[];
 
 'use strict';
 // components/dom.js — tiny DOM helpers shared by components. `el` builds an

@@ -343,6 +343,19 @@ Each one is linked in full, as received, with nothing edited. Where a brief and 
 - **The reply to the author.** The page is the material; the message is the lead’s
 - **The two screenshots.** A private conversation, not archived; the case uses the repository only
 
+### A business case for Cloudgeni and Opengeni, the harness the Gmail and Calendar behaviour policies will be piloted in: the risks it reduces, and the size and blast radius of an ABP inside it
+
+**sha256** ecff4157737b19bc45d675548c03424f690c1d9d1bd2e62dbaca99a5f5fc9b96
+
+**The same offer, for a pilot partner.** After a call with one of Cloudgeni’s founders, a pilot: a harness for the Gmail and Calendar behaviour policies. The lead’s note names what RiskMandate gives both companies: the business case for the product by the risks it reduces or ends, and the reduction in the size and blast radius of the ABPs run inside it.
+
+- [The case](business-case-cloudgeni.html), from Cloudgeni’s documentation and Opengeni’s README: five answers changed, each with its kind and holder; the register before and after; what it adds; two places the pages disagree
+- The harness mapped against the published Gmail ABP row by row, with the projection that its unbounded excess goes from four to nought and two residual risks appear; the Calendar before-image as the pilot’s first design decision
+- The run from the buyer’s desk, with a figure; six notes on the pilot and the case as a product
+- **The measurement.** Every ABP entry is a projection from the pages; the pilot’s first deliverable replaces it with its date
+- **The Calendar policies**, still in draft
+- **The message to Cloudgeni**, which is the lead’s
+
 ## And the instructions that arrived as speech or a sentence.
 
 These have no digest to check, which makes them the ones most easily lost — a voice memo that changed the direction of the whole site leaves no artefact at all unless somebody writes it down. So they are recorded here in the same list, with the same two columns.
@@ -422,7 +435,7 @@ sha256sum my-brief.md
 
 A register that only lists what was done is a press release.
 
-Every entry above carries what it asked for and did not get, and on most of the twenty-five that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.
+Every entry above carries what it asked for and did not get, and on most of the twenty-six that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.
 
 - **The file is the record, not this page.** [briefs-register.json](briefs-register.json) is what a program should read; this page renders it for people. If the two ever disagree, the file is right and the page is stale.
 - **Every archived document is byte-identical to what arrived.** Nothing is edited, reformatted or trimmed — including the parts we think are wrong. Where we disagree with a brief, the disagreement is published on the page it produced and marked as ours.
@@ -431,6 +444,6 @@ Every entry above carries what it asked for and did not get, and on most of the 
 
 Register maintained by hand alongside the work, and checked in CI: every document listed must exist at the path given and match its recorded digest, and every file in `assets/briefs/` must appear in the register. Last reconciled 16 September 2026.
 
-## Twenty-five items. None untouched, and none finished.
+## Twenty-six items. None untouched, and none finished.
 
-Every item now names something it produced and something it did not. Twenty-two of the twenty-five are marked _partly_, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.
+Every item now names something it produced and something it did not. Twenty-three of the twenty-six are marked _partly_, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.

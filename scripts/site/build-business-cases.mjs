@@ -406,8 +406,8 @@ function casePage(c) {
   ${c.commercialise ? `<section class="psection alt">
     <div class="wrap">
       <div class="shead">
-        <span class="tag">Taking it to market</span>
-        <h2>Notes on commercialising it, <span class="g">with nothing closed.</span></h2>
+        <span class="tag">${esc(c.commercialise.tag || 'Taking it to market')}</span>
+        <h2>${c.commercialise.h2 ? esc(c.commercialise.h2) : 'Notes on commercialising it, <span class="g">with nothing closed.</span>'}</h2>
         <p>${txt(c.commercialise.intro)}</p>
       </div>
       <div class="bc-ideas">${(c.commercialise.ideas || []).map((x) => `<div><h3>${esc(x.h)}</h3><p>${txt(x.p)}</p></div>`).join('\n        ')}</div>
