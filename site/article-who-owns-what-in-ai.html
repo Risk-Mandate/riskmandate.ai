@@ -403,7 +403,7 @@ rm-menu{display:contents}
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
     <a class="ghlink" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener" aria-label="The source, on GitHub" title="Open source · Apache-2.0 code · CC BY 4.0 pages"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a>
-      <a class="version" href="versions.html" title="What shipped in v1.34.10">v1.34.10</a>
+      <a class="version" href="versions.html" title="What shipped in v1.34.11">v1.34.11</a>
     <button class="demo" data-demo>Book a demo</button>
   </div>
 </header>
@@ -582,7 +582,7 @@ rm-menu{display:contents}
       <div class="wo-fig-head">
         <span class="wo-k">Figure · the blast radius</span>
         <h3>Connect the assistant, and watch the risks travel up. Then end them.</h3>
-        <p>Drawn from the article&rsquo;s own data. Play the six weeks of section 07, or change the record yourself: connect and disconnect, add the controls, and see which facts stop holding. A risk lights up when every fact it needs holds and none is bounded; it drifts to the role that holds it, and lights the whole path above that role to the board, because a risk never stops with its holder: everyone above carries it. <b>The colour travels up the path too</b>: while anything below a role is unaccepted, that role&rsquo;s path is red, whatever else it holds. The circles on a role are how many risks reach it, held or carried: red for the unaccepted, black for the accepted, both when both arrive. A risk ceases when one of its facts changes, citing the ABP version that changed it, <b>and what takes its place is the control&rsquo;s own residual risk</b>, in green: smaller, inside its holder&rsquo;s own authority, accepted when it appears. That is what a control does to a risk. It does not make it zero; it turns a red one into a green one that somebody can live with. Put every control on and every path to the board is green, and the risks that remain are the ones the business runs the assistant to take. Colour is the state of an acceptance, never a rating. Click a role, a risk, a connection or the assistant and everything it touches keeps its colour while the rest fades: the facts below it and how far it goes up. The panel under the figure says what it is, and what holds because of it. Click it again, or the background, to see everything. Only the roles this agent&rsquo;s path touches are drawn: Marketing, Product and HR are in the tables and not here.</p>
+        <p>Drawn from the article&rsquo;s own data. Play the six weeks of section 07, or change the record yourself: connect and disconnect, add the controls, and see which facts stop holding. A risk lights up when every fact it needs holds and none is bounded; it drifts to the role that holds it, and lights the whole path above that role to the board, because a risk never stops with its holder: everyone above carries it. <b>The colour travels up the path too</b>: while anything below a role is unaccepted, that role&rsquo;s path is red, whatever else it holds. The circles on a role are how many risks reach it, held or carried: red for the unaccepted, black for the accepted, both when both arrive. A risk ceases when one of its facts changes, citing the ABP version that changed it, <b>and what takes its place is the control&rsquo;s own residual risk</b>, in green: smaller, inside its holder&rsquo;s own authority, accepted when it appears. That is what a control does to a risk. It does not make it zero; it turns a red one into a green one that somebody can live with. Put every control on and every path to the board is green, and the risks that remain are the ones the business runs the assistant to take. Colour is the state of an acceptance, never a rating. Click a role, a risk, a connection or the assistant and everything it touches keeps its colour while the rest fades: the facts below it and how far it goes up. The walk follows the edges one way at a time, up or down, and never turns, so a connection lights only its own rows and the risks they establish, not the other connections those risks also need. The panel under the figure says what it is, and what holds because of it. Click it again, or the background, to see everything. Only the roles this agent&rsquo;s path touches are drawn: Marketing, Product and HR are in the tables and not here.</p>
       </div>
       <div class="wo-ctl">
         <div class="wo-ctl-g">
@@ -1116,15 +1116,37 @@ function figureA() {
     }
     if (sel) ht('p', 'wo-panel-hint', 'Selected. Everything it touches keeps its colour; click it again, or the background, to see everything.', roleEl);
   }
-  // what a selection touches: the rows and connections below it, and every role up to the board
+  // What a selection touches. Every node type has an upward navigation and a downward one, and a
+  // walk follows one direction only: up from a connection through its rows to the risks and their
+  // chain, down from a risk to its rows and their connections. A walk never turns, so selecting
+  // the CRM does not light the Mail through a risk that needs both. The edges are the article's
+  // verbs read from one end: recorded_in and establishes go up, ended_by and held_by too; their
+  // inverses go down.
+  var UP = {
+    agent: function () { return CONNS.filter(function (c) { return S.conn[c.id]; }).map(function (c) { return ['conn', c.id]; }).concat(ROWS.filter(function (r) { return r.conn === 'any' && rowPresent(S, r); }).map(function (r) { return ['row', r.id]; })); }, // row 8 hangs off the assistant itself
+    conn:  function (id) { return ROWS.filter(function (r) { return r.conn === id && rowPresent(S, r); }).map(function (r) { return ['row', r.id]; }); },
+    row:   function (id) { return live(S).filter(function (k) { return k.needs.indexOf(id) >= 0; }).map(function (k) { return ['risk', k.id]; }); },
+    risk:  function (id) { var a = S.acc[id]; return a && a.holder ? [['role', a.holder]] : []; },
+    role:  function (id) { var r = roleById(id); return r && r.to ? [['role', r.to]] : []; }
+  };
+  var DOWN = {
+    role:  function (id) { var r = roleById(id), out = []; if (r) ROLES.forEach(function (x) { if (x.to === id) out.push(['role', x.id]); }); live(S).forEach(function (k) { if (S.acc[k.id].holder === id) out.push(['risk', k.id]); }); return out; },
+    risk:  function (id) { return RISK[id].needs.filter(function (rid) { return rowPresent(S, ROW[rid]); }).map(function (rid) { return ['row', rid]; }); },
+    row:   function (id) { var c = ROW[id].conn; return c === 'any' ? [['agent', 'agent']] : [['conn', c]]; },
+    conn:  function () { return [['agent', 'agent']]; },
+    agent: function () { return []; }
+  };
   function focusSet() {
     if (!sel) return null;
-    var F = { roles: {}, risks: {}, rows: {}, conns: {}, agent: false }, lv = live(S);
-    function addRisk(k) { F.risks[k.id] = true; F.agent = true; k.needs.forEach(function (id) { F.rows[id] = true; var c = ROW[id].conn; if (c !== 'any') F.conns[c] = true; }); var a = S.acc[k.id]; if (a && a.holder) chain(a.holder).forEach(function (id) { F.roles[id] = true; }); }
-    if (sel.type === 'risk') { var k = RISK[sel.id], a = S.acc[k.id]; if (a && a.state !== 'ceased') addRisk(k); else { F.risks[k.id] = true; k.needs.forEach(function (id) { F.rows[id] = true; }); } }
-    else if (sel.type === 'role') { chain(sel.id).forEach(function (id) { F.roles[id] = true; }); lv.forEach(function (k) { if (chain(S.acc[k.id].holder).indexOf(sel.id) >= 0) addRisk(k); }); }
-    else if (sel.type === 'conn') { F.conns[sel.id] = true; F.agent = true; ROWS.forEach(function (r) { if (r.conn === sel.id && rowPresent(S, r)) F.rows[r.id] = true; }); lv.forEach(function (k) { if (k.needs.some(function (id) { return ROW[id].conn === sel.id; })) addRisk(k); }); }
-    else { F.agent = true; CONNS.forEach(function (c) { if (S.conn[c.id]) F.conns[c.id] = true; }); ROWS.forEach(function (r) { if (rowPresent(S, r)) F.rows[r.id] = true; }); lv.forEach(addRisk); }
+    var F = { roles: {}, risks: {}, rows: {}, conns: {}, agent: false };
+    var key = { role: 'roles', risk: 'risks', row: 'rows', conn: 'conns' };
+    function mark(t, id) { if (t === 'agent') F.agent = true; else F[key[t]][id] = true; }
+    function walk(nav, t, id) { mark(t, id); nav[t](id).forEach(function (n) { walk(nav, n[0], n[1]); }); }
+    // a role's downward walk carries on upward from each risk it reaches, so the whole path of a
+    // carried risk stays lit; that is still one direction per hop, never a turn back down
+    walk(UP, sel.type, sel.id);
+    if (sel.type === 'role') { DOWN.role(sel.id).forEach(function (n) { if (n[0] === 'risk') walk(DOWN, 'risk', n[1]); }); ROLES.forEach(function (x) { if (chain(x.id).indexOf(sel.id) >= 0) live(S).forEach(function (k) { if (S.acc[k.id].holder === x.id) { walk(DOWN, 'risk', k.id); chain(x.id).forEach(function (rid) { mark('role', rid); }); } }); }); }
+    else walk(DOWN, sel.type, sel.id);
     return F;
   }
   var F = null;
@@ -1182,8 +1204,8 @@ function figureA() {
     ['grant', 'mandate', 'excess', 'unbounded', 'open', 'unaccepted', 'accepted'].forEach(function (k) { var e = byId('wo-c-' + k); if (e) e.textContent = String(c[k]); });
     F = focusSet();
     ROLES.forEach(function (r) { var d = F && !F.roles[r.id]; dimIf(roleG[r.id], d); dimIf(halo[r.id], d); if (orgE[r.id]) dimIf(orgE[r.id], F && !(F.roles[r.id] && F.roles[r.to])); dimIf(badge[r.id].hot, d); dimIf(badge[r.id].acc, d); });
-    RISKS.forEach(function (k) { var d = F && !F.risks[k.id]; dimIf(riskG[k.id], d); k.needs.forEach(function (id) { dimIf(edgeRowRisk[k.id + ':' + id], d); }); dimIf(edgeRiskRole[k.id], d); });
-    ROWS.forEach(function (r) { var d = F && !F.rows[r.id]; dimIf(rowG[r.id], d); dimIf(edgeConnRow[r.id], d); });
+    RISKS.forEach(function (k) { var d = F && !F.risks[k.id]; dimIf(riskG[k.id], d); k.needs.forEach(function (id) { dimIf(edgeRowRisk[k.id + ':' + id], F && !(F.risks[k.id] && F.rows[id])); }); dimIf(edgeRiskRole[k.id], d); });
+    ROWS.forEach(function (r) { var d = F && !F.rows[r.id]; dimIf(rowG[r.id], d); dimIf(edgeConnRow[r.id], F && !(F.rows[r.id] && (r.conn === 'any' ? F.agent : F.conns[r.conn]))); });
     CONNS.forEach(function (cn) { dimIf(connG[cn.id], F && !F.conns[cn.id]); });
     dimIf(agent, F && !F.agent); dimIf(proxyG, F && !F.agent);
     if (sel) { var se = sel.type === 'role' ? roleG[sel.id] : sel.type === 'risk' ? riskG[sel.id] : sel.type === 'conn' ? connG[sel.id] : agent; se.setAttribute('class', se.getAttribute('class') + ' sel'); }
