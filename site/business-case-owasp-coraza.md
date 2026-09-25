@@ -50,6 +50,10 @@ At the board: the corporate register
 
 Corporate risks have no facts of their own. They hold while any risk that leads into them holds, so a single product rarely retires one. What it changes is how many reasons the board is being given.
 
+## Switch its changes on, and watch the register move.
+
+The same picture as [the risk propagation visualiser](article-risk-propagation-visualiser.html), drawn for this case. The model’s ten roles up to the board; every risk that holds for the deployment above, placed with the roles the model assigns it to; and, at the bottom, each answer the product changes, as a switch. The page carries the model and the engine, so a switch recomputes the register here exactly as it was computed for the tables above. Red is a risk that holds; faded is one the product retired; amber is one it brought. Click a role, a risk, a change or the product to see only what it touches. Nothing is scored.
+
 ## Every product is also a new thing in the estate.
 
 It sits in the request path, and its audit log stores complete transactions, headers and bodies included, which makes the log itself something to protect. Its documentation states the rule engine's default as _Default: Off_, and describes a _DetectionOnly_ mode that processes rules but never blocks, and in which only the first bytes of a request body are inspected.

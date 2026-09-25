@@ -5,7 +5,7 @@
 
 **2**received, nothing built yet*Archived and read, and nothing has been built from it yet.*
 
-**27**partly worked*read in full; a named part is not built*
+**28**partly worked*read in full; a named part is not built*
 
 **8**processed*something on the site exists because of it*
 
@@ -24,6 +24,10 @@ spoken brief, transcribed · 3 produced · 3 not done25 September 2026 · partly
 **[A business case for Cloudgeni and Opengeni, the harness the Gmail and Calendar behaviour policies will be piloted in: the risks it reduces, and the size and blast radius of an ABP inside it](#D26)**
 
 spoken brief, transcribed · 3 produced · 3 not done25 September 2026 · partly
+
+**[The risk propagation visualiser, on every business case: the risks a product retires and the ones it brings, played live](#D27)**
+
+spoken brief, transcribed · 1 produced · 2 not done25 September 2026 · partly
 
 **[How it technically works: prompts first, then hope is not a control, then fit, integrate, graph, and the vault as provenance](#D12)**
 
@@ -227,6 +231,21 @@ partly
 - The measurement. Every ABP entry is a projection from the pages; the pilot's first deliverable is the Gmail policy measured inside the harness, and that replaces the projection with its date.
 - The Calendar policies themselves, still in draft.
 - The message to Cloudgeni, which is the lead's.
+
+D27 · spoken brief, transcribed · 25 September 2026
+
+## The risk propagation visualiser, on every business case: the risks a product retires and the ones it brings, played live
+
+partly
+
+[the file as received](../../assets/briefs/2026-09-25__transcript__the-register-played-live-on-every-case.txt) · `b0a0b9bcf447…` · 0 KB
+
+**Produced.** [Every case page carries the figure: the model's ten roles up to the board, every risk that holds for the stated deployment placed with the roles the model assigns it, the corporate register above them, and each of the product's changes as a switch. The page carries the model and the engine, so a switch recomputes the register in the browser exactly as the build did; checked on three cases against the tables. Red holds, faded retired, amber brought; a role's circles count what it holds and what it no longer holds; click-to-focus with the one-way walk](../../business-case-cloudgeni.html)
+
+**Not done.**
+
+- The acceptance loop. The article's figure has holders, intervals and silence; a case's figure has the register only, because the model has no acceptance records. Adding them is the Risk Acceptance Office's work, not a case's.
+- A capture guide for the cases, like the visualiser's article. The figure is the same grammar; the guide covers it.
 
 D12 · spoken brief, transcribed · 24 September 2026
 

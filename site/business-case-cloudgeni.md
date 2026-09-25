@@ -55,6 +55,10 @@ At the board: the corporate register
 
 Corporate risks have no facts of their own. They hold while any risk that leads into them holds, so a single product rarely retires one. What it changes is how many reasons the board is being given.
 
+## Switch its changes on, and watch the register move.
+
+The same picture as [the risk propagation visualiser](article-risk-propagation-visualiser.html), drawn for this case. The model’s ten roles up to the board; every risk that holds for the deployment above, placed with the roles the model assigns it to; and, at the bottom, each answer the product changes, as a switch. The page carries the model and the engine, so a switch recomputes the register here exactly as it was computed for the tables above. Red is a risk that holds; faded is one the product retired; amber is one it brought. Click a role, a risk, a change or the product to see only what it touches. Nothing is scored.
+
 ## Every product is also a new thing in the estate.
 
 A control plane holding the run's material: its own page lists _infrastructure metadata, selected repository content, findings, prompts, generated changes, and audit events_, and the privacy policy on cloudgeni.ai says scan data is _typically retained for 2 years_. A cloud read credential per account: on AWS its setup page creates a user with the managed ReadOnlyAccess policy; on Azure the manual setup assigns Reader, Cost Management Reader, Security Reader, Log Analytics Reader and _Storage Account Key Operator Service Role_, the last of which is not a read role by name and is not explained on the page read. The harness's own components, which the README lists for a self-host: Postgres, NATS, Temporal, object storage, the API, workers and the web app. And, in local development, the README's default that the agent runs commands directly on the developer's machine rather than in a container, with the sandbox as an option to turn on.

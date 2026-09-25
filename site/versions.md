@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.34.16** · 2026-09-25 — The register, played live
+  Notes: https://riskmandate.ai/versions/1.34.16.md · Source: `git:v1.34.16`
 - **v1.34.15** · 2026-09-25 — The business case for Cloudgeni and Opengeni
   Notes: https://riskmandate.ai/versions/1.34.15.md · Source: `git:v1.34.15`
 - **v1.34.14** · 2026-09-25 — The figure, unclipped

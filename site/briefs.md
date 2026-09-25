@@ -356,6 +356,16 @@ Each one is linked in full, as received, with nothing edited. Where a brief and 
 - **The Calendar policies**, still in draft
 - **The message to Cloudgeni**, which is the lead’s
 
+### The risk propagation visualiser, on every business case: the risks a product retires and the ones it brings, played live
+
+**sha256** b0a0b9bcf447faa5ac5a43c88da94035f2aefa0c8af5439691516b582a010721
+
+**The same picture, for the cases.** Review the two visualisation pages, then draw one for each case study: a visual example of the risks a product reduces, and the ones it introduces.
+
+- [Every case page carries the figure](business-case-cloudgeni.html): the model’s ten roles up to the board, every risk for the stated deployment placed with the roles the model assigns it, the corporate register above, and each of the product’s changes as a switch. The page carries the model and the engine, so a switch recomputes the register in the browser as the build did; checked on three cases against the tables
+- **The acceptance loop.** A case’s figure has the register only; the model has no acceptance records
+- **A capture guide for the cases.** The grammar is the visualiser’s, and its guide covers it
+
 ## And the instructions that arrived as speech or a sentence.
 
 These have no digest to check, which makes them the ones most easily lost — a voice memo that changed the direction of the whole site leaves no artefact at all unless somebody writes it down. So they are recorded here in the same list, with the same two columns.
@@ -435,7 +445,7 @@ sha256sum my-brief.md
 
 A register that only lists what was done is a press release.
 
-Every entry above carries what it asked for and did not get, and on most of the twenty-six that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.
+Every entry above carries what it asked for and did not get, and on most of the twenty-seven that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.
 
 - **The file is the record, not this page.** [briefs-register.json](briefs-register.json) is what a program should read; this page renders it for people. If the two ever disagree, the file is right and the page is stale.
 - **Every archived document is byte-identical to what arrived.** Nothing is edited, reformatted or trimmed — including the parts we think are wrong. Where we disagree with a brief, the disagreement is published on the page it produced and marked as ours.
@@ -444,6 +454,6 @@ Every entry above carries what it asked for and did not get, and on most of the 
 
 Register maintained by hand alongside the work, and checked in CI: every document listed must exist at the path given and match its recorded digest, and every file in `assets/briefs/` must appear in the register. Last reconciled 16 September 2026.
 
-## Twenty-six items. None untouched, and none finished.
+## Twenty-seven items. None untouched, and none finished.
 
-Every item now names something it produced and something it did not. Twenty-three of the twenty-six are marked _partly_, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.
+Every item now names something it produced and something it did not. Twenty-four of the twenty-seven are marked _partly_, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.

@@ -75,11 +75,19 @@ a decision the lead owns, listed in the state fileneeds the lead
 
 a decision the lead owns, listed in the state fileneeds the lead
 
-## In flight — 0 branches
+## In flight — 1 branch
 
 One file per branch under `.claude/work/`. [How a work file is written](../../admin/work/about-work-files/).
 
-Nothing in flight.
+### [claude/dev-session-setup-a5wcc5](../../admin/work/branches/claude-dev-session-setup-a5wcc5/)
+
+started 25 September 2026 · task brief: D27, the lead in chat
+
+The risk propagation visualiser drawn on every business-case page, from the case's own model and engine, with each change as a switch. Generator only; every case page regenerated. The register.
+
+**External state.** Vaults built and unpushed: none · Release I will claim at merge: yes, v1.34.16, cut
+
+**Status.** [x] Exercised in Chromium on three cases: counts match the tables; switches, focus and panels work; no errors · [ ] Merge, CI green, live
 
 ## Task briefs — 14
 
