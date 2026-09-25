@@ -75,11 +75,19 @@ a decision the lead owns, listed in the state fileneeds the lead
 
 a decision the lead owns, listed in the state fileneeds the lead
 
-## In flight — 0 branches
+## In flight — 1 branch
 
 One file per branch under `.claude/work/`. [How a work file is written](../../admin/work/about-work-files/).
 
-Nothing in flight.
+### [claude/dev-session-setup-a5wcc5](../../admin/work/branches/claude-dev-session-setup-a5wcc5/)
+
+started 25 September 2026 · task brief: the lead in chat, a follow-up to D23
+
+The blast-radius figure: click-to-focus with the rest faded, panels for the connections and the assistant, a visible selection, no blinking. One page, plus the release.
+
+**External state.** Vaults built and unpushed: none · Release I will claim at merge: yes, v1.34.10, cut
+
+**Status.** [x] Exercised in Chromium: a risk, a role, a connection, the assistant, a second click and a background click · [ ] Merge, CI green, live
 
 ## Task briefs — 14
 
