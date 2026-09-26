@@ -154,7 +154,7 @@ function toMarkdown(html, page) {
     ``,
     desc,
     ``,
-    `Source: ${ORIGIN}/${page.file === 'index.html' ? '' : page.file}`,
+    `Source: ${url(page.file)}`,
     ``,
     `---`,
     ``,
@@ -278,7 +278,10 @@ function withMenu(page, listed) {
 
 // --------------------------------------------------------------- the artefacts
 
-const url = (file) => `${ORIGIN}/${file === 'index.html' ? '' : file}`;
+// A folder's index page is addressed as the folder: index.html is the site root, and
+// stories/index.html is stories/. Everything else is its file name.
+const addr = (file) => file.replace(/(^|\/)index\.html$/, '$1');
+const url  = (file) => `${ORIGIN}/${addr(file)}`;
 
 const sitemap = (ps) => [
   `<?xml version="1.0" encoding="UTF-8"?>`,
@@ -364,7 +367,7 @@ li a:hover{border-color:var(--green);color:var(--green)}
   <h1>That page is not here.</h1>
   <p>It may have moved in v1.0.0, when the site stopped serving every page from a single URL. Everything the site has is listed below.</p>
   <ul>
-${ps.map(p => `    <li><a href="/${p.file === 'index.html' ? '' : p.file}">${p.title}</a></li>`).join('\n')}
+${ps.map(p => `    <li><a href="/${addr(p.file)}">${p.title}</a></li>`).join('\n')}
   </ul>
 </div>
 </body>

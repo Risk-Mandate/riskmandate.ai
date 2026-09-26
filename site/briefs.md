@@ -383,7 +383,7 @@ Each one is linked in full, as received, with nothing edited. Where a brief and 
 
 **Story first, picture last.** Merchandise can wait. The thing to build is stories: a cast, a workflow like the film industry’s, storyboards that carry the narrative, the characters and the punchline, and only then the image models, of which there are several. The articles already hold stories; tell them with the same cast, and put the examples on the site until they move to stories.sgit.ai.
 
-- [The stories section](stories.html): why, the seven-step workflow, the cast as drawn with what each stands for, the rules, what is not done
+- [The stories section](stories/): why, the seven-step workflow, the cast as drawn with what each stands for, the rules, what is not done
 - Six stories as data, each with its page: two drawn, with what to correct beside them; four storyboards from the articles, with the prompt for any image model and a copy button
 - A generator with a check in CI; the cast and the stories can move without being rewritten
 - **Other models.** The prompts are written for any; none has been tried on another

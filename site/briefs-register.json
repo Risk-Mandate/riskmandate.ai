@@ -924,11 +924,11 @@
       "produced": [
         {
           "what": "The stories section: why stories, the seven-step workflow with the picture last, the cast of nine as drawn with what each stands for on this site's model and one proposed, the rules for a story, and what is not done",
-          "url": "stories.html"
+          "url": "stories/"
         },
         {
           "what": "Six stories as data, each with its page: the truth under it, the storyboard panel by panel, the prompt for any image model with a copy button, and one-panel ideas for a shirt. Two drawn by a ChatGPT image model, with what to correct written beside them; four storyboards from the articles: the calendar edit, the pilot, silence moving up, and always allow",
-          "url": "story-just-a-draft.html"
+          "url": "stories/just-a-draft.html"
         },
         {
           "what": "A generator with a check in CI, so a story is a JSON file and the pages follow; the cast and the stories can move to stories.sgit.ai without being rewritten",

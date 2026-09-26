@@ -290,7 +290,56 @@
     {
       "name": "articles",
       "label": "Articles",
-      "file": "articles.html"
+      "file": "articles.html",
+      "group": "Reading"
+    },
+    {
+      "name": "stories",
+      "label": "Stories: a cast, and storyboards",
+      "file": "stories/index.html",
+      "group": "Reading"
+    },
+    {
+      "name": "stories-just-a-draft",
+      "label": "Story · Just a draft.",
+      "file": "stories/just-a-draft.html",
+      "group": "Reading",
+      "unlisted": true
+    },
+    {
+      "name": "stories-just-a-little-research",
+      "label": "Story · Just a little research.",
+      "file": "stories/just-a-little-research.html",
+      "group": "Reading",
+      "unlisted": true
+    },
+    {
+      "name": "stories-an-edited-meeting-does-not-come-back",
+      "label": "Story · Tidy my calendar.",
+      "file": "stories/an-edited-meeting-does-not-come-back.html",
+      "group": "Reading",
+      "unlisted": true
+    },
+    {
+      "name": "stories-the-pilot-worked",
+      "label": "Story · The pilot worked.",
+      "file": "stories/the-pilot-worked.html",
+      "group": "Reading",
+      "unlisted": true
+    },
+    {
+      "name": "stories-silence-goes-up",
+      "label": "Story · Nobody decided.",
+      "file": "stories/silence-goes-up.html",
+      "group": "Reading",
+      "unlisted": true
+    },
+    {
+      "name": "stories-an-approval-prompt",
+      "label": "Story · Always allow.",
+      "file": "stories/an-approval-prompt.html",
+      "group": "Reading",
+      "unlisted": true
     },
     {
       "name": "questions",
@@ -333,54 +382,6 @@
       "label": "UK support, in the open",
       "file": "uk-support.html",
       "group": "More"
-    },
-    {
-      "name": "stories",
-      "label": "Stories: a cast, and storyboards",
-      "file": "stories.html",
-      "group": "More"
-    },
-    {
-      "name": "story-just-a-draft",
-      "label": "Story · Just a draft.",
-      "file": "story-just-a-draft.html",
-      "group": "More",
-      "unlisted": true
-    },
-    {
-      "name": "story-just-a-little-research",
-      "label": "Story · Just a little research.",
-      "file": "story-just-a-little-research.html",
-      "group": "More",
-      "unlisted": true
-    },
-    {
-      "name": "story-an-edited-meeting-does-not-come-back",
-      "label": "Story · Tidy my calendar.",
-      "file": "story-an-edited-meeting-does-not-come-back.html",
-      "group": "More",
-      "unlisted": true
-    },
-    {
-      "name": "story-the-pilot-worked",
-      "label": "Story · The pilot worked.",
-      "file": "story-the-pilot-worked.html",
-      "group": "More",
-      "unlisted": true
-    },
-    {
-      "name": "story-silence-goes-up",
-      "label": "Story · Nobody decided.",
-      "file": "story-silence-goes-up.html",
-      "group": "More",
-      "unlisted": true
-    },
-    {
-      "name": "story-an-approval-prompt",
-      "label": "Story · Always allow.",
-      "file": "story-an-approval-prompt.html",
-      "group": "More",
-      "unlisted": true
     },
     {
       "name": "interview-founder-marketing",

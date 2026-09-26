@@ -3,7 +3,7 @@
 > Every document under docs/ on riskmandate.ai, rendered as a page: direction briefs, reviews, workflows, architecture and research, newest first.
 > Source: https://riskmandate.ai/admin/briefs/ · noindex · written by scripts/site/build-admin.mjs
 
-**26**documents under docs/*one page each, rendered from the file*
+**27**documents under docs/*one page each, rendered from the file*
 
 **8**direction briefs*the product and the site*
 
@@ -14,6 +14,10 @@
 These were written here, by the agent maintaining the site, in response to [the memos and documents that arrived](../../admin/memos/). Each is read against a named source and dated. Add a file under `docs/` and rerun `build-admin.mjs`: it has a page here and a test fails until it does.
 
 ## Newest first
+
+**[The stories vault: how the lead, a studio model, this site's agent and the site work together](../../admin/briefs/architecture__the-stories-vault-and-the-three-way-workflow/)**
+
+The publisher is the only party that reads the vault and writes the site, and the only one that reads the site and writes the vault. That is the "connect the dots" role the lead described, and it is deliberately narrow: it moves accepted work in…26 September 2026 · architecture
 
 **[Merch for people who hold the risk: a brief for an image model](../../admin/briefs/merch__funny-designs-for-people-who-hold-the-risk/)**
 
@@ -192,6 +196,10 @@ The studio has built the delivery end of the flow well and the selling end again
 Five behaviour-policy vaults for connector shapes, in the directory at abp-vaults.html and each with its own page. None of these shapes is published at abp.sgit.ai; the grants were read from the vendors' own pages on 15 September 2026, quoted rather than…15 September 2026 · research
 
 ## Architecture · how the pieces fit
+
+**[The stories vault: how the lead, a studio model, this site's agent and the site work together](../../admin/briefs/architecture__the-stories-vault-and-the-three-way-workflow/)**
+
+The publisher is the only party that reads the vault and writes the site, and the only one that reads the site and writes the vault. That is the "connect the dots" role the lead described, and it is deliberately narrow: it moves accepted work in…26 September 2026 · architecture
 
 **[Vaults in vaults: the application vault is data, the renderer lives once](../../admin/briefs/architecture__vaults-in-vaults-for-behaviour-policies/)**
 

@@ -1,10 +1,10 @@
-<!-- Generated from story-just-a-draft.html by scripts/site/generate.mjs. Edit the page, not this file. -->
+<!-- Generated from stories/just-a-draft.html by scripts/site/generate.mjs. Edit the page, not this file. -->
 
 # RiskMandate — Just a draft. A send button is not a mandate.
 
 A story told with the cast: A send button is not a mandate. Drawn, with what to correct. The truth under it, the panels, and the prompt for an image model. Fictionalised; nobody's product is drawn.
 
-Source: https://riskmandate.ai/story-just-a-draft.html
+Source: https://riskmandate.ai/stories/just-a-draft.html
 
 ---
 
@@ -12,11 +12,11 @@ Source: https://riskmandate.ai/story-just-a-draft.html
 
 _A send button is not a mandate._ With Maya, the requester; The Caretaker, the helpful agent.
 
-**Where it comes from:** The published behaviour policy for Claude's Gmail connector: mandate read and draft, never send; grant includes send, behind a setting the account can flip. [abp-vault-claude-gmail-connector.html](abp-vault-claude-gmail-connector.html) · [What an Agent Behaviour Policy is](article-what-is-an-abp.html) · [An approval prompt is not a human in the loop](article-approval-prompts.html)
+**Where it comes from:** The published behaviour policy for Claude's Gmail connector: mandate read and draft, never send; grant includes send, behind a setting the account can flip. [abp-vault-claude-gmail-connector.html](/abp-vault-claude-gmail-connector.html) · [What an Agent Behaviour Policy is](/article-what-is-an-abp.html) · [An approval prompt is not a human in the loop](/article-approval-prompts.html)
 
 **Fictionalised.** Nobody’s product is drawn and nobody’s system was tested. The truth under the story is the site’s, and it is stated below.
 
-**This page as markdown:** [story-just-a-draft.md](story-just-a-draft.md)
+**This page as markdown:** [just-a-draft.md](/stories/just-a-draft.md)
 
 ## By a ChatGPT image model, 26 September 2026.
 
@@ -72,7 +72,7 @@ Style: Clean line cartoon: thick ink outlines, flat fills, no gradients. The pal
 - Panel 4 alone, with the line I said draft.
 - The Caretaker alone with the keys, with the line I saved you a click.
 
-The brief for that is [on the console](admin/briefs/merch__funny-designs-for-people-who-hold-the-risk/index.html).
+The brief for that is [on the console](/admin/briefs/merch__funny-designs-for-people-who-hold-the-risk/index.html).
 
 ## Same people, next story.
 

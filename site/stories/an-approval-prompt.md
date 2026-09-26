@@ -1,10 +1,10 @@
-<!-- Generated from story-an-approval-prompt.html by scripts/site/generate.mjs. Edit the page, not this file. -->
+<!-- Generated from stories/an-approval-prompt.html by scripts/site/generate.mjs. Edit the page, not this file. -->
 
 # RiskMandate — Always allow. An approval prompt is not a human in the loop.
 
 A story told with the cast: An approval prompt is not a human in the loop. A storyboard, not yet drawn. The truth under it, the panels, and the prompt for an image model. Fictionalised; nobody's product is drawn.
 
-Source: https://riskmandate.ai/story-an-approval-prompt.html
+Source: https://riskmandate.ai/stories/an-approval-prompt.html
 
 ---
 
@@ -12,11 +12,11 @@ Source: https://riskmandate.ai/story-an-approval-prompt.html
 
 _An approval prompt is not a human in the loop._ With Dev, the platform engineer; The Caretaker, the helpful agent; The Boundary, the actual control.
 
-**Where it comes from:** The approval prompt on Claude's Gmail connector: three buttons, Deny, Always allow, Allow once, over a consent that had already authorised the action underneath. [article-approval-prompts.html](article-approval-prompts.html) · [The barrier vocabulary: only a boundary is a control](how-it-works.html)
+**Where it comes from:** The approval prompt on Claude's Gmail connector: three buttons, Deny, Always allow, Allow once, over a consent that had already authorised the action underneath. [article-approval-prompts.html](/article-approval-prompts.html) · [The barrier vocabulary: only a boundary is a control](/how-it-works.html)
 
 **Fictionalised.** Nobody’s product is drawn and nobody’s system was tested. The truth under the story is the site’s, and it is stated below.
 
-**This page as markdown:** [story-an-approval-prompt.md](story-an-approval-prompt.md)
+**This page as markdown:** [an-approval-prompt.md](/stories/an-approval-prompt.md)
 
 ## What the story says that the site also says.
 
@@ -67,7 +67,7 @@ Style: Clean line cartoon: thick ink outlines, flat fills, no gradients. The pal
 - The three buttons with ALWAYS ALLOW worn shiny, and the punchline.
 - The Boundary alone with the line That action is blocked.
 
-The brief for that is [on the console](admin/briefs/merch__funny-designs-for-people-who-hold-the-risk/index.html).
+The brief for that is [on the console](/admin/briefs/merch__funny-designs-for-people-who-hold-the-risk/index.html).
 
 ## Same people, next story.
 
