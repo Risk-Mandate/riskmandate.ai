@@ -1,10 +1,10 @@
-<!-- Generated from story-the-pilot-worked.html by scripts/site/generate.mjs. Edit the page, not this file. -->
+<!-- Generated from stories/the-pilot-worked.html by scripts/site/generate.mjs. Edit the page, not this file. -->
 
 # RiskMandate — The pilot worked. Then somebody asked what else it could do.
 
 A story told with the cast: Then somebody asked what else it could do. A storyboard, not yet drawn. The truth under it, the panels, and the prompt for an image model. Fictionalised; nobody's product is drawn.
 
-Source: https://riskmandate.ai/story-the-pilot-worked.html
+Source: https://riskmandate.ai/stories/the-pilot-worked.html
 
 ---
 
@@ -12,11 +12,11 @@ Source: https://riskmandate.ai/story-the-pilot-worked.html
 
 _Then somebody asked what else it could do._ With Rowan, the founder; Imani, the risk owner; The Caretaker, the helpful agent; Dev, the platform engineer.
 
-**Where it comes from:** The pilots article's hypothesis: a pilot stops when the business compares what the agent was meant to do with what it can do, at machine speed and on somebody's authority, and declines to sign for the difference. [article-pilots-do-not-stay-in-production.html](article-pilots-do-not-stay-in-production.html) · [Who owns what in AI](article-who-owns-what-in-ai.html)
+**Where it comes from:** The pilots article's hypothesis: a pilot stops when the business compares what the agent was meant to do with what it can do, at machine speed and on somebody's authority, and declines to sign for the difference. [article-pilots-do-not-stay-in-production.html](/article-pilots-do-not-stay-in-production.html) · [Who owns what in AI](/article-who-owns-what-in-ai.html)
 
 **Fictionalised.** Nobody’s product is drawn and nobody’s system was tested. The truth under the story is the site’s, and it is stated below.
 
-**This page as markdown:** [story-the-pilot-worked.md](story-the-pilot-worked.md)
+**This page as markdown:** [the-pilot-worked.md](/stories/the-pilot-worked.md)
 
 ## What the story says that the site also says.
 
@@ -66,7 +66,7 @@ Style: Clean line cartoon: thick ink outlines, flat fills, no gradients. The pal
 
 - Panel 2's keys with the line What else can it do?
 
-The brief for that is [on the console](admin/briefs/merch__funny-designs-for-people-who-hold-the-risk/index.html).
+The brief for that is [on the console](/admin/briefs/merch__funny-designs-for-people-who-hold-the-risk/index.html).
 
 ## Same people, next story.
 

@@ -315,6 +315,41 @@
       "url": "https://riskmandate.ai/articles.html"
     },
     {
+      "name": "stories",
+      "label": "Stories: a cast, and storyboards",
+      "url": "https://riskmandate.ai/stories/"
+    },
+    {
+      "name": "stories-just-a-draft",
+      "label": "Story · Just a draft.",
+      "url": "https://riskmandate.ai/stories/just-a-draft.html"
+    },
+    {
+      "name": "stories-just-a-little-research",
+      "label": "Story · Just a little research.",
+      "url": "https://riskmandate.ai/stories/just-a-little-research.html"
+    },
+    {
+      "name": "stories-an-edited-meeting-does-not-come-back",
+      "label": "Story · Tidy my calendar.",
+      "url": "https://riskmandate.ai/stories/an-edited-meeting-does-not-come-back.html"
+    },
+    {
+      "name": "stories-the-pilot-worked",
+      "label": "Story · The pilot worked.",
+      "url": "https://riskmandate.ai/stories/the-pilot-worked.html"
+    },
+    {
+      "name": "stories-silence-goes-up",
+      "label": "Story · Nobody decided.",
+      "url": "https://riskmandate.ai/stories/silence-goes-up.html"
+    },
+    {
+      "name": "stories-an-approval-prompt",
+      "label": "Story · Always allow.",
+      "url": "https://riskmandate.ai/stories/an-approval-prompt.html"
+    },
+    {
       "name": "questions",
       "label": "Questions",
       "url": "https://riskmandate.ai/questions.html"
@@ -348,41 +383,6 @@
       "name": "uk-support",
       "label": "UK support, in the open",
       "url": "https://riskmandate.ai/uk-support.html"
-    },
-    {
-      "name": "stories",
-      "label": "Stories: a cast, and storyboards",
-      "url": "https://riskmandate.ai/stories.html"
-    },
-    {
-      "name": "story-just-a-draft",
-      "label": "Story · Just a draft.",
-      "url": "https://riskmandate.ai/story-just-a-draft.html"
-    },
-    {
-      "name": "story-just-a-little-research",
-      "label": "Story · Just a little research.",
-      "url": "https://riskmandate.ai/story-just-a-little-research.html"
-    },
-    {
-      "name": "story-an-edited-meeting-does-not-come-back",
-      "label": "Story · Tidy my calendar.",
-      "url": "https://riskmandate.ai/story-an-edited-meeting-does-not-come-back.html"
-    },
-    {
-      "name": "story-the-pilot-worked",
-      "label": "Story · The pilot worked.",
-      "url": "https://riskmandate.ai/story-the-pilot-worked.html"
-    },
-    {
-      "name": "story-silence-goes-up",
-      "label": "Story · Nobody decided.",
-      "url": "https://riskmandate.ai/story-silence-goes-up.html"
-    },
-    {
-      "name": "story-an-approval-prompt",
-      "label": "Story · Always allow.",
-      "url": "https://riskmandate.ai/story-an-approval-prompt.html"
     },
     {
       "name": "interview-founder-marketing",

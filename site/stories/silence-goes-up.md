@@ -1,10 +1,10 @@
-<!-- Generated from story-silence-goes-up.html by scripts/site/generate.mjs. Edit the page, not this file. -->
+<!-- Generated from stories/silence-goes-up.html by scripts/site/generate.mjs. Edit the page, not this file. -->
 
 # RiskMandate — Nobody decided. Silence is not a decision. It is an escalation.
 
 A story told with the cast: Silence is not a decision. It is an escalation. A storyboard, not yet drawn. The truth under it, the panels, and the prompt for an image model. Fictionalised; nobody's product is drawn.
 
-Source: https://riskmandate.ai/story-silence-goes-up.html
+Source: https://riskmandate.ai/stories/silence-goes-up.html
 
 ---
 
@@ -12,11 +12,11 @@ Source: https://riskmandate.ai/story-silence-goes-up.html
 
 _Silence is not a decision. It is an escalation._ With Imani, the risk owner; Leo, the operations lead; Rowan, the founder; Ruth, the board sponsor.
 
-**Where it comes from:** Day 7 of the six weeks in the role-ownership article: the COO has not acted on the calendar risk in a week, so it moves to the CEO. [article-who-owns-what-in-ai.html](article-who-owns-what-in-ai.html) · [Accepted is not acceptable](acceptable.html)
+**Where it comes from:** Day 7 of the six weeks in the role-ownership article: the COO has not acted on the calendar risk in a week, so it moves to the CEO. [article-who-owns-what-in-ai.html](/article-who-owns-what-in-ai.html) · [Accepted is not acceptable](/acceptable.html)
 
 **Fictionalised.** Nobody’s product is drawn and nobody’s system was tested. The truth under the story is the site’s, and it is stated below.
 
-**This page as markdown:** [story-silence-goes-up.md](story-silence-goes-up.md)
+**This page as markdown:** [silence-goes-up.md](/stories/silence-goes-up.md)
 
 ## What the story says that the site also says.
 
@@ -66,7 +66,7 @@ Style: Clean line cartoon: thick ink outlines, flat fills, no gradients. The pal
 
 - The red ball with its tag and the line Critical for whoever holds it.
 
-The brief for that is [on the console](admin/briefs/merch__funny-designs-for-people-who-hold-the-risk/index.html).
+The brief for that is [on the console](/admin/briefs/merch__funny-designs-for-people-who-hold-the-risk/index.html).
 
 ## Same people, next story.
 

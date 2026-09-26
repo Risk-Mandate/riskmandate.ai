@@ -2,12 +2,19 @@
 //
 //   node scripts/site/build-stories.mjs [--check]
 //
-// Reads site/stories/cast.json and site/stories/<slug>.json, and writes site/stories.html (the
-// section: what a story is here, the workflow, the cast, the list) and site/story-<slug>.html
-// (one storyboard: the truth under it, the panels, the prompt for an image model, and, when it
-// has been drawn, the picture with what to correct). The order is the lead's, 26 September 2026:
-// story, narrative, punchline, cast, storyboard, and only then an image model. A story is data
-// so that it can move to stories.sgit.ai later without being rewritten.
+// Reads site/stories/cast.json, site/stories/<slug>.json and site/stories/board.json, and writes
+// site/stories/index.html (the section: what a story is here, the workflow, the cast, the list,
+// who does what and the board) and site/stories/<slug>.html (one storyboard: the truth under it,
+// the panels, the prompt for an image model, and, when it has been drawn, the picture with what
+// to correct). The order is the lead's, 26 September 2026: story, narrative, punchline, cast,
+// storyboard, and only then an image model. A story is data so that it can move to
+// stories.sgit.ai later without being rewritten, and from v1.34.19 everything lives in the one
+// folder, served as riskmandate.ai/stories/: the data, the images, the pages and their twins.
+//
+// A page in a folder links from the site root: every href and src it carries starts with a slash,
+// and RM.data.base tells the shared menu to do the same. The chrome is cut from pricing.html like
+// every other built page and rewritten that way, so a chrome change reaches these pages by
+// running this again after the donor changed.
 //
 // A story page is static. The one script it carries copies the prompt to the clipboard.
 
@@ -28,7 +35,8 @@ const niceDate = (d) => `${parseInt(d.slice(8, 10), 10)} ${MONTHS[parseInt(d.sli
 const cast = JSON.parse(readFileSync(join(IN, 'cast.json'), 'utf8'));
 const CAST = {};
 for (const c of [...cast.people, ...cast.things]) CAST[c.id] = c;
-const stories = readdirSync(IN).filter((f) => f.endsWith('.json') && f !== 'cast.json' && !f.startsWith('_')).sort()
+const DATA    = ['cast.json', 'board.json'];   // the two JSON files in the folder that are not stories
+const stories = readdirSync(IN).filter((f) => f.endsWith('.json') && !DATA.includes(f) && !f.startsWith('_')).sort()
   .map((f) => JSON.parse(readFileSync(join(IN, f), 'utf8')));
 for (const s of stories) {
   for (const k of ['slug', 'title', 'punchline', 'status', 'cast', 'source', 'truth', 'panels', 'prompt']) if (!s[k]) fail(`${s.slug || '?'}: missing ${k}`);
@@ -40,12 +48,15 @@ for (const s of stories) {
     for (const d of p.dialogue || []) if (!s.cast.includes(d.who)) fail(`${s.slug}: panel ${p.n} has a line for ${d.who}, who is not in the story's cast`);
   });
   if (!s.prompt.shared || (s.prompt.per_panel || []).length !== s.panels.length) fail(`${s.slug}: the prompt needs a shared part and one line per panel`);
-  if (s.status === 'drawn') { if (!s.drawn || !s.drawn.image) fail(`${s.slug}: drawn, and no image`); if (!existsSync(join(SITE, s.drawn.image))) fail(`${s.slug}: ${s.drawn.image} is not in site/`); }
+  if (s.status === 'drawn') { if (!s.drawn || !s.drawn.image) fail(`${s.slug}: drawn, and no image`); if (!existsSync(join(IN, s.drawn.image))) fail(`${s.slug}: ${s.drawn.image} is not in site/stories/`); }
   const all = JSON.stringify(s);
   if (/\brungs?\b/i.test(all)) fail(`${s.slug}: says rung`);
   if (/\bADP\b/.test(all)) fail(`${s.slug}: says ADP`);
 }
-if (!existsSync(join(SITE, cast.drawn.image))) fail(`cast: ${cast.drawn.image} is not in site/`);
+if (!existsSync(join(IN, cast.drawn.image))) fail(`cast: ${cast.drawn.image} is not in site/stories/`);
+const board = existsSync(join(IN, 'board.json')) ? JSON.parse(readFileSync(join(IN, 'board.json'), 'utf8')) : { columns: [], cards: [], agents: [] };
+for (const c of board.cards) { if (/\brungs?\b/i.test(c.title)) fail(`board: ${c.id} says rung`); }
+const HERE = '/stories/';   // where the folder is served from
 
 // ------------------------------------------------------------------ the page kit
 const CSS = `
@@ -99,25 +110,36 @@ const CSS = `
 .st-src{position:absolute;left:-9999px;top:0;width:1px;height:1px;opacity:0}
 .st-list{margin:22px 0 0;padding-left:20px;max-width:880px;font-size:14.5px;line-height:1.7;color:var(--muted)}
 .st-list li+li{margin-top:6px}.st-list b{color:var(--text)}
-@media (max-width:900px){.st-steps{grid-template-columns:1fr 1fr}.st-cards{grid-template-columns:1fr 1fr}.st-r{grid-template-columns:1fr 1fr}.st-r:first-child{display:none}.st-r>span:first-child{grid-column:1 / -1;border-bottom:1px solid var(--border)}.st-r>span:nth-child(2){border-left:0}.st-r>span:nth-child(4){border-left:0}.st-r>span:nth-child(n+4){border-top:1px dashed var(--border)}.st-r>span[data-k]::before{content:attr(data-k);display:block;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:3px}}
-@media (max-width:640px){.st-steps,.st-cards,.st-panels{grid-template-columns:1fr}.st-r{grid-template-columns:1fr}.st-r>span+span{border-left:0 !important;border-top:1px dashed var(--border)}.st-r>span:first-child{border-bottom:0}}
+.st-board{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:14px}
+.st-col{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:10px;min-height:120px}
+.st-col h3{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:2px 4px 10px;display:flex;justify-content:space-between}.st-col h3 b{color:var(--green)}
+.st-cardlet{display:flex;flex-direction:column;gap:2px;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:9px 11px;margin-bottom:8px}
+.st-cardlet .id{font-family:var(--mono);font-size:10.5px;color:var(--faint)}.st-cardlet .t{font-size:13.5px;font-weight:600;color:var(--text);line-height:1.4}.st-cardlet .who{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+.st-cardlet .on{margin-top:4px;font-size:12px;color:var(--gold);background:var(--goldBg,rgba(180,83,9,.08));border-radius:6px;padding:3px 8px}
+.st-cardlet.done .t{color:var(--muted);text-decoration:line-through}.st-cardlet.high{border-left:3px solid var(--green)}
+@media (max-width:900px){.st-board{grid-template-columns:1fr 1fr}.st-steps{grid-template-columns:1fr 1fr}.st-cards{grid-template-columns:1fr 1fr}.st-r{grid-template-columns:1fr 1fr}.st-r:first-child{display:none}.st-r>span:first-child{grid-column:1 / -1;border-bottom:1px solid var(--border)}.st-r>span:nth-child(2){border-left:0}.st-r>span:nth-child(4){border-left:0}.st-r>span:nth-child(n+4){border-top:1px dashed var(--border)}.st-r>span[data-k]::before{content:attr(data-k);display:block;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:3px}}
+@media (max-width:640px){.st-steps,.st-cards,.st-panels,.st-board{grid-template-columns:1fr}.st-r{grid-template-columns:1fr}.st-r>span+span{border-left:0 !important;border-top:1px dashed var(--border)}.st-r>span:first-child{border-bottom:0}}
 `;
 
 const donor = readFileSync(join(SITE, 'pricing.html'), 'utf8');
-function cut(name, title, desc, body) {
+// every relative href or src becomes root-absolute; anchors, mailto:, data: and full URLs are left
+const abs = (html) => html.replace(/\b(href|src)="(?!(?:https?:|mailto:|data:|#|\/))([^"]+)"/g, '$1="/$2"');
+function cut(file, name, title, desc, body) {
+  const canonical = `https://riskmandate.ai/${file.replace(/(^|\/)index\.html$/, '$1')}`;
   let head = donor.slice(0, donor.indexOf('<body'));
   head = head.replace(/<title>.*?<\/title>/s, `<title>${esc(title)}</title>`);
   head = head.replace(/(<meta name="description" content=")[^"]*(")/, `$1${esc(desc)}$2`);
   head = head.replace(/(<meta property="og:title" content=")[^"]*(")/, `$1${esc(title)}$2`);
   head = head.replace(/(<meta property="og:description" content=")[^"]*(")/, `$1${esc(desc)}$2`);
-  head = head.split('pricing.html').join(`${name}.html`).split('href="pricing.md"').join(`href="${name}.md"`);
-  head = head.replace('</style>', CSS + '</style>');
+  head = head.split('https://riskmandate.ai/pricing.html').join(canonical).split('href="pricing.md"').join(`href="/${file.replace(/\.html$/, '.md')}"`);
+  if (/pricing\.(html|md)/.test(head)) fail(`${file}: the donor's own address is still in the head`);
+  head = abs(head).replace('</style>', CSS + '</style>');
   const bodyStart = donor.indexOf('<body'), scriptAt = donor.indexOf('<script>', bodyStart);
   const donorBody = donor.slice(bodyStart, scriptAt);
-  const hdr  = donorBody.match(/<header class="top">.*?<\/header>/s)[0];
-  const foot = donorBody.match(/<footer class="foot">.*?<\/footer>/s)[0];
-  const tail = donor.slice(scriptAt).replace('RM.data.currentPage="pricing"', `RM.data.currentPage="${name}"`);
-  return head + '<body id="top">\n\n' + hdr + '\n\n' + body + '\n\n' + foot + '\n\n' + tail;
+  const hdr  = abs(donorBody.match(/<header class="top">.*?<\/header>/s)[0]);
+  const foot = abs(donorBody.match(/<footer class="foot">.*?<\/footer>/s)[0]);
+  const tail = donor.slice(scriptAt).replace('RM.data.currentPage="pricing"', `RM.data.base="/";RM.data.currentPage="${name}"`);
+  return head + '<body id="top">\n\n' + hdr + '\n\n' + abs(body) + '\n\n' + foot + '\n\n' + tail;
 }
 
 const name = (id) => CAST[id] ? CAST[id].name : id;
@@ -134,7 +156,8 @@ function indexPage() {
     <span class="eyebrow"><span class="d"></span> Stories</span>
     <h1>The same people, <span class="it">every time.</span></h1>
     <p class="sub" style="margin-bottom:20px">Most of what this site says is an argument. Some of it is a story, and a story with a cast is remembered where an argument is filed. This is where the stories are kept: a cast of nine, a workflow that starts with the narrative and ends with an image model, and ${stories.length} storyboards so far, ${drawn} of them drawn.</p>
-    <p class="meta"><b>Where this goes:</b> a site of its own, stories.sgit.ai. Every story here is a data file, so it can move without being rewritten.</p>
+    <p class="meta"><b>Where this goes:</b> a site of its own, stories.sgit.ai. Every story here is a data file in the one folder this section is served from, so it can move without being rewritten.</p>
+    <p class="meta"><b>How it is made:</b> three parties, one encrypted vault, requests as files, and a board nobody drags. <a href="#made">Section 06</a>.</p>
     <p class="meta"><b>The rule:</b> every scenario is fictionalised and says so on the picture. Nobody's product is drawn, nobody's face, and nothing is scored.</p>
   </div>
 </main>
@@ -178,7 +201,7 @@ function indexPage() {
       <h2>Six people, three things, <span class="g">one proposed.</span></h2>
       <p>Version ${esc(cast.version)}, drawn by ${esc(cast.drawn.model)} on ${niceDate(cast.drawn.date)} from the lead&rsquo;s prompt. The names, roles and lines are as drawn; what each one stands for is ours, so that a story can be written against the model on this site rather than against a picture.</p>
     </div>
-    <figure class="st-fig"><img src="${esc(cast.drawn.image)}" width="${cast.drawn.width}" height="${cast.drawn.height}" loading="lazy" alt="${esc(cast.drawn.alt)}"><figcaption>${esc(cast.drawn.title)} · character explorations ${esc(cast.version)} · ${esc(cast.drawn.model)}, ${niceDate(cast.drawn.date)}</figcaption></figure>
+    <figure class="st-fig"><img src="${HERE}${esc(cast.drawn.image)}" width="${cast.drawn.width}" height="${cast.drawn.height}" loading="lazy" alt="${esc(cast.drawn.alt)}"><figcaption>${esc(cast.drawn.title)} · character explorations ${esc(cast.version)} · ${esc(cast.drawn.model)}, ${niceDate(cast.drawn.date)}</figcaption></figure>
     <p class="st-k" style="margin-top:26px">The people</p>
     <div class="st-t" role="table" aria-label="The people in the cast">
       <div class="st-r" role="row"><span role="columnheader">Who</span><span role="columnheader">Their line</span><span role="columnheader">Stands for</span><span role="columnheader">Looks like</span></div>
@@ -206,7 +229,7 @@ function indexPage() {
       <p>Each has its page: the truth under it, the storyboard panel by panel, the prompt for an image model, and, where a model has drawn it, the picture and what to correct.</p>
     </div>
     <div class="st-cards">
-      ${stories.map((s) => `<a class="st-card" href="story-${esc(s.slug)}.html">${s.status === 'drawn' ? `<img src="${esc(s.drawn.image)}" width="${s.drawn.width}" height="${s.drawn.height}" loading="lazy" alt="${esc(s.drawn.alt)}">` : `<div class="board" aria-hidden="true">${s.panels.map((p) => `<span><b>PANEL ${p.n}</b>${esc(((p.dialogue || [])[0] || {}).says ? '“' + short(p.dialogue[0].says, 44) + '”' : short(p.scene, 44))}</span>`).join('')}</div>`}<div class="body"><span class="st-pill${s.status === 'drawn' ? ' drawn' : ''}">${s.status === 'drawn' ? 'Drawn' : 'Storyboard'} · ${esc(s.format || `${s.panels.length} panels`)}</span><h3>${esc(s.title)}</h3><p class="punch">${esc(s.punchline)}</p><p>${s.cast.map(name).join(', ')}.</p></div></a>`).join('\n      ')}
+      ${stories.map((s) => `<a class="st-card" href="${HERE}${esc(s.slug)}.html">${s.status === 'drawn' ? `<img src="${HERE}${esc(s.drawn.image)}" width="${s.drawn.width}" height="${s.drawn.height}" loading="lazy" alt="${esc(s.drawn.alt)}">` : `<div class="board" aria-hidden="true">${s.panels.map((p) => `<span><b>PANEL ${p.n}</b>${esc(((p.dialogue || [])[0] || {}).says ? '“' + short(p.dialogue[0].says, 44) + '”' : short(p.scene, 44))}</span>`).join('')}</div>`}<div class="body"><span class="st-pill${s.status === 'drawn' ? ' drawn' : ''}">${s.status === 'drawn' ? 'Drawn' : 'Storyboard'} · ${esc(s.format || `${s.panels.length} panels`)}</span><h3>${esc(s.title)}</h3><p class="punch">${esc(s.punchline)}</p><p>${s.cast.map(name).join(', ')}.</p></div></a>`).join('\n      ')}
     </div>
   </div>
 </section>
@@ -228,13 +251,37 @@ function indexPage() {
   </div>
 </section>
 
-<section class="psection alt">
+<section class="psection alt" id="made">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">06 · Who does what</span>
+      <h2>Three parties, one vault, <span class="g">and a board nobody drags.</span></h2>
+      <p>A story is made by three parties who never sit in the same session. They share one encrypted vault, and they talk through files in it: a request is a message, a deliverable is a file, a task is a file in one of three folders. The protocol is <a href="https://sgraph.ai/en-gb/library/how-it-works/email-fs-lite">Email-FS-lite</a>, sgraph.ai&rsquo;s: no broker, no API, one commit per round of work, and the vault&rsquo;s history is the record of who did what and when.</p>
+    </div>
+    <div class="st-t" role="table" aria-label="Who does what">
+      <div class="st-r" role="row"><span role="columnheader">Who</span><span role="columnheader">Writes in</span><span role="columnheader">Does</span><span role="columnheader">Never</span></div>
+      <div class="st-r" role="row"><span role="cell">The lead<span class="id">dinis.human</span></span><span role="cell" class="q" data-k="Writes in">its own folder, and a reply</span><span role="cell" data-k="Does">decides: the cast, which story next, what is published. A request that sits in its mailroom is on the board as waiting until it moves.</span><span role="cell" data-k="Never">edits anybody else&rsquo;s folder</span></div>
+      <div class="st-r" role="row"><span role="cell">The studio<span class="id">studio.chatgpt</span></span><span role="cell" class="q" data-k="Writes in">its own folder</span><span role="cell" data-k="Does">writes storyboards in the story file&rsquo;s shape, draws them with whichever image model is being tried, proposes cast, delivers files and says which model drew what and when.</span><span role="cell" data-k="Never">edits the published stories; draws a real product or a real face; scores anything</span></div>
+      <div class="st-r" role="row"><span role="cell">The publisher<span class="id">publisher.claude</span></span><span role="cell" class="q" data-k="Writes in">its own folder, and this site</span><span role="cell" data-k="Does">reads the vault, checks a delivered story against the site&rsquo;s rules, publishes it here as a patch release, copies what is live back into the vault, and regenerates the board. The one party that touches both.</span><span role="cell" data-k="Never">publishes what the lead has not accepted; keeps a key in a file</span></div>
+    </div>
+    <p class="st-note"><b>The loop.</b> Pull the vault; the diff is the inbox. Move new messages from the mailroom into the inbox. Do the work. Update the tasks. Send the replies. Move finished messages to done. One commit, one push, one status check. The publisher runs it by hand today and on a schedule once the key is in its environment; a run is a session, and a session is a commit in the vault&rsquo;s history.</p>
+    <p class="st-k" style="margin-top:26px">The board</p>
+    <p class="st-note" style="margin-top:8px">Derived, not drawn: every task in every party&rsquo;s open, blocked and done folders, and every message still waiting in a mailroom as requested work for its recipient. A card moves because a file moved. ${board.generated ? `Generated ${esc(board.generated.replace('T', ' ').replace('Z', ' UTC'))}.` : ''}</p>
+    <div class="st-board">
+      ${board.columns.map((c) => { const mine = board.cards.filter((k) => k.state === c); return `<div class="st-col"><h3>${esc(c)} <b>${mine.length}</b></h3>${mine.map((k) => `<div class="st-cardlet${k.state === 'done' ? ' done' : ''}${k.priority === 'high' ? ' high' : ''}"><span class="id">${esc(k.id)}${k.priority && k.priority !== 'normal' ? ' · ' + esc(k.priority) : ''}</span><span class="t">${esc(k.title)}</span><span class="who">${k.state === 'requested' ? 'for ' : ''}${esc(k.owner)}${k.from ? ' · from ' + esc(k.from) : ''}</span>${k.blocked_on ? `<span class="on">waiting on ${esc(k.blocked_on)}</span>` : ''}</div>`).join('')}</div>`; }).join('\n      ')}
+    </div>
+    <p class="st-note">The same board is drawn inside the vault by a page that reads the same file, so the studio and the lead see it without this site. The tooling is one script in the repository, <code>scripts/stories/mail.mjs</code>: send, deliver, done, issue, board. Nothing in it talks to the network.</p>
+  </div>
+</section>
+
+<section class="psection">
   <div class="wrap">
     <div class="shead">
       <span class="tag">What is not done</span>
       <h2>What this section does not have yet.</h2>
     </div>
     <ul class="st-list">
+      <li><b>The vault is not born.</b> The folders, the briefs, the first five messages and the first five tasks are written and waiting; the vault they go into does not exist yet, so the studio has not read them and the board above shows the publisher&rsquo;s side only.</li>
       <li><b>Models other than ChatGPT&rsquo;s.</b> The three drawn pieces are from one model. The storyboards are written so that the same prompt can go to another; none has yet.</li>
       <li><b>The one who signs.</b> The site&rsquo;s main idea, accepting a risk for a stated interval, has no character. One is proposed above.</li>
       <li><b>A story with the two questions asked at the board.</b> <em>Nobody decided</em> ends there; a story that starts there is not written.</li>
@@ -250,25 +297,25 @@ function indexPage() {
     <span class="eyebrow"><span class="d"></span> Tell one</span>
     <h2>Every story here started <span class="it">as an example in an article.</span></h2>
     <p>If one of yours has a rep, a founder, a risk owner and an agent in it, it is a storyboard already. Send the story and the punchline; the cast will do the rest.</p>
-    <div class="cta-row"><a class="btn btn-green" href="articles.html">The articles</a><a class="btn btn-ghost" href="mailto:dinis.cruz@owasp.org?subject=A%20story">Send a story</a></div>
+    <div class="cta-row"><a class="btn btn-green" href="/articles.html">The articles</a><a class="btn btn-ghost" href="mailto:dinis.cruz@owasp.org?subject=A%20story">Send a story</a></div>
   </div>
 </section>`;
-  return cut('stories', 'RiskMandate — Stories: a cast, and storyboards told with it',
-    `A cast of nine, a workflow from story to storyboard to image model, and ${stories.length} storyboards so far, ${drawn} of them drawn. Every scenario is fictionalised and says so on the picture. Nothing is scored.`, body);
+  return cut('stories/index.html', 'stories', 'RiskMandate — Stories: a cast, and storyboards told with it',
+    `A cast of nine, a workflow from story to storyboard to image model, ${stories.length} storyboards so far, ${drawn} of them drawn, and the board of who does what. Every scenario is fictionalised and says so on the picture. Nothing is scored.`, body);
 }
 
 // ------------------------------------------------------------------ a story page
 function storyPage(s) {
-  const nameOf = `story-${s.slug}`;
+  const nameOf = `stories-${s.slug}`;
   const prompt = fullPrompt(s);
   const body = `<main class="phero">
   <div class="wrap">
     <span class="eyebrow"><span class="d"></span> Story · ${s.status === 'drawn' ? 'drawn' : 'storyboard'} · ${esc(s.format || `${s.panels.length} panels`)}</span>
     <h1>${esc(s.title)}</h1>
     <p class="sub" style="margin-bottom:20px"><em>${esc(s.punchline)}</em> With ${s.cast.map((id) => `${name(id)}, ${CAST[id].role.toLowerCase()}`).join('; ')}.</p>
-    <p class="meta"><b>Where it comes from:</b> ${esc(s.source.what)} <a href="${esc(s.source.url)}">${esc(s.source.url)}</a>${(s.source.also || []).map((a) => ` · <a href="${esc(a.url)}">${esc(a.label)}</a>`).join('')}</p>
+    <p class="meta"><b>Where it comes from:</b> ${esc(s.source.what)} <a href="/${esc(s.source.url)}">${esc(s.source.url)}</a>${(s.source.also || []).map((a) => ` · <a href="/${esc(a.url)}">${esc(a.label)}</a>`).join('')}</p>
     <p class="meta"><b>Fictionalised.</b> Nobody&rsquo;s product is drawn and nobody&rsquo;s system was tested. The truth under the story is the site&rsquo;s, and it is stated below.</p>
-    <p class="meta"><b>This page as markdown:</b> <a href="${nameOf}.md">${nameOf}.md</a></p>
+    <p class="meta"><b>This page as markdown:</b> <a href="${HERE}${esc(s.slug)}.md">${esc(s.slug)}.md</a></p>
   </div>
 </main>
 
@@ -280,7 +327,7 @@ ${s.status === 'drawn' ? `<section class="psection">
       <span class="tag">As drawn</span>
       <h2>By ${esc(s.drawn.model)}, <span class="g">${niceDate(s.drawn.date)}.</span></h2>
     </div>
-    <figure class="st-fig"><img src="${esc(s.drawn.image)}" width="${s.drawn.width}" height="${s.drawn.height}" alt="${esc(s.drawn.alt)}"><figcaption>${esc(s.title)} · ${esc(s.punchline)} · ${esc(s.drawn.model)}, ${niceDate(s.drawn.date)}</figcaption></figure>
+    <figure class="st-fig"><img src="${HERE}${esc(s.drawn.image)}" width="${s.drawn.width}" height="${s.drawn.height}" alt="${esc(s.drawn.alt)}"><figcaption>${esc(s.title)} · ${esc(s.punchline)} · ${esc(s.drawn.model)}, ${niceDate(s.drawn.date)}</figcaption></figure>
     ${(s.drawn.notes || []).length ? `<p class="st-k" style="margin-top:22px">What to correct</p><ul class="st-list" style="margin-top:10px">${s.drawn.notes.map((n) => `<li>${esc(n)}</li>`).join('')}</ul>` : ''}
   </div>
 </section>` : ''}
@@ -330,7 +377,7 @@ ${(s.for_merch || []).length ? `<section class="psection${s.status === 'drawn' ?
       <h2>What of it <span class="g">would sell on its own.</span></h2>
     </div>
     <ul class="st-list">${s.for_merch.map((m) => `<li>${esc(m)}</li>`).join('')}</ul>
-    <p class="st-note">The brief for that is <a href="admin/briefs/merch__funny-designs-for-people-who-hold-the-risk/index.html">on the console</a>.</p>
+    <p class="st-note">The brief for that is <a href="/admin/briefs/merch__funny-designs-for-people-who-hold-the-risk/index.html">on the console</a>.</p>
   </div>
 </section>` : ''}
 
@@ -341,7 +388,7 @@ ${(s.for_merch || []).length ? `<section class="psection${s.status === 'drawn' ?
     <span class="eyebrow"><span class="d"></span> The cast</span>
     <h2>Same people, <span class="it">next story.</span></h2>
     <p>${s.cast.map(name).join(', ')} and the rest are on the stories page, with what each one stands for, and the workflow every story goes through before it is drawn.</p>
-    <div class="cta-row"><a class="btn btn-green" href="stories.html">All the stories</a><a class="btn btn-ghost" href="${esc(s.source.url)}">The article it came from</a></div>
+    <div class="cta-row"><a class="btn btn-green" href="${HERE}">All the stories</a><a class="btn btn-ghost" href="/${esc(s.source.url)}">The article it came from</a></div>
   </div>
 </section>
 <script>
@@ -356,13 +403,13 @@ ${(s.for_merch || []).length ? `<section class="psection${s.status === 'drawn' ?
   });
 })();
 </script>`;
-  return cut(nameOf, `RiskMandate — ${s.title} ${s.punchline}`,
+  return cut(`stories/${s.slug}.html`, nameOf, `RiskMandate — ${s.title} ${s.punchline}`,
     `A story told with the cast: ${s.punchline} ${s.status === 'drawn' ? 'Drawn, with what to correct.' : 'A storyboard, not yet drawn.'} The truth under it, the panels, and the prompt for an image model. Fictionalised; nobody's product is drawn.`, body);
 }
 
 // ------------------------------------------------------------------ write, or check
-const outputs = { 'stories.html': indexPage() };
-for (const s of stories) outputs[`story-${s.slug}.html`] = storyPage(s);
+const outputs = { 'stories/index.html': indexPage() };
+for (const s of stories) outputs[`stories/${s.slug}.html`] = storyPage(s);
 const stale = [];
 for (const [file, want] of Object.entries(outputs)) {
   const path = join(SITE, file);

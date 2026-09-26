@@ -112,22 +112,36 @@ node scripts/site/generate.mjs && npm run check
 
 A story is a data file: `site/stories/<slug>.json`, told with the cast in `site/stories/cast.json`.
 The order is story, narrative, punchline, cast, storyboard, prompt; the picture is last and comes
-from whichever image model is being tried.
+from whichever image model is being tried. Everything lives in the one folder, served as
+`riskmandate.ai/stories/`: the data, `images/`, the pages and their twins, and `board.json`.
 
 ```bash
 cp site/stories/just-a-draft.json site/stories/<slug>.json    # title, punchline, status, cast, source, truth, panels, prompt, for_merch
-node scripts/site/build-stories.mjs                            # writes site/stories.html and site/story-<slug>.html
-# add story-<slug>.html to site/pages.json: group More, unlisted, inside the More run
+node scripts/site/build-stories.mjs                            # writes site/stories/index.html and site/stories/<slug>.html
+# add stories/<slug>.html to site/pages.json: group Reading, unlisted, right after the other story entries
 node scripts/site/generate.mjs && npm run check
 ```
 
 - `status` is `storyboard` until a model has drawn it; then `drawn`, with the picture in
-  `site/assets/stories/` as WebP, its alt text, the model, the date, and `notes`: what to correct.
+  `site/stories/images/` as WebP (`"image": "images/<name>.webp"`), its alt text, the model, the
+  date, and `notes`: what to correct.
 - Every line of dialogue names a cast member in the story's `cast`; the build refuses an unknown one.
   A new character goes into `cast.json` with what they stand for on the model, first.
 - The prompt is `shared` plus one line per panel; the page appends the cast's looks and the style.
+- A page in this folder links from the site root (`/articles.html`, `/stories/<slug>.html`) and sets
+  `RM.data.base="/"` so the shared menu does too. `cut()` in the builder rewrites the donor's chrome
+  that way; write body links absolute yourself.
 - The rules are the site's: fictionalised and said so, nobody's product drawn, nothing scored, the
   site's words, and a ladder has steps (the build refuses the other word).
+
+## Run a stories check-in
+
+The stories are made with the lead and a studio model through one sgit vault, in the Email-FS-lite
+protocol; the site's agent is the publisher, the one party that touches both the vault and the site.
+The design is `docs/briefs/architecture__the-stories-vault-and-the-three-way-workflow.md`; the
+commands are in `stories-vault/README.md` and in the publisher's brief inside the vault. The vault
+key and the push token come from the lead in the session and go in no file. Say in your work file
+that you pushed the vault, and why.
 
 ## Write a brief
 

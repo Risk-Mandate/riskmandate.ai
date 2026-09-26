@@ -20,7 +20,7 @@
 <nav class="rail" aria-label="Console">
     <a class="rail__brand" href="../admin/"><b>Risk<i>Mandate</i></b><span>admin console · <span data-version>v…</span></span></a>
     <div class="rail__group"><h3>Where it stands</h3><a class="nav" href="../admin/" aria-current="page">The console</a><a class="nav" href="../admin/work/#lead">Needs the lead<span class="count r1">9</span></a><a class="nav" href="../admin/agents/03-state-and-next/">State and next</a><a class="nav" href="../admin/vaults/">The vaults<span class="count">16</span></a><a class="nav" href="../synthetic-users.html">How the site reads <span class="out">↗</span></a></div>
-    <div class="rail__group"><h3>The work</h3><a class="nav" href="../admin/work/">The board<span class="count">12</span></a><a class="nav" href="../admin/work/#branches">In flight<span class="count">0</span></a><a class="nav" href="../admin/memos/">The memo queue<span class="count">32</span></a><a class="nav" href="../admin/briefs/">Briefs written here<span class="count">26</span></a></div>
+    <div class="rail__group"><h3>The work</h3><a class="nav" href="../admin/work/">The board<span class="count">12</span></a><a class="nav" href="../admin/work/#branches">In flight<span class="count">1</span></a><a class="nav" href="../admin/memos/">The memo queue<span class="count">32</span></a><a class="nav" href="../admin/briefs/">Briefs written here<span class="count">27</span></a></div>
     <div class="rail__group"><h3>For agents</h3><a class="nav" href="../admin/agents/">The front door</a><a class="nav" href="../admin/agents/claude-md/">CLAUDE.md</a><a class="nav" href="../admin/agents/04-rules-of-engagement/">Rules of engagement</a><a class="nav" href="../admin/agents/05-workflows/">Workflows</a><a class="nav" href="../admin/agents/01-map/">The map</a></div>
     <div class="rail__group"><h3>The record</h3><a class="nav" href="../admin/records/">The records</a><a class="nav" href="../admin/tooling/">Tooling and the gate</a><a class="nav" href="../versions.html">Versions <span class="out">↗</span></a><a class="nav" href="../briefs.html">Brief register <span class="out">↗</span></a><a class="nav" href="../agent-behaviour-policy.html">The library <span class="out">↗</span></a><a class="nav" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener">The repository <span class="out">↗</span></a></div>
     <p class="rail__note"><b>Public, and not advertised.</b> Every page here is noindex, out of <code>sitemap.xml</code> and out of <code>llms.txt</code>. Anybody handed the address reads every word. <a href="../">Back to the site</a>.</p>
@@ -32,10 +32,10 @@
 <div class="tiles">
   <div class="tile r1"><b>9</b><span>need the lead</span><em>2 queue rows, 7 decisions</em></div>
   <div class="tile r2"><b>2</b><span>waiting on somebody outside</span><em>the store's agent, the model site</em></div>
-  <div class="tile r3"><b>0</b><span>branches in flight</span><em>one work file each</em></div>
+  <div class="tile r3"><b>1</b><span>branches in flight</span><em>one work file each</em></div>
   <div class="tile r3"><b>12</b><span>open tasks</span><em>of 17 in the queue · 1 done</em></div>
   <div class="tile r3"><b>32</b><span>memos not fully worked</span><em>of 40 received</em></div>
-  <div class="tile r4"><b>26</b><span>briefs written here</span><em>one page each</em></div>
+  <div class="tile r4"><b>27</b><span>briefs written here</span><em>one page each</em></div>
   <div class="tile r4"><b>16</b><span>vaults built and pushed</span><em>4 measured · 8 asked for</em></div>
   <div class="tile r4"><b>116</b><span>releases</span><em>8 Lab editions</em></div>
 </div>
@@ -47,10 +47,10 @@
 <div class="row2"><div><b><em>Behaviour</em> or <em>behavior</em> on the mark (the site is British; the recommendation is <em>behaviour</em>).</b><p>a decision the lead owns, open</p></div><span class="st st--1">D1</span></div><div class="row2"><div><b>The Licence to Operate referent (organisation / instrument / licensee) is adopted on the site</b><p>a decision the lead owns, open</p></div><span class="st st--1">D2</span></div><div class="row2"><div><b>Publish the n8n write-up and its author, or not.</b><p>a decision the lead owns, open</p></div><span class="st st--1">D3</span></div><div class="row2"><div><b>Extend the measuring environment's gateway rule to MCP-tunnelled requests (the deployer's).</b><p>a decision the lead owns, open</p></div><span class="st st--1">D4</span></div><div class="row2"><div><b>The return address for the level-3 files (a mailbox today; a write-only vault link when it exists).</b><p>a decision the lead owns, open</p></div><span class="st st--1">D5</span></div><div class="row2"><div><b>Who the reviewing person is at level 3, and whether the Voice Debrief vaults publish the routing service's providers by name.</b><p>a decision the lead owns, open</p></div><span class="st st--1">D6</span></div><div class="row2"><div><b>Which agent branches merge next, and in what order (see <code>.claude/work/</code>).</b><p>a decision the lead owns, open</p></div><span class="st st--1">D7</span></div>
 </div>
 
-<h2 id="flight">In flight — 0 branches</h2>
+<h2 id="flight">In flight — 1 branch</h2>
 <p>One file per branch under <code>.claude/work/</code>, written before the work starts and deleted when it merges. Read every one before claiming a task.</p>
 <div class="rows">
-<div class="row2"><div><b>Nothing in flight.</b><p>No work file under .claude/work/.</p></div></div>
+<div class="row2"><div><b><a href="../admin/work/branches/claude-dev-session-setup-a5wcc5/">claude/dev-session-setup-a5wcc5</a></b><p>Move the stories under <code>site/stories/</code> (served as <code>/stories/</code>), with a <em>Reading</em> entry in the header beside Articles and redirect stubs at the old addresses; make the generator, the tests and the menu module folder-aware; seed the stories vault (Email-FS-lite: folders, briefs, first messages and tasks, the board and its app) under <code>stories-vault/seed/</code> with the tooling in <code>scripts/stories/mail.mjs</code>; write the architecture brief; render the board on the stories page. Not in scope: the vault's birth (needs the key), the scheduled check-in (needs the key and a token in the environment), stories.sgit.ai. </p></div><span class="st st--3">since 26 September 2026</span></div>
 </div>
 
 <h2>How work gets here</h2>

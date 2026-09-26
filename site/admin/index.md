@@ -7,13 +7,13 @@
 
 **2**waiting on somebody outside*the store's agent, the model site*
 
-**0**branches in flight*one work file each*
+**1**branches in flight*one work file each*
 
 **12**open tasks*of 17 in the queue · 1 done*
 
 **32**memos not fully worked*of 40 received*
 
-**26**briefs written here*one page each*
+**27**briefs written here*one page each*
 
 **16**vaults built and pushed*4 measured · 8 asked for*
 
@@ -59,13 +59,13 @@ a decision the lead owns, openD6
 
 a decision the lead owns, openD7
 
-## In flight — 0 branches
+## In flight — 1 branch
 
 One file per branch under `.claude/work/`, written before the work starts and deleted when it merges. Read every one before claiming a task.
 
-**Nothing in flight.**
+**[claude/dev-session-setup-a5wcc5](../admin/work/branches/claude-dev-session-setup-a5wcc5/)**
 
-No work file under .claude/work/.
+Move the stories under `site/stories/` (served as `/stories/`), with a *Reading* entry in the header beside Articles and redirect stubs at the old addresses; make the generator, the tests and the menu module folder-aware; seed the stories vault (Email-FS-lite: folders, briefs, first messages and tasks, the board and its app) under `stories-vault/seed/` with the tooling in `scripts/stories/mail.mjs`; write the architecture brief; render the board on the stories page. Not in scope: the vault's birth (needs the key), the scheduled check-in (needs the key and a token in the environment), stories.sgit.ai. since 26 September 2026
 
 ## How work gets here
 

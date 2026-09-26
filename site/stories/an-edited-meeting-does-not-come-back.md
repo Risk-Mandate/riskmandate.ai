@@ -1,10 +1,10 @@
-<!-- Generated from story-an-edited-meeting-does-not-come-back.html by scripts/site/generate.mjs. Edit the page, not this file. -->
+<!-- Generated from stories/an-edited-meeting-does-not-come-back.html by scripts/site/generate.mjs. Edit the page, not this file. -->
 
 # RiskMandate — Tidy my calendar. Delete is recoverable. Edit is forever.
 
 A story told with the cast: Delete is recoverable. Edit is forever. A storyboard, not yet drawn. The truth under it, the panels, and the prompt for an image model. Fictionalised; nobody's product is drawn.
 
-Source: https://riskmandate.ai/story-an-edited-meeting-does-not-come-back.html
+Source: https://riskmandate.ai/stories/an-edited-meeting-does-not-come-back.html
 
 ---
 
@@ -12,11 +12,11 @@ Source: https://riskmandate.ai/story-an-edited-meeting-does-not-come-back.html
 
 _Delete is recoverable. Edit is forever._ With Leo, the operations lead; The Caretaker, the helpful agent; The Inbox, the long-suffering witness.
 
-**Where it comes from:** Google Calendar keeps a deleted event in a trash for thirty days and documents no way for a user to restore an edited one, read 24 September 2026. [article-calendar-edits-cannot-be-undone.html](article-calendar-edits-cannot-be-undone.html)
+**Where it comes from:** Google Calendar keeps a deleted event in a trash for thirty days and documents no way for a user to restore an edited one, read 24 September 2026. [article-calendar-edits-cannot-be-undone.html](/article-calendar-edits-cannot-be-undone.html)
 
 **Fictionalised.** Nobody’s product is drawn and nobody’s system was tested. The truth under the story is the site’s, and it is stated below.
 
-**This page as markdown:** [story-an-edited-meeting-does-not-come-back.md](story-an-edited-meeting-does-not-come-back.md)
+**This page as markdown:** [an-edited-meeting-does-not-come-back.md](/stories/an-edited-meeting-does-not-come-back.md)
 
 ## What the story says that the site also says.
 
@@ -65,7 +65,7 @@ Style: Clean line cartoon: thick ink outlines, flat fills, no gradients. The pal
 - Panel 4's two icons with the punchline.
 - Leo alone with the line Can we undo it?
 
-The brief for that is [on the console](admin/briefs/merch__funny-designs-for-people-who-hold-the-risk/index.html).
+The brief for that is [on the console](/admin/briefs/merch__funny-designs-for-people-who-hold-the-risk/index.html).
 
 ## Same people, next story.
 

@@ -66,10 +66,17 @@ the site's; check `site/versions/index.json` for the current version before trus
   re-capture after any change to the figure, or the guide's pictures will disagree with it. Keep such replies stand-alone,
   factual about the source, and long enough to implement from. Five more are listed on the index as *not written*, each with a record already
   behind it.
-- **Stories** (`stories.html`, v1.34.18, D29): a cast of nine drawn by a ChatGPT image model from the lead's
-  prompt, with what each stands for on the site's model; six stories as data (`site/stories/`), two drawn and
-  four storyboards from the articles, each with the truth under it, the panels and a prompt for any image
-  model. The order is story, narrative, punchline, cast, storyboard, picture. Moves to stories.sgit.ai later.
+- **Stories** (`site/stories/`, served as `/stories/`, v1.34.18 and moved into the folder in v1.34.19, D29): a
+  cast of nine drawn by a ChatGPT image model from the lead's prompt, with what each stands for on the site's
+  model; six stories as data, two drawn and four storyboards from the articles, each with the truth under it,
+  the panels and a prompt for any image model. The order is story, narrative, punchline, cast, storyboard,
+  picture. In the header under *Reading*, with Articles (the seventh top-level entry; the cap holds). Section 06
+  of the index is **who does what and the board**: the lead, a studio model (`studio.chatgpt`) and this site's
+  agent as publisher work through one sgit vault in the Email-FS-lite protocol; the board is derived from
+  issues and mailrooms, never dragged. The vault is **not born**: its seed (folders, briefs, five messages,
+  five tasks, the board app) waits in `stories-vault/seed/`, and the birth is five commands once the lead gives
+  the key and a token. Tooling `scripts/stories/mail.mjs`. Design:
+  `docs/briefs/architecture__the-stories-vault-and-the-three-way-workflow.md`. Moves to stories.sgit.ai later.
 - **Try it** (`try-it.html`, top-level, v1.28.0): the free step below the store's ladder and the
   first surface aimed at a stranger rather than a reader. Four steps, thirteen prompts, run in the
   person's own assistant against their own mailbox, hosted at abp.sgit.ai/gmail; what they end up

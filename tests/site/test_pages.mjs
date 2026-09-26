@@ -13,9 +13,14 @@ import { fileURLToPath }                         from 'node:url';
 
 const SITE  = join(dirname(fileURLToPath(import.meta.url)), '../../site');
 const read  = (f) => readFileSync(join(SITE, f), 'utf8');
-const html  = readdirSync(SITE).filter(f => f.endsWith('.html'));
 const index = JSON.parse(read('versions/index.json'));
 const listed = JSON.parse(read('pages.json')).pages.filter(p => !p.link);   // a `link` entry is a menu entry to a folder, not a page
+// A page family can live in a folder of its own (site/stories/, from v1.34.19). pages.json names
+// those pages with their folder, and every .html in such a folder is a page like any other, so
+// the checks below read the top of site/ and every folder that pages.json names.
+const folders = [...new Set(listed.filter(p => p.file.includes('/')).map(p => dirname(p.file)))];
+const html  = [...readdirSync(SITE).filter(f => f.endsWith('.html')),
+               ...folders.flatMap(d => readdirSync(join(SITE, d)).filter(f => f.endsWith('.html')).map(f => `${d}/${f}`))];
 
 // `private` pages are working pages for us: no markdown twin, nothing that
 // advertises them. They are still real pages and still have to hold together,
@@ -66,7 +71,10 @@ test('every internal link resolves — the file, and the anchor if it names one'
   for (const f of html) {
     for (const [, href] of read(f).matchAll(/href="([^"#:][^":]*)"/g)) {
       const [target, anchor] = href.split('#');
-      const path = target.split('?')[0];   // a query string (the after-payment pages read ?order= and ?shape=) is not part of the file
+      const raw  = target.split('?')[0];   // a query string (the after-payment pages read ?order= and ?shape=) is not part of the file
+      // a link is resolved the way a browser resolves it: from the site root when it starts with
+      // a slash (a page in a folder links that way), else from the page's own folder
+      const path = raw.startsWith('/') ? raw.slice(1) : join(dirname(f), raw);
       if (!existsSync(join(SITE, path))) { misses.push(`${f} → ${href} (no such file)`); continue; }
       // an anchor into another page only works if that page defines the id
       if (anchor && path.endsWith('.html') && !idsOf(path).has(anchor)) {
@@ -82,7 +90,7 @@ test('every published page carries a canonical URL and a markdown twin', () => {
     const s    = read(f);
     const twin = f.replace(/\.html$/, '.md');
     assert.match(s, /<link rel="canonical" href="https:\/\/riskmandate\.ai\//, `${f} has no canonical URL`);
-    assert.match(s, new RegExp(`<link rel="alternate" type="text/markdown" href="${twin}"`), `${f} does not link its twin`);
+    assert.match(s, new RegExp(`<link rel="alternate" type="text/markdown" href="/?${twin}"`), `${f} does not link its twin`);
     assert.ok(existsSync(join(SITE, twin)), `${twin} is missing`);
   }
 });
@@ -140,8 +148,9 @@ test('releases carried over from the vault are labelled reconstructed', () => {
 });
 
 test('the sitemap lists every published page and nothing that is not one', () => {
+  // a folder is its index page: the root is index.html, stories/ is stories/index.html
   const inMap = [...read('sitemap.xml').matchAll(/<loc>https:\/\/riskmandate\.ai\/([^<]*)<\/loc>/g)]
-    .map(m => m[1] || 'index.html');
+    .map(m => m[1].endsWith('/') || m[1] === '' ? `${m[1]}index.html` : m[1]);
   assert.deepEqual(inMap.sort(), [...pub].sort());
 });
 
@@ -243,8 +252,8 @@ test('every footer that links Versions also links Admin', () => {
   // carry one without the other.
   for (const f of pages) {
     const s = read(f);
-    if (!/class="footlink" href="versions\.html"/.test(s)) continue;
-    assert.match(s, /class="footlink" href="admin\/"/, `${f} links Versions in its footer but not Admin`);
+    if (!/class="footlink" href="\/?versions\.html"/.test(s)) continue;
+    assert.match(s, /class="footlink" href="\/?admin\/"/, `${f} links Versions in its footer but not Admin`);
   }
 });
 
@@ -355,7 +364,8 @@ test('no page says rung: the ladder has steps', () => {
   // twin says step. Class names and CSS comments are stripped before looking, so
   // this reads what a visitor or a model reading llms.txt would read.
   const blank = (m) => m.replace(/[^\n]/g, ' ');
-  const twins = readdirSync(SITE).filter(f => f.endsWith('.md') && f !== 'versions.md');
+  const twins = [...readdirSync(SITE).filter(f => f.endsWith('.md') && f !== 'versions.md'),
+                 ...folders.flatMap(d => readdirSync(join(SITE, d)).filter(f => f.endsWith('.md')).map(f => `${d}/${f}`))];
   for (const f of [...html, ...twins, 'llms.txt']) {
     const s = read(f)
       .replace(/<style[\s\S]*?<\/style>/g, blank)

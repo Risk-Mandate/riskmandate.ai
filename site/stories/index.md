@@ -1,10 +1,10 @@
-<!-- Generated from stories.html by scripts/site/generate.mjs. Edit the page, not this file. -->
+<!-- Generated from stories/index.html by scripts/site/generate.mjs. Edit the page, not this file. -->
 
 # RiskMandate — Stories: a cast, and storyboards told with it
 
-A cast of nine, a workflow from story to storyboard to image model, and 6 storyboards so far, 2 of them drawn. Every scenario is fictionalised and says so on the picture. Nothing is scored.
+A cast of nine, a workflow from story to storyboard to image model, 6 storyboards so far, 2 of them drawn, and the board of who does what. Every scenario is fictionalised and says so on the picture. Nothing is scored.
 
-Source: https://riskmandate.ai/stories.html
+Source: https://riskmandate.ai/stories/
 
 ---
 
@@ -12,7 +12,9 @@ Source: https://riskmandate.ai/stories.html
 
 Most of what this site says is an argument. Some of it is a story, and a story with a cast is remembered where an argument is filed. This is where the stories are kept: a cast of nine, a workflow that starts with the narrative and ends with an image model, and 6 storyboards so far, 2 of them drawn.
 
-**Where this goes:** a site of its own, stories.sgit.ai. Every story here is a data file, so it can move without being rewritten.
+**Where this goes:** a site of its own, stories.sgit.ai. Every story here is a data file in the one folder this section is served from, so it can move without being rewritten.
+
+**How it is made:** three parties, one encrypted vault, requests as files, and a board nobody drags. [Section 06](#made).
 
 **The rule:** every scenario is fictionalised and says so on the picture. Nobody's product is drawn, nobody's face, and nothing is scored.
 
@@ -119,8 +121,29 @@ Rowan, Imani, The Caretaker, Dev.
 - **The cast is the cast.** A new character is added to the cast file with what they stand for, then used. A story does not invent one.
 - **What a model got wrong is written down, not painted over.** A drawn story carries its notes: what to correct, and why.
 
+## Three parties, one vault, and a board nobody drags.
+
+A story is made by three parties who never sit in the same session. They share one encrypted vault, and they talk through files in it: a request is a message, a deliverable is a file, a task is a file in one of three folders. The protocol is [Email-FS-lite](https://sgraph.ai/en-gb/library/how-it-works/email-fs-lite), sgraph.ai’s: no broker, no API, one commit per round of work, and the vault’s history is the record of who did what and when.
+
+**The loop.** Pull the vault; the diff is the inbox. Move new messages from the mailroom into the inbox. Do the work. Update the tasks. Send the replies. Move finished messages to done. One commit, one push, one status check. The publisher runs it by hand today and on a schedule once the key is in its environment; a run is a session, and a session is a commit in the vault’s history.
+
+The board
+
+Derived, not drawn: every task in every party’s open, blocked and done folders, and every message still waiting in a mailroom as requested work for its recipient. A card moves because a file moved. Generated 2026-09-26 15:31:58 UTC.
+
+### requested **5**
+
+### open **2**
+
+### blocked **2**
+
+### done **1**
+
+The same board is drawn inside the vault by a page that reads the same file, so the studio and the lead see it without this site. The tooling is one script in the repository, `scripts/stories/mail.mjs`: send, deliver, done, issue, board. Nothing in it talks to the network.
+
 ## What this section does not have yet.
 
+- **The vault is not born.** The folders, the briefs, the first five messages and the first five tasks are written and waiting; the vault they go into does not exist yet, so the studio has not read them and the board above shows the publisher’s side only.
 - **Models other than ChatGPT’s.** The three drawn pieces are from one model. The storyboards are written so that the same prompt can go to another; none has yet.
 - **The one who signs.** The site’s main idea, accepting a risk for a stated interval, has no character. One is proposed above.
 - **A story with the two questions asked at the board.** _Nobody decided_ ends there; a story that starts there is not written.

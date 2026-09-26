@@ -75,11 +75,19 @@ a decision the lead owns, listed in the state fileneeds the lead
 
 a decision the lead owns, listed in the state fileneeds the lead
 
-## In flight — 0 branches
+## In flight — 1 branch
 
 One file per branch under `.claude/work/`. [How a work file is written](../../admin/work/about-work-files/).
 
-Nothing in flight.
+### [claude/dev-session-setup-a5wcc5](../../admin/work/branches/claude-dev-session-setup-a5wcc5/)
+
+started 26 September 2026 · task brief: ad hoc, from the lead's memo after v1.34.18
+
+Move the stories under `site/stories/` (served as `/stories/`), with a *Reading* entry in the header beside Articles and redirect stubs at the old addresses; make the generator, the tests and the menu module folder-aware; seed the stories vault (Email-FS-lite: folders, briefs, first messages and tasks, the board and its app) under `stories-vault/seed/` with the tooling in `scripts/stories/mail.mjs`; write the architecture brief; render the board on the stories page. Not in scope: the vault's birth (needs the key), the scheduled check-in (needs the key and a token in the environment), stories.sgit.ai.
+
+**External state.** Vaults built and unpushed: none. The stories vault does not exist yet; the seed waits for the key. · Lab editions I will cut: none · Release I will claim at merge: yes, 1.34.19
+
+**Status.** [x] stories under `/stories/`, menu, stubs, tests, generator · [x] seed, tooling, board, brief · [ ] release, merge, deploy
 
 ## Task briefs — 14
 

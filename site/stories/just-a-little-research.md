@@ -1,10 +1,10 @@
-<!-- Generated from story-just-a-little-research.html by scripts/site/generate.mjs. Edit the page, not this file. -->
+<!-- Generated from stories/just-a-little-research.html by scripts/site/generate.mjs. Edit the page, not this file. -->
 
 # RiskMandate — Just a little research. Good intentions. Excess reach.
 
 A story told with the cast: Good intentions. Excess reach. Drawn, with what to correct. The truth under it, the panels, and the prompt for an image model. Fictionalised; nobody's product is drawn.
 
-Source: https://riskmandate.ai/story-just-a-little-research.html
+Source: https://riskmandate.ai/stories/just-a-little-research.html
 
 ---
 
@@ -12,11 +12,11 @@ Source: https://riskmandate.ai/story-just-a-little-research.html
 
 _Good intentions. Excess reach._ With Maya, the requester; The Caretaker, the helpful agent.
 
-**Where it comes from:** The pilots article's fifth variable: an agent that is only over-enthusiastic, with nobody attacking it, and the keys it already holds. [article-pilots-do-not-stay-in-production.html](article-pilots-do-not-stay-in-production.html) · [The grant is not the mandate](grant-gap.html)
+**Where it comes from:** The pilots article's fifth variable: an agent that is only over-enthusiastic, with nobody attacking it, and the keys it already holds. [article-pilots-do-not-stay-in-production.html](/article-pilots-do-not-stay-in-production.html) · [The grant is not the mandate](/grant-gap.html)
 
 **Fictionalised.** Nobody’s product is drawn and nobody’s system was tested. The truth under the story is the site’s, and it is stated below.
 
-**This page as markdown:** [story-just-a-little-research.md](story-just-a-little-research.md)
+**This page as markdown:** [just-a-little-research.md](/stories/just-a-little-research.md)
 
 ## By a ChatGPT image model, 26 September 2026.
 
@@ -76,7 +76,7 @@ Style: Clean line cartoon: thick ink outlines, flat fills, no gradients. The pal
 - Panel 2 alone, with the line Must be a technical issue.
 - The Caretaker with the keys and the line Ask me about my unbounded excess.
 
-The brief for that is [on the console](admin/briefs/merch__funny-designs-for-people-who-hold-the-risk/index.html).
+The brief for that is [on the console](/admin/briefs/merch__funny-designs-for-people-who-hold-the-risk/index.html).
 
 ## Same people, next story.
 

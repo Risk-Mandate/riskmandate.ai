@@ -33,9 +33,17 @@
 
     // On the homepage a section link scrolls; on any other page it is a link
     // back to the homepage at that anchor. Same markup either way.
+    // A page that lives in a folder (site/stories/) sets RM.data.base to "/" so that the one
+    // shared page list, whose files are named from the site root, still resolves from there.
+    // A folder's index page is linked as the folder: /stories/, not /stories/index.html.
+    _href(file) {
+      var base = (RM.data && RM.data.base) || '';
+      return base + file.replace(/(^|\/)index\.html$/, '$1');
+    }
+
     _section(s) {
       var home = !(RM.data && RM.data.currentPage);
-      var a = dom.el('a', { class: 'seclink', href: home ? '#' + s.to : 'index.html#' + s.to }, [s.label]);
+      var a = dom.el('a', { class: 'seclink', href: home ? '#' + s.to : this._href('index.html') + '#' + s.to }, [s.label]);
       if (home) a.addEventListener('click', function (e) {
         e.preventDefault();
         RM.components.nav.scrollTo(document, s.to);
@@ -45,7 +53,7 @@
 
     _pagelink(p, extra) {
       var active = p.name === (RM.data && RM.data.currentPage);
-      var attrs  = { class: 'pagelink' + (extra ? ' ' + extra : '') + (active ? ' active' : ''), href: p.file };
+      var attrs  = { class: 'pagelink' + (extra ? ' ' + extra : '') + (active ? ' active' : ''), href: this._href(p.file) };
       if (active) attrs['aria-current'] = 'page';
       return dom.el('a', attrs, [p.label]);
     }
