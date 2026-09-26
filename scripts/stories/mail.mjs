@@ -21,12 +21,16 @@
 //
 // Commands
 //   init                       lay the folders out for every agent named in --agents (idempotent)
-//   send --to <agent> --subject "…" (--body "…" | --body-file <f>) [--reply-to <message-id>]
+//   send --to <agent> --subject "…" (--body "…" | --body-file <f>) [--reply-to <message-id>] [--from <party>]
+//                              --from writes down what somebody said in a session as theirs (mailroom copy only)
 //   deliver                    move everything in mail/mailroom/<me>/ into my inbox
 //   done <file>                move an inbox message to done/
 //   issue open <id> --title "…" [--body "…"|--body-file f] [--source path] [--priority p]
 //   issue block <id> --on "…"  |  issue unblock <id>  |  issue close <id>
-//   board [--site]             derive board/board.json; --site also writes site/stories/board.json
+//   board [--site] [--board <dir>] [--note "…"]
+//                              derive <dir>/board.json (default board/): a revision per change, the diff
+//                              per revision kept in the file, every earlier state under <dir>/history/;
+//                              --site also writes site/stories/board.json (the default board only)
 //   status                     what is in my mailroom, inbox and issues
 //
 // Nothing here talks to the network: sgit pull / commit / push are run around it, by hand or by
@@ -83,20 +87,24 @@ function headers(raw) {
   for (const line of head.split(/\r?\n/)) { const m = line.match(/^([\w-]+):\s*(.*)$/); if (m) h[m[1].toLowerCase()] = m[2]; }
   return h;
 }
+// --from <party> writes a message down on somebody's behalf: what they said in a session, as
+// theirs, with a header saying who wrote it down. Only the mailroom copy is written, because the
+// outbox is in their folder and not ours to write.
 function send() {
-  const to = opt('to'), subject = opt('subject'); const text = body();
+  const to = opt('to'), subject = opt('subject'); const text = body(); const from = opt('from') || ME;
   if (!to || !subject || !text) fail('send needs --to, --subject and --body or --body-file');
   const n = nextNumber(), file = `${n}-${slug(subject)}.eml`, id = `<${n}-${slug(subject)}@${DOMAIN}>`;
   const lines = [
-    `From: ${ME} <${ME}@${DOMAIN}>`, `To: ${to} <${to}@${DOMAIN}>`, `Subject: ${subject}`, `Date: ${rfcDate()}`, `Message-ID: ${id}`,
+    `From: ${from} <${from}@${DOMAIN}>`, `To: ${to} <${to}@${DOMAIN}>`, `Subject: ${subject}`, `Date: ${rfcDate()}`, `Message-ID: ${id}`,
     ...(opt('reply-to') ? [`In-Reply-To: ${opt('reply-to')}`, `References: ${opt('reply-to')}`] : []),
+    ...(from !== ME ? [`X-Written-Down-By: ${ME}, from what ${from} said in a session`] : []),
     'MIME-Version: 1.0', 'Content-Type: text/plain; charset=utf-8', '', text.trimEnd(), ''
   ];
   const eml = lines.join('\n');
-  mk(v('mail', 'mailroom', to)); mk(v('mail', ME, 'outbox', to));
+  mk(v('mail', 'mailroom', to));
   writeFileSync(v('mail', 'mailroom', to, file), eml);
-  writeFileSync(v('mail', ME, 'outbox', to, file), eml);
-  console.log(`mail: sent ${file} to ${to} (mailroom + outbox)`);
+  if (from === ME) { mk(v('mail', ME, 'outbox', to)); writeFileSync(v('mail', ME, 'outbox', to, file), eml); }
+  console.log(`mail: sent ${file} to ${to} (${from === ME ? 'mailroom + outbox' : `mailroom only, written down for ${from}`})`);
 }
 function deliver() {
   const room = v('mail', 'mailroom', ME); let n = 0;
@@ -165,15 +173,35 @@ function board() {
   }
   const order = { requested: 0, open: 1, blocked: 2, done: 3 };
   cards.sort((x, y) => order[x.state] - order[y.state] || x.id.localeCompare(y.id));
-  const out = { generated: now(), vault: 'stories', note: 'Derived by scripts/stories/mail.mjs board from every agent\'s issues and every message still in a mailroom. Edit the issues, not this file.', agents, columns: ['requested', 'open', 'blocked', 'done'], cards };
-  mk(v('board'));
+  // A board is versioned: every generation that moved something is a revision, with the diff
+  // against the one before (cards added, removed, moved between columns, retitled) kept in the
+  // board file, and the full earlier state kept under history/. A second board is --board <dir>:
+  // each is its own small world with its own revisions.
+  const B = opt('board') || 'board';
+  mk(v(B, 'history'));
+  const prev = existsSync(v(B, 'board.json')) ? JSON.parse(readFileSync(v(B, 'board.json'), 'utf8')) : null;
+  const was = new Map((prev?.cards || []).map((c) => [c.id, c])), is = new Map(cards.map((c) => [c.id, c]));
+  const diff = {
+    added:   cards.filter((c) => !was.has(c.id)).map((c) => ({ id: c.id, title: c.title, state: c.state, owner: c.owner })),
+    removed: [...was.values()].filter((c) => !is.has(c.id)).map((c) => ({ id: c.id, title: c.title, state: c.state, owner: c.owner })),
+    moved:   cards.filter((c) => was.has(c.id) && was.get(c.id).state !== c.state).map((c) => ({ id: c.id, title: c.title, from: was.get(c.id).state, to: c.state, owner: c.owner })),
+    retitled: cards.filter((c) => was.has(c.id) && was.get(c.id).title !== c.title).map((c) => ({ id: c.id, was: was.get(c.id).title, title: c.title }))
+  };
+  const changed = !prev || diff.added.length || diff.removed.length || diff.moved.length || diff.retitled.length;
+  const revision = changed ? (prev?.revision || 0) + 1 : (prev?.revision || 0);
+  const changes = [...(prev?.changes || [])];
+  if (changed) {
+    if (prev) writeFileSync(v(B, 'history', `${String(prev.revision || 0).padStart(4, '0')}-${(prev.generated || 'undated').replace(/[:]/g, '')}.json`), JSON.stringify({ ...prev, changes: undefined }, null, 2) + '\n');
+    changes.unshift({ revision, at: now(), by: ME, note: opt('note') || '', ...diff });
+  }
+  const out = { generated: changed ? now() : prev.generated, revision, vault: 'stories', board: B, note: 'Derived by scripts/stories/mail.mjs board from every agent\'s issues and every message still in a mailroom. Edit the issues, not this file. `changes` is the diff per revision, newest first; every earlier state is under history/.', agents, columns: ['requested', 'open', 'blocked', 'done'], cards, changes };
   const json = JSON.stringify(out, null, 2) + '\n';
-  writeFileSync(v('board', 'board.json'), json);
+  if (changed) writeFileSync(v(B, 'board.json'), json);
   // the app that draws it carries an inline copy, so it renders where a vault path cannot be read
-  const app = v('board', 'index.html');
+  const app = v(B, 'index.html');
   if (existsSync(app)) writeFileSync(app, readFileSync(app, 'utf8').replace(/const FALLBACK = \/\*__DATA__\*\/.*;/, `const FALLBACK = /*__DATA__*/${JSON.stringify(out)};`));
-  console.log(`mail: board has ${cards.length} cards (${agents.join(', ')})`);
-  if (opt('site')) { writeFileSync(join(ROOT, 'site/stories/board.json'), json); console.log('mail: site/stories/board.json written — run build-stories.mjs'); }
+  console.log(changed ? `mail: ${B} revision ${revision}: +${diff.added.length} −${diff.removed.length} moved ${diff.moved.length}; ${cards.length} cards (${agents.join(', ')})` : `mail: ${B} unchanged at revision ${revision} (${cards.length} cards)`);
+  if (opt('site') && B === 'board') { writeFileSync(join(ROOT, 'site/stories/board.json'), json); console.log('mail: site/stories/board.json written — run build-stories.mjs'); }
 }
 
 function status() {

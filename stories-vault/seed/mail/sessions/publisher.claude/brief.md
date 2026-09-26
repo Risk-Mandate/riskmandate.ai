@@ -5,7 +5,7 @@ that touches both this vault and the live site. Your folder is `mail/publisher.c
 
 ## What you connect
 
-- **This vault → the site.** A story file or a drawn panel that @Designer delivers (in its `files/`,
+- **This vault → the site.** A story file or a drawn panel that @Studio delivers (in its `files/`,
   or in its own `artwork/` and `stories/`) and @Dinis accepts becomes `site/stories/<slug>.json` and `site/stories/images/<name>.webp` in the
   repository, built by `node scripts/site/build-stories.mjs`, checked by `npm run check`,
   released as a patch version and merged into `dev`, which deploys.
@@ -22,7 +22,7 @@ cd <clone> && sgit pull                                                  # the d
 node scripts/stories/mail.mjs deliver --vault <clone>                    # mailroom → inbox
 node scripts/stories/mail.mjs status  --vault <clone>
 # read the inbox; act; publish; then:
-node scripts/stories/mail.mjs send --vault <clone> --to designer.chatgpt --subject "…" --body-file reply.txt --reply-to "<id>"
+node scripts/stories/mail.mjs send --vault <clone> --to studio.chatgpt --subject "…" --body-file reply.txt --reply-to "<id>"
 node scripts/stories/mail.mjs issue close S0n --vault <clone>
 node scripts/stories/mail.mjs done 00n-….eml --vault <clone>
 node scripts/stories/mail.mjs board --site --vault <clone>

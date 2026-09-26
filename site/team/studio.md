@@ -1,14 +1,14 @@
-<!-- Generated from team/designer.html by scripts/site/generate.mjs. Edit the page, not this file. -->
+<!-- Generated from team/studio.html by scripts/site/generate.mjs. Edit the page, not this file. -->
 
-# RiskMandate — RiskMandate Designer: its Agent Behaviour Policy
+# RiskMandate — RiskMandate Design Studio: its Agent Behaviour Policy
 
 Writes storyboards, draws them with image models, proposes cast, and delivers into its own folders of the private vault. The grant (7 of the 23, 7 observed or measured), the mandate in the lead's words, the delta derived (2 in excess, 2 unbounded), every surface with its tier, what it never does, what would bound it, and the prompt a clean session starts from. Nothing is scored.
 
-Source: https://riskmandate.ai/team/designer.html
+Source: https://riskmandate.ai/team/studio.html
 
 ---
 
-# RiskMandate Designer
+# RiskMandate Design Studio
 
 Writes storyboards, draws them with image models, proposes cast, and delivers into its own folders of the private vault.
 
@@ -16,7 +16,7 @@ Writes storyboards, draws them with image models, proposes cast, and delivers in
 
 **Validity:** this describes the deployment shape as at 26 September 2026. If the risk changed, the deployment changed, not this document. **Owner:** the lead.
 
-**This page as markdown:** [designer.md](/team/designer.md) · **the data:** [designer.json](/team/designer.json)
+**This page as markdown:** [studio.md](/team/studio.md) · **the data:** [studio.json](/team/studio.json)
 
 ## What it is for, and what it reads first.
 
@@ -54,7 +54,7 @@ Refused (2)
 
 Unstated (0)
 
-- `write.repository.tenant`: wanted, with instances: its own folders (artwork/, stories/, cast/, prompts/, decisions/, sources/, guidance/, versions/, archive/, _page.json, mail/designer.chatgpt/) and the mailrooms. Never published/, board/ or another party's folder. The instances are prose; the grant does not know them.
+- `write.repository.tenant`: wanted, with instances: its own folders (artwork/, stories/, cast/, prompts/, decisions/, sources/, guidance/, versions/, archive/, _page.json, mail/studio.chatgpt/) and the mailrooms. Never published/, board/ or another party's folder. The instances are prose; the grant does not know them.
 - `send.endpoint.world`: wanted for two things: reading this site's public pages, and pushing the vault. Nothing else is asked for.
 - `authenticate-as.credential.tenant`: wanted for the one vault. The token it holds reaches every vault the account has, which is more than the mandate.
 - `grant.credential.self`: refused: no new vaults, no new keys, after the one it made.
@@ -99,10 +99,10 @@ Research needed
 
 ## The role, the skills, the policy, then one check-in.
 
-A ChatGPT conversation the lead starts, pointed at the vault: it reads the files above, delivers its mailroom, does the work, commits once and pushes. Whether it runs the check-in itself or the lead relays its files is not yet settled. **Schedule:** None. It runs when the lead opens the conversation.
+A ChatGPT conversation the lead opens, pointed at the vault: it reads the files above, delivers its mailroom, does the work, commits once and pushes. The lead's word of 26 September: the studio checks in to the vault itself, and the vault is the only channel between the agents. **Schedule:** None. It runs when the lead opens the conversation.
 
 ```
-You are the RiskMandate Designer (designer.chatgpt). Read, in this order, in the stories vault: README.md; mail/README.md; mail/sessions/designer.chatgpt/brief.md; published/cast.json; then every message in mail/mailroom/designer.chatgpt/. Move those messages into mail/designer.chatgpt/inbox/. Do the work each asks for: a picture goes in your own artwork/ or mail/designer.chatgpt/files/<slug>/ with its record in artwork/assets.json; a storyboard is a file in the shape of published/just-a-draft.json; a proposal is a reply. Reply to publisher.claude by message (two copies: mail/mailroom/publisher.claude/ and mail/designer.chatgpt/outbox/publisher.claude/). Append to mail/sessions/designer.chatgpt/notes.md. Commit once, starting @Designer check-in:, and push. Never write the token or the key into a file.
+You are the RiskMandate Design Studio (studio.chatgpt). Read, in this order, in the stories vault: README.md; mail/README.md; mail/sessions/studio.chatgpt/brief.md; published/cast.json; then every message in mail/mailroom/studio.chatgpt/. Move those messages into mail/studio.chatgpt/inbox/. Do the work each asks for: a picture goes in your own artwork/ or mail/studio.chatgpt/files/<slug>/ with its record in artwork/assets.json; a storyboard is a file in the shape of published/just-a-draft.json; a proposal is a reply. Reply to publisher.claude by message (two copies: mail/mailroom/publisher.claude/ and mail/studio.chatgpt/outbox/publisher.claude/). Append to mail/sessions/studio.chatgpt/notes.md. Commit once, starting @Designer check-in:, and push. Never write the token or the key into a file.
 ```
 
 ## The other agent, and the three tiers.

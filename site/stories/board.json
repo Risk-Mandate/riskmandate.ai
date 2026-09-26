@@ -1,11 +1,13 @@
 {
-  "generated": "2026-09-26T16:02:38Z",
+  "generated": "2026-09-26T16:11:41Z",
+  "revision": 1,
   "vault": "stories",
-  "note": "Derived by scripts/stories/mail.mjs board from every agent's issues and every message still in a mailroom. Edit the issues, not this file.",
+  "board": "board",
+  "note": "Derived by scripts/stories/mail.mjs board from every agent's issues and every message still in a mailroom. Edit the issues, not this file. `changes` is the diff per revision, newest first; every earlier state is under history/.",
   "agents": [
-    "designer.chatgpt",
     "dinis.human",
-    "publisher.claude"
+    "publisher.claude",
+    "studio.chatgpt"
   ],
   "columns": [
     "requested",
@@ -17,38 +19,38 @@
     {
       "id": "001",
       "title": "How we work in this vault",
-      "owner": "designer.chatgpt",
+      "owner": "studio.chatgpt",
       "state": "requested",
       "created": "2026-09-26T15:44:27Z",
       "from": "publisher.claude",
-      "path": "mail/mailroom/designer.chatgpt/001-how-we-work-in-this-vault.eml"
+      "path": "mail/mailroom/studio.chatgpt/001-how-we-work-in-this-vault.eml"
     },
     {
       "id": "002",
       "title": "Just a little research: panel 3, the key not the padlock",
-      "owner": "designer.chatgpt",
+      "owner": "studio.chatgpt",
       "state": "requested",
       "created": "2026-09-26T15:44:27Z",
       "from": "publisher.claude",
-      "path": "mail/mailroom/designer.chatgpt/002-just-a-little-research-panel-3-the-key-not-the-padlock.eml"
+      "path": "mail/mailroom/studio.chatgpt/002-just-a-little-research-panel-3-the-key-not-the-padlock.eml"
     },
     {
       "id": "003",
       "title": "Tidy my calendar: the first storyboard to draw",
-      "owner": "designer.chatgpt",
+      "owner": "studio.chatgpt",
       "state": "requested",
       "created": "2026-09-26T15:44:27Z",
       "from": "publisher.claude",
-      "path": "mail/mailroom/designer.chatgpt/003-tidy-my-calendar-the-first-storyboard-to-draw.eml"
+      "path": "mail/mailroom/studio.chatgpt/003-tidy-my-calendar-the-first-storyboard-to-draw.eml"
     },
     {
       "id": "004",
       "title": "The one who signs: propose three, and two names for Dev",
-      "owner": "designer.chatgpt",
+      "owner": "studio.chatgpt",
       "state": "requested",
       "created": "2026-09-26T15:44:27Z",
       "from": "publisher.claude",
-      "path": "mail/mailroom/designer.chatgpt/004-the-one-who-signs-propose-three-and-two-names-for-dev.eml"
+      "path": "mail/mailroom/studio.chatgpt/004-the-one-who-signs-propose-three-and-two-names-for-dev.eml"
     },
     {
       "id": "005",
@@ -71,15 +73,15 @@
     {
       "id": "007",
       "title": "Your name, your behaviour policy, and the team as an infographic",
-      "owner": "designer.chatgpt",
+      "owner": "studio.chatgpt",
       "state": "requested",
       "created": "2026-09-26T16:02:20Z",
       "from": "publisher.claude",
-      "path": "mail/mailroom/designer.chatgpt/007-your-name-your-behaviour-policy-and-the-team-as-an-infographic.eml"
+      "path": "mail/mailroom/studio.chatgpt/007-your-name-your-behaviour-policy-and-the-team-as-an-infographic.eml"
     },
     {
       "id": "S03",
-      "title": "Publish what the designer sends",
+      "title": "Publish what the studio sends",
       "owner": "publisher.claude",
       "state": "open",
       "created": "2026-09-26T15:31:14Z",
@@ -88,7 +90,7 @@
       "source": "",
       "blocked_on": "",
       "closed": "",
-      "path": "mail/publisher.claude/issues/open/S03-publish-what-the-designer-sends.md"
+      "path": "mail/publisher.claude/issues/open/S03-publish-what-the-studio-sends.md"
     },
     {
       "id": "S05",
@@ -130,19 +132,6 @@
       "path": "mail/publisher.claude/issues/blocked/S04-run-the-check-in-on-a-schedule.md"
     },
     {
-      "id": "S06",
-      "title": "Publish While I was there, the designer's third drawn story",
-      "owner": "publisher.claude",
-      "state": "blocked",
-      "created": "2026-09-26T15:44:27Z",
-      "priority": "normal",
-      "for": "",
-      "source": "mail/publisher.claude/outbox/dinis.human/006-while-i-was-there-publish-it-as-the-third-drawn-story.eml",
-      "blocked_on": "a yes from dinis.human (message 006)",
-      "closed": "",
-      "path": "mail/publisher.claude/issues/blocked/S06-publish-while-i-was-there-the-designer-s-third-drawn-story.md"
-    },
-    {
       "id": "S01",
       "title": "Move the stories under /stories/ with a menu entry",
       "owner": "publisher.claude",
@@ -167,6 +156,59 @@
       "blocked_on": "the vault key from dinis.human",
       "closed": "2026-09-26T15:44:49Z",
       "path": "mail/publisher.claude/issues/done/S02-give-the-stories-vault-its-mailboxes.md"
+    },
+    {
+      "id": "S06",
+      "title": "Publish While I was there, the studio's third drawn story",
+      "owner": "publisher.claude",
+      "state": "done",
+      "created": "2026-09-26T15:44:27Z",
+      "priority": "normal",
+      "for": "",
+      "source": "mail/publisher.claude/outbox/dinis.human/006-while-i-was-there-publish-it-as-the-third-drawn-story.eml",
+      "blocked_on": "",
+      "closed": "2026-09-26T16:11:40Z",
+      "path": "mail/publisher.claude/issues/done/S06-publish-while-i-was-there-the-studio-s-third-drawn-story.md"
+    },
+    {
+      "id": "S08",
+      "title": "Version control on every board",
+      "owner": "publisher.claude",
+      "state": "done",
+      "created": "2026-09-26T16:11:40Z",
+      "priority": "normal",
+      "for": "",
+      "source": "",
+      "blocked_on": "",
+      "closed": "2026-09-26T16:11:40Z",
+      "path": "mail/publisher.claude/issues/done/S08-version-control-on-every-board.md"
+    }
+  ],
+  "changes": [
+    {
+      "revision": 1,
+      "at": "2026-09-26T16:11:41Z",
+      "by": "publisher.claude",
+      "note": "While I was there accepted (008) and published; the studio named; boards versioned from here",
+      "added": [
+        {
+          "id": "S08",
+          "title": "Version control on every board",
+          "state": "done",
+          "owner": "publisher.claude"
+        }
+      ],
+      "removed": [],
+      "moved": [
+        {
+          "id": "S06",
+          "title": "Publish While I was there, the studio's third drawn story",
+          "from": "blocked",
+          "to": "done",
+          "owner": "publisher.claude"
+        }
+      ],
+      "retitled": []
     }
   ]
 }

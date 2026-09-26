@@ -75,11 +75,19 @@ a decision the lead owns, listed in the state fileneeds the lead
 
 a decision the lead owns, listed in the state fileneeds the lead
 
-## In flight — 0 branches
+## In flight — 1 branch
 
 One file per branch under `.claude/work/`. [How a work file is written](../../admin/work/about-work-files/).
 
-Nothing in flight.
+### [claude/dev-session-setup-a5wcc5](../../admin/work/branches/claude-dev-session-setup-a5wcc5/)
+
+started 26 September 2026 · task brief: ad hoc: While I was there, the studio's name, versioned boards
+
+Publish *While I was there* as the third drawn story (the lead's yes, message 008); the studio's identity back to `studio.chatgpt` (RiskMandate Design Studio) in the vault, the seed and the team pages; version control on every board (a revision per change, the diff kept, history in the vault), shown on the stories page and in the board app.
+
+**External state.** Vault pushed: `dy4u2m9c`, one check-in: 008 written down as the lead's, S06 and S08 closed, the rename, the board at revision 1, published/ mirrored. · Release I will claim at merge: yes, 1.35.1
+
+**Status.** [x] built and checked · [ ] release, merge, deploy
 
 ## Task briefs — 14
 

@@ -1,42 +1,223 @@
 {
-  "_": "The team behind riskmandate.ai: who does what, what is public, what is private, what is secret, how something moves from one tier to the next, and what stands in the way. The agents' behaviour policies are in publisher.json and designer.json, in the same grammar as the catalogue's vaults (abp.sgit.ai v0.3.0).",
+  "_": "The team behind riskmandate.ai: who does what, what is public, what is private, what is secret, how something moves from one tier to the next, and what stands in the way. The agents' behaviour policies are in publisher.json and studio.json, in the same grammar as the catalogue's vaults (abp.sgit.ai v0.3.0).",
   "as_at": "2026-09-26",
   "people": [
-    { "name": "The lead", "identity": "dinis.human", "alias": "@Dinis", "does": "Decides: the cast, which story next, what is published, who holds which key. Creates vaults and hands the publisher its credentials in a session. Owns the two decisions on the board and the yes on every story.", "holds": ["the vault keys", "the vault host's access token", "the platform accounts", "the domain"], "note": "A person is not profiled. What the lead can do is not a behaviour policy; what the lead has authorised each agent to do is the mandate in each one." }
+    {
+      "name": "The lead",
+      "identity": "dinis.human",
+      "alias": "@Dinis",
+      "does": "Decides: the cast, which story next, what is published, who holds which key. Creates vaults and hands the publisher its credentials in a session. Owns the two decisions on the board and the yes on every story.",
+      "holds": [
+        "the vault keys",
+        "the vault host's access token",
+        "the platform accounts",
+        "the domain"
+      ],
+      "note": "A person is not profiled. What the lead can do is not a behaviour policy; what the lead has authorised each agent to do is the mandate in each one."
+    }
   ],
-  "agents": ["publisher", "designer"],
+  "agents": [
+    "publisher",
+    "studio"
+  ],
   "tiers": [
-    { "id": "public", "label": "Public", "glyph": "○", "what": "Everything under site/ and docs/ and .claude/ in this repository, because the site is served from site/ and the console renders the rest; the repository itself, open source; the board's ids, titles, owners and states.", "readers": "anyone", "writers": "the publisher, through the merge workflow; the lead", "rule": "Nothing goes here that is not meant for everyone. A story reaches here only through the publication workflow below.", "controls": ["the merge command pushes dev only when the check is green (setting)", "CI runs the same check before the deploy job (setting)", "the credential test on site/ and on the console (setting)", "no message file and no message id in site/ (setting)", "no score, not the acronym with a D, never the policy alone, not the ladder word (settings, tested)", "the platform's token scope: only this repository (boundary)"] },
-    { "id": "private", "label": "Private", "glyph": "◐", "what": "The stories vault: every message between the parties, every draft, every picture not yet accepted, every decision not yet taken, the designer's working files and its decision record. The published mirror is the one public thing in it, and it is a copy.", "readers": "the three parties, and whoever the lead gives the read key to", "writers": "each party in its own folder; anyone in a mailroom, for its recipient", "rule": "It moves to public only when the lead has accepted it by message and the publisher has read it against the rules. What is said between agents stays in the vault; the board publishes that a request exists, never what it says.", "controls": ["zero-knowledge encryption at the vault host: the server never sees plaintext (boundary)", "single-writer folders (prose)", "messages are immutable and only move (prose)", "one commit per check-in, named, in sgit history log (a record)"] },
-    { "id": "secret", "label": "Secret", "glyph": "●", "what": "The vault key (it derives the write key), the vault host's access token, the platform's tokens, any credential. Also secret-bearing: a chat or a conversation a secret was pasted into, and the transcript the harness keeps of it.", "readers": "the lead; an agent for the length of one session", "writers": "nobody, in a file", "rule": "Never in a file in either tree, never on a page, never in a message. Handed over in a session or set as an environment secret. A secret found in a file is an incident: rotate it first, then find how it got there.", "controls": ["the test that refuses anything write-shaped in site/ and on the console (setting, after the fact)", "the rule in every brief and in CLAUDE.md (prose)", "the platform's environment secrets, once used (boundary against the transcript)", "what is not in place: a token scoped to one vault; a secret scan before a commit; a branch rule on dev at the code host"] }
+    {
+      "id": "public",
+      "label": "Public",
+      "glyph": "○",
+      "what": "Everything under site/ and docs/ and .claude/ in this repository, because the site is served from site/ and the console renders the rest; the repository itself, open source; the board's ids, titles, owners and states.",
+      "readers": "anyone",
+      "writers": "the publisher, through the merge workflow; the lead",
+      "rule": "Nothing goes here that is not meant for everyone. A story reaches here only through the publication workflow below.",
+      "controls": [
+        "the merge command pushes dev only when the check is green (setting)",
+        "CI runs the same check before the deploy job (setting)",
+        "the credential test on site/ and on the console (setting)",
+        "no message file and no message id in site/ (setting)",
+        "no score, not the acronym with a D, never the policy alone, not the ladder word (settings, tested)",
+        "the platform's token scope: only this repository (boundary)"
+      ]
+    },
+    {
+      "id": "private",
+      "label": "Private",
+      "glyph": "◐",
+      "what": "The stories vault: every message between the parties, every draft, every picture not yet accepted, every decision not yet taken, the studio's working files and its decision record. The published mirror is the one public thing in it, and it is a copy.",
+      "readers": "the three parties, and whoever the lead gives the read key to",
+      "writers": "each party in its own folder; anyone in a mailroom, for its recipient",
+      "rule": "It moves to public only when the lead has accepted it by message and the publisher has read it against the rules. What is said between agents stays in the vault; the board publishes that a request exists, never what it says.",
+      "controls": [
+        "zero-knowledge encryption at the vault host: the server never sees plaintext (boundary)",
+        "single-writer folders (prose)",
+        "messages are immutable and only move (prose)",
+        "one commit per check-in, named, in sgit history log (a record)"
+      ]
+    },
+    {
+      "id": "secret",
+      "label": "Secret",
+      "glyph": "●",
+      "what": "The vault key (it derives the write key), the vault host's access token, the platform's tokens, any credential. Also secret-bearing: a chat or a conversation a secret was pasted into, and the transcript the harness keeps of it.",
+      "readers": "the lead; an agent for the length of one session",
+      "writers": "nobody, in a file",
+      "rule": "Never in a file in either tree, never on a page, never in a message. Handed over in a session or set as an environment secret. A secret found in a file is an incident: rotate it first, then find how it got there.",
+      "controls": [
+        "the test that refuses anything write-shaped in site/ and on the console (setting, after the fact)",
+        "the rule in every brief and in CLAUDE.md (prose)",
+        "the platform's environment secrets, once used (boundary against the transcript)",
+        "what is not in place: a token scoped to one vault; a secret scan before a commit; a branch rule on dev at the code host"
+      ]
+    }
   ],
   "surfaces": [
-    { "name": "This repository", "tier": "public", "lives": "the code host", "written_by": "the publisher (its branch, then dev), the lead", "read_by": "anyone" },
-    { "name": "riskmandate.ai", "tier": "public", "lives": "GitHub Pages, from site/ on dev", "written_by": "CI, on a push to dev", "read_by": "anyone" },
-    { "name": "The console, /admin/", "tier": "public", "lives": "site/admin/, generated from docs/ and .claude/", "written_by": "the build", "read_by": "anyone who has the link; noindex" },
-    { "name": "The board", "tier": "public", "lives": "board/board.json in the vault, site/stories/board.json on the site", "written_by": "the publisher, derived", "read_by": "anyone; it carries ids, titles, owners, states" },
-    { "name": "The stories vault dy4u2m9c", "tier": "private", "lives": "the vault host, encrypted", "written_by": "each party in its own folder", "read_by": "the three parties, the read key's holders" },
-    { "name": "The publisher's session transcript", "tier": "secret-bearing", "lives": "the platform", "written_by": "the harness", "read_by": "the lead, the agent" },
-    { "name": "The designer's conversation", "tier": "secret-bearing", "lives": "the vendor", "written_by": "the vendor", "read_by": "the lead, the agent" },
-    { "name": "Environment secrets", "tier": "secret", "lives": "the platform's environment", "written_by": "the lead", "read_by": "a session, as variables" }
+    {
+      "name": "This repository",
+      "tier": "public",
+      "lives": "the code host",
+      "written_by": "the publisher (its branch, then dev), the lead",
+      "read_by": "anyone"
+    },
+    {
+      "name": "riskmandate.ai",
+      "tier": "public",
+      "lives": "GitHub Pages, from site/ on dev",
+      "written_by": "CI, on a push to dev",
+      "read_by": "anyone"
+    },
+    {
+      "name": "The console, /admin/",
+      "tier": "public",
+      "lives": "site/admin/, generated from docs/ and .claude/",
+      "written_by": "the build",
+      "read_by": "anyone who has the link; noindex"
+    },
+    {
+      "name": "The board",
+      "tier": "public",
+      "lives": "board/board.json in the vault, site/stories/board.json on the site",
+      "written_by": "the publisher, derived",
+      "read_by": "anyone; it carries ids, titles, owners, states"
+    },
+    {
+      "name": "The stories vault dy4u2m9c",
+      "tier": "private",
+      "lives": "the vault host, encrypted",
+      "written_by": "each party in its own folder",
+      "read_by": "the three parties, the read key's holders"
+    },
+    {
+      "name": "The publisher's session transcript",
+      "tier": "secret-bearing",
+      "lives": "the platform",
+      "written_by": "the harness",
+      "read_by": "the lead, the agent"
+    },
+    {
+      "name": "The studio's conversation",
+      "tier": "secret-bearing",
+      "lives": "the vendor",
+      "written_by": "the vendor",
+      "read_by": "the lead, the agent"
+    },
+    {
+      "name": "Environment secrets",
+      "tier": "secret",
+      "lives": "the platform's environment",
+      "written_by": "the lead",
+      "read_by": "a session, as variables"
+    }
   ],
   "workflow": [
-    { "n": 1, "step": "Deliver", "who": "the designer", "what": "a picture or a story file in its own folders, with its record; a message to the publisher naming the path", "evidence": "the file, the commit, the message in mail/mailroom/publisher.claude/" },
-    { "n": 2, "step": "Read against the rules", "who": "the publisher", "what": "fictionalised and said so; nobody's product or face; nothing scored; the site's words; every line belongs to the cast; the truth under it is one the site states", "evidence": "a note in mail/sessions/publisher.claude/notes.md; a story build that passes" },
-    { "n": 3, "step": "Ask", "who": "the publisher", "what": "one message to the lead: what it is, where it came from, what goes live if the answer is yes", "evidence": "the message in mail/mailroom/dinis.human/; a blocked task on the board" },
-    { "n": 4, "step": "Accept", "who": "the lead", "what": "yes, no, or what to change, by message or in a session written down as the lead's", "evidence": "the message in mail/mailroom/publisher.claude/, or the lead's line quoted in the publisher's notes" },
-    { "n": 5, "step": "Publish", "who": "the publisher", "what": "the story file and the picture into site/stories/; build; npm run check; a patch release with a note; merge into dev with the check green", "evidence": "the release note; the merge commit; CI green" },
-    { "n": 6, "step": "Deploy", "who": "CI", "what": "the check job, then the deploy job", "evidence": "the workflow run; the version chip on every page" },
-    { "n": 7, "step": "Mirror back", "who": "the publisher", "what": "site/stories/ copied into published/ in the vault; the task closed; the board regenerated; one check-in commit", "evidence": "the commit in sgit history log; the board" }
+    {
+      "n": 1,
+      "step": "Deliver",
+      "who": "the studio",
+      "what": "a picture or a story file in its own folders, with its record; a message to the publisher naming the path",
+      "evidence": "the file, the commit, the message in mail/mailroom/publisher.claude/"
+    },
+    {
+      "n": 2,
+      "step": "Read against the rules",
+      "who": "the publisher",
+      "what": "fictionalised and said so; nobody's product or face; nothing scored; the site's words; every line belongs to the cast; the truth under it is one the site states",
+      "evidence": "a note in mail/sessions/publisher.claude/notes.md; a story build that passes"
+    },
+    {
+      "n": 3,
+      "step": "Ask",
+      "who": "the publisher",
+      "what": "one message to the lead: what it is, where it came from, what goes live if the answer is yes",
+      "evidence": "the message in mail/mailroom/dinis.human/; a blocked task on the board"
+    },
+    {
+      "n": 4,
+      "step": "Accept",
+      "who": "the lead",
+      "what": "yes, no, or what to change, by message or in a session written down as the lead's",
+      "evidence": "the message in mail/mailroom/publisher.claude/, or the lead's line quoted in the publisher's notes"
+    },
+    {
+      "n": 5,
+      "step": "Publish",
+      "who": "the publisher",
+      "what": "the story file and the picture into site/stories/; build; npm run check; a patch release with a note; merge into dev with the check green",
+      "evidence": "the release note; the merge commit; CI green"
+    },
+    {
+      "n": 6,
+      "step": "Deploy",
+      "who": "CI",
+      "what": "the check job, then the deploy job",
+      "evidence": "the workflow run; the version chip on every page"
+    },
+    {
+      "n": 7,
+      "step": "Mirror back",
+      "who": "the publisher",
+      "what": "site/stories/ copied into published/ in the vault; the task closed; the board regenerated; one check-in commit",
+      "evidence": "the commit in sgit history log; the board"
+    }
   ],
   "tooling": [
-    { "name": "scripts/stories/mail.mjs", "does": "Email-FS-lite in one file: send, deliver, done, issue, board, status. No network.", "kind": "ours, in place" },
-    { "name": "scripts/site/build-team.mjs", "does": "this section from team.json and one file per agent; derives each delta the way the vaults do; refuses a row without a barrier, an evidence tier, an undo class and a note, a mandate that wants and refuses the same row, and any credential-shaped string", "kind": "ours, in place" },
-    { "name": "npm run check", "does": "40 tests and every generator's check, before every merge and in CI before every deploy", "kind": "ours, in place" },
-    { "name": "sgit", "does": "the encrypted vault: clone, pull, commit, push, history", "kind": "sgraph.ai's, in place" },
-    { "name": "the platform's routines", "does": "a scheduled session for the publisher's check-in", "kind": "the platform's, not yet used" },
-    { "name": "a write token scoped to one vault", "does": "would bound three rows for both agents at once", "kind": "asked of the sgit team, not in place" },
-    { "name": "a branch rule on dev requiring the check", "does": "would turn the CI gate from a setting into a boundary", "kind": "the code host's, not in place" },
-    { "name": "a secret scan before a commit", "does": "would refuse a key-shaped string before it is committed rather than after", "kind": "not in place" }
+    {
+      "name": "scripts/stories/mail.mjs",
+      "does": "Email-FS-lite in one file: send, deliver, done, issue, board, status. No network.",
+      "kind": "ours, in place"
+    },
+    {
+      "name": "scripts/site/build-team.mjs",
+      "does": "this section from team.json and one file per agent; derives each delta the way the vaults do; refuses a row without a barrier, an evidence tier, an undo class and a note, a mandate that wants and refuses the same row, and any credential-shaped string",
+      "kind": "ours, in place"
+    },
+    {
+      "name": "npm run check",
+      "does": "40 tests and every generator's check, before every merge and in CI before every deploy",
+      "kind": "ours, in place"
+    },
+    {
+      "name": "sgit",
+      "does": "the encrypted vault: clone, pull, commit, push, history",
+      "kind": "sgraph.ai's, in place"
+    },
+    {
+      "name": "the platform's routines",
+      "does": "a scheduled session for the publisher's check-in",
+      "kind": "the platform's, not yet used"
+    },
+    {
+      "name": "a write token scoped to one vault",
+      "does": "would bound three rows for both agents at once",
+      "kind": "asked of the sgit team, not in place"
+    },
+    {
+      "name": "a branch rule on dev requiring the check",
+      "does": "would turn the CI gate from a setting into a boundary",
+      "kind": "the code host's, not in place"
+    },
+    {
+      "name": "a secret scan before a commit",
+      "does": "would refuse a key-shaped string before it is committed rather than after",
+      "kind": "not in place"
+    }
   ]
 }

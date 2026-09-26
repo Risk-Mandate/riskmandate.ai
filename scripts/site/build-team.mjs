@@ -198,15 +198,15 @@ function flowsFigure() {
     return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${color}" stroke-width="1.8"${dash ? ' stroke-dasharray="5 4"' : ''} marker-end="url(#a-${color.slice(1)})"/>${label ? `<rect x="${px}" y="${ty - 10}" width="${w}" height="14" rx="3" fill="${PAPER}" opacity=".92"/><text x="${tx}" y="${ty}" text-anchor="${start ? 'start' : 'middle'}" font-family="ui-monospace,Menlo,monospace" font-size="10" fill="${color}">${esc(label)}</text>` : ''}`;
   };
   const chip = (x, y, color, text) => `<rect x="${x}" y="${y}" width="${text.length * 6.6 + 16}" height="18" rx="9" fill="${color}" opacity=".12"/><text x="${x + 8}" y="${y + 12.5}" font-family="ui-monospace,Menlo,monospace" font-size="10" font-weight="700" fill="${color}">${esc(text)}</text>`;
-  return `<svg viewBox="0 0 980 470" role="img" aria-label="What flows where: the lead hands keys to two agents in a session; the designer writes into its own folders of the private vault; the publisher pulls the vault, writes the repository, and a push to dev deploys the public site after the check; secrets never cross into the public tree.">
+  return `<svg viewBox="0 0 980 470" role="img" aria-label="What flows where: the lead hands keys to two agents in a session; the studio writes into its own folders of the private vault; the publisher pulls the vault, writes the repository, and a push to dev deploys the public site after the check; secrets never cross into the public tree.">
   <defs>${[G, GOLD, RED, MUTED].map((c) => `<marker id="a-${c.slice(1)}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="${c}"/></marker>`).join('')}</defs>
   <rect x="0" y="0" width="980" height="470" fill="${PAPER}"/>
   ${chip(24, 20, RED, 'SECRET')}${chip(24, 150, GOLD, 'PRIVATE')}${chip(24, 300, G, 'PUBLIC')}
   <line x1="20" y1="140" x2="960" y2="140" stroke="${BORDER}" stroke-dasharray="3 5"/><line x1="20" y1="290" x2="960" y2="290" stroke="${RED}" stroke-width="1.6" stroke-dasharray="4 4"/><text x="956" y="284" text-anchor="end" font-family="ui-monospace,Menlo,monospace" font-size="10" font-weight="700" fill="${RED}">no secret crosses this line</text>
   ${box(120, 30, 200, 84, RED, '#fff', 'The lead', ['decides; holds every key', 'hands a key in a session', 'never in a file'])}
-  ${box(380, 30, 230, 84, RED, '#fff', 'The designer’s conversation', ['the vendor keeps it', 'the token was pasted here', 'secret-bearing'])}
+  ${box(380, 30, 230, 84, RED, '#fff', 'The studio’s conversation', ['the vendor keeps it', 'the token was pasted here', 'secret-bearing'])}
   ${box(670, 30, 250, 84, RED, '#fff', 'The publisher’s session', ['the platform keeps the transcript', 'key and token arrive here, one session', 'secret-bearing'])}
-  ${box(120, 160, 490, 112, GOLD, '#fff', 'The stories vault (encrypted)', ['designer’s folders: artwork/ stories/ cast/ decisions/', 'mail/: one folder per party, a mailroom each, immutable messages', 'published/: the mirror of what is live · board/: derived'])}
+  ${box(120, 160, 490, 112, GOLD, '#fff', 'The stories vault (encrypted)', ['the studio’s folders: artwork/ stories/ cast/ decisions/', 'mail/: one folder per party, a mailroom each, immutable messages', 'published/: the mirror of what is live · board/: derived'])}
   ${box(670, 160, 250, 112, GOLD, '#fff', 'The publisher (publisher.claude)', ['pulls the vault, reads everything', 'writes only its own folder, the mailrooms,', 'published/ and board/', 'checks against the rules; asks; publishes'])}
   ${box(120, 310, 250, 120, G, '#fff', 'The repository', ['site/ docs/ .claude/ · open source', 'the publisher’s branch, then dev', 'no branch rule at the host'])}
   ${box(420, 310, 220, 120, G, '#fff', 'CI', ['40 tests, every --check', 'the credential test on site/', 'deploy needs the check green', '(a setting: the workflow is in the tree)'])}
@@ -214,7 +214,7 @@ function flowsFigure() {
   ${arrow(220, 114, 220, 160, RED, 'read key, by hand')}
   ${arrow(320, 72, 380, 72, RED, 'token', false, 330, 62)}
   ${arrow(610, 72, 670, 72, RED, 'key + token', false, 606, 62)}
-  ${arrow(495, 114, 495, 160, GOLD, 'the designer: files, messages')}
+  ${arrow(495, 114, 495, 160, GOLD, 'the studio: files, messages')}
   ${arrow(795, 114, 795, 160, RED, 'one session')}
   ${arrow(670, 216, 610, 216, GOLD, 'pull · push', false, 614, 206)}
   ${arrow(700, 272, 245, 310, G, 'its branch; then dev, after the check', false, 380, 300)}
@@ -274,7 +274,7 @@ function indexPage() {
     <div class="shead">
       <span class="tag">03 · What flows where</span>
       <h2>One party touches two tiers, <span class="g">and nothing crosses the red line.</span></h2>
-      <p>The designer writes into its own folders of the private vault. The publisher pulls the vault, writes the repository, and a push to dev is the public site once the check has passed. The lead hands a key in a session and never in a file. The only thing that goes from the vault to the site without the lead&rsquo;s yes is the board, and the board carries no message.</p>
+      <p>The studio writes into its own folders of the private vault. The publisher pulls the vault, writes the repository, and a push to dev is the public site once the check has passed. The lead hands a key in a session and never in a file. The only thing that goes from the vault to the site without the lead&rsquo;s yes is the board, and the board carries no message.</p>
     </div>
     <figure class="tm-fig">${flowsFigure()}<figcaption>Red: secret, handed over in a session and kept by a platform. Gold: private, the encrypted vault. Green: public, the repository, the check and the site. Every arrow is something that happens on a check-in; the mirror back into the vault rides the pull and push arrow.</figcaption></figure>
   </div>
@@ -298,7 +298,7 @@ function indexPage() {
     <div class="shead">
       <span class="tag">05 · From private to public</span>
       <h2>Seven steps, <span class="g">each with its evidence.</span></h2>
-      <p>The workflow that makes a story public. The lead accepts; the publisher checks and ships; the designer never publishes. Every step leaves a file somebody else can find.</p>
+      <p>The workflow that makes a story public. The lead accepts; the publisher checks and ships; the studio never publishes. Every step leaves a file somebody else can find.</p>
     </div>
     <div class="tm-steps">
       ${team.workflow.map((w) => `<div class="tm-step"><span class="who">${esc(w.who)}</span><h3>${esc(w.step)}</h3><p>${esc(w.what)}</p><div class="ev">Evidence: ${esc(w.evidence)}</div></div>`).join('\n      ')}
@@ -344,7 +344,7 @@ function indexPage() {
       <li><b>The policies as vaults.</b> Each agent&rsquo;s policy is in the vault grammar and could be built with the catalogue&rsquo;s generator and pushed with a public read key; today it is two JSON files and this page.</li>
       <li><b>A token scoped to one vault.</b> The one control that would bound three rows for both agents; asked of the sgit team, not answered.</li>
       <li><b>The schedule.</b> The publisher&rsquo;s check-in runs by hand until the key and the token are environment secrets and the lead has said what a scheduled run may decide alone.</li>
-      <li><b>An infographic of this page</b>, asked of the designer by message.</li>
+      <li><b>An infographic of this page</b>, asked of the studio by message.</li>
     </ul>
   </div>
 </section>

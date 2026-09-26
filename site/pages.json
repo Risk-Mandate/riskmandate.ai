@@ -51,9 +51,9 @@
       "unlisted": true
     },
     {
-      "name": "team-designer",
-      "label": "The team · RiskMandate Designer",
-      "file": "team/designer.html",
+      "name": "team-studio",
+      "label": "The team · RiskMandate Design Studio",
+      "file": "team/studio.html",
       "group": "Behaviour policies",
       "unlisted": true
     },
@@ -358,6 +358,13 @@
       "name": "stories-an-approval-prompt",
       "label": "Story · Always allow.",
       "file": "stories/an-approval-prompt.html",
+      "group": "Reading",
+      "unlisted": true
+    },
+    {
+      "name": "stories-while-i-was-there",
+      "label": "Story · While I was there.",
+      "file": "stories/while-i-was-there.html",
       "group": "Reading",
       "unlisted": true
     },
