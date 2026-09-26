@@ -335,6 +335,54 @@
       "group": "More"
     },
     {
+      "name": "stories",
+      "label": "Stories: a cast, and storyboards",
+      "file": "stories.html",
+      "group": "More"
+    },
+    {
+      "name": "story-just-a-draft",
+      "label": "Story · Just a draft.",
+      "file": "story-just-a-draft.html",
+      "group": "More",
+      "unlisted": true
+    },
+    {
+      "name": "story-just-a-little-research",
+      "label": "Story · Just a little research.",
+      "file": "story-just-a-little-research.html",
+      "group": "More",
+      "unlisted": true
+    },
+    {
+      "name": "story-an-edited-meeting-does-not-come-back",
+      "label": "Story · Tidy my calendar.",
+      "file": "story-an-edited-meeting-does-not-come-back.html",
+      "group": "More",
+      "unlisted": true
+    },
+    {
+      "name": "story-the-pilot-worked",
+      "label": "Story · The pilot worked.",
+      "file": "story-the-pilot-worked.html",
+      "group": "More",
+      "unlisted": true
+    },
+    {
+      "name": "story-silence-goes-up",
+      "label": "Story · Nobody decided.",
+      "file": "story-silence-goes-up.html",
+      "group": "More",
+      "unlisted": true
+    },
+    {
+      "name": "story-an-approval-prompt",
+      "label": "Story · Always allow.",
+      "file": "story-an-approval-prompt.html",
+      "group": "More",
+      "unlisted": true
+    },
+    {
       "name": "interview-founder-marketing",
       "label": "Interview · founders who know events and marketing",
       "file": "interview-founder-marketing.html",

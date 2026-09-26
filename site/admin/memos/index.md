@@ -5,13 +5,17 @@
 
 **2**received, nothing built yet*Archived and read, and nothing has been built from it yet.*
 
-**29**partly worked*read in full; a named part is not built*
+**30**partly worked*read in full; a named part is not built*
 
 **8**processed*something on the site exists because of it*
 
 **0**superseded*kept because the reasoning is the record*
 
 The queue. A document or a memo from the project lead arrives — a dev brief as a file, a voice memo as a transcript, an instruction in the thread — and is archived exactly as received: files by SHA-256 in [the register](../../briefs-register.json), so an identical file arriving again is recognised before anybody reads it; speech and chat as an entry with no digest. Then it is read into [a brief](../../admin/briefs/), and the brief is broken into [units of work](../../admin/work/). What was said and what we made of it are kept apart on purpose.
+
+**[Stories: a cast of characters, storyboards written before anything is drawn, the workflow from narrative to image model, and the first examples on the site, to move to stories.sgit.ai later](#D29)**
+
+spoken brief, transcribed, with three drawn pieces · 3 produced · 4 not done26 September 2026 · partly
 
 **[An article on the risk propagation visualiser: user stories first, then the story, business analysis, and the technical analysis last, with captures of the figure at every step, each connection alone and combined, each control alone and all of them](#D24)**
 
@@ -188,6 +192,23 @@ Task briefs under `.claude/briefs/`, each sized for one agent and naming the fil
 The row moves on [the board](../../admin/work/); the register's *status* and *not done* say what the memo still owes.
 
 ## What happened to each of them
+
+D29 · spoken brief, transcribed, with three drawn pieces · 26 September 2026
+
+## Stories: a cast of characters, storyboards written before anything is drawn, the workflow from narrative to image model, and the first examples on the site, to move to stories.sgit.ai later
+
+partly
+
+[the file as received](../../assets/briefs/2026-09-26__transcript__stories-a-cast-and-storyboards.txt) · `9dd3064503e2…` · 2 KB
+
+**Produced.** [The stories section: why stories, the seven-step workflow with the picture last, the cast of nine as drawn with what each stands for on this site's model and one proposed, the rules for a story, and what is not done](../../stories.html) · [Six stories as data, each with its page: the truth under it, the storyboard panel by panel, the prompt for any image model with a copy button, and one-panel ideas for a shirt. Two drawn by a ChatGPT image model, with what to correct written beside them; four storyboards from the articles: the calendar edit, the pilot, silence moving up, and always allow](../../story-just-a-draft.html) · [A generator with a check in CI, so a story is a JSON file and the pages follow; the cast and the stories can move to stories.sgit.ai without being rewritten](../../admin/agents/05-workflows/index.html)
+
+**Not done.**
+
+- Any model but ChatGPT's. The prompts are written for any; none has been tried on another.
+- The four storyboards are not drawn.
+- The one who signs, missing from the cast; proposed, not drawn.
+- Voice: nothing is read aloud.
 
 D24 · spoken brief, transcribed · 25 September 2026
 

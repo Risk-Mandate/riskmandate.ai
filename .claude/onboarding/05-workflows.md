@@ -108,6 +108,27 @@ node scripts/site/generate.mjs && npm run check
 - Static, no tracking: the page loads nothing and sends nothing. Before publishing, run the prompt
   once in the assistant it names and check the summary has every section it asks for.
 
+## Add a story
+
+A story is a data file: `site/stories/<slug>.json`, told with the cast in `site/stories/cast.json`.
+The order is story, narrative, punchline, cast, storyboard, prompt; the picture is last and comes
+from whichever image model is being tried.
+
+```bash
+cp site/stories/just-a-draft.json site/stories/<slug>.json    # title, punchline, status, cast, source, truth, panels, prompt, for_merch
+node scripts/site/build-stories.mjs                            # writes site/stories.html and site/story-<slug>.html
+# add story-<slug>.html to site/pages.json: group More, unlisted, inside the More run
+node scripts/site/generate.mjs && npm run check
+```
+
+- `status` is `storyboard` until a model has drawn it; then `drawn`, with the picture in
+  `site/assets/stories/` as WebP, its alt text, the model, the date, and `notes`: what to correct.
+- Every line of dialogue names a cast member in the story's `cast`; the build refuses an unknown one.
+  A new character goes into `cast.json` with what they stand for on the model, first.
+- The prompt is `shared` plus one line per panel; the page appends the cast's looks and the style.
+- The rules are the site's: fictionalised and said so, nobody's product drawn, nothing scored, the
+  site's words, and a ladder has steps (the build refuses the other word).
+
 ## Write a brief
 
 `docs/briefs/<kind>__<slug>.md`. Header: title as a claim, date, author `@website-agent`,

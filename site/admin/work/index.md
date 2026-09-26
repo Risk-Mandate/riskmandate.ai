@@ -75,11 +75,19 @@ a decision the lead owns, listed in the state fileneeds the lead
 
 a decision the lead owns, listed in the state fileneeds the lead
 
-## In flight — 0 branches
+## In flight — 1 branch
 
 One file per branch under `.claude/work/`. [How a work file is written](../../admin/work/about-work-files/).
 
-Nothing in flight.
+### [claude/dev-session-setup-a5wcc5](../../admin/work/branches/claude-dev-session-setup-a5wcc5/)
+
+started 26 September 2026 · task brief: D29, the lead's memo
+
+The stories section: a cast file, six story files, a generator with a check in CI, the section page and six story pages, the three drawn pieces as WebP. The register, the onboarding, the release.
+
+**External state.** Vaults built and unpushed: none · Release I will claim at merge: yes, v1.34.18, cut
+
+**Status.** [x] Data, generator, register, onboarding written · [ ] Built and checked in Chromium; merge, CI green, live
 
 ## Task briefs — 14
 

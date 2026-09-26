@@ -1,0 +1,18 @@
+{
+  "slug": "silence-goes-up",
+  "title": "Nobody decided.",
+  "punchline": "Silence is not a decision. It is an escalation.",
+  "status": "storyboard",
+  "format": "four panels",
+  "cast": ["H03", "H06", "H02", "H05"],
+  "source": { "what": "Day 7 of the six weeks in the role-ownership article: the COO has not acted on the calendar risk in a week, so it moves to the CEO.", "url": "article-who-owns-what-in-ai.html", "also": [{ "label": "Accepted is not acceptable", "url": "acceptable.html" }] },
+  "truth": "A risk nobody has accepted is critical for whoever holds it. If the holder does nothing for the time the company allows, the risk moves to the person they answer to, and keeps moving until somebody signs. The register would still say open. The chart says moved up.",
+  "panels": [
+    { "n": 1, "scene": "Imani hands Leo a small red ball with a tag on it: R5, THE SHARED CALENDAR. Leo takes it, looking at his INCIDENT LOG.", "action": "The risk is placed.", "dialogue": [{ "who": "H03", "says": "This one's yours. Accept it, fund it or fix it." }, { "who": "H06", "says": "Next week." }], "caption": "Day 0. It is his, and it is red." },
+    { "n": 2, "scene": "Leo's desk, the red ball on it, a wall calendar with seven days crossed off, the ball slightly larger. Leo on the phone, back turned.", "action": "A week of silence.", "dialogue": [{ "who": "H06", "says": "…still on it." }], "caption": "Day 7. Nothing is decided. That is the decision." },
+    { "n": 3, "scene": "The ball rolls up a staircase of desks on its own, past Leo's, onto Rowan's. Rowan looks at it, notebook down.", "action": "Silence escalates.", "dialogue": [{ "who": "H02", "says": "Why is this on my desk?" }], "caption": "Because he is the one Leo answers to." },
+    { "n": 4, "scene": "Ruth at the top of the stairs with her BOARD PAPERS, looking down at the ball on Rowan's desk. Rowan holding a pen.", "action": "The two questions.", "dialogue": [{ "who": "H05", "says": "Who owns the risk, and until when?" }, { "who": "H02", "says": "Me. A month. Then it comes back." }], "caption": "Under the strip: Silence is not a decision. It is an escalation." }
+  ],
+  "prompt": { "shared": "A four-panel comic strip, 2 by 2, in the cast's style. Imani (H03), Leo (H06), Rowan (H02) and Ruth (H05) as on the cast sheet. The risk is a small red ball with a paper tag reading R5. Title: NOBODY DECIDED. Under the strip: SILENCE IS NOT A DECISION. IT IS AN ESCALATION. Then the RiskMandate lockup and a small line: Fictionalised scenario. British spelling.", "per_panel": ["Panel 1: Imani, clipboard under her arm, handing Leo a small red ball with a tag marked R5 · THE SHARED CALENDAR; Leo takes it, his INCIDENT LOG on the desk. Bubbles: 'This one's yours. Accept it, fund it or fix it.' / 'Next week.'", "Panel 2: Leo's desk with the red ball, a wall calendar with seven days crossed off, Leo on the phone with his back turned. Bubble: '…still on it.'", "Panel 3: a staircase of desks rising to the right; the red ball rolling up it on its own from Leo's desk to Rowan's; Rowan staring at it, notebook set down. Bubble: 'Why is this on my desk?'", "Panel 4: Ruth at the top step with BOARD PAPERS looking down; Rowan at his desk with a pen, the ball in front of him. Bubbles: 'Who owns the risk, and until when?' / 'Me. A month. Then it comes back.'"] },
+  "for_merch": ["The red ball with its tag and the line Critical for whoever holds it."]
+}

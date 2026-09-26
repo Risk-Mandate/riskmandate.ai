@@ -906,6 +906,41 @@
         "Amazon's current artwork specification. The brief states the usual one and says to confirm it on the account before uploading.",
         "A trade-mark check on the taglines before they go on sale, which the brief asks for."
       ]
+    },
+    {
+      "id": "D29",
+      "title": "Stories: a cast of characters, storyboards written before anything is drawn, the workflow from narrative to image model, and the first examples on the site, to move to stories.sgit.ai later",
+      "version": null,
+      "type": "spoken brief, transcribed, with three drawn pieces",
+      "dated": "2026-09-26",
+      "file": "assets/briefs/2026-09-26__transcript__stories-a-cast-and-storyboards.txt",
+      "bytes": 2415,
+      "sha256": "9dd3064503e20140337528004df017e69342f9be971278cfe5080742cc356994",
+      "received": [
+        "2026-09-26T09:30Z"
+      ],
+      "duplicate_of": null,
+      "status": "partly",
+      "produced": [
+        {
+          "what": "The stories section: why stories, the seven-step workflow with the picture last, the cast of nine as drawn with what each stands for on this site's model and one proposed, the rules for a story, and what is not done",
+          "url": "stories.html"
+        },
+        {
+          "what": "Six stories as data, each with its page: the truth under it, the storyboard panel by panel, the prompt for any image model with a copy button, and one-panel ideas for a shirt. Two drawn by a ChatGPT image model, with what to correct written beside them; four storyboards from the articles: the calendar edit, the pilot, silence moving up, and always allow",
+          "url": "story-just-a-draft.html"
+        },
+        {
+          "what": "A generator with a check in CI, so a story is a JSON file and the pages follow; the cast and the stories can move to stories.sgit.ai without being rewritten",
+          "url": "admin/agents/05-workflows/index.html"
+        }
+      ],
+      "not_done": [
+        "Any model but ChatGPT's. The prompts are written for any; none has been tried on another.",
+        "The four storyboards are not drawn.",
+        "The one who signs, missing from the cast; proposed, not drawn.",
+        "Voice: nothing is read aloud."
+      ]
     }
   ],
   "informal": [
