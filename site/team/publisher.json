@@ -14,7 +14,7 @@
   },
   "as_at": "2026-09-26",
   "owner": "the lead",
-  "role": "Reads the stories vault and the repository; checks what the designer delivers against the site's rules; publishes what the lead has accepted as a patch release on dev, which deploys; copies what is live back into the vault; keeps the board. It moves accepted work one way and the published record the other. It does not decide.",
+  "role": "Reads the stories vault and the repository; checks what the studio delivers against the site's rules; publishes what the lead has accepted as a patch release on dev, which deploys; copies what is live back into the vault; keeps the board. It moves accepted work one way and the published record the other. It does not decide.",
   "reads_at_start": [
     {
       "path": ".claude/agents/publisher.md",

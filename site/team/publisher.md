@@ -20,7 +20,7 @@ The lead's mandate, represented: the one agent that reads the private vault and 
 
 ## What it is for, and what it reads first.
 
-Reads the stories vault and the repository; checks what the designer delivers against the site's rules; publishes what the lead has accepted as a patch release on dev, which deploys; copies what is live back into the vault; keeps the board. It moves accepted work one way and the published record the other. It does not decide.
+Reads the stories vault and the repository; checks what the studio delivers against the site's rules; publishes what the lead has accepted as a patch release on dev, which deploys; copies what is live back into the vault; keeps the board. It moves accepted work one way and the published record the other. It does not decide.
 
 Reads at the start of every session, in this order
 

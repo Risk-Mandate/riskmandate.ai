@@ -15,7 +15,7 @@ These were written here, by the agent maintaining the site, in response to [the 
 
 ## Newest first
 
-**[The stories vault: how the lead, a designer model, this site's agent and the site work together](../../admin/briefs/architecture__the-stories-vault-and-the-three-way-workflow/)**
+**[The stories vault: how the lead, a studio model, this site's agent and the site work together](../../admin/briefs/architecture__the-stories-vault-and-the-three-way-workflow/)**
 
 The publisher is the only party that reads the vault and writes the site, and the only one that reads the site and writes the vault. That is the "connect the dots" role the lead described, and it is deliberately narrow: it moves accepted work in…26 September 2026 · architecture
 
@@ -201,7 +201,7 @@ Five behaviour-policy vaults for connector shapes, in the directory at abp-vault
 
 ## Architecture · how the pieces fit
 
-**[The stories vault: how the lead, a designer model, this site's agent and the site work together](../../admin/briefs/architecture__the-stories-vault-and-the-three-way-workflow/)**
+**[The stories vault: how the lead, a studio model, this site's agent and the site work together](../../admin/briefs/architecture__the-stories-vault-and-the-three-way-workflow/)**
 
 The publisher is the only party that reads the vault and writes the site, and the only one that reads the site and writes the vault. That is the "connect the dots" role the lead described, and it is deliberately narrow: it moves accepted work in…26 September 2026 · architecture
 

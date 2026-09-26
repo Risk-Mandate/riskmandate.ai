@@ -147,10 +147,12 @@ new JSON file, its slug in `team.json` → `agents`, two entries in `site/pages.
 
 ## Run a stories check-in
 
-The stories are made with the lead and a designer model through one sgit vault, in the Email-FS-lite
+The stories are made with the lead and a studio model through one sgit vault, in the Email-FS-lite
 protocol; the site's agent is the publisher, the one party that touches both the vault and the site.
 The design is `docs/briefs/architecture__the-stories-vault-and-the-three-way-workflow.md`; the
-commands are in `stories-vault/README.md` and in the publisher's brief inside the vault. The vault
+commands are in `stories-vault/README.md` and in the publisher's brief inside the vault. The lead's
+word in a session is written down as a message with `send --from dinis.human`, so the record is in
+the vault. `board` makes a revision when something moved and keeps the diff; `--note` says why. The vault
 key and the push token come from the lead in the session and go in no file. Say in your work file
 that you pushed the vault, and why.
 

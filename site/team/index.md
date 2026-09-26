@@ -22,7 +22,7 @@ This site is made by one person and two agents. The agents are described the way
 
 The lead's mandate, represented: the one agent that reads the private vault and writes the public site.
 
-### RiskMandate Designer
+### RiskMandate Design Studio
 
 Writes storyboards, draws them with image models, proposes cast, and delivers into its own folders of the private vault.
 
@@ -47,7 +47,7 @@ Everything under site/ and docs/ and .claude/ in this repository, because the si
 
 ### Private
 
-The stories vault: every message between the parties, every draft, every picture not yet accepted, every decision not yet taken, the designer's working files and its decision record. The published mirror is the one public thing in it, and it is a copy.
+The stories vault: every message between the parties, every draft, every picture not yet accepted, every decision not yet taken, the studio's working files and its decision record. The published mirror is the one public thing in it, and it is a copy.
 
 **Read by** the three parties, and whoever the lead gives the read key to. **Written by** each party in its own folder; anyone in a mailroom, for its recipient.
 
@@ -73,7 +73,7 @@ The vault key (it derives the write key), the vault host's access token, the pla
 
 ## One party touches two tiers, and nothing crosses the red line.
 
-The designer writes into its own folders of the private vault. The publisher pulls the vault, writes the repository, and a push to dev is the public site once the check has passed. The lead hands a key in a session and never in a file. The only thing that goes from the vault to the site without the lead’s yes is the board, and the board carries no message.
+The studio writes into its own folders of the private vault. The publisher pulls the vault, writes the repository, and a push to dev is the public site once the check has passed. The lead hands a key in a session and never in a file. The only thing that goes from the vault to the site without the lead’s yes is the board, and the board carries no message.
 
 _Red: secret, handed over in a session and kept by a platform. Gold: private, the encrypted vault. Green: public, the repository, the check and the site. Every arrow is something that happens on a check-in; the mirror back into the vault rides the pull and push arrow._
 
@@ -81,7 +81,7 @@ _Red: secret, handed over in a session and kept by a platform. Gold: private, th
 
 ## Seven steps, each with its evidence.
 
-The workflow that makes a story public. The lead accepts; the publisher checks and ships; the designer never publishes. Every step leaves a file somebody else can find.
+The workflow that makes a story public. The lead accepts; the publisher checks and ships; the studio never publishes. Every step leaves a file somebody else can find.
 
 ### Deliver
 
@@ -122,14 +122,14 @@ The checks each agent runs, and what it never does, are on its page. The tests t
 A new session of either agent starts from nothing and reads three things in order: its role, the skills it needs, and its ABP. Then it runs one check-in. The prompt for each is on its page, with a copy button; the publisher’s is also `.claude/agents/publisher.md` in the repository, the form a Claude Code session loads by name.
 
 - **[RiskMandate Publisher](/team/publisher.html#session).** A clean Claude Code session on this repository, started with the prompt below; on a schedule, the same prompt from a routine, with the key and the token read from the environment.
-- **[RiskMandate Designer](/team/designer.html#session).** A ChatGPT conversation the lead starts, pointed at the vault: it reads the files above, delivers its mailroom, does the work, commits once and pushes. Whether it runs the check-in itself or the lead relays its files is not yet settled.
+- **[RiskMandate Design Studio](/team/studio.html#session).** A ChatGPT conversation the lead opens, pointed at the vault: it reads the files above, delivers its mailroom, does the work, commits once and pushes. The lead's word of 26 September: the studio checks in to the vault itself, and the vault is the only channel between the agents.
 
 ## What this page does not have yet.
 
 - **The policies as vaults.** Each agent’s policy is in the vault grammar and could be built with the catalogue’s generator and pushed with a public read key; today it is two JSON files and this page.
 - **A token scoped to one vault.** The one control that would bound three rows for both agents; asked of the sgit team, not answered.
 - **The schedule.** The publisher’s check-in runs by hand until the key and the token are environment secrets and the lead has said what a scheduled run may decide alone.
-- **An infographic of this page**, asked of the designer by message.
+- **An infographic of this page**, asked of the studio by message.
 
 ## This is what an ABP looks like when it is written about ourselves.
 

@@ -2,7 +2,7 @@
 
 # RiskMandate — Stories: a cast, and storyboards told with it
 
-A cast of nine, a workflow from story to storyboard to image model, 6 storyboards so far, 2 of them drawn, and the board of who does what. Every scenario is fictionalised and says so on the picture. Nothing is scored.
+A cast of nine, a workflow from story to storyboard to image model, 7 storyboards so far, 3 of them drawn, and the board of who does what. Every scenario is fictionalised and says so on the picture. Nothing is scored.
 
 Source: https://riskmandate.ai/stories/
 
@@ -10,7 +10,7 @@ Source: https://riskmandate.ai/stories/
 
 # The same people, every time.
 
-Most of what this site says is an argument. Some of it is a story, and a story with a cast is remembered where an argument is filed. This is where the stories are kept: a cast of nine, a workflow that starts with the narrative and ends with an image model, and 6 storyboards so far, 2 of them drawn.
+Most of what this site says is an argument. Some of it is a story, and a story with a cast is remembered where an argument is filed. This is where the stories are kept: a cast of nine, a workflow that starts with the narrative and ends with an image model, and 7 storyboards so far, 3 of them drawn.
 
 **Where this goes:** a site of its own, stories.sgit.ai. Every story here is a data file in the one folder this section is served from, so it can move without being rewritten.
 
@@ -72,7 +72,7 @@ Proposed, not drawn
 
 **The style**, for any model: Clean line cartoon: thick ink outlines, flat fills, no gradients. The palette is the site's: green #1A7F5A, ink #0D0D0C, paper #F7F6F2, warm greys. An office with plants and pale wood. Everybody wears something green. Speech in rounded bubbles, British spelling. Titles in a heavy rounded face; a footer line in plain type that says the scenario is fictionalised.
 
-## 6 so far, 2 drawn.
+## 7 so far, 3 drawn.
 
 Each has its page: the truth under it, the storyboard panel by panel, the prompt for an image model, and, where a model has drawn it, the picture and what to correct.
 
@@ -112,6 +112,12 @@ Then somebody asked what else it could do.
 
 Rowan, Imani, The Caretaker, Dev.
 
+### While I was there.
+
+One request. A whole mailbox.
+
+Maya, The Caretaker.
+
 ## The site’s rules, in pictures.
 
 - **Fictionalised, and it says so.** Every picture carries a line: _Illustrative scenario_ or _Fictionalised scenario_. Nobody’s product, interface, logo or face is drawn; a screen is a generic screen.
@@ -125,25 +131,31 @@ Rowan, Imani, The Caretaker, Dev.
 
 A story is made by three parties who never sit in the same session. They share one encrypted vault, and they talk through files in it: a request is a message, a deliverable is a file, a task is a file in one of three folders. The protocol is [Email-FS-lite](https://sgraph.ai/en-gb/library/how-it-works/email-fs-lite), sgraph.ai’s: no broker, no API, one commit per round of work, and the vault’s history is the record of who did what and when.
 
-**The loop.** Pull the vault; the diff is the inbox. Move new messages from the mailroom into the inbox. Do the work. Update the tasks. Send the replies. Move finished messages to done. One commit, one push, one status check. The publisher runs it by hand today and on a schedule once the key is in its environment; a run is a session, and a session is a commit in the vault’s history. The vault was born on 26 September 2026 with the designer’s own folders already in it: its artwork, its scripts, its cast file, its decisions; those stay the designer’s, and the publisher never writes in them.
+**The loop.** Pull the vault; the diff is the inbox. Move new messages from the mailroom into the inbox. Do the work. Update the tasks. Send the replies. Move finished messages to done. One commit, one push, one status check. The publisher runs it by hand today and on a schedule once the key is in its environment; a run is a session, and a session is a commit in the vault’s history. The vault was born on 26 September 2026 with the studio’s own folders already in it: its artwork, its scripts, its cast file, its decisions; those stay the studio’s, and the publisher never writes in them.
 
 The board
 
-Derived, not drawn: every task in every party’s open, blocked and done folders, and every message still waiting in a mailroom as requested work for its recipient. A card moves because a file moved. Generated 2026-09-26 16:02:38 UTC.
+Derived, not drawn: every task in every party’s open, blocked and done folders, and every message still waiting in a mailroom as requested work for its recipient. A card moves because a file moved. Generated 2026-09-26 16:11:41 UTC.
 
 ### requested **7**
 
 ### open **3**
 
-### blocked **2**
+### blocked **1**
 
-### done **2**
+### done **4**
 
-The same board is drawn inside the vault by a page that reads the same file, so the designer and the lead see it without this site. The tooling is one script in the repository, `scripts/stories/mail.mjs`: send, deliver, done, issue, board. Nothing in it talks to the network.
+What moved, revision by revision
+
+The board is versioned. Every generation that moved a card is a revision; the diff against the one before is kept with the board, and every earlier state is kept in the vault under `board/history/`. This board is at revision 1.
+
+- **Revision 1** 2026-09-26 16:11:41 UTC · publisher.claude While I was there accepted (008) and published; the studio named; boards versioned from hereAdded: `S08` Version control on every board (done).Moved: `S06` blocked → done.
+
+The same board is drawn inside the vault by a page that reads the same file, so the studio and the lead see it without this site. The tooling is one script in the repository, `scripts/stories/mail.mjs`: send, deliver, done, issue, board. Nothing in it talks to the network. A second board is a second folder with the same shape and its own revisions.
 
 ## What this section does not have yet.
 
-- **The designer has not replied yet.** The vault exists, the mailboxes are in it, and the first six messages wait in two mailrooms; nothing has come back, so the board above shows the publisher’s side only. A story the designer drew that the site does not have, _While I was there_, is written up and waiting on the lead’s yes.
+- **The studio has not replied yet.** The vault exists, the mailboxes are in it, and the first six messages wait in two mailrooms; nothing has come back, so the board above shows the publisher’s side only. A story the studio drew that the site does not have, _While I was there_, is written up and waiting on the lead’s yes.
 - **Models other than ChatGPT’s.** The three drawn pieces are from one model. The storyboards are written so that the same prompt can go to another; none has yet.
 - **The one who signs.** The site’s main idea, accepting a risk for a stated interval, has no character. One is proposed above.
 - **A story with the two questions asked at the board.** _Nobody decided_ ends there; a story that starts there is not written.

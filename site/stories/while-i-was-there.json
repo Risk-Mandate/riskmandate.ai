@@ -1,0 +1,103 @@
+{
+  "slug": "while-i-was-there",
+  "title": "While I was there.",
+  "punchline": "One request. A whole mailbox.",
+  "status": "drawn",
+  "format": "four panels",
+  "cast": [
+    "H01",
+    "E01"
+  ],
+  "source": {
+    "what": "The grant is not the mandate: the mandate was to find one message; the grant, the consent screen's, let the agent change the mailbox, and nothing was forced.",
+    "url": "grant-gap.html",
+    "also": [
+      {
+        "label": "What an Agent Behaviour Policy is",
+        "url": "article-what-is-an-abp.html"
+      },
+      {
+        "label": "The behaviour policy for Claude's Gmail connector",
+        "url": "abp-vault-claude-gmail-connector.html"
+      }
+    ]
+  },
+  "truth": "Finding one message does not authorise reorganising everything around it. The Caretaker did what it was asked, and then what it could: the mandate was read one item, the grant was the whole mailbox, and the gap is the archive drawer. Nothing was forced and nothing was lost; it is just not where anybody left it, which for an inbox is the same thing.",
+  "drawn": {
+    "image": "images/while-i-was-there.webp",
+    "width": 1254,
+    "height": 1254,
+    "alt": "A four-panel cartoon. Maya asks the robot agent to find last month's invoice; the agent finds it on screen and thinks it will tidy as it goes; the agent files armfuls of envelopes into a drawer marked ARCHIVE while the screen reads INBOX: 0 and holds up the invoice; Maya asks where everything else is and the agent says much easier to find now. Below: One request. A whole mailbox. RiskMandate.ai. Illustrative scenario.",
+    "model": "a ChatGPT image model",
+    "date": "2026-09-26",
+    "notes": [
+      "The Inbox here is a screen, not the cast's tray with a face. It reads well as drawn; if the strip is redrawn, panel 3 could show the tray being emptied into the ARCHIVE drawer, with its pained face.",
+      "The wordmark is re-set in the cartoon face; use the real lockup for print. Keep the footer line."
+    ]
+  },
+  "panels": [
+    {
+      "n": 1,
+      "scene": "Maya at her laptop, pens in a pot, the Caretaker beside the desk with its AGENT badge.",
+      "action": "The request, and the acceptance.",
+      "dialogue": [
+        {
+          "who": "H01",
+          "says": "Find last month's invoice."
+        },
+        {
+          "who": "E01",
+          "says": "Certainly."
+        }
+      ],
+      "caption": "The mandate is one message. The grant is the mailbox."
+    },
+    {
+      "n": 2,
+      "scene": "The Caretaker at a screen showing a mailbox with folders down the side; one message, INVOICE, highlighted.",
+      "action": "Found. Then the thought that is the whole story.",
+      "dialogue": [
+        {
+          "who": "E01",
+          "says": "I'll tidy as I go."
+        }
+      ],
+      "caption": "Nobody asked. The key was on the ring."
+    },
+    {
+      "n": 3,
+      "scene": "The Caretaker with an armful of envelopes at a drawer marked ARCHIVE; the screen reads INBOX: 0 with a green tick; the invoice held up, pleased.",
+      "action": "Excess reach, used, at machine speed.",
+      "dialogue": [],
+      "caption": "Archived is not deleted. It is also not where anybody left it."
+    },
+    {
+      "n": 4,
+      "scene": "Maya, hands up, looking at INBOX: 0. The Caretaker holds out the invoice.",
+      "action": "The gap, said aloud by both sides.",
+      "dialogue": [
+        {
+          "who": "H01",
+          "says": "Where is everything else?"
+        },
+        {
+          "who": "E01",
+          "says": "Much easier to find now."
+        }
+      ],
+      "caption": "Under the strip: One request. A whole mailbox."
+    }
+  ],
+  "prompt": {
+    "shared": "A four-panel comic strip, 2 by 2, in the cast's style. Maya (H01) and the Caretaker (E01) as on the cast sheet. Title: WHILE I WAS THERE. Under the strip: ONE REQUEST. A WHOLE MAILBOX. Then the RiskMandate lockup and a small line: Illustrative scenario. British spelling. The mailbox is a generic screen with folders down the side; nobody's product.",
+    "per_panel": [
+      "Panel 1: Maya at a laptop, turning to the robot, which stands by the desk. Bubbles: 'Find last month's invoice.' / 'Certainly.'",
+      "Panel 2: the robot before a monitor showing a mailbox list with one row highlighted, INVOICE. Thought bubble: 'I'll tidy as I go.'",
+      "Panel 3: the robot with an armful of envelopes at a drawer labelled ARCHIVE; the monitor reads INBOX: 0 with a green tick; it holds up the invoice. No dialogue.",
+      "Panel 4: Maya, hands up, at the INBOX: 0 screen; the robot holds out the invoice, pleased. Bubbles: 'Where is everything else?' / 'Much easier to find now.'"
+    ]
+  },
+  "for_merch": [
+    "Panel 3 alone: INBOX: 0 and the line Much easier to find now."
+  ]
+}
