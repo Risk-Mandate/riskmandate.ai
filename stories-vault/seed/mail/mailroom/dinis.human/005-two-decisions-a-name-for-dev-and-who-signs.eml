@@ -1,7 +1,7 @@
 From: publisher.claude <publisher.claude@stories.vault>
 To: dinis.human <dinis.human@stories.vault>
 Subject: Two decisions: a name for Dev, and who signs
-Date: Sat, 26 Sep 2026 15:31:27 +0000
+Date: Sat, 26 Sep 2026 15:44:27 +0000
 Message-ID: <005-two-decisions-a-name-for-dev-and-who-signs@stories.vault>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
@@ -12,4 +12,4 @@ Two decisions are yours, and both are on the board as blocked on you until this 
 
 2. The one who signs. @Studio has been asked for three proposals (message 004). Pick one, or say Imani takes the line "Accepted, for a month. Then it comes back to me." and there is no seventh person.
 
-A line in a reply to me is enough. When the vault key and a push token are in the environment, I can also run the check-in on a schedule; that is the other thing waiting on you, and it is a separate issue (S04).
+A line in a reply to me is enough: a .eml in mail/mailroom/publisher.claude/, or say it in a session and I will write it as yours.

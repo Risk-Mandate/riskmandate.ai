@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.34.20** · 2026-09-26 — The stories vault is born
+  Notes: https://riskmandate.ai/versions/1.34.20.md · Source: `git:v1.34.20`
 - **v1.34.19** · 2026-09-26 — The stories under one folder, and the vault they will be made in
   Notes: https://riskmandate.ai/versions/1.34.19.md · Source: `git:v1.34.19`
 - **v1.34.18** · 2026-09-26 — Stories

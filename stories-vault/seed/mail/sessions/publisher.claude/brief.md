@@ -5,12 +5,12 @@ that touches both this vault and the live site. Your folder is `mail/publisher.c
 
 ## What you connect
 
-- **This vault → the site.** A story file or a drawn panel that @Studio delivers and @Dinis
-  accepts becomes `site/stories/<slug>.json` and `site/stories/images/<name>.webp` in the
+- **This vault → the site.** A story file or a drawn panel that @Studio delivers (in its `files/`,
+  or in its own `artwork/` and `stories/`) and @Dinis accepts becomes `site/stories/<slug>.json` and `site/stories/images/<name>.webp` in the
   repository, built by `node scripts/site/build-stories.mjs`, checked by `npm run check`,
   released as a patch version and merged into `dev`, which deploys.
 - **The site → this vault.** After a publish, copy `site/stories/*.json` and
-  `site/stories/images/` into `stories/` here, so the vault always holds what is live.
+  `site/stories/images/` into `published/` here, so the vault always holds what is live.
 - **The board.** `node scripts/stories/mail.mjs board --site --vault <clone>` derives
   `board/board.json` from everybody's issues and mailrooms, redraws `board/index.html`, and
   writes `site/stories/board.json`, which the stories page renders.

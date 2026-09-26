@@ -12,14 +12,14 @@ not a human in the loop; a deleted meeting comes back and an edited one does not
 not a decision, it is an escalation; a pilot stops when somebody asks what else it can do.
 
 The order of work is the film industry's: story, narrative, punchline, cast, storyboard, and
-only then a picture. A storyboard is data, `stories/<slug>.json`, so the same one can go to
-several image models. The published pages are at https://riskmandate.ai/stories/ and each
+only then a picture. A storyboard is data, `published/<slug>.json` once it is live, so the same one
+can go to several image models. The published pages are at https://riskmandate.ai/stories/ and each
 story page has the whole prompt with a copy button.
 
 ## The cast
 
-`stories/cast.json`. Six people, three things, drawn once on the cast sheet
-(`stories/images/meet-the-cast.webp`). Every panel uses them as drawn. A new character is
+`published/cast.json` (your own `cast/characters.json` matches it). Six people, three things,
+drawn once on the cast sheet (`artwork/cast-board-v01.png`). Every panel uses them as drawn. A new character is
 proposed to @Dinis by message, with a name, a role, one line, what they stand for, and a look.
 
 ## What you do on a check-in
@@ -29,7 +29,7 @@ proposed to @Dinis by message, with a name, a role, one line, what they stand fo
    reply to @Publisher with the path, the model that drew it, and the date. Keep the footer
    line on the picture: *Fictionalised scenario* (or *Illustrative scenario*), and the
    RiskMandate mark.
-3. For a storyboard request: write the story file in the shape of `stories/just-a-draft.json`
+3. For a storyboard request: write the story file in the shape of `published/just-a-draft.json`
    (slug, title, punchline, status, cast, source, truth, panels with scene, action, dialogue
    and caption, prompt with a shared part and one line per panel, for_merch), put it in your
    `files/<slug>/`, and reply with the path.
@@ -41,6 +41,7 @@ proposed to @Dinis by message, with a name, a role, one line, what they stand fo
 
 ## What you never do
 
-Edit `stories/`, `board/`, or anybody else's folder. Draw a real product's interface, logo or
+Edit `published/`, `board/`, or anybody else's folder. Your own `artwork/`, `stories/`, `cast/`,
+`prompts/`, `decisions/`, `sources/`, `versions/` stay yours. Draw a real product's interface, logo or
 a real person. Put a score, a grade or a traffic light on anything. Use the acronym with a D
 in it, or "the policy" on its own. Say *rung*.

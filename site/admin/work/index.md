@@ -75,11 +75,19 @@ a decision the lead owns, listed in the state fileneeds the lead
 
 a decision the lead owns, listed in the state fileneeds the lead
 
-## In flight — 0 branches
+## In flight — 1 branch
 
 One file per branch under `.claude/work/`. [How a work file is written](../../admin/work/about-work-files/).
 
-Nothing in flight.
+### [claude/dev-session-setup-a5wcc5](../../admin/work/branches/claude-dev-session-setup-a5wcc5/)
+
+started 26 September 2026 · task brief: ad hoc: the stories vault's birth
+
+The stories vault `dy4u2m9c` was born: our side (mail/, published/, board/) went in beside the studio's folders and was pushed. The site's stories page and the docs now say so, and the board on the page is the vault's. Not in scope: the studio's replies, the schedule, stories.sgit.ai.
+
+**External state.** Vault pushed: the stories vault `dy4u2m9c`, one commit (`obj-cas-imm-8da6da3adda0`): mailboxes for three parties, ·   three briefs, six messages, six tasks, the published stories mirrored into `published/`, the board. Pushed with the ·   token the lead gave in the session. The clone lives in the session's scratchpad, not in this repository. · Release I will claim at merge: yes, 1.34.20
+
+**Status.** [x] birth pushed · [x] site and docs updated · [ ] release, merge, deploy
 
 ## Task briefs — 14
 
