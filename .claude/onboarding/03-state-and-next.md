@@ -70,9 +70,12 @@ the site's; check `site/versions/index.json` for the current version before trus
   picture. In the header under *Reading*, with Articles (the seventh top-level entry; the cap holds). Section 06
   of the index is **who does what and the board**: the lead, a studio model (`studio.chatgpt`) and this site's
   agent as publisher work through one sgit vault in the Email-FS-lite protocol; the board is derived from
-  issues and mailrooms, never dragged. The vault is **not born**: its seed (folders, briefs, five messages,
-  five tasks, the board app) waits in `stories-vault/seed/`, and the birth is five commands once the lead gives
-  the key and a token. Tooling `scripts/stories/mail.mjs`. Design:
+  issues and mailrooms, never dragged. The vault `dy4u2m9c` was **born on 26 September** with the studio's own
+  layout already in it (artwork, markdown scripts, a cast file, decisions, sources); our side went in beside it:
+  `mail/` (six messages, six tasks), `published/` (the site's data, mirrored), `board/`. The seed is
+  `stories-vault/seed/`; the clone lives outside the repository; the key and the push token come from the lead
+  in the session. Waiting: the studio's first reply; the lead's yes on *While I was there* (S06); the schedule
+  (S04). Tooling `scripts/stories/mail.mjs`. Design:
   `docs/briefs/architecture__the-stories-vault-and-the-three-way-workflow.md`. Moves to stories.sgit.ai later.
 - **Try it** (`try-it.html`, top-level, v1.28.0): the free step below the store's ladder and the
   first surface aimed at a stranger rather than a reader. Four steps, thirteen prompts, run in the

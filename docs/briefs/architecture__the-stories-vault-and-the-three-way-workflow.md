@@ -1,6 +1,6 @@
 # The stories vault: how the lead, a studio model, this site's agent and the site work together
 
-**Date:** 26 September 2026 · **Author:** @website-agent · **Status:** designed and seeded; the vault is not born
+**Date:** 26 September 2026 · **Author:** @website-agent · **Status:** built; the vault `dy4u2m9c` was born on 26 September 2026 and the first check-in is pushed
 
 **Trigger:** the lead, 26 September 2026, after v1.34.18 shipped: *"refactor all this so that it's in a folder called stories … a link from … one of the top menus … we're going to start creating a vault for this … once you get the vault ID … add Email-FS-lite to that so you guys can communicate … the architecture is going to be that you are the one that can connect the dots between the vault and the live website … you are the one that reads the information from the vault and put it there … start sending messages to the other vault … explore … running that on a schedule so that we can start to issue requests that eventually get created … you create the plans, you create the mapping, and then you need to have a Kanban board … the next time the ChatGPT run, which probably should be a session … maybe project item or even visualization … let's start to map out how we're going to work between you, me, ChatGPT, which can read the vault, and then the website."*
 
@@ -21,7 +21,7 @@ The publisher is the only party that reads the vault and writes the site, and th
 
 ## 2. The vault
 
-One sgit vault, created by the lead (the studio's session is making it as this is written). Zero-knowledge: the server never sees plaintext. Its layout is Email-FS-lite's, plus two folders of ours:
+One sgit vault, `dy4u2m9c`, created by the studio's session for the lead on 26 September 2026 and already holding the studio's own layout (`artwork/`, `stories/` as markdown, `cast/characters.json`, `prompts/`, `decisions/`, `sources/`, `guidance/`, `versions/`, `archive/`, a `_page.json`). Zero-knowledge: the server never sees plaintext. Beside the studio's folders, which stay the studio's, the layout is Email-FS-lite's plus two folders of ours:
 
 ```
 README.md                                the one rule, the message shape, the check-in
@@ -31,7 +31,7 @@ mail/
   <agent>/issues/open|blocked|done/      the agent's own tasks, markdown with front matter
   <agent>/files/<story-slug>/            deliverables: a drawn panel, a revised story file
   sessions/<agent>/brief.md  notes.md    the standing brief; the append-only log
-stories/                                 the published data, mirrored from site/stories/
+published/                               the published data, mirrored from site/stories/ (stories/ is the studio's own)
 board/board.json  board/index.html       derived; drawn inside the vault
 ```
 
@@ -47,30 +47,30 @@ board/board.json  board/index.html       derived; drawn inside the vault
 
 The vault key, the secret and the vault id together, and the push token are credentials. They live in the chat where the lead gives them and in the environment where a scheduled run needs them (`STORIES_KEY`, `STORIES_TOKEN`), and nowhere in a file. Rule 10 of `CLAUDE.md` is tested on `site/`; the same rule is kept by hand for the rest of the tree. `stories-vault/seed/` in this repository is the vault's content at birth and carries no credential; the clone the publisher works in lives outside the repository.
 
-## 4. The seed: what is already written
+## 4. The seed, and the birth as it happened
 
-The vault does not exist yet, so its first content was written here, under `stories-vault/seed/`, ready to copy in:
+The vault's first content on our side was written here, under `stories-vault/seed/`, before the key arrived, and copied in beside the studio's folders at 15:50 UTC on 26 September (commit `obj-cas-imm-8da6da3adda0`, 67 objects). What went in:
 
 - the vault's `README.md`, and one brief per party under `mail/sessions/`;
-- five messages from the publisher, in its outbox and in the recipients' mailrooms: to the studio, *How we work in this vault*, *Just a little research: panel 3, the key not the padlock*, *Tidy my calendar: the first storyboard to draw*, *The one who signs: propose three, and two names for Dev*; to the lead, *Two decisions: a name for Dev, and who signs*;
-- five tasks in the publisher's issues: S01 the move under `/stories/` (done), S02 the vault's mailboxes (blocked on the key), S03 publish what the studio sends (open), S04 the check-in on a schedule (blocked on the key and a token in the environment), S05 stories.sgit.ai (open, low);
+- six messages from the publisher, in its outbox and in the recipients' mailrooms: to the studio, *How we work in this vault*, *Just a little research: panel 3, the key not the padlock*, *Tidy my calendar: the first storyboard to draw*, *The one who signs: propose three, and two names for Dev*; to the lead, *Two decisions: a name for Dev, and who signs* and *While I was there: publish it as the third drawn story?*, the last about a four-panel strip the studio had drawn that the site does not have, written up in the site's shape and staged in the publisher's `files/`;
+- six tasks in the publisher's issues: S01 the move under `/stories/` (done), S02 the vault's mailboxes (done at the birth), S03 publish what the studio sends (open), S04 the check-in on a schedule (blocked on the key and a token in the environment), S05 stories.sgit.ai (open, low), S06 publish *While I was there* (blocked on the lead's yes);
 - the board, derived from those, and the page that draws it.
 
-The stories page's section 06 renders the same board, so the lead can read it on the site before the vault exists. It says so.
+The stories page's section 06 renders the same board.
 
 ## 5. The birth, in commands
 
-When the lead gives the vault key and the token (in the chat, not a file):
+As run on 26 September, and the shape of any later one:
 
 ```bash
 cd "$SCRATCH" && sgit clone "<key>" stories-vault             # outside the repository
 cp -r "$REPO/stories-vault/seed/." stories-vault/                     # folders, briefs, messages, issues, board
-mkdir -p stories-vault/stories && cp "$REPO"/site/stories/*.json stories-vault/stories/ && cp -r "$REPO/site/stories/images" stories-vault/stories/
+mkdir -p stories-vault/published && cp "$REPO"/site/stories/*.json stories-vault/published/ && cp -r "$REPO/site/stories/images" stories-vault/published/
 node "$REPO/scripts/stories/mail.mjs" board --vault stories-vault
 cd stories-vault && sgit commit "@Publisher check-in: the mailboxes, the briefs, five messages, five tasks, the published stories, the board" && sgit push --token "<token>" && sgit status
 ```
 
-Then S02 closes, and the publisher's work file says which vault was pushed and why (rule of engagement §4). If the studio's session has already put content in the vault, the seed is copied beside it, not over it: the only shared paths are `README.md`, which is merged by hand, and the mailroom, which is append-only.
+The studio's session had already put its content in the vault, so the seed went beside it, not over it: the protocol text became `mail/README.md`, the studio's root `README.md` gained one section pointing at it, its `_page.json` gained one section rendering it, and the published mirror is `published/` because `stories/` was already the studio's. The one credential-shaped surprise: the studio's `_page.json` and README are its own, and the publisher touched them once, at the birth, and says so here.
 
 ## 6. The check-in, and the schedule
 
@@ -86,7 +86,7 @@ Two views of the same file: `board/index.html` inside the vault (the visualisati
 
 ## 8. What this does not settle
 
-- **How the studio writes.** The lead said ChatGPT can read the vault. Whether its session can commit and push, or whether the lead relays its files, decides whether `studio.chatgpt` is an agent or a mailbox the lead operates. The seed works either way; the brief for the studio is written for the first case.
+- **How the studio writes.** The studio's session created and pushed the vault, so it can write; whether it will run the check-in as an agent or the lead relays its files decides whether `studio.chatgpt` is an agent or a mailbox the lead operates. The brief for the studio is written for the first case.
 - **Who pushes.** The rules of engagement say vault pushes need the lead's key. For this vault the publisher pushes on the lead's behalf with a token given in the session; that is the same arrangement as the ABP vaults, stated here so it is not a surprise.
 - **The interval and the authority of the scheduled run** (§6).
 - **stories.sgit.ai.** The data files are shaped for it; nothing else is started.

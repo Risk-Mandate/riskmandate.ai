@@ -13,7 +13,7 @@ The tooling is `scripts/stories/mail.mjs`; run it with no arguments for the comm
 ```bash
 cd "$SCRATCH" && sgit clone "<key>" stories-vault
 cp -r "$REPO/stories-vault/seed/." stories-vault/
-mkdir -p stories-vault/stories && cp "$REPO"/site/stories/*.json stories-vault/stories/ && cp -r "$REPO/site/stories/images" stories-vault/stories/
+mkdir -p stories-vault/published && cp "$REPO"/site/stories/*.json stories-vault/published/ && cp -r "$REPO/site/stories/images" stories-vault/published/
 node "$REPO/scripts/stories/mail.mjs" board --vault stories-vault
 cd stories-vault && sgit commit "@Publisher check-in: …" && sgit push --token "<token>" && sgit status
 ```

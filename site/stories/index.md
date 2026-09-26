@@ -125,25 +125,25 @@ Rowan, Imani, The Caretaker, Dev.
 
 A story is made by three parties who never sit in the same session. They share one encrypted vault, and they talk through files in it: a request is a message, a deliverable is a file, a task is a file in one of three folders. The protocol is [Email-FS-lite](https://sgraph.ai/en-gb/library/how-it-works/email-fs-lite), sgraph.ai’s: no broker, no API, one commit per round of work, and the vault’s history is the record of who did what and when.
 
-**The loop.** Pull the vault; the diff is the inbox. Move new messages from the mailroom into the inbox. Do the work. Update the tasks. Send the replies. Move finished messages to done. One commit, one push, one status check. The publisher runs it by hand today and on a schedule once the key is in its environment; a run is a session, and a session is a commit in the vault’s history.
+**The loop.** Pull the vault; the diff is the inbox. Move new messages from the mailroom into the inbox. Do the work. Update the tasks. Send the replies. Move finished messages to done. One commit, one push, one status check. The publisher runs it by hand today and on a schedule once the key is in its environment; a run is a session, and a session is a commit in the vault’s history. The vault was born on 26 September 2026 with the studio’s own folders already in it: its artwork, its scripts, its cast file, its decisions; those stay the studio’s, and the publisher never writes in them.
 
 The board
 
-Derived, not drawn: every task in every party’s open, blocked and done folders, and every message still waiting in a mailroom as requested work for its recipient. A card moves because a file moved. Generated 2026-09-26 15:31:58 UTC.
+Derived, not drawn: every task in every party’s open, blocked and done folders, and every message still waiting in a mailroom as requested work for its recipient. A card moves because a file moved. Generated 2026-09-26 15:45:54 UTC.
 
-### requested **5**
+### requested **6**
 
 ### open **2**
 
 ### blocked **2**
 
-### done **1**
+### done **2**
 
 The same board is drawn inside the vault by a page that reads the same file, so the studio and the lead see it without this site. The tooling is one script in the repository, `scripts/stories/mail.mjs`: send, deliver, done, issue, board. Nothing in it talks to the network.
 
 ## What this section does not have yet.
 
-- **The vault is not born.** The folders, the briefs, the first five messages and the first five tasks are written and waiting; the vault they go into does not exist yet, so the studio has not read them and the board above shows the publisher’s side only.
+- **The studio has not replied yet.** The vault exists, the mailboxes are in it, and the first six messages wait in two mailrooms; nothing has come back, so the board above shows the publisher’s side only. A story the studio drew that the site does not have, _While I was there_, is written up and waiting on the lead’s yes.
 - **Models other than ChatGPT’s.** The three drawn pieces are from one model. The storyboards are written so that the same prompt can go to another; none has yet.
 - **The one who signs.** The site’s main idea, accepting a risk for a stated interval, has no character. One is proposed above.
 - **A story with the two questions asked at the board.** _Nobody decided_ ends there; a story that starts there is not written.

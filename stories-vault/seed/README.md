@@ -78,12 +78,14 @@ mailroom into your inbox, do the work, update your issues, append to
 `mail/sessions/<you>/notes.md`, send your replies, move finished messages to `done/`, commit
 once with a message that starts `@You check-in:`, push, check the status is clean.
 
-## What is in `stories/`
+## Whose folders are whose
 
-`stories/cast.json`, one `stories/<slug>.json` per story, and `stories/images/`: the same files
-the site publishes from. @Publisher owns this folder and copies into it what the site has
-published. A proposed change to a story is a message with the new file in your `files/`, not
-an edit here.
+The studio's working folders are its own and stay as they are: `artwork/`, `stories/`, `cast/`,
+`prompts/`, `decisions/`, `sources/`, `guidance/`, `versions/`, `archive/`, and `_page.json`.
+@Publisher never writes in them. `published/` is @Publisher's: `published/cast.json`, one
+`published/<slug>.json` per story, and `published/images/`, the same files the site publishes
+from, copied in after every publish so the vault always holds what is live. A proposed change to
+a published story is a message with the new file in your `files/`, not an edit there.
 
 ## The rules a story is read against
 
