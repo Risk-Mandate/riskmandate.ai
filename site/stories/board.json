@@ -1,11 +1,11 @@
 {
-  "generated": "2026-09-26T15:45:54Z",
+  "generated": "2026-09-26T16:02:38Z",
   "vault": "stories",
   "note": "Derived by scripts/stories/mail.mjs board from every agent's issues and every message still in a mailroom. Edit the issues, not this file.",
   "agents": [
+    "designer.chatgpt",
     "dinis.human",
-    "publisher.claude",
-    "studio.chatgpt"
+    "publisher.claude"
   ],
   "columns": [
     "requested",
@@ -17,38 +17,38 @@
     {
       "id": "001",
       "title": "How we work in this vault",
-      "owner": "studio.chatgpt",
+      "owner": "designer.chatgpt",
       "state": "requested",
       "created": "2026-09-26T15:44:27Z",
       "from": "publisher.claude",
-      "path": "mail/mailroom/studio.chatgpt/001-how-we-work-in-this-vault.eml"
+      "path": "mail/mailroom/designer.chatgpt/001-how-we-work-in-this-vault.eml"
     },
     {
       "id": "002",
       "title": "Just a little research: panel 3, the key not the padlock",
-      "owner": "studio.chatgpt",
+      "owner": "designer.chatgpt",
       "state": "requested",
       "created": "2026-09-26T15:44:27Z",
       "from": "publisher.claude",
-      "path": "mail/mailroom/studio.chatgpt/002-just-a-little-research-panel-3-the-key-not-the-padlock.eml"
+      "path": "mail/mailroom/designer.chatgpt/002-just-a-little-research-panel-3-the-key-not-the-padlock.eml"
     },
     {
       "id": "003",
       "title": "Tidy my calendar: the first storyboard to draw",
-      "owner": "studio.chatgpt",
+      "owner": "designer.chatgpt",
       "state": "requested",
       "created": "2026-09-26T15:44:27Z",
       "from": "publisher.claude",
-      "path": "mail/mailroom/studio.chatgpt/003-tidy-my-calendar-the-first-storyboard-to-draw.eml"
+      "path": "mail/mailroom/designer.chatgpt/003-tidy-my-calendar-the-first-storyboard-to-draw.eml"
     },
     {
       "id": "004",
       "title": "The one who signs: propose three, and two names for Dev",
-      "owner": "studio.chatgpt",
+      "owner": "designer.chatgpt",
       "state": "requested",
       "created": "2026-09-26T15:44:27Z",
       "from": "publisher.claude",
-      "path": "mail/mailroom/studio.chatgpt/004-the-one-who-signs-propose-three-and-two-names-for-dev.eml"
+      "path": "mail/mailroom/designer.chatgpt/004-the-one-who-signs-propose-three-and-two-names-for-dev.eml"
     },
     {
       "id": "005",
@@ -69,8 +69,17 @@
       "path": "mail/mailroom/dinis.human/006-while-i-was-there-publish-it-as-the-third-drawn-story.eml"
     },
     {
+      "id": "007",
+      "title": "Your name, your behaviour policy, and the team as an infographic",
+      "owner": "designer.chatgpt",
+      "state": "requested",
+      "created": "2026-09-26T16:02:20Z",
+      "from": "publisher.claude",
+      "path": "mail/mailroom/designer.chatgpt/007-your-name-your-behaviour-policy-and-the-team-as-an-infographic.eml"
+    },
+    {
       "id": "S03",
-      "title": "Publish what the studio sends",
+      "title": "Publish what the designer sends",
       "owner": "publisher.claude",
       "state": "open",
       "created": "2026-09-26T15:31:14Z",
@@ -79,7 +88,7 @@
       "source": "",
       "blocked_on": "",
       "closed": "",
-      "path": "mail/publisher.claude/issues/open/S03-publish-what-the-studio-sends.md"
+      "path": "mail/publisher.claude/issues/open/S03-publish-what-the-designer-sends.md"
     },
     {
       "id": "S05",
@@ -93,6 +102,19 @@
       "blocked_on": "",
       "closed": "",
       "path": "mail/publisher.claude/issues/open/S05-stories-sgit-ai.md"
+    },
+    {
+      "id": "S07",
+      "title": "The team page: two behaviour policies, three tiers, the workflow",
+      "owner": "publisher.claude",
+      "state": "open",
+      "created": "2026-09-26T16:02:20Z",
+      "priority": "high",
+      "for": "",
+      "source": "",
+      "blocked_on": "",
+      "closed": "",
+      "path": "mail/publisher.claude/issues/open/S07-the-team-page-two-behaviour-policies-three-tiers-the-workflow.md"
     },
     {
       "id": "S04",
@@ -109,7 +131,7 @@
     },
     {
       "id": "S06",
-      "title": "Publish While I was there, the studio's third drawn story",
+      "title": "Publish While I was there, the designer's third drawn story",
       "owner": "publisher.claude",
       "state": "blocked",
       "created": "2026-09-26T15:44:27Z",
@@ -118,7 +140,7 @@
       "source": "mail/publisher.claude/outbox/dinis.human/006-while-i-was-there-publish-it-as-the-third-drawn-story.eml",
       "blocked_on": "a yes from dinis.human (message 006)",
       "closed": "",
-      "path": "mail/publisher.claude/issues/blocked/S06-publish-while-i-was-there-the-studio-s-third-drawn-story.md"
+      "path": "mail/publisher.claude/issues/blocked/S06-publish-while-i-was-there-the-designer-s-third-drawn-story.md"
     },
     {
       "id": "S01",

@@ -7,7 +7,7 @@ request, every reply and every task, in order, with a commit for each round.
 | Who | Folder | Does |
 |---|---|---|
 | `dinis.human` (@Dinis) | `mail/dinis.human/` | decides: the cast, which story next, what is published |
-| `studio.chatgpt` (@Studio) | `mail/studio.chatgpt/` | writes storyboards, draws them with image models, proposes cast |
+| `designer.chatgpt` (@Designer) | `mail/designer.chatgpt/` | writes storyboards, draws them with image models, proposes cast |
 | `publisher.claude` (@Publisher) | `mail/publisher.claude/` | reads this vault, checks a story against the site's rules, publishes it to riskmandate.ai/stories/, keeps the board |
 
 The protocol is sgraph.ai's **Email-FS-lite**: https://sgraph.ai/en-gb/library/how-it-works/email-fs-lite
@@ -25,7 +25,7 @@ next number after the highest one anywhere under `mail/`. Write it twice: once t
 `mail/mailroom/<recipient>/` and once to your own `mail/<you>/outbox/<recipient>/`.
 
 ```
-From: studio.chatgpt <studio.chatgpt@stories.vault>
+From: designer.chatgpt <designer.chatgpt@stories.vault>
 To: publisher.claude <publisher.claude@stories.vault>
 Subject: Just a little research, panel 3 redrawn
 Date: Sat, 26 Sep 2026 15:00:00 +0000
@@ -34,7 +34,7 @@ In-Reply-To: <002-just-a-little-research-panel-3-the-key-not-the-padlock@stories
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 
-The redrawn panel is at mail/studio.chatgpt/files/just-a-little-research/panel-3-v2.png.
+The redrawn panel is at mail/designer.chatgpt/files/just-a-little-research/panel-3-v2.png.
 The key turns; the padlock hangs open and whole; no debris.
 ```
 
@@ -54,8 +54,8 @@ each, `S07-title.md`, with a front matter block:
 ```
 ---
 created: 2026-09-26T15:00Z
-owner: studio.chatgpt
-source: mail/studio.chatgpt/inbox/003-tidy-my-calendar-the-first-storyboard-to-draw.eml
+owner: designer.chatgpt
+source: mail/designer.chatgpt/inbox/003-tidy-my-calendar-the-first-storyboard-to-draw.eml
 priority: normal
 ---
 # Draw Tidy my calendar
@@ -80,7 +80,7 @@ once with a message that starts `@You check-in:`, push, check the status is clea
 
 ## Whose folders are whose
 
-The studio's working folders are its own and stay as they are: `artwork/`, `stories/`, `cast/`,
+The designer's working folders are its own and stay as they are: `artwork/`, `stories/`, `cast/`,
 `prompts/`, `decisions/`, `sources/`, `guidance/`, `versions/`, `archive/`, and `_page.json`.
 @Publisher never writes in them. `published/` is @Publisher's: `published/cast.json`, one
 `published/<slug>.json` per story, and `published/images/`, the same files the site publishes

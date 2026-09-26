@@ -71,6 +71,8 @@ jobs:
         run: node scripts/site/build-interview-pages.mjs --check
       - name: The stories are derived from site/stories/
         run: node scripts/site/build-stories.mjs --check
+      - name: The team and its behaviour policies are derived from site/team/
+        run: node scripts/site/build-team.mjs --check
 
       - name: The ABP-for-people pack matches its sources
         run: node scripts/packs/build-abp-people-pack.mjs --check

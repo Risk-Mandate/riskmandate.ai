@@ -134,9 +134,20 @@ node scripts/site/generate.mjs && npm run check
 - The rules are the site's: fictionalised and said so, nobody's product drawn, nothing scored, the
   site's words, and a ladder has steps (the build refuses the other word).
 
+## Change an agent's behaviour policy, or add an agent to the team
+
+The team is data: `site/team/team.json` and one `site/team/<agent>.json` per agent, in the grammar the
+vaults use (23 primitives, four barriers, six evidence tiers, three undo classes). A grant row is what
+was observed or measured on the thing itself, with a note saying what was done and when, never typed
+from memory; a mandate is the lead's words. `node scripts/site/build-team.mjs` derives the delta and
+writes `site/team/`; the build refuses a row without a barrier, an evidence tier, an undo class and a
+note, a mandate that wants and refuses the same row, and anything credential-shaped. A new agent is a
+new JSON file, its slug in `team.json` → `agents`, two entries in `site/pages.json` (unlisted, in the
+*Behaviour policies* run), and, if it runs in Claude Code, a role in `.claude/agents/<slug>.md`.
+
 ## Run a stories check-in
 
-The stories are made with the lead and a studio model through one sgit vault, in the Email-FS-lite
+The stories are made with the lead and a designer model through one sgit vault, in the Email-FS-lite
 protocol; the site's agent is the publisher, the one party that touches both the vault and the site.
 The design is `docs/briefs/architecture__the-stories-vault-and-the-three-way-workflow.md`; the
 commands are in `stories-vault/README.md` and in the publisher's brief inside the vault. The vault

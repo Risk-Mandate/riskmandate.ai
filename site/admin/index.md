@@ -13,11 +13,11 @@
 
 **32**memos not fully worked*of 40 received*
 
-**27**briefs written here*one page each*
+**28**briefs written here*one page each*
 
 **16**vaults built and pushed*4 measured · 8 asked for*
 
-**118**releases*8 Lab editions*
+**119**releases*8 Lab editions*
 
 ## Needs the lead — 9
 
@@ -83,7 +83,7 @@ No work file under .claude/work/.
 
 **[The agents' front door](../admin/agents/)**
 
-CLAUDE.md, the six onboarding documents and the prompts, rendered here so an agent — or a person — can read them without the repository.15 files
+CLAUDE.md, the six onboarding documents and the prompts, rendered here so an agent — or a person — can read them without the repository.16 files
 
 **[The records](../admin/records/)**
 
