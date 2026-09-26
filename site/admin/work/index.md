@@ -75,11 +75,19 @@ a decision the lead owns, listed in the state fileneeds the lead
 
 a decision the lead owns, listed in the state fileneeds the lead
 
-## In flight — 0 branches
+## In flight — 1 branch
 
 One file per branch under `.claude/work/`. [How a work file is written](../../admin/work/about-work-files/).
 
-Nothing in flight.
+### [claude/dev-session-setup-a5wcc5](../../admin/work/branches/claude-dev-session-setup-a5wcc5/)
+
+started 26 September 2026 · task brief: ad hoc: the team and its behaviour policies
+
+`site/team/`: one person, two agents, an Agent Behaviour Policy each in the vault grammar, three tiers (public, private, secret), the surfaces, the workflow from private to public, controls and tooling in place and not; `.claude/agents/publisher.md` and `/publisher-check-in` for a clean session; a test that nothing private reaches `site/`; the designer renamed `designer.chatgpt` in the vault and asked to argue with its policy and draw the team as an infographic.
+
+**External state.** Vault pushed: the stories vault `dy4u2m9c`, one more check-in commit: the designer's identity renamed, message 007, S07, the board. · Release I will claim at merge: yes, 1.35.0 (a new section)
+
+**Status.** [x] built, checked, rendered · [ ] release, merge, deploy
 
 ## Task briefs — 14
 

@@ -78,6 +78,7 @@ into `dev`. The rules are in `.claude/onboarding/04-rules-of-engagement.md`; the
 | where we are and what is next | `.claude/onboarding/03-state-and-next.md` |
 | how to add a page, a vault, a release, an edition, a brief | `.claude/onboarding/05-workflows.md` |
 | a task ready to pick up | `.claude/briefs/` |
+| the agents that make this site, and their behaviour policies | `site/team/` on the site; `.claude/agents/publisher.md` is the role a clean session loads |
 | a prompt to start a common job | `.claude/commands/` (also slash commands in Claude Code) |
 | the same index, on the site | `site/admin/` — the console: what needs the lead, the board, every brief as a page |
 

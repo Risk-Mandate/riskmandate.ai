@@ -38,6 +38,26 @@
       "group": "Behaviour policies"
     },
     {
+      "name": "team",
+      "label": "The team: our own agents' policies",
+      "file": "team/index.html",
+      "group": "Behaviour policies"
+    },
+    {
+      "name": "team-publisher",
+      "label": "The team · RiskMandate Publisher",
+      "file": "team/publisher.html",
+      "group": "Behaviour policies",
+      "unlisted": true
+    },
+    {
+      "name": "team-designer",
+      "label": "The team · RiskMandate Designer",
+      "file": "team/designer.html",
+      "group": "Behaviour policies",
+      "unlisted": true
+    },
+    {
       "name": "for-corporate",
       "label": "You run agents today",
       "file": "for-corporate.html",

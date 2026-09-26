@@ -66,18 +66,28 @@ the site's; check `site/versions/index.json` for the current version before trus
   re-capture after any change to the figure, or the guide's pictures will disagree with it. Keep such replies stand-alone,
   factual about the source, and long enough to implement from. Five more are listed on the index as *not written*, each with a record already
   behind it.
+- **The team** (`site/team/`, served as `/team/`, v1.35.0, in *Behaviour policies*): one person and two agents, each
+  agent with an Agent Behaviour Policy in the vault grammar, the grant observed on the thing itself on 26 September
+  (the publisher: 17 rows, 4 in excess, 3 unbounded; the designer: 7 rows, 2 in excess, both unbounded, the account
+  token and the vault key in its conversation), the mandate in the lead's words, the delta derived by the builder.
+  Three tiers of information (public, private, secret) with the rule and the controls for each, named by the enforcer
+  test; every surface with its tier; the seven-step workflow from private to public with evidence per step; tooling in
+  place and not (a token scoped to one vault, a branch rule on dev, a secret scan). A new test: no message file and no
+  message id ever reaches `site/`. A clean session starts from `.claude/agents/publisher.md` and the prompt on the
+  agent's page; `/publisher-check-in` is the routine's prompt. Asked of the designer by message: argue with its
+  policy, and draw the team page as an infographic. Not done: the policies as vaults; the schedule.
 - **Stories** (`site/stories/`, served as `/stories/`, v1.34.18 and moved into the folder in v1.34.19, D29): a
   cast of nine drawn by a ChatGPT image model from the lead's prompt, with what each stands for on the site's
   model; six stories as data, two drawn and four storyboards from the articles, each with the truth under it,
   the panels and a prompt for any image model. The order is story, narrative, punchline, cast, storyboard,
   picture. In the header under *Reading*, with Articles (the seventh top-level entry; the cap holds). Section 06
-  of the index is **who does what and the board**: the lead, a studio model (`studio.chatgpt`) and this site's
+  of the index is **who does what and the board**: the lead, a designer model (`designer.chatgpt`) and this site's
   agent as publisher work through one sgit vault in the Email-FS-lite protocol; the board is derived from
-  issues and mailrooms, never dragged. The vault `dy4u2m9c` was **born on 26 September** with the studio's own
+  issues and mailrooms, never dragged. The vault `dy4u2m9c` was **born on 26 September** with the designer's own
   layout already in it (artwork, markdown scripts, a cast file, decisions, sources); our side went in beside it:
   `mail/` (six messages, six tasks), `published/` (the site's data, mirrored), `board/`. The seed is
   `stories-vault/seed/`; the clone lives outside the repository; the key and the push token come from the lead
-  in the session. Waiting: the studio's first reply; the lead's yes on *While I was there* (S06); the schedule
+  in the session. Waiting: the designer's first reply; the lead's yes on *While I was there* (S06); the schedule
   (S04). Tooling `scripts/stories/mail.mjs`. Design:
   `docs/briefs/architecture__the-stories-vault-and-the-three-way-workflow.md`. Moves to stories.sgit.ai later.
 - **Try it** (`try-it.html`, top-level, v1.28.0): the free step below the store's ladder and the

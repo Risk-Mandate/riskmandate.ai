@@ -5,7 +5,7 @@
   "agents": [
     "dinis.human",
     "publisher.claude",
-    "studio.chatgpt"
+    "designer.chatgpt"
   ],
   "columns": [
     "requested",
@@ -17,38 +17,38 @@
     {
       "id": "001",
       "title": "How we work in this vault",
-      "owner": "studio.chatgpt",
+      "owner": "designer.chatgpt",
       "state": "requested",
       "created": "2026-09-26T15:31:27Z",
       "from": "publisher.claude",
-      "path": "mail/mailroom/studio.chatgpt/001-how-we-work-in-this-vault.eml"
+      "path": "mail/mailroom/designer.chatgpt/001-how-we-work-in-this-vault.eml"
     },
     {
       "id": "002",
       "title": "Just a little research: panel 3, the key not the padlock",
-      "owner": "studio.chatgpt",
+      "owner": "designer.chatgpt",
       "state": "requested",
       "created": "2026-09-26T15:31:27Z",
       "from": "publisher.claude",
-      "path": "mail/mailroom/studio.chatgpt/002-just-a-little-research-panel-3-the-key-not-the-padlock.eml"
+      "path": "mail/mailroom/designer.chatgpt/002-just-a-little-research-panel-3-the-key-not-the-padlock.eml"
     },
     {
       "id": "003",
       "title": "Tidy my calendar: the first storyboard to draw",
-      "owner": "studio.chatgpt",
+      "owner": "designer.chatgpt",
       "state": "requested",
       "created": "2026-09-26T15:31:27Z",
       "from": "publisher.claude",
-      "path": "mail/mailroom/studio.chatgpt/003-tidy-my-calendar-the-first-storyboard-to-draw.eml"
+      "path": "mail/mailroom/designer.chatgpt/003-tidy-my-calendar-the-first-storyboard-to-draw.eml"
     },
     {
       "id": "004",
       "title": "The one who signs: propose three, and two names for Dev",
-      "owner": "studio.chatgpt",
+      "owner": "designer.chatgpt",
       "state": "requested",
       "created": "2026-09-26T15:31:27Z",
       "from": "publisher.claude",
-      "path": "mail/mailroom/studio.chatgpt/004-the-one-who-signs-propose-three-and-two-names-for-dev.eml"
+      "path": "mail/mailroom/designer.chatgpt/004-the-one-who-signs-propose-three-and-two-names-for-dev.eml"
     },
     {
       "id": "005",

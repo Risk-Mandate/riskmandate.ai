@@ -246,6 +246,21 @@ test('no write credential ships in the deployed tree', () => {
   }
 });
 
+test('nothing private reaches the public tree: no message file, no message id, no mailroom body', () => {
+  // The stories are made in a private vault whose messages are files. The board that the site
+  // publishes is derived from those files and carries ids, titles, owners and states, never a
+  // body; this is the check that keeps it so. A .eml anywhere under site/, or a message id in
+  // the vault's domain, means a private message was copied into the public tree.
+  const walk = (d) => readdirSync(join(SITE, d), { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(join(d, e.name)) : [join(d, e.name)]);
+  const all = walk('.');
+  assert.deepEqual(all.filter(f => f.endsWith('.eml')), [], 'a message file is in site/');
+  for (const f of all.filter(f => /\.(html|md|json|txt)$/.test(f))) {
+    const s = read(f);
+    assert.doesNotMatch(s, /@stories\.vault>/, `${f} carries a message id from the stories vault`);
+    assert.doesNotMatch(s, /^Message-ID:/m, `${f} carries a message header`);
+  }
+});
+
 test('every footer that links Versions also links Admin', () => {
   // The admin section is meant to be visible from every page, not found. The two
   // links sit together in the footer; a page scaffolded from an older donor would

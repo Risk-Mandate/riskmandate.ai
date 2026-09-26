@@ -7,9 +7,9 @@
 
 **14**task briefs*sized for one agent each*
 
-**8**prompts*slash commands in Claude Code*
+**9**prompts*slash commands in Claude Code*
 
-**0**branches in flight*one work file each*
+**1**branches in flight*one work file each*
 
 Most of the work on this site is done by agents, several at a time, on branches that merge into `dev`. Each one used to read the whole repository to learn it. Now there is a folder written for them, kept current in the same commit as whatever it describes, and rendered here so it can be read without the repository.
 
@@ -80,6 +80,10 @@ Add the vault $ARGUMENTS following .claude/onboarding/05-workflows.md → Add a 
 **[/onboard](../../admin/agents/commands/onboard/)**
 
 You are a new agent on riskmandate.ai. Do not read the repository at large. Read, in order:prompt
+
+**[/publisher-check-in](../../admin/agents/commands/publisher-check-in/)**
+
+You are the RiskMandate Publisher (publisher.claude). Read, in this order: .claude/agents/publisher.md; site/team/publisher.json; CLAUDE.md; .claude/onboarding/00-start-here.md; .claude/onboarding/04-rules-of-engagement.md; stories-vault/README.md. Load…prompt
 
 **[/release](../../admin/agents/commands/release/)**
 

@@ -7,17 +7,17 @@
 
 **2**waiting on somebody outside*the store's agent, the model site*
 
-**0**branches in flight*one work file each*
+**1**branches in flight*one work file each*
 
 **12**open tasks*of 17 in the queue · 1 done*
 
 **32**memos not fully worked*of 40 received*
 
-**27**briefs written here*one page each*
+**28**briefs written here*one page each*
 
 **16**vaults built and pushed*4 measured · 8 asked for*
 
-**118**releases*8 Lab editions*
+**119**releases*8 Lab editions*
 
 ## Needs the lead — 9
 
@@ -59,13 +59,13 @@ a decision the lead owns, openD6
 
 a decision the lead owns, openD7
 
-## In flight — 0 branches
+## In flight — 1 branch
 
 One file per branch under `.claude/work/`, written before the work starts and deleted when it merges. Read every one before claiming a task.
 
-**Nothing in flight.**
+**[claude/dev-session-setup-a5wcc5](../admin/work/branches/claude-dev-session-setup-a5wcc5/)**
 
-No work file under .claude/work/.
+`site/team/`: one person, two agents, an Agent Behaviour Policy each in the vault grammar, three tiers (public, private, secret), the surfaces, the workflow from private to public, controls and tooling in place and not; `.claude/agents/publisher.md` and `/publisher-check-in` for a clean session; a test that nothing private reaches `site/`; the designer renamed `designer.chatgpt` in the vault and asked to argue with its policy and draw the team as an infographic. since 26 September 2026
 
 ## How work gets here
 
@@ -83,7 +83,7 @@ No work file under .claude/work/.
 
 **[The agents' front door](../admin/agents/)**
 
-CLAUDE.md, the six onboarding documents and the prompts, rendered here so an agent — or a person — can read them without the repository.15 files
+CLAUDE.md, the six onboarding documents and the prompts, rendered here so an agent — or a person — can read them without the repository.16 files
 
 **[The records](../admin/records/)**
 

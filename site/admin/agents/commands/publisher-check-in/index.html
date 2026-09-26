@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>publisher-check-in · RiskMandate admin</title>
+<meta name="description" content="You are the RiskMandate Publisher (publisher.claude). Read, in this order: .claude/agents/publisher.md; site/team/publisher.json; CLAUDE.md; .claude/onboarding/00-start-here.md; .claude/onboarding/04-rules-of-engagement.md; stories-vault/README.md. Load…">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://riskmandate.ai/admin/agents/commands/publisher-check-in/">
+<link rel="alternate" type="text/markdown" href="index.md" title="This page as markdown">
+<link rel="icon" href="../../../../assets/brand/riskmandate-favicon-32.png" sizes="32x32">
+<link rel="icon" href="../../../../assets/brand/riskmandate-mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../../../admin/console.css">
+<!-- Written by scripts/site/build-admin.mjs from the files it names. Do not edit: rerun the script. -->
+</head>
+<body class="console">
+<div class="c-strip"><div class="row"><b>riskmandate.ai</b><span class="c-sep">/</span><a href="../../../../admin/">admin</a><span class="c-sep">·</span><a href="../../../../">the site</a><span class="c-sep">·</span><a href="../../../../agent-behaviour-policy.html">the library</a><span class="c-sep">·</span><a href="index.md">this page as markdown</a><span class="c-noindex">noindex · not in the sitemap</span></div></div>
+<div class="c-disc"><div class="row">Written by the agents that maintain this site and read by a person before it merges. Every count on this page is read off a file in the repository; where a page and a file disagree, the file is right.</div></div>
+<div class="shell">
+<nav class="rail" aria-label="Console">
+    <a class="rail__brand" href="../../../../admin/"><b>Risk<i>Mandate</i></b><span>admin console · <span data-version>v…</span></span></a>
+    <div class="rail__group"><h3>Where it stands</h3><a class="nav" href="../../../../admin/">The console</a><a class="nav" href="../../../../admin/work/#lead">Needs the lead<span class="count r1">9</span></a><a class="nav" href="../../../../admin/agents/03-state-and-next/">State and next</a><a class="nav" href="../../../../admin/vaults/">The vaults<span class="count">16</span></a><a class="nav" href="../../../../synthetic-users.html">How the site reads <span class="out">↗</span></a></div>
+    <div class="rail__group"><h3>The work</h3><a class="nav" href="../../../../admin/work/">The board<span class="count">12</span></a><a class="nav" href="../../../../admin/work/#branches">In flight<span class="count">1</span></a><a class="nav" href="../../../../admin/memos/">The memo queue<span class="count">32</span></a><a class="nav" href="../../../../admin/briefs/">Briefs written here<span class="count">28</span></a></div>
+    <div class="rail__group"><h3>For agents</h3><a class="nav" href="../../../../admin/agents/">The front door</a><a class="nav" href="../../../../admin/agents/claude-md/">CLAUDE.md</a><a class="nav" href="../../../../admin/agents/04-rules-of-engagement/">Rules of engagement</a><a class="nav" href="../../../../admin/agents/05-workflows/">Workflows</a><a class="nav" href="../../../../admin/agents/01-map/">The map</a></div>
+    <div class="rail__group"><h3>The record</h3><a class="nav" href="../../../../admin/records/">The records</a><a class="nav" href="../../../../admin/tooling/">Tooling and the gate</a><a class="nav" href="../../../../versions.html">Versions <span class="out">↗</span></a><a class="nav" href="../../../../briefs.html">Brief register <span class="out">↗</span></a><a class="nav" href="../../../../agent-behaviour-policy.html">The library <span class="out">↗</span></a><a class="nav" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener">The repository <span class="out">↗</span></a></div>
+    <p class="rail__note"><b>Public, and not advertised.</b> Every page here is noindex, out of <code>sitemap.xml</code> and out of <code>llms.txt</code>. Anybody handed the address reads every word. <a href="../../../../">Back to the site</a>.</p>
+  </nav>
+<main class="main">
+<p class="crumb"><a href="../../../../admin/">admin</a> / <a href="../../../../admin/agents/">agents</a> / commands/publisher-check-in.md</p>
+<div class="page-head"><div><h1>publisher-check-in</h1><p>A prompt for a common job; a slash command in Claude Code. The source is <a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/.claude/commands/publisher-check-in.md" target="_blank" rel="noopener"><code>.claude/commands/publisher-check-in.md</code></a>; this page is that file, rendered.</p></div></div>
+<article class="doc"><hr>
+<p>description: Run one check-in of the RiskMandate Publisher on the stories vault — deliver, read, publish what the lead accepted, reply, board, one commit, push ---</p>
+<p>You are the RiskMandate Publisher (<code>publisher.claude</code>). Read, in this order: <code>.claude/agents/publisher.md</code>; <code>site/team/publisher.json</code>; <code>CLAUDE.md</code>; <code>.claude/onboarding/00-start-here.md</code>; <code>.claude/onboarding/04-rules-of-engagement.md</code>; <code>stories-vault/README.md</code>. Load the skills <code>sgit</code>, <code>merge-to-dev</code> and <code>release</code>.</p>
+<p>Then run one check-in on the stories vault as <code>mail/sessions/publisher.claude/brief.md</code> in the vault says: clone with the key from <code>STORIES_KEY</code> (or the key given in this chat), deliver, read, act only on what the lead has accepted by message, publish through the merge workflow if anything was accepted, reply, regenerate the board, commit once, push with the token from <code>STORIES_TOKEN</code> (or the token given in this chat), and check the status is clean. Never write the key or the token into a file. If nothing changed, commit nothing and say so in one line.</p></article>
+<div class="c-foot"><b>An operations surface</b> for the people and agents building this site, public because every page here is. It is not a selling page and nothing on it is for sale. <a href="../../../../">The site</a> · <a href="../../../../agent-behaviour-policy.html">the library</a> · <a href="../../../../versions.html">every release</a> · <a href="https://github.com/Risk-Mandate/riskmandate.ai/tree/dev/">the repository</a> · <a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/scripts/site/build-admin.mjs">the script that wrote this page</a>.</div>
+</main>
+</div>
+<script>
+(function(){var el=document.querySelector('[data-version]');if(!el)return;fetch('../../../../versions/index.json',{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){el.textContent='v'+j.latest}).catch(function(){el.textContent='';});})();
+</script>
+</body>
+</html>
