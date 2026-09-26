@@ -1,0 +1,18 @@
+{
+  "slug": "the-pilot-worked",
+  "title": "The pilot worked.",
+  "punchline": "Then somebody asked what else it could do.",
+  "status": "storyboard",
+  "format": "four panels",
+  "cast": ["H02", "H03", "E01", "H04"],
+  "source": { "what": "The pilots article's hypothesis: a pilot stops when the business compares what the agent was meant to do with what it can do, at machine speed and on somebody's authority, and declines to sign for the difference.", "url": "article-pilots-do-not-stay-in-production.html", "also": [{ "label": "Who owns what in AI", "url": "article-who-owns-what-in-ai.html" }] },
+  "truth": "Pilots do not fail on results. They stop at the moment the mandate and the grant are put side by side and nobody will accept the gap for a stated interval. Rowan sees the demo; Imani asks the question; Dev answers it from the scope; the pilot is over before lunch.",
+  "panels": [
+    { "n": 1, "scene": "Rowan, notebook in hand, checking his watch, beaming at a screen where the Caretaker has produced a stack of finished work.", "action": "The pilot's last day: it worked.", "dialogue": [{ "who": "H02", "says": "Can we ship it today?" }, { "who": "E01", "says": "Ready when you are." }], "caption": "Two weeks of results. Nobody has looked at the keys." },
+    { "n": 2, "scene": "Imani in the doorway with her RISK REVIEW clipboard, pen raised. The Caretaker's ring of keys hangs in the foreground, tags visible: envelope, database, calendar, document.", "action": "The question that ends pilots.", "dialogue": [{ "who": "H03", "says": "What else can it do?" }], "caption": "Not what did it do. What can it." },
+    { "n": 3, "scene": "Dev at a laptop showing a scope list with toggles, reading it out; a long list; SEND on, DELETE on, EXPORT on. Rowan's smile fading.", "action": "The grant, read aloud in the grant's words.", "dialogue": [{ "who": "H04", "says": "The scope includes send. And delete. And export." }, { "who": "H02", "says": "We only use the summaries." }], "caption": "Rowan describes the mandate. Dev describes the grant." },
+    { "n": 4, "scene": "Rowan's hand on a big switch marked OFF; the Caretaker mid-wave, keys still on its belt; Imani writing on the clipboard.", "action": "Nobody will sign for the difference, so it stops.", "dialogue": [{ "who": "H03", "says": "Who accepts that, and until when?" }, { "who": "H02", "says": "Not today." }], "caption": "Under the strip: The pilot worked. Then somebody asked what else it could do." }
+  ],
+  "prompt": { "shared": "A four-panel comic strip, 2 by 2, in the cast's style. Rowan (H02), Imani (H03), Dev (H04) and the Caretaker (E01) as on the cast sheet. Title: THE PILOT WORKED. Under the strip: THEN SOMEBODY ASKED WHAT ELSE IT COULD DO. Then the RiskMandate lockup and a small line: Fictionalised scenario. Screens are generic. British spelling.", "per_panel": ["Panel 1: Rowan with notebook, checking his watch, delighted, beside a screen where the robot presents a neat stack of finished reports. Bubbles: 'Can we ship it today?' / 'Ready when you are.'", "Panel 2: Imani in the doorway, clipboard marked RISK REVIEW, pen raised; in the foreground the robot's ring of keys, each tagged: an envelope, a database, a calendar, a document. Bubble: 'What else can it do?'", "Panel 3: Dev at a laptop reading a long list of toggles, SEND, DELETE and EXPORT all on; Rowan's smile fading. Bubbles: 'The scope includes send. And delete. And export.' / 'We only use the summaries.'", "Panel 4: Rowan's hand on a large switch marked OFF; the robot waving, keys still on its belt; Imani writing. Bubbles: 'Who accepts that, and until when?' / 'Not today.'"] },
+  "for_merch": ["Panel 2's keys with the line What else can it do?"]
+}

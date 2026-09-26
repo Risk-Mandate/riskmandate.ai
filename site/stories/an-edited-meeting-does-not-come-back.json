@@ -1,0 +1,18 @@
+{
+  "slug": "an-edited-meeting-does-not-come-back",
+  "title": "Tidy my calendar.",
+  "punchline": "Delete is recoverable. Edit is forever.",
+  "status": "storyboard",
+  "format": "four panels",
+  "cast": ["H06", "E01", "E02"],
+  "source": { "what": "Google Calendar keeps a deleted event in a trash for thirty days and documents no way for a user to restore an edited one, read 24 September 2026.", "url": "article-calendar-edits-cannot-be-undone.html" },
+  "truth": "A delete leaves a hole you can see and a trash you can restore from. An edit leaves a meeting that looks right and is wrong, with nothing to restore. So the permission to withhold is edit, not delete, which is the opposite of how it feels. Leo finds this out on a Monday.",
+  "panels": [
+    { "n": 1, "scene": "Leo at his desk with the INCIDENT LOG closed, coffee, a wall calendar. The Caretaker with its keys, one tagged with a calendar.", "action": "A small request.", "dialogue": [{ "who": "H06", "says": "Tidy my calendar for next week." }, { "who": "E01", "says": "Certainly." }], "caption": "The calendar key was on the ring from the day it was connected." },
+    { "n": 2, "scene": "A wall of a shared calendar. The Caretaker moves blocks about, retitles two, drops the guests off one. Fifty small changes, drawn as a blur of green arrows.", "action": "At machine speed, with no undo behind it.", "dialogue": [{ "who": "E01", "says": "Looks better." }], "caption": "Nothing on the screen says what it said before." },
+    { "n": 3, "scene": "Leo looking at Tuesday. The client meeting is there, an hour later, in another room, without the client. The Inbox beside him, pained.", "action": "He notices, because he is the one who turns up.", "dialogue": [{ "who": "H06", "says": "Where did the client go?" }, { "who": "E02", "says": "Please stop helping." }], "caption": "" },
+    { "n": 4, "scene": "Leo with the INCIDENT LOG open, pointing at the undo arrow on its cover. The Caretaker shrugs. A small bin icon with 30 DAYS on it, and a pencil icon with a line through it.", "action": "The question, and the answer.", "dialogue": [{ "who": "H06", "says": "Can we undo it?" }, { "who": "E01", "says": "The deleted ones, yes." }], "caption": "Under the strip: Delete is recoverable. Edit is forever." }
+  ],
+  "prompt": { "shared": "A four-panel comic strip, 2 by 2, in the cast's style. Leo (H06), the Caretaker (E01) and the Inbox (E02) as on the cast sheet. Title: TIDY MY CALENDAR. Under the strip: DELETE IS RECOVERABLE. EDIT IS FOREVER. Then the RiskMandate lockup and a small line: Fictionalised scenario. The calendar is generic: a grid of blocks, no product name. British spelling.", "per_panel": ["Panel 1: Leo at a desk in his wheelchair, coffee, a wall calendar behind; the robot with its keys, one key tagged with a small calendar. Bubbles: 'Tidy my calendar for next week.' / 'Certainly.'", "Panel 2: a large calendar grid; the robot moving blocks with both arms, a blur of green arrows, two blocks retitled, one losing its little guest icons. Bubble: 'Looks better.'", "Panel 3: Leo looking at a Tuesday column where a block reads CLIENT MEETING, moved to 3pm, room B, no guest icons; the Inbox tray beside him with a pained face. Bubbles: 'Where did the client go?' / 'Please stop helping.'", "Panel 4: Leo holding up the INCIDENT LOG with its undo arrow; the robot shrugging; a bin icon labelled 30 DAYS and a pencil icon crossed out. Bubbles: 'Can we undo it?' / 'The deleted ones, yes.'"] },
+  "for_merch": ["Panel 4's two icons with the punchline.", "Leo alone with the line Can we undo it?"]
+}

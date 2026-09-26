@@ -377,6 +377,19 @@ Each one is linked in full, as received, with nothing edited. Where a brief and 
 - **Amazon’s current artwork specification**, to confirm on the account before uploading
 - **A trade-mark check** on the taglines before they go on sale
 
+### Stories: a cast of characters, storyboards written before anything is drawn, the workflow from narrative to image model, and the first examples on the site, to move to stories.sgit.ai later
+
+**sha256** 9dd3064503e20140337528004df017e69342f9be971278cfe5080742cc356994
+
+**Story first, picture last.** Merchandise can wait. The thing to build is stories: a cast, a workflow like the film industry’s, storyboards that carry the narrative, the characters and the punchline, and only then the image models, of which there are several. The articles already hold stories; tell them with the same cast, and put the examples on the site until they move to stories.sgit.ai.
+
+- [The stories section](stories.html): why, the seven-step workflow, the cast as drawn with what each stands for, the rules, what is not done
+- Six stories as data, each with its page: two drawn, with what to correct beside them; four storyboards from the articles, with the prompt for any image model and a copy button
+- A generator with a check in CI; the cast and the stories can move without being rewritten
+- **Other models.** The prompts are written for any; none has been tried on another
+- **The four storyboards** are not drawn
+- **The one who signs**, proposed and not drawn; **voice**, nothing read aloud
+
 ## And the instructions that arrived as speech or a sentence.
 
 These have no digest to check, which makes them the ones most easily lost — a voice memo that changed the direction of the whole site leaves no artefact at all unless somebody writes it down. So they are recorded here in the same list, with the same two columns.
@@ -456,7 +469,7 @@ sha256sum my-brief.md
 
 A register that only lists what was done is a press release.
 
-Every entry above carries what it asked for and did not get, and on most of the twenty-eight that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.
+Every entry above carries what it asked for and did not get, and on most of the twenty-nine that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.
 
 - **The file is the record, not this page.** [briefs-register.json](briefs-register.json) is what a program should read; this page renders it for people. If the two ever disagree, the file is right and the page is stale.
 - **Every archived document is byte-identical to what arrived.** Nothing is edited, reformatted or trimmed — including the parts we think are wrong. Where we disagree with a brief, the disagreement is published on the page it produced and marked as ours.
@@ -465,6 +478,6 @@ Every entry above carries what it asked for and did not get, and on most of the 
 
 Register maintained by hand alongside the work, and checked in CI: every document listed must exist at the path given and match its recorded digest, and every file in `assets/briefs/` must appear in the register. Last reconciled 16 September 2026.
 
-## Twenty-eight items. None untouched, and none finished.
+## Twenty-nine items. None untouched, and none finished.
 
-Every item now names something it produced and something it did not. Twenty-five of the twenty-eight are marked _partly_, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.
+Every item now names something it produced and something it did not. Twenty-six of the twenty-nine are marked _partly_, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.

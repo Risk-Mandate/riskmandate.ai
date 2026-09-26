@@ -63,6 +63,10 @@ the site's; check `site/versions/index.json` for the current version before trus
   re-capture after any change to the figure, or the guide's pictures will disagree with it. Keep such replies stand-alone,
   factual about the source, and long enough to implement from. Five more are listed on the index as *not written*, each with a record already
   behind it.
+- **Stories** (`stories.html`, v1.34.18, D29): a cast of nine drawn by a ChatGPT image model from the lead's
+  prompt, with what each stands for on the site's model; six stories as data (`site/stories/`), two drawn and
+  four storyboards from the articles, each with the truth under it, the panels and a prompt for any image
+  model. The order is story, narrative, punchline, cast, storyboard, picture. Moves to stories.sgit.ai later.
 - **Try it** (`try-it.html`, top-level, v1.28.0): the free step below the store's ladder and the
   first surface aimed at a stranger rather than a reader. Four steps, thirteen prompts, run in the
   person's own assistant against their own mailbox, hosted at abp.sgit.ai/gmail; what they end up

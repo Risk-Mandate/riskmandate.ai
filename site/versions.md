@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.34.18** · 2026-09-26 — Stories
+  Notes: https://riskmandate.ai/versions/1.34.18.md · Source: `git:v1.34.18`
 - **v1.34.17** · 2026-09-25 — Merch for people who hold the risk
   Notes: https://riskmandate.ai/versions/1.34.17.md · Source: `git:v1.34.17`
 - **v1.34.16** · 2026-09-25 — The register, played live

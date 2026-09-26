@@ -69,6 +69,8 @@ jobs:
 
       - name: The interview pages are derived from site/interviews/
         run: node scripts/site/build-interview-pages.mjs --check
+      - name: The stories are derived from site/stories/
+        run: node scripts/site/build-stories.mjs --check
 
       - name: The ABP-for-people pack matches its sources
         run: node scripts/packs/build-abp-people-pack.mjs --check
