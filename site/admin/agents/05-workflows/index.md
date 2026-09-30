@@ -214,3 +214,18 @@ check, release last, check again, `--no-ff` into `dev`, delete your work file, p
 
 `bash scripts/run-locally__riskmandate_ai.sh` → `http://localhost:10070/`. Use `localhost`:
 `/scenarios/` and the vault pages decrypt with Web Crypto, which needs a secure context.
+
+## Drain the agent's inbox (the comms vault's lanes)
+
+```bash
+export COMMS_KEY=…                                     # from the lead, or the environment; never a file
+cd "$SCRATCH" && sgit clone "$COMMS_KEY" comms-riskmandate
+node "$REPO/scripts/intake/drain.mjs" --vault comms-riskmandate --dry-run    # look, then
+node "$REPO/scripts/intake/drain.mjs" --vault comms-riskmandate
+cd comms-riskmandate && sgit commit -m "@Agent drain: …" && sgit push --token "$SGSEND_TOKEN"
+```
+
+Accepted messages are `agent-contact/accepted/*.eml`; a contact message is answered from the mailbox, a
+registration goes to the programme's procedure (`docs/programme/early-access-invitations.md`). Full
+notes in `scripts/intake/README.md`. To change a lane or a key: edit the contact file, run
+`build-agents.mjs`, `configure.mjs`, release.

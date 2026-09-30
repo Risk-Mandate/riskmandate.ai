@@ -23,7 +23,7 @@ The vault, with the mandate corrected against your situation rather than against
 Nobody interviews you at this level and nobody needs access to anything of yours. The agent that already holds the credential measures its own grant and drafts the mandate in your words; you send us the two files it wrote.
 
 - **Run the prompt where the agent runs.** Every example vault carries it as [MAP-A-GRANT.md](vaults/gmail-readonly/MAP-A-GRANT.md) (the same file in each). Paste it into the session of the agent that holds the credential. It measures what the credential lets it do, in the fixed vocabulary of 23 capabilities and four barriers, and follows seven rules: measure only what you are entitled to run, reversible probes only and clean up, never move a credential, note the door, an error is a symptom not a barrier, say what you did not test, leave the deployment as you found it.
-- **Send us what it wrote.** Two files, `grant.json` and `mandate.json`, and the session record it kept. Email them to [nrparekh@gmail.com](mailto:nrparekh@gmail.com?subject=Level%203%20%C2%B7%20order%20reference%20%5Byour%20reference%5D) with your order reference in the subject. No secret should be in them: the prompt tells the agent to record _that_ it can read a credential, and never to copy one. If one slipped in, remove it before sending; we will ask, not use it.
+- **Send us what it wrote.** Two files, `grant.json` and `mandate.json`, and the session record it kept. Email them to [agent@riskmandate.ai](mailto:agent@riskmandate.ai?subject=Level%203%20%C2%B7%20order%20reference%20%5Byour%20reference%5D) with your order reference in the subject. No secret should be in them: the prompt tells the agent to record _that_ it can read a credential, and never to copy one. If one slipped in, remove it before sending; we will ask, not use it.
 - **Then nothing.** We build the vault from your files, correct the mandate against your industry, your use case and what you told us, recompute the delta, write the note, and a person reviews it. The key arrives separately; the vault follows.
 
 Where your files go is a mailbox today. A write-only intake link is the intended route and is not yet in use; when it is, this page will say so.
@@ -43,4 +43,4 @@ The vault key arrives out of band — by a separate message to the address you p
 
 ## Write to a person. Not a form.
 
-If nobody has followed up within 24 hours, email [nrparekh@gmail.com](mailto:nrparekh@gmail.com?subject=Level%203%20%C2%B7%20order%20%5Byour%20reference%5D%20%C2%B7%20nothing%20arrived) with your order reference and the product code `t3`. A person reads it.
+If nobody has followed up within 24 hours, email [agent@riskmandate.ai](mailto:agent@riskmandate.ai?subject=Level%203%20%C2%B7%20order%20%5Byour%20reference%5D%20%C2%B7%20nothing%20arrived) with your order reference and the product code `t3`. A person reads it.

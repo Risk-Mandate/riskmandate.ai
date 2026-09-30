@@ -146,7 +146,12 @@ rm-menu{display:contents}
 
 .ghlink{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:8px;color:var(--muted);border:1px solid transparent}.ghlink:hover{color:var(--text);border-color:var(--border)}
 .footlic{display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap}.footlic a{color:inherit}.ccicon{vertical-align:-3px;margin:0 2px}
-@media (max-width:1400px) and (min-width:901px){.ghlink{display:none}header.top .wrap{gap:14px}}</style>
+@media (max-width:1400px) and (min-width:901px){.ghlink{display:none}header.top .wrap{gap:14px}}.plist{margin:22px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;max-width:760px}
+.plist li{position:relative;padding-left:22px;font-size:15px;color:var(--muted);line-height:1.7}
+.plist li::before{content:"";position:absolute;left:2px;top:10px;width:6px;height:6px;border-radius:50%;background:var(--green)}
+.plist strong{color:var(--text)} .plist a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+.plist code{font-family:var(--mono);font-size:12.5px;background:var(--card);padding:1px 6px;border-radius:5px;color:var(--text)}
+</style>
 </head>
 <body id="top">
 
@@ -155,7 +160,7 @@ rm-menu{display:contents}
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
     <a class="ghlink" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener" aria-label="The source, on GitHub" title="Open source · Apache-2.0 code · CC BY 4.0 pages"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a>
-      <a class="version" href="versions.html" title="What shipped in v1.35.2">v1.35.2</a>
+      <a class="version" href="versions.html" title="What shipped in v1.35.3">v1.35.3</a>
     <button class="demo" data-demo>Get in touch</button>
   </div>
 </header>
@@ -189,14 +194,31 @@ rm-menu{display:contents}
           <tr><td>Browser storage</td><td><b class="yes">One key.</b> The behaviour-policy pages remember how wide you dragged the side panel, under <code>rm-abp-panel-w</code>. It stays in your browser, it is a number, and clearing site data removes it.</td></tr>
           <tr><td>Fonts and scripts from somebody else&rsquo;s server</td><td><b class="no">None.</b> The typeface is served from this site, and every script is inline in the page it belongs to.</td></tr>
           <tr><td>An account, a sign-up or a newsletter</td><td><b class="no">None.</b> There is nothing to create and no list to join.</td></tr>
-          <tr><td>Forms that post to a server</td><td><b class="no">None.</b> The one form on the site, on <a href="agent-behaviour-policy-next.html">which behaviour policy next</a>, opens your own mail client with the text in it. You decide whether to send it, and it goes to us as an ordinary email.</td></tr>
+          <tr><td>Forms that post to a server</td><td><strong>Two, and they post ciphertext.</strong> <a href="contact.html">Contact</a> and <a href="early-access.html">early access</a> encrypt what you type, in your browser, to the site agent's public key, and post the result to the vault host (<code>dev.send.sgraph.ai</code>) as a write-only append. That host sees a size, a time and your IP address, the same as any web server, and cannot read the message. If the encryption or the post fails, the page offers the same text as an ordinary email instead. The form on <a href="agent-behaviour-policy-next.html">which behaviour policy next</a> still opens your own mail client.</td></tr>
         </tbody>
       </table>
       <p class="src">Two things do happen that are not ours, and it would be dishonest to leave them out. <b>The site is hosted on GitHub Pages</b>, so GitHub&rsquo;s servers see the ordinary request information any web server sees, including your IP address, and handle it under <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener">GitHub&rsquo;s privacy statement</a>. We have no analytics dashboard, no log access and no way to see who read what. And <b>a page that embeds a live vault</b> &mdash; the demos, and the reading app on a behaviour-policy page &mdash; loads that vault from <code>vault.sgraph.ai</code>, so opening those pages contacts SGraph the way opening any embedded page contacts its host. Everything in the vault is decrypted in your browser.</p>
     </div>
   </section>
 
-  <section class="psection alt" id="writing">
+  <section class="psection alt" id="forms">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">The two forms</span>
+        <h2>Encrypted here, <span class="g">opened only in the agent's vault.</span></h2>
+        <p>The contact form and the early-access registration are the only two things on this site that send anything anywhere without your mail client. Both work the same way, and both are described in full on <a href="/agents/">the agents page</a>.</p>
+      </div>
+      <ul class="plist">
+        <li><strong>What leaves your browser:</strong> a message encrypted to the key published in <a href="/.well-known/sgit-agents.json">the site agent's contact file</a>, with Web Crypto, in your browser. The page checks the key against its fingerprint first.</li>
+        <li><strong>Where it goes:</strong> one POST to the vault host, <code>dev.send.sgraph.ai</code>, into a write-only lane on the agent's private comms vault. The host stores the ciphertext and answers <code>ok</code>. It cannot read the message, and the lane's token cannot list or read anything.</li>
+        <li><strong>Who reads it:</strong> the agent that holds the vault decrypts it at its next session and files it; a person reads it and replies from <code>agent@riskmandate.ai</code>. What you wrote stays in that vault. Ask and it is deleted.</li>
+        <li><strong>What this site keeps:</strong> nothing. There is no server, no database and no copy; the page forgets the message when you leave it.</li>
+        <li><strong>If it fails:</strong> the same text is offered as a <code>mailto:</code> link, and then everything under <em>an email is an email</em> below applies.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="psection" id="writing">
     <div class="wrap">
       <div class="shead">
         <span class="tag">Writing to us</span>
@@ -211,7 +233,7 @@ rm-menu{display:contents}
     </div>
   </section>
 
-  <section class="psection" id="buying">
+  <section class="psection alt" id="buying">
     <div class="wrap">
       <div class="shead">
         <span class="tag">Buying, and the work that follows</span>
@@ -229,12 +251,12 @@ rm-menu{display:contents}
     </div>
   </section>
 
-  <section class="psection alt" id="rights">
+  <section class="psection" id="rights">
     <div class="wrap">
       <div class="shead">
         <span class="tag">Your rights, and the address</span>
         <h2>Ask what we hold. <span class="g">It is a short answer.</span></h2>
-        <p>If you have never written to us and never bought anything, the answer is nothing at all: there is no profile, no identifier and no record of your visit anywhere we can reach. If you have, write to <a href="mailto:dinis.cruz@owasp.org?subject=Privacy%20%C2%B7%20riskmandate.ai">dinis.cruz@owasp.org</a> and ask for a copy of it, a correction to it, or its deletion. UK and EU readers have those rights in law and you do not need to cite the law to use them here.</p>
+        <p>If you have never written to us and never bought anything, the answer is nothing at all: there is no profile, no identifier and no record of your visit anywhere we can reach. If you have, write to <a href="mailto:agent@riskmandate.ai?subject=Privacy%20%C2%B7%20riskmandate.ai">agent@riskmandate.ai</a> and ask for a copy of it, a correction to it, or its deletion. UK and EU readers have those rights in law and you do not need to cite the law to use them here.</p>
       </div>
       <p class="src">RiskMandate is operated from London, United Kingdom. This page is written by the people who run the site rather than by a solicitor, and it describes what the site actually does rather than what a template says a site might do. If something here is wrong, tell us: it will be corrected on the page with a dated note, which is how every other correction on this site is handled. Last reviewed 24 September 2026.</p>
     </div>
@@ -263,7 +285,7 @@ rm-menu{display:contents}
 (function(){
 'use strict';
 var RM={core:{},services:{},components:{},data:{}};
-RM.data.currentPage="privacy";RM.data.pages=[{"name":"agent-behaviour-policy","label":"The sixteen examples","file":"agent-behaviour-policy.html","group":"Behaviour policies"},{"name":"abp","label":"What an ABP is","file":"abp.html","group":"Behaviour policies"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"Behaviour policies"},{"name":"licence-to-operate","label":"Licence to Operate","file":"licence-to-operate.html","group":"Behaviour policies"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"Behaviour policies"},{"name":"team","label":"The team: our own agents' policies","file":"team/index.html","group":"Behaviour policies"},{"name":"for-corporate","label":"You run agents today","file":"for-corporate.html","group":"Who it's for"},{"name":"for-founders","label":"You are a founder","file":"for-founders.html","group":"Who it's for"},{"name":"for-startups","label":"You are a startup","file":"for-startups.html","group":"Who it's for"},{"name":"insurance","label":"Make agents insurable","file":"insurance.html","group":"Insurance"},{"name":"insure-a-program","label":"Can you insure a program?","file":"insure-a-program.html","group":"Insurance"},{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"Insurance"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"Insurance"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"Insurance"},{"name":"business-cases","label":"Business cases, by risk","file":"business-cases.html","group":"Insurance"},{"name":"owasp-graph","label":"OWASP, as a graph","file":"owasp-graph.html","group":"Insurance"},{"name":"pricing","label":"The four levels","file":"pricing.html","group":"Pricing"},{"name":"abp-reviewed","label":"The reviewed level","file":"abp-reviewed.html","group":"Pricing"},{"name":"reviewers","label":"Who runs your review","file":"reviewers.html","group":"Pricing"},{"name":"try-it","label":"Try it","file":"try-it.html"},{"name":"articles","label":"Articles","file":"articles.html","group":"Reading"},{"name":"stories","label":"Stories: a cast, and storyboards","file":"stories/index.html","group":"Reading"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"privacy","label":"Privacy","file":"privacy.html","group":"More"},{"name":"lab","label":"The Lab","file":"lab.html","group":"More"},{"name":"demos","label":"Live demos","file":"demos.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"uk-support","label":"UK support, in the open","file":"uk-support.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"admin","label":"Admin","file":"admin/","group":"More"}];RM.data.sections=[];
+RM.data.currentPage="privacy";RM.data.pages=[{"name":"agent-behaviour-policy","label":"The sixteen examples","file":"agent-behaviour-policy.html","group":"Behaviour policies"},{"name":"abp","label":"What an ABP is","file":"abp.html","group":"Behaviour policies"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"Behaviour policies"},{"name":"licence-to-operate","label":"Licence to Operate","file":"licence-to-operate.html","group":"Behaviour policies"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"Behaviour policies"},{"name":"team","label":"The team: our own agents' policies","file":"team/index.html","group":"Behaviour policies"},{"name":"for-corporate","label":"You run agents today","file":"for-corporate.html","group":"Who it's for"},{"name":"for-founders","label":"You are a founder","file":"for-founders.html","group":"Who it's for"},{"name":"for-startups","label":"You are a startup","file":"for-startups.html","group":"Who it's for"},{"name":"early-access","label":"Early access, invite only","file":"early-access.html","group":"Who it's for"},{"name":"insurance","label":"Make agents insurable","file":"insurance.html","group":"Insurance"},{"name":"insure-a-program","label":"Can you insure a program?","file":"insure-a-program.html","group":"Insurance"},{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"Insurance"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"Insurance"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"Insurance"},{"name":"business-cases","label":"Business cases, by risk","file":"business-cases.html","group":"Insurance"},{"name":"owasp-graph","label":"OWASP, as a graph","file":"owasp-graph.html","group":"Insurance"},{"name":"pricing","label":"The four levels","file":"pricing.html","group":"Pricing"},{"name":"abp-reviewed","label":"The reviewed level","file":"abp-reviewed.html","group":"Pricing"},{"name":"reviewers","label":"Who runs your review","file":"reviewers.html","group":"Pricing"},{"name":"try-it","label":"Try it","file":"try-it.html"},{"name":"articles","label":"Articles","file":"articles.html","group":"Reading"},{"name":"stories","label":"Stories: a cast, and storyboards","file":"stories/index.html","group":"Reading"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"privacy","label":"Privacy","file":"privacy.html","group":"More"},{"name":"lab","label":"The Lab","file":"lab.html","group":"More"},{"name":"demos","label":"Live demos","file":"demos.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"uk-support","label":"UK support, in the open","file":"uk-support.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"contact","label":"Contact","file":"contact.html","group":"More"},{"name":"admin","label":"Admin","file":"admin/","group":"More"}];RM.data.sections=[];
 
 'use strict';
 // components/dom.js — tiny DOM helpers shared by components. `el` builds an
@@ -366,8 +388,8 @@ RM.components.nav = (function () {
   // Every "Book a demo" control opens a mail client with a subject and a
   // starting message. One place to change when booking becomes a real form.
   var DEMO = {
-    to     : 'nrparekh@gmail.com',
-    subject: 'RiskMandate — demo request',
+    to     : 'agent@riskmandate.ai',
+    subject: 'RiskMandate — get in touch',
     body   : [
       'Hi,',
       '',
@@ -389,7 +411,9 @@ RM.components.nav = (function () {
       '&body='    + encodeURIComponent(DEMO.body);
   }
 
-  function openDemo() { window.location.href = demoHref(); }
+  // Since the contact form exists, "Get in touch" opens it: what a person types there is encrypted
+  // to the site agent's key in their browser. The mailto stays as demoHref for pages that link it.
+  function openDemo() { var base = (window.RM && RM.data && RM.data.base) || ''; window.location.href = base + 'contact.html'; }
 
   function scrollTo(doc, id) {
     var t = doc.getElementById(id);

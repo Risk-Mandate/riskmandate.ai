@@ -23,9 +23,19 @@ The site is static files. It runs no server of its own, holds no database, and h
 | Browser storage | **One key.** The behaviour-policy pages remember how wide you dragged the side panel, under `rm-abp-panel-w`. It stays in your browser, it is a number, and clearing site data removes it. |
 | Fonts and scripts from somebody else’s server | **None.** The typeface is served from this site, and every script is inline in the page it belongs to. |
 | An account, a sign-up or a newsletter | **None.** There is nothing to create and no list to join. |
-| Forms that post to a server | **None.** The one form on the site, on [which behaviour policy next](agent-behaviour-policy-next.html), opens your own mail client with the text in it. You decide whether to send it, and it goes to us as an ordinary email. |
+| Forms that post to a server | **Two, and they post ciphertext.** [Contact](contact.html) and [early access](early-access.html) encrypt what you type, in your browser, to the site agent's public key, and post the result to the vault host (`dev.send.sgraph.ai`) as a write-only append. That host sees a size, a time and your IP address, the same as any web server, and cannot read the message. If the encryption or the post fails, the page offers the same text as an ordinary email instead. The form on [which behaviour policy next](agent-behaviour-policy-next.html) still opens your own mail client. |
 
 Two things do happen that are not ours, and it would be dishonest to leave them out. **The site is hosted on GitHub Pages**, so GitHub’s servers see the ordinary request information any web server sees, including your IP address, and handle it under [GitHub’s privacy statement](https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement). We have no analytics dashboard, no log access and no way to see who read what. And **a page that embeds a live vault** — the demos, and the reading app on a behaviour-policy page — loads that vault from `vault.sgraph.ai`, so opening those pages contacts SGraph the way opening any embedded page contacts its host. Everything in the vault is decrypted in your browser.
+
+## Encrypted here, opened only in the agent's vault.
+
+The contact form and the early-access registration are the only two things on this site that send anything anywhere without your mail client. Both work the same way, and both are described in full on [the agents page](/agents/).
+
+- **What leaves your browser:** a message encrypted to the key published in [the site agent's contact file](/.well-known/sgit-agents.json), with Web Crypto, in your browser. The page checks the key against its fingerprint first.
+- **Where it goes:** one POST to the vault host, `dev.send.sgraph.ai`, into a write-only lane on the agent's private comms vault. The host stores the ciphertext and answers `ok`. It cannot read the message, and the lane's token cannot list or read anything.
+- **Who reads it:** the agent that holds the vault decrypts it at its next session and files it; a person reads it and replies from `agent@riskmandate.ai`. What you wrote stays in that vault. Ask and it is deleted.
+- **What this site keeps:** nothing. There is no server, no database and no copy; the page forgets the message when you leave it.
+- **If it fails:** the same text is offered as a `mailto:` link, and then everything under _an email is an email_ below applies.
 
 ## An email is an email, and a person reads it.
 
@@ -47,7 +57,7 @@ Payment happens at [store.sgit.ai](https://store.sgit.ai/) on the payment provid
 
 ## Ask what we hold. It is a short answer.
 
-If you have never written to us and never bought anything, the answer is nothing at all: there is no profile, no identifier and no record of your visit anywhere we can reach. If you have, write to [dinis.cruz@owasp.org](mailto:dinis.cruz@owasp.org?subject=Privacy%20%C2%B7%20riskmandate.ai) and ask for a copy of it, a correction to it, or its deletion. UK and EU readers have those rights in law and you do not need to cite the law to use them here.
+If you have never written to us and never bought anything, the answer is nothing at all: there is no profile, no identifier and no record of your visit anywhere we can reach. If you have, write to [agent@riskmandate.ai](mailto:agent@riskmandate.ai?subject=Privacy%20%C2%B7%20riskmandate.ai) and ask for a copy of it, a correction to it, or its deletion. UK and EU readers have those rights in law and you do not need to cite the law to use them here.
 
 RiskMandate is operated from London, United Kingdom. This page is written by the people who run the site rather than by a solicitor, and it describes what the site actually does rather than what a template says a site might do. If something here is wrong, tell us: it will be corrected on the page with a dated note, which is how every other correction on this site is handled. Last reviewed 24 September 2026.
 
