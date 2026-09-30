@@ -14,7 +14,7 @@ What you type here is encrypted in your own browser to the key of the agent that
 
 ## Four fields, and nothing kept here.
 
-Your name and email are so we can answer. Say which agent you run if the question is about one; it saves a round trip.
+Your name and email are so we can answer. If the question is about an agent you run, say which one; it saves a round trip.
 
 The lane answers `{"ok": true}` and nothing else, by design: not even we can tell you a file id. A person reads what arrives within a working day and replies to the address you gave from `agent@riskmandate.ai`. If nothing comes, email that address; say when you sent this.
 
