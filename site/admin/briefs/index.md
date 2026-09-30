@@ -3,7 +3,7 @@
 > Every document under docs/ on riskmandate.ai, rendered as a page: direction briefs, reviews, workflows, architecture and research, newest first.
 > Source: https://riskmandate.ai/admin/briefs/ · noindex · written by scripts/site/build-admin.mjs
 
-**31**documents under docs/*one page each, rendered from the file*
+**32**documents under docs/*one page each, rendered from the file*
 
 **8**direction briefs*the product and the site*
 
@@ -14,6 +14,10 @@
 These were written here, by the agent maintaining the site, in response to [the memos and documents that arrived](../../admin/memos/). Each is read against a named source and dated. Add a file under `docs/` and rerun `build-admin.mjs`: it has a page here and a test fails until it does.
 
 ## Newest first
+
+**[Keeping an eye on the comms vault: a brief for the session that runs agent@riskmandate.ai](../../admin/briefs/handover__keeping-an-eye-on-the-comms-vault/)**
+
+agent@riskmandate.ai now has a second inbox beside the mailbox. The contact form and the early-access registration on riskmandate.ai do not send email: what a visitor types is encrypted in their browser to the agent's public key and dropped into a…30 September 2026 · handover
 
 **[The encrypted contact form, for another site: what riskmandate.ai built and how to copy it](../../admin/briefs/handover__the-contact-form-for-another-site/)**
 

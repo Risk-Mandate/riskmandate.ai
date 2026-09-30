@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.35.7** · 2026-09-30 — A brief for the mailbox session: the comms vault is its second inbox
+  Notes: https://riskmandate.ai/versions/1.35.7.md · Source: `git:v1.35.7`
 - **v1.35.6** · 2026-09-30 — The consent line says what it means
   Notes: https://riskmandate.ai/versions/1.35.6.md · Source: `git:v1.35.6`
 - **v1.35.5** · 2026-09-30 — A handover: the encrypted contact form, for any site in the network
