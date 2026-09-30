@@ -3,7 +3,7 @@
 > Every document under docs/ on riskmandate.ai, rendered as a page: direction briefs, reviews, workflows, architecture and research, newest first.
 > Source: https://riskmandate.ai/admin/briefs/ · noindex · written by scripts/site/build-admin.mjs
 
-**30**documents under docs/*one page each, rendered from the file*
+**31**documents under docs/*one page each, rendered from the file*
 
 **8**direction briefs*the product and the site*
 
@@ -14,6 +14,10 @@
 These were written here, by the agent maintaining the site, in response to [the memos and documents that arrived](../../admin/memos/). Each is read against a named source and dated. Add a file under `docs/` and rerun `build-admin.mjs`: it has a page here and a test fails until it does.
 
 ## Newest first
+
+**[The encrypted contact form, for another site: what riskmandate.ai built and how to copy it](../../admin/briefs/handover__the-contact-form-for-another-site/)**
+
+A contact form on a static site with no server, no form builder and nothing stored: what the visitor types is encrypted in their browser to the site agent's public key and dropped, with one POST, into a write-only append lane on the agent's private sgit…30 September 2026 · handover
 
 **[The early-access programme: invite only, a vault each, and the first batch by hand](../../admin/briefs/programme__early-access-and-the-first-batch/)**
 
