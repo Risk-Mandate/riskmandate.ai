@@ -66,6 +66,15 @@ the site's; check `site/versions/index.json` for the current version before trus
   re-capture after any change to the figure, or the guide's pictures will disagree with it. Keep such replies stand-alone,
   factual about the source, and long enough to implement from. Five more are listed on the index as *not written*, each with a record already
   behind it.
+- **A behaviour policy for a ChatGPT dot** (`article-abp-for-chatgpt-dots.html`, 30 Sept, v1.35.2): OpenAI's dots
+  (released 29 Sept 2026: always-on agents in ChatGPT with a cloud computer, a browser and every connected app) as
+  the clearest case for an ABP. An introduction from the vendor's pages; twelve grant rows in the vocabulary, each
+  with the vendor's sentence, a barrier and its holder (you, the workspace admin, the vendor); the finding that the
+  strongest barriers (Auto-review, mandatory confirmations) are a reviewer model the vendor calls a judgement, filed
+  as a request to the model site for a barrier class; six open questions; a starting mandate with the delta
+  derived (grant 12, mandate 5, excess 7, unbounded 2); five steps to write one. Documented, not measured: dots are
+  not offered to Pro accounts in the UK. The shape is on the asked-for list as `chatgpt-dots`. Vendor pages were
+  read through a page-reader service where the vendor's site refused the tooling; the article says so.
 - **The team** (`site/team/`, served as `/team/`, v1.35.0, in *Behaviour policies*): one person and two agents, each
   agent with an Agent Behaviour Policy in the vault grammar, the grant observed on the thing itself on 26 September
   (the publisher: 17 rows, 4 in excess, 3 unbounded; the studio: 7 rows, 2 in excess, both unbounded, the account

@@ -75,11 +75,19 @@ a decision the lead owns, listed in the state fileneeds the lead
 
 a decision the lead owns, listed in the state fileneeds the lead
 
-## In flight — 0 branches
+## In flight — 1 branch
 
 One file per branch under `.claude/work/`. [How a work file is written](../../admin/work/about-work-files/).
 
-Nothing in flight.
+### [claude/dev-session-setup-a5wcc5](../../admin/work/branches/claude-dev-session-setup-a5wcc5/)
+
+started 30 September 2026 · task brief: ad hoc: an article on ABPs for ChatGPT dots
+
+`article-abp-for-chatgpt-dots.html`: an introduction to OpenAI's dots from the vendor's pages, then a documented behaviour policy for one (twelve rows, barriers and holders), the reviewer-as-judgement finding, six open questions, a starting mandate with its delta, five steps. The shape added to the asked-for list. Nothing tested.
+
+**External state.** none · Release I will claim at merge: yes, 1.35.2
+
+**Status.** [x] written, built, checked, rendered · [ ] release, merge, deploy
 
 ## Task briefs — 14
 

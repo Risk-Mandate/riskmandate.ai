@@ -7,7 +7,7 @@
 
 **2**waiting on somebody outside*the store's agent, the model site*
 
-**0**branches in flight*one work file each*
+**1**branches in flight*one work file each*
 
 **12**open tasks*of 17 in the queue · 1 done*
 
@@ -15,9 +15,9 @@
 
 **28**briefs written here*one page each*
 
-**16**vaults built and pushed*4 measured · 8 asked for*
+**16**vaults built and pushed*4 measured · 9 asked for*
 
-**120**releases*8 Lab editions*
+**121**releases*8 Lab editions*
 
 ## Needs the lead — 9
 
@@ -59,13 +59,13 @@ a decision the lead owns, openD6
 
 a decision the lead owns, openD7
 
-## In flight — 0 branches
+## In flight — 1 branch
 
 One file per branch under `.claude/work/`, written before the work starts and deleted when it merges. Read every one before claiming a task.
 
-**Nothing in flight.**
+**[claude/dev-session-setup-a5wcc5](../admin/work/branches/claude-dev-session-setup-a5wcc5/)**
 
-No work file under .claude/work/.
+`article-abp-for-chatgpt-dots.html`: an introduction to OpenAI's dots from the vendor's pages, then a documented behaviour policy for one (twelve rows, barriers and holders), the reviewer-as-judgement finding, six open questions, a starting mandate with its delta, five steps. The shape added to the asked-for list. Nothing tested. since 30 September 2026
 
 ## How work gets here
 

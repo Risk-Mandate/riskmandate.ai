@@ -9,7 +9,7 @@
 
 **28**open research questions*across every grant*
 
-**8**asked for, not built*5 connectors · 3 functions*
+**9**asked for, not built*6 connectors · 3 functions*
 
 Read off [the catalogue](../../vaults/index.json) and each vault's `vault.json` and `data/grant.json`. *Measured* counts rows run on a system we are entitled to run; everything else is documented from the vendor's pages, dated and quoted. No row here is a score: the number of open questions is how much the grant still does not know about itself.
 
@@ -90,6 +90,10 @@ An integration is added page by page, which is the one connector model with a fl
 **An assistant connected to Salesforce**
 
 A CRM is entirely third-party material by construction.not yet researched
+
+**A ChatGPT dot**
+
+An always-on agent with its own cloud computer, its own browser and every app the account connected, working between conversations. Documented from the vendor's pages on 30 September 2026 in the article; the twelve rows and six open questions are ready for a vault.documented in an article, 30 September 2026; not yet a vault
 
 **Access to the CRM**
 
