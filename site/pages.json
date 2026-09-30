@@ -442,6 +442,12 @@
       "group": "More"
     },
     {
+      "name": "agent-contact",
+      "label": "Agents: the contact file",
+      "file": "agents/index.html",
+      "group": "More"
+    },
+    {
       "name": "admin",
       "label": "Admin",
       "file": "admin/",

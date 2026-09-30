@@ -168,7 +168,7 @@ const bodyStart = donor.indexOf('<body'), scriptAt = donor.indexOf('<script>', b
 const donorBody = donor.slice(bodyStart, scriptAt);
 const hdr  = abs(donorBody.match(/<header class="top">.*?<\/header>/s)[0]);
 const foot = abs(donorBody.match(/<footer class="foot">.*?<\/footer>/s)[0]);
-const tail = donor.slice(scriptAt).replace('RM.data.currentPage="pricing"', 'RM.data.base="/";RM.data.currentPage="agents"');
+const tail = donor.slice(scriptAt).replace('RM.data.currentPage="pricing"', 'RM.data.base="/";RM.data.currentPage="agent-contact"');
 const want = head + '<body id="top">\n\n' + hdr + '\n' + body + '\n' + foot + '\n\n' + tail;
 
 const out = join(SITE, 'agents', 'index.html');
