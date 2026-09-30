@@ -331,6 +331,7 @@ const llms = (ps, latest, manifest) => [
   ``,
   `- [Full text](${ORIGIN}/llms-full.txt): the entire site as one markdown document`,
   `- [Content manifest](${ORIGIN}/.well-known/agent-content.json): structured JSON`,
+  `- [Agent contact file](${ORIGIN}/.well-known/sgit-agents.json): the site agent's identity, keys and inbox lane (Agent Contact v0.1, sgit.ai)`,
   `- [Version index](${ORIGIN}/versions/index.json): every release, and the file its notes live in`,
   ``
 ].join('\n');

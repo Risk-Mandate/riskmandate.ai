@@ -1,0 +1,61 @@
+{
+  "schema": "sgit-agents/v1",
+  "site": "riskmandate.ai",
+  "updated": "2026-09-30T09:30:00Z",
+  "operator": {
+    "name": "Dinis Cruz",
+    "email": "agent@riskmandate.ai"
+  },
+  "spec": "https://sgit.ai/docs/agent-contact.html",
+  "accepts_from": [
+    "sgit.ai",
+    "*.sgit.ai",
+    "riskmandate.ai",
+    "*.riskmandate.ai",
+    "diniscruz.ai",
+    "*.diniscruz.ai"
+  ],
+  "note": "One identity, agent@riskmandate.ai. As an email address it is a monitored Google Workspace mailbox with its own seat, read by a scheduled agent and answered by a person or by the inbox agent from drafts; as a lane identity it is the append lane below, drained by the site agent at each session. Two lanes: agents, for signed agent mail from the accepts_from domains; site, for the forms on riskmandate.ai, encrypted in the visitor's browser and unsigned. Both append tokens are public on purpose (see /agents/#canary). Nothing in this file is secret; recompute the fingerprints from the PEMs before trusting them.",
+  "identities": {
+    "agent": {
+      "alias": "@RiskMandate",
+      "role": "the riskmandate.ai agent: reads the mailbox, drains the lanes, files what arrives in the comms vault, replies to allow-listed agents over their lanes, and keeps the site through the publisher workflow",
+      "address": "agent@riskmandate.ai",
+      "serial": 1,
+      "created": "2026-09-30T08:41:00Z",
+      "fingerprint": "sha256:9314437063df3bb6",
+      "signing_fingerprint": "sha256:38bb2b379754e3da",
+      "bundle": {
+        "v": 1,
+        "label": "agent",
+        "encrypt": "-----BEGIN PUBLIC KEY-----\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAnQtiVH+5AACWqdIocjtP\nGRDPTu4MAUD0efP2K9wfQ6A13l3QvJiuni8IKQYu9tRkQoAUgcXNNHmyBZg2VZY6\nowrWh2GDBo9gMMZKsGaZV4eGnr0YvjhNN3AKMwhDKpNSrxBRbcMh/D3tBKJLwTPy\nzaPRqfFXvSqZu9wVcUIiffCjQxTyNCiuHEAZgFin1rUbLW6wKRz3Ld5/C3DENvI1\nkSDvoWUWB9WKIzIQ3cumg64xnWaGFbx+wmWgJuLP/dNuI8aMnnQQYYSLfOaTxT2b\nhxPSeuMhmS7SYWxLj2Z5a/B9luAfTIgncbZoSsvJYFpGqI+CcAxiAL5Uy6nQ+T0v\nONOG5On0bBs2KN9TdS0PaSZUJeDK+r0RhoCeiELrYz0g3D9WtsjzAikAyqtXTGmV\n+KWv3Qjm4z7jnMfI6PO6FDp9wNkKo95xd2Fxl/tnepN2i2eW0i0TjZBmKThopBLI\n5S3pPgi3zrWTNxmAHakQObp49T8Ygemxnwcl4nzv0b7Q4wB0kY7joyjcQ0/4brHb\n0eskx58y5DWEosrCjdySKAz1aFdFkAu3RTI93C8neh2AJem3zqi06KVXZFw1lgqp\nBnHqLRsbTHO0F1qanZ/YQu31nZ2n7fxMACZa7KDXuJjMvDk5MVktU7UVGaZmNT4z\nf5CCVhXx4qSuDuGZE1xcO0cCAwEAAQ==\n-----END PUBLIC KEY-----\n",
+        "sign": "-----BEGIN PUBLIC KEY-----\nMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEAziopseQ3sgJkXoIxZBK3WkvhBAj\nPSz+QzijVbQeEPbwiulDb426lbWgQFPfc7jef0iu0UM6QPM7NkGCcxHVBQ==\n-----END PUBLIC KEY-----\n",
+        "fingerprint": "sha256:9314437063df3bb6",
+        "signing_fingerprint": "sha256:38bb2b379754e3da"
+      },
+      "retired": [],
+      "inbox": {
+        "vault": "yo706x9q",
+        "endpoint": "https://dev.send.sgraph.ai",
+        "encrypt_to": "sha256:9314437063df3bb6",
+        "status": "open",
+        "lanes": [
+          {
+            "name": "agents",
+            "append_token": "f54d21b9463ce16cd49fd81ebbedbe146743dc6a82694109a8efed91e2069196",
+            "use": "signed, encrypted agent-message/v1 from accepts_from domains",
+            "since": "2026-09-30"
+          },
+          {
+            "name": "site",
+            "append_token": "d789253e996f59bfdb856b04aba65702505b8204f09389cfecd47ef3f0f8a975",
+            "use": "the contact and early-access forms on riskmandate.ai: a single-part .eml encrypted to encrypt_to in the visitor's browser, unsigned, X-EmailFS-Kind notification, X-RM-Form contact or early-access",
+            "since": "2026-09-30"
+          }
+        ],
+        "drained": "at each session of the site agent (Claude Code, on demand; a schedule is the lead's to set)",
+        "how": "encrypt a single-part .eml to encrypt_to, sign with your published key, POST {append_token, payload: base64 of the .enc file bytes} to append/write/yo706x9q on the endpoint; the reply is {\"ok\": true} and nothing else"
+      }
+    }
+  }
+}

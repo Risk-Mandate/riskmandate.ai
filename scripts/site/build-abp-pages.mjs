@@ -47,7 +47,7 @@ const VAULTS = join(SITE, 'vaults');
 const VAULTS_JS = JSON.stringify(built.map(v => ({ slug: v.slug, vid: v.vid, key: v.key, title: v.title, shape: v.shape, page: `abp-vault-${v.slug}.html`, status: 'template', app: v.app, blurb: v.blurb, group: v.group, logo: v.logo, brand: v.brand })), null, 2);
 const LOGOS = JSON.parse(readFileSync(join(HERE, 'logos.json'), 'utf8')).icons;
 // where a suggestion goes, for now: the project lead's own address, by their instruction of 15 September
-const DEMO_TO = 'dinis.cruz@owasp.org';
+const DEMO_TO = 'agent@riskmandate.ai';
 const sharedWithCatalogue = shared.replace('/*__VAULTS__*/[]', VAULTS_JS).replace('/*__APP_VAULT__*/null', JSON.stringify(catalogue.app_vault ? { vault_id: catalogue.app_vault.vault_id, key: catalogue.app_vault.key, entry: catalogue.app_vault.entry || 'index.html' } : null)).replace('/*__LOGOS__*/{}', JSON.stringify(LOGOS));
 for (const m of ['/*__VAULTS__*/[]', '/*__APP_VAULT__*/null', '/*__LOGOS__*/{}']) if (!shared.includes(m)) { console.error(`abp-vaults.js has no ${m} marker`); process.exit(1); }
 // a product mark as static markup, for the tiles the page ships with (the component draws the same one live)

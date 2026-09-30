@@ -22,7 +22,7 @@ Everything level 3 delivers, built from two half-hour sessions with your team ra
 
 The Agent Behaviour Policy at this level is built from the interview rather than from a form, so the first session is where it starts.
 
-- **Book the first session.** Email [nrparekh@gmail.com](mailto:nrparekh@gmail.com?subject=Level%204%20%C2%B7%20book%20the%20first%20session%20%C2%B7%20order%20%5Byour%20reference%5D) with your order reference, two or three half-hour slots that suit your team, and who will be in the room: the people who built the agent, the people who own what it touches, and whoever is accountable for it. We confirm one slot by reply.
+- **Book the first session.** Email [agent@riskmandate.ai](mailto:agent@riskmandate.ai?subject=Level%204%20%C2%B7%20book%20the%20first%20session%20%C2%B7%20order%20%5Byour%20reference%5D) with your order reference, two or three half-hour slots that suit your team, and who will be in the room: the people who built the agent, the people who own what it touches, and whoever is accountable for it. We confirm one slot by reply.
 - **The first session: what is actually running.** Half an hour. Which agent, where it runs, what it holds, what it was asked to do. We take the record; you correct it as we go.
 - **The second session: delivery.** Half an hour, after the vault is built and reviewed. What the grant is, what the mandate says, where the delta sits, what the sign-off covers and what it does not.
 
@@ -41,4 +41,4 @@ The vault key arrives out of band — by a separate message to the address you p
 
 ## Write to a person. Not a form.
 
-If nobody has followed up within 24 hours, email [nrparekh@gmail.com](mailto:nrparekh@gmail.com?subject=Level%204%20%C2%B7%20order%20%5Byour%20reference%5D%20%C2%B7%20nothing%20arrived) with your order reference and the product code `t4`. A person reads it.
+If nobody has followed up within 24 hours, email [agent@riskmandate.ai](mailto:agent@riskmandate.ai?subject=Level%204%20%C2%B7%20order%20%5Byour%20reference%5D%20%C2%B7%20nothing%20arrived) with your order reference and the product code `t4`. A person reads it.

@@ -36,4 +36,4 @@ Compare the hash printed above with the hash of what you downloaded, or press _c
 
 ## Write to a person. Not a form.
 
-If the download fails, the hash does not match, or the shape on your receipt is not on this page, email [nrparekh@gmail.com](mailto:nrparekh@gmail.com?subject=Level%201%20%C2%B7%20order%20%5Byour%20reference%5D%20%C2%B7%20download) with your order reference and the product code `t1`. A person reads it and sends the file.
+If the download fails, the hash does not match, or the shape on your receipt is not on this page, email [agent@riskmandate.ai](mailto:agent@riskmandate.ai?subject=Level%201%20%C2%B7%20order%20%5Byour%20reference%5D%20%C2%B7%20download) with your order reference and the product code `t1`. A person reads it and sends the file.

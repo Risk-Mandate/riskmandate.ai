@@ -18,8 +18,8 @@ RM.components.nav = (function () {
   // Every "Book a demo" control opens a mail client with a subject and a
   // starting message. One place to change when booking becomes a real form.
   var DEMO = {
-    to     : 'nrparekh@gmail.com',
-    subject: 'RiskMandate — demo request',
+    to     : 'agent@riskmandate.ai',
+    subject: 'RiskMandate — get in touch',
     body   : [
       'Hi,',
       '',
@@ -41,7 +41,9 @@ RM.components.nav = (function () {
       '&body='    + encodeURIComponent(DEMO.body);
   }
 
-  function openDemo() { window.location.href = demoHref(); }
+  // Since the contact form exists, "Get in touch" opens it: what a person types there is encrypted
+  // to the site agent's key in their browser. The mailto stays as demoHref for pages that link it.
+  function openDemo() { var base = (window.RM && RM.data && RM.data.base) || ''; window.location.href = base + 'contact.html'; }
 
   function scrollTo(doc, id) {
     var t = doc.getElementById(id);
