@@ -16,6 +16,10 @@ Each of these takes one thing a deployment actually does, shows the screen or th
 
 Some of what these articles say is also told as a story, with the same cast each time: [the stories](stories/), storyboards first, pictures last.
 
+### [Your dot has its own computer, its own browser and your apps. Write down what it was for.](article-abp-for-chatgpt-dots.html)
+
+OpenAI released dots on 29 September: always-on agents in ChatGPT with a cloud computer, a browser, and every app you ever connected, working while you are away. An introduction for readers who have not met one, from the vendor's own pages; then the Agent Behaviour Policy for one: twelve capability rows in the site's vocabulary, each with the vendor's sentence, a barrier and who holds it; the finding that the strongest barriers on the rows that matter are held by a reviewer model the vendor itself calls a judgement rather than a guarantee, and a request to the model site for a word for that; six questions the pages do not settle; a starting mandate with its delta derived; and five steps to write one for your own dot. Nothing tested, nothing scored.
+
 ### [One agent, and every desk it reaches. How to read the risk propagation visualiser.](article-risk-propagation-visualiser.html)
 
 The guide to the figure on the role-ownership article, which draws one agent's risks live. Who it is for, in seven user stories; the six weeks as a story; how to read the six bands, two colours and a click; each connection on its own and then combined, where a risk appears that none of them has alone; eight controls one at a time and then all of them, each trading a red risk for a green one; what a business gets from the picture and the five questions to ask in a room; and how it works, down to the walk that goes one way per hop. Thirty-four captures of the figure, each in the state its caption names.

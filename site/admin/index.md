@@ -15,9 +15,9 @@
 
 **28**briefs written here*one page each*
 
-**16**vaults built and pushed*4 measured · 8 asked for*
+**16**vaults built and pushed*4 measured · 9 asked for*
 
-**120**releases*8 Lab editions*
+**121**releases*8 Lab editions*
 
 ## Needs the lead — 9
 

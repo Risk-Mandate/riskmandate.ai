@@ -36,6 +36,10 @@ An integration is added page by page, which is the one connector model with a fl
 
 A CRM is entirely third-party material by construction.
 
+### A ChatGPT dot
+
+An always-on agent with its own cloud computer, its own browser and every app the account connected, working between conversations. Documented from the vendor's pages on 30 September 2026 in the article; the twelve rows and six open questions are ready for a vault.
+
 ## What the agent is for, not what it runs on.
 
 A different axis: a policy for the CRM, the service desk or the finance data, whichever product holds it. The mandate is the same across products; the grant is per product; the policy is built once one product's grant is documented for the function.

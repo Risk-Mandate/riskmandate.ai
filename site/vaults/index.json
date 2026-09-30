@@ -318,6 +318,16 @@
       "note": "not yet researched",
       "logo": "salesforce",
       "brand": "#00A1E0"
+    },
+    {
+      "slug": "chatgpt-dots",
+      "app": "A ChatGPT dot",
+      "family": "assistant",
+      "glyph": "•",
+      "blurb": "An always-on agent with its own cloud computer, its own browser and every app the account connected, working between conversations. Documented from the vendor's pages on 30 September 2026 in the article; the twelve rows and six open questions are ready for a vault.",
+      "note": "documented in an article, 30 September 2026; not yet a vault",
+      "logo": "openai",
+      "brand": "#412991"
     }
   ],
   "app_vault": {
