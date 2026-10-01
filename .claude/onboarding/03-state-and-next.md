@@ -85,7 +85,11 @@ the site's; check `site/versions/index.json` for the current version before trus
 - **Stories** (`site/stories/`, served as `/stories/`, v1.34.18 and moved into the folder in v1.34.19, D29): a
   cast of nine drawn by a ChatGPT image model from the lead's prompt, with what each stands for on the site's
   model; six stories as data, two drawn and four storyboards from the articles, each with the truth under it,
-  the panels and a prompt for any image model; a third drawn story, *While I was there* (the studio's, accepted by the lead
+  the panels and a prompt for any image model; an eighth, *The ultimate insider* (1 Oct, v1.35.3), fourteen panels from
+  the lead's sgit.ai article, recast from a draft the sgit.ai session made with its own Synthetic Users; its prompt names
+  the cast sheet and three drawn strips as reference images, and `llms.txt` now points sibling agents at the data
+  (`stories/cast.json`, the story JSON, `board.json`, `team/*.json`) because that session searched its own repository
+  and found nothing; a third drawn story, *While I was there* (the studio's, accepted by the lead
   on 26 September, message 008), shipped in v1.35.1. The order is story, narrative, punchline, cast, storyboard,
   picture. In the header under *Reading*, with Articles (the seventh top-level entry; the cap holds). Section 06
   of the index is **who does what and the board**: the lead, a studio model (`studio.chatgpt`) and this site's

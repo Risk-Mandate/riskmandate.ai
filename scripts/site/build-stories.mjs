@@ -144,6 +144,7 @@ function cut(file, name, title, desc, body) {
 }
 
 const name = (id) => CAST[id] ? CAST[id].name : id;
+const link = (u) => (/^https?:/.test(u) ? u : '/' + u);   // a source on another site is linked as it is
 const short = (t, n) => (t.length > n ? t.slice(0, n - 1).replace(/\s+\S*$/, '') + '…' : t);
 const isThing = (id) => cast.things.some((t) => t.id === id);
 const castRow = (c, proposed) => `<div class="st-r${proposed ? ' proposed' : ''}" role="row"><span role="cell">${esc(c.name)}<span class="id">${esc(c.id)} · ${esc(c.role)}</span></span><span role="cell" class="q" data-k="Their line">&ldquo;${esc(c.line)}&rdquo;</span><span role="cell" data-k="Stands for">${esc(c.stands_for || c.why || '')}${c.note ? ` <em>${esc(c.note)}</em>` : ''}</span><span role="cell" data-k="Looks like">${esc(c.look || '')}</span></div>`;
@@ -230,7 +231,7 @@ function indexPage() {
       <p>Each has its page: the truth under it, the storyboard panel by panel, the prompt for an image model, and, where a model has drawn it, the picture and what to correct.</p>
     </div>
     <div class="st-cards">
-      ${stories.map((s) => `<a class="st-card" href="${HERE}${esc(s.slug)}.html">${s.status === 'drawn' ? `<img src="${HERE}${esc(s.drawn.image)}" width="${s.drawn.width}" height="${s.drawn.height}" loading="lazy" alt="${esc(s.drawn.alt)}">` : `<div class="board" aria-hidden="true">${s.panels.map((p) => `<span><b>PANEL ${p.n}</b>${esc(((p.dialogue || [])[0] || {}).says ? '“' + short(p.dialogue[0].says, 44) + '”' : short(p.scene, 44))}</span>`).join('')}</div>`}<div class="body"><span class="st-pill${s.status === 'drawn' ? ' drawn' : ''}">${s.status === 'drawn' ? 'Drawn' : 'Storyboard'} · ${esc(s.format || `${s.panels.length} panels`)}</span><h3>${esc(s.title)}</h3><p class="punch">${esc(s.punchline)}</p><p>${s.cast.map(name).join(', ')}.</p></div></a>`).join('\n      ')}
+      ${stories.map((s) => `<a class="st-card" href="${HERE}${esc(s.slug)}.html">${s.status === 'drawn' ? `<img src="${HERE}${esc(s.drawn.image)}" width="${s.drawn.width}" height="${s.drawn.height}" loading="lazy" alt="${esc(s.drawn.alt)}">` : `<div class="board" aria-hidden="true">${s.panels.slice(0, 4).map((p) => `<span><b>PANEL ${p.n}</b>${esc(((p.dialogue || [])[0] || {}).says ? '“' + short(p.dialogue[0].says, 44) + '”' : short(p.scene, 44))}</span>`).join('')}</div>`}<div class="body"><span class="st-pill${s.status === 'drawn' ? ' drawn' : ''}">${s.status === 'drawn' ? 'Drawn' : 'Storyboard'} · ${esc(s.format || `${s.panels.length} panels`)}</span><h3>${esc(s.title)}</h3><p class="punch">${esc(s.punchline)}</p><p>${s.cast.map(name).join(', ')}.</p></div></a>`).join('\n      ')}
     </div>
   </div>
 </section>
@@ -319,7 +320,7 @@ function storyPage(s) {
     <span class="eyebrow"><span class="d"></span> Story · ${s.status === 'drawn' ? 'drawn' : 'storyboard'} · ${esc(s.format || `${s.panels.length} panels`)}</span>
     <h1>${esc(s.title)}</h1>
     <p class="sub" style="margin-bottom:20px"><em>${esc(s.punchline)}</em> With ${s.cast.map((id) => `${name(id)}, ${CAST[id].role.toLowerCase()}`).join('; ')}.</p>
-    <p class="meta"><b>Where it comes from:</b> ${esc(s.source.what)} <a href="/${esc(s.source.url)}">${esc(s.source.url)}</a>${(s.source.also || []).map((a) => ` · <a href="/${esc(a.url)}">${esc(a.label)}</a>`).join('')}</p>
+    <p class="meta"><b>Where it comes from:</b> ${esc(s.source.what)} <a href="${esc(link(s.source.url))}">${esc(s.source.url)}</a>${(s.source.also || []).map((a) => ` · <a href="${esc(link(a.url))}">${esc(a.label)}</a>`).join('')}</p>
     <p class="meta"><b>Fictionalised.</b> Nobody&rsquo;s product is drawn and nobody&rsquo;s system was tested. The truth under the story is the site&rsquo;s, and it is stated below.</p>
     <p class="meta"><b>This page as markdown:</b> <a href="${HERE}${esc(s.slug)}.md">${esc(s.slug)}.md</a></p>
   </div>
@@ -394,7 +395,7 @@ ${(s.for_merch || []).length ? `<section class="psection${s.status === 'drawn' ?
     <span class="eyebrow"><span class="d"></span> The cast</span>
     <h2>Same people, <span class="it">next story.</span></h2>
     <p>${s.cast.map(name).join(', ')} and the rest are on the stories page, with what each one stands for, and the workflow every story goes through before it is drawn.</p>
-    <div class="cta-row"><a class="btn btn-green" href="${HERE}">All the stories</a><a class="btn btn-ghost" href="/${esc(s.source.url)}">The article it came from</a></div>
+    <div class="cta-row"><a class="btn btn-green" href="${HERE}">All the stories</a><a class="btn btn-ghost" href="${esc(link(s.source.url))}">The article it came from</a></div>
   </div>
 </section>
 <script>

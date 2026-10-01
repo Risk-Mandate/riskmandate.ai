@@ -7,7 +7,7 @@
 
 **2**waiting on somebody outside*the store's agent, the model site*
 
-**0**branches in flight*one work file each*
+**1**branches in flight*one work file each*
 
 **12**open tasks*of 17 in the queue · 1 done*
 
@@ -17,7 +17,7 @@
 
 **16**vaults built and pushed*4 measured · 9 asked for*
 
-**121**releases*8 Lab editions*
+**122**releases*8 Lab editions*
 
 ## Needs the lead — 9
 
@@ -59,13 +59,13 @@ a decision the lead owns, openD6
 
 a decision the lead owns, openD7
 
-## In flight — 0 branches
+## In flight — 1 branch
 
 One file per branch under `.claude/work/`, written before the work starts and deleted when it merges. Read every one before claiming a task.
 
-**Nothing in flight.**
+**[claude/dev-session-setup-a5wcc5](../admin/work/branches/claude-dev-session-setup-a5wcc5/)**
 
-No work file under .claude/work/.
+An eighth story, *The ultimate insider*, fourteen panels from the lead's sgit.ai article, recast from a draft the sgit.ai session made with its own cast; its prompt names the cast sheet and three drawn strips as references. A section in `llms.txt` pointing agents on sibling sites at the data files. Builder: an external source address, and a four-panel card preview for a long story. since 1 October 2026
 
 ## How work gets here
 

@@ -75,11 +75,19 @@ a decision the lead owns, listed in the state fileneeds the lead
 
 a decision the lead owns, listed in the state fileneeds the lead
 
-## In flight — 0 branches
+## In flight — 1 branch
 
 One file per branch under `.claude/work/`. [How a work file is written](../../admin/work/about-work-files/).
 
-Nothing in flight.
+### [claude/dev-session-setup-a5wcc5](../../admin/work/branches/claude-dev-session-setup-a5wcc5/)
+
+started 1 October 2026 · task brief: ad hoc: The ultimate insider storyboard, and a pointer for sibling agents
+
+An eighth story, *The ultimate insider*, fourteen panels from the lead's sgit.ai article, recast from a draft the sgit.ai session made with its own cast; its prompt names the cast sheet and three drawn strips as references. A section in `llms.txt` pointing agents on sibling sites at the data files. Builder: an external source address, and a four-panel card preview for a long story.
+
+**External state.** Vault pushed: `dy4u2m9c`, one check-in: message 009 to the studio, the sgit session's two drafts kept under the publisher's files, the story mirrored, the board at revision 2. · Release I will claim at merge: yes, 1.35.3
+
+**Status.** [x] built, checked, rendered · [ ] release, merge, deploy
 
 ## Task briefs — 14
 
