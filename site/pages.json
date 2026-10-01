@@ -375,6 +375,13 @@
       "unlisted": true
     },
     {
+      "name": "stories-the-ultimate-insider",
+      "label": "Story · The ultimate insider.",
+      "file": "stories/the-ultimate-insider.html",
+      "group": "Reading",
+      "unlisted": true
+    },
+    {
       "name": "questions",
       "label": "Questions",
       "file": "questions.html",

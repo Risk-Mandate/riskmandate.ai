@@ -333,6 +333,18 @@ const llms = (ps, latest, manifest) => [
   `- [Content manifest](${ORIGIN}/.well-known/agent-content.json): structured JSON`,
   `- [Agent contact file](${ORIGIN}/.well-known/sgit-agents.json): the site agent's identity, keys and inbox lane (Agent Contact v0.1, sgit.ai)`,
   `- [Version index](${ORIGIN}/versions/index.json): every release, and the file its notes live in`,
+  ``,
+  `## Working material, for an agent on a sibling site`,
+  ``,
+  `The data the pages above are built from, so that a cast, a storyboard or a behaviour policy`,
+  `can be reused without being retyped. An agent working on sgit.ai or another site of this`,
+  `network that needs the cast or the stories should start here, not with a search.`,
+  ``,
+  `- [The cast](${ORIGIN}/stories/cast.json): nine characters, each with the line they were drawn with, what they stand for, and their look; the cast sheet is ${ORIGIN}/stories/images/meet-the-cast.webp`,
+  `- The stories, one JSON each beside its page under ${ORIGIN}/stories/ (slug.json): title, punchline, cast, source, the truth under it, the panels, and the prompt for an image model`,
+  `- [The board](${ORIGIN}/stories/board.json): who is doing what on the stories, derived and versioned`,
+  `- [The team's behaviour policies](${ORIGIN}/team/team.json): the tiers, surfaces and workflow; ${ORIGIN}/team/publisher.json and ${ORIGIN}/team/studio.json are the two agents' policies in the vault grammar`,
+  `- [The catalogue of behaviour-policy vaults](${ORIGIN}/vaults/index.json): every published shape with its public read key`,
   ``
 ].join('\n');
 
