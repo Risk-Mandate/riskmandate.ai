@@ -3,7 +3,7 @@
 > Every document under docs/ on riskmandate.ai, rendered as a page: direction briefs, reviews, workflows, architecture and research, newest first.
 > Source: https://riskmandate.ai/admin/briefs/ · noindex · written by scripts/site/build-admin.mjs
 
-**28**documents under docs/*one page each, rendered from the file*
+**32**documents under docs/*one page each, rendered from the file*
 
 **8**direction briefs*the product and the site*
 
@@ -14,6 +14,22 @@
 These were written here, by the agent maintaining the site, in response to [the memos and documents that arrived](../../admin/memos/). Each is read against a named source and dated. Add a file under `docs/` and rerun `build-admin.mjs`: it has a page here and a test fails until it does.
 
 ## Newest first
+
+**[Keeping an eye on the comms vault: a brief for the session that runs agent@riskmandate.ai](../../admin/briefs/handover__keeping-an-eye-on-the-comms-vault/)**
+
+agent@riskmandate.ai now has a second inbox beside the mailbox. The contact form and the early-access registration on riskmandate.ai do not send email: what a visitor types is encrypted in their browser to the agent's public key and dropped into a…30 September 2026 · handover
+
+**[The encrypted contact form, for another site: what riskmandate.ai built and how to copy it](../../admin/briefs/handover__the-contact-form-for-another-site/)**
+
+A contact form on a static site with no server, no form builder and nothing stored: what the visitor types is encrypted in their browser to the site agent's public key and dropped, with one POST, into a write-only append lane on the agent's private sgit…30 September 2026 · handover
+
+**[The early-access programme: invite only, a vault each, and the first batch by hand](../../admin/briefs/programme__early-access-and-the-first-batch/)**
+
+An invitation to a small group of people who already run an agent with real access. Each member gets a behaviour-policy vault made for their organisation and their agent, holds its keys, and is asked to correct it. The correction is the product's first…30 September 2026 · programme
+
+**[The early-access programme: the invitation, the replies, and how the first batch goes out](../../admin/briefs/programme--early-access-invitations/)**
+
+The programme itself is described in docs/briefs/programme__early-access-and-the-first-batch.md and on the site at /early-access.html. This file is the operational half: the words that go out, the columns the list needs, and who does what, in the six-roles…30 September 2026
 
 **[The stories vault: how the lead, a studio model, this site's agent and the site work together](../../admin/briefs/architecture__the-stories-vault-and-the-three-way-workflow/)**
 
@@ -246,6 +262,10 @@ riskmandate.ai is written for a Head of Risk. Lisbon is founders and investors. 
 Move the interactive Risk Scenarios experience to the decoupled model:4 July 2026 · implementation
 
 ## Other documents · how the site works, and the marketing copy
+
+**[The early-access programme: the invitation, the replies, and how the first batch goes out](../../admin/briefs/programme--early-access-invitations/)**
+
+The programme itself is described in docs/briefs/programme__early-access-and-the-first-batch.md and on the site at /early-access.html. This file is the operational half: the words that go out, the columns the list needs, and who does what, in the six-roles…30 September 2026
 
 **[LinkedIn company page — every field, ready to paste](../../admin/briefs/marketing--linkedin-company-page/)**
 

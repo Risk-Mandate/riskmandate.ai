@@ -749,7 +749,7 @@ function casePage(c) {
     <span class="eyebrow"><span class="d"></span> The same method, for your product</span>
     <h2>Make the case <span class="it">in the register&rsquo;s own terms.</span></h2>
     <p>If you build a security product for agents, the case for it can be written the same way: what it does in your own words, the answers it changes, and the register before and after. If a case here is wrong about you, tell us and it changes with a date.</p>
-    <div class="cta-row"><a class="btn btn-green" href="business-cases.html">All the cases</a><a class="btn btn-ghost" href="mailto:dinis.cruz@owasp.org?subject=Business%20case%20%C2%B7%20${encodeURIComponent(c.product)}">Write to us</a></div>
+    <div class="cta-row"><a class="btn btn-green" href="business-cases.html">All the cases</a><a class="btn btn-ghost" href="mailto:agent@riskmandate.ai?subject=Business%20case%20%C2%B7%20${encodeURIComponent(c.product)}">Write to us</a></div>
   </div>
 </section>`;
   return cut(name, title, desc, body, c.status === 'draft');
@@ -879,7 +879,7 @@ function indexPage() {
     <span class="eyebrow"><span class="d"></span> Build or buy security for agents?</span>
     <h2>Ask for a case, <span class="it">or correct one.</span></h2>
     <p>If you build a product for agent security and would like its case written, or you have read a case about your product and it is wrong, write to us. If you run agents, the case for anything starts with a map of one of them.</p>
-    <div class="cta-row"><a class="btn btn-green" href="mailto:dinis.cruz@owasp.org?subject=A%20business%20case">Write to us</a><a class="btn btn-ghost" href="try-it.html">Map one agent, free</a></div>
+    <div class="cta-row"><a class="btn btn-green" href="mailto:agent@riskmandate.ai?subject=A%20business%20case">Write to us</a><a class="btn btn-ghost" href="try-it.html">Map one agent, free</a></div>
   </div>
 </section>`;
   return cut('business-cases', 'RiskMandate — business cases, by the risk they change',

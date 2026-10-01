@@ -6,7 +6,7 @@
 Keep this file true. If you land something, move it; if you learn something, add it. Dates are
 the site's; check `site/versions/index.json` for the current version before trusting the number here.
 
-## State as at 2026-09-21, v1.28.0
+## State as at 2026-09-30, v1.35.3
 
 - **Site:** 65 HTML files under `site/` plus the admin console under `site/admin/`, one live site deployed from `dev`. Top-level menu:
   Behaviour policies · Who it's for · Insurance · Pricing · Try it · Articles · More (v1.28.0: **seven entries, the cap**; the
@@ -114,6 +114,21 @@ the site's; check `site/versions/index.json` for the current version before trus
   `direction__the-next-phase-is-users.md`, the go-to-market direction: **the measure is the number
   of people who run the prompts**, and the queue that follows is T13 (a workflow per shape) and T14
   (volume and instances on the consequence layer).
+- **The agent's front door** (v1.35.3, 30 Sept): `agent@riskmandate.ai` is the one identity. As an address it is the
+  monitored Workspace mailbox with the six roles of sgit.ai's *Six agents, one inbox* (29 Sept) behind it; as a lane
+  identity it is Agent Contact v0.1: `site/.well-known/sgit-agents.json` (keys, fingerprints, the inbox vault
+  `yo706x9q` on dev.send.sgraph.ai, two public append tokens) and `/agents/`, built from the file by
+  `build-agents.mjs` (`--check` in `npm run check`; `tests/site/test_agents.mjs` recomputes the fingerprints). The
+  comms vault holds the identity's key store (encrypted under a secret derived from the write key) and is drained by
+  `scripts/intake/drain.mjs` with `COMMS_KEY` in the environment; `configure.mjs` (re)registers lanes. Every address on
+  the site now points at `agent@riskmandate.ai`; *Get in touch* opens `contact.html`.
+- **Two forms over the `site` lane** (v1.35.3): `contact.html` and `early-access.html` encrypt what is typed to the
+  agent's RSA key in the browser (sgit envelope v2, Web Crypto, proven against `sgit pki decrypt`) and POST to
+  `append/write`; on any failure the same text becomes a mailto. `privacy.html` says so. A synthetic registration was
+  sent, drained and committed to the comms vault on 30 Sept.
+- **The early-access programme** (invite only, a vault each, free): `docs/briefs/programme__early-access-and-the-first-batch.md`
+  and `docs/programme/early-access-invitations.md` (the invitation, the acceptance, the reminder, the CSV columns, who
+  does what in the six roles). Waiting on the lead: the list, the sender, the drain schedule, telling sgit.ai.
 - **Records:** 14 items in the brief register (9 files, 5 informal); 23 releases since v1.0.0.
 - **Summit:** Lisbon, 17–18 Sept. `summit.html` public; `summit-booth.html` private working page.
 - **The store is live** (store.sgit.ai, 15 Sept): four levels, named by level here; the store owns every price (its boundary of 16 Sept). The

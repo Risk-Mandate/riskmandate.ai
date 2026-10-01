@@ -9,7 +9,15 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
-- **v1.35.3** · 2026-10-01 — The ultimate insider, storyboarded, and a pointer for sibling agents
+- **v1.35.7** · 2026-09-30 — A brief for the mailbox session: the comms vault is its second inbox
+  Notes: https://riskmandate.ai/versions/1.35.7.md · Source: `git:v1.35.7`
+- **v1.35.6** · 2026-09-30 — The consent line says what it means
+  Notes: https://riskmandate.ai/versions/1.35.6.md · Source: `git:v1.35.6`
+- **v1.35.5** · 2026-09-30 — A handover: the encrypted contact form, for any site in the network
+  Notes: https://riskmandate.ai/versions/1.35.5.md · Source: `git:v1.35.5`
+- **v1.35.4** · 2026-09-30 — The agents page gets its twin: it was built and not listed
+  Notes: https://riskmandate.ai/versions/1.35.4.md · Source: `git:v1.35.4`
+- **v1.35.3** · 2026-09-30 — The agent's front door: one address, a contact file, two encrypted forms, and the early-access programme
   Notes: https://riskmandate.ai/versions/1.35.3.md · Source: `git:v1.35.3`
 - **v1.35.2** · 2026-09-30 — A behaviour policy for a ChatGPT dot
   Notes: https://riskmandate.ai/versions/1.35.2.md · Source: `git:v1.35.2`

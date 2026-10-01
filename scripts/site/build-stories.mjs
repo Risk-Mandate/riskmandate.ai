@@ -304,7 +304,7 @@ function indexPage() {
     <span class="eyebrow"><span class="d"></span> Tell one</span>
     <h2>Every story here started <span class="it">as an example in an article.</span></h2>
     <p>If one of yours has a rep, a founder, a risk owner and an agent in it, it is a storyboard already. Send the story and the punchline; the cast will do the rest.</p>
-    <div class="cta-row"><a class="btn btn-green" href="/articles.html">The articles</a><a class="btn btn-ghost" href="mailto:dinis.cruz@owasp.org?subject=A%20story">Send a story</a></div>
+    <div class="cta-row"><a class="btn btn-green" href="/articles.html">The articles</a><a class="btn btn-ghost" href="mailto:agent@riskmandate.ai?subject=A%20story">Send a story</a></div>
   </div>
 </section>`;
   return cut('stories/index.html', 'stories', 'RiskMandate — Stories: a cast, and storyboards told with it',
