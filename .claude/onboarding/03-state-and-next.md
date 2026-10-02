@@ -156,7 +156,9 @@ the site's; check `site/versions/index.json` for the current version before trus
   the words, fixes spelling to British, points dead links at contact, and carries a note at the top saying the copy,
   claims are the design's and under review. **v1.35.15, at the two founders' decision:** the mock's per-system
   monthly/yearly price builder is replaced by a picker over the store's four levels, in pounds, paid once, with the
-  store links; the page says what comes next is learnt from early users. Nothing on it is scored.
+  store links; the page says what comes next is learnt from early users. v1.35.16: level 3 is marked *start here*
+  and selected on load, and the card carries a second link, register for early access to have level 3 at no cost
+  (the agent@riskmandate.ai workflow). Nothing on it is scored.
 - **The early-access programme** (invite only, a vault each, free): `docs/briefs/programme__early-access-and-the-first-batch.md`
   and `docs/programme/early-access-invitations.md` (the invitation, the acceptance, the reminder, the CSV columns, who
   does what in the six roles). Waiting on the lead: the list, the sender, the drain schedule, telling sgit.ai.
