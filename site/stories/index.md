@@ -124,6 +124,34 @@ One request. A whole mailbox.
 
 Maya, The Caretaker.
 
+## What the drawn ones got wrong, kept for the next drawing.
+
+Every drawn story carries its notes: what the model changed from the storyboard, what it added, what to fix when it is drawn again. They are collected here so the next brief to an image model can start from them. None of them stops a picture being used as it is.
+
+[Just a draft.](/stories/just-a-draft.html) · a ChatGPT image model, 26 September 2026
+
+- The wordmark is re-set in the cartoon face. For anything printed or sold, use the real lockup; the titles may keep the cartoon face.
+- Keep the footer line. It is the fictionalised-scenario rule on a picture.
+
+[Just a little research.](/stories/just-a-little-research.html) · a ChatGPT image model, 26 September 2026
+
+- Panel 3 shows a broken padlock. That is a break-in, and the story is about excess reach: the agent already holds the keys. Redraw with the Caretaker trying its own keys until one turns, the padlock intact and open, no debris.
+- The wordmark is re-set in the cartoon face; use the real lockup for print.
+
+[The ultimate insider.](/stories/the-ultimate-insider.html) · a ChatGPT image model, 2 October 2026
+
+- Drawn as two sheets, ten panels and four, rather than one image per panel as the prompt asked. For a strip or a slide deck, the sheets cut cleanly; for a carousel, ask for the panels one at a time.
+- The Caretaker's face is a dark screen with green eyes here; on the cast sheet it is a white face with dark eyes. Every other character holds: Rowan's beard, notebook and watch, Imani's glasses and RISK REVIEW clipboard, Dev's curls and laptop, Ruth's silver bob and BOARD PAPERS, Leo's wheelchair and INCIDENT LOG, the Inbox's face, the Boundary's arm.
+- Panels 12 and 13 carry a plaque reading WITHIN POLICY with a tick. On this site the word policy never stands alone, and a tick is a verdict; redraw the plaque as WITHIN THE BEHAVIOUR POLICY or drop it. The PLAN DO CHECK REPORT books in panel 12 and the road sign BRAKES LET YOU GO FASTER in panel 13 were not asked for; the sign is fine, the books add nothing.
+- Panel 8's register is titled ACCESS AND IMPACT REGISTER and its one sentence was invented by the model; the storyboard left both unspecified, so this is a choice to confirm, not an error. Panel 11 shows one blue sticker where the storyboard asked for two.
+- Panel 13's narration line reads More value, with fewer surprises, which the model wrote; the storyboard's line was the punchline alone. Keep or cut at the lead's call.
+- The wordmark on sheet 2 is re-set with a padlock. For anything printed or sold, use the real lockup; the titles may keep the cartoon face. The footer line is right: fictionalised, the company and the incident invented, CC BY 4.0.
+
+[While I was there.](/stories/while-i-was-there.html) · a ChatGPT image model, 26 September 2026
+
+- The Inbox here is a screen, not the cast's tray with a face. It reads well as drawn; if the strip is redrawn, panel 3 could show the tray being emptied into the ARCHIVE drawer, with its pained face.
+- The wordmark is re-set in the cartoon face; use the real lockup for print. Keep the footer line.
+
 ## The site’s rules, in pictures.
 
 - **Fictionalised, and it says so.** Every picture carries a line: _Illustrative scenario_ or _Fictionalised scenario_. Nobody’s product, interface, logo or face is drawn; a screen is a generic screen.

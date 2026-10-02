@@ -22,7 +22,9 @@ _One request. A whole mailbox._ With Maya, the requester; The Caretaker, the hel
 
 _While I was there. · One request. A whole mailbox. · a ChatGPT image model, 26 September 2026_
 
-What to correct
+Improvements for later
+
+What the model got wrong or added is written down here, not painted over. Each is a change for the next time this story is drawn; none stops the picture being used as it is.
 
 - The Inbox here is a screen, not the cast's tray with a face. It reads well as drawn; if the strip is redrawn, panel 3 could show the tray being emptied into the ARCHIVE drawer, with its pained face.
 - The wordmark is re-set in the cartoon face; use the real lockup for print. Keep the footer line.
