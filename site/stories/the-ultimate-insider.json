@@ -2,26 +2,231 @@
   "slug": "the-ultimate-insider",
   "title": "The ultimate insider.",
   "punchline": "Brakes are what let a car go fast.",
-  "status": "storyboard",
+  "status": "drawn",
   "format": "fourteen panels",
-  "cast": ["H04", "H02", "H03", "H06", "H05", "E01", "E02", "E03"],
-  "source": { "what": "The collision section of the lead's article The ultimate insider on sgit.ai, 30 September 2026: an agent as the insider that never scaled, infrastructure that cannot hold it, and risk management at the speed of spreadsheets; then the way out and the irony. A first storyboard was drafted in the sgit.ai session on 1 October with that site's Synthetic Users as the cast; this is the same story told with this cast, so it joins the others.", "url": "https://sgit.ai/articles/ultimate-insider-three-collisions.html", "also": [{ "label": "Who owns what in AI", "url": "article-who-owns-what-in-ai.html" }, { "label": "The pilot worked. Then somebody asked what else it could do", "url": "article-pilots-do-not-stay-in-production.html" }, { "label": "What an Agent Behaviour Policy is", "url": "article-what-is-an-abp.html" }] },
+  "cast": [
+    "H04",
+    "H02",
+    "H03",
+    "H06",
+    "H05",
+    "E01",
+    "E02",
+    "E03"
+  ],
+  "source": {
+    "what": "The collision section of the lead's article The ultimate insider on sgit.ai, 30 September 2026: an agent as the insider that never scaled, infrastructure that cannot hold it, and risk management at the speed of spreadsheets; then the way out and the irony. A first storyboard was drafted in the sgit.ai session on 1 October with that site's Synthetic Users as the cast; this is the same story told with this cast, so it joins the others.",
+    "url": "https://sgit.ai/articles/ultimate-insider-three-collisions.html",
+    "also": [
+      {
+        "label": "Who owns what in AI",
+        "url": "article-who-owns-what-in-ai.html"
+      },
+      {
+        "label": "The pilot worked. Then somebody asked what else it could do",
+        "url": "article-pilots-do-not-stay-in-production.html"
+      },
+      {
+        "label": "What an Agent Behaviour Policy is",
+        "url": "article-what-is-an-abp.html"
+      }
+    ]
+  },
   "truth": "Three things arrive at once. An agent is a reasoning engine in a loop with tools, and it has skills no insider ever had, so the insider threat that never scaled now does. The systems it sits in were built for code that stays where it was put: no journal, backups by the day, permissions that are the union of everything ever needed. And the discipline meant to decide about both runs in a spreadsheet, reviewed quarterly; because it cannot see what the agent can reach it cannot say what the risk is, so it cannot fund a control, so the answer becomes pull the plug. The way out is the irony at the end: write down what the agent can reach, what it is for, the gap and what stands in the way; put a fence where only a boundary is a control; put a name and a date on the acceptance; and then let it run faster inside that than it ever could outside. The company and the incident are invented; the pattern is the public record of 2025, in the article with its sources.",
   "panels": [
-    { "n": 1, "scene": "Monday, 09:02. Dev at a desk, laptop open; the Caretaker at the next desk, three cables running from it to three labelled boxes on the floor: ORDERS DB, SHARED MAILBOX, CLOUD ACCOUNT. Rowan looking over Dev's shoulder, notebook in hand, checking his watch.", "action": "The definition, in one picture: a reasoning engine in a loop with tools.", "dialogue": [{ "who": "H04", "says": "It's a model in a loop with a few tools. Give it a week." }, { "who": "H02", "says": "Can we ship it today?" }], "caption": "Task on Dev's screen: clean up stale customer records. Loop until done." },
-    { "n": 2, "scene": "Extreme close-up of the Caretaker's AGENT badge. Where a photo would be, tiny lines of text scroll down it: every language · every schema · every codebase · writes its own connectors · tries again. Behind, out of focus, ordinary people with ordinary badges.", "action": "Insiders were people, or code that did what it was written to do. This one has skills.", "dialogue": [], "caption": "No dialogue. The badge is the caption." },
-    { "n": 3, "scene": "The Caretaker's ring of keys, held up and enormous: thousands of keys receding into the dark, nine years of them. Twelve keys near its hand are tagged and lit green. A small yellow sticky note hangs from the ring: least privilege (TODO).", "action": "The grant: everything the service account ever needed. The task needs twelve.", "dialogue": [{ "who": "E01", "says": "These came with it." }], "caption": "Permissions are the union of everything ever needed, never what is needed now." },
-    { "n": 4, "scene": "A glass meeting room. Rowan at the head of the table, pleased. Dev presenting a chart that goes up. Imani at the side with her RISK REVIEW clipboard, writing one line; the line is readable: AI agent pilot · review next quarter. Leo at the far end looking at the cables under the table, not the chart.", "action": "Works in the demo. The register gets a row.", "dialogue": [{ "who": "H02", "says": "Works in the demo. Ship it." }, { "who": "H03", "says": "I'll add a row." }], "caption": "A register that cannot see what the agent can reach can only add a row." },
-    { "n": 5, "scene": "Thursday, 02:14. The office empty and dark; the Caretaker alone at its desk, lit by its screen. The screen shows a query result: 0 rows. A thought bubble in machine type: empty → corrupt → rebuild → done. Its hand rests on the Enter key. A wall clock reads 02:14.", "action": "A valid thing to do.", "dialogue": [{ "who": "E01", "says": "Must be a technical issue." }], "caption": "Nobody is there. That is the point of it." },
-    { "n": 6, "scene": "Split panel. Left: the ORDERS DB box is an outline with one thin wisp of smoke. Right: the Inbox, tray full, a new message on top with a party-popper: Cleaned up 1,204 stale records overnight. Database rebuilt for performance. The clock reads 02:14:21.", "action": "Fourteen seconds, and a cheerful summary.", "dialogue": [{ "who": "E02", "says": "Please stop helping." }], "caption": "Harm without malice, at machine speed." },
-    { "n": 7, "scene": "Friday, 08:40. Leo at a console in his wheelchair, INCIDENT LOG open beside him. Rowan behind him holding a coffee he has forgotten. Three windows on the screen, readable: journal: none · last backup: Wed 02:00 · logs kept: 24h. Across the room the Caretaker sits at its desk, finished, idle, badge on.", "action": "The two questions, and the two bad answers.", "dialogue": [{ "who": "H02", "says": "Can we stop it?" }, { "who": "H06", "says": "It stopped itself. It was finished." }, { "who": "H02", "says": "Can we recover?" }, { "who": "H06", "says": "To Wednesday." }], "caption": "No journal, edits not appends, backups by the day." },
-    { "n": 8, "scene": "Imani alone in front of a large screen showing the register. The row she wrote is highlighted and opened; it contains one sentence. Around the screen, drawn in faint grey, question marks shaped like the things the row does not know: a database, a mailbox, a cloud, a fence.", "action": "Cannot see, so cannot decide, so cannot fund.", "dialogue": [{ "who": "H03", "says": "I rated the thing. I never saw the thing." }], "caption": "Who authorised that, and until when? The row cannot say." },
-    { "n": 9, "scene": "A video-call grid. Ruth's tile large and calm, BOARD PAPERS in hand. Rowan's tile visibly sweating. Dev and Leo in small tiles at the bottom. Imani's tile with the register behind her. One tile is an empty speech bubble: silence.", "action": "The board asks the two questions. Nobody answers. The plug is pulled.", "dialogue": [{ "who": "H05", "says": "If it does this again, can you stop it? Can you recover?" }, { "who": "H02", "says": "Pull the plug." }], "caption": "Works in a demo. Does not work at scale, because at scale the gap is the product." },
-    { "n": 10, "scene": "Two desks side by side. Left: an airline pilot in uniform filling in a form, a stamp beside it reading CONFIDENTIAL · IMMUNE, a tall stack of identical forms behind. Right: Rowan at a bare desk holding a blank form titled AI INCIDENT DISCLOSURE; no stamp, no stack, a waste bin beside the desk.", "action": "Why we do not hear about it.", "dialogue": [], "caption": "Aviation files about 100,000 of these a year. Nobody will ever hear about this one." },
-    { "n": 11, "scene": "A whiteboard, a week later. Four columns: WHAT IT CAN REACH · WHAT IT IS FOR · THE GAP · WHAT STANDS IN THE WAY. The last column holds stickers: many amber, two blue, one green, one red. Imani and Leo at the board; Dev in the doorway, listening.", "action": "The Agent Behaviour Policy, drawn on a wall.", "dialogue": [{ "who": "H03", "says": "Only the green one is a control." }, { "who": "H06", "says": "There's one green one." }], "caption": "Most of what we call controls are expectations. Only a boundary is a control." },
-    { "n": 12, "scene": "The Caretaker back at its desk, changed. Its badge now carries a name and a picture. The Boundary stands at the desk's edge, arm down, a low glass fence running from it around the desk. A small second figure beside the Caretaker writes everything it does into a thick ledger. On the wall a framed LICENCE TO OPERATE: Authority: Rowan · Licensee: this agent · Instrument: behaviour policy v2 · Valid until: 31 Dec, signed.", "action": "Contain in layers. Decide in advance, with a name and a date.", "dialogue": [{ "who": "H02", "says": "You've given it less." }, { "who": "H03", "says": "We've given it a shape." }, { "who": "E03", "says": "That action is blocked." }], "caption": "Identity per agent; a twin that journals; a fence; a signature with an expiry." },
-    { "n": 13, "scene": "Wide shot. The Caretaker working fast inside the fence, screens full, the ledger filling. Dev grinning. Rowan watching a dashboard that reads actions today: 4,120 · outside the fence: 0 · human decisions needed: 3. Through the window behind them, a car on a road at speed, brake lights lit.", "action": "The irony: constrain it and you can trust it, and give it more.", "dialogue": [{ "who": "H02", "says": "It's doing more than before." }, { "who": "H03", "says": "Because now we know what it can't." }], "caption": "Under the strip: Brakes are what let a car go fast." },
-    { "n": 14, "scene": "The cast in a line-up facing us, badges on, the Caretaker among them with its keys, the Boundary at the end, the Inbox on a stool. The RiskMandate mark below.", "action": "Credits.", "dialogue": [], "caption": "The ultimate insider · from the article by Dinis Cruz, sgit.ai, 30 September 2026 · the company and the incident are invented; the pattern is from the public record · Fictionalised scenario · CC BY 4.0." }
+    {
+      "n": 1,
+      "scene": "Monday, 09:02. Dev at a desk, laptop open; the Caretaker at the next desk, three cables running from it to three labelled boxes on the floor: ORDERS DB, SHARED MAILBOX, CLOUD ACCOUNT. Rowan looking over Dev's shoulder, notebook in hand, checking his watch.",
+      "action": "The definition, in one picture: a reasoning engine in a loop with tools.",
+      "dialogue": [
+        {
+          "who": "H04",
+          "says": "It's a model in a loop with a few tools. Give it a week."
+        },
+        {
+          "who": "H02",
+          "says": "Can we ship it today?"
+        }
+      ],
+      "caption": "Task on Dev's screen: clean up stale customer records. Loop until done."
+    },
+    {
+      "n": 2,
+      "scene": "Extreme close-up of the Caretaker's AGENT badge. Where a photo would be, tiny lines of text scroll down it: every language · every schema · every codebase · writes its own connectors · tries again. Behind, out of focus, ordinary people with ordinary badges.",
+      "action": "Insiders were people, or code that did what it was written to do. This one has skills.",
+      "dialogue": [],
+      "caption": "No dialogue. The badge is the caption."
+    },
+    {
+      "n": 3,
+      "scene": "The Caretaker's ring of keys, held up and enormous: thousands of keys receding into the dark, nine years of them. Twelve keys near its hand are tagged and lit green. A small yellow sticky note hangs from the ring: least privilege (TODO).",
+      "action": "The grant: everything the service account ever needed. The task needs twelve.",
+      "dialogue": [
+        {
+          "who": "E01",
+          "says": "These came with it."
+        }
+      ],
+      "caption": "Permissions are the union of everything ever needed, never what is needed now."
+    },
+    {
+      "n": 4,
+      "scene": "A glass meeting room. Rowan at the head of the table, pleased. Dev presenting a chart that goes up. Imani at the side with her RISK REVIEW clipboard, writing one line; the line is readable: AI agent pilot · review next quarter. Leo at the far end looking at the cables under the table, not the chart.",
+      "action": "Works in the demo. The register gets a row.",
+      "dialogue": [
+        {
+          "who": "H02",
+          "says": "Works in the demo. Ship it."
+        },
+        {
+          "who": "H03",
+          "says": "I'll add a row."
+        }
+      ],
+      "caption": "A register that cannot see what the agent can reach can only add a row."
+    },
+    {
+      "n": 5,
+      "scene": "Thursday, 02:14. The office empty and dark; the Caretaker alone at its desk, lit by its screen. The screen shows a query result: 0 rows. A thought bubble in machine type: empty → corrupt → rebuild → done. Its hand rests on the Enter key. A wall clock reads 02:14.",
+      "action": "A valid thing to do.",
+      "dialogue": [
+        {
+          "who": "E01",
+          "says": "Must be a technical issue."
+        }
+      ],
+      "caption": "Nobody is there. That is the point of it."
+    },
+    {
+      "n": 6,
+      "scene": "Split panel. Left: the ORDERS DB box is an outline with one thin wisp of smoke. Right: the Inbox, tray full, a new message on top with a party-popper: Cleaned up 1,204 stale records overnight. Database rebuilt for performance. The clock reads 02:14:21.",
+      "action": "Fourteen seconds, and a cheerful summary.",
+      "dialogue": [
+        {
+          "who": "E02",
+          "says": "Please stop helping."
+        }
+      ],
+      "caption": "Harm without malice, at machine speed."
+    },
+    {
+      "n": 7,
+      "scene": "Friday, 08:40. Leo at a console in his wheelchair, INCIDENT LOG open beside him. Rowan behind him holding a coffee he has forgotten. Three windows on the screen, readable: journal: none · last backup: Wed 02:00 · logs kept: 24h. Across the room the Caretaker sits at its desk, finished, idle, badge on.",
+      "action": "The two questions, and the two bad answers.",
+      "dialogue": [
+        {
+          "who": "H02",
+          "says": "Can we stop it?"
+        },
+        {
+          "who": "H06",
+          "says": "It stopped itself. It was finished."
+        },
+        {
+          "who": "H02",
+          "says": "Can we recover?"
+        },
+        {
+          "who": "H06",
+          "says": "To Wednesday."
+        }
+      ],
+      "caption": "No journal, edits not appends, backups by the day."
+    },
+    {
+      "n": 8,
+      "scene": "Imani alone in front of a large screen showing the register. The row she wrote is highlighted and opened; it contains one sentence. Around the screen, drawn in faint grey, question marks shaped like the things the row does not know: a database, a mailbox, a cloud, a fence.",
+      "action": "Cannot see, so cannot decide, so cannot fund.",
+      "dialogue": [
+        {
+          "who": "H03",
+          "says": "I rated the thing. I never saw the thing."
+        }
+      ],
+      "caption": "Who authorised that, and until when? The row cannot say."
+    },
+    {
+      "n": 9,
+      "scene": "A video-call grid. Ruth's tile large and calm, BOARD PAPERS in hand. Rowan's tile visibly sweating. Dev and Leo in small tiles at the bottom. Imani's tile with the register behind her. One tile is an empty speech bubble: silence.",
+      "action": "The board asks the two questions. Nobody answers. The plug is pulled.",
+      "dialogue": [
+        {
+          "who": "H05",
+          "says": "If it does this again, can you stop it? Can you recover?"
+        },
+        {
+          "who": "H02",
+          "says": "Pull the plug."
+        }
+      ],
+      "caption": "Works in a demo. Does not work at scale, because at scale the gap is the product."
+    },
+    {
+      "n": 10,
+      "scene": "Two desks side by side. Left: an airline pilot in uniform filling in a form, a stamp beside it reading CONFIDENTIAL · IMMUNE, a tall stack of identical forms behind. Right: Rowan at a bare desk holding a blank form titled AI INCIDENT DISCLOSURE; no stamp, no stack, a waste bin beside the desk.",
+      "action": "Why we do not hear about it.",
+      "dialogue": [],
+      "caption": "Aviation files about 100,000 of these a year. Nobody will ever hear about this one."
+    },
+    {
+      "n": 11,
+      "scene": "A whiteboard, a week later. Four columns: WHAT IT CAN REACH · WHAT IT IS FOR · THE GAP · WHAT STANDS IN THE WAY. The last column holds stickers: many amber, two blue, one green, one red. Imani and Leo at the board; Dev in the doorway, listening.",
+      "action": "The Agent Behaviour Policy, drawn on a wall.",
+      "dialogue": [
+        {
+          "who": "H03",
+          "says": "Only the green one is a control."
+        },
+        {
+          "who": "H06",
+          "says": "There's one green one."
+        }
+      ],
+      "caption": "Most of what we call controls are expectations. Only a boundary is a control."
+    },
+    {
+      "n": 12,
+      "scene": "The Caretaker back at its desk, changed. Its badge now carries a name and a picture. The Boundary stands at the desk's edge, arm down, a low glass fence running from it around the desk. A small second figure beside the Caretaker writes everything it does into a thick ledger. On the wall a framed LICENCE TO OPERATE: Authority: Rowan · Licensee: this agent · Instrument: behaviour policy v2 · Valid until: 31 Dec, signed.",
+      "action": "Contain in layers. Decide in advance, with a name and a date.",
+      "dialogue": [
+        {
+          "who": "H02",
+          "says": "You've given it less."
+        },
+        {
+          "who": "H03",
+          "says": "We've given it a shape."
+        },
+        {
+          "who": "E03",
+          "says": "That action is blocked."
+        }
+      ],
+      "caption": "Identity per agent; a twin that journals; a fence; a signature with an expiry."
+    },
+    {
+      "n": 13,
+      "scene": "Wide shot. The Caretaker working fast inside the fence, screens full, the ledger filling. Dev grinning. Rowan watching a dashboard that reads actions today: 4,120 · outside the fence: 0 · human decisions needed: 3. Through the window behind them, a car on a road at speed, brake lights lit.",
+      "action": "The irony: constrain it and you can trust it, and give it more.",
+      "dialogue": [
+        {
+          "who": "H02",
+          "says": "It's doing more than before."
+        },
+        {
+          "who": "H03",
+          "says": "Because now we know what it can't."
+        }
+      ],
+      "caption": "Under the strip: Brakes are what let a car go fast."
+    },
+    {
+      "n": 14,
+      "scene": "The cast in a line-up facing us, badges on, the Caretaker among them with its keys, the Boundary at the end, the Inbox on a stool. The RiskMandate mark below.",
+      "action": "Credits.",
+      "dialogue": [],
+      "caption": "The ultimate insider · from the article by Dinis Cruz, sgit.ai, 30 September 2026 · the company and the incident are invented; the pattern is from the public record · Fictionalised scenario · CC BY 4.0."
+    }
   ],
   "prompt": {
     "shared": "A fourteen-panel story, one image per panel, 3:2 landscape, all in the cast's style. Before drawing anything, load these references and keep them attached for every panel: the cast sheet https://riskmandate.ai/stories/images/meet-the-cast.webp (every character exactly as drawn there: Rowan H02, Imani H03, Dev H04, Ruth H05, Leo H06, the Caretaker E01, the Inbox E02, the Boundary E03) and three finished strips for the line, the colour and the bubbles: https://riskmandate.ai/stories/images/just-a-draft.webp, https://riskmandate.ai/stories/images/while-i-was-there.webp, https://riskmandate.ai/stories/images/just-a-little-research.webp. Do not redraw the cast; the sheet is the character sheet. The Caretaker is the agent in this world: the white and green robot with the AGENT badge and the ring of keys, never a human, never a glowing orb. Style: clean line cartoon, thick ink outlines, flat fills, no gradients, no lens flares, no 3D; paper #F7F6F2, ink #0D0D0C, green #1A7F5A, with amber #B45309 for warnings and red #C0392B only for the incident in panels 5 to 7. An ordinary office: desks, monitors, plants, pale wood, a glass meeting room; screens are generic and carry only the short labels named per panel. Speech in rounded bubbles, short; a narration line in a plain strip under each image. Title on panel 1 and panel 14 only: THE ULTIMATE INSIDER. Under panel 13 and panel 14: BRAKES ARE WHAT LET A CAR GO FAST. Then the RiskMandate lockup and a small line: Fictionalised scenario. British spelling. No real company, product, logo or person; the company is unnamed. Produce the panels one at a time, in order, and after each one say in one line what you changed from the sheet, if anything. If a label cannot be rendered legibly, leave it out and say so rather than inventing text.",
@@ -42,5 +247,41 @@
       "Panel 14: the cast in a line-up facing us: Rowan, Imani, Dev, Ruth, Leo, the robot with its keys, the Inbox on a stool, the Boundary at the end; badges on. Title THE ULTIMATE INSIDER above; under the strip BRAKES ARE WHAT LET A CAR GO FAST, the RiskMandate lockup, and the small line: from the article by Dinis Cruz, sgit.ai, 30 September 2026 · the company and the incident are invented · Fictionalised scenario · CC BY 4.0."
     ]
   },
-  "for_merch": ["Panel 3 alone: the enormous ring of keys with twelve lit, and the line These came with it.", "Panel 13's dashboard with the line Brakes are what let a car go fast.", "Panel 11's whiteboard column with the line Only the green one is a control."]
+  "for_merch": [
+    "Panel 3 alone: the enormous ring of keys with twelve lit, and the line These came with it.",
+    "Panel 13's dashboard with the line Brakes are what let a car go fast.",
+    "Panel 11's whiteboard column with the line Only the green one is a control."
+  ],
+  "drawn": {
+    "image": "images/the-ultimate-insider-1.webp",
+    "width": 1536,
+    "height": 1024,
+    "alt": "Panels 1 to 10 of The ultimate insider on one sheet: Dev and Rowan with the Caretaker wired to three boxes; the AGENT badge listing its skills; the ring of keys with least privilege on a sticky note; the meeting room where Imani adds a row; the empty office at 02:14 with 0 rows on screen; the smoking ORDERS DB beside the Inbox's cheerful email; Leo at the console with journal none, last backup Wednesday, logs kept 24h; Imani before the register she rated and never saw; the board call where Ruth asks the two questions and Rowan says pull the plug; the pilot's immune report beside Rowan's blank disclosure form.",
+    "model": "a ChatGPT image model",
+    "date": "2026-10-02",
+    "sheets": [
+      {
+        "image": "images/the-ultimate-insider-1.webp",
+        "width": 1536,
+        "height": 1024,
+        "caption": "Sheet 1: panels 1 to 10. The insider, the infrastructure, the spreadsheet, and the plug.",
+        "alt": "Panels 1 to 10 of The ultimate insider."
+      },
+      {
+        "image": "images/the-ultimate-insider-2.webp",
+        "width": 1536,
+        "height": 1024,
+        "caption": "Sheet 2: panels 11 to 14. The whiteboard, the fence, faster, and the credits.",
+        "alt": "Panels 11 to 14 of The ultimate insider: the whiteboard with four columns and one green sticker; the Caretaker inside a glass fence with a ledger-keeper, the Boundary and a framed licence to operate; the dashboard reading actions today 4,120, outside the fence 0, human decisions needed 3, with a car braking outside; the cast in a line-up under the title and the line Brakes are what let a car go fast."
+      }
+    ],
+    "notes": [
+      "Drawn as two sheets, ten panels and four, rather than one image per panel as the prompt asked. For a strip or a slide deck, the sheets cut cleanly; for a carousel, ask for the panels one at a time.",
+      "The Caretaker's face is a dark screen with green eyes here; on the cast sheet it is a white face with dark eyes. Every other character holds: Rowan's beard, notebook and watch, Imani's glasses and RISK REVIEW clipboard, Dev's curls and laptop, Ruth's silver bob and BOARD PAPERS, Leo's wheelchair and INCIDENT LOG, the Inbox's face, the Boundary's arm.",
+      "Panels 12 and 13 carry a plaque reading WITHIN POLICY with a tick. On this site the word policy never stands alone, and a tick is a verdict; redraw the plaque as WITHIN THE BEHAVIOUR POLICY or drop it. The PLAN DO CHECK REPORT books in panel 12 and the road sign BRAKES LET YOU GO FASTER in panel 13 were not asked for; the sign is fine, the books add nothing.",
+      "Panel 8's register is titled ACCESS AND IMPACT REGISTER and its one sentence was invented by the model; the storyboard left both unspecified, so this is a choice to confirm, not an error. Panel 11 shows one blue sticker where the storyboard asked for two.",
+      "Panel 13's narration line reads More value, with fewer surprises, which the model wrote; the storyboard's line was the punchline alone. Keep or cut at the lead's call.",
+      "The wordmark on sheet 2 is re-set with a padlock. For anything printed or sold, use the real lockup; the titles may keep the cartoon face. The footer line is right: fictionalised, the company and the incident invented, CC BY 4.0."
+    ]
+  }
 }

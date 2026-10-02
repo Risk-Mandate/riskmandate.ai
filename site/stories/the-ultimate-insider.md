@@ -2,7 +2,7 @@
 
 # RiskMandate — The ultimate insider. Brakes are what let a car go fast.
 
-A story told with the cast: Brakes are what let a car go fast. A storyboard, not yet drawn. The truth under it, the panels, and the prompt for an image model. Fictionalised; nobody's product is drawn.
+A story told with the cast: Brakes are what let a car go fast. Drawn, with what to correct. The truth under it, the panels, and the prompt for an image model. Fictionalised; nobody's product is drawn.
 
 Source: https://riskmandate.ai/stories/the-ultimate-insider.html
 
@@ -17,6 +17,21 @@ _Brakes are what let a car go fast._ With Dev, the platform engineer; Rowan, the
 **Fictionalised.** Nobody’s product is drawn and nobody’s system was tested. The truth under the story is the site’s, and it is stated below.
 
 **This page as markdown:** [the-ultimate-insider.md](/stories/the-ultimate-insider.md)
+
+## By a ChatGPT image model, 2 October 2026.
+
+_Sheet 1: panels 1 to 10. The insider, the infrastructure, the spreadsheet, and the plug. · a ChatGPT image model, 2 October 2026_
+
+_Sheet 2: panels 11 to 14. The whiteboard, the fence, faster, and the credits. · a ChatGPT image model, 2 October 2026_
+
+What to correct
+
+- Drawn as two sheets, ten panels and four, rather than one image per panel as the prompt asked. For a strip or a slide deck, the sheets cut cleanly; for a carousel, ask for the panels one at a time.
+- The Caretaker's face is a dark screen with green eyes here; on the cast sheet it is a white face with dark eyes. Every other character holds: Rowan's beard, notebook and watch, Imani's glasses and RISK REVIEW clipboard, Dev's curls and laptop, Ruth's silver bob and BOARD PAPERS, Leo's wheelchair and INCIDENT LOG, the Inbox's face, the Boundary's arm.
+- Panels 12 and 13 carry a plaque reading WITHIN POLICY with a tick. On this site the word policy never stands alone, and a tick is a verdict; redraw the plaque as WITHIN THE BEHAVIOUR POLICY or drop it. The PLAN DO CHECK REPORT books in panel 12 and the road sign BRAKES LET YOU GO FASTER in panel 13 were not asked for; the sign is fine, the books add nothing.
+- Panel 8's register is titled ACCESS AND IMPACT REGISTER and its one sentence was invented by the model; the storyboard left both unspecified, so this is a choice to confirm, not an error. Panel 11 shows one blue sticker where the storyboard asked for two.
+- Panel 13's narration line reads More value, with fewer surprises, which the model wrote; the storyboard's line was the punchline alone. Keep or cut at the lead's call.
+- The wordmark on sheet 2 is re-set with a padlock. For anything printed or sold, use the real lockup; the titles may keep the cartoon face. The footer line is right: fictionalised, the company and the incident invented, CC BY 4.0.
 
 ## What the story says that the site also says.
 

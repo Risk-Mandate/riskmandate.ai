@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.35.9** · 2026-10-02 — The ultimate insider, drawn
+  Notes: https://riskmandate.ai/versions/1.35.9.md · Source: `git:v1.35.9`
 - **v1.35.8** · 2026-10-01 — The ultimate insider, storyboarded, and a pointer for sibling agents
   Notes: https://riskmandate.ai/versions/1.35.8.md · Source: `git:v1.35.8`
 - **v1.35.7** · 2026-09-30 — A brief for the mailbox session: the comms vault is its second inbox
