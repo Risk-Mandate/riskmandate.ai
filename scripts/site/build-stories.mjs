@@ -48,7 +48,7 @@ for (const s of stories) {
     for (const d of p.dialogue || []) if (!s.cast.includes(d.who)) fail(`${s.slug}: panel ${p.n} has a line for ${d.who}, who is not in the story's cast`);
   });
   if (!s.prompt.shared || (s.prompt.per_panel || []).length !== s.panels.length) fail(`${s.slug}: the prompt needs a shared part and one line per panel`);
-  if (s.status === 'drawn') { if (!s.drawn || !s.drawn.image) fail(`${s.slug}: drawn, and no image`); if (!existsSync(join(IN, s.drawn.image))) fail(`${s.slug}: ${s.drawn.image} is not in site/stories/`); }
+  if (s.status === 'drawn') { if (!s.drawn || !s.drawn.image) fail(`${s.slug}: drawn, and no image`); for (const img of [s.drawn.image, ...(s.drawn.sheets || []).map((sh) => sh.image)]) if (!existsSync(join(IN, img))) fail(`${s.slug}: ${img} is not in site/stories/`); }
   const all = JSON.stringify(s);
   if (/\brungs?\b/i.test(all)) fail(`${s.slug}: says rung`);
   if (/\bADP\b/.test(all)) fail(`${s.slug}: says ADP`);
@@ -334,7 +334,7 @@ ${s.status === 'drawn' ? `<section class="psection">
       <span class="tag">As drawn</span>
       <h2>By ${esc(s.drawn.model)}, <span class="g">${niceDate(s.drawn.date)}.</span></h2>
     </div>
-    <figure class="st-fig"><img src="${HERE}${esc(s.drawn.image)}" width="${s.drawn.width}" height="${s.drawn.height}" alt="${esc(s.drawn.alt)}"><figcaption>${esc(s.title)} · ${esc(s.punchline)} · ${esc(s.drawn.model)}, ${niceDate(s.drawn.date)}</figcaption></figure>
+    ${(s.drawn.sheets || [{ image: s.drawn.image, width: s.drawn.width, height: s.drawn.height, alt: s.drawn.alt, caption: `${s.title} · ${s.punchline}` }]).map((sh) => `<figure class="st-fig"><img src="${HERE}${esc(sh.image)}" width="${sh.width}" height="${sh.height}" alt="${esc(sh.alt)}"><figcaption>${esc(sh.caption)} · ${esc(s.drawn.model)}, ${niceDate(s.drawn.date)}</figcaption></figure>`).join('\n    ')}
     ${(s.drawn.notes || []).length ? `<p class="st-k" style="margin-top:22px">What to correct</p><ul class="st-list" style="margin-top:10px">${s.drawn.notes.map((n) => `<li>${esc(n)}</li>`).join('')}</ul>` : ''}
   </div>
 </section>` : ''}

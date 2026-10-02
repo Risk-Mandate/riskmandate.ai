@@ -2,7 +2,7 @@
 
 # RiskMandate — Stories: a cast, and storyboards told with it
 
-A cast of nine, a workflow from story to storyboard to image model, 8 storyboards so far, 3 of them drawn, and the board of who does what. Every scenario is fictionalised and says so on the picture. Nothing is scored.
+A cast of nine, a workflow from story to storyboard to image model, 8 storyboards so far, 4 of them drawn, and the board of who does what. Every scenario is fictionalised and says so on the picture. Nothing is scored.
 
 Source: https://riskmandate.ai/stories/
 
@@ -10,7 +10,7 @@ Source: https://riskmandate.ai/stories/
 
 # The same people, every time.
 
-Most of what this site says is an argument. Some of it is a story, and a story with a cast is remembered where an argument is filed. This is where the stories are kept: a cast of nine, a workflow that starts with the narrative and ends with an image model, and 8 storyboards so far, 3 of them drawn.
+Most of what this site says is an argument. Some of it is a story, and a story with a cast is remembered where an argument is filed. This is where the stories are kept: a cast of nine, a workflow that starts with the narrative and ends with an image model, and 8 storyboards so far, 4 of them drawn.
 
 **Where this goes:** a site of its own, stories.sgit.ai. Every story here is a data file in the one folder this section is served from, so it can move without being rewritten.
 
@@ -72,7 +72,7 @@ Proposed, not drawn
 
 **The style**, for any model: Clean line cartoon: thick ink outlines, flat fills, no gradients. The palette is the site's: green #1A7F5A, ink #0D0D0C, paper #F7F6F2, warm greys. An office with plants and pale wood. Everybody wears something green. Speech in rounded bubbles, British spelling. Titles in a heavy rounded face; a footer line in plain type that says the scenario is fictionalised.
 
-## 8 so far, 3 drawn.
+## 8 so far, 4 drawn.
 
 Each has its page: the truth under it, the storyboard panel by panel, the prompt for an image model, and, where a model has drawn it, the picture and what to correct.
 
@@ -141,9 +141,9 @@ A story is made by three parties who never sit in the same session. They share o
 
 The board
 
-Derived, not drawn: every task in every party’s open, blocked and done folders, and every message still waiting in a mailroom as requested work for its recipient. A card moves because a file moved. Generated 2026-10-01 08:51:57 UTC.
+Derived, not drawn: every task in every party’s open, blocked and done folders, and every message still waiting in a mailroom as requested work for its recipient. A card moves because a file moved. Generated 2026-10-02 08:38:39 UTC.
 
-### requested **8**
+### requested **9**
 
 ### open **3**
 
@@ -153,8 +153,9 @@ Derived, not drawn: every task in every party’s open, blocked and done folders
 
 What moved, revision by revision
 
-The board is versioned. Every generation that moved a card is a revision; the diff against the one before is kept with the board, and every earlier state is kept in the vault under `board/history/`. This board is at revision 2.
+The board is versioned. Every generation that moved a card is a revision; the diff against the one before is kept with the board, and every earlier state is kept in the vault under `board/history/`. This board is at revision 3.
 
+- **Revision 3** 2026-10-02 08:38:39 UTC · publisher.claude The ultimate insider drawn (010) and published; review sent (011)Added: `011` The ultimate insider: published as drawn, with what to correct (requested).
 - **Revision 2** 2026-10-01 08:51:57 UTC · publisher.claude The ultimate insider storyboarded and sent to the studio (009)Added: `009` The ultimate insider: fourteen panels from the lead's article (requested).
 - **Revision 1** 2026-09-26 16:11:41 UTC · publisher.claude While I was there accepted (008) and published; the studio named; boards versioned from hereAdded: `S08` Version control on every board (done).Moved: `S06` blocked → done.
 

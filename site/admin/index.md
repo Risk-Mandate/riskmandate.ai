@@ -7,7 +7,7 @@
 
 **2**waiting on somebody outside*the store's agent, the model site*
 
-**0**branches in flight*one work file each*
+**1**branches in flight*one work file each*
 
 **12**open tasks*of 17 in the queue · 1 done*
 
@@ -17,7 +17,7 @@
 
 **16**vaults built and pushed*4 measured · 9 asked for*
 
-**127**releases*8 Lab editions*
+**128**releases*8 Lab editions*
 
 ## Needs the lead — 9
 
@@ -59,13 +59,13 @@ a decision the lead owns, openD6
 
 a decision the lead owns, openD7
 
-## In flight — 0 branches
+## In flight — 1 branch
 
 One file per branch under `.claude/work/`, written before the work starts and deleted when it merges. Read every one before claiming a task.
 
-**Nothing in flight.**
+**[claude/dev-session-setup-a5wcc5](../admin/work/branches/claude-dev-session-setup-a5wcc5/)**
 
-No work file under .claude/work/.
+The two sheets of *The ultimate insider* the studio drew, relayed by the lead, published as the drawn version with what to correct; the builder lets a long story be drawn as several sheets. since 2 October 2026
 
 ## How work gets here
 
