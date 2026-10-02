@@ -133,6 +133,15 @@ the site's; check `site/versions/index.json` for the current version before trus
   with a `CB-`/`EA-` code. The Cyber Boardroom is named as the company behind RiskMandate, its mark beside ours. The
   operational half, the two emails, the reply, the reminder, the columns and who does what, is
   `docs/programme/early-adopters-thank-you.md`; the sends wait on the two lists and a send date.
+- **About: the company and the founders** (`about.html`, in *More*, 2 Oct, v1.35.12, "going official"): The Cyber
+  Boardroom named as the company behind RiskMandate; the two founders, **Nimay Parekh, co-founder and CEO**, and Dinis
+  Cruz, co-founder, with the bios exactly as the investor deck states them; the three steps with their status chips;
+  and the **investor deck v3** (`site/assets/deck/riskmandate-investor-deck-v3.pdf`, 18 slides, published untouched)
+  read slide by slide from `site/assets/deck/investor-v3/slide-NN.webp` with a note per number (slide 8's counts and
+  the sixteen templates match the site on 2 Oct; market figures carry their source on the slide; slide 12's prices are
+  marked proposed; every footer says *Confidential* and the lead chose to publish). The reviewer record's one-line
+  (`site/reviewers/dinis-cruz.json`, the source the two reviewer pages are built from) and the team page's Who
+  section now say co-founder and point here. The deck's own page numbers run 01 to 17 then 19, as presented.
 - **The early-access programme** (invite only, a vault each, free): `docs/briefs/programme__early-access-and-the-first-batch.md`
   and `docs/programme/early-access-invitations.md` (the invitation, the acceptance, the reminder, the CSV columns, who
   does what in the six roles). Waiting on the lead: the list, the sender, the drain schedule, telling sgit.ai.

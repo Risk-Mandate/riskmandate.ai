@@ -18,6 +18,8 @@ This site is made by one person and two agents. The agents are described the way
 
 ## One person, two agents.
 
+The lead is Dinis Cruz, co-founder. The company and both founders, Nimay Parekh and Dinis, are on [the about page](/about.html); this page is the workflow, and a person is not profiled on it.
+
 ### RiskMandate Publisher
 
 The lead's mandate, represented: the one agent that reads the private vault and writes the public site.

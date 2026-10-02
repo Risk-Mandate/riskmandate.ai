@@ -250,6 +250,7 @@ function indexPage() {
       <div class="tm-r" role="row"><span role="columnheader">Who</span><span role="columnheader">Does</span><span role="columnheader">Holds</span></div>
       ${team.people.map((p) => `<div class="tm-r" role="row"><span role="cell">${esc(p.name)}<span class="id">${esc(p.identity)} · ${esc(p.alias)}</span></span><span role="cell" data-k="Does">${esc(p.does)} <em>${esc(p.note)}</em></span><span role="cell" data-k="Holds">${p.holds.map(esc).join('; ')}.</span></div>`).join('\n      ')}
     </div>
+    <p class="meta">The lead is Dinis Cruz, co-founder. The company and both founders, Nimay Parekh and Dinis, are on <a href="/about.html">the about page</a>; this page is the workflow, and a person is not profiled on it.</p>
     <div class="tm-agents">
       ${agents.map((a) => { const d = A[a.slug].d; return `<a class="tm-agent" href="${HERE}${esc(a.slug)}.html"><span class="id">${esc(a.identity)} · ${esc(a.alias)} · ${esc(a.shape.label)}</span><h3>${esc(a.name)}</h3><p>${esc(a.one_line)}</p><div class="nums"><span><b>${d.grant}</b>grant</span><span><b>${d.mandate}</b>mandate</span><span><b>${d.excess.length}</b>excess</span><span><b>${d.unbounded.length}</b>unbounded</span><span><b>${d.shortfall.length}</b>shortfall</span></div></a>`; }).join('\n      ')}
     </div>
