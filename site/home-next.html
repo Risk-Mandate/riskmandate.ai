@@ -1262,6 +1262,13 @@ rm-menu{display:contents}
 .ghlink{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:8px;color:var(--muted);border:1px solid transparent}.ghlink:hover{color:var(--text);border-color:var(--border)}
 .footlic{display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap}.footlic a{color:inherit}.ccicon{vertical-align:-3px;margin:0 2px}
 @media (max-width:1400px) and (min-width:901px){.ghlink{display:none}header.top .wrap{gap:14px}}
+.rmx .abpFlow {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.rmx .abp .heroCopy{max-width:none}
+@media (max-width:900px){.rmx .abp .h2{font-size:clamp(26px,5vw,34px) !important}}
 /* home-next.css — the mock's own styles, scoped under .rmx so they do not touch the chrome. */
 *{box-sizing:border-box}
 .rmx{font-family:'Geist',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;color:#101613;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
@@ -1369,7 +1376,7 @@ rm-menu{display:contents}
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
     <a class="ghlink" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener" aria-label="The source, on GitHub" title="Open source · Apache-2.0 code · CC BY 4.0 pages"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a>
-      <a class="version" href="versions.html" title="What shipped in v1.35.16">v1.35.16</a>
+      <a class="version" href="versions.html" title="What shipped in v1.35.17">v1.35.17</a>
     <button class="demo" data-demo>Get in touch</button>
   </div>
 </header>
@@ -1724,6 +1731,258 @@ rm-menu{display:contents}
 <span id="rmx-lvl-free-note" style="font-size:13px;line-height:1.5;color:rgba(232,240,236,0.68);margin-top:-12px">For early users: we build it and correct it with you, free, in exchange for working on it with us and telling us where it is wrong. The form encrypts to agent@riskmandate.ai and a person replies within a working day.</span>
 </div>
 </div>
+</div>
+</section>
+
+<section id="model" class="sec" style="padding:128px 0 104px;background:#FFFFFF">
+<div class="pad abp" style="max-width:1240px;margin:0 auto;padding:0 40px;display:flex;flex-direction:column;gap:72px">
+<div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;max-width:760px;margin:0 auto">
+<h2 class="h2" style="margin:0;font-size:60px;line-height:1;letter-spacing:-0.045em;font-weight:600">Under every rule, one record.</h2>
+<p style="margin:0;font-size:19px;line-height:1.5;color:#4A524D">The rules above are the moment. What they act on is a document, the Agent Behaviour Policy: for one agent in one deployment, everything it can reach, what you authorised it to do, the gap between the two, and what stands in the way of each thing. This is that document, as the home page explains it today.</p>
+</div>
+<div class="g2" style="display:grid;grid-template-columns:minmax(0, 1fr) minmax(0, 1.1fr);gap:48px;align-items:center">
+<div class="heroCopy">
+<div class="heroLead">
+<p class="heroKicker">Not what they did. What they can.</p>
+<p class="heroText">An Agent Behaviour Policy writes down what one agent can really reach, what you authorised it to do and the gap between the two, in one record the CEO, CTO and CISO can all stand behind.</p>
+</div>
+<div class="actions">
+<a class="btn btnOutline" href="agent-behaviour-policy.html">See the sixteen examples</a>
+<a class="btn btnOutline" href="abp.html">What an ABP is</a>
+</div>
+</div>
+<figure class="figure">
+          <svg class="diagram" viewBox="0 0 560 560" role="img" aria-label="An agent at the centre. A green ring holds the six capabilities it was authorised to use. A wider dashed boundary holds everything it can reach, with nine more capabilities in the gap between the two.">
+            <g class="fadeIn">
+              <circle cx="280" cy="280" r="274" fill="none" stroke="#0B7A4B" stroke-opacity="0.16" stroke-width="1" stroke-dasharray="2 7"></circle>
+              <circle cx="280" cy="280" r="246" fill="none" stroke="#0B7A4B" stroke-opacity="0.12" stroke-width="1"></circle>
+              <path d="M2 280H558M280 2V558" stroke="#0B7A4B" stroke-opacity="0.12" stroke-width="1"></path>
+            </g>
+            <circle class="fadeIn" style="animation-delay: 950ms" cx="280" cy="280" r="212" fill="#FAEFD6" stroke="#14201A" stroke-opacity="0.5" stroke-width="2" stroke-dasharray="7 8"></circle>
+            <g class="fadeIn" style="animation-delay: 120ms">
+              <circle cx="280" cy="280" r="126" fill="#FFFFFF" stroke="#16A864" stroke-width="18"></circle>
+              <path d="M280 122V152M438 280H408M280 438V408M122 280H152" stroke="#16A864" stroke-width="16"></path>
+              <circle cx="280" cy="280" r="56" fill="#14201A"></circle>
+              <text class="diagramLabel" x="280" y="286" text-anchor="middle" fill="#F3F7F4">Agent</text>
+            </g>
+            <circle class="pop" style="animation-delay: 420ms" cx="325" cy="202" r="9.5" fill="#16A864"></circle>
+            <circle class="pop" style="animation-delay: 480ms" cx="370" cy="280" r="9.5" fill="#16A864"></circle>
+            <circle class="pop" style="animation-delay: 540ms" cx="325" cy="358" r="9.5" fill="#16A864"></circle>
+            <circle class="pop" style="animation-delay: 600ms" cx="235" cy="358" r="9.5" fill="#16A864"></circle>
+            <circle class="pop" style="animation-delay: 660ms" cx="190" cy="280" r="9.5" fill="#16A864"></circle>
+            <circle class="pop" style="animation-delay: 720ms" cx="235" cy="202" r="9.5" fill="#16A864"></circle>
+            <circle class="pop" style="animation-delay: 1150ms" cx="344" cy="121" r="10.5" fill="#E3A21A" stroke="#FFFFFF" stroke-width="3"></circle>
+            <circle class="pop" style="animation-delay: 1230ms" cx="443" cy="178" r="10.5" fill="#E3A21A" stroke="#FFFFFF" stroke-width="3"></circle>
+            <circle class="pop" style="animation-delay: 1310ms" cx="450" cy="304" r="10.5" fill="#E3A21A" stroke="#FFFFFF" stroke-width="3"></circle>
+            <circle class="pop" style="animation-delay: 1390ms" cx="413" cy="418" r="10.5" fill="#E3A21A" stroke="#FFFFFF" stroke-width="3"></circle>
+            <circle class="pop" style="animation-delay: 1470ms" cx="304" cy="450" r="10.5" fill="#E3A21A" stroke="#FFFFFF" stroke-width="3"></circle>
+            <circle class="pop" style="animation-delay: 1550ms" cx="190" cy="450" r="10.5" fill="#E3A21A" stroke="#FFFFFF" stroke-width="3"></circle>
+            <circle class="pop" style="animation-delay: 1630ms" cx="123" cy="350" r="10.5" fill="#E3A21A" stroke="#FFFFFF" stroke-width="3"></circle>
+            <circle class="pop" style="animation-delay: 1710ms" cx="95" cy="227" r="10.5" fill="#E3A21A" stroke="#FFFFFF" stroke-width="3"></circle>
+            <circle class="pop" style="animation-delay: 1790ms" cx="184" cy="137" r="10.5" fill="#E3A21A" stroke="#FFFFFF" stroke-width="3"></circle>
+            <text class="fadeIn diagramLabel diagramGap" style="animation-delay: 1900ms" x="280" y="101" text-anchor="middle" fill="#7A4F00">The gap</text>
+          </svg>
+
+          <div class="legend">
+            <div class="legendItem">
+              <span class="legendNumber toneInk">15</span>
+              <span class="legendText">
+                <svg class="iconBlock" width="30" height="12" viewBox="0 0 30 12" aria-hidden="true"><path d="M1 6H29" stroke="#14201A" stroke-opacity="0.55" stroke-width="2" stroke-dasharray="5 4"></path></svg>
+                <span>capabilities it can reach</span>
+              </span>
+            </div>
+            <div class="legendItem">
+              <span class="legendNumber toneGreen">6</span>
+              <span class="legendText">
+                <svg class="iconBlock" width="30" height="12" viewBox="0 0 30 12" aria-hidden="true"><circle cx="6" cy="6" r="5.5" fill="#16A864"></circle></svg>
+                <span>that you actually asked for</span>
+              </span>
+            </div>
+            <div class="legendItem">
+              <span class="legendNumber toneAmber">9</span>
+              <span class="legendText">
+                <svg class="iconBlock" width="30" height="12" viewBox="0 0 30 12" aria-hidden="true"><circle cx="6" cy="6" r="5.5" fill="#E3A21A"></circle></svg>
+                <span>it can do that you didn’t ask for</span>
+              </span>
+            </div>
+            <div class="legendItem">
+              <span class="legendNumber toneInk">7</span>
+              <span class="legendText">
+                <svg class="iconBlock" width="30" height="12" viewBox="0 0 30 12" aria-hidden="true"><circle cx="6" cy="6" r="4.6" fill="none" stroke="#14201A" stroke-width="1.8"></circle></svg>
+                <span>with nothing real in the way</span>
+              </span>
+            </div>
+          </div>
+
+          <figcaption class="figcaption">From a published behaviour policy: Claude Code on the web, with one repository attached. <a class="inlineLink" href="abp-vault-claude-code-web.html">Open this behaviour policy</a></figcaption>
+        </figure>
+</div>
+
+        <div class="intro">
+          <h2 id="how-title" class="h2">Not a model property. A property of this deployment.</h2>
+          <p class="lede">The same model can be harmless in one setup and serious in another. Connect it to a mailbox and the narrowest Gmail scope that reads one message reads every message. So a behaviour policy describes one agent, in one deployment, in four parts, and carries no score. <a class="inlineLink" href="lab-connector-grants.html">See the scope evidence</a></p>
+        </div>
+        <div class="parts" id="parts">
+          <article class="part">
+            <svg class="iconBlock" width="56" height="56" viewBox="0 0 56 56" aria-hidden="true">
+              <circle cx="28" cy="28" r="25" fill="none" stroke="#14201A" stroke-width="2.2" stroke-dasharray="3.5 3.5"></circle>
+              <path d="M28 8V16M48 28H40M28 48V40M8 28H16" stroke="#C5D3CA" stroke-width="3"></path>
+              <circle cx="28" cy="28" r="12" fill="none" stroke="#C5D3CA" stroke-width="4"></circle>
+              <circle cx="28" cy="28" r="4.5" fill="#14201A"></circle>
+            </svg>
+            <div class="partHead">
+              <h3 class="h3">Reach</h3>
+              <p class="partMethod">Measured</p>
+            </div>
+            <p class="text">Everything the agent can actually access in this deployment, including what nobody thought to check.</p>
+          </article>
+          <article class="part">
+            <svg class="iconBlock" width="56" height="56" viewBox="0 0 56 56" aria-hidden="true">
+              <circle cx="28" cy="28" r="25" fill="none" stroke="#C5D3CA" stroke-width="1.6" stroke-dasharray="3.5 3.5"></circle>
+              <path d="M28 8V16M48 28H40M28 48V40M8 28H16" stroke="#C5D3CA" stroke-width="3"></path>
+              <circle cx="28" cy="28" r="12" fill="none" stroke="#16A864" stroke-width="4.5"></circle>
+              <circle cx="28" cy="28" r="4.5" fill="#14201A"></circle>
+            </svg>
+            <div class="partHead">
+              <h3 class="h3">Mandate</h3>
+              <p class="partMethod">Elicited</p>
+            </div>
+            <p class="text">The job, written down: what the business authorised it to do. The one part only you can supply.</p>
+          </article>
+          <article class="part">
+            <svg class="iconBlock" width="56" height="56" viewBox="0 0 56 56" aria-hidden="true">
+              <circle cx="28" cy="28" r="19.5" fill="none" stroke="#E3A21A" stroke-width="10"></circle>
+              <circle cx="28" cy="28" r="25" fill="none" stroke="#C5D3CA" stroke-width="1.6" stroke-dasharray="3.5 3.5"></circle>
+              <circle cx="28" cy="28" r="12" fill="none" stroke="#C5D3CA" stroke-width="4"></circle>
+              <circle cx="28" cy="28" r="4.5" fill="#14201A"></circle>
+            </svg>
+            <div class="partHead">
+              <h3 class="h3">Gap</h3>
+              <p class="partMethod">Derived</p>
+            </div>
+            <p class="text">Reach minus mandate. Never written by hand, and recomputed whenever either side moves.</p>
+          </article>
+          <article class="part">
+            <svg class="iconBlock" width="56" height="56" viewBox="0 0 56 56" aria-hidden="true">
+              <circle cx="28" cy="28" r="25" fill="none" stroke="#C5D3CA" stroke-width="1.6" stroke-dasharray="3.5 3.5"></circle>
+              <circle cx="28" cy="28" r="12" fill="none" stroke="#C5D3CA" stroke-width="4"></circle>
+              <path d="M28 7V17M49 28H39M28 49V39M7 28H17" stroke="#14201A" stroke-width="3.5"></path>
+              <circle cx="28" cy="28" r="4.5" fill="#14201A"></circle>
+            </svg>
+            <div class="partHead">
+              <h3 class="h3">Barriers</h3>
+              <p class="partMethod">Recorded</p>
+            </div>
+            <p class="text">What actually stands in the way of each capability: controls, constraints and open questions.</p>
+          </article>
+        </div>
+        <p class="small measure">The files and the data keep the older names for these: <code class="code">GRANT.md</code> is the reach and <code class="code">DELTA.md</code> is the gap, because the vocabulary is pinned at <a class="inlineLink" href="https://abp.sgit.ai/" target="_blank" rel="noopener">abp.sgit.ai</a> and sixteen published vaults are built against it. Same four objects, plainer words on this page.</p>
+      
+
+        <div class="intro">
+          <h2 id="leaders-title" class="h2">One record. A view for everyone who answers for it.</h2>
+          <p class="lede">The behaviour policy lives in an encrypted vault you hold the keys to, with a reading app inside. Hand a read key to your board, your auditor or your broker and they see exactly what you see.</p>
+        </div>
+        <div class="roles">
+          <article class="role">
+            <div class="roleHead">
+              <h3 class="roleTitle">CEO</h3>
+              <p class="roleView">Leadership view</p>
+            </div>
+            <p class="roleQuestion">“What have we authorised, and who owns it if it goes wrong?”</p>
+            <p class="roleAnswer">The gap in plain terms, a named owner, and a trigger that brings the decision back for review.</p>
+          </article>
+          <article class="role">
+            <div class="roleHead">
+              <h3 class="roleTitle">CTO</h3>
+              <p class="roleView">Operator view</p>
+            </div>
+            <p class="roleQuestion">“How do we keep shipping agents without losing track of what they can touch?”</p>
+            <p class="roleAnswer">Terms your agent reads in its own context, as <code class="code">AGENTS.md</code> and <code class="code">SKILL.md</code>. Markdown for people, JSON for tools, and nothing in your request path.</p>
+          </article>
+          <article class="role">
+            <div class="roleHead">
+              <h3 class="roleTitle">CISO</h3>
+              <p class="roleView">Security view</p>
+            </div>
+            <p class="roleQuestion">“Can we prove what it can reach, and what actually stops it?”</p>
+            <p class="roleAnswer">Every capability with its barrier, the gap recomputed whenever an input changes, and every version kept.</p>
+          </article>
+          <article class="role">
+            <div class="roleHead">
+              <h3 class="roleTitle">Insurer</h3>
+              <p class="roleView">Insurance view</p>
+            </div>
+            <p class="roleQuestion">“What exactly are we being asked to cover?”</p>
+            <p class="roleAnswer">Explicit scope and the questions still open, so renewal starts from a record instead of a questionnaire.</p>
+          </article>
+        </div>
+        <div class="abpFlow">
+          <p class="flowLead"><strong>It’s a draft on purpose.</strong> The people who built the agent, own what it touches and answer for it each correct the part they know. The correction is the product.</p>
+          <ol class="flowList" aria-label="How a behaviour policy is made">
+            <li class="flowItem">
+              <span class="flowStep">Draft</span>
+              <svg class="iconBlock" width="22" height="14" viewBox="0 0 22 14" aria-hidden="true"><path d="M1 7H19M13 1.5L19.5 7L13 12.5" fill="none" stroke="#0B7A4B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </li>
+            <li class="flowItem">
+              <span class="flowStep">Challenge</span>
+              <svg class="iconBlock" width="22" height="14" viewBox="0 0 22 14" aria-hidden="true"><path d="M1 7H19M13 1.5L19.5 7L13 12.5" fill="none" stroke="#0B7A4B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </li>
+            <li class="flowItem">
+              <span class="flowStep">Correct</span>
+              <svg class="iconBlock" width="22" height="14" viewBox="0 0 22 14" aria-hidden="true"><path d="M1 7H19M13 1.5L19.5 7L13 12.5" fill="none" stroke="#0B7A4B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </li>
+            <li class="flowItem">
+              <span class="flowStep">Review</span>
+              <svg class="iconBlock" width="22" height="14" viewBox="0 0 22 14" aria-hidden="true"><path d="M1 7H19M13 1.5L19.5 7L13 12.5" fill="none" stroke="#0B7A4B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </li>
+            <li class="flowItem">
+              <span class="flowStep flowStepFinal">Version</span>
+            </li>
+          </ol>
+        </div>
+      
+<div class="ladderWrap">
+          <p class="ladderLead">Three steps, in order. Each one needs the step before it.</p>
+          <ol class="ladder">
+            <li class="step stepLive">
+              <div class="stepTop">
+                <span class="stepNumber stepNumberLive" aria-hidden="true">1</span>
+                <span class="pill pillLive">Available now</span>
+              </div>
+              <div class="titleGroup">
+                <h3 class="h3">Describe it</h3>
+                <p class="stepProduct">Agent Behaviour Policy</p>
+              </div>
+              <p class="text">What one agent can reach, what you authorised, the gap between them and what stands in the way.</p>
+              <a class="link pushDown" href="agent-behaviour-policy.html">See a behaviour policy</a>
+            </li>
+            <li class="step stepReady">
+              <div class="stepTop">
+                <span class="stepNumber" aria-hidden="true">2</span>
+                <span class="pill pillReady">Template available</span>
+              </div>
+              <div class="titleGroup">
+                <h3 class="h3">Authorise it</h3>
+                <p class="stepProduct">Licence to Operate</p>
+              </div>
+              <p class="text">The business is the authority, the behaviour policy is the instrument and the agent is the licensee, for a set interval.</p>
+              <a class="link pushDown" href="licence-to-operate.html">See the template</a>
+            </li>
+            <li class="step stepPlanned">
+              <div class="stepTop">
+                <span class="stepNumber" aria-hidden="true">3</span>
+                <span class="pill pillPlanned">In design</span>
+              </div>
+              <div class="titleGroup">
+                <h3 class="h3">Insure it</h3>
+                <p class="stepProduct">Insurability Index</p>
+              </div>
+              <p class="text">The record an underwriter will accept: scored, dated and with the residual risk owned.</p>
+              <a class="link pushDown" href="insurance.html">See the design</a>
+            </li>
+          </ol>
+        </div>
 </div>
 </section>
 
