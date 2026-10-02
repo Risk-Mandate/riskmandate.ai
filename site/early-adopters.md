@@ -12,7 +12,7 @@ Source: https://riskmandate.ai/early-adopters.html
 
 Two groups of people put something in before there was much to see: the early users of The Cyber Boardroom, who bought credits, and the early adopters of RiskMandate, who said yes to a programme on an invitation. The Cyber Boardroom is the company behind RiskMandate, and the work moved on. This page says where it moved, what we are giving each of you for having been there, and how to collect it in the next thirty days.
 
-**The gift:** an Agent Behaviour Policy for one agent you run, corrected for your situation with you: the level the store sells for £500, at no cost, for thirty days from the day your email arrives.
+**The offer:** an Agent Behaviour Policy for one agent you run, corrected for your situation with you: the level the store sells for £500, at no cost, for thirty days from the day your email arrives.
 
 **How to collect it:** [register with the code in your email](early-access.html). One form, encrypted in your browser; a person replies within a working day.
 
@@ -26,7 +26,7 @@ _The same company, one step further down: from credits in a boardroom tool to a 
 
 is the company behind
 
-## Two groups, one gift each.
+## Two groups, one offer.
 
 ### You bought credits. Most are still there.
 
@@ -78,7 +78,7 @@ Run the prompt where the agent runs; send back what it measured; tell us what is
 
 - **It is a thank you**, from the same company and the same person, for having put money or time in before there was much to see.
 - **It is not a security assessment**, and not a promise about your agent’s behaviour. A behaviour policy describes; it carries no score. Where the vendor’s pages and your measurement disagree, the disagreement is recorded unresolved rather than settled by guessing.
-- **Your credits are yours.** This gift does not touch them; nothing on this page asks you to give anything up.
+- **Your credits are yours.** The offer does not touch them; nothing on this page asks you to give anything up.
 - **Nothing of yours is published.** The vault is private, the key is yours, and the default for listing it anywhere is no. What you tell us about the agent goes into your mandate and nowhere else.
 - **What we count.** How many of you register, and then how many run the prompt and correct a mandate. That number, not the number of emails sent, is how we know whether this worked.
 
