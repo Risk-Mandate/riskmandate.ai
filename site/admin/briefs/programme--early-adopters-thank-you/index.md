@@ -1,4 +1,4 @@
-# The early-adopters thank you: two groups, one gift, thirty days, and the words that go out
+# The early-adopters thank you: two groups, one offer, thirty days, and the words that go out
 
 > Rendered from docs/programme/early-adopters-thank-you.md in the repository. The text below is that file.
 > Source: https://riskmandate.ai/admin/briefs/programme--early-adopters-thank-you/ · noindex · written by scripts/site/build-admin.mjs
@@ -13,7 +13,7 @@
 
 ## 1. What it is, in one paragraph
 
-A thank you to two groups who put something in early, carried by one gift: an Agent Behaviour Policy for one agent they run, **corrected for their situation with them**, the level the store sells for £500, at no cost, to be collected within thirty days of the email. The first group is the early users of The Cyber Boardroom, who bought £5 of credits and, by the logs, used little of them. The second is the early adopters of RiskMandate, the design partners of the early-access programme, who were offered a vault made from their public pages and now get it corrected. The Cyber Boardroom is the company behind RiskMandate; the page says so, with its mark beside ours. The public page is `/early-adopters.html`; the registration route is the existing early-access form with a code.
+A thank you to two groups who put something in early, carried by one offer: an Agent Behaviour Policy for one agent they run, **corrected for their situation with them**, the level the store sells for £500, at no cost, to be collected within thirty days of the email. The first group is the early users of The Cyber Boardroom, who bought £5 of credits and, by the logs, used little of them. The second is the early adopters of RiskMandate, the design partners of the early-access programme, who were offered a vault made from their public pages and now get it corrected. The Cyber Boardroom is the company behind RiskMandate; the page says so, with its mark beside ours. The public page is `/early-adopters.html`; the registration route is the existing early-access form with a code.
 
 ## 2. How it differs from the early-access programme of 30 September
 
@@ -75,7 +75,7 @@ Subject: **Your early-access vault, corrected with you**
 > What changes: after the vault arrives, we work through the mandate together, by email or on a call, against your industry, your use case and your words; the gap is recomputed; a note of what changed and why is committed beside it, and a person reviews the note before it reaches you.
 >
 > If you have already registered, reply to this and say "yes, correct it", and nothing else is needed. If you have not, register here with the code {invite_code}: https://riskmandate.ai/early-access.html
-> The page that explains the gift: https://riskmandate.ai/early-adopters.html
+> The page that explains the offer: https://riskmandate.ai/early-adopters.html
 >
 > Dinis
 
@@ -97,7 +97,7 @@ Subject: **Ten days left on the behaviour policy**
 
 ## 8. Who does what
 
-The six roles as in the earlier file. The additions: the CRM role keeps `expires` and sends nothing after it; the mailbox role drafts from the two templates above and never from memory; the inbox role sends only from a draft a person has seen; the site agent, this one, builds and corrects the vaults and answers the one question with the person, which is level 3's work and the part the gift is for. The WhatsApp groups are the lead's: a message there may point at the page, but the invitation and the code go by email, so the register is one list.
+The six roles as in the earlier file. The additions: the CRM role keeps `expires` and sends nothing after it; the mailbox role drafts from the two templates above and never from memory; the inbox role sends only from a draft a person has seen; the site agent, this one, builds and corrects the vaults and answers the one question with the person, which is level 3's work and the part the offer is for. The WhatsApp groups are the lead's: a message there may point at the page, but the invitation and the code go by email, so the register is one list.
 
 ## 9. What needs the lead
 

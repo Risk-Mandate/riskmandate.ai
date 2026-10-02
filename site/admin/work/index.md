@@ -75,11 +75,15 @@ a decision the lead owns, listed in the state fileneeds the lead
 
 a decision the lead owns, listed in the state fileneeds the lead
 
-## In flight — 0 branches
+## In flight — 1 branch
 
 One file per branch under `.claude/work/`. [How a work file is written](../../admin/work/about-work-files/).
 
-Nothing in flight.
+### [claude/dev-session-setup-a5wcc5](../../admin/work/branches/claude-dev-session-setup-a5wcc5/)
+
+started 2 October 2026 · task brief: the lead's word: "offer", not "gift"
+
+One word on the early-adopters page and in its programme brief. Release I will claim at merge: yes, 1.35.11. No external state.
 
 ## Task briefs — 14
 

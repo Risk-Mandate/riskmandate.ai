@@ -15,9 +15,9 @@ These were written here, by the agent maintaining the site, in response to [the 
 
 ## Newest first
 
-**[The early-adopters thank you: two groups, one gift, thirty days, and the words that go out](../../admin/briefs/programme--early-adopters-thank-you/)**
+**[The early-adopters thank you: two groups, one offer, thirty days, and the words that go out](../../admin/briefs/programme--early-adopters-thank-you/)**
 
-A thank you to two groups who put something in early, carried by one gift: an Agent Behaviour Policy for one agent they run, corrected for their situation with them, the level the store sells for £500, at no cost, to be collected within thirty days of the…2 October 2026
+A thank you to two groups who put something in early, carried by one offer: an Agent Behaviour Policy for one agent they run, corrected for their situation with them, the level the store sells for £500, at no cost, to be collected within thirty days of the…2 October 2026
 
 **[Keeping an eye on the comms vault: a brief for the session that runs agent@riskmandate.ai](../../admin/briefs/handover__keeping-an-eye-on-the-comms-vault/)**
 
@@ -267,9 +267,9 @@ Move the interactive Risk Scenarios experience to the decoupled model:4 July 202
 
 ## Other documents · how the site works, and the marketing copy
 
-**[The early-adopters thank you: two groups, one gift, thirty days, and the words that go out](../../admin/briefs/programme--early-adopters-thank-you/)**
+**[The early-adopters thank you: two groups, one offer, thirty days, and the words that go out](../../admin/briefs/programme--early-adopters-thank-you/)**
 
-A thank you to two groups who put something in early, carried by one gift: an Agent Behaviour Policy for one agent they run, corrected for their situation with them, the level the store sells for £500, at no cost, to be collected within thirty days of the…2 October 2026
+A thank you to two groups who put something in early, carried by one offer: an Agent Behaviour Policy for one agent they run, corrected for their situation with them, the level the store sells for £500, at no cost, to be collected within thirty days of the…2 October 2026
 
 **[The early-access programme: the invitation, the replies, and how the first batch goes out](../../admin/briefs/programme--early-access-invitations/)**
 
