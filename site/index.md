@@ -67,13 +67,13 @@ Prices are in pounds, per agent, per deployment, paid once at the store; no subs
 - The mandate, in your words
 - The gap, derived, and a barrier on every row
 
-## Under every rule, one record.
-
-The rules above are the moment. What they act on is a document, the Agent Behaviour Policy: for one agent in one deployment, everything it can reach, what you authorised it to do, the gap between the two, and what stands in the way of each thing. This is that document, as the home page explains it today.
+## Know what your agents can do.
 
 Not what they did. What they can.
 
 An Agent Behaviour Policy writes down what one agent can really reach, what you authorised it to do and the gap between the two, in one record the CEO, CTO and CISO can all stand behind.
+
+**From £10 for one agent.** All sixteen published examples are free to read.
 
 _From a published behaviour policy: Claude Code on the web, with one repository attached. [Open this behaviour policy](abp-vault-claude-code-web.html)_
 

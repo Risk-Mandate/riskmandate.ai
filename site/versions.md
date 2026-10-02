@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.36.1** · 2026-10-02 — Know what your agents can do, back as the block it was
+  Notes: https://riskmandate.ai/versions/1.36.1.md · Source: `git:v1.36.1`
 - **v1.36.0** · 2026-10-02 — The new home page
   Notes: https://riskmandate.ai/versions/1.36.0.md · Source: `git:v1.36.0`
 - **v1.35.17** · 2026-10-02 — The experiment carries the model: grant, mandate, gap, barriers
