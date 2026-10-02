@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.35.17** · 2026-10-02 — The experiment carries the model: grant, mandate, gap, barriers
+  Notes: https://riskmandate.ai/versions/1.35.17.md · Source: `git:v1.35.17`
 - **v1.35.16** · 2026-10-02 — Level 3 is the default, and free for early users
   Notes: https://riskmandate.ai/versions/1.35.16.md · Source: `git:v1.35.16`
 - **v1.35.15** · 2026-10-02 — The experiment prices what we can deliver: the four levels

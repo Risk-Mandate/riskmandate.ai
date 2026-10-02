@@ -161,7 +161,10 @@ the site's; check `site/versions/index.json` for the current version before trus
   monthly/yearly price builder is replaced by a picker over the store's four levels, in pounds, paid once, with the
   store links; the page says what comes next is learnt from early users. v1.35.16: level 3 is marked *start here*
   and selected on load, and the card carries a second link, register for early access to have level 3 at no cost
-  (the agent@riskmandate.ai workflow). Nothing on it is scored.
+  (the agent@riskmandate.ai workflow). v1.35.17: a section *Under every rule, one record* before the closing call,
+  carrying the home page's own blocks by their own markup and styles (the gap figure with the counts, the four parts,
+  the four views and the draft-to-version flow, the three steps); the mock's `.flow` grid clashes with the home
+  page's flow block, so that one is `.abpFlow` on this page. Nothing on it is scored.
 - **The early-access programme** (invite only, a vault each, free): `docs/briefs/programme__early-access-and-the-first-batch.md`
   and `docs/programme/early-access-invitations.md` (the invitation, the acceptance, the reminder, the CSV columns, who
   does what in the six roles). Waiting on the lead: the list, the sender, the drain schedule, telling sgit.ai.
