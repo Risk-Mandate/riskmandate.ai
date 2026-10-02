@@ -449,6 +449,20 @@
       "group": "More"
     },
     {
+      "name": "home-current",
+      "label": "Home: as it is today",
+      "file": "home-current.html",
+      "group": "More",
+      "private": true
+    },
+    {
+      "name": "home-next",
+      "label": "Home: the next one, an experiment",
+      "file": "home-next.html",
+      "group": "More",
+      "private": true
+    },
+    {
       "name": "feedback",
       "label": "Give feedback",
       "file": "feedback.html",

@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.35.14** · 2026-10-02 — The next home page, as an experiment beside the current one
+  Notes: https://riskmandate.ai/versions/1.35.14.md · Source: `git:v1.35.14`
 - **v1.35.13** · 2026-10-02 — The company as a side note, and CC BY on the deck
   Notes: https://riskmandate.ai/versions/1.35.13.md · Source: `git:v1.35.13`
 - **v1.35.12** · 2026-10-02 — Going official: the founders, and the investor deck
