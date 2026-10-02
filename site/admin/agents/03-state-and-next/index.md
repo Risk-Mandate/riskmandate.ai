@@ -147,24 +147,21 @@ the site's; check `site/versions/index.json` for the current version before trus
   the people thanked were its early users. The reviewer record's one-line (`site/reviewers/dinis-cruz.json`, the source
   the two reviewer pages are built from) and the team page's Who section say co-founder and point here. The deck's own
   page numbers run 01 to 17 then 19, as presented.
-- **The next home page, an experiment** (`home-next.html`, in *More*, private, 2 Oct, v1.35.14): a port of a React
-  mock the lead sent (`RiskMandateHome.tsx`, "Give agents access. Not free rein.") to plain HTML, CSS and one small
-  script, in the site's chrome, with the mock's own CSS keyframes for the stage animation and its four interactive
-  parts (system picker, rules, alert toggles, price builder) re-rendered from a state object. Built by a one-off
-  converter in the session scratchpad, then hand-authored in the tree like `index.html`. **The home page as it is**
-  is copied to `home-current.html` (private, same group) so the two can be compared; when the lead says so, the
-  experiment replaces `index.html` and both extra pages go. **Review, recorded in the v1.35.14 notes:** the mock
-  sells an enforcement product (real time, alerts by text and email, per-system subscriptions in dollars, a decision
-  log) that the site does not sell, says *policy* alone throughout, and had dead links; the port keeps the design and
-  the words, fixes spelling to British, points dead links at contact, and carries a note at the top saying the copy,
-  claims are the design's and under review. **v1.35.15, at the two founders' decision:** the mock's per-system
-  monthly/yearly price builder is replaced by a picker over the store's four levels, in pounds, paid once, with the
-  store links; the page says what comes next is learnt from early users. v1.35.16: level 3 is marked *start here*
-  and selected on load, and the card carries a second link, register for early access to have level 3 at no cost
-  (the agent@riskmandate.ai workflow). v1.35.17: a section *Under every rule, one record* before the closing call,
-  carrying the home page's own blocks by their own markup and styles (the gap figure with the counts, the four parts,
-  the four views and the draft-to-version flow, the three steps); the mock's `.flow` grid clashes with the home
-  page's flow block, so that one is `.abpFlow` on this page. Nothing on it is scored.
+- **The home page, v1.36.0** (`index.html`, 2 Oct, signed off by the lead): the design the lead sent as a React
+  component (`RiskMandateHome.tsx`, "Give agents access. Not free rein."), ported to plain HTML, CSS and one short
+  script, in the site's chrome. Hand-authored, like every home page before it. Its sections: the hero; the stage, six
+  agents and the gate with the four kinds of dot (pure CSS keyframes); the eight systems; the builder (pick a system,
+  set each rule to allow / redact / hold / block, alert toggles; one state object, re-rendered by the script); bring
+  your policy; a prompt asks, a policy enforces; the phone and the email; **the four levels** (the store's, in
+  pounds, paid once, level 3 selected on load and marked *start here*, with the free early-access link for level 3);
+  **the model** (*Under every rule, one record*: the gap figure with the counts from `claude-code-web`, the four
+  parts, the four views and the draft-to-version flow, the three steps, the previous home page's own blocks by
+  their own markup, the flow strip renamed `abpFlow`); the proof strip of four ledger claims, which the tests hold to
+  the catalogue count; the closing call. The experiment pages `home-next.html` and `home-current.html` are gone
+  (v1.35.14 to v1.35.17 were their life); `home-next.html` is a redirect stub to the root because the link was shared.
+  **Open, the lead's call:** the design's enforcement language (real time, alerts by text and email, a decision log)
+  describes a product the site does not sell; the v1.35.14 notes list it. The previous home page is in git at
+  v1.35.17 and before.
 - **The early-access programme** (invite only, a vault each, free): `docs/briefs/programme__early-access-and-the-first-batch.md`
   and `docs/programme/early-access-invitations.md` (the invitation, the acceptance, the reminder, the CSV columns, who
   does what in the six roles). Waiting on the lead: the list, the sender, the drain schedule, telling sgit.ai.
