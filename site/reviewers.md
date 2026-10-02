@@ -18,7 +18,7 @@ Choosing the reviewer is part of buying the reviewed level, and the choice is ma
 
 ### Dinis Cruz
 
-Founder of RiskMandate.ai and the sgit.ai network; former OWASP Board member and organiser of the OWASP Summits; creator of the O2 Platform.
+Co-founder of RiskMandate.ai, with Nimay Parekh, and founder of the sgit.ai network; former OWASP Board member and organiser of the OWASP Summits; creator of the O2 Platform.
 
 ### CISO XYZ
 

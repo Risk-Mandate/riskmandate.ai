@@ -437,6 +437,12 @@
       "unlisted": true
     },
     {
+      "name": "about",
+      "label": "About: the company and the founders",
+      "file": "about.html",
+      "group": "More"
+    },
+    {
       "name": "brand",
       "label": "Brand",
       "file": "brand.html",
