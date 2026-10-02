@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>RiskMandate — Know what your agents can do</title>
-<meta name="description" content="An Agent Behaviour Policy writes down what one AI agent can really reach, what you authorised it to do and the gap between the two.">
+<title>RiskMandate — Give agents access. Not free rein.</title>
+<meta name="description" content="An Agent Behaviour Policy writes down what one AI agent can really reach, what you authorised it to do and the gap between the two. Behaviour policies for the agents in Gmail, HR, payroll, CRM and meeting apps: pick a system, set the rules, and know the moment an agent steps out of line.">
 <link rel="canonical" href="https://riskmandate.ai/">
 <link rel="alternate" type="text/markdown" href="index.md" title="This page as markdown">
 <link rel="icon" href="assets/brand/riskmandate-favicon-32.png" sizes="32x32">
@@ -12,13 +12,13 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="RiskMandate">
 <meta property="og:url" content="https://riskmandate.ai/">
-<meta property="og:title" content="RiskMandate — Know what your agents can do">
-<meta property="og:description" content="An Agent Behaviour Policy writes down what one AI agent can really reach, what you authorised it to do and the gap between the two.">
+<meta property="og:title" content="RiskMandate — Give agents access. Not free rein.">
+<meta property="og:description" content="An Agent Behaviour Policy writes down what one AI agent can really reach, what you authorised it to do and the gap between the two. Behaviour policies for the agents in Gmail, HR, payroll, CRM and meeting apps: pick a system, set the rules, and know the moment an agent steps out of line.">
 <meta property="og:image" content="https://riskmandate.ai/assets/brand/riskmandate-lockup-light.png">
 <meta name="twitter:card" content="summary_large_image">
-<!-- v1.26.0. Built from a homepage design a business partner sent as HTML: their
-     copy, their structure, their palette and their type, scoped under .page and
-     joined to the shared chrome. See versions/1.26.0.md. There is no build step. -->
+<!-- v1.36.0. The home page, from a design the lead sent as a React component (RiskMandateHome.tsx):
+     its sections ported to plain HTML, CSS and one short script, scoped under .rmx and joined to the shared
+     chrome; the model section carries the previous home page's own blocks. See versions/1.36.0.md. No build step. -->
 <style>
 /* index.css — self-contained: the shared chrome, then the partner design. */
 :root{
@@ -1261,7 +1261,113 @@ rm-menu{display:contents}
 
 .ghlink{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:8px;color:var(--muted);border:1px solid transparent}.ghlink:hover{color:var(--text);border-color:var(--border)}
 .footlic{display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap}.footlic a{color:inherit}.ccicon{vertical-align:-3px;margin:0 2px}
-@media (max-width:1400px) and (min-width:901px){.ghlink{display:none}header.top .wrap{gap:14px}}</style>
+@media (max-width:1400px) and (min-width:901px){.ghlink{display:none}header.top .wrap{gap:14px}}
+.rmx .abpFlow {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.rmx .abp .heroCopy{max-width:none}
+@media (max-width:900px){.rmx .abp .h2{font-size:clamp(26px,5vw,34px) !important}}
+/* index.css, the design's own styles — scoped under .rmx so they do not touch the chrome. */
+*{box-sizing:border-box}
+.rmx{font-family:'Geist',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;color:#101613;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.rmx .mono{font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,monospace}
+.rmx a{color:#1A7F5A}
+.rmx a:hover{color:#136246}
+.rmx a:focus-visible,.rmx button:focus-visible{outline:2px solid #1A7F5A;outline-offset:3px}
+.rmx button{font:inherit;cursor:pointer}
+.rmx .flow{display:grid;grid-template-columns:200px minmax(0,1fr) 64px minmax(0,1fr) 220px;grid-auto-rows:68px;align-items:center}
+.rmx .c-agent{grid-column:1;align-self:stretch}
+.rmx .c-ll{grid-column:2}
+.rmx .gate{grid-column:3;grid-row:1 / span 6;align-self:stretch}
+.rmx .c-rl{grid-column:4}
+.rmx .c-sys{grid-column:5}
+.rmx .lane{position:relative;align-self:stretch}
+.rmx .dot{position:absolute;top:50%;width:8px;height:8px;margin-top:-4px;border-radius:50%;opacity:0}
+.rmx .go-l{background:#4BE3A2;box-shadow:0 0 14px rgba(75,227,162,.95);animation:goL 4.4s linear infinite}
+.rmx .go-r{background:#4BE3A2;box-shadow:0 0 14px rgba(75,227,162,.95);animation:goR 4.4s linear infinite}
+.rmx .rd-l{background:#9DB7FF;box-shadow:0 0 14px rgba(157,183,255,.95);animation:goL 4.4s linear infinite}
+.rmx .rd-r{background:#9DB7FF;box-shadow:0 0 14px rgba(157,183,255,.95);animation:goR 4.4s linear infinite}
+.rmx .stop-l{animation:stopL 4.4s linear infinite}
+.rmx .hold-l{animation:holdL 4.4s linear infinite}
+@keyframes goL{0%{left:0;opacity:0}6%{opacity:1}46%{left:calc(100% - 8px);opacity:1}50%,100%{left:calc(100% - 8px);opacity:0}}
+
+@keyframes goR{0%,50%{left:0;opacity:0}54%{opacity:1}94%{left:calc(100% - 8px);opacity:1}100%{left:calc(100% - 8px);opacity:0}}
+
+@keyframes stopL{0%{left:0;opacity:0;background:#E8F0EC;box-shadow:none}6%{opacity:1}46%{left:calc(100% - 8px);opacity:1;background:#E8F0EC;box-shadow:none}50%{left:calc(100% - 8px);background:#FF5D52;box-shadow:0 0 0 7px rgba(255,93,82,.25),0 0 22px rgba(255,93,82,.95)}74%{left:calc(100% - 8px);opacity:1;background:#FF5D52;box-shadow:0 0 0 7px rgba(255,93,82,.12)}84%,100%{left:calc(100% - 8px);opacity:0;background:#FF5D52;box-shadow:none}}
+
+@keyframes holdL{0%{left:0;opacity:0;background:#E8F0EC;box-shadow:none}6%{opacity:1}46%{left:calc(100% - 8px);opacity:1;background:#E8F0EC;box-shadow:none}50%{left:calc(100% - 8px);background:#F2A93B;box-shadow:0 0 0 7px rgba(242,169,59,.25),0 0 22px rgba(242,169,59,.95)}92%{left:calc(100% - 8px);opacity:1;background:#F2A93B}100%{left:calc(100% - 8px);opacity:0;background:#F2A93B;box-shadow:none}}
+
+@media (prefers-reduced-motion: reduce){
+.rmx .dot{animation:none !important;opacity:0 !important}
+}
+.rmx .cat{display:flex;align-items:center;gap:12px;width:100%;min-height:44px;padding:0 12px;border:0;background:transparent;border-radius:10px;color:#3D4540;font-size:15px;text-align:left;white-space:nowrap}
+.rmx .cat:hover{background:#F4F6F4}
+.rmx .cat-on,.rmx .cat-on:hover{background:#E8F3ED;color:#0B3B29;font-weight:600}
+.rmx .seg{min-height:44px;padding:0 14px;border:0;background:transparent;color:#4A524D;font-size:14px;font-weight:500;border-radius:8px}
+.rmx .seg:hover{color:#101613;background:#E7EBE7}
+.rmx .seg-allow,.rmx .seg-allow:hover{background:#1A7F5A;color:#FFFFFF}
+.rmx .seg-redact,.rmx .seg-redact:hover{background:#3352C8;color:#FFFFFF}
+.rmx .seg-hold,.rmx .seg-hold:hover{background:#B45309;color:#FFFFFF}
+.rmx .seg-block,.rmx .seg-block:hover{background:#C2362B;color:#FFFFFF}
+.rmx .tog{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 14px 0 6px;border:1px solid #DCE1DC;background:#FFFFFF;border-radius:999px;color:#101613;font-size:14px;font-weight:500}
+.rmx .tog .knob{width:34px;height:20px;border-radius:999px;background:#D5DAD5;position:relative;transition:background .15s}
+.rmx .tog .knob span{position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:#FFFFFF;transition:left .15s}
+.rmx .tog-on .knob{background:#1A7F5A}
+.rmx .tog-on .knob span{left:16px}
+.rmx .pchip{display:flex;align-items:center;gap:14px;width:100%;min-height:68px;padding:12px 16px;border:1px solid #DCE1DC;background:#FFFFFF;border-radius:14px;text-align:left;color:#101613}
+.rmx .pchip:hover{border-color:#B9C2BB}
+.rmx .pchip-on,.rmx .pchip-on:hover{border-color:#1A7F5A;box-shadow:inset 0 0 0 1px #1A7F5A;background:#F3FAF6}
+.rmx .bill{min-height:44px;border:0;border-radius:9px;background:transparent;color:rgba(232,240,236,.75);font-size:15px;font-weight:500}
+.rmx .bill-on{background:#E8F0EC;color:#07140F;font-weight:600}
+@media (max-width: 1080px){
+.rmx .flow{grid-template-columns:150px minmax(0,1fr) 56px minmax(0,1fr) 180px}
+.rmx .h1{font-size:76px !important}
+}
+
+@media (max-width: 900px){
+.rmx .g2{grid-template-columns:minmax(0,1fr) !important}
+.rmx .g4{grid-template-columns:repeat(4,minmax(0,1fr)) !important}
+.rmx .h2{font-size:42px !important}
+.rmx .builder{grid-template-columns:minmax(0,1fr) !important}
+.rmx .cats{flex-direction:row !important;overflow-x:auto;border-right:0 !important;border-bottom:1px solid #E7EBE7}
+.rmx .cats-h{display:none !important}
+.rmx .cat{width:auto}
+.rmx .byo{grid-template-columns:minmax(0,1fr) !important}
+.rmx .byo-arrow{transform:rotate(90deg)}
+.rmx .float{position:static !important;width:auto !important;margin:16px 0 0 !important}
+.rmx .mail-float{position:static !important;width:auto !important;margin:20px 0 0 !important}
+}
+
+@media (max-width: 720px){
+.rmx .flow{grid-template-columns:minmax(0,1fr) 36px 28px 116px;grid-auto-rows:76px}
+.rmx .c-agent{display:none !important}
+.rmx .c-ll{grid-column:1}
+.rmx .gate{grid-column:2}
+.rmx .c-rl{grid-column:3}
+.rmx .c-sys{grid-column:4;padding-left:8px !important}
+.rmx .sys-name{display:none !important}
+.rmx .act{font-size:12px !important;left:0 !important;right:6px;white-space:normal !important;line-height:1.25}
+.rmx .gate-word{display:none !important}
+.rmx .stage{padding:28px 16px 28px !important}
+.rmx .legend{position:static !important;margin-top:20px}
+}
+
+@media (max-width: 600px){
+.rmx .pad{padding-left:20px !important;padding-right:20px !important}
+.rmx .sec{padding-top:80px !important;padding-bottom:80px !important}
+.rmx .h1{font-size:50px !important}
+.rmx .h2{font-size:34px !important}
+.rmx .g4{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+.rmx .nav-links{display:none !important}
+.rmx .phone{width:100% !important;max-width:320px}
+}
+.rmx a{color:#1A7F5A}.rmx a:hover{color:#136246}
+.rmx h1,.rmx h2{font-family:inherit}
+.rmx-note{max-width:1240px;margin:0 auto;padding:14px 40px 0;font-family:ui-monospace,Menlo,monospace;font-size:12px;line-height:1.7;color:#5F6863}.rmx-note b{color:#101613}.rmx-note a{color:#1A7F5A}
+@media (max-width:600px){.rmx-note{padding:14px 20px 0}}
+</style>
 </head>
 <body id="top">
 
@@ -1270,32 +1376,381 @@ rm-menu{display:contents}
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
     <a class="ghlink" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener" aria-label="The source, on GitHub" title="Open source · Apache-2.0 code · CC BY 4.0 pages"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a>
-      <a class="version" href="versions.html" title="What shipped in v1.35.17">v1.35.17</a>
+      <a class="version" href="versions.html" title="What shipped in v1.36.0">v1.36.0</a>
     <button class="demo" data-demo>Get in touch</button>
   </div>
 </header>
 
 <div class="page">
+<div class="rmx" style="background:#FFFFFF">
+<section id="top" class="sec" style="padding:88px 0 40px">
+<div class="pad" style="max-width:1240px;margin:0 auto;padding:0 40px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:28px">
+<h1 class="h1" style="margin:0;font-size:96px;line-height:0.95;letter-spacing:-0.055em;font-weight:600;color:#101613"><span style="display:block">Give agents access.</span><span style="display:block">Not free rein.</span></h1>
+<p style="margin:0;font-size:20px;line-height:1.5;color:#4A524D;max-width:33em">Behaviour policies for the AI agents in Gmail, HR, payroll, CRM and meeting apps. Enforced in real time, with alerts by text and email.</p>
+<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px">
+<a href="#pricing" style="display:inline-flex;align-items:center;min-height:52px;padding:0 26px;border-radius:999px;background:#1A7F5A;color:#FFFFFF;text-decoration:none;font-size:16px;font-weight:500">Get started</a>
+<a href="#builder" style="display:inline-flex;align-items:center;min-height:52px;padding:0 26px;border-radius:999px;background:#F2F4F1;color:#101613;text-decoration:none;font-size:16px;font-weight:500">See it work</a>
+</div>
+</div>
+</section>
 
+<section aria-label="How RiskMandate enforces agent policies" style="padding:24px 0 120px">
+<div class="pad" style="max-width:1240px;margin:0 auto;padding:0 40px">
+<div class="stage" style="position:relative;background-color:#07140F;background-image:radial-gradient(rgba(232,240,236,0.07) 1px, transparent 1px);background-size:22px 22px;border-radius:28px;padding:56px 44px 104px;color:#E8F0EC;box-shadow:0 50px 100px -50px rgba(7,20,15,0.6)">
+<div class="flow">
 
-  <main>
+<div class="gate" style="display:flex;flex-direction:column;align-items:center;gap:16px;padding:14px 0;border:1px solid rgba(75,227,162,0.55);background:linear-gradient(180deg, rgba(75,227,162,0.18), rgba(75,227,162,0.05));border-radius:40px;box-shadow:0 0 0 6px rgba(75,227,162,0.05), 0 0 70px rgba(75,227,162,0.22)">
+<svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="17" fill="#0E2A1F"></rect><circle cx="32" cy="32" r="20" stroke="#4BE3A2" stroke-width="4" fill="none"></circle><text x="32" y="39" text-anchor="middle" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="19" font-weight="700" fill="#E8F0EC" letter-spacing="-1">RM</text></svg>
+<span class="gate-word" style="writing-mode:vertical-rl;font-size:13px;letter-spacing:0.08em;color:#4BE3A2;font-weight:500">RiskMandate policy</span>
+</div>
 
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="container heroGrid">
-        <div class="heroCopy">
-          <h1 id="hero-title" class="h1">Know what your agents can do.</h1>
-          <div class="heroLead">
-            <p class="heroKicker">Not what they did. What they can.</p>
-            <p class="heroText">An Agent Behaviour Policy writes down what one agent can really reach, what you authorised it to do and the gap between the two, in one record the CEO, CTO and CISO can all stand behind.</p>
-          </div>
-          <div class="actions">
-            <a class="btn btnPrimary" href="https://store.sgit.ai/policies/" target="_blank" rel="noopener">Buy an Agent Behaviour Policy</a>
-            <a class="btn btnOutline" href="agent-behaviour-policy.html">See Policy examples</a>
-          </div>
-          <p class="priceNote"><strong>From £10 for one agent.</strong> All sixteen published examples are free to read.</p>
-        </div>
+<div class="c-agent" style="display:flex;align-items:center;height:100%">
+<span style="display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(232,240,236,0.14);background:rgba(232,240,236,0.05);border-radius:10px;font-size:14px;white-space:nowrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E8F0EC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 8h10a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-5a3 3 0 0 1 3-3z M12 4v4 M9.5 13.5h.01 M14.5 13.5h.01"></path></svg>Inbox assistant</span>
+<span style="flex:1;height:1px;background:rgba(232,240,236,0.22)"></span>
+</div>
+<div class="c-ll lane">
+<span style="position:absolute;left:0;right:0;top:50%;height:1px;background:linear-gradient(90deg, rgba(232,240,236,0.22), rgba(232,240,236,0.4))"></span>
+<span class="act" style="position:absolute;left:14px;bottom:calc(50% + 8px);font-size:13px;color:rgba(232,240,236,0.8);white-space:nowrap">Reply to a customer</span>
+<span class="dot go-l" style="animation-delay:0s"></span>
+</div>
+<div class="c-rl lane">
+<span style="position:absolute;left:0;right:0;top:50%;height:1px;background:linear-gradient(90deg, rgba(75,227,162,0.8), rgba(75,227,162,0.25))"></span>
+<span class="dot go-r" style="animation-delay:0s"></span>
+</div>
+<div class="c-sys" style="display:flex;align-items:center;gap:10px;padding-left:12px">
+<span style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:9px;background:rgba(232,240,236,0.08);flex:0 0 32px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8F0EC" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z M3 7l9 6 9-6"></path></svg></span>
+<span class="sys-name" style="font-size:14px">Gmail</span>
+<span style="margin-left:auto;font-size:12px;font-weight:600;padding:4px 8px;border-radius:6px;background:rgba(75,227,162,0.16);color:#7FF0BF">Allowed</span>
+</div>
 
-        <figure class="figure">
+<div class="c-agent" style="display:flex;align-items:center;height:100%">
+<span style="display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(232,240,236,0.14);background:rgba(232,240,236,0.05);border-radius:10px;font-size:14px;white-space:nowrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E8F0EC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 8h10a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-5a3 3 0 0 1 3-3z M12 4v4 M9.5 13.5h.01 M14.5 13.5h.01"></path></svg>Payroll copilot</span>
+<span style="flex:1;height:1px;background:rgba(232,240,236,0.22)"></span>
+</div>
+<div class="c-ll lane">
+<span style="position:absolute;left:0;right:0;top:50%;height:1px;background:linear-gradient(90deg, rgba(232,240,236,0.22), rgba(255,93,82,0.6))"></span>
+<span class="act" style="position:absolute;left:14px;bottom:calc(50% + 8px);font-size:13px;color:rgba(232,240,236,0.8);white-space:nowrap">Change bank details</span>
+<span class="dot stop-l" style="animation-delay:0.7s"></span>
+</div>
+<div class="c-rl lane">
+<span style="position:absolute;left:0;right:0;top:50%;height:0;border-top:1px dashed rgba(232,240,236,0.12)"></span>
+<span style="position:absolute;left:8px;top:50%;margin-top:-10px;width:20px;height:20px;border-radius:50%;background:#FF5D52;display:flex;align-items:center;justify-content:center"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#07140F" stroke-width="4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12 M18 6L6 18"></path></svg></span>
+</div>
+<div class="c-sys" style="display:flex;align-items:center;gap:10px;padding-left:12px">
+<span style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:9px;background:rgba(232,240,236,0.08);flex:0 0 32px;opacity:0.55"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8F0EC" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1z M12 9a3 3 0 1 1 0 6a3 3 0 1 1 0-6z M6 12h.01 M18 12h.01"></path></svg></span>
+<span class="sys-name" style="font-size:14px;color:rgba(232,240,236,0.6)">Payroll</span>
+<span style="margin-left:auto;font-size:12px;font-weight:600;padding:4px 8px;border-radius:6px;background:rgba(255,93,82,0.18);color:#FF9A92">Blocked</span>
+</div>
+
+<div class="c-agent" style="display:flex;align-items:center;height:100%">
+<span style="display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(232,240,236,0.14);background:rgba(232,240,236,0.05);border-radius:10px;font-size:14px;white-space:nowrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E8F0EC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 8h10a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-5a3 3 0 0 1 3-3z M12 4v4 M9.5 13.5h.01 M14.5 13.5h.01"></path></svg>Sales agent</span>
+<span style="flex:1;height:1px;background:rgba(232,240,236,0.22)"></span>
+</div>
+<div class="c-ll lane">
+<span style="position:absolute;left:0;right:0;top:50%;height:1px;background:linear-gradient(90deg, rgba(232,240,236,0.22), rgba(242,169,59,0.6))"></span>
+<span class="act" style="position:absolute;left:14px;bottom:calc(50% + 8px);font-size:13px;color:rgba(232,240,236,0.8);white-space:nowrap">Export 2,400 contacts</span>
+<span class="dot hold-l" style="animation-delay:1.4s"></span>
+</div>
+<div class="c-rl lane">
+<span style="position:absolute;left:0;right:0;top:50%;height:0;border-top:1px dashed rgba(242,169,59,0.45)"></span>
+<span style="position:absolute;left:8px;top:50%;margin-top:-10px;width:20px;height:20px;border-radius:50%;background:#F2A93B;display:flex;align-items:center;justify-content:center"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#07140F" stroke-width="4" stroke-linecap="round" aria-hidden="true"><path d="M9 6v12 M15 6v12"></path></svg></span>
+</div>
+<div class="c-sys" style="display:flex;align-items:center;gap:10px;padding-left:12px">
+<span style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:9px;background:rgba(232,240,236,0.08);flex:0 0 32px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8F0EC" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z M9 8.5a2.5 2.5 0 1 1 0 5a2.5 2.5 0 1 1 0-5z M5.5 17.5c.6-1.8 2-2.8 3.5-2.8s2.9 1 3.5 2.8 M15 9.5h3 M15 13h3"></path></svg></span>
+<span class="sys-name" style="font-size:14px">CRM</span>
+<span style="margin-left:auto;font-size:12px;font-weight:600;padding:4px 8px;border-radius:6px;background:rgba(242,169,59,0.18);color:#FFC772">Held</span>
+</div>
+
+<div class="c-agent" style="display:flex;align-items:center;height:100%">
+<span style="display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(232,240,236,0.14);background:rgba(232,240,236,0.05);border-radius:10px;font-size:14px;white-space:nowrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E8F0EC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 8h10a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-5a3 3 0 0 1 3-3z M12 4v4 M9.5 13.5h.01 M14.5 13.5h.01"></path></svg>HR assistant</span>
+<span style="flex:1;height:1px;background:rgba(232,240,236,0.22)"></span>
+</div>
+<div class="c-ll lane">
+<span style="position:absolute;left:0;right:0;top:50%;height:1px;background:linear-gradient(90deg, rgba(232,240,236,0.22), rgba(157,183,255,0.6))"></span>
+<span class="act" style="position:absolute;left:14px;bottom:calc(50% + 8px);font-size:13px;color:rgba(232,240,236,0.8);white-space:nowrap">Answer a pay question</span>
+<span class="dot rd-l" style="animation-delay:2.1s"></span>
+</div>
+<div class="c-rl lane">
+<span style="position:absolute;left:0;right:0;top:50%;height:1px;background:linear-gradient(90deg, rgba(157,183,255,0.8), rgba(157,183,255,0.25))"></span>
+<span class="dot rd-r" style="animation-delay:2.1s"></span>
+</div>
+<div class="c-sys" style="display:flex;align-items:center;gap:10px;padding-left:12px">
+<span style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:9px;background:rgba(232,240,236,0.08);flex:0 0 32px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8F0EC" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4a4 4 0 1 1 0 8a4 4 0 1 1 0-8z M4 21c0-4 3.6-7 8-7s8 3 8 7"></path></svg></span>
+<span class="sys-name" style="font-size:14px">HR</span>
+<span style="margin-left:auto;font-size:12px;font-weight:600;padding:4px 8px;border-radius:6px;background:rgba(157,183,255,0.18);color:#B9CBFF">Redacted</span>
+</div>
+
+<div class="c-agent" style="display:flex;align-items:center;height:100%">
+<span style="display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(232,240,236,0.14);background:rgba(232,240,236,0.05);border-radius:10px;font-size:14px;white-space:nowrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E8F0EC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 8h10a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-5a3 3 0 0 1 3-3z M12 4v4 M9.5 13.5h.01 M14.5 13.5h.01"></path></svg>Meeting bot</span>
+<span style="flex:1;height:1px;background:rgba(232,240,236,0.22)"></span>
+</div>
+<div class="c-ll lane">
+<span style="position:absolute;left:0;right:0;top:50%;height:1px;background:linear-gradient(90deg, rgba(232,240,236,0.22), rgba(255,93,82,0.6))"></span>
+<span class="act" style="position:absolute;left:14px;bottom:calc(50% + 8px);font-size:13px;color:rgba(232,240,236,0.8);white-space:nowrap">Join “Comp review”</span>
+<span class="dot stop-l" style="animation-delay:2.8s"></span>
+</div>
+<div class="c-rl lane">
+<span style="position:absolute;left:0;right:0;top:50%;height:0;border-top:1px dashed rgba(232,240,236,0.12)"></span>
+<span style="position:absolute;left:8px;top:50%;margin-top:-10px;width:20px;height:20px;border-radius:50%;background:#FF5D52;display:flex;align-items:center;justify-content:center"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#07140F" stroke-width="4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12 M18 6L6 18"></path></svg></span>
+</div>
+<div class="c-sys" style="display:flex;align-items:center;gap:10px;padding-left:12px">
+<span style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:9px;background:rgba(232,240,236,0.08);flex:0 0 32px;opacity:0.55"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8F0EC" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h12a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1z M16 10.5l6-3.5v10l-6-3.5"></path></svg></span>
+<span class="sys-name" style="font-size:14px;color:rgba(232,240,236,0.6)">Meetings</span>
+<span style="margin-left:auto;font-size:12px;font-weight:600;padding:4px 8px;border-radius:6px;background:rgba(255,93,82,0.18);color:#FF9A92">Blocked</span>
+</div>
+
+<div class="c-agent" style="display:flex;align-items:center;height:100%">
+<span style="display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(232,240,236,0.14);background:rgba(232,240,236,0.05);border-radius:10px;font-size:14px;white-space:nowrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E8F0EC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 8h10a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-5a3 3 0 0 1 3-3z M12 4v4 M9.5 13.5h.01 M14.5 13.5h.01"></path></svg>Drive agent</span>
+<span style="flex:1;height:1px;background:rgba(232,240,236,0.22)"></span>
+</div>
+<div class="c-ll lane">
+<span style="position:absolute;left:0;right:0;top:50%;height:1px;background:linear-gradient(90deg, rgba(232,240,236,0.22), rgba(255,93,82,0.6))"></span>
+<span class="act" style="position:absolute;left:14px;bottom:calc(50% + 8px);font-size:13px;color:rgba(232,240,236,0.8);white-space:nowrap">Make “Board deck” public</span>
+<span class="dot stop-l" style="animation-delay:3.5s"></span>
+</div>
+<div class="c-rl lane">
+<span style="position:absolute;left:0;right:0;top:50%;height:0;border-top:1px dashed rgba(232,240,236,0.12)"></span>
+<span style="position:absolute;left:8px;top:50%;margin-top:-10px;width:20px;height:20px;border-radius:50%;background:#FF5D52;display:flex;align-items:center;justify-content:center"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#07140F" stroke-width="4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12 M18 6L6 18"></path></svg></span>
+</div>
+<div class="c-sys" style="display:flex;align-items:center;gap:10px;padding-left:12px">
+<span style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:9px;background:rgba(232,240,236,0.08);flex:0 0 32px;opacity:0.55"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8F0EC" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z M14 3v5h5 M8.5 13h7 M8.5 17h4.5"></path></svg></span>
+<span class="sys-name" style="font-size:14px;color:rgba(232,240,236,0.6)">Workspace</span>
+<span style="margin-left:auto;font-size:12px;font-weight:600;padding:4px 8px;border-radius:6px;background:rgba(255,93,82,0.18);color:#FF9A92">Blocked</span>
+</div>
+
+</div>
+
+<div class="float" style="position:absolute;right:44px;bottom:-40px;width:360px;background:#FFFFFF;color:#101613;border-radius:20px;padding:16px 18px;display:flex;gap:12px;box-shadow:0 30px 60px -20px rgba(7,20,15,0.45), 0 0 0 1px rgba(7,20,15,0.06)">
+<svg style="flex:0 0 38px" width="38" height="38" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="15" fill="#07140F"></rect><circle cx="32" cy="32" r="20" stroke="#4BE3A2" stroke-width="4" fill="none"></circle><text x="32" y="39" text-anchor="middle" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="19" font-weight="700" fill="#E8F0EC" letter-spacing="-1">RM</text></svg>
+<div style="display:flex;flex-direction:column;gap:3px;min-width:0">
+<div style="display:flex;justify-content:space-between;gap:12px;font-size:14px"><span style="font-weight:600">RiskMandate</span><span style="color:#5F6863">now</span></div>
+<p style="margin:0;font-size:14px;line-height:1.45;color:#2A322D">Blocked: Payroll copilot tried to change bank details for 1 employee. Reply 1 to review.</p>
+</div>
+</div>
+
+<div style="position:absolute;left:44px;bottom:36px;display:flex;flex-wrap:wrap;gap:20px;font-size:13px;color:rgba(232,240,236,0.72)" class="legend">
+<span style="display:inline-flex;align-items:center;gap:8px"><span style="width:8px;height:8px;border-radius:50%;background:#4BE3A2"></span>Allowed</span>
+<span style="display:inline-flex;align-items:center;gap:8px"><span style="width:8px;height:8px;border-radius:50%;background:#9DB7FF"></span>Redacted</span>
+<span style="display:inline-flex;align-items:center;gap:8px"><span style="width:8px;height:8px;border-radius:50%;background:#F2A93B"></span>Held for approval</span>
+<span style="display:inline-flex;align-items:center;gap:8px"><span style="width:8px;height:8px;border-radius:50%;background:#FF5D52"></span>Blocked</span>
+</div>
+</div>
+</div>
+</section>
+
+<section style="padding:0 0 120px">
+<div class="pad" style="max-width:1240px;margin:0 auto;padding:0 40px;display:flex;flex-direction:column;align-items:center;gap:36px">
+<p style="margin:0;font-size:16px;color:#4A524D;text-align:center">One policy for each system your team already uses</p>
+<ul class="g4" style="list-style:none;margin:0;padding:0;width:100%;display:grid;grid-template-columns:repeat(8, minmax(0, 1fr));gap:24px 12px">
+<li style="display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center"><span style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:16px;background:#F2F4F1"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#101613" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z M3 7l9 6 9-6"></path></svg></span><span style="font-size:15px;font-weight:500">Gmail</span></li>
+<li style="display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center"><span style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:16px;background:#F2F4F1"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#101613" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z M14 3v5h5 M8.5 13h7 M8.5 17h4.5"></path></svg></span><span style="font-size:15px;font-weight:500">Google Workspace</span></li>
+<li style="display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center"><span style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:16px;background:#F2F4F1"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#101613" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4a4 4 0 1 1 0 8a4 4 0 1 1 0-8z M4 21c0-4 3.6-7 8-7s8 3 8 7"></path></svg></span><span style="font-size:15px;font-weight:500">HR</span></li>
+<li style="display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center"><span style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:16px;background:#F2F4F1"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#101613" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1z M12 9a3 3 0 1 1 0 6a3 3 0 1 1 0-6z M6 12h.01 M18 12h.01"></path></svg></span><span style="font-size:15px;font-weight:500">Payroll</span></li>
+<li style="display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center"><span style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:16px;background:#F2F4F1"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#101613" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z M9 8.5a2.5 2.5 0 1 1 0 5a2.5 2.5 0 1 1 0-5z M5.5 17.5c.6-1.8 2-2.8 3.5-2.8s2.9 1 3.5 2.8 M15 9.5h3 M15 13h3"></path></svg></span><span style="font-size:15px;font-weight:500">CRM</span></li>
+<li style="display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center"><span style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:16px;background:#F2F4F1"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#101613" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10v4a1 1 0 0 0 1 1h3l7 4V5L7 9H4a1 1 0 0 0-1 1z M18 8.5a5 5 0 0 1 0 7"></path></svg></span><span style="font-size:15px;font-weight:500">Marketing</span></li>
+<li style="display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center"><span style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:16px;background:#F2F4F1"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#101613" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a3 3 0 0 1 3 3v6a3 3 0 0 1-6 0V6a3 3 0 0 1 3-3z M5 11a7 7 0 0 0 14 0 M12 18v3"></path></svg></span><span style="font-size:15px;font-weight:500">Note takers</span></li>
+<li style="display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center"><span style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:16px;background:#F2F4F1"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#101613" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h12a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1z M16 10.5l6-3.5v10l-6-3.5"></path></svg></span><span style="font-size:15px;font-weight:500">Meeting apps</span></li>
+</ul>
+</div>
+</section>
+
+<section id="builder" class="sec" style="padding:128px 0;background:#F2F4F1">
+<div class="pad" style="max-width:1240px;margin:0 auto;padding:0 40px;display:flex;flex-direction:column;align-items:center;gap:56px">
+<div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;max-width:760px">
+<h2 class="h2" style="margin:0;font-size:60px;line-height:1;letter-spacing:-0.045em;font-weight:600">Pick a system. Set the rules.</h2>
+<p style="margin:0;font-size:19px;line-height:1.5;color:#4A524D">Every system starts from a template. Decide what agents can do, what waits for approval and what never happens.</p>
+</div>
+
+<div class="builder" style="width:100%;max-width:1060px;display:grid;grid-template-columns:250px minmax(0, 1fr);background:#FFFFFF;border:1px solid #E2E6E2;border-radius:22px;overflow:hidden;box-shadow:0 50px 90px -50px rgba(7,20,15,0.35)">
+<div class="cats" style="display:flex;flex-direction:column;gap:2px;padding:16px 12px;border-right:1px solid #E7EBE7;background:#FBFCFB">
+<span class="cats-h" style="padding:8px 12px 10px;font-size:13px;color:#5F6863">Systems</span>
+<div id="rmx-cats" style="display:contents"></div>
+</div>
+<div style="display:flex;flex-direction:column;padding:28px 32px 24px;gap:20px;min-width:0">
+<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px">
+<div style="display:flex;flex-direction:column;gap:4px">
+<span id="rmx-title" style="font-size:22px;font-weight:600;letter-spacing:-0.02em">Payroll policy</span>
+<span style="font-size:14px;color:#5F6863">Applies to every agent acting for your team</span>
+</div>
+<span style="display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;background:#E8F3ED;color:#0B3B29;font-size:13px;font-weight:600"><span style="width:7px;height:7px;border-radius:50%;background:#1A7F5A"></span>Enforcing</span>
+</div>
+<span style="font-size:13px;color:#5F6863;padding-top:4px">When an agent tries to</span>
+<ul id="rmx-rules" style="list-style:none;margin:-8px 0 0;padding:0">
+</ul>
+<div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;padding-top:16px;border-top:1px solid #EEF1EE">
+<span style="font-size:14px;color:#4A524D;margin-right:4px">Alert the owner by</span>
+<button type="button" class="tog tog-on" id="rmx-tog-text" aria-pressed="true"><span class="knob"><span></span></span>Text</button>
+<button type="button" class="tog tog-on" id="rmx-tog-email" aria-pressed="true"><span class="knob"><span></span></span>Email</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="byo" class="sec" style="padding:128px 0">
+<div class="pad" style="max-width:1240px;margin:0 auto;padding:0 40px;display:flex;flex-direction:column;gap:56px">
+<div class="g2" style="display:grid;grid-template-columns:minmax(0, 1fr) minmax(0, 1fr);gap:24px 56px;align-items:end">
+<h2 class="h2" style="margin:0;font-size:60px;line-height:1;letter-spacing:-0.045em;font-weight:600">Bring your policy. We make it enforceable.</h2>
+<p style="margin:0;font-size:19px;line-height:1.5;color:#4A524D">Upload the document legal already wrote. We turn every line into a rule, supply the business logic behind it, and flag what can't be enforced as written.</p>
+</div>
+
+<div class="byo" style="display:grid;grid-template-columns:minmax(0, 1fr) 72px minmax(0, 1fr);align-items:center;gap:16px">
+<div style="background:#FFFFFF;border:1px solid #E2E6E2;border-radius:20px;padding:24px 28px 28px;box-shadow:0 30px 60px -40px rgba(7,20,15,0.3);display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;align-items:center;gap:10px;padding-bottom:14px;border-bottom:1px solid #EEF1EE">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C2362B" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z M14 3v5h5"></path></svg>
+<span style="font-size:15px;font-weight:500">AI acceptable use policy.pdf</span>
+</div>
+<span style="display:block;height:8px;width:92%;border-radius:4px;background:#EEF1EE"></span>
+<p style="margin:0;display:flex;gap:10px;align-items:flex-start;font-size:15px;line-height:1.5"><span style="flex:0 0 22px;height:22px;border-radius:50%;background:#101613;color:#FFFFFF;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center">1</span><span style="background:#FFF3C4;padding:1px 4px;border-radius:4px">Staff must not use AI tools to send confidential data outside the company.</span></p>
+<span style="display:block;height:8px;width:78%;border-radius:4px;background:#EEF1EE"></span>
+<p style="margin:0;display:flex;gap:10px;align-items:flex-start;font-size:15px;line-height:1.5"><span style="flex:0 0 22px;height:22px;border-radius:50%;background:#101613;color:#FFFFFF;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center">2</span><span style="background:#FFF3C4;padding:1px 4px;border-radius:4px">Customer data exports need a manager's approval.</span></p>
+<span style="display:block;height:8px;width:86%;border-radius:4px;background:#EEF1EE"></span>
+<p style="margin:0;display:flex;gap:10px;align-items:flex-start;font-size:15px;line-height:1.5"><span style="flex:0 0 22px;height:22px;border-radius:50%;background:#101613;color:#FFFFFF;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center">3</span><span style="background:#FFF3C4;padding:1px 4px;border-radius:4px">AI note takers may not record HR or legal meetings.</span></p>
+<p style="margin:0;display:flex;gap:10px;align-items:flex-start;font-size:15px;line-height:1.5"><span style="flex:0 0 22px;height:22px;border-radius:50%;background:#101613;color:#FFFFFF;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center">4</span><span style="background:#FFF3C4;padding:1px 4px;border-radius:4px">Use AI responsibly and ethically at all times.</span></p>
+<span style="display:block;height:8px;width:64%;border-radius:4px;background:#EEF1EE"></span>
+</div>
+
+<div class="byo-arrow" style="display:flex;justify-content:center">
+<span style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:#07140F;box-shadow:0 0 0 8px #F2F4F1"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4BE3A2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14 M13 6l6 6-6 6"></path></svg></span>
+</div>
+
+<div style="background:#07140F;color:#E8F0EC;border-radius:20px;padding:24px 28px 20px;display:flex;flex-direction:column;gap:4px">
+<div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:14px;border-bottom:1px solid rgba(232,240,236,0.1)">
+<span style="font-size:15px;font-weight:500">Enforceable rules</span>
+<span style="font-size:13px;color:rgba(232,240,236,0.68)">3 ready, 1 to review</span>
+</div>
+<div style="display:flex;gap:12px;align-items:flex-start;padding:14px 0;border-bottom:1px solid rgba(232,240,236,0.08)">
+<span style="flex:0 0 22px;height:22px;border-radius:50%;background:#E8F0EC;color:#07140F;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center">1</span>
+<span style="flex:1;font-size:15px;line-height:1.45">Files labelled Confidential sent to any outside domain</span>
+<span style="font-size:12px;font-weight:600;padding:4px 8px;border-radius:6px;background:rgba(255,93,82,0.18);color:#FF9A92">Block</span>
+</div>
+<div style="display:flex;gap:12px;align-items:flex-start;padding:14px 0;border-bottom:1px solid rgba(232,240,236,0.08)">
+<span style="flex:0 0 22px;height:22px;border-radius:50%;background:#E8F0EC;color:#07140F;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center">2</span>
+<span style="flex:1;font-size:15px;line-height:1.45">CRM exports over 500 records, until the employee's manager approves</span>
+<span style="font-size:12px;font-weight:600;padding:4px 8px;border-radius:6px;background:rgba(242,169,59,0.18);color:#FFC772">Hold</span>
+</div>
+<div style="display:flex;gap:12px;align-items:flex-start;padding:14px 0;border-bottom:1px solid rgba(232,240,236,0.08)">
+<span style="flex:0 0 22px;height:22px;border-radius:50%;background:#E8F0EC;color:#07140F;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center">3</span>
+<span style="flex:1;font-size:15px;line-height:1.45">Note takers joining meetings labelled HR or Legal</span>
+<span style="font-size:12px;font-weight:600;padding:4px 8px;border-radius:6px;background:rgba(255,93,82,0.18);color:#FF9A92">Block</span>
+</div>
+<div style="display:flex;gap:12px;align-items:flex-start;padding:14px 0 4px">
+<span style="flex:0 0 22px;height:22px;border-radius:50%;border:1.5px dashed #F2A93B;color:#FFC772;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center">4</span>
+<span style="flex:1;font-size:15px;line-height:1.45;color:rgba(232,240,236,0.75)">Can't be enforced as written. We'll ask what it should stop.</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="sec" style="padding:128px 0;background:#07140F;color:#E8F0EC">
+<div class="pad" style="max-width:1240px;margin:0 auto;padding:0 40px;display:flex;flex-direction:column;align-items:center;gap:56px">
+<div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;max-width:760px">
+<h2 class="h2" style="margin:0;font-size:60px;line-height:1;letter-spacing:-0.045em;font-weight:600">A prompt asks. A policy enforces.</h2>
+<p style="margin:0;font-size:19px;line-height:1.5;color:rgba(232,240,236,0.72)">Instructions inside an agent can be ignored or talked around. Rules outside it can't.</p>
+</div>
+<div class="g2" style="width:100%;max-width:1060px;display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:20px">
+<div style="border:1px solid rgba(232,240,236,0.12);background:rgba(232,240,236,0.03);border-radius:22px;padding:28px;display:flex;flex-direction:column;gap:20px">
+<span style="font-size:15px;color:rgba(232,240,236,0.68)">In the agent's system prompt</span>
+<p class="mono" style="margin:0;font-size:16px;line-height:1.6;padding:18px 20px;border-radius:14px;background:rgba(232,240,236,0.05);color:rgba(232,240,236,0.88)">"Never export customer lists without approval."</p>
+<div style="display:flex;flex-direction:column;gap:10px;padding-top:4px">
+<span style="font-size:15px">Sales agent exports 12,400 contacts</span>
+<span style="align-self:flex-start;display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;padding:8px 12px;border-radius:10px;background:rgba(255,93,82,0.16);color:#FF9A92"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF9A92" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12 M18 6L6 18"></path></svg>Exported. Nothing stopped it.</span>
+</div>
+</div>
+<div style="border:1px solid rgba(75,227,162,0.5);background:rgba(75,227,162,0.06);border-radius:22px;padding:28px;display:flex;flex-direction:column;gap:20px;box-shadow:0 0 80px -20px rgba(75,227,162,0.3)">
+<span style="font-size:15px;color:#7FF0BF">In a RiskMandate policy</span>
+<div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 20px;border-radius:14px;background:rgba(232,240,236,0.05)">
+<span style="font-size:16px">CRM exports over 500 records</span>
+<span style="font-size:13px;font-weight:600;padding:4px 10px;border-radius:6px;background:rgba(242,169,59,0.2);color:#FFC772">Hold</span>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;padding-top:4px">
+<span style="font-size:15px">Sales agent asks to export 12,400 contacts</span>
+<span style="align-self:flex-start;display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;padding:8px 12px;border-radius:10px;background:rgba(75,227,162,0.16);color:#7FF0BF"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#7FF0BF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Held. Sales ops got a text.</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="sec" style="padding:128px 0">
+<div class="pad g2" style="max-width:1240px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:minmax(0, 1fr) minmax(0, 1fr);gap:64px;align-items:center">
+<div style="display:flex;flex-direction:column;gap:22px">
+<h2 class="h2" style="margin:0;font-size:60px;line-height:1;letter-spacing:-0.045em;font-weight:600">Know the moment an agent steps out of line.</h2>
+<p style="margin:0;font-size:19px;line-height:1.5;color:#4A524D;max-width:26em">Every policy alerts the right person by text and email. Approve or deny with a one-letter reply.</p>
+</div>
+<div style="position:relative;display:flex;justify-content:center;padding:8px 0 40px">
+<div class="phone" style="width:320px;background:#101613;border-radius:48px;padding:12px;box-shadow:0 50px 90px -40px rgba(7,20,15,0.55)">
+<div style="background:#F2F4F1;border-radius:38px;padding:26px 16px 28px;display:flex;flex-direction:column;gap:12px;min-height:520px">
+<div style="display:flex;flex-direction:column;align-items:center;gap:6px;padding-bottom:14px;border-bottom:1px solid #E2E6E2">
+<svg width="44" height="44" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="32" fill="#07140F"></rect><circle cx="32" cy="32" r="18" stroke="#4BE3A2" stroke-width="4" fill="none"></circle><text x="32" y="38.5" text-anchor="middle" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="17" font-weight="700" fill="#E8F0EC" letter-spacing="-1">RM</text></svg>
+<span style="font-size:13px;font-weight:600">RiskMandate</span>
+</div>
+<span style="align-self:center;font-size:12px;color:#5F6863;padding-top:4px">Today 9:44 AM</span>
+<p style="margin:0;align-self:flex-start;max-width:86%;background:#FFFFFF;border-radius:20px 20px 20px 6px;padding:12px 14px;font-size:14px;line-height:1.45">Held: Sales agent (for Dana R.) wants to export 2,400 contacts. Your CRM policy holds exports over 500. Reply A to approve once or D to deny.</p>
+<p style="margin:0;align-self:flex-end;background:#1A7F5A;color:#FFFFFF;border-radius:20px 20px 6px 20px;padding:10px 18px;font-size:15px;font-weight:600">D</p>
+<p style="margin:0;align-self:flex-start;max-width:86%;background:#FFFFFF;border-radius:20px 20px 20px 6px;padding:12px 14px;font-size:14px;line-height:1.45">Denied. Dana and the agent have been told why. Decision 48213 is in your log.</p>
+</div>
+</div>
+<div class="mail-float" style="position:absolute;left:0;bottom:0;width:300px;background:#FFFFFF;border-radius:18px;padding:18px 20px;display:flex;flex-direction:column;gap:8px;box-shadow:0 30px 60px -20px rgba(7,20,15,0.35), 0 0 0 1px rgba(7,20,15,0.06)">
+<div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#5F6863"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5F6863" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z M3 7l9 6 9-6"></path></svg>Email to IT security</div>
+<span style="font-size:15px;font-weight:600;line-height:1.35">Blocked: Drive agent tried to make “Board deck” public</span>
+<span style="font-size:14px;line-height:1.45;color:#4A524D">Your Workspace policy never allows public links. Nothing changed.</span>
+</div>
+</div>
+</div>
+</section>
+
+<section id="pricing" class="sec" style="padding:128px 0;background:#F2F4F1">
+<div class="pad" style="max-width:1240px;margin:0 auto;padding:0 40px;display:flex;flex-direction:column;align-items:center;gap:56px">
+<div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;max-width:760px">
+<h2 class="h2" style="margin:0;font-size:60px;line-height:1;letter-spacing:-0.045em;font-weight:600">Four levels. One document.</h2>
+<p style="margin:0;font-size:19px;line-height:1.5;color:#4A524D">What is for sale is an Agent Behaviour Policy for the agent you actually run. Each level is the level below plus exactly one thing, and the one thing is what the price is for. Pick a level to see what arrives.</p>
+</div>
+<div class="g2" style="width:100%;max-width:1060px;display:grid;grid-template-columns:minmax(0, 1.45fr) minmax(0, 1fr);gap:20px;align-items:stretch">
+<div style="display:flex;flex-direction:column;gap:16px">
+<div id="rmx-levels" class="g2" style="display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:10px"><button type="button" class="pchip" data-level="1" aria-pressed="false"><span style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:10px;background:#F2F4F1;flex:0 0 36px;font-weight:600;font-size:15px">1</span><span style="display:flex;flex-direction:column;gap:2px;flex:1;min-width:0"><span style="font-size:15px;font-weight:600">The pack, downloaded</span><span style="font-size:13px;color:#4A524D">£10, one price, once</span></span><span class="rmx-tick"></span></button><button type="button" class="pchip" data-level="2" aria-pressed="false"><span style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:10px;background:#F2F4F1;flex:0 0 36px;font-weight:600;font-size:15px">2</span><span style="display:flex;flex-direction:column;gap:2px;flex:1;min-width:0"><span style="font-size:15px;font-weight:600">A working vault</span><span style="font-size:13px;color:#4A524D">£50, one price, once</span></span><span class="rmx-tick"></span></button><button type="button" class="pchip pchip-on" data-level="3" aria-pressed="true"><span style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:10px;background:#F2F4F1;flex:0 0 36px;font-weight:600;font-size:15px">3</span><span style="display:flex;flex-direction:column;gap:2px;flex:1;min-width:0"><span style="font-size:15px;font-weight:600">Corrected for your situation</span><span style="font-size:13px;color:#4A524D">£500, one price, once · <b style="color:#1A7F5A">start here</b></span></span><span class="rmx-tick"></span></button><button type="button" class="pchip" data-level="4" aria-pressed="false"><span style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:10px;background:#F2F4F1;flex:0 0 36px;font-weight:600;font-size:15px">4</span><span style="display:flex;flex-direction:column;gap:2px;flex:1;min-width:0"><span style="font-size:15px;font-weight:600">Two sessions, and a professional signs it</span><span style="font-size:13px;color:#4A524D">£1,500, one price, once</span></span><span class="rmx-tick"></span></button></div>
+<p style="margin:0;font-size:14px;line-height:1.5;color:#4A524D">Prices are in pounds, per agent, per deployment, paid once at the store; no subscription. These four are what we can deliver today. Level 3 is where most people start, and it is the one we are doing with early users at no cost: <a href="early-access.html">register for early access</a>, say which agent, and we build it and correct it with you in exchange for telling us where it is wrong. What comes next, and at what price, we will learn from those conversations. The full table is on <a href="pricing.html">the pricing page</a>.</p>
+</div>
+<div style="background:#07140F;color:#E8F0EC;border-radius:22px;padding:28px;display:flex;flex-direction:column;gap:24px">
+<div aria-live="polite" style="display:flex;flex-direction:column;gap:8px;flex:1">
+<span id="rmx-lvl-who" style="font-size:15px;color:rgba(232,240,236,0.72)"></span>
+<div style="display:flex;align-items:baseline;gap:8px"><span id="rmx-lvl-price" style="font-size:72px;line-height:1;font-weight:600;letter-spacing:-0.045em"></span><span style="font-size:17px;color:rgba(232,240,236,0.72)">once</span></div>
+<span id="rmx-lvl-name" style="font-size:17px;font-weight:600"></span>
+<span id="rmx-lvl-what" style="font-size:14px;line-height:1.55;color:rgba(232,240,236,0.8)"></span>
+</div>
+<ul style="list-style:none;margin:0;padding:18px 0 0;border-top:1px solid rgba(232,240,236,0.1);display:flex;flex-direction:column;gap:10px;font-size:14px;color:rgba(232,240,236,0.85)">
+<li style="display:flex;gap:10px;align-items:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4BE3A2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>The grant, measured on the thing itself</li>
+<li style="display:flex;gap:10px;align-items:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4BE3A2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>The mandate, in your words</li>
+<li style="display:flex;gap:10px;align-items:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4BE3A2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>The gap, derived, and a barrier on every row</li>
+<li id="rmx-lvl-by" style="display:flex;gap:10px;align-items:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4BE3A2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg><span></span></li>
+</ul>
+<a id="rmx-lvl-buy" href="https://store.sgit.ai/d/t3/" target="_blank" rel="noopener" style="display:inline-flex;justify-content:center;align-items:center;min-height:52px;border-radius:999px;background:#4BE3A2;color:#07140F;text-decoration:none;font-size:16px;font-weight:600">Buy level 3 at the store ↗</a>
+<a id="rmx-lvl-free" href="early-access.html" style="display:inline-flex;justify-content:center;align-items:center;text-align:center;min-height:52px;padding:8px 18px;border-radius:999px;border:1px solid rgba(75,227,162,0.5);color:#7FF0BF;text-decoration:none;font-size:15px;font-weight:500;line-height:1.3">Or have this one at no cost: register for early access →</a>
+<span id="rmx-lvl-free-note" style="font-size:13px;line-height:1.5;color:rgba(232,240,236,0.68);margin-top:-12px">For early users: we build it and correct it with you, free, in exchange for working on it with us and telling us where it is wrong. The form encrypts to agent@riskmandate.ai and a person replies within a working day.</span>
+</div>
+</div>
+</div>
+</section>
+
+<section id="model" class="sec" style="padding:128px 0 104px;background:#FFFFFF">
+<div class="pad abp" style="max-width:1240px;margin:0 auto;padding:0 40px;display:flex;flex-direction:column;gap:72px">
+<div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;max-width:760px;margin:0 auto">
+<h2 class="h2" style="margin:0;font-size:60px;line-height:1;letter-spacing:-0.045em;font-weight:600">Under every rule, one record.</h2>
+<p style="margin:0;font-size:19px;line-height:1.5;color:#4A524D">The rules above are the moment. What they act on is a document, the Agent Behaviour Policy: for one agent in one deployment, everything it can reach, what you authorised it to do, the gap between the two, and what stands in the way of each thing. This is that document, as the home page explains it today.</p>
+</div>
+<div class="g2" style="display:grid;grid-template-columns:minmax(0, 1fr) minmax(0, 1.1fr);gap:48px;align-items:center">
+<div class="heroCopy">
+<div class="heroLead">
+<p class="heroKicker">Not what they did. What they can.</p>
+<p class="heroText">An Agent Behaviour Policy writes down what one agent can really reach, what you authorised it to do and the gap between the two, in one record the CEO, CTO and CISO can all stand behind.</p>
+</div>
+<div class="actions">
+<a class="btn btnOutline" href="agent-behaviour-policy.html">See the sixteen examples</a>
+<a class="btn btnOutline" href="abp.html">What an ABP is</a>
+</div>
+</div>
+<figure class="figure">
           <svg class="diagram" viewBox="0 0 560 560" role="img" aria-label="An agent at the centre. A green ring holds the six capabilities it was authorised to use. A wider dashed boundary holds everything it can reach, with nine more capabilities in the gap between the two.">
             <g class="fadeIn">
               <circle cx="280" cy="280" r="274" fill="none" stroke="#0B7A4B" stroke-opacity="0.16" stroke-width="1" stroke-dasharray="2 7"></circle>
@@ -1360,122 +1815,8 @@ rm-menu{display:contents}
 
           <figcaption class="figcaption">From a published behaviour policy: Claude Code on the web, with one repository attached. <a class="inlineLink" href="abp-vault-claude-code-web.html">Open this behaviour policy</a></figcaption>
         </figure>
-      </div>
-    </section>
+</div>
 
-    <section class="proof" aria-label="What stands behind every behaviour policy">
-      <div class="container proofInner">
-        <ul class="proofList">
-          <li class="proofItem">
-            <a class="proofLink" href="https://store.sgit.ai/ledger/index.html#claim-abp-templates-exist" target="_blank" rel="noopener">
-              <svg class="iconBlock" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#DDF1E6"></circle><path d="M7.2 12.3L10.3 15.4L16.7 8.6" fill="none" stroke="#0B7A4B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-              <span class="proofText">16 templates, published free</span>
-            </a>
-          </li>
-          <li class="proofItem">
-            <a class="proofLink" href="https://store.sgit.ai/ledger/index.html#claim-abp-vault-build-exists" target="_blank" rel="noopener">
-              <svg class="iconBlock" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#DDF1E6"></circle><path d="M7.2 12.3L10.3 15.4L16.7 8.6" fill="none" stroke="#0B7A4B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-              <span class="proofText">Working vaults you hold the keys to</span>
-            </a>
-          </li>
-          <li class="proofItem">
-            <a class="proofLink" href="https://store.sgit.ai/ledger/index.html#claim-abp-correction-by-a-person" target="_blank" rel="noopener">
-              <svg class="iconBlock" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#DDF1E6"></circle><path d="M7.2 12.3L10.3 15.4L16.7 8.6" fill="none" stroke="#0B7A4B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-              <span class="proofText">Mandates corrected by a named professional</span>
-            </a>
-          </li>
-          <li class="proofItem">
-            <a class="proofLink" href="https://store.sgit.ai/ledger/index.html#claim-abp-sessions-by-a-person" target="_blank" rel="noopener">
-              <svg class="iconBlock" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#DDF1E6"></circle><path d="M7.2 12.3L10.3 15.4L16.7 8.6" fill="none" stroke="#0B7A4B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-              <span class="proofText">Two sessions with your team, then sign-off</span>
-            </a>
-          </li>
-        </ul>
-        <div class="proofMeta">
-          <p class="small measure">Measured against the standards underwriters are adopting: ISO/IEC 42001, OWASP Agentic Top 10, NIST AI RMF and ISO/IEC 27001.</p>
-          <p class="small">Model-drafted and marked as such. Not a compliance assessment. We are not an insurer and place no cover. <a class="inlineLink" href="https://store.sgit.ai/disclosures/" target="_blank" rel="noopener">What we don’t claim</a></p>
-        </div>
-      </div>
-    </section>
-
-    <section id="why" class="section paper" aria-labelledby="why-title">
-      <div class="container sectionInner gapWide">
-        <div class="whyTop">
-          <div class="whyCopy">
-            <h2 id="why-title" class="h2 h2Large">Every agent will need a licence to operate.</h2>
-            <p class="lede">Insurers are carving AI out of cover, and the business answers for what its agents do. Cover comes back when somebody can evidence what each agent can reach, what it was authorised to do and what actually contains it.</p>
-            <a class="link alignStart" href="insurance.html">Read the full argument</a>
-          </div>
-          <ol class="timeline" aria-label="What changed this year">
-            <li class="timelineItem">
-              <span class="timelineRail" aria-hidden="true">
-                <span class="timelineDot"></span>
-                <span class="timelineLine"></span>
-              </span>
-              <div class="timelineBody">
-                <p class="timelineDate">1 January 2026</p>
-                <p class="timelineText">A generative-AI exclusion took effect in the standard liability forms much of one large insurance market runs on. Several carriers have filed their own, one of them absolute.</p>
-              </div>
-            </li>
-            <li class="timelineItem">
-              <span class="timelineRail" aria-hidden="true">
-                <span class="timelineDot"></span>
-              </span>
-              <div class="timelineBody">
-                <p class="timelineDate">9 March 2026</p>
-                <p class="timelineText">A national consumer regulator said a business is responsible if an agent it uses does something illegal, and should be clear what the agent may do, what data it can access and what constraints apply.</p>
-              </div>
-            </li>
-          </ol>
-          <p class="small measure" style="grid-column:1/-1">Both dates, with the exclusion&rsquo;s announcement date and why the figures beside them are stated qualitatively rather than counted: <a class="inlineLink" href="insurance.html">on the insurance page</a>. Neither is our observation.</p>
-        </div>
-
-        <div class="ladderWrap">
-          <p class="ladderLead">Three steps, in order. Each one needs the step before it.</p>
-          <ol class="ladder">
-            <li class="step stepLive">
-              <div class="stepTop">
-                <span class="stepNumber stepNumberLive" aria-hidden="true">1</span>
-                <span class="pill pillLive">Available now</span>
-              </div>
-              <div class="titleGroup">
-                <h3 class="h3">Describe it</h3>
-                <p class="stepProduct">Agent Behaviour Policy</p>
-              </div>
-              <p class="text">What one agent can reach, what you authorised, the gap between them and what stands in the way.</p>
-              <a class="link pushDown" href="agent-behaviour-policy.html">See a behaviour policy</a>
-            </li>
-            <li class="step stepReady">
-              <div class="stepTop">
-                <span class="stepNumber" aria-hidden="true">2</span>
-                <span class="pill pillReady">Template available</span>
-              </div>
-              <div class="titleGroup">
-                <h3 class="h3">Authorise it</h3>
-                <p class="stepProduct">Licence to Operate</p>
-              </div>
-              <p class="text">The business is the authority, the behaviour policy is the instrument and the agent is the licensee, for a set interval.</p>
-              <a class="link pushDown" href="licence-to-operate.html">See the template</a>
-            </li>
-            <li class="step stepPlanned">
-              <div class="stepTop">
-                <span class="stepNumber" aria-hidden="true">3</span>
-                <span class="pill pillPlanned">In design</span>
-              </div>
-              <div class="titleGroup">
-                <h3 class="h3">Insure it</h3>
-                <p class="stepProduct">Insurability Index</p>
-              </div>
-              <p class="text">The record an underwriter will accept: scored, dated and with the residual risk owned.</p>
-              <a class="link pushDown" href="insurance.html">See the design</a>
-            </li>
-          </ol>
-        </div>
-      </div>
-    </section>
-
-    <section id="how" class="section white" aria-labelledby="how-title">
-      <div class="container sectionInner">
         <div class="intro">
           <h2 id="how-title" class="h2">Not a model property. A property of this deployment.</h2>
           <p class="lede">The same model can be harmless in one setup and serious in another. Connect it to a mailbox and the narrowest Gmail scope that reads one message reads every message. So a behaviour policy describes one agent, in one deployment, in four parts, and carries no score. <a class="inlineLink" href="lab-connector-grants.html">See the scope evidence</a></p>
@@ -1535,11 +1876,8 @@ rm-menu{display:contents}
           </article>
         </div>
         <p class="small measure">The files and the data keep the older names for these: <code class="code">GRANT.md</code> is the reach and <code class="code">DELTA.md</code> is the gap, because the vocabulary is pinned at <a class="inlineLink" href="https://abp.sgit.ai/" target="_blank" rel="noopener">abp.sgit.ai</a> and sixteen published vaults are built against it. Same four objects, plainer words on this page.</p>
-      </div>
-    </section>
+      
 
-    <section id="leaders" class="section paper" aria-labelledby="leaders-title">
-      <div class="container sectionInner">
         <div class="intro">
           <h2 id="leaders-title" class="h2">One record. A view for everyone who answers for it.</h2>
           <p class="lede">The behaviour policy lives in an encrypted vault you hold the keys to, with a reading app inside. Hand a read key to your board, your auditor or your broker and they see exactly what you see.</p>
@@ -1578,7 +1916,7 @@ rm-menu{display:contents}
             <p class="roleAnswer">Explicit scope and the questions still open, so renewal starts from a record instead of a questionnaire.</p>
           </article>
         </div>
-        <div class="flow">
+        <div class="abpFlow">
           <p class="flowLead"><strong>It’s a draft on purpose.</strong> The people who built the agent, own what it touches and answer for it each correct the part they know. The correction is the product.</p>
           <ol class="flowList" aria-label="How a behaviour policy is made">
             <li class="flowItem">
@@ -1602,131 +1940,98 @@ rm-menu{display:contents}
             </li>
           </ol>
         </div>
-      </div>
-    </section>
+      
+<div class="ladderWrap">
+          <p class="ladderLead">Three steps, in order. Each one needs the step before it.</p>
+          <ol class="ladder">
+            <li class="step stepLive">
+              <div class="stepTop">
+                <span class="stepNumber stepNumberLive" aria-hidden="true">1</span>
+                <span class="pill pillLive">Available now</span>
+              </div>
+              <div class="titleGroup">
+                <h3 class="h3">Describe it</h3>
+                <p class="stepProduct">Agent Behaviour Policy</p>
+              </div>
+              <p class="text">What one agent can reach, what you authorised, the gap between them and what stands in the way.</p>
+              <a class="link pushDown" href="agent-behaviour-policy.html">See a behaviour policy</a>
+            </li>
+            <li class="step stepReady">
+              <div class="stepTop">
+                <span class="stepNumber" aria-hidden="true">2</span>
+                <span class="pill pillReady">Template available</span>
+              </div>
+              <div class="titleGroup">
+                <h3 class="h3">Authorise it</h3>
+                <p class="stepProduct">Licence to Operate</p>
+              </div>
+              <p class="text">The business is the authority, the behaviour policy is the instrument and the agent is the licensee, for a set interval.</p>
+              <a class="link pushDown" href="licence-to-operate.html">See the template</a>
+            </li>
+            <li class="step stepPlanned">
+              <div class="stepTop">
+                <span class="stepNumber" aria-hidden="true">3</span>
+                <span class="pill pillPlanned">In design</span>
+              </div>
+              <div class="titleGroup">
+                <h3 class="h3">Insure it</h3>
+                <p class="stepProduct">Insurability Index</p>
+              </div>
+              <p class="text">The record an underwriter will accept: scored, dated and with the residual risk owned.</p>
+              <a class="link pushDown" href="insurance.html">See the design</a>
+            </li>
+          </ol>
+        </div>
+</div>
+</section>
 
-    <section id="pricing" class="section white noDivider" aria-labelledby="pricing-title">
-      <div class="container sectionInner gapTight">
-        <div class="intro">
-          <h2 id="pricing-title" class="h2">One behaviour policy. Four ways to get it.</h2>
-          <p class="lede">The document is the same at every level. What changes is how it arrives and who does the correcting.</p>
-        </div>
-        <div class="shapes">
-          <p class="shapesLead">Sixteen published shapes to start from, including:</p>
-          <div class="chips">
-            <a class="chip" href="https://store.sgit.ai/policies/" target="_blank" rel="noopener">Claude Code</a>
-            <a class="chip" href="https://store.sgit.ai/policies/" target="_blank" rel="noopener">Claude Desktop</a>
-            <a class="chip" href="https://store.sgit.ai/policies/" target="_blank" rel="noopener">ChatGPT</a>
-            <a class="chip" href="https://store.sgit.ai/policies/" target="_blank" rel="noopener">Microsoft 365</a>
-            <a class="chip" href="https://store.sgit.ai/policies/" target="_blank" rel="noopener">Google Workspace</a>
-            <a class="chip" href="https://store.sgit.ai/policies/" target="_blank" rel="noopener">GitHub Actions</a>
-            <a class="chip" href="https://store.sgit.ai/policies/" target="_blank" rel="noopener">n8n</a>
-            <a class="chip chipOpen" href="https://store.sgit.ai/product/?level=t3" target="_blank" rel="noopener">Something else, from £500</a>
-          </div>
-        </div>
-        <div class="levels">
-          <article class="level">
-            <p class="levelLabel">Level 1</p>
-            <div class="levelHead">
-              <h3 class="levelName">ABP Pack</h3>
-              <p class="levelSummary">The behaviour policy files for your shape, downloaded and yours to keep.</p>
-            </div>
-            <p class="price">£10</p>
-            <div class="terms">
-              <span>Immediately</span>
-              <span class="termsSecondary">Paid in full up front</span>
-            </div>
-            <a class="evidence" href="https://store.sgit.ai/ledger/index.html#claim-abp-templates-exist" target="_blank" rel="noopener">
-              <svg class="iconBlock" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8L19.2 5.7V11.3C19.2 15.7 16.2 19.5 12 21.2C7.8 19.5 4.8 15.7 4.8 11.3V5.7L12 2.8Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path><path d="M8.6 12.1L10.9 14.4L15.4 9.7" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-              <span class="evidenceText">Exists and runs</span>
+<section class="proof" aria-label="What stands behind every behaviour policy">
+      <div class="container proofInner">
+        <ul class="proofList">
+          <li class="proofItem">
+            <a class="proofLink" href="https://store.sgit.ai/ledger/index.html#claim-abp-templates-exist" target="_blank" rel="noopener">
+              <svg class="iconBlock" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#DDF1E6"></circle><path d="M7.2 12.3L10.3 15.4L16.7 8.6" fill="none" stroke="#0B7A4B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              <span class="proofText">16 templates, published free</span>
             </a>
-            <a class="btn btnBlock btnOutline" href="https://store.sgit.ai/product/?level=t1" target="_blank" rel="noopener">Choose this level</a>
-          </article>
-          <article class="level">
-            <p class="levelLabel">Level 2</p>
-            <div class="levelHead">
-              <h3 class="levelName">ABP Vault</h3>
-              <p class="levelSummary">The same material in a working vault, with your keys and version history.</p>
-            </div>
-            <p class="price">£50</p>
-            <div class="terms">
-              <span>1 to 2 days</span>
-              <span class="termsSecondary">Paid in full up front</span>
-            </div>
-            <a class="evidence" href="https://store.sgit.ai/ledger/index.html#claim-abp-vault-build-exists" target="_blank" rel="noopener">
-              <svg class="iconBlock" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8L19.2 5.7V11.3C19.2 15.7 16.2 19.5 12 21.2C7.8 19.5 4.8 15.7 4.8 11.3V5.7L12 2.8Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path><path d="M8.6 12.1L10.9 14.4L15.4 9.7" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-              <span class="evidenceText">Exists and runs</span>
+          </li>
+          <li class="proofItem">
+            <a class="proofLink" href="https://store.sgit.ai/ledger/index.html#claim-abp-vault-build-exists" target="_blank" rel="noopener">
+              <svg class="iconBlock" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#DDF1E6"></circle><path d="M7.2 12.3L10.3 15.4L16.7 8.6" fill="none" stroke="#0B7A4B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              <span class="proofText">Working vaults you hold the keys to</span>
             </a>
-            <a class="btn btnBlock btnOutline" href="https://store.sgit.ai/product/?level=t2" target="_blank" rel="noopener">Choose this level</a>
-          </article>
-          <article class="level">
-            <p class="levelLabel">Level 3</p>
-            <div class="levelHead">
-              <h3 class="levelName">ABP Tailored</h3>
-              <p class="levelSummary">A named security professional corrects the mandate for your deployment.</p>
-            </div>
-            <p class="price">£500</p>
-            <div class="terms">
-              <span>1 to 3 days from your reply</span>
-              <span class="termsSecondary">£100 now, £400 on delivery</span>
-            </div>
-            <a class="evidence" href="https://store.sgit.ai/ledger/index.html#claim-abp-correction-by-a-person" target="_blank" rel="noopener">
-              <svg class="iconBlock" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8L19.2 5.7V11.3C19.2 15.7 16.2 19.5 12 21.2C7.8 19.5 4.8 15.7 4.8 11.3V5.7L12 2.8Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path><path d="M8.6 12.1L10.9 14.4L15.4 9.7" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-              <span class="evidenceText">Delivered by a person</span>
+          </li>
+          <li class="proofItem">
+            <a class="proofLink" href="https://store.sgit.ai/ledger/index.html#claim-abp-correction-by-a-person" target="_blank" rel="noopener">
+              <svg class="iconBlock" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#DDF1E6"></circle><path d="M7.2 12.3L10.3 15.4L16.7 8.6" fill="none" stroke="#0B7A4B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              <span class="proofText">Mandates corrected by a named professional</span>
             </a>
-            <a class="btn btnBlock btnOutline" href="https://store.sgit.ai/product/?level=t3" target="_blank" rel="noopener">Choose this level</a>
-          </article>
-          <article class="level levelFeatured">
-            <p class="levelLabel">Level 4</p>
-            <div class="levelHead">
-              <h3 class="levelName">ABP Reviewed</h3>
-              <p class="levelSummary">Two half-hour sessions with your team and a custom vault, reviewed and signed off.</p>
-            </div>
-            <p class="price">£1,500</p>
-            <div class="terms">
-              <span>1 to 5 days from your reply</span>
-              <span class="termsSecondary">£300 now, £1,200 on delivery</span>
-            </div>
-            <a class="evidence" href="https://store.sgit.ai/ledger/index.html#claim-abp-sessions-by-a-person" target="_blank" rel="noopener">
-              <svg class="iconBlock" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8L19.2 5.7V11.3C19.2 15.7 16.2 19.5 12 21.2C7.8 19.5 4.8 15.7 4.8 11.3V5.7L12 2.8Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path><path d="M8.6 12.1L10.9 14.4L15.4 9.7" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-              <span class="evidenceText">Delivered by a person</span>
+          </li>
+          <li class="proofItem">
+            <a class="proofLink" href="https://store.sgit.ai/ledger/index.html#claim-abp-sessions-by-a-person" target="_blank" rel="noopener">
+              <svg class="iconBlock" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#DDF1E6"></circle><path d="M7.2 12.3L10.3 15.4L16.7 8.6" fill="none" stroke="#0B7A4B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              <span class="proofText">Two sessions with your team, then sign-off</span>
             </a>
-            <a class="btn btnBlock btnBright" href="https://store.sgit.ai/product/?level=t4" target="_blank" rel="noopener">Choose this level</a>
-          </article>
-        </div>
-        <div class="pricingFoot">
-          <p class="text pricingNote">Prices in GBP, read from <a class="inlineLink" href="https://store.sgit.ai/compare/" target="_blank" rel="noopener">store.sgit.ai/compare</a> at store v0.3.24 on 17 September 2026; the store holds the cart and the price, so a figure that moves there is detectable here. <br>Paid levels carry a commercial licence to you; the sixteen published templates stay free to read and reuse under CC BY 4.0.</p>
-          <div class="pricingLinks">
-            <a class="link" href="https://store.sgit.ai/compare/" target="_blank" rel="noopener">Compare every level</a>
-            <a class="link" href="agent-behaviour-policy.html">Read a template first</a>
-          </div>
+          </li>
+        </ul>
+        <div class="proofMeta">
+          <p class="small measure">Measured against the standards underwriters are adopting: ISO/IEC 42001, OWASP Agentic Top 10, NIST AI RMF and ISO/IEC 27001.</p>
+          <p class="small">Model-drafted and marked as such. Not a compliance assessment. We are not an insurer and place no cover. <a class="inlineLink" href="https://store.sgit.ai/disclosures/" target="_blank" rel="noopener">What we don’t claim</a></p>
         </div>
       </div>
     </section>
 
-    <section class="cta" aria-labelledby="cta-title">
-      <div class="container ctaGrid">
-        <div class="ctaCopy">
-          <h2 id="cta-title" class="ctaTitle">Start with the agent that worries you.</h2>
-          <p class="ctaText">Not the whole estate. One agent, already running, written down as a record you keep, correct and can hand to your insurer before they ask.</p>
-          <div class="actions">
-            <a class="btn btnBright" href="https://store.sgit.ai/policies/" target="_blank" rel="noopener">Buy an Agent Behaviour Policy</a>
-            <a class="btn btnGhost" href="agent-behaviour-policy.html">See Policy examples</a>
-          </div>
-        </div>
-        <svg class="ctaMark" width="220" height="220" viewBox="0 0 220 220" aria-hidden="true">
-          <circle cx="110" cy="110" r="104" fill="none" stroke="#16A864" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="2 6"></circle>
-          <circle cx="110" cy="110" r="62" fill="none" stroke="#16A864" stroke-width="16"></circle>
-          <path d="M110 28V56M110 164V192M28 110H56M164 110H192" stroke="#16A864" stroke-width="14"></path>
-          <circle cx="110" cy="110" r="44" fill="#0C1611"></circle>
-          <text x="110" y="122" text-anchor="middle" fill="#F3F7F4" font-size="34" font-weight="700" letter-spacing="-1">RM</text>
-        </svg>
-      </div>
-    </section>
+<section class="sec" style="padding:144px 0;background:#07140F;color:#E8F0EC;background-image:radial-gradient(rgba(232,240,236,0.06) 1px, transparent 1px);background-size:22px 22px">
+<div class="pad" style="max-width:1240px;margin:0 auto;padding:0 40px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:32px">
+<h2 class="h1" style="margin:0;font-size:84px;line-height:0.98;letter-spacing:-0.055em;font-weight:600;max-width:11em">Start with the agent that worries you most.</h2>
+<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px">
+<a href="#pricing" style="display:inline-flex;align-items:center;min-height:52px;padding:0 26px;border-radius:999px;background:#4BE3A2;color:#07140F;text-decoration:none;font-size:16px;font-weight:600">Get started</a>
+<a href="contact.html" style="display:inline-flex;align-items:center;min-height:52px;padding:0 26px;border-radius:999px;border:1px solid rgba(232,240,236,0.3);color:#E8F0EC;text-decoration:none;font-size:16px;font-weight:500">Book a demo</a>
+</div>
+</div>
+</section>
+</div>
 
-  </main>
-
-  <footer class="footer">
+<footer class="footer">
     <div class="container footerInner">
       <div class="footerGrid">
         <div class="footerBrand">
@@ -1768,15 +2073,13 @@ rm-menu{display:contents}
       </div>
     </div>
   </footer>
-
 </div>
-
 
 <script>
 (function(){
 'use strict';
 var RM={core:{},services:{},components:{},data:{}};
-RM.data.pages=[{"name":"agent-behaviour-policy","label":"The sixteen examples","file":"agent-behaviour-policy.html","group":"Behaviour policies"},{"name":"abp","label":"What an ABP is","file":"abp.html","group":"Behaviour policies"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"Behaviour policies"},{"name":"licence-to-operate","label":"Licence to Operate","file":"licence-to-operate.html","group":"Behaviour policies"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"Behaviour policies"},{"name":"team","label":"The team: our own agents' policies","file":"team/index.html","group":"Behaviour policies"},{"name":"for-corporate","label":"You run agents today","file":"for-corporate.html","group":"Who it's for"},{"name":"for-founders","label":"You are a founder","file":"for-founders.html","group":"Who it's for"},{"name":"for-startups","label":"You are a startup","file":"for-startups.html","group":"Who it's for"},{"name":"early-access","label":"Early access, invite only","file":"early-access.html","group":"Who it's for"},{"name":"early-adopters","label":"Early adopters: a thank you","file":"early-adopters.html","group":"Who it's for"},{"name":"insurance","label":"Make agents insurable","file":"insurance.html","group":"Insurance"},{"name":"insure-a-program","label":"Can you insure a program?","file":"insure-a-program.html","group":"Insurance"},{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"Insurance"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"Insurance"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"Insurance"},{"name":"business-cases","label":"Business cases, by risk","file":"business-cases.html","group":"Insurance"},{"name":"owasp-graph","label":"OWASP, as a graph","file":"owasp-graph.html","group":"Insurance"},{"name":"pricing","label":"The four levels","file":"pricing.html","group":"Pricing"},{"name":"abp-reviewed","label":"The reviewed level","file":"abp-reviewed.html","group":"Pricing"},{"name":"reviewers","label":"Who runs your review","file":"reviewers.html","group":"Pricing"},{"name":"try-it","label":"Try it","file":"try-it.html"},{"name":"articles","label":"Articles","file":"articles.html","group":"Reading"},{"name":"stories","label":"Stories: a cast, and storyboards","file":"stories/index.html","group":"Reading"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"privacy","label":"Privacy","file":"privacy.html","group":"More"},{"name":"lab","label":"The Lab","file":"lab.html","group":"More"},{"name":"demos","label":"Live demos","file":"demos.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"uk-support","label":"UK support, in the open","file":"uk-support.html","group":"More"},{"name":"about","label":"About: the company and the founders","file":"about.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"home-current","label":"Home: as it is today","file":"home-current.html","group":"More"},{"name":"home-next","label":"Home: the next one, an experiment","file":"home-next.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"contact","label":"Contact","file":"contact.html","group":"More"},{"name":"agent-contact","label":"Agents: the contact file","file":"agents/index.html","group":"More"},{"name":"admin","label":"Admin","file":"admin/","group":"More"}];RM.data.sections=[];
+RM.data.pages=[{"name":"agent-behaviour-policy","label":"The sixteen examples","file":"agent-behaviour-policy.html","group":"Behaviour policies"},{"name":"abp","label":"What an ABP is","file":"abp.html","group":"Behaviour policies"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"Behaviour policies"},{"name":"licence-to-operate","label":"Licence to Operate","file":"licence-to-operate.html","group":"Behaviour policies"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"Behaviour policies"},{"name":"team","label":"The team: our own agents' policies","file":"team/index.html","group":"Behaviour policies"},{"name":"for-corporate","label":"You run agents today","file":"for-corporate.html","group":"Who it's for"},{"name":"for-founders","label":"You are a founder","file":"for-founders.html","group":"Who it's for"},{"name":"for-startups","label":"You are a startup","file":"for-startups.html","group":"Who it's for"},{"name":"early-access","label":"Early access, invite only","file":"early-access.html","group":"Who it's for"},{"name":"early-adopters","label":"Early adopters: a thank you","file":"early-adopters.html","group":"Who it's for"},{"name":"insurance","label":"Make agents insurable","file":"insurance.html","group":"Insurance"},{"name":"insure-a-program","label":"Can you insure a program?","file":"insure-a-program.html","group":"Insurance"},{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"Insurance"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"Insurance"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"Insurance"},{"name":"business-cases","label":"Business cases, by risk","file":"business-cases.html","group":"Insurance"},{"name":"owasp-graph","label":"OWASP, as a graph","file":"owasp-graph.html","group":"Insurance"},{"name":"pricing","label":"The four levels","file":"pricing.html","group":"Pricing"},{"name":"abp-reviewed","label":"The reviewed level","file":"abp-reviewed.html","group":"Pricing"},{"name":"reviewers","label":"Who runs your review","file":"reviewers.html","group":"Pricing"},{"name":"try-it","label":"Try it","file":"try-it.html"},{"name":"articles","label":"Articles","file":"articles.html","group":"Reading"},{"name":"stories","label":"Stories: a cast, and storyboards","file":"stories/index.html","group":"Reading"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"privacy","label":"Privacy","file":"privacy.html","group":"More"},{"name":"lab","label":"The Lab","file":"lab.html","group":"More"},{"name":"demos","label":"Live demos","file":"demos.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"uk-support","label":"UK support, in the open","file":"uk-support.html","group":"More"},{"name":"about","label":"About: the company and the founders","file":"about.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"contact","label":"Contact","file":"contact.html","group":"More"},{"name":"agent-contact","label":"Agents: the contact file","file":"agents/index.html","group":"More"},{"name":"admin","label":"Admin","file":"admin/","group":"More"}];RM.data.sections=[];
 
 'use strict';
 // components/dom.js — tiny DOM helpers shared by components. `el` builds an
@@ -2090,6 +2393,72 @@ RM.components.nav = (function () {
 })();
 
 
+})();
+</script>
+<script>
+// index.js — the state the React component held, as a plain object and a render.
+(function(){
+'use strict';
+var CATALOG = [
+      { id: 'email', name: 'Gmail', title: 'Gmail policy', yearly: 99, monthly: 119,
+        icon: 'M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z M3 7l9 6 9-6',
+        rules: [['Send to anyone outside your domains', 'hold'], ['Create an auto-forwarding rule', 'block'], ['Read threads labelled Legal or HR', 'block'], ['Put ID numbers in a message', 'redact']] },
+      { id: 'workspace', name: 'Google Workspace', title: 'Google Workspace policy', yearly: 99, monthly: 119,
+        icon: 'M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z M14 3v5h5 M8.5 13h7 M8.5 17h4.5',
+        rules: [['Share a file with anyone who has the link', 'block'], ['Open folders labelled Board or Finance', 'block'], ['Download more than 50 files in an hour', 'hold'], ['Edit a doc it was invited to', 'allow']] },
+      { id: 'hr', name: 'HR', title: 'HR policy', yearly: 199, monthly: 239,
+        icon: 'M12 4a4 4 0 1 1 0 8a4 4 0 1 1 0-8z M4 21c0-4 3.6-7 8-7s8 3 8 7',
+        rules: [['Read salary, ID or medical fields', 'redact'], ['Change someone’s employment status', 'block'], ['Send an offer letter', 'hold'], ['Answer a time-off question', 'allow']] },
+      { id: 'payroll', name: 'Payroll', title: 'Payroll policy', yearly: 199, monthly: 239,
+        icon: 'M3 6h18a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1z M12 9a3 3 0 1 1 0 6a3 3 0 1 1 0-6z M6 12h.01 M18 12h.01',
+        rules: [['Change bank details or pay rates', 'block'], ['Start an off-cycle pay run', 'hold'], ['Export the pay register', 'block'], ['Run a payroll summary report', 'allow']] },
+      { id: 'crm', name: 'CRM', title: 'CRM policy', yearly: 99, monthly: 119,
+        icon: 'M4 4h16a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z M9 8.5a2.5 2.5 0 1 1 0 5a2.5 2.5 0 1 1 0-5z M5.5 17.5c.6-1.8 2-2.8 3.5-2.8s2.9 1 3.5 2.8 M15 9.5h3 M15 13h3',
+        rules: [['Export more than 500 records', 'hold'], ['Delete an opportunity', 'block'], ['Edit a closed-won deal', 'hold'], ['Log a call or an email', 'allow']] },
+      { id: 'marketing', name: 'Marketing', title: 'Marketing policy', yearly: 99, monthly: 119,
+        icon: 'M3 10v4a1 1 0 0 0 1 1h3l7 4V5L7 9H4a1 1 0 0 0-1 1z M18 8.5a5 5 0 0 1 0 7',
+        rules: [['Send to a list of over 1,000 people', 'hold'], ['Raise ad spend by more than $500 a day', 'block'], ['Post to a brand social account', 'hold'], ['Draft a campaign', 'allow']] },
+      { id: 'notes', name: 'Note takers', title: 'Note taker policy', yearly: 49, monthly: 59,
+        icon: 'M12 3a3 3 0 0 1 3 3v6a3 3 0 0 1-6 0V6a3 3 0 0 1 3-3z M5 11a7 7 0 0 0 14 0 M12 18v3',
+        rules: [['Join a meeting labelled HR, Legal or Board', 'block'], ['Share notes beyond the invite list', 'block'], ['Keep ID numbers in a transcript', 'redact'], ['Summarise a team stand-up', 'allow']] },
+      { id: 'meetings', name: 'Meeting apps', title: 'Meeting apps policy', yearly: 49, monthly: 59,
+        icon: 'M3 6h12a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1z M16 10.5l6-3.5v10l-6-3.5',
+        rules: [['Record before everyone is notified', 'block'], ['Invite an outside guest', 'hold'], ['Edit a meeting someone else owns', 'block'], ['Schedule an internal meeting', 'allow']] }
+    ];
+var state={cat:'payroll',over:{},textOn:true,emailOn:true,level:'3'};
+var labels={allow:'Allow',redact:'Redact',hold:'Hold',block:'Block'};
+var esc=function(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});};
+var $=function(id){return document.getElementById(id);};
+function current(){var c=CATALOG[0];CATALOG.forEach(function(x){if(x.id===state.cat)c=x;});return c;}
+function renderBuilder(){
+  var cur=current();
+  $('rmx-cats').innerHTML=CATALOG.map(function(c){var on=c.id===cur.id;
+    return '<button type="button" class="cat'+(on?' cat-on':'')+'" data-cat="'+c.id+'" aria-pressed="'+on+'"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="'+c.icon+'"></path></svg><span>'+esc(c.name)+'</span></button>';}).join('');
+  $('rmx-title').textContent=cur.title;
+  $('rmx-rules').innerHTML=cur.rules.map(function(r,i){var key=cur.id+':'+i;var action=state.over[key]||r[1];
+    return '<li style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 20px;padding:14px 0;border-top:1px solid #EEF1EE"><span style="font-size:16px;flex:1 1 220px">'+esc(r[0])+'</span><div role="group" aria-label="What happens when an agent tries to '+esc(r[0].toLowerCase())+'" style="display:inline-flex;gap:2px;padding:3px;border-radius:11px;background:#F2F4F1">'+
+      ['allow','redact','hold','block'].map(function(o){var on=action===o;return '<button type="button" class="seg'+(on?' seg-'+o:'')+'" data-rule="'+key+'" data-action="'+o+'" aria-pressed="'+on+'">'+labels[o]+'</button>';}).join('')+'</div></li>';}).join('');
+  $('rmx-tog-text').className='tog'+(state.textOn?' tog-on':''); $('rmx-tog-text').setAttribute('aria-pressed',String(state.textOn));
+  $('rmx-tog-email').className='tog'+(state.emailOn?' tog-on':''); $('rmx-tog-email').setAttribute('aria-pressed',String(state.emailOn));
+}
+var LEVELS=[{"n": "1", "name": "The pack, downloaded", "price": "£10", "who": "You want the material and you do not want to run anything.", "what": "Every file in the vault, sent to you: the behaviour policy, the grant, the mandate and the delta as markdown and JSON, the pinned vocabulary, the prompts, and the two files you hand the agent. Not a vault: no history, no app, no read key.", "by": "Automated. Exists and runs.", "url": "https://store.sgit.ai/d/t1/"}, {"n": "2", "name": "A working vault", "price": "£50", "who": "You want the thing itself rather than a copy of its contents.", "what": "The same material as a vault you hold the keys to: clone it, change it, version it, hand anyone a read key. It recomputes the delta when the mandate or the grant moves, and keeps every version. The mandate in it is still the starting one.", "by": "Automated. Exists and runs.", "url": "https://store.sgit.ai/d/t2/"}, {"n": "3", "name": "Corrected for your situation", "price": "£500", "who": "Your deployment is not the template, and you would rather not do the correcting.", "what": "You run a prompt in your own environment and send us what it finds. We build the vault from that, correct the mandate against your industry, your use case and the details you gave, recompute the delta, and send it back yours, with a written note of what changed and why.", "by": "Agents build it, a person reviews it.", "url": "https://store.sgit.ai/d/t3/"}, {"n": "4", "name": "Two sessions, and a professional signs it", "price": "£1,500", "who": "The answer has to survive somebody else asking about it.", "what": "Half an hour with your team to find out what is actually running, and half an hour to deliver it: reviewed and signed off by a security professional, with the licence carrying a name. The line between this level and the one below is the line between a thing agents do and a thing a person signs.", "by": "A person, named on the licence.", "url": "https://store.sgit.ai/d/t4/"}];
+function renderLevels(){
+  var L=LEVELS[0]; LEVELS.forEach(function(x){if(x.n===state.level)L=x;});
+  document.querySelectorAll('#rmx-levels .pchip').forEach(function(b){var on=b.dataset.level===L.n;b.className='pchip'+(on?' pchip-on':'');b.setAttribute('aria-pressed',String(on));
+    b.querySelector('.rmx-tick').innerHTML=on?'<span style="display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:#1A7F5A;flex:0 0 24px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>':'<span style="display:inline-block;width:24px;height:24px;border-radius:50%;border:1.5px solid #C9D0CA"></span>';});
+  $('rmx-lvl-who').textContent='Level '+L.n+'. '+L.who; $('rmx-lvl-price').textContent=L.price; $('rmx-lvl-name').textContent=L.name; $('rmx-lvl-what').textContent=L.what;
+  $('rmx-lvl-by').querySelector('span').textContent=L.by; $('rmx-lvl-buy').href=L.url; $('rmx-lvl-buy').textContent='Buy level '+L.n+' at the store \u2197';
+  $('rmx-lvl-free').hidden=L.n!=='3'; $('rmx-lvl-free-note').hidden=L.n!=='3';
+}
+document.addEventListener('click',function(e){
+  var t=e.target.closest('[data-cat],[data-rule],[data-level],#rmx-tog-text,#rmx-tog-email'); if(!t) return;
+  if(t.dataset.cat){state.cat=t.dataset.cat;renderBuilder();}
+  else if(t.dataset.rule){state.over[t.dataset.rule]=t.dataset.action;renderBuilder();}
+  else if(t.dataset.level){state.level=t.dataset.level;renderLevels();}
+  else if(t.id==='rmx-tog-text'){state.textOn=!state.textOn;renderBuilder();}
+  else if(t.id==='rmx-tog-email'){state.emailOn=!state.emailOn;renderBuilder();}
+});
+renderBuilder(); renderLevels();
 })();
 </script>
 </body>
