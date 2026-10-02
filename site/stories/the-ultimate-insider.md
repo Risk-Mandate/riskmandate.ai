@@ -24,7 +24,9 @@ _Sheet 1: panels 1 to 10. The insider, the infrastructure, the spreadsheet, and 
 
 _Sheet 2: panels 11 to 14. The whiteboard, the fence, faster, and the credits. · a ChatGPT image model, 2 October 2026_
 
-What to correct
+Improvements for later
+
+What the model got wrong or added is written down here, not painted over. Each is a change for the next time this story is drawn; none stops the picture being used as it is.
 
 - Drawn as two sheets, ten panels and four, rather than one image per panel as the prompt asked. For a strip or a slide deck, the sheets cut cleanly; for a carousel, ask for the panels one at a time.
 - The Caretaker's face is a dark screen with green eyes here; on the cast sheet it is a white face with dark eyes. Every other character holds: Rowan's beard, notebook and watch, Imani's glasses and RISK REVIEW clipboard, Dev's curls and laptop, Ruth's silver bob and BOARD PAPERS, Leo's wheelchair and INCIDENT LOG, the Inbox's face, the Boundary's arm.

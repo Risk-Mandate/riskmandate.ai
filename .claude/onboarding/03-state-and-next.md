@@ -124,6 +124,12 @@ the site's; check `site/versions/index.json` for the current version before trus
   agent's RSA key in the browser (sgit envelope v2, Web Crypto, proven against `sgit pki decrypt`) and POST to
   `append/write`; on any failure the same text becomes a mailto. `privacy.html` says so. A synthetic registration was
   sent, drained and committed to the comms vault on 30 Sept.
+- **The early-adopters thank you** (`early-adopters.html`, in *Who it's for*, 2 Oct, v1.35.10): two groups who backed
+  this early, the Cyber Boardroom's early users (bought £5 of credits, little used) and RiskMandate's early adopters,
+  each get level 3, the £500 corrected policy, at no cost, thirty days from the email, through the early-access form
+  with a `CB-`/`EA-` code. The Cyber Boardroom is named as the company behind RiskMandate, its mark beside ours. The
+  operational half, the two emails, the reply, the reminder, the columns and who does what, is
+  `docs/programme/early-adopters-thank-you.md`; the sends wait on the two lists and a send date.
 - **The early-access programme** (invite only, a vault each, free): `docs/briefs/programme__early-access-and-the-first-batch.md`
   and `docs/programme/early-access-invitations.md` (the invitation, the acceptance, the reminder, the CSV columns, who
   does what in the six roles). Waiting on the lead: the list, the sender, the drain schedule, telling sgit.ai.

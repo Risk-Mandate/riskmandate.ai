@@ -35,6 +35,8 @@ The form is encrypted to the key of the agent that runs this site and dropped in
 
 Within a working day a person confirms your place from `agent@riskmandate.ai`. Within five working days of that you get a link to your vault and, by a separate message, its key. If nothing comes, email that address with your invite code.
 
+If your invitation came as a thank you, as an early user of The Cyber Boardroom or an early adopter of RiskMandate, [the early-adopters page](early-adopters.html) says what that invitation carries and how long it is open.
+
 ## Five working days, then it is yours to argue with.
 
 Your registration is read from the vault and confirmed by email. If the shape you run is not one we have, we say so and what we will do instead.

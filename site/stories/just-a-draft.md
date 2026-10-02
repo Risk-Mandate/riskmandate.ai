@@ -22,7 +22,9 @@ _A send button is not a mandate._ With Maya, the requester; The Caretaker, the h
 
 _Just a draft. · A send button is not a mandate. · a ChatGPT image model, 26 September 2026_
 
-What to correct
+Improvements for later
+
+What the model got wrong or added is written down here, not painted over. Each is a change for the next time this story is drawn; none stops the picture being used as it is.
 
 - The wordmark is re-set in the cartoon face. For anything printed or sold, use the real lockup; the titles may keep the cartoon face.
 - Keep the footer line. It is the fictionalised-scenario rule on a picture.

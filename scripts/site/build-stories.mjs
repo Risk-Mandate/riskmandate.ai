@@ -236,7 +236,18 @@ function indexPage() {
   </div>
 </section>
 
-<section class="psection">
+${stories.some((s) => s.status === 'drawn' && (s.drawn.notes || []).length) ? `<section class="psection">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">Improvements for later</span>
+      <h2>What the drawn ones got wrong, <span class="g">kept for the next drawing.</span></h2>
+      <p>Every drawn story carries its notes: what the model changed from the storyboard, what it added, what to fix when it is drawn again. They are collected here so the next brief to an image model can start from them. None of them stops a picture being used as it is.</p>
+    </div>
+    ${stories.filter((s) => s.status === 'drawn' && (s.drawn.notes || []).length).map((s) => `<p class="st-k" style="margin-top:22px"><a href="${HERE}${esc(s.slug)}.html">${esc(s.title)}</a> · ${esc(s.drawn.model)}, ${niceDate(s.drawn.date)}</p><ul class="st-list" style="margin-top:8px">${s.drawn.notes.map((n) => `<li>${esc(n)}</li>`).join('')}</ul>`).join('\n    ')}
+  </div>
+</section>` : ''}
+
+<section class="psection alt">
   <div class="wrap">
     <div class="shead">
       <span class="tag">05 · The rules for a story</span>
@@ -335,7 +346,7 @@ ${s.status === 'drawn' ? `<section class="psection">
       <h2>By ${esc(s.drawn.model)}, <span class="g">${niceDate(s.drawn.date)}.</span></h2>
     </div>
     ${(s.drawn.sheets || [{ image: s.drawn.image, width: s.drawn.width, height: s.drawn.height, alt: s.drawn.alt, caption: `${s.title} · ${s.punchline}` }]).map((sh) => `<figure class="st-fig"><img src="${HERE}${esc(sh.image)}" width="${sh.width}" height="${sh.height}" alt="${esc(sh.alt)}"><figcaption>${esc(sh.caption)} · ${esc(s.drawn.model)}, ${niceDate(s.drawn.date)}</figcaption></figure>`).join('\n    ')}
-    ${(s.drawn.notes || []).length ? `<p class="st-k" style="margin-top:22px">What to correct</p><ul class="st-list" style="margin-top:10px">${s.drawn.notes.map((n) => `<li>${esc(n)}</li>`).join('')}</ul>` : ''}
+    ${(s.drawn.notes || []).length ? `<p class="st-k" style="margin-top:22px">Improvements for later</p><p class="st-note" style="margin-top:6px">What the model got wrong or added is written down here, not painted over. Each is a change for the next time this story is drawn; none stops the picture being used as it is.</p><ul class="st-list" style="margin-top:10px">${s.drawn.notes.map((n) => `<li>${esc(n)}</li>`).join('')}</ul>` : ''}
   </div>
 </section>` : ''}
 

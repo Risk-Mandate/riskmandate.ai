@@ -75,11 +75,19 @@ a decision the lead owns, listed in the state fileneeds the lead
 
 a decision the lead owns, listed in the state fileneeds the lead
 
-## In flight — 0 branches
+## In flight — 1 branch
 
 One file per branch under `.claude/work/`. [How a work file is written](../../admin/work/about-work-files/).
 
-Nothing in flight.
+### [claude/dev-session-setup-a5wcc5](../../admin/work/branches/claude-dev-session-setup-a5wcc5/)
+
+started 2 October 2026 · task brief: the early-adopters thank you; improvements for later on the stories
+
+`early-adopters.html`: a thank you to the Cyber Boardroom's early users and RiskMandate's early adopters, the £500 corrected policy at no cost for thirty days, through the early-access form; the operational half in `docs/programme/early-adopters-thank-you.md`. The drawn stories' notes reframed as improvements for later, with a section on the stories index collecting them.
+
+**External state.** none this round (no vault push) · Release I will claim at merge: yes, 1.35.10
+
+**Status.** [x] built, checked, rendered · [ ] release, merge, deploy
 
 ## Task briefs — 14
 

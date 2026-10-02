@@ -22,7 +22,9 @@ _Good intentions. Excess reach._ With Maya, the requester; The Caretaker, the he
 
 _Just a little research. · Good intentions. Excess reach. · a ChatGPT image model, 26 September 2026_
 
-What to correct
+Improvements for later
+
+What the model got wrong or added is written down here, not painted over. Each is a change for the next time this story is drawn; none stops the picture being used as it is.
 
 - Panel 3 shows a broken padlock. That is a break-in, and the story is about excess reach: the agent already holds the keys. Redraw with the Caretaker trying its own keys until one turns, the padlock intact and open, no debris.
 - The wordmark is re-set in the cartoon face; use the real lockup for print.
