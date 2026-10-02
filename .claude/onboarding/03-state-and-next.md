@@ -151,7 +151,8 @@ the site's; check `site/versions/index.json` for the current version before trus
   set each rule to allow / redact / hold / block, alert toggles; one state object, re-rendered by the script); bring
   your policy; a prompt asks, a policy enforces; the phone and the email; **the four levels** (the store's, in
   pounds, paid once, level 3 selected on load and marked *start here*, with the free early-access link for level 3);
-  **the model** (*Under every rule, one record*: the gap figure with the counts from `claude-code-web`, the four
+  **the model** (v1.36.1: headed by the old hero block, *Know what your agents can do* / *Not what they did. What
+  they can.*, with its two buttons and the £10 price note, beside the gap figure; the *Under every rule* intro is gone): the gap figure with the counts from `claude-code-web`, the four
   parts, the four views and the draft-to-version flow, the three steps, the previous home page's own blocks by
   their own markup, the flow strip renamed `abpFlow`); the proof strip of four ledger claims, which the tests hold to
   the catalogue count; the closing call. The experiment pages `home-next.html` and `home-current.html` are gone
