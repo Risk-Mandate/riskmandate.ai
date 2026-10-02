@@ -147,6 +147,17 @@ the site's; check `site/versions/index.json` for the current version before trus
   the people thanked were its early users. The reviewer record's one-line (`site/reviewers/dinis-cruz.json`, the source
   the two reviewer pages are built from) and the team page's Who section say co-founder and point here. The deck's own
   page numbers run 01 to 17 then 19, as presented.
+- **The next home page, an experiment** (`home-next.html`, in *More*, private, 2 Oct, v1.35.14): a port of a React
+  mock the lead sent (`RiskMandateHome.tsx`, "Give agents access. Not free rein.") to plain HTML, CSS and one small
+  script, in the site's chrome, with the mock's own CSS keyframes for the stage animation and its four interactive
+  parts (system picker, rules, alert toggles, price builder) re-rendered from a state object. Built by a one-off
+  converter in the session scratchpad, then hand-authored in the tree like `index.html`. **The home page as it is**
+  is copied to `home-current.html` (private, same group) so the two can be compared; when the lead says so, the
+  experiment replaces `index.html` and both extra pages go. **Review, recorded in the v1.35.14 notes:** the mock
+  sells an enforcement product (real time, alerts by text and email, per-system subscriptions in dollars, a decision
+  log) that the site does not sell, says *policy* alone throughout, and had dead links; the port keeps the design and
+  the words, fixes spelling to British, points dead links at contact, and carries a note at the top saying the copy,
+  prices and claims are the design's and under review. Nothing on it is scored.
 - **The early-access programme** (invite only, a vault each, free): `docs/briefs/programme__early-access-and-the-first-batch.md`
   and `docs/programme/early-access-invitations.md` (the invitation, the acceptance, the reminder, the CSV columns, who
   does what in the six roles). Waiting on the lead: the list, the sender, the drain schedule, telling sgit.ai.
