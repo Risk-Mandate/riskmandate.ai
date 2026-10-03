@@ -388,6 +388,13 @@
       "unlisted": true
     },
     {
+      "name": "stories-the-short-answer",
+      "label": "Story · The short answer.",
+      "file": "stories/the-short-answer.html",
+      "group": "Reading",
+      "unlisted": true
+    },
+    {
       "name": "questions",
       "label": "Questions",
       "file": "questions.html",

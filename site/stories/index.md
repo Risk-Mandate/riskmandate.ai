@@ -2,7 +2,7 @@
 
 # RiskMandate — Stories: a cast, and storyboards told with it
 
-A cast of nine, a workflow from story to storyboard to image model, 8 storyboards so far, 4 of them drawn, and the board of who does what. Every scenario is fictionalised and says so on the picture. Nothing is scored.
+A cast of nine, a workflow from story to storyboard to image model, 9 storyboards so far, 4 of them drawn, and the board of who does what. Every scenario is fictionalised and says so on the picture. Nothing is scored.
 
 Source: https://riskmandate.ai/stories/
 
@@ -10,7 +10,7 @@ Source: https://riskmandate.ai/stories/
 
 # The same people, every time.
 
-Most of what this site says is an argument. Some of it is a story, and a story with a cast is remembered where an argument is filed. This is where the stories are kept: a cast of nine, a workflow that starts with the narrative and ends with an image model, and 8 storyboards so far, 4 of them drawn.
+Most of what this site says is an argument. Some of it is a story, and a story with a cast is remembered where an argument is filed. This is where the stories are kept: a cast of nine, a workflow that starts with the narrative and ends with an image model, and 9 storyboards so far, 4 of them drawn.
 
 **Where this goes:** a site of its own, stories.sgit.ai. Every story here is a data file in the one folder this section is served from, so it can move without being rewritten.
 
@@ -72,7 +72,7 @@ Proposed, not drawn
 
 **The style**, for any model: Clean line cartoon: thick ink outlines, flat fills, no gradients. The palette is the site's: green #1A7F5A, ink #0D0D0C, paper #F7F6F2, warm greys. An office with plants and pale wood. Everybody wears something green. Speech in rounded bubbles, British spelling. Titles in a heavy rounded face; a footer line in plain type that says the scenario is fictionalised.
 
-## 8 so far, 4 drawn.
+## 9 so far, 4 drawn.
 
 Each has its page: the truth under it, the storyboard panel by panel, the prompt for an image model, and, where a model has drawn it, the picture and what to correct.
 
@@ -111,6 +111,12 @@ Imani, Leo, Rowan, Ruth.
 Then somebody asked what else it could do.
 
 Rowan, Imani, The Caretaker, Dev.
+
+### The short answer.
+
+Correct. But I can reach it.
+
+Maya, Rowan, Imani, Dev, Ruth, Leo, The Caretaker, The Boundary.
 
 ### The ultimate insider.
 
