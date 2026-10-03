@@ -144,6 +144,14 @@ the site's; check `site/versions/index.json` for the current version before trus
   the people thanked were its early users. The reviewer record's one-line (`site/reviewers/dinis-cruz.json`, the source
   the two reviewer pages are built from) and the team page's Who section say co-founder and point here. The deck's own
   page numbers run 01 to 17 then 19, as presented.
+- **The short answer** (`stories/the-short-answer.html`, 3 Oct, v1.36.2, status storyboard, ten scenes): the arc of a
+  three-to-five-minute animated film written in the stories universe by a filmmaker working with the lead, with the
+  dialogue as the outline wrote it; the lead reviewed the outline's seven questions on 3 Oct (faithful, yes; no
+  capability implied that we lack; Licence to Operate kept for a second film; Maya a little older; not the enforcement
+  layer, ever). The brief `docs/briefs/story__the-short-answer-the-film-and-the-value-proposition.md` carries the arc,
+  the seven answers against the site, the value proposition as the story states it, what the film must not show, and
+  an article outline (*Would you like the short answer?*). Scene 6's wrong-but-valid action is a placeholder. Not
+  through the stories vault: the film is made outside the studio workflow. No film on the site yet.
 - **The home page, v1.36.0** (`index.html`, 2 Oct, signed off by the lead): the design the lead sent as a React
   component (`RiskMandateHome.tsx`, "Give agents access. Not free rein."), ported to plain HTML, CSS and one short
   script, in the site's chrome. Hand-authored, like every home page before it. Its sections: the hero; the stage, six

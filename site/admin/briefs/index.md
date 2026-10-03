@@ -3,7 +3,7 @@
 > Every document under docs/ on riskmandate.ai, rendered as a page: direction briefs, reviews, workflows, architecture and research, newest first.
 > Source: https://riskmandate.ai/admin/briefs/ · noindex · written by scripts/site/build-admin.mjs
 
-**33**documents under docs/*one page each, rendered from the file*
+**34**documents under docs/*one page each, rendered from the file*
 
 **8**direction briefs*the product and the site*
 
@@ -14,6 +14,10 @@
 These were written here, by the agent maintaining the site, in response to [the memos and documents that arrived](../../admin/memos/). Each is read against a named source and dated. Add a file under `docs/` and rerun `build-admin.mjs`: it has a page here and a test fails until it does.
 
 ## Newest first
+
+**[The short answer: the film's arc, the lead's review of it, and the value proposition it tells](../../admin/briefs/story__the-short-answer-the-film-and-the-value-proposition/)**
+
+A premium animated short, not a corporate explainer, that has to work for engineers and for CEOs, boards, investors and operations people who do not know what an agent is. It tells RiskMandate as a human story: a company brings in an agent because it…3 October 2026 · story
 
 **[The early-adopters thank you: two groups, one offer, thirty days, and the words that go out](../../admin/briefs/programme--early-adopters-thank-you/)**
 

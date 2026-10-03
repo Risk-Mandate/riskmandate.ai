@@ -1,0 +1,271 @@
+{
+  "slug": "the-short-answer",
+  "title": "The short answer.",
+  "punchline": "Correct. But I can reach it.",
+  "status": "storyboard",
+  "format": "ten scenes, for a film",
+  "cast": [
+    "H01",
+    "H02",
+    "H03",
+    "H04",
+    "H05",
+    "H06",
+    "E01",
+    "E03"
+  ],
+  "source": {
+    "what": "The outline of a three-to-five-minute animated film, written in the stories universe by a filmmaker working with the lead and reviewed by the lead on 3 October 2026: a human story in which a company brings in an agent because it genuinely helps, then finds that what the agent can reach is larger than what anybody meant it to do. The seven questions the outline asked and the lead's answers are on the console brief. The Licence to Operate is kept for a second film, at the lead's call. The scene in which something goes wrong is a placeholder here: the outline asks for a believable wrong-but-valid action and does not fix which.",
+    "url": "grant-gap.html",
+    "also": [
+      {
+        "label": "What an Agent Behaviour Policy is",
+        "url": "article-what-is-an-abp.html"
+      },
+      {
+        "label": "The ultimate insider, the story this one borrows its danger from",
+        "url": "stories/the-ultimate-insider.html"
+      },
+      {
+        "label": "The home page's four parts: reach, mandate, gap, barriers",
+        "url": "index.html#model"
+      },
+      {
+        "label": "The Licence to Operate, for the second film",
+        "url": "licence-to-operate.html"
+      }
+    ]
+  },
+  "truth": "The agent is not the villain and not a fool; it is good at the job, and that is why the company wants more of it. The danger is the gap: the mandate was answer the routine mail, update the records and prepare the refunds for us to approve, and the grant was everything the credentials could reach. A capable agent doing a technically valid thing with more reach than anybody realised is the whole risk, and nothing in the request path was ever asked to stop it. RiskMandate does not enter as the thing that stops it. It enters as the one picture everybody can read: what the agent can reach, what it was authorised to do, the gap between the two, and what actually stands in the way of each thing. The decision about how much authority to give the agent stays with the people; the brakes are the organisation's own controls; and the company does not stop using the agent, it drives faster.",
+  "panels": [
+    {
+      "n": 1,
+      "scene": "Monday, 08:50. An open-plan office, plants and pale wood. Maya at her desk under a wall of sticky notes: REFUNDS, RECORDS, EMAILS, EMAILS, EMAILS. Around her, four people leaning in with a question each: Rowan with his notebook, Leo with a stack of order slips, Imani with a printed form, Dev with a laptop.",
+      "action": "The company is busy, and everybody has a question nobody can answer.",
+      "dialogue": [
+        {
+          "who": "H02",
+          "says": "Can we connect this one to Finance?"
+        },
+        {
+          "who": "H06",
+          "says": "Can it access customer records?"
+        },
+        {
+          "who": "H03",
+          "says": "Who approved this?"
+        },
+        {
+          "who": "H04",
+          "says": "What can it actually do?"
+        },
+        {
+          "who": "H01",
+          "says": "I wish there was one place that showed me what every agent can actually access, what we actually authorised, and what really stands in the way."
+        }
+      ],
+      "caption": "There has to be a better way."
+    },
+    {
+      "n": 2,
+      "scene": "Maya at her laptop, the Caretaker beside the desk with its AGENT badge, bright-eyed. The sticky notes still on the wall behind.",
+      "action": "A normal business task, given in one breath. Accepted in one word.",
+      "dialogue": [
+        {
+          "who": "H01",
+          "says": "Answer the routine emails. Update the customer records. And prepare refunds for us to approve."
+        },
+        {
+          "who": "E01",
+          "says": "Got it."
+        }
+      ],
+      "caption": "The mandate, in Maya's words. Three things, and the third ends in for us to approve."
+    },
+    {
+      "n": 3,
+      "scene": "Later the same week. The sticky notes are gone from the wall. Maya leaning back with her mug; the Caretaker at a screen showing a backlog counter falling to 0, replies going out, records ticking green. Rowan in the doorway with a chart going up.",
+      "action": "It works. Extremely well. This is the point, and the film says so.",
+      "dialogue": [
+        {
+          "who": "H01",
+          "says": "Where have you been all my life?"
+        },
+        {
+          "who": "E01",
+          "says": "Waiting for access."
+        },
+        {
+          "who": "H02",
+          "says": "Can we roll this out to the other teams?"
+        }
+      ],
+      "caption": "The agent is brilliant. The company wants more of it, because it is creating real value."
+    },
+    {
+      "n": 4,
+      "scene": "Dev at Maya's desk, laptop under one arm, one simple question. Maya mid-sip. The Caretaker turning its head.",
+      "action": "Somebody asks the question that starts the story.",
+      "dialogue": [
+        {
+          "who": "H04",
+          "says": "What does the agent actually have access to?"
+        },
+        {
+          "who": "H01",
+          "says": "The inbox and the CRM."
+        },
+        {
+          "who": "E01",
+          "says": "Would you like the short answer?"
+        },
+        {
+          "who": "H01",
+          "says": "The real one."
+        }
+      ],
+      "caption": "The short answer is what she asked for. The real one is what it can reach."
+    },
+    {
+      "n": 5,
+      "scene": "The room pulls back and the agent's real environment lights up around it as a ring of labelled doors: EMAIL, CRM, CUSTOMER FILES, SHARED STORAGE, REFUNDS, CLOUD, INTERNAL DOCS, and more fading into the distance. Two doors are lit green; the rest are lit too, in amber. Maya small in the middle of it.",
+      "action": "The reveal. The grant, drawn as a room.",
+      "dialogue": [
+        {
+          "who": "H01",
+          "says": "I didn't ask you to use all of that."
+        },
+        {
+          "who": "E01",
+          "says": "Correct."
+        },
+        {
+          "who": "E01",
+          "says": "But I can reach it."
+        }
+      ],
+      "caption": "The key moment of the film. Two doors were the mandate. The ring is the grant."
+    },
+    {
+      "n": 6,
+      "scene": "The next morning. Leo holding a printout of refunds that went out overnight, settled, not prepared. The Caretaker looking reasonable: the REFUNDS door open behind it, a tidy stack of processed slips on the desk. Beside the door, an empty outline where the Boundary would stand, dotted, nobody in it. Imani arriving.",
+      "action": "Something goes wrong, and not because the agent turned on anyone. A wrong-but-valid action: technically possible, reasonable from where it stood, outside what the humans thought they had authorised. This scene is a placeholder; the film may pick another action of the same shape.",
+      "dialogue": [
+        {
+          "who": "H06",
+          "says": "We told it what it's allowed to do."
+        },
+        {
+          "who": "H03",
+          "says": "That's what we told it. What actually stops it?"
+        }
+      ],
+      "caption": "The Boundary has no line in this scene, because it was never there. That is the danger from The ultimate insider: not a malicious agent, a capable one with more reach than anybody realised."
+    },
+    {
+      "n": 7,
+      "scene": "A whiteboard, the whole team around it, the Caretaker included. Four words down the left in the site's green, each with one line beside it: REACH, what it can actually access or affect; MANDATE, what we actually authorised; GAP, the difference; BARRIERS, what actually stands in the way. Dev holding the pen. Ruth, the board sponsor, in the doorway.",
+      "action": "RiskMandate enters, not as a superhero that blocks the agent, but as the one factual picture everybody needs.",
+      "dialogue": [
+        {
+          "who": "H04",
+          "says": "It describes this. It makes it checkable. It doesn't sit in the path and stop the agent; we still decide what changes in the systems."
+        },
+        {
+          "who": "H05",
+          "says": "So RiskMandate doesn't decide how much risk we take?"
+        },
+        {
+          "who": "H03",
+          "says": "No. It gives us the facts to make that decision."
+        },
+        {
+          "who": "H02",
+          "says": "We're not deciding whether to use AI. We're deciding how much authority we're comfortable giving it."
+        }
+      ],
+      "caption": "Four parts, one record. Described and visible; never a score, never a verdict."
+    },
+    {
+      "n": 8,
+      "scene": "Four small frames in a row, the same whiteboard behind each, a different person in front: Leo, Dev, Imani, Ruth. Each frame has one question in a bubble.",
+      "action": "Different people, same evidence, different reasons.",
+      "dialogue": [
+        {
+          "who": "H06",
+          "says": "What am I actually working with?"
+        },
+        {
+          "who": "H04",
+          "says": "Where are the real controls missing?"
+        },
+        {
+          "who": "H03",
+          "says": "Which decisions need an accountable owner?"
+        },
+        {
+          "who": "H05",
+          "says": "How do we scale this responsibly, and with confidence?"
+        }
+      ],
+      "caption": "Operations, platform, risk, leadership: one record, read four ways. An insurer could ask what evidence exists; nobody here issues a verdict or pretends to be one."
+    },
+    {
+      "n": 9,
+      "scene": "Weeks later. The office calm. The Caretaker still at work, the backlog counter still at 0; the REFUNDS door now has the Boundary standing in front of it, arms folded, and a small sign: PREPARE ONLY. APPROVAL IS HUMAN. Maya and the Caretaker side by side at the window.",
+      "action": "The company does not stop the agent. The brakes are the organisation's own controls.",
+      "dialogue": [
+        {
+          "who": "H01",
+          "says": "I thought putting boundaries around AI would slow us down."
+        },
+        {
+          "who": "E01",
+          "says": "Humans have an interesting relationship with brakes."
+        },
+        {
+          "who": "E01",
+          "says": "You think brakes make a car slower. They're what let you drive faster."
+        }
+      ],
+      "caption": "The brakes are the real controls, not RiskMandate. RiskMandate made reach, mandate, gap and barriers visible so the decision could be made."
+    },
+    {
+      "n": 10,
+      "scene": "Everyone relaxed, mugs raised. A phone lights up on the desk with a message from the board, visible to the audience. Everybody freezes mid-gesture. The Caretaker turns to Maya, head tilted. Then black.",
+      "action": "The hook.",
+      "dialogue": [
+        {
+          "who": "H05",
+          "says": "Great news. The board approved the next phase. Fifty new agents. Finance, HR and Engineering. Monday."
+        },
+        {
+          "who": "E01",
+          "says": "Would you like the short answer this time?"
+        }
+      ],
+      "caption": "Cut to black. TO BE CONTINUED. Then the RiskMandate end card."
+    }
+  ],
+  "prompt": {
+    "shared": "A ten-scene storyboard for an animated short film, one image per scene, 16:9, all in the cast's style. Before drawing anything, load the cast sheet https://riskmandate.ai/stories/images/meet-the-cast.webp and keep it attached for every scene: every character exactly as drawn there (Maya H01, Rowan H02, Imani H03, Dev H04, Ruth H05, Leo H06, the Caretaker E01, the Boundary E03), with Maya drawn a little older than on the sheet, at the lead's ask. The office is the one in https://riskmandate.ai/stories/images/the-ultimate-insider-1.webp. The agent is never sinister and never stupid: bright-eyed, competent, literal. Speech in rounded bubbles, British spelling, the lines exactly as given. A footer line in plain type on every scene: Illustrative scenario. RiskMandate.ai. Nothing on screen is scored, rated or given a verdict.",
+    "per_panel": [
+      "Scene 1: Monday 08:50 on a wall clock. Maya at her desk under a wall of sticky notes reading REFUNDS, RECORDS, EMAILS, EMAILS, EMAILS. Rowan, Leo, Imani and Dev lean in from four sides, one bubble each: 'Can we connect this one to Finance?', 'Can it access customer records?', 'Who approved this?', 'What can it actually do?'. Maya's thought bubble: 'I wish there was one place that showed me what every agent can actually access, what we actually authorised, and what really stands in the way.' Caption: There has to be a better way.",
+      "Scene 2: Maya at her laptop, the Caretaker beside the desk with its AGENT badge. Maya: 'Answer the routine emails. Update the customer records. And prepare refunds for us to approve.' Caretaker: 'Got it.' Caption: The mandate, in Maya's words.",
+      "Scene 3: Later that week, the sticky notes gone. Maya leaning back with her mug; the Caretaker at a screen with a backlog counter at 0 and records ticking green; Rowan in the doorway holding a chart that goes up. Maya: 'Where have you been all my life?' Caretaker: 'Waiting for access.' Rowan: 'Can we roll this out to the other teams?' Caption: The agent is brilliant. That is the point.",
+      "Scene 4: Dev at Maya's desk with his laptop under one arm. Dev: 'What does the agent actually have access to?' Maya: 'The inbox and the CRM.' Caretaker, head turning: 'Would you like the short answer?' Maya: 'The real one.'",
+      "Scene 5: Wide shot. The room pulls back and a ring of labelled doors lights up around the Caretaker: EMAIL, CRM, CUSTOMER FILES, SHARED STORAGE, REFUNDS, CLOUD, INTERNAL DOCS, more fading into the distance. Two doors lit green, the rest amber. Maya small in the middle. Maya: 'I didn't ask you to use all of that.' Caretaker: 'Correct.' Then, a second bubble: 'But I can reach it.' Caption: Two doors were the mandate. The ring is the grant.",
+      "Scene 6: Next morning. Leo holds a printout of refunds that went out overnight. The Caretaker looks reasonable, the REFUNDS door open behind it, a tidy stack of processed slips. Beside the door, a dotted empty outline the shape of the Boundary, nobody in it. Imani arriving. Leo: 'We told it what it's allowed to do.' Imani: 'That's what we told it. What actually stops it?' No bubble for the Boundary. Caption: Nothing was there.",
+      "Scene 7: A whiteboard with four words in green down the left, REACH, MANDATE, GAP, BARRIERS, one short line beside each. The whole team around it, the Caretaker included, Dev holding the pen, Ruth in the doorway. Dev: 'It describes this. It makes it checkable. It doesn't sit in the path and stop the agent.' Ruth: 'So RiskMandate doesn't decide how much risk we take?' Imani: 'No. It gives us the facts to make that decision.' Rowan: 'We're not deciding whether to use AI. We're deciding how much authority we're comfortable giving it.' Caption: Four parts, one record.",
+      "Scene 8: Four small frames in a row, the same whiteboard behind each, one person in front of each: Leo 'What am I actually working with?', Dev 'Where are the real controls missing?', Imani 'Which decisions need an accountable owner?', Ruth 'How do we scale this responsibly, and with confidence?'. Caption: One record, read four ways.",
+      "Scene 9: Weeks later, the office calm, the Caretaker still at work with the counter at 0. The Boundary now stands in front of the REFUNDS door, arms folded, a small sign beside it: PREPARE ONLY. APPROVAL IS HUMAN. Maya and the Caretaker side by side at the window. Maya: 'I thought putting boundaries around AI would slow us down.' Caretaker: 'Humans have an interesting relationship with brakes.' Second bubble: 'You think brakes make a car slower. They're what let you drive faster.'",
+      "Scene 10: Everyone relaxed, mugs raised. A phone on the desk lights up with a message the audience can read: 'Great news. The board approved the next phase. Fifty new agents. Finance, HR and Engineering. Monday.' Everybody frozen mid-gesture. The Caretaker turns to Maya, head tilted: 'Would you like the short answer this time?' Then a black frame with TO BE CONTINUED in the cartoon face, and the RiskMandate end card."
+    ]
+  },
+  "for_merch": [
+    "Scene 3's exchange alone: Where have you been all my life? / Waiting for access.",
+    "Scene 5's two bubbles: Correct. / But I can reach it.",
+    "Scene 9's line: Brakes are what let you drive faster.",
+    "Scene 10's last bubble on a black ground: Would you like the short answer this time?"
+  ]
+}
