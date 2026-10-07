@@ -3,9 +3,9 @@
 > Every document under docs/ on riskmandate.ai, rendered as a page: direction briefs, reviews, workflows, architecture and research, newest first.
 > Source: https://riskmandate.ai/admin/briefs/ · noindex · written by scripts/site/build-admin.mjs
 
-**34**documents under docs/*one page each, rendered from the file*
+**35**documents under docs/*one page each, rendered from the file*
 
-**8**direction briefs*the product and the site*
+**9**direction briefs*the product and the site*
 
 **4**reviews*read against a named source*
 
@@ -14,6 +14,10 @@
 These were written here, by the agent maintaining the site, in response to [the memos and documents that arrived](../../admin/memos/). Each is read against a named source and dated. Add a file under `docs/` and rerun `build-admin.mjs`: it has a page here and a test fails until it does.
 
 ## Newest first
+
+**[One rule a stranger can paste is the way in, and a page per rule is how the path gets mended](../../admin/briefs/direction__one-rule-a-stranger-can-paste-is-the-way-in/)**
+
+The pieces exist; the doorway is still too big for the first step.7 October 2026 · direction
 
 **[The short answer: the film's arc, the lead's review of it, and the value proposition it tells](../../admin/briefs/story__the-short-answer-the-film-and-the-value-proposition/)**
 
@@ -152,6 +156,10 @@ Move the interactive Risk Scenarios experience to the decoupled model:4 July 202
 How a page is put together, what happens when the browser loads one, and where each thing lives. Current as of v1.0.0; see the addendum below for what has been added since, and .claude/onboarding/01-map.md for the current map.
 
 ## Direction · where the site and the product are going, and why
+
+**[One rule a stranger can paste is the way in, and a page per rule is how the path gets mended](../../admin/briefs/direction__one-rule-a-stranger-can-paste-is-the-way-in/)**
+
+The pieces exist; the doorway is still too big for the first step.7 October 2026 · direction
 
 **[Nobody buys a policy until they have made a small one, so the next phase is users](../../admin/briefs/direction__the-next-phase-is-users/)**
 

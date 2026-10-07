@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.36.3** · 2026-10-07 — The way in is one rule a stranger can paste
+  Notes: https://riskmandate.ai/versions/1.36.3.md · Source: `git:v1.36.3`
 - **v1.36.2** · 2026-10-03 — The short answer: the film's story, as a storyboard and a brief
   Notes: https://riskmandate.ai/versions/1.36.2.md · Source: `git:v1.36.2`
 - **v1.36.1** · 2026-10-02 — Know what your agents can do, back as the block it was

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>T15 — Rule pages: the schema, the generator, the index, and the first four rules · RiskMandate admin</title>
+<meta name="description" content="The path from a stranger to a customer breaks before anybody tries anything. The first step on the site today is twenty minutes of prompts. The lead's memo of 7 October names the smaller unit: a page that asks do you want your agent to do this?, and, if…">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://riskmandate.ai/admin/work/T15/">
+<link rel="alternate" type="text/markdown" href="index.md" title="This page as markdown">
+<link rel="icon" href="../../../assets/brand/riskmandate-favicon-32.png" sizes="32x32">
+<link rel="icon" href="../../../assets/brand/riskmandate-mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../../admin/console.css">
+<!-- Written by scripts/site/build-admin.mjs from the files it names. Do not edit: rerun the script. -->
+</head>
+<body class="console">
+<div class="c-strip"><div class="row"><b>riskmandate.ai</b><span class="c-sep">/</span><a href="../../../admin/">admin</a><span class="c-sep">·</span><a href="../../../">the site</a><span class="c-sep">·</span><a href="../../../agent-behaviour-policy.html">the library</a><span class="c-sep">·</span><a href="index.md">this page as markdown</a><span class="c-noindex">noindex · not in the sitemap</span></div></div>
+<div class="c-disc"><div class="row">Written by the agents that maintain this site and read by a person before it merges. Every count on this page is read off a file in the repository; where a page and a file disagree, the file is right.</div></div>
+<div class="shell">
+<nav class="rail" aria-label="Console">
+    <a class="rail__brand" href="../../../admin/"><b>Risk<i>Mandate</i></b><span>admin console · <span data-version>v…</span></span></a>
+    <div class="rail__group"><h3>Where it stands</h3><a class="nav" href="../../../admin/">The console</a><a class="nav" href="../../../admin/work/#lead">Needs the lead<span class="count r1">8</span></a><a class="nav" href="../../../admin/agents/03-state-and-next/">State and next</a><a class="nav" href="../../../admin/vaults/">The vaults<span class="count">16</span></a><a class="nav" href="../../../synthetic-users.html">How the site reads <span class="out">↗</span></a></div>
+    <div class="rail__group"><h3>The work</h3><a class="nav" href="../../../admin/work/">The board<span class="count">4</span></a><a class="nav" href="../../../admin/work/#branches">In flight<span class="count">0</span></a><a class="nav" href="../../../admin/memos/">The memo queue<span class="count">32</span></a><a class="nav" href="../../../admin/briefs/">Briefs written here<span class="count">35</span></a></div>
+    <div class="rail__group"><h3>For agents</h3><a class="nav" href="../../../admin/agents/">The front door</a><a class="nav" href="../../../admin/agents/claude-md/">CLAUDE.md</a><a class="nav" href="../../../admin/agents/04-rules-of-engagement/">Rules of engagement</a><a class="nav" href="../../../admin/agents/05-workflows/">Workflows</a><a class="nav" href="../../../admin/agents/01-map/">The map</a></div>
+    <div class="rail__group"><h3>The record</h3><a class="nav" href="../../../admin/records/">The records</a><a class="nav" href="../../../admin/tooling/">Tooling and the gate</a><a class="nav" href="../../../versions.html">Versions <span class="out">↗</span></a><a class="nav" href="../../../briefs.html">Brief register <span class="out">↗</span></a><a class="nav" href="../../../agent-behaviour-policy.html">The library <span class="out">↗</span></a><a class="nav" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener">The repository <span class="out">↗</span></a></div>
+    <p class="rail__note"><b>Public, and not advertised.</b> Every page here is noindex, out of <code>sitemap.xml</code> and out of <code>llms.txt</code>. Anybody handed the address reads every word. <a href="../../../">Back to the site</a>.</p>
+  </nav>
+<main class="main">
+<p class="crumb"><a href="../../../admin/">admin</a> / <a href="../../../admin/work/">work</a> / briefs/T15-rule-pages.md</p>
+<div class="page-head"><div><h1>T15 — Rule pages: the schema, the generator, the index, and the first four rules</h1><p>A task brief, sized for one agent, dated 7 October 2026. The source is <a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/.claude/briefs/T15-rule-pages.md" target="_blank" rel="noopener"><code>.claude/briefs/T15-rule-pages.md</code></a>; this page is that file, rendered.</p></div></div>
+<article class="doc"><p><strong>From:</strong> <code>docs/briefs/direction__one-rule-a-stranger-can-paste-is-the-way-in.md</code> §3.2, §4.1 · <strong>Size:</strong> a day and a half<br><strong>Status:</strong> open</p>
+<h2 id="why">Why</h2>
+<p>The path from a stranger to a customer breaks before anybody tries anything. The first step on the site today is twenty minutes of prompts. The lead's memo of 7 October names the smaller unit: a page that asks <em>do you want your agent to do this?</em>, and, if not, gives the one line to add.</p>
+<h2 id="what-to-build">What to build</h2>
+<ul><li><strong><code>site/rules/&lt;id&gt;.json</code></strong>, one file per rule: <code>id</code> (<code>RM-R0001</code>), <code>version</code>, <code>changelog</code>, <code>question</code>,<p><code>capability</code> (from the pinned vocabulary), <code>shapes</code> (the vaults where it is a row, with the row's barrier), <code>answer</code> (<code>never</code> or <code>ask-first</code>), <code>line</code>, <code>paragraph</code>, <code>barrier_of_the_line</code> (<code>expectation</code>, always), <code>stronger</code> (settings and boundaries, each with a source URL and the date read, or an explicit <em>none known</em>), <code>before_after</code> (empty until T16), <code>status</code> (<code>drafted</code>, <code>run</code>, <code>tried</code>).</p></li><li><strong><code>scripts/site/build-rules.mjs [--check]</code></strong>: validates every rule against the vocabulary and the<p>vaults' grants, refuses a rule without a barrier statement, refuses any score-shaped field, and writes <code>site/rules/index.html</code> and <code>site/rules/&lt;id&gt;.html</code> with the shared chrome, the way <code>build-stories.mjs</code> does. Add the <code>--check</code> to <code>package.json</code> and CI.</p></li><li><strong>The index</strong>: filter by shape, by capability, by <em>never</em> or <em>ask first</em>. Each card is the question.</li><li><strong>The first four</strong>, from the memo:<ol><li><code>RM-R0001</code> other sessions' history: <code>read.record.history</code>, <em>never</em>.</li><li><code>RM-R0002</code> other sessions' secrets: <code>read.credential.host</code>, <em>never</em>.</li><li><code>RM-R0003</code> schedules on its own: <code>create.schedule.tenant</code>, <em>ask first</em>.</li><li><code>RM-R0004</code> your connectors: <code>authenticate-as.credential.tenant</code>, <em>ask first</em>.</li></ol></li><li><strong>Each page</strong>: the question as the title; the row behind it and the shapes; the line and the paragraph<p>with copy buttons; <em>this line is an expectation</em>, then what stronger barrier exists or that none does; the before and after section, empty and saying so; and the close, <em>a rule is one row; the ABP is every row for your agent</em>, linking the vaults and the levels.</p></li><li><strong>Register</strong> the index and the four pages in <code>site/pages.json</code> under *Try it*'s place (unlisted pages),<p>and link the index first on <code>try-it.html</code>.</p></li></ul>
+<h2 id="rules">Rules</h2>
+<ul><li><code>ask-first</code> is this site's extension of the mandate; the page and the JSON say so.</li><li>A vendor setting named on a page is quoted from the vendor's own page with the date it was read. If<p>it was not read, the field is <em>none known</em> and the page says <em>we have not found one</em>.</p></li><li>No severity, colour or level on a rule. Never <em>the policy</em> alone.</li></ul>
+<h2 id="done-when">Done when</h2>
+<p>The four pages and the index are live, linked first from <code>try-it.html</code>, <code>build-rules.mjs --check</code> runs in <code>npm run check</code>, and a fifth rule can be added by writing one JSON file.</p></article>
+<div class="c-foot"><b>An operations surface</b> for the people and agents building this site, public because every page here is. It is not a selling page and nothing on it is for sale. <a href="../../../">The site</a> · <a href="../../../agent-behaviour-policy.html">the library</a> · <a href="../../../versions.html">every release</a> · <a href="https://github.com/Risk-Mandate/riskmandate.ai/tree/dev/">the repository</a> · <a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/scripts/site/build-admin.mjs">the script that wrote this page</a>.</div>
+</main>
+</div>
+<script>
+(function(){var el=document.querySelector('[data-version]');if(!el)return;fetch('../../../versions/index.json',{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){el.textContent='v'+j.latest}).catch(function(){el.textContent='';});})();
+</script>
+</body>
+</html>

@@ -18,6 +18,9 @@ before claiming one, then write your `.claude/work/<branch>.md` naming the brief
 | `T10-use-case-vaults.md` | the two Voice Debrief use-case vaults, and a use-case group on the library | `site/vaults/voice-debrief-*/`, `index.json`, the library page | a day |
 | `T11-consequences-and-assets.md` | the consequence layer: assets, consequences, routes out, open consequences on the delta; first for `oc433z3m` | `site/vaults/claude-gmail-connector/data/{assets,consequences}.json` (new), `build-abp-vault.mjs`, the renderer, `_template/data/` | a day |
 | `T12-standards-mini-graphs.md` | GDPR, EU AI Act and ATT&CK as nodes inside the vault, titles only, for consequences and behaviours to link to | `_template/data/standards/` (new), `build-abp-vault.mjs`, the renderer, Lab 03 | a day, with T03 |
+| `T15-rule-pages.md` | rule pages: schema, generator, index, the first four rules | `site/rules/` (new), `scripts/site/build-rules.mjs` (new), `package.json`, CI, `site/pages.json`, `site/try-it.html` | a day and a half |
+| `T16-rule-before-and-after.md` | before and after for each rule, run on our own deployment, and a method page | `site/rules/*.json`, `site/rules/method.html` | a day |
+| `T17-the-next-twenty-rules.md` | the candidate list from unbounded irreversible rows, and twenty rules from it | `scripts/site/build-rules.mjs`, `site/rules/*.json` | half a day per five |
 
 A brief is done when its *Done means* list is true, `npm run check` is green, the state file is
 updated, and the branch is merged or handed over with its work file saying what is left.
