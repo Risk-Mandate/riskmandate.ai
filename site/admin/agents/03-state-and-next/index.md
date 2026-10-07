@@ -208,7 +208,17 @@ the site's; check `site/versions/index.json` for the current version before trus
 
 ## The queue, in order
 
-From the graph brief (`direction__abp-as-a-graph-and-stakeholder-views.md` §4), then the research
+**First, from 7 October:** the rule pages, `direction__one-rule-a-stranger-can-paste-is-the-way-in.md`. The lead's memo
+says the path from unknown to customer breaks before anyone tries anything, so these go ahead of the graph work:
+
+| # | Task | Brief | Size | Status |
+|---|---|---|---|---|
+| R1 | Rule schema, generator, index, the first four rules, linked first from `try-it.html` | `T15` | a day and a half | open |
+| R2 | Before and after for the four, on our own deployment, and the method page | `T16` | a day | open, after R1 |
+| R3 | The candidate list and the next twenty rules, Claude shapes first | `T17` | half a day per five | open, after R1 |
+| R4 | The test drive with the lead's early users; the path wired from the home page's builder; a rule set per shape as a file; *ask first* added to the Lab 03 asks | brief §4.4–4.7 | two days in all | open, after R2 |
+
+Then the graph brief (`direction__abp-as-a-graph-and-stakeholder-views.md` §4), then the research
 and vault queues. Each has a task brief in `.claude/briefs/`.
 
 | # | Task | Brief | Size | Status |
@@ -233,6 +243,9 @@ and vault queues. Each has a task brief in `.claude/briefs/`.
 
 ## Decisions the lead owns (open)
 
+- From the rules brief of 7 October: where the path loses most people (it orders R1–R4); who the early
+  users are that test-drive a rule, and whether a page may name them; *rules* as the family's name; Claude
+  shapes only for the first twenty, or ChatGPT and the connectors too.
 - *Behaviour* or *behavior* on the mark (the site is British; the recommendation is *behaviour*).
 - The Licence to Operate referent (organisation / instrument / licensee) is adopted on the site
   and in every vault; confirm it is a ruling.
