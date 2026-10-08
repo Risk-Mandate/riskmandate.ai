@@ -9,7 +9,8 @@ the site's; check `site/versions/index.json` for the current version before trus
 ## State as at 2026-09-30, v1.35.3
 
 - **Site:** 65 HTML files under `site/` plus the admin console under `site/admin/`, one live site deployed from `dev`. Top-level menu:
-  Behaviour policies · Who it's for · Insurance · Pricing · Try it · Articles · More (v1.28.0: **seven entries, the cap**; the
+  Behaviour policies · Who it's for · Insurance · Pricing · Reading · OWASP · More (8 Oct 2026: **OWASP** took the seventh
+  slot and *Try it* moved into *Behaviour policies*; still **seven entries, the cap**. Before that, v1.28.0: Try it top-level; the
   Lab and the live demos are under More; the articles are unlisted beneath Articles).
 - **The ABP is the entry point.** Homepage leads with it (v1.12.0); `abp.html` is the model page;
   `agent-behaviour-policy.html` is the library (menu label *Agent Behaviour Policies*): 15 vaults,
@@ -107,7 +108,13 @@ the site's; check `site/versions/index.json` for the current version before trus
   in the session. Waiting: the studio's first reply; the schedule (S04), which the lead sets up on his side. The studio checks in to
   the vault itself; the vault is the only channel between the agents (the lead, 26 September). Tooling `scripts/stories/mail.mjs`. Design:
   `docs/briefs/architecture__the-stories-vault-and-the-three-way-workflow.md`. Moves to stories.sgit.ai later.
-- **Try it** (`try-it.html`, top-level, v1.28.0): the free step below the store's ladder and the
+- **OWASP** (`site/owasp/`, top-level, 8 Oct 2026, D30/D31): the proposal to take the ABP to OWASP as *OWASP Agent
+  Behaviour Policies* with RiskMandate as sponsor, kept in public. Eight pages built by `build-owasp.mjs` from
+  `docs/owasp/pages/*.html` and the record `site/owasp/project.json` (gates G0–G4, steps, submissions, people, places,
+  decisions, questions, log); `contribution-inventory.csv` (82 assets). To move a status: edit the record, rebuild,
+  regenerate. The build refuses any claim that the project is OWASP-approved, endorsed or official until
+  `project.owasp_status` is `accepted`. Brief: `docs/briefs/direction__owasp-agent-behaviour-policies.md`.
+- **Try it** (`try-it.html`, in *Behaviour policies* since 8 Oct 2026; top-level from v1.28.0): the free step below the store's ladder and the
   first surface aimed at a stranger rather than a reader. Four steps, thirteen prompts, run in the
   person's own assistant against their own mailbox, hosted at abp.sgit.ai/gmail; what they end up
   with (grant, mandate, delta); what it honestly is not (a self report, said before they find out);
@@ -252,6 +259,11 @@ and vault queues. Each has a task brief in `.claude/briefs/`.
 | 16 | **Done** v1.24.0 — the consequence layer for `oc433z3m`: assets, consequences, routes out, two scenarios; the research list documented from Google's pages; the standards mini-graphs | `T11`, `T12` | done | eleven consequences, six assets, two routes out, the standards mini-graphs; the research list (Google's pages, Claude's web tools) is still open — T05/research-vault |
 
 ## Decisions the lead owns (open)
+
+- **The OWASP move** (8 Oct, D30/D31; `site/owasp/`, record `site/owasp/project.json`): the name (Agent Behaviour
+  Policies, or the voice note's *application*; and OWASP's good practice against a name confused with a company's
+  service, which RiskMandate's product is); standalone or a GenAI initiative; the third leader; CC BY or CC BY-SA;
+  approval of the drafted email (M01) and the request fields (gate G3). Nothing has been sent.
 
 - From the rules brief of 7 October: where the path loses most people (it orders R1–R4); who the early
   users are that test-drive a rule, and whether a page may name them; *rules* as the family's name; Claude

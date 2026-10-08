@@ -7,7 +7,7 @@
     "oneLine": "The insurability layer for agentic AI.",
     "summary": "Carriers are filing to exclude AI from cover, and the way back is evidence an underwriter will accept. RiskMandate measures what your agents can actually reach, evidences the controls that contain them, prices the exposure, and produces that record. Underneath the insurance framing is a risk model: a grant is what a credential technically permits, a mandate is what the holder is authorised and expected to do, and the gap between them is exposure nobody ever accepted. A deployed agent already has access, so a real risk cannot be denied — only accepted, by a named owner, for an interval, with an expiry that brings the decision back. RiskMandate is read-only and never in the request path: it defines the mandate and measures the gap; it does not enforce it. It is built on SG/Vault — zero-knowledge, PKI, provenance, no database — so you hold the keys.",
     "throughLine": "Measure what the agents can reach, name who owns it, evidence that the controls hold, and let the acceptance expire so the decision comes back.",
-    "version": "1.37.0"
+    "version": "1.38.0"
   },
   "artifacts": {
     "index": "https://riskmandate.ai/llms.txt",
@@ -138,6 +138,11 @@
       "name": "team-studio",
       "label": "The team · RiskMandate Design Studio",
       "url": "https://riskmandate.ai/team/studio.html"
+    },
+    {
+      "name": "try-it",
+      "label": "Try it",
+      "url": "https://riskmandate.ai/try-it.html"
     },
     {
       "name": "for-corporate",
@@ -460,11 +465,6 @@
       "url": "https://riskmandate.ai/rules/edit-shared-documents.html"
     },
     {
-      "name": "try-it",
-      "label": "Try it",
-      "url": "https://riskmandate.ai/try-it.html"
-    },
-    {
       "name": "articles",
       "label": "Articles",
       "url": "https://riskmandate.ai/articles.html"
@@ -518,6 +518,46 @@
       "name": "stories-the-short-answer",
       "label": "Story · The short answer.",
       "url": "https://riskmandate.ai/stories/the-short-answer.html"
+    },
+    {
+      "name": "owasp",
+      "label": "Overview: the proposal",
+      "url": "https://riskmandate.ai/owasp/"
+    },
+    {
+      "name": "owasp-charter",
+      "label": "The charter",
+      "url": "https://riskmandate.ai/owasp/charter.html"
+    },
+    {
+      "name": "owasp-riskmandate",
+      "label": "RiskMandate and the project",
+      "url": "https://riskmandate.ai/owasp/riskmandate.html"
+    },
+    {
+      "name": "owasp-contributions",
+      "label": "What moves",
+      "url": "https://riskmandate.ai/owasp/contributions.html"
+    },
+    {
+      "name": "owasp-ecosystem",
+      "label": "The other OWASP projects",
+      "url": "https://riskmandate.ai/owasp/ecosystem.html"
+    },
+    {
+      "name": "owasp-lessons",
+      "label": "What other projects teach",
+      "url": "https://riskmandate.ai/owasp/lessons.html"
+    },
+    {
+      "name": "owasp-application",
+      "label": "The application",
+      "url": "https://riskmandate.ai/owasp/application.html"
+    },
+    {
+      "name": "owasp-tracker",
+      "label": "The tracker: status and submissions",
+      "url": "https://riskmandate.ai/owasp/tracker.html"
     },
     {
       "name": "questions",
@@ -930,5 +970,5 @@
     ]
   },
   "licence": "CC BY 4.0 (library content)",
-  "generated": "v1.37.0"
+  "generated": "v1.38.0"
 }

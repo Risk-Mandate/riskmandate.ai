@@ -25,7 +25,11 @@ partly done
 
 The four columns are read off the status column of the queue in [the state file](../../admin/agents/03-state-and-next/): *done* is done; *waiting on the lead* is needs the lead; any other *waiting* is waiting outside; a row whose brief a work file names is in flight; the rest are open and claimable. Nothing is dragged, so the board cannot say something the file does not.
 
-## Waiting on a ruling — 8, counting the decisions the lead owns
+## Waiting on a ruling — 9, counting the decisions the lead owns
+
+**The OWASP move** (8 Oct, D30/D31; `site/owasp/`, record `site/owasp/project.json`): the name (Agent Behaviour
+
+a decision the lead owns, listed in the state fileneeds the lead
 
 **From the rules brief of 7 October: where the path loses most people (it orders R1–R4); who the early**
 

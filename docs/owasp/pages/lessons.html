@@ -1,0 +1,92 @@
+<main class="phero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> OWASP · What other projects teach</span>
+    <h1>Twelve OWASP projects, <span class="it">read for how they work.</span></h1>
+    <p class="sub" style="margin-bottom:20px">Before writing our own project page, we read how established OWASP projects present themselves: where they live, how they version, what they publish as data, how contributors and companies take part, and how a company that started or sponsors a project says so. Facts and dates only; what each one does, not a view of it.</p>
+    <p class="meta"><!--owasp:asat--></p>
+    <p class="meta"><b>Read:</b> every page below on 8 October 2026, with a plain HTTP fetch. Two facts rest on search snippets and are not repeated here.</p>
+  </div>
+</main>
+
+<!--owasp:tabs-->
+
+<div class="paper">
+
+<section class="psection">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">01 · The projects</span>
+      <h2>One lesson each, <span class="g">with the fact it comes from.</span></h2>
+    </div>
+    <div class="ow-t"><table>
+      <thead><tr><th scope="col">Project</th><th scope="col">What it does that we noted</th><th scope="col">What we take from it</th></tr></thead>
+      <tbody>
+        <tr><td><a href="https://owasp.org/www-project-top-ten/">Top 10</a></td><td>Year-named editions; identifiers carry the year (<code>A01:2025</code>); the repository labels each edition RELEASED, SUPERSEDED or HISTORIC</td><td>An old citation never silently changes meaning. Every ABP release gets a status label, and none is deleted</td></tr>
+        <tr><td><a href="https://owasp.org/www-project-application-security-verification-standard/">ASVS</a></td><td>Version-pinned requirement ids (<code>v5.0.0-1.2.5</code>); CONTRIBUTING.md says what a major, minor and patch release may change; CSV and JSON per release</td><td>A version-pinned id for every primitive and every template row, and a written rule for what each release type may change</td></tr>
+        <tr><td><a href="https://owaspsamm.org/">SAMM</a></td><td>The core repository holds the raw model data that the website and toolbox are generated from; footer line &ldquo;This is an OWASP project.&rdquo;</td><td>One raw source, everything generated. The vaults already work this way; the project says so and publishes the source</td></tr>
+        <tr><td><a href="https://cheatsheetseries.owasp.org/">Cheat Sheet Series</a></td><td>Cross-indexes to ASVS, MASVS, Proactive Controls and the Top 10; sheets on AI Agent Security, MCP Security and agent execution evidence</td><td>Cross-indexes make a project useful to people arriving from elsewhere. The AI Agent Security sheet is the first place to link to and from</td></tr>
+        <tr><td><a href="https://owasp.org/www-project-juice-shop/">Juice Shop</a></td><td>Added a second co-leader on 29 January 2025, which its post describes as closing a requirement of the 2021 policy; publishes a fortnightly developer meeting on the OWASP calendar</td><td>Two leaders, or more, from day one. Publish the meeting</td></tr>
+        <tr><td><a href="https://www.zaproxy.org/">ZAP</a></td><td>Left OWASP for the Linux Foundation&rsquo;s Software Security Project on 1 August 2023; joined Checkmarx on 24 September 2024; each move announced with the reasons, what stayed (licence, core-team control) and what changed</td><td>Write the exit path before it is needed: what the sponsor may influence, and what it may not</td></tr>
+        <tr><td><a href="https://cyclonedx.org/">CycloneDX</a></td><td>JSON, XML and Protobuf schemas with a media type and file-name convention; About pages for governance, guiding principles (including vendor neutrality), supporters, history and branding; an Industry Working Group for vendors; ratified as ECMA-424 in June 2024. Its Blueprints working group is developing a &ldquo;Bill of Behaviors&rdquo; for expected against actual behaviour</td><td>A schema with a media type, a complete About set, a separate group where vendors advise, and a conversation with the Blueprints group before either of us defines behaviour twice</td></tr>
+        <tr><td><a href="https://dependencytrack.org/">Dependency-Track</a></td><td>A tool and its data format are two OWASP projects pointing at each other (with CycloneDX); the founder&rsquo;s tenth-anniversary post names the original employer&rsquo;s use case</td><td>The format and the tools that read it can be separate. Start as one project; keep the seam visible</td></tr>
+        <tr><td><a href="https://genai.owasp.org/">GenAI Security Project</a></td><td>Mission and charter, governance (a meritocratic model with lazy consensus, 72 hours), leadership, sponsorship and branding pages; monthly open meeting; took in the Agent Control Standard on 1 September 2026; sponsors&rsquo; logos appear in each project asset</td><td>The page set is complete and worth following. Sponsor logos inside an ABP are not: a project that describes vendors&rsquo; agents keeps vendors&rsquo; logos out of its documents</td></tr>
+        <tr><td><a href="https://owaspai.org/">AI Exchange</a></td><td>Names, in one sentence on its people page, the company that donated the initial framework; lists contributors with their organisations; linked into OpenCRE</td><td>The originating company named once, plainly, with what it donated and when</td></tr>
+        <tr><td><a href="https://owasp.org/www-project-threat-dragon/">Threat Dragon</a></td><td>A numbered &ldquo;try it&rdquo; walk-through to a demo and a sample threat model; threat models saved as JSON; a published roadmap and community manifesto</td><td>A sixty-second path: open one template ABP, live, from the project page</td></tr>
+        <tr><td><a href="https://coreruleset.org/">CRS</a></td><td>Copyright history kept in the README (a company to 2020, then the project); a sponsor post states what the sponsor&rsquo;s product uses CRS for, what it contributes back and what the money pays for; an LTS line beside the latest release</td><td>Keep the origin in the README; say what sponsorship buys and that it does not buy governance; tell adopters which version to build on</td></tr>
+      </tbody></table></div>
+  </div>
+</section>
+
+<section class="psection alt">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">02 · What we will copy</span>
+      <h2>Patterns, <span class="g">in the order we need them.</span></h2>
+    </div>
+    <ol class="ow-list">
+      <li><b>The owasp.org project page as the front door</b>, filled in completely: leaders, classification, type, licence, latest version and date. Any other domain carries OWASP&rsquo;s branding, as the policy asks.</li>
+      <li><b>Two to five leaders</b>, at least one from outside RiskMandate. See <a href="/owasp/riskmandate.html">RiskMandate and the project</a>.</li>
+      <li><b>Version-pinned ids</b> for primitives and template rows, and a release rule saying what a major, minor and patch may change.</li>
+      <li><b>Status labels on every edition</b>, and old editions kept.</li>
+      <li><b>Machine-readable first</b>: a JSON Schema, a file-name convention, a media type, and the data exported per release.</li>
+      <li><b>One raw source</b>, from which the documents, the pages and the reading app are generated.</li>
+      <li><b>Crosswalks</b> to the Agentic Top 10, the Agent Control Standard, CycloneDX&rsquo;s Bill of Behaviors work, the AI Agent Security cheat sheet, the AI Exchange and OpenCRE.</li>
+      <li><b>An About set</b>: charter, governance, guiding principles with vendor neutrality, supporters, a dated history, branding.</li>
+      <li><b>A written governance model</b>, with a waiting period for objections and a named tie-break.</li>
+      <li><b>An adopters&rsquo; group</b>, where companies that sell on the method, ours included, advise without steering.</li>
+      <li><b>Free, public, scheduled meetings</b>, on the OWASP calendar, recorded.</li>
+      <li><b>A try-it path</b> from the landing page to one live template ABP.</li>
+      <li><b>The DCO</b> for contributions, as OWASP recommends.</li>
+      <li><b>Contributors named</b> in the released work, with their organisations.</li>
+    </ol>
+  </div>
+</section>
+
+<section class="psection">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">03 · What we will avoid</span>
+      <h2>Patterns we saw, <span class="g">and will not repeat.</span></h2>
+    </div>
+    <ul class="ow-list">
+      <li><b>A version on the owasp.org page that differs from the one on the project&rsquo;s own site.</b> Seen on one project on the day we read it. Generate the page&rsquo;s version field from the release.</li>
+      <li><b>A sponsorship contact who is no longer a leader.</b> Route sponsorship to a role address, through the Foundation.</li>
+      <li><b>Moving a repository without a forwarding note.</b> The LLM Top 10&rsquo;s old repository says where work moved and stays up so that links keep working. Do that.</li>
+      <li><b>Vendor logos or vendor-written text inside the deliverable.</b></li>
+      <li><b>A single leader, or leaders from one employer only.</b></li>
+      <li><b>Unversioned identifiers.</b> ASVS calls its own unversioned ids problematic.</li>
+      <li><b>Money or agreements at project level.</b> The policy forbids both.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="pcta">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> Next</span>
+    <h2>The application, <span class="it">field by field.</span></h2>
+    <p>What OWASP asks for, what we would answer, and the gates before anything is sent.</p>
+    <div class="cta-row"><a class="btn btn-green" href="/owasp/application.html">The application</a><a class="btn btn-ghost" href="/owasp/">The section</a></div>
+  </div>
+</section>
+
+</div>

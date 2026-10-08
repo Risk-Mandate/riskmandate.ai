@@ -390,6 +390,32 @@ Each one is linked in full, as received, with nothing edited. Where a brief and 
 - **The four storyboards** are not drawn
 - **The one who signs**, proposed and not drawn; **voice**, nothing read aloud
 
+### Propose the Agent Behaviour Policies to OWASP, with RiskMandate as sponsor: a top-level OWASP section holding every material, form, submission, status and repository, the people to talk to, the line between the company and the project, research on popular OWASP projects, and the integration with other OWASP projects
+
+**sha256** b3446c56106bc5d7a0e09b1b70c3b17a118d0db69d92aed5b219f299ab62f432
+
+**The founders have decided: the ABP goes to OWASP.** Everything is already published under open licences, so the move is simple; the work is to do it well. A new top-level section, OWASP, holding the materials, the forms, what was submitted and its status, where the repositories are and how it all flows; the people to email; research on the most popular OWASP projects and how they present themselves; integration with other OWASP projects as controls; and the relationship with RiskMandate, the sponsor that commercialises on the method as anybody else could. On the public site and in the public repository.
+
+- [The OWASP section](owasp/): overview, charter, RiskMandate and the project, what moves, the other OWASP projects, what popular projects teach, the application, the tracker
+- [The record](owasp/project.json) every status is rendered from, written to move to the project’s repository unchanged
+- [The contribution inventory](owasp/contribution-inventory.csv): 82 assets, each with an action and a rights status
+- **Nothing sent.** The application, the emails and the repository are drafted and wait on the leads
+- **A third leader** from outside RiskMandate; **membership** as stated, not checked
+- **The name**: the note says _application_ behaviour policies; the section keeps _Agent_ until the lead says otherwise
+
+### RiskMandate &rarr; OWASP Agent Behaviour Policies: an internal initiation brief for the agentic team — charter, contribution boundary, inventory and rights review, technical scope, ACS assessment, workstreams, roadmap and five approval gates
+
+**sha256** be63bf164f8eae22b077fc7a0765da996759e5b941db07ee58e271391fac654b
+
+**Prepare, do not migrate.** Establish what can be contributed and why before moving anything: a reviewed inventory with rights per asset, a charter that says what the ABP does not claim, a narrow technical scope separating intent, enforcement and evidence, an overlap matrix with ACS and the Agentic Top 10, and an application pack. Every email, form, repository and licence change behind an explicit human approval, in five gates.
+
+- [The charter](owasp/charter.html), with its non-goals and the semantic questions the brief raised
+- [The contribution boundary](owasp/riskmandate.html) and the conflict of interest, read against OWASP’s Project Policy
+- [The five gates and the steps](owasp/tracker.html), and the application pack with a first-year roadmap
+- **ACS at commit level.** The overlap is read from public pages; no implementation claim about ACS is repeated
+- **The integration experiment**: one synthetic deployment, one restriction, ACS enforcing it; a step, not done
+- **The staging repository**: proposed, not created
+
 ## And the instructions that arrived as speech or a sentence.
 
 These have no digest to check, which makes them the ones most easily lost — a voice memo that changed the direction of the whole site leaves no artefact at all unless somebody writes it down. So they are recorded here in the same list, with the same two columns.
@@ -469,7 +495,7 @@ sha256sum my-brief.md
 
 A register that only lists what was done is a press release.
 
-Every entry above carries what it asked for and did not get, and on most of the twenty-nine that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.
+Every entry above carries what it asked for and did not get, and on most of the thirty-one that column is the longer one. It is kept that way deliberately: the value of this page is that it can embarrass us, and a version that could not would not be worth fetching.
 
 - **The file is the record, not this page.** [briefs-register.json](briefs-register.json) is what a program should read; this page renders it for people. If the two ever disagree, the file is right and the page is stale.
 - **Every archived document is byte-identical to what arrived.** Nothing is edited, reformatted or trimmed — including the parts we think are wrong. Where we disagree with a brief, the disagreement is published on the page it produced and marked as ours.
@@ -478,6 +504,6 @@ Every entry above carries what it asked for and did not get, and on most of the 
 
 Register maintained by hand alongside the work, and checked in CI: every document listed must exist at the path given and match its recorded digest, and every file in `assets/briefs/` must appear in the register. Last reconciled 16 September 2026.
 
-## Twenty-nine items. None untouched, and none finished.
+## Thirty-one items. None untouched, and none finished.
 
-Every item now names something it produced and something it did not. Twenty-six of the twenty-nine are marked _partly_, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.
+Every item now names something it produced and something it did not. Twenty-eight of the thirty-one are marked _partly_, which is the honest state of almost all real work and the status this register expects to use most. The column that matters is the right-hand one.

@@ -941,6 +941,81 @@
         "The one who signs, missing from the cast; proposed, not drawn.",
         "Voice: nothing is read aloud."
       ]
+    },
+    {
+      "id": "D30",
+      "title": "Propose the Agent Behaviour Policies to OWASP, with RiskMandate as sponsor: a top-level OWASP section holding every material, form, submission, status and repository, the people to talk to, the line between the company and the project, research on popular OWASP projects, and the integration with other OWASP projects",
+      "version": null,
+      "type": "spoken brief, transcribed",
+      "dated": "2026-10-08",
+      "file": "assets/briefs/2026-10-08__transcript__owasp-agent-behaviour-policies.txt",
+      "bytes": 4405,
+      "sha256": "b3446c56106bc5d7a0e09b1b70c3b17a118d0db69d92aed5b219f299ab62f432",
+      "received": [
+        "2026-10-08T12:00Z"
+      ],
+      "duplicate_of": null,
+      "status": "partly",
+      "produced": [
+        {
+          "what": "The OWASP section, top-level in the menu: the overview, the charter, RiskMandate and the project, what moves, the other OWASP projects, what popular projects teach, the application and the tracker, rendered from one record",
+          "url": "owasp/index.html"
+        },
+        {
+          "what": "The record behind it: gates, steps, submissions, people, places, decisions, open questions and a log, as data that can move to the project's repository unchanged",
+          "url": "owasp/project.json"
+        },
+        {
+          "what": "The contribution inventory: 82 assets with source, licence, proposed action, coupling and rights status",
+          "url": "owasp/contribution-inventory.csv"
+        }
+      ],
+      "not_done": [
+        "Nothing has been sent to OWASP. The application, the emails and the repository are drafted and wait on the leads.",
+        "The third leader from outside RiskMandate is not found.",
+        "Leadership eligibility is as the lead stated it, not checked against OWASP's membership records.",
+        "The specification, the JSON Schemas and the reference tool are not written; they are the project's first deliverables.",
+        "The name: the note says 'OWASP application behavior policies'; the section uses Agent Behaviour Policies, the name in the brief, until the lead says otherwise."
+      ]
+    },
+    {
+      "id": "D31",
+      "title": "RiskMandate → OWASP Agent Behaviour Policies: an internal initiation brief for the agentic team — charter, contribution boundary, inventory and rights review, technical scope, ACS assessment, workstreams, roadmap and five approval gates",
+      "version": null,
+      "type": "brief, written with Perplexity",
+      "dated": "2026-10-08",
+      "file": "assets/briefs/2026-10-08__perplexity-brief__riskmandate-to-owasp-agent-behaviour-policies.md",
+      "bytes": 21948,
+      "sha256": "be63bf164f8eae22b077fc7a0765da996759e5b941db07ee58e271391fac654b",
+      "received": [
+        "2026-10-08T12:00Z"
+      ],
+      "duplicate_of": null,
+      "status": "partly",
+      "produced": [
+        {
+          "what": "The charter: mission, objectives, users, deliverables, non-goals, classification, and the semantic questions the brief raised",
+          "url": "owasp/charter.html"
+        },
+        {
+          "what": "The contribution boundary and the conflict-of-interest approach, against OWASP's Project Policy",
+          "url": "owasp/riskmandate.html"
+        },
+        {
+          "what": "The inventory the brief specified, as a CSV with rights status per asset",
+          "url": "owasp/contribution-inventory.csv"
+        },
+        {
+          "what": "The five gates, the steps, and the application pack with its first-year roadmap",
+          "url": "owasp/tracker.html"
+        }
+      ],
+      "not_done": [
+        "The overlap matrix with ACS is a first reading of public pages; ACS's implementation claims are not re-checked at commit level, so none is repeated.",
+        "The candidate integration experiment (one synthetic deployment, one restriction, ACS as the enforcement) is a step, not done.",
+        "The grant-versus-reach naming and the barrier model are open questions on the charter, not decisions.",
+        "The staging repository tree is proposed, not created."
+      ]
     }
   ],
   "informal": [

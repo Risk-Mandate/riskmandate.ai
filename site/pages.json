@@ -58,6 +58,12 @@
       "unlisted": true
     },
     {
+      "name": "try-it",
+      "label": "Try it",
+      "file": "try-it.html",
+      "group": "Behaviour policies"
+    },
+    {
       "name": "for-corporate",
       "label": "You run agents today",
       "file": "for-corporate.html",
@@ -471,11 +477,6 @@
       "unlisted": true
     },
     {
-      "name": "try-it",
-      "label": "Try it",
-      "file": "try-it.html"
-    },
-    {
       "name": "articles",
       "label": "Articles",
       "file": "articles.html",
@@ -549,6 +550,54 @@
       "file": "stories/the-short-answer.html",
       "group": "Reading",
       "unlisted": true
+    },
+    {
+      "name": "owasp",
+      "label": "Overview: the proposal",
+      "file": "owasp/index.html",
+      "group": "OWASP"
+    },
+    {
+      "name": "owasp-charter",
+      "label": "The charter",
+      "file": "owasp/charter.html",
+      "group": "OWASP"
+    },
+    {
+      "name": "owasp-riskmandate",
+      "label": "RiskMandate and the project",
+      "file": "owasp/riskmandate.html",
+      "group": "OWASP"
+    },
+    {
+      "name": "owasp-contributions",
+      "label": "What moves",
+      "file": "owasp/contributions.html",
+      "group": "OWASP"
+    },
+    {
+      "name": "owasp-ecosystem",
+      "label": "The other OWASP projects",
+      "file": "owasp/ecosystem.html",
+      "group": "OWASP"
+    },
+    {
+      "name": "owasp-lessons",
+      "label": "What other projects teach",
+      "file": "owasp/lessons.html",
+      "group": "OWASP"
+    },
+    {
+      "name": "owasp-application",
+      "label": "The application",
+      "file": "owasp/application.html",
+      "group": "OWASP"
+    },
+    {
+      "name": "owasp-tracker",
+      "label": "The tracker: status and submissions",
+      "file": "owasp/tracker.html",
+      "group": "OWASP"
     },
     {
       "name": "questions",

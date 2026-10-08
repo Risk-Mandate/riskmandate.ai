@@ -1,0 +1,711 @@
+{
+  "_": "The record of the proposal to take the Agent Behaviour Policies to OWASP. Every status on riskmandate.ai/owasp/ is rendered from this file by scripts/site/build-owasp.mjs: change it here, rebuild, and every page that shows it follows. A row changes when the thing happens, not when somebody intends it to. Public on purpose (the lead, 8 October 2026). Written to move into the project's own repository unchanged if OWASP accepts it.",
+  "as_at": "2026-10-08",
+  "project": {
+    "name": "OWASP Agent Behaviour Policies",
+    "short": "ABP",
+    "owasp_status": "not submitted",
+    "stage": "preparing the application; nothing sent to OWASP",
+    "one_line": "An open, vendor-neutral method and machine-readable format for writing down what an AI agent in a given deployment can do, what it was authorised to do, the gap, and what stands in the way.",
+    "proposed_type": "Documentation, with a reference tool",
+    "proposed_category": "Builder",
+    "proposed_level": "Incubator",
+    "licences": {
+      "documents": "CC BY 4.0",
+      "code": "Apache-2.0"
+    },
+    "sponsor": "RiskMandate, through the OWASP Foundation",
+    "name_note": "The lead's voice note of 8 October says 'OWASP application behavior policies'; the brief of the same day says Agent Behaviour Policies, which is the name of the thing being moved. The section uses Agent Behaviour Policies until the lead confirms.",
+    "leaders": [
+      {
+        "name": "Dinis Cruz",
+        "role": "Proposed leader",
+        "membership": "OWASP member and existing project leader, as the lead stated on 8 Oct; to confirm before submission",
+        "affiliation": "Co-founder, RiskMandate; former OWASP Board member"
+      },
+      {
+        "name": "Nimay Parekh",
+        "role": "Proposed leader",
+        "membership": "OWASP member and existing project leader, as the lead stated on 8 Oct; to confirm before submission",
+        "affiliation": "Co-founder and chief executive, RiskMandate"
+      },
+      {
+        "name": "To be found",
+        "role": "Proposed third leader, from outside RiskMandate",
+        "membership": "must be an OWASP member",
+        "affiliation": "not RiskMandate"
+      }
+    ]
+  },
+  "statuses": {
+    "done": {
+      "label": "Done",
+      "tone": "done",
+      "means": "Happened, and the record says where."
+    },
+    "doing": {
+      "label": "Doing",
+      "tone": "doing",
+      "means": "Somebody is on it now."
+    },
+    "todo": {
+      "label": "To do",
+      "tone": "",
+      "means": "Planned; nobody has started."
+    },
+    "waiting": {
+      "label": "Waiting",
+      "tone": "waiting",
+      "means": "Ready, and waiting on a named person's approval or answer."
+    },
+    "blocked": {
+      "label": "Blocked",
+      "tone": "blocked",
+      "means": "Cannot move until something else does."
+    },
+    "drafted": {
+      "label": "Drafted",
+      "tone": "doing",
+      "means": "Written here; not sent."
+    },
+    "sent": {
+      "label": "Sent",
+      "tone": "waiting",
+      "means": "Sent; no answer yet."
+    },
+    "answered": {
+      "label": "Answered",
+      "tone": "done",
+      "means": "An answer came back; it is quoted."
+    }
+  },
+  "inventory_actions": {
+    "contribute": "Moves as it is, once its rights are checked.",
+    "rewrite": "The idea moves; the text is rewritten for a neutral reader first.",
+    "defer": "Not now: it needs somebody's consent, or it is not the ABP.",
+    "exclude": "Stays with RiskMandate: commercial, confidential, personal or infrastructure."
+  },
+  "pages": [
+    {
+      "slug": "index",
+      "tab": "Overview",
+      "title": "RiskMandate — OWASP Agent Behaviour Policies: the proposal",
+      "desc": "RiskMandate's founders are proposing the Agent Behaviour Policy to OWASP as an open project, OWASP Agent Behaviour Policies, with RiskMandate as sponsor. The proposal, the gates, and the record of the move, kept in public. Not yet an OWASP project.",
+      "blurb": "Why OWASP, where the move stands, and the proposal in one table."
+    },
+    {
+      "slug": "charter",
+      "tab": "The charter",
+      "title": "RiskMandate — OWASP Agent Behaviour Policies: the charter",
+      "desc": "The proposed charter of OWASP Agent Behaviour Policies: mission, objectives, users, deliverables, non-goals, classification, and the questions it leaves open. A draft, not reviewed by OWASP.",
+      "blurb": "Mission, objectives, who it is for, what it ships, and what it will never claim."
+    },
+    {
+      "slug": "riskmandate",
+      "tab": "RiskMandate and the project",
+      "title": "RiskMandate — OWASP Agent Behaviour Policies: the sponsor and the line",
+      "desc": "How RiskMandate sits beside the proposed OWASP project: what moves and what stays, where the information lives and who manages it, a commercial model others can follow, what OWASP's policy already settles, and the conflict of interest.",
+      "blurb": "The sponsor, what moves and what stays, who manages what, and the conflict of interest."
+    },
+    {
+      "slug": "contributions",
+      "tab": "What moves",
+      "title": "RiskMandate — OWASP Agent Behaviour Policies: what moves",
+      "desc": "The contribution inventory for the proposed OWASP project: 82 assets from riskmandate.ai and the sgit sites, each with its source, licence, proposed action and rights status.",
+      "blurb": "Eighty-two assets, each with a proposed action and a rights status."
+    },
+    {
+      "slug": "ecosystem",
+      "tab": "The other OWASP projects",
+      "title": "RiskMandate — OWASP Agent Behaviour Policies: the other OWASP projects",
+      "desc": "Where an Agent Behaviour Policy meets other OWASP projects: risks it points at, controls it records as barriers, formats it can share, and the Agent Control Standard it would work beside. Read from OWASP's pages and dated.",
+      "blurb": "Risks it points at, controls it records, formats it shares, and ACS beside it."
+    },
+    {
+      "slug": "lessons",
+      "tab": "What other projects teach",
+      "title": "RiskMandate — OWASP Agent Behaviour Policies: what other projects teach",
+      "desc": "Twelve OWASP projects read for how they present themselves, version, publish data, organise contributors and handle companies, and what the proposed project copies and avoids.",
+      "blurb": "Twelve projects read for how they work: what we copy and what we avoid."
+    },
+    {
+      "slug": "application",
+      "tab": "The application",
+      "title": "RiskMandate — OWASP Agent Behaviour Policies: the application",
+      "desc": "The OWASP new-project process as OWASP documents it, the answers we propose field by field, the two possible homes, the first-year roadmap and the proposed repository. A draft; nothing has been submitted.",
+      "blurb": "The process, our answers field by field, the home, the roadmap, the repository."
+    },
+    {
+      "slug": "tracker",
+      "tab": "The tracker",
+      "title": "RiskMandate — OWASP Agent Behaviour Policies: the tracker",
+      "desc": "The state of the proposal to OWASP, in public: gates, steps, submissions and answers, the people to talk to, where everything lives, decisions, open questions and a dated log.",
+      "blurb": "Gates, steps, submissions, people, places, decisions, questions and the log."
+    }
+  ],
+  "gates": [
+    {
+      "id": "G0",
+      "title": "Scope",
+      "what": "The objectives, and what agents may read and draft.",
+      "who": "Dinis Cruz",
+      "status": "done"
+    },
+    {
+      "id": "G1",
+      "title": "Contribution rights",
+      "what": "The asset manifest: every row's rights checked, nothing confidential left.",
+      "who": "The leads, and RiskMandate as a company",
+      "status": "todo"
+    },
+    {
+      "id": "G2",
+      "title": "Technical scope",
+      "what": "Terminology, boundaries and limitations accepted.",
+      "who": "The leads, and a reviewer outside RiskMandate",
+      "status": "todo"
+    },
+    {
+      "id": "G3",
+      "title": "Outreach and application",
+      "what": "The exact recipients, the email text and every field of the application.",
+      "who": "The leads",
+      "status": "waiting"
+    },
+    {
+      "id": "G4",
+      "title": "Publication and migration",
+      "what": "The repository target, the licences and the contribution set.",
+      "who": "The leads, after OWASP accepts",
+      "status": "todo"
+    }
+  ],
+  "steps": [
+    {
+      "id": "S01",
+      "gate": "G0",
+      "what": "Decide to propose the ABP to OWASP, with RiskMandate as sponsor",
+      "owner": "Dinis Cruz, Nimay Parekh",
+      "when": "2026-10-08",
+      "status": "done",
+      "notes": "Voice note D30",
+      "url": "/briefs.html"
+    },
+    {
+      "id": "S02",
+      "gate": "G0",
+      "what": "Commission the initiation brief: charter, boundary, inventory, gates",
+      "owner": "Dinis Cruz",
+      "when": "2026-10-08",
+      "status": "done",
+      "notes": "Brief D31, written with Perplexity",
+      "url": "/briefs.html"
+    },
+    {
+      "id": "S03",
+      "gate": "G0",
+      "what": "Publish this section and the record on the public site and in the public repository",
+      "owner": "the website agent",
+      "when": "2026-10-08",
+      "status": "done",
+      "notes": "The lead asked for it public: \"this should go on the public website the public Git repo\""
+    },
+    {
+      "id": "S04",
+      "gate": "G1",
+      "what": "Inventory every asset: source, licence, proposed action, coupling",
+      "owner": "the website agent",
+      "when": "2026-10-08",
+      "status": "done",
+      "notes": "82 rows",
+      "url": "/owasp/contribution-inventory.csv"
+    },
+    {
+      "id": "S05",
+      "gate": "G1",
+      "what": "Check the rights on each contribute and rewrite row, and the licence file of the abp.sgit.ai repository",
+      "owner": "Dinis Cruz",
+      "when": "",
+      "status": "todo",
+      "notes": "A footer is not proof of rights"
+    },
+    {
+      "id": "S06",
+      "gate": "G1",
+      "what": "Add a CC BY 4.0 licence file to this repository and to the abp.sgit.ai repository",
+      "owner": "Dinis Cruz",
+      "when": "",
+      "status": "todo",
+      "notes": "None exists; the footers say CC BY 4.0"
+    },
+    {
+      "id": "S07",
+      "gate": "G1",
+      "what": "RiskMandate, as a company, agrees in writing to contribute the approved assets",
+      "owner": "Nimay Parekh",
+      "when": "",
+      "status": "todo",
+      "notes": "Paid copies name the copyright as RiskMandate's"
+    },
+    {
+      "id": "S08",
+      "gate": "G1",
+      "what": "Ask the early beta user whose agent measured the n8n vault, and the three people behind the abp.sgit.ai cases, whether their material may move",
+      "owner": "Dinis Cruz",
+      "when": "",
+      "status": "todo",
+      "notes": "Deferred until they agree in writing"
+    },
+    {
+      "id": "S09",
+      "gate": "G2",
+      "what": "Decide the name: Agent Behaviour Policies, as in the brief, or the wording in the voice note",
+      "owner": "Dinis Cruz",
+      "when": "",
+      "status": "waiting",
+      "notes": "Open question Q1"
+    },
+    {
+      "id": "S10",
+      "gate": "G2",
+      "what": "Decide the home: a standalone project, or an initiative inside the GenAI Security Project",
+      "owner": "the leads, after talking to the GenAI project's leaders",
+      "when": "",
+      "status": "todo",
+      "notes": "Both set out on the application page",
+      "url": "/owasp/application.html#home"
+    },
+    {
+      "id": "S11",
+      "gate": "G2",
+      "what": "Find a third leader from outside RiskMandate",
+      "owner": "the leads",
+      "when": "",
+      "status": "todo",
+      "notes": "Two leaders from one company is the pattern the research says to avoid"
+    },
+    {
+      "id": "S12",
+      "gate": "G2",
+      "what": "Confirm both leaders' OWASP membership is current",
+      "owner": "Dinis Cruz, Nimay Parekh",
+      "when": "",
+      "status": "todo",
+      "notes": "Stated by the lead; not checked against OWASP's records"
+    },
+    {
+      "id": "S13",
+      "gate": "G2",
+      "what": "Find and fix the public pages that describe the delta's storage differently",
+      "owner": "the website agent",
+      "when": "",
+      "status": "todo",
+      "notes": "The brief reports a contradiction; the model says derived, stored with both inputs, never edited"
+    },
+    {
+      "id": "S24",
+      "gate": "G2",
+      "what": "Read the agent projects OWASP started in 2025 and 2026 (Agent Observability Standard, Agent Skills Security Standard, the MCP projects and others) and write one line on each: what it covers, and whether it records a mandate or a delta",
+      "owner": "the website agent",
+      "when": "",
+      "status": "todo",
+      "notes": "The form asks how the project meets a need no existing project meets",
+      "url": "/owasp/ecosystem.html"
+    },
+    {
+      "id": "S25",
+      "gate": "G2",
+      "what": "Settle the name against the committee's vendor-neutrality good practice: RiskMandate sells Agent Behaviour Policies today",
+      "owner": "Dinis Cruz, Nimay Parekh",
+      "when": "",
+      "status": "waiting",
+      "notes": "Q1"
+    },
+    {
+      "id": "S14",
+      "gate": "G3",
+      "what": "Approve the email to the projects team and the GenAI project, and its recipients",
+      "owner": "the leads",
+      "when": "",
+      "status": "waiting",
+      "notes": "Drafted on the application page",
+      "url": "/owasp/application.html#email"
+    },
+    {
+      "id": "S15",
+      "gate": "G3",
+      "what": "Approve every field of the application",
+      "owner": "the leads",
+      "when": "",
+      "status": "waiting",
+      "notes": "Drafted on the application page",
+      "url": "/owasp/application.html#form"
+    },
+    {
+      "id": "S16",
+      "gate": "G3",
+      "what": "Send the email; submit the application through OWASP's channel",
+      "owner": "Dinis Cruz",
+      "when": "",
+      "status": "blocked",
+      "notes": "Blocked on S14 and S15"
+    },
+    {
+      "id": "S17",
+      "gate": "G4",
+      "what": "OWASP gives admin access to a new repository in its GitHub organisation and an invitation to manage the project's page on owasp.org; within 30 days the leads create the page (leaders with owasp.org emails, pitch, level, type, licence), add the licence and enable the DCO check",
+      "owner": "OWASP staff, then the leads",
+      "when": "",
+      "status": "todo",
+      "notes": "After acceptance"
+    },
+    {
+      "id": "S18",
+      "gate": "G4",
+      "what": "Create the specification repository with README, LICENSE, GOVERNANCE, CONTRIBUTING, SECURITY and the proposed tree",
+      "owner": "the leads",
+      "when": "",
+      "status": "todo",
+      "notes": "Proposed tree on the application page",
+      "url": "/owasp/application.html#repo"
+    },
+    {
+      "id": "S19",
+      "gate": "G4",
+      "what": "Move the approved assets with their provenance: source, date, commit",
+      "owner": "the leads",
+      "when": "",
+      "status": "todo",
+      "notes": "Not a find-and-replace"
+    },
+    {
+      "id": "S20",
+      "gate": "G4",
+      "what": "Point abp.sgit.ai and this site's model pages at the project as the source; nothing taken down",
+      "owner": "the website agent, with the lead's approval",
+      "when": "",
+      "status": "todo",
+      "notes": "Only after the project's repository exists"
+    },
+    {
+      "id": "S21",
+      "gate": "G2",
+      "what": "Write the JSON Schemas for the grant, the mandate and the delta",
+      "owner": "to be assigned",
+      "when": "",
+      "status": "todo",
+      "notes": "No schema file exists today"
+    },
+    {
+      "id": "S22",
+      "gate": "G2",
+      "what": "Run the integration experiment: one synthetic deployment, one restriction (approval before external email), ACS as the enforcement, with positive, negative, bypass and outage tests",
+      "owner": "to be assigned",
+      "when": "",
+      "status": "todo",
+      "notes": "Only on a system we are entitled to run; no conformance claimed"
+    },
+    {
+      "id": "S23",
+      "gate": "G2",
+      "what": "Add OWASP mappings to the template vaults: Agentic Top 10 and LLM Top 10 items, by id and title",
+      "owner": "the website agent",
+      "when": "",
+      "status": "todo",
+      "notes": "The vaults map ATT&CK, the EU AI Act and GDPR today, and no OWASP list"
+    }
+  ],
+  "submissions": [
+    {
+      "id": "M01",
+      "what": "Email introducing the proposal and asking which home fits",
+      "to": "OWASP Project Committee (project-committee@owasp.org); co-leads of the GenAI Security Project's Agentic Security Initiative",
+      "channel": "email",
+      "channel_url": "",
+      "draft": "/owasp/application.html#email",
+      "sent": "",
+      "status": "drafted",
+      "answer": ""
+    },
+    {
+      "id": "M02",
+      "what": "New project application",
+      "to": "OWASP Foundation",
+      "channel": "New Project Request, OWASP service desk (login needed)",
+      "channel_url": "https://support.docs.owasp.org/wiki/spaces/OSD/pages/478445603/How+to+create+a+project",
+      "draft": "/owasp/application.html#form",
+      "sent": "",
+      "status": "drafted",
+      "answer": ""
+    },
+    {
+      "id": "M03",
+      "what": "Note to the Agent Control Standard maintainers on the overlap, and the integration experiment",
+      "to": "ACS maintainers",
+      "channel": "GitHub discussion or the GenAI Slack",
+      "channel_url": "https://github.com/GenAI-Security-Project/agent-control-standard",
+      "draft": "/owasp/ecosystem.html#acs",
+      "sent": "",
+      "status": "drafted",
+      "answer": ""
+    }
+  ],
+  "people": [
+    {
+      "name": "OWASP Project Committee",
+      "role": "Reviews new-project requests and promotions; meets monthly",
+      "why": "They decide on the request. First recipient of the email (M01)",
+      "contact": "project-committee@owasp.org · Slack #project-new-projects",
+      "contact_url": "https://owasp.org/groups/project-committee",
+      "confirmed": "Yes: the committee's page, read 8 Oct 2026"
+    },
+    {
+      "name": "Bjoern Kimminich",
+      "role": "Project Committee chair",
+      "why": "Chairs the review",
+      "contact": "through the committee's group address",
+      "contact_url": "https://owasp.org/groups/project-committee",
+      "confirmed": "Named in the committee's leaders file; when it was last edited is unchecked"
+    },
+    {
+      "name": "Jeff Foley, Donnie Brown",
+      "role": "Project Committee vice chair and secretary",
+      "why": "The committee's officers",
+      "contact": "through the committee's group address",
+      "contact_url": "https://owasp.org/groups/project-committee",
+      "confirmed": "As above"
+    },
+    {
+      "name": "Jason Gillam, Michael Bargury, Jim Manico",
+      "role": "Project Committee members",
+      "why": "Possible reviewers. Michael Bargury is also a creator of the Agent Control Standard: the overlap is raised by us, in the request",
+      "contact": "through the committee's group address",
+      "contact_url": "https://owasp.org/groups/project-committee",
+      "confirmed": "As above"
+    },
+    {
+      "name": "Steve Springett",
+      "role": "Global Board liaison to the Project Committee",
+      "why": "The board's view, if the home question goes that far",
+      "contact": "through the committee's group address",
+      "contact_url": "https://owasp.org/groups/project-committee",
+      "confirmed": "As above"
+    },
+    {
+      "name": "Starr Brown",
+      "role": "Director of Open Source Projects and Programs; staff liaison to the Project Committee",
+      "why": "The staff side of the request: forms, repository, page, shared resources",
+      "contact": "OWASP staff page",
+      "contact_url": "https://owasp.org/staff",
+      "confirmed": "Yes: the staff page, read 8 Oct 2026"
+    },
+    {
+      "name": "Andrew van der Stock",
+      "role": "Executive Director; author of the September 2026 project guides",
+      "why": "The guides' author, if a step in them is unclear",
+      "contact": "OWASP staff page",
+      "contact_url": "https://owasp.org/staff",
+      "confirmed": "Yes: the staff page and the guide, read 8 Oct 2026"
+    },
+    {
+      "name": "John Sotiropoulos, Ron F. Del Rosario",
+      "role": "Co-leads, Agentic Security Initiative, GenAI Security Project",
+      "why": "The initiative ACS and the Agentic Top 10 sit in. Second recipient of the email (M01)",
+      "contact": "Slack #team-genai-agentic-security-initiative; open meeting Tuesdays",
+      "contact_url": "https://genai.owasp.org/initiatives/agentic-security-initiative/",
+      "confirmed": "Yes: the initiative's page, read 8 Oct 2026"
+    },
+    {
+      "name": "Scott Clinton, Steve Wilson",
+      "role": "Co-chairs, GenAI Security Project",
+      "why": "If the home is an initiative inside GenAI, its board and core team vote it in",
+      "contact": "GenAI Security Project",
+      "contact_url": "https://genai.owasp.org/project-governance/",
+      "confirmed": "Yes: owasp.org's project record and genai.owasp.org, read 8 Oct 2026"
+    },
+    {
+      "name": "Rock Lambros, Ariel Fogel, Bar Kaduri; Michael Bargury, Ory Segal",
+      "role": "Project leads and creators, Agent Control Standard",
+      "why": "The overlap note and the experiment (M03)",
+      "contact": "the ACS repository",
+      "contact_url": "https://github.com/GenAI-Security-Project/agent-control-standard",
+      "confirmed": "Yes: ACS's GOVERNANCE.md, read 8 Oct 2026"
+    },
+    {
+      "name": "OWASP support",
+      "role": "The general service desk",
+      "why": "If a form or a link does not work",
+      "contact": "support@owasp.org · contact.owasp.org",
+      "contact_url": "https://owasp.org/contact",
+      "confirmed": "Yes: owasp.org/contact, read 8 Oct 2026"
+    }
+  ],
+  "places": [
+    {
+      "what": "The model, vocabulary and documentation pack",
+      "where": "abp.sgit.ai (v0.12.1)",
+      "url": "https://abp.sgit.ai/",
+      "who": "Dinis Cruz",
+      "side": "today: sgit, CC BY 4.0; proposed: the OWASP project"
+    },
+    {
+      "what": "The sixteen template ABPs and the delta build",
+      "where": "github.com/Risk-Mandate/riskmandate.ai, site/vaults/",
+      "url": "https://github.com/Risk-Mandate/riskmandate.ai",
+      "who": "the website agent, for the leads",
+      "side": "today: RiskMandate; proposed: the OWASP project, as examples and the reference tool"
+    },
+    {
+      "what": "This section and its record",
+      "where": "riskmandate.ai/owasp/ and site/owasp/project.json",
+      "url": "/owasp/",
+      "who": "the website agent, for the leads",
+      "side": "RiskMandate, until the project's repository exists"
+    },
+    {
+      "what": "The OWASP graph",
+      "where": "riskmandate.ai/owasp-graph.html and business-case/owasp/graph.json",
+      "url": "/owasp-graph.html",
+      "who": "the website agent",
+      "side": "RiskMandate; offered to OWASP"
+    },
+    {
+      "what": "The project page",
+      "where": "owasp.org/projects/<slug>, edited in OWASP's admin portal (the new site, September 2026); or a www-project repository, as the draft handbook still describes",
+      "url": "",
+      "who": "OWASP staff create it; the leads maintain it",
+      "side": "OWASP, after acceptance"
+    },
+    {
+      "what": "The specification, schemas, examples and tools",
+      "where": "a repository under github.com/OWASP (proposed)",
+      "url": "",
+      "who": "the project's leaders and contributors",
+      "side": "OWASP, after acceptance"
+    },
+    {
+      "what": "Commercial services, the store, the Index, reviews",
+      "where": "riskmandate.ai, store.sgit.ai",
+      "url": "/pricing.html",
+      "who": "RiskMandate",
+      "side": "RiskMandate, always"
+    },
+    {
+      "what": "Customer data and customer vaults",
+      "where": "private vaults, never in a public repository",
+      "url": "",
+      "who": "RiskMandate",
+      "side": "RiskMandate, always"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "K01",
+      "what": "Propose the Agent Behaviour Policy to OWASP as an open project, with RiskMandate as sponsor",
+      "by": "Dinis Cruz, Nimay Parekh",
+      "date": "2026-10-08"
+    },
+    {
+      "id": "K02",
+      "what": "Keep the whole move in public: this section on the public site, the record in the public repository",
+      "by": "Dinis Cruz",
+      "date": "2026-10-08"
+    },
+    {
+      "id": "K03",
+      "what": "RiskMandate commercialises on the method as anybody else could, and proposes its commercial model as one others can follow",
+      "by": "Dinis Cruz",
+      "date": "2026-10-08"
+    },
+    {
+      "id": "K04",
+      "what": "Nothing external without approval: every email, form, repository and licence change waits on its gate",
+      "by": "Dinis Cruz (brief D31)",
+      "date": "2026-10-08"
+    }
+  ],
+  "questions": [
+    {
+      "id": "Q1",
+      "q": "The name. Agent Behaviour Policies, or 'application behaviour policies' as the voice note says? And since OWASP's good practices ask that a project's name not be confused with a company's commercial service, does RiskMandate rename what it sells, or does the project take another name?",
+      "who": "Dinis Cruz",
+      "blocks": "S15"
+    },
+    {
+      "id": "Q2",
+      "q": "A standalone project, or an initiative inside the GenAI Security Project?",
+      "who": "the leads, with the GenAI project's leaders",
+      "blocks": "S15"
+    },
+    {
+      "id": "Q3",
+      "q": "Who is the third leader, from outside RiskMandate?",
+      "who": "the leads",
+      "blocks": ""
+    },
+    {
+      "id": "Q4",
+      "q": "Documents under CC BY 4.0, as today, or CC BY-SA 4.0, as many OWASP projects use?",
+      "who": "the leads",
+      "blocks": "S18"
+    },
+    {
+      "id": "Q5",
+      "q": "Does 'grant' stay the word for measured reach, given that it reads as authorisation in ordinary English?",
+      "who": "the project, in public",
+      "blocks": ""
+    },
+    {
+      "id": "Q6",
+      "q": "How do the four barrier kinds sit with a richer control model (preventive, approval, detective, corrective; failure behaviour; bypass paths)?",
+      "who": "the project, in public",
+      "blocks": ""
+    },
+    {
+      "id": "Q7",
+      "q": "Does abp.sgit.ai become the project's reading site under OWASP branding, or does the project read only from its repository?",
+      "who": "the leads, with OWASP",
+      "blocks": "S20"
+    },
+    {
+      "id": "Q8",
+      "q": "Which three examples will a reviewer outside RiskMandate rebuild from their inputs first?",
+      "who": "the leads",
+      "blocks": ""
+    },
+    {
+      "id": "Q9",
+      "q": "Which New Project Request form is current? The Project Policy and the September 2026 guide link to different ones",
+      "who": "OWASP, asked in M01",
+      "blocks": "S16"
+    },
+    {
+      "id": "Q10",
+      "q": "Does a new project get a www-project repository, or only a page in the new admin portal and a code repository?",
+      "who": "OWASP, asked in M01",
+      "blocks": "S17"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-24",
+      "what": "The lead asks for OWASP first: a semantic graph of OWASP, business cases for its projects, and the intent to move RiskMandate's ideas and standards to OWASP (D17)",
+      "url": "/owasp-graph.html"
+    },
+    {
+      "date": "2026-10-08",
+      "what": "The founders decide to propose the Agent Behaviour Policies to OWASP; voice note D30 and initiation brief D31 arrive",
+      "url": "/briefs.html"
+    },
+    {
+      "date": "2026-10-08",
+      "what": "OWASP's Project Policy, twelve OWASP projects and our own published material read; the inventory, the charter and this section published",
+      "url": "/owasp/"
+    },
+    {
+      "date": "2026-10-08",
+      "what": "OWASP's process read: the September 2026 guide, the Project Policy, the committee's page, the staff page, the GenAI project's governance and the ACS repository. The form is behind a login; two OWASP pages link to different forms",
+      "url": "/owasp/application.html"
+    }
+  ]
+}
