@@ -7,7 +7,7 @@
 
 **0**waiting on somebody outside*the store's agent, the model site*
 
-**1**branches in flight*one work file each*
+**0**branches in flight*one work file each*
 
 **0**open tasks*of 4 in the queue · 4 done*
 
@@ -17,7 +17,7 @@
 
 **16**vaults built and pushed*4 measured · 9 asked for*
 
-**141**releases*8 Lab editions*
+**142**releases*8 Lab editions*
 
 ## Needs the lead — 9
 
@@ -59,13 +59,13 @@ a decision the lead owns, openD8
 
 a decision the lead owns, openD9
 
-## In flight — 1 branch
+## In flight — 0 branches
 
 One file per branch under `.claude/work/`, written before the work starts and deleted when it merges. Read every one before claiming a task.
 
-**[claude/owasp-abp-project](../admin/work/branches/claude-owasp-abp-project/)**
+**Nothing in flight.**
 
-A new top-level section, **OWASP**, at `site/owasp/`: the proposal to take the Agent Behaviour Policies to OWASP as an OWASP project, kept in public. Overview, charter (mission, objectives, scope, non-goals), the line between RiskMandate and the project, the application pack (process, form answers, leaders, roadmap), the tracker (gates, steps, submissions, people, decisions, log), the contribution inventory, the other OWASP projects it works with, and what popular OWASP projects teach. The record is `site/owasp/project.json`; the pages are built by `scripts/site/build-owasp.mjs` from `docs/owasp/pages/*.html`. Nothing is sent to OWASP from this branch: no outreach, no form, no repository created. since 8 October 2026
+No work file under .claude/work/.
 
 ## How work gets here
 

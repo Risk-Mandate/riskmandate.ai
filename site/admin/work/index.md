@@ -63,19 +63,11 @@ a decision the lead owns, listed in the state fileneeds the lead
 
 a decision the lead owns, listed in the state fileneeds the lead
 
-## In flight — 1 branch
+## In flight — 0 branches
 
 One file per branch under `.claude/work/`. [How a work file is written](../../admin/work/about-work-files/).
 
-### [claude/owasp-abp-project](../../admin/work/branches/claude-owasp-abp-project/)
-
-started 8 October 2026 · task brief: ad hoc — the lead's voice note and the Perplexity initiation brief of 8 Oct 2026 (D30, D31)
-
-A new top-level section, **OWASP**, at `site/owasp/`: the proposal to take the Agent Behaviour Policies to OWASP as an OWASP project, kept in public. Overview, charter (mission, objectives, scope, non-goals), the line between RiskMandate and the project, the application pack (process, form answers, leaders, roadmap), the tracker (gates, steps, submissions, people, decisions, log), the contribution inventory, the other OWASP projects it works with, and what popular OWASP projects teach. The record is `site/owasp/project.json`; the pages are built by `scripts/site/build-owasp.mjs` from `docs/owasp/pages/*.html`. Nothing is sent to OWASP from this branch: no outreach, no form, no repository created.
-
-**External state.** Vaults built and unpushed: none · Lab editions I will cut: none · Release I will claim at merge: yes, a patch · Nothing sent to OWASP, nobody emailed, no repository created. Every external step is in the tracker as *to do*, waiting on the lead.
-
-**Status.** [ ] research: OWASP process and people, exemplar projects, our own inventory · [ ] the section, the builder, the record · [ ] register D30, D31; the direction brief
+Nothing in flight.
 
 ## Task briefs — 17
 
