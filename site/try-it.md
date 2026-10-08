@@ -8,11 +8,15 @@ Source: https://riskmandate.ai/try-it.html
 
 ---
 
-# Twenty minutes, your own assistant, and a document about your agent that did not exist this morning.
+# Start with one thing that worries you. Thirty seconds, one line.
 
-Four steps, thirteen prompts. You paste them into the assistant you have already connected to your mail, against your own mailbox. **Nothing is collected here and no account is needed.** At the end you have a written account of what your assistant can reach, what you meant to authorise, and the gap between the two.
+Each rule starts from something you might not want your agent to do: read your other sessions, touch your keys, set up jobs that outlive the session, act as you through your connected accounts. It says what you get, and gives you the one line to paste into your agent's instructions. **Nothing is collected here and no account is needed.** When you want the whole picture for one agent, the twenty-minute workflow below writes it.
 
-## Four steps, about five minutes each.
+## One worry, one line, and what you get for it.
+
+A rule is one question about your agent, _do you want it to do this?_, with the line that answers it, never or ask me first. Every rule says honestly what a line is, a request to the agent rather than a control, and names the stronger setting or boundary where one exists, quoted from the vendor's own page. Each one ends with three links, _this worries me_, _it worked_, _it did not work_, so the rules that help are the ones that get written next.
+
+## The whole picture for one agent: four steps, about five minutes each.
 
 Each step is a handful of prompts you paste in one at a time. You can stop after the first one and still be ahead, which is why it is first.
 

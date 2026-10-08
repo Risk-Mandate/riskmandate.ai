@@ -1,0 +1,45 @@
+{
+  "id": "RM-R0014",
+  "slug": "change-files-outside",
+  "version": "1.0.0",
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-10-08",
+      "what": "First version, written from the published rows with nothing in the way."
+    }
+  ],
+  "question": "Do you want your agent to change files outside the project?",
+  "worry": "To fix the build it edits your shell profile, your global git configuration, or a file in another project. The fix works here and something else breaks next week.",
+  "you_get": "Changes stay inside the project, where version control can show and undo them.",
+  "capability": "write.file.host",
+  "answer": "never",
+  "shapes": [
+    "claude-code-web",
+    "claude-code-cli",
+    "claude-code-cli-confirmations-off"
+  ],
+  "line": "Do not create or change files outside this project's folder, including dotfiles and configuration in my home directory, unless I give you the path.",
+  "paragraph": "Keep every change inside this project, where I can see it in version control. Do not edit my shell profile, global git or tool configuration, files in other projects, or system files. If a fix needs a change outside, tell me the file and the change and let me make it or say yes.",
+  "stronger": [
+    {
+      "kind": "setting",
+      "what": "Edit deny rules in Claude Code's settings for paths outside the project",
+      "how": "{\n  \"permissions\": {\n    \"deny\": [\n      \"Edit(~/**)\"\n    ]\n  }\n}",
+      "quote": "Claude Code checks file permissions against Edit(path) and Read(path) rules only. (And: File modification | Edit/write files | Approval required: Yes.)",
+      "source": "https://code.claude.com/docs/en/permissions",
+      "read": "2026-10-08"
+    },
+    {
+      "kind": "boundary",
+      "what": "Claude Code's Bash sandbox, which limits where shell commands can write",
+      "how": "Turn the sandbox on (/sandbox). Shell commands, and the processes they start, can then write only inside the working directory and a few named places.",
+      "quote": "By default, sandboxed commands can write to the current working directory, the per-user temp directory, and any directories you've added with --add-dir, /add-dir, or permissions.additionalDirectories. … The sandbox is off by default.",
+      "source": "https://code.claude.com/docs/en/sandboxing",
+      "read": "2026-10-08"
+    }
+  ],
+  "before_after": null,
+  "status": "drafted",
+  "drafted": "2026-10-08"
+}

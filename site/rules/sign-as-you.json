@@ -1,0 +1,28 @@
+{
+  "id": "RM-R0008",
+  "slug": "sign-as-you",
+  "version": "1.0.0",
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-10-08",
+      "what": "First version, written from the published rows with nothing in the way."
+    }
+  ],
+  "question": "Do you want your agent to sign commits with your key?",
+  "worry": "Your signing key is configured on this machine, so the agent's commits carry your signature. To anyone reading the history, you wrote and vouched for that change.",
+  "you_get": "Your signature means you, and the agent's work says it was the agent's.",
+  "capability": "authenticate-as.credential.signing",
+  "answer": "ask-first",
+  "shapes": [
+    "claude-code-web",
+    "claude-code-cli",
+    "claude-code-cli-confirmations-off"
+  ],
+  "line": "Do not sign commits, tags or releases with my key unless I ask; say in the commit message that an agent made the change.",
+  "paragraph": "A signature on a commit says I made and checked it. Do not create signed commits or tags with my key, and do not change signing settings, unless I ask for that commit. Put a line in each commit message saying an agent made it. If the repository requires signed commits, stop and tell me.",
+  "stronger": [],
+  "before_after": null,
+  "status": "drafted",
+  "drafted": "2026-10-08"
+}

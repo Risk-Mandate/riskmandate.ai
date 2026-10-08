@@ -20,6 +20,11 @@ Lab 03 is the open request list against `abp.sgit.ai`, published rather than ema
    policy can carry them without forking the grammar (T03).
 4. **Lab 06's two proposals**: the barrier's companion fields and the six composition rules,
    which Lab 06 states and the register says are not yet on the list.
+5. **Ask first, as a mandate state.** From the rules brief of 7 October
+   (`direction__one-rule-a-stranger-can-paste-is-the-way-in.md` §3.3): a mandate has *want*, *do not
+   want* and *unstated*; the rules need a fourth, *wanted only after a person says yes to the specific
+   action*, and say who holds the yes (the agent's line, the harness's prompt, a gateway). The rules
+   under `site/rules/` use `ask-first` as this site's extension until the model site answers.
 
 ## Constraints
 - The page's existing entries and their numbering stay as they are; new requests are appended

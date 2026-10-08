@@ -1,0 +1,27 @@
+{
+  "id": "RM-R0024",
+  "slug": "edit-shared-documents",
+  "version": "1.0.0",
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-10-08",
+      "what": "First version, written from the published rows with nothing in the way."
+    }
+  ],
+  "question": "Do you want your agent to edit documents other people are working on?",
+  "worry": "Asked to improve a shared document, it rewrites the section a colleague is still writing, or reorganises a folder other people rely on.",
+  "you_get": "Your changes to shared work are suggestions until you say otherwise.",
+  "capability": "write.file.host",
+  "answer": "ask-first",
+  "shapes": [
+    "google-workspace-mcp",
+    "dropbox-mcp"
+  ],
+  "line": "Do not edit, rename or move shared documents; suggest changes in a comment or a copy unless I ask you to edit that document.",
+  "paragraph": "Documents and folders other people use are not only mine. Put suggested changes in a comment, a suggestion or a copy. Edit, rename or move a shared document or folder only when I ask for that one, and say what you changed.",
+  "stronger": [],
+  "before_after": null,
+  "status": "drafted",
+  "drafted": "2026-10-08"
+}

@@ -3,11 +3,9 @@
 > The queue of work on riskmandate.ai as a board: open, in flight, waiting on a ruling, done — read off the state file, the task briefs and the work files.
 > Source: https://riskmandate.ai/admin/work/ · noindex · written by scripts/site/build-admin.mjs
 
-### Open4
+### Open0
 
-[#R1 · T15 · a day and a half**Rule schema, generator, index, the first four rules, linked first from `try-it.html`**](../../admin/work/T15/)[#R2 · T16 · a day**Before and after for the four, on our own deployment, and the method page**](../../admin/work/T16/)[#R3 · T17 · half a day per five**The candidate list and the next twenty rules, Claude shapes first**](../../admin/work/T17/)
-
-#R4 · two days in all**The test drive with the lead's early users; the path wired from the home page's builder; a rule set per shape as a file; *ask first* added to the Lab 03 asks**
+nothing here
 
 ### In flight0
 
@@ -17,9 +15,13 @@ nothing here
 
 nothing here
 
-### Done0
+### Done4
 
-nothing here
+[#R1 · T15 · a day and a half**Rule schema, generator, index, the first four rules, linked first from `try-it.html`** done v1.37.0](../../admin/work/T15/)[#R2 · T16 · a day**Before and after for the four, on our own deployment, and the method page** done v1.37.0](../../admin/work/T16/)[#R3 · T17 · half a day per five**The candidate list and the next twenty rules, Claude shapes first** done v1.37.0: 24 rules, all ten candidate capabilities covered](../../admin/work/T17/)
+
+#R4 · **The test drive with the lead's early users (open: needs the list); the path wired from the home page's builder (done**); a rule set per shape as a file (**done**, `rules/sets/`); *ask first* on T07's list (**done**; the Lab page itself is T07)
+
+partly done
 
 The four columns are read off the status column of the queue in [the state file](../../admin/agents/03-state-and-next/): *done* is done; *waiting on the lead* is needs the lead; any other *waiting* is waiting outside; a row whose brief a work file names is in flight; the rest are open and claimable. Nothing is dragged, so the board cannot say something the file does not.
 
@@ -82,6 +84,6 @@ Each is a unit of work sized for one branch, with the files it touches named so 
 | [T10](../../admin/work/T10/) | the two Voice Debrief use-case vaults, and a use-case group on the library | `site/vaults/voice-debrief-*/`, `index.json`, the library page | a day | open |
 | [T11](../../admin/work/T11/) | the consequence layer: assets, consequences, routes out, open consequences on the delta; first for `oc433z3m` | `site/vaults/claude-gmail-connector/data/{assets,consequences}.json` (new), `build-abp-vault.mjs`, the renderer, `_template/data/` | a day | open |
 | [T12](../../admin/work/T12/) | GDPR, EU AI Act and ATT&CK as nodes inside the vault, titles only, for consequences and behaviours to link to | `_template/data/standards/` (new), `build-abp-vault.mjs`, the renderer, Lab 03 | a day, with T03 | open |
-| [T15](../../admin/work/T15/) | rule pages: schema, generator, index, the first four rules | `site/rules/` (new), `scripts/site/build-rules.mjs` (new), `package.json`, CI, `site/pages.json`, `site/try-it.html` | a day and a half | open |
-| [T16](../../admin/work/T16/) | before and after for each rule, run on our own deployment, and a method page | `site/rules/*.json`, `site/rules/method.html` | a day | open |
-| [T17](../../admin/work/T17/) | the candidate list from unbounded irreversible rows, and twenty rules from it | `scripts/site/build-rules.mjs`, `site/rules/*.json` | half a day per five | open |
+| [T15](../../admin/work/T15/) | rule pages: schema, generator, index, the first four rules | `site/rules/` (new), `scripts/site/build-rules.mjs` (new), `package.json`, CI, `site/pages.json`, `site/try-it.html` | a day and a half | done |
+| [T16](../../admin/work/T16/) | before and after for each rule, run on our own deployment, and a method page | `site/rules/*.json`, `site/rules/method.html` | a day | done |
+| [T17](../../admin/work/T17/) | the candidate list from unbounded irreversible rows, and twenty rules from it | `scripts/site/build-rules.mjs`, `site/rules/*.json` | half a day per five | done |

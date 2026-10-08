@@ -1,0 +1,26 @@
+{
+  "id": "RM-R0023",
+  "slug": "make-files-public",
+  "version": "1.0.0",
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-10-08",
+      "what": "First version, written from the published rows with nothing in the way."
+    }
+  ],
+  "question": "Do you want your agent to make your files public?",
+  "worry": "To let a colleague see a document, it creates a link anyone can open. The link works for whoever it is forwarded to, for as long as it exists.",
+  "you_get": "Nothing becomes public, or shared outside the people you named, without your yes.",
+  "capability": "create.record.world",
+  "answer": "never",
+  "shapes": [
+    "dropbox-mcp"
+  ],
+  "line": "Never create a public or anyone-with-the-link share, or share anything outside the people I name, unless I ask for that specific share.",
+  "paragraph": "Sharing is publishing. Do not create public links, anyone-with-the-link shares, or shares with people I have not named, and do not change existing sharing settings. If sharing would help, tell me who would get access to what, and wait for a yes.",
+  "stronger": [],
+  "before_after": null,
+  "status": "drafted",
+  "drafted": "2026-10-08"
+}

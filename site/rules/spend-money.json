@@ -1,0 +1,27 @@
+{
+  "id": "RM-R0010",
+  "slug": "spend-money",
+  "version": "1.0.0",
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-10-08",
+      "what": "First version, written from the published rows with nothing in the way."
+    }
+  ],
+  "question": "Do you want your agent to spend money on an account it holds?",
+  "worry": "It solves the problem by creating a bigger machine, calling a paid API in a loop, or running a job that is billed by the hour. The bill arrives at the end of the month.",
+  "you_get": "You see the cost before anything that costs money starts.",
+  "capability": "write.budget.tenant",
+  "answer": "ask-first",
+  "shapes": [
+    "scheduled-job",
+    "n8n-owner-api-key"
+  ],
+  "line": "Before anything that costs money (creating cloud resources, calling paid APIs repeatedly, buying anything), tell me what it will cost and wait for a yes.",
+  "paragraph": "Spending money is mine to decide. Before creating or resizing cloud resources, starting anything billed by time or by use, calling a paid API more than a handful of times, or buying anything, tell me what it is, roughly what it will cost, and how to stop it, and wait for a yes.",
+  "stronger": [],
+  "before_after": null,
+  "status": "drafted",
+  "drafted": "2026-10-08"
+}

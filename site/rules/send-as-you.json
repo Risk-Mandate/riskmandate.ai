@@ -1,0 +1,37 @@
+{
+  "id": "RM-R0017",
+  "slug": "send-as-you",
+  "version": "1.0.0",
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-10-08",
+      "what": "First version, written from the published rows with nothing in the way."
+    }
+  ],
+  "question": "Do you want your agent to send email as you without showing you first?",
+  "worry": "It replies on your behalf, to the wrong person, with the wrong attachment, or in a tone you would not use. Sent mail cannot be recalled.",
+  "you_get": "Nothing is sent in your name until you have seen the words and the recipients.",
+  "capability": "send.message.world",
+  "answer": "ask-first",
+  "shapes": [
+    "claude-gmail-connector",
+    "google-workspace-mcp",
+    "claude-m365-connector"
+  ],
+  "line": "Never send an email, message or invitation on my behalf without showing me the exact text and recipients and waiting for a yes; drafts are fine.",
+  "paragraph": "Anything sent in my name is mine. Write drafts freely. Before sending any email, chat message, reply or calendar invitation, show me the recipients, the subject and the exact text, and any attachment, and wait for a yes for that message. A yes for one message is not a yes for the next.",
+  "stronger": [
+    {
+      "kind": "setting",
+      "what": "An organisation's admin can set a claude.ai connector tool to ask",
+      "how": "Set by the organisation's admin for each connector tool; the setting also reaches Claude Code sessions.",
+      "quote": "If your organization has set a claude.ai connector tool to ask and that setting reaches Claude Code in your session, allow rules for that tool don't take effect: Claude Code prompts on every call, even in auto and bypassPermissions modes.",
+      "source": "https://code.claude.com/docs/en/permissions",
+      "read": "2026-10-08"
+    }
+  ],
+  "before_after": null,
+  "status": "drafted",
+  "drafted": "2026-10-08"
+}

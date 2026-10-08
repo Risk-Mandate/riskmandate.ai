@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.37.0** · 2026-10-08 — Rules: one worry, one line
+  Notes: https://riskmandate.ai/versions/1.37.0.md · Source: `git:v1.37.0`
 - **v1.36.3** · 2026-10-07 — The way in is one rule a stranger can paste
   Notes: https://riskmandate.ai/versions/1.36.3.md · Source: `git:v1.36.3`
 - **v1.36.2** · 2026-10-03 — The short answer: the film's story, as a storyboard and a brief
