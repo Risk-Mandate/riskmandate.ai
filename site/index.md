@@ -27,7 +27,7 @@ One policy for each system your team already uses
 
 ## Pick a system. Set the rules.
 
-Every system starts from a template. Decide what agents can do, what waits for approval and what never happens.
+Every system starts from a template. Decide what agents can do, what waits for approval and what never happens. The rules you can paste into an agent today, one worry at a time, are [here](rules/).
 
 ## Bring your policy. We make it enforceable.
 

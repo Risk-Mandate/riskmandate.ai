@@ -1,0 +1,45 @@
+{
+  "id": "RM-R0005",
+  "slug": "send-data-anywhere",
+  "version": "1.0.0",
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-10-08",
+      "what": "First version, written from the published rows with nothing in the way."
+    }
+  ],
+  "question": "Do you want your agent to send your code or data to any site on the internet?",
+  "worry": "To share a log it pastes it into a public paste site; to test an idea it calls an API you have never heard of with your data in the request; to debug it uploads a file to an online tool. Once it has left, it has left.",
+  "you_get": "Data leaves only for the places the task needs, and you hear about any other place before anything is sent.",
+  "capability": "send.endpoint.world",
+  "answer": "ask-first",
+  "shapes": [
+    "claude-code-cli",
+    "claude-code-cli-confirmations-off",
+    "claude-desktop"
+  ],
+  "line": "Before sending any file, code or data to a host outside this project's usual tools (uploads, pastes, webhooks, unfamiliar APIs), tell me where and what, and wait for a yes.",
+  "paragraph": "Treat sending data out of this machine as a decision of mine. Fetching documentation or packages the project already uses is fine. Uploading files, pasting content into online tools, calling APIs this project does not already call, posting to webhooks, or sending logs or data anywhere new needs my yes: tell me the host, what would be sent, and why, then wait.",
+  "stronger": [
+    {
+      "kind": "setting",
+      "what": "Deny rules on the shell's network tools, with WebFetch allowed only for named domains",
+      "how": "{\n  \"permissions\": {\n    \"deny\": [\n      \"Bash(curl *)\",\n      \"Bash(wget *)\"\n    ],\n    \"allow\": [\n      \"WebFetch(domain:github.com)\"\n    ]\n  }\n}",
+      "quote": "Restrict Bash network tools: use deny rules to stop curl, wget, and similar commands, then use the WebFetch tool with WebFetch(domain:github.com) permission for allowed domains. A deny rule doesn't match the same program by path or inside sh -c, so pair it with the sandbox network allowlist when the restriction must hold.",
+      "source": "https://code.claude.com/docs/en/permissions",
+      "read": "2026-10-08"
+    },
+    {
+      "kind": "boundary",
+      "what": "Claude Code's Bash sandbox, with its network allowlist",
+      "how": "Turn the sandbox on and list only the hosts the work needs under sandbox.network.allowedDomains. It covers shell commands and the processes they start; WebFetch follows permission rules instead.",
+      "quote": "Network: No direct route out. Connections go through a proxy on your machine that checks each host against your allowed domains, which start empty. … allowedDomains doesn't limit WebFetch.",
+      "source": "https://code.claude.com/docs/en/sandboxing",
+      "read": "2026-10-08"
+    }
+  ],
+  "before_after": null,
+  "status": "drafted",
+  "drafted": "2026-10-08"
+}

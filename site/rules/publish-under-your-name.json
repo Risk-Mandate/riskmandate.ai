@@ -1,0 +1,36 @@
+{
+  "id": "RM-R0009",
+  "slug": "publish-under-your-name",
+  "version": "1.0.0",
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-10-08",
+      "what": "First version, written from the published rows with nothing in the way."
+    }
+  ],
+  "question": "Do you want your agent to publish packages, images or releases under your name?",
+  "worry": "To check the release works, it runs the publish command. Now a package, an image or a release is out under your name, and people can download it before you have looked at it.",
+  "you_get": "Nothing goes out under your name unless you asked for that publish, in that message.",
+  "capability": "create.record.world",
+  "answer": "never",
+  "shapes": [
+    "claude-code-cli",
+    "claude-code-cli-confirmations-off"
+  ],
+  "line": "Never publish anything (npm publish, docker push, a GitHub release, a deploy to production) unless I ask for that specific publish in this message.",
+  "paragraph": "Publishing puts something out under my name that I cannot fully take back. Build, test and package as much as you like, locally. Do not run a publish, push an image, create a release or deploy to production unless I ask for that specific one in the current message; an earlier yes does not carry over.",
+  "stronger": [
+    {
+      "kind": "setting",
+      "what": "Deny rules on the publish commands in Claude Code's settings",
+      "how": "{\n  \"permissions\": {\n    \"deny\": [\n      \"Bash(npm publish *)\",\n      \"Bash(docker push *)\",\n      \"Bash(gh release create *)\"\n    ]\n  }\n}",
+      "quote": "Deny rules prevent Claude Code from using the specified tool. (The same page: a Bash rule matches the command text Claude writes, so a deny or ask rule covers the invocation Claude usually produces and isn't a security boundary around the program.)",
+      "source": "https://code.claude.com/docs/en/permissions",
+      "read": "2026-10-08"
+    }
+  ],
+  "before_after": null,
+  "status": "drafted",
+  "drafted": "2026-10-08"
+}

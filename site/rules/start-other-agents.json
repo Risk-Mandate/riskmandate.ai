@@ -1,0 +1,37 @@
+{
+  "id": "RM-R0018",
+  "slug": "start-other-agents",
+  "version": "1.0.0",
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-10-08",
+      "what": "First version, written from the published rows with nothing in the way."
+    }
+  ],
+  "question": "Do you want your agent to start other agent sessions on its own?",
+  "worry": "To finish faster it starts more sessions, or schedules one to carry on later. Each has the same access, and nobody is watching them.",
+  "you_get": "Every agent running for you is one you said yes to, with a way to stop it.",
+  "capability": "create.schedule.tenant",
+  "answer": "ask-first",
+  "shapes": [
+    "claude-code-web",
+    "claude-gmail-connector"
+  ],
+  "line": "Do not start other sessions or background agents that keep running after this one without asking me first; tell me what each will do and how to stop it.",
+  "paragraph": "Helpers that finish inside this session are fine. Starting a new session, a routine, or any agent that runs after this one ends needs my yes: tell me what it will do, what it can reach, when it stops, and how I can stop it, then wait.",
+  "stronger": [
+    {
+      "kind": "setting",
+      "what": "An ask rule in Claude Code's settings on the tool that creates routines and sessions on claude.ai",
+      "how": "{\n  \"permissions\": {\n    \"ask\": [\n      \"RemoteTrigger\"\n    ]\n  }\n}",
+      "quote": "Ask rules prompt for confirmation whenever Claude Code tries to use the specified tool. (The tools reference: RemoteTrigger creates, updates, runs, and lists Routines on claude.ai, with Permission required: No.)",
+      "source": "https://code.claude.com/docs/en/permissions",
+      "read": "2026-10-08",
+      "also_source": "https://code.claude.com/docs/en/tools-reference"
+    }
+  ],
+  "before_after": null,
+  "status": "drafted",
+  "drafted": "2026-10-08"
+}

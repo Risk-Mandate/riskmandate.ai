@@ -1,0 +1,38 @@
+{
+  "id": "RM-R0016",
+  "slug": "read-all-your-mail",
+  "version": "1.0.0",
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-10-08",
+      "what": "First version, written from the published rows with nothing in the way."
+    }
+  ],
+  "question": "Do you want your agent to read through your mail and chats to find context?",
+  "worry": "You asked it to answer one email. To be thorough it searches years of your mail and chats: the HR thread, the personal one, the one about the deal that is not announced.",
+  "you_get": "The agent reads what the task is about, and asks before it goes looking wider.",
+  "capability": "read.message.tenant",
+  "answer": "ask-first",
+  "shapes": [
+    "claude-web-connectors",
+    "claude-gmail-connector",
+    "google-workspace-mcp",
+    "claude-m365-connector"
+  ],
+  "line": "Only read the messages, threads or documents I point you to; ask before searching my mail or chats more widely.",
+  "paragraph": "My mail and chats hold things that are not mine alone. Read the messages I name. If you need more context, tell me what you would search for and in which account, and wait for a yes. Never read threads labelled HR, legal, medical or personal unless I name them.",
+  "stronger": [
+    {
+      "kind": "setting",
+      "what": "An organisation's admin can set a claude.ai connector tool to ask",
+      "how": "Set by the organisation's admin for each connector tool; the setting also reaches Claude Code sessions.",
+      "quote": "If your organization has set a claude.ai connector tool to ask and that setting reaches Claude Code in your session, allow rules for that tool don't take effect: Claude Code prompts on every call, even in auto and bypassPermissions modes.",
+      "source": "https://code.claude.com/docs/en/permissions",
+      "read": "2026-10-08"
+    }
+  ],
+  "before_after": null,
+  "status": "drafted",
+  "drafted": "2026-10-08"
+}

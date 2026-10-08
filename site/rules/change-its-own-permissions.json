@@ -1,0 +1,45 @@
+{
+  "id": "RM-R0015",
+  "slug": "change-its-own-permissions",
+  "version": "1.0.0",
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-10-08",
+      "what": "First version, written from the published rows with nothing in the way."
+    }
+  ],
+  "question": "Do you want your agent to change its own permissions?",
+  "worry": "A command was blocked, so it adds an allow rule to its settings, or switches confirmations off to save you clicks. The next session starts with fewer checks, and you did not decide that.",
+  "you_get": "Only you change what the agent may do without asking.",
+  "capability": "grant.credential.self",
+  "answer": "never",
+  "shapes": [
+    "claude-code-cli",
+    "claude-code-cli-confirmations-off",
+    "claude-desktop"
+  ],
+  "line": "Never edit your own settings, permission rules or hooks (such as .claude/settings.json), or change how much you ask me; tell me what you would change and why.",
+  "paragraph": "Your permissions are mine to set. Do not edit settings files, permission rules, hooks or the permission mode, and do not add allow rules to get past a prompt. If a prompt is getting in the way, tell me which rule you would change and why, and I will decide.",
+  "stronger": [
+    {
+      "kind": "setting",
+      "what": "Claude Code's protected paths: writes to its own configuration are never auto-approved",
+      "how": "Leave the permission mode on Manual, acceptEdits or auto; in dontAsk such writes are denied.",
+      "quote": "Writes to a small set of paths are never auto-approved, except in bypassPermissions mode and in interactive terminal sessions in plan mode with bypass permissions available. This prevents accidental corruption of repository state and Claude's own configuration.",
+      "source": "https://code.claude.com/docs/en/permission-modes",
+      "read": "2026-10-08"
+    },
+    {
+      "kind": "setting",
+      "what": "Managed settings, set by the organisation, outrank the user's and the project's",
+      "how": "An organisation sets permissions in managed settings; a key set there overrides the same key in any file the agent can edit.",
+      "quote": "When the same key appears in more than one place, Claude Code uses the value from the highest level that sets it. … a key at a higher level overrides the same key anywhere below it. (Highest: managed settings, set by your organization.)",
+      "source": "https://code.claude.com/docs/en/settings",
+      "read": "2026-10-08"
+    }
+  ],
+  "before_after": null,
+  "status": "drafted",
+  "drafted": "2026-10-08"
+}

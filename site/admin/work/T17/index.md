@@ -4,7 +4,7 @@
 > Source: https://riskmandate.ai/admin/work/T17/ · noindex · written by scripts/site/build-admin.mjs
 
 **From:** `docs/briefs/direction__one-rule-a-stranger-can-paste-is-the-way-in.md` §4.3 · **Size:** half a day per five
-**Status:** open, after T15
+**Status:** done, v1.37.0 (8 October 2026)
 
 ## Why
 
