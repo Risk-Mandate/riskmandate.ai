@@ -1,0 +1,124 @@
+<main class="phero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> OWASP · The other OWASP projects</span>
+    <h1>An ABP points at risks, <span class="it">records controls, and shares formats.</span></h1>
+    <p class="sub" style="margin-bottom:20px">Where an Agent Behaviour Policy meets the rest of OWASP. Some projects name the risks an ABP row is evidence about. Many are, or describe, the controls an ABP records as its fourth barrier, the one enforced above the agent. A few are formats an ABP should be able to read and write. And one, the Agent Control Standard, sits right beside it. Every project&rsquo;s facts are from its own pages, read on 8 October 2026; every line about how the ABP would use it is our proposal, not theirs.</p>
+    <p class="meta"><!--owasp:asat--></p>
+    <p class="meta"><b>Already on this site:</b> <a href="/owasp-graph.html">OWASP, as a graph</a>, 181 nodes and 62 relationships read from OWASP&rsquo;s pages on 24 September, and the business cases for <a href="/business-case-owasp-coraza.html">Coraza</a> and <a href="/business-case-owasp-threat-dragon.html">Threat Dragon and pytm</a>.</p>
+  </div>
+</main>
+
+<!--owasp:tabs-->
+
+<div class="paper">
+
+<section class="psection">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">01 · Three ways in</span>
+      <h2>A risk to point at, a control to record, <span class="g">a format to share.</span></h2>
+    </div>
+    <div class="ow-cards">
+      <div class="ow-card"><span class="n">Risks</span><h3>The lists name it; the ABP measures it, per deployment</h3><p>The Agentic Top 10, the LLM Top 10&rsquo;s <em>Excessive Agency</em>, the Non-Human Identities Top 10&rsquo;s <em>Overprivileged NHI</em>. Each names a risk in general. An ABP&rsquo;s delta, what the agent can do and was not asked to, is that risk for one agent in one deployment, row by row.</p></div>
+      <div class="ow-card"><span class="n">Controls</span><h3>OWASP builds barriers; the ABP says where each one stands</h3><p>The enforcer test: a control bounds a grant only if something the grant does not include enforces it. A WAF in front of the tools the agent calls, a rule set on its egress, a guardian that can deny a tool call: each is a candidate fourth barrier, and an ABP row can name it. That is the business case for an OWASP control, with no verdict in it.</p></div>
+      <div class="ow-card"><span class="n">Formats</span><h3>One description, several readers</h3><p>The grant is a list of what the agent can reach: close to a bill of materials. CycloneDX, the Agent Control Standard&rsquo;s Agent Bill of Materials and OpenCRE are formats an ABP should export to or link through, so that the same record serves the tools people already run.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="psection alt" id="acs">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">02 · The Agent Control Standard</span>
+      <h2>The ABP describes and records. <span class="g">ACS is a wire through which a control can act.</span></h2>
+      <p>ACS joined the OWASP GenAI Security Project on 1 September 2026. Its README calls it a wire specification that lets a separate Guardian Agent inspect what an agent is about to do and permit, deny or modify it. Read on 8 October: version 0.1.3 (changelog dated 9 September 2026), Apache-2.0 for code and schemas, CC BY-SA 4.0 for prose. The brief of 8 October asked for an overlap matrix with ACS and the Agentic Top 10; this is the first reading of it, from public pages, for the maintainers to correct.</p>
+    </div>
+    <div class="ow-t"><table>
+      <thead><tr><th scope="col"></th><th scope="col">Agent Behaviour Policies (proposed)</th><th scope="col">Agent Control Standard</th><th scope="col">Top 10 for Agentic Applications</th></tr></thead>
+      <tbody>
+        <tr><td>Purpose</td><td>Write down what one agent in one deployment can do, what it was authorised to do, the gap, and what stands in the way</td><td>A runtime protocol through which a separate guardian can allow, deny, modify, ask or defer an agent&rsquo;s next action</td><td>A list of the ten risk categories for agentic applications, December 2025</td></tr>
+        <tr><td>Artefacts</td><td>Grant, mandate, delta and barrier records; a 23-primitive grammar; template ABPs; a build that derives the delta</td><td>A handshake, a JSON-RPC envelope, a minimum hook set, five dispositions; trace, inspect (an Agent Bill of Materials), provenance, crypto and audit profiles; a reference implementation</td><td>A document, ASI01 to ASI10, CC BY-SA 4.0</td></tr>
+        <tr><td>Enforces</td><td>Nothing. It says what does</td><td>Yes: it is the channel a control acts through</td><td>No</td></tr>
+        <tr><td>Assesses</td><td>Yes: which capabilities are outside the mandate, and which of those nothing bounds</td><td>Not its stated purpose; the Agent Bill of Materials lists what the agent has</td><td>It informs an assessment</td></tr>
+        <tr><td>Where it lives</td><td>Proposed; not yet at OWASP</td><td>Inside the GenAI Security Project, under its governance</td><td>Inside the GenAI Security Project</td></tr>
+        <tr><td>How they would meet</td><td colspan="3">An ABP row whose barrier is an ACS guardian names the hook and the disposition: <em>before</em> <code>send.message.world</code>, <code>toolCallRequest</code> &rarr; <code>ask</code>. ACS&rsquo;s Agent Bill of Materials and an ABP&rsquo;s grant describe overlapping ground; whether one can be derived from the other is the first question to put to the maintainers. The Agentic Top 10 supplies the risk each row is evidence about.</td></tr>
+      </tbody></table></div>
+    <p class="ow-note"><b>What we do not say.</b> No ABP&ndash;ACS integration exists, and nothing here claims interoperability. The initiation brief recorded observations about ACS&rsquo;s reference implementation as it was reviewed; they are time-sensitive, they have not been re-checked at a commit, and we do not repeat them. Any statement about ACS on this site will name the version and commit it was read at.</p>
+    <p class="ow-note"><b>The experiment we propose</b>, on a system we are entitled to run and on nobody else&rsquo;s: one synthetic agent deployment, one restriction (a person approves before any external email), ACS as the enforcement. Record the ABP row, the evidence of the capability, the hook and disposition, the failure behaviour, and four tests: it allows what it should, it stops what it should, a known bypass, and an outage of the guardian. Then the paths it does not cover. No conformance is claimed without a defined profile and results.</p>
+    <p class="ow-note"><b>The note to the maintainers</b> (<a href="/owasp/tracker.html#submissions">M03</a>, drafted, not sent): <em>We are proposing an OWASP project for Agent Behaviour Policies, a per-deployment record of what an agent can do, what it was authorised to do, and what stands in the way. ACS looks like the natural runtime barrier for many of its rows. Before we describe that relationship anywhere, could you tell us whether we have read ACS correctly, whether the Agent Bill of Materials could carry or derive an ABP grant, and whether you would review a small experiment that uses ACS to enforce one ABP restriction?</em></p>
+    <p class="ow-note"><b>A disclosure for the review.</b> ACS&rsquo;s creators are named in its governance file; one of them also sits on OWASP&rsquo;s Project Committee, which reviews new projects. That is a reason to raise the overlap ourselves, early, and in the application.</p>
+  </div>
+</section>
+
+<section class="psection">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">03 · The Agentic Top 10, against the model</span>
+      <h2>Ten risks, <span class="g">and which part of an ABP speaks to each.</span></h2>
+      <p>Titles only, from the December 2025 edition. The right-hand column is our reading of where the ABP model has something to say, and where it has nothing yet. Three items touch nothing in the grammar today; that is a finding about the grammar, said here rather than papered over.</p>
+    </div>
+    <div class="ow-t"><table>
+      <thead><tr><th scope="col">Id</th><th scope="col">Title</th><th scope="col">Where an ABP speaks to it (our reading)</th></tr></thead>
+      <tbody>
+        <tr><td class="id">ASI01</td><td>Agent Goal Hijack</td><td>A hijacked agent does what its grant allows. The <b>unbounded excess</b>, what it can reach, was not asked to and nothing stops, is the size of the problem when it happens</td></tr>
+        <tr><td class="id">ASI02</td><td>Tool Misuse and Exploitation</td><td>Every grant row is a tool path (<code>via</code>) with its barrier. Misuse is a row used outside the mandate; the barrier column says whether anything is in the way</td></tr>
+        <tr><td class="id">ASI03</td><td>Identity and Privilege Abuse</td><td><code>authenticate-as.credential.tenant</code>, <code>authenticate-as.credential.signing</code>, <code>grant.credential.self</code>, <code>read.credential.host</code>. The credential the agent holds is the grant, never a barrier</td></tr>
+        <tr><td class="id">ASI04</td><td>Agentic Supply Chain Vulnerabilities</td><td>Not in the grammar. The tools list records what is connected; nothing records where it came from. A candidate for the CycloneDX link</td></tr>
+        <tr><td class="id">ASI05</td><td>Unexpected Code Execution (RCE)</td><td><code>execute.process.host</code>, <code>execute.process.self</code>, <code>create.schedule.*</code>, with their undo class</td></tr>
+        <tr><td class="id">ASI06</td><td>Memory &amp; Context Poisoning</td><td>Not in the grammar. Memory as a thing written to and read back across sessions has no primitive yet</td></tr>
+        <tr><td class="id">ASI07</td><td>Insecure Inter-Agent Communication</td><td>Not in the grammar beyond <code>send.endpoint.*</code>. One agent delegating to another is an open modelling question</td></tr>
+        <tr><td class="id">ASI08</td><td>Cascading Failures</td><td>Reach (<code>tenant</code>, <code>world</code>) and the undo class say how far a step goes and whether it comes back; the graph work joins one agent&rsquo;s rows to the desks they reach</td></tr>
+        <tr><td class="id">ASI09</td><td>Human-Agent Trust Exploitation</td><td>The barrier kinds: an approval prompt the agent&rsquo;s own account can switch off is a <em>setting</em>, not a control. See <a href="/article-approval-prompts.html">An approval prompt is not a human in the loop</a></td></tr>
+        <tr><td class="id">ASI10</td><td>Rogue Agents</td><td>As ASI01: the delta and its unbounded part bound what a rogue agent can do, and only the fourth barrier changes that</td></tr>
+      </tbody></table></div>
+    <p class="ow-note">None of this mapping is in the template vaults yet; their standards graphs name ATT&amp;CK, the EU AI Act and GDPR. Adding the Agentic Top 10 and the LLM Top 10 by id and title is a step on <a href="/owasp/tracker.html">the tracker</a>.</p>
+  </div>
+</section>
+
+<section class="psection alt">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">04 · Every adjacent project</span>
+      <h2>What each is, <span class="g">and how an ABP would use it.</span></h2>
+      <p>Level and licence as OWASP&rsquo;s public project list and the project&rsquo;s own pages gave them on 8 October 2026. The last column is a proposal to each project&rsquo;s leaders, not something any of them has agreed to.</p>
+    </div>
+    <div class="ow-t"><table>
+      <thead><tr><th scope="col">Project</th><th scope="col">What it is</th><th scope="col">Level</th><th scope="col">Licence</th><th scope="col">How an ABP would use it</th></tr></thead>
+      <tbody>
+        <tr><td><a href="https://owaspai.org/">AI Exchange</a></td><td>An AI security guide of over 300 pages, with threats and controls</td><td>Flagship</td><td>CC0 1.0</td><td>Its control names as the vocabulary for barriers; CC0 lets template ABPs carry them</td></tr>
+        <tr><td><a href="https://github.com/OWASP/AISVS">AISVS</a></td><td>Verification requirements for AI systems, including a chapter on orchestration and agentic security and one on MCP</td><td>Incubator</td><td>CC BY-SA 4.0</td><td>A barrier row points at the requirement ids it bears on; ids only, never the text</td></tr>
+        <tr><td><a href="https://genai.owasp.org/llm-top-10/">LLM Top 10</a></td><td>Risk categories for LLM applications; LLM06 is Excessive Agency</td><td>within GenAI (Flagship)</td><td>CC BY-SA 4.0</td><td>The delta is a per-deployment instance of excessive agency</td></tr>
+        <tr><td><a href="https://owasp.org/www-project-non-human-identities-top-10/">Non-Human Identities Top 10</a></td><td>Risks of non-human identities, 2025; NHI5 is Overprivileged NHI</td><td>Incubator</td><td>not stated on the list</td><td>An agent&rsquo;s credentials are non-human identities; the excess is a measure of their overprivilege</td></tr>
+        <tr><td><a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/AI_Agent_Security_Cheat_Sheet.md">AI Agent Security Cheat Sheet</a></td><td>Guidance including tool security and least privilege, human-in-the-loop controls, multi-agent security</td><td>Cheat Sheet Series (Flagship)</td><td>CC BY-SA 4.0</td><td>Propose a section, or a sheet, on writing an agent&rsquo;s behaviour down; link both ways</td></tr>
+        <tr><td><a href="https://cyclonedx.org/">CycloneDX</a></td><td>Bill of materials standard (ECMA-424), including an ML-BOM; its Blueprints working group is developing a Bill of Behaviors</td><td>Flagship</td><td>Apache-2.0</td><td>Export the grant&rsquo;s tools, models and servers as a BOM; talk to the Blueprints group before either of us defines behaviour twice</td></tr>
+        <tr><td><a href="https://dependencytrack.org/">Dependency-Track</a></td><td>Component inventory and policy platform that reads CycloneDX</td><td>Flagship</td><td>Apache-2.0</td><td>Ingest an ABP-derived BOM; flag a component the mandate does not cover</td></tr>
+        <tr><td><a href="https://owasp.org/projects/threat-dragon">Threat Dragon</a> and <a href="https://github.com/OWASP/pytm">pytm</a></td><td>Threat-modelling tools: diagrams saved as JSON; threat models as Python</td><td>Production</td><td>Apache-2.0; MIT</td><td>The grant as assets and flows, the barriers as mitigations; generate a model from an ABP</td></tr>
+        <tr><td><a href="https://coraza.io/">Coraza</a> and <a href="https://coreruleset.org/">CRS</a></td><td>A web application firewall framework, and the rule set it runs</td><td>Production; Flagship</td><td>Apache-2.0</td><td>A fourth barrier on the HTTP tools an agent calls and on its egress; already a business case on this site</td></tr>
+        <tr><td><a href="https://opencre.org/">OpenCRE</a></td><td>A graph linking security standards by common requirement</td><td>Production</td><td>CC0 1.0</td><td>Give each barrier kind a CRE link, so an ABP connects to standards without quoting them</td></tr>
+        <tr><td><a href="https://owaspsamm.org/">SAMM</a> and <a href="https://owasp.org/projects/asvs">ASVS</a></td><td>A maturity model for the organisation; verification requirements for web applications</td><td>Flagship</td><td>CC BY-SA 4.0</td><td>An ABP as an artefact of threat assessment in SAMM; ASVS access-control requirements for tools that are web APIs. SAMM scores the organisation; an ABP carries no score</td></tr>
+        <tr><td><a href="https://owasp.org/projects/threat-modeling-project">Threat Modeling Project</a></td><td>Methods and the four-question frame</td><td>Lab</td><td>not stated on the list</td><td>The delta answers &ldquo;what can go wrong?&rdquo; for one agent, from evidence</td></tr>
+      </tbody></table></div>
+  </div>
+</section>
+
+<section class="psection">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">05 · The overlap check the form asks for</span>
+      <h2>Agent projects started at OWASP in 2025 and 2026, <span class="g">read before we apply.</span></h2>
+      <p>The application asks how the project meets a need no existing OWASP or open-source project meets. OWASP&rsquo;s project list on 8 October named, among others: the Agent Observability Standard, the Agent Skills Security Standard, the Agentic Skills Top 10, Agent Memory Guard, the MCP Top 10, the MCP Taxonomy, the MCP Verification Standard, and the MCP Governance and Risk Project.</p>
+    </div>
+    <p class="ow-note">We have read their names and levels, not their contents. Before the application goes, each gets a line: what it covers, whether it records a deployment&rsquo;s mandate or its delta, and what the ABP would cite from it. Our working answer to the form&rsquo;s question, to be tested against that reading: <b>none of the projects we have read so far writes down, for one deployment, what the agent was authorised to do next to what it can do, and derives the gap.</b> If one does, the right move is to contribute to it, and this page will say so.</p>
+  </div>
+</section>
+
+<section class="pcta">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> Next</span>
+    <h2>How other projects present themselves, <span class="it">and what we copy.</span></h2>
+    <p>Twelve OWASP projects read for how they work, and the patterns we take and avoid.</p>
+    <div class="cta-row"><a class="btn btn-green" href="/owasp/lessons.html">What other projects teach</a><a class="btn btn-ghost" href="/owasp-graph.html">OWASP, as a graph</a></div>
+  </div>
+</section>
+
+</div>

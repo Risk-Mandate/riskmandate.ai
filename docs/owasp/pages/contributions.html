@@ -1,0 +1,83 @@
+<main class="phero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> OWASP · What moves</span>
+    <h1>Eighty-two assets, <span class="it">each decided on its own row.</span></h1>
+    <p class="sub" style="margin-bottom:20px">The contribution inventory: everything RiskMandate and the sgit sites have published about the Agent Behaviour Policy, where it lives, what licence it says it carries, and whether we propose to contribute it, rewrite it first, defer it, or keep it out. A footer is not proof of rights, so every row is <em>unresolved</em> until somebody has checked it.</p>
+    <p class="meta"><!--owasp:asat--></p>
+    <p class="meta"><b>The file:</b> <a href="/owasp/contribution-inventory.csv">contribution-inventory.csv</a>, the source of the tables below. Read on 8 October 2026 from this repository and from the sgit sites with a plain HTTP fetch.</p>
+  </div>
+</main>
+
+<!--owasp:tabs-->
+
+<div class="paper">
+
+<section class="psection">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">01 · The count</span>
+      <h2>Four answers, <span class="g">and none of them is final.</span></h2>
+    </div>
+    <!--owasp:inventorycounts-->
+  </div>
+</section>
+
+<section class="psection alt">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">02 · What we learned making it</span>
+      <h2>The material to move <span class="g">is mostly on abp.sgit.ai.</span></h2>
+    </div>
+    <ul class="ow-list">
+      <li><b>The model lives at abp.sgit.ai, version 0.12.1.</b> Its vocabulary is one JSON pack at <a href="https://abp.sgit.ai/data/index.json">abp.sgit.ai/data/index.json</a>, stated CC BY 4.0: 23 capabilities, 4 barriers, 3 undo classes, 17 profiles, 16 mandates and 18 stored deltas. It has 81 model pages, a seven-part documentation pack including the hard rules and the measuring prompt, five worked examples and 23 version notes. That, not the copies in this repository, is what the project should start from.</li>
+      <li><b>The vaults here are pinned at 0.3.0</b>, copied on 15 September. They are the sixteen template examples. Every one is at status <em>template</em>; rows are measured on the thing itself in two (<code>claude-gmail-connector</code>, 4 of 6; <code>n8n-owner-api-key</code>, 7 of 8) and observed in two more (<code>claude-code-web</code>, <code>github-actions</code>). The rest are documented from vendor pages or derived.</li>
+      <li><b>There is no JSON Schema file.</b> <code>abp/profile/v1</code> and <code>abp/mandate/v1</code> exist as <code>type</code> values in the data. Writing the schemas is new work, and the first deliverable of the specification.</li>
+      <li><b>The delta build</b> in <code>scripts/site/build-abp-vault.mjs</code> recomputes the delta from the grant and the mandate and refuses to build if it disagrees with the published one. Its core is the reference tool; the licence assembly and the store and sgit coupling come out first.</li>
+      <li><b>There is no OWASP mapping in any vault.</b> The standards graphs in the vaults cover ATT&amp;CK, the EU AI Act and GDPR. The OWASP material that exists is on this site: <a href="/owasp-graph.html">OWASP, as a graph</a>, 181 nodes and 62 edges read from OWASP&rsquo;s pages on 24 September, already marked as offered to OWASP to take.</li>
+      <li><b>The &ldquo;stuff on sgit to move&rdquo;</b> the lead mentioned is the model, the data, the documentation pack and the examples on abp.sgit.ai. There is no <code>/owasp/</code> page there (it returns 404). risks.sgit.ai maps to SAMM, ASVS, WSTG and Threat Dragon, but it is a maturity scale with levels, so it stays out of a project that never scores.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="psection">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">03 · Rights, before anything moves</span>
+      <h2>What the licences say, <span class="g">and what they do not prove.</span></h2>
+    </div>
+    <div class="ow-t"><table>
+      <thead><tr><th scope="col">Finding</th><th scope="col">What it means</th><th scope="col">Who decides</th></tr></thead>
+      <tbody>
+        <tr><td>Code here is Apache-2.0, in the root <code>LICENSE</code></td><td>Acceptable to OWASP as it is</td><td>—</td></tr>
+        <tr><td>Pages and template ABPs say CC BY 4.0, in the footer and in each vault&rsquo;s generated <code>LICENCE.md</code>; abp.sgit.ai, risks.sgit.ai and standards.sgit.ai say the same</td><td>Acceptable to OWASP (a Creative Commons licence). But <b>no CC BY licence file exists in the repository</b>; one is added before transfer</td><td>The leads</td></tr>
+        <tr><td>Paid copies of a vault carry a commercial licence that names the copyright as RiskMandate&rsquo;s</td><td>The contribution needs the company&rsquo;s sign-off, not one person&rsquo;s. The commercial licence text itself stays out</td><td>RiskMandate, as a company</td></tr>
+        <tr><td>The n8n measurement was made by an early beta user&rsquo;s agent; three cases on abp.sgit.ai are real people&rsquo;s estates</td><td>Deferred until those people agree, in writing</td><td>The people concerned</td></tr>
+        <tr><td>The abp.sgit.ai source repository, <code>SGit-AI/SGit-AI__Website__ABP</code>, was not readable from this session</td><td>Its licence file is unchecked. A row from it stays unresolved until somebody reads it</td><td>The leads</td></tr>
+        <tr><td>Vendor marks in <code>logos.json</code>; vendors&rsquo; product names throughout</td><td>Logos stay out. Names stay, as facts, under rule five: no verdict on a named third party</td><td>—</td></tr>
+        <tr><td>Much of the text was drafted by agents</td><td>The brief&rsquo;s rule: do not assume agent-generated content is free of third-party material. Quotes are short and sourced by design; each moved document is read once more for that</td><td>The reviewer of each asset</td></tr>
+        <tr><td>OWASP projects often use CC BY-SA 4.0 for documents</td><td>CC BY 4.0 is permitted. Moving to BY-SA is a choice, not a requirement</td><td>The leads</td></tr>
+      </tbody></table></div>
+  </div>
+</section>
+
+<section class="psection alt">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">04 · Every asset</span>
+      <h2>The inventory, <span class="g">by proposed action.</span></h2>
+      <p>Ids: <code>A</code> abp.sgit.ai and the other sgit sites, <code>R</code> the schemas and vocabulary here, <code>V</code> the vaults, <code>S</code> scripts and tests, <code>D</code> documents, <code>P</code> pages, <code>O</code> OWASP material already here, <code>X</code> what stays with RiskMandate.</p>
+    </div>
+    <!--owasp:inventory-->
+  </div>
+</section>
+
+<section class="pcta">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> Next</span>
+    <h2>What it plugs into, <span class="it">across OWASP.</span></h2>
+    <p>The projects a behaviour policy points at, and the ones that point back: as risks, as controls, and as formats.</p>
+    <div class="cta-row"><a class="btn btn-green" href="/owasp/ecosystem.html">The other OWASP projects</a><a class="btn btn-ghost" href="/owasp/contribution-inventory.csv">The CSV</a></div>
+  </div>
+</section>
+
+</div>

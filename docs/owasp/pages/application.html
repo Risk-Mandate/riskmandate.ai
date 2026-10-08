@@ -1,0 +1,178 @@
+<main class="phero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> OWASP · The application</span>
+    <h1>What OWASP asks, <span class="it">and what we would answer.</span></h1>
+    <p class="sub" style="margin-bottom:20px">The new-project process as OWASP&rsquo;s own pages describe it, the fields of the request with the answers we propose, the two homes the project could have, the email we would send first, a first-year roadmap and the repository we would set up. All of it is a draft for the leads to approve, line by line, before anything is sent.</p>
+    <p class="meta"><!--owasp:asat--></p>
+    <p class="meta"><b>Status:</b> nothing submitted. The request form sits behind an OWASP service-desk login, so its fields are taken from OWASP&rsquo;s guide, not from the form itself.</p>
+  </div>
+</main>
+
+<!--owasp:tabs-->
+
+<div class="paper">
+
+<section class="psection">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">01 · The process</span>
+      <h2>Seven things before the form, <span class="g">one form, and thirty days after.</span></h2>
+      <p>From OWASP&rsquo;s support guide <a href="https://support.docs.owasp.org/wiki/spaces/OSD/pages/478445603/How+to+create+a+project">How to create a project</a> (last updated 22 September 2026) and the <a href="https://owasp.org/policy/project">Project Policy</a> (adopted 28 September 2021), both read on 8 October 2026.</p>
+    </div>
+    <div class="ow-t"><table>
+      <thead><tr><th scope="col">Stage</th><th scope="col">What OWASP asks</th><th scope="col">Where we are</th></tr></thead>
+      <tbody>
+        <tr><td>Before</td><td>Two to five leaders, all OWASP members, each with a GitHub account</td><td>Two named, membership as the lead stated it, not yet checked; a third sought</td></tr>
+        <tr><td>Before</td><td>Read and acknowledge the Project Policy</td><td>Read; summarised on <a href="/owasp/riskmandate.html">RiskMandate and the project</a></td></tr>
+        <tr><td>Before</td><td>Choose a licence: an OSI licence for code, Creative Commons (or a standards body&rsquo;s open licence) for documentation; the DCO for contributions</td><td>Apache-2.0 and CC BY 4.0 proposed; CC BY-SA 4.0 an open question</td></tr>
+        <tr><td>Before</td><td>Classify: Code or Documentation; Breaker, Builder or Defender</td><td>Documentation; Builder</td></tr>
+        <tr><td>Before</td><td>Check the name against OWASP&rsquo;s projects and GitHub; say how the project meets a need no existing project meets</td><td>Name open; the overlap reading is on <a href="/owasp/ecosystem.html">The other OWASP projects</a></td></tr>
+        <tr><td>Before</td><td>Draft the problem, innovation, purpose, deliverables and a first-year roadmap</td><td>Drafted below</td></tr>
+        <tr><td>Submit</td><td>The New Project Request in OWASP&rsquo;s service desk. OWASP replies within one business day; the Project Committee reviews and asks about scope, overlap and roadmap; a decision normally takes a few weeks</td><td>Not submitted</td></tr>
+        <tr><td>After</td><td>OWASP gives admin access to a new repository in its GitHub organisation and an invitation to manage the project&rsquo;s page on owasp.org. Leaders create the page within 30 days, list every leader with an owasp.org email, add the licence, enable the DCO check, publish a roadmap</td><td>—</td></tr>
+      </tbody></table></div>
+    <p class="ow-note"><b>Two things OWASP&rsquo;s own pages disagree on, published as they stand.</b> The Project Policy&rsquo;s link to the request form and the guide&rsquo;s link point at different service-desk forms; the guide is the newer page, so we would use its link and ask. And owasp.org moved to a new site in September 2026: project pages now live at <code>owasp.org/projects/&lt;slug&gt;</code> and are edited in an admin portal, while the draft Project Handbook still describes the older <code>www-project-&lt;name&gt;</code> repository. Which one a new project gets is not stated; it is a question in the email.</p>
+  </div>
+</section>
+
+<section class="psection alt" id="form">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">02 · The request, field by field</span>
+      <h2>Sixteen fields, <span class="g">our proposed answers.</span></h2>
+      <p>The field list follows the guide&rsquo;s steps. Where we do not have an answer, the field says so; a leader&rsquo;s details are never filled in for them.</p>
+    </div>
+    <div class="ow-form">
+      <div class="ow-f"><div>Summary</div><div>New project request: OWASP Agent Behaviour Policies, an open format and method for recording what an AI agent in a given deployment can do, what it was authorised to do, and what stands in the way.</div></div>
+      <div class="ow-f"><div>Project name<span class="src">open question Q1</span></div><div><p>OWASP Agent Behaviour Policies (ABP).</p><p>Two things to settle first. The lead&rsquo;s voice note says <em>application</em> behaviour policies. And the Project Committee&rsquo;s good practices ask that a name not be easily confused with a company&rsquo;s commercial service, while RiskMandate sells reviewed Agent Behaviour Policies today. Either the project keeps the name and RiskMandate renames what it sells, or the project takes a name of its own. The leads decide before the form goes.</p></div></div>
+      <div class="ow-f"><div>Category</div><div>Documentation Project, with a reference tool. If the committee prefers the format and the tool as separate projects, as with CycloneDX and Dependency-Track, we would split them.</div></div>
+      <div class="ow-f"><div>Classification</div><div>Builder. The ABP is written by the people who deploy an agent and read by those who defend it; Builder is the best single fit, Defender the second.</div></div>
+      <div class="ow-f"><div>Licence</div><div>Apache-2.0 for code and schemas; CC BY 4.0 for the specification and template ABPs, as published today (or CC BY-SA 4.0 if the leads choose it, as ACS and the GenAI Security Project use for prose).</div></div>
+      <div class="ow-f"><div>Leaders&rsquo; names</div><div>Dinis Cruz; Nimay Parekh; a third leader from outside RiskMandate, if found before submission.</div></div>
+      <div class="ow-f"><div>Leaders&rsquo; GitHub usernames</div><div><em>Each leader supplies their own.</em></div></div>
+      <div class="ow-f"><div>Leaders&rsquo; owasp.org emails</div><div><em>Each leader supplies their own.</em></div></div>
+      <div class="ow-f"><div>All leaders are members</div><div><em>To confirm against OWASP&rsquo;s records before ticking</em> (step S12).</div></div>
+      <div class="ow-f"><div>Problem statement</div><div><p>AI agents are deployed with credentials, tools and a place to run, and together these decide what an agent can do. That is rarely written down, and what the agent was authorised to do usually is not written down either. So nobody can say, for a given deployment, which capabilities are outside what was asked for, or whether anything other than a sentence in a prompt stands in the way. Risk lists such as the Agentic Top 10 and the LLM Top 10&rsquo;s Excessive Agency describe the risk in general; there is no open, shared format for recording it for one agent in one deployment.</p></div></div>
+      <div class="ow-f"><div>Innovation statement</div><div><p>Three things, together. A grammar of capability primitives (<code>verb.object.reach</code>) in which a measured grant and a written mandate can be compared. A delta derived by a build anybody can rerun, never written by hand. And a barrier recorded on every row with one test: a control bounds a capability only if something the agent&rsquo;s own grant does not include enforces it. The record carries no score, which is what lets a vendor, a buyer, a reviewer and an insurer all use the same one.</p></div></div>
+      <div class="ow-f"><div>Purpose</div><div><p>Give security teams, agent developers and reviewers a vendor-neutral, machine-readable way to write down what an agent can do, what it was authorised to do, the gap, and what stands in the way, with evidence on every row; and give the builders of controls (OWASP&rsquo;s among them) a grammar in which to say which rows their control bounds.</p></div></div>
+      <div class="ow-f"><div>Deliverables</div><div><p>A specification (objects, grammar, barriers, evidence tiers, delta, lifecycle, limitations); JSON Schemas for the grant, the mandate and the delta; a reference build and validator; template ABPs for common deployment shapes, at least three rebuilt by a reviewer outside the leaders&rsquo; company; the measuring prompt with its rules; mappings by id and title to the Agentic Top 10, the LLM Top 10, AISVS and the Agent Control Standard.</p></div></div>
+      <div class="ow-f"><div>First-year roadmap</div><div>See <a href="#roadmap">section 05</a>.</div></div>
+      <div class="ow-f"><div>Anything else</div><div><p><b>Disclosure.</b> Both proposed leaders are co-founders of RiskMandate, which originated the model, publishes it under open licences, and sells services built on it. The project would be useful without RiskMandate; RiskMandate would be one adopter among any number, sponsoring only through the Foundation. We are seeking a third leader from outside the company. We have read the Agent Control Standard and will raise the overlap with its maintainers before and during review.</p><p><b>Questions.</b> Which request form is current? Will the project get a <code>www-project</code> repository or a page in the new admin portal? Would the committee prefer this to start as an initiative of the GenAI Security Project?</p></div></div>
+      <div class="ow-f"><div>Acknowledgement</div><div>The Project Policy and procedures: to tick, after the leads have read them in full.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="psection" id="home">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">03 · Where the project lives</span>
+      <h2>Standalone, inside GenAI, <span class="g">or standalone with a line to it.</span></h2>
+      <p>Both routes exist. A standalone project is approved by OWASP&rsquo;s Project Committee under the Project Policy. An initiative inside the GenAI Security Project is proposed on its one- or two-page template, reviewed by its core team for up to four weeks and voted in by its core team and board over 72 hours. Several standalone agent projects were created at OWASP in 2025 and 2026.</p>
+    </div>
+    <div class="ow-t"><table>
+      <thead><tr><th scope="col">Home</th><th scope="col">What it gives</th><th scope="col">What it costs</th></tr></thead>
+      <tbody>
+        <tr><td>Standalone Incubator project</td><td>Its own page, level, promotion path and leaders under the Foundation&rsquo;s rules; the DCO; a home that is neutral between the GenAI work and everything else (ASVS, CycloneDX, Threat Dragon)</td><td>Starts at Incubator with nobody&rsquo;s audience but its own; visibility is the leaders&rsquo; job</td></tr>
+        <tr><td>Initiative of the GenAI Security Project</td><td>Its audience and its community; next to ACS and the Agentic Top 10, where the overlap is easiest to work out</td><td>Its governance, which its board may revise; fortnightly reporting; no page or level of its own on owasp.org (ACS has none)</td></tr>
+        <tr><td><b>Standalone, with a formal line to the Agentic Security Initiative</b></td><td>Both: a neutral home, and a named liaison with ACS and the Agentic Top 10 for the mappings</td><td>Two communities to keep informed</td></tr>
+      </tbody></table></div>
+    <p class="ow-note"><b>Our proposal is the third</b>, and we would ask before deciding: the first email goes to the Project Committee and to the Agentic Security Initiative&rsquo;s leads together, so that neither hears about it second. If both prefer the initiative route, we take it.</p>
+  </div>
+</section>
+
+<section class="psection alt" id="email">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">04 · The first email</span>
+      <h2>Drafted, <span class="g">not sent.</span></h2>
+      <p>Submission M01 on <a href="/owasp/tracker.html#submissions">the tracker</a>. Recipients: the Project Committee&rsquo;s group address, published on <a href="https://owasp.org/groups/project-committee">its page</a>; the Agentic Security Initiative&rsquo;s co-leads, through the initiative&rsquo;s channel on <a href="https://genai.owasp.org/initiatives/agentic-security-initiative/">its page</a>. The leads approve the text and the recipients (gate G3) before it goes.</p>
+    </div>
+    <pre class="ow-pre">Subject: Proposed OWASP project: Agent Behaviour Policies — which home fits?
+
+Hello,
+
+We would like to propose a new OWASP project, Agent Behaviour Policies, and
+before we file the request we would value a view on where it should live.
+
+An Agent Behaviour Policy is a written record, for one AI agent in one
+deployment, of what it can do (measured from the deployment, in a grammar of
+capability primitives), what it was authorised to do, the gap between the two
+(derived, never written by hand), and what stands in the way of each capability,
+with one test: a control bounds a capability only if something the agent's own
+grant does not include enforces it. It carries no score.
+
+The method, sixteen template examples and the build are already published under
+CC BY 4.0 and Apache-2.0. The proposal, the draft charter, the contribution
+inventory and the overlap reading we have done against the Agent Control
+Standard and the Agentic Top 10 are public at https://riskmandate.ai/owasp/
+
+A disclosure: both of us are co-founders of RiskMandate, which originated the
+model and sells services built on it. We want the project to be useful without
+RiskMandate, and we are looking for a third leader from outside the company.
+
+Three questions:
+1. Would you see this as a standalone project, or as an initiative of the
+   GenAI Security Project, next to ACS?
+2. Which New Project Request form is current?
+3. Is there anything already under way at OWASP that this should join instead?
+
+Thank you,
+Dinis Cruz and Nimay Parekh</pre>
+  </div>
+</section>
+
+<section class="psection" id="roadmap">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">05 · The first year</span>
+      <h2>A roadmap with owners, <span class="g">and no promise of promotion.</span></h2>
+      <p>Planning targets, not commitments to OWASP. Months count from acceptance.</p>
+    </div>
+    <div class="ow-t"><table>
+      <thead><tr><th scope="col">Months</th><th scope="col">Deliverables</th><th scope="col">Owner</th></tr></thead>
+      <tbody>
+        <tr><td>1&ndash;3 · the foundation</td><td>Rights settled and the approved assets moved with their provenance; the project page and repository; governance, contribution and security-reporting files; the specification draft and terminology; JSON Schemas v0.1; three template ABPs with their inputs; a limitations document; an open call for critique</td><td>The leads</td></tr>
+        <tr><td>4&ndash;6 · reproducible</td><td>The reference build and validator with fixtures; the delta&rsquo;s computation and what it does not detect, written down; evidence and reassessment rules; the ACS experiment; Agentic Top 10 and LLM Top 10 mappings in the templates</td><td>The leads, and the first outside contributors</td></tr>
+        <tr><td>7&ndash;9 · reviewed by others</td><td>Reviewers outside RiskMandate; examples tested on two materially different deployment patterns; adversarial and failure cases; decisions and incompatible assumptions tracked in public</td><td>The third leader, and reviewers</td></tr>
+        <tr><td>10&ndash;12 · a release</td><td>A reviewed release with changelog and status label; implementation experience; a governance review including how much of the work came from RiskMandate; the case for Lab, made only if the committee&rsquo;s criteria are met</td><td>The leads</td></tr>
+      </tbody></table></div>
+  </div>
+</section>
+
+<section class="psection alt" id="repo">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">06 · The repository</span>
+      <h2>Proposed tree, <span class="g">created only after acceptance.</span></h2>
+      <p>From the initiation brief, with what the other projects taught us added: a <code>project.owasp.yaml</code> for OWASP&rsquo;s project index (ACS carries one), a history file, and a governance file that names the sponsor and the exit path. No staging repository has been created; when one is, it will not be called an OWASP project.</p>
+    </div>
+    <pre class="ow-pre">README.md                 what it is, try it in sixty seconds, status of every edition
+LICENSE  LICENSING.md     Apache-2.0 for code and schemas; CC BY 4.0 (or BY-SA) for documents
+CONTRIBUTING.md           the DCO; the house rules: no score, no verdict, no conformity language
+GOVERNANCE.md             leaders, decisions, the sponsor, what it may and may not do, the exit path
+SECURITY.md               a reviewed draft until the leads approve the channel
+HISTORY.md                one dated origin sentence: what RiskMandate contributed, when, under which licence
+project.owasp.yaml        name, pitch, level 2 (Incubator), type documentation, audience builder, leaders, licence
+specification/            overview, terminology, deployment, capability, mandate, delta, barriers and evidence,
+                          lifecycle, limitations
+schemas/                  grant, mandate, delta (JSON Schema, versioned)
+vocabulary/               the primitives, barriers, undo classes, evidence tiers (version-pinned ids)
+examples/                 template ABPs: inputs, derived outputs, sources, open questions
+tools/                    the reference build and validator
+tests/                    fixtures; every example's delta must equal its recomputation
+mappings/                 agentic-top-10, llm-top-10, aisvs, acs, cyclonedx, opencre (ids and titles only)
+roadmap/first-year.md</pre>
+  </div>
+</section>
+
+<section class="pcta">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> Next</span>
+    <h2>Where every step <span class="it">stands today.</span></h2>
+    <p>The gates, the steps, the submissions and the people, from the record.</p>
+    <div class="cta-row"><a class="btn btn-green" href="/owasp/tracker.html">The tracker</a><a class="btn btn-ghost" href="/owasp/charter.html">The charter</a></div>
+  </div>
+</section>
+
+</div>

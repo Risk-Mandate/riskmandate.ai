@@ -5,13 +5,21 @@
 
 **2**received, nothing built yet*Archived and read, and nothing has been built from it yet.*
 
-**30**partly worked*read in full; a named part is not built*
+**32**partly worked*read in full; a named part is not built*
 
 **8**processed*something on the site exists because of it*
 
 **0**superseded*kept because the reasoning is the record*
 
 The queue. A document or a memo from the project lead arrives — a dev brief as a file, a voice memo as a transcript, an instruction in the thread — and is archived exactly as received: files by SHA-256 in [the register](../../briefs-register.json), so an identical file arriving again is recognised before anybody reads it; speech and chat as an entry with no digest. Then it is read into [a brief](../../admin/briefs/), and the brief is broken into [units of work](../../admin/work/). What was said and what we made of it are kept apart on purpose.
+
+**[Propose the Agent Behaviour Policies to OWASP, with RiskMandate as sponsor: a top-level OWASP section holding every material, form, submission, status and repository, the people to talk to, the line between the company and the project, research on popular OWASP projects, and the integration with other OWASP projects](#D30)**
+
+spoken brief, transcribed · 3 produced · 5 not done8 October 2026 · partly
+
+**[RiskMandate → OWASP Agent Behaviour Policies: an internal initiation brief for the agentic team — charter, contribution boundary, inventory and rights review, technical scope, ACS assessment, workstreams, roadmap and five approval gates](#D31)**
+
+brief, written with Perplexity · 4 produced · 4 not done8 October 2026 · partly
 
 **[Stories: a cast of characters, storyboards written before anything is drawn, the workflow from narrative to image model, and the first examples on the site, to move to stories.sgit.ai later](#D29)**
 
@@ -192,6 +200,41 @@ Task briefs under `.claude/briefs/`, each sized for one agent and naming the fil
 The row moves on [the board](../../admin/work/); the register's *status* and *not done* say what the memo still owes.
 
 ## What happened to each of them
+
+D30 · spoken brief, transcribed · 8 October 2026
+
+## Propose the Agent Behaviour Policies to OWASP, with RiskMandate as sponsor: a top-level OWASP section holding every material, form, submission, status and repository, the people to talk to, the line between the company and the project, research on popular OWASP projects, and the integration with other OWASP projects
+
+partly
+
+[the file as received](../../assets/briefs/2026-10-08__transcript__owasp-agent-behaviour-policies.txt) · `b3446c56106b…` · 4 KB
+
+**Produced.** [The OWASP section, top-level in the menu: the overview, the charter, RiskMandate and the project, what moves, the other OWASP projects, what popular projects teach, the application and the tracker, rendered from one record](../../owasp/index.html) · [The record behind it: gates, steps, submissions, people, places, decisions, open questions and a log, as data that can move to the project's repository unchanged](../../owasp/project.json) · [The contribution inventory: 82 assets with source, licence, proposed action, coupling and rights status](../../owasp/contribution-inventory.csv)
+
+**Not done.**
+
+- Nothing has been sent to OWASP. The application, the emails and the repository are drafted and wait on the leads.
+- The third leader from outside RiskMandate is not found.
+- Leadership eligibility is as the lead stated it, not checked against OWASP's membership records.
+- The specification, the JSON Schemas and the reference tool are not written; they are the project's first deliverables.
+- The name: the note says 'OWASP application behavior policies'; the section uses Agent Behaviour Policies, the name in the brief, until the lead says otherwise.
+
+D31 · brief, written with Perplexity · 8 October 2026
+
+## RiskMandate → OWASP Agent Behaviour Policies: an internal initiation brief for the agentic team — charter, contribution boundary, inventory and rights review, technical scope, ACS assessment, workstreams, roadmap and five approval gates
+
+partly
+
+[the file as received](../../assets/briefs/2026-10-08__perplexity-brief__riskmandate-to-owasp-agent-behaviour-policies.md) · `be63bf164f8e…` · 21 KB
+
+**Produced.** [The charter: mission, objectives, users, deliverables, non-goals, classification, and the semantic questions the brief raised](../../owasp/charter.html) · [The contribution boundary and the conflict-of-interest approach, against OWASP's Project Policy](../../owasp/riskmandate.html) · [The inventory the brief specified, as a CSV with rights status per asset](../../owasp/contribution-inventory.csv) · [The five gates, the steps, and the application pack with its first-year roadmap](../../owasp/tracker.html)
+
+**Not done.**
+
+- The overlap matrix with ACS is a first reading of public pages; ACS's implementation claims are not re-checked at commit level, so none is repeated.
+- The candidate integration experiment (one synthetic deployment, one restriction, ACS as the enforcement) is a step, not done.
+- The grant-versus-reach naming and the barrier model are open questions on the charter, not decisions.
+- The staging repository tree is proposed, not created.
 
 D29 · spoken brief, transcribed, with three drawn pieces · 26 September 2026
 

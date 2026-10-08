@@ -3,65 +3,69 @@
 > The operations console behind riskmandate.ai: what needs the lead, what is in flight, every memo and brief, the board, the vaults, the records and the tooling — every count read off a file in the repository.
 > Source: https://riskmandate.ai/admin/ · noindex · written by scripts/site/build-admin.mjs
 
-**8**need the lead*0 queue rows, 8 decisions*
+**9**need the lead*0 queue rows, 9 decisions*
 
 **0**waiting on somebody outside*the store's agent, the model site*
 
-**0**branches in flight*one work file each*
+**1**branches in flight*one work file each*
 
 **4**open tasks*of 4 in the queue · 0 done*
 
-**32**memos not fully worked*of 40 received*
+**34**memos not fully worked*of 42 received*
 
-**35**briefs written here*one page each*
+**36**briefs written here*one page each*
 
 **16**vaults built and pushed*4 measured · 9 asked for*
 
 **140**releases*8 Lab editions*
 
-## Needs the lead — 8
+## Needs the lead — 9
 
 The only filled rank on this console: a decision, a credential or a call nobody else holds. Read off [the state file](../admin/agents/03-state-and-next/).
 
-**From the rules brief of 7 October: where the path loses most people (it orders R1–R4); who the early**
+**The OWASP move** (8 Oct, D30/D31; `site/owasp/`, record `site/owasp/project.json`): the name (Agent Behaviour
 
 a decision the lead owns, openD1
 
-***Behaviour* or *behavior* on the mark (the site is British; the recommendation is *behaviour*).**
+**From the rules brief of 7 October: where the path loses most people (it orders R1–R4); who the early**
 
 a decision the lead owns, openD2
 
-**The Licence to Operate referent (organisation / instrument / licensee) is adopted on the site**
+***Behaviour* or *behavior* on the mark (the site is British; the recommendation is *behaviour*).**
 
 a decision the lead owns, openD3
 
-**Publish the n8n write-up and its author, or not.**
+**The Licence to Operate referent (organisation / instrument / licensee) is adopted on the site**
 
 a decision the lead owns, openD4
 
-**Extend the measuring environment's gateway rule to MCP-tunnelled requests (the deployer's).**
+**Publish the n8n write-up and its author, or not.**
 
 a decision the lead owns, openD5
 
-**The return address for the level-3 files (a mailbox today; a write-only vault link when it exists).**
+**Extend the measuring environment's gateway rule to MCP-tunnelled requests (the deployer's).**
 
 a decision the lead owns, openD6
 
-**Who the reviewing person is at level 3, and whether the Voice Debrief vaults publish the routing service's providers by name.**
+**The return address for the level-3 files (a mailbox today; a write-only vault link when it exists).**
 
 a decision the lead owns, openD7
 
-**Which agent branches merge next, and in what order (see `.claude/work/`).**
+**Who the reviewing person is at level 3, and whether the Voice Debrief vaults publish the routing service's providers by name.**
 
 a decision the lead owns, openD8
 
-## In flight — 0 branches
+**Which agent branches merge next, and in what order (see `.claude/work/`).**
+
+a decision the lead owns, openD9
+
+## In flight — 1 branch
 
 One file per branch under `.claude/work/`, written before the work starts and deleted when it merges. Read every one before claiming a task.
 
-**Nothing in flight.**
+**[claude/owasp-abp-project](../admin/work/branches/claude-owasp-abp-project/)**
 
-No work file under .claude/work/.
+A new top-level section, **OWASP**, at `site/owasp/`: the proposal to take the Agent Behaviour Policies to OWASP as an OWASP project, kept in public. Overview, charter (mission, objectives, scope, non-goals), the line between RiskMandate and the project, the application pack (process, form answers, leaders, roadmap), the tracker (gates, steps, submissions, people, decisions, log), the contribution inventory, the other OWASP projects it works with, and what popular OWASP projects teach. The record is `site/owasp/project.json`; the pages are built by `scripts/site/build-owasp.mjs` from `docs/owasp/pages/*.html`. Nothing is sent to OWASP from this branch: no outreach, no form, no repository created. since 8 October 2026
 
 ## How work gets here
 

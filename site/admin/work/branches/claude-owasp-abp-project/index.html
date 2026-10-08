@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>claude/owasp-abp-project · RiskMandate admin</title>
+<meta name="description" content=".claude/work/claude-owasp-abp-project.md, rendered as a console page.">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://riskmandate.ai/admin/work/branches/claude-owasp-abp-project/">
+<link rel="alternate" type="text/markdown" href="index.md" title="This page as markdown">
+<link rel="icon" href="../../../../assets/brand/riskmandate-favicon-32.png" sizes="32x32">
+<link rel="icon" href="../../../../assets/brand/riskmandate-mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../../../admin/console.css">
+<!-- Written by scripts/site/build-admin.mjs from the files it names. Do not edit: rerun the script. -->
+</head>
+<body class="console">
+<div class="c-strip"><div class="row"><b>riskmandate.ai</b><span class="c-sep">/</span><a href="../../../../admin/">admin</a><span class="c-sep">·</span><a href="../../../../">the site</a><span class="c-sep">·</span><a href="../../../../agent-behaviour-policy.html">the library</a><span class="c-sep">·</span><a href="index.md">this page as markdown</a><span class="c-noindex">noindex · not in the sitemap</span></div></div>
+<div class="c-disc"><div class="row">Written by the agents that maintain this site and read by a person before it merges. Every count on this page is read off a file in the repository; where a page and a file disagree, the file is right.</div></div>
+<div class="shell">
+<nav class="rail" aria-label="Console">
+    <a class="rail__brand" href="../../../../admin/"><b>Risk<i>Mandate</i></b><span>admin console · <span data-version>v…</span></span></a>
+    <div class="rail__group"><h3>Where it stands</h3><a class="nav" href="../../../../admin/">The console</a><a class="nav" href="../../../../admin/work/#lead">Needs the lead<span class="count r1">9</span></a><a class="nav" href="../../../../admin/agents/03-state-and-next/">State and next</a><a class="nav" href="../../../../admin/vaults/">The vaults<span class="count">16</span></a><a class="nav" href="../../../../synthetic-users.html">How the site reads <span class="out">↗</span></a></div>
+    <div class="rail__group"><h3>The work</h3><a class="nav" href="../../../../admin/work/">The board<span class="count">4</span></a><a class="nav" href="../../../../admin/work/#branches">In flight<span class="count">1</span></a><a class="nav" href="../../../../admin/memos/">The memo queue<span class="count">34</span></a><a class="nav" href="../../../../admin/briefs/">Briefs written here<span class="count">36</span></a></div>
+    <div class="rail__group"><h3>For agents</h3><a class="nav" href="../../../../admin/agents/">The front door</a><a class="nav" href="../../../../admin/agents/claude-md/">CLAUDE.md</a><a class="nav" href="../../../../admin/agents/04-rules-of-engagement/">Rules of engagement</a><a class="nav" href="../../../../admin/agents/05-workflows/">Workflows</a><a class="nav" href="../../../../admin/agents/01-map/">The map</a></div>
+    <div class="rail__group"><h3>The record</h3><a class="nav" href="../../../../admin/records/">The records</a><a class="nav" href="../../../../admin/tooling/">Tooling and the gate</a><a class="nav" href="../../../../versions.html">Versions <span class="out">↗</span></a><a class="nav" href="../../../../briefs.html">Brief register <span class="out">↗</span></a><a class="nav" href="../../../../agent-behaviour-policy.html">The library <span class="out">↗</span></a><a class="nav" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener">The repository <span class="out">↗</span></a></div>
+    <p class="rail__note"><b>Public, and not advertised.</b> Every page here is noindex, out of <code>sitemap.xml</code> and out of <code>llms.txt</code>. Anybody handed the address reads every word. <a href="../../../../">Back to the site</a>.</p>
+  </nav>
+<main class="main">
+<p class="crumb"><a href="../../../../admin/">admin</a> / <a href="../../../../admin/work/">work</a> / work/claude-owasp-abp-project.md</p>
+<div class="page-head"><div><h1>claude/owasp-abp-project</h1><p>A work file: one branch, in flight, dated 8 October 2026. The source is <a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/.claude/work/claude-owasp-abp-project.md" target="_blank" rel="noopener"><code>.claude/work/claude-owasp-abp-project.md</code></a>; this page is that file, rendered.</p></div></div>
+<article class="doc"><p><strong>Started:</strong> 2026-10-08 · <strong>Agent session:</strong> <a href="https://claude.ai/code/session_018R43mqYaeLXPg2E3DsbSiB" target="_blank" rel="noopener">https://claude.ai/code/session_018R43mqYaeLXPg2E3DsbSiB</a> · <strong>Task brief:</strong> ad hoc — the lead's voice note and the Perplexity initiation brief of 8 Oct 2026 (D30, D31)</p>
+<h2 id="scope">Scope</h2>
+<p>A new top-level section, <strong>OWASP</strong>, at <code>site/owasp/</code>: the proposal to take the Agent Behaviour Policies to OWASP as an OWASP project, kept in public. Overview, charter (mission, objectives, scope, non-goals), the line between RiskMandate and the project, the application pack (process, form answers, leaders, roadmap), the tracker (gates, steps, submissions, people, decisions, log), the contribution inventory, the other OWASP projects it works with, and what popular OWASP projects teach. The record is <code>site/owasp/project.json</code>; the pages are built by <code>scripts/site/build-owasp.mjs</code> from <code>docs/owasp/pages/*.html</code>. Nothing is sent to OWASP from this branch: no outreach, no form, no repository created.</p>
+<h2 id="files-and-surfaces-i-expect-to-touch">Files and surfaces I expect to touch</h2>
+<ul><li><code>site/owasp/**</code> (new), <code>docs/owasp/pages/*.html</code> (new), <code>scripts/site/build-owasp.mjs</code> (new)</li><li><code>site/pages.json</code> — <strong>the menu</strong>: OWASP becomes a top-level entry; <em>Try it</em> moves into <em>Behaviour policies</em> to stay at seven</li><li><code>package.json</code> — <code>build-owasp.mjs --check</code> in <code>npm run check</code></li><li><code>site/briefs-register.json</code>, <code>site/briefs.html</code>, <code>site/assets/briefs/</code> — D30 and D31</li><li><code>docs/briefs/direction__owasp-agent-behaviour-policies.md</code> (new)</li><li><code>.claude/onboarding/01-map.md</code>, <code>03-state-and-next.md</code></li></ul>
+<h2 id="external-state">External state</h2>
+<ul><li>Vaults built and unpushed: none</li><li>Lab editions I will cut: none</li><li>Release I will claim at merge: yes, a patch</li><li>Nothing sent to OWASP, nobody emailed, no repository created. Every external step is in the tracker as <em>to do</em>, waiting on the lead.</li></ul>
+<h2 id="status">Status</h2>
+<ul><li>[ ] research: OWASP process and people, exemplar projects, our own inventory</li><li>[ ] the section, the builder, the record</li><li>[ ] register D30, D31; the direction brief</li><li>[ ] check, release, merge</li></ul>
+<h2 id="notes-for-whoever-merges-after-me">Notes for whoever merges after me</h2>
+<p>The menu change touches every page through generate.mjs. Merge dev before continuing if you are on a sibling branch.</p></article>
+<div class="c-foot"><b>An operations surface</b> for the people and agents building this site, public because every page here is. It is not a selling page and nothing on it is for sale. <a href="../../../../">The site</a> · <a href="../../../../agent-behaviour-policy.html">the library</a> · <a href="../../../../versions.html">every release</a> · <a href="https://github.com/Risk-Mandate/riskmandate.ai/tree/dev/">the repository</a> · <a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/scripts/site/build-admin.mjs">the script that wrote this page</a>.</div>
+</main>
+</div>
+<script>
+(function(){var el=document.querySelector('[data-version]');if(!el)return;fetch('../../../../versions/index.json',{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){el.textContent='v'+j.latest}).catch(function(){el.textContent='';});})();
+</script>
+</body>
+</html>

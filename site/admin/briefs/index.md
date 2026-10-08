@@ -3,9 +3,9 @@
 > Every document under docs/ on riskmandate.ai, rendered as a page: direction briefs, reviews, workflows, architecture and research, newest first.
 > Source: https://riskmandate.ai/admin/briefs/ · noindex · written by scripts/site/build-admin.mjs
 
-**35**documents under docs/*one page each, rendered from the file*
+**36**documents under docs/*one page each, rendered from the file*
 
-**9**direction briefs*the product and the site*
+**10**direction briefs*the product and the site*
 
 **4**reviews*read against a named source*
 
@@ -14,6 +14,8 @@
 These were written here, by the agent maintaining the site, in response to [the memos and documents that arrived](../../admin/memos/). Each is read against a named source and dated. Add a file under `docs/` and rerun `build-admin.mjs`: it has a page here and a test fails until it does.
 
 ## Newest first
+
+**[The Agent Behaviour Policy goes to OWASP, and RiskMandate becomes its sponsor](../../admin/briefs/direction__owasp-agent-behaviour-policies/)**8 October 2026 · direction
 
 **[One rule a stranger can paste is the way in, and a page per rule is how the path gets mended](../../admin/briefs/direction__one-rule-a-stranger-can-paste-is-the-way-in/)**
 
@@ -156,6 +158,8 @@ Move the interactive Risk Scenarios experience to the decoupled model:4 July 202
 How a page is put together, what happens when the browser loads one, and where each thing lives. Current as of v1.0.0; see the addendum below for what has been added since, and .claude/onboarding/01-map.md for the current map.
 
 ## Direction · where the site and the product are going, and why
+
+**[The Agent Behaviour Policy goes to OWASP, and RiskMandate becomes its sponsor](../../admin/briefs/direction__owasp-agent-behaviour-policies/)**8 October 2026 · direction
 
 **[One rule a stranger can paste is the way in, and a page per rule is how the path gets mended](../../admin/briefs/direction__one-rule-a-stranger-can-paste-is-the-way-in/)**
 

@@ -140,6 +140,11 @@
       "url": "https://riskmandate.ai/team/studio.html"
     },
     {
+      "name": "try-it",
+      "label": "Try it",
+      "url": "https://riskmandate.ai/try-it.html"
+    },
+    {
       "name": "for-corporate",
       "label": "You run agents today",
       "url": "https://riskmandate.ai/for-corporate.html"
@@ -330,11 +335,6 @@
       "url": "https://riskmandate.ai/reviewer-ciso-xyz.html"
     },
     {
-      "name": "try-it",
-      "label": "Try it",
-      "url": "https://riskmandate.ai/try-it.html"
-    },
-    {
       "name": "articles",
       "label": "Articles",
       "url": "https://riskmandate.ai/articles.html"
@@ -388,6 +388,46 @@
       "name": "stories-the-short-answer",
       "label": "Story · The short answer.",
       "url": "https://riskmandate.ai/stories/the-short-answer.html"
+    },
+    {
+      "name": "owasp",
+      "label": "Overview: the proposal",
+      "url": "https://riskmandate.ai/owasp/"
+    },
+    {
+      "name": "owasp-charter",
+      "label": "The charter",
+      "url": "https://riskmandate.ai/owasp/charter.html"
+    },
+    {
+      "name": "owasp-riskmandate",
+      "label": "RiskMandate and the project",
+      "url": "https://riskmandate.ai/owasp/riskmandate.html"
+    },
+    {
+      "name": "owasp-contributions",
+      "label": "What moves",
+      "url": "https://riskmandate.ai/owasp/contributions.html"
+    },
+    {
+      "name": "owasp-ecosystem",
+      "label": "The other OWASP projects",
+      "url": "https://riskmandate.ai/owasp/ecosystem.html"
+    },
+    {
+      "name": "owasp-lessons",
+      "label": "What other projects teach",
+      "url": "https://riskmandate.ai/owasp/lessons.html"
+    },
+    {
+      "name": "owasp-application",
+      "label": "The application",
+      "url": "https://riskmandate.ai/owasp/application.html"
+    },
+    {
+      "name": "owasp-tracker",
+      "label": "The tracker: status and submissions",
+      "url": "https://riskmandate.ai/owasp/tracker.html"
     },
     {
       "name": "questions",

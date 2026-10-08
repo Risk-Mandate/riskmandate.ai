@@ -1,0 +1,153 @@
+<main class="phero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> OWASP · The charter</span>
+    <h1>What the project is for, <span class="it">and what it will not claim.</span></h1>
+    <p class="sub" style="margin-bottom:20px">The proposed charter of OWASP Agent Behaviour Policies: the mission, the objectives, who it is for, what it ships, and the list of things it does not do. A draft, written on 8 October 2026 from the model as published and the initiation brief the leads commissioned, to be argued with before it is submitted.</p>
+    <p class="meta"><!--owasp:asat--></p>
+    <p class="meta"><b>Status of this page:</b> a proposal. Nothing here has been sent to OWASP, and OWASP has not reviewed it.</p>
+  </div>
+</main>
+
+<!--owasp:tabs-->
+
+<div class="paper">
+
+<section class="psection">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">01 · Mission</span>
+      <h2>Make what an agent can do, <span class="g">and what it was allowed to do, a written thing.</span></h2>
+    </div>
+    <p class="ow-q">OWASP Agent Behaviour Policies is an open, vendor-neutral method and a set of machine-readable artefacts for writing down, for one AI agent in one deployment, everything it can do, what it was authorised to do, the gap between the two, and what actually stands in the way.<cite>Proposed one-paragraph summary, for the application form</cite></p>
+    <p class="ow-note">An agent is deployed with a credential, a set of tools and a place to run. Together those decide what it <em>can</em> do, and almost nobody has written that down. The people who deployed it know what they <em>asked</em> it to do, and that is usually written down nowhere either. The project gives both a shape: a list of capabilities in a shared grammar, a mandate in the deployer&rsquo;s words, a gap derived from the two by a build anybody can rerun, and for every row the barrier that stands between the agent and the capability, with the evidence for it.</p>
+    <p class="ow-note"><b>It describes and it does not judge.</b> An Agent Behaviour Policy (ABP) carries no score, rating, level or verdict. The same ABP is harmless in one deployment and dangerous in another, and nothing in the document changed; the deployment did. Anything that scores is a separate thing built on top, by whoever wants to build it.</p>
+  </div>
+</section>
+
+<section class="psection alt">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">02 · The model the project starts from</span>
+      <h2>Four objects, <span class="g">and the verb on each is the model.</span></h2>
+      <p>This is the model published at <a href="https://abp.sgit.ai/model/">abp.sgit.ai</a>, version 0.12.1 when read on 8 October 2026, with its vocabulary at <a href="https://abp.sgit.ai/data/index.json">one address</a> under CC BY 4.0. The sixteen template vaults on this site were built against 0.3.0 and are pinned to it, which is what pinning is for. It is the starting point of the project, not its conclusion: the project&rsquo;s first job is to let people outside RiskMandate break it.</p>
+    </div>
+    <div class="ow-t"><table>
+      <thead><tr><th scope="col">Object</th><th scope="col">What it is</th><th scope="col">Verb</th><th scope="col">Who produces it</th></tr></thead>
+      <tbody>
+        <tr><td>The grant</td><td>Everything the agent can do, one row per capability, in a grammar of 23 primitives written <code>verb.object.reach</code></td><td><b>Measured</b>, or <b>documented</b> from the vendor&rsquo;s own pages, quoted and dated</td><td>The deployment shape, the account, the credential. Never typed from memory</td></tr>
+        <tr><td>The mandate</td><td>What the agent is authorised and expected to do: wanted, told not to, unstated</td><td><b>Elicited</b></td><td>The deployer, in their words. The only file a person writes</td></tr>
+        <tr><td>The delta</td><td>Excess (can, not asked), shortfall (asked, cannot), and the part of the excess nothing bounds</td><td><b>Derived</b></td><td>The build. Stored with the versions of both inputs, recomputed when either moves, never edited</td></tr>
+        <tr><td>The barrier</td><td>What stands between the agent and each capability: none, an expectation, a setting, or a boundary</td><td><b>Recorded</b>, per row</td><td>Whoever measured the row</td></tr>
+      </tbody></table></div>
+    <p class="ow-note"><b>The enforcer test.</b> A control bounds a grant only if it is enforced by something the grant does not include. A rule in prose is not a control, and neither is a switch the agent&rsquo;s own account can flip; a token scope, a branch rule, a sandbox or an egress proxy enforced above the agent is. That one sentence is where most of the value to other OWASP projects lies, because most of them are, or describe, the fourth kind. See <a href="/owasp/ecosystem.html">The other OWASP projects</a>.</p>
+  </div>
+</section>
+
+<section class="psection">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">03 · Objectives</span>
+      <h2>Five objectives <span class="g">for the first year.</span></h2>
+    </div>
+    <div class="ow-cards">
+      <div class="ow-card"><span class="n">01</span><h3>A specification anybody can implement</h3><p>The four objects, the grammar, the barrier kinds, the evidence tiers and the delta&rsquo;s computation, written as a specification with JSON schemas, separate from any product that uses them.</p></div>
+      <div class="ow-card"><span class="n">02</span><h3>Examples that can be reproduced</h3><p>Template ABPs for common deployment shapes, each with its inputs, its sources and its open questions, and at least three that a reviewer outside RiskMandate has rebuilt from the inputs.</p></div>
+      <div class="ow-card"><span class="n">03</span><h3>Tooling that needs nobody&rsquo;s account</h3><p>A validator and the delta build as a reference tool, Apache-2.0, runnable offline. No RiskMandate service, store or vault is needed to use any of it.</p></div>
+      <div class="ow-card"><span class="n">04</span><h3>Mappings to the rest of OWASP</h3><p>Where a capability meets an item of the Agentic Top 10 or the LLM Top 10, and where a barrier is an OWASP control: the Agent Control Standard, Coraza, a threat model in Threat Dragon. Read from their pages, dated, offered to their leaders.</p></div>
+      <div class="ow-card"><span class="n">05</span><h3>A place to argue in public</h3><p>Issues, decisions and the semantic questions still open (is a grant a capability or a delegation? when does a gap go stale?) kept in the open, with the reasoning, so that a disagreement is a record and not a rumour.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="psection alt">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">04 · Who it is for</span>
+      <h2>Five readers, <span class="g">one record.</span></h2>
+    </div>
+    <ul class="ow-list">
+      <li><b>Security and platform teams</b> reviewing an agent before it goes live, or after it already has.</li>
+      <li><b>Agent developers</b> saying, before somebody asks, what their agent can reach and where the approval sits.</li>
+      <li><b>Organisations</b> recording delegated authority: who allowed what, in which words, on which date.</li>
+      <li><b>Reviewers and auditors</b> checking whether the stated limits match the deployed controls, row by row.</li>
+      <li><b>Maintainers of controls and runtimes</b> who want to say which rows their product bounds, in a grammar the buyer already holds.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="psection">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">05 · What it ships</span>
+      <h2>Deliverables, <span class="g">in the order they are needed.</span></h2>
+    </div>
+    <div class="ow-t"><table>
+      <thead><tr><th scope="col">Deliverable</th><th scope="col">Starts from</th><th scope="col">Licence</th></tr></thead>
+      <tbody>
+        <tr><td>The specification: objects, grammar, barriers, evidence, delta, lifecycle, limitations</td><td>the abp.sgit.ai model (v0.12.1) and its seven-part documentation pack, rewritten as a neutral document</td><td>CC BY 4.0</td></tr>
+        <tr><td>JSON schemas: <code>abp/profile/v1</code> (the grant), <code>abp/mandate/v1</code>, <code>abp.delta/v1</code>, the vocabulary files</td><td>today these are <code>type</code> values in the vault data and pages under abp.sgit.ai/model/schema/; no standalone JSON Schema file exists yet, so this is new work</td><td>Apache-2.0</td></tr>
+        <tr><td>The reference build and validator</td><td><code>scripts/site/abp/</code> and <code>build-abp-vault.mjs</code> in this repository, extracted from the site</td><td>Apache-2.0</td></tr>
+        <tr><td>Template ABPs for common shapes</td><td>the sixteen template vaults, as data, without the RiskMandate reading app</td><td>CC BY 4.0 for the documents, Apache-2.0 for the data files</td></tr>
+        <tr><td>The measuring prompt</td><td><code>MAP-A-GRANT.md</code>: the prompt that lets an agent holding a credential measure its own grant, and its seven rules of measurement</td><td>CC BY 4.0</td></tr>
+        <tr><td>Mappings to OWASP projects and to standards by title</td><td>the <a href="/owasp-graph.html">OWASP graph</a> and the control business cases on this site</td><td>CC BY 4.0</td></tr>
+      </tbody></table></div>
+    <p class="ow-note">The licences are proposals. The repository is Apache-2.0 at the root and the site&rsquo;s pages say CC BY 4.0 in their footers; whether those statements cover every file that would move, including what agents generated and what third parties wrote, is checked asset by asset on <a href="/owasp/contributions.html">What moves</a> before anything is transferred.</p>
+  </div>
+</section>
+
+<section class="psection alt">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">06 · What it will not do</span>
+      <h2>Non-goals, <span class="g">written down first.</span></h2>
+      <p>Each of these is something a reader could reasonably assume, and each is false. Saying so in the charter is cheaper than correcting it later.</p>
+    </div>
+    <ul class="ow-list">
+      <li><b>No score.</b> Not on an ABP, not on a deployment, not in the data. An index that scores a deployment can be built on top; it is not part of this project.</li>
+      <li><b>No insurance product</b>, cover decision or underwriting endorsement.</li>
+      <li><b>No mark, no badge, no scheme that says an agent is safe.</b> The project describes; nobody passes it.</li>
+      <li><b>No hosted service.</b> No assessment service, no managed vault, no account. RiskMandate sells those, and so may anyone else.</li>
+      <li><b>No runtime.</b> Not a control plane, an agent framework or an identity system. Those are barriers the ABP records, and other projects build them.</li>
+      <li><b>No replacement</b> for the Agent Control Standard, the Agentic Top 10, ASVS, AISVS or any framework. The ABP points at them.</li>
+      <li><b>No claim that a document enforces anything.</b> A behaviour policy is a rule in prose until a boundary bounds it, and it says so about itself.</li>
+      <li><b>No claim of complete discovery.</b> A grant is as complete as its evidence, and every row says which tier of evidence it rests on.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="psection">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">07 · Classification</span>
+      <h2>A documentation project <span class="g">with a tool beside it.</span></h2>
+    </div>
+    <p class="ow-note">Our proposal: a <b>Documentation</b> project, with the reference build as supporting code, in the <b>Builder</b> category, starting at <b>Incubator</b>, the level every new OWASP project starts at. The type and the category are OWASP&rsquo;s to confirm, and the application says so. The alternative home, an initiative inside the OWASP GenAI Security Project next to the Agent Control Standard and the Agentic Top 10, is set out on <a href="/owasp/application.html#home">The application</a> with the reasons for each.</p>
+  </div>
+</section>
+
+<section class="psection alt">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">08 · Questions the charter leaves open</span>
+      <h2>Settled by argument, <span class="g">not by the sponsor.</span></h2>
+    </div>
+    <ul class="ow-list">
+      <li><b>Is a grant a capability or a delegation?</b> In the model the grant is what the credential and the deployment make possible: measured reach. In ordinary English a grant is something somebody authorised. The initiation brief flags the collision; renaming is on the table and is the community&rsquo;s call.</li>
+      <li><b>Is the delta a stored file or a calculation?</b> The model says both: derived by the build, stored with the versions of both inputs, never edited, recomputed when either moves. The brief reports that public pages describe this differently; the inconsistency is a bug to find and fix before the specification is cut.</li>
+      <li><b>Four barriers, or a richer control model?</b> The model&rsquo;s four kinds answer one question, <em>does anything outside the agent stop it</em>. The brief proposes preventive, approval, detective and corrective types, failure behaviour and bypass paths. Both may belong; how they sit together is open.</li>
+      <li><b>One barrier per row, or one per path?</b> The same capability through two doors can be bounded on one and not the other. The model is moving to one per path.</li>
+      <li><b>What a set difference misses.</b> Two permitted steps can add up to an outcome nobody authorised. The first release must say what its delta detects and what stays a question for a reviewer.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="pcta">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> Next</span>
+    <h2>Who sponsors it, <span class="it">and where the line is.</span></h2>
+    <p>RiskMandate originated the model and sells services on it. The project has to be useful to somebody who never buys anything from us. How that is kept true is the next page.</p>
+    <div class="cta-row"><a class="btn btn-green" href="/owasp/riskmandate.html">RiskMandate and the project</a><a class="btn btn-ghost" href="/owasp/">The section</a></div>
+  </div>
+</section>
+
+</div>
