@@ -1,7 +1,7 @@
 # T16 — Before and after, run on our own deployment
 
 **From:** `docs/briefs/direction__one-rule-a-stranger-can-paste-is-the-way-in.md` §3.2, §4.2 · **Size:** a day
-**Status:** open, after T15
+**Status:** done, v1.37.0 (8 October 2026)
 
 ## Why
 

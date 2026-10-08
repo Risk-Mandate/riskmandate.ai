@@ -9,7 +9,7 @@
 
 **1**branches in flight*one work file each*
 
-**4**open tasks*of 4 in the queue · 0 done*
+**0**open tasks*of 4 in the queue · 4 done*
 
 **34**memos not fully worked*of 42 received*
 
@@ -17,7 +17,7 @@
 
 **16**vaults built and pushed*4 measured · 9 asked for*
 
-**140**releases*8 Lab editions*
+**141**releases*8 Lab editions*
 
 ## Needs the lead — 9
 

@@ -1,0 +1,45 @@
+{
+  "id": "RM-R0007",
+  "slug": "delete-files",
+  "version": "1.0.0",
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-10-08",
+      "what": "First version, written from the published rows with nothing in the way."
+    }
+  ],
+  "question": "Do you want your agent to delete files without asking?",
+  "worry": "It tidies up what it thinks are temporary files, or clears a folder to start again, and one of them was yours. A deleted file outside version control does not come back.",
+  "you_get": "Nothing you made is deleted without a yes, and nothing outside the project is deleted at all.",
+  "capability": "delete.file.host",
+  "answer": "ask-first",
+  "shapes": [
+    "claude-code-web",
+    "claude-code-cli",
+    "claude-code-cli-confirmations-off"
+  ],
+  "line": "Ask before deleting any file or folder you did not create in this session, and never run rm -rf or delete anything outside this project.",
+  "paragraph": "Deleting is the one change I cannot take back. Files you created in this session you may remove. Anything else, inside the project or out of it, needs my yes: list what you would delete and why. Never run rm -rf, never delete outside this project's folder, and never clear a directory to start again without asking.",
+  "stronger": [
+    {
+      "kind": "setting",
+      "what": "An ask rule on rm in Claude Code's settings",
+      "how": "{\n  \"permissions\": {\n    \"ask\": [\n      \"Bash(rm *)\"\n    ]\n  }\n}",
+      "quote": "A deny or ask rule matches past any leading assignment, so Bash(rm *) in deny still matches FOO=bar rm -rf tmp/. (The same page: a Bash rule matches the command text Claude writes, so a deny or ask rule covers the invocation Claude usually produces and isn't a security boundary around the program.)",
+      "source": "https://code.claude.com/docs/en/permissions",
+      "read": "2026-10-08"
+    },
+    {
+      "kind": "boundary",
+      "what": "Claude Code's Bash sandbox, which limits where shell commands can write",
+      "how": "Turn the sandbox on (/sandbox). Shell commands, and the processes they start, can then write only inside the working directory and a few named places.",
+      "quote": "By default, sandboxed commands can write to the current working directory, the per-user temp directory, and any directories you've added with --add-dir, /add-dir, or permissions.additionalDirectories. … The sandbox is off by default.",
+      "source": "https://code.claude.com/docs/en/sandboxing",
+      "read": "2026-10-08"
+    }
+  ],
+  "before_after": null,
+  "status": "drafted",
+  "drafted": "2026-10-08"
+}

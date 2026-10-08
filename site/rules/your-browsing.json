@@ -1,0 +1,26 @@
+{
+  "id": "RM-R0011",
+  "slug": "your-browsing",
+  "version": "1.0.0",
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-10-08",
+      "what": "First version, written from the published rows with nothing in the way."
+    }
+  ],
+  "question": "Do you want your agent to read every page you visit?",
+  "worry": "You asked it about one page. It can see your other tabs and your history: your bank, your health searches, the document you had open in another window.",
+  "you_get": "The agent works on the page you point it at, and the rest of your browsing stays yours.",
+  "capability": "read.record.browsing",
+  "answer": "never",
+  "shapes": [
+    "browser-extension"
+  ],
+  "line": "Only read the page I point you at; do not read, summarise or use my other tabs or my browsing history.",
+  "paragraph": "Work only on the page I am asking about. Do not open, read or summarise my other tabs, my history, my bookmarks or pages I visited earlier, even if they look relevant. If another page would help, tell me which and why, and let me open it for you.",
+  "stronger": [],
+  "before_after": null,
+  "status": "drafted",
+  "drafted": "2026-10-08"
+}

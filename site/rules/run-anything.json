@@ -1,0 +1,45 @@
+{
+  "id": "RM-R0012",
+  "slug": "run-anything",
+  "version": "1.0.0",
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-10-08",
+      "what": "First version, written from the published rows with nothing in the way."
+    }
+  ],
+  "question": "Do you want your agent to install software and run programs as you without asking?",
+  "worry": "To get past an error it installs a package it found, runs a script from a website, or changes a system setting. It runs as you, with everything you can reach.",
+  "you_get": "You know what gets installed and run, and where it came from, before it runs.",
+  "capability": "execute.process.host",
+  "answer": "ask-first",
+  "shapes": [
+    "claude-code-cli",
+    "claude-desktop",
+    "claude-code-web"
+  ],
+  "line": "Ask before installing software, running anything downloaded from the internet, or changing system settings; say what it is and where it came from.",
+  "paragraph": "Running the project's own build, tests and scripts is fine. Installing new software or packages, running scripts fetched from the internet, using sudo, or changing system or shell settings needs my yes: say what it is, where it comes from, and why the task needs it, then wait.",
+  "stronger": [
+    {
+      "kind": "setting",
+      "what": "Claude Code's Manual mode, which prompts before shell commands",
+      "how": "Keep Manual mode (default) for this kind of work, or add ask rules for installers such as Bash(npm install *) and Bash(pip install *).",
+      "quote": "Bash commands | Shell execution | Approval required: Yes, except a built-in set of read-only commands.",
+      "source": "https://code.claude.com/docs/en/permissions",
+      "read": "2026-10-08"
+    },
+    {
+      "kind": "boundary",
+      "what": "Claude Code's Bash sandbox, around every command and the processes it starts",
+      "how": "Turn the sandbox on (/sandbox) and keep its file and network limits narrow.",
+      "quote": "The Bash sandbox is a boundary that the operating system enforces around the shell commands Claude runs on your machine. … While the sandbox is on, the shell commands Claude runs start inside its boundary, and so do the processes they start. The sandbox is off by default.",
+      "source": "https://code.claude.com/docs/en/sandboxing",
+      "read": "2026-10-08"
+    }
+  ],
+  "before_after": null,
+  "status": "drafted",
+  "drafted": "2026-10-08"
+}

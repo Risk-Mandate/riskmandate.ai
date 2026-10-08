@@ -1,0 +1,37 @@
+{
+  "id": "RM-R0013",
+  "slug": "push-anywhere",
+  "version": "1.0.0",
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-10-08",
+      "what": "First version, written from the published rows with nothing in the way."
+    }
+  ],
+  "question": "Do you want your agent to push to any branch, including main?",
+  "worry": "It finishes the change and pushes straight to main, or force-pushes over a colleague's branch to fix a conflict. The pipeline deploys it before anybody has read it.",
+  "you_get": "Work lands on the branch you named, and anything else waits for you.",
+  "capability": "write.repository.tenant",
+  "answer": "ask-first",
+  "shapes": [
+    "claude-code-web",
+    "claude-code-cli",
+    "claude-code-cli-confirmations-off"
+  ],
+  "line": "Push only to the branch I named; never push to main or force-push, and ask before pushing anywhere else or opening a pull request.",
+  "paragraph": "Push only to the branch I gave you for this task. Never push to main or another protected branch, never force-push, and never delete a remote branch. Before pushing to any other branch or opening a pull request, tell me which and why, and wait for a yes.",
+  "stronger": [
+    {
+      "kind": "setting",
+      "what": "Deny rules on pushes to main and force-pushes in Claude Code's settings",
+      "how": "{\n  \"permissions\": {\n    \"deny\": [\n      \"Bash(git push --force *)\",\n      \"Bash(git push -f *)\",\n      \"Bash(git push origin main*)\"\n    ]\n  }\n}",
+      "quote": "Deny rules prevent Claude Code from using the specified tool. (The same page: a Bash rule matches the command text Claude writes, so a deny or ask rule covers the invocation Claude usually produces and isn't a security boundary around the program.)",
+      "source": "https://code.claude.com/docs/en/permissions",
+      "read": "2026-10-08"
+    }
+  ],
+  "before_after": null,
+  "status": "drafted",
+  "drafted": "2026-10-08"
+}

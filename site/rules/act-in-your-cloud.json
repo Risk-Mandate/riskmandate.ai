@@ -1,0 +1,37 @@
+{
+  "id": "RM-R0020",
+  "slug": "act-in-your-cloud",
+  "version": "1.0.0",
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-10-08",
+      "what": "First version, written from the published rows with nothing in the way."
+    }
+  ],
+  "question": "Do you want your agent to act in your cloud and code-host accounts with the logins on your machine?",
+  "worry": "Your cloud CLI and your code-host CLI are logged in as you. The agent uses them to clean up resources, change a setting, or create something, in production, as you.",
+  "you_get": "Your logins are used for what you asked, and anything that changes an account waits for you.",
+  "capability": "authenticate-as.credential.tenant",
+  "answer": "ask-first",
+  "shapes": [
+    "claude-code-cli",
+    "claude-code-cli-confirmations-off",
+    "claude-desktop"
+  ],
+  "line": "Do not use my cloud, code-host or other command-line logins (aws, gcloud, az, gh, kubectl) to change anything; read-only commands I ask for are fine, anything else needs a yes.",
+  "paragraph": "The command-line tools on this machine are logged in as me. Read-only commands I ask for, such as listing or describing, are fine. Anything that creates, changes, deletes or grants access in a cloud, code-host or cluster account needs my yes: say the command, the account and the effect, and wait.",
+  "stronger": [
+    {
+      "kind": "setting",
+      "what": "An ask rule in Claude Code's settings for each logged-in tool",
+      "how": "{\n  \"permissions\": {\n    \"ask\": [\n      \"Bash(aws *)\",\n      \"Bash(gcloud *)\",\n      \"Bash(kubectl *)\",\n      \"Bash(gh *)\"\n    ]\n  }\n}",
+      "quote": "A broad deny rule like Bash(aws *) blocks every matching call, including calls that also match a narrower allow rule like Bash(aws s3 ls). An allow rule can't carve an exception out of a deny rule. (The same page: a Bash rule matches the command text Claude writes, so a deny or ask rule covers the invocation Claude usually produces and isn't a security boundary around the program.)",
+      "source": "https://code.claude.com/docs/en/permissions",
+      "read": "2026-10-08"
+    }
+  ],
+  "before_after": null,
+  "status": "drafted",
+  "drafted": "2026-10-08"
+}

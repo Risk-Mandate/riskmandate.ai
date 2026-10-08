@@ -1,0 +1,46 @@
+{
+  "id": "RM-R0006",
+  "slug": "read-outside-the-project",
+  "version": "1.0.0",
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-10-08",
+      "what": "First version, written from the published rows with nothing in the way."
+    }
+  ],
+  "question": "Do you want your agent to read files outside the project you gave it?",
+  "worry": "It needs one example config and goes looking through your home folder: other clients' projects, your documents, your downloads. Nothing is changed, and everything it read is now in a transcript.",
+  "you_get": "The agent works inside the folder you opened, and reads anywhere else only when you hand it the path.",
+  "capability": "read.file.host",
+  "answer": "never",
+  "shapes": [
+    "claude-code-web",
+    "claude-code-cli",
+    "claude-code-cli-confirmations-off"
+  ],
+  "line": "Stay inside this project's folder: do not read files elsewhere on my machine unless I give you the path.",
+  "paragraph": "This session is about this project. Do not list, search or read files outside its folder: not my home directory, other projects, documents, downloads or system files. If something outside would help, tell me what you are looking for and let me give you the path.",
+  "stronger": [
+    {
+      "kind": "setting",
+      "what": "Claude Code prompts before its file tools read outside the working directory, and a setting extends that to read-only shell commands",
+      "how": "Leave Manual mode on for reads outside the project, and set permissions.blockReadsOutsideWorkingDirectories so that read-only shell commands such as cat and ls do not get round it.",
+      "quote": "File-access tools marked No, including Read, Grep, and Glob, still prompt for paths outside the working directory and additional directories. (The permissions page: Claude Code recognizes a built-in set of Bash commands as read-only and runs them without a permission prompt in every mode, except as permissions.blockReadsOutsideWorkingDirectories changes for paths outside your working directories.)",
+      "source": "https://code.claude.com/docs/en/tools-reference",
+      "read": "2026-10-08",
+      "also_source": "https://code.claude.com/docs/en/permissions"
+    },
+    {
+      "kind": "boundary",
+      "what": "Claude Code's Bash sandbox, with the paths listed in its denyRead setting",
+      "how": "Turn the sandbox on (/sandbox) and list the paths under sandbox.filesystem.denyRead. It holds for shell commands and every process they start; Claude's own Read tool runs outside it, so keep the Read deny rule as well.",
+      "quote": "The Bash sandbox is a boundary that the operating system enforces around the shell commands Claude runs on your machine. … The sandbox is off by default. … Reads: Most of the machine, including credential files such as ~/.ssh and ~/.aws/credentials. … A denyRead entry doesn't stop the Read tool.",
+      "source": "https://code.claude.com/docs/en/sandboxing",
+      "read": "2026-10-08"
+    }
+  ],
+  "before_after": null,
+  "status": "drafted",
+  "drafted": "2026-10-08"
+}

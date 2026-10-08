@@ -7,7 +7,7 @@
     "oneLine": "The insurability layer for agentic AI.",
     "summary": "Carriers are filing to exclude AI from cover, and the way back is evidence an underwriter will accept. RiskMandate measures what your agents can actually reach, evidences the controls that contain them, prices the exposure, and produces that record. Underneath the insurance framing is a risk model: a grant is what a credential technically permits, a mandate is what the holder is authorised and expected to do, and the gap between them is exposure nobody ever accepted. A deployed agent already has access, so a real risk cannot be denied — only accepted, by a named owner, for an interval, with an expiry that brings the decision back. RiskMandate is read-only and never in the request path: it defines the mandate and measures the gap; it does not enforce it. It is built on SG/Vault — zero-knowledge, PKI, provenance, no database — so you hold the keys.",
     "throughLine": "Measure what the agents can reach, name who owns it, evidence that the controls hold, and let the acceptance expire so the decision comes back.",
-    "version": "1.36.3"
+    "version": "1.37.0"
   },
   "artifacts": {
     "index": "https://riskmandate.ai/llms.txt",
@@ -333,6 +333,136 @@
       "name": "reviewer-ciso-xyz",
       "label": "Reviewer · the shape of the page",
       "url": "https://riskmandate.ai/reviewer-ciso-xyz.html"
+    },
+    {
+      "name": "rules",
+      "label": "Rules: do you want your agent to do this?",
+      "url": "https://riskmandate.ai/rules/"
+    },
+    {
+      "name": "rules-method",
+      "label": "Rules · how the before and after is run",
+      "url": "https://riskmandate.ai/rules/method.html"
+    },
+    {
+      "name": "rules-read-other-sessions",
+      "label": "Rule · Do you want your agent to read what you said in other sessions?",
+      "url": "https://riskmandate.ai/rules/read-other-sessions.html"
+    },
+    {
+      "name": "rules-touch-your-secrets",
+      "label": "Rule · Do you want your agent to read the keys and tokens on your machine?",
+      "url": "https://riskmandate.ai/rules/touch-your-secrets.html"
+    },
+    {
+      "name": "rules-schedule-on-its-own",
+      "label": "Rule · Do you want your agent to set up jobs that keep running after you close the session?",
+      "url": "https://riskmandate.ai/rules/schedule-on-its-own.html"
+    },
+    {
+      "name": "rules-use-your-connectors",
+      "label": "Rule · Do you want your agent to act as you through your connected accounts?",
+      "url": "https://riskmandate.ai/rules/use-your-connectors.html"
+    },
+    {
+      "name": "rules-send-data-anywhere",
+      "label": "Rule · Do you want your agent to send your code or data to any site on the internet?",
+      "url": "https://riskmandate.ai/rules/send-data-anywhere.html"
+    },
+    {
+      "name": "rules-read-outside-the-project",
+      "label": "Rule · Do you want your agent to read files outside the project you gave it?",
+      "url": "https://riskmandate.ai/rules/read-outside-the-project.html"
+    },
+    {
+      "name": "rules-delete-files",
+      "label": "Rule · Do you want your agent to delete files without asking?",
+      "url": "https://riskmandate.ai/rules/delete-files.html"
+    },
+    {
+      "name": "rules-sign-as-you",
+      "label": "Rule · Do you want your agent to sign commits with your key?",
+      "url": "https://riskmandate.ai/rules/sign-as-you.html"
+    },
+    {
+      "name": "rules-publish-under-your-name",
+      "label": "Rule · Do you want your agent to publish packages, images or releases under your name?",
+      "url": "https://riskmandate.ai/rules/publish-under-your-name.html"
+    },
+    {
+      "name": "rules-spend-money",
+      "label": "Rule · Do you want your agent to spend money on an account it holds?",
+      "url": "https://riskmandate.ai/rules/spend-money.html"
+    },
+    {
+      "name": "rules-your-browsing",
+      "label": "Rule · Do you want your agent to read every page you visit?",
+      "url": "https://riskmandate.ai/rules/your-browsing.html"
+    },
+    {
+      "name": "rules-run-anything",
+      "label": "Rule · Do you want your agent to install software and run programs as you without asking?",
+      "url": "https://riskmandate.ai/rules/run-anything.html"
+    },
+    {
+      "name": "rules-push-anywhere",
+      "label": "Rule · Do you want your agent to push to any branch, including main?",
+      "url": "https://riskmandate.ai/rules/push-anywhere.html"
+    },
+    {
+      "name": "rules-change-files-outside",
+      "label": "Rule · Do you want your agent to change files outside the project?",
+      "url": "https://riskmandate.ai/rules/change-files-outside.html"
+    },
+    {
+      "name": "rules-change-its-own-permissions",
+      "label": "Rule · Do you want your agent to change its own permissions?",
+      "url": "https://riskmandate.ai/rules/change-its-own-permissions.html"
+    },
+    {
+      "name": "rules-read-all-your-mail",
+      "label": "Rule · Do you want your agent to read through your mail and chats to find context?",
+      "url": "https://riskmandate.ai/rules/read-all-your-mail.html"
+    },
+    {
+      "name": "rules-send-as-you",
+      "label": "Rule · Do you want your agent to send email as you without showing you first?",
+      "url": "https://riskmandate.ai/rules/send-as-you.html"
+    },
+    {
+      "name": "rules-start-other-agents",
+      "label": "Rule · Do you want your agent to start other agent sessions on its own?",
+      "url": "https://riskmandate.ai/rules/start-other-agents.html"
+    },
+    {
+      "name": "rules-commit-without-asking",
+      "label": "Rule · Do you want your agent to rewrite your repository's history?",
+      "url": "https://riskmandate.ai/rules/commit-without-asking.html"
+    },
+    {
+      "name": "rules-act-in-your-cloud",
+      "label": "Rule · Do you want your agent to act in your cloud and code-host accounts with the logins on your machine?",
+      "url": "https://riskmandate.ai/rules/act-in-your-cloud.html"
+    },
+    {
+      "name": "rules-follow-instructions-in-ci",
+      "label": "Rule · Do you want the agent in your CI to do what a pull request tells it to?",
+      "url": "https://riskmandate.ai/rules/follow-instructions-in-ci.html"
+    },
+    {
+      "name": "rules-delete-in-cloud-storage",
+      "label": "Rule · Do you want your agent to delete files in your cloud storage?",
+      "url": "https://riskmandate.ai/rules/delete-in-cloud-storage.html"
+    },
+    {
+      "name": "rules-make-files-public",
+      "label": "Rule · Do you want your agent to make your files public?",
+      "url": "https://riskmandate.ai/rules/make-files-public.html"
+    },
+    {
+      "name": "rules-edit-shared-documents",
+      "label": "Rule · Do you want your agent to edit documents other people are working on?",
+      "url": "https://riskmandate.ai/rules/edit-shared-documents.html"
     },
     {
       "name": "articles",
@@ -840,5 +970,5 @@
     ]
   },
   "licence": "CC BY 4.0 (library content)",
-  "generated": "v1.36.3"
+  "generated": "v1.37.0"
 }

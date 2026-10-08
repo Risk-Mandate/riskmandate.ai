@@ -1,0 +1,37 @@
+{
+  "id": "RM-R0019",
+  "slug": "commit-without-asking",
+  "version": "1.0.0",
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-10-08",
+      "what": "First version, written from the published rows with nothing in the way."
+    }
+  ],
+  "question": "Do you want your agent to rewrite your repository's history?",
+  "worry": "To tidy up it amends your last commit, rebases the branch, or resets to a clean state, and the uncommitted work you had in progress is gone.",
+  "you_get": "Your history and your uncommitted work are left as you left them, unless you say otherwise.",
+  "capability": "write.repository.project",
+  "answer": "ask-first",
+  "shapes": [
+    "claude-code-web",
+    "claude-code-cli",
+    "claude-code-cli-confirmations-off"
+  ],
+  "line": "Ask before committing, and never rewrite history (rebase, amend, reset --hard) or discard my uncommitted changes.",
+  "paragraph": "Make new commits only when I ask, with messages that say what changed. Never amend, rebase, squash, reset --hard, checkout over changed files, stash or clean my working tree without asking: tell me exactly what would be lost and wait for a yes.",
+  "stronger": [
+    {
+      "kind": "setting",
+      "what": "Ask rules on the history-rewriting git commands in Claude Code's settings",
+      "how": "{\n  \"permissions\": {\n    \"ask\": [\n      \"Bash(git reset *)\",\n      \"Bash(git rebase *)\",\n      \"Bash(git commit --amend*)\",\n      \"Bash(git clean *)\"\n    ]\n  }\n}",
+      "quote": "Deny and ask rules apply when any subcommand matches them, including a command nested inside a subshell, a command substitution, or a control-flow body such as a for loop. An ask rule like Bash(git clean *) still prompts you for cd /tmp && git clean -f. (The same page: a Bash rule matches the command text Claude writes, so a deny or ask rule covers the invocation Claude usually produces and isn't a security boundary around the program.)",
+      "source": "https://code.claude.com/docs/en/permissions",
+      "read": "2026-10-08"
+    }
+  ],
+  "before_after": null,
+  "status": "drafted",
+  "drafted": "2026-10-08"
+}

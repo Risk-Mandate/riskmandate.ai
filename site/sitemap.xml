@@ -48,6 +48,32 @@
   <url><loc>https://riskmandate.ai/reviewers.html</loc><priority>0.7</priority></url>
   <url><loc>https://riskmandate.ai/reviewer-dinis-cruz.html</loc><priority>0.7</priority></url>
   <url><loc>https://riskmandate.ai/reviewer-ciso-xyz.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/rules/</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/rules/method.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/rules/read-other-sessions.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/rules/touch-your-secrets.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/rules/schedule-on-its-own.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/rules/use-your-connectors.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/rules/send-data-anywhere.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/rules/read-outside-the-project.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/rules/delete-files.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/rules/sign-as-you.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/rules/publish-under-your-name.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/rules/spend-money.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/rules/your-browsing.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/rules/run-anything.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/rules/push-anywhere.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/rules/change-files-outside.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/rules/change-its-own-permissions.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/rules/read-all-your-mail.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/rules/send-as-you.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/rules/start-other-agents.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/rules/commit-without-asking.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/rules/act-in-your-cloud.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/rules/follow-instructions-in-ci.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/rules/delete-in-cloud-storage.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/rules/make-files-public.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/rules/edit-shared-documents.html</loc><priority>0.7</priority></url>
   <url><loc>https://riskmandate.ai/articles.html</loc><priority>0.7</priority></url>
   <url><loc>https://riskmandate.ai/stories/</loc><priority>0.7</priority></url>
   <url><loc>https://riskmandate.ai/stories/just-a-draft.html</loc><priority>0.7</priority></url>

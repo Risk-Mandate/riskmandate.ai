@@ -1,0 +1,26 @@
+{
+  "id": "RM-R0022",
+  "slug": "delete-in-cloud-storage",
+  "version": "1.0.0",
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-10-08",
+      "what": "First version, written from the published rows with nothing in the way."
+    }
+  ],
+  "question": "Do you want your agent to delete files in your cloud storage?",
+  "worry": "It cleans up duplicates in a shared folder. Some of the duplicates were the copies other people were working on, and the folder is shared with your whole team.",
+  "you_get": "Nothing in your storage is deleted until you have seen the list.",
+  "capability": "delete.file.host",
+  "answer": "ask-first",
+  "shapes": [
+    "dropbox-mcp"
+  ],
+  "line": "Never delete, move or overwrite files in my cloud storage without listing them and waiting for a yes.",
+  "paragraph": "Files in my cloud storage may be shared, synced or someone else's. Before deleting, moving, renaming or overwriting any of them, list the files and what you would do to each, and wait for a yes. Never empty a folder or a trash.",
+  "stronger": [],
+  "before_after": null,
+  "status": "drafted",
+  "drafted": "2026-10-08"
+}

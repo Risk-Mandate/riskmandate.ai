@@ -1,7 +1,7 @@
 # T15 — Rule pages: the schema, the generator, the index, and the first four rules
 
 **From:** `docs/briefs/direction__one-rule-a-stranger-can-paste-is-the-way-in.md` §3.2, §4.1 · **Size:** a day and a half
-**Status:** open
+**Status:** done, v1.37.0 (8 October 2026)
 
 ## Why
 
