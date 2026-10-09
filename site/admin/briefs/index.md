@@ -3,17 +3,21 @@
 > Every document under docs/ on riskmandate.ai, rendered as a page: direction briefs, reviews, workflows, architecture and research, newest first.
 > Source: https://riskmandate.ai/admin/briefs/ · noindex · written by scripts/site/build-admin.mjs
 
-**36**documents under docs/*one page each, rendered from the file*
+**37**documents under docs/*one page each, rendered from the file*
 
 **10**direction briefs*the product and the site*
 
-**4**reviews*read against a named source*
+**5**reviews*read against a named source*
 
 **3**workflows*run once, written to run again*
 
 These were written here, by the agent maintaining the site, in response to [the memos and documents that arrived](../../admin/memos/). Each is read against a named source and dated. Add a file under `docs/` and rerun `build-admin.mjs`: it has a page here and a test fails until it does.
 
 ## Newest first
+
+**[Ten hard questions agree with the site everywhere except where it matters most: the home page says we enforce](../../admin/briefs/review__ten-hard-questions-and-what-the-site-should-say/)**
+
+Almost everywhere. The four objects are the home page's model section and every vault; never in the request path is on the grant-gap page ("Nothing we run sits in the request path"); the plug profile, the business cases, accepted is not…9 October 2026 · review
 
 **[The Agent Behaviour Policy goes to OWASP, and RiskMandate becomes its sponsor](../../admin/briefs/direction__owasp-agent-behaviour-policies/)**8 October 2026 · direction
 
@@ -212,6 +216,10 @@ One line: read https://riskmandate.ai/reviewers.json and build the chooser from 
 A call with a customer. Agreed on the call: the deployment is Claude in the browser with the Gmail connector enabled, on one mailbox, and the customer wants the behaviour policy for it. The same day the lead connected the connector on an account they run…16 September 2026 · workflow
 
 ## Reviews · something read against a named source
+
+**[Ten hard questions agree with the site everywhere except where it matters most: the home page says we enforce](../../admin/briefs/review__ten-hard-questions-and-what-the-site-should-say/)**
+
+Almost everywhere. The four objects are the home page's model section and every vault; never in the request path is on the grant-gap page ("Nothing we run sits in the request path"); the plug profile, the business cases, accepted is not…9 October 2026 · review
 
 **[Five synthetic users read the new home page: the word is fixed, the vocabulary is split](../../admin/briefs/review__five-synthetic-users-read-the-new-home-page/)**
 
