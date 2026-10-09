@@ -2,6 +2,7 @@
 //
 //   REVIEW_KEY=<vault key> node scripts/review/read-feedback.mjs --vault <clone of the review vault> [--dry-run]
 //   then:  cd <clone> && sgit commit -m "@Agent review feedback: <n> received" && sgit push --token <access token>
+// It then rebuilds the vault's dashboard (build-dashboard.mjs): index.html, a vault app over everything drained.
 //
 // The review pages (the first is site/home-diff.html) encrypt each send in the reader's browser to the public
 // key published in site/assets/review/lane.json, and append it to the `review` lane of a private vault. This
@@ -122,3 +123,5 @@ for (const [who, s] of Object.entries(latest)) {
   for (const [k, v] of Object.entries(s.comments || {})) if (v) console.log(`  comment ${k}: ${v}`);
   for (const x of s.shots) console.log(`  screenshot on ${x.on}: feedback/${x.file}`);
 }
+
+if (!DRY) execFileSync(process.execPath, [join(ROOT, 'scripts/review/build-dashboard.mjs'), '--vault', VAULT], { stdio: 'inherit' });

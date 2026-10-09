@@ -37,7 +37,7 @@
   var st = store.get() || { sid: Math.random().toString(16).slice(2, 10), started: new Date().toISOString(), who: {}, answers: {}, comments: {}, events: [], sent: 0 };
   var save = function () { store.put(st); count(); dbgSoon(); };
   var log = function (type, data) {
-    st.events.push(Object.assign({ at: new Date().toISOString(), type: type }, data || {}));
+    st.events.push(Object.assign({ at: new Date().toISOString(), type: type }, data || {}, { at: new Date().toISOString(), type: type }));   // the time and type always win over a field of the same name
     if (st.events.length > 800) { var k = st.events.length - 800; st.events.splice(0, k); st.sent = Math.max(0, st.sent - k); }
     save();
   };
@@ -210,8 +210,8 @@
   document.addEventListener('input', function (e) {
     var r = e.target.closest('.rv-slider input[type=range]'); if (!r) return;
     var s = r.closest('.rv-slider'); s.style.setProperty('--x', r.value + '%');
-    var sid = s.closest('.rv-sec').getAttribute('data-id'), at = +r.value;
-    clearTimeout(s._t); s._t = setTimeout(function () { log('slider', { section: sid, at: at }); }, 900);
+    var sid = s.closest('.rv-sec').getAttribute('data-id'), value = +r.value;
+    clearTimeout(s._t); s._t = setTimeout(function () { log('slider', { section: sid, value: value }); }, 900);
   });
 
   // the four steps: play when in view, one step every 2.2 s
