@@ -50,7 +50,7 @@ body{padding-bottom:72px}
 .rv-ctl button{font:inherit;font-size:13px;border:1px solid var(--border);background:var(--card);color:var(--muted);border-radius:999px;padding:6px 12px;cursor:pointer}
 .rv-ctl button.dot.on{border-color:var(--green);color:var(--green);font-weight:600;background:#EBF5F0}
 .rv-list{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-direction:column;gap:8px;max-width:980px}
-.rv-list li{display:grid;grid-template-columns:26px 1fr 22px 1fr;gap:10px;align-items:start;font-size:14px;line-height:1.55}
+.rv-list li{display:grid;grid-template-columns:26px minmax(0,1fr) 22px minmax(0,1fr);gap:10px;align-items:start;font-size:14px;line-height:1.55}
 .rv-list i{font-style:normal;font-family:var(--mono);font-size:11px;font-weight:700;color:#fff;background:#0D0D0C;border-radius:50%;width:22px;height:22px;line-height:22px;text-align:center}
 .rv-list .was{color:#8A2A20;background:rgba(192,57,43,.07);border-radius:8px;padding:6px 10px;text-decoration:line-through;text-decoration-color:rgba(192,57,43,.45)}
 .rv-list .now{color:#0E5A3E;background:rgba(26,127,90,.08);border-radius:8px;padding:6px 10px}
@@ -76,7 +76,7 @@ body{padding-bottom:72px}
 .rv-bar #rv-status.ok{color:#7FD1A8}.rv-bar #rv-status.warn{color:#FFC772}
 .rv-bar a{color:#7FD1A8}
 .rv-bar button{font:inherit;font-weight:700;border:0;background:#4BE3A2;color:#07140F;border-radius:999px;padding:9px 18px;cursor:pointer}
-@media (max-width:900px){.rv-side{grid-template-columns:1fr;gap:20px}.rv-variants,.rv-variants.three{grid-template-columns:1fr 1fr}.rv-list li{grid-template-columns:26px 1fr}.rv-list .arr{display:none}.rv-inv-row{grid-template-columns:1fr}.rv-modes{top:56px}}
+@media (max-width:900px){.rv-side{grid-template-columns:1fr;gap:20px}.rv-variants,.rv-variants.three{grid-template-columns:1fr 1fr}.rv-list li{grid-template-columns:26px minmax(0,1fr)}.rv-list .arr{display:none}.rv-list .now{grid-column:2}.rv-inv-row{grid-template-columns:1fr}.rv-modes{top:56px}}
 @media (max-width:560px){.rv-variants,.rv-variants.three{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.rv-arrow,.rv-frame.marks .rv-box{animation:none}.rv-frame{transition:none}}
 
@@ -143,3 +143,5 @@ html.rv-dbg-on #rv-debug{display:block}
 .phero .rv-rmeta,.phero .rv-rnote{color:rgba(247,246,242,.62)}
 .phero .rv-replies article{border-top-color:rgba(127,209,168,.25)}
 @media (min-width:900px){html.rv-dbg-on header.top{right:var(--dbg-w,420px);width:auto;max-width:none}}
+
+.rv-list .was,.rv-list .now{min-width:0;overflow-wrap:anywhere}
