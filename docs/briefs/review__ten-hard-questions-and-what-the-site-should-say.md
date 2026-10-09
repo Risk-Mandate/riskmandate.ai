@@ -96,6 +96,31 @@ with A/B testing and feedback that comes back to us. Built, private and unindexe
   1,600 pixels on the long side, kept in the browser, and sent with the next send, two to a message.
   `read-feedback.mjs` writes each one beside its record as an image file. The same day the vault key went to
   the lead's key registry, sealed to its published key on a write-only lane, rather than through the chat.
+- **Every action, a debug column, and a key per browser (v1.38.5).** The lead, the same day: capture every
+  action so we can see the page the way the reader saw it; a debug column on the right, as on the game sites,
+  with every message sent and its status; an id per browser, so a reader can be answered next time; and a key
+  pair per browser, so what they send is signed by them and what we send back only they can read. Shipped:
+  - *Events:* where the reader stops scrolling and which way they moved, time on each section, links, focus,
+    copy, the slider grabbed and released, the steps, resizes, the tab hidden and shown, script errors; sent
+    every thirty seconds while there is something new.
+  - *Identity (`site/assets/review/identity.js`):* on first open the browser makes an ECDSA P-256 signing pair
+    and an RSA-OAEP 4096 reply pair, as sgit's identities do, kept in IndexedDB with the private halves not
+    extractable. The browser id is the signing key's fingerprint. Each record is signed, and carries both
+    public keys; `read-feedback.mjs` checks the signature and the id, and pins the keys in the vault at
+    `review-lane/browsers/<id>.json` on first sight. The signature covers the record itself, not only the
+    ciphertext, which avoids the gap sgit's own write-up calls T14.
+  - *Replies (`scripts/review/reply.mjs`):* a note encrypted to one browser's pinned reply key, published in
+    `site/assets/review/replies/`. The page decrypts it on open and shows it at the top; another browser
+    cannot open it (tested). Publishing one is a site change, so it ships with a release.
+  - *Debug column* (the Debug button, or `?debug=1`): the browser's keys, the lane and its key check, every
+    send with its sequence, reason, size, time, HTTP status and answer, the replies, every event (unsent ones
+    marked) and the state; resizable; *Send now*, *Copy the state*, *Check for replies*.
+  - *Sources in the repository:* the page's code moved from the session's scratch space to
+    `site/assets/review/` (envelope, identity, review script and styles) and `scripts/review/home-diff/`
+    (the body and the assembler config), built with `scripts/review/flat-page.py`.
+  - *Not yet:* the drain in a browser. sgit.ai's published vaults drain in Python and show a dashboard vault
+    app over what was drained; the bridge cannot list a lane whose enum key is derived from the write key, as
+    this one is. The dashboard comes next, the same way.
 - **The pricing hypothesis.** The lead: the £10 and £50 levels are not selling; lead with the levels people
   buy and add two engagements that are time with a forward-deployed engineer, £5,000 for a first pass and
   £25,000 for an MVP, delivered by Dinis Cruz. The four variants on the review page: A now; B the lead's
