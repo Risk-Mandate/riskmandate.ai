@@ -3,7 +3,7 @@
 > The operations console behind riskmandate.ai: what needs the lead, what is in flight, every memo and brief, the board, the vaults, the records and the tooling — every count read off a file in the repository.
 > Source: https://riskmandate.ai/admin/ · noindex · written by scripts/site/build-admin.mjs
 
-**10**need the lead*0 queue rows, 10 decisions*
+**11**need the lead*0 queue rows, 11 decisions*
 
 **0**waiting on somebody outside*the store's agent, the model site*
 
@@ -17,51 +17,55 @@
 
 **16**vaults built and pushed*4 measured · 9 asked for*
 
-**143**releases*8 Lab editions*
+**144**releases*8 Lab editions*
 
-## Needs the lead — 10
+## Needs the lead — 11
 
 The only filled rank on this console: a decision, a credential or a call nobody else holds. Read off [the state file](../admin/agents/03-state-and-next/).
 
-**From the ten-questions review of 9 October: sign off the proposed home page at `/home-next.html` (private); fix the £5 level-1 chips on the licence, for-corporate and for-founders pages and the insurance page's tense now (recommended); whether larger engagements appear on the pricing page; the source of the 0.388 figure.**
+**The review page `/home-diff.html` (private, v1.38.2): read the feedback that arrives in the comms vault's site lane as `X-RM-Form: review` (the agent@ session holds the key); the prices A/B/C/D and the keep/remove answers decide the next home page. `/engagements.html` (private) waits on the founders.**
 
 a decision the lead owns, openD1
 
-**The OWASP move** (8 Oct, D30/D31; `site/owasp/`, record `site/owasp/project.json`): the name (Agent Behaviour
+**From the ten-questions review of 9 October: sign off the proposed home page at `/home-next.html` (private); fix the £5 level-1 chips on the licence, for-corporate and for-founders pages and the insurance page's tense now (recommended); whether larger engagements appear on the pricing page; the source of the 0.388 figure.**
 
 a decision the lead owns, openD2
 
-**From the rules brief of 7 October: where the path loses most people (it orders R1–R4); who the early**
+**The OWASP move** (8 Oct, D30/D31; `site/owasp/`, record `site/owasp/project.json`): the name (Agent Behaviour
 
 a decision the lead owns, openD3
 
-***Behaviour* or *behavior* on the mark (the site is British; the recommendation is *behaviour*).**
+**From the rules brief of 7 October: where the path loses most people (it orders R1–R4); who the early**
 
 a decision the lead owns, openD4
 
-**The Licence to Operate referent (organisation / instrument / licensee) is adopted on the site**
+***Behaviour* or *behavior* on the mark (the site is British; the recommendation is *behaviour*).**
 
 a decision the lead owns, openD5
 
-**Publish the n8n write-up and its author, or not.**
+**The Licence to Operate referent (organisation / instrument / licensee) is adopted on the site**
 
 a decision the lead owns, openD6
 
-**Extend the measuring environment's gateway rule to MCP-tunnelled requests (the deployer's).**
+**Publish the n8n write-up and its author, or not.**
 
 a decision the lead owns, openD7
 
-**The return address for the level-3 files (a mailbox today; a write-only vault link when it exists).**
+**Extend the measuring environment's gateway rule to MCP-tunnelled requests (the deployer's).**
 
 a decision the lead owns, openD8
 
-**Who the reviewing person is at level 3, and whether the Voice Debrief vaults publish the routing service's providers by name.**
+**The return address for the level-3 files (a mailbox today; a write-only vault link when it exists).**
 
 a decision the lead owns, openD9
 
-**Which agent branches merge next, and in what order (see `.claude/work/`).**
+**Who the reviewing person is at level 3, and whether the Voice Debrief vaults publish the routing service's providers by name.**
 
 a decision the lead owns, openD10
+
+**Which agent branches merge next, and in what order (see `.claude/work/`).**
+
+a decision the lead owns, openD11
 
 ## In flight — 0 branches
 

@@ -62,3 +62,34 @@ Live, private and unindexed, at **`/home-next.html`**. It is the current home pa
 2. **Whether the two factual fixes (£5 and the insurance tense) go now**, ahead of the home page. Recommended: yes.
 3. **Item 7**, whether larger engagements appear on the site at all yet.
 4. **The 0.388 figure.** The interview quotes a reproduction precision of 0.388 for recall-optimised agents and its preparer could not locate the source page; nothing on riskmandate.ai uses it. Before it appears here, its source.
+
+## 7. The review page, and the lead's pricing hypothesis, 9 October
+
+The lead asked for the before and after made visual, so that reviewing it is not a spot-the-difference game,
+with A/B testing and feedback that comes back to us. Built, private and unindexed:
+
+- **`/home-diff.html`**: every changed section of the home page, now and proposed, three ways. *Side by side*,
+  with what left marked in red, what arrived marked in green, numbered, and arrows from each old line to its
+  new one. *Slider*, the two screenshots laid one over the other with a handle that wipes from now to
+  proposed. *Four steps*, a crossfading sequence that plays when it is on screen: now, what will change
+  (pulsing marks), what changed, proposed. Under each section, the changes as a list, *A now / B proposed*,
+  and a comment. Then the two new sections, keep or remove; **the prices as A/B/C/D**; every section of the
+  proposed page, keep, remove or change, for the content Nimay wants out; and which of the three modes worked.
+- **The screenshots and the marks are generated**, by `scripts/review/capture-home-diff.mjs`: element
+  screenshots of the same section on both pages at the same width, padded to one size, and the boxes of text
+  that is on one page and not the other. Changes are paired by the words they share, then by height.
+- **Feedback** is kept in the browser as it happens: opening the page, scroll depth, the sections seen, the
+  mode, the slider and the steps, every choice and comment, the reader's name and email. It is sent, encrypted
+  in the browser to the site agent's key, into the comms vault's `site` lane, the lane and envelope the
+  contact form uses, as one message when the reader presses *Send feedback* and one every two minutes while
+  there is something new. The drain now accepts `X-RM-Form: review`. The session that holds the comms
+  vault's key reads it; this one does not, because the key is not in its environment. A download of the
+  record and an email fallback are on the page.
+- **The pricing hypothesis.** The lead: the £10 and £50 levels are not selling; lead with the levels people
+  buy and add two engagements that are time with a forward-deployed engineer, £5,000 for a first pass and
+  £25,000 for an MVP, delivered by Dinis Cruz. The four variants on the review page: A now; B the lead's
+  (£500, £1,500, £5,000, £25,000); C leaner (level 3 free for early users, £5,000, £25,000); D all six.
+- **`/engagements.html`**, proposed and private: the two engagements, what each delivers, built only from
+  what the interview's maturity table says exists, what they do not commit to (no enforcement, no runtime
+  monitoring, no insurance, a first pass and not a programme), and who delivers, named, with a line that
+  more consultants will be named before they deliver.

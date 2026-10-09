@@ -257,6 +257,7 @@ and vault queues. Each has a task brief in `.claude/briefs/`.
 
 ## Decisions the lead owns (open)
 
+- The review page `/home-diff.html` (private, v1.38.2): read the feedback that arrives in the comms vault's site lane as `X-RM-Form: review` (the agent@ session holds the key); the prices A/B/C/D and the keep/remove answers decide the next home page. `/engagements.html` (private) waits on the founders.
 - From the ten-questions review of 9 October: sign off the proposed home page at `/home-next.html` (private); fix the £5 level-1 chips on the licence, for-corporate and for-founders pages and the insurance page's tense now (recommended); whether larger engagements appear on the pricing page; the source of the 0.388 figure.
 - **The OWASP move** (8 Oct, D30/D31; `site/owasp/`, record `site/owasp/project.json`): the name (Agent Behaviour
   Policies, or the voice note's *application*; and OWASP's good practice against a name confused with a company's

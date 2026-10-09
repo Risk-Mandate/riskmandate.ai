@@ -7,7 +7,7 @@
 //   list (metadata only) → fetch → double-decode → decrypt with the identity's private key →
 //   check the headers → file under agent-contact/accepted/ (or quarantine/) → log → mark processed.
 // The `site` lane carries the website's forms: encrypted in the browser, unsigned (a person has no
-// key), X-RM-Form contact|early-access. The `agents` lane carries signed agent mail; this drain
+// key), X-RM-Form contact|early-access|review (the private review pages' feedback, batched). The `agents` lane carries signed agent mail; this drain
 // verifies the signature against the sender's published contact file when one is present and
 // quarantines the rest, with the reason.
 //
@@ -111,7 +111,7 @@ for (;;) {
       if (!mid) throw new Error('no Message-ID'); if (seen.has(mid)) throw new Error('replay: seen before');
       if (lane === 'site') {
         if (!/^site@riskmandate\.ai$|<site@riskmandate\.ai>/.test(from)) throw new Error(`site lane with From ${from}`);
-        if (!/^(contact|early-access)$/.test(header(msg.eml, 'X-RM-Form'))) throw new Error('site lane without a known X-RM-Form');
+        if (!/^(contact|early-access|review)$/.test(header(msg.eml, 'X-RM-Form'))) throw new Error('site lane without a known X-RM-Form');
       } else {
         if (!allowed(domainOf(from))) throw new Error(`sender domain not allowed: ${domainOf(from)}`);
         if (!msg.env.s || !msg.env.f) throw new Error('unsigned');

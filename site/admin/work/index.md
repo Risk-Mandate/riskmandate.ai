@@ -25,7 +25,11 @@ partly done
 
 The four columns are read off the status column of the queue in [the state file](../../admin/agents/03-state-and-next/): *done* is done; *waiting on the lead* is needs the lead; any other *waiting* is waiting outside; a row whose brief a work file names is in flight; the rest are open and claimable. Nothing is dragged, so the board cannot say something the file does not.
 
-## Waiting on a ruling — 10, counting the decisions the lead owns
+## Waiting on a ruling — 11, counting the decisions the lead owns
+
+**The review page `/home-diff.html` (private, v1.38.2): read the feedback that arrives in the comms vault's site lane as `X-RM-Form: review` (the agent@ session holds the key); the prices A/B/C/D and the keep/remove answers decide the next home page. `/engagements.html` (private) waits on the founders.**
+
+a decision the lead owns, listed in the state fileneeds the lead
 
 **From the ten-questions review of 9 October: sign off the proposed home page at `/home-next.html` (private); fix the £5 level-1 chips on the licence, for-corporate and for-founders pages and the insurance page's tense now (recommended); whether larger engagements appear on the pricing page; the source of the 0.388 figure.**
 

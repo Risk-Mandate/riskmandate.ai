@@ -655,6 +655,20 @@
       "group": "More"
     },
     {
+      "name": "home-diff",
+      "label": "Home: now and proposed, a private review",
+      "file": "home-diff.html",
+      "group": "More",
+      "private": true
+    },
+    {
+      "name": "engagements",
+      "label": "Engagements: forward-deployed engineering (proposed)",
+      "file": "engagements.html",
+      "group": "More",
+      "private": true
+    },
+    {
       "name": "home-next",
       "label": "Home: proposed, after the ten questions",
       "file": "home-next.html",
