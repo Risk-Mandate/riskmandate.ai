@@ -655,6 +655,13 @@
       "group": "More"
     },
     {
+      "name": "home-next",
+      "label": "Home: proposed, after the ten questions",
+      "file": "home-next.html",
+      "group": "More",
+      "private": true
+    },
+    {
       "name": "brand",
       "label": "Brand",
       "file": "brand.html",

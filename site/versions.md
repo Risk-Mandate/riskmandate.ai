@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.38.1** · 2026-10-09 — The proposed home page, after ten hard questions
+  Notes: https://riskmandate.ai/versions/1.38.1.md · Source: `git:v1.38.1`
 - **v1.38.0** · 2026-10-08 — OWASP: the Agent Behaviour Policies proposed as an OWASP project, kept in public
   Notes: https://riskmandate.ai/versions/1.38.0.md · Source: `git:v1.38.0`
 - **v1.37.0** · 2026-10-08 — Rules: one worry, one line

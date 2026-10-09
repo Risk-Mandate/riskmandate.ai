@@ -260,6 +260,7 @@ and vault queues. Each has a task brief in `.claude/briefs/`.
 
 ## Decisions the lead owns (open)
 
+- From the ten-questions review of 9 October: sign off the proposed home page at `/home-next.html` (private); fix the £5 level-1 chips on the licence, for-corporate and for-founders pages and the insurance page's tense now (recommended); whether larger engagements appear on the pricing page; the source of the 0.388 figure.
 - **The OWASP move** (8 Oct, D30/D31; `site/owasp/`, record `site/owasp/project.json`): the name (Agent Behaviour
   Policies, or the voice note's *application*; and OWASP's good practice against a name confused with a company's
   service, which RiskMandate's product is); standalone or a GenAI initiative; the third leader; CC BY or CC BY-SA;
