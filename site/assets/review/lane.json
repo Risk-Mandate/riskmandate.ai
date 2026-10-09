@@ -1,0 +1,11 @@
+{
+  "type": "riskmandate/review-lane/v1",
+  "what": "Where the private review pages send their feedback: an append lane on a private vault. The token can only write; the key below can only encrypt. Public by design.",
+  "endpoint": "https://dev.send.sgraph.ai",
+  "vault": "ao0lynta",
+  "lane": "review",
+  "append_token": "cacf651f38202d81096496f00d0f64f24b919523842a7620dbbd43e84bf63a22",
+  "encrypt_to": "sha256:cc3fdce113adb849",
+  "encrypt_pem": "-----BEGIN PUBLIC KEY-----\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEApmnQGBvsI2n63IqByA8R\nY+JIhee0dNpXgJFRTLG1y+kW+csswadkv58XGnr4bSQ/jdoNQq9Spp7LGJBRcgbP\nutMHfVmDjUWpxCcEi1bzcWwLM+/v6n/9Wv8k1kSZxqJL28+qHHjJL96VQlwPfFWY\nqhjNPbXi0DUA4usps5d3MuigeH6W0eiCvCVqnxhgIethFc37sJUvoinHLpR/DY4f\nxJPwH3XXEL92VCNav4D3TxxFYeBWQWue4RghEZnOM3SOaaZ3GCdLJWGY6m8/rnyN\nTJsNfDUt2yNu/Qcfn4zgoSNz0lBRslETlkPy2vkQnYK1BNQsgIGu0aByZZhWTzi4\nj8UHLJsoZzMZnboOqd8Zk5cVRPUU/LGMeoTVYH7k1mgWRq6uRmUSyLSuNAoMKmrr\nIwzbwZsfuzWSYdUTr9BiNdlonWkhe+z0YwgVWxyzxAGXtjp8bTdthj8D2UjvWeMP\nwsd2oG0xO4r3sCRo9F9FiogyK3QodDv1E3YPStoxA9o9KpPaO6Thne4aIm5LaAEo\ntb6zzUfQjbXzCQcwgFQSPGGK0C5GvV2eLf89S0ll5DkEcwZJl6BUHcWSY8vgFp65\npkFAPEPuNzkOIeH1tOlEX1EIXln1KetsUTtH2NSNtRa4w04WLF0TiFIf1bndjciM\n7G/USV7NTl7sDVJzrJaybxMCAwEAAQ==\n-----END PUBLIC KEY-----\n",
+  "status": "open"
+}

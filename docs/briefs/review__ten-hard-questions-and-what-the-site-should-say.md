@@ -76,12 +76,17 @@ with A/B testing and feedback that comes back to us. Built, private and unindexe
   screenshots of the same section on both pages at the same width, padded to one size, and the boxes of text
   that is on one page and not the other. Changes are paired by the words they share, then by height.
 - **Feedback** is kept in the browser as it happens: opening the page, scroll depth, the sections seen, the
-  mode, the slider and the steps, every choice and comment, the reader's name and email. It is sent, encrypted
-  in the browser to the site agent's key, into the comms vault's `site` lane, the lane and envelope the
-  contact form uses, as one message when the reader presses *Send feedback* and one every two minutes while
-  there is something new. The drain now accepts `X-RM-Form: review`. The session that holds the comms
-  vault's key reads it; this one does not, because the key is not in its environment. A download of the
-  record and an email fallback are on the page.
+  mode, the slider and the steps, every choice and comment, the reader's name and email. From v1.38.3 it goes
+  to **its own vault**, created that day with the access token the lead gave for it: `ao0lynta` on
+  dev.send.sgraph.ai, with one append lane, `review`. The page reads `site/assets/review/lane.json` (the
+  vault id, the public write-only token, the public key and its fingerprint), encrypts each send in the
+  browser to that key with the contact form's envelope, and appends it, when the reader presses *Send
+  feedback* and every two minutes while there is something new. The private key is in the vault, encrypted
+  with a secret derived from the vault's write key. `scripts/review/read-feedback.mjs` reads the lane
+  with `REVIEW_KEY` in the environment, files each send as `.eml` and `.json` under `feedback/` in the vault,
+  marks it processed and prints every answer and comment. The vault key was handed to the lead in the
+  session and is in no file. Tested end to end on 9 October: one labelled message from the page, through
+  the server, decrypted and filed. A download of the record and an email fallback stay on the page.
 - **The pricing hypothesis.** The lead: the £10 and £50 levels are not selling; lead with the levels people
   buy and add two engagements that are time with a forward-deployed engineer, £5,000 for a first pass and
   £25,000 for an MVP, delivered by Dinis Cruz. The four variants on the review page: A now; B the lead's
