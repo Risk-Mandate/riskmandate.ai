@@ -8,7 +8,9 @@
 // script lists the lane with the enum key, fetches each pending file, decrypts it with the private key kept in
 // the vault (encrypted at rest with a passphrase derived from the vault's write key), writes the message to
 // feedback/<file_id>.eml and its JSON record to feedback/<file_id>.json, appends a line to feedback/log.jsonl,
-// and marks the file processed. It prints a summary of every answer and comment, newest send last.
+// and marks the file processed. Screenshots a reader pasted arrive in the record's `shots`; each is written beside
+// it as feedback/<file_id>-<shot id>.<webp|jpg|png>, and the JSON keeps the file name in place of the image data.
+// It prints a summary of every answer and comment, newest send last.
 //
 // Secrets: the vault key comes from the environment and is never written anywhere; everything else is derived
 // from it here, in memory, the way the lane was set up. The lane token is public; it can only write.
@@ -59,8 +61,16 @@ for (;;) {
     const json = (eml.split('--- the record, as JSON ---')[1] || '').trim();
     let rec = null; try { rec = JSON.parse(json.replace(/\r\n/g, '\n')); } catch (_) {}
     const meta = { file: e.file_id, received: new Date(e.received).toISOString(), form: header(eml, 'X-RM-Form'), page: header(eml, 'X-RM-Page'), send: header(eml, 'X-RM-Send'), subject: header(eml, 'Subject') };
+    const shots = [];
+    for (const s of rec?.shots || []) {
+      const m = /^data:image\/(webp|jpeg|png);base64,(.+)$/.exec(s.data || ''); if (!m) continue;
+      const file = `${e.file_id}-${String(s.id).replace(/[^a-z0-9]/gi, '')}.${m[1] === 'jpeg' ? 'jpg' : m[1]}`;
+      if (!DRY) writeFileSync(join(out, file), Buffer.from(m[2], 'base64'));
+      delete s.data; s.file = file; shots.push({ on: s.on, file });
+    }
+    meta.shots = shots;
     if (!DRY) {
-      writeFileSync(join(out, `${e.file_id}.eml`), eml);
+      writeFileSync(join(out, `${e.file_id}.eml`), shots.length ? eml.replace(/"data":\s*"data:image\/[^"]+"/g, '"data": "(written to its own file)"') : eml);
       if (rec) writeFileSync(join(out, `${e.file_id}.json`), JSON.stringify(rec, null, 1) + '\n');
       appendFileSync(join(out, 'log.jsonl'), JSON.stringify({ ...meta, who: rec?.who, events: rec?.events?.length }) + '\n');
       await api('mark-processed', { inbox: e.inbox, file_ids: [e.file_id] });
@@ -76,11 +86,12 @@ const latest = {};
 for (const { meta, rec } of records) {
   if (!rec) continue;
   const who = rec.who?.email || rec.who?.name || `session ${rec.sid}`;
-  latest[who] = { at: meta.received, page: rec.page, answers: rec.answers, comments: rec.comments, events: (latest[who]?.events || 0) + (rec.events?.length || 0) };
+  latest[who] = { at: meta.received, page: rec.page, answers: rec.answers, comments: rec.comments, events: (latest[who]?.events || 0) + (rec.events?.length || 0), shots: (latest[who]?.shots || []).concat(meta.shots) };
 }
 console.log(`${n} message(s) ${DRY ? 'read (dry run, nothing written or marked)' : 'received, written to feedback/ and marked processed'}.`);
 for (const [who, s] of Object.entries(latest)) {
   console.log(`\n== ${who} · ${s.page} · last send ${s.at} · ${s.events} events`);
   for (const [k, v] of Object.entries(s.answers || {})) if (v) console.log(`  ${k}: ${v}`);
   for (const [k, v] of Object.entries(s.comments || {})) if (v) console.log(`  comment ${k}: ${v}`);
+  for (const x of s.shots) console.log(`  screenshot on ${x.on}: feedback/${x.file}`);
 }

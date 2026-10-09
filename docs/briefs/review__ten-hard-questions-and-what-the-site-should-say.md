@@ -87,6 +87,15 @@ with A/B testing and feedback that comes back to us. Built, private and unindexe
   marks it processed and prints every answer and comment. The vault key was handed to the lead in the
   session and is in no file. Tested end to end on 9 October: one labelled message from the page, through
   the server, decrypted and filed. A download of the record and an email fallback stay on the page.
+- **The lead's first feedback, through that lane, 9 October (v1.38.4).** The lead liked the way feedback
+  is sent and the new hero text, and found *A · now reads better* confusing: the *now* read as if A had
+  changed too. The buttons on each changed section now read *B · is good (proposed)*, first and marked, then
+  *A · was better (current)*, then *No difference to me*. Every comment box has its own *Send this comment*
+  button and a line saying whether it has gone; it also sends when the reader leaves the box and after eight
+  quiet seconds of typing. A screenshot can be pasted or dropped into any box: it is shrunk in the browser to
+  1,600 pixels on the long side, kept in the browser, and sent with the next send, two to a message.
+  `read-feedback.mjs` writes each one beside its record as an image file. The same day the vault key went to
+  the lead's key registry, sealed to its published key on a write-only lane, rather than through the chat.
 - **The pricing hypothesis.** The lead: the £10 and £50 levels are not selling; lead with the levels people
   buy and add two engagements that are time with a forward-deployed engineer, £5,000 for a first pass and
   £25,000 for an MVP, delivered by Dinis Cruz. The four variants on the review page: A now; B the lead's

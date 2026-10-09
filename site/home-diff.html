@@ -340,6 +340,22 @@ body{padding-bottom:72px}
 @media (max-width:900px){.rv-side{grid-template-columns:1fr;gap:20px}.rv-variants,.rv-variants.three{grid-template-columns:1fr 1fr}.rv-list li{grid-template-columns:26px 1fr}.rv-list .arr{display:none}.rv-inv-row{grid-template-columns:1fr}.rv-modes{top:56px}}
 @media (max-width:560px){.rv-variants,.rv-variants.three{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.rv-arrow,.rv-frame.marks .rv-box{animation:none}.rv-frame{transition:none}}
+
+/* comment boxes: the preferred answer, the send button, screenshots */
+.rv-ask button.pri{border-color:#1A7F5A;color:#1A7F5A;font-weight:650;padding-inline:16px}
+.rv-ask button.pri.on{background:#1A7F5A;color:#fff}
+.rv-cbox{border:1px dashed transparent;border-radius:10px;transition:border-color .15s,background .15s}
+.rv-cbox.drop{border-color:#1A7F5A;background:rgba(26,127,90,.06)}
+.rv-shots{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 0}
+.rv-shots:empty{display:none}
+.rv-shot{position:relative;margin:0;width:120px;border:1px solid var(--line,#d9dde3);border-radius:6px;overflow:hidden;background:#fff}
+.rv-shot img{display:block;width:100%;height:80px;object-fit:cover;object-position:top}
+.rv-shot figcaption{position:absolute;left:4px;bottom:4px;font-size:11px;background:#1A7F5A;color:#fff;border-radius:4px;padding:0 5px}
+.rv-unshot{position:absolute;top:3px;right:3px;width:22px;height:22px;border-radius:50%;border:0;background:rgba(0,0,0,.6);color:#fff;font-size:15px;line-height:22px;padding:0;cursor:pointer}
+.rv-cfoot{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:6px}
+.rv-csend{font:inherit;font-size:13px;padding:5px 12px;border-radius:999px;border:1px solid #1A7F5A;background:#fff;color:#1A7F5A;cursor:pointer}
+.rv-csend:hover{background:#1A7F5A;color:#fff}
+.rv-cstate{font-size:12.5px;color:var(--muted,#5b6472)}
 </style>
 </head>
 <body id="top">
@@ -349,7 +365,7 @@ body{padding-bottom:72px}
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
     <a class="ghlink" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener" aria-label="The source, on GitHub" title="Open source · Apache-2.0 code · CC BY 4.0 pages"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a>
-      <a class="version" href="versions.html" title="What shipped in v1.38.3">v1.38.3</a>
+      <a class="version" href="versions.html" title="What shipped in v1.38.4">v1.38.4</a>
     <button class="demo" data-demo>Book a demo</button>
   </div>
 </header>
@@ -822,6 +838,8 @@ RM.components.nav = (function () {
 // screenshots per changed section, padded to one size, with the boxes of text that left and arrived.
 // Feedback is kept in localStorage as it happens and sent, encrypted in this browser to the review lane's
 // public key (assets/review/lane.json), into the `review` lane of a private vault, with the contact form's envelope.
+// Every comment box sends itself: on its button, when it loses focus, and after eight quiet seconds of typing.
+// Screenshots pasted or dropped into a box are shrunk here, kept in this browser, and go with the next send.
 (async function () {
   'use strict';
   var $ = function (s, r) { return (r || document).querySelector(s); }, $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
@@ -849,6 +867,10 @@ RM.components.nav = (function () {
   var save = function () { store.put(st); count(); };
   var log = function (type, data) { st.events.push(Object.assign({ at: new Date().toISOString(), type: type }, data || {})); if (st.events.length > 800) st.events.splice(0, st.events.length - 800); save(); };
   log('open', { w: innerWidth, h: innerHeight, returning: st.events.length > 0 });
+  st.csent = st.csent || {};
+  var SHOTS = KEY + '-shots', MAXSHOT = 700000, PERSEND = 2;
+  var shots = (function () { try { return JSON.parse(localStorage.getItem(SHOTS) || '[]'); } catch (_) { return []; } })();
+  var keepShots = function () { try { localStorage.setItem(SHOTS, JSON.stringify(shots)); } catch (_) { /* too big for this browser: kept in memory until sent */ } };
 
   var esc = function (t) { return String(t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
 
@@ -927,14 +949,35 @@ RM.components.nav = (function () {
   }
   function ask(id, opts) {
     var a = st.answers[id];
-    return '<div class="rv-ask" data-ask="' + id + '">' + opts.map(function (o) { return '<button type="button" data-choice="' + o[0] + '" class="' + (a === o[0] ? 'on' : '') + '">' + o[1] + '</button>'; }).join('') + '</div>' +
-           '<label class="rv-comment">Why, or what you would change<textarea data-comment="' + id + '" rows="2">' + esc(st.comments[id] || '') + '</textarea></label>';
+    return '<div class="rv-ask" data-ask="' + id + '">' + opts.map(function (o) { return '<button type="button" data-choice="' + o[0] + '" class="' + (o[2] ? 'pri' : '') + (a === o[0] ? ' on' : '') + '">' + o[1] + '</button>'; }).join('') + '</div>' +
+           commentBox(id, 'Why, or what you would change', 2);
+  }
+  // a comment box: the text, its screenshots, and a send button with a line saying where it is
+  function shotsHtml(id) {
+    return shots.filter(function (s) { return s.on === id; }).map(function (s) {
+      return '<figure class="rv-shot" data-shot="' + s.id + '"><img src="' + s.data + '" alt="screenshot ' + esc(s.name || '') + '"><button type="button" class="rv-unshot" data-unshot="' + s.id + '" aria-label="Remove this screenshot">\u00d7</button>' + (s.sent ? '<figcaption>sent</figcaption>' : '') + '</figure>';
+    }).join('');
+  }
+  function cstate(id) {
+    var c = (st.comments[id] || ''), mine = shots.filter(function (s) { return s.on === id; }), pend = mine.filter(function (s) { return !s.sent; }).length;
+    var at = [st.csent[id] && st.csent[id].at].concat(mine.map(function (s) { return s.sent; })).filter(function (x) { return typeof x === 'string'; }).sort().pop();
+    if (!c && !mine.length && !st.csent[id]) return 'Paste or drop a screenshot here too.';
+    if (!pend && (!c || (st.csent[id] && st.csent[id].text === c)) && at) return 'Sent at ' + new Date(at).toLocaleTimeString() + '.';
+    return 'Not sent yet. It sends when you leave the box, or press the button.';
+  }
+  function commentBox(id, label, rows) {
+    return '<div class="rv-cbox" data-cbox="' + id + '"><label class="rv-comment">' + label + '<textarea data-comment="' + id + '" rows="' + rows + '" placeholder="Type, or paste a screenshot">' + esc(st.comments[id] || '') + '</textarea></label>' +
+           '<div class="rv-shots">' + shotsHtml(id) + '</div><div class="rv-cfoot"><button type="button" class="rv-csend" data-csend="' + id + '">Send this comment</button><span class="rv-cstate" aria-live="polite">' + cstate(id) + '</span></div></div>';
+  }
+  function refreshBox(id) {
+    var b = $('[data-cbox="' + id + '"]'); if (!b) return;
+    $('.rv-shots', b).innerHTML = shotsHtml(id); $('.rv-cstate', b).textContent = cstate(id);
   }
   $('#rv-changes').innerHTML = changed.map(function (p, i) {
     var pairs = PAIRS[p.id] = pairsOf(p);
     return '<article class="rv-sec" id="sec-' + p.id + '" data-id="' + p.id + '"><header><span class="n">' + String(i + 1).padStart(2, '0') + '</span><div><h3>' + esc(p.title) + '</h3><p>' + esc(WHY[p.id] || '') + '</p></div></header>' +
            '<div class="rv-vis"></div>' + changeList(pairs) +
-           ask(p.id, [['A', 'A · now reads better'], ['B', 'B · proposed reads better'], ['same', 'No difference to me']]) + '</article>';
+           ask(p.id, [['B', 'B · is good (proposed)', true], ['A', 'A · was better (current)'], ['same', 'No difference to me']]) + '</article>';
   }).join('');
   $('#rv-new').innerHTML = fresh.map(function (p) {
     return '<article class="rv-sec" id="sec-' + p.id + '" data-id="' + p.id + '"><header><span class="n new">New</span><div><h3>' + esc(p.title.replace(' (new)', '')) + '</h3></div></header>' +
@@ -946,7 +989,10 @@ RM.components.nav = (function () {
            '</div><input type="text" data-comment="' + id + '" placeholder="why, in a line" value="' + esc(st.comments[id] || '') + '"></div>';
   }).join('');
   $$('.rv-variants').forEach(function (v) { var a = st.answers[v.getAttribute('data-ask')]; $$('.rv-var', v).forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-choice') === a); }); });
-  $$('textarea[data-comment="pricing"],textarea[data-comment="page"]').forEach(function (t) { t.value = st.comments[t.getAttribute('data-comment')] || ''; });
+  $$('label.rv-comment > textarea[data-comment="pricing"],label.rv-comment > textarea[data-comment="page"]').forEach(function (t) {
+    var id = t.getAttribute('data-comment'), l = t.parentNode, txt = l.firstChild.textContent;
+    var w = document.createElement('div'); w.innerHTML = commentBox(id, esc(txt), 3); l.parentNode.replaceChild(w.firstChild, l);
+  });
 
   function draw() {
     changed.forEach(function (p) { var v = $('#sec-' + p.id + ' .rv-vis'); v.innerHTML = mode === 'side' ? side(p, PAIRS[p.id]) : mode === 'slider' ? slider(p, PAIRS[p.id]) : steps(p, PAIRS[p.id]); });
@@ -1022,9 +1068,63 @@ RM.components.nav = (function () {
     $$('[data-choice]', g).forEach(function (x) { x.classList.toggle('on', x.getAttribute('data-choice') === st.answers[id]); });
     log('answer', { ask: id, choice: st.answers[id] || null });
   });
+  function note(t) { var id = t.getAttribute('data-comment'), v = t.value.trim(); if (st.comments[id] === v) return id; st.comments[id] = v; log('comment', { on: id, chars: v.length }); return id; }
+  var typing = {};
+  document.addEventListener('input', function (e) {
+    var t = e.target.closest('[data-comment]'); if (!t) return;
+    var id = t.getAttribute('data-comment'); clearTimeout(typing[id]);
+    var s = t.closest('[data-cbox]'); if (s) $('.rv-cstate', s).textContent = 'Typing… it sends after a pause.';
+    typing[id] = setTimeout(function () { note(t); send('pause'); }, 8000);
+  });
   document.addEventListener('change', function (e) {
     var t = e.target.closest('[data-comment]'); if (!t) return;
-    st.comments[t.getAttribute('data-comment')] = t.value.trim(); log('comment', { on: t.getAttribute('data-comment'), chars: t.value.trim().length });
+    clearTimeout(typing[t.getAttribute('data-comment')]); note(t); send('left-box');
+  });
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-csend]');
+    if (b) { var id = b.getAttribute('data-csend'), t = $('[data-comment="' + id + '"]'); clearTimeout(typing[id]); if (t) note(t); log('csend', { on: id }); $('.rv-cstate', b.parentNode).textContent = 'Encrypting and sending…'; send('comment-button'); return; }
+    var u = e.target.closest('[data-unshot]');
+    if (u) { var sid = u.getAttribute('data-unshot'), s = shots.filter(function (x) { return x.id === sid; })[0]; if (!s) return; shots = shots.filter(function (x) { return x.id !== sid; }); keepShots(); log('unshot', { on: s.on, shot: sid, wasSent: !!s.sent }); refreshBox(s.on); }
+  });
+  // screenshots: shrunk to 1600 px on the long side, webp where the browser can, under 700 KB
+  function shrink(file) {
+    return new Promise(function (ok, no) {
+      var u = URL.createObjectURL(file), im = new Image();
+      im.onload = function () {
+        var k = Math.min(1, 1600 / Math.max(im.naturalWidth, im.naturalHeight)), c = document.createElement('canvas');
+        c.width = Math.round(im.naturalWidth * k); c.height = Math.round(im.naturalHeight * k);
+        c.getContext('2d').drawImage(im, 0, 0, c.width, c.height); URL.revokeObjectURL(u);
+        var d = c.toDataURL('image/webp', 0.82); if (d.indexOf('data:image/webp') !== 0) d = c.toDataURL('image/jpeg', 0.82);
+        for (var q = 0.7; d.length > MAXSHOT && q > 0.3; q -= 0.15) d = c.toDataURL('image/jpeg', q);
+        if (d.length > MAXSHOT) { no(new Error('too large')); return; }
+        ok({ data: d, w: c.width, h: c.height });
+      };
+      im.onerror = function () { URL.revokeObjectURL(u); no(new Error('not an image')); };
+      im.src = u;
+    });
+  }
+  async function addShots(id, files) {
+    files = files.filter(function (f) { return /^image\//.test(f.type); }); if (!files.length) return false;
+    var s = $('[data-cbox="' + id + '"]');
+    for (var i = 0; i < files.length; i++) {
+      try {
+        var r = await shrink(files[i]), sh = { id: Math.random().toString(16).slice(2, 10), on: id, name: files[i].name || 'pasted', type: r.data.slice(5, r.data.indexOf(';')), w: r.w, h: r.h, at: new Date().toISOString(), data: r.data, sent: false };
+        shots.push(sh); keepShots(); log('shot', { on: id, shot: sh.id, w: r.w, h: r.h, kb: Math.round(r.data.length * 3 / 4 / 1024) });
+      } catch (err) { if (s) $('.rv-cstate', s).textContent = 'That image could not be added (' + err.message + ').'; }
+    }
+    refreshBox(id); send('shot'); return true;
+  }
+  document.addEventListener('paste', function (e) {
+    var b = e.target.closest && e.target.closest('[data-cbox]'); if (!b || !e.clipboardData) return;
+    var fs = Array.prototype.slice.call(e.clipboardData.files || []);
+    if (!fs.length) fs = Array.prototype.slice.call(e.clipboardData.items || []).filter(function (it) { return it.kind === 'file'; }).map(function (it) { return it.getAsFile(); }).filter(Boolean);
+    if (fs.some(function (f) { return /^image\//.test(f.type); })) { e.preventDefault(); addShots(b.getAttribute('data-cbox'), fs); }
+  });
+  document.addEventListener('dragover', function (e) { var b = e.target.closest && e.target.closest('[data-cbox]'); if (b) { e.preventDefault(); b.classList.add('drop'); } });
+  document.addEventListener('dragleave', function (e) { var b = e.target.closest && e.target.closest('[data-cbox]'); if (b) b.classList.remove('drop'); });
+  document.addEventListener('drop', function (e) {
+    var b = e.target.closest && e.target.closest('[data-cbox]'); if (!b || !e.dataTransfer) return;
+    e.preventDefault(); b.classList.remove('drop'); addShots(b.getAttribute('data-cbox'), Array.prototype.slice.call(e.dataTransfer.files || []));
   });
 
   // where the reader went: scroll depth and the sections seen
@@ -1046,12 +1146,16 @@ RM.components.nav = (function () {
     Object.keys(st.comments).forEach(function (k) { if (st.comments[k]) L.push('Comment ' + k + ': ' + st.comments[k]); });
     return L.join('\n');
   }
-  function payload() { return JSON.stringify({ type: 'riskmandate/review/v1', page: location.pathname, sid: st.sid, started: st.started, who: st.who, answers: st.answers, comments: st.comments, mode: st.mode || 'side', events: st.events.slice(st.sent) }, null, 1); }
-  $('#rv-download').addEventListener('click', function () { this.href = URL.createObjectURL(new Blob([JSON.stringify(st, null, 1)], { type: 'application/json' })); log('download'); });
+  function pendingShots() { return shots.filter(function (s) { return !s.sent; }).slice(0, PERSEND); }
+  function payload(out) { return JSON.stringify({ type: 'riskmandate/review/v1', page: location.pathname, sid: st.sid, started: st.started, who: st.who, answers: st.answers, comments: st.comments, mode: st.mode || 'side', events: st.events.slice(st.sent),
+    shots: out.map(function (s) { return { id: s.id, on: s.on, name: s.name, type: s.type, w: s.w, h: s.h, at: s.at, data: s.data }; }) }); }
+  $('#rv-download').addEventListener('click', function () { this.href = URL.createObjectURL(new Blob([JSON.stringify(Object.assign({}, st, { shots: shots }), null, 1)], { type: 'application/json' })); log('download'); });
   var say = function (t, cls) { var s = $('#rv-status'); s.textContent = t; s.className = cls || ''; };
-  var sending = false;
+  var sending = false, again = null;
   async function send(why) {
-    if (sending || (why !== 'button' && st.events.length <= st.sent)) return;
+    if (sending) { again = again || why; return; }
+    var out = pendingShots();
+    if (why !== 'button' && st.events.length <= st.sent && !out.length) return;
     sending = true; var upto = st.events.length;
     if (why === 'button') say('Encrypting…');
     try {
@@ -1065,19 +1169,24 @@ RM.components.nav = (function () {
         'Subject: Review of the proposed home page: ' + (st.who.name || st.who.email || 'session ' + st.sid).replace(/[\r\n]+/g, ' '),
         'Date: ' + new Date().toUTCString(), 'Message-ID: <' + id + '>', 'X-EmailFS-Kind: notification', 'X-RM-Form: review',
         'X-RM-Reply-To: ' + (st.who.email || '').replace(/[\r\n]+/g, ' '), 'X-RM-Page: ' + location.pathname, 'X-RM-Send: ' + why, 'Content-Type: text/plain; charset=utf-8'].join('\r\n') +
-        '\r\n\r\n' + (summary() + '\n\n--- the record, as JSON ---\n' + payload()).replace(/\r?\n/g, '\r\n');
+        '\r\n\r\n' + (summary() + (out.length ? '\n' + out.length + ' screenshot(s) attached in the record.' : '') + '\n\n--- the record, as JSON ---\n' + payload(out)).replace(/\r?\n/g, '\r\n');
       var env = await SgEnvelope.encrypt(ln.encrypt_pem, eml);
       var w = await fetch(ln.endpoint + '/api/vault/append/write/' + ln.vault, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ append_token: ln.append_token, payload: env.payload }) });
       var j = null; try { j = await w.json(); } catch (_) {}
       if (!w.ok || !j || j.ok !== true) throw new Error('The vault host answered ' + w.status + '.');
-      st.sent = upto; st.lastSent = new Date().toISOString(); save();
+      st.sent = upto; st.lastSent = new Date().toISOString();
+      Object.keys(st.comments).forEach(function (k) { if (st.comments[k]) st.csent[k] = { text: st.comments[k], at: st.lastSent }; });
+      out.forEach(function (s) { s.sent = st.lastSent; }); keepShots(); save();
+      $$('[data-cbox]').forEach(function (b) { refreshBox(b.getAttribute('data-cbox')); });
+      if (pendingShots().length) again = again || 'more-shots';
       say(why === 'button' ? 'Sent, encrypted, at ' + new Date().toLocaleTimeString() + '. Thank you.' : 'Saved to the vault at ' + new Date().toLocaleTimeString() + '.', 'ok');
     } catch (err) {
       if (why === 'button') {
         var m = $('#rv-mailto'); m.href = 'mailto:agent@riskmandate.ai?subject=' + encodeURIComponent('Review of the proposed home page') + '&body=' + encodeURIComponent(summary().slice(0, 1800)); m.hidden = false;
         say(String(err && err.message || err) + ' Your answers are saved in this browser; download them, or send them as an email.', 'warn');
       }
-    } finally { sending = false; }
+      $$('[data-cbox] .rv-cstate').forEach(function (c) { c.textContent = 'Not sent: ' + String(err && err.message || err) + ' It is kept in this browser and will try again.'; });
+    } finally { sending = false; if (again) { var w2 = again; again = null; setTimeout(function () { send(w2); }, 400); } }
   }
   $('#rv-send').addEventListener('click', function () { log('send'); send('button'); });
   setInterval(function () { send('auto'); }, 120000);
@@ -1086,5 +1195,6 @@ RM.components.nav = (function () {
   count(); draw();
 })();
 </script>
+
 </body>
 </html>
