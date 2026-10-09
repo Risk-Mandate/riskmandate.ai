@@ -113,7 +113,7 @@ for (;;) {
 const latest = {};
 for (const { meta, rec } of records) {
   if (!rec) continue;
-  const who = (rec.who?.email || rec.who?.name || `session ${rec.sid}`) + (meta.browser ? ` · ${meta.browser}` : '');
+  const who = ([rec.who?.name || rec.who?.email, rec.who?.ref].filter(Boolean).join(' · ') || `session ${rec.sid}`) + (meta.browser ? ` · ${meta.browser}` : '');
   latest[who] = { at: meta.received, page: rec.page, sig: meta.sig, answers: rec.answers, comments: rec.comments, events: (latest[who]?.events || 0) + (rec.events?.length || 0), shots: (latest[who]?.shots || []).concat(meta.shots) };
 }
 console.log(`${n} message(s) ${DRY ? 'read (dry run, nothing written or marked)' : 'received, written to feedback/ and marked processed'}.`);

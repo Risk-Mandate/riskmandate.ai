@@ -1,5 +1,8 @@
 {
  "type": "riskmandate/review-replies-index/v1",
  "note": "The browsers that have notes waiting, and how many. Each browser's notes are in <browser id>.json, encrypted to that browser's own key; written by scripts/review/reply.mjs.",
- "browsers": {}
+ "browsers": {
+  "be2d45585fd18d52b": 1,
+  "b6d5e9e00c5cc3b62": 1
+ }
 }
