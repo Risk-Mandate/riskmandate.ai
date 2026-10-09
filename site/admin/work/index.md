@@ -27,7 +27,7 @@ The four columns are read off the status column of the queue in [the state file]
 
 ## Waiting on a ruling — 11, counting the decisions the lead owns
 
-**The review page `/home-diff.html` (private, v1.38.2): read the feedback that arrives in the comms vault's site lane as `X-RM-Form: review` (the agent@ session holds the key); the prices A/B/C/D and the keep/remove answers decide the next home page. `/engagements.html` (private) waits on the founders.**
+**The review page `/home-diff.html` (private, v1.38.2): read the feedback in the review vault `ao0lynta` (lane `review`) with `REVIEW_KEY=… node scripts/review/read-feedback.mjs --vault <clone>`, then commit and push the clone; the lead holds the key, and a session needs it as `REVIEW_KEY`; the prices A/B/C/D and the keep/remove answers decide the next home page. `/engagements.html` (private) waits on the founders.**
 
 a decision the lead owns, listed in the state fileneeds the lead
 
