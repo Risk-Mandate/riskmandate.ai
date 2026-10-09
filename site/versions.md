@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.38.4** · 2026-10-09 — Review feedback: clearer choices, a send on every box, and screenshots
+  Notes: https://riskmandate.ai/versions/1.38.4.md · Source: `git:v1.38.4`
 - **v1.38.3** · 2026-10-09 — The review feedback gets its own vault
   Notes: https://riskmandate.ai/versions/1.38.3.md · Source: `git:v1.38.3`
 - **v1.38.2** · 2026-10-09 — A visual diff of the home page, and the questions that decide it
