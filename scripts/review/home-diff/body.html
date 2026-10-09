@@ -1,0 +1,108 @@
+<main class="phero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> Private review · the home page, now and proposed</span>
+    <h1>What changes on the home page, <span class="it">and which version you prefer.</span></h1>
+    <p class="sub" style="margin-bottom:18px">Every section the proposal changes, shown three ways, with what changed marked so there is nothing to hunt for. Under each one, say which reads better and why. Then three questions the founders have to decide: the prices, which sections stay, and which of these three ways of showing a change works best.</p>
+    <p class="meta"><b>Now</b> is <a href="./">the live home page</a>. <b>Proposed</b> is <a href="home-next.html">home-next.html</a>, written after <a href="https://sgit.ai/articles/riskmandate-ten-questions.html" target="_blank" rel="noopener">ten hard questions, answered</a>. The pictures are screenshots of both pages at the same width, and the marks come from comparing their text, not from a guess.</p>
+    <div class="rv-who">
+      <label>Your name <input id="rv-name" type="text" autocomplete="name"></label>
+      <label>Your email <input id="rv-email" type="email" autocomplete="email"></label>
+      <span class="rv-who-note">So we know whose answers these are. Kept in this browser and sent with your feedback.</span>
+    </div>
+  </div>
+</main>
+
+<div class="paper">
+
+<section class="psection" id="how">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">01 · The changes, section by section</span>
+      <h2>Pick a way to see them, <span class="g">and switch whenever you like.</span></h2>
+      <p>Side by side puts the two screenshots next to each other, with the changes marked and arrows from each old line to its new one. The slider lays one over the other: drag it to wipe from now to proposed. Four steps plays the change as a short sequence: now, what will change, what changed, proposed.</p>
+    </div>
+    <div class="rv-modes" role="group" aria-label="How to show the changes">
+      <button type="button" data-mode="side" class="on" aria-pressed="true">Side by side</button>
+      <button type="button" data-mode="slider" aria-pressed="false">Slider</button>
+      <button type="button" data-mode="steps" aria-pressed="false">Four steps</button>
+      <label class="rv-hl"><input type="checkbox" id="rv-marks" checked> Show the marks</label>
+    </div>
+    <div id="rv-changes"></div>
+  </div>
+</section>
+
+<section class="psection alt" id="new">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">02 · New on the proposed page</span>
+      <h2>Two sections that are not on the home page today.</h2>
+      <p>Keep, remove or change: each one is a choice.</p>
+    </div>
+    <div id="rv-new"></div>
+  </div>
+</section>
+
+<section class="psection" id="pricing-test">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">03 · A, B, C or D · the prices</span>
+      <h2>Which prices should the home page show?</h2>
+      <p>The lead's hypothesis, 9 October: the £10 and £50 levels are not selling, so the home page should lead with the levels people buy and add two engagements that are time with a forward-deployed engineer: £5,000 for a first pass and £25,000 for an MVP, delivered by Dinis Cruz. <a href="engagements.html">The engagements, as a proposed page.</a></p>
+    </div>
+    <div class="rv-variants" data-ask="pricing">
+      <button type="button" class="rv-var" data-choice="A"><span class="v">A · now</span><span class="row"><b>£10</b> pack</span><span class="row"><b>£50</b> vault</span><span class="row"><b>£500</b> corrected, free for early users</span><span class="row"><b>£1,500</b> reviewed and signed</span></button>
+      <button type="button" class="rv-var" data-choice="B"><span class="v">B · the lead's hypothesis</span><span class="row"><b>£500</b> corrected, free for early users</span><span class="row"><b>£1,500</b> reviewed and signed</span><span class="row"><b>£5,000</b> first pass</span><span class="row"><b>£25,000</b> MVP</span></button>
+      <button type="button" class="rv-var" data-choice="C"><span class="v">C · leaner</span><span class="row"><b>Free</b> level 3 for early users</span><span class="row"><b>£5,000</b> first pass</span><span class="row"><b>£25,000</b> MVP</span></button>
+      <button type="button" class="rv-var" data-choice="D"><span class="v">D · all six</span><span class="row"><b>£10</b> · <b>£50</b> · <b>£500</b> · <b>£1,500</b></span><span class="row">then <b>£5,000</b> first pass</span><span class="row">and <b>£25,000</b> MVP</span></button>
+    </div>
+    <label class="rv-comment">Why, or what you would change<textarea data-comment="pricing" rows="3"></textarea></label>
+  </div>
+</section>
+
+<section class="psection alt" id="inventory">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">04 · Keep or remove</span>
+      <h2>Every section of the proposed page, <span class="g">and whether it stays.</span></h2>
+      <p>Some of what is on the home page could go. Mark each section: keep it, remove it, or change it, and say why in a line.</p>
+    </div>
+    <div id="rv-inventory" class="rv-inv"></div>
+  </div>
+</section>
+
+<section class="psection" id="modes-test">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">05 · A, B or C · this page</span>
+      <h2>Which way of showing a change worked best for you?</h2>
+      <p>The next review page will use the winner.</p>
+    </div>
+    <div class="rv-variants three" data-ask="mode">
+      <button type="button" class="rv-var" data-choice="A"><span class="v">A · side by side</span><span class="row">two screenshots, marks and arrows</span></button>
+      <button type="button" class="rv-var" data-choice="B"><span class="v">B · slider</span><span class="row">one over the other, drag to wipe</span></button>
+      <button type="button" class="rv-var" data-choice="C"><span class="v">C · four steps</span><span class="row">now, what changes, what changed, proposed</span></button>
+    </div>
+    <label class="rv-comment">Anything else about this page<textarea data-comment="page" rows="3"></textarea></label>
+  </div>
+</section>
+
+<section class="psection alt" id="privacy">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">What this page records</span>
+      <h2>Your answers, and how you used the page.</h2>
+      <p>Opening the page, how far you scroll, which sections you look at, which mode you use, the slider and the steps, your choices, your comments, and the name and email you type. It is saved in this browser as you go. Also where you stop scrolling and which way you moved, how long you stay on each section, the links you follow, what you copy, the screenshots you paste, and the size of your window: enough for us to see the page the way you saw it. It is sent, encrypted in this browser to the review lane's public key, into a private vault that only its owners can read: when you press <b>Send feedback</b> or a comment's own button, when you leave a comment box, and every thirty seconds while there is something new. Nothing goes to an analytics service. This page is private and not indexed.</p>
+      <p>This browser also makes two keys of its own the first time you open the page, and keeps them: one signs what you send, so we can tell your sends from anyone else's; the other lets us answer you with a note that only this browser can read, which appears at the top of this page next time you open it. Your name and email are not part of either key. The <b>Debug</b> button in the bar at the bottom shows all of it: the keys, every event, every send and what the server answered.</p>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<div class="rv-bar" role="region" aria-label="Your feedback">
+  <span id="rv-count">Nothing answered yet</span>
+  <span id="rv-status" aria-live="polite"></span>
+  <a id="rv-download" href="#" download="riskmandate-review-feedback.json">Download as a file</a>
+  <a id="rv-mailto" href="#" hidden>Send as an email instead</a>
+  <button type="button" id="rv-send">Send feedback</button>
+</div>

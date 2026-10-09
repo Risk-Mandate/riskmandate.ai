@@ -1,0 +1,14 @@
+{
+ "name": "home-diff",
+ "title": "RiskMandate — the home page, now and proposed (private review)",
+ "desc": "A private review page: every section the proposed home page changes, shown side by side, as a slider and as four steps, with the changes marked, and questions on prices and sections whose answers are sent encrypted to the site agent.",
+ "body": "scripts/review/home-diff/body.html",
+ "styles": [
+  "assets/review/review.css"
+ ],
+ "scripts": [
+  "assets/review/envelope.js",
+  "assets/review/identity.js",
+  "assets/review/review.js"
+ ]
+}
