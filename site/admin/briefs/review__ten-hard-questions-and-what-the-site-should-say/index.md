@@ -85,7 +85,7 @@ with A/B testing and feedback that comes back to us. Built, private and unindexe
   vault id, the public write-only token, the public key and its fingerprint), encrypts each send in the
   browser to that key with the contact form's envelope, and appends it, when the reader presses *Send
   feedback* and every two minutes while there is something new. The private key is in the vault, encrypted
-  with a passphrase derived from the vault's write key. `scripts/review/read-feedback.mjs` reads the lane
+  with a secret derived from the vault's write key. `scripts/review/read-feedback.mjs` reads the lane
   with `REVIEW_KEY` in the environment, files each send as `.eml` and `.json` under `feedback/` in the vault,
   marks it processed and prints every answer and comment. The vault key was handed to the lead in the
   session and is in no file. Tested end to end on 9 October: one labelled message from the page, through
