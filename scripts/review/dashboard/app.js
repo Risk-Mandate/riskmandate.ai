@@ -32,7 +32,7 @@
     let p = people.get(key)
     if (!p) { p = { key, browser: r.browser || null, sids: new Set(), who: {}, sends: [], events: [], answers: {}, comments: {}, shots: [], sig: new Set(), pages: new Set(), first: r.received }; people.set(key, p) }
     p.sids.add(r.sid); p.sends.push(r); p.last = r.received; p.sig.add(r.sig || 'unsigned'); if (r.page) p.pages.add(r.page)
-    if (r.who && (r.who.name || r.who.email)) p.who = r.who
+    if (r.who && (r.who.name || r.who.email || r.who.ref)) p.who = r.who
     Object.assign(p.answers, r.answers || {}); Object.assign(p.comments, r.comments || {})
     for (const e of r.events || []) if (typeof e.at === 'string') p.events.push(Object.assign({ sid: r.sid }, e))   // before v1.38.6 a slider event's value overwrote its time; those are left out
     for (const s of r.shots || []) p.shots.push(Object.assign({ received: r.received, who: p.who }, s))
@@ -44,7 +44,7 @@
     for (const k of Object.keys(p.comments)) if (!p.comments[k]) delete p.comments[k]
   }
   const P = Array.from(people.values()).sort((a, b) => b.last.localeCompare(a.last))
-  const name = (p) => p.who.name || p.who.email || (p.browser ? 'browser ' + p.browser.slice(0, 9) : 'session ' + [...p.sids][0])
+  const name = (p) => [p.who.name || p.who.email, p.who.ref].filter(Boolean).join(' · ') || (p.browser ? 'browser ' + p.browser.slice(0, 9) : 'session ' + [...p.sids][0])
   const sigPill = (p) => { const s = [...p.sig]; const bad = s.find((x) => x.startsWith('bad')); return bad ? '<span class="pill bad">' + esc(bad) + '</span>' : s.includes('signed') ? '<span class="pill">signed</span>' : '<span class="pill dim">unsigned</span>' }
   const allEvents = P.flatMap((p) => p.events.map((e) => Object.assign({ person: p }, e)))
   const allComments = P.flatMap((p) => Object.entries(p.comments).map(([q, text]) => ({ p, q, text, shots: p.shots.filter((s) => s.on === q) })))
@@ -167,7 +167,7 @@
       list.map((e) => evRow(Object.assign({}, e, { who: name(e.person) }))).join('') + '</div>'
   }
   V.sends = () => recs.length ? '<div class="card wrapx"><table class="t"><thead><tr><th>Received</th><th>Reader</th><th>Why</th><th>Seq</th><th>Events</th><th>Shots</th><th>Signature</th><th>File</th></tr></thead><tbody>' + recs.slice().reverse().map((r) =>
-    '<tr><td>' + esc(when(r.received)) + '</td><td>' + esc((r.who && (r.who.name || r.who.email)) || r.browser || r.sid) + '</td><td>' + esc(r.send || '') + '</td><td>' + esc(r.seq || '') + '</td><td>' + (r.events || []).length + '</td><td>' + (r.shots || []).length + '</td><td>' + (r.sig === 'signed' ? '<span class="pill">signed</span>' : String(r.sig || '').startsWith('bad') ? '<span class="pill bad">' + esc(r.sig) + '</span>' : '<span class="pill dim">unsigned</span>') + '</td><td class="mono">' + esc(r.file) + '</td></tr>').join('') + '</tbody></table></div>' : '<p class="none">Nothing drained yet.</p>'
+    '<tr><td>' + esc(when(r.received)) + '</td><td>' + esc((r.who && [r.who.name || r.who.email, r.who.ref].filter(Boolean).join(' · ')) || r.browser || r.sid) + '</td><td>' + esc(r.send || '') + '</td><td>' + esc(r.seq || '') + '</td><td>' + (r.events || []).length + '</td><td>' + (r.shots || []).length + '</td><td>' + (r.sig === 'signed' ? '<span class="pill">signed</span>' : String(r.sig || '').startsWith('bad') ? '<span class="pill bad">' + esc(r.sig) + '</span>' : '<span class="pill dim">unsigned</span>') + '</td><td class="mono">' + esc(r.file) + '</td></tr>').join('') + '</tbody></table></div>' : '<p class="none">Nothing drained yet.</p>'
   V.about = () => '<div class="card prose"><h2>What this vault is</h2><p>riskmandate.ai\'s private review pages (the first is <span class="mono">home-diff.html</span>) send what each reader does and says, encrypted in their browser to this vault\'s lane key, onto the <span class="mono">review</span> append lane of this vault. The private key that opens them is kept in this vault, encrypted with a secret derived from the vault\'s write key.</p>' +
     '<h2>How it is drained</h2><p>A browser cannot drain this lane: the vault bridge lists a lane with an enum key derived from the read key, and this lane\'s is derived from the write key, as the agent-contact pattern on sgit.ai does. So it is drained the way the games\' telemetry is: a script that lists the lane, decrypts each message, files it in <span class="mono">feedback/</span>, marks it processed, and rebuilds this page with the data inlined. Then commit and push.</p>' +
     '<pre class="code">REVIEW_KEY=&lt;this vault\'s key&gt; node scripts/review/read-feedback.mjs --vault &lt;a clone of this vault&gt;\ncd &lt;the clone&gt; &amp;&amp; sgit commit -m "@Agent review feedback: n received" &amp;&amp; sgit push</pre>' +

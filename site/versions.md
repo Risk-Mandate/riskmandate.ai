@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.38.8** · 2026-10-09 — Review feedback: a device instead of an email, and the first replies
+  Notes: https://riskmandate.ai/versions/1.38.8.md · Source: `git:v1.38.8`
 - **v1.38.7** · 2026-10-09 — The review page fits a phone
   Notes: https://riskmandate.ai/versions/1.38.7.md · Source: `git:v1.38.7`
 - **v1.38.6** · 2026-10-09 — The review vault gets a dashboard

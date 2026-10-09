@@ -59,13 +59,37 @@
   var esc = function (t) { return String(t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
 
   // ---------------------------------------------------------------- the reviewer
-  ['name', 'email'].forEach(function (k) {
-    var el = $('#rv-' + k); el.value = st.who[k] || '';
-    el.addEventListener('change', function () { st.who[k] = el.value.trim(); log('who', { field: k }); });
-  });
+  // a name, and a device or reference: the device is guessed from the browser as a default, and can be changed
+  function guessDevice() {
+    var u = navigator.userAgent || '';
+    if (/iPhone/.test(u)) return 'iPhone';
+    if (/iPad/.test(u) || (/Macintosh/.test(u) && navigator.maxTouchPoints > 1)) return 'iPad';   // iPadOS reports itself as a Mac
+    if (/Android/.test(u)) return 'Android';
+    return /Mobi/.test(u) ? '' : (innerWidth >= 1600 ? 'Desktop' : 'Laptop');
+  }
+  delete st.who.email;   // no longer asked for (v1.38.8)
+  if (st.who.ref === undefined) { st.who.ref = guessDevice(); st.who.refGuessed = true; }
+  var nameEl = $('#rv-name'), refEl = $('#rv-ref');
+  nameEl.value = st.who.name || ''; refEl.value = st.who.ref || '';
+  function markRef() { $$('[data-ref]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-ref') === st.who.ref)); }); }
+  markRef();
+  nameEl.addEventListener('change', function () { st.who.name = nameEl.value.trim(); log('who', { field: 'name' }); });
+  refEl.addEventListener('change', function () { st.who.ref = refEl.value.trim(); st.who.refGuessed = false; markRef(); log('who', { field: 'ref', ref: st.who.ref }); });
+  $$('[data-ref]').forEach(function (b) { b.addEventListener('click', function () { st.who.ref = refEl.value = b.getAttribute('data-ref'); st.who.refGuessed = false; markRef(); log('who', { field: 'ref', ref: st.who.ref, picked: true }); }); });
+  var whoLine = function () { return [st.who.name, st.who.ref].filter(Boolean).join(' · '); };
 
   // ---------------------------------------------------------------- the data
   var d;
+  // a screenshot that fails to load is tried twice more, and every failure is an event, so it shows in Debug
+  document.addEventListener('error', function (e) {
+    var im = e.target; if (!im || im.tagName !== 'IMG' || !im.closest || !im.closest('.rv-img')) return;
+    var src = (im.getAttribute('src') || '').split('?')[0], n = +(im.getAttribute('data-tries') || 0);
+    log('img-error', { src: src.split('/').pop(), tries: n, online: navigator.onLine });
+    if (n < 2) { im.setAttribute('data-tries', n + 1); setTimeout(function () { im.src = src + '?retry=' + (n + 1); }, 700 * (n + 1)); }
+  }, true);
+  document.addEventListener('load', function (e) {
+    var im = e.target; if (im && im.tagName === 'IMG' && im.getAttribute('data-tries')) log('img-retry-ok', { src: (im.getAttribute('src') || '').split('?')[0].split('/').pop(), tries: +im.getAttribute('data-tries') });
+  }, true);
   try { d = await (await fetch(BASE + 'diff.json', { cache: 'no-store' })).json(); }
   catch (e) { $('#rv-changes').textContent = 'The screenshots did not load: ' + e.message; return; }
   var W = d.width;
@@ -337,7 +361,7 @@
     }, 700);
   }, { passive: true });
   document.addEventListener('click', function (e) { var a = e.target.closest && e.target.closest('a[href]'); if (a) log('link', { href: a.getAttribute('href'), text: (a.textContent || '').trim().slice(0, 60) }); }, true);
-  document.addEventListener('focusin', function (e) { var t = e.target.closest && e.target.closest('[data-comment],#rv-name,#rv-email'); if (t) log('focus', { on: t.getAttribute('data-comment') || t.id }); });
+  document.addEventListener('focusin', function (e) { var t = e.target.closest && e.target.closest('[data-comment],#rv-name,#rv-ref'); if (t) log('focus', { on: t.getAttribute('data-comment') || t.id }); });
   document.addEventListener('copy', function () { var s = String(getSelection() || ''); log('copy', { chars: s.length, text: s.slice(0, 120) }); });
   document.addEventListener('pointerdown', function (e) { var r = e.target.closest && e.target.closest('.rv-slider input[type=range]'); if (r) log('slider-grab', { section: r.closest('.rv-sec').getAttribute('data-id'), from: +r.value }); });
   var rsT; addEventListener('resize', function () { clearTimeout(rsT); rsT = setTimeout(function () { log('resize', { w: innerWidth, h: innerHeight }); }, 800); });
@@ -348,7 +372,7 @@
   function answered() { return Object.keys(st.answers).filter(function (k) { return st.answers[k]; }).length + Object.keys(st.comments).filter(function (k) { return st.comments[k]; }).length; }
   function count() { var n = answered(); var c = $('#rv-count'); if (c) c.textContent = n ? n + ' answer' + (n === 1 ? '' : 's') + ' and comments so far' : 'Nothing answered yet'; }
   function summary() {
-    var L = ['Review of the proposed home page', 'Reviewer: ' + (st.who.name || '(no name)') + ' <' + (st.who.email || 'no email') + '>', 'Session: ' + st.sid + ', started ' + st.started, ''];
+    var L = ['Review of the proposed home page', 'Reviewer: ' + (whoLine() || '(no name)'), 'Session: ' + st.sid + ', started ' + st.started, ''];
     Object.keys(st.answers).forEach(function (k) { if (st.answers[k]) L.push('Choice ' + k + ': ' + st.answers[k]); });
     Object.keys(st.comments).forEach(function (k) { if (st.comments[k]) L.push('Comment ' + k + ': ' + st.comments[k]); });
     return L.join('\n');
@@ -378,15 +402,15 @@
       var rec = payload(out), sig = ME ? await RMIdentity.sign(rec) : '';
       var id = 'rm-review-' + st.sid + '-' + Date.now() + '@riskmandate.ai';
       var eml = ['From: web form <site@riskmandate.ai>', 'To: agent <agent@riskmandate.ai>',
-        'Subject: Review of the proposed home page: ' + (st.who.name || st.who.email || 'session ' + st.sid).replace(/[\r\n]+/g, ' '),
+        'Subject: Review of the proposed home page: ' + (whoLine() || 'session ' + st.sid).replace(/[\r\n]+/g, ' '),
         'Date: ' + new Date().toUTCString(), 'Message-ID: <' + id + '>', 'X-EmailFS-Kind: notification', 'X-RM-Form: review',
-        'X-RM-Reply-To: ' + (st.who.email || '').replace(/[\r\n]+/g, ' '), 'X-RM-Page: ' + location.pathname, 'X-RM-Send: ' + why, 'X-RM-Seq: ' + ent.seq,
+        'X-RM-Page: ' + location.pathname, 'X-RM-Send: ' + why, 'X-RM-Seq: ' + ent.seq,
         'X-RM-Browser: ' + (ME ? ME.id : 'none'), 'X-RM-Signature: ' + (sig ? 'ecdsa-p256-sha256 ' + sig : 'none'), 'Content-Type: text/plain; charset=utf-8'].join('\r\n') +
         '\r\n\r\n' + (summary() + (out.length ? '\n' + out.length + ' screenshot(s) attached in the record.' : '') + '\n\n--- the record, as JSON ---\n' + rec).replace(/\r?\n/g, '\r\n');
       var env = await SgEnvelope.encrypt(ln.encrypt_pem, eml);
       var body = JSON.stringify({ append_token: ln.append_token, payload: env.payload });
       ent.kb = Math.round(body.length / 1024); ent.signed = !!sig;
-      var w = await fetch(ln.endpoint + '/api/vault/append/write/' + ln.vault, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: body });
+      var w = await fetch(ln.endpoint + '/api/vault/append/write/' + ln.vault, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: body, keepalive: why === 'hidden' && body.length < 60000 });   // a send as the tab goes away outlives the page, if small enough
       var j = null, jt = ''; try { jt = await w.text(); j = JSON.parse(jt); } catch (_) {}
       ent.status = w.status; ent.answer = jt.slice(0, 120); ent.ms = Date.now() - t0;
       if (!w.ok || !j || j.ok !== true) throw new Error('The vault host answered ' + w.status + '.');
@@ -452,7 +476,7 @@
     var base = Math.max(0, st.events.length - 300), evs = st.events.slice(base);
     var h = '<div class="rv-dbg-grip" title="Drag to resize"></div><header><b>Debug</b><span>what this page knows, and every send</span><button type="button" data-dbg="close" aria-label="Close the debug column">\u00d7</button></header>';
     h += '<section><h4>This browser</h4><table>' + (ME ? row('id', '<code>' + ME.id + '</code>') + row('signing key', 'ECDSA P-256 · ' + ME.signFp) + row('reply key', 'RSA-OAEP 4096 · ' + ME.boxFp) + row('made', esc(ME.created)) + row('kept in', esc(ME.kept)) : row('keys', 'making them…')) +
-         row('session', esc(st.sid) + ' · since ' + esc(st.started)) + row('reader', esc(((st.who.name || '') + ' ' + (st.who.email ? '<' + st.who.email + '>' : '')).trim()) || 'not given') + '</table></section>';
+         row('session', esc(st.sid) + ' · since ' + esc(st.started)) + row('reader', esc(whoLine()) || 'not given') + '</table></section>';
     h += '<section><h4>The lane</h4><table>' + (LANE ? row('host', esc(LANE.endpoint)) + row('vault', esc(LANE.vault) + ' · lane ' + esc(LANE.lane)) + row('encrypts to', esc(LANE.encrypt_to) + (LANEFP === LANE.encrypt_to ? ' <span class="ok">matches the key</span>' : ' <span class="err">does not match</span>')) + row('status', esc(LANE.status)) : row('lane', 'not loaded')) + '</table></section>';
     h += '<section><h4>Now</h4><table>' + row('events', st.events.length + ' kept · ' + unsent + ' not sent yet') + row('screenshots', shots.length + ' · ' + pend + ' waiting') + row('answers', answered() + ' choices and comments') +
          row('next send', sending ? 'sending…' : (unsent || pend) ? 'within 30 s, on leaving a box, or now' : 'nothing new to send') + row('last sent', esc(st.lastSent || 'never')) + '</table>' +

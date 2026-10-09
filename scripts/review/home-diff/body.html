@@ -6,8 +6,10 @@
     <p class="meta"><b>Now</b> is <a href="./">the live home page</a>. <b>Proposed</b> is <a href="home-next.html">home-next.html</a>, written after <a href="https://sgit.ai/articles/riskmandate-ten-questions.html" target="_blank" rel="noopener">ten hard questions, answered</a>. The pictures are screenshots of both pages at the same width, and the marks come from comparing their text, not from a guess.</p>
     <div class="rv-who">
       <label>Your name <input id="rv-name" type="text" autocomplete="name"></label>
-      <label>Your email <input id="rv-email" type="email" autocomplete="email"></label>
-      <span class="rv-who-note">So we know whose answers these are. Kept in this browser and sent with your feedback.</span>
+      <div class="rv-ref"><label for="rv-ref">Device, or a reference</label>
+        <div class="rv-ref-opts" role="group" aria-label="Pick one, or type your own"><button type="button" data-ref="iPhone">iPhone</button><button type="button" data-ref="iPad">iPad</button><button type="button" data-ref="Android">Android</button><button type="button" data-ref="Laptop">Laptop</button><button type="button" data-ref="Desktop">Desktop</button></div>
+        <input id="rv-ref" type="text" placeholder="or type your own"></div>
+      <span class="rv-who-note">So we know whose answers these are, and on what. No email needed. Kept in this browser and sent with your feedback.</span>
     </div>
   </div>
 </main>
@@ -91,8 +93,8 @@
     <div class="shead">
       <span class="tag">What this page records</span>
       <h2>Your answers, and how you used the page.</h2>
-      <p>Opening the page, how far you scroll, which sections you look at, which mode you use, the slider and the steps, your choices, your comments, and the name and email you type. It is saved in this browser as you go. Also where you stop scrolling and which way you moved, how long you stay on each section, the links you follow, what you copy, the screenshots you paste, and the size of your window: enough for us to see the page the way you saw it. It is sent, encrypted in this browser to the review lane's public key, into a private vault that only its owners can read: when you press <b>Send feedback</b> or a comment's own button, when you leave a comment box, and every thirty seconds while there is something new. Nothing goes to an analytics service. This page is private and not indexed.</p>
-      <p>This browser also makes two keys of its own the first time you open the page, and keeps them: one signs what you send, so we can tell your sends from anyone else's; the other lets us answer you with a note that only this browser can read, which appears at the top of this page next time you open it. Your name and email are not part of either key. The <b>Debug</b> button in the bar at the bottom shows all of it: the keys, every event, every send and what the server answered.</p>
+      <p>Opening the page, how far you scroll, which sections you look at, which mode you use, the slider and the steps, your choices, your comments, and the name and device you give. It is saved in this browser as you go. Also where you stop scrolling and which way you moved, how long you stay on each section, the links you follow, what you copy, the screenshots you paste, and the size of your window: enough for us to see the page the way you saw it. It is sent, encrypted in this browser to the review lane's public key, into a private vault that only its owners can read: when you press <b>Send feedback</b> or a comment's own button, when you leave a comment box, and every thirty seconds while there is something new. Nothing goes to an analytics service. This page is private and not indexed.</p>
+      <p>This browser also makes two keys of its own the first time you open the page, and keeps them: one signs what you send, so we can tell your sends from anyone else's; the other lets us answer you with a note that only this browser can read, which appears at the top of this page next time you open it. Your name is not part of either key. The <b>Debug</b> button in the bar at the bottom shows all of it: the keys, every event, every send and what the server answered.</p>
     </div>
   </div>
 </section>

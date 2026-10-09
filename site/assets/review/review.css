@@ -145,3 +145,9 @@ html.rv-dbg-on #rv-debug{display:block}
 @media (min-width:900px){html.rv-dbg-on header.top{right:var(--dbg-w,420px);width:auto;max-width:none}}
 
 .rv-list .was,.rv-list .now{min-width:0;overflow-wrap:anywhere}
+.rv-ref{display:flex;flex-direction:column;gap:6px}
+.rv-ref>label{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(247,246,242,.6)}
+.rv-ref-opts{display:flex;flex-wrap:wrap;gap:6px}
+.rv-ref-opts button{font:inherit;font-size:13px;padding:5px 11px;border-radius:999px;border:1px solid rgba(247,246,242,.25);background:transparent;color:#F7F6F2;cursor:pointer}
+.rv-ref-opts button[aria-pressed="true"]{background:#4BE3A2;border-color:#4BE3A2;color:#07140F;font-weight:600}
+.rv-who .rv-ref input{font:inherit;font-family:var(--sans);font-size:15px;width:260px;max-width:100%;padding:9px 12px;border-radius:9px;border:1px solid rgba(247,246,242,.2);background:rgba(247,246,242,.06);color:#F7F6F2}
