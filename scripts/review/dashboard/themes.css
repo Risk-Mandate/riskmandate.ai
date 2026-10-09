@@ -1,0 +1,193 @@
+/* themes.css: every colour in the review dashboard, four times.
+   Copied from the Threat-sized security vault (zwlqqvkm), which copied names, mechanism and values from the
+   Mill Street Bridge vault, which copied them from secrets.sgit.ai's assets/themes.css, so this vault looks
+   like the others in the family. Nothing else in the dashboard writes a colour. */
+
+/* ── Night: dark, teal (the default) ────────────────────────────────────────── */
+:root,
+html[data-theme="night"],
+.theme-swatch[data-swatch="night"] {
+    color-scheme:                 dark;
+
+    --sg-bg:                      #1A1A2E;
+    --sg-bg-secondary:            #16213E;
+    --sg-bg-surface:              rgba(44, 62, 107, 0.35);
+    --sg-bg-surface-strong:       rgba(44, 62, 107, 0.65);
+    --sg-bg-header:               rgba(26, 26, 46, 0.92);
+    --sg-border:                  #2C3E6B;
+
+    --sg-text:                    #E0E0E0;
+    --sg-text-heading:            #FFFFFF;
+    --sg-text-muted:              #8B95A2;
+
+    --sg-accent:                  #4ECDC4;
+    --sg-accent-hover:            #3DB8B0;
+    --sg-accent-subtle:           rgba(78, 205, 196, 0.12);
+    --sg-on-accent:               #1A1A2E;
+    --sg-selected:                rgba(78, 205, 196, 0.22);
+
+    --sg-danger:                  #E94560;
+    --sg-danger-subtle:           rgba(233, 69, 96, 0.14);
+
+    --sg-status-shipped:          #4ECDC4;
+    --sg-status-proposed:         #E0B84E;
+    --sg-status-proposed-subtle:  rgba(224, 184, 78, 0.12);
+    --sg-status-absent:           #8892A0;
+    --sg-on-status:               #1A1A2E;
+
+    --sg-shadow:                  0 8px 24px rgba(0, 0, 0, 0.35);
+
+    --sg-cat-1:                   #1E9486;
+    --sg-cat-2:                   #D06A32;
+    --sg-cat-3:                   #3F7EE0;
+    --sg-cat-4:                   #A98A1E;
+    --sg-cat-5:                   #9D5CD1;
+    --sg-on-cat:                  #FFFFFF;
+    --sg-tier-0:                  #8A4750;
+    --sg-tier-1:                  #A4505A;
+    --sg-tier-2:                  #C25F66;
+    --sg-tier-3:                  #DC7479;
+    --sg-tier-4:                  #EE9497;
+    --sg-tier-5:                  #F9BDBC;
+}
+
+/* ── Day: light, teal ───────────────────────────────────────────────────────── */
+html[data-theme="day"],
+.theme-swatch[data-swatch="day"] {
+    color-scheme:                 light;
+
+    --sg-bg:                      #FFFFFF;
+    --sg-bg-secondary:            #F3F5F9;
+    --sg-bg-surface:              rgba(44, 62, 107, 0.06);
+    --sg-bg-surface-strong:       rgba(44, 62, 107, 0.13);
+    --sg-bg-header:               rgba(255, 255, 255, 0.92);
+    --sg-border:                  #D6DCE8;
+
+    --sg-text:                    #2B3040;
+    --sg-text-heading:            #141829;
+    --sg-text-muted:              #5F6878;
+
+    --sg-accent:                  #0C736B;
+    --sg-accent-hover:            #0A6A63;
+    --sg-accent-subtle:           rgba(14, 133, 124, 0.10);
+    --sg-on-accent:               #FFFFFF;
+    --sg-selected:                rgba(14, 133, 124, 0.16);
+
+    --sg-danger:                  #C41E3D;
+    --sg-danger-subtle:           rgba(196, 30, 61, 0.10);
+
+    --sg-status-shipped:          #0E857C;
+    --sg-status-proposed:         #8A5F00;
+    --sg-status-proposed-subtle:  rgba(224, 184, 78, 0.20);
+    --sg-status-absent:           #6B7280;
+    --sg-on-status:               #FFFFFF;
+
+    --sg-shadow:                  0 8px 24px rgba(20, 24, 41, 0.14);
+
+    --sg-cat-1:                   #0A8F80;
+    --sg-cat-2:                   #D25A14;
+    --sg-cat-3:                   #2E6CD1;
+    --sg-cat-4:                   #937E00;
+    --sg-cat-5:                   #8E36CC;
+    --sg-on-cat:                  #FFFFFF;
+    --sg-tier-0:                  #E0857C;
+    --sg-tier-1:                  #CF6559;
+    --sg-tier-2:                  #BB473D;
+    --sg-tier-3:                  #9E322B;
+    --sg-tier-4:                  #7A2420;
+    --sg-tier-5:                  #521714;
+}
+
+/* ── Paper: warm off-white, terracotta ──────────────────────────────────────── */
+html[data-theme="paper"],
+.theme-swatch[data-swatch="paper"] {
+    color-scheme:                 light;
+
+    --sg-bg:                      #F7F2E9;
+    --sg-bg-secondary:            #EFE7D9;
+    --sg-bg-surface:              rgba(120, 90, 50, 0.08);
+    --sg-bg-surface-strong:       rgba(120, 90, 50, 0.16);
+    --sg-bg-header:               rgba(247, 242, 233, 0.92);
+    --sg-border:                  #DACFBD;
+
+    --sg-text:                    #3A3229;
+    --sg-text-heading:            #241F18;
+    --sg-text-muted:              #6A5F52;
+
+    --sg-accent:                  #B2441C;
+    --sg-accent-hover:            #913618;
+    --sg-accent-subtle:           rgba(178, 68, 28, 0.10);
+    --sg-on-accent:               #FFF8F0;
+    --sg-selected:                rgba(178, 68, 28, 0.16);
+
+    --sg-danger:                  #A32626;
+    --sg-danger-subtle:           rgba(163, 38, 38, 0.10);
+
+    --sg-status-shipped:          #2E7A58;
+    --sg-status-proposed:         #9A6A0C;
+    --sg-status-proposed-subtle:  rgba(154, 106, 12, 0.12);
+    --sg-status-absent:           #8B8275;
+    --sg-on-status:               #FFF8F0;
+
+    --sg-shadow:                  0 8px 24px rgba(60, 40, 20, 0.14);
+
+    --sg-cat-1:                   #0E8A70;
+    --sg-cat-2:                   #C4521A;
+    --sg-cat-3:                   #2E63C8;
+    --sg-cat-4:                   #8C7600;
+    --sg-cat-5:                   #8A32C4;
+    --sg-on-cat:                  #FFF8F0;
+    --sg-tier-0:                  #E0857C;
+    --sg-tier-1:                  #CF6559;
+    --sg-tier-2:                  #BB473D;
+    --sg-tier-3:                  #9E322B;
+    --sg-tier-4:                  #7A2420;
+    --sg-tier-5:                  #521714;
+}
+
+/* ── Ember: dark, amber ─────────────────────────────────────────────────────── */
+html[data-theme="ember"],
+.theme-swatch[data-swatch="ember"] {
+    color-scheme:                 dark;
+
+    --sg-bg:                      #1C1612;
+    --sg-bg-secondary:            #251D17;
+    --sg-bg-surface:              rgba(255, 170, 90, 0.08);
+    --sg-bg-surface-strong:       rgba(255, 170, 90, 0.16);
+    --sg-bg-header:               rgba(28, 22, 18, 0.92);
+    --sg-border:                  #3F3127;
+
+    --sg-text:                    #E8DED2;
+    --sg-text-heading:            #FFF6EC;
+    --sg-text-muted:              #A3968A;
+
+    --sg-accent:                  #FF9442;
+    --sg-accent-hover:            #E8803A;
+    --sg-accent-subtle:           rgba(255, 148, 66, 0.12);
+    --sg-on-accent:               #1C1612;
+    --sg-selected:                rgba(255, 148, 66, 0.22);
+
+    --sg-danger:                  #FF5C5C;
+    --sg-danger-subtle:           rgba(255, 92, 92, 0.14);
+
+    --sg-status-shipped:          #8FD6A8;
+    --sg-status-proposed:         #E6C86E;
+    --sg-status-proposed-subtle:  rgba(230, 200, 110, 0.12);
+    --sg-status-absent:           #A3968A;
+    --sg-on-status:               #1C1612;
+
+    --sg-shadow:                  0 8px 24px rgba(0, 0, 0, 0.45);
+
+    --sg-cat-1:                   #1E9486;
+    --sg-cat-2:                   #D06A32;
+    --sg-cat-3:                   #3F7EE0;
+    --sg-cat-4:                   #A98A1E;
+    --sg-cat-5:                   #9D5CD1;
+    --sg-on-cat:                  #FFFFFF;
+    --sg-tier-0:                  #8A4750;
+    --sg-tier-1:                  #A4505A;
+    --sg-tier-2:                  #C25F66;
+    --sg-tier-3:                  #DC7479;
+    --sg-tier-4:                  #EE9497;
+    --sg-tier-5:                  #F9BDBC;
+}

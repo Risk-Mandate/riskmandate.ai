@@ -124,6 +124,21 @@ with A/B testing and feedback that comes back to us. Built, private and unindexe
   - *Not yet:* the drain in a browser. sgit.ai's published vaults drain in Python and show a dashboard vault
     app over what was drained; the bridge cannot list a lane whose enum key is derived from the write key, as
     this one is. The dashboard comes next, the same way.
+- **The dashboard in the vault (v1.38.6).** The lead asked to open the vault and see statistics and
+  visualisations of what readers did, in the layout of the newer vaults on sgit.ai. `read-feedback.mjs` now
+  ends by running `scripts/review/build-dashboard.mjs`, which writes `index.html` and `app.json` into the
+  vault: a vault app with the family's sidebar, numbered groups, Previous and Next, and the four themes
+  (tokens copied from the Threat-sized security vault). Its views: an overview (counts, messages per hour or
+  day, events by type, the latest comments); choices, one stacked bar per question with who chose what;
+  comments by section with their screenshots, read through the bridge; readers, one row per browser with its
+  signature check; sessions, a replay of each visit (how far down the page the reader was, minute by minute,
+  with what they did marked, time on each section, and every event); events by type, filterable; the drain
+  log; and how it works. The data is inlined at each drain, so the page needs no grant and writes nothing.
+  Pushed to the vault on 9 October as dashboard v0.1.0 over the four messages drained so far; tested from a
+  local copy with two simulated readers (signed sends, a pasted screenshot). Not checked inside the vault host
+  from this session: the session's browser does not trust its proxy's certificate authority.
+  The same test found a bug in the page: the slider event stored its value under `at`, which overwrote the
+  event's time; fixed, and the time and type can no longer be overwritten by a field of the same name.
 - **The pricing hypothesis.** The lead: the £10 and £50 levels are not selling; lead with the levels people
   buy and add two engagements that are time with a forward-deployed engineer, £5,000 for a first pass and
   £25,000 for an MVP, delivered by Dinis Cruz. The four variants on the review page: A now; B the lead's
