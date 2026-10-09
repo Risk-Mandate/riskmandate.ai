@@ -2,6 +2,8 @@
 # which are ours rather than yours and carry noindex as well.
 User-agent: *
 Disallow: /business-case-auth0-for-ai-agents.html
+Disallow: /home-diff.html
+Disallow: /engagements.html
 Disallow: /home-next.html
 Allow: /
 

@@ -1,0 +1,285 @@
+{
+ "captured": "2026-10-09T12:12:50.783Z",
+ "width": 1280,
+ "before": "/",
+ "after": "/home-next.html",
+ "pairs": [
+  {
+   "id": "hero",
+   "title": "The hero",
+   "isNew": false,
+   "beforeBoxes": [
+    {
+     "x": 310,
+     "y": 298,
+     "w": 660,
+     "h": 60,
+     "text": "Behaviour policies for the AI agents in Gmail, HR, payroll, CRM and meeting apps. Enforced in real time, with alerts by text and email."
+    },
+    {
+     "x": 497,
+     "y": 386,
+     "w": 139,
+     "h": 52,
+     "text": "Get started"
+    }
+   ],
+   "afterBoxes": [
+    {
+     "x": 310,
+     "y": 298,
+     "w": 660,
+     "h": 120,
+     "text": "Agent Behaviour Policies for the AI agents in Gmail, HR, payroll, CRM and meeting apps: what each one can reach, what you authorised it to do, and the gap between the two. Your own controls enforce them. We are never in the request path."
+    },
+    {
+     "x": 471,
+     "y": 446,
+     "w": 190,
+     "h": 52,
+     "text": "Start with one rule"
+    }
+   ],
+   "h": 538,
+   "hb": 478,
+   "ha": 538
+  },
+  {
+   "id": "stage",
+   "title": "The stage",
+   "isNew": false,
+   "beforeBoxes": [
+    {
+     "x": 620,
+     "y": 145,
+     "w": 20,
+     "h": 138,
+     "text": "RiskMandate policy"
+    },
+    {
+     "x": 884,
+     "y": 621,
+     "w": 274,
+     "h": 85,
+     "text": "Blocked: Payroll copilot tried to change bank details for 1 employee. Reply 1 to review."
+    }
+   ],
+   "afterBoxes": [
+    {
+     "x": 620,
+     "y": 145,
+     "w": 20,
+     "h": 198,
+     "text": "Your controls, from the ABP"
+    },
+    {
+     "x": 884,
+     "y": 621,
+     "w": 274,
+     "h": 85,
+     "text": "Blocked by your gateway: Payroll copilot tried to change bank details for 1 employee. Reply 1 to review."
+    },
+    {
+     "x": 295,
+     "y": 754,
+     "w": 690,
+     "h": 72,
+     "text": "The gate in the middle is your gateway, proxy or IAM, configured from the rules in the ABP. RiskMandate writes the rules and is never in the request path; the approval card is a flow your team stands up with our help."
+    }
+   ],
+   "h": 946,
+   "hb": 802,
+   "ha": 946
+  },
+  {
+   "id": "builder",
+   "title": "Pick a system, set the rules",
+   "isNew": false,
+   "beforeBoxes": [
+    {
+     "x": 260,
+     "y": 206,
+     "w": 760,
+     "h": 86,
+     "text": "Every system starts from a template. Decide what agents can do, what waits for approval and what never happens. The rules you can paste into an agent today, one worry at a time, are here."
+    },
+    {
+     "x": 1037,
+     "y": 390,
+     "w": 100,
+     "h": 32,
+     "text": "Enforcing"
+    }
+   ],
+   "afterBoxes": [
+    {
+     "x": 260,
+     "y": 206,
+     "w": 760,
+     "h": 86,
+     "text": "Every system starts from a template. Decide what agents can do, what waits for approval and what never happens. We write it down; your controls enforce it. The rules you can paste into an agent today, one worry at a time, are here."
+    },
+    {
+     "x": 1010,
+     "y": 390,
+     "w": 127,
+     "h": 32,
+     "text": "Your mandate"
+    }
+   ],
+   "h": 1040,
+   "hb": 1040,
+   "ha": 1040
+  },
+  {
+   "id": "byo",
+   "title": "Bring your policy",
+   "isNew": false,
+   "beforeBoxes": [
+    {
+     "x": 60,
+     "y": 128,
+     "w": 552,
+     "h": 120,
+     "text": "Bring your policy. We make it enforceable."
+    },
+    {
+     "x": 668,
+     "y": 163,
+     "w": 552,
+     "h": 86,
+     "text": "Upload the document legal already wrote. We turn every line into a rule, supply the business logic behind it, and flag what can't be enforced as written."
+    }
+   ],
+   "afterBoxes": [
+    {
+     "x": 60,
+     "y": 128,
+     "w": 552,
+     "h": 180,
+     "text": "Bring your policy. We show what can enforce it."
+    },
+    {
+     "x": 668,
+     "y": 194,
+     "w": 552,
+     "h": 114,
+     "text": "Upload the document legal already wrote. We turn every line into a rule, supply the business logic behind it, name the control in your stack that would enforce each one, and flag what nothing can enforce as written."
+    }
+   ],
+   "h": 864,
+   "hb": 804,
+   "ha": 864
+  },
+  {
+   "id": "prompt",
+   "title": "A prompt asks",
+   "isNew": false,
+   "beforeBoxes": [
+    {
+     "x": 260,
+     "y": 128,
+     "w": 760,
+     "h": 120,
+     "text": "A prompt asks. A policy enforces."
+    },
+    {
+     "x": 282,
+     "y": 266,
+     "w": 717,
+     "h": 29,
+     "text": "Instructions inside an agent can be ignored or talked around. Rules outside it can't."
+    },
+    {
+     "x": 679,
+     "y": 380,
+     "w": 462,
+     "h": 23,
+     "text": "In a RiskMandate policy"
+    }
+   ],
+   "afterBoxes": [
+    {
+     "x": 260,
+     "y": 128,
+     "w": 760,
+     "h": 120,
+     "text": "A prompt asks. A boundary enforces."
+    },
+    {
+     "x": 260,
+     "y": 266,
+     "w": 760,
+     "h": 57,
+     "text": "Instructions inside an agent can be ignored or talked around. A control outside it cannot, and the ABP says which of the two each rule has."
+    },
+    {
+     "x": 679,
+     "y": 408,
+     "w": 462,
+     "h": 23,
+     "text": "In the ABP, held by your gateway"
+    }
+   ],
+   "h": 788,
+   "hb": 760,
+   "ha": 788
+  },
+  {
+   "id": "alerts",
+   "title": "Know the moment",
+   "isNew": false,
+   "beforeBoxes": [
+    {
+     "x": 60,
+     "y": 497,
+     "w": 494,
+     "h": 57,
+     "text": "Every policy alerts the right person by text and email. Approve or deny with a one-letter reply."
+    },
+    {
+     "x": 904,
+     "y": 224,
+     "w": 84,
+     "h": 20,
+     "text": "RiskMandate"
+    }
+   ],
+   "afterBoxes": [
+    {
+     "x": 60,
+     "y": 468,
+     "w": 494,
+     "h": 114,
+     "text": "An approval flow your team stands up with our help, from the rules in the ABP: the right person gets a text and an email, and approves or denies with a one-letter reply. It runs in your stack, not ours."
+    },
+    {
+     "x": 890,
+     "y": 224,
+     "w": 112,
+     "h": 20,
+     "text": "Your approval bot"
+    }
+   ],
+   "h": 848,
+   "hb": 848,
+   "ha": 848
+  },
+  {
+   "id": "roles",
+   "title": "Who does what (new)",
+   "isNew": true,
+   "h": 948,
+   "ha": 948,
+   "afterBoxes": []
+  },
+  {
+   "id": "questions",
+   "title": "Ten hard questions (new)",
+   "isNew": true,
+   "h": 1521,
+   "ha": 1521,
+   "afterBoxes": []
+  }
+ ]
+}
