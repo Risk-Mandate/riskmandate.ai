@@ -1,0 +1,511 @@
+{
+ "type": "riskmandate/linkedin-desk/v1",
+ "page": {
+  "name": "RiskMandate",
+  "url": "https://www.linkedin.com/company/riskmandate/",
+  "created": "2026-10-21"
+ },
+ "note": "Generated from scripts/linkedin/items.mjs by scripts/linkedin/build.mjs. Edit the items, not this file.",
+ "items": [
+  {
+   "id": "profile-dinis",
+   "seq": 1,
+   "kind": "profile",
+   "who": "dinis",
+   "when": "Day 1, first",
+   "title": "Your profile: RiskMandate as an experience entry",
+   "why": "Adding the position is what tells your network you have joined; LinkedIn offers to share it, and that share is the post below.",
+   "fields": [
+    [
+     "Title",
+     "Co-founder"
+    ],
+    [
+     "Employment type",
+     "Full-time"
+    ],
+    [
+     "Company",
+     "RiskMandate (pick the page, so the logo shows)"
+    ],
+    [
+     "Location",
+     "London, United Kingdom · Hybrid"
+    ],
+    [
+     "Start date",
+     "The month you date the company from (the site was first published in June 2026)"
+    ],
+    [
+     "Headline (220 characters)",
+     "Co-founder, RiskMandate: Agent Behaviour Policies, what an AI agent can reach, what it was authorised to do, and the gap · Founder, sgit.ai and the SGit Newsroom · Former OWASP Board member"
+    ],
+    [
+     "Description (2,000 characters)",
+     "RiskMandate writes Agent Behaviour Policies. For one AI agent in one deployment, an ABP writes down everything it can reach, what you authorised it to do, the gap between the two, and what stands in the way of each thing. It carries no score; it is the record a CEO, a CISO or an insurer reads before deciding whether an agent may do what it is about to do.\n\nWe stay out of the request path on purpose: your gateways, hooks and runtimes enforce the rules, and the ABP says which control holds each one, or that nothing does.\n\nI lead the policies, the open vocabulary and the agents that build the site. Nimay Parekh is co-founder and chief executive.\n\nTry one in five minutes, in Claude or ChatGPT, nothing to install: customers.riskmandate.ai"
+    ],
+    [
+     "Skills",
+     "AI agents · AI governance · Agent security · Risk management · Cyber insurance · Policy as code"
+    ],
+    [
+     "Media",
+     "Add customers.riskmandate.ai as a link, so the card shows under the entry"
+    ]
+   ],
+   "sources": [
+    [
+     "Three companies, three LinkedIn pages (the profile drafts)",
+     "https://newsroom.sgit.ai/articles/three-linkedin-pages.html"
+    ]
+   ],
+   "images": [],
+   "chars": null,
+   "words": null
+  },
+  {
+   "id": "profile-nimay",
+   "seq": 2,
+   "kind": "profile",
+   "who": "nimay",
+   "when": "Day 1, for Nimay to adapt",
+   "title": "Nimay's profile: RiskMandate as an experience entry",
+   "why": "A draft for Nimay, built only from the two lines the investor deck gives; everything in it is his to change.",
+   "fields": [
+    [
+     "Title",
+     "Co-founder and Chief Executive"
+    ],
+    [
+     "Company",
+     "RiskMandate (pick the page, so the logo shows)"
+    ],
+    [
+     "Headline (220 characters)",
+     "Co-founder and CEO, RiskMandate · Agent Behaviour Policies: what an AI agent can reach, what it may do, and the gap · Cyber insurance and supply-chain risk products, SecurityScorecard · INSEAD MBA"
+    ],
+    [
+     "Description (2,000 characters)",
+     "RiskMandate writes Agent Behaviour Policies: for one AI agent in one deployment, what it can reach, what the business authorised, the gap between the two, and what stands in the way of each capability. It is the document a board, a CISO or an insurer can read before an agent is trusted with real work.\n\nThe aim is agents an insurer can cover. RiskMandate is not an insurer; it builds the record that makes agentic AI insurable, one step at a time, starting with a behaviour policy you can try today.\n\nBefore RiskMandate I built cyber-insurance and supply-chain risk products at SecurityScorecard, and led senior partnerships and product across enterprise software.\n\nTry one in five minutes, in Claude or ChatGPT: customers.riskmandate.ai"
+    ],
+    [
+     "Media",
+     "customers.riskmandate.ai and the investor deck, riskmandate.ai/about.html"
+    ]
+   ],
+   "sources": [
+    [
+     "The about page, the founders as the deck states them",
+     "https://riskmandate.ai/about.html"
+    ]
+   ],
+   "images": [],
+   "chars": null,
+   "words": null
+  },
+  {
+   "id": "page-launch",
+   "seq": 3,
+   "kind": "post",
+   "who": "page",
+   "when": "Day 1",
+   "title": "The page's first post: RiskMandate is on LinkedIn",
+   "why": "The first thing anyone sees on the page. One idea, one picture, one place to go.",
+   "text": "Give agents access. Not free rein.\n\nRiskMandate is on LinkedIn from today.\n\nWe write Agent Behaviour Policies. For one AI agent in one deployment, an ABP writes down what it can reach, what you authorised it to do, and the gap between the two. Your own controls enforce it; we are never in the request path.\n\nThe quickest way to see what that means is to make one. Ask Claude or ChatGPT to do something, paste one line that says it must not, and ask again. Five minutes, in your browser, nothing to install:\n\nhttps://customers.riskmandate.ai/\n\nFollow the page for what we learn from the first customers, and the articles behind it.",
+   "sources": [
+    [
+     "riskmandate.ai",
+     "https://riskmandate.ai/"
+    ],
+    [
+     "The customers site",
+     "https://customers.riskmandate.ai/"
+    ]
+   ],
+   "images": [
+    {
+     "file": "launch-home.jpg",
+     "alt": "The riskmandate.ai home page: Give agents access. Not free rein.",
+     "from": "https://riskmandate.ai/index.html"
+    }
+   ],
+   "chars": 631,
+   "words": null
+  },
+  {
+   "id": "dinis-joined",
+   "seq": 4,
+   "kind": "post",
+   "who": "dinis",
+   "when": "Day 1, after the position is added",
+   "title": "Your post: I have co-founded RiskMandate",
+   "why": "A personal post travels further than a page's. It says what the company is in a line, and sends people to try it.",
+   "text": "I have co-founded a new company: RiskMandate, with Nimay Parekh as chief executive.\n\nAI agents now read our mail, change our files and act in our name. Most of them can do far more than anyone authorised, and nobody has written down the difference. That difference is what we work on.\n\nAn Agent Behaviour Policy writes down, for one agent: what it can reach, what you authorised it to do, the gap, and what actually stands in the way of each thing. A line in the prompt is a hope. A hook is a check. Only a rule kept out of the agent's reach is a control.\n\nYou can try the first step now, in Claude or ChatGPT, in five minutes. Ask it to do something, paste one line that says it must not, ask again:\n\nhttps://customers.riskmandate.ai/\n\nTell me where it breaks. The first customers are shaping it, and the next batch is open.\n\nRiskMandate on LinkedIn: https://www.linkedin.com/company/riskmandate/",
+   "sources": [
+    [
+     "Governs, enforces, attests",
+     "https://newsroom.sgit.ai/articles/governs-enforces-attests.html"
+    ],
+    [
+     "A briefing for the WestCap CISO Summit",
+     "https://newsroom.sgit.ai/articles/a-briefing-for-the-ciso-summit.html"
+    ]
+   ],
+   "images": [
+    {
+     "file": "joined-customers.jpg",
+     "alt": "customers.riskmandate.ai: Put a behaviour policy on your agent, in five minutes.",
+     "from": "https://customers.riskmandate.ai/"
+    }
+   ],
+   "chars": 897,
+   "words": null
+  },
+  {
+   "id": "nimay-joined",
+   "seq": 5,
+   "kind": "post",
+   "who": "nimay",
+   "when": "Day 1 or 2, for Nimay to adapt",
+   "title": "Nimay's post: co-founder and chief executive of RiskMandate",
+   "why": "The insurance and enterprise-risk side of the company, in Nimay's voice. A draft only.",
+   "text": "I am co-founder and chief executive of RiskMandate.\n\nEvery company is about to run AI agents with access to real systems: mail, payroll, CRM, code. The question a board, a CISO or an insurer asks is simple: what can this agent actually do, and who decided it could?\n\nRiskMandate answers it with an Agent Behaviour Policy, one per agent: what it can reach, what it was authorised to do, the gap, and what stands in the way. It is the record that makes an agent something you can govern, and in time something you can insure.\n\nTry the first step in five minutes, in Claude or ChatGPT:\nhttps://customers.riskmandate.ai/\n\nFollow RiskMandate: https://www.linkedin.com/company/riskmandate/",
+   "sources": [
+    [
+     "The about page",
+     "https://riskmandate.ai/about.html"
+    ],
+    [
+     "A proposed roadmap for RiskMandate",
+     "https://newsroom.sgit.ai/articles/the-riskmandate-roadmap.html"
+    ]
+   ],
+   "images": [
+    {
+     "file": "nimay-try.jpg",
+     "alt": "Put a behaviour policy on your agent: ask, add the line, new chat.",
+     "from": "https://riskmandate.ai/index.html#try"
+    }
+   ],
+   "chars": 683,
+   "words": null
+  },
+  {
+   "id": "five-minutes",
+   "seq": 6,
+   "kind": "article",
+   "who": "page",
+   "when": "Day 2",
+   "title": "Put a behaviour policy on your agent, in five minutes",
+   "why": "The article that does what the page exists for: it takes a reader to the customers site with something to do there.",
+   "cover": {
+    "kicker": "Try it · five minutes · nothing to install",
+    "title": "Put a behaviour policy on your agent, in five minutes."
+   },
+   "html": "<p><strong>Ask your assistant to do something. Paste one line that says it must not. Ask again, and watch it refuse.</strong> That line is the first row of an Agent Behaviour Policy, and it takes five minutes to see, in Claude or ChatGPT, in your browser, with nothing to install.</p>\n<p><img src=\"https://riskmandate.ai/assets/linkedin/five-customers.jpg\" alt=\"The customers site: six examples, simplest first.\"></p>\n<p><em>customers.riskmandate.ai: six examples, simplest first.</em></p>\n<h2>Three steps</h2>\n<ol><li><strong>Ask.</strong> \"Say hello to me.\" The assistant does it.</li>\n<li><strong>Add the line.</strong> \"Behaviour policy for this chat: you must never write the word hello, in any language.\" Ask again; it refuses, and says why.</li>\n<li><strong>New chat.</strong> The line first, then the question. It refuses from the start.</li></ol>\n<p><img src=\"https://riskmandate.ai/assets/linkedin/five-hello.jpg\" alt=\"Hello world: ask, add the line, new chat.\"></p>\n<p>Watch for the loophole: some replies say \"Hi!\" instead. The line named a word, not a greeting. Most of the work of a behaviour policy is saying what you mean.</p>\n<h2>From hello world to refunds</h2>\n<p>The six examples go one step at a time: stay on topic, no web search, keep a secret, drafts and not sends, and refunds. The last one is the business case in a single exchange: the assistant could refund £180 all along, and what stood between the customer and the money was what it was told.</p>\n<blockquote>That gap, between what an agent can do and what it should do, is what an Agent Behaviour Policy is about.</blockquote>\n<h2>What the line is, and what it is not</h2>\n<p>In every example the assistant keeps the line because it chooses to. That is an expectation, the weakest of four barriers: none, an expectation, a setting, a boundary. Only a boundary, a rule kept by something the agent cannot reach, is a control in the strict sense. The examples are where the idea starts, not where it ends.</p>\n<p><img src=\"https://riskmandate.ai/assets/linkedin/five-abp.jpg\" alt=\"What is a behaviour policy: the storyboard.\"></p>\n<p>The full ABP writes down, for one agent in one deployment, everything it can reach, what you authorised it to do, the gap between the two, and what stands in the way of each thing. It describes and does not judge, so it carries no score.</p>\n<h2>Try it, and tell us</h2>\n<p>Every example ends with five questions, and the answers come to us encrypted in your browser. Start with hello world: <a href=\"https://customers.riskmandate.ai/\">customers.riskmandate.ai</a>.</p>",
+   "sources": [
+    [
+     "Our first customers",
+     "https://newsroom.sgit.ai/articles/our-first-customers.html"
+    ],
+    [
+     "The customers site",
+     "https://customers.riskmandate.ai/"
+    ]
+   ],
+   "images": [
+    {
+     "file": "five-minutes-cover.jpg",
+     "alt": "Cover: Put a behaviour policy on your agent, in five minutes.",
+     "cover": true
+    },
+    {
+     "file": "five-customers.jpg",
+     "alt": "The customers site: six examples, simplest first.",
+     "from": "https://customers.riskmandate.ai/"
+    },
+    {
+     "file": "five-hello.jpg",
+     "alt": "Hello world: ask, add the line, new chat.",
+     "from": "https://customers.riskmandate.ai/examples/hello-world/"
+    },
+    {
+     "file": "five-abp.jpg",
+     "alt": "What is a behaviour policy: the storyboard.",
+     "from": "https://customers.riskmandate.ai/what-is-an-abp/"
+    }
+   ],
+   "chars": 1956,
+   "words": 357
+  },
+  {
+   "id": "what-can-it-reach",
+   "seq": 7,
+   "kind": "article",
+   "who": "page",
+   "when": "Day 4",
+   "title": "What can your agent reach? The ABP, for the person who has to decide",
+   "why": "The plain explainer, written for a reader who found the site hard. For the people the first posts bring in.",
+   "cover": {
+    "kicker": "The Agent Behaviour Policy, in plain words",
+    "title": "What can your agent reach?"
+   },
+   "html": "<p>Most AI agents can do far more than anyone authorised, and nobody has written down the difference. An <strong>Agent Behaviour Policy</strong> is that record: for one agent in one deployment, everything it can reach, what you authorised it to do, the gap between the two, and what actually stands in the way of each thing.</p>\n<h2>Four words</h2>\n<ul><li><strong>Grant:</strong> what the agent can reach, read from the deployment, not from the brochure.</li>\n<li><strong>Mandate:</strong> what the business authorised it to do, and why.</li>\n<li><strong>Gap:</strong> the difference. \"Your agent can do three hundred and forty things and you authorised twelve\" is a finding.</li>\n<li><strong>Barrier:</strong> for each thing in the gap, what stands in the way: nothing, an expectation, a setting, or a boundary.</li></ul>\n<p><img src=\"https://riskmandate.ai/assets/linkedin/reach-stage.jpg\" alt=\"Six agents, and your controls in the middle.\"></p>\n<p><em>The gate in the middle is yours: your gateway, proxy or identity provider, configured from the rules in the ABP.</em></p>\n<h2>Not in the request path, on purpose</h2>\n<p>RiskMandate is read-only. Enforcing belongs to the gateways, hooks and runtimes you already run; the ABP is what they enforce, and it says which of them holds each rule, or that nothing does. It carries no score and no verdict. It is the record.</p>\n<blockquote>Only a rule kept out of the agent's reach is a control.</blockquote>\n<h2>Which agents</h2>\n<p>Commercial ones, today: Claude with Gmail or Microsoft 365, ChatGPT, Claude Code, Google Workspace connectors, GitHub Actions. Sixteen example policies are published, free, each from the vendor's own pages, quoted and dated.</p>\n<p><img src=\"https://riskmandate.ai/assets/linkedin/reach-example.jpg\" alt=\"The sixteen example behaviour policies.\"></p>\n<h2>How it gets into the room</h2>\n<p>Through the questions that already arrive: a customer's security questionnaire, a contract clause, an insurance renewal, a board asking what the agents can do. Or twenty minutes with one agent that worries you.</p>\n<p>The quickest start is five minutes in your own assistant: <a href=\"https://customers.riskmandate.ai/\">customers.riskmandate.ai</a>. The full argument is on the newsroom: <a href=\"https://newsroom.sgit.ai/articles/what-can-your-agent-reach.html\">What can your agent reach?</a></p>",
+   "sources": [
+    [
+     "What can your agent reach?",
+     "https://newsroom.sgit.ai/articles/what-can-your-agent-reach.html"
+    ],
+    [
+     "A briefing for the WestCap CISO Summit",
+     "https://newsroom.sgit.ai/articles/a-briefing-for-the-ciso-summit.html"
+    ]
+   ],
+   "images": [
+    {
+     "file": "what-can-it-reach-cover.jpg",
+     "alt": "Cover: What can your agent reach?",
+     "cover": true
+    },
+    {
+     "file": "reach-stage.jpg",
+     "alt": "Six agents, and your controls in the middle.",
+     "from": "https://riskmandate.ai/index.html"
+    },
+    {
+     "file": "reach-example.jpg",
+     "alt": "The sixteen example behaviour policies.",
+     "from": "https://riskmandate.ai/agent-behaviour-policy.html"
+    }
+   ],
+   "chars": 1774,
+   "words": 303
+  },
+  {
+   "id": "hope-or-control",
+   "seq": 8,
+   "kind": "article",
+   "who": "page",
+   "when": "Day 7",
+   "title": "A prompt asks. A boundary enforces.",
+   "why": "The idea people remember: how much of an agent's safety is hope. Three newsroom pieces in one.",
+   "cover": {
+    "kicker": "Hope, a check, or a control",
+    "title": "A prompt asks. A boundary enforces."
+   },
+   "html": "<p>Every rule an agent follows is kept by something. The question that matters is <strong>what</strong>.</p>\n<h2>Three levels</h2>\n<ul><li><strong>Told:</strong> a sentence in the prompt, kept by the model. An expectation: hope.</li>\n<li><strong>Checked:</strong> a hook in the agent's harness that inspects each action. Deterministic, but on the agent's own machine.</li>\n<li><strong>Never given:</strong> the agent asks, and something out of its reach holds the key. A boundary: a control.</li></ul>\n<p><img src=\"https://riskmandate.ai/assets/linkedin/hope-prompt.jpg\" alt=\"A prompt asks. A boundary enforces.\"></p>\n<h2>One agent, three designs</h2>\n<p>The newsroom built one customer-service agent three ways and gave each an ABP, every rule marked by what enforces it. The same 62 fictional emails, sixteen of them hostile, went through all three. In the first design 97% of the rules were hope; in the second 73%; in the third 23%.</p>\n<p><img src=\"https://riskmandate.ai/assets/linkedin/hope-newsroom.jpg\" alt=\"Hope or enforcement, on the SGit Newsroom.\"></p>\n<h2>A key can leak through an allowed action</h2>\n<p>Sending an email is a capability; putting an API key in it is content. A policy that covers secrets needs rows about content too, each with its barrier. A hook tested against nine ways a secret tries to leave caught most of them and missed three: a key in base64, a key split in two, and a file piped straight out. That is why the strongest level is the one where the key is never given.</p>\n<blockquote>A rule the agent can rewrite is a setting, not a control.</blockquote>\n<p>An ABP does not enforce anything itself. It governs: it says what each agent is granted and for, writes each rule down, and names the level that keeps it, so you can see how much is hope.</p>\n<p><img src=\"https://riskmandate.ai/assets/linkedin/hope-secret.jpg\" alt=\"Keep a secret: an example to try.\"></p>\n<p>Try the told level yourself, and watch where it holds and where it bends: <a href=\"https://customers.riskmandate.ai/examples/keep-a-secret/\">keep a secret</a>, on <a href=\"https://customers.riskmandate.ai/\">customers.riskmandate.ai</a>.</p>",
+   "sources": [
+    [
+     "Hope or enforcement",
+     "https://newsroom.sgit.ai/articles/hope-or-enforcement.html"
+    ],
+    [
+     "Governs, enforces, attests",
+     "https://newsroom.sgit.ai/articles/governs-enforces-attests.html"
+    ],
+    [
+     "Can a key leak without breaking the policy?",
+     "https://newsroom.sgit.ai/articles/a-leak-without-breaking-the-policy.html"
+    ],
+    [
+     "Policy as code needs a policy first",
+     "https://newsroom.sgit.ai/articles/policy-as-code-needs-a-policy-first.html"
+    ]
+   ],
+   "images": [
+    {
+     "file": "hope-or-control-cover.jpg",
+     "alt": "Cover: A prompt asks. A boundary enforces.",
+     "cover": true
+    },
+    {
+     "file": "hope-prompt.jpg",
+     "alt": "A prompt asks. A boundary enforces.",
+     "from": "https://riskmandate.ai/index.html"
+    },
+    {
+     "file": "hope-newsroom.jpg",
+     "alt": "Hope or enforcement, on the SGit Newsroom.",
+     "from": "https://newsroom.sgit.ai/articles/hope-or-enforcement.html"
+    },
+    {
+     "file": "hope-secret.jpg",
+     "alt": "Keep a secret: an example to try.",
+     "from": "https://customers.riskmandate.ai/examples/keep-a-secret/"
+    }
+   ],
+   "chars": 1498,
+   "words": 276
+  },
+  {
+   "id": "ten-questions",
+   "seq": 9,
+   "kind": "post",
+   "who": "page",
+   "when": "Day 9",
+   "title": "Post: ten hard questions, answered",
+   "why": "A link post to the newsroom. The questions are the ones a sceptical reader has; the answers are long, so we point to them.",
+   "text": "Ten hard questions, the ones people actually ask about a product like ours:\n\nWhat happens when an agent bypasses its policy? Who enforces? Who is liable when it goes wrong? What stops a big platform absorbing you? What about agents instructing agents? What can you measure?\n\nMy co-founder brought them back from a conference. We answered them in a two-hour interview, with an honest table of what is live and what is still design, and a list of what we are deliberately not: not inline, not an insurer, not a one-button solution.\n\nhttps://newsroom.sgit.ai/articles/riskmandate-ten-questions.html\n\nOr skip the reading and try the first step, in five minutes: https://customers.riskmandate.ai/",
+   "sources": [
+    [
+     "Ten hard questions for RiskMandate, answered",
+     "https://newsroom.sgit.ai/articles/riskmandate-ten-questions.html"
+    ]
+   ],
+   "images": [
+    {
+     "file": "ten-newsroom.jpg",
+     "alt": "Ten hard questions for RiskMandate, answered.",
+     "from": "https://newsroom.sgit.ai/articles/riskmandate-ten-questions.html"
+    }
+   ],
+   "chars": 691,
+   "words": null
+  },
+  {
+   "id": "first-customers",
+   "seq": 10,
+   "kind": "article",
+   "who": "page",
+   "when": "Day 11",
+   "title": "Customers, not beta users: our first batch, and the next",
+   "why": "Where we are, said plainly, with the way in for the next batch. The article that turns readers into a list.",
+   "cover": {
+    "kicker": "Early access · the first batch",
+    "title": "Customers, not beta users."
+   },
+   "html": "<p>Agent Behaviour Policies are ready for the next level. What is left is execution, and execution starts with customers.</p>\n<p>So the first batch are customers, not beta users. Each starts with credit to spend on a site we run, follows six examples, and is followed up closely by us, with objectives and milestones written with them.</p>\n<p><img src=\"https://riskmandate.ai/assets/linkedin/batch-programme.jpg\" alt=\"The programme, on the customers site.\"></p>\n<h2>What we want to find</h2>\n<blockquote>The usage moment. The simplest useful policy, the easiest entry, a fair price.</blockquote>\n<p>Seven milestones run from \"in, with credit\" to that moment. The site publishes them, with every review of it and what we did about each one.</p>\n<p><img src=\"https://riskmandate.ai/assets/linkedin/batch-milestones.jpg\" alt=\"Seven milestones, from in with credit to the usage moment.\"></p>\n<h2>How the site works</h2>\n<ul><li><strong>£50 of credit for reading, not money.</strong> Each page draws a few pence from it; nothing is billed and nothing is blocked.</li>\n<li><strong>Feedback encrypted in your browser,</strong> to a key only RiskMandate holds, under every example.</li>\n<li><strong>Six installable policies</strong> for Claude Code, ChatGPT and Claude, from one line to a line and a hook.</li></ul>\n<h2>The next batch</h2>\n<p>The next batch is open. Start with the examples at <a href=\"https://customers.riskmandate.ai/\">customers.riskmandate.ai</a>, and to join, email agent@riskmandate.ai with the subject \"Next batch\".</p>",
+   "sources": [
+    [
+     "Our first customers",
+     "https://newsroom.sgit.ai/articles/our-first-customers.html"
+    ],
+    [
+     "The customers site",
+     "https://customers.riskmandate.ai/"
+    ]
+   ],
+   "images": [
+    {
+     "file": "first-customers-cover.jpg",
+     "alt": "Cover: Customers, not beta users.",
+     "cover": true
+    },
+    {
+     "file": "batch-programme.jpg",
+     "alt": "The programme, on the customers site.",
+     "from": "https://customers.riskmandate.ai/programme/"
+    },
+    {
+     "file": "batch-milestones.jpg",
+     "alt": "Seven milestones, from in with credit to the usage moment.",
+     "from": "https://customers.riskmandate.ai/milestones/"
+    }
+   ],
+   "chars": 1069,
+   "words": 185
+  },
+  {
+   "id": "free-to-copy",
+   "seq": 11,
+   "kind": "post",
+   "who": "page",
+   "when": "Day 14",
+   "title": "Post: free to copy, paid at the source",
+   "why": "Why the policies are open and still a business. A short idea that invites argument.",
+   "text": "Our behaviour policies and hooks are open, CC BY 4.0 and Apache 2.0. Anyone may copy them.\n\nBut a hook is code. It runs on your machine, with your permissions. A company will not take one from a site it does not know, any more than it would install software from one.\n\nSo the official source, with its reviews and its signatures, is where people will come, even for something free to copy, and it can charge per use there. To earn that, it cannot be us saying \"trust us\": the hooks above all should be reviewed and audited by others, and signed.\n\nThe argument: https://newsroom.sgit.ai/articles/free-to-copy-paid-at-the-source.html\nTwenty-four rules to paste into an agent today: https://riskmandate.ai/rules/\nOr start with one, in five minutes: https://customers.riskmandate.ai/",
+   "sources": [
+    [
+     "Free to copy, paid at the source",
+     "https://newsroom.sgit.ai/articles/free-to-copy-paid-at-the-source.html"
+    ]
+   ],
+   "images": [
+    {
+     "file": "free-rules.jpg",
+     "alt": "Twenty-four rules you can paste into an agent today.",
+     "from": "https://riskmandate.ai/rules/"
+    }
+   ],
+   "chars": 779,
+   "words": null
+  },
+  {
+   "id": "spectrum-of-trust",
+   "seq": 12,
+   "kind": "article",
+   "who": "page",
+   "when": "Day 16",
+   "title": "From one policy to agents an insurer can cover",
+   "why": "Where this is going, as a proposal: the roadmap, the licence to operate and the insurability work, with the open-governance step.",
+   "cover": {
+    "kicker": "Where this is going · a proposal",
+    "title": "From one policy to agents an insurer can cover."
+   },
+   "html": "<p>RiskMandate's founders are discussing a roadmap, and it reads as a spectrum of trust: each stage answers the next question a customer asks once the last one is answered. It is a proposal, not a decision, and we are on the first stage.</p>\n<h2>Six stages</h2>\n<ol><li><strong>Policies.</strong> What each agent can reach, what it may do, the gap. We can create them today.</li>\n<li><strong>Understand.</strong> Where are our agents, what can they reach, what is our exposure?</li>\n<li><strong>Risk acceptance.</strong> Which of these risks do we carry, and who decides?</li>\n<li><strong>Contain.</strong> Make the blast radius smaller.</li>\n<li><strong>Manage.</strong> Run the agents as a fleet.</li>\n<li><strong>Insure.</strong> By then the evidence an insurer needs exists.</li></ol>\n<blockquote>Then insure. The end game: agents an insurer can cover.</blockquote>\n<p>RiskMandate is not an insurer. Its aim is to make agentic AI insurable, and the site already shows the next two documents: a Licence to Operate for a whole deployment, and the Insurability Index, in design.</p>\n<p><img src=\"https://riskmandate.ai/assets/linkedin/trust-licence.jpg\" alt=\"The Licence to Operate template.\"></p>\n<p><img src=\"https://riskmandate.ai/assets/linkedin/trust-insurance.jpg\" alt=\"The Insurability Index, in design.\"></p>\n<h2>The description should not belong to the seller</h2>\n<p>A description of what an agent can do should not belong to the company that sells it. So the ABP vocabulary is open, and on 20 October we proposed that it become the first hosted project of the Open Security Summit, a UK community interest company, with a public charter and a steering group with a majority independent of RiskMandate still to be written. Hosting is not independence; the charter is what will make it so.</p>\n<p>Every stage starts with the first one, and the first one takes five minutes: <a href=\"https://customers.riskmandate.ai/\">customers.riskmandate.ai</a>.</p>",
+   "sources": [
+    [
+     "A proposed roadmap for RiskMandate",
+     "https://newsroom.sgit.ai/articles/the-riskmandate-roadmap.html"
+    ],
+    [
+     "Agent Behaviour Policies move to the Open Security Summit",
+     "https://newsroom.sgit.ai/articles/agent-behaviour-policies-move-to-the-open-security-summit.html"
+    ]
+   ],
+   "images": [
+    {
+     "file": "spectrum-of-trust-cover.jpg",
+     "alt": "Cover: From one policy to agents an insurer can cover.",
+     "cover": true
+    },
+    {
+     "file": "trust-insurance.jpg",
+     "alt": "The Insurability Index, in design.",
+     "from": "https://riskmandate.ai/insurance.html"
+    },
+    {
+     "file": "trust-licence.jpg",
+     "alt": "The Licence to Operate template.",
+     "from": "https://riskmandate.ai/licence-to-operate.html"
+    }
+   ],
+   "chars": 1467,
+   "words": 260
+  }
+ ],
+ "todo": [
+  {
+   "file": "article-union-of-every-session.html",
+   "label": "The union of everything it has ever been allowed to do"
+  },
+  {
+   "file": "article-what-is-an-abp.html",
+   "label": "What an Agent Behaviour Policy is"
+  },
+  {
+   "file": "article-approval-prompts.html",
+   "label": "An approval prompt is not a human in the loop"
+  },
+  {
+   "file": "article-pilots-do-not-stay-in-production.html",
+   "label": "The pilot worked. Then somebody asked what else it could do."
+  },
+  {
+   "file": "article-calendar-edits-cannot-be-undone.html",
+   "label": "A deleted meeting comes back. An edited one does not."
+  },
+  {
+   "file": "article-who-owns-what-in-ai.html",
+   "label": "Who owns what in AI. And how accountability holds on the way up."
+  },
+  {
+   "file": "article-risk-propagation-visualiser.html",
+   "label": "One agent, and every desk it reaches. How to read the risk propagation visualiser."
+  },
+  {
+   "file": "article-abp-for-chatgpt-dots.html",
+   "label": "Article · A behaviour policy for a ChatGPT dot"
+  }
+ ]
+}

@@ -226,3 +226,21 @@ Accepted messages are `agent-contact/accepted/*.eml`; a contact message is answe
 registration goes to the programme's procedure (`docs/programme/early-access-invitations.md`). Full
 notes in `scripts/intake/README.md`. To change a lane or a key: edit the contact file, run
 `build-agents.mjs`, `configure.mjs`, release.
+
+## Publish on LinkedIn (the page, and the founders' profiles)
+
+RiskMandate's page is https://www.linkedin.com/company/riskmandate/ (from 21 October 2026). Every article on this
+site, and every newsroom piece we want read, gets a LinkedIn item: an article of its own, a post that links it, or
+a place in a combined piece. Every item ends at https://customers.riskmandate.ai/, where we want people to try it.
+
+1. Add the item to `scripts/linkedin/items.mjs` (kind `article`, `post` or `profile`; `shots` for its pictures).
+2. Serve the site on :8414 and run `node scripts/linkedin/capture.mjs --only <id>`: riskmandate.ai is shot from the
+   working copy; the customers site and the newsroom are fetched by curl, which checks certificates against the
+   session's CA bundle. `--covers` redraws the 1280×720 covers only.
+3. `node scripts/linkedin/build.mjs` writes `site/assets/linkedin/items.json` and rebuilds the private desk,
+   `site/linkedin.html`; `--check` runs in `npm run check`; `--todo` lists the site's articles with no item yet.
+4. Release and merge: an article links its pictures at riskmandate.ai, so they must be live before it is pasted.
+5. The lead pastes from the desk, then sets `published` and `url` on the item; rebuild, commit.
+
+The newsroom's thinking is retold on `site/newsroom.html`, built by `node scripts/site/newsroom/build.mjs` from
+`scripts/site/newsroom/items.mjs`: add an article there when the newsroom publishes one worth pointing to.

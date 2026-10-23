@@ -1,0 +1,40 @@
+<main class="phero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> Private · the LinkedIn desk</span>
+    <h1>What RiskMandate publishes on LinkedIn, <span class="it">in the order to publish it.</span></h1>
+    <p class="sub" style="margin-bottom:14px">Pick an item on the left. On the right it is ready to paste: an article copies as rich text with its pictures, a post as plain text, a profile entry field by field. The HTML is there too. Every piece ends at <a href="https://customers.riskmandate.ai/">customers.riskmandate.ai</a>, where we want people to try it, and names the newsroom article it retells.</p>
+    <p class="meta">The page: <a id="li-page" href="https://www.linkedin.com/company/riskmandate/" target="_blank" rel="noopener">linkedin.com/company/riskmandate</a>. The items live in <code>scripts/linkedin/items.mjs</code>; the pictures are taken by <code>scripts/linkedin/capture.mjs</code>; this page is built by <code>scripts/linkedin/build.mjs</code>. <a href="#li-workflow">The publishing workflow</a> is at the bottom.</p>
+  </div>
+</main>
+
+<div class="paper">
+<section class="psection li-wrap">
+  <div class="li-desk">
+    <nav class="li-list" id="li-list" aria-label="Items, in the order to publish"></nav>
+    <article class="li-item" id="li-item" aria-live="polite"></article>
+  </div>
+</section>
+
+<section class="psection alt" id="li-todo-sec">
+  <div class="wrap">
+    <div class="shead"><span class="tag">Not yet on LinkedIn</span><h2>The site's articles with no LinkedIn item.</h2>
+    <p>Every article on riskmandate.ai should have one: an article of its own, a post that links it, or a place in a combined piece. This list is worked out by the build from the site's page list, so it is the to-do list.</p></div>
+    <ul class="li-todo" id="li-todo"></ul>
+  </div>
+</section>
+
+<section class="psection" id="li-workflow">
+  <div class="wrap">
+    <div class="shead"><span class="tag">The workflow</span><h2>Every time we publish here, we publish there.</h2></div>
+    <ol class="li-steps">
+      <li><b>Write it here first.</b> An article on riskmandate.ai, or a piece on the newsroom. LinkedIn is where people hear of it; the site is where it lives.</li>
+      <li><b>Add an item</b> to <code>scripts/linkedin/items.mjs</code>: an article, a post, or a line in a combined piece, with the shots it needs and the customers link at the end.</li>
+      <li><b>Take the pictures:</b> <code>node scripts/linkedin/capture.mjs --only &lt;id&gt;</code>, with the site served locally, so a picture shows what will be live.</li>
+      <li><b>Build and release:</b> <code>node scripts/linkedin/build.mjs</code>, then a release as for any site change. The pictures must be live before an article is pasted, because it links them.</li>
+      <li><b>Publish from this page,</b> on the suggested day. Then set <code>published</code> and <code>url</code> on the item, rebuild and commit, so the record says what went out and where.</li>
+      <li><b>Check the gaps:</b> <code>node scripts/linkedin/build.mjs --todo</code> lists the articles still without an item. It runs in every build, and the list above is the same list.</li>
+    </ol>
+    <p class="li-note">What this page does not do: it does not post anything. LinkedIn offers no way to publish a company page's articles from a static site, so a person pastes them. The copy buttons are the automation; the record in <code>items.mjs</code> is the memory.</p>
+  </div>
+</section>
+</div>

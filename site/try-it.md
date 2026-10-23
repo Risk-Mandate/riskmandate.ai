@@ -8,6 +8,8 @@ Source: https://riskmandate.ai/try-it.html
 
 ---
 
+**New to this?** Start on [customers.riskmandate.ai](https://customers.riskmandate.ai/): six examples, simplest first, played in Claude or ChatGPT in five minutes. The rules below are the next step.
+
 # Start with one thing that worries you. Thirty seconds, one line.
 
 Each rule starts from something you might not want your agent to do: read your other sessions, touch your keys, set up jobs that outlive the session, act as you through your connected accounts. It says what you get, and gives you the one line to paste into your agent's instructions. **Nothing is collected here and no account is needed.** When you want the whole picture for one agent, the twenty-minute workflow below writes it.
