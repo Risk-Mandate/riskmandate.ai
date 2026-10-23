@@ -483,6 +483,12 @@
       "group": "Reading"
     },
     {
+      "name": "newsroom",
+      "label": "From the newsroom",
+      "file": "newsroom.html",
+      "group": "Reading"
+    },
+    {
       "name": "stories",
       "label": "Stories: a cast, and storyboards",
       "file": "stories/index.html",
@@ -653,6 +659,13 @@
       "label": "About: the company and the founders",
       "file": "about.html",
       "group": "More"
+    },
+    {
+      "name": "linkedin",
+      "label": "LinkedIn desk: what we publish there, in order",
+      "file": "linkedin.html",
+      "group": "More",
+      "private": true
     },
     {
       "name": "home-diff",

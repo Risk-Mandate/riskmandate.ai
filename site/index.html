@@ -56,7 +56,7 @@ rm-menu{display:contents}
 .navlinks a.active{color:var(--text);font-weight:600}
 .version{font-family:var(--mono);font-size:12px;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:7px;padding:5px 8px;text-decoration:none;white-space:nowrap;transition:color .15s,border-color .15s}
 .version:hover{color:var(--text);border-color:var(--faint)}
-.demo{background:var(--green);color:#fff;font-weight:600;font-size:13px;border:0;border-radius:8px;padding:8px 16px;cursor:pointer;transition:background .15s;font-family:var(--sans);white-space:nowrap}
+.demo{text-decoration:none;display:inline-block;background:var(--green);color:#fff;font-weight:600;font-size:13px;border:0;border-radius:8px;padding:8px 16px;cursor:pointer;transition:background .15s;font-family:var(--sans);white-space:nowrap}
 .demo:hover{background:#16704f}
 
 /* nav dropdowns */
@@ -1375,6 +1375,22 @@ rm-menu{display:contents}
 .rmx h1,.rmx h2{font-family:inherit}
 .rmx-note{max-width:1240px;margin:0 auto;padding:14px 40px 0;font-family:ui-monospace,Menlo,monospace;font-size:12px;line-height:1.7;color:#5F6863}.rmx-note b{color:#101613}.rmx-note a{color:#1A7F5A}
 @media (max-width:600px){.rmx-note{padding:14px 20px 0}}
+.rmx .rx-cap{margin:72px auto 0;max-width:46em;text-align:center;font-size:15px;line-height:1.6;color:#4A524D}.rmx .rx-cap b{color:#101613}
+@media (max-width:900px){.rmx .rx-cap{margin-top:24px}}
+.rmx .rx-try{max-width:1240px;margin:0 auto;padding:0 40px}
+.rmx .rx-try-in{background:#07140F;color:#E8F0EC;border-radius:28px;padding:56px 56px 52px;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:40px;align-items:center}
+.rmx .rx-try .k{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#4BE3A2}
+.rmx .rx-try h2{margin:12px 0 14px;font-size:48px;line-height:1.02;letter-spacing:-.045em;font-weight:600;color:#FFFFFF}
+.rmx .rx-try p{margin:0;font-size:17px;line-height:1.55;color:rgba(232,240,236,.75)}
+.rmx .rx-try ol{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px}
+.rmx .rx-try li{display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:start;background:rgba(232,240,236,.05);border:1px solid rgba(232,240,236,.12);border-radius:16px;padding:16px 18px}
+.rmx .rx-try li i{font-style:normal;width:32px;height:32px;border-radius:50%;background:#4BE3A2;color:#07140F;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:15px}
+.rmx .rx-try li b{display:block;color:#FFFFFF;font-size:16px;margin-bottom:2px}
+.rmx .rx-try li span{font-size:14.5px;line-height:1.5;color:rgba(232,240,236,.72)}
+.rmx .rx-try .go{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.rmx .rx-try .note{margin-top:16px;font-size:13.5px;color:rgba(232,240,236,.55)}
+.rmx .rx-hint{margin:0;font-size:14.5px;color:#4A524D}.rmx .rx-hint a{color:#1A7F5A}
+@media (max-width:900px){.rmx .rx-try{padding:0 20px}.rmx .rx-try-in{grid-template-columns:minmax(0,1fr);padding:32px 22px;gap:26px;border-radius:22px}.rmx .rx-try h2{font-size:34px}}
 </style>
 </head>
 <body id="top">
@@ -1383,9 +1399,9 @@ rm-menu{display:contents}
   <div class="wrap">
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
-    <a class="ghlink" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener" aria-label="The source, on GitHub" title="Open source · Apache-2.0 code · CC BY 4.0 pages"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a>
-      <a class="version" href="versions.html" title="What shipped in v1.38.8">v1.38.8</a>
-    <button class="demo" data-demo>Get in touch</button>
+    <a class="ghlink" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener" aria-label="The source, on GitHub" title="Open source · Apache-2.0 code · CC BY 4.0 pages"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a><a class="ghlink" href="https://www.linkedin.com/company/riskmandate/" target="_blank" rel="noopener" aria-label="RiskMandate on LinkedIn" title="RiskMandate on LinkedIn"><svg width="17" height="17" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"></path></svg></a>
+      <a class="version" href="versions.html" title="What shipped in v1.39.0">v1.39.0</a>
+    <a class="demo" href="https://customers.riskmandate.ai/" data-try>Try it free</a>
   </div>
 </header>
 
@@ -1394,22 +1410,23 @@ rm-menu{display:contents}
 <section id="top" class="sec" style="padding:88px 0 40px">
 <div class="pad" style="max-width:1240px;margin:0 auto;padding:0 40px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:28px">
 <h1 class="h1" style="margin:0;font-size:96px;line-height:0.95;letter-spacing:-0.055em;font-weight:600;color:#101613"><span style="display:block">Give agents access.</span><span style="display:block">Not free rein.</span></h1>
-<p style="margin:0;font-size:20px;line-height:1.5;color:#4A524D;max-width:33em">Behaviour policies for the AI agents in Gmail, HR, payroll, CRM and meeting apps. Enforced in real time, with alerts by text and email.</p>
+<p style="margin:0;font-size:20px;line-height:1.5;color:#4A524D;max-width:33em">Agent Behaviour Policies for the AI agents in Gmail, HR, payroll, CRM and meeting apps: what each one can reach, what you authorised it to do, and the gap between the two. Your own controls enforce them. We are never in the request path.</p>
 <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px">
-<a href="#pricing" style="display:inline-flex;align-items:center;min-height:52px;padding:0 26px;border-radius:999px;background:#1A7F5A;color:#FFFFFF;text-decoration:none;font-size:16px;font-weight:500">Get started</a>
+<a href="https://customers.riskmandate.ai/" data-try="hero" style="display:inline-flex;align-items:center;min-height:52px;padding:0 26px;border-radius:999px;background:#1A7F5A;color:#FFFFFF;text-decoration:none;font-size:16px;font-weight:500">Try it in five minutes</a>
 <a href="#builder" style="display:inline-flex;align-items:center;min-height:52px;padding:0 26px;border-radius:999px;background:#F2F4F1;color:#101613;text-decoration:none;font-size:16px;font-weight:500">See it work</a>
 </div>
+<p class="rx-hint">On Claude or ChatGPT, in your browser, nothing to install. <a href="https://customers.riskmandate.ai/">Six examples, simplest first</a>.</p>
 </div>
 </section>
 
-<section aria-label="How RiskMandate enforces agent policies" style="padding:24px 0 120px">
+<section aria-label="How your own controls enforce the rules in an Agent Behaviour Policy" style="padding:24px 0 120px">
 <div class="pad" style="max-width:1240px;margin:0 auto;padding:0 40px">
 <div class="stage" style="position:relative;background-color:#07140F;background-image:radial-gradient(rgba(232,240,236,0.07) 1px, transparent 1px);background-size:22px 22px;border-radius:28px;padding:56px 44px 104px;color:#E8F0EC;box-shadow:0 50px 100px -50px rgba(7,20,15,0.6)">
 <div class="flow">
 
 <div class="gate" style="display:flex;flex-direction:column;align-items:center;gap:16px;padding:14px 0;border:1px solid rgba(75,227,162,0.55);background:linear-gradient(180deg, rgba(75,227,162,0.18), rgba(75,227,162,0.05));border-radius:40px;box-shadow:0 0 0 6px rgba(75,227,162,0.05), 0 0 70px rgba(75,227,162,0.22)">
-<svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="17" fill="#0E2A1F"></rect><circle cx="32" cy="32" r="20" stroke="#4BE3A2" stroke-width="4" fill="none"></circle><text x="32" y="39" text-anchor="middle" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="19" font-weight="700" fill="#E8F0EC" letter-spacing="-1">RM</text></svg>
-<span class="gate-word" style="writing-mode:vertical-rl;font-size:13px;letter-spacing:0.08em;color:#4BE3A2;font-weight:500">RiskMandate policy</span>
+<svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="17" fill="#0E2A1F"></rect><rect x="20" y="29" width="24" height="18" rx="4" fill="none" stroke="#4BE3A2" stroke-width="3.5"></rect><path d="M25 29v-5a7 7 0 0 1 14 0v5" fill="none" stroke="#4BE3A2" stroke-width="3.5" stroke-linecap="round"></path></svg>
+<span class="gate-word" style="writing-mode:vertical-rl;font-size:13px;letter-spacing:0.08em;color:#4BE3A2;font-weight:500">Your controls, from the ABP</span>
 </div>
 
 <div class="c-agent" style="display:flex;align-items:center;height:100%">
@@ -1529,10 +1546,10 @@ rm-menu{display:contents}
 </div>
 
 <div class="float" style="position:absolute;right:44px;bottom:-40px;width:360px;background:#FFFFFF;color:#101613;border-radius:20px;padding:16px 18px;display:flex;gap:12px;box-shadow:0 30px 60px -20px rgba(7,20,15,0.45), 0 0 0 1px rgba(7,20,15,0.06)">
-<svg style="flex:0 0 38px" width="38" height="38" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="15" fill="#07140F"></rect><circle cx="32" cy="32" r="20" stroke="#4BE3A2" stroke-width="4" fill="none"></circle><text x="32" y="39" text-anchor="middle" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="19" font-weight="700" fill="#E8F0EC" letter-spacing="-1">RM</text></svg>
+<svg style="flex:0 0 38px" width="38" height="38" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="15" fill="#07140F"></rect><path d="M22 40h20l-2.5-4V29a7.5 7.5 0 0 0-15 0v7z M29 44a3 3 0 0 0 6 0" fill="none" stroke="#4BE3A2" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"></path></svg>
 <div style="display:flex;flex-direction:column;gap:3px;min-width:0">
-<div style="display:flex;justify-content:space-between;gap:12px;font-size:14px"><span style="font-weight:600">RiskMandate</span><span style="color:#5F6863">now</span></div>
-<p style="margin:0;font-size:14px;line-height:1.45;color:#2A322D">Blocked: Payroll copilot tried to change bank details for 1 employee. Reply 1 to review.</p>
+<div style="display:flex;justify-content:space-between;gap:12px;font-size:14px"><span style="font-weight:600">Your approval flow</span><span style="color:#5F6863">now</span></div>
+<p style="margin:0;font-size:14px;line-height:1.45;color:#2A322D">Blocked by your gateway: Payroll copilot tried to change bank details for 1 employee. Reply 1 to review.</p>
 </div>
 </div>
 
@@ -1543,8 +1560,23 @@ rm-menu{display:contents}
 <span style="display:inline-flex;align-items:center;gap:8px"><span style="width:8px;height:8px;border-radius:50%;background:#FF5D52"></span>Blocked</span>
 </div>
 </div>
+<p class="rx-cap">The gate in the middle is <b>your</b> gateway, proxy or IAM, configured from the rules in the ABP. RiskMandate writes the rules and is never in the request path; the approval card is a flow your team stands up with our help.</p>
 </div>
 </section>
+
+<section id="try" class="sec" aria-label="Try an Agent Behaviour Policy in five minutes" style="padding:0 0 120px">
+<div class="rx-try"><div class="rx-try-in">
+<div><span class="k">Try it · five minutes · nothing to install</span>
+<h2>Put a behaviour policy on your agent.</h2>
+<p>Ask your assistant to do something. Paste one line that says it must not. Ask again, and watch it refuse. That line is the first row of an Agent Behaviour Policy.</p>
+<div class="go"><a href="https://customers.riskmandate.ai/" data-try="band" style="display:inline-flex;align-items:center;min-height:52px;padding:0 26px;border-radius:999px;background:#4BE3A2;color:#07140F;text-decoration:none;font-size:16px;font-weight:600">Start with hello world</a><a href="https://customers.riskmandate.ai/what-is-an-abp/" style="display:inline-flex;align-items:center;min-height:52px;padding:0 26px;border-radius:999px;border:1px solid rgba(232,240,236,0.3);color:#E8F0EC;text-decoration:none;font-size:16px;font-weight:500">What is a behaviour policy?</a></div>
+<p class="note">In each example the assistant keeps the line because it chooses to: an expectation, the weakest of the four barriers. The examples show why the stronger ones matter.</p></div>
+<ol><li><i>1</i><div><b>Ask</b><span>In Claude or ChatGPT, ask for something you would not want an agent to do on its own.</span></div></li>
+<li><i>2</i><div><b>Add the line</b><span>Paste one sentence that says it must not.</span></div></li>
+<li><i>3</i><div><b>New chat</b><span>Ask again, and see what changed, and what did not.</span></div></li></ol>
+</div></div>
+</section>
+
 
 <section style="padding:0 0 120px">
 <div class="pad" style="max-width:1240px;margin:0 auto;padding:0 40px;display:flex;flex-direction:column;align-items:center;gap:36px">
@@ -1566,7 +1598,7 @@ rm-menu{display:contents}
 <div class="pad" style="max-width:1240px;margin:0 auto;padding:0 40px;display:flex;flex-direction:column;align-items:center;gap:56px">
 <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;max-width:760px">
 <h2 class="h2" style="margin:0;font-size:60px;line-height:1;letter-spacing:-0.045em;font-weight:600">Pick a system. Set the rules.</h2>
-<p style="margin:0;font-size:19px;line-height:1.5;color:#4A524D">Every system starts from a template. Decide what agents can do, what waits for approval and what never happens. The rules you can paste into an agent today, one worry at a time, are <a href="rules/">here</a>.</p>
+<p style="margin:0;font-size:19px;line-height:1.5;color:#4A524D">Every system starts from a template. Decide what agents can do, what waits for approval and what never happens. We write it down; your controls enforce it. The rules you can paste into an agent today, one worry at a time, are <a href="rules/">here</a>.</p>
 </div>
 
 <div class="builder" style="width:100%;max-width:1060px;display:grid;grid-template-columns:250px minmax(0, 1fr);background:#FFFFFF;border:1px solid #E2E6E2;border-radius:22px;overflow:hidden;box-shadow:0 50px 90px -50px rgba(7,20,15,0.35)">
@@ -1580,7 +1612,7 @@ rm-menu{display:contents}
 <span id="rmx-title" style="font-size:22px;font-weight:600;letter-spacing:-0.02em">Payroll policy</span>
 <span style="font-size:14px;color:#5F6863">Applies to every agent acting for your team</span>
 </div>
-<span style="display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;background:#E8F3ED;color:#0B3B29;font-size:13px;font-weight:600"><span style="width:7px;height:7px;border-radius:50%;background:#1A7F5A"></span>Enforcing</span>
+<span style="display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;background:#E8F3ED;color:#0B3B29;font-size:13px;font-weight:600"><span style="width:7px;height:7px;border-radius:50%;background:#1A7F5A"></span>Your mandate</span>
 </div>
 <span style="font-size:13px;color:#5F6863;padding-top:4px">When an agent tries to</span>
 <ul id="rmx-rules" style="list-style:none;margin:-8px 0 0;padding:0">
@@ -1598,8 +1630,8 @@ rm-menu{display:contents}
 <section id="byo" class="sec" style="padding:128px 0">
 <div class="pad" style="max-width:1240px;margin:0 auto;padding:0 40px;display:flex;flex-direction:column;gap:56px">
 <div class="g2" style="display:grid;grid-template-columns:minmax(0, 1fr) minmax(0, 1fr);gap:24px 56px;align-items:end">
-<h2 class="h2" style="margin:0;font-size:60px;line-height:1;letter-spacing:-0.045em;font-weight:600">Bring your policy. We make it enforceable.</h2>
-<p style="margin:0;font-size:19px;line-height:1.5;color:#4A524D">Upload the document legal already wrote. We turn every line into a rule, supply the business logic behind it, and flag what can't be enforced as written.</p>
+<h2 class="h2" style="margin:0;font-size:60px;line-height:1;letter-spacing:-0.045em;font-weight:600">Bring your policy. We show what can enforce it.</h2>
+<p style="margin:0;font-size:19px;line-height:1.5;color:#4A524D">Upload the document legal already wrote. We turn every line into a rule, supply the business logic behind it, name the control in your stack that would enforce each one, and flag what nothing can enforce as written.</p>
 </div>
 
 <div class="byo" style="display:grid;grid-template-columns:minmax(0, 1fr) 72px minmax(0, 1fr);align-items:center;gap:16px">
@@ -1654,8 +1686,8 @@ rm-menu{display:contents}
 <section class="sec" style="padding:128px 0;background:#07140F;color:#E8F0EC">
 <div class="pad" style="max-width:1240px;margin:0 auto;padding:0 40px;display:flex;flex-direction:column;align-items:center;gap:56px">
 <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;max-width:760px">
-<h2 class="h2" style="margin:0;font-size:60px;line-height:1;letter-spacing:-0.045em;font-weight:600">A prompt asks. A policy enforces.</h2>
-<p style="margin:0;font-size:19px;line-height:1.5;color:rgba(232,240,236,0.72)">Instructions inside an agent can be ignored or talked around. Rules outside it can't.</p>
+<h2 class="h2" style="margin:0;font-size:60px;line-height:1;letter-spacing:-0.045em;font-weight:600">A prompt asks. A boundary enforces.</h2>
+<p style="margin:0;font-size:19px;line-height:1.5;color:rgba(232,240,236,0.72)">Instructions inside an agent can be ignored or talked around. A control outside it cannot, and the ABP says which of the two each rule has.</p>
 </div>
 <div class="g2" style="width:100%;max-width:1060px;display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:20px">
 <div style="border:1px solid rgba(232,240,236,0.12);background:rgba(232,240,236,0.03);border-radius:22px;padding:28px;display:flex;flex-direction:column;gap:20px">
@@ -1667,7 +1699,7 @@ rm-menu{display:contents}
 </div>
 </div>
 <div style="border:1px solid rgba(75,227,162,0.5);background:rgba(75,227,162,0.06);border-radius:22px;padding:28px;display:flex;flex-direction:column;gap:20px;box-shadow:0 0 80px -20px rgba(75,227,162,0.3)">
-<span style="font-size:15px;color:#7FF0BF">In a RiskMandate policy</span>
+<span style="font-size:15px;color:#7FF0BF">In the ABP, held by your gateway</span>
 <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 20px;border-radius:14px;background:rgba(232,240,236,0.05)">
 <span style="font-size:16px">CRM exports over 500 records</span>
 <span style="font-size:13px;font-weight:600;padding:4px 10px;border-radius:6px;background:rgba(242,169,59,0.2);color:#FFC772">Hold</span>
@@ -1685,14 +1717,14 @@ rm-menu{display:contents}
 <div class="pad g2" style="max-width:1240px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:minmax(0, 1fr) minmax(0, 1fr);gap:64px;align-items:center">
 <div style="display:flex;flex-direction:column;gap:22px">
 <h2 class="h2" style="margin:0;font-size:60px;line-height:1;letter-spacing:-0.045em;font-weight:600">Know the moment an agent steps out of line.</h2>
-<p style="margin:0;font-size:19px;line-height:1.5;color:#4A524D;max-width:26em">Every policy alerts the right person by text and email. Approve or deny with a one-letter reply.</p>
+<p style="margin:0;font-size:19px;line-height:1.5;color:#4A524D;max-width:26em">An approval flow your team stands up with our help, from the rules in the ABP: the right person gets a text and an email, and approves or denies with a one-letter reply. It runs in your stack, not ours.</p>
 </div>
 <div style="position:relative;display:flex;justify-content:center;padding:8px 0 40px">
 <div class="phone" style="width:320px;background:#101613;border-radius:48px;padding:12px;box-shadow:0 50px 90px -40px rgba(7,20,15,0.55)">
 <div style="background:#F2F4F1;border-radius:38px;padding:26px 16px 28px;display:flex;flex-direction:column;gap:12px;min-height:520px">
 <div style="display:flex;flex-direction:column;align-items:center;gap:6px;padding-bottom:14px;border-bottom:1px solid #E2E6E2">
-<svg width="44" height="44" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="32" fill="#07140F"></rect><circle cx="32" cy="32" r="18" stroke="#4BE3A2" stroke-width="4" fill="none"></circle><text x="32" y="38.5" text-anchor="middle" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="17" font-weight="700" fill="#E8F0EC" letter-spacing="-1">RM</text></svg>
-<span style="font-size:13px;font-weight:600">RiskMandate</span>
+<svg width="44" height="44" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="32" fill="#07140F"></rect><path d="M22 40h20l-2.5-4V29a7.5 7.5 0 0 0-15 0v7z M29 44a3 3 0 0 0 6 0" fill="none" stroke="#4BE3A2" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"></path></svg>
+<span style="font-size:13px;font-weight:600">Your approval bot</span>
 </div>
 <span style="align-self:center;font-size:12px;color:#5F6863;padding-top:4px">Today 9:44 AM</span>
 <p style="margin:0;align-self:flex-start;max-width:86%;background:#FFFFFF;border-radius:20px 20px 20px 6px;padding:12px 14px;font-size:14px;line-height:1.45">Held: Sales agent (for Dana R.) wants to export 2,400 contacts. Your CRM policy holds exports over 500. Reply A to approve once or D to deny.</p>
@@ -2030,8 +2062,8 @@ rm-menu{display:contents}
 <div class="pad" style="max-width:1240px;margin:0 auto;padding:0 40px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:32px">
 <h2 class="h1" style="margin:0;font-size:84px;line-height:0.98;letter-spacing:-0.055em;font-weight:600;max-width:11em">Start with the agent that worries you most.</h2>
 <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px">
-<a href="#pricing" style="display:inline-flex;align-items:center;min-height:52px;padding:0 26px;border-radius:999px;background:#4BE3A2;color:#07140F;text-decoration:none;font-size:16px;font-weight:600">Get started</a>
-<a href="contact.html" style="display:inline-flex;align-items:center;min-height:52px;padding:0 26px;border-radius:999px;border:1px solid rgba(232,240,236,0.3);color:#E8F0EC;text-decoration:none;font-size:16px;font-weight:500">Book a demo</a>
+<a href="https://customers.riskmandate.ai/" data-try="close" style="display:inline-flex;align-items:center;min-height:52px;padding:0 26px;border-radius:999px;background:#4BE3A2;color:#07140F;text-decoration:none;font-size:16px;font-weight:600">Try it in five minutes</a>
+<a href="contact.html" style="display:inline-flex;align-items:center;min-height:52px;padding:0 26px;border-radius:999px;border:1px solid rgba(232,240,236,0.3);color:#E8F0EC;text-decoration:none;font-size:16px;font-weight:500">Get in touch</a>
 </div>
 </div>
 </section>
@@ -2068,6 +2100,8 @@ rm-menu{display:contents}
         </nav>
         <nav class="footerNav" aria-label="Open source">
           <p class="footerHeading">Open source</p>
+          <a class="footlink" href="https://www.linkedin.com/company/riskmandate/" target="_blank" rel="noopener">RiskMandate on LinkedIn</a>
+          <a class="footlink" href="newsroom.html">From the newsroom</a>
           <a class="footlink" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener">Code on GitHub</a>
           <a class="footlink" href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0 licence</a>
           <a class="footlink" href="https://open-source.sgit.ai/" target="_blank" rel="noopener">Why we publish it</a>
@@ -2085,7 +2119,7 @@ rm-menu{display:contents}
 (function(){
 'use strict';
 var RM={core:{},services:{},components:{},data:{}};
-RM.data.pages=[{"name":"agent-behaviour-policy","label":"The sixteen examples","file":"agent-behaviour-policy.html","group":"Behaviour policies"},{"name":"abp","label":"What an ABP is","file":"abp.html","group":"Behaviour policies"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"Behaviour policies"},{"name":"licence-to-operate","label":"Licence to Operate","file":"licence-to-operate.html","group":"Behaviour policies"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"Behaviour policies"},{"name":"team","label":"The team: our own agents' policies","file":"team/index.html","group":"Behaviour policies"},{"name":"try-it","label":"Try it","file":"try-it.html","group":"Behaviour policies"},{"name":"for-corporate","label":"You run agents today","file":"for-corporate.html","group":"Who it's for"},{"name":"for-founders","label":"You are a founder","file":"for-founders.html","group":"Who it's for"},{"name":"for-startups","label":"You are a startup","file":"for-startups.html","group":"Who it's for"},{"name":"early-access","label":"Early access, invite only","file":"early-access.html","group":"Who it's for"},{"name":"early-adopters","label":"Early adopters: a thank you","file":"early-adopters.html","group":"Who it's for"},{"name":"insurance","label":"Make agents insurable","file":"insurance.html","group":"Insurance"},{"name":"insure-a-program","label":"Can you insure a program?","file":"insure-a-program.html","group":"Insurance"},{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"Insurance"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"Insurance"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"Insurance"},{"name":"business-cases","label":"Business cases, by risk","file":"business-cases.html","group":"Insurance"},{"name":"owasp-graph","label":"OWASP, as a graph","file":"owasp-graph.html","group":"Insurance"},{"name":"pricing","label":"The four levels","file":"pricing.html","group":"Pricing"},{"name":"abp-reviewed","label":"The reviewed level","file":"abp-reviewed.html","group":"Pricing"},{"name":"reviewers","label":"Who runs your review","file":"reviewers.html","group":"Pricing"},{"name":"articles","label":"Articles","file":"articles.html","group":"Reading"},{"name":"stories","label":"Stories: a cast, and storyboards","file":"stories/index.html","group":"Reading"},{"name":"owasp","label":"Overview: the proposal","file":"owasp/index.html","group":"OWASP"},{"name":"owasp-charter","label":"The charter","file":"owasp/charter.html","group":"OWASP"},{"name":"owasp-riskmandate","label":"RiskMandate and the project","file":"owasp/riskmandate.html","group":"OWASP"},{"name":"owasp-contributions","label":"What moves","file":"owasp/contributions.html","group":"OWASP"},{"name":"owasp-ecosystem","label":"The other OWASP projects","file":"owasp/ecosystem.html","group":"OWASP"},{"name":"owasp-lessons","label":"What other projects teach","file":"owasp/lessons.html","group":"OWASP"},{"name":"owasp-application","label":"The application","file":"owasp/application.html","group":"OWASP"},{"name":"owasp-tracker","label":"The tracker: status and submissions","file":"owasp/tracker.html","group":"OWASP"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"privacy","label":"Privacy","file":"privacy.html","group":"More"},{"name":"lab","label":"The Lab","file":"lab.html","group":"More"},{"name":"demos","label":"Live demos","file":"demos.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"uk-support","label":"UK support, in the open","file":"uk-support.html","group":"More"},{"name":"about","label":"About: the company and the founders","file":"about.html","group":"More"},{"name":"home-diff","label":"Home: now and proposed, a private review","file":"home-diff.html","group":"More"},{"name":"engagements","label":"Engagements: forward-deployed engineering (proposed)","file":"engagements.html","group":"More"},{"name":"home-next","label":"Home: proposed, after the ten questions","file":"home-next.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"contact","label":"Contact","file":"contact.html","group":"More"},{"name":"agent-contact","label":"Agents: the contact file","file":"agents/index.html","group":"More"},{"name":"admin","label":"Admin","file":"admin/","group":"More"}];RM.data.sections=[];
+RM.data.pages=[{"name":"agent-behaviour-policy","label":"The sixteen examples","file":"agent-behaviour-policy.html","group":"Behaviour policies"},{"name":"abp","label":"What an ABP is","file":"abp.html","group":"Behaviour policies"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"Behaviour policies"},{"name":"licence-to-operate","label":"Licence to Operate","file":"licence-to-operate.html","group":"Behaviour policies"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"Behaviour policies"},{"name":"team","label":"The team: our own agents' policies","file":"team/index.html","group":"Behaviour policies"},{"name":"try-it","label":"Try it","file":"try-it.html","group":"Behaviour policies"},{"name":"for-corporate","label":"You run agents today","file":"for-corporate.html","group":"Who it's for"},{"name":"for-founders","label":"You are a founder","file":"for-founders.html","group":"Who it's for"},{"name":"for-startups","label":"You are a startup","file":"for-startups.html","group":"Who it's for"},{"name":"early-access","label":"Early access, invite only","file":"early-access.html","group":"Who it's for"},{"name":"early-adopters","label":"Early adopters: a thank you","file":"early-adopters.html","group":"Who it's for"},{"name":"insurance","label":"Make agents insurable","file":"insurance.html","group":"Insurance"},{"name":"insure-a-program","label":"Can you insure a program?","file":"insure-a-program.html","group":"Insurance"},{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"Insurance"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"Insurance"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"Insurance"},{"name":"business-cases","label":"Business cases, by risk","file":"business-cases.html","group":"Insurance"},{"name":"owasp-graph","label":"OWASP, as a graph","file":"owasp-graph.html","group":"Insurance"},{"name":"pricing","label":"The four levels","file":"pricing.html","group":"Pricing"},{"name":"abp-reviewed","label":"The reviewed level","file":"abp-reviewed.html","group":"Pricing"},{"name":"reviewers","label":"Who runs your review","file":"reviewers.html","group":"Pricing"},{"name":"articles","label":"Articles","file":"articles.html","group":"Reading"},{"name":"newsroom","label":"From the newsroom","file":"newsroom.html","group":"Reading"},{"name":"stories","label":"Stories: a cast, and storyboards","file":"stories/index.html","group":"Reading"},{"name":"owasp","label":"Overview: the proposal","file":"owasp/index.html","group":"OWASP"},{"name":"owasp-charter","label":"The charter","file":"owasp/charter.html","group":"OWASP"},{"name":"owasp-riskmandate","label":"RiskMandate and the project","file":"owasp/riskmandate.html","group":"OWASP"},{"name":"owasp-contributions","label":"What moves","file":"owasp/contributions.html","group":"OWASP"},{"name":"owasp-ecosystem","label":"The other OWASP projects","file":"owasp/ecosystem.html","group":"OWASP"},{"name":"owasp-lessons","label":"What other projects teach","file":"owasp/lessons.html","group":"OWASP"},{"name":"owasp-application","label":"The application","file":"owasp/application.html","group":"OWASP"},{"name":"owasp-tracker","label":"The tracker: status and submissions","file":"owasp/tracker.html","group":"OWASP"},{"name":"questions","label":"Questions","file":"questions.html","group":"More"},{"name":"privacy","label":"Privacy","file":"privacy.html","group":"More"},{"name":"lab","label":"The Lab","file":"lab.html","group":"More"},{"name":"demos","label":"Live demos","file":"demos.html","group":"More"},{"name":"library","label":"Library","file":"library.html","group":"More"},{"name":"partners","label":"Partners","file":"partners.html","group":"More"},{"name":"uk-support","label":"UK support, in the open","file":"uk-support.html","group":"More"},{"name":"about","label":"About: the company and the founders","file":"about.html","group":"More"},{"name":"linkedin","label":"LinkedIn desk: what we publish there, in order","file":"linkedin.html","group":"More"},{"name":"home-diff","label":"Home: now and proposed, a private review","file":"home-diff.html","group":"More"},{"name":"engagements","label":"Engagements: forward-deployed engineering (proposed)","file":"engagements.html","group":"More"},{"name":"home-next","label":"Home: proposed, after the ten questions","file":"home-next.html","group":"More"},{"name":"brand","label":"Brand","file":"brand.html","group":"More"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"More"},{"name":"contact","label":"Contact","file":"contact.html","group":"More"},{"name":"agent-contact","label":"Agents: the contact file","file":"agents/index.html","group":"More"},{"name":"admin","label":"Admin","file":"admin/","group":"More"}];RM.data.sections=[];
 
 'use strict';
 // components/dom.js — tiny DOM helpers shared by components. `el` builds an
@@ -2278,7 +2312,8 @@ RM.components.nav = (function () {
     doc.querySelectorAll('[data-to]').forEach(function (elm) {
       elm.addEventListener('click', function () { scrollTo(doc, elm.getAttribute('data-to')); });
     });
-    doc.querySelectorAll('[data-demo], .demo').forEach(function (elm) {
+    // the header's "Try it free" is a plain link to customers.riskmandate.ai; only [data-demo] controls open the contact form
+    doc.querySelectorAll('[data-demo]').forEach(function (elm) {
       elm.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); openDemo(); });
     });
     wireMobileNav(doc);

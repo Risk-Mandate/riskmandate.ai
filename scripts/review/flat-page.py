@@ -1,9 +1,10 @@
 # Assemble a flat, private page from pricing.html's chrome: head (title, description, canonical, noindex),
 # header, the given body, footer, the shared scripts, and optional extra CSS, head and script.
+# Private (noindex, no twin) unless the config says "public": true.
 #   python3 scripts/review/flat-page.py scripts/review/home-diff/page.json      (from the repository root)
 # The page's own code lives in site/assets/review/ and is linked, so the body is the only thing this builds in.
 import re, sys, json
-def build(name, title, desc, body, css='', script='', headx=''):
+def build(name, title, desc, body, css='', script='', headx='', public=False):
     donor=open('site/pricing.html',encoding='utf8').read()
     esc=lambda t:t.replace('&','&amp;').replace('"','&quot;')
     head=donor[:donor.index('<body')]
@@ -12,7 +13,8 @@ def build(name, title, desc, body, css='', script='', headx=''):
         head=re.sub(r'(<meta '+prop+r' content=")[^"]*(")',lambda m:m.group(1)+esc(desc)+m.group(2),head,count=1)
     head=re.sub(r'(<meta property="og:title" content=")[^"]*(")',lambda m:m.group(1)+esc(title)+m.group(2),head,count=1)
     head=head.replace('https://riskmandate.ai/pricing.html',f'https://riskmandate.ai/{name}.html')
-    head=re.sub(r'<link rel="alternate" type="text/markdown" href="pricing.md"[^>]*>\n?','<meta name="robots" content="noindex,nofollow">\n',head,count=1)
+    if public: head=head.replace('href="pricing.md"',f'href="{name}.md"')   # a public page keeps its markdown twin and is indexed
+    else: head=re.sub(r'<link rel="alternate" type="text/markdown" href="pricing.md"[^>]*>\n?','<meta name="robots" content="noindex,nofollow">\n',head,count=1)
     head=head.replace('</style>',css+'</style>',1)
     head=head.replace('</head>',headx+'</head>',1) if '</head>' in head else head+headx
     assert 'pricing.md' not in head and 'pricing.html' not in head, 'donor address left'
@@ -29,5 +31,5 @@ if __name__=='__main__':
     script=open(cfg['script'],encoding='utf8').read() if cfg.get('script') else ''
     script+=''.join(f'<script src="{s}"></script>\n' for s in cfg.get('scripts',[]))
     headx=''.join(f'<link rel="stylesheet" href="{s}">\n' for s in cfg.get('styles',[]))
-    build(cfg['name'],cfg['title'],cfg['desc'],open(cfg['body'],encoding='utf8').read(),cfg.get('css',''),script,headx)
+    build(cfg['name'],cfg['title'],cfg['desc'],open(cfg['body'],encoding='utf8').read(),cfg.get('css',''),script,headx,cfg.get('public',False))
     print('built',cfg['name'])

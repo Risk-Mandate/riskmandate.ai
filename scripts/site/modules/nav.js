@@ -108,7 +108,8 @@ RM.components.nav = (function () {
     doc.querySelectorAll('[data-to]').forEach(function (elm) {
       elm.addEventListener('click', function () { scrollTo(doc, elm.getAttribute('data-to')); });
     });
-    doc.querySelectorAll('[data-demo], .demo').forEach(function (elm) {
+    // the header's "Try it free" is a plain link to customers.riskmandate.ai; only [data-demo] controls open the contact form
+    doc.querySelectorAll('[data-demo]').forEach(function (elm) {
       elm.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); openDemo(); });
     });
     wireMobileNav(doc);

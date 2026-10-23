@@ -10,9 +10,23 @@ Source: https://riskmandate.ai/
 
 # Give agents access.Not free rein.
 
-Behaviour policies for the AI agents in Gmail, HR, payroll, CRM and meeting apps. Enforced in real time, with alerts by text and email.
+Agent Behaviour Policies for the AI agents in Gmail, HR, payroll, CRM and meeting apps: what each one can reach, what you authorised it to do, and the gap between the two. Your own controls enforce them. We are never in the request path.
 
-Blocked: Payroll copilot tried to change bank details for 1 employee. Reply 1 to review.
+On Claude or ChatGPT, in your browser, nothing to install. [Six examples, simplest first](https://customers.riskmandate.ai/).
+
+Blocked by your gateway: Payroll copilot tried to change bank details for 1 employee. Reply 1 to review.
+
+The gate in the middle is **your** gateway, proxy or IAM, configured from the rules in the ABP. RiskMandate writes the rules and is never in the request path; the approval card is a flow your team stands up with our help.
+
+## Put a behaviour policy on your agent.
+
+Ask your assistant to do something. Paste one line that says it must not. Ask again, and watch it refuse. That line is the first row of an Agent Behaviour Policy.
+
+In each example the assistant keeps the line because it chooses to: an expectation, the weakest of the four barriers. The examples show why the stronger ones matter.
+
+- _1_**Ask**In Claude or ChatGPT, ask for something you would not want an agent to do on its own.
+- _2_**Add the line**Paste one sentence that says it must not.
+- _3_**New chat**Ask again, and see what changed, and what did not.
 
 One policy for each system your team already uses
 
@@ -27,11 +41,11 @@ One policy for each system your team already uses
 
 ## Pick a system. Set the rules.
 
-Every system starts from a template. Decide what agents can do, what waits for approval and what never happens. The rules you can paste into an agent today, one worry at a time, are [here](rules/).
+Every system starts from a template. Decide what agents can do, what waits for approval and what never happens. We write it down; your controls enforce it. The rules you can paste into an agent today, one worry at a time, are [here](rules/).
 
-## Bring your policy. We make it enforceable.
+## Bring your policy. We show what can enforce it.
 
-Upload the document legal already wrote. We turn every line into a rule, supply the business logic behind it, and flag what can't be enforced as written.
+Upload the document legal already wrote. We turn every line into a rule, supply the business logic behind it, name the control in your stack that would enforce each one, and flag what nothing can enforce as written.
 
 1Staff must not use AI tools to send confidential data outside the company.
 
@@ -41,15 +55,15 @@ Upload the document legal already wrote. We turn every line into a rule, supply 
 
 4Use AI responsibly and ethically at all times.
 
-## A prompt asks. A policy enforces.
+## A prompt asks. A boundary enforces.
 
-Instructions inside an agent can be ignored or talked around. Rules outside it can't.
+Instructions inside an agent can be ignored or talked around. A control outside it cannot, and the ABP says which of the two each rule has.
 
 "Never export customer lists without approval."
 
 ## Know the moment an agent steps out of line.
 
-Every policy alerts the right person by text and email. Approve or deny with a one-letter reply.
+An approval flow your team stands up with our help, from the rules in the ABP: the right person gets a text and an email, and approves or denies with a one-letter reply. It runs in your stack, not ours.
 
 Held: Sales agent (for Dana R.) wants to export 2,400 contacts. Your CRM policy holds exports over 500. Reply A to approve once or D to deny.
 

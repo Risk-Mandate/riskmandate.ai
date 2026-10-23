@@ -156,7 +156,7 @@ const header = (cta) => `<header class="top">
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true">${MARK}</span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
     <a class="version" href="versions.html" title="What shipped in vVERSION">vVERSION</a>
-    <button class="demo" data-demo>${cta}</button>
+    <a class="demo" href="https://customers.riskmandate.ai/" data-try>${cta}</a>
   </div>
 </header>`;
 
@@ -201,7 +201,7 @@ function main() {
   const version = JSON.parse(readFileSync(join(SITE, 'versions/index.json'), 'utf8')).latest;
   const title   = arg('--title', `RiskMandate — ${name}`);
   const desc    = arg('--desc', '');
-  const cta     = arg('--cta', 'Book a demo');
+  const cta     = arg('--cta', 'Try it free');
   const css     = arg('--css')  ? readFileSync(resolve(arg('--css')),  'utf8') : `\n/* ${name}.css */\n`;
   const body    = arg('--body') ? readFileSync(resolve(arg('--body')), 'utf8')
                                 : `<main class="phero"><div class="wrap"><h1>${name}</h1></div></main>`;
