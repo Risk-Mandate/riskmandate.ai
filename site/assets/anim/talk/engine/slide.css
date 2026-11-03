@@ -1,0 +1,22 @@
+@import url("../../assets/tokens.css");
+/* One slide = one 1280x720 canvas (#cv), scaled to fit and letterboxed. Every element is placed in canvas pixels. */
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--text);overflow:hidden;font:20px/1.35 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+body{position:fixed;inset:0}   /* a piece opened on its own on an iPad: the 1280px canvas must not widen the layout viewport before fit() scales it (studio@, 29 October) */
+#cv{position:absolute;left:0;top:0;width:1280px;height:720px;transform-origin:0 0;overflow:hidden}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.serif{font-family:Georgia,"Times New Roman",serif}
+.hl{position:absolute;left:60px;right:60px;top:46px;font:700 46px/1.12 Georgia,serif;color:var(--head);letter-spacing:-.01em}
+.hl em{font-style:normal;color:var(--accent)}
+.hl .a{color:var(--agent)}.hl .i{color:var(--infra)}.hl .r{color:var(--risk)}
+.kk{position:absolute;left:60px;top:18px;font:800 14px system-ui;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.kk.a{color:var(--agent)}.kk.i{color:var(--infra)}.kk.r{color:var(--risk)}.kk.w{color:var(--accent)}
+.ft{position:absolute;left:60px;right:60px;bottom:16px;font-size:14px;color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar{position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--line)}
+.bar i{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--accent)}
+.abs{position:absolute}
+.panel{background:var(--panel);border:2px solid var(--line);border-radius:16px}
+.c-agent{color:var(--agent)}.c-infra{color:var(--infra)}.c-risk{color:var(--risk)}.c-acc{color:var(--accent)}.c-dim{color:var(--dim)}.c-head{color:var(--head)}
+.big{font:800 96px/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--head);letter-spacing:-.03em}
+svg text{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+[data-in]{opacity:0}

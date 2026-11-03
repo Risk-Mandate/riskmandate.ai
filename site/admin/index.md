@@ -7,7 +7,7 @@
 
 **0**waiting on somebody outside*the store's agent, the model site*
 
-**0**branches in flight*one work file each*
+**1**branches in flight*one work file each*
 
 **0**open tasks*of 4 in the queue · 4 done*
 
@@ -17,7 +17,7 @@
 
 **16**vaults built and pushed*4 measured · 9 asked for*
 
-**153**releases*8 Lab editions*
+**154**releases*8 Lab editions*
 
 ## Needs the lead — 11
 
@@ -67,13 +67,13 @@ a decision the lead owns, openD10
 
 a decision the lead owns, openD11
 
-## In flight — 0 branches
+## In flight — 1 branch
 
 One file per branch under `.claude/work/`, written before the work starts and deleted when it merges. Read every one before claiming a task.
 
-**Nothing in flight.**
+**[claude/dev-session-setup-a5wcc5](../admin/work/branches/claude-dev-session-setup-a5wcc5/)**
 
-No work file under .claude/work/.
+Four animations self-hosted under `site/assets/anim/` (E09, the ABP gate, E11, E12), embedded on the SHarness page, the home page, the positioning deck and the walkthrough. Release v1.40.2. No vault pushed. since 3 November 2026
 
 ## How work gets here
 

@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<!-- Changed by riskmandate.ai on 3 November 2026 from the-ultimate-insider.presentation.sgit.ai (CC BY 4.0, Dinis Cruz): "policy" reads "PBP", SHarness's process behaviour policy. Credit and licence: /assets/anim/README.md -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>E12 v1: the blast radius, contained, designed and not today</title>
+<link rel="stylesheet" href="../../../../talk/engine/slide.css">
+<script>window.RUV_STEPS = [{ t: 0, label: 'today: 12 of 12 lit' }, { t: 8, label: 'measured in a child' }, { t: 18, label: 'designed: walls close' }, { t: 34, label: 'what stays lit' }, { t: 42, label: 'a boundary for the child' }]</script>
+<script src="../../../../talk/engine/slide.js"></script>
+<style>
+.kk{font-size:20px;top:6px}
+.hl{top:56px;font-size:40px;right:230px}
+#id{position:absolute;right:40px;top:8px;font:800 72px/1 system-ui;color:var(--head);letter-spacing:.02em}
+#sum{position:absolute;left:60px;right:60px;top:108px;height:58px;font:700 22px/1.3 system-ui;color:var(--head)}
+#map{position:absolute;left:0;top:0;width:1280px;height:720px}
+#state{position:absolute;left:40px;width:560px;bottom:14px;font:700 22px/1.3 system-ui;color:var(--head)}
+#state i{font-style:normal;color:var(--agent)}
+#state.dz{border:2px dashed var(--accent);border-radius:10px;padding:4px 10px;left:30px}
+.cell{position:absolute;top:178px;width:290px;padding:6px 12px 8px;border-radius:12px}
+.cell .lb{font:800 20px/24px system-ui;letter-spacing:.04em;text-transform:uppercase;color:var(--dim)}
+.cell .n{font:800 52px/58px system-ui;color:var(--agent)}
+.cell .s{font:600 20px/24px system-ui;color:var(--text)}
+#cB{border:2px dashed var(--accent)}
+#cB .n{color:var(--accent)}
+#cA{border:2px solid var(--line2)}
+.hd{position:absolute;left:640px;width:600px;font:700 20px/26px system-ui;color:var(--head)}
+.lt{font:600 20px/23px system-ui;fill:var(--text)}
+#lit{position:absolute;left:640px;top:622px;width:600px;font:700 20px/26px system-ui;color:var(--head)}
+#lit .dots{display:flex;gap:8px;margin-top:6px}
+#lit .dots b{width:32px;height:32px;border-radius:50%;background:var(--agent);color:#fff;font:800 20px/32px system-ui;text-align:center}
+</style>
+</head>
+<body>
+<div id="cv" data-end="52">
+  <p class="kk a">Studio experiment E12 · v1, driven</p>
+  <div id="id">E12</div>
+  <div class="hl" data-in="0">The radius, contained: <em>designed, not today.</em></div>
+  <div id="sum"></div>
+  <svg id="map" viewBox="0 0 1280 720" aria-label="E02's ring of one agent's grant rows; today all twelve rows of the excess are lit; in a designed state, the rows a files or network wall would close go dark"></svg>
+  <div class="cell" id="cA" style="left:640px"></div>
+  <div class="cell" id="cB" style="left:950px"></div>
+  <div class="hd" id="hM" style="top:328px"></div>
+  <div class="hd" id="hD" style="top:328px"></div>
+  <div class="hd" id="fM" style="top:574px"></div>
+  <div id="lit"></div>
+  <div id="state"></div>
+  <div class="bar"><i></i></div>
+</div>
+<script>
+(function () {
+  'use strict'
+  // The ring is E02 v3's: same groups, order, numbers, radii and labels, so the room recognises it.
+  var GROUPS = [['Credentials', function (c) { return /\.credential\./.test(c) }, 'credentials'], ['Files and disk', function (c) { return /\.file\./.test(c) }, 'files'],
+    ['Network and world', function (c) { return /\.world$/.test(c) }, 'the world'], ['Records and repos', function (c) { return /\.(record|repository)\./.test(c) }, 'records'],
+    ['Schedule', function (c) { return /\.schedule\./.test(c) }, 'schedule']]
+  // The slide's reading: which rows of the excess a files or network wall of the kinds hello measured would close.
+  // probe: the hello probe whose refusal is of the same kind (measured in a child); null: no probe refused it (designed).
+  var CLOSE = [['write.file.host', 'files', 'hello-2-tmp-write'], ['send.endpoint.world', 'network', 'hello-4-tcp-connect'],
+    ['delete.file.host', 'files', null], ['read.file.host', 'files', null]]
+  // Short words for three of hello's probes, read from each probe's name and result; the file's own words are in the explainer.
+  var PROBES = [['hello-2-tmp-write', 'Write a file in /tmp'], ['hello-4-tcp-connect', 'Connect out to 1.1.1.1:443'], ['hello-6-memory', 'Take 400 MiB under a 128 MiB cap']]
+  var D = null, H = null, C = null, NS = 'http://www.w3.org/2000/svg', CX = 320, CY = 420, B = null
+  var LAT = [21, 24, 27, 30], MAT = [9.5, 11, 12.5]
+  Promise.all(['abp-examples', 'capabilities', 'harness'].map(function (f) { return fetch('../../../data/' + f + '.json').then(function (r) { return r.json() }) })).then(function (j) {
+    D = j[0].examples.filter(function (e) { return e.id === 'claude-code-cli-confirmations-enabled' })[0]; C = j[1]; H = j[2]
+  }).catch(function (e) { console.error('E12: a data file did not load', e) })
+
+  var plain = function (id) { var c = C.capabilities.filter(function (x) { return x.id === id })[0]; return c ? c.label.replace(/\s*\([^)]*\)\s*$/, '') : id }
+  var MON = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+  var day = function (s) { var m = /(\d{4})-(\d\d)-(\d\d)/.exec(s || ''); return m ? (+m[3]) + ' ' + MON[+m[2] - 1] + ' ' + m[1] : '' }
+  function el(tag, a, p) { var e = document.createElementNS(NS, tag); for (var k in a) e.setAttribute(k, a[k]); p.appendChild(e); return e }
+  function txt(p, s, a) { var e = el('text', a, p); e.textContent = s; return e }
+  function glyph(g, kind, x, y, col) {                               // abp.sgit.ai's glyphs: filled, double, half filled, open
+    if (kind === 'expectation') { el('circle', { cx: x, cy: y, r: 14, fill: 'none', stroke: col, 'stroke-width': 3 }, g); el('circle', { cx: x, cy: y, r: 7, fill: 'none', stroke: col, 'stroke-width': 3 }, g) }
+    else if (kind === 'setting') { el('circle', { cx: x, cy: y, r: 14, fill: 'var(--bg)', stroke: col, 'stroke-width': 3 }, g); el('path', { d: 'M' + x + ' ' + (y - 14) + 'A14 14 0 0 1 ' + x + ' ' + (y + 14) + 'Z', fill: col }, g) }
+    else if (kind === 'boundary') el('circle', { cx: x, cy: y, r: 14, fill: 'none', stroke: col, 'stroke-width': 3 }, g)
+    else el('circle', { cx: x, cy: y, r: 14, fill: col }, g)
+  }
+  function wrap(p, s, x, y, w, cls) {                                 // a few words over at most two lines
+    var words = s.split(' '), lines = [''], t = txt(p, '', { x: x, y: y, 'class': cls })
+    words.forEach(function (wd) { var tr = (lines[lines.length - 1] + ' ' + wd).trim(); t.textContent = tr; if (t.getComputedTextLength() > w && lines[lines.length - 1]) lines.push(wd); else lines[lines.length - 1] = tr })
+    p.removeChild(t)
+    var y0 = y - (lines.length - 1) * 12
+    lines.forEach(function (l, i) { txt(p, l, { x: x, y: y0 + i * 24, 'class': cls }) })
+  }
+  function lane(p, y, num, label, held, mark, measured) {             // a path from the row to a wall that holds (E04 v2's language)
+    var g = el('g', {}, p), WX = 1052
+    if (num != null) { el('circle', { cx: 656, cy: y, r: 16, fill: 'var(--agent)' }, g); txt(g, num, { x: 656, y: y + 7, 'text-anchor': 'middle', 'font-size': 20, 'font-weight': 800, fill: '#fff' }) }
+    wrap(g, label, num != null ? 684 : 640, y + 7, num != null ? 250 : 300, 'lt')
+    var x0 = 948, path = el('path', { d: 'M' + x0 + ' ' + y + 'H' + (WX - 8), fill: 'none', stroke: 'var(--agent)', 'stroke-width': 5, 'stroke-linecap': 'round' }, g), L = WX - 8 - x0
+    path.setAttribute('stroke-dasharray', L + ' ' + L)
+    var w = el('g', {}, g)
+    if (measured) el('rect', { x: WX - 6, y: y - 24, width: 12, height: 48, rx: 3, fill: 'var(--accent)' }, w)
+    else el('rect', { x: WX - 5, y: y - 23, width: 10, height: 46, rx: 3, fill: 'none', stroke: 'var(--accent)', 'stroke-width': 3, 'stroke-dasharray': '6 4' }, w)
+    var vg = el('g', {}, g)
+    txt(vg, held, { x: WX + 22, y: mark ? y - 5 : y + 7, 'font-size': 20, 'font-weight': 800, fill: 'var(--accent)' })
+    if (mark) txt(vg, mark, { x: WX + 22, y: y + 19, 'font-size': 20, 'font-weight': 600, fill: 'var(--text)' })
+    return { g: g, path: path, L: L, w: w, v: vg }
+  }
+
+  function build(S) {
+    var svg = S.$('map'), core = [], ex = []
+    D.rows.forEach(function (r) { (r.mandate_stance === 'authorised' ? core : ex).push(r) })
+    var taken = {}, groups = GROUPS.map(function (g) { return { name: g[0], short: g[2], rows: ex.filter(function (r) { if (taken[r.capability] || !g[1](r.capability)) return false; taken[r.capability] = 1; return true }) } })
+    var order = core.slice(); groups.forEach(function (g) { order = order.concat(g.rows) })
+    var num = {}; order.forEach(function (r, i) { num[r.capability] = i + 1 })
+    var R = { authorised: 56, unstated: 122, refused: 160 }
+    el('circle', { id: 'reach', cx: CX, cy: CY, r: 186, fill: 'var(--agent-t)', stroke: 'var(--agent)', 'stroke-dasharray': '5 8', opacity: .3 }, svg)
+    ;['unstated', 'refused'].forEach(function (k) { el('circle', { cx: CX, cy: CY, r: R[k], fill: 'none', stroke: 'var(--line2)', 'stroke-width': 1.5 }, svg) })
+    el('circle', { cx: CX, cy: CY, r: 88, fill: 'none', stroke: 'var(--head)', 'stroke-width': 4 }, svg)
+    txt(svg, 'model', { x: CX, y: CY + 7, 'text-anchor': 'middle', 'font-size': 22, 'font-weight': 700, fill: 'var(--head)' })
+    var lab = function (s, x, y, col) { txt(svg, s, { x: x, y: y, 'text-anchor': 'middle', 'font-size': 20, 'font-weight': 800, fill: col, 'paint-order': 'stroke', stroke: 'var(--bg)', 'stroke-width': 6 }) }
+    lab('the mandate', CX, CY - 98, 'var(--head)'); lab('unstated (' + ex.filter(function (r) { return r.mandate_stance === 'unstated' }).length + ')', CX - 167, CY - 68, 'var(--agent)')
+    lab('refused (' + ex.filter(function (r) { return r.mandate_stance === 'refused' }).length + ')', CX - 222, CY - 102, 'var(--agent)')
+    var dots = []
+    var place = function (list, rad, a0, span) { list.forEach(function (r, i) { var a = a0 + span * (list.length === 1 ? .5 : i / (list.length - 1)); dots.push({ r: r, x: CX + rad * Math.cos(a), y: CY + rad * Math.sin(a) }) }) }
+    place(core, R.authorised, -2.2, 2 * Math.PI - 1.2)
+    var gap = .3, open = .9, per = (2 * Math.PI - gap * (groups.length - 1) - open) / ex.length, a = -2.17, arcs = el('g', {}, svg)
+    groups.forEach(function (g) {
+      if (!g.rows.length) return
+      var a0 = a
+      g.rows.forEach(function (r) { var m = a + per / 2, rad = R[r.mandate_stance]; dots.push({ r: r, x: CX + rad * Math.cos(m), y: CY + rad * Math.sin(m) }); a += per })
+      var rr = 176, p0 = [CX + rr * Math.cos(a0 + .04), CY + rr * Math.sin(a0 + .04)], p1 = [CX + rr * Math.cos(a - .04), CY + rr * Math.sin(a - .04)]
+      el('path', { d: 'M' + p0[0] + ' ' + p0[1] + 'A' + rr + ' ' + rr + ' 0 ' + (a - a0 > Math.PI ? 1 : 0) + ' 1 ' + p1[0] + ' ' + p1[1], fill: 'none', stroke: 'var(--agent)', 'stroke-width': 4, 'stroke-linecap': 'round' }, arcs)
+      var m = (a0 + a) / 2; if (Math.cos(m) > .9) m = a0 - .02
+      var lr = Math.cos(m) < -.9 ? 186 : 200, lx = CX + lr * Math.cos(m), ly = CY + lr * Math.sin(m) + (Math.cos(m) < -.9 ? 36 : 7)
+      txt(arcs, g.short + ' (' + g.rows.length + ')', { x: lx, y: ly, 'text-anchor': Math.abs(Math.cos(m)) < .4 ? 'middle' : Math.cos(m) > 0 ? 'start' : 'end', 'font-size': 20, 'font-weight': 800, fill: 'var(--agent)', 'paint-order': 'stroke', stroke: 'var(--bg)', 'stroke-width': 6 })
+      a += gap
+    })
+    var byCap = {}
+    dots.forEach(function (d) {
+      var col = d.r.mandate_stance === 'authorised' ? 'var(--head)' : 'var(--agent)', g = el('g', {}, svg), lit = el('g', {}, g)
+      glyph(lit, d.r.barrier_kind, d.x, d.y, col)                      // as E02 v3 ended: each dot in its barrier kind's glyph
+      var side = d.x >= CX, tx = { x: d.x + (side ? 22 : -22), y: d.y + 7, 'text-anchor': side ? 'start' : 'end', 'font-size': 20, 'font-weight': 800, 'paint-order': 'stroke', stroke: 'var(--bg)', 'stroke-width': 5 }
+      tx.fill = col; txt(lit, num[d.r.capability], tx)
+      var dk = el('g', { opacity: 0 }, g)                               // the same row, gone dark
+      el('circle', { cx: d.x, cy: d.y, r: 14, fill: 'var(--line2)' }, dk); tx.fill = 'var(--dim)'; txt(dk, num[d.r.capability], tx)
+      d.lit = lit; d.dk = dk; byCap[d.r.capability] = d
+    })
+    var sf = D.shortfall_capabilities[0], sx = CX + 88 * Math.cos(.55), sy = CY + 88 * Math.sin(.55)
+    el('circle', { cx: sx, cy: sy, r: 14, fill: 'var(--bg)', stroke: 'var(--head)', 'stroke-width': 3, 'stroke-dasharray': '4 4' }, svg)
+    txt(svg, '×', { x: sx + 22, y: sy + 7, 'font-size': 20, 'font-weight': 800, fill: 'var(--head)', 'paint-order': 'stroke', stroke: 'var(--bg)', 'stroke-width': 5 })
+
+    // measured: three of hello's probes, each a path that stops at a wall the kernel holds, for a child process
+    var pby = {}; H.probes.forEach(function (p) { pby[p.id] = p })
+    var mg = el('g', {}, svg), ml = []
+    PROBES.forEach(function (pr, i) {
+      var p = pby[pr[0]]; if (!p) return
+      var verdict = /^refused/.test(p.result) ? 'refused' : p.result.split(':')[0]
+      ml.push(lane(mg, 414 + i * 56, null, pr[1], verdict, '', true))
+    })
+    var when = day(pby[PROBES[0][0]].measured_on)
+    S.$('hM').innerHTML = 'Measured by <b>sharness-ai hello</b>, ' + when + ': a PBP the kernel holds, on a child process.'
+    S.$('fM').textContent = 'A boundary for the child. For the session that started it, a setting.'
+
+    // designed: the rows a files or network wall would close, each marked by what supports it
+    var dg = el('g', {}, svg), dl = []
+    CLOSE.forEach(function (c, i) {
+      var d = byCap[c[0]]; if (!d || d.r.mandate_stance === 'authorised') return
+      var p = c[2] && pby[c[2]], measured = !!(p && /\(held\)/.test(p.result))
+      var o = lane(dg, 412 + i * 56, num[c[0]], plain(c[0]), measured ? 'measured' : 'designed', measured ? 'in a child' : '', measured)
+      var ring = d.dk.firstChild; ring.setAttribute('stroke', 'var(--accent)'); ring.setAttribute('stroke-width', 3); if (!measured) ring.setAttribute('stroke-dasharray', '5 4')
+      o.d = d; dl.push(o)
+    })
+    S.$('hD').innerHTML = 'If a <b>files</b> and <b>network</b> wall held for the agent itself. Which rows close is the slide\'s reading:'
+    var closed = {}; dl.forEach(function (o) { closed[o.d.r.capability] = 1 })
+    var still = ex.filter(function (r) { return !closed[r.capability] }).map(function (r) { return num[r.capability] }).sort(function (x, y) { return x - y })
+    S.$('lit').innerHTML = 'Still lit, bounded by nothing even then (' + still.length + ' of ' + D.excess + '):<div class="dots">' + still.map(function (n) { return '<b>' + n + '</b>' }).join('') + '</div>'
+    S.$('cA').innerHTML = '<div class="lb">Today, this agent</div><div class="n">' + D.unbounded_excess + ' of ' + D.excess + '</div><div class="s">bounded by nothing</div>'
+    S.$('cB').innerHTML = '<div class="lb">Designed</div><div class="n">' + still.length + ' of ' + D.excess + '</div><div class="s">still bounded by nothing</div>'
+    B = { ml: ml, mg: mg, dl: dl, dg: dg, still: still.length, when: when }
+  }
+
+  window.SLIDE_RENDER = function (t, S) {
+    if (!D || !H || !C) return
+    if (!B) build(S)
+    var k = function (a, d) { return S.ease(S.seg(t, a, a + (d || .6))) }
+    var dz = t >= 18
+    S.$('cA').style.opacity = k(2); S.$('cB').style.opacity = k(35)
+    // measured: in from 8, out by 18
+    var mo = k(8) * (1 - k(17.2))
+    B.mg.style.opacity = mo; S.$('hM').style.opacity = mo; S.$('fM').style.opacity = mo * k(14)
+    B.ml.forEach(function (o, i) {
+      var a = MAT[i]
+      o.g.style.opacity = k(a, .4)
+      o.path.setAttribute('stroke-dashoffset', o.L * (1 - S.seg(t, a + .3, a + 1.2)))
+      o.w.setAttribute('transform', 'translate(' + (3 * Math.sin(Math.PI * S.seg(t, a + 1.2, a + 1.5))) + ' 0)')
+      o.v.style.opacity = k(a + 1.3, .4)
+    })
+    // designed: each lane's path stops at its wall, and its row on the ring goes dark
+    S.$('hD').style.opacity = k(18.5); B.dg.style.opacity = k(18.5)
+    B.dl.forEach(function (o, i) {
+      var a = LAT[i], hit = a + 1.3
+      o.g.style.opacity = k(a, .4)
+      o.path.setAttribute('stroke-dashoffset', o.L * (1 - S.seg(t, a + .3, hit)))
+      o.w.setAttribute('transform', 'translate(' + (3 * Math.sin(Math.PI * S.seg(t, hit, hit + .3))) + ' 0)')
+      o.v.style.opacity = k(hit + .2, .4)
+      var dk = k(hit, .6); o.d.lit.style.opacity = 1 - dk; o.d.dk.setAttribute('opacity', dk)
+    })
+    S.$('lit').style.opacity = k(34.5)
+    var st = S.$('state'); st.classList.toggle('dz', dz)
+    var sv = dz ? (t >= 34 ? 'Designed, not today: ' + B.dl.length + ' rows go dark, <i>' + B.still + ' stay lit</i>.' : 'Designed, not today: rows a wall closes go dark.') : 'Today, as E02 ended: <i>' + D.unbounded_excess + ' of ' + D.excess + ' lit</i>, no control on any.'
+    if (st.innerHTML !== sv) st.innerHTML = sv
+    var s = 'Claude Code, confirmations on, as E02 ended: of the excess ' + D.excess + ', ' + D.unbounded_excess + ' are bounded by nothing. No row is behind a boundary.'
+    if (t >= 8) s = 'What the harness has measured: the kernel refused these for a child process, under a PBP set before the child started.'
+    if (t >= 18) s = 'Designed: the launcher above the agent would make that PBP a boundary for the agent itself. Dark rows: solid ring, measured in a child; dashed, designed.'
+    if (t >= 34) s = 'What stays lit is the excess still bounded by nothing: ' + B.still + ' of ' + D.excess + ', even in the designed state.'
+    if (t >= 42) s = 'hello, ' + B.when + ': a boundary for the child, not yet for the agent. fs is a setting until the launcher gives it its own uid; net, a boundary only for the shell sharness-ai shell starts.'
+    if (S.$('sum').textContent !== s) S.$('sum').textContent = s
+  }
+})()
+</script>
+</body>
+</html>

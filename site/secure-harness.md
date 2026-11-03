@@ -34,6 +34,12 @@ Not inline, still: “The enterprise story has no product in the request path.�
 
 A launcher outside every domain checks the hash, gives each part its own Linux user and certificate, and destroys the certificate authority's key. The kernel holds the capability rows: what a process may read, write, run and connect to. Five doors hold the behaviour rows, each the only way to one resource: files, network, keys, shell and model. The permission prompt goes last: “yes to what the policy allows, silence for what it refuses, and a question only for what it cannot hold.”
 
+## From the gap to the kernel, in four animations.
+
+The first plays when it comes into view; choose the next below. Each runs about fifty seconds and holds its last frame. They are read from the same data the sources published, and dated by it. They were made for [The Ultimate Insider](https://the-ultimate-insider.presentation.sgit.ai/) talk and for [ruv.sgit.ai](https://ruv.sgit.ai/). They are copied here so this page loads nothing from another site, and their wording uses this site's terms ([what changed, and the licences](assets/anim/README.md)).
+
+_**1 · The ABP.** One example, Claude Code on your own machine with confirmations on: the mandate, the grant, the gap, and the barrier on each row. It ends on twelve rows of excess, none of them held by a control. _E09, the-ultimate-insider.presentation.sgit.ai, CC BY 4.0._**2 · Enforced in a swarm.** The same eleven actions from a Ruflo swarm, run twice. The default lets all eleven through. Under the ABP in enforce mode, four are denied and two wait for approval, each with a receipt in a hash-chained ledger. POC1, Ruflo 3.56.10. _Studio v4, ruv.sgit.ai, Apache-2.0._**3 · Held by the kernel.** One row of that excess, held. `sharness-ai hello` writes a PBP, hashes it, lets the kernel hold it, then runs six probes. Six of six held, 25 October 2026, in five environments, for a child process. _E11, the-ultimate-insider.presentation.sgit.ai, CC BY 4.0._**4 · The radius.** It shows which rows would close if a files and network wall held for the agent itself, and which would still be bounded by nothing. That needs the launcher above the agent, which is still the design; the title says so. _E12, the-ultimate-insider.presentation.sgit.ai, CC BY 4.0._Replay[Full screen ↗](assets/anim/studio/lab/e09/v1/index.html)_
+
 ## Describe, check, hold, and show the evidence.
 
 ### The ABP

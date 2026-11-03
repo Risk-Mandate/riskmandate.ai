@@ -71,11 +71,15 @@ a decision the lead owns, listed in the state fileneeds the lead
 
 a decision the lead owns, listed in the state fileneeds the lead
 
-## In flight — 0 branches
+## In flight — 1 branch
 
 One file per branch under `.claude/work/`. [How a work file is written](../../admin/work/about-work-files/).
 
-Nothing in flight.
+### [claude/dev-session-setup-a5wcc5](../../admin/work/branches/claude-dev-session-setup-a5wcc5/)
+
+started 3 November 2026 · task brief: ad hoc (the lead: review the ABP and SHarness animations on ruv.sgit.ai and the talk site)
+
+Four animations self-hosted under `site/assets/anim/` (E09, the ABP gate, E11, E12), embedded on the SHarness page, the home page, the positioning deck and the walkthrough. Release v1.40.2. No vault pushed.
 
 ## Task briefs — 17
 

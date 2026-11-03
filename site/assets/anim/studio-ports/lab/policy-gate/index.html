@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Studio v4: the policy gate (port of ruv.sgit.ai's studio v4)</title>
+<meta name="description" content="A port of ruv.sgit.ai's studio v4, the policy gate, onto this site's slide engine: POC1's 11 actions through Ruflo's default (all allowed), then the same 11 through the ABP in enforce mode (4 denied, 2 sent to a human), each leaving a hash-chained receipt.">
+<!--
+  Ported by studio@the-ultimate-insider, 29 October 2026, from SGit-AI/SGit-AI__Website__Ruv site/studio/v4/index.html
+  (the ruv.sgit.ai studio, run 1), at commit 47b447585111b213071fda4e90c21927152071b7.
+  Copyright the SGit-AI authors. Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file
+  except in compliance with the License. A copy is in ../../LICENSE-ruv-sgit.txt and at http://www.apache.org/licenses/LICENSE-2.0.
+  Distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  Changes: the clock is talk/engine/slide.js (RUV_STEPS, pause, seek, ?review) instead of assets/clock.js's loop, and it
+  plays once and holds round 2's end; a fixed 1280x720 canvas (landscape layout only) instead of the full window; this
+  site's colour tokens in both themes, with fewer colours (one colour per decision, the agents in neutral); larger
+  labels; the ID drawn large; the source line in the drawing. Data read from ../../data/report.json (copied unmodified).
+-->
+<link rel="stylesheet" href="../../../talk/engine/slide.css">
+<style>
+#c{position:absolute;left:0;top:0;width:1280px;height:720px}
+#id{position:absolute;right:44px;top:14px;font:800 72px/1 system-ui;letter-spacing:-.02em;color:var(--dim)}
+.ft{bottom:12px}
+</style>
+<script>
+window.RUV_STEPS = [
+  { t: 0, label: 'round 1: Ruflo default' },
+  { t: 15.5, label: 'the same 11 actions, again' },
+  { t: 17.5, label: 'round 2: the ABP, enforce' },
+  { t: 31, label: 'receipts: the ledger' }
+]
+</script>
+<script src="../../../talk/engine/slide.js"></script>
+</head>
+<body>
+<div id="cv" data-end="36">
+  <canvas id="c" width="2560" height="1440" aria-label="POC1's 11 actions fly from the agents to a gate: in round 1 the gate allows all; in round 2 the ABP denies 4 and holds 2 for a human; every decision drops a receipt into a hash-chained ledger"></canvas>
+  <div id="id">v4</div>
+  <p class="ft">Data: ruv.sgit.ai data/report.json (POC1, Ruflo 3.56.10). Studio v4 by the ruv.sgit.ai studio, run 1, Apache-2.0. Ruflo: MIT, rUv / ruvnet.</p>
+  <div class="bar"><i></i></div>
+</div>
+<script>
+(function () {
+  'use strict'
+  var W = 1280, H = 720, LOOP = 36, FLIGHT = 2.2
+  var ROUNDS = [
+    { key: 'legacy', title: 'Round 1 · Ruflo default (legacy)', start: 1.5, gap: .85, end: 15.5 },
+    { key: 'abp', title: 'Round 2 · with the ABP (enforce)', start: 17.5, gap: 1.05, end: LOOP }]
+  var C = {}, data = null, rows = [], agents = [], ctx = null
+  var MONO = 'ui-monospace, SFMono-Regular, Menlo, monospace', SANS = 'system-ui, -apple-system, "Segoe UI", Roboto, sans-serif'
+
+  fetch('../../data/report.json').then(function (r) { if (!r.ok) throw new Error('report.json ' + r.status); return r.json() })
+    .then(function (j) { data = j; setup() }).catch(function (e) { console.error('v4 port: report.json did not load', e) })
+
+  var parse = function (s) { var m = /^(\S+)\s*\((.*)\)\s*$/.exec(s || ''); return m ? { d: m[1], why: m[2] } : { d: (s || '').trim(), why: '' } }
+  var rnd = function (seed) { var x = Math.sin(seed * 9301 + 49297) * 233280; return x - Math.floor(x) }
+  var ease = function (p) { return p < 0 ? 0 : p > 1 ? 1 : (p < .5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2) }
+  var clamp = function (v, a, b) { return Math.max(a, Math.min(b, v)) }
+
+  function setup() {
+    rows = data.rows.map(function (r, i) { return { i: i, who: r.who, action: r.action, resource: r.resource, legacy: parse(r.legacy), abp: parse(r.abp) } })
+    var seen = []; rows.forEach(function (r) { if (seen.indexOf(r.who) < 0) seen.push(r.who) })
+    agents = seen.map(function (w, k) { return { who: w, k: k } })
+    rows.forEach(function (r) { r.agent = agents.filter(function (a) { return a.who === r.who })[0] })
+  }
+  function colours() {                                           // this site's tokens, so both themes work
+    var cs = getComputedStyle(document.documentElement), v = function (n) { return cs.getPropertyValue(n).trim() }
+    C = { bg: v('--bg'), panel: v('--panel'), line: v('--line'), line2: v('--line2'), ink: v('--head'), text: v('--text'), muted: v('--dim'),
+          legacy: v('--risk'), allow: v('--accent'), deny: v('--agent'), held: v('--infra') }
+  }
+
+  // ---------- layout: the landscape one, on a fixed 1280x720 canvas ----------
+  var L = { fTop: 150, fBot: 452, rTop: 486, rBot: 680, agentX: 250, gateX: 640, setX: 860 }
+  L.agentPt = function (a) { return { x: L.agentX, y: L.fTop + 20 + (L.fBot - L.fTop - 110) * (a.k + .5) / agents.length } }
+  L.lanePt = function (i) { return { x: L.gateX, y: L.fTop + 10 + (L.fBot - L.fTop - 92) * (i + .5) / rows.length } }
+  L.exitPt = function (i, p) { return { x: L.gateX + (L.setX - L.gateX) * p, y: L.lanePt(i).y } }   // an allowed action settles past the gate, and stays
+  L.bay = { x: 700, y: L.fBot - 66, w: 540, h: 60 }
+  L.gateSeg = [{ x: L.gateX, y: L.fTop - 4 }, { x: L.gateX, y: L.fBot - 80 }]
+  function bayPt(slot) { return { x: L.bay.x + 30 + slot * 255, y: L.bay.y + L.bay.h - 18 } }
+
+  var launchT = function (R, i) { return R.start + i * R.gap }
+  var arriveT = function (R, i) { return launchT(R, i) + FLIGHT }
+  var dec = function (r, ri) { return ri === 0 ? r.legacy : r.abp }
+  var colFor = function (d, ri) { return d === 'denied' ? C.deny : d === 'approval_required' ? C.held : (ri === 0 ? C.legacy : C.allow) }
+  var word = function (d) { return d === 'approval_required' ? 'held' : d }
+
+  function dot(x, y, r, col, a) {                                  // a solid dot with a soft halo; no glow on the light theme's paper
+    ctx.save(); ctx.globalAlpha = a == null ? 1 : a
+    ctx.fillStyle = col; ctx.globalAlpha *= .22; ctx.beginPath(); ctx.arc(x, y, r * 2.2, 0, 7); ctx.fill()
+    ctx.globalAlpha /= .22; ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fill(); ctx.restore()
+  }
+  function text(s, x, y, o) {
+    o = o || {}
+    ctx.save(); ctx.globalAlpha = o.a == null ? 1 : o.a; ctx.fillStyle = o.col || C.ink; ctx.textAlign = o.align || 'left'; ctx.textBaseline = 'alphabetic'
+    ctx.font = (o.weight || 400) + ' ' + (o.size || 16) + 'px ' + (o.mono ? MONO : SANS); ctx.fillText(s, x, y); ctx.restore()
+  }
+  function rrect(x, y, w, h, r) { ctx.beginPath(); if (ctx.roundRect) ctx.roundRect(x, y, w, h, r); else ctx.rect(x, y, w, h) }
+  function fit(s, max, size, mono, weight) {
+    ctx.font = (weight || 400) + ' ' + size + 'px ' + (mono ? MONO : SANS); if (ctx.measureText(s).width <= max) return s
+    while (s.length > 2 && ctx.measureText(s + '…').width > max) s = s.slice(0, -1); return s + '…'
+  }
+  function counts(t, ri) {
+    var R = ROUNDS[ri], c = { allowed: 0, denied: 0, approval_required: 0 }
+    rows.forEach(function (r) { var d = dec(r, ri).d; if (t >= arriveT(R, r.i)) c[d] = (c[d] || 0) + 1 })
+    return c
+  }
+
+  function drawHeader(t, ri) {
+    var R = ROUNDS[ri], n = rows.length
+    text(R.title, 48, 62, { size: 34, weight: 800, col: ri === 0 ? C.legacy : C.allow })
+    text('POC1 · ' + data.deployment.split(' (')[0] + ' · the same ' + n + ' actions, twice', 48, 96, { size: 18, col: C.muted })
+    var legacy = counts(ri === 0 ? t : LOOP, 0), abp = counts(ri === 1 ? t : -1, 1)
+    var lines = [{ lab: 'Ruflo default', parts: [['allowed ' + legacy.allowed + ' / ' + n, C.legacy]], on: true },
+                 { lab: 'with the ABP', parts: [['denied ' + abp.denied, C.deny], ['held ' + abp.approval_required, C.held], ['allowed ' + abp.allowed, C.allow]], on: ri === 1 }]
+    lines.forEach(function (ln, k) {
+      var y = 46 + k * 30, x = 640
+      text(ln.lab, x, y, { size: 18, col: C.muted, a: ln.on ? 1 : .45 }); x += 128
+      ln.parts.forEach(function (p) { text(p[0], x, y, { size: 18, weight: 700, col: p[1], a: ln.on ? 1 : .35, mono: true }); ctx.font = '700 18px ' + MONO; x += ctx.measureText(p[0]).width + 18 })
+    })
+  }
+  function drawAgents() {
+    agents.forEach(function (a) {
+      var p = L.agentPt(a)
+      ctx.save(); ctx.strokeStyle = C.muted; ctx.lineWidth = 2.5; ctx.fillStyle = C.panel; ctx.beginPath(); ctx.arc(p.x, p.y, 14, 0, 7); ctx.fill(); ctx.stroke(); ctx.restore()
+      dot(p.x, p.y, 4, C.text, .9)
+      text(a.who, p.x - 24, p.y + 6, { size: 17, col: C.text, align: 'right', weight: 600 })
+    })
+  }
+  function drawGate(t, ri) {
+    var a = L.gateSeg[0], b = L.gateSeg[1], R = ROUNDS[ri], f = null
+    rows.forEach(function (r) { var dt = t - arriveT(R, r.i); if (dt >= 0 && dt < .6) f = { r: r, dt: dt } })
+    var col = ri === 0 ? C.legacy : (f ? colFor(f.r.abp.d, 1) : C.line2)
+    ctx.save(); ctx.lineCap = 'round'
+    if (ri === 0) { ctx.setLineDash([6, 10]); ctx.strokeStyle = C.legacy; ctx.globalAlpha = .7; ctx.lineWidth = 3 }
+    else { ctx.strokeStyle = col; ctx.lineWidth = 7 }
+    ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); ctx.restore()
+    text(ri === 0 ? 'gate: allow-all' : 'gate: the ABP, enforce', a.x - 16, a.y - 12, { size: 17, col: ri === 0 ? C.legacy : C.ink, weight: 700, align: 'right' })
+    var last = null; rows.forEach(function (r) { if (t >= arriveT(R, r.i)) last = r })
+    if (last) {
+      var d = dec(last, ri), s = last.who + ' ' + last.action + ' → ' + (d.why || d.d)
+      text(fit(s, 580, 15, true), L.gateX + 16, a.y - 12, { size: 15, col: colFor(d.d, ri), mono: true, a: 1 - clamp((t - arriveT(R, rows.length - 1) - 1) / .6, 0, 1) })   // gone once the round has landed: less text at the end
+    }
+  }
+  function drawBay(ri) {
+    if (ri !== 1) return
+    var b = L.bay
+    ctx.save(); ctx.setLineDash([5, 6]); ctx.strokeStyle = C.held; ctx.lineWidth = 2; rrect(b.x, b.y, b.w, b.h, 8); ctx.stroke(); ctx.restore()
+    text('waiting for approval · ' + data.owner, b.x + 12, b.y + 20, { size: 15, col: C.held, weight: 700 })
+  }
+  function drawParticles(t, ri) {
+    var R = ROUNDS[ri], slot = 0
+    rows.forEach(function (r) {
+      var d = dec(r, ri).d, col = colFor(d, ri), lt = launchT(R, r.i), at = arriveT(R, r.i), held = d === 'approval_required', my = held ? slot++ : -1
+      if (t < lt) return
+      var s = L.agentPt(r.agent), g = L.lanePt(r.i)
+      if (t < at) {
+        var p = ease((t - lt) / FLIGHT), cx = (s.x + g.x) / 2, cy = s.y
+        var x = (1 - p) * (1 - p) * s.x + 2 * (1 - p) * p * cx + p * p * g.x, y = (1 - p) * (1 - p) * s.y + 2 * (1 - p) * p * cy + p * p * g.y
+        for (var k = 1; k <= 5; k++) { var q = ease((t - lt - k * .04) / FLIGHT); if (q <= 0) break
+          dot((1 - q) * (1 - q) * s.x + 2 * (1 - q) * q * cx + q * q * g.x, (1 - q) * (1 - q) * s.y + 2 * (1 - q) * q * cy + q * q * g.y, 4 * (1 - k / 7), C.text, .25) }
+        dot(x, y, 5.5, C.ink)
+        text(r.action, x + 12, y - 10, { size: 15, col: C.ink, mono: true })
+        return
+      }
+      var dt = t - at
+      if (d === 'denied') {
+        var al = 1 - Math.min(dt, 1.6) / 1.6
+        if (dt < 1.6) for (var k2 = 0; k2 < 14; k2++) {
+          var ang = rnd(r.i * 31 + k2) * Math.PI * 2, sp = 40 + rnd(r.i * 17 + k2 * 3) * 80
+          var px = g.x + (Math.cos(ang) * sp - 50) * dt, py = g.y + Math.sin(ang) * sp * dt + 60 * dt * dt
+          ctx.save(); ctx.globalAlpha = al; ctx.fillStyle = C.deny; ctx.translate(px, py); ctx.rotate(ang + dt * 6)
+          ctx.beginPath(); ctx.moveTo(0, -4); ctx.lineTo(3, 3); ctx.lineTo(-3, 2); ctx.closePath(); ctx.fill(); ctx.restore()
+        }
+        dot(g.x - 10, g.y, 4.5, C.deny, ease(dt / .4))
+        text('✕ ' + r.action, g.x - 24, g.y + 5, { size: 15, col: C.deny, align: 'right', weight: 700, a: ease(dt / .4), mono: true })   // a denied action stops at the gate, and stays
+      } else if (held) {
+        var e = bayPt(my), p2 = ease(dt / .9)
+        dot(g.x + (e.x - g.x) * p2, g.y + (e.y - g.y) * p2, 6, C.held)
+        text(r.who + ' ' + r.action, g.x + (e.x - g.x) * p2 + 14, g.y + (e.y - g.y) * p2 + 5, { size: 15, col: C.held, mono: true, a: p2 })
+      } else {
+        var ex = L.exitPt(r.i, ease(dt / 1.2))
+        dot(ex.x, ex.y, 4.5, col)
+        text('✓ ' + r.action, ex.x + 14, ex.y + 5, { size: 15, col: col, mono: true })
+      }
+    })
+  }
+  function receiptRect(i) { var n = rows.length, gap = 12, w = (W - 96 - gap * (n - 1)) / n; return { x: 48 + i * (w + gap), y: L.rTop + 34, w: w, h: 86 } }
+  function drawReceipts(t, ri) {
+    var R = ROUNDS[ri], led = data.ledger[R.key], prev = null, dropped = 0
+    text('receipts · hash-chained ledger (' + R.key + ')', 48, L.rTop + 16, { size: 17, col: C.muted, weight: 700 })
+    rows.forEach(function (r) {
+      var ap = arriveT(R, r.i) + .2; if (t < ap) return
+      dropped++
+      var d = dec(r, ri), col = colFor(d.d, ri), q = ease((t - ap) / .5), rc = receiptRect(r.i), y = rc.y - (1 - q) * 40
+      if (prev) {
+        var lq = clamp((t - ap - .3) / .4, 0, 1)
+        if (lq > 0) { ctx.save(); ctx.strokeStyle = C.line2; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(prev.x + prev.w, prev.y + prev.h / 2); ctx.lineTo(prev.x + prev.w + (rc.x - prev.x - prev.w) * lq, rc.y + rc.h / 2); ctx.stroke(); ctx.restore() }
+      }
+      prev = rc
+      ctx.save(); ctx.globalAlpha = q; ctx.fillStyle = C.panel; ctx.strokeStyle = col; ctx.lineWidth = 2; rrect(rc.x, y, rc.w, rc.h, 6); ctx.fill(); ctx.stroke()
+      ctx.fillStyle = col; ctx.fillRect(rc.x, y + 8, 4, rc.h - 16); ctx.restore()
+      text('#' + (r.i + 1), rc.x + 10, y + 22, { size: 14, col: C.muted, mono: true, a: q })
+      text(fit(r.action, rc.w - 16, 14, true), rc.x + 10, y + 46, { size: 14, col: C.ink, mono: true, a: q })
+      text(word(d.d), rc.x + 10, y + 72, { size: 16, col: col, weight: 800, a: q })
+    })
+    if (dropped === rows.length) {
+      var a = clamp((t - arriveT(R, rows.length - 1) - 1.2) / .6, 0, 1)
+      if (a > 0) text((led.valid ? 'ledger valid ✓' : 'ledger INVALID') + ' · ' + led.length + ' receipts', W / 2, L.rTop + 152, { size: 22, weight: 800, col: led.valid ? C.allow : C.deny, align: 'center', a: a })
+    }
+  }
+  function drawInterlude(t) {
+    var R = ROUNDS[1], a = clamp(Math.min(t - ROUNDS[0].end, R.start - t) / .4, 0, 1), n = rows.length
+    ctx.save(); ctx.globalAlpha = a * .9; ctx.fillStyle = C.bg; ctx.fillRect(0, 0, W, H); ctx.restore()
+    var cy = H * .44
+    text('Round 2', W / 2, cy - 56, { size: 22, col: C.muted, align: 'center', a: a })
+    text('the same ' + n + ' actions, with the ABP (enforce)', W / 2, cy, { size: 40, weight: 800, col: C.allow, align: 'center', a: a })
+    text('Ruflo default let ' + counts(LOOP, 0).allowed + ' of ' + n + ' through', W / 2, cy + 50, { size: 22, col: C.legacy, align: 'center', a: a })
+    text('owner: ' + data.owner, W / 2, cy + 84, { size: 18, col: C.muted, align: 'center', a: a })
+  }
+
+  window.SLIDE_RENDER = function (t) {
+    if (!ctx) { ctx = document.getElementById('c').getContext('2d'); ctx.setTransform(2, 0, 0, 2, 0, 0) }
+    colours()
+    ctx.clearRect(0, 0, W, H)
+    if (!data) return
+    var ri = t < ROUNDS[0].end ? 0 : 1
+    drawHeader(t, ri); drawAgents(); drawGate(t, ri); drawBay(ri); drawParticles(t, ri); drawReceipts(t, ri)
+    if (ri === 1 && t < ROUNDS[1].start) drawInterlude(t)
+  }
+})()
+</script>
+</body>
+</html>

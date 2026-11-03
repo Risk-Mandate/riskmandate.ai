@@ -1,0 +1,569 @@
+{
+ "about": "A plain description for each capability id in the five abp.sgit.ai examples, in the source's own words: the label of each primitive in the capability grammar verb.object.reach (what-can-it-do.games.sgit.ai/data/primitives.json, which abp.sgit.ai's upstream pack names as its base), with what its reach means in general and in each example, and each example's own note on its row. For deck, for E02 v3 and E09. Built by researcher@the-ultimate-insider, 29 October 2026, 10:15 UTC.",
+ "cautions": [
+  "Every id has a label in the source: no description here is the researcher's own. Where E02 v2 used its own words, the label can replace them.",
+  "The same id means different things in different examples: host is 'your machine, as your user account' for Claude Code, 'the runner, destroyed after the job' for the CI runner, 'your browser, every page, every logged-in site' for the extension. Use in_examples[].reach_in_this_example, not only the general reach.",
+  "The grammar's source is 'brief v0.33.64' (4 September 2026), and the primitives and examples are one author's network: the descriptions are definitions, not evidence that anything was measured."
+ ],
+ "grammar": {
+  "shape": "verb.object.reach",
+  "verbs": [
+   "read",
+   "write",
+   "create",
+   "delete",
+   "execute",
+   "send",
+   "receive",
+   "authenticate-as",
+   "grant",
+   "revoke"
+  ],
+  "object_classes": [
+   "file",
+   "process",
+   "network-endpoint",
+   "credential",
+   "message",
+   "record",
+   "repository",
+   "budget",
+   "schedule"
+  ],
+  "reaches": {
+   "self": "the agent's own process, sandbox or turn",
+   "project": "the working tree or workspace it was pointed at",
+   "host": "the machine, container or account it runs as",
+   "tenant": "the organisation's accounts, repositories and services",
+   "world": "anything on the internet"
+  },
+  "source": "brief v0.33.64, 'the grant/mandate repo ships probes, not tables' (4 Sep 2026), §The Primitive",
+  "source_id": "wcid-data-primitives"
+ },
+ "capabilities": [
+  {
+   "id": "authenticate-as.credential.signing",
+   "label": "Sign commits with the key it holds",
+   "verb": "authenticate-as",
+   "object": "credential",
+   "reach": "tenant",
+   "reach_means": "the organisation's accounts, repositories and services",
+   "family": "code",
+   "reversible": "no",
+   "reversible_means": "cannot be undone",
+   "source_id": "wcid-data-primitives",
+   "in_examples": [
+    {
+     "example": "anthropic/claude-code/local-confirmations-off",
+     "reach_in_this_example": "your accounts, with the credentials in your home directory",
+     "note": "if commit signing is configured for the account, the agent signs as you",
+     "source_id": "abp-sgit-cc-off-data"
+    },
+    {
+     "example": "anthropic/claude-code/local-default",
+     "reach_in_this_example": "your accounts, with the credentials in your home directory",
+     "note": "if commit signing is configured for the account, the agent signs as you",
+     "source_id": "abp-sgit-cc-on-data"
+    }
+   ]
+  },
+  {
+   "id": "authenticate-as.credential.tenant",
+   "label": "Act in accounts with the credentials it holds",
+   "verb": "authenticate-as",
+   "object": "credential",
+   "reach": "tenant",
+   "reach_means": "the organisation's accounts, repositories and services",
+   "family": "identity",
+   "reversible": "no",
+   "reversible_means": "cannot be undone",
+   "source_id": "wcid-data-primitives",
+   "in_examples": [
+    {
+     "example": "generic/browser-extension/broad-host-permissions",
+     "reach_in_this_example": "the sites you are logged into, as you",
+     "note": "acts inside sites where you have a session, as you",
+     "source_id": "abp-sgit-browserext-data"
+    },
+    {
+     "example": "anthropic/claude-code/local-confirmations-off",
+     "reach_in_this_example": "your accounts, with the credentials in your home directory",
+     "note": "inferred from the credentials the account holds",
+     "source_id": "abp-sgit-cc-off-data"
+    },
+    {
+     "example": "anthropic/claude-code/local-default",
+     "reach_in_this_example": "your accounts, with the credentials in your home directory",
+     "note": "inferred from the credentials the account holds",
+     "source_id": "abp-sgit-cc-on-data"
+    }
+   ]
+  },
+  {
+   "id": "create.record.world",
+   "label": "Publish packages, images or pages under the name it holds",
+   "verb": "create",
+   "object": "record",
+   "reach": "world",
+   "reach_means": "anything on the internet",
+   "family": "code",
+   "reversible": "no",
+   "reversible_means": "cannot be undone",
+   "source_id": "wcid-data-primitives",
+   "in_examples": [
+    {
+     "example": "anthropic/claude-code/local-confirmations-off",
+     "reach_in_this_example": "the internet",
+     "note": "if a registry token is in the home directory",
+     "source_id": "abp-sgit-cc-off-data"
+    },
+    {
+     "example": "anthropic/claude-code/local-default",
+     "reach_in_this_example": "the internet",
+     "note": "if a registry token is in the home directory",
+     "source_id": "abp-sgit-cc-on-data"
+    }
+   ]
+  },
+  {
+   "id": "create.schedule.host",
+   "label": "Create something that outlives the turn where it runs (a cron, a service)",
+   "verb": "create",
+   "object": "schedule",
+   "reach": "host",
+   "reach_means": "the machine, container or account it runs as",
+   "family": "schedule",
+   "reversible": "yes",
+   "reversible_means": "undone by the same actor with no loss",
+   "source_id": "wcid-data-primitives",
+   "in_examples": [
+    {
+     "example": "anthropic/claude-code/local-confirmations-off",
+     "reach_in_this_example": "your machine, as your user account",
+     "note": "a shell as you can write a crontab",
+     "source_id": "abp-sgit-cc-off-data"
+    },
+    {
+     "example": "anthropic/claude-code/local-default",
+     "reach_in_this_example": "your machine, as your user account",
+     "note": "a shell as you can write a crontab",
+     "source_id": "abp-sgit-cc-on-data"
+    }
+   ]
+  },
+  {
+   "id": "delete.file.host",
+   "label": "Delete files anywhere the account can reach",
+   "verb": "delete",
+   "object": "file",
+   "reach": "host",
+   "reach_means": "the machine, container or account it runs as",
+   "family": "filesystem",
+   "reversible": "no",
+   "reversible_means": "cannot be undone",
+   "source_id": "wcid-data-primitives",
+   "in_examples": [
+    {
+     "example": "anthropic/claude-code/local-confirmations-off",
+     "reach_in_this_example": "your machine, as your user account",
+     "note": null,
+     "source_id": "abp-sgit-cc-off-data"
+    },
+    {
+     "example": "anthropic/claude-code/local-default",
+     "reach_in_this_example": "your machine, as your user account",
+     "note": null,
+     "source_id": "abp-sgit-cc-on-data"
+    },
+    {
+     "example": "github/actions-runner/ci",
+     "reach_in_this_example": "the runner, destroyed after the job; not your machine",
+     "note": "the runner's user with passwordless escalation: every file on the ephemeral machine",
+     "source_id": "abp-sgit-gha-data"
+    }
+   ]
+  },
+  {
+   "id": "execute.process.host",
+   "label": "Run programs as the account",
+   "verb": "execute",
+   "object": "process",
+   "reach": "host",
+   "reach_means": "the machine, container or account it runs as",
+   "family": "process",
+   "reversible": "with-effort",
+   "reversible_means": "recoverable from a backup, a history or a revert, at a cost",
+   "source_id": "wcid-data-primitives",
+   "in_examples": [
+    {
+     "example": "anthropic/claude-code/local-confirmations-off",
+     "reach_in_this_example": "your machine, as your user account",
+     "note": null,
+     "source_id": "abp-sgit-cc-off-data"
+    },
+    {
+     "example": "anthropic/claude-code/local-default",
+     "reach_in_this_example": "your machine, as your user account",
+     "note": null,
+     "source_id": "abp-sgit-cc-on-data"
+    },
+    {
+     "example": "github/actions-runner/ci",
+     "reach_in_this_example": "the runner, destroyed after the job; not your machine",
+     "note": "runs as uid 1001; passwordless escalation available (n1a), programs run as this user and can escalate",
+     "source_id": "abp-sgit-gha-data"
+    }
+   ]
+  },
+  {
+   "id": "grant.credential.self",
+   "label": "Change its own permission settings",
+   "verb": "grant",
+   "object": "credential",
+   "reach": "self",
+   "reach_means": "the agent's own process, sandbox or turn",
+   "family": "identity",
+   "reversible": "yes",
+   "reversible_means": "undone by the same actor with no loss",
+   "source_id": "wcid-data-primitives",
+   "in_examples": [
+    {
+     "example": "anthropic/claude-code/local-confirmations-off",
+     "reach_in_this_example": null,
+     "note": "anything running as you can rewrite the file that turns the prompt off",
+     "source_id": "abp-sgit-cc-off-data"
+    },
+    {
+     "example": "anthropic/claude-code/local-default",
+     "reach_in_this_example": null,
+     "note": "anything running as you can rewrite the file that turns the prompt off",
+     "source_id": "abp-sgit-cc-on-data"
+    }
+   ]
+  },
+  {
+   "id": "read.credential.host",
+   "label": "Read credentials stored where it runs",
+   "verb": "read",
+   "object": "credential",
+   "reach": "host",
+   "reach_means": "the machine, container or account it runs as",
+   "family": "identity",
+   "reversible": "no",
+   "reversible_means": "cannot be undone",
+   "source_id": "wcid-data-primitives",
+   "in_examples": [
+    {
+     "example": "anthropic/claude-code/local-confirmations-off",
+     "reach_in_this_example": "your machine, as your user account",
+     "note": "a published read-only audit tool enumerates exactly this class in a home directory",
+     "source_id": "abp-sgit-cc-off-data"
+    },
+    {
+     "example": "anthropic/claude-code/local-default",
+     "reach_in_this_example": "your machine, as your user account",
+     "note": "a published read-only audit tool enumerates exactly this class in a home directory",
+     "source_id": "abp-sgit-cc-on-data"
+    }
+   ]
+  },
+  {
+   "id": "read.file.host",
+   "label": "Read any file the account can reach",
+   "verb": "read",
+   "object": "file",
+   "reach": "host",
+   "reach_means": "the machine, container or account it runs as",
+   "family": "filesystem",
+   "reversible": "no",
+   "reversible_means": "cannot be undone",
+   "source_id": "wcid-data-primitives",
+   "in_examples": [
+    {
+     "example": "anthropic/claude-code/local-confirmations-off",
+     "reach_in_this_example": "your machine, as your user account",
+     "note": "everything your account can read, because a shell as you reads as you",
+     "source_id": "abp-sgit-cc-off-data"
+    },
+    {
+     "example": "anthropic/claude-code/local-default",
+     "reach_in_this_example": "your machine, as your user account",
+     "note": "everything your account can read, because a shell as you reads as you",
+     "source_id": "abp-sgit-cc-on-data"
+    },
+    {
+     "example": "github/actions-runner/ci",
+     "reach_in_this_example": "the runner, destroyed after the job; not your machine",
+     "note": "the runner's user with passwordless escalation: every file on the ephemeral machine",
+     "source_id": "abp-sgit-gha-data"
+    }
+   ]
+  },
+  {
+   "id": "read.file.project",
+   "label": "Read the project it is working on",
+   "verb": "read",
+   "object": "file",
+   "reach": "project",
+   "reach_means": "the working tree or workspace it was pointed at",
+   "family": "filesystem",
+   "reversible": "yes",
+   "reversible_means": "undone by the same actor with no loss",
+   "source_id": "wcid-data-primitives",
+   "in_examples": [
+    {
+     "example": "anthropic/claude-code/local-confirmations-off",
+     "reach_in_this_example": null,
+     "note": null,
+     "source_id": "abp-sgit-cc-off-data"
+    },
+    {
+     "example": "anthropic/claude-code/local-default",
+     "reach_in_this_example": null,
+     "note": null,
+     "source_id": "abp-sgit-cc-on-data"
+    },
+    {
+     "example": "openai/chatgpt-web/default",
+     "reach_in_this_example": null,
+     "note": "what you paste or upload, and a record once read is exposure that cannot be unread, on the vendor's side",
+     "source_id": "abp-sgit-chatgpt-data"
+    },
+    {
+     "example": "github/actions-runner/ci",
+     "reach_in_this_example": null,
+     "note": "the checked-out tree at this ref is readable, including anything a contributor committed by mistake",
+     "source_id": "abp-sgit-gha-data"
+    }
+   ]
+  },
+  {
+   "id": "read.record.browsing",
+   "label": "Read every page you visit",
+   "verb": "read",
+   "object": "record",
+   "reach": "host",
+   "reach_means": "the machine, container or account it runs as",
+   "family": "browser",
+   "reversible": "no",
+   "reversible_means": "cannot be undone",
+   "source_id": "wcid-data-primitives",
+   "in_examples": [
+    {
+     "example": "generic/browser-extension/broad-host-permissions",
+     "reach_in_this_example": "your browser, every page, every logged-in site",
+     "note": "'read and change all your data on all websites'",
+     "source_id": "abp-sgit-browserext-data"
+    }
+   ]
+  },
+  {
+   "id": "read.record.history",
+   "label": "Read a retained record: shell history, past sessions",
+   "verb": "read",
+   "object": "record",
+   "reach": "host",
+   "reach_means": "the machine, container or account it runs as",
+   "family": "filesystem",
+   "reversible": "no",
+   "reversible_means": "cannot be undone",
+   "source_id": "wcid-data-primitives",
+   "in_examples": [
+    {
+     "example": "anthropic/claude-code/local-confirmations-off",
+     "reach_in_this_example": "your machine, as your user account",
+     "note": "shell history and the harness's own transcripts",
+     "source_id": "abp-sgit-cc-off-data"
+    },
+    {
+     "example": "anthropic/claude-code/local-default",
+     "reach_in_this_example": "your machine, as your user account",
+     "note": "shell history and the harness's own transcripts",
+     "source_id": "abp-sgit-cc-on-data"
+    }
+   ]
+  },
+  {
+   "id": "send.endpoint.world",
+   "label": "Reach any host on the internet",
+   "verb": "send",
+   "object": "network-endpoint",
+   "reach": "world",
+   "reach_means": "anything on the internet",
+   "family": "network",
+   "reversible": "no",
+   "reversible_means": "cannot be undone",
+   "source_id": "wcid-data-primitives",
+   "in_examples": [
+    {
+     "example": "generic/browser-extension/broad-host-permissions",
+     "reach_in_this_example": "the internet, from your browser",
+     "note": "host permissions",
+     "source_id": "abp-sgit-browserext-data"
+    },
+    {
+     "example": "anthropic/claude-code/local-confirmations-off",
+     "reach_in_this_example": "the internet",
+     "note": "curl reaches the world unless something above the account stops it",
+     "source_id": "abp-sgit-cc-off-data"
+    },
+    {
+     "example": "anthropic/claude-code/local-default",
+     "reach_in_this_example": "the internet",
+     "note": "curl reaches the world unless something above the account stops it",
+     "source_id": "abp-sgit-cc-on-data"
+    },
+    {
+     "example": "github/actions-runner/ci",
+     "reach_in_this_example": "the internet, unrestricted",
+     "note": "github.com 200, pypi.org 200, example.com 200, UNRESTRICTED egress, no proxy",
+     "source_id": "abp-sgit-gha-data"
+    }
+   ]
+  },
+  {
+   "id": "write.file.host",
+   "label": "Change any file the account can reach",
+   "verb": "write",
+   "object": "file",
+   "reach": "host",
+   "reach_means": "the machine, container or account it runs as",
+   "family": "filesystem",
+   "reversible": "with-effort",
+   "reversible_means": "recoverable from a backup, a history or a revert, at a cost",
+   "source_id": "wcid-data-primitives",
+   "in_examples": [
+    {
+     "example": "anthropic/claude-code/local-confirmations-off",
+     "reach_in_this_example": "your machine, as your user account",
+     "note": null,
+     "source_id": "abp-sgit-cc-off-data"
+    },
+    {
+     "example": "anthropic/claude-code/local-default",
+     "reach_in_this_example": "your machine, as your user account",
+     "note": null,
+     "source_id": "abp-sgit-cc-on-data"
+    },
+    {
+     "example": "github/actions-runner/ci",
+     "reach_in_this_example": "the runner, destroyed after the job; not your machine",
+     "note": "the runner's user with passwordless escalation: every file on the ephemeral machine",
+     "source_id": "abp-sgit-gha-data"
+    }
+   ]
+  },
+  {
+   "id": "write.file.project",
+   "label": "Change the project it is working on",
+   "verb": "write",
+   "object": "file",
+   "reach": "project",
+   "reach_means": "the working tree or workspace it was pointed at",
+   "family": "filesystem",
+   "reversible": "with-effort",
+   "reversible_means": "recoverable from a backup, a history or a revert, at a cost",
+   "source_id": "wcid-data-primitives",
+   "in_examples": [
+    {
+     "example": "anthropic/claude-code/local-confirmations-off",
+     "reach_in_this_example": null,
+     "note": null,
+     "source_id": "abp-sgit-cc-off-data"
+    },
+    {
+     "example": "anthropic/claude-code/local-default",
+     "reach_in_this_example": null,
+     "note": null,
+     "source_id": "abp-sgit-cc-on-data"
+    },
+    {
+     "example": "github/actions-runner/ci",
+     "reach_in_this_example": null,
+     "note": "the checked-out tree at this ref is writable by the job",
+     "source_id": "abp-sgit-gha-data"
+    }
+   ]
+  },
+  {
+   "id": "write.repository.project",
+   "label": "Commit to the repository it was pointed at",
+   "verb": "write",
+   "object": "repository",
+   "reach": "project",
+   "reach_means": "the working tree or workspace it was pointed at",
+   "family": "code",
+   "reversible": "with-effort",
+   "reversible_means": "recoverable from a backup, a history or a revert, at a cost",
+   "source_id": "wcid-data-primitives",
+   "in_examples": [
+    {
+     "example": "anthropic/claude-code/local-confirmations-off",
+     "reach_in_this_example": null,
+     "note": null,
+     "source_id": "abp-sgit-cc-off-data"
+    },
+    {
+     "example": "anthropic/claude-code/local-default",
+     "reach_in_this_example": null,
+     "note": null,
+     "source_id": "abp-sgit-cc-on-data"
+    },
+    {
+     "example": "github/actions-runner/ci",
+     "reach_in_this_example": null,
+     "note": "the checked-out tree at this ref is writable by the job",
+     "source_id": "abp-sgit-gha-data"
+    }
+   ]
+  },
+  {
+   "id": "write.repository.tenant",
+   "label": "Push to a code host (any branch it can reach)",
+   "verb": "write",
+   "object": "repository",
+   "reach": "tenant",
+   "reach_means": "the organisation's accounts, repositories and services",
+   "family": "code",
+   "reversible": "with-effort",
+   "reversible_means": "recoverable from a backup, a history or a revert, at a cost",
+   "source_id": "wcid-data-primitives",
+   "in_examples": [
+    {
+     "example": "anthropic/claude-code/local-confirmations-off",
+     "reach_in_this_example": "your accounts, with the credentials in your home directory",
+     "note": null,
+     "source_id": "abp-sgit-cc-off-data"
+    },
+    {
+     "example": "anthropic/claude-code/local-default",
+     "reach_in_this_example": "your accounts, with the credentials in your home directory",
+     "note": null,
+     "source_id": "abp-sgit-cc-on-data"
+    }
+   ]
+  }
+ ],
+ "claims": [
+  {
+   "id": "e02-labels-from-source",
+   "text": "Each of the 17 capability ids in the five abp.sgit.ai examples has a label in the source's own words",
+   "where": [
+    "studio:E02",
+    "studio:E09"
+   ],
+   "kind": "measured",
+   "grade": "A6",
+   "holds": "holds",
+   "evidence": [
+    {
+     "source_id": "wcid-data-primitives",
+     "quote": "\"label\": \"Read the project it is working on\"",
+     "supports": "for"
+    }
+   ],
+   "primary_source": "https://what-can-it-do.games.sgit.ai/data/primitives.json",
+   "note": "A6 for what the definition says (the authoritative record of its own vocabulary); it says nothing about measurement."
+  }
+ ]
+}

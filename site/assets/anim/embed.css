@@ -1,0 +1,18 @@
+/* The animations, embedded (embed.js): a 16:9 frame, dark like the film, and a caption with the credit. */
+figure.anim{margin:0;display:flex;flex-direction:column;gap:10px}
+figure.anim .anim-frame{position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#0c0f15;border:1px solid rgba(13,13,12,.12)}
+figure.anim iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+figure.anim figcaption{font-size:14px;line-height:1.55;color:var(--muted,#5d6270)}
+figure.anim figcaption b{color:var(--text,#151821)}
+figure.anim .anim-act{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:4px;font-size:13.5px}
+figure.anim .anim-act button{font:inherit;background:none;border:0;padding:0;color:var(--green,#0f8a7e);cursor:pointer;text-decoration:underline}
+figure.anim .anim-act a{color:var(--green,#0f8a7e)}
+.anim-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:10px}
+@media (max-width:900px){.anim-grid{grid-template-columns:minmax(0,1fr)}}
+/* a player: one frame, four chapters */
+figure.anim.player{max-width:1080px}
+.anim-ch{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.anim-ch button{font:inherit;text-align:left;background:#fff;border:1px solid var(--border,#dcd8cc);border-radius:12px;padding:10px 12px;cursor:pointer;color:var(--text,#151821);font-size:14px;line-height:1.35}
+.anim-ch button span{display:block;font:600 11px/1 var(--mono,ui-monospace,monospace);letter-spacing:.08em;text-transform:uppercase;color:var(--green,#0f8a7e);margin-bottom:5px}
+.anim-ch button[aria-pressed="true"]{background:#07140F;border-color:#07140F;color:#E8F0EC}.anim-ch button[aria-pressed="true"] span{color:#4BE3A2}
+@media (max-width:700px){.anim-ch{grid-template-columns:repeat(2,minmax(0,1fr))}}
