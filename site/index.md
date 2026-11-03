@@ -83,6 +83,8 @@ Deterministic, and on the agent's own machine, where the same account can switch
 
 The ABP becomes a Process Behaviour Policy, named by a hash you supply, and the kernel holds it on every process the agent starts. A tricked agent cannot widen it.
 
+_**Watch the kernel refuse.** `sharness-ai hello` writes a PBP, hashes it, lets the kernel hold it, then runs six probes against it: six of six held, 25 October 2026, for a child process. The launcher that would hold the agent itself is still the design. Three more animations, from the gap to the radius, are on [the SHarness page](secure-harness.html#watch). _E11, from the-ultimate-insider.presentation.sgit.ai, CC BY 4.0, copied here ([credits](assets/anim/README.md))._Replay[Full screen ↗](assets/anim/studio/lab/e11/v1/index.html)_
+
 - The kernel locks on a process: files, execute, ports, no network, caps, hash checked.
 - `hello`: six probes, six held, in five environments, and in a Linux kernel in a browser tab.
 - The file and network doors, as early versions; a shell whose only way out is the network door.

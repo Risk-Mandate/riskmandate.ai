@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<!-- Changed by riskmandate.ai on 3 November 2026 from the-ultimate-insider.presentation.sgit.ai (CC BY 4.0, Dinis Cruz): "delta" reads "gap", this site's word for the same object, and the first stop is named "the ABP". Credit and licence: /assets/anim/README.md -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>E09 v1: mandate against grant</title>
+<link rel="stylesheet" href="../../../../talk/engine/slide.css">
+<script>window.RUV_STEPS = [{ t: 0, label: 'the ABP' }, { t: 2, label: 'the mandate' }, { t: 12, label: 'the grant' }, { t: 22, label: 'the gap' }, { t: 32, label: 'the barrier' }, { t: 42, label: 'the chat example' }]</script>
+<script src="../../../../talk/engine/slide.js"></script>
+<style>
+.kk{font-size:20px;top:6px}
+.hl{top:56px;font-size:40px}
+#q{position:absolute;left:40px;right:40px;top:106px;height:54px;font:20px/1.3 system-ui;color:var(--text)}
+#q b{color:var(--head)}
+#pic{position:absolute;left:20px;top:150px;width:620px;height:520px}
+#doc{position:absolute;left:636px;top:158px;width:632px}
+#doc .s{font:800 20px/24px system-ui;letter-spacing:.03em;text-transform:uppercase;color:var(--dim);white-space:nowrap}
+#doc .s.on{color:var(--head)}
+#doc .s span{text-transform:none;letter-spacing:0;font-weight:600}
+#doc .r{display:flex;align-items:center;gap:8px;height:22px;font:20px/22px system-ui;color:var(--text);white-space:nowrap}
+#doc .r i{flex:none;width:28px;font:800 20px/22px system-ui;font-style:normal;text-align:right}
+#doc .r svg{flex:none;width:22px;height:22px}
+#doc .r.m i{color:var(--head)}
+#doc .r.x i{color:var(--agent)}
+#doc .r.sf{color:var(--dim)}
+#doc .key{color:var(--dim);gap:6px}
+#doc .r code{font:20px ui-monospace,SFMono-Regular,Menlo,monospace}
+#foot{position:absolute;left:40px;width:600px;bottom:14px;height:52px;font:20px/1.3 system-ui;color:var(--dim)}
+#foot svg{float:left;width:46px;height:46px;margin-right:10px}
+</style>
+</head>
+<body>
+<div id="cv" data-end="54">
+  <p class="kk a">Studio experiment E09 · v1, driven</p>
+  <div class="hl" data-in="0">A behaviour policy: <em>what it is for, what it can do.</em></div>
+  <div id="q"></div>
+  <svg id="pic" viewBox="0 0 620 520" aria-label="Claude Code's behaviour policy as rings: the mandate at the centre, the excess around it, each row numbered and marked with its barrier"></svg>
+  <div id="doc"></div>
+  <div id="foot"></div>
+  <div class="bar"><i></i></div>
+</div>
+<script>
+(function () {
+  'use strict'
+  var EX = 'claude-code-cli-confirmations-enabled', CHAT = 'chatgpt-web-no-connectors', CC = 'anthropic/claude-code/local-default'
+  var NS = 'http://www.w3.org/2000/svg', CX = 300, CY = 250, A = null, C = null, B = null
+  var P1 = 2, P2 = 12, P3 = 22, P4 = 32, P5 = 42                    // mandate, grant, delta, barrier, the chat example
+  Promise.all([fetch('../../../data/abp-examples.json').then(function (r) { return r.json() }), fetch('../../../data/capabilities.json').then(function (r) { return r.json() })])
+    .then(function (j) { A = j[0]; C = j[1] }).catch(function (e) { console.error('E09: a data file did not load', e) })
+  function el(tag, a, p) { var e = document.createElementNS(NS, tag); for (var k in a) e.setAttribute(k, a[k]); p.appendChild(e); return e }
+  function plain(id) {                                               // the source's label, its bracketed aside left to the explainer
+    var c = C.capabilities.filter(function (x) { return x.id === id })[0]
+    return c ? c.label.replace(/\s*\([^)]*\)\s*$/, '') : null
+  }
+  // the barrier kinds as abp.sgit.ai draws them: filled (none), double circle (a rule in prose), half filled (a switch its own account can flip)
+  function glyph(p, kind, x, y, r, col) {
+    var g = el('g', {}, p)
+    if (kind === 'expectation') { el('circle', { cx: x, cy: y, r: r - 1.5, fill: 'none', stroke: col, 'stroke-width': 3 }, g); el('circle', { cx: x, cy: y, r: r * .45, fill: 'none', stroke: col, 'stroke-width': 2.5 }, g) }
+    else if (kind === 'setting') { el('circle', { cx: x, cy: y, r: r - 1.5, fill: 'none', stroke: col, 'stroke-width': 3 }, g); el('path', { d: 'M' + x + ' ' + (y - r + 1.5) + 'A' + (r - 1.5) + ' ' + (r - 1.5) + ' 0 0 0 ' + x + ' ' + (y + r - 1.5) + 'Z', fill: col }, g) }
+    else if (kind === 'boundary') el('circle', { cx: x, cy: y, r: r - 1.5, fill: 'none', stroke: col, 'stroke-width': 3 }, g)
+    else el('circle', { cx: x, cy: y, r: r, fill: col }, g)
+    return g
+  }
+  function mini(kind, col) { var s = document.createElementNS(NS, 'svg'); s.setAttribute('viewBox', '0 0 22 22'); glyph(s, kind, 11, 11, 10, col); return s.outerHTML }
+
+  function build(S) {
+    var ex = A.examples.filter(function (e) { return e.id === EX })[0], chat = A.examples.filter(function (e) { return e.id === CHAT })[0]
+    var core = ex.rows.filter(function (r) { return r.mandate_stance === 'authorised' }), un = ex.rows.filter(function (r) { return r.mandate_stance === 'unstated' }), ref = ex.rows.filter(function (r) { return r.mandate_stance === 'refused' })
+    var all = core.concat(un, ref), svg = S.$('pic')
+    var rings = el('g', {}, svg), dots = el('g', {}, svg)
+    var ring = function (r, dash, col, w, label, ly) {
+      var c = el('circle', { cx: CX, cy: CY, r: r, fill: 'none', stroke: col, 'stroke-width': w, 'stroke-dasharray': dash }, rings)
+      var t = el('text', { x: CX, y: CY - r + ly, 'text-anchor': 'middle', 'font-size': 20, 'font-weight': 800, fill: col, 'paint-order': 'stroke', stroke: 'var(--bg)', 'stroke-width': 6 }, rings); t.textContent = label
+      return [c, t]
+    }
+    var rM = ring(84, '', 'var(--head)', 4, 'the mandate', -12), rU = ring(150, '6 6', 'var(--dim)', 2, 'unstated', 7), rR = ring(215, '6 6', 'var(--dim)', 2, 'refused', 7)
+    var pts = [], n = 0
+    var place = function (list, rad, a0, cls) {
+      list.forEach(function (r, i) { var a = a0 + 2 * Math.PI * i / list.length; pts.push({ r: r, n: ++n, cls: cls, x: CX + rad * Math.cos(a), y: CY + rad * Math.sin(a), a: a }) })
+    }
+    place(core, 46, -Math.PI / 2, 'm'); place(un, 150, -Math.PI / 6, 'x'); place(ref, 215, -Math.PI / 2 + Math.PI / 10, 'x')
+    var sfA = -Math.PI / 2 + 2 * Math.PI * 4.5 / 5                    // the shortfall: in the mandate, not in the grant
+    pts.forEach(function (p) {
+      var col = p.cls === 'm' ? 'var(--head)' : 'var(--agent)'
+      p.g = el('g', {}, dots); p.plain = glyph(p.g, 'none', p.x, p.y, 12, col); p.kind = glyph(p.g, p.r.barrier_kind, p.x, p.y, 12, col)
+      var lr = p.cls === 'm' ? 0 : 27, tx = p.cls === 'm' ? p.x : p.x + lr * Math.cos(p.a), ty = p.cls === 'm' ? p.y : p.y + lr * Math.sin(p.a)
+      if (p.cls === 'm') { tx = p.x + (p.x >= CX ? 20 : -20); ty = p.y + 7 }
+      var t = el('text', { x: tx, y: ty + (p.cls === 'm' ? 0 : 7), 'text-anchor': p.cls === 'm' ? (p.x >= CX ? 'start' : 'end') : 'middle', 'font-size': 20, 'font-weight': 800, fill: col, 'paint-order': 'stroke', stroke: 'var(--bg)', 'stroke-width': 5 }, p.g); t.textContent = p.n
+    })
+    var sf = el('g', {}, dots), sx = CX + 46 * Math.cos(sfA), sy = CY + 46 * Math.sin(sfA)
+    el('circle', { cx: sx, cy: sy, r: 11, fill: 'var(--bg)', stroke: 'var(--head)', 'stroke-width': 3, 'stroke-dasharray': '4 3' }, sf)
+    // the document: the four objects, in the source's order
+    var h = '', row = function (p) {
+      var label = plain(p.r.capability)
+      return '<div class="r ' + p.cls + '" data-n="' + p.n + '"><i>' + p.n + '</i><span class="gk" data-k="' + p.r.barrier_kind + '" data-c="' + (p.cls === 'm' ? 'var(--head)' : 'var(--agent)') + '"></span>' + (label || '<code>' + p.r.capability + '</code>') + '</div>'
+    }
+    h += '<div class="s" id="s1">1 The mandate <span>· ' + ex.mandate + ' · elicited (here, the site\'s own draft)</span></div>'
+    h += pts.filter(function (p) { return p.cls === 'm' }).map(row).join('')
+    h += '<div class="r sf" id="sfrow"><i></i><svg viewBox="0 0 22 22"><circle cx="11" cy="11" r="9" fill="none" stroke="var(--head)" stroke-width="3" stroke-dasharray="4 3"/></svg>asked, not granted: <code>' + ex.shortfall_capabilities[0] + '</code></div>'
+    h += '<div class="s" id="s2">2 The grant <span>· measured in the model, derived here · ' + ex.grant + '</span></div>'
+    h += '<div class="s" id="s3">3 The gap <span>· derived · excess ' + ex.excess + ', shortfall ' + ex.shortfall + '</span></div>'
+    h += pts.filter(function (p) { return p.cls === 'x' }).map(row).join('')
+    var none = ex.rows.filter(function (r) { return r.mandate_stance !== 'authorised' && r.barrier_kind === 'none' }).length
+    h += '<div class="s" id="s4">4 The barrier <span>· per row · ' + ex.unbounded_excess + ' of ' + ex.excess + ' excess with no control</span></div>'
+    var bk = {}; A.barrier_kinds.forEach(function (b) { bk[b.kind] = b.definition })
+    h += '<div class="r key">' + mini('none', 'var(--dim)') + bk.none + ' ' + mini('expectation', 'var(--dim)') + bk.expectation + '</div>'
+    h += '<div class="r key">' + mini('setting', 'var(--dim)') + bk.setting + '</div>'
+    h += '<div class="r key">' + mini('boundary', 'var(--dim)') + bk.boundary + '; none here</div>'
+    S.$('doc').innerHTML = h
+    var reach = C.capabilities.filter(function (x) { return x.id === 'read.file.host' })[0].in_examples.filter(function (i) { return i.example === CC })[0].reach_in_this_example
+    B = { ex: ex, chat: chat, pts: pts, sf: sf, rings: [rM, rU, rR], rows: [].slice.call(document.querySelectorAll('#doc .r')), gk: [].slice.call(document.querySelectorAll('#doc .gk')), reach: reach }
+    S.$('foot').innerHTML = mini('none', 'var(--head)') + '<b>' + chat.name + '</b>: mandate ' + chat.mandate + ', grant ' + chat.grant + ', excess ' + chat.excess + '. The same four objects, another shape.'
+  }
+
+  window.SLIDE_RENDER = function (t, S) {
+    if (!A || !C) return
+    if (!B) build(S)
+    var k = function (a, d) { return S.ease(S.seg(t, a, a + (d || .6))) }, M = A.model
+    B.rings[0].forEach(function (e) { e.style.opacity = k(P1) })
+    B.rings[1].concat(B.rings[2]).forEach(function (e) { e.style.opacity = k(P2) })
+    B.pts.forEach(function (p, i) {
+      var a = p.cls === 'm' ? P1 + .5 + i * .5 : P2 + .4 + (i - 4) * .35
+      var on = k(a, .4), red = p.cls === 'x' ? k(P3, .8) : 1
+      p.g.style.opacity = on * (p.cls === 'x' ? .45 + .55 * red : 1)
+      var kinded = t >= P4 + (p.n - 1) * .12
+      p.plain.style.display = kinded ? 'none' : ''; p.kind.style.display = kinded ? '' : 'none'
+    })
+    B.sf.style.opacity = k(P3)
+    B.rows.forEach(function (r) {
+      var n = +r.dataset.n || 0
+      if (r.classList.contains('key')) { r.style.opacity = k(P4); return }
+      r.style.opacity = r.id === 'sfrow' ? k(P3) : n <= 4 ? k(P1 + .5 + (n - 1) * .5, .4) : k(P3 + (n - 5) * .3, .4)
+    })
+    B.gk.forEach(function (g, i) { var on = t >= P4 + i * .12; if ((g.dataset.on === '1') !== on) { g.dataset.on = on ? '1' : ''; g.innerHTML = on ? mini(g.dataset.k, g.dataset.c) : '<svg viewBox="0 0 22 22"></svg>' } })
+    ;['s1', 's2', 's3', 's4'].forEach(function (id, i) { var a = [P1, P2, P3, P4][i]; S.$(id).style.opacity = k(a); S.$(id).classList.toggle('on', t >= a && (i === 3 || t < [P2, P3, P4][i])) })
+    S.$('foot').style.opacity = k(P5)
+    var q = ''
+    if (t < P1) q = '<b>An Agent Behaviour Policy</b> is "' + M.agent_behaviour_policy.definition + '" (RiskMandate). One example: Claude Code on your own machine, confirmations on.'
+    else if (t < P2) q = '<b>The mandate:</b> "' + M.mandate.definition + '". Here, the site\'s own first draft, not elicited from a deployer.'
+    else if (t < P3) q = '<b>The grant:</b> "' + M.grant.definition + '". Here derived, ' + B.ex.rows_measured.measured + ' of ' + B.ex.rows_measured.total + ' tool-level rows measured; "host" here is ' + B.reach + '.'
+    else if (t < P4) q = '<b>The gap:</b> "' + M.delta.definition + '".'
+    else if (t < P5) q = '<b>The barrier,</b> per row. "' + M.enforcer_test.quote + '" Here, ' + (B.ex.rows.filter(function (r) { return r.barrier_kind === 'boundary' }).length || 'no') + ' row' + (B.ex.rows.filter(function (r) { return r.barrier_kind === 'boundary' }).length === 1 ? ' has' : 's have') + ' one.'
+    else q = '<b>No rating:</b> "' + M.no_score_rule.quote + '". Published drafts from one author\'s network: what a row means, not that it was measured.'
+    if (S.$('q').innerHTML !== q) S.$('q').innerHTML = q
+  }
+})()
+</script>
+</body>
+</html>

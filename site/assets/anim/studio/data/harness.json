@@ -1,0 +1,371 @@
+{
+ "about": "E11 and E13 for deck@the-ultimate-insider: sharness.ai's hello probes, their result and environments, the site's status labels, and each component's status, checked against captures taken 29 Oct 2026 (site v0.6.35). sharness.ai is the editor's own network (one author, Dinis Cruz, with his agents): every figure is self-reported by the project, and nothing there is independently corroborated, so no claim is graded above A2.",
+ "cautions": [
+  "Own site: sharness.ai is Dinis Cruz's project; every hello run on the machines page is the project's own ('So far every row is ours'). No third-party report exists yet.",
+  "Date range: the 6 of 6 result is from 25 Oct 2026 only. '24 to 29 October' is the front page footnote for a strip that also carries the 243-test figure (29 Oct); on 24 Oct hello had five probes and held 5 of 5.",
+  "Five environments, two kernels: three are the same emulated Alpine guest under v86; two are the same host kernel. All uid 0.",
+  "'Never claimed' is on the HTML front page as a fourth row, but it lists what the site does not claim; it is not a component status. The Evidence page's labels are measured, designed / proposed, not yet measured. The markdown twin of the front page lacks the four-row table and the '24 to 29 October' footnote.",
+  "Launcher: the launcher above the agent and its manifest are designed and not built, but 'sharness-ai shell', the launcher's first slice, runs since 28 Oct 2026; say 'the launcher above the agent'.",
+  "Internal inconsistency: the components hub's section 5 table (written as of 25 Oct) says fs is not runnable and net only in the playground, while the same page's header and the status page (29 Oct) say both run as MVPs on the CLI's dev. The status page is the newer.",
+  "Every result is a policy applied by a session to its own child: a Boundary for the child, a Setting for the session (the site's own caveat).",
+  "The pages invite agents to run commands (pip install sharness-ai, sharness-ai hello --json, open a GitHub issue). Recorded as material, not followed; nothing was installed, run or posted."
+ ],
+ "probes": [
+  {
+   "id": "hello-1-read",
+   "name": "list /usr",
+   "what_it_tries": "read a directory the deny-all hello policy allows (the control: it should be allowed)",
+   "result": "allowed, as the policy says (held)",
+   "measured_on": "2026-10-25 (6 of 6 in all five places); probes 1 to 5 also held on 2026-10-24 in a cloud session (5 of 5, before the memory probe existed)",
+   "environments": [
+    "a Claude Code cloud session (Ubuntu 24.04, Linux 6.18.44)",
+    "Dinis Cruz's Chrome on the E09 page (Alpine guest 6.18.58, emulated)",
+    "headless Chromium 153 on the same page",
+    "Node 22, v86 without a browser",
+    "chroot into the guest's files on the host kernel (6.18.44)"
+   ],
+   "source_id": "sharness-evidence",
+   "quote": "| list `/usr` | allowed | allowed |"
+  },
+  {
+   "id": "hello-2-tmp-write",
+   "name": "create /tmp/sharness-ai-hello.tmp",
+   "what_it_tries": "write a file in /tmp, which the policy refuses",
+   "result": "refused: EACCES (Landlock) (held)",
+   "measured_on": "2026-10-25 (6 of 6 in all five places); probes 1 to 5 also held on 2026-10-24 in a cloud session (5 of 5, before the memory probe existed)",
+   "environments": [
+    "a Claude Code cloud session (Ubuntu 24.04, Linux 6.18.44)",
+    "Dinis Cruz's Chrome on the E09 page (Alpine guest 6.18.58, emulated)",
+    "headless Chromium 153 on the same page",
+    "Node 22, v86 without a browser",
+    "chroot into the guest's files on the host kernel (6.18.44)"
+   ],
+   "source_id": "sharness-evidence",
+   "quote": "| create `/tmp/sharness-ai-hello.tmp` | refused | `EACCES` (Landlock) |"
+  },
+  {
+   "id": "hello-3-workspace-write",
+   "name": "create a file in the workspace",
+   "what_it_tries": "write a file in the working directory, which the policy refuses",
+   "result": "refused: EACCES (Landlock) (held)",
+   "measured_on": "2026-10-25 (6 of 6 in all five places); probes 1 to 5 also held on 2026-10-24 in a cloud session (5 of 5, before the memory probe existed)",
+   "environments": [
+    "a Claude Code cloud session (Ubuntu 24.04, Linux 6.18.44)",
+    "Dinis Cruz's Chrome on the E09 page (Alpine guest 6.18.58, emulated)",
+    "headless Chromium 153 on the same page",
+    "Node 22, v86 without a browser",
+    "chroot into the guest's files on the host kernel (6.18.44)"
+   ],
+   "source_id": "sharness-evidence",
+   "quote": "| create a file in the workspace | refused | `EACCES` (Landlock) |"
+  },
+  {
+   "id": "hello-4-tcp-connect",
+   "name": "TCP connect to 1.1.1.1:443",
+   "what_it_tries": "open an outbound TCP connection, which the policy refuses",
+   "result": "refused: EACCES (Landlock port rule; an empty network namespace was also applied) (held)",
+   "measured_on": "2026-10-25 (6 of 6 in all five places); probes 1 to 5 also held on 2026-10-24 in a cloud session (5 of 5, before the memory probe existed)",
+   "environments": [
+    "a Claude Code cloud session (Ubuntu 24.04, Linux 6.18.44)",
+    "Dinis Cruz's Chrome on the E09 page (Alpine guest 6.18.58, emulated)",
+    "headless Chromium 153 on the same page",
+    "Node 22, v86 without a browser",
+    "chroot into the guest's files on the host kernel (6.18.44)"
+   ],
+   "source_id": "sharness-evidence",
+   "quote": "| TCP connect to `1.1.1.1:443` | refused | `EACCES` (Landlock port rule; an empty network namespace was also applied) |"
+  },
+  {
+   "id": "hello-5-wrong-hash",
+   "name": "run with a wrong --expect-hash",
+   "what_it_tries": "start a command under a policy whose hash does not match the one the person supplied",
+   "result": "refused, nothing ran: exit 125 (held)",
+   "measured_on": "2026-10-25 (6 of 6 in all five places); probes 1 to 5 also held on 2026-10-24 in a cloud session (5 of 5, before the memory probe existed)",
+   "environments": [
+    "a Claude Code cloud session (Ubuntu 24.04, Linux 6.18.44)",
+    "Dinis Cruz's Chrome on the E09 page (Alpine guest 6.18.58, emulated)",
+    "headless Chromium 153 on the same page",
+    "Node 22, v86 without a browser",
+    "chroot into the guest's files on the host kernel (6.18.44)"
+   ],
+   "source_id": "sharness-evidence",
+   "quote": "| run with a wrong `--expect-hash` | refused, nothing runs | exit 125, nothing ran |"
+  },
+  {
+   "id": "hello-6-memory",
+   "name": "allocate 400 MiB under a 128 MiB cap",
+   "what_it_tries": "bytearray(400 << 20) under max_memory_mb: 128",
+   "result": "refused: MemoryError (the rlimit fires first) (held)",
+   "measured_on": "2026-10-25 (added that day; held in all five places)",
+   "environments": [
+    "a Claude Code cloud session (Ubuntu 24.04, Linux 6.18.44)",
+    "Dinis Cruz's Chrome on the E09 page (Alpine guest 6.18.58, emulated)",
+    "headless Chromium 153 on the same page",
+    "Node 22, v86 without a browser",
+    "chroot into the guest's files on the host kernel (6.18.44)"
+   ],
+   "source_id": "sharness-evidence",
+   "quote": "| `bytearray(400 << 20)` under `max_memory_mb: 128` (E04, `hello`, now 6 probes) | refused | `MemoryError` (the rlimit fires first; the cgroup would OOM-kill) |"
+  }
+ ],
+ "environments": [
+  {
+   "name": "Claude Code cloud session (Ubuntu 24.04, Linux 6.18.44, Landlock ABI 7, uid 0, Python 3.13)",
+   "kind": "native Linux, cloud microVM; run by the project",
+   "source_id": "sharness-machines",
+   "quote": "| 25 Oct 2026 | the same kind of session | 6.18.44 | 7 | 0 | 3.13 | 6 of 6 |"
+  },
+  {
+   "name": "Dinis Cruz's Chrome, the E09 page",
+   "kind": "emulated Linux (v86, Alpine i686 guest 6.18.58) in a browser tab; browser version and machine not recorded",
+   "source_id": "sharness-machines",
+   "quote": "| 25 Oct 2026 | Dinis Cruz's Chrome, the [E09 page](../../code/browser/demo/index.html) | 6.18.58 (Alpine, i686, emulated) | 7 | 0 | 3.12 | 6 of 6 | 28.5 s to the result by the page's clock |"
+  },
+  {
+   "name": "headless Chromium 153, the same page",
+   "kind": "emulated Linux (same guest) in a headless browser",
+   "source_id": "sharness-machines",
+   "quote": "| 25 Oct 2026 | headless Chromium 153, the same page | 6.18.58 (emulated) | 7 | 0 | 3.12 | 6 of 6 | 75.9 s; no page errors |"
+  },
+  {
+   "name": "Node 22, v86 without a browser",
+   "kind": "emulated Linux (same guest) in Node",
+   "source_id": "sharness-machines",
+   "quote": "| 25 Oct 2026 | Node 22, v86 without a browser | 6.18.58 (emulated) | 7 | 0 | 3.12 | 6 of 6 | 58.0 s |"
+  },
+  {
+   "name": "chroot into the guest's files on the host kernel",
+   "kind": "the guest's 32-bit userland on the host kernel 6.18.44",
+   "source_id": "sharness-machines",
+   "quote": "| 25 Oct 2026 | chroot into the guest's files on the host kernel | 6.18.44 | 7 | 0 | 3.12 (i386 build) | 6 of 6 |"
+  }
+ ],
+ "status_labels": [
+  {
+   "label": "Measured",
+   "definition": "probed or timed in a named environment on a named date, with the method on Evidence",
+   "source_id": "sharness-home",
+   "quote": "Probed or timed in a named environment on a named date, with the method on Evidence."
+  },
+  {
+   "label": "Runnable",
+   "definition": "the code is in the repository and its tests pass (probe, policy hash, check, translate, run, hello, doctor; contain, profile, explain; fs serve and net serve; shell; the browser bench, the playground)",
+   "source_id": "sharness-home",
+   "quote": "The code is in the repository and its tests pass"
+  },
+  {
+   "label": "Designed / proposed",
+   "definition": "how SHarness would work: .kms, the launcher above the agent and its manifest, the KMS protocol, the policy layers, .llm, .bash, the deployment topologies",
+   "source_id": "sharness-home",
+   "quote": "How SHarness would work: .kms, the launcher above the agent and its manifest, the KMS protocol, the policy layers, .llm, .bash, the deployment topologies."
+  },
+  {
+   "label": "Never claimed",
+   "definition": "not a status for any component but a list of things the site does not claim: that any component is a Boundary before the launcher gives it its own uid; protection against root or kernel compromise; anything about any platform's plans; that a schema bounds intent",
+   "source_id": "sharness-home",
+   "quote": "That any component is a Boundary before the launcher gives it its own uid; protection against root or kernel compromise; anything about any platform's plans; that a schema bounds intent (it bounds shape)."
+  },
+  {
+   "label": "not yet measured",
+   "definition": "Evidence page's third label: named in the design, not tested (seccomp filters, read-only bind mounts, process-tree side doors, AWS KMS compatibility). The Evidence page lists three labels, not four",
+   "source_id": "sharness-evidence",
+   "quote": "Three labels are used across the site, and this page is where they are earned"
+  }
+ ],
+ "components": [
+  {
+   "name": "sharness.launcher (the launcher above the agent, with its manifest)",
+   "status": "designed, not built; its one-process form (sharness-ai run) is runnable and measured, and a first slice (sharness-ai shell) runs as an MVP on the CLI's dev since 28 Oct 2026",
+   "what_it_is": "verifies the policy hash; makes uids, a session CA and certificates; starts, freezes and stops components",
+   "source_id": "sharness-launcher",
+   "quote": "The session launcher that starts the components under one manifest is designed and not built."
+  },
+  {
+   "name": "sharness.kms",
+   "status": "designed (not built); some primitives measured (freeze/thaw 0.13 and 0.28 ms)",
+   "what_it_is": "holds keys; re-seals to one-time keys; never returns a clear key",
+   "source_id": "sharness-status",
+   "quote": "Any SHarness component but `sharness.fs`, `sharness.net` and the launcher's first slice** (kms, bash, llm; the launcher's manifest) | Not built."
+  },
+  {
+   "name": "sharness.net",
+   "status": "runnable as an MVP on the CLI's dev since 27 Oct 2026 (a Boundary only for the shell sharness-ai shell starts as root; a Setting otherwise)",
+   "what_it_is": "the only network client; host, endpoint and id allowlists",
+   "source_id": "sharness-components",
+   "quote": "[sharness.net](net/index.md) since 27 Oct (a Boundary for the shell `sharness-ai shell` starts, as root under its own uid; a Setting otherwise)"
+  },
+  {
+   "name": "sharness.fs",
+   "status": "runnable as an MVP on the CLI's dev since 26 Oct 2026, a Setting until the launcher gives it its own uid",
+   "what_it_is": "the only writer of protected folders; refuses clear keys",
+   "source_id": "sharness-components",
+   "quote": "[sharness.fs](fs/index.md) since 26 Oct 2026 (a Setting until the launcher gives it its own uid)"
+  },
+  {
+   "name": "sharness.bash",
+   "status": "designed (not built); its sandbox half is sharness-ai run, runnable; hello 6 of 6 in five places measured",
+   "what_it_is": "each shell command in a fresh sandbox",
+   "source_id": "sharness-components",
+   "quote": "| bash | yes | the sandbox half: `sharness-ai run` | `hello` 6 of 6 in five places |"
+  },
+  {
+   "name": "sharness.llm",
+   "status": "designed (not built); the Messages API flow observed 24 Oct 2026",
+   "what_it_is": "the only model API client; secret filter on tool results",
+   "source_id": "sharness-components",
+   "quote": "| llm | yes | no | the Messages API flow observed in a live session (24 Oct 2026) |"
+  },
+  {
+   "name": "sharness.policy",
+   "status": "v0 shape designed; policy hash, check, translate runnable; one hash in three implementations measured",
+   "what_it_is": "the policy manifest, its layers and its hash",
+   "source_id": "sharness-components",
+   "quote": "| policy | yes, v0 shape | `policy hash`, `check`, `translate`; seven examples | one hash in three implementations |"
+  }
+ ],
+ "claims": [
+  {
+   "id": "e11-six-of-six",
+   "text": "The hello probes ... six of six held",
+   "where": [
+    "talk/deck:E11-E13 (deck@the-ultimate-insider request)"
+   ],
+   "kind": "measured",
+   "grade": "A2",
+   "holds": "holds",
+   "evidence": [
+    {
+     "source_id": "sharness-home",
+     "quote": "`sharness-ai hello`: six probes under a deny-all policy, 6 of 6 held in five places",
+     "supports": "for"
+    },
+    {
+     "source_id": "sharness-evidence",
+     "quote": "`hello` with the memory probe: 6 of 6 held.",
+     "supports": "for"
+    },
+    {
+     "source_id": "sharness-machines",
+     "quote": "Every row above was run by the project. Rows from other people will say so, with the issue linked.",
+     "supports": "context"
+    }
+   ],
+   "primary_source": "https://sharness.ai/evidence/machines/index.md",
+   "note": "Self-reported by the project (one author, Dinis Cruz, and his agents); no outside run yet. The six probes include one control that is meant to be allowed (list /usr), so 'held' means each probe got the verdict the policy says, not six refusals. Pyodide, the sixth row on the machines page, correctly refused with exit 126 and is not one of the five places."
+  },
+  {
+   "id": "e11-date-range",
+   "text": "measured 24 to 29 October 2026",
+   "where": [
+    "talk/deck:E11-E13 (deck@the-ultimate-insider request)"
+   ],
+   "kind": "measured",
+   "grade": "A2",
+   "holds": "holds in part",
+   "evidence": [
+    {
+     "source_id": "sharness-home",
+     "quote": "Measured 24 to 29 October 2026, as of 29 Oct 2026, with method on Evidence §9.",
+     "supports": "for"
+    },
+    {
+     "source_id": "sharness-machines",
+     "quote": "| 24 Oct 2026 | a Claude Code cloud session (Ubuntu 24.04) | 6.18.44 | 7 | 0 | 3.13 | 5 of 5 | before the memory probe existed;",
+     "supports": "against"
+    },
+    {
+     "source_id": "sharness-home",
+     "quote": "6 of 6 held in five places (a cloud session, Dinis Cruz's browser, headless Chromium, Node, a chroot on the host kernel), as of 25 Oct 2026",
+     "supports": "context"
+    }
+   ],
+   "primary_source": "https://sharness.ai/evidence/machines/index.md",
+   "note": "The '24 to 29 October' footnote on the HTML front page covers a strip of three figures (6 of 6, seven policies, 243 tests on 29 Oct). Every 6 of 6 row is dated 25 Oct 2026; the 24 Oct run was 5 of 5 (no memory probe yet). Nothing on the captured pages records a hello run on 26 to 29 Oct.",
+   "suggested_wording": "six of six held in five environments, all on 25 October 2026 (five of five on 24 October, before the sixth probe existed)"
+  },
+  {
+   "id": "e11-five-environments",
+   "text": "in five environments",
+   "where": [
+    "talk/deck:E11-E13 (deck@the-ultimate-insider request)"
+   ],
+   "kind": "measured",
+   "grade": "A2",
+   "holds": "holds",
+   "evidence": [
+    {
+     "source_id": "sharness-machines",
+     "quote": "| 25 Oct 2026 | chroot into the guest's files on the host kernel | 6.18.44 | 7 | 0 | 3.12 (i386 build) | 6 of 6 |",
+     "supports": "for"
+    },
+    {
+     "source_id": "sharness-home",
+     "quote": "(a cloud session, Dinis Cruz's browser, headless Chromium, Node, a chroot on the host kernel)",
+     "supports": "for"
+    }
+   ],
+   "primary_source": "https://sharness.ai/evidence/machines/index.md",
+   "note": "Five places but only two kernels: three of the five (Chrome, headless Chromium, Node) run the same emulated Alpine guest (6.18.58) under v86, and the other two use the same host kernel (6.18.44). All run as uid 0, all by the project. The site itself says 'measured on three kernels' for run. 'Environments' is fair; 'five independent machines' would not be."
+  },
+  {
+   "id": "e11-status-labels",
+   "text": "the status labels (measured, runnable, designed, never claimed)",
+   "where": [
+    "talk/deck:E11-E13 (deck@the-ultimate-insider request)"
+   ],
+   "kind": "observation",
+   "grade": "A2",
+   "holds": "holds in part",
+   "evidence": [
+    {
+     "source_id": "sharness-home",
+     "quote": "Every number is labelled; nothing is presented as built.",
+     "supports": "for"
+    },
+    {
+     "source_id": "sharness-home",
+     "quote": "That any component is a Boundary before the launcher gives it its own uid; protection against root or kernel compromise; anything about any platform's plans; that a schema bounds intent (it bounds shape).",
+     "supports": "context"
+    },
+    {
+     "source_id": "sharness-evidence",
+     "quote": "| **not yet measured** | named in the design, not tested:",
+     "supports": "context"
+    }
+   ],
+   "primary_source": "https://sharness.ai/",
+   "note": "The four rows are on the HTML front page's 'What this site claims, and how' table (not on the markdown twin). 'Never claimed' is a row in that table but it is a list of things the site does not claim, not a status any component carries. The Evidence page uses a different set of three: measured, designed / proposed, not yet measured.",
+   "suggested_wording": "three status labels (measured, runnable, designed or proposed), plus a stated list of what the site never claims"
+  },
+  {
+   "id": "e11-launcher-designed",
+   "text": "the launcher is designed, not built",
+   "where": [
+    "talk/deck:E11-E13 (deck@the-ultimate-insider request)"
+   ],
+   "kind": "observation",
+   "grade": "A2",
+   "holds": "holds in part",
+   "evidence": [
+    {
+     "source_id": "sharness-status",
+     "quote": "| **The launcher above the agent** | Not built. Every experiment applies a policy to a child process; nothing yet binds the agent itself. |",
+     "supports": "for"
+    },
+    {
+     "source_id": "sharness-launcher",
+     "quote": "**Update, 28 Oct 2026: a first slice runs.** `sharness-ai shell` (CLI `dev`, 63360be) is the launcher for one shell",
+     "supports": "against"
+    },
+    {
+     "source_id": "sharness-launcher",
+     "quote": "The session launcher that starts the components under one manifest is designed and not built.",
+     "supports": "for"
+    }
+   ],
+   "primary_source": "https://sharness.ai/evidence/status/index.md",
+   "note": "True of the launcher above the agent and its manifest. Since 28 Oct 2026 a first slice (sharness-ai shell) runs on the CLI's dev and is in v0.2.0 on PyPI per the status page, and the one-process form (sharness-ai run) is runnable. A security review on 29 Oct found and fixed a background process outliving the shell (SR-30).",
+   "suggested_wording": "the launcher above the agent is designed, not built (a first slice for one shell runs since 28 October 2026)"
+  }
+ ]
+}

@@ -1,0 +1,1094 @@
+{
+ "about": "For deck (studio experiments E02, E09, E13): the Agent Behaviour Policy model as worded on riskmandate.ai/abp.html and abp.sgit.ai (v0.12.1), the four barrier kinds from the raw data/barriers.json, and all five published examples with their grant rows drawn from the raw profile.json and delta.json files. The grant rows ARE published (every capability, its barrier kind, control text, undo class, evidence tier and tools), so blast radius can be drawn from rows. Not published / caveats: no example is measured on a real Claude Code install (0 of 22 rows measured; rows derived from architecture); mandates are the site's own first drafts, not elicited from deployers; both sites are one author's network, so no independent corroboration; data pack v0.8.0 retrieved 2026-09-11. Captures by researcher@the-ultimate-insider, 2026-10-29.",
+ "model": {
+  "agent_behaviour_policy": {
+   "definition": "a written description, for one agent in one deployment, of everything it can do, what you authorised it to do, the gap between the two, and what actually stands in the way",
+   "source_id": "rm-abp",
+   "quote": "An Agent Behaviour Policy is a written description, for one agent in one deployment, of everything it can do, what you authorised it to do, the gap between the two, and what actually stands in the way."
+  },
+  "mandate": {
+   "definition": "What the agent is authorised and expected to do; elicited, in minutes, because you already know it",
+   "source_id": "rm-abp",
+   "quote": "The mandate What the agent is authorised and expected to do Elicited. In minutes, because you already know it",
+   "also": {
+    "source_id": "abp-sgit-model",
+    "quote": "The mandate What the agent is authorised and expected to do Elicited. In minutes, because the deployer already knows it"
+   }
+  },
+  "grant": {
+   "definition": "Everything the agent can do; measured, from the deployment shape, the account and the credentials",
+   "source_id": "rm-abp",
+   "quote": "The grant Everything the agent can do Measured. From the deployment shape, the account and the credentials",
+   "also": {
+    "source_id": "abp-sgit-model",
+    "quote": "The grant Everything the agent can do Measured. From the deployment shape: the product, where it runs, with what account, with what credentials"
+   }
+  },
+  "delta": {
+   "definition": "Excess where it can and you did not ask; shortfall where you asked and it cannot. Derived, recomputed when grant or mandate moves, stored with both versions, never edited",
+   "source_id": "rm-abp",
+   "quote": "The delta Excess where it can and you did not ask; shortfall where you asked and it cannot Derived. Recomputed whenever the grant or the mandate moves, stored with the versions of both, never edited"
+  },
+  "barrier": {
+   "definition": "What stands between the agent and each capability, recorded per capability from one of four kinds",
+   "source_id": "rm-abp",
+   "quote": "The barrier What stands between the agent and each capability Recorded per capability, from one of four kinds"
+  },
+  "excess": {
+   "definition": "a count of capabilities in the grant and not in the mandate",
+   "source_id": "abp-sgit-examples",
+   "quote": "Excess is a count of capabilities in the grant and not in the mandate."
+  },
+  "unbounded_excess": {
+   "definition": "how many of the excess capabilities sit at a barrier that is not a control",
+   "source_id": "abp-sgit-examples",
+   "quote": "Unbounded excess is how many of those sit at a barrier that is not a control."
+  },
+  "shortfall": {
+   "definition": "Capabilities in the mandate and not in the grant",
+   "source_id": "abp-sgit-model-delta",
+   "quote": "shortfall Capabilities in the mandate and not in the grant"
+  },
+  "enforcer_test": {
+   "definition": "A control bounds a grant only if it is enforced by something the grant does not include.",
+   "source_id": "abp-sgit-barriers-json",
+   "quote": "A control bounds a grant only if it is enforced by something the grant does not include.",
+   "also": {
+    "source_id": "rm-abp",
+    "quote": "A control bounds a grant only if it is enforced by something the grant does not include."
+   }
+  },
+  "no_score_rule": {
+   "definition": "The ABP describes and does not judge; no rating, traffic light or risk level",
+   "source_id": "rm-abp",
+   "quote": "So there is no rating on a behaviour policy, no traffic light and no risk level"
+  },
+  "capability_primitives": {
+   "definition": "capabilities are ids of the form verb.object.reach, 23 primitives in the grammar",
+   "source_id": "abp-sgit-model",
+   "quote": "The capability grammar verb.object.reach . 23 primitives, each with the undo class of its effect."
+  }
+ },
+ "barrier_kinds": [
+  {
+   "kind": "none",
+   "definition": "nothing in the way",
+   "is_control": false,
+   "why": "Nothing is in the way.",
+   "glyph": "filled circle",
+   "source_id": "abp-sgit-barriers-json",
+   "quote": "\"published_meaning\": \"nothing in the way\""
+  },
+  {
+   "kind": "expectation",
+   "definition": "a rule in prose, enforced by nobody",
+   "is_control": false,
+   "why": "A rule in prose is inside the boundary the agent operates in. All four major model providers stated in their own 2026 words that an instruction at this layer can be bypassed.",
+   "glyph": "double circle",
+   "source_id": "abp-sgit-barriers-json",
+   "quote": "\"published_meaning\": \"a rule in prose, enforced by nobody\""
+  },
+  {
+   "kind": "setting",
+   "definition": "a switch the agent's own account can flip",
+   "is_control": false,
+   "why": "The grant includes the ability to remove the bound.",
+   "glyph": "half filled circle",
+   "source_id": "abp-sgit-barriers-json",
+   "quote": "\"published_meaning\": \"a switch the agent's own account can flip\""
+  },
+  {
+   "kind": "boundary",
+   "definition": "enforced above the grant, out of the agent's reach",
+   "is_control": true,
+   "why": "Enforced by something the grant does not include. The only row that bounds anything.",
+   "glyph": "empty circle",
+   "source_id": "abp-sgit-barriers-json",
+   "quote": "\"published_meaning\": \"enforced above the grant, out of the agent's reach\""
+  }
+ ],
+ "barrier_kinds_note": "Order weakest first: none, expectation, setting, boundary. The four ids and meanings are the upstream pack's control_tiers; is_control and why are abp.sgit.ai's own reading, as barriers.json's provenance note says. A fifth glyph, 'absent' (dot), means 'not in this grant' and is not a barrier.",
+ "examples": [
+  {
+   "id": "claude-code-cli-confirmations-enabled",
+   "name": "A coding agent on your own machine, confirmations on",
+   "agent": "Claude Code (the CLI, on your own machine), variant local-default",
+   "settings": "confirmations on",
+   "grant": 16,
+   "mandate": 5,
+   "excess": 12,
+   "unbounded_excess": 12,
+   "aligned": 4,
+   "shortfall": 1,
+   "shortfall_capabilities": [
+    "send.endpoint.allowed"
+   ],
+   "irreversible": 8,
+   "widest_reach": "world",
+   "rows_measured": {
+    "total": 22,
+    "measured": 0,
+    "derived": 22
+   },
+   "mandate_text": "I want it to read and change the project I pointed it at, run the build and the tests, commit to that repository, and fetch the packages and docs it needs. I did not sign up for it reading the rest of my disk, my credentials or my shell history, sending anything to anyone, publishing under my name, changing its own permission settings, or leaving anything behind that runs after it stops.",
+   "rows": [
+    {
+     "capability": "authenticate-as.credential.signing",
+     "in_mandate": false,
+     "mandate_stance": "refused",
+     "barrier_kind": "none",
+     "barrier": "nothing",
+     "undo": "no",
+     "evidence": "documented",
+     "via": [
+      "shell (Bash)"
+     ],
+     "source_id": "abp-sgit-cc-on-data"
+    },
+    {
+     "capability": "authenticate-as.credential.tenant",
+     "in_mandate": false,
+     "mandate_stance": "refused",
+     "barrier_kind": "none",
+     "barrier": "nothing",
+     "undo": "no",
+     "evidence": "derived",
+     "via": [
+      "shell (Bash)"
+     ],
+     "source_id": "abp-sgit-cc-on-data"
+    },
+    {
+     "capability": "create.record.world",
+     "in_mandate": false,
+     "mandate_stance": "refused",
+     "barrier_kind": "none",
+     "barrier": "nothing",
+     "undo": "no",
+     "evidence": "documented",
+     "via": [
+      "shell (Bash)"
+     ],
+     "source_id": "abp-sgit-cc-on-data"
+    },
+    {
+     "capability": "delete.file.host",
+     "in_mandate": false,
+     "mandate_stance": "refused",
+     "barrier_kind": "none",
+     "barrier": "nothing",
+     "undo": "no",
+     "evidence": "derived",
+     "via": [
+      "shell (Bash)",
+      "files (Read, Edit, Write)"
+     ],
+     "source_id": "abp-sgit-cc-on-data"
+    },
+    {
+     "capability": "read.credential.host",
+     "in_mandate": false,
+     "mandate_stance": "refused",
+     "barrier_kind": "none",
+     "barrier": "nothing",
+     "undo": "no",
+     "evidence": "documented",
+     "via": [
+      "shell (Bash)"
+     ],
+     "source_id": "abp-sgit-cc-on-data"
+    },
+    {
+     "capability": "read.file.host",
+     "in_mandate": false,
+     "mandate_stance": "refused",
+     "barrier_kind": "none",
+     "barrier": "nothing",
+     "undo": "no",
+     "evidence": "derived",
+     "via": [
+      "shell (Bash)",
+      "files (Read, Edit, Write)"
+     ],
+     "source_id": "abp-sgit-cc-on-data"
+    },
+    {
+     "capability": "read.record.history",
+     "in_mandate": false,
+     "mandate_stance": "refused",
+     "barrier_kind": "none",
+     "barrier": "nothing",
+     "undo": "no",
+     "evidence": "documented",
+     "via": [
+      "shell (Bash)"
+     ],
+     "source_id": "abp-sgit-cc-on-data"
+    },
+    {
+     "capability": "send.endpoint.world",
+     "in_mandate": false,
+     "mandate_stance": "unstated",
+     "barrier_kind": "none",
+     "barrier": "nothing",
+     "undo": "no",
+     "evidence": "derived",
+     "via": [
+      "shell (Bash)",
+      "fetch (WebFetch)"
+     ],
+     "source_id": "abp-sgit-cc-on-data"
+    },
+    {
+     "capability": "write.file.host",
+     "in_mandate": false,
+     "mandate_stance": "refused",
+     "barrier_kind": "none",
+     "barrier": "nothing",
+     "undo": "with-effort",
+     "evidence": "derived",
+     "via": [
+      "shell (Bash)",
+      "files (Read, Edit, Write)"
+     ],
+     "source_id": "abp-sgit-cc-on-data"
+    },
+    {
+     "capability": "write.file.project",
+     "in_mandate": true,
+     "mandate_stance": "authorised",
+     "barrier_kind": "none",
+     "barrier": "nothing",
+     "undo": "with-effort",
+     "evidence": "derived",
+     "via": [
+      "shell (Bash)",
+      "files (Read, Edit, Write)"
+     ],
+     "source_id": "abp-sgit-cc-on-data"
+    },
+    {
+     "capability": "write.repository.project",
+     "in_mandate": true,
+     "mandate_stance": "authorised",
+     "barrier_kind": "none",
+     "barrier": "nothing",
+     "undo": "with-effort",
+     "evidence": "derived",
+     "via": [
+      "shell (Bash)"
+     ],
+     "source_id": "abp-sgit-cc-on-data"
+    },
+    {
+     "capability": "write.repository.tenant",
+     "in_mandate": false,
+     "mandate_stance": "unstated",
+     "barrier_kind": "expectation",
+     "barrier": "branch discipline in prose, if any",
+     "undo": "with-effort",
+     "evidence": "derived",
+     "via": [
+      "shell (Bash)"
+     ],
+     "source_id": "abp-sgit-cc-on-data"
+    },
+    {
+     "capability": "execute.process.host",
+     "in_mandate": true,
+     "mandate_stance": "authorised",
+     "barrier_kind": "setting",
+     "barrier": "the tool's own directory restriction and its confirmation prompt, enforced by the tool, which runs inside the grant; anything that can execute as you steps around it",
+     "undo": "with-effort",
+     "evidence": "derived",
+     "via": [
+      "shell (Bash)"
+     ],
+     "source_id": "abp-sgit-cc-on-data"
+    },
+    {
+     "capability": "create.schedule.host",
+     "in_mandate": false,
+     "mandate_stance": "refused",
+     "barrier_kind": "none",
+     "barrier": "nothing",
+     "undo": "yes",
+     "evidence": "derived",
+     "via": [
+      "shell (Bash)"
+     ],
+     "source_id": "abp-sgit-cc-on-data"
+    },
+    {
+     "capability": "read.file.project",
+     "in_mandate": true,
+     "mandate_stance": "authorised",
+     "barrier_kind": "none",
+     "barrier": "nothing",
+     "undo": "yes",
+     "evidence": "derived",
+     "via": [
+      "shell (Bash)",
+      "files (Read, Edit, Write)"
+     ],
+     "source_id": "abp-sgit-cc-on-data"
+    },
+    {
+     "capability": "grant.credential.self",
+     "in_mandate": false,
+     "mandate_stance": "refused",
+     "barrier_kind": "setting",
+     "barrier": "the settings file is owned by the same account",
+     "undo": "yes",
+     "evidence": "derived",
+     "via": [
+      "shell (Bash)"
+     ],
+     "source_id": "abp-sgit-cc-on-data"
+    }
+   ],
+   "source_id": "abp-sgit-ex-cc-on",
+   "data_source_id": "abp-sgit-cc-on-data",
+   "quote": "Grant 16 of 23 primitives Everything the agent can do Mandate 5 primitives What the deployer authorised and expected Excess 12",
+   "grade": "A6",
+   "note": "16 - 5 = 11 is the wrong sum: the mandate's 5 include send.endpoint.allowed, which is not in the grant (shortfall 1). Only 4 mandate items are granted (aligned), so excess = 16 - 4 = 12. Excess splits into 10 refused + 2 unstated (send.endpoint.world, write.repository.tenant). All 12 excess are unbounded. execute.process.host is in the mandate and sits at 'setting' (the confirmation prompt). Every row is DERIVED from what a CLI running as your account is, not measured on any instance ('Measured 0 of 22 rows': 22 is the count of tool-level rows, i.e. the 16 capabilities summed over the tools that reach them)."
+  },
+  {
+   "id": "claude-code-cli-confirmations-disabled",
+   "name": "The same coding agent, confirmations off",
+   "agent": "Claude Code (the CLI, on your own machine), variant local-confirmations-off",
+   "settings": "confirmations off",
+   "grant": 16,
+   "mandate": 5,
+   "excess": 12,
+   "unbounded_excess": 12,
+   "aligned": 4,
+   "shortfall": 1,
+   "shortfall_capabilities": [
+    "send.endpoint.allowed"
+   ],
+   "irreversible": 8,
+   "widest_reach": "world",
+   "rows_measured": {
+    "total": 22,
+    "measured": 0,
+    "derived": 22
+   },
+   "mandate_text": "I want it to read and change the project I pointed it at, run the build and the tests, commit to that repository, and fetch the packages and docs it needs. I did not sign up for it reading the rest of my disk, my credentials or my shell history, sending anything to anyone, publishing under my name, changing its own permission settings, or leaving anything behind that runs after it stops.",
+   "rows": [
+    {
+     "capability": "authenticate-as.credential.signing",
+     "in_mandate": false,
+     "mandate_stance": "refused",
+     "barrier_kind": "none",
+     "barrier": "nothing",
+     "undo": "no",
+     "evidence": "documented",
+     "via": [
+      "shell (Bash)"
+     ],
+     "source_id": "abp-sgit-cc-off-data"
+    },
+    {
+     "capability": "authenticate-as.credential.tenant",
+     "in_mandate": false,
+     "mandate_stance": "refused",
+     "barrier_kind": "none",
+     "barrier": "nothing",
+     "undo": "no",
+     "evidence": "derived",
+     "via": [
+      "shell (Bash)"
+     ],
+     "source_id": "abp-sgit-cc-off-data"
+    },
+    {
+     "capability": "create.record.world",
+     "in_mandate": false,
+     "mandate_stance": "refused",
+     "barrier_kind": "none",
+     "barrier": "nothing",
+     "undo": "no",
+     "evidence": "documented",
+     "via": [
+      "shell (Bash)"
+     ],
+     "source_id": "abp-sgit-cc-off-data"
+    },
+    {
+     "capability": "delete.file.host",
+     "in_mandate": false,
+     "mandate_stance": "refused",
+     "barrier_kind": "none",
+     "barrier": "nothing",
+     "undo": "no",
+     "evidence": "derived",
+     "via": [
+      "shell (Bash)",
+      "files (Read, Edit, Write)"
+     ],
+     "source_id": "abp-sgit-cc-off-data"
+    },
+    {
+     "capability": "read.credential.host",
+     "in_mandate": false,
+     "mandate_stance": "refused",
+     "barrier_kind": "none",
+     "barrier": "nothing",
+     "undo": "no",
+     "evidence": "documented",
+     "via": [
+      "shell (Bash)"
+     ],
+     "source_id": "abp-sgit-cc-off-data"
+    },
+    {
+     "capability": "read.file.host",
+     "in_mandate": false,
+     "mandate_stance": "refused",
+     "barrier_kind": "none",
+     "barrier": "nothing",
+     "undo": "no",
+     "evidence": "derived",
+     "via": [
+      "shell (Bash)",
+      "files (Read, Edit, Write)"
+     ],
+     "source_id": "abp-sgit-cc-off-data"
+    },
+    {
+     "capability": "read.record.history",
+     "in_mandate": false,
+     "mandate_stance": "refused",
+     "barrier_kind": "none",
+     "barrier": "nothing",
+     "undo": "no",
+     "evidence": "documented",
+     "via": [
+      "shell (Bash)"
+     ],
+     "source_id": "abp-sgit-cc-off-data"
+    },
+    {
+     "capability": "send.endpoint.world",
+     "in_mandate": false,
+     "mandate_stance": "unstated",
+     "barrier_kind": "none",
+     "barrier": "nothing",
+     "undo": "no",
+     "evidence": "derived",
+     "via": [
+      "shell (Bash)",
+      "fetch (WebFetch)"
+     ],
+     "source_id": "abp-sgit-cc-off-data"
+    },
+    {
+     "capability": "execute.process.host",
+     "in_mandate": true,
+     "mandate_stance": "authorised",
+     "barrier_kind": "none",
+     "barrier": "none, confirmations disabled; the tool runs whatever it decides to run",
+     "undo": "with-effort",
+     "evidence": "derived",
+     "via": [
+      "shell (Bash)"
+     ],
+     "source_id": "abp-sgit-cc-off-data"
+    },
+    {
+     "capability": "write.file.host",
+     "in_mandate": false,
+     "mandate_stance": "refused",
+     "barrier_kind": "none",
+     "barrier": "nothing",
+     "undo": "with-effort",
+     "evidence": "derived",
+     "via": [
+      "shell (Bash)",
+      "files (Read, Edit, Write)"
+     ],
+     "source_id": "abp-sgit-cc-off-data"
+    },
+    {
+     "capability": "write.file.project",
+     "in_mandate": true,
+     "mandate_stance": "authorised",
+     "barrier_kind": "none",
+     "barrier": "nothing",
+     "undo": "with-effort",
+     "evidence": "derived",
+     "via": [
+      "shell (Bash)",
+      "files (Read, Edit, Write)"
+     ],
+     "source_id": "abp-sgit-cc-off-data"
+    },
+    {
+     "capability": "write.repository.project",
+     "in_mandate": true,
+     "mandate_stance": "authorised",
+     "barrier_kind": "none",
+     "barrier": "nothing",
+     "undo": "with-effort",
+     "evidence": "derived",
+     "via": [
+      "shell (Bash)"
+     ],
+     "source_id": "abp-sgit-cc-off-data"
+    },
+    {
+     "capability": "write.repository.tenant",
+     "in_mandate": false,
+     "mandate_stance": "unstated",
+     "barrier_kind": "expectation",
+     "barrier": "branch discipline in prose, if any",
+     "undo": "with-effort",
+     "evidence": "derived",
+     "via": [
+      "shell (Bash)"
+     ],
+     "source_id": "abp-sgit-cc-off-data"
+    },
+    {
+     "capability": "create.schedule.host",
+     "in_mandate": false,
+     "mandate_stance": "refused",
+     "barrier_kind": "none",
+     "barrier": "nothing",
+     "undo": "yes",
+     "evidence": "derived",
+     "via": [
+      "shell (Bash)"
+     ],
+     "source_id": "abp-sgit-cc-off-data"
+    },
+    {
+     "capability": "read.file.project",
+     "in_mandate": true,
+     "mandate_stance": "authorised",
+     "barrier_kind": "none",
+     "barrier": "nothing",
+     "undo": "yes",
+     "evidence": "derived",
+     "via": [
+      "shell (Bash)",
+      "files (Read, Edit, Write)"
+     ],
+     "source_id": "abp-sgit-cc-off-data"
+    },
+    {
+     "capability": "grant.credential.self",
+     "in_mandate": false,
+     "mandate_stance": "refused",
+     "barrier_kind": "setting",
+     "barrier": "the settings file is owned by the same account",
+     "undo": "yes",
+     "evidence": "derived",
+     "via": [
+      "shell (Bash)"
+     ],
+     "source_id": "abp-sgit-cc-off-data"
+    }
+   ],
+   "source_id": "abp-sgit-ex-cc-off",
+   "data_source_id": "abp-sgit-cc-off-data",
+   "quote": "Grant 16 of 23 primitives Everything the agent can do Mandate 5 primitives What the deployer authorised and expected Excess 12",
+   "grade": "A6",
+   "note": "Same 16 rows as confirmations on; the only row that differs is execute.process.host, barrier setting -> none (control text: 'none, confirmations disabled'). It is inside the mandate, so no count moves. grant.credential.self stays at 'setting' in both. abp.sgit.ai records that its own foundation document predicted every delta barrier would move by one row; the data moves exactly one, and the site logs that as a disagreement. Mandate rows read from the shared mandate file (captured in abp-sgit-cc-on-data)."
+  },
+  {
+   "id": "chatgpt-web-no-connectors",
+   "name": "Chat in the browser, nothing connected",
+   "agent": "ChatGPT (in the browser, no connectors), default",
+   "settings": "no connectors",
+   "grant": 1,
+   "mandate": 1,
+   "excess": 0,
+   "unbounded_excess": 0,
+   "aligned": 1,
+   "shortfall": 0,
+   "shortfall_capabilities": [],
+   "irreversible": 0,
+   "widest_reach": "project",
+   "rows_measured": {
+    "total": 1,
+    "measured": 0,
+    "derived": 1
+   },
+   "mandate_text": "I paste things in and read what comes back. That is the whole mandate, and the honest baseline: a chat window with nothing connected should be able to do nothing else.",
+   "rows": [
+    {
+     "capability": "read.file.project",
+     "in_mandate": true,
+     "mandate_stance": "authorised",
+     "barrier_kind": "none",
+     "barrier": "nothing",
+     "undo": "yes",
+     "evidence": "derived",
+     "via": [
+      "conversation and uploads"
+     ],
+     "source_id": "abp-sgit-chatgpt-data"
+    }
+   ],
+   "source_id": "abp-sgit-ex-chatgpt",
+   "data_source_id": "abp-sgit-chatgpt-data",
+   "quote": "Grant 1 of 23 primitives Everything the agent can do Mandate 1 primitives",
+   "grade": "A6",
+   "note": "Adds up: 1 granted, 1 authorised, 0 excess. Derived, 0 of 1 rows measured."
+  },
+  {
+   "id": "browser-extension-broad-host-permissions",
+   "name": "A browser extension with broad host permissions",
+   "agent": "A generic browser extension with broad host permissions",
+   "settings": "broad host permissions ('read and change all your data on all websites')",
+   "grant": 3,
+   "mandate": 1,
+   "excess": 2,
+   "unbounded_excess": 2,
+   "aligned": 1,
+   "shortfall": 0,
+   "shortfall_capabilities": [],
+   "irreversible": 3,
+   "widest_reach": "world",
+   "rows_measured": {
+    "total": 3,
+    "measured": 0,
+    "derived": 3
+   },
+   "mandate_text": "I want it to work on the sites I use it on. I did not install it so that it could see every page I visit, act inside the accounts I am logged into, or send what it sees anywhere.",
+   "rows": [
+    {
+     "capability": "read.record.browsing",
+     "in_mandate": true,
+     "mandate_stance": "authorised",
+     "barrier_kind": "none",
+     "barrier": "nothing",
+     "undo": "no",
+     "evidence": "documented",
+     "via": [
+      "the extension"
+     ],
+     "source_id": "abp-sgit-browserext-data"
+    },
+    {
+     "capability": "send.endpoint.world",
+     "in_mandate": false,
+     "mandate_stance": "refused",
+     "barrier_kind": "none",
+     "barrier": "nothing",
+     "undo": "no",
+     "evidence": "documented",
+     "via": [
+      "the extension"
+     ],
+     "source_id": "abp-sgit-browserext-data"
+    },
+    {
+     "capability": "authenticate-as.credential.tenant",
+     "in_mandate": false,
+     "mandate_stance": "refused",
+     "barrier_kind": "setting",
+     "barrier": "the site's own session controls",
+     "undo": "no",
+     "evidence": "documented",
+     "via": [
+      "the extension"
+     ],
+     "source_id": "abp-sgit-browserext-data"
+    }
+   ],
+   "source_id": "abp-sgit-ex-browserext",
+   "data_source_id": "abp-sgit-browserext-data",
+   "quote": "Grant 3 of 23 primitives Everything the agent can do Mandate 1 primitives",
+   "grade": "A6",
+   "note": "Adds up: 3 - 1 = 2 excess, both unbounded; all 3 rows irreversible. Not a named product. Derived from the browser's documented permission model, 0 of 3 measured."
+  },
+  {
+   "id": "github-actions-hosted-runner",
+   "name": "A CI job on a hosted runner, under a service account",
+   "agent": "GitHub Actions runner (a hosted CI job), variant ci",
+   "settings": "workflow permissions block, token contents:read, unrestricted egress",
+   "grant": 8,
+   "mandate": 5,
+   "excess": 4,
+   "unbounded_excess": 3,
+   "aligned": 4,
+   "shortfall": 1,
+   "shortfall_capabilities": [
+    "write.repository.tenant"
+   ],
+   "irreversible": 3,
+   "widest_reach": "world",
+   "rows_measured": {
+    "total": 8,
+    "measured": 8,
+    "derived": 0
+   },
+   "mandate_text": "Check out the code, build it, run the tests, fetch what it needs, and, when a release is cut, push the tag. I did not want it reading credentials beyond its own token.",
+   "rows": [
+    {
+     "capability": "delete.file.host",
+     "in_mandate": false,
+     "mandate_stance": "unstated",
+     "barrier_kind": "none",
+     "barrier": "nothing",
+     "undo": "no",
+     "evidence": "observed",
+     "via": [
+      "the job's shell"
+     ],
+     "source_id": "abp-sgit-gha-data"
+    },
+    {
+     "capability": "read.file.host",
+     "in_mandate": false,
+     "mandate_stance": "unstated",
+     "barrier_kind": "none",
+     "barrier": "nothing",
+     "undo": "no",
+     "evidence": "observed",
+     "via": [
+      "the job's shell"
+     ],
+     "source_id": "abp-sgit-gha-data"
+    },
+    {
+     "capability": "send.endpoint.world",
+     "in_mandate": true,
+     "mandate_stance": "authorised",
+     "barrier_kind": "none",
+     "barrier": "nothing",
+     "undo": "no",
+     "evidence": "observed",
+     "via": [
+      "the job's shell"
+     ],
+     "source_id": "abp-sgit-gha-data"
+    },
+    {
+     "capability": "execute.process.host",
+     "in_mandate": true,
+     "mandate_stance": "authorised",
+     "barrier_kind": "none",
+     "barrier": "nothing",
+     "undo": "with-effort",
+     "evidence": "observed",
+     "via": [
+      "the job's shell"
+     ],
+     "source_id": "abp-sgit-gha-data"
+    },
+    {
+     "capability": "write.file.host",
+     "in_mandate": false,
+     "mandate_stance": "unstated",
+     "barrier_kind": "none",
+     "barrier": "nothing",
+     "undo": "with-effort",
+     "evidence": "observed",
+     "via": [
+      "the job's shell"
+     ],
+     "source_id": "abp-sgit-gha-data"
+    },
+    {
+     "capability": "write.file.project",
+     "in_mandate": true,
+     "mandate_stance": "authorised",
+     "barrier_kind": "none",
+     "barrier": "nothing",
+     "undo": "with-effort",
+     "evidence": "observed",
+     "via": [
+      "the job's shell"
+     ],
+     "source_id": "abp-sgit-gha-data"
+    },
+    {
+     "capability": "write.repository.project",
+     "in_mandate": false,
+     "mandate_stance": "unstated",
+     "barrier_kind": "boundary",
+     "barrier": "the checkout is writable, but the token is contents:read, so nothing written can leave",
+     "undo": "with-effort",
+     "evidence": "observed",
+     "via": [
+      "the job's shell"
+     ],
+     "source_id": "abp-sgit-gha-data"
+    },
+    {
+     "capability": "read.file.project",
+     "in_mandate": true,
+     "mandate_stance": "authorised",
+     "barrier_kind": "none",
+     "barrier": "nothing",
+     "undo": "yes",
+     "evidence": "observed",
+     "via": [
+      "the job's shell"
+     ],
+     "source_id": "abp-sgit-gha-data"
+    }
+   ],
+   "source_id": "abp-sgit-ex-gha",
+   "data_source_id": "abp-sgit-gha-data",
+   "quote": "Grant 8 of 23 primitives Everything the agent can do Mandate 5 primitives",
+   "grade": "A6",
+   "note": "Mandate 5 but only 4 granted (write.repository.tenant, pushing the tag, is the shortfall), so excess = 8 - 4 = 4 and 8 - 5 = 3 would be wrong. Unbounded excess 3, not 4: write.repository.project is excess but sits at 'boundary' (the token is contents:read), the only control in the five examples. All 4 excess are unstated by the mandate, none refused. The only example with measured rows: 8 of 8, measured 26 August inside the runner."
+  }
+ ],
+ "claims": [
+  {
+   "id": "abp-cc-grant-16",
+   "text": "Grant 16 (Claude Code CLI, both settings)",
+   "where": [
+    "riskmandate:abp.html#worked-example",
+    "abp:examples/claude-code-cli-*"
+   ],
+   "kind": "measured",
+   "grade": "A6",
+   "holds": "holds",
+   "evidence": [
+    {
+     "source_id": "rm-abp",
+     "quote": "Grant 16 16",
+     "supports": "for"
+    },
+    {
+     "source_id": "abp-sgit-cc-on-data",
+     "quote": "\"grant_size\": 16",
+     "supports": "for"
+    },
+    {
+     "source_id": "abp-sgit-ex-cc-on",
+     "quote": "Everything the agent can do: 16 of 23 primitives.",
+     "supports": "for"
+    }
+   ],
+   "primary_source": null,
+   "note": "Holds as a count of the published record (16 grant rows in profile.json, listed one by one). It is a derived model, not a measurement: 0 of 22 rows measured. As a claim about what Claude Code can do on a real machine it rests on one party's architectural reasoning (A2 at most)."
+  },
+  {
+   "id": "abp-cc-mandate-5",
+   "text": "Mandate 5",
+   "where": [
+    "riskmandate:abp.html#worked-example"
+   ],
+   "kind": "measured",
+   "grade": "A6",
+   "holds": "holds",
+   "evidence": [
+    {
+     "source_id": "rm-abp",
+     "quote": "Mandate 5 5",
+     "supports": "for"
+    },
+    {
+     "source_id": "abp-sgit-ex-cc-on",
+     "quote": "It authorises 5 primitives, refuses 11 and says nothing either way about 7 .",
+     "supports": "for"
+    }
+   ],
+   "primary_source": null,
+   "note": "The mandate is a first draft written by the site, not elicited from a real deployer: 'authored 2026-09-09 by the site, as a starting point - not measured, not surveyed'. The 5 are read.file.project, write.file.project, execute.process.host, write.repository.project, send.endpoint.allowed."
+  },
+  {
+   "id": "abp-cc-excess-12",
+   "text": "Excess 12 (with grant 16 and mandate 5)",
+   "where": [
+    "riskmandate:abp.html#worked-example"
+   ],
+   "kind": "measured",
+   "grade": "A6",
+   "holds": "holds",
+   "evidence": [
+    {
+     "source_id": "rm-abp",
+     "quote": "Excess 12 12",
+     "supports": "for"
+    },
+    {
+     "source_id": "abp-sgit-cc-on-data",
+     "quote": "\"aligned\": 4",
+     "supports": "for"
+    },
+    {
+     "source_id": "abp-sgit-ex-cc-on",
+     "quote": "Shortfall: 1. Asked for and cannot: send.endpoint.allowed .",
+     "supports": "for"
+    }
+   ],
+   "primary_source": null,
+   "note": "The numbers add up, but not by 16 - 5. Excess is grant minus the mandate items actually granted: 16 - 4 aligned = 12. The fifth mandate item, send.endpoint.allowed (reach only the hosts it needs), is not in the grant; the grant has send.endpoint.world instead, which counts as excess. So mandate 5 = aligned 4 + shortfall 1. No row is 'in the mandate but over-granted' in the data; the over-grant shows up as a different capability id (world reach instead of allowed reach). A deck that draws 16 bars with 5 in the mandate must show 4 inside the grant and 1 outside it.",
+   "suggested_wording": "Grant 16, mandate 5 (4 of them granted, 1 it cannot do), excess 12"
+  },
+  {
+   "id": "abp-cc-unbounded-12",
+   "text": "Unbounded excess 12, both settings",
+   "where": [
+    "riskmandate:abp.html#worked-example"
+   ],
+   "kind": "measured",
+   "grade": "A6",
+   "holds": "holds",
+   "evidence": [
+    {
+     "source_id": "rm-abp",
+     "quote": "Unbounded excess 12 12",
+     "supports": "for"
+    },
+    {
+     "source_id": "abp-sgit-ex-cc-on",
+     "quote": "Every one of the 12 excess capabilities here is unbounded.",
+     "supports": "for"
+    }
+   ],
+   "primary_source": null,
+   "note": "No excess row sits at 'boundary': 10 at none, 1 at expectation (write.repository.tenant), 1 at setting (grant.credential.self)."
+  },
+  {
+   "id": "abp-cc-one-barrier-moved",
+   "text": "One barrier moved, and not one number did.",
+   "where": [
+    "riskmandate:abp.html#worked-example"
+   ],
+   "kind": "measured",
+   "grade": "A6",
+   "holds": "holds",
+   "evidence": [
+    {
+     "source_id": "rm-abp",
+     "quote": "One barrier moved, and not one number did.",
+     "supports": "for"
+    },
+    {
+     "source_id": "rm-abp",
+     "quote": "Barrier on execute.process.host setting - not a control none - not a control",
+     "supports": "for"
+    },
+    {
+     "source_id": "abp-sgit-cc-off-data",
+     "quote": "\"control\": \"none - confirmations disabled; the tool runs whatever it decides to run\"",
+     "supports": "for"
+    }
+   ],
+   "primary_source": null,
+   "note": "Checked by diffing the two raw profile.json files: the only change in the grant is execute.process.host barrier setting to none (plus row order and descriptions). It is in the mandate (aligned), which is why no count moves."
+  },
+  {
+   "id": "abp-cc-irreversible-8",
+   "text": "Irreversible 8 (Claude Code)",
+   "where": [
+    "abp:examples/claude-code-cli-*"
+   ],
+   "kind": "measured",
+   "grade": "A6",
+   "holds": "holds",
+   "evidence": [
+    {
+     "source_id": "abp-sgit-ex-cc-on",
+     "quote": "Irreversible 8 Granted capabilities with undo: no, as published",
+     "supports": "for"
+    }
+   ],
+   "primary_source": null,
+   "note": "8 rows with undo 'no'; all 8 are excess."
+  },
+  {
+   "id": "abp-five-examples-table",
+   "text": "The five, side by side: chat 1/1/0, CLI on 16/5/12, CLI off 16/5/12, browser extension 3/1/2, CI runner 8/5/4 (grant/mandate/excess)",
+   "where": [
+    "abp:examples"
+   ],
+   "kind": "measured",
+   "grade": "A6",
+   "holds": "holds",
+   "evidence": [
+    {
+     "source_id": "abp-sgit-examples",
+     "quote": "A CI job on a hosted runner, under a service account Persistence, and reach beyond the turn 8 5 4 3 3 world 8 of 8",
+     "supports": "for"
+    },
+    {
+     "source_id": "abp-sgit-examples",
+     "quote": "A browser extension with broad host permissions Other people's data, and the mandate nobody wrote down 3 1 2 2 3 world 0 of 3",
+     "supports": "for"
+    }
+   ],
+   "primary_source": null,
+   "note": "Every row reconciles with its delta.json: excess = grant - aligned in all five; mandate = aligned + shortfall. Two examples have a shortfall (CLI: send.endpoint.allowed; CI: write.repository.tenant), so grant - mandate understates excess by 1 in both."
+  },
+  {
+   "id": "abp-ci-only-boundary",
+   "text": "The CI runner is the only example with a control: unbounded excess 3 of excess 4",
+   "where": [
+    "abp:examples/github-actions-hosted-runner"
+   ],
+   "kind": "measured",
+   "grade": "A6",
+   "holds": "holds",
+   "evidence": [
+    {
+     "source_id": "abp-sgit-gha-data",
+     "quote": "\"control\": \"the checkout is writable, but the token is contents:read, so nothing written can leave\"",
+     "supports": "for"
+    }
+   ],
+   "primary_source": null,
+   "note": "write.repository.project at barrier 'boundary'. Useful for E09 as the one row on the fourth kind."
+  },
+  {
+   "id": "abp-three-of-four-bound-nothing",
+   "text": "There are four kinds, and three of them bound nothing.",
+   "where": [
+    "riskmandate:abp.html#the-barrier"
+   ],
+   "kind": "position",
+   "grade": "A3",
+   "holds": "holds",
+   "evidence": [
+    {
+     "source_id": "rm-abp",
+     "quote": "There are four kinds, and three of them bound nothing.",
+     "supports": "for"
+    },
+    {
+     "source_id": "abp-sgit-barriers-json",
+     "quote": "\"note\": \"The four ids and their published meanings are the pack's control_tiers, unchanged. is_control and why are this site's reading of them, stated as such, and are not in the pack.\"",
+     "supports": "context"
+    }
+   ],
+   "primary_source": null,
+   "note": "A definitional position (the enforcer test) by one author across riskmandate.ai and abp.sgit.ai; the is_control flag is abp.sgit.ai's own reading, not upstream data. Shown as a position, not graded as a fact."
+  },
+  {
+   "id": "abp-site-measured-21-of-99",
+   "text": "21 of 99 capability rows on this page were measured",
+   "where": [
+    "abp:examples",
+    "abp:model"
+   ],
+   "kind": "measured",
+   "grade": "A2",
+   "holds": "holds in part",
+   "evidence": [
+    {
+     "source_id": "abp-sgit-examples",
+     "quote": "Provenance. 21 of 99 capability rows on this page were measured",
+     "supports": "for"
+    },
+    {
+     "source_id": "abp-sgit-model",
+     "quote": "21 of 99 capability rows from the published map were measured",
+     "supports": "context"
+    }
+   ],
+   "primary_source": null,
+   "note": "Does not reconcile with the five examples: their profiles sum to 56 rows (1+22+22+3+8) with 8 measured. The model page words it as rows 'from the published map', i.e. the whole map (18 stored deltas), so the examples page's 'on this page' looks like a wording error. Do not draw 21/99 as the five examples.",
+   "suggested_wording": "21 of 99 rows in the published capability map were measured; in these five examples, 8 of 56 were"
+  }
+ ]
+}

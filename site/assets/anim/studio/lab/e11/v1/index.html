@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<!-- Changed by riskmandate.ai on 3 November 2026 from the-ultimate-insider.presentation.sgit.ai (CC BY 4.0, Dinis Cruz): "the policy" reads "the PBP" (SHarness's process behaviour policy), and the footnote names RiskMandate as the maintainer. Credit and licence: /assets/anim/README.md -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>E11 v1: the kernel was told first</title>
+<link rel="stylesheet" href="../../../../talk/engine/slide.css">
+<script>window.RUV_STEPS = [{ t: 0, label: 'one row of the excess' }, { t: 9, label: 'write, hash, enforce' }, { t: 20, label: 'six probes' }, { t: 36, label: 'six of six held' }, { t: 40, label: 'what is designed' }]</script>
+<script src="../../../../talk/engine/slide.js"></script>
+<style>
+.kk{font-size:20px;top:6px}
+.hl{top:56px;font-size:34px;right:230px}
+#id{position:absolute;right:40px;top:6px;font:800 72px/1 system-ui;color:var(--dim);letter-spacing:.02em}
+#q{position:absolute;left:40px;right:40px;top:110px;height:54px;font:20px/1.3 system-ui;color:var(--text)}
+#q b{color:var(--head)}
+#pic{position:absolute;left:0;top:0;width:1280px;height:720px}
+#steps{position:absolute;left:660px;top:180px;width:580px}
+#steps .st{display:grid;grid-template-columns:40px 1fr;column-gap:10px;margin-bottom:12px;font:20px/24px system-ui;color:var(--text)}
+#steps .st b{width:34px;height:34px;border-radius:50%;background:var(--accent);color:var(--bg);font:800 20px/34px system-ui;text-align:center}
+#steps .st span b{all:unset;font-weight:700;color:var(--head)}
+.tile{position:absolute;top:452px;width:188px;font:20px/22px system-ui;color:var(--text)}
+.tile .nm{height:66px}
+.tile .nm i{font-style:normal;font-weight:800;color:var(--head)}
+.tile .vd{position:absolute;top:126px;left:0;right:0;color:var(--dim)}
+.tile .vd b{color:var(--accent)}
+#foot{position:absolute;left:40px;right:40px;bottom:12px;font:20px/1.3 system-ui;color:var(--dim)}
+#foot b{color:var(--head)}
+</style>
+</head>
+<body>
+<div id="cv" data-end="50">
+  <p class="kk a">Studio experiment E11 · v1, driven</p>
+  <div id="id">E11</div>
+  <div class="hl" data-in="0">A boundary it cannot widen: <em>the kernel was told first.</em></div>
+  <div id="q"></div>
+  <svg id="pic" viewBox="0 0 1280 720" aria-label="One row of the excess meets a PBP the kernel holds; then sharness-ai hello's six probes, each held"></svg>
+  <div id="steps"></div>
+  <div id="tiles"></div>
+  <div id="foot"></div>
+  <div class="bar"><i></i></div>
+</div>
+<script>
+(function () {
+  'use strict'
+  // Short words for the slide, read from each probe's name, what_it_tries and result in harness.json; the file's own words are in the explainer.
+  var PROBES = {
+    'hello-1-read': ['List /usr: the control, which the PBP allows', 'allowed', 'pass'],
+    'hello-2-tmp-write': ['Write a file in /tmp', 'refused (EACCES)', 'stop'],
+    'hello-3-workspace-write': ['Write a file in the workspace', 'refused (EACCES)', 'stop'],
+    'hello-4-tcp-connect': ['Connect out: TCP to 1.1.1.1:443', 'refused (EACCES)', 'stop'],
+    'hello-5-wrong-hash': ['Run under a wrong hash', 'nothing ran (exit 125)', 'stop'],
+    'hello-6-memory': ['Take 400 MiB under a 128 MiB cap', 'refused (MemoryError)', 'stop'] }
+  var STEPS = [['Write the PBP', 'files, ports, memory, processes; hello\'s is deny-all'],
+    ['Hash it', 'and run only under the hash you expect'], ['The kernel enforces it', 'before the tool starts (Landlock, a memory cap)'], ['The probes run', 'six of them, each against the PBP']]
+  var NS = 'http://www.w3.org/2000/svg', D = null, B = null, AT = [21, 23.5, 26, 28.5, 31, 33.5]
+  fetch('../../../data/harness.json').then(function (r) { return r.json() }).then(function (j) { D = j })
+    .catch(function (e) { console.error('E11: the data file did not load', e) })
+  function el(tag, a, p) { var e = document.createElementNS(NS, tag); for (var k in a) e.setAttribute(k, a[k]); p.appendChild(e); return e }
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;') }
+  function wall(p, x, y, h, gate) {                                  // the policy as a wall, in the boundary colour
+    var g = el('g', {}, p)
+    if (gate) { el('rect', { x: x - 5, y: y - h / 2, width: 10, height: h * .3, rx: 3, fill: 'var(--accent)' }, g); el('rect', { x: x - 5, y: y + h * .2, width: 10, height: h * .3, rx: 3, fill: 'var(--accent)' }, g) }
+    else el('rect', { x: x - 6, y: y - h / 2, width: 12, height: h, rx: 3, fill: 'var(--accent)' }, g)
+    return g
+  }
+  function line(p, x0, y, x1, col) { var l = el('path', { d: 'M' + x0 + ' ' + y + 'H' + x1, fill: 'none', stroke: col, 'stroke-width': 5, 'stroke-linecap': 'round' }, p); var n = x1 - x0; l.setAttribute('stroke-dasharray', n + ' ' + n); l.L = n; return l }
+
+  function build(S) {
+    var svg = S.$('pic'), by = {}; D.probes.forEach(function (p) { by[p.id] = p })
+    // the opening: one row of E09's excess meets a policy the kernel holds
+    var y = 300, g0 = el('g', { id: 'g0' }, svg)
+    el('circle', { cx: 90, cy: y, r: 20, fill: 'var(--agent)' }, g0)
+    var t = el('text', { x: 90, y: y + 52, 'text-anchor': 'middle', 'font-size': 20, 'font-weight': 800, fill: 'var(--agent)' }, g0); t.textContent = 'the agent'
+    el('rect', { x: 470, y: y - 34, width: 150, height: 68, rx: 12, fill: 'none', stroke: 'var(--infra)', 'stroke-width': 3 }, g0)
+    t = el('text', { x: 545, y: y - 6, 'text-anchor': 'middle', 'font-size': 20, 'font-weight': 700, fill: 'var(--infra)' }, g0); t.textContent = 'any host on'
+    t = el('text', { x: 545, y: y + 18, 'text-anchor': 'middle', 'font-size': 20, 'font-weight': 700, fill: 'var(--infra)' }, g0); t.textContent = 'the internet'
+    t = el('text', { x: 90, y: y - 70, 'font-size': 20, 'font-weight': 700, fill: 'var(--head)' }, g0); t.textContent = 'From E09\'s excess: "Reach any host on the internet"'
+    var w0 = wall(g0, 330, y, 110, false); w0.id = 'w0'
+    t = el('text', { x: 330, y: y + 84, 'text-anchor': 'middle', 'font-size': 20, 'font-weight': 700, fill: 'var(--accent)' }, g0); t.textContent = 'the PBP on the tool it starts, held by the kernel'; t.id = 'w0t'
+    var l0 = line(g0, 112, y, 322, 'var(--agent)'); l0.id = 'l0'
+    var rf = el('text', { id: 'rf', x: 314, y: y + 34, 'text-anchor': 'end', 'font-size': 20, 'font-weight': 800, fill: 'var(--head)' }, g0); rf.textContent = 'connect refused'
+    // the sequence
+    S.$('steps').innerHTML = STEPS.map(function (s, i) { return '<div class="st" id="s' + i + '"><b>' + (i + 1) + '</b><span><b>' + s[0] + '</b>: ' + esc(s[1]) + '</span></div>' }).join('')
+    // the six probes
+    var tiles = '', ts = []
+    D.probes.forEach(function (p, i) {
+      var m = PROBES[p.id]; if (!m) return
+      var x0 = 40 + i * 202
+      tiles += '<div class="tile" id="t' + i + '" style="left:' + x0 + 'px"><div class="nm"><i>' + (i + 1) + '</i> ' + esc(m[0]) + '</div><div class="vd">' + esc(m[1]) + ': <b>held</b></div></div>'
+      var g = el('g', {}, svg), yy = 452 + 92
+      el('circle', { cx: x0 + 10, cy: yy, r: 8, fill: 'var(--agent)' }, g)
+      var w = wall(g, x0 + 120, yy, 40, m[2] === 'pass')
+      var l1 = line(g, x0 + 18, yy, x0 + 112, 'var(--agent)'), l2 = m[2] === 'pass' ? line(g, x0 + 128, yy, x0 + 180, 'var(--infra)') : null
+      ts.push({ g: g, l1: l1, l2: l2, kind: m[2] })
+    })
+    S.$('tiles').innerHTML = tiles
+    var six = D.probes.filter(function (p) { return /\(held\)/.test(p.result) }).length
+    B = { ts: ts, n: D.probes.length, held: six, envs: D.environments.length }
+  }
+
+  window.SLIDE_RENDER = function (t, S) {
+    if (!D) return
+    if (!B) build(S)
+    var k = function (a, d) { return S.ease(S.seg(t, a, a + (d || .6))) }
+    S.$('g0').style.opacity = k(1.5)
+    var l0 = S.$('l0'); l0.setAttribute('stroke-dashoffset', l0.L * (1 - S.ease(S.seg(t, 3, 6.5))))
+    S.$('rf').style.opacity = k(6.8, .4)
+    for (var i = 0; i < 4; i++) S.$('s' + i).style.opacity = k(10 + i * 2.5)
+    B.ts.forEach(function (o, i) {
+      var a = AT[i]
+      S.$('t' + i).style.opacity = k(a, .4); o.g.style.opacity = k(a, .4)
+      o.l1.setAttribute('stroke-dashoffset', o.l1.L * (1 - S.seg(t, a + .3, a + 1.3)))
+      if (o.l2) o.l2.setAttribute('stroke-dashoffset', o.l2.L * (1 - S.seg(t, a + 1.3, a + 1.9)))
+      S.$('t' + i).querySelector('.vd').style.opacity = k(a + 1.4, .4)
+    })
+    var q = ''
+    if (t < 9) q = '<b>E09 ended on 12 of 12 excess with no control.</b> Take one row of it, and tell the kernel a process behaviour policy (PBP) before the tool starts.'
+    else if (t < 20) q = '<b>sharness-ai hello</b>, in SHarness\'s order: write the PBP, hash it, let the kernel enforce it, then probe it.'
+    else if (t < 36) q = '<b>Six probes</b> under a deny-all PBP: one control the PBP allows, five things it refuses.'
+    else if (t < 40) q = '<b>' + B.held + ' of ' + B.n + ' held</b>, on 25 October 2026, in ' + B.envs + ' environments on two kernels, all uid 0. Each probe got the verdict the PBP says.'
+    else q = '<b>' + B.held + ' of ' + B.n + ' held</b> (25 October 2026, ' + B.envs + ' environments, two kernels, uid 0). <b>The caveat:</b> a process cannot bind its own session; only a launcher above the agent, still designed, makes the PBP a boundary for the agent.'
+    if (S.$('q').innerHTML !== q) S.$('q').innerHTML = q
+    var f = t >= 40 ? '<b>Measured:</b> the six probes. <b>Runnable:</b> fs and net (MVPs), policy hash, check, translate. <b>Designed:</b> kms, bash, llm and the launcher above the agent (its first slice runs since 28 October). SHarness is the open-source project RiskMandate maintains: every run is its own.' : ''
+    if (S.$('foot').innerHTML !== f) S.$('foot').innerHTML = f
+    S.$('foot').style.opacity = k(40)
+  }
+})()
+</script>
+</body>
+</html>

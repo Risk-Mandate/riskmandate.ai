@@ -50,6 +50,7 @@ svg.diag{width:100%;height:auto;margin-top:36px}
 .hud{position:fixed;right:14px;bottom:12px;z-index:11;display:flex;gap:6px;font:13px ui-sans-serif,system-ui,sans-serif}
 .hud button{background:rgba(255,255,255,.1);color:#ddd;border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:6px 10px;cursor:pointer}
 .hud span{color:#aaa;padding:6px 4px}
+.anim{position:absolute;left:302px;width:996px;top:236px;height:560px;border-radius:18px;overflow:hidden;background:#0c0f15;border:1px solid rgba(232,240,236,.18)}.anim iframe{width:100%;height:100%;border:0;display:block}
 @media print{@page{size:1600px 900px;margin:0}html,body{background:#fff}.deck{position:static;display:block}.slide{position:relative;display:block!important;transform:none!important;page-break-after:always;break-after:page}.notes,.hud{display:none!important}}
 </style>
 </head>
@@ -115,18 +116,24 @@ svg.diag{width:100%;height:auto;margin-top:36px}
   <div class="foot"><span>sharness.ai · pip install sharness-ai · Apache-2.0</span><span>7</span></div>
 </section>
 
+<section class="slide" data-anim data-notes="Watch the kernel refuse. The same six probes as the kernel tab, recorded on 25 October 2026 in five environments: write the PBP, hash it, the kernel holds it before the tool starts, then six probes, six held. Use it if the browser kernel is slow to boot. Say the caveat on the last frame: this holds a child process; only the launcher above the agent, still designed, makes it a boundary for the agent itself. E11, from the-ultimate-insider.presentation.sgit.ai, CC BY 4.0, copied onto riskmandate.ai.">
+  <span class="k">SHarness · the six probes</span><h2>Watch the kernel refuse.</h2>
+  <div class="anim"><iframe src="../../anim/studio/lab/e11/v1/index.html?ruvpaused" title="E11: the kernel was told first" loading="lazy"></iframe></div>
+  <div class="foot"><span>E11 · the-ultimate-insider.presentation.sgit.ai · CC BY 4.0 · riskmandate.ai/secure-harness.html#watch</span><span>8</span></div>
+</section>
+
 <section class="slide" data-notes="Be precise about status, because a technical audience will check. As at 29 October, sharness-ai 0.2.0: the kernel locks run on a process; hello holds six of six probes in five environments including a Linux kernel in a browser tab; the file and network doors run as early versions; a shell whose only way out is the network door. Not built: the launcher above the agent. Nothing yet binds the agent itself. Linux only. Security reviews so far were by an agent of the project.">
   <span class="k">Status, as at 29 October 2026</span><h2>What runs today, and what is still the design.</h2>
   <div class="cols c2"><div class="card" style="border-color:#4BE3A2"><span class="n">Runs today · 0.2.0</span><ul class="pts" style="font-size:23px;margin-top:18px"><li>Kernel locks on a process, hash checked first</li><li><code>hello</code>: six probes, six held, five environments</li><li>A Linux kernel in a browser tab, holding them</li><li>File and network doors, early versions</li></ul></div>
   <div class="card" style="border-color:#E9B85C"><span class="n" style="color:#E9B85C">Design, not built</span><ul class="pts" style="font-size:23px;margin-top:18px"><li>The launcher above the agent: nothing yet binds the agent itself</li><li>Key, shell and model doors; seccomp</li><li>Linux only; no protection against root</li><li>Translations to Docker and Kubernetes not yet run</li></ul></div></div>
-  <div class="foot"><span>sharness.ai/evidence/status</span><span>8</span></div>
+  <div class="foot"><span>sharness.ai/evidence/status</span><span>9</span></div>
 </section>
 
 <section class="slide" data-notes="The point a technical friend will push on: are you now inline? No. SHarness runs where the customer runs it. The expansion from policy to kernel runs once, at launch, and costs nothing per request. RiskMandate writes and maintains the policies and the harness; it holds no key and sees no traffic. Any enforcer that holds the same rows is valid: policy translate writes it for bubblewrap, Docker, Kubernetes, Claude Code's sandbox, with what each cannot hold.">
   <div class="split"><div><span class="k">Not inline, still</span><h2>Enforcement in your environment. <span class="it">Nothing per request.</span></h2>
   <ul class="pts" style="font-size:25px"><li>You run it: on the laptop, in the cluster, in your cloud.</li><li>The policy compiles once, at launch.</li><li>We see no traffic and hold no key.</li><li>Any enforcer that holds the same rows will do.</li></ul></div>
   <div class="shot"><img src="shot-sharness-home.jpg" alt="sharness.ai"></div></div>
-  <div class="foot"><span>"The enterprise story has no product in the request path." · introducing-sharness, 29 October</span><span>9</span></div>
+  <div class="foot"><span>"The enterprise story has no product in the request path." · introducing-sharness, 29 October</span><span>10</span></div>
 </section>
 
 <section class="slide" data-notes="The offer now has four steps. Describe: the ABP, available now, from the pack to a reviewed and signed policy (£10 to £1,500 on the store). Check: lines and hooks you can paste or install today. Hold: SHarness, open source, and we help you deploy it. Show: two numbers in every summary, the reach nobody asked for, and the rows no boundary holds, which is the business case for the next door.">
@@ -135,21 +142,21 @@ svg.diag{width:100%;height:auto;margin-top:36px}
   <div class="card"><span class="n">2 · Check</span><h3>Lines and hooks</h3><p>Paste or install today, for Claude, ChatGPT and Claude Code.</p></div>
   <div class="card hi"><span class="n">3 · Hold</span><h3>SHarness</h3><p>Open source, in your environment. We help you deploy it.</p></div>
   <div class="card"><span class="n">4 · Show</span><h3>Two numbers</h3><p>Reach nobody asked for, and rows no boundary holds.</p></div></div>
-  <div class="foot"><span>riskmandate.ai/secure-harness.html</span><span>10</span></div>
+  <div class="foot"><span>riskmandate.ai/secure-harness.html</span><span>11</span></div>
 </section>
 
 <section class="slide light" data-notes="Live, if there is a laptop: customers.riskmandate.ai, hello world in Claude. Ask 'say hello to me', paste the line, ask again, new chat. Two minutes. Point out the loophole: some replies say 'Hi!', because the line named a word, not a greeting. Most of the work of a behaviour policy is saying what you mean.">
   <div class="split"><div><span class="k">Try it now</span><h2>Five minutes, in your own assistant.</h2>
   <p class="lede">Ask Claude or ChatGPT to do something. Paste one line that says it must not. Ask again, and watch it refuse. Six examples, simplest first, nothing to install.</p><div class="url">customers.riskmandate.ai</div></div>
   <div class="shot"><img src="shot-customers.jpg" alt="customers.riskmandate.ai"></div></div>
-  <div class="foot"><span>The first batch are customers, not beta users</span><span>11</span></div>
+  <div class="foot"><span>The first batch are customers, not beta users</span><span>12</span></div>
 </section>
 
 <section class="slide" data-notes="Proof by our own practice: at Web Summit, seven people and 24 agents, each agent with its own published ABP. The behaviour policies already caught a procurement agent writing outside its folder and a session signing commits under another agent's name (newsroom, web-summit-part-four, 2 November).">
   <span class="k">We run on it</span><h2>Seven of us, our agents, one behaviour policy each.</h2>
   <div class="shot" style="margin-top:40px"><img src="shot-websummit.jpg" alt="web-summit.sgit.ai"></div>
   <p class="lede" style="font-size:24px">The policies caught a procurement agent writing outside its folder, and a session signing commits under another agent's name.</p>
-  <div class="foot"><span>web-summit.sgit.ai · 2 November 2026</span><span>12</span></div>
+  <div class="foot"><span>web-summit.sgit.ai · 2 November 2026</span><span>13</span></div>
 </section>
 
 <section class="slide" data-notes="Where it goes, and say clearly it is a proposal the founders are still discussing: a spectrum of trust walked with each customer. We are on the first stage. The end game is agents an insurer can cover. RiskMandate is not an insurer; the aim is to make agentic AI insurable, and only an enforced control can lower a row's premium.">
@@ -157,14 +164,14 @@ svg.diag{width:100%;height:auto;margin-top:36px}
   <div class="over"><span class="k">Where it goes · a proposal</span><h2>From one policy to agents an insurer can cover.</h2>
   <div class="steps"><span class="on">Policies</span><span>Understand</span><span>Risk acceptance</span><span>Contain</span><span>Manage</span><span>Insure</span></div>
   <p class="lede">We are on the first step. RiskMandate is not an insurer; its aim is to make agentic AI insurable.</p></div>
-  <div class="foot"><span>A proposed roadmap for RiskMandate, newsroom.sgit.ai, 20 October 2026</span><span>13</span></div>
+  <div class="foot"><span>A proposed roadmap for RiskMandate, newsroom.sgit.ai, 20 October 2026</span><span>14</span></div>
 </section>
 
 <section class="slide" data-notes="Close with the three places to go, and the stand: Web Summit, Lisbon, Thursday 12 November. Follow the LinkedIn page. Ask them to try the five-minute example tonight and tell us where it breaks.">
   <div class="bg" style="background-image:url(film-end.jpg)"></div>
   <div class="over" style="justify-content:flex-end;padding-bottom:30px"><span class="k">Web Summit · Lisbon · stand on Thursday 12 November</span>
   <div class="cols c3" style="margin-top:26px"><div class="card"><span class="n">Try</span><p class="mono" style="color:#fff">customers.riskmandate.ai</p></div><div class="card"><span class="n">Harness</span><p class="mono" style="color:#fff">sharness.ai</p></div><div class="card"><span class="n">Meet</span><p class="mono" style="color:#fff">web-summit.sgit.ai</p></div></div></div>
-  <div class="foot"><span>linkedin.com/company/riskmandate</span><span>14</span></div>
+  <div class="foot"><span>linkedin.com/company/riskmandate</span><span>15</span></div>
 </section>
 
 </div>
@@ -180,16 +187,24 @@ svg.diag{width:100%;height:auto;margin-top:36px}
     document.getElementById('pos').textContent = (i + 1) + ' / ' + S.length;
     notes.innerHTML = '<b>Slide ' + (i + 1) + '.</b> ' + (S[i].getAttribute('data-notes') || '');
     try { history.replaceState(null, '', '#' + (i + 1)); } catch (_) {}
+    S.forEach(function (s, j) { var f = s.hasAttribute('data-anim') && s.querySelector('iframe'); if (!f) return;
+      var m = j === i ? [{ slide: 'seek', t: 0 }, { slide: 'play' }] : [{ slide: 'pause' }];
+      var go = function () { m.forEach(function (x) { try { f.contentWindow.postMessage(x, location.origin); } catch (_) {} }); };
+      if (j === i) { f.loading = 'eager'; f.onload = function () { if (S[i] === s) { try { f.contentWindow.postMessage({ slide: 'seek', t: 0 }, location.origin); f.contentWindow.postMessage({ slide: 'play' }, location.origin); } catch (_) {} } }; } go(); });
   }
   addEventListener('resize', fit);
-  addEventListener('keydown', function (e) {
-    if (['ArrowRight', 'PageDown', ' '].indexOf(e.key) >= 0) { e.preventDefault(); show(i + 1); }
-    else if (['ArrowLeft', 'PageUp'].indexOf(e.key) >= 0) { e.preventDefault(); show(i - 1); }
-    else if (e.key === 'Home') show(0); else if (e.key === 'End') show(S.length - 1);
-    else if (e.key === 'n' || e.key === 'N') notes.classList.toggle('on');
-    else if (e.key === 'f' || e.key === 'F') { if (document.fullscreenElement) document.exitFullscreen(); else document.documentElement.requestFullscreen && document.documentElement.requestFullscreen(); }
-    else if (e.key === 'p' || e.key === 'P') print();
-  });
+  function key(k, e) {
+    var stop = function () { if (e) e.preventDefault(); };
+    if (['ArrowRight', 'PageDown', ' '].indexOf(k) >= 0) { stop(); show(i + 1); }
+    else if (['ArrowLeft', 'PageUp'].indexOf(k) >= 0) { stop(); show(i - 1); }
+    else if (k === 'Home') show(0); else if (k === 'End') show(S.length - 1);
+    else if (k === 'n' || k === 'N') notes.classList.toggle('on');
+    else if (k === 'f' || k === 'F') { if (document.fullscreenElement) document.exitFullscreen(); else document.documentElement.requestFullscreen && document.documentElement.requestFullscreen(); }
+    else if (k === 'p' || k === 'P') print();
+  }
+  addEventListener('keydown', function (e) { key(e.key, e); });
+  // an animation slide's engine sends the keys it receives to its parent, so the deck keeps the keyboard
+  addEventListener('message', function (e) { if (e.origin === location.origin && e.data && e.data.slideKey) key(e.data.slideKey); });
   document.getElementById('deck').addEventListener('click', function (e) { if (e.target.closest('a')) return; show(e.clientX > innerWidth / 3 ? i + 1 : i - 1); });
   document.getElementById('prev').onclick = function () { show(i - 1); };
   document.getElementById('next').onclick = function () { show(i + 1); };

@@ -1,0 +1,94 @@
+{
+  "deployment": "Ruflo SPARC swarm (ruflo 3.56.10) on a POC repo, run by Claude Code",
+  "owner": "Dinis Cruz",
+  "rows": [
+    {
+      "who": "coder",
+      "action": "file.write",
+      "resource": "src/**",
+      "legacy": "allowed (legacy-default-allow)",
+      "abp": "allowed (allowed-by:abp:coder:write.file.project)"
+    },
+    {
+      "who": "coder",
+      "action": "test.run",
+      "resource": "",
+      "legacy": "allowed (legacy-default-allow)",
+      "abp": "allowed (allowed-by:abp:coder:execute.process.self)"
+    },
+    {
+      "who": "coder",
+      "action": "repo.commit",
+      "resource": "",
+      "legacy": "allowed (legacy-default-allow)",
+      "abp": "allowed (allowed-by:abp:coder:write.repository.project)"
+    },
+    {
+      "who": "coder",
+      "action": "repo.push",
+      "resource": "origin/feature",
+      "legacy": "allowed (legacy-default-allow)",
+      "abp": "approval_required (approval-required-by:abp:coder:write.repository.tenant)"
+    },
+    {
+      "who": "coder",
+      "action": "network.fetch",
+      "resource": "registry.npmjs.org",
+      "legacy": "allowed (legacy-default-allow)",
+      "abp": "allowed (allowed-by:abp:coder:send.endpoint.allowed)"
+    },
+    {
+      "who": "coder",
+      "action": "network.fetch.world",
+      "resource": "pastebin.example",
+      "legacy": "allowed (legacy-default-allow)",
+      "abp": "denied (denied-by:abp:coder:send.endpoint.world)"
+    },
+    {
+      "who": "coder",
+      "action": "email.send",
+      "resource": "gmail",
+      "legacy": "allowed (legacy-default-allow)",
+      "abp": "denied (denied-by:abp:coder:send.message.world)"
+    },
+    {
+      "who": "tester",
+      "action": "file.write",
+      "resource": "src/**",
+      "legacy": "allowed (legacy-default-allow)",
+      "abp": "denied (denied-by:abp:tester:write.file.project)"
+    },
+    {
+      "who": "researcher",
+      "action": "credential.read",
+      "resource": "~/.aws/credentials",
+      "legacy": "allowed (legacy-default-allow)",
+      "abp": "denied (denied-by:abp:researcher:read.credential.host)"
+    },
+    {
+      "who": "queen-strategic",
+      "action": "model.call",
+      "resource": "",
+      "legacy": "allowed (legacy-default-allow)",
+      "abp": "allowed (allowed-by:abp:queen-strategic:write.budget.tenant)"
+    },
+    {
+      "who": "documenter",
+      "action": "deploy",
+      "resource": "",
+      "legacy": "allowed (legacy-default-allow)",
+      "abp": "approval_required (approval-required-by:abp:documenter:create.record.world)"
+    }
+  ],
+  "gaps": [],
+  "ledger": {
+    "legacy": {
+      "valid": true,
+      "length": 11
+    },
+    "abp": {
+      "valid": true,
+      "length": 11
+    }
+  }
+}
