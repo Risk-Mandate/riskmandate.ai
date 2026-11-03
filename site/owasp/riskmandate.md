@@ -12,7 +12,7 @@ Source: https://riskmandate.ai/owasp/riskmandate.html
 
 RiskMandate originated the Agent Behaviour Policy, publishes it under open licences, and sells services built on it. If OWASP accepts the project, RiskMandate becomes its sponsor and one commercial adopter among any number. This page says what that means, what moves and what stays, who manages what, and how a conflict of interest is handled, so that the line is written before anybody has to ask where it is.
 
-**As at:** 8 October 2026. **Where it stands:** preparing the application; nothing sent to OWASP
+**As at:** 3 November 2026. **Where it stands:** Superseded on 20 October 2026: proposed to the Open Security Summit instead. Nothing was sent to OWASP.
 
 ## The method is the project’s. The service is ours, and anybody’s.
 

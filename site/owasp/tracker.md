@@ -12,7 +12,7 @@ Source: https://riskmandate.ai/owasp/tracker.html
 
 The state of the move, kept in public. What has been done, what is being done, what waits on whom; what was sent, to whom, through which channel, on which date, and what came back. The people we need to talk to and why. The decisions taken and the questions still open. A line changes when the thing happens, not when somebody means it to.
 
-**As at:** 8 October 2026. **Where it stands:** preparing the application; nothing sent to OWASP
+**As at:** 3 November 2026. **Where it stands:** Superseded on 20 October 2026: proposed to the Open Security Summit instead. Nothing was sent to OWASP.
 
 **The record:** [project.json](/owasp/project.json). Every table on this page is rendered from it.
 
@@ -145,6 +145,7 @@ Names and roles as OWASP’s pages gave them on the date read. _Confirmed_ says 
 | K02 | Keep the whole move in public: this section on the public site, the record in the public repository | Dinis Cruz | 8 October 2026 |
 | K03 | RiskMandate commercialises on the method as anybody else could, and proposes its commercial model as one others can follow | Dinis Cruz | 8 October 2026 |
 | K04 | Nothing external without approval: every email, form, repository and licence change waits on its gate | Dinis Cruz (brief D31) | 8 October 2026 |
+| K05 | Propose the Agent Behaviour Policies to the Open Security Summit CIC as the first project of a hosted-project programme, instead of to OWASP | Dinis Cruz | 20 October 2026 |
 
 ## What is not decided, and what it holds up.
 
@@ -165,6 +166,8 @@ Names and roles as OWASP’s pages gave them on the date read. _Confirmed_ says 
 
 | Date | What happened | Where |
 | --- | --- | --- |
+| 3 November 2026 | This section leaves the site's menu; its pages stay at their addresses as the record of the 8 October proposal | [link](/open-security-summit.html) |
+| 20 October 2026 | The proposal moves: the Agent Behaviour Policies are proposed to the Open Security Summit CIC, as the first of its hosted projects. None of the three drafts to OWASP was sent, and they will not be | [link](/open-security-summit.html) |
 | 8 October 2026 | OWASP's process read: the September 2026 guide, the Project Policy, the committee's page, the staff page, the GenAI project's governance and the ACS repository. The form is behind a login; two OWASP pages link to different forms | [link](/owasp/application.html) |
 | 8 October 2026 | OWASP's Project Policy, twelve OWASP projects and our own published material read; the inventory, the charter and this section published | [link](/owasp/) |
 | 8 October 2026 | The founders decide to propose the Agent Behaviour Policies to OWASP; voice note D30 and initiation brief D31 arrive | [link](/briefs.html) |

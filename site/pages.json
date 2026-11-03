@@ -32,6 +32,12 @@
       "group": "Behaviour policies"
     },
     {
+      "name": "open-security-summit",
+      "label": "An open home: the Open Security Summit (proposed)",
+      "file": "open-security-summit.html",
+      "group": "Behaviour policies"
+    },
+    {
       "name": "licence-to-operate",
       "label": "Licence to Operate",
       "file": "licence-to-operate.html",
@@ -567,49 +573,57 @@
       "name": "owasp",
       "label": "Overview: the proposal",
       "file": "owasp/index.html",
-      "group": "OWASP"
+      "group": "OWASP",
+      "unlisted": true
     },
     {
       "name": "owasp-charter",
       "label": "The charter",
       "file": "owasp/charter.html",
-      "group": "OWASP"
+      "group": "OWASP",
+      "unlisted": true
     },
     {
       "name": "owasp-riskmandate",
       "label": "RiskMandate and the project",
       "file": "owasp/riskmandate.html",
-      "group": "OWASP"
+      "group": "OWASP",
+      "unlisted": true
     },
     {
       "name": "owasp-contributions",
       "label": "What moves",
       "file": "owasp/contributions.html",
-      "group": "OWASP"
+      "group": "OWASP",
+      "unlisted": true
     },
     {
       "name": "owasp-ecosystem",
       "label": "The other OWASP projects",
       "file": "owasp/ecosystem.html",
-      "group": "OWASP"
+      "group": "OWASP",
+      "unlisted": true
     },
     {
       "name": "owasp-lessons",
       "label": "What other projects teach",
       "file": "owasp/lessons.html",
-      "group": "OWASP"
+      "group": "OWASP",
+      "unlisted": true
     },
     {
       "name": "owasp-application",
       "label": "The application",
       "file": "owasp/application.html",
-      "group": "OWASP"
+      "group": "OWASP",
+      "unlisted": true
     },
     {
       "name": "owasp-tracker",
       "label": "The tracker: status and submissions",
       "file": "owasp/tracker.html",
-      "group": "OWASP"
+      "group": "OWASP",
+      "unlisted": true
     },
     {
       "name": "questions",

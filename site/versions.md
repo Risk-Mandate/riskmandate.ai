@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.40.1** · 2026-11-03 — The ABP's open home: the Open Security Summit, in place of OWASP
+  Notes: https://riskmandate.ai/versions/1.40.1.md · Source: `git:v1.40.1`
 - **v1.40.0** · 2026-11-03 — Enforcement, when you want it: SHarness, the film, and the demo
   Notes: https://riskmandate.ai/versions/1.40.0.md · Source: `git:v1.40.0`
 - **v1.39.0** · 2026-10-23 — Try it first: the customers site, the newsroom, and LinkedIn

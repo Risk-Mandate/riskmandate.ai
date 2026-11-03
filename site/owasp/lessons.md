@@ -12,7 +12,7 @@ Source: https://riskmandate.ai/owasp/lessons.html
 
 Before writing our own project page, we read how established OWASP projects present themselves: where they live, how they version, what they publish as data, how contributors and companies take part, and how a company that started or sponsors a project says so. Facts and dates only; what each one does, not a view of it.
 
-**As at:** 8 October 2026. **Where it stands:** preparing the application; nothing sent to OWASP
+**As at:** 3 November 2026. **Where it stands:** Superseded on 20 October 2026: proposed to the Open Security Summit instead. Nothing was sent to OWASP.
 
 **Read:** every page below on 8 October 2026, with a plain HTTP fetch. Two facts rest on search snippets and are not repeated here.
 

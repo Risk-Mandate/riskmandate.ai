@@ -12,7 +12,7 @@ Source: https://riskmandate.ai/owasp/application.html
 
 The new-project process as OWASP’s own pages describe it, the fields of the request with the answers we propose, the two homes the project could have, the email we would send first, a first-year roadmap and the repository we would set up. All of it is a draft for the leads to approve, line by line, before anything is sent.
 
-**As at:** 8 October 2026. **Where it stands:** preparing the application; nothing sent to OWASP
+**As at:** 3 November 2026. **Where it stands:** Superseded on 20 October 2026: proposed to the Open Security Summit instead. Nothing was sent to OWASP.
 
 **Status:** nothing submitted. The request form sits behind an OWASP service-desk login, so its fields are taken from OWASP’s guide, not from the form itself.
 

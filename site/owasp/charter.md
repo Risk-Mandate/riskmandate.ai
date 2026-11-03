@@ -12,7 +12,7 @@ Source: https://riskmandate.ai/owasp/charter.html
 
 The proposed charter of OWASP Agent Behaviour Policies: the mission, the objectives, who it is for, what it ships, and the list of things it does not do. A draft, written on 8 October 2026 from the model as published and the initiation brief the leads commissioned, to be argued with before it is submitted.
 
-**As at:** 8 October 2026. **Where it stands:** preparing the application; nothing sent to OWASP
+**As at:** 3 November 2026. **Where it stands:** Superseded on 20 October 2026: proposed to the Open Security Summit instead. Nothing was sent to OWASP.
 
 **Status of this page:** a proposal. Nothing here has been sent to OWASP, and OWASP has not reviewed it.
 

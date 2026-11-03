@@ -108,6 +108,10 @@ the site's; check `site/versions/index.json` for the current version before trus
   in the session. Waiting: the studio's first reply; the schedule (S04), which the lead sets up on his side. The studio checks in to
   the vault itself; the vault is the only channel between the agents (the lead, 26 September). Tooling `scripts/stories/mail.mjs`. Design:
   `docs/briefs/architecture__the-stories-vault-and-the-three-way-workflow.md`. Moves to stories.sgit.ai later.
+- **Open Security Summit** (`open-security-summit.html`, Behaviour policies, v1.40.1): since 20 Oct 2026 the ABP is
+  proposed as the first hosted project of Open Security Summit CIC instead of OWASP; four phases, none reported done;
+  brief `docs/briefs/direction__the-abp-moves-to-the-open-security-summit.md`. The OWASP section below is superseded:
+  off the menu, banner on every page, kept as the record; nothing was sent to OWASP.
 - **OWASP** (`site/owasp/`, top-level, 8 Oct 2026, D30/D31): the proposal to take the ABP to OWASP as *OWASP Agent
   Behaviour Policies* with RiskMandate as sponsor, kept in public. Eight pages built by `build-owasp.mjs` from
   `docs/owasp/pages/*.html` and the record `site/owasp/project.json` (gates G0–G4, steps, submissions, people, places,

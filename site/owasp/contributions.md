@@ -12,7 +12,7 @@ Source: https://riskmandate.ai/owasp/contributions.html
 
 The contribution inventory: everything RiskMandate and the sgit sites have published about the Agent Behaviour Policy, where it lives, what licence it says it carries, and whether we propose to contribute it, rewrite it first, defer it, or keep it out. A footer is not proof of rights, so every row is _unresolved_ until somebody has checked it.
 
-**As at:** 8 October 2026. **Where it stands:** preparing the application; nothing sent to OWASP
+**As at:** 3 November 2026. **Where it stands:** Superseded on 20 October 2026: proposed to the Open Security Summit instead. Nothing was sent to OWASP.
 
 **The file:** [contribution-inventory.csv](/owasp/contribution-inventory.csv), the source of the tables below. Read on 8 October 2026 from this repository and from the sgit sites with a plain HTTP fetch.
 
