@@ -9,6 +9,9 @@
 // place and every page that shows it follows. The order of the pages, their titles and the strip of
 // tabs under each hero come from project.json → pages.
 //
+// On 20 October 2026 the proposal moved to the Open Security Summit (site/open-security-summit.html); the record
+// carries `superseded`, and every page shows it at the top. The pages stay at their addresses as the record.
+//
 // The record is public on purpose. The lead's instruction of 8 October 2026: everything about the
 // move, including what was submitted and what it is waiting on, goes on the public site and in the
 // public repository. It is also the file that moves to the OWASP repository if the project is
@@ -94,6 +97,7 @@ const CSS = `
 /* owasp — the move of the Agent Behaviour Policies to OWASP, kept in public */
 .phero .meta{font-family:var(--mono);font-size:12px;color:rgba(255,255,255,.6);line-height:1.7;margin-top:6px;max-width:860px}
 .phero .meta b{color:rgba(255,255,255,.85)}.phero .meta a{color:inherit}
+.ow-moved{background:#FFF4E5;border-bottom:1px solid #F3D9B1;color:#5A3A0A;font-size:14.5px;line-height:1.55}.ow-moved .wrap{padding-top:12px;padding-bottom:12px}.ow-moved a{color:#8A4B00;font-weight:600}
 .ow-tabs{background:var(--card);border-bottom:1px solid var(--border);position:relative;z-index:2}
 .ow-tabs .wrap{display:flex;flex-wrap:wrap;gap:4px 2px;padding-top:10px;padding-bottom:10px}
 .ow-tabs a{font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;padding:6px 11px;border-radius:999px;white-space:nowrap}
@@ -171,7 +175,9 @@ function cut(file, name, title, desc, body) {
   const hdr  = abs(donorBody.match(/<header class="top">.*?<\/header>/s)[0]);
   const foot = abs(donorBody.match(/<footer class="foot">.*?<\/footer>/s)[0]);
   const tail = donor.slice(scriptAt).replace('RM.data.currentPage="pricing"', `RM.data.base="/";RM.data.currentPage="${name}"`);
-  return head + '<body id="top">\n\n' + hdr + '\n\n' + abs(body) + '\n\n' + foot + '\n\n' + tail;
+  // a superseded record says so at the top of every page, and where the proposal went
+  const moved = P.superseded ? `<div class="ow-moved"><div class="wrap"><b>Superseded on ${esc(niceDate(P.superseded.date))}.</b> ${esc(P.superseded.what)} <a href="${esc(P.superseded.to)}">The Open Security Summit proposal →</a></div></div>\n` : '';
+  return head + '<body id="top">\n\n' + hdr + '\n\n' + moved + abs(body) + '\n\n' + foot + '\n\n' + tail;
 }
 
 // ------------------------------------------------------------------ components filled from the record

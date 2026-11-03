@@ -12,7 +12,7 @@ Source: https://riskmandate.ai/owasp/ecosystem.html
 
 Where an Agent Behaviour Policy meets the rest of OWASP. Some projects name the risks an ABP row is evidence about. Many are, or describe, the controls an ABP records as its fourth barrier, the one enforced above the agent. A few are formats an ABP should be able to read and write. And one, the Agent Control Standard, sits right beside it. Every project’s facts are from its own pages, read on 8 October 2026; every line about how the ABP would use it is our proposal, not theirs.
 
-**As at:** 8 October 2026. **Where it stands:** preparing the application; nothing sent to OWASP
+**As at:** 3 November 2026. **Where it stands:** Superseded on 20 October 2026: proposed to the Open Security Summit instead. Nothing was sent to OWASP.
 
 **Already on this site:** [OWASP, as a graph](/owasp-graph.html), 181 nodes and 62 relationships read from OWASP’s pages on 24 September, and the business cases for [Coraza](/business-case-owasp-coraza.html) and [Threat Dragon and pytm](/business-case-owasp-threat-dragon.html).
 

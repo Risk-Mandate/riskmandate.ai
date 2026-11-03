@@ -12,7 +12,7 @@ Source: https://riskmandate.ai/owasp/
 
 On 8 October 2026 RiskMandate’s two founders decided to propose the Agent Behaviour Policy (ABP) to OWASP as an open project, **OWASP Agent Behaviour Policies**, with RiskMandate as its sponsor. The method is already published under open licences, so the move is mostly about giving it a home that is not ours. This section is where the move is kept: the charter, the line between the company and the project, what moves, what OWASP projects it works with, the application, and a tracker of every step, submission and answer, in public, as it happens.
 
-**As at:** 8 October 2026. **Where it stands:** preparing the application; nothing sent to OWASP
+**As at:** 3 November 2026. **Where it stands:** Superseded on 20 October 2026: proposed to the Open Security Summit instead. Nothing was sent to OWASP.
 
 **What this is not, yet:** an OWASP project. OWASP has not received the application, reviewed it or accepted it. Nothing here is endorsed by OWASP, and no page should be read as saying so.
 

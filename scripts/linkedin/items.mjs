@@ -339,4 +339,19 @@ Book a meeting: https://web-summit.sgit.ai/meet/index.html
 Or start before you arrive, in five minutes: ${CUST}`,
     sources: [['web-summit.sgit.ai', 'https://web-summit.sgit.ai/']],
   },
+  {
+    id: 'open-home', seq: 16, kind: 'post', who: 'page', when: 'Day 21',
+    title: 'Post: an open home for the ABP, proposed',
+    why: 'The governance story in one post: the format should not belong to the company that sells it. Said as a proposal.',
+    shots: [{ file: 'open-home.jpg', url: LOCAL + 'open-security-summit.html', viewport: [1200, 627], alt: 'Agent Behaviour Policies, hosted by the Open Security Summit: a proposal.' }],
+    text: `A description of what an agent can do should not belong to the company that sells it.
+
+So we have proposed that the Agent Behaviour Policies become the first hosted project of the Open Security Summit, a UK community interest company. The vocabulary and policies are already open, CC BY 4.0 and Apache 2.0; what hosting adds is a public charter, and a steering group with a majority independent of RiskMandate.
+
+Hosting is not independence: the charter is what will make it so, and until it exists we will not call it independent. RiskMandate is a founding contributor, and one implementer among others.
+
+The proposal, and where it stands: https://riskmandate.ai/open-security-summit.html
+And the ABP itself, in five minutes: ${CUST}`,
+    sources: [['Agent Behaviour Policies move to the Open Security Summit', NEWS('agent-behaviour-policies-move-to-the-open-security-summit')], ['The page on this site', 'https://riskmandate.ai/open-security-summit.html']],
+  },
 ];
