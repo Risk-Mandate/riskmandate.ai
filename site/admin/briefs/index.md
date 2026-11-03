@@ -3,7 +3,7 @@
 > Every document under docs/ on riskmandate.ai, rendered as a page: direction briefs, reviews, workflows, architecture and research, newest first.
 > Source: https://riskmandate.ai/admin/briefs/ · noindex · written by scripts/site/build-admin.mjs
 
-**37**documents under docs/*one page each, rendered from the file*
+**38**documents under docs/*one page each, rendered from the file*
 
 **10**direction briefs*the product and the site*
 
@@ -14,6 +14,10 @@
 These were written here, by the agent maintaining the site, in response to [the memos and documents that arrived](../../admin/memos/). Each is read against a named source and dated. Add a file under `docs/` and rerun `build-admin.mjs`: it has a page here and a test fails until it does.
 
 ## Newest first
+
+**[The customers site after SHarness: a brief for the session that maintains customers.riskmandate.ai](../../admin/briefs/handover__the-customers-site-sharness-the-film-and-web-summit/)**
+
+Until 29 October RiskMandate described and others enforced: an ABP said what one agent may do, and what kept each rule was the agent's willingness (a line in the prompt), a hook on its own machine, or a control the customer already ran. Now there is…3 November 2026 · handover
 
 **[Ten hard questions agree with the site everywhere except where it matters most: the home page says we enforce](../../admin/briefs/review__ten-hard-questions-and-what-the-site-should-say/)**
 

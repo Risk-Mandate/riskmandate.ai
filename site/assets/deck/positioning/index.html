@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>RiskMandate — the positioning, in fourteen slides</title>
+<meta name="description" content="RiskMandate's positioning as at 3 November 2026: the Agent Behaviour Policy, who keeps each rule, and SHarness, the open-source secure harness that holds the rules in your own environment. Arrow keys to move, N for notes, F for full screen, P to print.">
+<style>
+:root{--ink:#07140F;--fg:#E8F0EC;--mut:rgba(232,240,236,.68);--g:#4BE3A2;--g2:#1A7F5A;--gold:#E9B85C;--paper:#F6F7F4;--text:#101613;--tm:#4A524D}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:#000;font-family:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+.deck{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+.slide{position:absolute;width:1600px;height:900px;transform-origin:center center;display:none;overflow:hidden;background:var(--ink);color:var(--fg);padding:84px 96px}
+.slide.on{display:block}
+.slide.light{background:var(--paper);color:var(--text)}
+.k{font:600 18px/1.3 ui-monospace,"SF Mono",Menlo,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--g)}
+.light .k{color:var(--g2)}
+h1{margin:18px 0 0;font-size:96px;line-height:.98;letter-spacing:-.045em;font-weight:700}
+h2{margin:16px 0 0;font-size:64px;line-height:1.02;letter-spacing:-.04em;font-weight:700;max-width:22ch}
+p.lede{margin:26px 0 0;font-size:28px;line-height:1.45;color:var(--mut);max-width:34em}.light p.lede{color:var(--tm)}
+.it{font-style:italic;color:var(--g)}.light .it{color:var(--g2)}
+.bg{position:absolute;inset:0;background-size:cover;background-position:center}
+.bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,20,15,.92) 0%,rgba(7,20,15,.7) 42%,rgba(7,20,15,.05) 75%)}
+.bg.full::after{background:linear-gradient(0deg,rgba(7,20,15,.85) 0%,rgba(7,20,15,0) 45%)}
+.over{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;justify-content:center}
+.over.bottom{justify-content:flex-end}
+.foot{position:absolute;left:96px;right:96px;bottom:40px;display:flex;justify-content:space-between;font-size:16px;color:var(--mut);z-index:2}.light .foot{color:var(--tm)}
+.cols{display:grid;gap:24px;margin-top:44px}.c3{grid-template-columns:repeat(3,1fr)}.c4{grid-template-columns:repeat(4,1fr)}.c2{grid-template-columns:repeat(2,1fr)}
+.card{border:1px solid rgba(232,240,236,.16);background:rgba(232,240,236,.04);border-radius:22px;padding:28px 30px}
+.light .card{border-color:#DDE3DE;background:#fff}
+.card.hi{background:var(--g2);border-color:var(--g2);color:#fff}.card.hi p{color:rgba(255,255,255,.86)}
+.card .n{font:600 16px/1 ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--g)}.light .card .n{color:var(--g2)}.card.hi .n{color:#CFFBE7}
+.card h3{margin:12px 0 10px;font-size:34px;letter-spacing:-.02em}
+.card p{margin:0;font-size:22px;line-height:1.45;color:var(--mut)}.light .card p{color:var(--tm)}
+.card code,.mono{font:20px/1.5 ui-monospace,"SF Mono",Menlo,monospace}
+.shot{border-radius:18px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.12)}
+.shot img{display:block;width:100%}
+.split{display:grid;grid-template-columns:1fr 1.15fr;gap:56px;align-items:center;height:100%}
+.big{font-size:150px;font-weight:700;letter-spacing:-.05em;line-height:1;color:var(--g)}
+.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:40px}
+.nums div{border-top:3px solid var(--g);padding-top:14px}.light .nums div{border-color:var(--g2)}.light .nums span{color:var(--tm)}.nums b{display:block;font-size:72px;letter-spacing:-.04em}.nums span{font-size:20px;color:var(--mut)}
+ul.pts{margin:34px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:16px;font-size:27px;line-height:1.4}
+ul.pts li{padding-left:34px;position:relative}ul.pts li::before{content:"";position:absolute;left:0;top:14px;width:14px;height:14px;border-radius:50%;background:var(--g)}
+.light ul.pts li::before{background:var(--g2)}
+.steps{display:flex;gap:10px;margin-top:44px;flex-wrap:wrap}.steps span{font-size:24px;padding:14px 22px;border-radius:999px;border:1px solid rgba(232,240,236,.25)}.steps span.on{background:var(--g);color:var(--ink);border-color:var(--g);font-weight:700}
+.url{font:600 40px/1.2 ui-monospace,Menlo,monospace;color:var(--g);margin-top:20px}
+svg.diag{width:100%;height:auto;margin-top:36px}
+.notes{position:fixed;left:0;right:0;bottom:0;max-height:34vh;overflow:auto;background:#111;color:#ddd;font:15px/1.55 ui-sans-serif,system-ui,sans-serif;padding:14px 22px;border-top:1px solid #333;display:none;z-index:10}
+.notes.on{display:block}.notes b{color:var(--g)}
+.hud{position:fixed;right:14px;bottom:12px;z-index:11;display:flex;gap:6px;font:13px ui-sans-serif,system-ui,sans-serif}
+.hud button{background:rgba(255,255,255,.1);color:#ddd;border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:6px 10px;cursor:pointer}
+.hud span{color:#aaa;padding:6px 4px}
+@media print{@page{size:1600px 900px;margin:0}html,body{background:#fff}.deck{position:static;display:block}.slide{position:relative;display:block!important;transform:none!important;page-break-after:always;break-after:page}.notes,.hud{display:none!important}}
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+<section class="slide" data-notes="Open with the film if you can: it is 53 seconds and needs no sound (riskmandate.ai, just under the hero). Then this slide. One line: we write down what an AI agent can actually reach, what it was authorised to do, and the gap.">
+  <div class="bg" style="background-image:url(film-mandate.jpg)"></div>
+  <div class="over"><span class="k">RiskMandate · November 2026</span><h1>Give agents access.<br><span class="it">Not free rein.</span></h1>
+  <p class="lede">Agent Behaviour Policies: for one AI agent in one deployment, what it can reach, what you authorised it to do, and the gap between the two.</p></div>
+  <div class="foot"><span>riskmandate.ai</span><span>1</span></div>
+</section>
+
+<section class="slide" data-notes="The problem in one picture. Agents are connected to mail, files, payments and APIs because that is what makes them useful. Nobody writes down what that adds up to. The line from the CISO briefing: 'Your agent can do three hundred and forty things and you authorised twelve' is a finding.">
+  <div class="bg" style="background-image:url(film-reach.jpg)"></div>
+  <div class="over"><span class="k">The problem</span><h2>An agent can reach far more than anyone authorised.</h2>
+  <p class="lede">Every connector, scope and tool adds reach. Nobody writes down the total, and nobody writes down what the agent was actually for.</p></div>
+  <div class="foot"><span>Film still: Reach, Mandate, Gap, by Silvio Switha</span><span>2</span></div>
+</section>
+
+<section class="slide" data-notes="The whole model is four words. Reach is measured from the deployment, not the brochure. Mandate is what the business authorised. The gap is the difference, derived. The barrier is what actually stands in the way of each thing in the gap: nothing, an expectation, a setting or a boundary. The film calls the gap the delta; same thing.">
+  <div class="bg" style="background-image:url(film-dome.jpg)"></div>
+  <div class="over"><span class="k">The model</span><h2>Reach. Mandate. Gap. Barriers.</h2>
+  <ul class="pts" style="max-width:20em"><li><b>Reach</b>, measured: what it can actually access.</li><li><b>Mandate</b>, written: what the business asked it to do.</li><li><b>Gap</b>, derived: reach nobody asked for.</li><li><b>Barrier</b>, recorded: what stands in the way of each thing.</li></ul></div>
+  <div class="foot"><span>The film says delta where the site says gap</span><span>3</span></div>
+</section>
+
+<section class="slide light" data-notes="Show a real one: riskmandate.ai/abp-vault-claude-code-web.html. Claude Code on the web with one repository: 15 capabilities it can reach, 6 you asked for, 9 you did not, 7 with nothing real in the way. Built from the vendor's own pages, quoted and dated. It describes, it does not judge: no score anywhere.">
+  <div class="split"><div><span class="k">The ABP</span><h2>One agent, one deployment, one record. <span class="it">No score.</span></h2>
+  <div class="nums"><div><b>15</b><span>it can reach</span></div><div><b>6</b><span>you asked for</span></div><div><b>9</b><span>you did not</span></div><div><b>7</b><span>nothing real in the way</span></div></div>
+  <p class="lede" style="font-size:22px">Claude Code on the web, one repository attached: one of sixteen example policies, free, each from the vendor's own pages.</p></div>
+  <div class="shot"><img src="shot-abp-example.jpg" alt="An example Agent Behaviour Policy on riskmandate.ai"></div></div>
+  <div class="foot"><span>riskmandate.ai/agent-behaviour-policy.html</span><span>4</span></div>
+</section>
+
+<section class="slide" data-notes="Why it is one record: the operator, leadership, security and the insurer each ask a different question of the same agent. The ABP is one document they all read, each with their own view. Nobody issues a verdict: people decide how much authority to give.">
+  <div class="bg full" style="background-image:url(film-record.jpg)"></div>
+  <div class="over bottom" style="padding-bottom:40px"><span class="k">One record, every reader</span><h2 style="max-width:26ch">The CEO, the CTO, the CISO and the insurer read the same facts.</h2></div>
+  <div class="foot"><span>Film still</span><span>5</span></div>
+</section>
+
+<section class="slide" data-notes="This is the turn. Every rule is kept by something, and the question is what. Told: a line in the prompt, the model keeps it because it chooses to. Checked: a hook, deterministic but on the agent's own machine, the same account can turn it off. Held: something the agent cannot reach. The five-minute examples on the customers site are all 'told', on purpose: they show why the next two matter.">
+  <span class="k">Who keeps each rule</span><h2>A prompt asks. A boundary enforces.</h2>
+  <div class="cols c3"><div class="card"><span class="n">1 · Told</span><h3>A line in the prompt</h3><p>The model keeps it because it chooses to. An expectation: hope.</p></div>
+  <div class="card"><span class="n">2 · Checked</span><h3>A hook</h3><p>Deterministic, but on the agent's own machine. A setting the same account can switch off.</p></div>
+  <div class="card hi"><span class="n">3 · Held</span><h3>A boundary</h3><p>Kept by something the agent does not include. The only kind an insurer, an auditor or a board can count.</p></div></div>
+  <p class="lede" style="font-size:22px">The newsroom built one agent three ways: 97% of its rules were hope in the first design, 23% in the third.</p>
+  <div class="foot"><span>Hope or enforcement, newsroom.sgit.ai, 8 October 2026</span><span>6</span></div>
+</section>
+
+<section class="slide" data-notes="SHarness: the secure harness we could not find, so we built it (29 October). Open source, Apache-2.0, pip install sharness-ai. The ABP becomes a Process Behaviour Policy, a small canonical JSON, named by a sha256 the person supplies from outside. The launcher checks the hash; the Linux kernel holds the capability rows (read, write, execute, connect); five doors hold the behaviour rows, each the only way to one resource. A tricked agent cannot widen what it cannot rename.">
+  <span class="k">SHarness · the open-source secure harness</span><h2>The rules in an ABP, held by the kernel.</h2>
+  <svg class="diag" viewBox="0 0 1160 300" role="img" aria-label="ABP to PBP plus hash to the launcher, the kernel and five doors"><defs><marker id="dk-ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#4BE3A2"/></marker></defs><g font-family="ui-sans-serif,system-ui,sans-serif">
+  <rect x="10" y="80" width="200" height="120" rx="16" fill="none" stroke="#4BE3A2" stroke-width="2"/><text x="110" y="122" text-anchor="middle" font-size="22" font-weight="700" fill="#fff">ABP</text><text x="110" y="150" text-anchor="middle" font-size="14" fill="#B8C9C0">written by RiskMandate</text><text x="110" y="176" text-anchor="middle" font-size="14" fill="#4BE3A2">describes</text>
+  <path d="M214 140H262" stroke="#4BE3A2" stroke-width="2.5" marker-end="url(#dk-ah)"/>
+  <rect x="268" y="80" width="210" height="120" rx="16" fill="none" stroke="#4BE3A2" stroke-width="2"/><text x="373" y="122" text-anchor="middle" font-size="22" font-weight="700" fill="#fff">PBP + hash</text><text x="373" y="150" text-anchor="middle" font-size="14" fill="#B8C9C0">sha256 supplied by you</text><text x="373" y="176" text-anchor="middle" font-size="14" fill="#4BE3A2">executed</text>
+  <path d="M482 140H530" stroke="#4BE3A2" stroke-width="2.5" marker-end="url(#dk-ah)"/>
+  <rect x="536" y="20" width="614" height="260" rx="20" fill="rgba(232,240,236,.06)" stroke="rgba(232,240,236,.2)"/><text x="560" y="52" font-size="14" font-weight="700" fill="#4BE3A2" letter-spacing="1.5">IN YOUR ENVIRONMENT</text>
+  <rect x="560" y="70" width="150" height="190" rx="14" fill="none" stroke="#4BE3A2" stroke-width="2"/><text x="635" y="108" text-anchor="middle" font-size="18" font-weight="700" fill="#fff">Launcher</text><text x="635" y="136" text-anchor="middle" font-size="13" fill="#B8C9C0">checks the hash</text><text x="635" y="158" text-anchor="middle" font-size="13" fill="#B8C9C0">a user and a</text><text x="635" y="178" text-anchor="middle" font-size="13" fill="#B8C9C0">certificate per part</text>
+  <rect x="730" y="70" width="400" height="80" rx="14" fill="rgba(232,240,236,.06)" stroke="rgba(232,240,236,.25)"/><text x="750" y="102" font-size="17" font-weight="700" fill="#fff">Linux kernel</text><text x="750" y="128" font-size="13" fill="#B8C9C0">read · write · run · connect · memory · privileges</text>
+  <g font-size="14" font-weight="700"><rect x="730" y="166" width="74" height="44" rx="10" fill="#1A7F5A"/><text x="767" y="193" text-anchor="middle" fill="#fff">fs</text><rect x="812" y="166" width="74" height="44" rx="10" fill="#1A7F5A"/><text x="849" y="193" text-anchor="middle" fill="#fff">net</text><rect x="894" y="166" width="74" height="44" rx="10" fill="none" stroke="#E9B85C" stroke-dasharray="4 3"/><text x="931" y="193" text-anchor="middle" fill="#E9B85C">kms</text><rect x="976" y="166" width="74" height="44" rx="10" fill="none" stroke="#E9B85C" stroke-dasharray="4 3"/><text x="1013" y="193" text-anchor="middle" fill="#E9B85C">bash</text><rect x="1058" y="166" width="72" height="44" rx="10" fill="none" stroke="#E9B85C" stroke-dasharray="4 3"/><text x="1094" y="193" text-anchor="middle" fill="#E9B85C">llm</text></g>
+  <text x="730" y="240" font-size="13" fill="#B8C9C0">doors: each the only way to one resource · green runs, dashed is design</text></g></svg>
+  <div class="foot"><span>sharness.ai · pip install sharness-ai · Apache-2.0</span><span>7</span></div>
+</section>
+
+<section class="slide" data-notes="Be precise about status, because a technical audience will check. As at 29 October, sharness-ai 0.2.0: the kernel locks run on a process; hello holds six of six probes in five environments including a Linux kernel in a browser tab; the file and network doors run as early versions; a shell whose only way out is the network door. Not built: the launcher above the agent. Nothing yet binds the agent itself. Linux only. Security reviews so far were by an agent of the project.">
+  <span class="k">Status, as at 29 October 2026</span><h2>What runs today, and what is still the design.</h2>
+  <div class="cols c2"><div class="card" style="border-color:#4BE3A2"><span class="n">Runs today · 0.2.0</span><ul class="pts" style="font-size:23px;margin-top:18px"><li>Kernel locks on a process, hash checked first</li><li><code>hello</code>: six probes, six held, five environments</li><li>A Linux kernel in a browser tab, holding them</li><li>File and network doors, early versions</li></ul></div>
+  <div class="card" style="border-color:#E9B85C"><span class="n" style="color:#E9B85C">Design, not built</span><ul class="pts" style="font-size:23px;margin-top:18px"><li>The launcher above the agent: nothing yet binds the agent itself</li><li>Key, shell and model doors; seccomp</li><li>Linux only; no protection against root</li><li>Translations to Docker and Kubernetes not yet run</li></ul></div></div>
+  <div class="foot"><span>sharness.ai/evidence/status</span><span>8</span></div>
+</section>
+
+<section class="slide" data-notes="The point a technical friend will push on: are you now inline? No. SHarness runs where the customer runs it. The expansion from policy to kernel runs once, at launch, and costs nothing per request. RiskMandate writes and maintains the policies and the harness; it holds no key and sees no traffic. Any enforcer that holds the same rows is valid: policy translate writes it for bubblewrap, Docker, Kubernetes, Claude Code's sandbox, with what each cannot hold.">
+  <div class="split"><div><span class="k">Not inline, still</span><h2>Enforcement in your environment. <span class="it">Nothing per request.</span></h2>
+  <ul class="pts" style="font-size:25px"><li>You run it: on the laptop, in the cluster, in your cloud.</li><li>The policy compiles once, at launch.</li><li>We see no traffic and hold no key.</li><li>Any enforcer that holds the same rows will do.</li></ul></div>
+  <div class="shot"><img src="shot-sharness-home.jpg" alt="sharness.ai"></div></div>
+  <div class="foot"><span>"The enterprise story has no product in the request path." · introducing-sharness, 29 October</span><span>9</span></div>
+</section>
+
+<section class="slide" data-notes="The offer now has four steps. Describe: the ABP, available now, from the pack to a reviewed and signed policy (£10 to £1,500 on the store). Check: lines and hooks you can paste or install today. Hold: SHarness, open source, and we help you deploy it. Show: two numbers in every summary, the reach nobody asked for, and the rows no boundary holds, which is the business case for the next door.">
+  <span class="k">The offer</span><h2>Describe. Check. Hold. Show.</h2>
+  <div class="cols c4"><div class="card"><span class="n">1 · Describe</span><h3>The ABP</h3><p>Available now: from the pack to a policy a professional signs.</p></div>
+  <div class="card"><span class="n">2 · Check</span><h3>Lines and hooks</h3><p>Paste or install today, for Claude, ChatGPT and Claude Code.</p></div>
+  <div class="card hi"><span class="n">3 · Hold</span><h3>SHarness</h3><p>Open source, in your environment. We help you deploy it.</p></div>
+  <div class="card"><span class="n">4 · Show</span><h3>Two numbers</h3><p>Reach nobody asked for, and rows no boundary holds.</p></div></div>
+  <div class="foot"><span>riskmandate.ai/secure-harness.html</span><span>10</span></div>
+</section>
+
+<section class="slide light" data-notes="Live, if there is a laptop: customers.riskmandate.ai, hello world in Claude. Ask 'say hello to me', paste the line, ask again, new chat. Two minutes. Point out the loophole: some replies say 'Hi!', because the line named a word, not a greeting. Most of the work of a behaviour policy is saying what you mean.">
+  <div class="split"><div><span class="k">Try it now</span><h2>Five minutes, in your own assistant.</h2>
+  <p class="lede">Ask Claude or ChatGPT to do something. Paste one line that says it must not. Ask again, and watch it refuse. Six examples, simplest first, nothing to install.</p><div class="url">customers.riskmandate.ai</div></div>
+  <div class="shot"><img src="shot-customers.jpg" alt="customers.riskmandate.ai"></div></div>
+  <div class="foot"><span>The first batch are customers, not beta users</span><span>11</span></div>
+</section>
+
+<section class="slide" data-notes="Proof by our own practice: at Web Summit, seven people and 24 agents, each agent with its own published ABP. The behaviour policies already caught a procurement agent writing outside its folder and a session signing commits under another agent's name (newsroom, web-summit-part-four, 2 November).">
+  <span class="k">We run on it</span><h2>Seven of us, our agents, one behaviour policy each.</h2>
+  <div class="shot" style="margin-top:40px"><img src="shot-websummit.jpg" alt="web-summit.sgit.ai"></div>
+  <p class="lede" style="font-size:24px">The policies caught a procurement agent writing outside its folder, and a session signing commits under another agent's name.</p>
+  <div class="foot"><span>web-summit.sgit.ai · 2 November 2026</span><span>12</span></div>
+</section>
+
+<section class="slide" data-notes="Where it goes, and say clearly it is a proposal the founders are still discussing: a spectrum of trust walked with each customer. We are on the first stage. The end game is agents an insurer can cover. RiskMandate is not an insurer; the aim is to make agentic AI insurable, and only an enforced control can lower a row's premium.">
+  <div class="bg" style="background-image:url(film-scale.jpg)"></div>
+  <div class="over"><span class="k">Where it goes · a proposal</span><h2>From one policy to agents an insurer can cover.</h2>
+  <div class="steps"><span class="on">Policies</span><span>Understand</span><span>Risk acceptance</span><span>Contain</span><span>Manage</span><span>Insure</span></div>
+  <p class="lede">We are on the first step. RiskMandate is not an insurer; its aim is to make agentic AI insurable.</p></div>
+  <div class="foot"><span>A proposed roadmap for RiskMandate, newsroom.sgit.ai, 20 October 2026</span><span>13</span></div>
+</section>
+
+<section class="slide" data-notes="Close with the three places to go, and the stand: Web Summit, Lisbon, Thursday 12 November. Follow the LinkedIn page. Ask them to try the five-minute example tonight and tell us where it breaks.">
+  <div class="bg" style="background-image:url(film-end.jpg)"></div>
+  <div class="over" style="justify-content:flex-end;padding-bottom:30px"><span class="k">Web Summit · Lisbon · stand on Thursday 12 November</span>
+  <div class="cols c3" style="margin-top:26px"><div class="card"><span class="n">Try</span><p class="mono" style="color:#fff">customers.riskmandate.ai</p></div><div class="card"><span class="n">Harness</span><p class="mono" style="color:#fff">sharness.ai</p></div><div class="card"><span class="n">Meet</span><p class="mono" style="color:#fff">web-summit.sgit.ai</p></div></div></div>
+  <div class="foot"><span>linkedin.com/company/riskmandate</span><span>14</span></div>
+</section>
+
+</div>
+<div class="notes" id="notes"></div>
+<div class="hud"><button type="button" id="prev" aria-label="Previous slide">←</button><span id="pos"></span><button type="button" id="next" aria-label="Next slide">→</button><button type="button" id="tn">Notes (N)</button><button type="button" id="fs">Full screen (F)</button></div>
+<script>
+(function () {
+  var S = Array.prototype.slice.call(document.querySelectorAll('.slide')), i = 0, notes = document.getElementById('notes');
+  function fit() { var k = Math.min(innerWidth / 1600, innerHeight / 900); S.forEach(function (s) { s.style.transform = 'scale(' + k + ')'; }); }
+  function show(n) {
+    i = Math.max(0, Math.min(S.length - 1, n));
+    S.forEach(function (s, j) { s.classList.toggle('on', j === i); });
+    document.getElementById('pos').textContent = (i + 1) + ' / ' + S.length;
+    notes.innerHTML = '<b>Slide ' + (i + 1) + '.</b> ' + (S[i].getAttribute('data-notes') || '');
+    try { history.replaceState(null, '', '#' + (i + 1)); } catch (_) {}
+  }
+  addEventListener('resize', fit);
+  addEventListener('keydown', function (e) {
+    if (['ArrowRight', 'PageDown', ' '].indexOf(e.key) >= 0) { e.preventDefault(); show(i + 1); }
+    else if (['ArrowLeft', 'PageUp'].indexOf(e.key) >= 0) { e.preventDefault(); show(i - 1); }
+    else if (e.key === 'Home') show(0); else if (e.key === 'End') show(S.length - 1);
+    else if (e.key === 'n' || e.key === 'N') notes.classList.toggle('on');
+    else if (e.key === 'f' || e.key === 'F') { if (document.fullscreenElement) document.exitFullscreen(); else document.documentElement.requestFullscreen && document.documentElement.requestFullscreen(); }
+    else if (e.key === 'p' || e.key === 'P') print();
+  });
+  document.getElementById('deck').addEventListener('click', function (e) { if (e.target.closest('a')) return; show(e.clientX > innerWidth / 3 ? i + 1 : i - 1); });
+  document.getElementById('prev').onclick = function () { show(i - 1); };
+  document.getElementById('next').onclick = function () { show(i + 1); };
+  document.getElementById('tn').onclick = function () { notes.classList.toggle('on'); };
+  document.getElementById('fs').onclick = function () { if (document.fullscreenElement) document.exitFullscreen(); else document.documentElement.requestFullscreen && document.documentElement.requestFullscreen(); };
+  fit(); show((parseInt((location.hash || '').slice(1), 10) || 1) - 1);
+})();
+</script>
+</body>
+</html>
