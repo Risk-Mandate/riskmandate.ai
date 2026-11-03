@@ -13,11 +13,11 @@
 
 **34**memos not fully worked*of 42 received*
 
-**37**briefs written here*one page each*
+**38**briefs written here*one page each*
 
 **16**vaults built and pushed*4 measured · 9 asked for*
 
-**151**releases*8 Lab editions*
+**152**releases*8 Lab editions*
 
 ## Needs the lead — 11
 

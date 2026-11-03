@@ -1,0 +1,7 @@
+{
+ "name": "walkthrough",
+ "title": "RiskMandate \u2014 the demo walkthrough (private)",
+ "desc": "A private working page: the twenty-minute demo in order, what to open, what to show and what to say, the questions to expect and what to rehearse.",
+ "body": "scripts/site/walkthrough/body.html",
+ "css": ".phero .sub a{color:#7FD1A8}.paper a{color:var(--green)}\n.wk-steps{list-style:none;padding:0;margin:8px 0 0;display:flex;flex-direction:column;gap:14px;counter-reset:s}\n.wk-steps>li{background:#fff;border:1px solid var(--border);border-radius:16px;padding:18px 22px}\n.wk-h{display:flex;justify-content:space-between;gap:12px;align-items:baseline}.wk-h b{font-size:18px}.wk-h span{font:600 12px/1 var(--mono);color:var(--faint);text-transform:uppercase;letter-spacing:.06em;white-space:nowrap}\n.wk-steps ul{margin:10px 0 0;padding-left:18px;font-size:15px;line-height:1.7}\n.wk-say{margin-top:10px!important;font-size:15px;line-height:1.6;color:var(--text);background:#F4FAF7;border-left:3px solid var(--green);padding:10px 14px;border-radius:0 10px 10px 0}\n.wk-say span{display:block;font:600 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:6px}\n.wk-qa{display:grid;grid-template-columns:minmax(0,280px) minmax(0,1fr);gap:14px 28px;margin:8px 0 0}.wk-qa dt{font-weight:700}.wk-qa dd{margin:0;color:var(--muted);line-height:1.6}\n.wk-risks{padding-left:18px;font-size:15.5px;line-height:1.8}\n@media (max-width:900px){.wk-qa{grid-template-columns:minmax(0,1fr)}}"
+}

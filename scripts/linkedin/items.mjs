@@ -289,4 +289,54 @@ Or start with one, in five minutes: ${CUST}`,
 <p>Every stage starts with the first one, and the first one takes five minutes: <a href="${CUST}">customers.riskmandate.ai</a>.</p>`,
     sources: [['A proposed roadmap for RiskMandate', NEWS('the-riskmandate-roadmap')], ['Agent Behaviour Policies move to the Open Security Summit', NEWS('agent-behaviour-policies-move-to-the-open-security-summit')]],
   },
+  {
+    id: 'the-film', seq: 13, kind: 'post', who: 'page', when: 'Day 17, or the day you show it',
+    title: 'Post: Reach, Mandate, Gap, the film',
+    why: 'Fifty-three seconds that explain the ABP without a word. Upload the video itself; LinkedIn plays native video in the feed.',
+    shots: [{ file: 'film-poster.jpg', url: LOCAL + 'assets/media/film/riskmandate-reach-mandate-gap-poster.jpg', viewport: [1024, 576], alt: 'Reach, Mandate, Gap: the film, by Silvio Switha.' }],
+    text: `Know their reach. Define their mandate. Control the gap.
+
+Fifty-three seconds, no narration: an AI agent, everything it can reach, the mandate the business gave it, and the gap between the two. Then the same record for a thousand agents, read by operations, leadership, security and the insurer.
+
+That record is an Agent Behaviour Policy. The film is by Silvio Switha.
+
+Watch it on the home page: https://riskmandate.ai/#film
+Then make your first one in five minutes, in Claude or ChatGPT: ${CUST}`,
+    sources: [['The film, on the Web Summit site', 'https://web-summit.sgit.ai/videos/reach-mandate-gap/index.html'], ['The film file to upload', 'https://riskmandate.ai/assets/media/film/riskmandate-reach-mandate-gap.mp4']],
+  },
+  {
+    id: 'sharness', seq: 14, kind: 'article', who: 'page', when: 'Day 19',
+    title: 'The rules in an ABP, held by the kernel: SHarness',
+    why: 'The change in the offer: enforcement, in your environment, from an open-source harness we maintain. Said with its status beside it.',
+    cover: { kicker: 'Open source · the secure harness', title: 'The rules in an ABP, held by the kernel.' },
+    shots: [
+      { file: 'sharness-levels.jpg', url: LOCAL + 'index.html', selector: '#harness', alt: 'Told, checked, held: and SHarness on your machine.' },
+      { file: 'sharness-site.jpg', url: 'https://sharness.ai/', viewport: [1280, 720], alt: 'sharness.ai' },
+    ],
+    html: `<p>Every rule an agent follows is kept by something. <strong>Told</strong>, it is a line in the prompt, and the model keeps it because it chooses to. <strong>Checked</strong>, it is a hook on the agent's own machine, which the same account can switch off. <strong>Held</strong>, it is a boundary the agent cannot reach. Until now, the third was yours to find.</p>
+<p><img src="${IMG('sharness-levels.jpg')}" alt="Told, checked, held: and SHarness on your machine."></p>
+<h2>SHarness</h2>
+<p>SHarness is an open-source secure harness, Apache-2.0, which RiskMandate maintains and you run in your own environment. It turns an Agent Behaviour Policy into a Process Behaviour Policy: a small policy for each process the agent starts, named by a hash you supply, held by the Linux kernel and by a few single-purpose doors, each the only way to one resource.</p>
+<blockquote>A prompt-injected agent cannot widen what it cannot rename.</blockquote>
+<h2>Still not in the request path</h2>
+<p>You run it, on the laptop, in the cluster or in your cloud. The policy compiles once, at launch, and costs nothing per request. We see no traffic and hold no key. Any enforcer that holds the same rows will do: the same policy can be written for bubblewrap, Docker, Kubernetes or Claude Code's sandbox, with what each of them cannot hold.</p>
+<h2>What runs today, and what does not</h2>
+<p>As at 29 October, <code>sharness-ai</code> 0.2.0: the kernel locks run on a process, and <code>hello</code> holds six of six probes in five environments, one of them a Linux kernel running in a browser tab. The file and network doors run as early versions. Not built yet: the launcher above the agent, so nothing yet binds the agent itself; the key, shell and model doors. Linux only.</p>
+<p><img src="${IMG('sharness-site.jpg')}" alt="sharness.ai"></p>
+<p>Run it in a browser tab, try to break it, and tell us: <a href="https://sharness.ai/">sharness.ai</a>. What it changes for an ABP: <a href="https://riskmandate.ai/secure-harness.html">riskmandate.ai/secure-harness.html</a>. And the first step is still five minutes: <a href="${CUST}">customers.riskmandate.ai</a>.</p>`,
+    sources: [['SHarness: the secure harness we could not find, so we built it', NEWS('introducing-sharness')], ['The SHarness page on this site', 'https://riskmandate.ai/secure-harness.html']],
+  },
+  {
+    id: 'web-summit', seq: 15, kind: 'post', who: 'page', when: 'Before 9 November',
+    title: 'Post: meet us at Web Summit, Lisbon',
+    why: 'The stand is on Thursday 12 November; the post that fills the meetings.',
+    shots: [{ file: 'web-summit.jpg', url: LOCAL + 'assets/deck/positioning/film-end.jpg', viewport: [1024, 576], alt: 'RiskMandate: know their reach, define their mandate, control the gap.' }],   // the film's last frame; the Web Summit site's home shows the team's own to-do list
+    text: `We will be at Web Summit in Lisbon, 9 to 12 November. Our stand is on Thursday 12 November.
+
+Seven of us, and our agents, each agent with its own published Agent Behaviour Policy. Bring one agent you run, and leave knowing what it can reach, what it was authorised to do, and the gap.
+
+Book a meeting: https://web-summit.sgit.ai/meet/index.html
+Or start before you arrive, in five minutes: ${CUST}`,
+    sources: [['web-summit.sgit.ai', 'https://web-summit.sgit.ai/']],
+  },
 ];

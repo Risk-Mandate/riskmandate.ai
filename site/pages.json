@@ -26,6 +26,12 @@
       "group": "Behaviour policies"
     },
     {
+      "name": "secure-harness",
+      "label": "SHarness: enforcement, held by the kernel",
+      "file": "secure-harness.html",
+      "group": "Behaviour policies"
+    },
+    {
       "name": "licence-to-operate",
       "label": "Licence to Operate",
       "file": "licence-to-operate.html",
@@ -659,6 +665,13 @@
       "label": "About: the company and the founders",
       "file": "about.html",
       "group": "More"
+    },
+    {
+      "name": "walkthrough",
+      "label": "Demo walkthrough: twenty minutes, in order",
+      "file": "walkthrough.html",
+      "group": "More",
+      "private": true
     },
     {
       "name": "linkedin",

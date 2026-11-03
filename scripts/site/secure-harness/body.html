@@ -1,0 +1,98 @@
+<main class="phero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> Behaviour policies · the secure harness</span>
+    <h1>The rules in an ABP, <span class="it">held by the kernel.</span></h1>
+    <p class="sub">An Agent Behaviour Policy says what one agent may do. Until now, what kept each rule was the agent's own willingness, a hook on its own machine, or a control you already ran. <b>SHarness</b> adds the missing piece: an open-source secure harness, which RiskMandate maintains and you run in your own environment, that turns the ABP into a policy the Linux kernel holds on every process the agent starts. We are still never in the request path.</p>
+    <div class="cta-row"><a class="btn btn-green" href="https://sharness.ai/code/browser/demo/index.html" target="_blank" rel="noopener">Run it in a browser tab ↗</a><a class="btn btn-ghost" href="https://sharness.ai/" target="_blank" rel="noopener">sharness.ai ↗</a><a class="btn btn-ghost" href="#status">What runs today</a></div>
+  </div>
+</main>
+<div class="paper">
+<section class="psection" id="changes">
+  <div class="wrap">
+    <div class="shead"><span class="tag">01 · What changes</span><h2>From describing a rule to holding it.</h2>
+    <p>An ABP describes; a Process Behaviour Policy is that description executed, underneath the agent. In sharness.ai's own words: “An ABP <i>describes</i> an agent's behaviour; a PBP is that description <i>executed</i>, underneath the agent.”</p></div>
+    <div class="sh-two">
+      <div><h3>Before</h3><p>RiskMandate wrote down the reach, the mandate, the gap and the barrier on every row. Most barriers were expectations, lines the agent reads, or settings it could switch off. Enforcement was yours to find.</p></div>
+      <div class="on"><h3>With SHarness</h3><p>The same rows, compiled into a policy named by a hash you supply, and held by something the agent does not include: the kernel, or a door that is the only way to a resource. A row held that way is a boundary, the one kind of barrier an insurer, an auditor or a board can count.</p></div>
+    </div>
+    <p class="sh-note">Not inline, still: “The enterprise story has no product in the request path.” The vendor ships profiles, your organisation names its own proxies and databases, the machine compiles the rest, and “it costs nothing per request: the expansion runs once, at launch.” From <a href="https://newsroom.sgit.ai/articles/introducing-sharness.html" target="_blank" rel="noopener">SHarness: the secure harness we could not find, so we built it</a>, 29 October 2026.</p>
+  </div>
+</section>
+<section class="psection alt" id="binding">
+  <div class="wrap">
+    <div class="shead"><span class="tag">02 · How a rule gets held</span><h2>Three things make a policy binding.</h2></div>
+    <ol class="sh-three">
+      <li><b>The text.</b> A small JSON policy in canonical form, so it hashes the same in every language.</li>
+      <li><b>The hash, from outside.</b> You supply <code>sha256:…</code>, and the enforcer refuses anything else. “A prompt-injected agent cannot widen what it cannot rename.”</li>
+      <li><b>An enforcer the agent does not include.</b> The kernel, or a separate process. “Who enforces decides the barrier kind.”</li>
+    </ol>
+    <div class="sh-diag"><svg viewBox="0 0 1160 300" role="img" aria-label="An ABP, written by RiskMandate, becomes a Process Behaviour Policy with a hash you supply; the launcher checks the hash and the Linux kernel and five doors hold the rules on every process the agent starts.">
+<defs><marker id="shp-ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1A7F5A"/></marker></defs>
+<g font-family="ui-sans-serif,system-ui,sans-serif">
+<rect x="10" y="80" width="200" height="120" rx="16" fill="#fff" stroke="#1A7F5A" stroke-width="2"/><text x="110" y="118" text-anchor="middle" font-size="20" font-weight="700" fill="#101613">ABP</text><text x="110" y="144" text-anchor="middle" font-size="13" fill="#4A524D">what the agent may do</text><text x="110" y="166" text-anchor="middle" font-size="13" fill="#4A524D">written by RiskMandate</text><text x="110" y="186" text-anchor="middle" font-size="12" fill="#1A7F5A">describes</text>
+<path d="M214 140H262" stroke="#1A7F5A" stroke-width="2.5" marker-end="url(#shp-ah)"/>
+<rect x="268" y="80" width="210" height="120" rx="16" fill="#fff" stroke="#1A7F5A" stroke-width="2"/><text x="373" y="118" text-anchor="middle" font-size="20" font-weight="700" fill="#101613">PBP + hash</text><text x="373" y="144" text-anchor="middle" font-size="13" fill="#4A524D">one policy per process</text><text x="373" y="166" text-anchor="middle" font-size="13" fill="#4A524D">sha256 supplied by you</text><text x="373" y="186" text-anchor="middle" font-size="12" fill="#1A7F5A">executed</text>
+<path d="M482 140H530" stroke="#1A7F5A" stroke-width="2.5" marker-end="url(#shp-ah)"/>
+<rect x="536" y="20" width="614" height="260" rx="20" fill="#07140F"/>
+<text x="560" y="52" font-size="13" font-weight="700" fill="#4BE3A2" letter-spacing="1.5">ON YOUR MACHINE · SHARNESS</text>
+<rect x="560" y="70" width="150" height="190" rx="14" fill="none" stroke="#4BE3A2" stroke-width="2"/><text x="635" y="104" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">Launcher</text><text x="635" y="128" text-anchor="middle" font-size="12" fill="#B8C9C0">checks the hash</text><text x="635" y="148" text-anchor="middle" font-size="12" fill="#B8C9C0">one user per part</text><text x="635" y="168" text-anchor="middle" font-size="12" fill="#B8C9C0">one certificate</text><text x="635" y="186" text-anchor="middle" font-size="12" fill="#B8C9C0">per role</text><text x="635" y="240" text-anchor="middle" font-size="11" fill="#FFC772">first slice runs</text>
+<rect x="730" y="70" width="400" height="80" rx="14" fill="rgba(232,240,236,.06)" stroke="rgba(232,240,236,.25)"/><text x="750" y="98" font-size="15" font-weight="700" fill="#fff">Linux kernel</text><text x="750" y="120" font-size="12" fill="#B8C9C0">Landlock, namespaces, rlimits: read, write, run,</text><text x="750" y="138" font-size="12" fill="#B8C9C0">connect, memory, no new privileges · runs today</text>
+<g font-size="12" font-weight="700"><rect x="730" y="166" width="74" height="40" rx="10" fill="#1A7F5A"/><text x="767" y="191" text-anchor="middle" fill="#fff">fs</text><rect x="812" y="166" width="74" height="40" rx="10" fill="#1A7F5A"/><text x="849" y="191" text-anchor="middle" fill="#fff">net</text><rect x="894" y="166" width="74" height="40" rx="10" fill="none" stroke="#FFC772" stroke-dasharray="4 3"/><text x="931" y="191" text-anchor="middle" fill="#FFC772">kms</text><rect x="976" y="166" width="74" height="40" rx="10" fill="none" stroke="#FFC772" stroke-dasharray="4 3"/><text x="1013" y="191" text-anchor="middle" fill="#FFC772">bash</text><rect x="1058" y="166" width="72" height="40" rx="10" fill="none" stroke="#FFC772" stroke-dasharray="4 3"/><text x="1094" y="191" text-anchor="middle" fill="#FFC772">llm</text></g>
+<text x="730" y="232" font-size="12" fill="#B8C9C0">doors: each the only way to one resource, under mutual TLS</text>
+<text x="730" y="252" font-size="11" fill="#B8C9C0"><tspan fill="#4BE3A2">■</tspan> early version runs   <tspan fill="#FFC772">▭</tspan> design, not built</text>
+</g></svg></div>
+    <p class="sh-note">A launcher outside every domain checks the hash, gives each part its own Linux user and certificate, and destroys the certificate authority's key. The kernel holds the capability rows: what a process may read, write, run and connect to. Five doors hold the behaviour rows, each the only way to one resource: files, network, keys, shell and model. The permission prompt goes last: “yes to what the policy allows, silence for what it refuses, and a question only for what it cannot hold.”</p>
+  </div>
+</section>
+<section class="psection" id="offer">
+  <div class="wrap">
+    <div class="shead"><span class="tag">03 · The offer, step by step</span><h2>Describe, check, hold, and show the evidence.</h2></div>
+    <div class="sh-steps">
+      <div><span>1 · Describe</span><h3>The ABP</h3><p>One agent, one deployment: reach, mandate, gap and the barrier on each row. Available now, from the pack to a reviewed and signed policy. <a href="pricing.html">The levels</a>.</p></div>
+      <div><span>2 · Check</span><h3>Lines and hooks</h3><p>The rules you can paste or install today, for Claude, ChatGPT and Claude Code. <a href="https://customers.riskmandate.ai/">Try one in five minutes</a>, or <a href="rules/">pick a rule</a>.</p></div>
+      <div class="on"><span>3 · Hold</span><h3>SHarness</h3><p>The same rows, held by the kernel and the doors, in your environment. Open source, Apache-2.0: <code>pip install sharness-ai</code>. We help you deploy it.</p></div>
+      <div><span>4 · Show</span><h3>Two numbers</h3><p>Every summary carries the reach nobody asked for, and now a second number: the rows no boundary holds. “The second number is the business case for the next door.”</p></div>
+    </div>
+  </div>
+</section>
+<section class="psection alt" id="status">
+  <div class="wrap">
+    <div class="shead"><span class="tag">04 · Status, as at 29 October 2026</span><h2>What runs today, and what is still the design.</h2>
+    <p>sharness.ai labels itself a design with its first experiments runnable, and keeps <a href="https://sharness.ai/evidence/status/index.html" target="_blank" rel="noopener">the honest column</a>. This is ours from it.</p></div>
+    <div class="sh-two">
+      <div class="ok"><h3>Runs today</h3><ul><li><code>sharness-ai</code> 0.2.0 on <a href="https://pypi.org/project/sharness-ai/" target="_blank" rel="noopener">PyPI</a>: Python standard library only, 243 tests.</li><li>The kernel locks on a process: file and execute rules, ports, no network, memory and process caps, the hash checked first.</li><li><code>hello</code>: six probes under a deny-all policy, six held, in five environments, one of them a Linux kernel in a browser tab.</li><li>The levels: <code>contain</code>, <code>profile</code>, <code>explain</code>, from one sentence down to the kernel.</li><li>The file and network doors, as early versions, and a shell whose only way out is the network door.</li></ul></div>
+      <div class="no"><h3>Design, not built</h3><ul><li>The launcher above the agent. In the project's words: “Nothing yet binds the agent itself.”</li><li>The key, shell and model doors; seccomp; hostnames in the policy.</li><li>Linux only, and no protection against root.</li><li><code>policy translate</code> writes the same policy for bubblewrap, Docker, Kubernetes and Claude Code's sandbox, with what each cannot hold; the translations have not been run against those targets.</li><li>The security reviews so far were done by an agent of the project.</li></ul></div>
+    </div>
+  </div>
+</section>
+<section class="psection" id="questions">
+  <div class="wrap">
+    <div class="shead"><span class="tag">05 · For the technical reader</span><h2>The questions a sceptical engineer asks.</h2></div>
+    <dl class="sh-qa">
+      <dt>Is RiskMandate now inline?</dt><dd>No. SHarness runs on your machine, in your cluster or your cloud, started by you, and checks nothing per request with us. RiskMandate writes and maintains the policies and the harness; it holds no key and sees no traffic.</dd>
+      <dt>Does it replace my sandbox or gateway?</dt><dd>No: it is a reference implementation, and any environment that holds the same rows is a valid enforcer. <code>policy translate</code> writes the policy for the tools you run and lists what each of them cannot enforce. <a href="https://sharness.ai/landscape/enforceability/index.html" target="_blank" rel="noopener">The enforceability matrix</a>.</dd>
+      <dt>What is the false-positive rate?</dt><dd>There is none to give: most of it is a design. The argument is that a policy layered down to the business (network, then database, then tables, then field ranges) knows what the application is for, and that CI should fail when the footprint grows without a policy change. <a href="https://newsroom.sgit.ai/articles/false-positives-and-the-harness.html" target="_blank" rel="noopener">False positives and the harness</a>.</dd>
+      <dt>Can I try it now?</dt><dd>In a browser tab, with nothing installed: <a href="https://sharness.ai/code/playground/index.html" target="_blank" rel="noopener">the playground</a>, or <a href="https://sharness.ai/code/browser/demo/index.html" target="_blank" rel="noopener">a Linux kernel booting in the page</a>, about two minutes. On Linux, in a virtual environment: <code>pip install sharness-ai</code>, then <code>sharness-ai hello</code>.</dd>
+      <dt>What does it want from you?</dt><dd>Feedback: run <code>hello</code>, try to break the shell, and say who should run the launcher in your organisation.</dd>
+    </dl>
+  </div>
+</section>
+<section class="psection alt" id="read">
+  <div class="wrap">
+    <div class="shead"><span class="tag">06 · Read more</span><h2>On the newsroom.</h2></div>
+    <ul class="sh-read">
+      <li><a href="https://newsroom.sgit.ai/articles/introducing-sharness.html" target="_blank" rel="noopener">SHarness: the secure harness we could not find, so we built it</a> · 29 October</li>
+      <li><a href="https://newsroom.sgit.ai/articles/proven-controls-for-agents.html" target="_blank" rel="noopener">Proven controls, for agents</a> · 29 October: who holds each control, and six controls tested by breaking them</li>
+      <li><a href="https://newsroom.sgit.ai/articles/the-grant-not-the-prompt.html" target="_blank" rel="noopener">The grant, not the prompt</a> · 2 November: a prompt, then a hook, then the capability not being there</li>
+      <li><a href="https://newsroom.sgit.ai/articles/false-positives-and-the-harness.html" target="_blank" rel="noopener">False positives and the harness</a> · 2 November</li>
+      <li><a href="https://newsroom.sgit.ai/articles/selling-less-code.html" target="_blank" rel="noopener">Selling less code</a> · 30 October: a smaller build, a smaller policy, held by SHarness</li>
+      <li><a href="https://newsroom.sgit.ai/articles/a-payout-for-every-row.html" target="_blank" rel="noopener">A payout for every row</a> · 28 October: only an enforced control lowers a row's premium, a proposal</li>
+    </ul>
+  </div>
+</section>
+<section class="pcta">
+  <div class="wrap"><span class="tag">Start at the top</span><h2>The ABP comes first.</h2>
+  <p>A harness holds the rules you wrote down. Write the first one in five minutes, in your own assistant.</p>
+  <div class="cta-row"><a class="btn btn-green" href="https://customers.riskmandate.ai/">Try it in five minutes →</a><a class="btn btn-ghost" href="abp.html">What an ABP is</a></div></div>
+</section>
+</div>

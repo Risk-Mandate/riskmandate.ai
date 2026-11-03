@@ -2,7 +2,7 @@
 
 # RiskMandate — from the newsroom: the thinking behind the ABP
 
-The 15 articles on the SGit Newsroom that say most simply what an Agent Behaviour Policy is, where its line sits and where it is going, retold in a paragraph each, with a line quoted and a link. And the news that RiskMandate is on LinkedIn.
+The 19 articles on the SGit Newsroom that say most simply what an Agent Behaviour Policy is, where its line sits and where it is going, retold in a paragraph each, with a line quoted and a link. And the news that RiskMandate is on LinkedIn.
 
 Source: https://riskmandate.ai/newsroom.html
 
@@ -10,7 +10,7 @@ Source: https://riskmandate.ai/newsroom.html
 
 # The thinking behind the ABP, as it was written down.
 
-Dinis Cruz writes RiskMandate's thinking on [newsroom.sgit.ai](https://newsroom.sgit.ai/), from voice memos, written up and checked by the newsroom's agent. These are the 15 articles that say most simply what an Agent Behaviour Policy is, where its line sits and where it is going, each retold here in a paragraph, with a line quoted and a link to the whole piece.
+Dinis Cruz writes RiskMandate's thinking on [newsroom.sgit.ai](https://newsroom.sgit.ai/), from voice memos, written up and checked by the newsroom's agent. These are the 19 articles that say most simply what an Agent Behaviour Policy is, where its line sits and where it is going, each retold here in a paragraph, with a line quoted and a link to the whole piece.
 
 ## RiskMandate is on LinkedIn.
 
@@ -107,6 +107,44 @@ When something goes wrong, people ask how the agent made that decision, and a be
 A proposal: every agent should take an ABP as an input beside its prompt, written to a published standard, which the vendor accepts, enforces as far as it can, and eventually answers for, as aviation and payments learned to.
 
 [Read it on the newsroom ↗](https://newsroom.sgit.ai/articles/a-policy-beside-the-prompt.html)
+
+## From describing a rule to holding it: SHarness.
+
+29 October 2026
+
+### [SHarness: the secure harness we could not find, so we built it](https://newsroom.sgit.ai/articles/introducing-sharness.html)
+
+The core piece. An ABP describes an agent; a Process Behaviour Policy is that description executed, named by a hash the person supplies and held by the Linux kernel on every process the agent starts. A launcher and five doors, each the only way to one resource. What runs today and what is still the design, said plainly: nothing yet binds the agent itself.
+
+> “A prompt-injected agent cannot widen what it cannot rename.”
+
+[Read it on the newsroom ↗](https://newsroom.sgit.ai/articles/introducing-sharness.html) · [On this site](secure-harness.html)
+
+29 October 2026
+
+### [Proven controls, for agents](https://newsroom.sgit.ai/articles/proven-controls-for-agents.html)
+
+A reply to governance as code and to Cedar: the missing column is who holds each control. Six controls tested by breaking them on purpose, and a SHarness shell that let pypi.org through its door and refused example.com and a direct connect.
+
+[Read it on the newsroom ↗](https://newsroom.sgit.ai/articles/proven-controls-for-agents.html)
+
+2 November 2026
+
+### [The grant, not the prompt](https://newsroom.sgit.ai/articles/the-grant-not-the-prompt.html)
+
+A connected connector is available in every conversation, so an assistant listed an inbox from an unrelated chat. The order of strength: a prompt, then a hook, then the capability not being there at all.
+
+[Read it on the newsroom ↗](https://newsroom.sgit.ai/articles/the-grant-not-the-prompt.html)
+
+2 November 2026
+
+### [False positives and the harness](https://newsroom.sgit.ai/articles/false-positives-and-the-harness.html)
+
+An audience question at hack::soho. There is no measured rate, because most of SHarness is a design; the argument is a policy layered down to the business, and CI that fails when the footprint grows without a policy change.
+
+> “There is no rate to give.”
+
+[Read it on the newsroom ↗](https://newsroom.sgit.ai/articles/false-positives-and-the-harness.html)
 
 ## Customers, a roadmap, and a home of its own.
 

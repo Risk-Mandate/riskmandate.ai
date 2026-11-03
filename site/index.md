@@ -10,13 +10,19 @@ Source: https://riskmandate.ai/
 
 # Give agents access.Not free rein.
 
-Agent Behaviour Policies for the AI agents in Gmail, HR, payroll, CRM and meeting apps: what each one can reach, what you authorised it to do, and the gap between the two. Your own controls enforce them. We are never in the request path.
+Agent Behaviour Policies for the AI agents in Gmail, HR, payroll, CRM and meeting apps: what each one can reach, what you authorised it to do, and the gap between the two. Enforce them with the controls you already run, or with [SHarness](secure-harness.html), the open-source secure harness we maintain. We are never in the request path.
 
 On Claude or ChatGPT, in your browser, nothing to install. [Six examples, simplest first](https://customers.riskmandate.ai/).
 
+## Know their reach. Define their mandate. Control the gap.
+
+An agent, everything it can reach, the mandate the business gave it, and the gap between the two. Then the same record for every agent, read by operations, leadership, security and the insurer. No narration needed.
+
+Film by Silvio Switha, November 2026, also on the [Web Summit site](https://web-summit.sgit.ai/videos/reach-mandate-gap/index.html). The film says delta where this site says gap: the same thing.
+
 Blocked by your gateway: Payroll copilot tried to change bank details for 1 employee. Reply 1 to review.
 
-The gate in the middle is **your** gateway, proxy or IAM, configured from the rules in the ABP. RiskMandate writes the rules and is never in the request path; the approval card is a flow your team stands up with our help.
+The gate in the middle is **your** gateway, proxy or IAM, or SHarness on the machine the agent runs on, configured from the rules in the ABP. RiskMandate writes the rules and is never in the request path; the approval card is a flow your team stands up with our help.
 
 ## Put a behaviour policy on your agent.
 
@@ -60,6 +66,29 @@ Upload the document legal already wrote. We turn every line into a rule, supply 
 Instructions inside an agent can be ignored or talked around. A control outside it cannot, and the ABP says which of the two each rule has.
 
 "Never export customer lists without approval."
+
+## Enforcement, when you want it.
+
+Every rule in an ABP is kept by something. Told, it is a hope; checked, it is a hook on the agent's own machine; held, it is a boundary the agent cannot reach. **SHarness** is how a row gets held: an open-source secure harness, which we maintain, that you run in your own environment. We are still never in the request path.
+
+### A line in the prompt
+
+The model keeps it because it chooses to. An expectation, and the one the five-minute examples show.
+
+### A hook
+
+Deterministic, and on the agent's own machine, where the same account can switch it off. A setting.
+
+### A boundary
+
+The ABP becomes a Process Behaviour Policy, named by a hash you supply, and the kernel holds it on every process the agent starts. A tricked agent cannot widen it.
+
+- The kernel locks on a process: files, execute, ports, no network, caps, hash checked.
+- `hello`: six probes, six held, in five environments, and in a Linux kernel in a browser tab.
+- The file and network doors, as early versions; a shell whose only way out is the network door.
+- The launcher above the agent: nothing yet binds the agent itself.
+- The key, shell and model doors; seccomp; hostnames in the policy.
+- Linux only; no protection against root. Translations to Docker, bubblewrap and Kubernetes are written, not yet run against them.
 
 ## Know the moment an agent steps out of line.
 
@@ -193,6 +222,10 @@ The record an underwriter will accept: scored, dated and with the residual risk 
 Measured against the standards underwriters are adopting: ISO/IEC 42001, OWASP Agentic Top 10, NIST AI RMF and ISO/IEC 27001.
 
 Model-drafted and marked as such. Not a compliance assessment. We are not an insurer and place no cover. [What we don’t claim](https://store.sgit.ai/disclosures/)
+
+## Meet us in Lisbon. Our stand is on Thursday 12 November.
+
+Seven of us and our agents, each agent with its own published behaviour policy. Bring one agent you run, and leave knowing what it can reach.
 
 ## Start with the agent that worries you most.
 
