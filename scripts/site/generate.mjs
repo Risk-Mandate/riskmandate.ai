@@ -177,7 +177,7 @@ function menuEntries() { return JSON.parse(read('pages.json')).pages; }
 function pages() {
   const listed = menuEntries();
   for (const p of listed) {
-    if (!existsSync(join(SITE, p.file))) throw new Error(`pages.json names a missing page: ${p.file}`);
+    if (!/^https:\/\//.test(p.file) && !existsSync(join(SITE, p.file))) throw new Error(`pages.json names a missing page: ${p.file}`);
   }
   return listed.filter(p => !p.link).map(p => ({ ...p, html: read(p.file) }))
     .map(p => ({ ...p, title: decode(p.html.match(/<title>([\s\S]*?)<\/title>/)?.[1] ?? p.file),
@@ -264,7 +264,7 @@ function editionsBlock(page, all, listed) {
 // site/*.html is written by hand and left alone.
 function withMenu(page, listed) {
   const menu = listed.filter(p => !p.unlisted)
-                     .map(p => ({ name: p.name, label: p.label, file: p.file, ...(p.group ? { group: p.group } : {}) }));
+                     .map(p => ({ name: p.name, label: p.label, file: p.file, ...(p.group ? { group: p.group } : {}), ...(p.section ? { section: p.section } : {}) }));
   const current = page.name === 'home' ? '' : `RM.data.currentPage=${JSON.stringify(page.name)};`;
   let html = page.html
     .replace(/RM\.data\.currentPage="[^"]*";/, '')

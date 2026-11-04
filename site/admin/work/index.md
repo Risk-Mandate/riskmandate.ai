@@ -71,11 +71,15 @@ a decision the lead owns, listed in the state fileneeds the lead
 
 a decision the lead owns, listed in the state fileneeds the lead
 
-## In flight — 0 branches
+## In flight — 1 branch
 
 One file per branch under `.claude/work/`. [How a work file is written](../../admin/work/about-work-files/).
 
-Nothing in flight.
+### [claude/dev-session-setup-a5wcc5](../../admin/work/branches/claude-dev-session-setup-a5wcc5/)
+
+started 4 November 2026 · task brief: ad hoc (a partner's review of the menu)
+
+The header to three entries and one button; every page kept, one level down; footers carry the rest. v1.40.3. Touches every page (menu module, header icons, footer site line). No vault pushed.
 
 ## Task briefs — 17
 

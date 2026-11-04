@@ -1,50 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://riskmandate.ai/</loc><priority>1.0</priority></url>
-  <url><loc>https://riskmandate.ai/agent-behaviour-policy.html</loc><priority>0.7</priority></url>
   <url><loc>https://riskmandate.ai/abp.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/how-it-works.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/secure-harness.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/open-security-summit.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/licence-to-operate.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/grant-gap.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/team/</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/team/publisher.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/team/studio.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/try-it.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/for-corporate.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/for-founders.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/for-startups.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/early-access.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/early-adopters.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/insurance.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/insure-a-program.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/plug.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/scenarios.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/ramm.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/business-cases.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/owasp-graph.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/business-case-riskmandate-abp.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/business-case-agentgateway.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/business-case-topgent.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/business-case-cloudgeni.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/business-case-cedar.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/business-case-cilium.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/business-case-falco.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/business-case-gvisor.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/business-case-keycloak.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/business-case-langfuse.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/business-case-langgraph-hitl.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/business-case-litellm.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/business-case-open-policy-agent.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/business-case-openbao.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/business-case-openfga.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/business-case-owasp-coraza.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/business-case-owasp-threat-dragon.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/business-case-postgresql-pitr.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/business-case-squid.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/business-case-unleash.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/business-case-velero.html</loc><priority>0.7</priority></url>
   <url><loc>https://riskmandate.ai/pricing.html</loc><priority>0.7</priority></url>
   <url><loc>https://riskmandate.ai/abp-reviewed.html</loc><priority>0.7</priority></url>
   <url><loc>https://riskmandate.ai/reviewers.html</loc><priority>0.7</priority></url>
@@ -76,6 +33,24 @@
   <url><loc>https://riskmandate.ai/rules/delete-in-cloud-storage.html</loc><priority>0.7</priority></url>
   <url><loc>https://riskmandate.ai/rules/make-files-public.html</loc><priority>0.7</priority></url>
   <url><loc>https://riskmandate.ai/rules/edit-shared-documents.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/for-corporate.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/for-founders.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/for-startups.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/early-access.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/early-adopters.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/licence-to-operate.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/insurance.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/insure-a-program.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/plug.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/scenarios.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/ramm.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/business-cases.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/how-it-works.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/agent-behaviour-policy.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/grant-gap.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/try-it.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/demos.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/lab.html</loc><priority>0.7</priority></url>
   <url><loc>https://riskmandate.ai/articles.html</loc><priority>0.7</priority></url>
   <url><loc>https://riskmandate.ai/newsroom.html</loc><priority>0.7</priority></url>
   <url><loc>https://riskmandate.ai/stories/</loc><priority>0.7</priority></url>
@@ -96,18 +71,43 @@
   <url><loc>https://riskmandate.ai/owasp/lessons.html</loc><priority>0.7</priority></url>
   <url><loc>https://riskmandate.ai/owasp/application.html</loc><priority>0.7</priority></url>
   <url><loc>https://riskmandate.ai/owasp/tracker.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/questions.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/privacy.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/lab.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/demos.html</loc><priority>0.7</priority></url>
   <url><loc>https://riskmandate.ai/library.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/questions.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/secure-harness.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/open-security-summit.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/team/</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/team/publisher.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/team/studio.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/owasp-graph.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/business-case-riskmandate-abp.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/business-case-agentgateway.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/business-case-topgent.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/business-case-cloudgeni.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/business-case-cedar.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/business-case-cilium.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/business-case-falco.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/business-case-gvisor.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/business-case-keycloak.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/business-case-langfuse.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/business-case-langgraph-hitl.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/business-case-litellm.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/business-case-open-policy-agent.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/business-case-openbao.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/business-case-openfga.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/business-case-owasp-coraza.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/business-case-owasp-threat-dragon.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/business-case-postgresql-pitr.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/business-case-squid.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/business-case-unleash.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/business-case-velero.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/brand.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/about.html</loc><priority>0.7</priority></url>
   <url><loc>https://riskmandate.ai/partners.html</loc><priority>0.7</priority></url>
   <url><loc>https://riskmandate.ai/uk-support.html</loc><priority>0.7</priority></url>
   <url><loc>https://riskmandate.ai/interview-founder-marketing.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/about.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/brand.html</loc><priority>0.7</priority></url>
-  <url><loc>https://riskmandate.ai/feedback.html</loc><priority>0.7</priority></url>
   <url><loc>https://riskmandate.ai/contact.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/feedback.html</loc><priority>0.7</priority></url>
+  <url><loc>https://riskmandate.ai/privacy.html</loc><priority>0.7</priority></url>
   <url><loc>https://riskmandate.ai/agents/</loc><priority>0.7</priority></url>
   <url><loc>https://riskmandate.ai/agents.html</loc><priority>0.7</priority></url>
   <url><loc>https://riskmandate.ai/acceptable.html</loc><priority>0.7</priority></url>

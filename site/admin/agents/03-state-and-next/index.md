@@ -8,6 +8,11 @@ the site's; check `site/versions/index.json` for the current version before trus
 
 ## State as at 2026-09-30, v1.35.3
 
+- **Menu since v1.40.3 (4 Nov 2026):** three entries and one button — *Product* (the ABP and its levels, who it's for, the
+  roadmap: Licence to Operate, the Insurability Index and the insurance pages), *How it works* (see it work; read), *Open source*
+  (SHarness, the code on GitHub, the Open Security Summit, the team; company and community); *Try it free*. Every page that was
+  in the menu still is, one level down, in a titled column. The header lost its GitHub and LinkedIn icons; the footer
+  carries a site line (About, Contact, Privacy, Newsroom, LinkedIn) on every page. What follows is the earlier history.
 - **Site:** 65 HTML files under `site/` plus the admin console under `site/admin/`, one live site deployed from `dev`. Top-level menu:
   Behaviour policies · Who it's for · Insurance · Pricing · Reading · OWASP · More (8 Oct 2026: **OWASP** took the seventh
   slot and *Try it* moved into *Behaviour policies*; still **seven entries, the cap**. Before that, v1.28.0: Try it top-level; the

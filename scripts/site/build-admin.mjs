@@ -494,6 +494,7 @@ ${inflight.map(w => row2(`<b><a href="${href(path, w.url)}">${esc(w.branch)}</a>
 
 <h2>Where things are</h2>
 <div class="rows">
+${row2(`<b>The desk</b><p>Working pages off the public menu since v1.40.3: <a href="${href(path, 'walkthrough.html')}">the demo walkthrough</a>, <a href="${href(path, 'linkedin.html')}">the LinkedIn desk</a>, <a href="${href(path, 'engagements.html')}">engagements (proposed)</a>, <a href="${href(path, 'home-next.html')}">the proposed home</a> and <a href="${href(path, 'home-diff.html')}">home, now and proposed</a>. Private: noindex, no twin, out of the sitemap.</p>`, st(3, '5 pages'))}
 ${row2(`<b><a href="${href(path, `${OUT}/vaults/`)}">The vaults</a></b><p>${counts.vaults} behaviour-policy vaults, each with its id, its public read key, how many rows are measured and how many questions are open.</p>`, st(4, `${counts.openQuestions} open`))}
 ${row2(`<b><a href="${href(path, `${OUT}/agents/`)}">The agents' front door</a></b><p>CLAUDE.md, the six onboarding documents and the prompts, rendered here so an agent — or a person — can read them without the repository.</p>`, st(3, `${onboarding.length + commands.length + 1} files`))}
 ${row2(`<b><a href="${href(path, `${OUT}/records/`)}">The records</a></b><p>Every append-only file the site keeps and the page that renders it: versions, the brief register, the Lab editions, the catalogue, the machine-readable indexes.</p>`, st(4, 'append-only'))}

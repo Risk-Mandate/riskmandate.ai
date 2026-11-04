@@ -37,6 +37,7 @@
     // shared page list, whose files are named from the site root, still resolves from there.
     // A folder's index page is linked as the folder: /stories/, not /stories/index.html.
     _href(file) {
+      if (/^https:\/\//.test(file)) return file;   // the code on GitHub: an address, not a page here
       var base = (RM.data && RM.data.base) || '';
       return base + file.replace(/(^|\/)index\.html$/, '$1');
     }
@@ -55,6 +56,7 @@
       var active = p.name === (RM.data && RM.data.currentPage);
       var attrs  = { class: 'pagelink' + (extra ? ' ' + extra : '') + (active ? ' active' : ''), href: this._href(p.file) };
       if (active) attrs['aria-current'] = 'page';
+      if (/^https:\/\//.test(p.file)) { attrs.target = '_blank'; attrs.rel = 'noopener'; }
       return dom.el('a', attrs, [p.label]);
     }
 
@@ -64,7 +66,7 @@
       var active  = members.some(function (m) { return m.name === current; });
       var car     = dom.el('span',   { class: 'navgroup-car', 'aria-hidden': 'true' }, ['▾']);
       var btn     = dom.el('button', { class: 'navgroup-btn' + (active ? ' active' : ''), type: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false' }, [name, car]);
-      var panel   = dom.el('div',    { class: 'navmenu' }, members.map(function (m) { return self._pagelink(m, 'navchild'); }));
+      var panel   = dom.el('div',    { class: 'navmenu' + (members.some(function (m) { return m.section; }) ? ' navwide' : '') }, this._columns(members));
       var wrap    = dom.el('span',   { class: 'navgroup' + (active ? ' active' : '') }, [btn, panel]);
       btn.addEventListener('click', function (e) {
         e.stopPropagation();
@@ -74,7 +76,39 @@
       return wrap;
     }
 
+    // A dropdown whose pages name a `section` is drawn as columns, one per section, each under
+    // its heading: the 3 November review kept the header to three entries, so the rest of the site
+    // sits one level down instead of being dropped. Without sections it is the plain list it was.
+    _columns(members) {
+      var self = this;
+      if (!members.some(function (m) { return m.section; })) return members.map(function (m) { return self._pagelink(m, 'navchild'); });
+      var cols = [], last = null;
+      members.forEach(function (m) {
+        if (m.section !== last) { cols.push({ name: m.section, items: [] }); last = m.section; }
+        cols[cols.length - 1].items.push(self._pagelink(m, 'navchild'));
+      });
+      return [dom.el('div', { class: 'navcols' }, cols.map(function (c) {
+        return dom.el('div', { class: 'navcol' }, [dom.el('span', { class: 'navsec' }, [c.name])].concat(c.items));
+      }))];
+    }
+
+    // The columns' few rules live here, with the code that draws them, so that one module carries
+    // them to every page; each page's own CSS still styles the bar, the panel and the links.
+    _style() {
+      if (document.getElementById('rm-menu-css')) return;
+      var css = '.navmenu.navwide{min-width:0;padding:10px}' +
+        '.navcols{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(190px,250px);gap:4px 12px}' +
+        '.navcol{display:flex;flex-direction:column;gap:2px;min-width:0}' +
+        '.navcols .navchild{white-space:normal;line-height:1.35}' +
+        '.navsec{display:block;padding:8px 12px 4px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--green,#1A7F5A)}' +
+        '@media (min-width:901px){.navmenu.navwide{left:auto;right:0;transform:none}}' +
+        '@media (min-width:901px) and (max-width:1180px){.navcols{grid-auto-flow:row;grid-template-columns:repeat(2,minmax(190px,250px))}}' +
+        '@media (max-width:900px){.navcols{display:flex;flex-direction:column}.navsec{padding:12px 14px 4px}}';
+      var st = document.createElement('style'); st.id = 'rm-menu-css'; st.textContent = css; document.head.appendChild(st);
+    }
+
     _render() {
+      this._style();
       var sections = (RM.data && RM.data.sections) || [];
       var pages    = (RM.data && RM.data.pages)    || [];
       var self     = this;

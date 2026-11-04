@@ -1,5 +1,5 @@
 {
-  "note": "The site's own list of its pages. generate.mjs injects the menu entries into every page as RM.data.pages, so this file is the only place the list lives. `unlisted` pages are real pages with their own URL that the header menu does not show. `private` pages are additionally kept out of the sitemap, llms.txt and the 404 list, carry noindex, and get no markdown twin — they are working pages for us, not published ones, and site/ is a public web root so they are reachable by anyone who has the URL. Keep at most 7 top-level entries (a group counts as one) — the header bar is capped at 1100px and overflows past that. A `link` entry is a menu entry to a folder the site serves (the admin console) and not a page: no twin, not in the sitemap, not in llms.txt.",
+  "note": "The site's own list of its pages. generate.mjs injects the menu entries into every page as RM.data.pages, so this file is the only place the list lives. `unlisted` pages are real pages with their own URL that the header menu does not show. `private` pages are additionally kept out of the sitemap, llms.txt and the 404 list, carry noindex, and get no markdown twin — they are working pages for us, not published ones, and site/ is a public web root so they are reachable by anyone who has the URL. The header carries three entries and one button (Product, How it works, Open source; Try it free), after a partner's review on 3 November 2026: everything else is a section inside one of the three, not a fourth entry. `section` names the heading a page sits under inside its dropdown; a group's sections are contiguous too. A `link` entry is a menu entry and not a page (a folder the site serves, or an https address such as the code on GitHub): no twin, not in the sitemap, not in llms.txt.",
   "pages": [
     {
       "name": "home",
@@ -8,317 +8,32 @@
       "unlisted": true
     },
     {
-      "name": "agent-behaviour-policy",
-      "label": "The sixteen examples",
-      "file": "agent-behaviour-policy.html",
-      "group": "Behaviour policies"
-    },
-    {
       "name": "abp",
       "label": "What an ABP is",
       "file": "abp.html",
-      "group": "Behaviour policies"
-    },
-    {
-      "name": "how-it-works",
-      "label": "How it works",
-      "file": "how-it-works.html",
-      "group": "Behaviour policies"
-    },
-    {
-      "name": "secure-harness",
-      "label": "SHarness: enforcement, held by the kernel",
-      "file": "secure-harness.html",
-      "group": "Behaviour policies"
-    },
-    {
-      "name": "open-security-summit",
-      "label": "An open home: the Open Security Summit (proposed)",
-      "file": "open-security-summit.html",
-      "group": "Behaviour policies"
-    },
-    {
-      "name": "licence-to-operate",
-      "label": "Licence to Operate",
-      "file": "licence-to-operate.html",
-      "group": "Behaviour policies"
-    },
-    {
-      "name": "grant-gap",
-      "label": "The grant is not the mandate",
-      "file": "grant-gap.html",
-      "group": "Behaviour policies"
-    },
-    {
-      "name": "team",
-      "label": "The team: our own agents' policies",
-      "file": "team/index.html",
-      "group": "Behaviour policies"
-    },
-    {
-      "name": "team-publisher",
-      "label": "The team · RiskMandate Publisher",
-      "file": "team/publisher.html",
-      "group": "Behaviour policies",
-      "unlisted": true
-    },
-    {
-      "name": "team-studio",
-      "label": "The team · RiskMandate Design Studio",
-      "file": "team/studio.html",
-      "group": "Behaviour policies",
-      "unlisted": true
-    },
-    {
-      "name": "try-it",
-      "label": "Try it",
-      "file": "try-it.html",
-      "group": "Behaviour policies"
-    },
-    {
-      "name": "for-corporate",
-      "label": "You run agents today",
-      "file": "for-corporate.html",
-      "group": "Who it's for"
-    },
-    {
-      "name": "for-founders",
-      "label": "You are a founder",
-      "file": "for-founders.html",
-      "group": "Who it's for"
-    },
-    {
-      "name": "for-startups",
-      "label": "You are a startup",
-      "file": "for-startups.html",
-      "group": "Who it's for"
-    },
-    {
-      "name": "early-access",
-      "label": "Early access, invite only",
-      "file": "early-access.html",
-      "group": "Who it's for"
-    },
-    {
-      "name": "early-adopters",
-      "label": "Early adopters: a thank you",
-      "file": "early-adopters.html",
-      "group": "Who it's for"
-    },
-    {
-      "name": "insurance",
-      "label": "Make agents insurable",
-      "file": "insurance.html",
-      "group": "Insurance"
-    },
-    {
-      "name": "insure-a-program",
-      "label": "Can you insure a program?",
-      "file": "insure-a-program.html",
-      "group": "Insurance"
-    },
-    {
-      "name": "plug",
-      "label": "Who can pull the plug",
-      "file": "plug.html",
-      "group": "Insurance"
-    },
-    {
-      "name": "scenarios",
-      "label": "Risk scenarios",
-      "file": "scenarios.html",
-      "group": "Insurance"
-    },
-    {
-      "name": "ramm",
-      "label": "RAMM — acceptance maturity",
-      "file": "ramm.html",
-      "group": "Insurance"
-    },
-    {
-      "name": "business-cases",
-      "label": "Business cases, by risk",
-      "file": "business-cases.html",
-      "group": "Insurance"
-    },
-    {
-      "name": "owasp-graph",
-      "label": "OWASP, as a graph",
-      "file": "owasp-graph.html",
-      "group": "Insurance"
-    },
-    {
-      "name": "business-case-riskmandate-abp",
-      "label": "Business case · Agent Behaviour Policy",
-      "file": "business-case-riskmandate-abp.html",
-      "group": "Insurance",
-      "unlisted": true
-    },
-    {
-      "name": "business-case-agentgateway",
-      "label": "Business case · agentgateway",
-      "file": "business-case-agentgateway.html",
-      "group": "Insurance",
-      "unlisted": true
-    },
-    {
-      "name": "business-case-topgent",
-      "label": "Business case · Topgent",
-      "file": "business-case-topgent.html",
-      "group": "Insurance",
-      "unlisted": true
-    },
-    {
-      "name": "business-case-cloudgeni",
-      "label": "Business case · Cloudgeni and Opengeni",
-      "file": "business-case-cloudgeni.html",
-      "group": "Insurance",
-      "unlisted": true
-    },
-    {
-      "name": "business-case-auth0-for-ai-agents",
-      "label": "Business case · Auth0 for AI Agents (draft)",
-      "file": "business-case-auth0-for-ai-agents.html",
-      "group": "Insurance",
-      "unlisted": true,
-      "private": true
-    },
-    {
-      "name": "business-case-cedar",
-      "label": "Business case · Cedar",
-      "file": "business-case-cedar.html",
-      "group": "Insurance",
-      "unlisted": true
-    },
-    {
-      "name": "business-case-cilium",
-      "label": "Business case · Cilium network policy",
-      "file": "business-case-cilium.html",
-      "group": "Insurance",
-      "unlisted": true
-    },
-    {
-      "name": "business-case-falco",
-      "label": "Business case · Falco",
-      "file": "business-case-falco.html",
-      "group": "Insurance",
-      "unlisted": true
-    },
-    {
-      "name": "business-case-gvisor",
-      "label": "Business case · gVisor",
-      "file": "business-case-gvisor.html",
-      "group": "Insurance",
-      "unlisted": true
-    },
-    {
-      "name": "business-case-keycloak",
-      "label": "Business case · Keycloak",
-      "file": "business-case-keycloak.html",
-      "group": "Insurance",
-      "unlisted": true
-    },
-    {
-      "name": "business-case-langfuse",
-      "label": "Business case · Langfuse",
-      "file": "business-case-langfuse.html",
-      "group": "Insurance",
-      "unlisted": true
-    },
-    {
-      "name": "business-case-langgraph-hitl",
-      "label": "Business case · LangGraph and LangChain human-in-the-loop",
-      "file": "business-case-langgraph-hitl.html",
-      "group": "Insurance",
-      "unlisted": true
-    },
-    {
-      "name": "business-case-litellm",
-      "label": "Business case · LiteLLM",
-      "file": "business-case-litellm.html",
-      "group": "Insurance",
-      "unlisted": true
-    },
-    {
-      "name": "business-case-open-policy-agent",
-      "label": "Business case · Open Policy Agent",
-      "file": "business-case-open-policy-agent.html",
-      "group": "Insurance",
-      "unlisted": true
-    },
-    {
-      "name": "business-case-openbao",
-      "label": "Business case · OpenBao",
-      "file": "business-case-openbao.html",
-      "group": "Insurance",
-      "unlisted": true
-    },
-    {
-      "name": "business-case-openfga",
-      "label": "Business case · OpenFGA",
-      "file": "business-case-openfga.html",
-      "group": "Insurance",
-      "unlisted": true
-    },
-    {
-      "name": "business-case-owasp-coraza",
-      "label": "Business case · OWASP Coraza",
-      "file": "business-case-owasp-coraza.html",
-      "group": "Insurance",
-      "unlisted": true
-    },
-    {
-      "name": "business-case-owasp-threat-dragon",
-      "label": "Business case · OWASP Threat Dragon and pytm",
-      "file": "business-case-owasp-threat-dragon.html",
-      "group": "Insurance",
-      "unlisted": true
-    },
-    {
-      "name": "business-case-postgresql-pitr",
-      "label": "Business case · PostgreSQL point-in-time recovery",
-      "file": "business-case-postgresql-pitr.html",
-      "group": "Insurance",
-      "unlisted": true
-    },
-    {
-      "name": "business-case-squid",
-      "label": "Business case · Squid",
-      "file": "business-case-squid.html",
-      "group": "Insurance",
-      "unlisted": true
-    },
-    {
-      "name": "business-case-unleash",
-      "label": "Business case · Unleash",
-      "file": "business-case-unleash.html",
-      "group": "Insurance",
-      "unlisted": true
-    },
-    {
-      "name": "business-case-velero",
-      "label": "Business case · Velero",
-      "file": "business-case-velero.html",
-      "group": "Insurance",
-      "unlisted": true
+      "group": "Product",
+      "section": "Agent Behaviour Policy"
     },
     {
       "name": "pricing",
-      "label": "The four levels",
+      "label": "The four levels, and pricing",
       "file": "pricing.html",
-      "group": "Pricing"
+      "group": "Product",
+      "section": "Agent Behaviour Policy"
     },
     {
       "name": "abp-reviewed",
       "label": "The reviewed level",
       "file": "abp-reviewed.html",
-      "group": "Pricing"
+      "group": "Product",
+      "section": "Agent Behaviour Policy"
     },
     {
       "name": "reviewers",
       "label": "Who runs your review",
       "file": "reviewers.html",
-      "group": "Pricing"
+      "group": "Product",
+      "section": "Agent Behaviour Policy"
     },
     {
       "name": "reviewer-dinis-cruz",
@@ -489,22 +204,151 @@
       "unlisted": true
     },
     {
+      "name": "for-corporate",
+      "label": "You run agents today",
+      "file": "for-corporate.html",
+      "group": "Product",
+      "section": "Who it's for"
+    },
+    {
+      "name": "for-founders",
+      "label": "You are a founder",
+      "file": "for-founders.html",
+      "group": "Product",
+      "section": "Who it's for"
+    },
+    {
+      "name": "for-startups",
+      "label": "You are a startup",
+      "file": "for-startups.html",
+      "group": "Product",
+      "section": "Who it's for"
+    },
+    {
+      "name": "early-access",
+      "label": "Early access, invite only",
+      "file": "early-access.html",
+      "group": "Product",
+      "section": "Who it's for"
+    },
+    {
+      "name": "early-adopters",
+      "label": "Early adopters: a thank you",
+      "file": "early-adopters.html",
+      "group": "Product",
+      "section": "Who it's for"
+    },
+    {
+      "name": "licence-to-operate",
+      "label": "Licence to Operate",
+      "file": "licence-to-operate.html",
+      "group": "Product",
+      "section": "The roadmap"
+    },
+    {
+      "name": "insurance",
+      "label": "The Insurability Index",
+      "file": "insurance.html",
+      "group": "Product",
+      "section": "The roadmap"
+    },
+    {
+      "name": "insure-a-program",
+      "label": "Can you insure a program?",
+      "file": "insure-a-program.html",
+      "group": "Product",
+      "section": "The roadmap"
+    },
+    {
+      "name": "plug",
+      "label": "Who can pull the plug",
+      "file": "plug.html",
+      "group": "Product",
+      "section": "The roadmap"
+    },
+    {
+      "name": "scenarios",
+      "label": "Risk scenarios",
+      "file": "scenarios.html",
+      "group": "Product",
+      "section": "The roadmap"
+    },
+    {
+      "name": "ramm",
+      "label": "RAMM — acceptance maturity",
+      "file": "ramm.html",
+      "group": "Product",
+      "section": "The roadmap"
+    },
+    {
+      "name": "business-cases",
+      "label": "Business cases, by risk",
+      "file": "business-cases.html",
+      "group": "Product",
+      "section": "The roadmap"
+    },
+    {
+      "name": "how-it-works",
+      "label": "How it works",
+      "file": "how-it-works.html",
+      "group": "How it works",
+      "section": "See it work"
+    },
+    {
+      "name": "agent-behaviour-policy",
+      "label": "The sixteen examples",
+      "file": "agent-behaviour-policy.html",
+      "group": "How it works",
+      "section": "See it work"
+    },
+    {
+      "name": "grant-gap",
+      "label": "The grant is not the mandate",
+      "file": "grant-gap.html",
+      "group": "How it works",
+      "section": "See it work"
+    },
+    {
+      "name": "try-it",
+      "label": "Try it",
+      "file": "try-it.html",
+      "group": "How it works",
+      "section": "See it work"
+    },
+    {
+      "name": "demos",
+      "label": "Live demos",
+      "file": "demos.html",
+      "group": "How it works",
+      "section": "See it work"
+    },
+    {
+      "name": "lab",
+      "label": "The Lab",
+      "file": "lab.html",
+      "group": "How it works",
+      "section": "See it work"
+    },
+    {
       "name": "articles",
       "label": "Articles",
       "file": "articles.html",
-      "group": "Reading"
+      "group": "How it works",
+      "section": "Read"
     },
     {
       "name": "newsroom",
       "label": "From the newsroom",
       "file": "newsroom.html",
-      "group": "Reading"
+      "group": "How it works",
+      "section": "Read"
     },
     {
       "name": "stories",
       "label": "Stories: a cast, and storyboards",
       "file": "stories/index.html",
-      "group": "Reading"
+      "group": "How it works",
+      "section": "Read"
     },
     {
       "name": "stories-just-a-draft",
@@ -626,46 +470,291 @@
       "unlisted": true
     },
     {
-      "name": "questions",
-      "label": "Questions",
-      "file": "questions.html",
-      "group": "More"
-    },
-    {
-      "name": "privacy",
-      "label": "Privacy",
-      "file": "privacy.html",
-      "group": "More"
-    },
-    {
-      "name": "lab",
-      "label": "The Lab",
-      "file": "lab.html",
-      "group": "More"
-    },
-    {
-      "name": "demos",
-      "label": "Live demos",
-      "file": "demos.html",
-      "group": "More"
-    },
-    {
       "name": "library",
       "label": "Library",
       "file": "library.html",
-      "group": "More"
+      "group": "How it works",
+      "section": "Read"
+    },
+    {
+      "name": "questions",
+      "label": "Questions",
+      "file": "questions.html",
+      "group": "How it works",
+      "section": "Read"
+    },
+    {
+      "name": "secure-harness",
+      "label": "SHarness: enforcement, held by the kernel",
+      "file": "secure-harness.html",
+      "group": "Open source",
+      "section": "The open project"
+    },
+    {
+      "name": "github",
+      "label": "The code, on GitHub ↗",
+      "file": "https://github.com/Risk-Mandate/riskmandate.ai",
+      "link": true,
+      "group": "Open source",
+      "section": "The open project"
+    },
+    {
+      "name": "open-security-summit",
+      "label": "An open home: the Open Security Summit (proposed)",
+      "file": "open-security-summit.html",
+      "group": "Open source",
+      "section": "The open project"
+    },
+    {
+      "name": "team",
+      "label": "The team: our own agents' policies",
+      "file": "team/index.html",
+      "group": "Open source",
+      "section": "The open project"
+    },
+    {
+      "name": "team-publisher",
+      "label": "The team · RiskMandate Publisher",
+      "file": "team/publisher.html",
+      "group": "Behaviour policies",
+      "unlisted": true
+    },
+    {
+      "name": "team-studio",
+      "label": "The team · RiskMandate Design Studio",
+      "file": "team/studio.html",
+      "group": "Behaviour policies",
+      "unlisted": true
+    },
+    {
+      "name": "owasp-graph",
+      "label": "OWASP projects, as a graph",
+      "file": "owasp-graph.html",
+      "group": "Open source",
+      "section": "The open project"
+    },
+    {
+      "name": "business-case-riskmandate-abp",
+      "label": "Business case · Agent Behaviour Policy",
+      "file": "business-case-riskmandate-abp.html",
+      "group": "Insurance",
+      "unlisted": true
+    },
+    {
+      "name": "business-case-agentgateway",
+      "label": "Business case · agentgateway",
+      "file": "business-case-agentgateway.html",
+      "group": "Insurance",
+      "unlisted": true
+    },
+    {
+      "name": "business-case-topgent",
+      "label": "Business case · Topgent",
+      "file": "business-case-topgent.html",
+      "group": "Insurance",
+      "unlisted": true
+    },
+    {
+      "name": "business-case-cloudgeni",
+      "label": "Business case · Cloudgeni and Opengeni",
+      "file": "business-case-cloudgeni.html",
+      "group": "Insurance",
+      "unlisted": true
+    },
+    {
+      "name": "business-case-auth0-for-ai-agents",
+      "label": "Business case · Auth0 for AI Agents (draft)",
+      "file": "business-case-auth0-for-ai-agents.html",
+      "group": "Insurance",
+      "unlisted": true,
+      "private": true
+    },
+    {
+      "name": "business-case-cedar",
+      "label": "Business case · Cedar",
+      "file": "business-case-cedar.html",
+      "group": "Insurance",
+      "unlisted": true
+    },
+    {
+      "name": "business-case-cilium",
+      "label": "Business case · Cilium network policy",
+      "file": "business-case-cilium.html",
+      "group": "Insurance",
+      "unlisted": true
+    },
+    {
+      "name": "business-case-falco",
+      "label": "Business case · Falco",
+      "file": "business-case-falco.html",
+      "group": "Insurance",
+      "unlisted": true
+    },
+    {
+      "name": "business-case-gvisor",
+      "label": "Business case · gVisor",
+      "file": "business-case-gvisor.html",
+      "group": "Insurance",
+      "unlisted": true
+    },
+    {
+      "name": "business-case-keycloak",
+      "label": "Business case · Keycloak",
+      "file": "business-case-keycloak.html",
+      "group": "Insurance",
+      "unlisted": true
+    },
+    {
+      "name": "business-case-langfuse",
+      "label": "Business case · Langfuse",
+      "file": "business-case-langfuse.html",
+      "group": "Insurance",
+      "unlisted": true
+    },
+    {
+      "name": "business-case-langgraph-hitl",
+      "label": "Business case · LangGraph and LangChain human-in-the-loop",
+      "file": "business-case-langgraph-hitl.html",
+      "group": "Insurance",
+      "unlisted": true
+    },
+    {
+      "name": "business-case-litellm",
+      "label": "Business case · LiteLLM",
+      "file": "business-case-litellm.html",
+      "group": "Insurance",
+      "unlisted": true
+    },
+    {
+      "name": "business-case-open-policy-agent",
+      "label": "Business case · Open Policy Agent",
+      "file": "business-case-open-policy-agent.html",
+      "group": "Insurance",
+      "unlisted": true
+    },
+    {
+      "name": "business-case-openbao",
+      "label": "Business case · OpenBao",
+      "file": "business-case-openbao.html",
+      "group": "Insurance",
+      "unlisted": true
+    },
+    {
+      "name": "business-case-openfga",
+      "label": "Business case · OpenFGA",
+      "file": "business-case-openfga.html",
+      "group": "Insurance",
+      "unlisted": true
+    },
+    {
+      "name": "business-case-owasp-coraza",
+      "label": "Business case · OWASP Coraza",
+      "file": "business-case-owasp-coraza.html",
+      "group": "Insurance",
+      "unlisted": true
+    },
+    {
+      "name": "business-case-owasp-threat-dragon",
+      "label": "Business case · OWASP Threat Dragon and pytm",
+      "file": "business-case-owasp-threat-dragon.html",
+      "group": "Insurance",
+      "unlisted": true
+    },
+    {
+      "name": "business-case-postgresql-pitr",
+      "label": "Business case · PostgreSQL point-in-time recovery",
+      "file": "business-case-postgresql-pitr.html",
+      "group": "Insurance",
+      "unlisted": true
+    },
+    {
+      "name": "business-case-squid",
+      "label": "Business case · Squid",
+      "file": "business-case-squid.html",
+      "group": "Insurance",
+      "unlisted": true
+    },
+    {
+      "name": "business-case-unleash",
+      "label": "Business case · Unleash",
+      "file": "business-case-unleash.html",
+      "group": "Insurance",
+      "unlisted": true
+    },
+    {
+      "name": "business-case-velero",
+      "label": "Business case · Velero",
+      "file": "business-case-velero.html",
+      "group": "Insurance",
+      "unlisted": true
+    },
+    {
+      "name": "brand",
+      "label": "Brand",
+      "file": "brand.html",
+      "group": "Open source",
+      "section": "The open project"
+    },
+    {
+      "name": "about",
+      "label": "About: the company and the founders",
+      "file": "about.html",
+      "group": "Open source",
+      "section": "Company and community"
+    },
+    {
+      "name": "walkthrough",
+      "label": "Demo walkthrough: twenty minutes, in order",
+      "file": "walkthrough.html",
+      "group": "More",
+      "private": true,
+      "unlisted": true
+    },
+    {
+      "name": "linkedin",
+      "label": "LinkedIn desk: what we publish there, in order",
+      "file": "linkedin.html",
+      "group": "More",
+      "private": true,
+      "unlisted": true
+    },
+    {
+      "name": "home-diff",
+      "label": "Home: now and proposed, a private review",
+      "file": "home-diff.html",
+      "group": "More",
+      "private": true,
+      "unlisted": true
+    },
+    {
+      "name": "engagements",
+      "label": "Engagements: forward-deployed engineering (proposed)",
+      "file": "engagements.html",
+      "group": "More",
+      "private": true,
+      "unlisted": true
+    },
+    {
+      "name": "home-next",
+      "label": "Home: proposed, after the ten questions",
+      "file": "home-next.html",
+      "group": "More",
+      "private": true,
+      "unlisted": true
     },
     {
       "name": "partners",
       "label": "Partners",
       "file": "partners.html",
-      "group": "More"
+      "group": "Open source",
+      "section": "Company and community"
     },
     {
       "name": "uk-support",
       "label": "UK support, in the open",
       "file": "uk-support.html",
-      "group": "More"
+      "group": "Open source",
+      "section": "Company and community"
     },
     {
       "name": "interview-founder-marketing",
@@ -675,76 +764,40 @@
       "unlisted": true
     },
     {
-      "name": "about",
-      "label": "About: the company and the founders",
-      "file": "about.html",
-      "group": "More"
-    },
-    {
-      "name": "walkthrough",
-      "label": "Demo walkthrough: twenty minutes, in order",
-      "file": "walkthrough.html",
-      "group": "More",
-      "private": true
-    },
-    {
-      "name": "linkedin",
-      "label": "LinkedIn desk: what we publish there, in order",
-      "file": "linkedin.html",
-      "group": "More",
-      "private": true
-    },
-    {
-      "name": "home-diff",
-      "label": "Home: now and proposed, a private review",
-      "file": "home-diff.html",
-      "group": "More",
-      "private": true
-    },
-    {
-      "name": "engagements",
-      "label": "Engagements: forward-deployed engineering (proposed)",
-      "file": "engagements.html",
-      "group": "More",
-      "private": true
-    },
-    {
-      "name": "home-next",
-      "label": "Home: proposed, after the ten questions",
-      "file": "home-next.html",
-      "group": "More",
-      "private": true
-    },
-    {
-      "name": "brand",
-      "label": "Brand",
-      "file": "brand.html",
-      "group": "More"
+      "name": "contact",
+      "label": "Contact",
+      "file": "contact.html",
+      "group": "Open source",
+      "section": "Company and community"
     },
     {
       "name": "feedback",
       "label": "Give feedback",
       "file": "feedback.html",
-      "group": "More"
+      "group": "Open source",
+      "section": "Company and community"
     },
     {
-      "name": "contact",
-      "label": "Contact",
-      "file": "contact.html",
-      "group": "More"
+      "name": "privacy",
+      "label": "Privacy",
+      "file": "privacy.html",
+      "group": "Open source",
+      "section": "Company and community"
     },
     {
       "name": "agent-contact",
       "label": "Agents: the contact file",
       "file": "agents/index.html",
-      "group": "More"
+      "group": "Open source",
+      "section": "Company and community"
     },
     {
       "name": "admin",
       "label": "Admin",
       "file": "admin/",
       "group": "More",
-      "link": true
+      "link": true,
+      "unlisted": true
     },
     {
       "name": "agents",
