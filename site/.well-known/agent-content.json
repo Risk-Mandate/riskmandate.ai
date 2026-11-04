@@ -7,7 +7,7 @@
     "oneLine": "The insurability layer for agentic AI.",
     "summary": "Carriers are filing to exclude AI from cover, and the way back is evidence an underwriter will accept. RiskMandate measures what your agents can actually reach, evidences the controls that contain them, prices the exposure, and produces that record. Underneath the insurance framing is a risk model: a grant is what a credential technically permits, a mandate is what the holder is authorised and expected to do, and the gap between them is exposure nobody ever accepted. A deployed agent already has access, so a real risk cannot be denied — only accepted, by a named owner, for an interval, with an expiry that brings the decision back. RiskMandate is read-only and never in the request path: it defines the mandate and measures the gap; it does not enforce it. It is built on SG/Vault — zero-knowledge, PKI, provenance, no database — so you hold the keys.",
     "throughLine": "Measure what the agents can reach, name who owns it, evidence that the controls hold, and let the acceptance expire so the decision comes back.",
-    "version": "1.40.2"
+    "version": "1.40.3"
   },
   "artifacts": {
     "index": "https://riskmandate.ai/llms.txt",
@@ -100,228 +100,13 @@
       "url": "https://riskmandate.ai/"
     },
     {
-      "name": "agent-behaviour-policy",
-      "label": "The sixteen examples",
-      "url": "https://riskmandate.ai/agent-behaviour-policy.html"
-    },
-    {
       "name": "abp",
       "label": "What an ABP is",
       "url": "https://riskmandate.ai/abp.html"
     },
     {
-      "name": "how-it-works",
-      "label": "How it works",
-      "url": "https://riskmandate.ai/how-it-works.html"
-    },
-    {
-      "name": "secure-harness",
-      "label": "SHarness: enforcement, held by the kernel",
-      "url": "https://riskmandate.ai/secure-harness.html"
-    },
-    {
-      "name": "open-security-summit",
-      "label": "An open home: the Open Security Summit (proposed)",
-      "url": "https://riskmandate.ai/open-security-summit.html"
-    },
-    {
-      "name": "licence-to-operate",
-      "label": "Licence to Operate",
-      "url": "https://riskmandate.ai/licence-to-operate.html"
-    },
-    {
-      "name": "grant-gap",
-      "label": "The grant is not the mandate",
-      "url": "https://riskmandate.ai/grant-gap.html"
-    },
-    {
-      "name": "team",
-      "label": "The team: our own agents' policies",
-      "url": "https://riskmandate.ai/team/"
-    },
-    {
-      "name": "team-publisher",
-      "label": "The team · RiskMandate Publisher",
-      "url": "https://riskmandate.ai/team/publisher.html"
-    },
-    {
-      "name": "team-studio",
-      "label": "The team · RiskMandate Design Studio",
-      "url": "https://riskmandate.ai/team/studio.html"
-    },
-    {
-      "name": "try-it",
-      "label": "Try it",
-      "url": "https://riskmandate.ai/try-it.html"
-    },
-    {
-      "name": "for-corporate",
-      "label": "You run agents today",
-      "url": "https://riskmandate.ai/for-corporate.html"
-    },
-    {
-      "name": "for-founders",
-      "label": "You are a founder",
-      "url": "https://riskmandate.ai/for-founders.html"
-    },
-    {
-      "name": "for-startups",
-      "label": "You are a startup",
-      "url": "https://riskmandate.ai/for-startups.html"
-    },
-    {
-      "name": "early-access",
-      "label": "Early access, invite only",
-      "url": "https://riskmandate.ai/early-access.html"
-    },
-    {
-      "name": "early-adopters",
-      "label": "Early adopters: a thank you",
-      "url": "https://riskmandate.ai/early-adopters.html"
-    },
-    {
-      "name": "insurance",
-      "label": "Make agents insurable",
-      "url": "https://riskmandate.ai/insurance.html"
-    },
-    {
-      "name": "insure-a-program",
-      "label": "Can you insure a program?",
-      "url": "https://riskmandate.ai/insure-a-program.html"
-    },
-    {
-      "name": "plug",
-      "label": "Who can pull the plug",
-      "url": "https://riskmandate.ai/plug.html"
-    },
-    {
-      "name": "scenarios",
-      "label": "Risk scenarios",
-      "url": "https://riskmandate.ai/scenarios.html"
-    },
-    {
-      "name": "ramm",
-      "label": "RAMM — acceptance maturity",
-      "url": "https://riskmandate.ai/ramm.html"
-    },
-    {
-      "name": "business-cases",
-      "label": "Business cases, by risk",
-      "url": "https://riskmandate.ai/business-cases.html"
-    },
-    {
-      "name": "owasp-graph",
-      "label": "OWASP, as a graph",
-      "url": "https://riskmandate.ai/owasp-graph.html"
-    },
-    {
-      "name": "business-case-riskmandate-abp",
-      "label": "Business case · Agent Behaviour Policy",
-      "url": "https://riskmandate.ai/business-case-riskmandate-abp.html"
-    },
-    {
-      "name": "business-case-agentgateway",
-      "label": "Business case · agentgateway",
-      "url": "https://riskmandate.ai/business-case-agentgateway.html"
-    },
-    {
-      "name": "business-case-topgent",
-      "label": "Business case · Topgent",
-      "url": "https://riskmandate.ai/business-case-topgent.html"
-    },
-    {
-      "name": "business-case-cloudgeni",
-      "label": "Business case · Cloudgeni and Opengeni",
-      "url": "https://riskmandate.ai/business-case-cloudgeni.html"
-    },
-    {
-      "name": "business-case-cedar",
-      "label": "Business case · Cedar",
-      "url": "https://riskmandate.ai/business-case-cedar.html"
-    },
-    {
-      "name": "business-case-cilium",
-      "label": "Business case · Cilium network policy",
-      "url": "https://riskmandate.ai/business-case-cilium.html"
-    },
-    {
-      "name": "business-case-falco",
-      "label": "Business case · Falco",
-      "url": "https://riskmandate.ai/business-case-falco.html"
-    },
-    {
-      "name": "business-case-gvisor",
-      "label": "Business case · gVisor",
-      "url": "https://riskmandate.ai/business-case-gvisor.html"
-    },
-    {
-      "name": "business-case-keycloak",
-      "label": "Business case · Keycloak",
-      "url": "https://riskmandate.ai/business-case-keycloak.html"
-    },
-    {
-      "name": "business-case-langfuse",
-      "label": "Business case · Langfuse",
-      "url": "https://riskmandate.ai/business-case-langfuse.html"
-    },
-    {
-      "name": "business-case-langgraph-hitl",
-      "label": "Business case · LangGraph and LangChain human-in-the-loop",
-      "url": "https://riskmandate.ai/business-case-langgraph-hitl.html"
-    },
-    {
-      "name": "business-case-litellm",
-      "label": "Business case · LiteLLM",
-      "url": "https://riskmandate.ai/business-case-litellm.html"
-    },
-    {
-      "name": "business-case-open-policy-agent",
-      "label": "Business case · Open Policy Agent",
-      "url": "https://riskmandate.ai/business-case-open-policy-agent.html"
-    },
-    {
-      "name": "business-case-openbao",
-      "label": "Business case · OpenBao",
-      "url": "https://riskmandate.ai/business-case-openbao.html"
-    },
-    {
-      "name": "business-case-openfga",
-      "label": "Business case · OpenFGA",
-      "url": "https://riskmandate.ai/business-case-openfga.html"
-    },
-    {
-      "name": "business-case-owasp-coraza",
-      "label": "Business case · OWASP Coraza",
-      "url": "https://riskmandate.ai/business-case-owasp-coraza.html"
-    },
-    {
-      "name": "business-case-owasp-threat-dragon",
-      "label": "Business case · OWASP Threat Dragon and pytm",
-      "url": "https://riskmandate.ai/business-case-owasp-threat-dragon.html"
-    },
-    {
-      "name": "business-case-postgresql-pitr",
-      "label": "Business case · PostgreSQL point-in-time recovery",
-      "url": "https://riskmandate.ai/business-case-postgresql-pitr.html"
-    },
-    {
-      "name": "business-case-squid",
-      "label": "Business case · Squid",
-      "url": "https://riskmandate.ai/business-case-squid.html"
-    },
-    {
-      "name": "business-case-unleash",
-      "label": "Business case · Unleash",
-      "url": "https://riskmandate.ai/business-case-unleash.html"
-    },
-    {
-      "name": "business-case-velero",
-      "label": "Business case · Velero",
-      "url": "https://riskmandate.ai/business-case-velero.html"
-    },
-    {
       "name": "pricing",
-      "label": "The four levels",
+      "label": "The four levels, and pricing",
       "url": "https://riskmandate.ai/pricing.html"
     },
     {
@@ -475,6 +260,96 @@
       "url": "https://riskmandate.ai/rules/edit-shared-documents.html"
     },
     {
+      "name": "for-corporate",
+      "label": "You run agents today",
+      "url": "https://riskmandate.ai/for-corporate.html"
+    },
+    {
+      "name": "for-founders",
+      "label": "You are a founder",
+      "url": "https://riskmandate.ai/for-founders.html"
+    },
+    {
+      "name": "for-startups",
+      "label": "You are a startup",
+      "url": "https://riskmandate.ai/for-startups.html"
+    },
+    {
+      "name": "early-access",
+      "label": "Early access, invite only",
+      "url": "https://riskmandate.ai/early-access.html"
+    },
+    {
+      "name": "early-adopters",
+      "label": "Early adopters: a thank you",
+      "url": "https://riskmandate.ai/early-adopters.html"
+    },
+    {
+      "name": "licence-to-operate",
+      "label": "Licence to Operate",
+      "url": "https://riskmandate.ai/licence-to-operate.html"
+    },
+    {
+      "name": "insurance",
+      "label": "The Insurability Index",
+      "url": "https://riskmandate.ai/insurance.html"
+    },
+    {
+      "name": "insure-a-program",
+      "label": "Can you insure a program?",
+      "url": "https://riskmandate.ai/insure-a-program.html"
+    },
+    {
+      "name": "plug",
+      "label": "Who can pull the plug",
+      "url": "https://riskmandate.ai/plug.html"
+    },
+    {
+      "name": "scenarios",
+      "label": "Risk scenarios",
+      "url": "https://riskmandate.ai/scenarios.html"
+    },
+    {
+      "name": "ramm",
+      "label": "RAMM — acceptance maturity",
+      "url": "https://riskmandate.ai/ramm.html"
+    },
+    {
+      "name": "business-cases",
+      "label": "Business cases, by risk",
+      "url": "https://riskmandate.ai/business-cases.html"
+    },
+    {
+      "name": "how-it-works",
+      "label": "How it works",
+      "url": "https://riskmandate.ai/how-it-works.html"
+    },
+    {
+      "name": "agent-behaviour-policy",
+      "label": "The sixteen examples",
+      "url": "https://riskmandate.ai/agent-behaviour-policy.html"
+    },
+    {
+      "name": "grant-gap",
+      "label": "The grant is not the mandate",
+      "url": "https://riskmandate.ai/grant-gap.html"
+    },
+    {
+      "name": "try-it",
+      "label": "Try it",
+      "url": "https://riskmandate.ai/try-it.html"
+    },
+    {
+      "name": "demos",
+      "label": "Live demos",
+      "url": "https://riskmandate.ai/demos.html"
+    },
+    {
+      "name": "lab",
+      "label": "The Lab",
+      "url": "https://riskmandate.ai/lab.html"
+    },
+    {
       "name": "articles",
       "label": "Articles",
       "url": "https://riskmandate.ai/articles.html"
@@ -575,29 +450,159 @@
       "url": "https://riskmandate.ai/owasp/tracker.html"
     },
     {
+      "name": "library",
+      "label": "Library",
+      "url": "https://riskmandate.ai/library.html"
+    },
+    {
       "name": "questions",
       "label": "Questions",
       "url": "https://riskmandate.ai/questions.html"
     },
     {
-      "name": "privacy",
-      "label": "Privacy",
-      "url": "https://riskmandate.ai/privacy.html"
+      "name": "secure-harness",
+      "label": "SHarness: enforcement, held by the kernel",
+      "url": "https://riskmandate.ai/secure-harness.html"
     },
     {
-      "name": "lab",
-      "label": "The Lab",
-      "url": "https://riskmandate.ai/lab.html"
+      "name": "open-security-summit",
+      "label": "An open home: the Open Security Summit (proposed)",
+      "url": "https://riskmandate.ai/open-security-summit.html"
     },
     {
-      "name": "demos",
-      "label": "Live demos",
-      "url": "https://riskmandate.ai/demos.html"
+      "name": "team",
+      "label": "The team: our own agents' policies",
+      "url": "https://riskmandate.ai/team/"
     },
     {
-      "name": "library",
-      "label": "Library",
-      "url": "https://riskmandate.ai/library.html"
+      "name": "team-publisher",
+      "label": "The team · RiskMandate Publisher",
+      "url": "https://riskmandate.ai/team/publisher.html"
+    },
+    {
+      "name": "team-studio",
+      "label": "The team · RiskMandate Design Studio",
+      "url": "https://riskmandate.ai/team/studio.html"
+    },
+    {
+      "name": "owasp-graph",
+      "label": "OWASP projects, as a graph",
+      "url": "https://riskmandate.ai/owasp-graph.html"
+    },
+    {
+      "name": "business-case-riskmandate-abp",
+      "label": "Business case · Agent Behaviour Policy",
+      "url": "https://riskmandate.ai/business-case-riskmandate-abp.html"
+    },
+    {
+      "name": "business-case-agentgateway",
+      "label": "Business case · agentgateway",
+      "url": "https://riskmandate.ai/business-case-agentgateway.html"
+    },
+    {
+      "name": "business-case-topgent",
+      "label": "Business case · Topgent",
+      "url": "https://riskmandate.ai/business-case-topgent.html"
+    },
+    {
+      "name": "business-case-cloudgeni",
+      "label": "Business case · Cloudgeni and Opengeni",
+      "url": "https://riskmandate.ai/business-case-cloudgeni.html"
+    },
+    {
+      "name": "business-case-cedar",
+      "label": "Business case · Cedar",
+      "url": "https://riskmandate.ai/business-case-cedar.html"
+    },
+    {
+      "name": "business-case-cilium",
+      "label": "Business case · Cilium network policy",
+      "url": "https://riskmandate.ai/business-case-cilium.html"
+    },
+    {
+      "name": "business-case-falco",
+      "label": "Business case · Falco",
+      "url": "https://riskmandate.ai/business-case-falco.html"
+    },
+    {
+      "name": "business-case-gvisor",
+      "label": "Business case · gVisor",
+      "url": "https://riskmandate.ai/business-case-gvisor.html"
+    },
+    {
+      "name": "business-case-keycloak",
+      "label": "Business case · Keycloak",
+      "url": "https://riskmandate.ai/business-case-keycloak.html"
+    },
+    {
+      "name": "business-case-langfuse",
+      "label": "Business case · Langfuse",
+      "url": "https://riskmandate.ai/business-case-langfuse.html"
+    },
+    {
+      "name": "business-case-langgraph-hitl",
+      "label": "Business case · LangGraph and LangChain human-in-the-loop",
+      "url": "https://riskmandate.ai/business-case-langgraph-hitl.html"
+    },
+    {
+      "name": "business-case-litellm",
+      "label": "Business case · LiteLLM",
+      "url": "https://riskmandate.ai/business-case-litellm.html"
+    },
+    {
+      "name": "business-case-open-policy-agent",
+      "label": "Business case · Open Policy Agent",
+      "url": "https://riskmandate.ai/business-case-open-policy-agent.html"
+    },
+    {
+      "name": "business-case-openbao",
+      "label": "Business case · OpenBao",
+      "url": "https://riskmandate.ai/business-case-openbao.html"
+    },
+    {
+      "name": "business-case-openfga",
+      "label": "Business case · OpenFGA",
+      "url": "https://riskmandate.ai/business-case-openfga.html"
+    },
+    {
+      "name": "business-case-owasp-coraza",
+      "label": "Business case · OWASP Coraza",
+      "url": "https://riskmandate.ai/business-case-owasp-coraza.html"
+    },
+    {
+      "name": "business-case-owasp-threat-dragon",
+      "label": "Business case · OWASP Threat Dragon and pytm",
+      "url": "https://riskmandate.ai/business-case-owasp-threat-dragon.html"
+    },
+    {
+      "name": "business-case-postgresql-pitr",
+      "label": "Business case · PostgreSQL point-in-time recovery",
+      "url": "https://riskmandate.ai/business-case-postgresql-pitr.html"
+    },
+    {
+      "name": "business-case-squid",
+      "label": "Business case · Squid",
+      "url": "https://riskmandate.ai/business-case-squid.html"
+    },
+    {
+      "name": "business-case-unleash",
+      "label": "Business case · Unleash",
+      "url": "https://riskmandate.ai/business-case-unleash.html"
+    },
+    {
+      "name": "business-case-velero",
+      "label": "Business case · Velero",
+      "url": "https://riskmandate.ai/business-case-velero.html"
+    },
+    {
+      "name": "brand",
+      "label": "Brand",
+      "url": "https://riskmandate.ai/brand.html"
+    },
+    {
+      "name": "about",
+      "label": "About: the company and the founders",
+      "url": "https://riskmandate.ai/about.html"
     },
     {
       "name": "partners",
@@ -615,14 +620,9 @@
       "url": "https://riskmandate.ai/interview-founder-marketing.html"
     },
     {
-      "name": "about",
-      "label": "About: the company and the founders",
-      "url": "https://riskmandate.ai/about.html"
-    },
-    {
-      "name": "brand",
-      "label": "Brand",
-      "url": "https://riskmandate.ai/brand.html"
+      "name": "contact",
+      "label": "Contact",
+      "url": "https://riskmandate.ai/contact.html"
     },
     {
       "name": "feedback",
@@ -630,9 +630,9 @@
       "url": "https://riskmandate.ai/feedback.html"
     },
     {
-      "name": "contact",
-      "label": "Contact",
-      "url": "https://riskmandate.ai/contact.html"
+      "name": "privacy",
+      "label": "Privacy",
+      "url": "https://riskmandate.ai/privacy.html"
     },
     {
       "name": "agent-contact",
@@ -985,5 +985,5 @@
     ]
   },
   "licence": "CC BY 4.0 (library content)",
-  "generated": "v1.40.2"
+  "generated": "v1.40.3"
 }

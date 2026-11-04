@@ -72,9 +72,12 @@ needed.
 | Scenarios pilot | `site/scenarios/` | reads vault `dm42qcaw` in the browser; needs `localhost` |
 | Admin console | `site/admin/**` (53 pages + twins) and `site/admin/console.css` | **generated** by `build-admin.mjs` from `docs/`, `.claude/`, the brief register, the state file, the catalogue and each vault's data; public, noindex, not in `pages.json`, its own rail. `admin.html` is a redirect stub. Adopted from `store.sgit.ai/admin/` |
 
-`site/pages.json` lists every page with its menu group. `unlisted` = real page, not in the menu.
-`private` = also out of the sitemap, llms.txt and the twins, and noindex. At most 7 top-level
-menu entries (a group counts as one).
+`site/pages.json` lists every page with its menu group and `section`. `unlisted` = real page, not
+in the menu. `private` = also out of the sitemap, llms.txt and the twins, and noindex. The header
+is **three entries and one button** (Product · How it works · Open source; Try it free), since
+v1.40.3 and a partner's review: a new page goes into a section of one of the three, never a fourth
+entry, and a test fails if it does. Desk pages (walkthrough, LinkedIn desk, home drafts,
+engagements) and Admin are off the menu; Admin is in every footer.
 
 ## Scripts (`scripts/site/`)
 

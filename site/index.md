@@ -235,6 +235,10 @@ The insurability layer for agentic AI. Know the risk. Name the owner. Own the ma
 
 Product
 
-Evidence
+The roadmap
 
 Open source
+
+Trust
+
+Company

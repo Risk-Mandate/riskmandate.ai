@@ -127,6 +127,7 @@ test('the menu is the same list on every page, and every entry is a real page', 
     assert.ok(m, `${f} has no page list`);
     menus.add(m[1]);
     for (const p of JSON.parse(m[1])) {
+      if (/^https:\/\//.test(p.file)) continue;   // the code on GitHub: an address, not a file here
       assert.ok(existsSync(join(SITE, p.file)), `${f} menu points at missing ${p.file}`);
     }
   }
@@ -401,5 +402,19 @@ test('each menu group is one run in pages.json, so the menu cannot split a group
       assert.ok(!seen.has(p.group), `pages.json: "${p.name}" starts a second run of group "${p.group}" — keep a group's entries together`);
       seen.add(p.group); last = p.group;
     }
+  }
+});
+
+test('the header has three entries and one button, and each dropdown section is one run', () => {
+  // A partner's review on 3 November 2026: Product, How it works, Open source, and Try it free.
+  // Everything else is a section inside one of the three; a fourth entry is a regression.
+  const menu = JSON.parse(read('pages.json')).pages.filter(p => !p.unlisted);
+  const top = []; for (const p of menu) { const k = p.group || p.name; if (top[top.length - 1] !== k) top.push(k); }
+  assert.deepEqual(top, ['Product', 'How it works', 'Open source'], `the header would show: ${top.join(', ')}`);
+  const seen = new Set(); let last = null;
+  for (const p of menu) {
+    assert.ok(p.section, `pages.json: "${p.name}" is in the menu without a section`);
+    const k = p.group + ' / ' + p.section;
+    if (k !== last) { assert.ok(!seen.has(k), `pages.json: "${p.name}" starts a second run of section "${k}"`); seen.add(k); last = k; }
   }
 });

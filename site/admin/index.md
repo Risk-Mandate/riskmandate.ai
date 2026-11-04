@@ -17,7 +17,7 @@
 
 **16**vaults built and pushed*4 measured · 9 asked for*
 
-**154**releases*8 Lab editions*
+**155**releases*8 Lab editions*
 
 ## Needs the lead — 11
 
@@ -84,6 +84,10 @@ No work file under .claude/work/.
 **[The board →](../admin/work/)** — the queue, in four columns. A row moves because its status in the state file moved or because a branch claimed its brief; nothing is dragged.
 
 ## Where things are
+
+**The desk**
+
+Working pages off the public menu since v1.40.3: [the demo walkthrough](../walkthrough.html), [the LinkedIn desk](../linkedin.html), [engagements (proposed)](../engagements.html), [the proposed home](../home-next.html) and [home, now and proposed](../home-diff.html). Private: noindex, no twin, out of the sitemap.5 pages
 
 **[The vaults](../admin/vaults/)**
 

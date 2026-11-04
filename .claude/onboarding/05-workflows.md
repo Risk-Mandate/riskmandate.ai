@@ -7,8 +7,8 @@ Each recipe ends with `npm run check`. If it is not green, it is not done.
 ```bash
 node scripts/site/new-page.mjs <name> --title "RiskMandate — …" --desc "…" \
      --body /path/to/body.html --css /path/to/page.css --donor work.html --cta "Get in touch"
-node scripts/site/add-licence-chrome.mjs         # GitHub link + licence line, if the donor predates them
-# add the page to site/pages.json (group or unlisted; at most 7 top-level entries)
+node scripts/site/add-licence-chrome.mjs         # licence line + site line, no header icons, if the donor predates them
+# add the page to site/pages.json: a group and a section of Product, How it works or Open source, or unlisted
 node scripts/site/generate.mjs                   # injects the menu, writes the twin, sitemap, llms.txt
 npm run check
 ```
