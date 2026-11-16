@@ -894,6 +894,12 @@
       "unlisted": true
     },
     {
+      "name": "web-summit-2026-situations",
+      "label": "Situations: what our agents did",
+      "file": "web-summit-2026/situations.html",
+      "unlisted": true
+    },
+    {
       "name": "web-summit-2026-home-proposal",
       "label": "Home: proposed, in action at Web Summit 2026",
       "file": "web-summit-2026/home-proposal.html",

@@ -133,7 +133,7 @@ Each is right about what it counts. A reader quoting one should quote what it co
 
 ## A team for this site, and its first two weeks.
 
-Started on 16 November at the lead’s word: run riskmandate.ai with a team on the post-summit follow-up, the publications, the marketing pushes, the positioning, and the real examples. One conductor session; every role below is a sub-agent it runs, not a session of its own. Agents draft; a person sends. The full plan is the brief [plan__riskmandate-team-after-web-summit-2026.md](https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/briefs/plan__riskmandate-team-after-web-summit-2026.md). The site itself, rebuilt around the newsroom’s material, is proposed on [the site plan](/web-summit-2026/site-plan.html), with every article it draws on in [the newsroom map](/web-summit-2026/newsroom-map.html).
+Started on 16 November at the lead’s word: run riskmandate.ai with a team on the post-summit follow-up, the publications, the marketing pushes, the positioning, and the real examples. One conductor session; every role below is a sub-agent it runs, not a session of its own. Agents draft; a person sends. The full plan is the brief [plan__riskmandate-team-after-web-summit-2026.md](https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/briefs/plan__riskmandate-team-after-web-summit-2026.md). Eighteen small cases from the record are on [the situations page](/web-summit-2026/situations.html). The site itself, rebuilt around the newsroom’s material, is proposed on [the site plan](/web-summit-2026/site-plan.html), with every article it draws on in [the newsroom map](/web-summit-2026/newsroom-map.html).
 
 ### Conductor
 
