@@ -71,11 +71,19 @@ a decision the lead owns, listed in the state fileneeds the lead
 
 a decision the lead owns, listed in the state fileneeds the lead
 
-## In flight — 0 branches
+## In flight — 1 branch
 
 One file per branch under `.claude/work/`. [How a work file is written](../../admin/work/about-work-files/).
 
-Nothing in flight.
+### [claude/conductor-web-summit-2026](../../admin/work/branches/claude-conductor-web-summit-2026/)
+
+started 16 November 2026 · task brief: ad hoc, the lead's spoken brief of 16 Nov
+
+A new unlisted section, `/web-summit-2026/`: the mapping of every public RiskMandate material from Web Summit 2026 (policies written, runs, the swarm visualisations, the film, the newsroom pieces, the follow-ups owed), every figure sourced and dated; and the team's plan and two-week calendar. A homepage proposal is drafted on that section as a proposal only. **The homepage (`site/index.html`) is not touched** until the lead says yes.
+
+**External state.** Vaults built and unpushed: none · Lab editions I will cut: none · Release I will claim at merge: yes, a patch
+
+**Status.** [x] mapping (four read-only research passes) · [x] section page, sourced and dated · [x] plan brief
 
 ## Task briefs — 17
 

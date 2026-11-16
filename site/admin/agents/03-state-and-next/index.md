@@ -8,6 +8,10 @@ the site's; check `site/versions/index.json` for the current version before trus
 
 ## State as at 2026-09-30, v1.35.3
 
+- **Web Summit 2026 (16 Nov 2026, branch `claude/conductor-web-summit-2026`):** a new team for the site, a conductor and
+  sub-agents. The mapping of the summit's public record is `site/web-summit-2026/index.html` (unlisted, every figure
+  sourced and dated); the plan and the homepage proposal are `docs/briefs/plan__riskmandate-team-after-web-summit-2026.md`.
+  The homepage's Lisbon stand strip is out of date and waits on the lead's yes.
 - **Menu since v1.40.3 (4 Nov 2026):** three entries and one button — *Product* (the ABP and its levels, who it's for, the
   roadmap: Licence to Operate, the Insurability Index and the insurance pages), *How it works* (see it work; read), *Open source*
   (SHarness, the code on GitHub, the Open Security Summit, the team; company and community); *Try it free*. Every page that was

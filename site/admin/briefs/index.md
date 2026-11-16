@@ -3,7 +3,7 @@
 > Every document under docs/ on riskmandate.ai, rendered as a page: direction briefs, reviews, workflows, architecture and research, newest first.
 > Source: https://riskmandate.ai/admin/briefs/ · noindex · written by scripts/site/build-admin.mjs
 
-**39**documents under docs/*one page each, rendered from the file*
+**40**documents under docs/*one page each, rendered from the file*
 
 **11**direction briefs*the product and the site*
 
@@ -14,6 +14,10 @@
 These were written here, by the agent maintaining the site, in response to [the memos and documents that arrived](../../admin/memos/). Each is read against a named source and dated. Add a file under `docs/` and rerun `build-admin.mjs`: it has a page here and a test fails until it does.
 
 ## Newest first
+
+**[Plan — a team for riskmandate.ai after Web Summit 2026](../../admin/briefs/plan__riskmandate-team-after-web-summit-2026/)**
+
+The first time the ABP ran on a team rather than a template. From the mapping, read 16 November: 191 ABP documents across three of the team's sites (94 + 54 + 43, overlaps not removed); 2,262 run reports from 76 agents; 2,980 entries logged as outside an…16 November 2026 · plan
 
 **[The ABP moves to the Open Security Summit: what the site did, and the process from here](../../admin/briefs/direction__the-abp-moves-to-the-open-security-summit/)**
 

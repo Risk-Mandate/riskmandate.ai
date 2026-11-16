@@ -1,0 +1,770 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RiskMandate — In action at Web Summit 2026: the policies, the runs, the record</title>
+<meta name="description" content="What Web Summit 2026 left on the public record: 191 Agent Behaviour Policy documents across three of the team's sites, 2,262 run reports, every gap logged, one rule turned into a barrier. Every figure sourced and dated, 16 November 2026. Nothing scored.">
+<link rel="canonical" href="https://riskmandate.ai/web-summit-2026/">
+<link rel="alternate" type="text/markdown" href="/web-summit-2026/index.md" title="This page as markdown">
+<link rel="icon" href="/assets/brand/riskmandate-favicon-32.png" sizes="32x32">
+<link rel="icon" href="/assets/brand/riskmandate-mark.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RiskMandate">
+<meta property="og:url" content="https://riskmandate.ai/web-summit-2026/">
+<meta property="og:title" content="RiskMandate — In action at Web Summit 2026: the policies, the runs, the record">
+<meta property="og:description" content="What Web Summit 2026 left on the public record: 191 Agent Behaviour Policy documents across three of the team's sites, 2,262 run reports, every gap logged, one rule turned into a barrier. Every figure sourced and dated, 16 November 2026. Nothing scored.">
+<meta property="og:image" content="https://riskmandate.ai/assets/brand/riskmandate-lockup-light.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Scaffolded by scripts/site/new-page.mjs. Hand-edited from here on — there is no build step. -->
+<style>
+/* web-summit-2026.css — self-contained: the shared chrome, then this page's own. */
+:root{
+  --bg:#F7F6F2; --bg2:#EFEDE7; --card:#FFFFFF; --ink:#0D0D0C; --canvas:#0A0A09;
+  --text:#1A1917; --muted:#4A4845; --faint:#8A8780; --border:#E2DFD8;
+  --green:#1A7F5A; --green-2:#22c55e; --greenBg:#EBF5F0;
+  --gold:#B45309; --red:#C0392B; --blue:#1D4ED8;
+  --fg:#F7F6F2; --fg-2:rgba(247,246,242,.55); --fg-3:rgba(247,246,242,.32);
+  --line:rgba(247,246,242,.10); --line-2:rgba(247,246,242,.18);
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","JetBrains Mono","Roboto Mono",Menlo,Consolas,monospace;
+  --wrap:1000px; --r:10px; --r-sm:8px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth} @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+h1,h2{margin:0;font-weight:800;letter-spacing:-.03em;line-height:1.04}
+h2{font-size:clamp(26px,3.6vw,40px);font-weight:700;letter-spacing:-.02em}
+p{margin:0}
+:focus-visible{outline:2px solid var(--green-2);outline-offset:3px;border-radius:4px}
+.tag{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+.g{color:var(--green)} .it{font-style:italic;color:var(--green)}
+
+/* header */
+.top{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.top .wrap{display:flex;align-items:center;gap:22px;height:56px;max-width:1100px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:15px;color:var(--text);white-space:nowrap;text-decoration:none}
+.rm{width:26px;height:26px;flex:none;display:block}
+.rm svg{width:100%;height:100%;display:block}
+.navlinks{display:flex;align-items:center;gap:22px;margin-left:auto}
+rm-menu{display:contents}
+.navlinks a{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;text-decoration:none;display:inline-flex;align-items:center}
+.navlinks a:hover{color:var(--text)}
+.navlinks a.active{color:var(--text);font-weight:600}
+.version{font-family:var(--mono);font-size:12px;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:7px;padding:5px 8px;text-decoration:none;white-space:nowrap;transition:color .15s,border-color .15s}
+.version:hover{color:var(--text);border-color:var(--faint)}
+.demo{background:var(--green);color:#fff;font-weight:600;font-size:13px;border:0;border-radius:8px;padding:8px 16px;cursor:pointer;transition:background .15s;font-family:var(--sans);white-space:nowrap}
+.demo:hover{background:#16704f}
+
+/* nav dropdowns */
+.navgroup{position:relative;display:inline-flex;align-items:center}
+.navgroup::after{content:"";position:absolute;top:100%;left:0;right:0;height:10px}
+.navgroup-btn{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;display:inline-flex;align-items:center;gap:5px}
+.navgroup-btn:hover,.navgroup:hover .navgroup-btn,.navgroup.open .navgroup-btn,.navgroup.active .navgroup-btn{color:var(--text)}
+.navgroup-car{font-size:8px;line-height:1;opacity:.6;transition:transform .15s}
+.navgroup:hover .navgroup-car,.navgroup.open .navgroup-car{transform:rotate(180deg)}
+.navmenu{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);min-width:184px;background:var(--card);border:1px solid var(--border);border-radius:10px;box-shadow:0 10px 34px rgba(13,13,12,.14);padding:6px;display:none;flex-direction:column;gap:2px;z-index:70}
+.navgroup:hover .navmenu,.navgroup.open .navmenu{display:flex}
+.navmenu .navchild{justify-content:flex-start;text-align:left;width:100%;padding:8px 12px;border-radius:7px;font-size:13.5px;color:var(--muted);white-space:nowrap}
+.navmenu .navchild:hover{background:var(--bg2);color:var(--text)}
+.navmenu .navchild.active{color:var(--green);font-weight:600;background:var(--greenBg)}
+
+/* mobile drawer — the toggle is injected by nav.js; .top.nav-open opens it */
+.navtoggle{display:none;margin-left:auto;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;padding:0;background:none;border:0;cursor:pointer}
+.navtoggle span{display:block;width:20px;height:2px;margin:0 auto;background:var(--text);border-radius:2px;transition:transform .2s,opacity .2s}
+.top.nav-open .navtoggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.top.nav-open .navtoggle span:nth-child(2){opacity:0}
+.top.nav-open .navtoggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media (max-width:1040px){
+  .navtoggle{display:flex}
+  .top .wrap{position:relative}
+  .version{display:none}
+  .navlinks{display:none;position:absolute;left:0;right:0;top:calc(100% + 1px);flex-direction:column;align-items:stretch;gap:0;margin:0;padding:8px;background:var(--card);border-bottom:1px solid var(--border);box-shadow:0 14px 34px rgba(13,13,12,.14);max-height:calc(100vh - 56px);overflow:auto}
+  .top.nav-open .navlinks{display:flex}
+  .navlinks a,.navlinks .navgroup-btn{width:100%;text-align:left;justify-content:flex-start;padding:12px 16px;font-size:15px;border-radius:8px}
+  .navlinks a:hover{background:var(--bg2)}
+  .navgroup{display:block;width:100%;position:static}
+  .navgroup::after{display:none}
+  .navgroup-btn{display:flex}
+  .navgroup-car{margin-left:auto}
+  .navmenu{position:static;transform:none;display:flex;flex-direction:column;min-width:0;padding:2px 0 8px 14px;background:transparent;border:0;box-shadow:none}
+  .navmenu .navchild{padding:10px 14px;font-size:14px}
+}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;padding:12px 22px;border-radius:var(--r-sm);cursor:pointer;border:1px solid transparent;font-family:var(--sans);text-decoration:none}
+.btn-green{background:var(--green);color:#fff} .btn-green:hover{background:#16704f}
+.btn-ghost{background:transparent;color:var(--fg);border-color:var(--line-2)} .btn-ghost:hover{border-color:var(--fg-2)}
+.btn-ghost-dark{background:transparent;color:var(--text);border-color:var(--border)} .btn-ghost-dark:hover{border-color:var(--green);color:var(--green)}
+
+/* dark hero */
+.phero{background:var(--ink);color:var(--fg);padding:88px 24px 84px}
+.phero .wrap{max-width:var(--wrap)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--green);background:rgba(26,127,90,.18);border:1px solid rgba(26,127,90,.4);border-radius:999px;padding:5px 12px}
+.eyebrow .d{width:6px;height:6px;border-radius:50%;background:var(--green-2)}
+.phero h1{font-size:clamp(34px,5.2vw,60px);letter-spacing:-.04em;line-height:1.02;margin:26px 0 0;color:var(--fg);max-width:900px}
+.phero .sub{color:var(--fg-2);font-size:17px;line-height:1.7;max-width:640px;margin-top:24px}
+.cta-row{display:flex;flex-wrap:wrap;gap:11px;margin-top:30px}
+
+/* paper sections */
+.paper{background:var(--bg)}
+.psection{padding:80px 0;border-bottom:1px solid var(--border)}
+.psection.alt{background:var(--bg2)}
+.shead{max-width:680px} .shead.center{max-width:720px;margin:0 auto;text-align:center}
+.shead h2{color:var(--text)} .shead p{color:var(--muted);margin-top:16px;font-size:15px;line-height:1.75}
+
+/* closing panel + footer */
+.pcta{background:var(--ink);padding:80px 24px;text-align:center}
+.pcta .wrap{max-width:720px;padding:0}
+.pcta h2{font-size:clamp(28px,4.4vw,48px);color:var(--fg);margin-top:20px;font-weight:700;letter-spacing:-.03em}
+.pcta p{color:var(--fg-2);margin-top:16px;font-size:16px;line-height:1.7}
+.pcta .cta-row{justify-content:center}
+.foot{background:var(--canvas);border-top:1px solid var(--line);padding:32px 24px}
+.foot .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-family:var(--mono);font-size:10px;color:var(--fg-3);max-width:1100px}
+.footlink{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.footlink:hover{color:var(--fg-2)}
+/* narrow phones — at 360px the brand, the burger and the call to action stop
+   fitting on one line, and the header was the last thing on this site that
+   scrolled sideways. Tighten the gutter, the gap and the button rather than
+   drop any of them: all three are load-bearing at this width. */
+@media (max-width:420px){
+  .top .wrap{gap:12px;padding:0 16px}
+  .brand{font-size:14px;gap:7px}
+  .rm{width:24px;height:24px}
+  .demo{padding:8px 12px;font-size:12.5px}
+}
+
+/* web-summit-2026 — the mapping. Counts with their sources; nothing scored. */
+.ws-nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:34px}
+.ws-num{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:18px 18px 16px}
+.phero .ws-num{background:rgba(247,246,242,.04);border-color:var(--line-2)}
+.ws-num b{display:block;font-size:30px;font-weight:800;letter-spacing:-.03em;line-height:1.1}
+.ws-num span{display:block;font-size:14px;margin-top:6px}
+.ws-num small{display:block;font-family:var(--mono);font-size:11px;margin-top:10px;color:var(--faint)}
+.phero .ws-num span{color:var(--fg-2)} .phero .ws-num small{color:var(--fg-3)}
+.phero .ws-num small a{color:var(--fg-2)}
+.ws-t{width:100%;border-collapse:collapse;margin-top:28px;font-size:14.5px;background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
+.ws-t th,.ws-t td{text-align:left;vertical-align:top;padding:11px 14px;border-bottom:1px solid var(--border)}
+.ws-t th{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:var(--bg2)}
+.ws-t td.n{font-weight:700;white-space:nowrap}
+.ws-t tr:last-child td{border-bottom:0}
+.ws-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.ws-src{font-family:var(--mono);font-size:11.5px;color:var(--faint)}
+.ws-src a,.ws-t a,.shead a,.ws-list a,.ws-note a{color:var(--green)}
+.ws-list{margin:22px 0 0;padding-left:20px} .ws-list li{margin:8px 0}
+.ws-note{margin-top:26px;padding:16px 18px;border-left:3px solid var(--gold);background:var(--card);border-radius:0 var(--r-sm) var(--r-sm) 0;font-size:15px}
+.ws-note.g{border-left-color:var(--green)}
+.shead p{margin-top:16px;color:var(--muted)}
+.ws-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:28px}
+.ws-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:20px}
+.ws-card h3{margin:0 0 8px;font-size:17px}
+.ws-card p{font-size:14.5px;color:var(--muted);margin-top:6px}
+.ws-card .id{display:block;font-family:var(--mono);font-size:11px;color:var(--green);margin-bottom:8px}
+@media (max-width:640px){.ws-t{font-size:13.5px}.ws-t th,.ws-t td{padding:9px 10px}}
+</style>
+</head>
+<body id="top">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
+    <nav class="navlinks"><rm-menu></rm-menu></nav>
+    <a class="version" href="/versions.html" title="What shipped in v1.40.3">v1.40.3</a>
+    <a class="demo" href="https://customers.riskmandate.ai/" data-try>Get in touch</a>
+  </div>
+</header>
+
+<main class="phero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> Web Summit 2026 · the record</span>
+    <h1>RiskMandate in action, <span class="it">on our own agents.</span></h1>
+    <p class="sub" style="margin-bottom:20px">From 9 to 12 November 2026 in Lisbon, a team of people and their agents ran a stand, a newsroom and an incident site. Every agent on that team had an Agent Behaviour Policy (ABP) written in this site&rsquo;s grammar: what it can reach, what it was authorised to do, the gap, and what stands in the way. This page is the mapping of what that left on the public record, with every figure sourced and dated.</p>
+    <p class="meta"><b>Nothing here is scored.</b> A count is a count, and where two of our own pages give different counts, both are printed and neither is chosen.</p>
+    <p class="meta"><b>As at</b> 16 November 2026, every source read that day between 10:00 and 11:30 UTC. Our sources only: the team&rsquo;s public sites and the public repositories behind them. No private record, no contact detail, nothing measured on anybody else&rsquo;s system.</p>
+    <div class="ws-nums">
+      <div class="ws-num"><b>191</b><span>ABP documents published across three of the team&rsquo;s sites (94 + 54 + 43), overlaps not removed</span><small>section 02</small></div>
+      <div class="ws-num"><b>2,262</b><span>run reports, one per agent run, from 6 to 16 November</span><small>PrompTugal board, public repository</small></div>
+      <div class="ws-num"><b>2,980</b><span>actions logged as outside an agent&rsquo;s grant, in observe mode: logged, not blocked</span><small>the same run reports</small></div>
+      <div class="ws-num"><b>1</b><span>rule that failed and became a technical barrier: a push to main, then main protected</span><small>web-summit.sgit.ai/abp/in-action/</small></div>
+    </div>
+  </div>
+</main>
+
+<section class="psection">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">01 · What happened</span>
+      <h2>Four days in Lisbon, <span class="g">and the ten before them.</span></h2>
+      <p>The team&rsquo;s own account, in the team&rsquo;s own pages. The stand was on Thursday 12 November, booth A1-30. The rest of the week was the work behind it.</p>
+    </div>
+    <div class="ws-scroll"><table class="ws-t">
+      <thead><tr><th>What</th><th>As the source puts it</th><th>Source, date</th></tr></thead>
+      <tbody>
+        <tr><td>The team</td><td>&ldquo;Seven of us. Our agents. One RiskMandate.&rdquo; Nine people on the team page, seven going to Lisbon.</td><td class="ws-src"><a href="https://web-summit.sgit.ai/">web-summit.sgit.ai</a>, v0.2.2247, 16 Nov</td></tr>
+        <tr><td>The agents</td><td>&ldquo;9 people, 164 agents&rdquo;; &ldquo;137 agents have committed, and 27 more are proposed&rdquo;</td><td class="ws-src"><a href="https://web-summit.sgit.ai/team/everything/">web-summit.sgit.ai/team/everything/</a>, 16 Nov</td></tr>
+        <tr><td>Ten days, counted</td><td>&ldquo;about 20,000 commits&rdquo; across 15 repositories, &ldquo;224 Claude Code sessions&rdquo;, &ldquo;around 250 named agents&rdquo;</td><td class="ws-src"><a href="https://newsroom.sgit.ai/articles/ten-days-at-web-summit.html">newsroom.sgit.ai</a>, 14 Nov</td></tr>
+        <tr><td>The stand deck</td><td>&ldquo;Give agents access. Not free rein.&rdquo; &ldquo;nine people, 119 agents that have run, 85 at work in 48 hours&rdquo;</td><td class="ws-src"><a href="https://web-summit.sgit.ai/meetings/2026-11-10-1600/show/">web-summit.sgit.ai/meetings/2026-11-10-1600/show/</a>, 10 Nov</td></tr>
+        <tr><td>The newsroom</td><td>PrompTugal.news, &ldquo;powered by RiskMandate&rdquo;: &ldquo;73 articles&rdquo;, &ldquo;61 named agents in 43 roles&rdquo;, &ldquo;fifty requests to companies and sent none&rdquo;</td><td class="ws-src"><a href="https://newsroom.sgit.ai/articles/promptugal-news-the-newsroom-we-ran.html">newsroom.sgit.ai</a>, 15 Nov; <a href="https://promptugal.news/riskmandate/">promptugal.news/riskmandate/</a></td></tr>
+        <tr><td>The incident site</td><td>Storm Charles, Lisbon, 10 to 12 November: decisions, warnings and public signals, each sourced and timed. &ldquo;Not a warning service: follow IPMA and ANEPC.&rdquo; &ldquo;2,618 pages&rdquo;.</td><td class="ws-src"><a href="https://storm-charles.promptugal.news/">storm-charles.promptugal.news</a>; newsroom.sgit.ai, 14 Nov</td></tr>
+        <tr><td>The film</td><td><em>Know the Reach</em>, a song with subtitles, 3:39 on the stand site; the music video&rsquo;s first part, 53.4 seconds, by Silvio Switha</td><td class="ws-src"><a href="https://riskmandate-at-websummit.agenticcells.site/#film">riskmandate-at-websummit.agenticcells.site</a>, 16 Nov; <a href="https://newsroom.sgit.ai/articles/know-the-reach.html">newsroom.sgit.ai</a>, 15 Nov</td></tr>
+        <tr><td>The pause</td><td>&ldquo;9 Nov &hellip; at 23:30, the Big Stop: every agent paused&rdquo;; &ldquo;12 Nov &hellip; the final hold at 18:12&rdquo;</td><td class="ws-src">newsroom.sgit.ai, 14 Nov</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<section class="psection alt">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">02 · The behaviour policies</span>
+      <h2>One for every agent, <span class="g">in three places.</span></h2>
+      <p>The lead&rsquo;s estimate was a hundred to two hundred ABPs. Counted file by file on 16 November, the three sites publish 191 documents. That sum counts some agents twice: two of the team site&rsquo;s pages cover groups that also have files on the PrompTugal board. We have not removed the overlap, so 191 is an upper bound on distinct agents with an ABP, not a count of them.</p>
+    </div>
+    <div class="ws-scroll"><table class="ws-t">
+      <thead><tr><th>Where</th><th>Count</th><th>Status, in the source&rsquo;s words</th><th>How counted</th></tr></thead>
+      <tbody>
+        <tr><td><a href="https://web-summit.sgit.ai/abp/">web-summit.sgit.ai/abp/</a>, one page per agent on the team</td><td class="n">94</td><td>&ldquo;the ABPs are in the explorer phase &hellip; observe and recommend; they block nothing&rdquo; (at the lead&rsquo;s word, 6 Nov). The index says &ldquo;93 pages&rdquo;; the stand deck says &ldquo;93 pages, one per agent&rdquo;.</td><td class="ws-src">sitemap: 100 abp URLs less 6 that are not agent pages</td></tr>
+        <tr><td>PrompTugal.news board, <code>board/abp/</code> in the <a href="https://github.com/PrompTugal/PrompTugal__News__Website">public repository</a></td><td class="n">54</td><td>generated from one data file, <code>policies.json</code> v1.13.0 (16 Nov 07:40 UTC): 11 rules, 47 grants. Mode &ldquo;observe&rdquo;: &ldquo;observe first, never block&rdquo;. Every circuit breaker off.</td><td class="ws-src">files in board/abp/, less README and the page file; public clone, 16 Nov</td></tr>
+        <tr><td><a href="https://storm-charles.promptugal.news/library/abp.md">storm-charles.promptugal.news</a>, one per incident agent</td><td class="n">43</td><td>&ldquo;DRAFTS, NOT AGREED BY DINIS.&rdquo; &ldquo;Only the librarian&rsquo;s own session was measured; the others&rsquo; tools and connectors are not known here.&rdquo;</td><td class="ws-src">policy.md entries in its llms.txt</td></tr>
+      </tbody>
+    </table></div>
+    <div class="ws-note"><b>What was not done.</b> None of these ABPs blocks anything by design: every one is in an observe or explorer mode, and that was the lead&rsquo;s instruction (&ldquo;Blocking should always be the last worst case scenario,&rdquo; as the board quotes it). The Storm Charles set is marked as drafts the lead has not agreed. The Fringe repository&rsquo;s ABP folder was not counted. Most of the 94 are documented rather than measured: the grant is what each agent&rsquo;s brief and tools say, not what was tested on it.</div>
+  </div>
+</section>
+
+<section class="psection">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">03 · What the policies caught</span>
+      <h2>Written down, then <span class="g">found, then fixed.</span></h2>
+      <p>Two records, kept differently. The team site counted cases by hand for the first week. The PrompTugal board has every agent run file a report, and a run without one counts against its own rule (R10).</p>
+    </div>
+    <div class="ws-scroll"><table class="ws-t">
+      <thead><tr><th>What the team site recorded, 2 to 6 November, about 85 agents</th><th>Count</th></tr></thead>
+      <tbody>
+        <tr><td>Caught by a review before it went out</td><td class="n">7</td></tr>
+        <tr><td>Found by an ABP, then fixed by its owner (&ldquo;the gap was written down, an issue opened, and the owner closed it&rdquo;)</td><td class="n">7</td></tr>
+        <tr><td>A rule failed, and became a technical barrier: on 2 November at 23:06 UTC the conductor pushed to main; main was protected on 6 November, and &ldquo;never push to main&rdquo; is a technical barrier in all 72 behaviour policies of that day</td><td class="n">1</td></tr>
+        <tr><td>Found, still open</td><td class="n">6</td></tr>
+      </tbody>
+    </table></div>
+    <p class="ws-src" style="margin-top:10px">Sources: <a href="https://web-summit.sgit.ai/abp/in-action/">web-summit.sgit.ai/abp/in-action/</a>, first written 6 Nov; <a href="https://web-summit.sgit.ai/reports/2026-11-06-0457/">web-summit.sgit.ai/reports/2026-11-06-0457/</a>.</p>
+    <div class="ws-scroll"><table class="ws-t">
+      <thead><tr><th>What the PrompTugal run reports hold, 6 Nov 04:47 to 16 Nov 10:26 UTC</th><th>Count</th></tr></thead>
+      <tbody>
+        <tr><td>Run reports</td><td class="n">2,262</td></tr>
+        <tr><td>Distinct agents filing them</td><td class="n">76</td></tr>
+        <tr><td>Tool calls recorded</td><td class="n">25,393</td></tr>
+        <tr><td>Entries logged as outside the grant: 2,979 writes outside the agent&rsquo;s grant (rule R6), 1 compaction the hook did not re-anchor (R1)</td><td class="n">2,980</td></tr>
+        <tr><td>Calls blocked: a write to the hold file, which only the lead lifts (R6, 6 Nov 05:11 UTC)</td><td class="n">1</td></tr>
+      </tbody>
+    </table></div>
+    <p class="ws-src" style="margin-top:10px">Counted by us from a read-only clone of <code>board/runs/</code> in <a href="https://github.com/PrompTugal/PrompTugal__News__Website">PrompTugal/PrompTugal__News__Website</a>, about 10:30 UTC on 16 Nov. The site&rsquo;s own figure that morning: &ldquo;2260 run reports&rdquo; logging &ldquo;2962 actions outside an agent&rsquo;s grant&rdquo; (<a href="https://promptugal.news/agentic-system/">promptugal.news/agentic-system/</a>, v0.1.1606). The repository grows every hour.</p>
+    <div class="ws-note g"><b>What this shows, and what it does not.</b> It shows the loop the ABP exists for, run on ourselves: a mandate written per agent, the gap logged on every run, and one gap turned into a barrier the agent cannot remove. It does not show prevention at scale: almost every out-of-grant action was logged and allowed, by design. Nobody outside the team has checked these numbers.</div>
+  </div>
+</section>
+
+<section class="psection alt">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">04 · Many agents at once</span>
+      <h2>A hundred agents on one screen, <span class="g">and what &ldquo;at once&rdquo; means.</span></h2>
+      <p>What people stopped for at the stand was the picture of the whole team at work. These are the views, and the counts each one gives. They measure different things, so they do not agree, and they are not meant to.</p>
+    </div>
+    <div class="ws-cols">
+      <div class="ws-card"><span class="id">the circuit · 10 Nov</span><h3>&ldquo;109 agents, 94 with a written policy&rdquo;</h3><p>Each agent wired through its ABP and barriers to what it reaches. The release note of 10 November adds &ldquo;the circuit&rsquo;s &lsquo;Team now&rsquo;: every agent working at once&rdquo;.</p><p class="ws-src">stand deck, <a href="https://web-summit.sgit.ai/meetings/2026-11-10-1600/show/">10 Nov</a>; a person&rsquo;s command centre on web-summit.sgit.ai</p></div>
+      <div class="ws-card"><span class="id">the team map · 16 Nov</span><h3>&ldquo;9 people and 137 running agents&rdquo;</h3><p>&ldquo;A grey curve is a message between agents &hellip; 344 pairs so far.&rdquo;</p><p class="ws-src"><a href="https://web-summit.sgit.ai/team/map/">web-summit.sgit.ai/team/map/</a></p></div>
+      <div class="ws-card"><span class="id">the stand views · 12 Nov</span><h3>Team, Agents, Reach, Universe, Flow</h3><p>&ldquo;Universe: the team drawn as planets and moons, with agents that have no policy flagged in red.&rdquo; Reach joins agents to &ldquo;mail, keys, the site, infrastructure, the CRM&rdquo;.</p><p class="ws-src"><a href="https://riskmandate-at-websummit.agenticcells.site/#stand">the stand site</a>; <a href="https://web-summit.sgit.ai/assets/demo/screen.htm">the demo screen</a></p></div>
+      <div class="ws-card"><span class="id">one swarm run · 11 Nov</span><h3>&ldquo;48 loops at once&rdquo;</h3><p>Twelve storm tasks on four models, run by one agent: 48 loops, peak concurrency 96. A view of one run six ways, not of a hundred agents.</p><p class="ws-src"><a href="https://swarm.promptugal.news/">swarm.promptugal.news</a>, runs/index.json</p></div>
+    </div>
+    <div class="ws-scroll"><table class="ws-t">
+      <thead><tr><th>&ldquo;At once&rdquo;, counted four ways</th><th>Figure</th><th>Source</th></tr></thead>
+      <tbody>
+        <tr><td>Claude Code sessions working at the same time, at the peak (an upper bound from each session&rsquo;s start and last activity)</td><td class="n">64 to 67</td><td class="ws-src">newsroom.sgit.ai, 14 Nov, for 11 Nov</td></tr>
+        <tr><td>Sessions created in one day, the storm swarm</td><td class="n">134</td><td class="ws-src">newsroom.sgit.ai, 14 Nov</td></tr>
+        <tr><td>Agents with overlapping run windows in the PrompTugal reports (an upper bound: a run can sit idle)</td><td class="n">25</td><td class="ws-src">our count, 6 Nov 23:49 UTC</td></tr>
+        <tr><td>&ldquo;more than 120 agents at once&rdquo; (abstract); &ldquo;more than a hundred agents&rdquo; (index)</td><td class="n">&gt;100</td><td class="ws-src"><a href="https://newsroom.sgit.ai/articles/where-assist-becomes-execute.html">newsroom.sgit.ai</a>, 15 Nov</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<section class="psection">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">05 · The materials</span>
+      <h2>What exists, <span class="g">and where.</span></h2>
+    </div>
+    <ul class="ws-list">
+      <li><a href="https://riskmandate-at-websummit.agenticcells.site/">riskmandate-at-websummit.agenticcells.site</a>: the stand site. The film, the three questions (reach, mandate, gap), the stand views, photos of the week. Published 16 November; the film is in an encrypted vault with its read key printed on the page, as ours are.</li>
+      <li><a href="https://www.youtube.com/watch?v=BjN-K-C2fsw">Know the Reach</a>, the music video, part one; the song released 13 November. &ldquo;The rest of the song is still to be filmed.&rdquo;</li>
+      <li><a href="https://web-summit.sgit.ai/">web-summit.sgit.ai</a>: the team site. 756 pages on its sitemap: the ABPs, 181 meeting pages, 67 reports, the stand decks, an <a href="https://web-summit.sgit.ai/abp-make/">ABP maker</a> (&ldquo;about two minutes &hellip; Nothing you type is stored or sent&rdquo;).</li>
+      <li><a href="https://promptugal.news/">promptugal.news</a> and <a href="https://storm-charles.promptugal.news/">storm-charles.promptugal.news</a>: the two sites the agents ran under their ABPs, each with its agentic-system page and its policies public.</li>
+      <li>newsroom.sgit.ai: <a href="https://newsroom.sgit.ai/articles/what-can-your-agent-reach.html">What can your agent reach</a> (18 Oct), <a href="https://newsroom.sgit.ai/articles/web-summit-2026-the-plan.html">Web Summit 2026: the plan</a> (26 Oct), the team series of 30 Oct to 4 Nov, <a href="https://newsroom.sgit.ai/articles/ten-days-at-web-summit.html">Ten days at Web Summit</a> (14 Nov, the first of a promised thirteen), <a href="https://newsroom.sgit.ai/articles/where-assist-becomes-execute.html">Where assist becomes execute</a> (15 Nov).</li>
+    </ul>
+  </div>
+</section>
+
+<section class="psection alt">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">06 · Customers, and follow-ups owed</span>
+      <h2>No customer is named. <span class="g">The follow-ups are sealed.</span></h2>
+      <p>Nothing on the public record names a customer, pilot or partner of the ABP, and this page does not either. What the record does say:</p>
+    </div>
+    <ul class="ws-list">
+      <li>PrompTugal.news is called the &ldquo;first customer&rdquo; of the agentic-team service, not of the ABP (<a href="https://newsroom.sgit.ai/articles/an-agentic-console.html">newsroom.sgit.ai</a>, 15 Nov). It is ours.</li>
+      <li>The people the team met are on a sealed list: &ldquo;No names are on this site: the list is a sealed record&rdquo;, started 13 November; the team&rsquo;s client pipeline takes it over (<a href="https://web-summit.sgit.ai/crm/follow-ups/">web-summit.sgit.ai/crm/follow-ups/</a>). Five booked meetings are in a private vault, &ldquo;all marked not public&rdquo;.</li>
+      <li>The week-after plan: &ldquo;Every conversation followed up from the map &hellip; A follow-up is drafted in the person&rsquo;s own email &hellip; The person sends it.&rdquo; Six drafts and a style guide were saved on 13 November (<a href="https://web-summit.sgit.ai/plan/">web-summit.sgit.ai/plan/</a>).</li>
+      <li>Open from the 13 November stand-up: &ldquo;Who writes the one-paragraph RiskMandate message&rdquo; (<a href="https://web-summit.sgit.ai/meetings/2026-11-13-1800/">web-summit.sgit.ai/meetings/2026-11-13-1800/</a>).</li>
+      <li>Promised in public: the rest of the <em>Know the Reach</em> video; the thirteen-article <em>Ten days</em> series; a first-customer site, start-here page and mailing list, all marked &ldquo;proposed&rdquo; (<a href="https://newsroom.sgit.ai/articles/our-first-customers.html">20 Oct</a>).</li>
+      <li>On this site: the homepage still invites people to the stand of 12 November. That strip is now in the past tense of the calendar, not of the page; it changes with the new homepage (section 09).</li>
+    </ul>
+  </div>
+</section>
+
+<section class="psection">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">07 · Figures that disagree</span>
+      <h2>Printed side by side, <span class="g">unresolved.</span></h2>
+      <p>Each is right about what it counts. A reader quoting one should quote what it counts.</p>
+    </div>
+    <div class="ws-scroll"><table class="ws-t">
+      <thead><tr><th>Measure</th><th>Figures</th></tr></thead>
+      <tbody>
+        <tr><td>Agents on the team</td><td>&ldquo;around 250 named agents&rdquo; (distinct names); 164 (137 committed + 27 proposed); 119 that have run (10 Nov); 109 in the circuit; 94 ABP pages; 76 agents filing run reports; &ldquo;about 85&rdquo; (first week)</td></tr>
+        <tr><td>ABP pages on the team site</td><td>94 (sitemap, 16 Nov); &ldquo;93 pages&rdquo; (index, deck); 72 behaviour policies (6 Nov)</td></tr>
+        <tr><td>Actions outside the grant</td><td>&ldquo;2962&rdquo; (site, v0.1.1606); 2,980 entries (reports, our count); 1,951 (sum of the reports&rsquo; own out-of-mandate counter)</td></tr>
+        <tr><td>Run reports</td><td>&ldquo;2260&rdquo; (site); 2,262 (repository, a little later)</td></tr>
+        <tr><td>The film&rsquo;s length</td><td>3:39 (the stand site); 53.4 seconds, part one, of a song &ldquo;about three and a half minutes long&rdquo; (newsroom)</td></tr>
+        <tr><td>PrompTugal articles</td><td>&ldquo;73 signed articles&rdquo;; 79 article URLs on the sitemap</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<section class="psection alt">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">08 · The plan</span>
+      <h2>A team for this site, <span class="g">and its first two weeks.</span></h2>
+      <p>Started on 16 November at the lead&rsquo;s word: run riskmandate.ai with a team on the post-summit follow-up, the publications, the marketing pushes, the positioning, and the real examples. One conductor session; every role below is a sub-agent it runs, not a session of its own. Agents draft; a person sends. The full plan is the brief <a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/briefs/plan__riskmandate-team-after-web-summit-2026.md">plan__riskmandate-team-after-web-summit-2026.md</a>.</p>
+    </div>
+    <div class="ws-cols">
+      <div class="ws-card"><span class="id">conductor</span><h3>Conductor</h3><p>Holds the calendar and this section; merges into dev; reports to the lead. Asks before any new session or scheduled task.</p></div>
+      <div class="ws-card"><span class="id">evidence</span><h3>Evidence and case studies</h3><p>Turns the record into case pages: the push to main, the hold file, the gap per agent. Every number recounted from source on the day it is printed.</p></div>
+      <div class="ws-card"><span class="id">publications</span><h3>Publications</h3><p>The summit articles on this site, in its voice; release notes; tracks the thirteen promised on the newsroom.</p></div>
+      <div class="ws-card"><span class="id">follow-up</span><h3>Follow-up</h3><p>The public material a follow-up points to: one page per conversation type. Drafts only; never holds the sealed list; a person sends.</p></div>
+      <div class="ws-card"><span class="id">sales</span><h3>Sales</h3><p>The offer after the summit: the levels as priced, the early-user route, design partnerships with security teams as the stand deck named them.</p></div>
+      <div class="ws-card"><span class="id">positioning</span><h3>Positioning and marketing</h3><p>The one-paragraph RiskMandate message (open since 13 Nov); the pushes on LinkedIn and the newsroom, drafted for a person to post.</p></div>
+      <div class="ws-card"><span class="id">design + dev</span><h3>Designer and developer</h3><p>The new homepage behind a private page; the swarm picture as a static, sourced figure the site can carry without a live feed.</p></div>
+    </div>
+    <div class="ws-scroll"><table class="ws-t">
+      <thead><tr><th>When</th><th>What</th><th>Who</th></tr></thead>
+      <tbody>
+        <tr><td>Mon 16 Nov</td><td>This mapping, published unlisted; the plan as a brief</td><td>conductor</td></tr>
+        <tr><td>Tue 17 – Wed 18</td><td>The homepage&rsquo;s stand strip moved to the past tense and pointed here, once the lead says yes; a private draft of the new homepage</td><td>dev, designer</td></tr>
+        <tr><td>Tue 17 – Thu 19</td><td>Case page one: <em>the rule that became a barrier</em> (2 to 6 Nov), from the in-action record</td><td>evidence, publications</td></tr>
+        <tr><td>Wed 18 – Fri 20</td><td>The one-paragraph message, three drafts for the lead; follow-up landing pages by conversation type</td><td>positioning, follow-up</td></tr>
+        <tr><td>Fri 20</td><td>The lead reviews the homepage draft and the message</td><td>the lead</td></tr>
+        <tr><td>Mon 23 – Tue 24</td><td>Case page two: <em>2,262 runs, every gap logged</em>; the swarm figure as a sourced static image</td><td>evidence, designer</td></tr>
+        <tr><td>Wed 25 – Thu 26</td><td>The post-summit offer on the pricing and early-access pages; a LinkedIn series drafted for a person to post</td><td>sales, marketing</td></tr>
+        <tr><td>Fri 27</td><td>The new homepage live if approved; a dated recount of every figure on this page</td><td>dev, evidence</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<section class="psection">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">09 · The homepage, proposed</span>
+      <h2>RiskMandate in action <span class="g">at Web Summit 2026.</span></h2>
+      <p><b>A proposal. The homepage has not changed and will not until the lead approves.</b> The shape: the summit leads, because it is the first time the ABP ran on a team of this size rather than on a template.</p>
+    </div>
+    <ol class="ws-list">
+      <li><b>The opening.</b> &ldquo;Give agents access. Not free rein.&rdquo; kept as the line; under it, the team at work as one picture (the circuit or the team map, as a still, dated) and the film.</li>
+      <li><b>The record, in four counts.</b> ABPs published, run reports, gaps logged, the one rule turned barrier: each linked to its source here, each with its date, none scored.</li>
+      <li><b>The loop, once.</b> The push to main on 2 November, the barrier on 6 November: the clearest single story of reach, mandate and gap.</li>
+      <li><b>What you can do now.</b> The ABP maker and the sixteen free examples, then the levels as priced today.</li>
+      <li><b>What was not done.</b> Observe mode, not blocking; documented, not measured; nobody outside the team has checked the counts. Said on the homepage, not only here.</li>
+    </ol>
+  </div>
+</section>
+
+<section class="psection alt">
+  <div class="wrap">
+    <div class="shead">
+      <span class="tag">10 · How this page was made</span>
+      <h2>Read, counted, <span class="g">not tested.</span></h2>
+      <p>Four read-only passes on 16 November: this site&rsquo;s own pages; the team site (all 756 sitemap pages as markdown); PrompTugal.news, Storm Charles and the PrompTugal board through a public clone; the stand site and newsroom.sgit.ai. GET requests and a public clone only; nothing was submitted, probed or measured on any system. No private vault, sealed list or customer record was read. The team site&rsquo;s interactive views were not rendered; two release notes on it name articles we could not find. The Fringe repository was not counted.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>© 2026 RiskMandate · Autonomous Risk Management</span>
+    <span>The insurability layer for agentic AI. · <a class="footlink" href="/versions.html">Versions</a> · <a class="footlink" href="/admin/">Admin</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+var RM={core:{},services:{},components:{},data:{}};
+RM.data.currentPage="web-summit-2026";RM.data.pages=[{"name":"abp","label":"What an ABP is","file":"abp.html","group":"Product","section":"Agent Behaviour Policy"},{"name":"pricing","label":"The four levels, and pricing","file":"pricing.html","group":"Product","section":"Agent Behaviour Policy"},{"name":"abp-reviewed","label":"The reviewed level","file":"abp-reviewed.html","group":"Product","section":"Agent Behaviour Policy"},{"name":"reviewers","label":"Who runs your review","file":"reviewers.html","group":"Product","section":"Agent Behaviour Policy"},{"name":"for-corporate","label":"You run agents today","file":"for-corporate.html","group":"Product","section":"Who it's for"},{"name":"for-founders","label":"You are a founder","file":"for-founders.html","group":"Product","section":"Who it's for"},{"name":"for-startups","label":"You are a startup","file":"for-startups.html","group":"Product","section":"Who it's for"},{"name":"early-access","label":"Early access, invite only","file":"early-access.html","group":"Product","section":"Who it's for"},{"name":"early-adopters","label":"Early adopters: a thank you","file":"early-adopters.html","group":"Product","section":"Who it's for"},{"name":"licence-to-operate","label":"Licence to Operate","file":"licence-to-operate.html","group":"Product","section":"The roadmap"},{"name":"insurance","label":"The Insurability Index","file":"insurance.html","group":"Product","section":"The roadmap"},{"name":"insure-a-program","label":"Can you insure a program?","file":"insure-a-program.html","group":"Product","section":"The roadmap"},{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"Product","section":"The roadmap"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"Product","section":"The roadmap"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"Product","section":"The roadmap"},{"name":"business-cases","label":"Business cases, by risk","file":"business-cases.html","group":"Product","section":"The roadmap"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"How it works","section":"See it work"},{"name":"agent-behaviour-policy","label":"The sixteen examples","file":"agent-behaviour-policy.html","group":"How it works","section":"See it work"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"How it works","section":"See it work"},{"name":"try-it","label":"Try it","file":"try-it.html","group":"How it works","section":"See it work"},{"name":"demos","label":"Live demos","file":"demos.html","group":"How it works","section":"See it work"},{"name":"lab","label":"The Lab","file":"lab.html","group":"How it works","section":"See it work"},{"name":"articles","label":"Articles","file":"articles.html","group":"How it works","section":"Read"},{"name":"newsroom","label":"From the newsroom","file":"newsroom.html","group":"How it works","section":"Read"},{"name":"stories","label":"Stories: a cast, and storyboards","file":"stories/index.html","group":"How it works","section":"Read"},{"name":"library","label":"Library","file":"library.html","group":"How it works","section":"Read"},{"name":"questions","label":"Questions","file":"questions.html","group":"How it works","section":"Read"},{"name":"secure-harness","label":"SHarness: enforcement, held by the kernel","file":"secure-harness.html","group":"Open source","section":"The open project"},{"name":"github","label":"The code, on GitHub ↗","file":"https://github.com/Risk-Mandate/riskmandate.ai","group":"Open source","section":"The open project"},{"name":"open-security-summit","label":"An open home: the Open Security Summit (proposed)","file":"open-security-summit.html","group":"Open source","section":"The open project"},{"name":"team","label":"The team: our own agents' policies","file":"team/index.html","group":"Open source","section":"The open project"},{"name":"owasp-graph","label":"OWASP projects, as a graph","file":"owasp-graph.html","group":"Open source","section":"The open project"},{"name":"brand","label":"Brand","file":"brand.html","group":"Open source","section":"The open project"},{"name":"about","label":"About: the company and the founders","file":"about.html","group":"Open source","section":"Company and community"},{"name":"partners","label":"Partners","file":"partners.html","group":"Open source","section":"Company and community"},{"name":"uk-support","label":"UK support, in the open","file":"uk-support.html","group":"Open source","section":"Company and community"},{"name":"contact","label":"Contact","file":"contact.html","group":"Open source","section":"Company and community"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"Open source","section":"Company and community"},{"name":"privacy","label":"Privacy","file":"privacy.html","group":"Open source","section":"Company and community"},{"name":"agent-contact","label":"Agents: the contact file","file":"agents/index.html","group":"Open source","section":"Company and community"}];RM.data.sections=[];
+
+'use strict';
+// components/dom.js — tiny DOM helpers shared by components. `el` builds an
+// element with attributes and children; text children always go in via
+// textContent. `renderMarkdownInto` turns core/markdown tokens into real DOM
+// nodes (never an HTML string), so fetched release notes cannot inject markup.
+
+RM.components.dom = (function () {
+  // A link in a markdown note may only go somewhere harmless: same-document,
+  // same-origin relative, https, or mailto. Anything else — javascript:, data:,
+  // a protocol-relative host — renders as the text it was, and goes nowhere.
+  var SAFE = /^(?:https:\/\/|mailto:|#|[^:/?#]*(?:[/?#]|$))/i;
+
+  /**
+   * @param {string} tag
+   * @param {Object<string,string>} [attrs]
+   * @param {Array<Node|string>} [children]
+   * @returns {HTMLElement}
+   */
+  function el(tag, attrs, children) {
+    var node = document.createElement(tag);
+    if (attrs) Object.keys(attrs).forEach(function (k) {
+      if (attrs[k] != null) node.setAttribute(k, attrs[k]);
+    });
+    (children || []).forEach(function (c) {
+      node.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
+    });
+    return node;
+  }
+
+  /**
+   * Render inline runs into a parent element. Emphasis runs carry child runs
+   * rather than a string, so a link or a code span inside **bold** renders as
+   * itself instead of as its own markdown source — hence the recursion.
+   */
+  function appendRuns(parent, runs) {
+    runs.forEach(function (run) {
+      if (run.t === 'strong' || run.t === 'em') {
+        var node = el(run.t);
+        if (run.runs) appendRuns(node, run.runs);
+        else          node.appendChild(document.createTextNode(run.v));
+        parent.appendChild(node);
+      }
+      else if (run.t === 'code') parent.appendChild(el('code', null, [run.v]));
+      else if (run.t === 'link') parent.appendChild(SAFE.test(run.href)
+        ? el('a', { href: run.href }, [run.v])
+        : document.createTextNode(run.v));
+      else parent.appendChild(document.createTextNode(run.v));
+    });
+  }
+
+  /**
+   * Render markdown block tokens into a container as DOM nodes.
+   * @param {HTMLElement} container
+   * @param {Array} blocks  output of RM.core.markdown.parse
+   */
+  function renderMarkdownInto(container, blocks) {
+    blocks.forEach(function (b) {
+      if (b.type === 'heading') {
+        var h = el('h' + (b.level + 1)); // ## release title -> h3, etc.
+        appendRuns(h, b.runs);
+        container.appendChild(h);
+      } else if (b.type === 'list') {
+        var ul = el('ul');
+        b.items.forEach(function (runs) {
+          var li = el('li');
+          appendRuns(li, runs);
+          ul.appendChild(li);
+        });
+        container.appendChild(ul);
+      } else {
+        var p = el('p');
+        appendRuns(p, b.runs);
+        container.appendChild(p);
+      }
+    });
+  }
+
+  return { el: el, appendRuns: appendRuns, renderMarkdownInto: renderMarkdownInto };
+})();
+
+
+'use strict';
+// components/nav.js — the behaviour on a page that is *not* a link.
+//   [data-to]   → smooth in-page scroll to an element id (no hash routing).
+//   [data-demo] → open a pre-filled demo enquiry email.
+//
+// v1.0.0 removed everything else that used to live here. Up to v0.14 the site
+// ran inside a host <iframe> and every navigation was a postMessage — rm-nav,
+// rm-back, rm-manifest, rm-read. A <button> is not a link, so nothing could be
+// deep-linked, bookmarked, opened in a new tab, or crawled. Now each page is
+// the document the server sent and each navigation is an <a href>, so the only
+// things left to wire are the two that genuinely are not navigation.
+//
+// The mobile drawer is still injected rather than templated: one file gives
+// every page a working menu below the header breakpoint, where .navlinks is
+// hidden by CSS.
+
+RM.components.nav = (function () {
+  // Every "Book a demo" control opens a mail client with a subject and a
+  // starting message. One place to change when booking becomes a real form.
+  var DEMO = {
+    to     : 'agent@riskmandate.ai',
+    subject: 'RiskMandate — get in touch',
+    body   : [
+      'Hi,',
+      '',
+      'I would like to see a plug profile for one of the agents we already run.',
+      '',
+      'A little about us:',
+      '  • Organisation:',
+      '  • Roughly how many agents we are running:',
+      '  • The agent we would want to look at first:',
+      '  • Anything already in place (register, IdP, detection tooling):',
+      '',
+      'Thanks,'
+    ].join('\n')
+  };
+
+  function demoHref() {
+    return 'mailto:' + DEMO.to +
+      '?subject=' + encodeURIComponent(DEMO.subject) +
+      '&body='    + encodeURIComponent(DEMO.body);
+  }
+
+  // Since the contact form exists, "Get in touch" opens it: what a person types there is encrypted
+  // to the site agent's key in their browser. The mailto stays as demoHref for pages that link it.
+  function openDemo() { var base = (window.RM && RM.data && RM.data.base) || ''; window.location.href = base + 'contact.html'; }
+
+  function scrollTo(doc, id) {
+    var t = doc.getElementById(id);
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Inject the hamburger toggle and wire the drawer open/close. Idempotent.
+  function wireMobileNav(doc) {
+    var top = doc.querySelector('.top');
+    if (!top) return;
+    var wrap  = top.querySelector('.wrap');
+    var links = top.querySelector('.navlinks');
+    if (!wrap || !links || top.querySelector('.navtoggle')) return;
+
+    var burger = doc.createElement('button');
+    burger.className = 'navtoggle';
+    burger.setAttribute('type', 'button');
+    burger.setAttribute('aria-label', 'Toggle navigation');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-controls', 'sitenav');
+    for (var i = 0; i < 3; i++) burger.appendChild(doc.createElement('span'));
+    links.id = links.id || 'sitenav';
+    var demo = wrap.querySelector('.demo');
+    if (demo) wrap.insertBefore(burger, demo); else wrap.appendChild(burger);
+
+    // The header's version chip has no room below the drawer breakpoint, so the drawer carries
+    // it instead: the first entry, cloned from the chip while the drawer is open, so that a
+    // phone can confirm which version it is looking at without scrolling.
+    var chip = wrap.querySelector('a.version'), row = null;
+    function set(open) {
+      top.classList.toggle('nav-open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (row) { row.parentNode.removeChild(row); row = null; }
+      if (open && chip) {
+        row = doc.createElement('a');
+        row.className = 'navversion';
+        row.href = chip.getAttribute('href');
+        row.title = chip.getAttribute('title') || '';
+        row.textContent = 'Version ' + chip.textContent + ' · what shipped';
+        links.insertBefore(row, links.firstChild);
+      }
+    }
+    burger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      set(!top.classList.contains('nav-open'));
+    });
+    // Following a real nav link closes the drawer; the group header does not.
+    links.addEventListener('click', function (e) {
+      var b = e.target.closest('button, a');
+      if (b && !b.classList.contains('navgroup-btn')) set(false);
+    });
+    doc.addEventListener('click', function (e) {
+      if (top.classList.contains('nav-open') && !top.contains(e.target)) set(false);
+    });
+    doc.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+    var view = doc.defaultView || window;
+    view.addEventListener('resize', function () { if (view.innerWidth > 1040) set(false); });
+  }
+
+  /** @param {Document} doc */
+  function wire(doc) {
+    doc.querySelectorAll('[data-to]').forEach(function (elm) {
+      elm.addEventListener('click', function () { scrollTo(doc, elm.getAttribute('data-to')); });
+    });
+    // the header's "Try it free" is a plain link to customers.riskmandate.ai; only [data-demo] controls open the contact form
+    doc.querySelectorAll('[data-demo]').forEach(function (elm) {
+      elm.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); openDemo(); });
+    });
+    wireMobileNav(doc);
+  }
+
+  return { wire: wire, scrollTo: scrollTo, demoHref: demoHref, openDemo: openDemo };
+})();
+
+
+'use strict';
+// components/menu.js — <rm-menu>. The one shared header menu, on every page, so
+// the nav is built by a single piece of code. Renders the homepage's section
+// links first, then the top-level pages, marking the current page active.
+//
+// A run of contiguous pages sharing a `group` string collapses into one entry:
+// a hover/click dropdown labelled by the group, with the members as children. A
+// single-member group renders flat — no dropdown for one item.
+//
+// v1.0.0: every entry is an <a href>. The old menu emitted <button> elements
+// that asked a host frame to swap an iframe's srcdoc, which meant the links did
+// not exist as far as a crawler, a bookmark or a middle-click was concerned.
+// The group header stays a <button> because it opens a panel rather than going
+// anywhere — that is the one control here that is genuinely not a link.
+
+(function () {
+  var dom = RM.components.dom;
+
+  RM.components.Menu = class extends HTMLElement {
+    connectedCallback() {
+      var self = this;
+      this._onDocClick = function (e) {
+        self.querySelectorAll('.navgroup.open').forEach(function (g) {
+          if (!g.contains(e.target)) g.classList.remove('open');
+        });
+      };
+      document.addEventListener('click', this._onDocClick);
+      this._render();
+    }
+    disconnectedCallback() {
+      document.removeEventListener('click', this._onDocClick);
+    }
+
+    // On the homepage a section link scrolls; on any other page it is a link
+    // back to the homepage at that anchor. Same markup either way.
+    // A page that lives in a folder (site/stories/) sets RM.data.base to "/" so that the one
+    // shared page list, whose files are named from the site root, still resolves from there.
+    // A folder's index page is linked as the folder: /stories/, not /stories/index.html.
+    _href(file) {
+      if (/^https:\/\//.test(file)) return file;   // the code on GitHub: an address, not a page here
+      var base = (RM.data && RM.data.base) || '';
+      return base + file.replace(/(^|\/)index\.html$/, '$1');
+    }
+
+    _section(s) {
+      var home = !(RM.data && RM.data.currentPage);
+      var a = dom.el('a', { class: 'seclink', href: home ? '#' + s.to : this._href('index.html') + '#' + s.to }, [s.label]);
+      if (home) a.addEventListener('click', function (e) {
+        e.preventDefault();
+        RM.components.nav.scrollTo(document, s.to);
+      });
+      return a;
+    }
+
+    _pagelink(p, extra) {
+      var active = p.name === (RM.data && RM.data.currentPage);
+      var attrs  = { class: 'pagelink' + (extra ? ' ' + extra : '') + (active ? ' active' : ''), href: this._href(p.file) };
+      if (active) attrs['aria-current'] = 'page';
+      if (/^https:\/\//.test(p.file)) { attrs.target = '_blank'; attrs.rel = 'noopener'; }
+      return dom.el('a', attrs, [p.label]);
+    }
+
+    _group(name, members) {
+      var self    = this;
+      var current = RM.data && RM.data.currentPage;
+      var active  = members.some(function (m) { return m.name === current; });
+      var car     = dom.el('span',   { class: 'navgroup-car', 'aria-hidden': 'true' }, ['▾']);
+      var btn     = dom.el('button', { class: 'navgroup-btn' + (active ? ' active' : ''), type: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false' }, [name, car]);
+      var panel   = dom.el('div',    { class: 'navmenu' + (members.some(function (m) { return m.section; }) ? ' navwide' : '') }, this._columns(members));
+      var wrap    = dom.el('span',   { class: 'navgroup' + (active ? ' active' : '') }, [btn, panel]);
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = wrap.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      return wrap;
+    }
+
+    // A dropdown whose pages name a `section` is drawn as columns, one per section, each under
+    // its heading: the 3 November review kept the header to three entries, so the rest of the site
+    // sits one level down instead of being dropped. Without sections it is the plain list it was.
+    _columns(members) {
+      var self = this;
+      if (!members.some(function (m) { return m.section; })) return members.map(function (m) { return self._pagelink(m, 'navchild'); });
+      var cols = [], last = null;
+      members.forEach(function (m) {
+        if (m.section !== last) { cols.push({ name: m.section, items: [] }); last = m.section; }
+        cols[cols.length - 1].items.push(self._pagelink(m, 'navchild'));
+      });
+      return [dom.el('div', { class: 'navcols' }, cols.map(function (c) {
+        return dom.el('div', { class: 'navcol' }, [dom.el('span', { class: 'navsec' }, [c.name])].concat(c.items));
+      }))];
+    }
+
+    // The columns' few rules live here, with the code that draws them, so that one module carries
+    // them to every page; each page's own CSS still styles the bar, the panel and the links.
+    _style() {
+      if (document.getElementById('rm-menu-css')) return;
+      var css = '.navmenu.navwide{min-width:0;padding:10px}' +
+        '.navcols{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(190px,250px);gap:4px 12px}' +
+        '.navcol{display:flex;flex-direction:column;gap:2px;min-width:0}' +
+        '.navcols .navchild{white-space:normal;line-height:1.35}' +
+        '.navsec{display:block;padding:8px 12px 4px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--green,#1A7F5A)}' +
+        '@media (min-width:901px){.navmenu.navwide{left:auto;right:0;transform:none}}' +
+        '@media (min-width:901px) and (max-width:1180px){.navcols{grid-auto-flow:row;grid-template-columns:repeat(2,minmax(190px,250px))}}' +
+        '@media (max-width:900px){.navcols{display:flex;flex-direction:column}.navsec{padding:12px 14px 4px}}';
+      var st = document.createElement('style'); st.id = 'rm-menu-css'; st.textContent = css; document.head.appendChild(st);
+    }
+
+    _render() {
+      this._style();
+      var sections = (RM.data && RM.data.sections) || [];
+      var pages    = (RM.data && RM.data.pages)    || [];
+      var self     = this;
+      this.textContent = '';
+      sections.forEach(function (s) { self.appendChild(self._section(s)); });
+      var i = 0;
+      while (i < pages.length) {
+        var p = pages[i];
+        if (!p.group) { self.appendChild(self._pagelink(p)); i++; continue; }
+        var g = p.group, members = [];
+        while (i < pages.length && pages[i].group === g) { members.push(pages[i]); i++; }
+        if (members.length === 1) self.appendChild(self._pagelink(members[0]));
+        else                      self.appendChild(self._group(g, members));
+      }
+    }
+  };
+
+  customElements.define('rm-menu', RM.components.Menu);
+})();
+
+
+'use strict';
+// boot.js — inner-page composition root (version builds and dev.html). Custom
+// elements self-register on load; here we wire document-level nav behaviour.
+// The page runs inside the host's stage frame, so the host (not this page) signals
+// the SG/App host that the app is ready.
+
+(function () {
+  function start() { RM.components.nav.wire(document); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
+})();
+
+
+})();
+</script>
+</body>
+</html>

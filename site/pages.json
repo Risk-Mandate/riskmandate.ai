@@ -876,6 +876,12 @@
       "unlisted": true
     },
     {
+      "name": "web-summit-2026",
+      "label": "In action at Web Summit 2026",
+      "file": "web-summit-2026/index.html",
+      "unlisted": true
+    },
+    {
       "name": "briefs",
       "label": "Brief register",
       "file": "briefs.html",

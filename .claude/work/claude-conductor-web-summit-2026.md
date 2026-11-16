@@ -21,9 +21,9 @@ calendar. A homepage proposal is drafted on that section as a proposal only. **T
 - Release I will claim at merge: yes, a patch
 
 ## Status
-- [ ] mapping (four read-only research passes)
-- [ ] section page, sourced and dated
-- [ ] plan brief
+- [x] mapping (four read-only research passes)
+- [x] section page, sourced and dated
+- [x] plan brief
 - [ ] check, release, merge — held for the lead's go
 
 ## Notes for whoever merges after me
