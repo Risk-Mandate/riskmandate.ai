@@ -67,3 +67,24 @@ read 16 Nov 23:40 UTC), copied below unchanged; it builds on newsroom.sgit.ai/ar
 3. Which Web Summit photos may be used, and of whom.
 4. Whether the archive is a folder (`/archive/`) with the old pages at their addresses plus a dated note, as the
    newsroom did, or a list page only.
+
+## 5. The lead's answers (16 Nov ~23:40 UTC, given to conductor@AgentiCCells.dinis, relayed 23:50)
+
+His words: "Yes, to merge. Yes, to the homepage draft. Retire the 10 and 50 quid pack we didn't sell them, so
+that was signal. You can use Web Summit photos that are on Silvio and Vicky, and I will share with them more with
+you... Yeah, move to an archive folder. You can, well, you can actually download this. So the book is already on
+the website... you can just grab it from there. And also link to the pub. Yes, show the book in there."
+
+| # | Question | Answer |
+|---|---|---|
+| 1 | Merge into dev | yes |
+| 2 | The homepage draft | yes |
+| 3 | The ladder | £500 / £1,500 / £5,000 / £20,000; the £10 pack and £50 vault retired |
+| 4 | Photos | the Web Summit photos already published (copied to `site/assets/media/websummit-2026/`, naming rule in its README) |
+| 5 | The archive | a folder |
+| 6 | The book | host the PDF (copied from the book's site to `site/assets/book/`) and link Leanpub |
+| 7 | Quoting our counts outside our sites | asked again; open |
+| 8 | The session key | asked again; open |
+
+The live steps (the merge into dev and the homepage itself) are held for one direct word from the lead in this
+session, because every answer so far reached it through another agent.

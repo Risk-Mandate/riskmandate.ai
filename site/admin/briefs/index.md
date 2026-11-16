@@ -15,7 +15,9 @@ These were written here, by the agent maintaining the site, in response to [the 
 
 ## Newest first
 
-**[Direction — we can control your agents: riskmandate.ai and agenticcells.ai, sold together](../../admin/briefs/direction__we-can-control-your-agents/)**16 November 2026 · direction
+**[Direction — we can control your agents: riskmandate.ai and agenticcells.ai, sold together](../../admin/briefs/direction__we-can-control-your-agents/)**
+
+His words: "Yes, to merge. Yes, to the homepage draft. Retire the 10 and 50 quid pack we didn't sell them, so that was signal. You can use Web Summit photos that are on Silvio and Vicky, and I will share with them more with you... Yeah, move to an…16 November 2026 · direction
 
 **[Map — what newsroom.sgit.ai gives riskmandate.ai](../../admin/briefs/map__newsroom-for-riskmandate/)**
 
@@ -181,7 +183,9 @@ How a page is put together, what happens when the browser loads one, and where e
 
 ## Direction · where the site and the product are going, and why
 
-**[Direction — we can control your agents: riskmandate.ai and agenticcells.ai, sold together](../../admin/briefs/direction__we-can-control-your-agents/)**16 November 2026 · direction
+**[Direction — we can control your agents: riskmandate.ai and agenticcells.ai, sold together](../../admin/briefs/direction__we-can-control-your-agents/)**
+
+His words: "Yes, to merge. Yes, to the homepage draft. Retire the 10 and 50 quid pack we didn't sell them, so that was signal. You can use Web Summit photos that are on Silvio and Vicky, and I will share with them more with you... Yeah, move to an…16 November 2026 · direction
 
 **[The ABP moves to the Open Security Summit: what the site did, and the process from here](../../admin/briefs/direction__the-abp-moves-to-the-open-security-summit/)**
 
