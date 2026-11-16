@@ -3,9 +3,9 @@
 > Every document under docs/ on riskmandate.ai, rendered as a page: direction briefs, reviews, workflows, architecture and research, newest first.
 > Source: https://riskmandate.ai/admin/briefs/ · noindex · written by scripts/site/build-admin.mjs
 
-**41**documents under docs/*one page each, rendered from the file*
+**42**documents under docs/*one page each, rendered from the file*
 
-**11**direction briefs*the product and the site*
+**12**direction briefs*the product and the site*
 
 **5**reviews*read against a named source*
 
@@ -14,6 +14,8 @@
 These were written here, by the agent maintaining the site, in response to [the memos and documents that arrived](../../admin/memos/). Each is read against a named source and dated. Add a file under `docs/` and rerun `build-admin.mjs`: it has a page here and a test fails until it does.
 
 ## Newest first
+
+**[Direction — we can control your agents: riskmandate.ai and agenticcells.ai, sold together](../../admin/briefs/direction__we-can-control-your-agents/)**16 November 2026 · direction
 
 **[Map — what newsroom.sgit.ai gives riskmandate.ai](../../admin/briefs/map__newsroom-for-riskmandate/)**
 
@@ -178,6 +180,8 @@ Move the interactive Risk Scenarios experience to the decoupled model:4 July 202
 How a page is put together, what happens when the browser loads one, and where each thing lives. Current as of v1.0.0; see the addendum below for what has been added since, and .claude/onboarding/01-map.md for the current map.
 
 ## Direction · where the site and the product are going, and why
+
+**[Direction — we can control your agents: riskmandate.ai and agenticcells.ai, sold together](../../admin/briefs/direction__we-can-control-your-agents/)**16 November 2026 · direction
 
 **[The ABP moves to the Open Security Summit: what the site did, and the process from here](../../admin/briefs/direction__the-abp-moves-to-the-open-security-summit/)**
 

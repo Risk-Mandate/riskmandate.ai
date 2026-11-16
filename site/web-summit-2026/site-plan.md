@@ -16,6 +16,18 @@ The lead says the site needs a lot of work, and that the material for it is on n
 
 **As at** 16 November 2026. Read from newsroom.sgit.ai v0.14.124: 434 articles in its wire, five collections, six desks, the sections and the two features the lead named. Every row of the reading is on [the newsroom map](/web-summit-2026/newsroom-map.html).
 
+## The lead’s brief changes the plan: we can control your agents.
+
+The same night, the lead dictated one brief for riskmandate.ai and agenticcells.ai together ([recorded with his words](https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/briefs/direction__we-can-control-your-agents.md)). Where it differs from the shape below, it wins.
+
+- **One message.** “We can control your agents”, from one agent to hundreds; less theory, more proof. The homepage draft is rebuilt around it: [home-proposal](/web-summit-2026/home-proposal.html).
+- **Situations, small and large.** Real cases from our own agents (a permission needed, a gap found, a rule that failed and became a barrier) beside the hundred-agent picture. A situations page moves to the top of the backlog.
+- **An honest order of strength.** A policy first (“a lot of value for money right now”), then hooks, then a boundary with SHarness. Open source, no lock-in.
+- **One ladder with agenticcells.ai.** £500, £1,500, £5,000, £20,000, proposed; the live prices stay until the lead confirms. The two sites link each other: a policy alone is RiskMandate, a team is AgentiCCells.
+- **An archive.** Older pages move out of the menu and are kept. This replaces most of the rewrites in section 03: a page that does not serve the message goes to the archive rather than being rebuilt.
+- **The film, the photos, the book.** The film on the homepage; Web Summit photos of people who agreed; _One Human, Nine Agents, Nineteen Hours_ with its Leanpub link.
+- **A team on an hourly loop.** Developer, designer, sherpa, synthetic users, ambassador, researchers, as sub-agents of one conductor; the backlog is task brief T18.
+
 ## The argument is written. The site does not carry it.
 
 The newsroom has been writing RiskMandate in public since August, an article most days. The site carries sixteen example ABPs, four levels and a model; the newsroom carries the reasons, the measurements, the case of our own agents, the insurance argument and the replies to people who disagree. Five things stand out.

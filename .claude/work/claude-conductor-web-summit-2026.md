@@ -26,6 +26,7 @@ calendar. A homepage proposal is drafted on that section as a proposal only. **T
 - [x] section page, sourced and dated
 - [x] plan brief
 - [x] newsroom map, site plan, private homepage draft
+- [x] the lead's brief of 16 Nov night recorded; the team (`.claude/agents/rm-*.md`) and the loop (T18); homepage draft rebuilt (loop round 1)
 - [ ] check, release, merge — held for the lead's go
 
 ## Notes for whoever merges after me

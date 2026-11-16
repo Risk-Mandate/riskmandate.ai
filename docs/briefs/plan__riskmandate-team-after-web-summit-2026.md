@@ -83,3 +83,13 @@ the rest is the third and fourth weeks.
 
 New for the role table: **Evidence** also owns the *What runs* page; **Publications** owns the reading paths and the
 reprint-or-link rule; **Positioning** owns the newsroom–site disagreements in the map's §4 until the lead rules.
+
+## 7. Added 16 November, night: the team becomes a loop
+
+The lead's brief of the night (`direction__we-can-control-your-agents.md`) asks for a full agentic team improving
+the site every hour, toward one message. The roles are now sub-agent definitions in `.claude/agents/`
+(`rm-developer`, `rm-designer`, `rm-sherpa`, `rm-synthetic-users`, `rm-ambassador`, `rm-researcher`), run by
+the one conductor session; the loop and its backlog are task brief `T18-the-hourly-loop.md`. The wake comes from
+outside the repository (set by the AgentiCCells conductor, hourly 07:37 to 23:37 London). The two-week calendar
+in §3 gives way to the T18 backlog; the site plan's rewrites give way to the archive where a page does not serve
+the message.

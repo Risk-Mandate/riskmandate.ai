@@ -85,7 +85,7 @@ A new unlisted section, `/web-summit-2026/`: the mapping of every public RiskMan
 
 **Status.** [x] mapping (four read-only research passes) · [x] section page, sourced and dated · [x] plan brief
 
-## Task briefs — 17
+## Task briefs — 18
 
 Each is a unit of work sized for one branch, with the files it touches named so two agents can see whether they would collide. [How a task brief is written and claimed](../../admin/work/about-task-briefs/).
 
@@ -107,3 +107,4 @@ Each is a unit of work sized for one branch, with the files it touches named so 
 | [T15](../../admin/work/T15/) | rule pages: schema, generator, index, the first four rules | `site/rules/` (new), `scripts/site/build-rules.mjs` (new), `package.json`, CI, `site/pages.json`, `site/try-it.html` | a day and a half | done |
 | [T16](../../admin/work/T16/) | before and after for each rule, run on our own deployment, and a method page | `site/rules/*.json`, `site/rules/method.html` | a day | done |
 | [T17](../../admin/work/T17/) | the candidate list from unbounded irreversible rows, and twenty rules from it | `scripts/site/build-rules.mjs`, `site/rules/*.json` | half a day per five | done |
+| [T18](../../admin/work/T18/) | the team's hourly loop and its backlog, toward *we can control your agents* | `site/web-summit-2026/`, then pages the backlog names; `.claude/agents/rm-*.md` | standing | open |
