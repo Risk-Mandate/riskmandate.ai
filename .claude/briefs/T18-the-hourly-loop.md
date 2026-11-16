@@ -38,7 +38,7 @@ publisher (`publisher.md`) keeps its own job. A new session or a scheduled task 
 | 6 | The film on the homepage and in the summit section | designer, developer | open |
 | 7 | Where a rule is kept: prompt, hook, boundary (from the newsroom map) | developer, researcher | open |
 | 8 | A sherpa walk and four synthetic personas over the branch build | sherpa, synthetic users | open; every few turns |
-| 9 | The one-paragraph message and the cross-links with agenticcells.ai and the hub | ambassador | open |
+| 9 | The one-paragraph message and the cross-links with agenticcells.ai and the hub | ambassador | cross-link lines agreed with the AgentiCCells conductor 16 Nov (ours on the homepage draft; theirs: "Already running agents and need to control them? RiskMandate writes the behaviour policy, from one agent to hundreds."); the message itself open |
 | 10 | The book: the PDF and the Leanpub link, where it sits on the site | developer, ambassador | open; is a PDF ours to host? |
 | 11 | The universe view's white border stripes: find where the view lives and the cause | developer | open; it may live on another site |
 
