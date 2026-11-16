@@ -882,6 +882,25 @@
       "unlisted": true
     },
     {
+      "name": "web-summit-2026-site-plan",
+      "label": "Web Summit 2026 · the site plan",
+      "file": "web-summit-2026/site-plan.html",
+      "unlisted": true
+    },
+    {
+      "name": "web-summit-2026-newsroom-map",
+      "label": "Web Summit 2026 · the newsroom map",
+      "file": "web-summit-2026/newsroom-map.html",
+      "unlisted": true
+    },
+    {
+      "name": "web-summit-2026-home-proposal",
+      "label": "Home: proposed, in action at Web Summit 2026",
+      "file": "web-summit-2026/home-proposal.html",
+      "private": true,
+      "unlisted": true
+    },
+    {
       "name": "briefs",
       "label": "Brief register",
       "file": "briefs.html",

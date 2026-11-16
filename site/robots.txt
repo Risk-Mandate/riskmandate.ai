@@ -7,6 +7,7 @@ Disallow: /linkedin.html
 Disallow: /home-diff.html
 Disallow: /engagements.html
 Disallow: /home-next.html
+Disallow: /web-summit-2026/home-proposal.html
 Allow: /
 
 Sitemap: https://riskmandate.ai/sitemap.xml

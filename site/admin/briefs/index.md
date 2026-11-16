@@ -3,7 +3,7 @@
 > Every document under docs/ on riskmandate.ai, rendered as a page: direction briefs, reviews, workflows, architecture and research, newest first.
 > Source: https://riskmandate.ai/admin/briefs/ · noindex · written by scripts/site/build-admin.mjs
 
-**40**documents under docs/*one page each, rendered from the file*
+**41**documents under docs/*one page each, rendered from the file*
 
 **11**direction briefs*the product and the site*
 
@@ -14,6 +14,10 @@
 These were written here, by the agent maintaining the site, in response to [the memos and documents that arrived](../../admin/memos/). Each is read against a named source and dated. Add a file under `docs/` and rerun `build-admin.mjs`: it has a page here and a test fails until it does.
 
 ## Newest first
+
+**[Map — what newsroom.sgit.ai gives riskmandate.ai](../../admin/briefs/map__newsroom-for-riskmandate/)**
+
+A keyword filter over the wire picked 285 articles that touch agents, behaviour policies, mandate, reach or insurance. Four read-only agents took them in date order (17 Aug – 14 Oct, 14–21 Oct, 21 Oct – 1 Nov, 1–16 Nov), fetching each markdown twin and…16 November 2026 · map
 
 **[Plan — a team for riskmandate.ai after Web Summit 2026](../../admin/briefs/plan__riskmandate-team-after-web-summit-2026/)**
 

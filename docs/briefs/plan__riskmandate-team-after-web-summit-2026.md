@@ -65,3 +65,21 @@ the homepage itself. Drafted on a private page; the homepage is not touched unti
 4. Whether named agents and people from the team site may appear on this site's case pages.
 5. The session key: `pki-agent.mjs keygen --session` was not run in this session (running the downloaded
    script was refused by the session's permissions), so no fingerprint is published on the team's keys page.
+
+## 6. Added 16 November, afternoon: the site rebuilt around the newsroom
+
+The lead (relayed): the site "needs a lot of work", and the material for it is on newsroom.sgit.ai. The newsroom
+was read in full where it touches RiskMandate: `map__newsroom-for-riskmandate.md`, 320 items, 243 with a place.
+The proposed shape is on `/web-summit-2026/site-plan.html`; every row is on `/web-summit-2026/newsroom-map.html`.
+
+The shape, in one line: three header entries kept; *How it works* becomes *In action*; six new places (Where a rule
+is kept; Case studies; Vendor-shaped examples; What runs, what is designed; Web Summit 2026; Reading paths by
+reader); the insurance page rebuilt as a family; `abp.html` and `articles.html` rewritten.
+
+The order, after the homepage (on the lead's yes): Where a rule is kept → What runs, what is designed → two case
+studies → the insurance family → `abp.html` and the reading paths → three vendor-shaped examples. The level-1 price
+fix and the menu rename are an hour each. The two-week calendar in §3 takes the first four of these into week two;
+the rest is the third and fourth weeks.
+
+New for the role table: **Evidence** also owns the *What runs* page; **Publications** owns the reading paths and the
+reprint-or-link rule; **Positioning** owns the newsroom–site disagreements in the map's §4 until the lead rules.

@@ -10,7 +10,8 @@ calendar. A homepage proposal is drafted on that section as a proposal only. **T
 (`site/index.html`) is not touched** until the lead says yes.
 
 ## Files and surfaces I expect to touch
-- `site/web-summit-2026/index.html` (+ twin, regenerated) — new
+- `site/web-summit-2026/` — index, site-plan, newsroom-map (+ twins), home-proposal (private) — new
+- `docs/briefs/map__newsroom-for-riskmandate.md`, `docs/marketing/newsroom-map/` — new
 - `site/pages.json` — one entry, unlisted
 - `docs/briefs/plan__riskmandate-team-after-web-summit-2026.md` — new
 - generated files via `generate.mjs`
@@ -24,6 +25,7 @@ calendar. A homepage proposal is drafted on that section as a proposal only. **T
 - [x] mapping (four read-only research passes)
 - [x] section page, sourced and dated
 - [x] plan brief
+- [x] newsroom map, site plan, private homepage draft
 - [ ] check, release, merge — held for the lead's go
 
 ## Notes for whoever merges after me

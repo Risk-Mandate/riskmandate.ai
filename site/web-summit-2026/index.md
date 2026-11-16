@@ -133,7 +133,7 @@ Each is right about what it counts. A reader quoting one should quote what it co
 
 ## A team for this site, and its first two weeks.
 
-Started on 16 November at the lead’s word: run riskmandate.ai with a team on the post-summit follow-up, the publications, the marketing pushes, the positioning, and the real examples. One conductor session; every role below is a sub-agent it runs, not a session of its own. Agents draft; a person sends. The full plan is the brief [plan__riskmandate-team-after-web-summit-2026.md](https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/briefs/plan__riskmandate-team-after-web-summit-2026.md).
+Started on 16 November at the lead’s word: run riskmandate.ai with a team on the post-summit follow-up, the publications, the marketing pushes, the positioning, and the real examples. One conductor session; every role below is a sub-agent it runs, not a session of its own. Agents draft; a person sends. The full plan is the brief [plan__riskmandate-team-after-web-summit-2026.md](https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/docs/briefs/plan__riskmandate-team-after-web-summit-2026.md). The site itself, rebuilt around the newsroom’s material, is proposed on [the site plan](/web-summit-2026/site-plan.html), with every article it draws on in [the newsroom map](/web-summit-2026/newsroom-map.html).
 
 ### Conductor
 
@@ -176,7 +176,7 @@ The new homepage behind a private page; the swarm picture as a static, sourced f
 
 ## RiskMandate in action at Web Summit 2026.
 
-**A proposal. The homepage has not changed and will not until the lead approves.** The shape: the summit leads, because it is the first time the ABP ran on a team of this size rather than on a template.
+**A proposal. The homepage has not changed and will not until the lead approves.** A private draft is at [home-proposal](/web-summit-2026/home-proposal.html). The shape: the summit leads, because it is the first time the ABP ran on a team of this size rather than on a template.
 
 - **The opening.** “Give agents access. Not free rein.” kept as the line; under it, the team at work as one picture (the circuit or the team map, as a still, dated) and the film.
 - **The record, in four counts.** ABPs published, run reports, gaps logged, the one rule turned barrier: each linked to its source here, each with its date, none scored.
