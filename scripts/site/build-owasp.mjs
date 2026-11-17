@@ -184,6 +184,15 @@ function cut(file, name, title, desc, body) {
 const pageHref = (slug) => (slug === 'index' ? HERE : `${HERE}${slug}.html`);
 const pill = (status) => `<span class="ow-pill ${esc(STATUS[status].tone)}">${esc(STATUS[status].label)}</span>`;
 const link = (u, t) => (u ? `<a href="${esc(u)}">${esc(t || u)}</a>` : esc(t || ''));
+// An inventory row that lives in this repository links to its public record on GitHub: the first path in the
+// cell, or the folder above a wildcard. A path that is not in the tree is left unlinked rather than guessed.
+const REPO = 'https://github.com/Risk-Mandate/riskmandate.ai';
+const repoUrl = (cell) => {
+  let p = cell.trim().split(/[ ;(,]/)[0];
+  if (/[*{]/.test(p)) p = p.slice(0, p.slice(0, p.search(/[*{]/)).lastIndexOf('/') + 1);
+  if (!p || !existsSync(join(ROOT, p))) return '';
+  return `${REPO}/${p.endsWith('/') ? 'tree' : 'blob'}/dev/${p.replace(/\/$/, '')}`;
+};
 const table = (head, rows) => `<div class="ow-t"><table>\n<thead><tr>${head.map((h) => `<th scope="col">${h}</th>`).join('')}</tr></thead>\n<tbody>\n${rows.join('\n')}\n</tbody></table></div>`;
 const gateOf = (id) => P.gates.find((g) => g.id === id);
 
@@ -217,7 +226,7 @@ const C = {
   }).join('')}</div>`,
   inventory: () => ACTIONS.map((a) => `<h3 class="ow-sub" id="${a}">${esc(a[0].toUpperCase() + a.slice(1))} <span class="ow-k">${INVENTORY.filter((r) => r.proposed_action === a).length}</span></h3>` +
     table(['Id', 'Asset', 'Where it is now', 'Type', 'Licence today', 'Coupling', 'Rights', 'Notes'], INVENTORY.filter((r) => r.proposed_action === a).map((r) =>
-      `<tr><td class="id">${esc(r.asset_id)}</td><td>${esc(r.title)}</td><td>${/^https?:/.test(r.source_path_or_url) ? link(r.source_path_or_url.split(/[ ;(]/)[0], r.source_path_or_url) : `<code>${esc(r.source_path_or_url)}</code>`}<span class="ow-k" style="display:block;margin-top:4px">${esc(r.source_repository)}</span></td><td>${esc(r.asset_type)}</td><td>${esc(r.current_licence)}</td><td>${esc(r.product_coupling)}</td><td>${esc(r.rights_status)}</td><td>${esc(r.notes)}</td></tr>`))).join('\n'),
+      `<tr><td class="id">${esc(r.asset_id)}</td><td>${esc(r.title)}</td><td>${/^https?:/.test(r.source_path_or_url) ? link(r.source_path_or_url.split(/[ ;(]/)[0], r.source_path_or_url) : (r.source_repository === 'Risk-Mandate/riskmandate.ai' && repoUrl(r.source_path_or_url) ? `<a href="${esc(repoUrl(r.source_path_or_url))}"><code>${esc(r.source_path_or_url)}</code></a>` : `<code>${esc(r.source_path_or_url)}</code>`)}<span class="ow-k" style="display:block;margin-top:4px">${esc(r.source_repository)}</span></td><td>${esc(r.asset_type)}</td><td>${esc(r.current_licence)}</td><td>${esc(r.product_coupling)}</td><td>${esc(r.rights_status)}</td><td>${esc(r.notes)}</td></tr>`))).join('\n'),
   counts: () => {
     const n = (st) => P.steps.filter((s) => s.status === st).length;
     return `<div class="ow-cards four">${['done', 'doing', 'todo', 'waiting'].filter((k) => STATUS[k]).map((k) =>

@@ -330,7 +330,7 @@ a.ow-card:hover{border-color:var(--green)}
   <div class="wrap">
     <a class="brand" href="/index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
-      <a class="version" href="/versions.html" title="What shipped in v1.41.6">v1.41.6</a>
+      <a class="version" href="/versions.html" title="What shipped in v1.41.7">v1.41.7</a>
     <a class="demo" href="https://customers.riskmandate.ai/" data-try>Try it free</a>
   </div>
 </header>
@@ -372,7 +372,7 @@ a.ow-card:hover{border-color:var(--green)}
     <div class="ow-t"><table>
       <thead><tr><th scope="col">Object</th><th scope="col">What it is</th><th scope="col">Verb</th><th scope="col">Who produces it</th></tr></thead>
       <tbody>
-        <tr><td>The grant</td><td>Everything the agent can do, one row per capability, in a grammar of 23 primitives written <code>verb.object.reach</code></td><td><b>Measured</b>, or <b>documented</b> from the vendor&rsquo;s own pages, quoted and dated</td><td>The deployment shape, the account, the credential. Never typed from memory</td></tr>
+        <tr><td>The grant</td><td>Everything the agent can do, one row per capability, in <a href="https://abp.sgit.ai/data/index.json">a grammar of 23 primitives</a> written <code>verb.object.reach</code></td><td><b>Measured</b>, or <b>documented</b> from the vendor&rsquo;s own pages, quoted and dated</td><td>The deployment shape, the account, the credential. Never typed from memory</td></tr>
         <tr><td>The mandate</td><td>What the agent is authorised and expected to do: wanted, told not to, unstated</td><td><b>Elicited</b></td><td>The deployer, in their words. The only file a person writes</td></tr>
         <tr><td>The delta</td><td>Excess (can, not asked), shortfall (asked, cannot), and the part of the excess nothing bounds</td><td><b>Derived</b></td><td>The build. Stored with the versions of both inputs, recomputed when either moves, never edited</td></tr>
         <tr><td>The barrier</td><td>What stands between the agent and each capability: none, an expectation, a setting, or a boundary</td><td><b>Recorded</b>, per row</td><td>Whoever measured the row</td></tr>
@@ -422,11 +422,11 @@ a.ow-card:hover{border-color:var(--green)}
     <div class="ow-t"><table>
       <thead><tr><th scope="col">Deliverable</th><th scope="col">Starts from</th><th scope="col">Licence</th></tr></thead>
       <tbody>
-        <tr><td>The specification: objects, grammar, barriers, evidence, delta, lifecycle, limitations</td><td>the abp.sgit.ai model (v0.12.1) and its seven-part documentation pack, rewritten as a neutral document</td><td>CC BY 4.0</td></tr>
+        <tr><td>The specification: objects, grammar, barriers, evidence, delta, lifecycle, limitations</td><td>the <a href="https://abp.sgit.ai/model/">abp.sgit.ai model</a> (v0.12.1) and its <a href="https://abp.sgit.ai/docs/">seven-part documentation pack</a>, rewritten as a neutral document</td><td>CC BY 4.0</td></tr>
         <tr><td>JSON schemas: <code>abp/profile/v1</code> (the grant), <code>abp/mandate/v1</code>, <code>abp.delta/v1</code>, the vocabulary files</td><td>today these are <code>type</code> values in the vault data and pages under abp.sgit.ai/model/schema/; no standalone JSON Schema file exists yet, so this is new work</td><td>Apache-2.0</td></tr>
         <tr><td>The reference build and validator</td><td><code>scripts/site/abp/</code> and <code>build-abp-vault.mjs</code> in this repository, extracted from the site</td><td>Apache-2.0</td></tr>
-        <tr><td>Template ABPs for common shapes</td><td>the sixteen template vaults, as data, without the RiskMandate reading app</td><td>CC BY 4.0 for the documents, Apache-2.0 for the data files</td></tr>
-        <tr><td>The measuring prompt</td><td><code>MAP-A-GRANT.md</code>: the prompt that lets an agent holding a credential measure its own grant, and its seven rules of measurement</td><td>CC BY 4.0</td></tr>
+        <tr><td>Template ABPs for common shapes</td><td><a href="/agent-behaviour-policy.html">the sixteen template vaults</a>, as data, without the RiskMandate reading app</td><td>CC BY 4.0 for the documents, Apache-2.0 for the data files</td></tr>
+        <tr><td>The measuring prompt</td><td><a href="/vaults/_template/MAP-A-GRANT.md"><code>MAP-A-GRANT.md</code></a>: the prompt that lets an agent holding a credential measure its own grant, and its seven rules of measurement</td><td>CC BY 4.0</td></tr>
         <tr><td>Mappings to OWASP projects and to standards by title</td><td>the <a href="/owasp-graph.html">OWASP graph</a> and the control business cases on this site</td><td>CC BY 4.0</td></tr>
       </tbody></table></div>
     <p class="ow-note">The licences are proposals. The repository is Apache-2.0 at the root and the site&rsquo;s pages say CC BY 4.0 in their footers; whether those statements cover every file that would move, including what agents generated and what third parties wrote, is checked asset by asset on <a href="/owasp/contributions.html">What moves</a> before anything is transferred.</p>
