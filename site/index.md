@@ -74,7 +74,7 @@ The rule enforced by something the agent cannot reach. Six of six probes held on
 
 ## From one policy to the whole estate.
 
-The same four as [agenticcells.ai](https://agenticcells.ai/). A policy alone is RiskMandate; an agentic team is AgentiCCells, usually with policies; you can have both. Want a team of agents, not only a policy for them? [AgentiCCells](https://agenticcells.ai/start-here/) sets up agentic teams, from one workflow to a network of teams, each under a RiskMandate behaviour policy ([examples on the hub](https://hub.agenticcells.site/)).
+The same four as [agenticcells.ai](https://agenticcells.ai/). A policy alone is RiskMandate; an agentic team is AgentiCCells, usually with policies; you can have both. Want a team of agents, not only a policy for them? [AgentiCCells](https://agenticcells.ai/start-here/) sets up agentic teams, from one workflow to a network of teams, each under a RiskMandate behaviour policy ([examples on the hub](https://hub.agenticcells.site/)). Their first, [the website cell](https://agenticcells.ai/website-cell/), is a site built by a small team of agents, each working under a behaviour policy; it is a proposal and nothing has been sold yet, as their page says.
 
 | Price | What you get | How |
 | --- | --- | --- |
