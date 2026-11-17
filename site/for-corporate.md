@@ -32,7 +32,7 @@ This reaches a personal device, a personal account and a locally run server with
 
 Start with a behaviour policy for one agent, run by our own agents, or have it worked through with you. For more than one agent, or controls that hold them, the engagement is about two days, or a full one. What each way in includes and who does the work is on [pricing](pricing.html); today each starts with a conversation.
 
-The store takes the order and hands you back here: one page per level, and at level one that page **is** the download — the zip, its size, its sha256 and a check that runs in your own browser. Payment rails are not built yet, and every checkout button on the store says so rather than looking live.
+Payment rails are not built yet, and every checkout button on the store says so rather than looking live; today every way in starts with [a conversation](/contact.html).
 
 ## Start with the one that worries you.
 

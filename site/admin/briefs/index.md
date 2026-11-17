@@ -3,7 +3,7 @@
 > Every document under docs/ on riskmandate.ai, rendered as a page: direction briefs, reviews, workflows, architecture and research, newest first.
 > Source: https://riskmandate.ai/admin/briefs/ · noindex · written by scripts/site/build-admin.mjs
 
-**44**documents under docs/*one page each, rendered from the file*
+**45**documents under docs/*one page each, rendered from the file*
 
 **12**direction briefs*the product and the site*
 
@@ -14,6 +14,10 @@
 These were written here, by the agent maintaining the site, in response to [the memos and documents that arrived](../../admin/memos/). Each is read against a named source and dated. Add a file under `docs/` and rerun `build-admin.mjs`: it has a page here and a test fails until it does.
 
 ## Newest first
+
+**[Sherpa walk — the live site, 17 November 2026](../../admin/briefs/marketing--sherpa-walk-2026-11-17/)**
+
+No form submitted, no store checkout opened, nothing sent; pages at 390 not checked on this walk. The reading paths by reader were not compared against the newsroom map this turn. No page edited.17 November 2026
 
 **[Synthetic users on the live site, 17 November 2026](../../admin/briefs/marketing--synthetic-users-2026-11-17/)**
 
@@ -326,6 +330,10 @@ riskmandate.ai is written for a Head of Risk. Lisbon is founders and investors. 
 Move the interactive Risk Scenarios experience to the decoupled model:4 July 2026 · implementation
 
 ## Other documents · how the site works, and the marketing copy
+
+**[Sherpa walk — the live site, 17 November 2026](../../admin/briefs/marketing--sherpa-walk-2026-11-17/)**
+
+No form submitted, no store checkout opened, nothing sent; pages at 390 not checked on this walk. The reading paths by reader were not compared against the newsroom map this turn. No page edited.17 November 2026
 
 **[Synthetic users on the live site, 17 November 2026](../../admin/briefs/marketing--synthetic-users-2026-11-17/)**
 

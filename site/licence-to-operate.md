@@ -50,7 +50,7 @@ Status, stated plainly. The file exists and ships in every published vault today
 
 A licence needs a behaviour policy underneath it, and that is what the four ways in sell. What each way in includes and who does the work is on [pricing](pricing.html); today each starts with a conversation.
 
-The store takes the order and hands you back here: one page per level, and at level one that page **is** the download — the zip, its size, its sha256 and a check that runs in your own browser. Payment rails are not built yet, and every checkout button on the store says so rather than looking live.
+Payment rails are not built yet, and every checkout button on the store says so rather than looking live; today every way in starts with [a conversation](/contact.html).
 
 ## Licence one agent.
 

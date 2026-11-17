@@ -10,7 +10,7 @@ Source: https://riskmandate.ai/web-summit-2026/
 
 # RiskMandate in action, on our own agents.
 
-From 9 to 12 November 2026 in Lisbon, a team of people and their agents ran a stand, a newsroom and an incident site. Every agent on that team had an Agent Behaviour Policy (ABP) written in this site’s grammar: what it can reach, what it was authorised to do, the gap, and what stands in the way. This page is the mapping of what that left on the public record, with every figure sourced and dated.
+From 9 to 12 November 2026 in Lisbon, a team of people and their agents ran a stand, a newsroom and an incident site. Most agents on that team had an Agent Behaviour Policy (ABP) written in this site’s grammar, 94 of the 109 on the team’s circuit on 10 November ([the stand deck](https://web-summit.sgit.ai/meetings/2026-11-10-1600/show/)): what it can reach, what it was authorised to do, the gap, and what stands in the way. This page is the mapping of what that left on the public record, with every figure sourced and dated.
 
 **Nothing here is scored.** A count is a count, and where two of our own pages give different counts, both are printed and neither is chosen.
 

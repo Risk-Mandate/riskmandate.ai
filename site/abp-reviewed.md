@@ -14,7 +14,7 @@ An hour of somebody's time, split in two, with an Agent Behaviour Policy built f
 
 ## The same document as every other level, with a person in the room.
 
-Every level sells one Agent Behaviour Policy for one agent in one deployment: everything it can reach, what you authorised, the gap between them, and what actually stands in the way of each thing. What the top level adds is the part that cannot be automated — somebody asking your team what is really running, correcting the mandate in the room, and putting their name to the result. [What an ABP is](abp.html) · [the sixteen published examples](agent-behaviour-policy.html).
+Every level sells one Agent Behaviour Policy for one agent in one deployment: everything it can reach, what you authorised, the gap between them, and what actually stands in the way of each thing. What the £1,500 way in adds is the part that cannot be automated — somebody asking your team what is really running, correcting the mandate in the room, and putting their name to the result. [What an ABP is](abp.html) · [the sixteen published examples](agent-behaviour-policy.html).
 
 ## Eight steps, and who does each one.
 
