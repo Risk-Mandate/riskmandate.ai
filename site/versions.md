@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.41.11** · 2026-11-17 — The home page is a fifth shorter on a phone
+  Notes: https://riskmandate.ai/versions/1.41.11.md · Source: `git:v1.41.11`
 - **v1.41.10** · 2026-11-17 — Badge names blurred in the summit photos; larger tap areas on source links
   Notes: https://riskmandate.ai/versions/1.41.10.md · Source: `git:v1.41.10`
 - **v1.41.9** · 2026-11-17 — For developers: control one agent today, a line, a hook, a boundary

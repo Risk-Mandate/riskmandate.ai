@@ -16,7 +16,7 @@ If you run AI agents, we can tell you what each one can actually do, write down 
 
 ## Here is what happened. Here is what we did.
 
-Small, real cases from our own agents, each from our public record. Including the ones where the first answer did not work. [All eighteen situations](/web-summit-2026/situations.html).
+Small, real cases from our own agents, each from our public record. Including the ones where the first answer did not work.
 
 ### “Never push to main” was a sentence. Then an agent pushed to main.
 
@@ -41,6 +41,8 @@ The newsroom’s developer agent tried to write the hold file. The ABP says that
 A chat-only agent, its rule as one line in the prompt. Under a drill that tells the model to ignore the rule, the line alone holds 3 of 12 attacks; the line with a hook holds all 12, the hook blocking five.
 
 [newsroom.sgit.ai](https://newsroom.sgit.ai/articles/an-agent-that-may-only-chat.html)
+
+[All eighteen situations, each with its source &rarr;](/web-summit-2026/situations.html)
 
 ## A hundred agents, every one with a policy.
 
