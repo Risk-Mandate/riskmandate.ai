@@ -246,6 +246,7 @@ function indexPage() {
     <p class="sub" style="margin-bottom:20px">This site is made by one person and two agents. The agents are described the way the site describes any agent: an Agent Behaviour Policy each, in the same grammar as the catalogue, with the grant measured on the thing itself, the mandate in the lead&rsquo;s words, the gap derived, and a barrier on every row. Around them, three tiers of information and the workflow that moves a story from private to public.</p>
     <p class="meta"><b>Nothing here is scored.</b> A count is a count; a barrier is what it is. Where the honest answer is a rule in prose, the page says so.</p>
     <p class="meta"><b>As at</b> ${niceDate(team.as_at)}. If the deployment changes, this page changes; the vaults and the tests that hold it true are listed in section 06.</p>
+    ${team.since ? `<p class="meta"><b>Update.</b> ${esc(team.since.text)} ${team.since.links.map((l) => `<a href="${esc(l.href)}" target="_blank" rel="noopener">${esc(l.label)}</a>`).join(' · ')}.</p>` : ''}
   </div>
 </main>
 

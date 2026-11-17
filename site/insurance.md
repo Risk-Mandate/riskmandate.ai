@@ -30,25 +30,36 @@ The record an underwriter will accept, scored and dated, with the residual risk 
 
 Everything below is the argument for step three and the published design for it, kept in full. It is deliberately not on the home page any more: the home page sells what exists.
 
+Where it stands, 17 November 2026: the Licence to Operate is a template and a design; the Insurability Index is a design, with early conversations only. No insurer has agreed to anything on this page. We carry no risk and place no cover. ([The ten questions](https://newsroom.sgit.ai/articles/riskmandate-ten-questions.html), newsroom.sgit.ai.)
+
+## The record, not the design.
+
+Everything else on this page is argument and design. These are the parts that exist, and an underwriter can read them now.
+
+- [The Web Summit 2026 record](/web-summit-2026/)A team of agents run under behaviour policies at the summit, in observe mode: every figure on it carries its source.
+- [The situations](/web-summit-2026/situations.html)Small cases from that record: what an agent needed, what was granted, and where it did not work.
+- [The PrompTugal run reports](https://github.com/PrompTugal/PrompTugal__News__Website/tree/dev/board/runs)The agents' own run reports, one file per run, on GitHub.
+- [Sixteen example behaviour policies](/agent-behaviour-policy.html)One per agent and deployment, each row with what stands in the way of it, readable live.
+
 ## Cover is being withdrawn. Evidence buys it back.
 
 Exclusions are attaching at renewal faster than teams can respond. Affirmative cover exists, but every carrier writing it asks the same question — and most teams cannot answer it in writing.
 
 Whether a program can be insured at all, and the dated record of every time it was — the maker, one defect, a smart contract, a model's output, an agent in one deployment — is on [Can you insure a program?](insure-a-program.html)
 
-### P&C groups have filed to exclude AI
+### admitted-market filings read by RAND
 
-Standardised AI exclusion endorsements are now in circulation, and some exclusions on D&O and E&O lines are absolute rather than partial.
+Some offer affirmative cover, others file broad exclusions, and most are silent on agents ([RAND RR-A5130-1](https://www.rand.org/pubs/research_reports/RRA5130-1.html), 16 September 2026).
 
-### of those filings have cleared review
+### optional generative-AI exclusions for general liability
 
-Whether AI is covered is decided policy by policy, jurisdiction by jurisdiction, at each renewal date — not once, centrally.
+CG 40 47, CG 40 48 and CG 35 08, announced by Verisk on 21 October 2025, effective January 2026 ([IIABA, 21 Oct 2025](https://www.independentagent.com/vu_resource/verisk-to-roll-out-new-general-liability-exclusions-for-generative-ai-exposures/)).
 
 ### question decides the outcome
 
 Can you show what your agents can reach, and evidence that the controls hold? Everything else follows from that answer.
 
-Figures on this page describe a market in motion and are stated qualitatively on purpose; we cite specific filings and form numbers in the assessment itself, dated, rather than on a page that ages.
+Each figure carries its source and date. The market moves, and the dated record of filings, exclusions and affirmative cover is kept on [Can you insure a program?](insure-a-program.html)
 
 ## Two things changed, and neither of them was us.
 
@@ -62,11 +73,11 @@ Both are cited by date rather than characterised, and both are somebody else's p
 
 ## Questionnaires describe. Evidence prices.
 
-Underwriting agentic risk today runs on self-reported answers. The same three questions produce very different outcomes depending on where the answer comes from.
+The same three questions produce very different outcomes depending on where the answer comes from.
 
 ## Six levels. One number, eventually.
 
-This is the design for step three: where an agent estate sits, what an underwriter will offer at each level, and the gap to the next one as a work order. Select a level to see what it buys. It is published before it is built on purpose, so the commitment stays checkable afterwards.
+This is the design for step three: where an agent estate sits, what an underwriter might offer at each level, and the gap to the next one as a work order. Select a level to see what it might buy; no insurer has agreed to any of it. It is published before it is built on purpose, so the commitment stays checkable afterwards.
 
 The Index is a composite of five dimensions, weighted by how much each one moves a price. It is composed from behaviour policies rather than from a form: each one states capabilities and the barrier against each, so the number is an aggregate of rows that can be checked individually. Weights are set by underwriting judgement today and re-fit as loss experience accumulates — we say so rather than implying an actuarial precision that does not yet exist.
 
@@ -150,11 +161,11 @@ Never. All connectors are read-only and out of band. A governance layer that can
 
 No, and it is not meant to. We connect to what you already run — identity providers, cloud IAM, agent posture and access-governance tools — and translate their output into exposure an underwriter can read. If you have no controls at all, we will tell you that before you buy anything.
 
-It is a weighted composite of five dimensions, each derived from environment telemetry rather than a questionnaire. Every score decomposes to the evidence behind it, and the methodology is published. Weights are set by underwriting judgement today and re-fit as loss experience accumulates.
+In the design, it is a weighted composite of five dimensions, each derived from environment telemetry rather than a questionnaire. Every score decomposes to the evidence behind it, and the methodology is published. Weights are set by underwriting judgement today and re-fit as loss experience accumulates.
 
-Connector setup is typically under a day. A first Index and gap list land inside two weeks, which is deliberately shorter than most renewal windows.
+Nobody has had one yet: the Index is a design. The aim is connector setup inside a day and a first Index and gap list inside two weeks, shorter than most renewal windows.
 
-Metadata about agent scope and permissions, not the contents of what your agents process. Self-hosted and sovereign deployments are available where the data cannot leave your boundary.
+Metadata about agent scope and permissions, not the contents of what your agents process. Self-hosted and sovereign deployments are part of the design, for where the data cannot leave your boundary; none runs today.
 
 ## Start at the bottom of the chain.
 

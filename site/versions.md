@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.41.13** · 2026-11-17 — Insurance, said as it stands: design labelled as design, and the evidence we have today
+  Notes: https://riskmandate.ai/versions/1.41.13.md · Source: `git:v1.41.13`
 - **v1.41.12** · 2026-11-17 — What can be bought today, said plainly: every way in starts with a conversation
   Notes: https://riskmandate.ai/versions/1.41.12.md · Source: `git:v1.41.12`
 - **v1.41.11** · 2026-11-17 — The home page is a fifth shorter on a phone

@@ -16,6 +16,8 @@ This site is made by one person and two agents. The agents are described the way
 
 **As at** 26 September 2026. If the deployment changes, this page changes; the vaults and the tests that hold it true are listed in section 06.
 
+**Update.** Since 16 November 2026 the site also runs a conductor session with six sub-agent roles (developer, designer, sherpa, synthetic users, ambassador, researcher) on an hourly loop; their behaviour policies are not written yet, and this page will carry them when they are. [The six roles, on GitHub](https://github.com/Risk-Mandate/riskmandate.ai/tree/dev/.claude/agents) · [The hourly loop](https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/.claude/briefs/T18-the-hourly-loop.md).
+
 ## One person, two agents.
 
 The lead is Dinis Cruz, co-founder. The company and both founders, Nimay Parekh and Dinis, are on [the about page](/about.html); this page is the workflow, and a person is not profiled on it.

@@ -44,7 +44,7 @@ The record an underwriter will accept, scored and dated, with the residual risk 
 
 The licence ships as `LICENCE-TO-OPERATE.md` inside the vault, so the agent can read the terms it runs under and a person can read the same terms without a portal. [Every published vault carries one](abp-vaults.html), unissued, with the authority and the interval left blank until somebody fills them in.
 
-Status, stated plainly. The file exists and ships in every published vault today, as a **template**: unsigned, unissued, with the authority and the interval blank. What does not exist is the countersigned form — a licence somebody outside your organisation would accept as evidence — which is what step three needs and what we have not built. We are not going to describe that as available because the file is.
+Status, stated plainly. The file exists and ships in every published vault today, as a **template**: unsigned, unissued, with the authority and the interval blank. What does not exist is the countersigned form — a licence somebody outside your organisation would accept as evidence — which is what step three needs and what we have not built. We are not going to describe that as available because the file is. No insurer has agreed to accept a licence as evidence; what exists today, as evidence, is listed on [the Insurability Index page](insurance.html#evidence).
 
 ## Four ways in, from one policy to the whole estate.
 

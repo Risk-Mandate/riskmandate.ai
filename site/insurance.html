@@ -585,7 +585,7 @@ a.ch:hover{border-color:var(--green)}
   <div class="wrap">
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
-      <a class="version" href="versions.html" title="What shipped in v1.41.12">v1.41.12</a>
+      <a class="version" href="versions.html" title="What shipped in v1.41.13">v1.41.13</a>
     <a class="demo" href="https://customers.riskmandate.ai/" data-try>Try it free</a>
   </div>
 </header>
@@ -617,6 +617,23 @@ a.ch:hover{border-color:var(--green)}
         <span class="ch here"><span class="chn">03</span><h3>Insurable</h3><p>The record an underwriter will accept, scored and dated, with the residual risk owned.</p><span class="chs">This page &middot; design</span></span>
       </div>
       <p class="ins-note">Everything below is the argument for step three and the published design for it, kept in full. It is deliberately not on the home page any more: the home page sells what exists.</p>
+      <p class="ins-note">Where it stands, 17 November 2026: the Licence to Operate is a template and a design; the Insurability Index is a design, with early conversations only. No insurer has agreed to anything on this page. We carry no risk and place no cover. (<a href="https://newsroom.sgit.ai/articles/riskmandate-ten-questions.html" target="_blank" rel="noopener">The ten questions</a>, newsroom.sgit.ai.)</p>
+    </div>
+  </section>
+
+  <section class="psection" id="evidence">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">What we have today, as evidence</span>
+        <h2>The record, <span class="g">not the design.</span></h2>
+        <p>Everything else on this page is argument and design. These are the parts that exist, and an underwriter can read them now.</p>
+      </div>
+      <ul class="readlist">
+        <li><a href="/web-summit-2026/">The Web Summit 2026 record</a><span>A team of agents run under behaviour policies at the summit, in observe mode: every figure on it carries its source.</span></li>
+        <li><a href="/web-summit-2026/situations.html">The situations</a><span>Small cases from that record: what an agent needed, what was granted, and where it did not work.</span></li>
+        <li><a href="https://github.com/PrompTugal/PrompTugal__News__Website/tree/dev/board/runs" target="_blank" rel="noopener">The PrompTugal run reports</a><span>The agents' own run reports, one file per run, on GitHub.</span></li>
+        <li><a href="/agent-behaviour-policy.html">Sixteen example behaviour policies</a><span>One per agent and deployment, each row with what stands in the way of it, readable live.</span></li>
+      </ul>
     </div>
   </section>
 
@@ -635,15 +652,15 @@ a.ch:hover{border-color:var(--green)}
       <div class="ins-metrics">
         <div class="metric">
           <span class="mk">Filings</span>
-          <span class="mn warn">Many</span>
-          <h3>P&amp;C groups have filed to exclude AI</h3>
-          <p>Standardised AI exclusion endorsements are now in circulation, and some exclusions on D&amp;O and E&amp;O lines are absolute rather than partial.</p>
+          <span class="mn warn">125</span>
+          <h3>admitted-market filings read by RAND</h3>
+          <p>Some offer affirmative cover, others file broad exclusions, and most are silent on agents (<a href="https://www.rand.org/pubs/research_reports/RRA5130-1.html" target="_blank" rel="noopener">RAND RR-A5130-1</a>, 16 September 2026).</p>
         </div>
         <div class="metric">
-          <span class="mk">Approvals</span>
-          <span class="mn warn">Most</span>
-          <h3>of those filings have cleared review</h3>
-          <p>Whether AI is covered is decided policy by policy, jurisdiction by jurisdiction, at each renewal date — not once, centrally.</p>
+          <span class="mk">Exclusions</span>
+          <span class="mn warn">3</span>
+          <h3>optional generative-AI exclusions for general liability</h3>
+          <p>CG 40 47, CG 40 48 and CG 35 08, announced by Verisk on 21 October 2025, effective January 2026 (<a href="https://www.independentagent.com/vu_resource/verisk-to-roll-out-new-general-liability-exclusions-for-generative-ai-exposures/" target="_blank" rel="noopener">IIABA, 21 Oct 2025</a>).</p>
         </div>
         <div class="metric">
           <span class="mk">The gate</span>
@@ -652,7 +669,7 @@ a.ch:hover{border-color:var(--green)}
           <p>Can you show what your agents can reach, and evidence that the controls hold? Everything else follows from that answer.</p>
         </div>
       </div>
-      <p class="ins-note">Figures on this page describe a market in motion and are stated qualitatively on purpose; we cite specific filings and form numbers in the assessment itself, dated, rather than on a page that ages.</p>
+      <p class="ins-note">Each figure carries its source and date. The market moves, and the dated record of filings, exclusions and affirmative cover is kept on <a href="insure-a-program.html">Can you insure a program?</a></p>
     </div>
   </section>
 
@@ -687,11 +704,11 @@ a.ch:hover{border-color:var(--green)}
       <div class="shead">
         <span class="tag">The difference</span>
         <h2>Questionnaires describe. <span class="g">Evidence prices.</span></h2>
-        <p>Underwriting agentic risk today runs on self-reported answers. The same three questions produce very different outcomes depending on where the answer comes from.</p>
+        <p>The same three questions produce very different outcomes depending on where the answer comes from.</p>
       </div>
       <div class="cmp">
         <div class="cmp-row cmp-head">
-          <span></span><span class="q">Questionnaire</span><span class="e">RiskMandate</span>
+          <span></span><span class="q">Questionnaire</span><span class="e">RiskMandate &middot; design</span>
         </div>
         <div class="cmp-row">
           <span class="cmp-k">Where the answer comes from</span>
@@ -701,12 +718,12 @@ a.ch:hover{border-color:var(--green)}
         <div class="cmp-row">
           <span class="cmp-k">What the underwriter gets</span>
           <span class="cmp-q"><b>A yes or no.</b> No severity, no aggregation, no way to tell a contained agent from one holding standing production access.</span>
-          <span class="cmp-e"><b>A priced exposure.</b> Loss bands per agent, aggregate across the fleet, and concentration in shared models and vendors.</span>
+          <span class="cmp-e"><b>Design: a priced exposure.</b> Loss bands per agent, aggregate across the fleet, and concentration in shared models and vendors.</span>
         </div>
         <div class="cmp-row">
           <span class="cmp-k">What happens at claim</span>
           <span class="cmp-q"><b>The answers get tested.</b> Application warranties are examined after the loss. This is where cover is most often lost.</span>
-          <span class="cmp-e"><b>The record holds.</b> Timestamped control state, containment tests and an immutable action log, assembled before anything went wrong.</span>
+          <span class="cmp-e"><b>Design: a record that would hold.</b> Timestamped control state, containment tests and an immutable action log, assembled before anything went wrong.</span>
         </div>
       </div>
     </div>
@@ -718,7 +735,7 @@ a.ch:hover{border-color:var(--green)}
       <div class="shead">
         <span class="tag">The Insurability Index &middot; step three</span>
         <h2>Six levels. <span class="g">One number, eventually.</span></h2>
-        <p>This is the design for step three: where an agent estate sits, what an underwriter will offer at each level, and the gap to the next one as a work order. Select a level to see what it buys. It is published before it is built on purpose, so the commitment stays checkable afterwards.</p>
+        <p>This is the design for step three: where an agent estate sits, what an underwriter might offer at each level, and the gap to the next one as a work order. Select a level to see what it might buy; no insurer has agreed to any of it. It is published before it is built on purpose, so the commitment stays checkable afterwards.</p>
       </div>
       <rm-index-ladder></rm-index-ladder>
       <p class="ins-note">The Index is a composite of five dimensions, weighted by how much each one moves a price. It is composed from behaviour policies rather than from a form: each one states capabilities and the barrier against each, so the number is an aggregate of rows that can be checked individually. Weights are set by underwriting judgement today and re-fit as loss experience accumulates — we say so rather than implying an actuarial precision that does not yet exist.</p>
@@ -747,7 +764,7 @@ a.ch:hover{border-color:var(--green)}
   <section class="ins-section alt" id="who">
     <div class="wrap">
       <div class="shead">
-        <span class="tag">Who it is for</span>
+        <span class="tag">Who it would be for &middot; design</span>
         <h2>One score. <span class="g">Both sides of the renewal.</span></h2>
       </div>
       <div class="aud">
@@ -829,9 +846,9 @@ a.ch:hover{border-color:var(--green)}
         <details open><summary>Is RiskMandate an insurance policy?</summary><p>No. We are not a carrier, a broker or an MGA, and we do not sell or place cover. RiskMandate measures insurability and produces the evidence that underwriters price against. Your broker and carrier relationships stay exactly as they are.</p></details>
         <details><summary>Do you sit in the runtime path?</summary><p>Never. All connectors are read-only and out of band. A governance layer that can take your agents down is a new source of the risk it was bought to measure.</p></details>
         <details><summary>Does this replace our agent security tooling?</summary><p>No, and it is not meant to. We connect to what you already run — identity providers, cloud IAM, agent posture and access-governance tools — and translate their output into exposure an underwriter can read. If you have no controls at all, we will tell you that before you buy anything.</p></details>
-        <details><summary>How is the Index calculated, and can we see the working?</summary><p>It is a weighted composite of five dimensions, each derived from environment telemetry rather than a questionnaire. Every score decomposes to the evidence behind it, and the methodology is published. Weights are set by underwriting judgement today and re-fit as loss experience accumulates.</p></details>
-        <details><summary>How long does a first assessment take?</summary><p>Connector setup is typically under a day. A first Index and gap list land inside two weeks, which is deliberately shorter than most renewal windows.</p></details>
-        <details><summary>Where does our data go?</summary><p>Metadata about agent scope and permissions, not the contents of what your agents process. Self-hosted and sovereign deployments are available where the data cannot leave your boundary.</p></details>
+        <details><summary>How is the Index calculated, and can we see the working?</summary><p>In the design, it is a weighted composite of five dimensions, each derived from environment telemetry rather than a questionnaire. Every score decomposes to the evidence behind it, and the methodology is published. Weights are set by underwriting judgement today and re-fit as loss experience accumulates.</p></details>
+        <details><summary>How long does a first assessment take?</summary><p>Nobody has had one yet: the Index is a design. The aim is connector setup inside a day and a first Index and gap list inside two weeks, shorter than most renewal windows.</p></details>
+        <details><summary>Where does our data go?</summary><p>Metadata about agent scope and permissions, not the contents of what your agents process. Self-hosted and sovereign deployments are part of the design, for where the data cannot leave your boundary; none runs today.</p></details>
       </div>
     </div>
   </section>
@@ -1368,7 +1385,7 @@ RM.components.nav = (function () {
       var detail = dom.el('div', { class: 'lad-detail', 'aria-live': 'polite' }, [
         dom.el('div', null, [this._code, this._name, this._desc]),
         dom.el('div', { class: 'lad-right' }, [
-          dom.el('div', null, [dom.el('span', { class: 'lad-lab' }, ['What an underwriter offers']), this._offer]),
+          dom.el('div', null, [dom.el('span', { class: 'lad-lab' }, ['What an underwriter might offer \u00b7 design']), this._offer]),
           dom.el('div', null, [dom.el('span', { class: 'lad-lab' }, ['Evidence you need']), this._arts])
         ])
       ]);
