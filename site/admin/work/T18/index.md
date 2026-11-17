@@ -33,16 +33,17 @@ publisher (`publisher.md`) keeps its own job. A new session or a scheduled task 
 
 | # | Item | Roles | State |
 |---|---|---|---|
-| 1 | The homepage draft rebuilt around the message, with the situations (micro) and the summit (macro), the film, the ladder (proposed), the book, and agenticcells.ai | developer, designer | round 1 done; photos and book added round 2 |
+| 1 | The homepage draft rebuilt around the message, with the situations (micro) and the summit (macro), the film, the ladder (proposed), the book, and agenticcells.ai | developer, designer | **live** v1.41.0 |
 | 2 | Situations page: each a real case from our own record (needed a permission; the gap found; the rule that failed and became a barrier), quoted, dated, screenshotted | researcher, developer | **done** (round 2): `/web-summit-2026/situations.html`, 18 cases, data in `docs/marketing/situations/` |
-| 3 | The ladder on `pricing.html` (£500 / £1,500 / £5,000 / £20,000), once the lead confirms it directly | developer, ambassador | **answered** (retire £10/£50); next |
-| 4 | The archive: old pages kept at their addresses with a dated note, listed on `/archive/` | developer, sherpa | **answered: a folder**; open |
+| 3 | The ladder on `pricing.html` (£500 / £1,500 / £5,000 / £20,000), once the lead confirms it directly | developer, ambassador | **done** v1.41.0: the ladder live, £10/£50 retired |
+| 4 | The archive: old pages kept at their addresses with a dated note, listed on `/archive/` | developer, sherpa | started v1.41.0: `/archive/` with the old home page; more pages to move |
 | 5 | Web Summit photos and stills: which are public, of whom, and a gallery in more than one design | researcher, designer | photos copied and on the homepage draft (round 2); stills next |
 | 6 | The film on the homepage and in the summit section | designer, developer | open |
 | 7 | Where a rule is kept: prompt, hook, boundary (from the newsroom map) | developer, researcher | open |
 | 8 | A sherpa walk and four synthetic personas over the branch build | sherpa, synthetic users | open; every few turns |
 | 9 | The one-paragraph message and the cross-links with agenticcells.ai and the hub | ambassador | cross-link lines agreed with the AgentiCCells conductor 16 Nov (ours on the homepage draft; theirs: "Already running agents and need to control them? RiskMandate writes the behaviour policy, from one agent to hundreds."); the message itself open |
 | 10 | The book: the PDF and the Leanpub link, where it sits on the site | developer, ambassador | **done on the draft** (round 2): PDF hosted, Leanpub linked |
+| 12 | `pricing.html` scrolls sideways on a phone (844px at 390): already so on v1.40.3; the levels table's wrapper does not hold it | developer | open |
 | 11 | The universe view's white border stripes: find where the view lives and the cause | developer | open; it may live on another site |
 
 ## Done means

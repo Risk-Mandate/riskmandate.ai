@@ -7,7 +7,7 @@
 
 **0**waiting on somebody outside*the store's agent, the model site*
 
-**1**branches in flight*one work file each*
+**0**branches in flight*one work file each*
 
 **0**open tasks*of 4 in the queue · 4 done*
 
@@ -17,7 +17,7 @@
 
 **16**vaults built and pushed*4 measured · 9 asked for*
 
-**155**releases*8 Lab editions*
+**156**releases*8 Lab editions*
 
 ## Needs the lead — 11
 
@@ -67,13 +67,13 @@ a decision the lead owns, openD10
 
 a decision the lead owns, openD11
 
-## In flight — 1 branch
+## In flight — 0 branches
 
 One file per branch under `.claude/work/`, written before the work starts and deleted when it merges. Read every one before claiming a task.
 
-**[claude/conductor-web-summit-2026](../admin/work/branches/claude-conductor-web-summit-2026/)**
+**Nothing in flight.**
 
-A new unlisted section, `/web-summit-2026/`: the mapping of every public RiskMandate material from Web Summit 2026 (policies written, runs, the swarm visualisations, the film, the newsroom pieces, the follow-ups owed), every figure sourced and dated; and the team's plan and two-week calendar. A homepage proposal is drafted on that section as a proposal only. **The homepage (`site/index.html`) is not touched** until the lead says yes. since 16 November 2026
+No work file under .claude/work/.
 
 ## How work gets here
 

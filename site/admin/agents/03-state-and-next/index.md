@@ -8,10 +8,13 @@ the site's; check `site/versions/index.json` for the current version before trus
 
 ## State as at 2026-09-30, v1.35.3
 
-- **Web Summit 2026 (16 Nov 2026, branch `claude/conductor-web-summit-2026`):** a new team for the site, a conductor and
-  sub-agents. The mapping of the summit's public record is `site/web-summit-2026/index.html` (unlisted, every figure
-  sourced and dated); the plan and the homepage proposal are `docs/briefs/plan__riskmandate-team-after-web-summit-2026.md`.
-  The homepage's Lisbon stand strip is out of date and waits on the lead's yes.
+- **v1.41.0 (17 Nov 2026): we can control your agents.** At the lead's word the home page is rebuilt on the Web Summit
+  2026 record (counts linked to `/web-summit-2026/`, situations, the film, summit photos, the book); the old home page is
+  `site/archive/home-2026-11-16.html` and `/archive/` is the archive (pages keep their addresses, a dated note each).
+  Pricing is one ladder shared with agenticcells.ai: £500 / £1,500 / £5,000 / £20,000; the £10 pack and £50 vault are
+  retired. `/web-summit-2026/` holds the summit record, situations, the site plan and the newsroom map. The site has a
+  team on an hourly loop: roles in `.claude/agents/rm-*.md`, the loop and its backlog in `.claude/briefs/T18-the-hourly-loop.md`,
+  the lead's words in `docs/briefs/direction__we-can-control-your-agents.md`.
 - **Menu since v1.40.3 (4 Nov 2026):** three entries and one button — *Product* (the ABP and its levels, who it's for, the
   roadmap: Licence to Operate, the Insurability Index and the insurance pages), *How it works* (see it work; read), *Open source*
   (SHarness, the code on GitHub, the Open Security Summit, the team; company and community); *Try it free*. Every page that was
