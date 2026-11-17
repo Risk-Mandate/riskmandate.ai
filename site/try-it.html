@@ -238,7 +238,35 @@ table.t td b{color:var(--text)}
 .phero .cta-row{margin-top:28px}
 
 @media (max-width:1400px) and (min-width:901px){.ghlink{display:none}header.top .wrap{gap:14px}}
-.footsite{display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap}.footsite a{color:inherit}</style>
+.footsite{display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap}.footsite a{color:inherit}
+/* phone length — v1.41.x. About 10,100 px at 390 px wide, most of it cards
+   stacked full width. On a phone only: the four steps, the three objects, the
+   two lists and the four onward cards become swipe strips, and the paddings
+   tighten. Nothing is hidden and no word changes; the laptop layout is untouched. */
+@media (max-width:640px){
+  .phero{padding:56px 20px 52px}
+  .phero h1{margin-top:20px;font-size:30px}
+  .phero .sub{font-size:15.5px;line-height:1.65;margin-top:18px}
+  .cta-row{gap:9px;margin-top:24px}
+  .phero .cta-row{margin-top:22px}
+  .cta-row .btn{padding:11px 16px}
+  .psection{padding:48px 0}
+  .shead p{margin-top:12px}
+  .pcta{padding:60px 20px}
+  .qs,.three,.conns,.plist{display:flex;flex-direction:row;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:8px;margin-top:24px}
+  .qs>li,.three>.c,.conns>.conn,.plist>li{flex:0 0 86%;scroll-snap-align:start}
+  .qs li,.three .c,.conn{padding:18px}
+  .three .c h3{margin-top:8px}
+  .three .c p{margin-top:8px}
+  .conn:hover,.conn:focus-visible{transform:none}
+  .plist li{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:16px 16px 16px 34px;font-size:14px;line-height:1.6}
+  .plist li::before{left:16px;top:24px}
+  .psection.alt .plist li{background:var(--bg)}
+  .rule{margin-top:22px;padding:16px 18px}
+  .tw{margin-top:24px}
+  .notice{margin-top:20px;padding:14px 16px}
+}
+</style>
 </head>
 <body id="top">
 
@@ -246,7 +274,7 @@ table.t td b{color:var(--text)}
   <div class="wrap">
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
-      <a class="version" href="versions.html" title="What shipped in v1.41.13">v1.41.13</a>
+      <a class="version" href="versions.html" title="What shipped in v1.41.14">v1.41.14</a>
     <a class="demo" href="https://customers.riskmandate.ai/" data-try>Try it free</a>
   </div>
 </header>

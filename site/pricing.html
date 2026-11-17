@@ -269,7 +269,7 @@ table.lv td a{color:var(--green)}
   <div class="wrap">
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
-      <a class="version" href="versions.html" title="What shipped in v1.41.13">v1.41.13</a>
+      <a class="version" href="versions.html" title="What shipped in v1.41.14">v1.41.14</a>
     <a class="demo" href="https://customers.riskmandate.ai/" data-try>Try it free</a>
   </div>
 </header>
@@ -282,6 +282,53 @@ table.lv td a{color:var(--green)}
     <div class="cta-row"><button class="btn btn-green" data-to="levels">The four ways ↓</button><a class="btn btn-ghost" href="agent-behaviour-policy.html">View an example first</a><a class="btn btn-ghost" href="https://store.sgit.ai/policies/" target="_blank" rel="noopener">Buy at the store ↗</a></div>
   </div>
 </main>
+
+<!-- phone length — v1.41.x. The page was about 9,900 px tall at 390 px wide,
+     most of it the levels table (a 820 px table scrolled sideways, each row
+     500 px tall) and the five steps stacked full width. On a phone only: the
+     levels become cards in a swipe strip, the steps and the three points
+     beside the free/paid line likewise, and the paddings tighten. Nothing is
+     hidden and no word changes; the laptop layout is untouched.
+     This block sits in the body on purpose: the builders under scripts/site/
+     copy this page's <head> as the donor for their own pages, and a phone
+     rule for .steps or table.lv must not travel into them. -->
+<style>
+@media (max-width:640px){
+  .phero{padding:56px 20px 52px}
+  .phero h1{margin-top:20px}
+  .phero .sub{font-size:15.5px;line-height:1.65;margin-top:18px}
+  .cta-row{gap:9px;margin-top:24px}
+  .psection{padding:48px 0}
+  .shead p{margin-top:12px}
+  .pcta{padding:60px 20px}
+  .pcta h2{font-size:30px}
+  .lvwrap,.tw{margin-top:24px}
+  .pnote{margin-top:18px}
+  /* the four levels: one card per level, side by side, swiped */
+  #levels .lvwrap{border:0;background:none;overflow:visible}
+  #levels table.lv{display:block;min-width:0}
+  #levels table.lv thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  #levels table.lv tbody{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:8px}
+  #levels table.lv tr{display:block;flex:0 0 86%;scroll-snap-align:start;border:1px solid var(--border);border-radius:var(--r);background:var(--card);padding:6px 0 10px}
+  #levels table.lv tr.feat{background:var(--greenBg)}
+  #levels table.lv tr.feat td{background:none}
+  #levels table.lv td{display:block;border:0;padding:6px 16px;width:auto;min-width:0;text-align:left;white-space:normal;font-size:13.5px;line-height:1.55}
+  #levels table.lv td.n{padding-top:10px;padding-bottom:0}
+  #levels table.lv td.p{font-size:18px}
+  #levels table.lv td.buy{padding-top:10px}
+  /* the five steps of the prompt: a swipe strip */
+  .steps{flex-direction:row;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:8px;margin-top:26px}
+  .step{flex:0 0 86%;scroll-snap-align:start;grid-template-columns:24px 1fr;gap:12px;align-content:start;padding:18px 18px 18px 16px}
+  .step h3{font-size:16px}
+  .notice{margin-top:20px;padding:14px 16px}
+  /* the three points beside the free/paid line: cards in a swipe strip */
+  .plist{flex-direction:row;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:8px;margin-top:22px}
+  .plist li{flex:0 0 86%;scroll-snap-align:start;background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:16px 16px 16px 34px;font-size:14px;line-height:1.6}
+  .plist li::before{left:16px;top:24px}
+  .honest{margin-top:24px;padding:18px}
+  .honest p{font-size:15.5px}
+}
+</style>
 
 <div class="paper">
 
