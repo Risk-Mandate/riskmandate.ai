@@ -83,7 +83,7 @@ Aligned (13)
 
 Checks
 
-- **before every merge:** npm run check: 40 tests, every generator's --check, the credential test on site/ and the console _(setting)_
+- **before every merge:** npm run check: 45 tests, every generator's --check, the credential test on site/ and the console _(setting)_
 - **on every push to dev:** CI runs the same check; the deploy job needs it green _(setting)_
 - **on every build:** the team builder refuses a grant row without a barrier, an evidence tier, an undo class and a note; a mandate that wants and refuses the same row; and any credential-shaped string in the team files _(setting)_
 - **on every check-in:** sgit status clean after the push; one commit that names the round _(record)_

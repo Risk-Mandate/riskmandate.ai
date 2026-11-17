@@ -47,7 +47,7 @@ The verbs are the discipline. A questionnaire produces claims; these four produc
 | The delta | excess where it can and you did not ask; shortfall where you asked and it cannot | **Derived** — recomputed whenever either input moves, stored with both versions pinned, never edited | nobody. Change an input and recompute |
 | The barrier | what stands between the agent and each capability | **Recorded** per row, one of four kinds, with who holds it | anybody, by naming what enforces it |
 
-“Your agent can do 340 things” is a shrug. “Your agent can do 340 things and you authorised 12” is a finding.
+“Your agent can do 340 things” is a shrug. “Your agent can do 340 things and you authorised 12” is a finding. (Both numbers are invented, for illustration.)
 
 - **The delta is the only judgment in the document**, and it is derived rather than given. That is deliberate: a number somebody computed from two inputs you can both see is harder to argue away than an opinion, and easier to act on.
 - **The mandate is usually wrong upward.** When a draft is put in front of the person who deployed the agent, the correction almost always removes things: they authorised less than the draft assumed. That correction is the point of handing it over.

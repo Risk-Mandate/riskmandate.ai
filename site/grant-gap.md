@@ -33,7 +33,7 @@ A risk carries a named acceptor and an interval. Excess authority carries neithe
 
 ### The register row that matters
 
-"The agent has access to the code host" is not informative. _"The grant covers forty-one repositories; the mandate covered one; no acceptor; six weeks"_ — that is a finding with a number in it.
+"The agent has access to the code host" is not informative. _"The grant covers forty-one repositories; the mandate covered one; no acceptor; six weeks"_ (an invented example) — that is a finding with a number in it.
 
 ## Risk lives in the gap between no and go.
 

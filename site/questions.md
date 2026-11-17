@@ -24,7 +24,7 @@ The mandate is _elicited_, the grant is _measured_, the delta is _derived_, the 
 
 #### The four objects
 
-**Why the mandate is the cheap half and still the important one.** “Your agent can do 340 things” is a shrug — an inventory nobody acts on. “Your agent can do 340 things and you authorised 12” is a finding. The mandate is the edge that gives the enumeration a shape, and it takes minutes because it is the one thing you already have in your head and nowhere else.
+**Why the mandate is the cheap half and still the important one.** “Your agent can do 340 things” is a shrug — an inventory nobody acts on. “Your agent can do 340 things and you authorised 12” is a finding (the numbers are invented, for illustration). The mandate is the edge that gives the enumeration a shape, and it takes minutes because it is the one thing you already have in your head and nowhere else.
 
 #### A policy is a draft, and that is the point
 
