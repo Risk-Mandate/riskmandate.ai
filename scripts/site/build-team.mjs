@@ -477,7 +477,7 @@ function agentPage(a) {
       ${a.surfaces.map((s) => `<div class="tm-r" role="row"><span role="cell">${esc(s.name)}</span><span role="cell" data-k="Tier">${tier(s.tier)}</span><span role="cell" data-k="Reads">${esc(s.reads)}</span><span role="cell" data-k="Writes">${esc(s.writes)}</span><span role="cell" data-k="Control">${esc(s.control)}</span></div>`).join('\n      ')}
     </div>
     <p class="tm-k" style="margin-top:22px">Checks</p>
-    <ul class="tm-list" style="margin-top:8px">${(a.checks || []).map((c) => `<li><b>${esc(c.when)}:</b> ${esc(c.what)} <em>(${esc(c.kind)})</em></li>`).join('')}</ul>
+    <ul class="tm-list" style="margin-top:8px">${(a.checks || []).map((c) => `<li><b>${esc(c.when)}:</b> ${esc(c.what)}${c.href ? ` (<a href="${esc(c.href)}">${esc(c.link || c.href)}</a>)` : ''} <em>(${esc(c.kind)})</em></li>`).join('')}</ul>
     <p class="tm-k" style="margin-top:22px">Never</p>
     <ul class="tm-list" style="margin-top:8px">${(a.never || []).map((n) => `<li>${esc(n)}</li>`).join('')}</ul>
   </div>

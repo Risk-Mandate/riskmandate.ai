@@ -22,7 +22,7 @@ Written so that you can tell, at any point, whose move it is. The clock on deliv
 
 ### Read one before you buy anything
 
-Sixteen behaviour policies are published in full with their read keys. Open the one closest to your setup and decide whether the document is worth an hour of your team's time. If it is not, nothing else on this page matters.
+[Sixteen behaviour policies](agent-behaviour-policy.html) are published in full with their read keys. Open the one closest to your setup and decide whether the document is worth an hour of your team's time. If it is not, nothing else on this page matters.
 
 ### You buy the level, and pick who reviews it
 

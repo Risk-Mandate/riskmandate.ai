@@ -36,6 +36,8 @@ The ABP in three sentences, then said again for six kinds of person in a room: C
 
 > “Your agent can do three hundred and forty things and you authorised twelve is a finding.”
 
+The article is quoting this site, and the numbers are invented: an illustration, not a measured agent.
+
 [Read it on the newsroom ↗](https://newsroom.sgit.ai/articles/a-briefing-for-the-ciso-summit.html)
 
 8 October 2026

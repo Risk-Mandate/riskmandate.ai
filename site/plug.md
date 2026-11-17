@@ -58,9 +58,9 @@ A profile that exists only for the agents someone already worried about tells yo
 
 Speed is not a duration, it is a race — how fast the plug can be pulled against how fast the harm spreads. Both sides need a number, because a four-minute pull is excellent against a threat that compounds hourly and useless against one that compounds by the second.
 
-There is also a floor underneath detection. If cost is your signal, most hyperscalers report spend **12–18 hours in arrears** — so a cost-triggered response cannot start sooner than that, whatever the runbook says. And when the damage outruns the pull, speed has stopped mattering and only recoverability is left.
+There is also a floor underneath detection. If cost is your signal, the bill lags the spend: AWS says its Budgets data “is updated up to three times a day”, typically **8–12 hours** after the previous update ([AWS Budgets user guide](https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html), read 17 November 2026) — so a cost-triggered response can start that late, whatever the runbook says. And when the damage outruns the pull, speed has stopped mattering and only recoverability is left.
 
-The off-switch for one agent is often the power switch for the whole website. Revoking a shared service account stops the misbehaving agent and eleven well-behaved ones with it, which is why teams hesitate at exactly the moment they should not.
+The off-switch for one agent is often the power switch for the whole website. Revoking a shared service account stops the misbehaving agent and every well-behaved agent that shares the account, which is why teams hesitate at exactly the moment they should not.
 
 **The absence of a precise plug is itself a finding** — not a footnote about tooling. A stop you are unwilling to use in practice is not a control you can count on.
 

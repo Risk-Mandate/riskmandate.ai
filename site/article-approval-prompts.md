@@ -14,7 +14,7 @@ A connector asks **Claude wants to use Add labels to message from Gmail** and of
 
 **Shape:** Claude with the Gmail connector enabled, the deployment described in [that shape's behaviour policy](abp-vault-claude-gmail-connector.html).
 
-**Evidence:** three prompts of this shape captured by the deployer on an account they run, 16 and 19 September 2026. Nothing was tested on anybody else's system.
+**Evidence:** three prompts of this shape captured by the deployer on an account they run, 16 and 19 September 2026, transcribed in [the evidence record](vaults/claude-gmail-connector/evidence/README.md) of [the vault for this shape](abp-vault-claude-gmail-connector.html). Nothing was tested on anybody else's system.
 
 **This page as markdown:** [article-approval-prompts.md](article-approval-prompts.md)
 
@@ -159,7 +159,7 @@ And the one that does not need the prompt to change: write the delta down before
 
 What this agent can do, what it was authorised to do, the gap between the two, and what actually stands in the way of each row. That document exists for this deployment, and it is the thing an approval prompt cannot be: durable, specific, and readable by somebody who was not in the session.
 
-**Sources.** Anthropic, [Use Google Workspace connectors](https://support.claude.com/en/articles/10166901-use-google-workspace-connectors) (read 16 September 2026). Google, [Gmail API scopes](https://developers.google.com/workspace/gmail/api/auth/scopes) (read 16 September 2026). The connector's listing in Claude's directory (sign-in required; captured by the deployer 16 September 2026). The approval prompts, the consent screens and the sent message's headers: captured by the deployer on an account they run, 16 and 19 September 2026, and transcribed in the evidence record inside the vault for this shape.** What was not done.** Nothing was tested on anybody else's system, no account but the deployer's own was touched, and no claim here is a verdict on a named company. The screens are quoted; where a vendor's pages disagree with each other, the behaviour policy for this shape publishes the contradiction unresolved rather than settling it.
+**Sources.** Anthropic, [Use Google Workspace connectors](https://support.claude.com/en/articles/10166901-use-google-workspace-connectors) (read 16 September 2026). Google, [Gmail API scopes](https://developers.google.com/workspace/gmail/api/auth/scopes) (read 16 September 2026). The connector's listing in Claude's directory (sign-in required; captured by the deployer 16 September 2026). The approval prompts, the consent screens and the sent message's headers: captured by the deployer on an account they run, 16 and 19 September 2026, and transcribed in [the evidence record](vaults/claude-gmail-connector/evidence/README.md) inside [the vault for this shape](abp-vault-claude-gmail-connector.html).** What was not done.** Nothing was tested on anybody else's system, no account but the deployer's own was touched, and no claim here is a verdict on a named company. The screens are quoted; where a vendor's pages disagree with each other, the behaviour policy for this shape publishes the contradiction unresolved rather than settling it.
 
 ## Where the prompt fits in the rest of it.
 
@@ -179,4 +179,4 @@ Where hope hides in an authorisation model, and what it takes to replace it with
 
 ## Every agent you run has a gap like this one.
 
-Sixteen deployment shapes are written up as Agent Behaviour Policies: what the agent can do, what it was authorised to do, the distance between them, and who holds each thing standing in the way. Read them, or have one corrected for your deployment.
+[Sixteen deployment shapes](agent-behaviour-policy.html) are written up as Agent Behaviour Policies: what the agent can do, what it was authorised to do, the distance between them, and who holds each thing standing in the way. Read them, or have one corrected for your deployment.

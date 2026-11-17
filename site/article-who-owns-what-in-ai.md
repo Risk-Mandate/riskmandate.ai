@@ -228,7 +228,7 @@ A list, never a score: every open risk, its holder, the door chosen, the expiry 
 ### The record, and the loop on paper.
 
 - The ABP format, and [sixteen example ABPs](agent-behaviour-policy.html), free, with the grant, the mandate, the gap and the barriers computed for each.
-- The 23 capability primitives and the four barrier kinds used in section 04.
+- [The 23 capability primitives and the four barrier kinds](https://abp.sgit.ai/data/index.json) used in section 04.
 - A risk engine behind [our business cases](business-cases.html). It computes which risks hold from facts, and carries them up ten roles to the board.
 - What [acceptable](acceptable.html) means, the intervals, and why an unaccepted risk is critical.
 - The question of [who can stop an agent](plug.html), and how fast.

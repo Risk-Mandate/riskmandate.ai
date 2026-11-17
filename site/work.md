@@ -18,7 +18,7 @@ Each brief states the commercial context, the task, what the deliverable is, and
 
 ### Power user and tester of Agent Behaviour Policies
 
-Make Agent Behaviour Policies for real deployments, find out where the model breaks, and time the whole thing. We have a published model, five worked examples and a claim that the second policy of a known shape should take minutes rather than days — and nobody has tested that claim. It is the single input that decides whether any of this can be priced.
+Make Agent Behaviour Policies for real deployments, find out where the model breaks, and time the whole thing. We have [a published model](https://abp.sgit.ai/data/index.json), [five worked examples](https://abp.sgit.ai/examples/) and a claim that the second policy of a known shape should take minutes rather than days — and nobody has tested that claim. It is the single input that decides whether any of this can be priced.
 
 ## Everything is published, including the parts that are wrong.
 

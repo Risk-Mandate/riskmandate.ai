@@ -14,7 +14,7 @@ A small programme for people who already run an agent with real access: a mailbo
 
 ## One agent, written down, in a vault of your own.
 
-The sixteen published examples describe deployments in general. Yours describes your organisation and the agent you named: what it can reach, documented from the vendor's own pages and dated; what you would authorise it to do, drafted for you; the gap between the two, derived; and what stands in the way of each thing. Then you correct the mandate, because only you can, and the gap recomputes.
+[The sixteen published examples](agent-behaviour-policy.html) describe deployments in general. Yours describes your organisation and the agent you named: what it can reach, documented from the vendor's own pages and dated; what you would authorise it to do, drafted for you; the gap between the two, derived; and what stands in the way of each thing. Then you correct the mandate, because only you can, and the gap recomputes.
 
 An encrypted vault with the reading app inside. The key arrives by a separate message, never on a page. A read key you may hand to your board, your auditor or your broker.
 

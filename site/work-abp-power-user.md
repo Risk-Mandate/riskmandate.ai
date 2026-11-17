@@ -10,7 +10,7 @@ Source: https://riskmandate.ai/work-abp-power-user.html
 
 # Be the first power user of Agent Behaviour Policies.
 
-We have a published model, five worked examples, and a claim that the second policy of a known deployment shape should take minutes rather than days. Nobody has tested that. Your job is to make these things for real, find out where the model breaks, and time it — because that measurement is the only honest input to pricing anything, and we are five days from a conference where we intend to sell it.
+We have [a published model](https://abp.sgit.ai/data/index.json), [five worked examples](https://abp.sgit.ai/examples/), and a claim that the second policy of a known deployment shape should take minutes rather than days. Nobody has tested that. Your job is to make these things for real, find out where the model breaks, and time it — because that measurement is the only honest input to pricing anything, and we are five days from a conference where we intend to sell it.
 
 ## The prompt. Paste this into your agent.
 

@@ -235,7 +235,7 @@ table.t td b{color:var(--text)}
   <div class="wrap">
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
-      <a class="version" href="versions.html" title="What shipped in v1.41.15">v1.41.15</a>
+      <a class="version" href="versions.html" title="What shipped in v1.41.16">v1.41.16</a>
     <a class="demo" href="https://customers.riskmandate.ai/" data-try>Try it free</a>
   </div>
 </header>
@@ -246,7 +246,7 @@ table.t td b{color:var(--text)}
     <h1>An approval prompt is not a human in the loop.</h1>
     <p class="sub" style="margin-bottom:20px">A connector asks <strong>Claude wants to use Add labels to message from Gmail</strong> and offers three buttons. It does not say which label, on which message, in which thread, or why the agent asked. The person clicking it is being made accountable for an action they have not been given enough to judge — and one of the three buttons removes the question permanently.</p>
     <p class="meta"><b>Shape:</b> Claude with the Gmail connector enabled, the deployment described in <a href="abp-vault-claude-gmail-connector.html">that shape's behaviour policy</a>.</p>
-    <p class="meta"><b>Evidence:</b> three prompts of this shape captured by the deployer on an account they run, 16 and 19 September 2026. Nothing was tested on anybody else's system.</p>
+    <p class="meta"><b>Evidence:</b> three prompts of this shape captured by the deployer on an account they run, 16 and 19 September 2026, transcribed in <a href="vaults/claude-gmail-connector/evidence/README.md">the evidence record</a> of <a href="abp-vault-claude-gmail-connector.html">the vault for this shape</a>. Nothing was tested on anybody else's system.</p>
     <p class="meta"><b>This page as markdown:</b> <a href="article-approval-prompts.md">article-approval-prompts.md</a></p>
   </div>
 </main>
@@ -459,7 +459,7 @@ table.t td b{color:var(--text)}
       <a class="btn btn-green" href="abp-vault-claude-gmail-connector.html">See the behaviour policy for this shape →</a>
     </div>
     <p class="src">
-      <b>Sources.</b> Anthropic, <a href="https://support.claude.com/en/articles/10166901-use-google-workspace-connectors" target="_blank" rel="noopener">Use Google Workspace connectors</a> (read 16 September 2026). Google, <a href="https://developers.google.com/workspace/gmail/api/auth/scopes" target="_blank" rel="noopener">Gmail API scopes</a> (read 16 September 2026). The connector's listing in Claude's directory (sign-in required; captured by the deployer 16 September 2026). The approval prompts, the consent screens and the sent message's headers: captured by the deployer on an account they run, 16 and 19 September 2026, and transcribed in the evidence record inside the vault for this shape.<br>
+      <b>Sources.</b> Anthropic, <a href="https://support.claude.com/en/articles/10166901-use-google-workspace-connectors" target="_blank" rel="noopener">Use Google Workspace connectors</a> (read 16 September 2026). Google, <a href="https://developers.google.com/workspace/gmail/api/auth/scopes" target="_blank" rel="noopener">Gmail API scopes</a> (read 16 September 2026). The connector's listing in Claude's directory (sign-in required; captured by the deployer 16 September 2026). The approval prompts, the consent screens and the sent message's headers: captured by the deployer on an account they run, 16 and 19 September 2026, and transcribed in <a href="vaults/claude-gmail-connector/evidence/README.md">the evidence record</a> inside <a href="abp-vault-claude-gmail-connector.html">the vault for this shape</a>.<br>
       <b>What was not done.</b> Nothing was tested on anybody else's system, no account but the deployer's own was touched, and no claim here is a verdict on a named company. The screens are quoted; where a vendor's pages disagree with each other, the behaviour policy for this shape publishes the contradiction unresolved rather than settling it.
     </p>
   </div>
@@ -519,7 +519,7 @@ table.t td b{color:var(--text)}
   <div class="wrap">
     <span class="tag">The next one</span>
     <h2>Every agent you run has a gap like this one.</h2>
-    <p>Sixteen deployment shapes are written up as Agent Behaviour Policies: what the agent can do, what it was authorised to do, the distance between them, and who holds each thing standing in the way. Read them, or have one corrected for your deployment.</p>
+    <p><a href="agent-behaviour-policy.html">Sixteen deployment shapes</a> are written up as Agent Behaviour Policies: what the agent can do, what it was authorised to do, the distance between them, and who holds each thing standing in the way. Read them, or have one corrected for your deployment.</p>
     <div class="cta-row">
       <a class="btn btn-green" href="agent-behaviour-policy.html">The sixteen examples</a>
       <a class="btn btn-ghost" href="articles.html">All articles</a>
