@@ -1,0 +1,1698 @@
+[
+  {
+    "page": "abp.html",
+    "figure": "Your agent can do 340 things and you authorised 12.",
+    "linked": false,
+    "evidence_url": "",
+    "action": "remove-or-source",
+    "note": "illustrative numbers, not labelled invented; label as invented or source"
+  },
+  {
+    "page": "abp.html",
+    "figure": "Grant 16 / Mandate 5 / Excess 12 / Unbounded excess 12 (confirmations on and off)",
+    "linked": false,
+    "evidence_url": "https://abp.sgit.ai/examples/claude-code-cli-confirmations-disabled/",
+    "action": "add-link",
+    "note": "the two example links sit in the paragraph below the table, not in the rows"
+  },
+  {
+    "page": "abp.html",
+    "figure": "all five examples",
+    "linked": true,
+    "evidence_url": "https://abp.sgit.ai/examples/",
+    "action": "ok"
+  },
+  {
+    "page": "abp.html",
+    "figure": "against the five published deployment shapes",
+    "linked": false,
+    "evidence_url": "https://abp.sgit.ai/examples/",
+    "action": "add-link",
+    "note": "sentence links only to partners.html"
+  },
+  {
+    "page": "pricing.html",
+    "figure": "we have run behaviour policies on more than a hundred of our own agents",
+    "linked": true,
+    "evidence_url": "/web-summit-2026/situations.html",
+    "action": "ok"
+  },
+  {
+    "page": "pricing.html",
+    "figure": "the way we ran more than a hundred agents of our own at Web Summit 2026, with every gap logged",
+    "linked": false,
+    "evidence_url": "/web-summit-2026/situations.html",
+    "action": "add-link",
+    "note": "level 4 row links only to contact.html"
+  },
+  {
+    "page": "pricing.html",
+    "figure": "the fixed vocabulary of 23 capabilities and four barriers, and it follows seven rules",
+    "linked": false,
+    "evidence_url": "https://abp.sgit.ai/data/index.json",
+    "action": "add-link"
+  },
+  {
+    "page": "pricing.html",
+    "figure": "Fifteen example policies, read live from their vaults with published keys",
+    "linked": false,
+    "evidence_url": "/agent-behaviour-policy.html",
+    "action": "add-link",
+    "note": "STALE: site/vaults has 16 template vaults; rest of site says sixteen"
+  },
+  {
+    "page": "pricing.html",
+    "figure": "Lab 05 works one case through, including four free settings you should turn on",
+    "linked": true,
+    "evidence_url": "/lab-commit-author.html",
+    "action": "ok"
+  },
+  {
+    "page": "abp-reviewed.html",
+    "figure": "the sixteen published examples",
+    "linked": true,
+    "evidence_url": "/agent-behaviour-policy.html",
+    "action": "ok"
+  },
+  {
+    "page": "abp-reviewed.html",
+    "figure": "Sixteen behaviour policies are published in full with their read keys",
+    "linked": false,
+    "evidence_url": "/agent-behaviour-policy.html",
+    "action": "add-link"
+  },
+  {
+    "page": "reviewer-dinis-cruz.html",
+    "figure": "the sixteen published template vaults and the read keys that open them",
+    "linked": false,
+    "evidence_url": "/agent-behaviour-policy.html",
+    "action": "add-link"
+  },
+  {
+    "page": "reviewer-dinis-cruz.html",
+    "figure": "Its field demo is published as a vault of 124 files and 98 commits inside one encrypted store",
+    "linked": false,
+    "evidence_url": "",
+    "action": "remove-or-source",
+    "note": "no link to the vault or a count source; recount on the day"
+  },
+  {
+    "page": "reviewer-dinis-cruz.html",
+    "figure": "Thirty-one vaults are published with their read keys as the evidence",
+    "linked": false,
+    "evidence_url": "",
+    "action": "remove-or-source",
+    "note": "no link; recount from source"
+  },
+  {
+    "page": "reviewer-dinis-cruz.html",
+    "figure": "organiser of the OWASP Summits, Lisbon 2011 and Woburn 2017",
+    "linked": false,
+    "evidence_url": "",
+    "action": "add-link",
+    "note": "public record exists (OWASP summit pages); not linked"
+  },
+  {
+    "page": "reviewer-dinis-cruz.html",
+    "figure": "The OWASP static-analysis engine of 2010 to 2012",
+    "linked": false,
+    "evidence_url": "",
+    "action": "add-link",
+    "note": "OWASP O2 Platform project page would carry it"
+  },
+  {
+    "page": "early-access.html",
+    "figure": "The sixteen published examples describe deployments in general",
+    "linked": false,
+    "evidence_url": "/agent-behaviour-policy.html",
+    "action": "add-link",
+    "note": "linked later on the page, not here"
+  },
+  {
+    "page": "early-access.html",
+    "figure": "the sixteen published examples (Read one first)",
+    "linked": true,
+    "evidence_url": "/agent-behaviour-policy.html",
+    "action": "ok"
+  },
+  {
+    "page": "early-adopters.html",
+    "figure": "If the shape is one of the sixteen published",
+    "linked": true,
+    "evidence_url": "/agent-behaviour-policy.html",
+    "action": "ok"
+  },
+  {
+    "page": "early-adopters.html",
+    "figure": "the fixed vocabulary of 23 capabilities and four barriers",
+    "linked": false,
+    "evidence_url": "https://abp.sgit.ai/data/index.json",
+    "action": "add-link"
+  },
+  {
+    "page": "insure-a-program.html",
+    "figure": "RAND's How Is Artificial Intelligence Insured? of 16 September 2026 (Romanosky and Robinson, report RR-A5130-1)",
+    "linked": false,
+    "evidence_url": "https://www.rand.org/pubs/research_reports/RRA5130-1.html",
+    "action": "add-link",
+    "note": "in the sources list at the foot, not inline"
+  },
+  {
+    "page": "insure-a-program.html",
+    "figure": "One named defect in 1997. The behaviour of a smart contract since 2019. A model's output against a threshold since 2018, as a warranty since 2024.",
+    "linked": false,
+    "evidence_url": "",
+    "action": "add-link",
+    "note": "each date is sourced only in the foot list or below; Nexus Mutual has no link at all"
+  },
+  {
+    "page": "insure-a-program.html",
+    "figure": "a 2006 survey of the market's evolution puts AIG's more comprehensive forms ... at 2000",
+    "linked": false,
+    "evidence_url": "https://www.irmi.com/articles/expert-commentary/tech-eando-insurance-a-primer-for-risk-managers",
+    "action": "add-link",
+    "note": "which 2006 survey is not linked; IRMI primer is the nearest foot-list source"
+  },
+  {
+    "page": "insure-a-program.html",
+    "figure": "AIG launched Millennium Insurance in early 1997; premiums in the six figures; a $100 million Y2K policy for a premium of $75 million; CG 21 60, CG 21 61, IL 09 35 effective 1 April 1998; AIG withdrew August 1998",
+    "linked": false,
+    "evidence_url": "https://www.irmi.com/term/insurance-definitions/year-2000-exclusion",
+    "action": "add-link",
+    "note": "only the ISO exclusion has a foot-list source; the AIG quotes and $100m/$75m have none visible"
+  },
+  {
+    "page": "insure-a-program.html",
+    "figure": "Munich Re ... our first AI policy for anti-fraud model in 2018",
+    "linked": false,
+    "evidence_url": "https://www.munichre.com/en/solutions/for-industry-clients/insure-ai.html",
+    "action": "add-link"
+  },
+  {
+    "page": "insure-a-program.html",
+    "figure": "In February 2026 Mosaic put up to 15 million of capacity behind it",
+    "linked": false,
+    "evidence_url": "",
+    "action": "remove-or-source",
+    "note": "no Mosaic source in the foot list"
+  },
+  {
+    "page": "insure-a-program.html",
+    "figure": "Nexus Mutual opened Smart Contract Cover in July 2019; first payout February 2020, about $31,000 across two claims; the 2021 wording widened it",
+    "linked": false,
+    "evidence_url": "",
+    "action": "remove-or-source",
+    "note": "page says the wording was read in full but no Nexus link is given"
+  },
+  {
+    "page": "insure-a-program.html",
+    "figure": "Winter 1991; Rodgers 2020; Garcia 21 May 2025, settled January 2026; Directive 2024/2853 applies from 9 December 2026",
+    "linked": false,
+    "evidence_url": "",
+    "action": "add-link",
+    "note": "no case or EUR-Lex links; the Directive may be quoted and linked"
+  },
+  {
+    "page": "insure-a-program.html",
+    "figure": "One80 term sheet of June 2024: premium 3% to 5% of the model subscription",
+    "linked": false,
+    "evidence_url": "https://www.one80.com/news/one80-intermediaries-launches-artificial-intelligence-warranty-coverage/",
+    "action": "add-link"
+  },
+  {
+    "page": "insure-a-program.html",
+    "figure": "Chaucer and Armilla ... 22 April 2025; Verisk CG 40 47, CG 40 48, CG 35 08 on 21 October 2025, effective January 2026; AB 316 signed 13 October 2025",
+    "linked": false,
+    "evidence_url": "https://www.prnewswire.com/news-releases/armilla-launches-affirmative-ai-liability-insurance-with-lloyds-underwriter-chaucer-302442586.html",
+    "action": "add-link",
+    "note": "Armilla in foot list dated 30 Apr 2025 vs 22 April in text; Verisk, W. R. Berkley and AB 316 have no link"
+  },
+  {
+    "page": "insure-a-program.html",
+    "figure": "ElevenLabs ... after 5,835 technical tests across 14 risk categories; Armilla's cover rose to $25 million per organisation in January",
+    "linked": false,
+    "evidence_url": "",
+    "action": "remove-or-source",
+    "note": "no ElevenLabs or Armilla-January source in the foot list"
+  },
+  {
+    "page": "insure-a-program.html",
+    "figure": "tech E&O, described by IRMI 2003; Chubb claims scenario 2019",
+    "linked": false,
+    "evidence_url": "https://www.chubb.com/us-en/_assets/doc/2019-02.27-eo-claims-scenarios.pdf",
+    "action": "add-link",
+    "note": "table row"
+  },
+  {
+    "page": "insure-a-program.html",
+    "figure": "Y2K cover 1997-99; excluded from standard forms from 1 Apr 1998",
+    "linked": false,
+    "evidence_url": "https://www.irmi.com/term/insurance-definitions/year-2000-exclusion",
+    "action": "add-link",
+    "note": "table row"
+  },
+  {
+    "page": "insure-a-program.html",
+    "figure": "Munich Re aiSure, first policy 2018; Mosaic capacity Feb 2026",
+    "linked": false,
+    "evidence_url": "https://www.munichre.com/en/solutions/for-industry-clients/insure-ai.html",
+    "action": "add-link",
+    "note": "table row"
+  },
+  {
+    "page": "insure-a-program.html",
+    "figure": "Chaucer / Armilla, Apr 2025; HSB, Mar 2026; Testudo, 2025-26",
+    "linked": false,
+    "evidence_url": "https://www.munichre.com/hsb/en/press-and-publications/press-releases/2026/2026-03-18-introducing-ai-liability-insurance-for-small-businesses.html",
+    "action": "add-link",
+    "note": "table row"
+  },
+  {
+    "page": "insure-a-program.html",
+    "figure": "W. R. Berkley absolute exclusion, 2025; ISO CG 40 47 / 40 48 / 35 08, Jan 2026",
+    "linked": false,
+    "evidence_url": "https://www.policyholderpulse.com/ai-exclusions-insurance-policies/",
+    "action": "add-link",
+    "note": "table row"
+  },
+  {
+    "page": "insure-a-program.html",
+    "figure": "AIUC report (p. 51-52); Insurance Business April 2026; Armilla to Reuters August 2026",
+    "linked": false,
+    "evidence_url": "https://www.underwriting-agents.com/report.pdf",
+    "action": "add-link",
+    "note": "foot list carries AIUC, Insurance Business 16 Apr 2026 and Insurance Journal 27 Aug 2026"
+  },
+  {
+    "page": "insure-a-program.html",
+    "figure": "Sixteen template vaults show what that looks like for named shapes",
+    "linked": false,
+    "evidence_url": "/agent-behaviour-policy.html",
+    "action": "add-link"
+  },
+  {
+    "page": "insure-a-program.html",
+    "figure": "Sixteen template vaults, free to read with their keys published",
+    "linked": false,
+    "evidence_url": "/agent-behaviour-policy.html",
+    "action": "add-link"
+  },
+  {
+    "page": "plug.html",
+    "figure": "most hyperscalers report spend 12-18 hours in arrears",
+    "linked": false,
+    "evidence_url": "",
+    "action": "remove-or-source",
+    "note": "no source"
+  },
+  {
+    "page": "plug.html",
+    "figure": "Revoking a shared service account stops the misbehaving agent and eleven well-behaved ones",
+    "linked": false,
+    "evidence_url": "",
+    "action": "remove-or-source",
+    "note": "illustrative, not labelled invented"
+  },
+  {
+    "page": "business-cases.html",
+    "figure": "The model's 49 facts establish or retire its 49 risks",
+    "linked": false,
+    "evidence_url": "/demos.html",
+    "action": "add-link"
+  },
+  {
+    "page": "business-cases.html",
+    "figure": "ZAP left OWASP in 2023 ... became ZAP by Checkmarx in 2024. Two such companies closed in 2025",
+    "linked": false,
+    "evidence_url": "",
+    "action": "add-link",
+    "note": "public announcements exist; not linked"
+  },
+  {
+    "page": "how-it-works.html",
+    "figure": "Thirteen prompts, pasted into the assistant you already run",
+    "linked": false,
+    "evidence_url": "/try-it.html",
+    "action": "add-link"
+  },
+  {
+    "page": "how-it-works.html",
+    "figure": "Sixteen deployment shapes are described today",
+    "linked": false,
+    "evidence_url": "/agent-behaviour-policy.html",
+    "action": "add-link"
+  },
+  {
+    "page": "agent-behaviour-policy.html",
+    "figure": "search matches ... the 23 capability ids",
+    "linked": false,
+    "evidence_url": "https://abp.sgit.ai/data/index.json",
+    "action": "add-link"
+  },
+  {
+    "page": "agent-behaviour-policy.html",
+    "figure": "Claude Code on the web: 13 of 20 rows measured on the thing itself",
+    "linked": true,
+    "evidence_url": "/abp-vault-claude-code-web.html",
+    "action": "ok",
+    "note": "tile links to its vault"
+  },
+  {
+    "page": "agent-behaviour-policy.html",
+    "figure": "Claude Desktop: Ten capabilities, three wanted, eight with nothing real in the way",
+    "linked": true,
+    "evidence_url": "/abp-vault-claude-desktop.html",
+    "action": "ok",
+    "note": "tile links to its vault"
+  },
+  {
+    "page": "agent-behaviour-policy.html",
+    "figure": "GitHub Actions: Eight of eight rows measured, the only fully measured shape besides the web container",
+    "linked": true,
+    "evidence_url": "/abp-vault-github-actions.html",
+    "action": "ok"
+  },
+  {
+    "page": "agent-behaviour-policy.html",
+    "figure": "Scheduled job: Seven capabilities, four wanted, four with nothing in the way",
+    "linked": true,
+    "evidence_url": "/abp-vault-scheduled-job.html",
+    "action": "ok"
+  },
+  {
+    "page": "agent-behaviour-policy.html",
+    "figure": "Gmail connector: Four of six rows measured on an account the deployer runs",
+    "linked": true,
+    "evidence_url": "/abp-vault-claude-gmail-connector.html",
+    "action": "ok"
+  },
+  {
+    "page": "agent-behaviour-policy.html",
+    "figure": "Microsoft 365 connector: Eight scopes, two of them write and two of them sharing",
+    "linked": true,
+    "evidence_url": "/abp-vault-claude-m365-connector.html",
+    "action": "ok"
+  },
+  {
+    "page": "agent-behaviour-policy.html",
+    "figure": "9 are asked for",
+    "linked": true,
+    "evidence_url": "/agent-behaviour-policy-next.html",
+    "action": "ok"
+  },
+  {
+    "page": "grant-gap.html",
+    "figure": "The grant covers forty-one repositories; the mandate covered one; no acceptor; six weeks",
+    "linked": false,
+    "evidence_url": "",
+    "action": "remove-or-source",
+    "note": "illustrative quote, not labelled invented"
+  },
+  {
+    "page": "try-it.html",
+    "figure": "customers.riskmandate.ai: six examples, simplest first",
+    "linked": true,
+    "evidence_url": "https://customers.riskmandate.ai/",
+    "action": "ok"
+  },
+  {
+    "page": "try-it.html",
+    "figure": "For Claude with the Gmail connector, four of six rows were measured",
+    "linked": true,
+    "evidence_url": "/abp-vault-claude-gmail-connector.html",
+    "action": "ok"
+  },
+  {
+    "page": "try-it.html",
+    "figure": "The four objects, the twenty-three primitives, the four barriers",
+    "linked": false,
+    "evidence_url": "https://abp.sgit.ai/data/index.json",
+    "action": "add-link"
+  },
+  {
+    "page": "lab.html",
+    "figure": "A twenty-connector multi-select carries about 20 bits, more entropy than a well-known browser-fingerprint study measured",
+    "linked": true,
+    "evidence_url": "/lab-shape-collector.html",
+    "action": "ok",
+    "note": "card links to the entry; the entry must carry the study link"
+  },
+  {
+    "page": "lab.html",
+    "figure": "six documented incidents whose fixes have one thing in common",
+    "linked": true,
+    "evidence_url": "/lab-commit-author.html",
+    "action": "ok"
+  },
+  {
+    "page": "lab.html",
+    "figure": "All 7 entries, in reading order, as a single PDF, 85 pages",
+    "linked": false,
+    "evidence_url": "",
+    "action": "ok",
+    "note": "our own artefact on the page"
+  },
+  {
+    "page": "articles.html",
+    "figure": "Google Calendar keeps a deleted event in a trash for 30 days",
+    "linked": true,
+    "evidence_url": "/article-calendar-edits-cannot-be-undone.html",
+    "action": "ok",
+    "note": "card links to the article"
+  },
+  {
+    "page": "articles.html",
+    "figure": "Fourteen surveys and forecasts ... seven cases ... five variables",
+    "linked": true,
+    "evidence_url": "/article-pilots-do-not-stay-in-production.html",
+    "action": "ok"
+  },
+  {
+    "page": "newsroom.html",
+    "figure": "the 19 articles that say most simply what an Agent Behaviour Policy is",
+    "linked": true,
+    "evidence_url": "https://newsroom.sgit.ai/",
+    "action": "ok"
+  },
+  {
+    "page": "newsroom.html",
+    "figure": "Your agent can do three hundred and forty things and you authorised twelve is a finding",
+    "linked": false,
+    "evidence_url": "https://newsroom.sgit.ai/",
+    "action": "add-link",
+    "note": "quote; illustrative numbers"
+  },
+  {
+    "page": "newsroom.html",
+    "figure": "The same 62 fictional emails, sixteen of them hostile ... 97% ... 73% ... 23%",
+    "linked": true,
+    "evidence_url": "https://newsroom.sgit.ai/articles/hope-or-enforcement.html",
+    "action": "ok"
+  },
+  {
+    "page": "newsroom.html",
+    "figure": "Dinis reads every draft and sends it himself, 178 so far",
+    "linked": true,
+    "evidence_url": "https://newsroom.sgit.ai/articles/answering-a-draft.html",
+    "action": "ok",
+    "note": "dated count (21 Oct); stale if read as current"
+  },
+  {
+    "page": "newsroom.html",
+    "figure": "A hook tested against nine leaks stopped most of them and missed three",
+    "linked": true,
+    "evidence_url": "https://newsroom.sgit.ai/",
+    "action": "ok",
+    "note": "card links to its article"
+  },
+  {
+    "page": "newsroom.html",
+    "figure": "Six controls tested by breaking them on purpose",
+    "linked": true,
+    "evidence_url": "https://newsroom.sgit.ai/",
+    "action": "ok",
+    "note": "card links to its article"
+  },
+  {
+    "page": "newsroom.html",
+    "figure": "five rows of a real ABP became a Rego policy",
+    "linked": true,
+    "evidence_url": "https://newsroom.sgit.ai/",
+    "action": "ok",
+    "note": "card links to its article"
+  },
+  {
+    "page": "owasp/index.html",
+    "figure": "4 of 25 steps / 0 of 25 / 16 of 25 / 4 of 25 (the five gates)",
+    "linked": false,
+    "evidence_url": "/owasp/tracker.html",
+    "action": "add-link",
+    "note": "progress counts; tracker is the evidence"
+  },
+  {
+    "page": "owasp/index.html",
+    "figure": "Starts from: the abp.sgit.ai model v0.12.1 ... sixteen template ABPs",
+    "linked": false,
+    "evidence_url": "https://abp.sgit.ai/",
+    "action": "add-link"
+  },
+  {
+    "page": "owasp/charter.html",
+    "figure": "version 0.12.1 when read on 8 October 2026 ... The sixteen template vaults ... pinned to 0.3.0",
+    "linked": true,
+    "evidence_url": "https://abp.sgit.ai/model/",
+    "action": "ok"
+  },
+  {
+    "page": "owasp/charter.html",
+    "figure": "a grammar of 23 primitives",
+    "linked": false,
+    "evidence_url": "https://abp.sgit.ai/data/index.json",
+    "action": "add-link"
+  },
+  {
+    "page": "owasp/charter.html",
+    "figure": "its seven-part documentation pack",
+    "linked": false,
+    "evidence_url": "https://abp.sgit.ai/",
+    "action": "add-link"
+  },
+  {
+    "page": "owasp/charter.html",
+    "figure": "the sixteen template vaults, as data",
+    "linked": false,
+    "evidence_url": "/agent-behaviour-policy.html",
+    "action": "add-link"
+  },
+  {
+    "page": "owasp/charter.html",
+    "figure": "its seven rules of measurement",
+    "linked": false,
+    "evidence_url": "",
+    "action": "add-link",
+    "note": "link MAP-A-GRANT.md in a vault"
+  },
+  {
+    "page": "owasp/riskmandate.html",
+    "figure": "four objects, 23 primitives, four barriers, six evidence tiers, three undo classes",
+    "linked": false,
+    "evidence_url": "https://abp.sgit.ai/data/index.json",
+    "action": "add-link"
+  },
+  {
+    "page": "owasp/riskmandate.html",
+    "figure": "The sixteen template ABPs and the delta build",
+    "linked": true,
+    "evidence_url": "https://github.com/Risk-Mandate/riskmandate.ai",
+    "action": "ok"
+  },
+  {
+    "page": "owasp/riskmandate.html",
+    "figure": "two to five leaders ... The policy allows up to five",
+    "linked": false,
+    "evidence_url": "",
+    "action": "add-link",
+    "note": "OWASP project leader policy page"
+  },
+  {
+    "page": "owasp/contributions.html",
+    "figure": "23 capabilities, 4 barriers, 3 undo classes, 17 profiles, 16 mandates and 18 stored deltas. It has 81 model pages, a seven-part documentation pack ... five worked examples and 23 version notes",
+    "linked": true,
+    "evidence_url": "https://abp.sgit.ai/data/index.json",
+    "action": "ok",
+    "note": "counts dated by the page; recount from source before reuse"
+  },
+  {
+    "page": "owasp/contributions.html",
+    "figure": "They are the sixteen template examples ... claude-gmail-connector, 4 of 6; n8n-owner-api-key, 7 of 8",
+    "linked": false,
+    "evidence_url": "/agent-behaviour-policy.html",
+    "action": "add-link",
+    "note": "link the two vault pages"
+  },
+  {
+    "page": "owasp/contributions.html",
+    "figure": "OWASP, as a graph, 181 nodes and 62 edges read from OWASP's pages on 24 September",
+    "linked": true,
+    "evidence_url": "/owasp-graph.html",
+    "action": "ok"
+  },
+  {
+    "page": "owasp/contributions.html",
+    "figure": "There is no /owasp/ page there (it returns 404)",
+    "linked": false,
+    "evidence_url": "https://abp.sgit.ai/owasp/",
+    "action": "add-link"
+  },
+  {
+    "page": "owasp/contributions.html",
+    "figure": "RiskMandate-contributed shapes (8 shapes, 42 rows)",
+    "linked": true,
+    "evidence_url": "https://abp.sgit.ai/data/contributed/riskmandate/manifest.json",
+    "action": "ok"
+  },
+  {
+    "page": "owasp/contributions.html",
+    "figure": "https://abp.sgit.ai/examples/ (5 examples); versions/ (23); docs/briefs/ (13 briefs); articles/ (16)",
+    "linked": true,
+    "evidence_url": "https://abp.sgit.ai/",
+    "action": "ok"
+  },
+  {
+    "page": "owasp/contributions.html",
+    "figure": "scripts/site/build-abp-vault.mjs (779 lines)",
+    "linked": false,
+    "evidence_url": "https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/scripts/site/build-abp-vault.mjs",
+    "action": "add-link",
+    "note": "count will drift; recount or drop"
+  },
+  {
+    "page": "owasp/contributions.html",
+    "figure": "site/abp-vault-*.html (16, generated); site/article-*.html (8); site/stories/ (9); business-case-*.html (18)",
+    "linked": false,
+    "evidence_url": "https://github.com/Risk-Mandate/riskmandate.ai",
+    "action": "add-link",
+    "note": "inventory counts with no link to the tree"
+  },
+  {
+    "page": "owasp/ecosystem.html",
+    "figure": "OWASP, as a graph, 181 nodes and 62 relationships read from OWASP's pages on 24 September",
+    "linked": true,
+    "evidence_url": "/owasp-graph.html",
+    "action": "ok"
+  },
+  {
+    "page": "owasp/ecosystem.html",
+    "figure": "ACS joined the OWASP GenAI Security Project on 1 September 2026 ... version 0.1.3 (changelog dated 9 September 2026)",
+    "linked": false,
+    "evidence_url": "",
+    "action": "add-link",
+    "note": "no link to the ACS README or changelog in the paragraph"
+  },
+  {
+    "page": "owasp/ecosystem.html",
+    "figure": "A list of the ten risk categories for agentic applications, December 2025",
+    "linked": false,
+    "evidence_url": "https://genai.owasp.org/",
+    "action": "add-link",
+    "note": "table row"
+  },
+  {
+    "page": "owasp/ecosystem.html",
+    "figure": "AI Exchange: An AI security guide of over 300 pages",
+    "linked": true,
+    "evidence_url": "https://owaspai.org/",
+    "action": "ok"
+  },
+  {
+    "page": "owasp/ecosystem.html",
+    "figure": "CycloneDX: Bill of materials standard (ECMA-424)",
+    "linked": true,
+    "evidence_url": "https://cyclonedx.org/",
+    "action": "ok"
+  },
+  {
+    "page": "owasp/ecosystem.html",
+    "figure": "OWASP's project list on 8 October named, among others ...",
+    "linked": false,
+    "evidence_url": "https://owasp.org/projects/",
+    "action": "add-link"
+  },
+  {
+    "page": "owasp/lessons.html",
+    "figure": "Juice Shop: Added a second co-leader on 29 January 2025 ... the 2021 policy",
+    "linked": true,
+    "evidence_url": "https://owasp.org/www-project-juice-shop/",
+    "action": "ok"
+  },
+  {
+    "page": "owasp/lessons.html",
+    "figure": "CycloneDX ratified as ECMA-424 in June 2024",
+    "linked": true,
+    "evidence_url": "https://cyclonedx.org/",
+    "action": "ok"
+  },
+  {
+    "page": "owasp/lessons.html",
+    "figure": "GenAI Security Project: lazy consensus, 72 hours ... took in the Agent Control Standard on 1 September 2026",
+    "linked": true,
+    "evidence_url": "https://genai.owasp.org/",
+    "action": "ok"
+  },
+  {
+    "page": "owasp/lessons.html",
+    "figure": "CRS: a company to 2020, then the project",
+    "linked": true,
+    "evidence_url": "https://coreruleset.org/",
+    "action": "ok"
+  },
+  {
+    "page": "owasp/application.html",
+    "figure": "Two to five leaders, all OWASP members, each with a GitHub account",
+    "linked": false,
+    "evidence_url": "",
+    "action": "add-link",
+    "note": "OWASP project leader policy page"
+  },
+  {
+    "page": "owasp/application.html",
+    "figure": "Leaders create the page within 30 days",
+    "linked": false,
+    "evidence_url": "",
+    "action": "add-link",
+    "note": "OWASP new-project process page"
+  },
+  {
+    "page": "owasp/application.html",
+    "figure": "reviewed by its core team for up to four weeks and voted in ... over 72 hours",
+    "linked": false,
+    "evidence_url": "https://genai.owasp.org/",
+    "action": "add-link"
+  },
+  {
+    "page": "owasp/application.html",
+    "figure": "The method, sixteen template examples and the build are already published",
+    "linked": true,
+    "evidence_url": "https://riskmandate.ai/owasp/",
+    "action": "ok"
+  },
+  {
+    "page": "owasp/tracker.html",
+    "figure": "S04 Inventory every asset ... 82 rows",
+    "linked": true,
+    "evidence_url": "/owasp/contribution-inventory.csv",
+    "action": "ok"
+  },
+  {
+    "page": "owasp/tracker.html",
+    "figure": "within 30 days the leads create the page",
+    "linked": false,
+    "evidence_url": "",
+    "action": "add-link",
+    "note": "OWASP new-project process page"
+  },
+  {
+    "page": "owasp/tracker.html",
+    "figure": "OWASP's Project Policy, twelve OWASP projects and our own published material read",
+    "linked": true,
+    "evidence_url": "/owasp/",
+    "action": "ok"
+  },
+  {
+    "page": "questions.html",
+    "figure": "Your agent can do 340 things and you authorised 12 is a finding",
+    "linked": false,
+    "evidence_url": "",
+    "action": "remove-or-source",
+    "note": "illustrative numbers, not labelled invented"
+  },
+  {
+    "page": "questions.html",
+    "figure": "grant 16 / mandate 5 / excess 12 / unbounded excess 12",
+    "linked": false,
+    "evidence_url": "https://abp.sgit.ai/examples/claude-code-cli-confirmations-disabled/",
+    "action": "add-link",
+    "note": "table rows; the model-page link is in a later paragraph"
+  },
+  {
+    "page": "questions.html",
+    "figure": "a component bill of materials, standardised as an international specification in December 2025",
+    "linked": true,
+    "evidence_url": "/lab-shape-collector.html",
+    "action": "ok"
+  },
+  {
+    "page": "secure-harness.html",
+    "figure": "It ends on twelve rows of excess, none of them held by a control (E09)",
+    "linked": false,
+    "evidence_url": "https://the-ultimate-insider.presentation.sgit.ai/",
+    "action": "add-link",
+    "note": "source named as plain text, not linked"
+  },
+  {
+    "page": "secure-harness.html",
+    "figure": "The same eleven actions from a Ruflo swarm ... all eleven through ... four are denied and two wait for approval (POC1, Ruflo 3.56.10)",
+    "linked": false,
+    "evidence_url": "https://ruv.sgit.ai/",
+    "action": "add-link",
+    "note": "source named as plain text, not linked"
+  },
+  {
+    "page": "secure-harness.html",
+    "figure": "Six of six held, 25 October 2026, in five environments (E11)",
+    "linked": false,
+    "evidence_url": "https://the-ultimate-insider.presentation.sgit.ai/",
+    "action": "add-link",
+    "note": "source named as plain text, not linked"
+  },
+  {
+    "page": "secure-harness.html",
+    "figure": "sharness-ai 0.2.0 on PyPI: Python standard library only, 243 tests",
+    "linked": true,
+    "evidence_url": "https://pypi.org/project/sharness-ai/",
+    "action": "add-link",
+    "note": "PyPI does not show a test count; link the repository's test run"
+  },
+  {
+    "page": "secure-harness.html",
+    "figure": "hello: six probes under a deny-all policy, six held, in five environments",
+    "linked": false,
+    "evidence_url": "https://the-ultimate-insider.presentation.sgit.ai/",
+    "action": "add-link"
+  },
+  {
+    "page": "secure-harness.html",
+    "figure": "Proven controls ... six controls tested by breaking them",
+    "linked": true,
+    "evidence_url": "https://newsroom.sgit.ai/articles/proven-controls-for-agents.html",
+    "action": "ok"
+  },
+  {
+    "page": "open-security-summit.html",
+    "figure": "mini-summits it has run since 2020, and since 2019 a community interest company, company 11935098",
+    "linked": true,
+    "evidence_url": "https://find-and-update.company-information.service.gov.uk/company/11935098",
+    "action": "ok",
+    "note": "the since-2020 claim rests on the CIC record only"
+  },
+  {
+    "page": "open-security-summit.html",
+    "figure": "the contribution inventory, 82 assets",
+    "linked": true,
+    "evidence_url": "/owasp/contributions.html",
+    "action": "ok"
+  },
+  {
+    "page": "team/index.html",
+    "figure": "Sixteen template policies for the shapes people run are in the library",
+    "linked": false,
+    "evidence_url": "/agent-behaviour-policy.html",
+    "action": "add-link"
+  },
+  {
+    "page": "team/publisher.html",
+    "figure": "npm run check: 40 tests",
+    "linked": false,
+    "evidence_url": "https://github.com/Risk-Mandate/riskmandate.ai/tree/dev/tests/site",
+    "action": "add-link",
+    "note": "LOOKS STALE: 45 test() calls in tests/site/*.mjs on 17 Nov 2026"
+  },
+  {
+    "page": "owasp-graph.html",
+    "figure": "renamed from the LLM Top 10 project on 26 March 2025",
+    "linked": false,
+    "evidence_url": "https://genai.owasp.org/",
+    "action": "add-link"
+  },
+  {
+    "page": "owasp-graph.html",
+    "figure": "the OWASP lists with their numbered entries (LLM Top 10 2025, 2026 ...)",
+    "linked": true,
+    "evidence_url": "https://genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025/",
+    "action": "ok",
+    "note": "each list heading links to its OWASP page"
+  },
+  {
+    "page": "brand.html",
+    "figure": "ACCEPTED CONDITIONS · 4/4 HOLDING",
+    "linked": false,
+    "evidence_url": "",
+    "action": "remove-or-source",
+    "note": "sample text on the brand page; label invented or drop"
+  },
+  {
+    "page": "about.html",
+    "figure": "sixteen template policies",
+    "linked": true,
+    "evidence_url": "/agent-behaviour-policy.html",
+    "action": "ok"
+  },
+  {
+    "page": "about.html",
+    "figure": "The deck says in eighteen slides what this site says in sixty pages",
+    "linked": false,
+    "evidence_url": "/sitemap.xml",
+    "action": "remove-or-source",
+    "note": "LOOKS STALE: 116 markdown twins in site/ on 17 Nov 2026"
+  },
+  {
+    "page": "about.html",
+    "figure": "The counts on slide 8 ... the sixteen templates on slide 15",
+    "linked": true,
+    "evidence_url": "/abp-vault-claude-code-web.html",
+    "action": "ok"
+  },
+  {
+    "page": "about.html",
+    "figure": "The market figures on slides 3 and 11 carry their sources on the slide itself, by name and year",
+    "linked": false,
+    "evidence_url": "/assets/deck/riskmandate-investor-deck-v3.pdf",
+    "action": "remove-or-source",
+    "note": "the deck's market figures are named but not linked; under the 17 Nov rule they need links or come out of the published deck"
+  },
+  {
+    "page": "about.html",
+    "figure": "A second deck, fourteen slides rendered from this site's own numbers",
+    "linked": true,
+    "evidence_url": "/brand.html",
+    "action": "ok"
+  },
+  {
+    "page": "uk-support.html",
+    "figure": "Sixteen template ABPs ... the thirteen prompts are free, and the first three levels can be bought from the store today; the fourth is waiting on its payment link. We exhibited at Startup Summit Lisbon in September 2026",
+    "linked": false,
+    "evidence_url": "/agent-behaviour-policy.html",
+    "action": "add-link",
+    "note": "LOOKS STALE: pricing.html now offers levels 3 and 4 as engagements (Talk to us) from 17 Nov 2026"
+  },
+  {
+    "page": "uk-support.html",
+    "figure": "79 entries, read 24 September 2026: 15 open, 19 rolling, 20 with a date, 15 unclear, 10 closed",
+    "linked": false,
+    "evidence_url": "",
+    "action": "ok",
+    "note": "counts of the entries on the page itself; dated"
+  },
+  {
+    "page": "uk-support.html",
+    "figure": "programme entries (amounts, deadlines, eligibility), each under its own linked heading",
+    "linked": true,
+    "evidence_url": "https://www.sovereignai.gov.uk/",
+    "action": "ok",
+    "note": "each entry heading links to the programme page"
+  },
+  {
+    "page": "interview-founder-marketing.html",
+    "figure": "Sixteen example policies are published free",
+    "linked": false,
+    "evidence_url": "/agent-behaviour-policy.html",
+    "action": "add-link",
+    "note": "inside the interview prompt"
+  },
+  {
+    "page": "interview-founder-marketing.html",
+    "figure": "Your agent can do 340 things and you authorised 12 is a finding. The sixteen examples are free",
+    "linked": false,
+    "evidence_url": "",
+    "action": "remove-or-source",
+    "note": "illustrative 340/12, not labelled invented"
+  },
+  {
+    "page": "contact.html",
+    "figure": "a mailbox with six roles behind it",
+    "linked": true,
+    "evidence_url": "/agents/",
+    "action": "ok"
+  },
+  {
+    "page": "privacy.html",
+    "figure": "The sixteen template policies are public on purpose",
+    "linked": true,
+    "evidence_url": "/agent-behaviour-policy.html",
+    "action": "ok"
+  },
+  {
+    "page": "agents/index.html",
+    "figure": "One address, six roles behind it (Six agents, one inbox, 29 September 2026)",
+    "linked": true,
+    "evidence_url": "https://sgit.ai/articles/six-agents-one-inbox.html",
+    "action": "ok"
+  },
+  {
+    "page": "summit.html",
+    "figure": "What is public today: six live demos, each opening its own encrypted vault",
+    "linked": false,
+    "evidence_url": "/demos.html",
+    "action": "add-link"
+  },
+  {
+    "page": "summit.html",
+    "figure": "The permission game: five minutes, forty questions",
+    "linked": false,
+    "evidence_url": "/demo-agent-permission-games.html",
+    "action": "add-link"
+  },
+  {
+    "page": "briefs.html",
+    "figure": "One of the documents below arrived twice, byte-identical, six hours apart, and three Lab entries had already been written from it",
+    "linked": false,
+    "evidence_url": "/briefs.html",
+    "action": "add-link",
+    "note": "point at the two register entries and their SHA-256"
+  },
+  {
+    "page": "briefs.html",
+    "figure": "OWASP, as a graph: 52 projects and documents in four families, 110 items of eleven lists by title, 62 relationships",
+    "linked": true,
+    "evidence_url": "/owasp-graph.html",
+    "action": "ok"
+  },
+  {
+    "page": "briefs.html",
+    "figure": "Eighteen open-source cases; Eighteen companies built on open source",
+    "linked": true,
+    "evidence_url": "/business-cases.html#cases",
+    "action": "ok"
+  },
+  {
+    "page": "briefs.html",
+    "figure": "The grant that paid for it was withdrawn in 2023",
+    "linked": false,
+    "evidence_url": "",
+    "action": "add-link",
+    "note": "public source exists (gov.uk); not linked"
+  },
+  {
+    "page": "briefs.html",
+    "figure": "a leak gate proved against six planted leaks",
+    "linked": false,
+    "evidence_url": "",
+    "action": "remove-or-source",
+    "note": "no link to the run"
+  },
+  {
+    "page": "briefs.html",
+    "figure": "The template vault claude-gmail-connector: six rows, four measured on the deployer's own account, the eight screens transcribed",
+    "linked": true,
+    "evidence_url": "/abp-vault-claude-gmail-connector.html",
+    "action": "ok"
+  },
+  {
+    "page": "work.html",
+    "figure": "We have a published model, five worked examples",
+    "linked": false,
+    "evidence_url": "https://abp.sgit.ai/examples/",
+    "action": "add-link"
+  },
+  {
+    "page": "after-payment.html",
+    "figure": "it lists all fifteen templates ... The fifteen slugs are the table below",
+    "linked": false,
+    "evidence_url": "/agent-behaviour-policy.html",
+    "action": "add-link",
+    "note": "WRONG: 16 vaults in site/vaults; the table omits claude-gmail-connector although the page says it cannot lag"
+  },
+  {
+    "page": "after-payment.html",
+    "figure": "The read keys of the fifteen templates are public",
+    "linked": false,
+    "evidence_url": "/agent-behaviour-policy.html",
+    "action": "add-link",
+    "note": "WRONG: sixteen"
+  },
+  {
+    "page": "after-payment.html",
+    "figure": "zip sizes per template (claude-code-web 89,524 bytes ... n8n-owner-api-key 92,438 bytes)",
+    "linked": false,
+    "evidence_url": "/vaults/claude-code-web/dist/claude-code-web.zip",
+    "action": "add-link",
+    "note": "ALL STALE: recount 17 Nov gives e.g. claude-code-web 98,133, n8n-owner-api-key 100,858, claude-gmail-connector 194,336 (missing); link each zip"
+  },
+  {
+    "page": "synthetic-users.html",
+    "figure": "60 screenshots, 60 steps, 37 questions the site did not answer, 29 places somebody got lost, and 32 findings",
+    "linked": false,
+    "evidence_url": "",
+    "action": "add-link",
+    "note": "evidence is vault re5nrn3h, named but not linked in this paragraph"
+  },
+  {
+    "page": "synthetic-users.html",
+    "figure": "This vault, re5nrn3h, holds both readings: ten runs, two per reader",
+    "linked": false,
+    "evidence_url": "",
+    "action": "add-link",
+    "note": "link the vault with its read key"
+  },
+  {
+    "page": "synthetic-users.html",
+    "figure": "Agent Behaviour Policy first appeared at character 5,387 of 9,270 ... character 67 of 6,081; screens to the four levels 4.8 desktop, 8.9 phone; Four of the five would now spend money, against two of five",
+    "linked": false,
+    "evidence_url": "",
+    "action": "add-link",
+    "note": "measured on our own pages at v1.20.1 and v1.25.1; evidence is vault re5nrn3h, link it beside the tables"
+  },
+  {
+    "page": "synthetic-users.html",
+    "figure": "twenty-six tests, four npm run check gates and two further CI checks all passed",
+    "linked": true,
+    "evidence_url": "/versions.html",
+    "action": "ok"
+  },
+  {
+    "page": "article-union-of-every-session.html",
+    "figure": "one capability wanted, five in the grant and not asked for, four of them with nothing in the way (against the same six-capability grant)",
+    "linked": false,
+    "evidence_url": "/abp-vault-claude-gmail-connector.html",
+    "action": "add-link",
+    "note": "table row; sources paragraph is separate"
+  },
+  {
+    "page": "article-what-is-an-abp.html",
+    "figure": "Your agent can do 340 things and you authorised 12 is a finding",
+    "linked": false,
+    "evidence_url": "",
+    "action": "remove-or-source",
+    "note": "illustrative, not labelled invented"
+  },
+  {
+    "page": "article-what-is-an-abp.html",
+    "figure": "a fixed, published list of twenty-three",
+    "linked": false,
+    "evidence_url": "https://abp.sgit.ai/data/index.json",
+    "action": "add-link"
+  },
+  {
+    "page": "article-what-is-an-abp.html",
+    "figure": "Six open questions ... Five places where the two vendors' own pages contradict each other",
+    "linked": false,
+    "evidence_url": "/abp-vault-claude-gmail-connector.html",
+    "action": "add-link"
+  },
+  {
+    "page": "article-what-is-an-abp.html",
+    "figure": "four of the six rows exercised on an account the deployer runs",
+    "linked": true,
+    "evidence_url": "/abp-vault-claude-gmail-connector.html",
+    "action": "ok"
+  },
+  {
+    "page": "article-what-is-an-abp.html",
+    "figure": "Sixteen are published / Sixteen worked examples are published with their keys",
+    "linked": false,
+    "evidence_url": "/agent-behaviour-policy.html",
+    "action": "add-link"
+  },
+  {
+    "page": "article-approval-prompts.html",
+    "figure": "three prompts of this shape captured by the deployer on an account they run, 16 and 19 September 2026",
+    "linked": false,
+    "evidence_url": "/abp-vault-claude-gmail-connector.html",
+    "action": "add-link",
+    "note": "the sources block at the foot links the vendor pages, not the vault evidence"
+  },
+  {
+    "page": "article-approval-prompts.html",
+    "figure": "Sixteen deployment shapes are written up as Agent Behaviour Policies",
+    "linked": false,
+    "evidence_url": "/agent-behaviour-policy.html",
+    "action": "add-link"
+  },
+  {
+    "page": "article-pilots-do-not-stay-in-production.html",
+    "figure": "30% / 40%+ / 42% / 88% / 82% / 40% / 74% (stat cards)",
+    "linked": true,
+    "evidence_url": "https://www.gartner.com/en/newsroom/press-releases/2024-07-29-gartner-predicts-30-percent-of-generative-ai-projects-will-be-abandoned-after-proof-of-concept-by-end-of-2025",
+    "action": "ok",
+    "note": "each card links its source (Gartner x3, S&P, CIO.com, KPMG, Sinch); the big numbers are missing from the markdown twin"
+  },
+  {
+    "page": "article-pilots-do-not-stay-in-production.html",
+    "figure": "5% of organisations reached production; 60% evaluated, 20% piloted (MIT NANDA, The GenAI Divide)",
+    "linked": false,
+    "evidence_url": "",
+    "action": "remove-or-source",
+    "note": "read from a mirror; no link and no MIT-hosted copy"
+  },
+  {
+    "page": "article-pilots-do-not-stay-in-production.html",
+    "figure": "38% named regulatory compliance as the top barrier, up ten points; difficulty managing risks 32% (Deloitte, Q4, January 2025)",
+    "linked": false,
+    "evidence_url": "",
+    "action": "add-link",
+    "note": "card says report PDF but carries no link"
+  },
+  {
+    "page": "article-pilots-do-not-stay-in-production.html",
+    "figure": "27% slowed or paused AI deployment; 86% had at least one incident (OneTrust, 14 September 2026)",
+    "linked": false,
+    "evidence_url": "",
+    "action": "add-link",
+    "note": "card says press release but carries no link"
+  },
+  {
+    "page": "article-pilots-do-not-stay-in-production.html",
+    "figure": "On 1 August 2012 one firm's order router sent millions of orders in about 45 minutes, and the firm lost more than $460 million",
+    "linked": true,
+    "evidence_url": "https://www.sec.gov/files/litigation/admin/2013/34-70694.pdf",
+    "action": "ok",
+    "note": "SEC release linked under the quote that follows"
+  },
+  {
+    "page": "article-pilots-do-not-stay-in-production.html",
+    "figure": "awarded CAD $812.02 (Moffatt v. Air Canada, 2024 BCCRT 149)",
+    "linked": false,
+    "evidence_url": "",
+    "action": "add-link",
+    "note": "citation given in text, no link; the twin drops the case citations"
+  },
+  {
+    "page": "article-pilots-do-not-stay-in-production.html",
+    "figure": "an offer of $1 for a new SUV ... 3000+ attempts to hack the chat",
+    "linked": false,
+    "evidence_url": "",
+    "action": "add-link",
+    "note": "no link"
+  },
+  {
+    "page": "article-pilots-do-not-stay-in-production.html",
+    "figure": "deleted live data for more than 1,200 executives",
+    "linked": false,
+    "evidence_url": "",
+    "action": "add-link",
+    "note": "no link"
+  },
+  {
+    "page": "article-pilots-do-not-stay-in-production.html",
+    "figure": "agents took 19 actions outside their remit in 10 of 122 runs",
+    "linked": false,
+    "evidence_url": "",
+    "action": "add-link",
+    "note": "no link to the report"
+  },
+  {
+    "page": "article-pilots-do-not-stay-in-production.html",
+    "figure": "Trust in fully autonomous agents fell from 43% to 27% in Capgemini's two surveys",
+    "linked": false,
+    "evidence_url": "",
+    "action": "add-link",
+    "note": "no link"
+  },
+  {
+    "page": "article-pilots-do-not-stay-in-production.html",
+    "figure": "S&P's security figure fell seven points in a year",
+    "linked": true,
+    "evidence_url": "https://www.spglobal.com/market-intelligence/en/news-insights/research/ai-experiences-rapid-adoption-but-with-mixed-outcomes-highlights-from-vote-ai-machine-learning",
+    "action": "add-link",
+    "note": "sourced on the S&P card above, not here"
+  },
+  {
+    "page": "article-calendar-edits-cannot-be-undone.html",
+    "figure": "Google Calendar keeps a deleted event in a trash for 30 days",
+    "linked": false,
+    "evidence_url": "https://support.google.com/calendar/",
+    "action": "add-link",
+    "note": "the opening paragraph has no link; sources appear further down"
+  },
+  {
+    "page": "article-calendar-edits-cannot-be-undone.html",
+    "figure": "Gmail keeps deleted mail in a trash for 30 days",
+    "linked": false,
+    "evidence_url": "",
+    "action": "add-link"
+  },
+  {
+    "page": "article-calendar-edits-cannot-be-undone.html",
+    "figure": "Logs are kept six months (admin audit log)",
+    "linked": true,
+    "evidence_url": "https://support.google.com/a/answer/6110475?hl=en",
+    "action": "ok"
+  },
+  {
+    "page": "article-who-owns-what-in-ai.html",
+    "figure": "On row 7: a deleted event stays in the trash for 30 days",
+    "linked": true,
+    "evidence_url": "/article-calendar-edits-cannot-be-undone.html",
+    "action": "ok"
+  },
+  {
+    "page": "article-who-owns-what-in-ai.html",
+    "figure": "the lethal trifecta (16 June 2025)",
+    "linked": true,
+    "evidence_url": "https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/",
+    "action": "ok"
+  },
+  {
+    "page": "article-who-owns-what-in-ai.html",
+    "figure": "sixteen example ABPs",
+    "linked": true,
+    "evidence_url": "/agent-behaviour-policy.html",
+    "action": "ok"
+  },
+  {
+    "page": "article-who-owns-what-in-ai.html",
+    "figure": "The 23 capability primitives and the four barrier kinds",
+    "linked": false,
+    "evidence_url": "https://abp.sgit.ai/data/index.json",
+    "action": "add-link"
+  },
+  {
+    "page": "article-risk-propagation-visualiser.html",
+    "figure": "the sixteen examples on this site already compute the gap",
+    "linked": false,
+    "evidence_url": "/agent-behaviour-policy.html",
+    "action": "add-link"
+  },
+  {
+    "page": "article-abp-for-chatgpt-dots.html",
+    "figure": "they can readily connect to over 4,000 apps",
+    "linked": false,
+    "evidence_url": "https://openai.com/index/introducing-dots/",
+    "action": "add-link",
+    "note": "vendor quote; link only in the foot list"
+  },
+  {
+    "page": "article-abp-for-chatgpt-dots.html",
+    "figure": "100 bulk attack rollouts over 50,000 delivered emails, including 16,600 attack emails; 2,638 valid attempts; 8.6% to 19.7%; 91.8% (45/49 episodes)",
+    "linked": false,
+    "evidence_url": "https://deploymentsafety.openai.com/gpt-6-astra/change-log",
+    "action": "add-link",
+    "note": "source line directly below the paragraph; put it in the paragraph"
+  },
+  {
+    "page": "article-abp-for-chatgpt-dots.html",
+    "figure": "Sixteen shapes are written up. A dot could be the seventeenth.",
+    "linked": false,
+    "evidence_url": "/agent-behaviour-policy.html",
+    "action": "add-link"
+  },
+  {
+    "page": "paid-t3.html",
+    "figure": "the fixed vocabulary of 23 capabilities and four barriers, and follows seven rules",
+    "linked": true,
+    "evidence_url": "",
+    "action": "ok",
+    "note": "link in the paragraph is to MAP-A-GRANT"
+  },
+  {
+    "page": "lab-connector-grants.html",
+    "figure": "The eight scopes requested by the official Dropbox MCP server",
+    "linked": true,
+    "evidence_url": "",
+    "action": "ok"
+  },
+  {
+    "page": "lab-abp-flow.html",
+    "figure": "the published capability map says 21 of 99 rows were measured",
+    "linked": false,
+    "evidence_url": "https://abp.sgit.ai/",
+    "action": "add-link",
+    "note": "LIKELY STALE: dated 12 Sep, model now v0.12.1"
+  },
+  {
+    "page": "lab-abp-requests.html",
+    "figure": "The site says 21 of 99 rows are measured",
+    "linked": false,
+    "evidence_url": "https://abp.sgit.ai/",
+    "action": "add-link",
+    "note": "LIKELY STALE: as above"
+  },
+  {
+    "page": "lab-abp-requests.html",
+    "figure": "There are five worked examples today",
+    "linked": false,
+    "evidence_url": "https://abp.sgit.ai/examples/",
+    "action": "add-link"
+  },
+  {
+    "page": "work-abp-power-user.html",
+    "figure": "21 of 99 rows measured, and it says so",
+    "linked": false,
+    "evidence_url": "https://abp.sgit.ai/data/index.json",
+    "action": "add-link",
+    "note": "LIKELY STALE; recount from the pack on the day"
+  },
+  {
+    "page": "insure-a-program.html",
+    "figure": "the underwriters' own blueprint puts today's standalone AI limits at up to $50 million (AIUC, July 2026, p. 50); RAND's reading of 125 admitted-market filings",
+    "linked": false,
+    "evidence_url": "https://www.underwriting-agents.com/report.pdf",
+    "action": "add-link",
+    "note": "in the HTML only; the twin drops this paragraph"
+  },
+  {
+    "page": "insure-a-program.html",
+    "figure": "timeline source lines (IRMI, Bregman, 18 Aug 2017; Emerj, 29 May 2023; Mosaic, 26 Feb 2026; Insurance Journal, 25 Jul 2025; Hunton, 28 May 2025; IIABA, 21 Oct 2025)",
+    "linked": false,
+    "evidence_url": "",
+    "action": "add-link",
+    "note": "sources named in plain text beside each dated answer, none linked"
+  },
+  {
+    "page": "summit.html",
+    "figure": "Organiser's figures 2,000+ founders, 300+ investors, 150+ speakers, 200+ stands, 3 stages, 40+ countries",
+    "linked": true,
+    "evidence_url": "https://startupsummit.io/",
+    "action": "ok"
+  },
+  {
+    "page": "lab-commit-author.html",
+    "figure": "13% failure rate on injection arriving through a tool result; >90% success against most of twelve recent published defences",
+    "linked": false,
+    "evidence_url": "",
+    "action": "add-link",
+    "note": "stat cards carry no link in the card"
+  },
+  {
+    "page": "lab-network-reach.html",
+    "figure": "Executed independently 80-90% of tactical operations; 100s of services; 1,000s of endpoints",
+    "linked": false,
+    "evidence_url": "",
+    "action": "add-link",
+    "note": "vendor report named, not linked in the card"
+  },
+  {
+    "page": "lab-shape-collector.html",
+    "figure": "A browser-uniqueness study of 470,000 samples measured about 18 bits ... 83.6% of visitors instantaneously unique",
+    "linked": false,
+    "evidence_url": "",
+    "action": "add-link",
+    "note": "no link to the study in the paragraph"
+  },
+  {
+    "page": "agent-behaviour-policy.html",
+    "figure": "16 example policies · 118 capability rows · 32 measured on the thing itself · 28 open questions",
+    "linked": false,
+    "evidence_url": "/vaults/index.json",
+    "action": "add-link",
+    "note": "strip over the tiles, in the HTML only; recount 17 Nov: 118 grant rows in site/vaults, 32 = measured 11 + observed 21 (matches)"
+  },
+  {
+    "page": "team/index.html",
+    "figure": "17 grant 13 mandate 4 excess 3 unbounded 0 shortfall; npm run check 40 tests",
+    "linked": false,
+    "evidence_url": "/team/publisher.html",
+    "action": "add-link",
+    "note": "40 tests LOOKS STALE (45 test() calls); in the HTML only"
+  },
+  {
+    "page": "lab-shape-collector.html",
+    "figure": "2^20, about a million distinct answers; 128 answers, a reduction of about 8,000x; around five trillion cells, roughly 42 bits",
+    "linked": false,
+    "evidence_url": "",
+    "action": "ok",
+    "note": "our own arithmetic, worked on the page"
+  },
+  {
+    "page": "lab-shape-collector.html",
+    "figure": "Three low-cardinality fields, postcode, gender and date of birth, uniquely identify about 87% of a national population",
+    "linked": false,
+    "evidence_url": "",
+    "action": "add-link",
+    "note": "study named in the sources paragraph, not linked"
+  },
+  {
+    "page": "lab-shape-collector.html",
+    "figure": "meta-analysis of nineteen studies and thirty-two experiments; drop-off odds x0.80; up by 56%",
+    "linked": false,
+    "evidence_url": "",
+    "action": "add-link",
+    "note": "Villar, Callegaro and Yang 2013 cited without a link"
+  },
+  {
+    "page": "lab-shape-collector.html",
+    "figure": "89.8% against 91.4% completion, the conversational version took 53% longer; a 2026 field experiment",
+    "linked": false,
+    "evidence_url": "",
+    "action": "add-link",
+    "note": "Kim, Lee and Gweon 2019; Cavusoglu Deveci et al. 2026 cited without links"
+  },
+  {
+    "page": "lab-shape-collector.html",
+    "figure": "A conversational-form vendor claims 47.3% completion against a stated industry average of 21.5%",
+    "linked": false,
+    "evidence_url": "https://www.typeform.com/",
+    "action": "add-link",
+    "note": "linked only in the sources paragraph"
+  },
+  {
+    "page": "lab-shape-collector.html",
+    "figure": "A ten-vendor comparison of the discovery market, published 7 September 2026, found that all ten discover through technical telemetry",
+    "linked": false,
+    "evidence_url": "",
+    "action": "add-link"
+  },
+  {
+    "page": "lab-shape-collector.html",
+    "figure": "a free seven-question organisational assessment taking about two minutes",
+    "linked": false,
+    "evidence_url": "",
+    "action": "add-link"
+  },
+  {
+    "page": "lab-commit-author.html",
+    "figure": "instruction-hierarchy table: 32.8% to 95.9%; 77.6% to 87.0%; 79.2% to 95.9%; 77.5% to 85.0%",
+    "linked": false,
+    "evidence_url": "https://arxiv.org/abs/2404.13208",
+    "action": "add-link",
+    "note": "link is in the paragraph after the table"
+  },
+  {
+    "page": "lab-commit-author.html",
+    "figure": "Partly, by training. 87% on the published measure",
+    "linked": false,
+    "evidence_url": "https://arxiv.org/abs/2404.13208",
+    "action": "add-link",
+    "note": "table row"
+  },
+  {
+    "page": "lab-commit-author.html",
+    "figure": "Success rate against most of twelve recent published defences",
+    "linked": true,
+    "evidence_url": "https://arxiv.org/abs/2510.09023",
+    "action": "ok",
+    "note": "link in the next sentence"
+  },
+  {
+    "page": "lab-commit-author.html",
+    "figure": "Aug 2025 supply-chain attack ... over five thousand private repositories public",
+    "linked": false,
+    "evidence_url": "",
+    "action": "add-link",
+    "note": "incidents table rows carry no links"
+  },
+  {
+    "page": "lab-commit-author.html",
+    "figure": "instructing the agent not to proceed eleven times in capitals ... about four thousand fictional records",
+    "linked": false,
+    "evidence_url": "",
+    "action": "add-link"
+  },
+  {
+    "page": "lab-commit-author.html",
+    "figure": "A national safety institute ... one hundred and twenty-two evaluation runs across seven models ... nineteen unauthorised actions across ten runs",
+    "linked": false,
+    "evidence_url": "",
+    "action": "add-link"
+  },
+  {
+    "page": "lab-network-reach.html",
+    "figure": "roughly thirty targeted entities; at least seventeen organisations affected in one month (vendor disruption report; August 2025 threat report)",
+    "linked": false,
+    "evidence_url": "",
+    "action": "add-link",
+    "note": "reports named by date, not linked"
+  },
+  {
+    "page": "lab-network-reach.html",
+    "figure": "exec 3<>/dev/tcp/1.1.1.1/443 open; curl ... 200 (from the environment that publishes riskmandate.ai)",
+    "linked": true,
+    "evidence_url": "",
+    "action": "ok",
+    "note": "our own run, on a system we are entitled to run"
+  },
+  {
+    "page": "lab-network-reach.html",
+    "figure": "the May 2025 vulnerability; an account published in August 2026 ... HTTP 415; a January 2025 advisory ... amplified into fifty requests",
+    "linked": false,
+    "evidence_url": "",
+    "action": "add-link"
+  },
+  {
+    "page": "lab-network-reach.html",
+    "figure": "An airline argued before a small claims tribunal in 2024",
+    "linked": false,
+    "evidence_url": "",
+    "action": "add-link",
+    "note": "Moffatt v. Air Canada, 2024 BCCRT 149"
+  },
+  {
+    "page": "lab-vault-delivered.html",
+    "figure": "MANDATE six wanted, three refused, fourteen unstated; GRANT fifteen capabilities, 13 of 20 rows observed; DELTA nine ... seven",
+    "linked": true,
+    "evidence_url": "/vaults/claude-code-web/GRANT.md",
+    "action": "ok"
+  },
+  {
+    "page": "lab-vault-delivered.html",
+    "figure": "eleven of fifteen rows seen present in ordinary work, none absent, four not re-checked",
+    "linked": true,
+    "evidence_url": "/vaults/claude-code-web/history/grant-check--2026-09-15.md",
+    "action": "ok"
+  },
+  {
+    "page": "lab-vault-delivered.html",
+    "figure": "thirteen of its twenty rows were observed on the thing itself on 5 September",
+    "linked": true,
+    "evidence_url": "https://abp.sgit.ai/",
+    "action": "ok"
+  },
+  {
+    "page": "pricing.html",
+    "figure": "The £10 pack and the £50 vault ... were offered from 15 September and did not sell",
+    "linked": false,
+    "evidence_url": "https://store.sgit.ai/ledger/index.html",
+    "action": "add-link",
+    "note": "a sales count of zero; link the store ledger or drop"
+  },
+  {
+    "page": "archive/index.html",
+    "figure": "The £10 pack and the £50 vault were retired: offered from 15 September, they did not sell",
+    "linked": false,
+    "evidence_url": "https://store.sgit.ai/ledger/index.html",
+    "action": "add-link"
+  },
+  {
+    "page": "agents/index.html",
+    "figure": "a lane holds a thousand pending files",
+    "linked": false,
+    "evidence_url": "https://sgit.ai/docs/agent-contact.html",
+    "action": "add-link"
+  },
+  {
+    "page": "article-pilots-do-not-stay-in-production.html",
+    "figure": "the figure remembered is around a hundred thousand dollars",
+    "linked": false,
+    "evidence_url": "",
+    "action": "remove-or-source",
+    "note": "the page says it has no public source; under the 17 Nov rule it comes off"
+  },
+  {
+    "page": "lab-network-reach.html",
+    "figure": "Over a thousand valid tokens were leaked ... a second wave making several thousand repositories public",
+    "linked": false,
+    "evidence_url": "",
+    "action": "add-link"
+  },
+  {
+    "page": "work-abp-power-user.html",
+    "figure": "We have a published model, five worked examples",
+    "linked": false,
+    "evidence_url": "https://abp.sgit.ai/examples/",
+    "action": "add-link"
+  },
+  {
+    "page": "archive/home-2026-11-16.html",
+    "figure": "hello: six probes, six held, in five environments",
+    "linked": false,
+    "evidence_url": "/secure-harness.html",
+    "action": "add-link",
+    "note": "archived page; a dated record"
+  },
+  {
+    "page": "archive/home-2026-11-16.html",
+    "figure": "six of six held, 25 October 2026, for a child process",
+    "linked": true,
+    "evidence_url": "/secure-harness.html#watch",
+    "action": "ok"
+  },
+  {
+    "page": "archive/home-2026-11-16.html",
+    "figure": "All sixteen published examples are free to read",
+    "linked": false,
+    "evidence_url": "/agent-behaviour-policy.html",
+    "action": "add-link"
+  },
+  {
+    "page": "archive/home-2026-11-16.html",
+    "figure": "16 templates, published free",
+    "linked": true,
+    "evidence_url": "https://store.sgit.ai/ledger/index.html#claim-abp-templates-exist",
+    "action": "ok"
+  },
+  {
+    "page": "archive/home-2026-11-16.html",
+    "figure": "Seven of us and our agents, each agent with its own published behaviour policy",
+    "linked": false,
+    "evidence_url": "/team/",
+    "action": "add-link"
+  },
+  {
+    "page": "archive/home-2026-11-16.html",
+    "figure": "Sales agent exports 12,400 contacts; wants to export 2,400 contacts ... exports over 500; Decision 48213",
+    "linked": false,
+    "evidence_url": "",
+    "action": "remove-or-source",
+    "note": "illustrative chat, not labelled invented on the archived page"
+  }
+]
