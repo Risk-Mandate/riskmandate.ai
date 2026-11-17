@@ -83,7 +83,7 @@ The same four as [agenticcells.ai](https://agenticcells.ai/). A policy alone is 
 | £5,000 | Your agents, mapped and controlled | About two days of engagement; heavier lifting; travel if needed |
 | £20,000 | A customer engagement | We come in, map what you run, and deliver the policies and the controls |
 
-The detail of each, and the first two to buy, are on [the pricing page](/pricing.html). Every figure on this page is on [the summit record](/web-summit-2026/) with its source and date.
+The detail of each is on [the pricing page](/pricing.html); today every one starts with [a conversation](/contact.html), because the store’s payment links are not issued yet. Every figure on this page is on [the summit record](/web-summit-2026/) with its source and date.
 
 ## One human, nine agents, nineteen hours.
 

@@ -16,3 +16,5 @@ Cruz, Silvio Switha, Yiheng Wang, José Bota). Licence CC BY 4.0, as the rest of
 **17 November 2026:** the readable badge names of people not recorded as agreeing to be named are pixelated in all
 three photos (the four who agreed stay readable). The two motion clips were removed rather than blurred frame by frame;
 they remain in this repository's history and on agenticcells.ai, where that team is doing the same.
+
+Silvio Switha agreed to be named, including in the film credit (the lead, 16 November 2026, recorded on agenticcells.ai in data/cells-registry.json).

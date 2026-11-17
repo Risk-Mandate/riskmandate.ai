@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.41.12** · 2026-11-17 — What can be bought today, said plainly: every way in starts with a conversation
+  Notes: https://riskmandate.ai/versions/1.41.12.md · Source: `git:v1.41.12`
 - **v1.41.11** · 2026-11-17 — The home page is a fifth shorter on a phone
   Notes: https://riskmandate.ai/versions/1.41.11.md · Source: `git:v1.41.11`
 - **v1.41.10** · 2026-11-17 — Badge names blurred in the summit photos; larger tap areas on source links
