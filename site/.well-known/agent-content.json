@@ -106,7 +106,7 @@
     },
     {
       "name": "pricing",
-      "label": "The four levels, and pricing",
+      "label": "Four ways in, and pricing",
       "url": "https://riskmandate.ai/pricing.html"
     },
     {
@@ -913,6 +913,16 @@
       "name": "lab-vault-delivered",
       "label": "07 · The vault, delivered",
       "url": "https://riskmandate.ai/lab-vault-delivered.html"
+    },
+    {
+      "name": "archive",
+      "label": "The archive",
+      "url": "https://riskmandate.ai/archive/"
+    },
+    {
+      "name": "archive-home-2026-11-16",
+      "label": "Archive · the home page until 16 November 2026",
+      "url": "https://riskmandate.ai/archive/home-2026-11-16.html"
     }
   ],
   "library": {

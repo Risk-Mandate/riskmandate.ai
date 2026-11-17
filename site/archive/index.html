@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RiskMandate — The archive: pages kept, not current</title>
+<meta name="description" content="Pages that were riskmandate.ai at one time and no longer say what we sell, kept for the record with the date each was archived and why.">
+<link rel="canonical" href="https://riskmandate.ai/archive/">
+<link rel="alternate" type="text/markdown" href="/archive/index.md" title="This page as markdown">
+<link rel="icon" href="/assets/brand/riskmandate-favicon-32.png" sizes="32x32">
+<link rel="icon" href="/assets/brand/riskmandate-mark.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RiskMandate">
+<meta property="og:url" content="https://riskmandate.ai/archive/">
+<meta property="og:title" content="RiskMandate — The archive: pages kept, not current">
+<meta property="og:description" content="Pages that were riskmandate.ai at one time and no longer say what we sell, kept for the record with the date each was archived and why.">
+<meta property="og:image" content="https://riskmandate.ai/assets/brand/riskmandate-lockup-light.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Scaffolded by scripts/site/new-page.mjs. Hand-edited from here on — there is no build step. -->
+<style>
+/* archive.css — self-contained: the shared chrome, then this page's own. */
+:root{
+  --bg:#F7F6F2; --bg2:#EFEDE7; --card:#FFFFFF; --ink:#0D0D0C; --canvas:#0A0A09;
+  --text:#1A1917; --muted:#4A4845; --faint:#8A8780; --border:#E2DFD8;
+  --green:#1A7F5A; --green-2:#22c55e; --greenBg:#EBF5F0;
+  --gold:#B45309; --red:#C0392B; --blue:#1D4ED8;
+  --fg:#F7F6F2; --fg-2:rgba(247,246,242,.55); --fg-3:rgba(247,246,242,.32);
+  --line:rgba(247,246,242,.10); --line-2:rgba(247,246,242,.18);
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","JetBrains Mono","Roboto Mono",Menlo,Consolas,monospace;
+  --wrap:1000px; --r:10px; --r-sm:8px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth} @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+h1,h2{margin:0;font-weight:800;letter-spacing:-.03em;line-height:1.04}
+h2{font-size:clamp(26px,3.6vw,40px);font-weight:700;letter-spacing:-.02em}
+p{margin:0}
+:focus-visible{outline:2px solid var(--green-2);outline-offset:3px;border-radius:4px}
+.tag{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+.g{color:var(--green)} .it{font-style:italic;color:var(--green)}
+
+/* header */
+.top{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.top .wrap{display:flex;align-items:center;gap:22px;height:56px;max-width:1100px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:15px;color:var(--text);white-space:nowrap;text-decoration:none}
+.rm{width:26px;height:26px;flex:none;display:block}
+.rm svg{width:100%;height:100%;display:block}
+.navlinks{display:flex;align-items:center;gap:22px;margin-left:auto}
+rm-menu{display:contents}
+.navlinks a{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;text-decoration:none;display:inline-flex;align-items:center}
+.navlinks a:hover{color:var(--text)}
+.navlinks a.active{color:var(--text);font-weight:600}
+.version{font-family:var(--mono);font-size:12px;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:7px;padding:5px 8px;text-decoration:none;white-space:nowrap;transition:color .15s,border-color .15s}
+.version:hover{color:var(--text);border-color:var(--faint)}
+.demo{background:var(--green);color:#fff;font-weight:600;font-size:13px;border:0;border-radius:8px;padding:8px 16px;cursor:pointer;transition:background .15s;font-family:var(--sans);white-space:nowrap}
+.demo:hover{background:#16704f}
+
+/* nav dropdowns */
+.navgroup{position:relative;display:inline-flex;align-items:center}
+.navgroup::after{content:"";position:absolute;top:100%;left:0;right:0;height:10px}
+.navgroup-btn{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13.5px;padding:6px 0;font-family:var(--sans);transition:color .15s;white-space:nowrap;display:inline-flex;align-items:center;gap:5px}
+.navgroup-btn:hover,.navgroup:hover .navgroup-btn,.navgroup.open .navgroup-btn,.navgroup.active .navgroup-btn{color:var(--text)}
+.navgroup-car{font-size:8px;line-height:1;opacity:.6;transition:transform .15s}
+.navgroup:hover .navgroup-car,.navgroup.open .navgroup-car{transform:rotate(180deg)}
+.navmenu{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);min-width:184px;background:var(--card);border:1px solid var(--border);border-radius:10px;box-shadow:0 10px 34px rgba(13,13,12,.14);padding:6px;display:none;flex-direction:column;gap:2px;z-index:70}
+.navgroup:hover .navmenu,.navgroup.open .navmenu{display:flex}
+.navmenu .navchild{justify-content:flex-start;text-align:left;width:100%;padding:8px 12px;border-radius:7px;font-size:13.5px;color:var(--muted);white-space:nowrap}
+.navmenu .navchild:hover{background:var(--bg2);color:var(--text)}
+.navmenu .navchild.active{color:var(--green);font-weight:600;background:var(--greenBg)}
+
+/* mobile drawer — the toggle is injected by nav.js; .top.nav-open opens it */
+.navtoggle{display:none;margin-left:auto;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;padding:0;background:none;border:0;cursor:pointer}
+.navtoggle span{display:block;width:20px;height:2px;margin:0 auto;background:var(--text);border-radius:2px;transition:transform .2s,opacity .2s}
+.top.nav-open .navtoggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.top.nav-open .navtoggle span:nth-child(2){opacity:0}
+.top.nav-open .navtoggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media (max-width:1040px){
+  .navtoggle{display:flex}
+  .top .wrap{position:relative}
+  .version{display:none}
+  .navlinks{display:none;position:absolute;left:0;right:0;top:calc(100% + 1px);flex-direction:column;align-items:stretch;gap:0;margin:0;padding:8px;background:var(--card);border-bottom:1px solid var(--border);box-shadow:0 14px 34px rgba(13,13,12,.14);max-height:calc(100vh - 56px);overflow:auto}
+  .top.nav-open .navlinks{display:flex}
+  .navlinks a,.navlinks .navgroup-btn{width:100%;text-align:left;justify-content:flex-start;padding:12px 16px;font-size:15px;border-radius:8px}
+  .navlinks a:hover{background:var(--bg2)}
+  .navgroup{display:block;width:100%;position:static}
+  .navgroup::after{display:none}
+  .navgroup-btn{display:flex}
+  .navgroup-car{margin-left:auto}
+  .navmenu{position:static;transform:none;display:flex;flex-direction:column;min-width:0;padding:2px 0 8px 14px;background:transparent;border:0;box-shadow:none}
+  .navmenu .navchild{padding:10px 14px;font-size:14px}
+}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;padding:12px 22px;border-radius:var(--r-sm);cursor:pointer;border:1px solid transparent;font-family:var(--sans);text-decoration:none}
+.btn-green{background:var(--green);color:#fff} .btn-green:hover{background:#16704f}
+.btn-ghost{background:transparent;color:var(--fg);border-color:var(--line-2)} .btn-ghost:hover{border-color:var(--fg-2)}
+.btn-ghost-dark{background:transparent;color:var(--text);border-color:var(--border)} .btn-ghost-dark:hover{border-color:var(--green);color:var(--green)}
+
+/* dark hero */
+.phero{background:var(--ink);color:var(--fg);padding:88px 24px 84px}
+.phero .wrap{max-width:var(--wrap)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--green);background:rgba(26,127,90,.18);border:1px solid rgba(26,127,90,.4);border-radius:999px;padding:5px 12px}
+.eyebrow .d{width:6px;height:6px;border-radius:50%;background:var(--green-2)}
+.phero h1{font-size:clamp(34px,5.2vw,60px);letter-spacing:-.04em;line-height:1.02;margin:26px 0 0;color:var(--fg);max-width:900px}
+.phero .sub{color:var(--fg-2);font-size:17px;line-height:1.7;max-width:640px;margin-top:24px}
+.cta-row{display:flex;flex-wrap:wrap;gap:11px;margin-top:30px}
+
+/* paper sections */
+.paper{background:var(--bg)}
+.psection{padding:80px 0;border-bottom:1px solid var(--border)}
+.psection.alt{background:var(--bg2)}
+.shead{max-width:680px} .shead.center{max-width:720px;margin:0 auto;text-align:center}
+.shead h2{color:var(--text)} .shead p{color:var(--muted);margin-top:16px;font-size:15px;line-height:1.75}
+
+/* closing panel + footer */
+.pcta{background:var(--ink);padding:80px 24px;text-align:center}
+.pcta .wrap{max-width:720px;padding:0}
+.pcta h2{font-size:clamp(28px,4.4vw,48px);color:var(--fg);margin-top:20px;font-weight:700;letter-spacing:-.03em}
+.pcta p{color:var(--fg-2);margin-top:16px;font-size:16px;line-height:1.7}
+.pcta .cta-row{justify-content:center}
+.foot{background:var(--canvas);border-top:1px solid var(--line);padding:32px 24px}
+.foot .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-family:var(--mono);font-size:10px;color:var(--fg-3);max-width:1100px}
+.footlink{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.footlink:hover{color:var(--fg-2)}
+/* narrow phones — at 360px the brand, the burger and the call to action stop
+   fitting on one line, and the header was the last thing on this site that
+   scrolled sideways. Tighten the gutter, the gap and the button rather than
+   drop any of them: all three are load-bearing at this width. */
+@media (max-width:420px){
+  .top .wrap{gap:12px;padding:0 16px}
+  .brand{font-size:14px;gap:7px}
+  .rm{width:24px;height:24px}
+  .demo{padding:8px 12px;font-size:12.5px}
+}
+
+/* web-summit-2026 — the mapping. Counts with their sources; nothing scored. */
+.phero .meta a,.phero .sub a{color:var(--green-2)}
+.ws-nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:34px}
+.ws-num{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:18px 18px 16px}
+.phero .ws-num{background:rgba(247,246,242,.04);border-color:var(--line-2)}
+.ws-num b{display:block;font-size:30px;font-weight:800;letter-spacing:-.03em;line-height:1.1}
+.ws-num span{display:block;font-size:14px;margin-top:6px}
+.ws-num small{display:block;font-family:var(--mono);font-size:11px;margin-top:10px;color:var(--faint)}
+.phero .ws-num span{color:var(--fg-2)} .phero .ws-num small{color:var(--fg-3)}
+.phero .ws-num small a{color:var(--fg-2)}
+.ws-t{width:100%;border-collapse:collapse;margin-top:28px;font-size:14.5px;background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
+.ws-t th,.ws-t td{text-align:left;vertical-align:top;padding:11px 14px;border-bottom:1px solid var(--border)}
+.ws-t th{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:var(--bg2)}
+.ws-t td.n{font-weight:700;white-space:nowrap}
+.ws-t tr:last-child td{border-bottom:0}
+.ws-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.ws-src{font-family:var(--mono);font-size:11.5px;color:var(--faint)}
+.ws-src a,.ws-t a,.shead a,.ws-list a,.ws-note a{color:var(--green)}
+.ws-list{margin:22px 0 0;padding-left:20px} .ws-list li{margin:8px 0}
+.ws-note{margin-top:26px;padding:16px 18px;border-left:3px solid var(--gold);background:var(--card);border-radius:0 var(--r-sm) var(--r-sm) 0;font-size:15px}
+.ws-note.g{border-left-color:var(--green)}
+.shead p{margin-top:16px;color:var(--muted)}
+.ws-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:28px}
+.ws-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:20px}
+.ws-card h3{margin:0 0 8px;font-size:17px}
+.ws-card p{font-size:14.5px;color:var(--muted);margin-top:6px}
+.ws-card .id{display:block;font-family:var(--mono);font-size:11px;color:var(--green);margin-bottom:8px}
+@media (max-width:640px){.ws-t{font-size:13.5px}.ws-t th,.ws-t td{padding:9px 10px}}
+.ws-draft{background:var(--gold);color:var(--fg);font-size:14px;padding:10px 0}
+.ws-draft a{color:var(--fg);text-decoration:underline}
+.phero .btn{display:inline-block}
+.ws-card h3 small{font-weight:400;color:var(--faint);font-size:13px}
+</style>
+</head>
+<body id="top">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
+    <nav class="navlinks"><rm-menu></rm-menu></nav>
+    <a class="version" href="/versions.html" title="What shipped in v1.40.3">v1.40.3</a>
+    <a class="demo" href="https://customers.riskmandate.ai/" data-try>Get in touch</a>
+  </div>
+</header>
+
+<main class="phero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="d"></span> The archive</span>
+    <h1>Kept, <span class="it">not current.</span></h1>
+    <p class="sub" style="margin-bottom:20px">Pages that were the site at one time and no longer say what we sell. They are kept because how this got here is part of the record, and some of the ideas in them are not finished. Nothing on an archived page should be read as current: prices, dates and plans on it are as they were.</p>
+    <p class="meta"><b>Started</b> 17 November 2026, when the site moved to one message: we can control your agents. More pages move here as the site is rebuilt; each keeps its address and gets a dated note.</p>
+  </div>
+</main>
+<section class="psection">
+  <div class="wrap">
+    <div class="shead"><span class="tag">In the archive</span><h2>What is here, <span class="g">and why.</span></h2></div>
+    <div class="ws-scroll"><table class="ws-t">
+      <thead><tr><th>Page</th><th>Archived</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td><a href="/archive/home-2026-11-16.html">The home page, v1.36.0 to v1.40.3</a></td><td class="ws-src">17 Nov 2026</td><td>Replaced by the home page built on the Web Summit 2026 record. It still invited people to the stand of 12 November and sold the £10 and £50 levels.</td></tr>
+        <tr><td><a href="/paid-t1.html">After paying for level 1, the pack</a> and <a href="/paid-t2.html">level 2, the vault</a></td><td class="ws-src">17 Nov 2026</td><td>The £10 pack and the £50 vault were retired: offered from 15 September, they did not sell. The pages stay at their addresses for anyone who bought one.</td></tr>
+        <tr><td><a href="/summit.html">Startup Summit Lisbon, 17–18 September 2026</a> and <a href="/summit-booth.html">its materials</a></td><td class="ws-src">17 Nov 2026</td><td>The September event, before Web Summit. <a href="/web-summit-2026/">Web Summit 2026</a> is the record that replaced it.</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>© 2026 RiskMandate · Autonomous Risk Management</span>
+    <span>The insurability layer for agentic AI. · <a class="footlink" href="/versions.html">Versions</a> · <a class="footlink" href="/admin/">Admin</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+var RM={core:{},services:{},components:{},data:{}};
+RM.data.currentPage="archive";RM.data.pages=[{"name":"abp","label":"What an ABP is","file":"abp.html","group":"Product","section":"Agent Behaviour Policy"},{"name":"pricing","label":"Four ways in, and pricing","file":"pricing.html","group":"Product","section":"Agent Behaviour Policy"},{"name":"abp-reviewed","label":"The reviewed level","file":"abp-reviewed.html","group":"Product","section":"Agent Behaviour Policy"},{"name":"reviewers","label":"Who runs your review","file":"reviewers.html","group":"Product","section":"Agent Behaviour Policy"},{"name":"for-corporate","label":"You run agents today","file":"for-corporate.html","group":"Product","section":"Who it's for"},{"name":"for-founders","label":"You are a founder","file":"for-founders.html","group":"Product","section":"Who it's for"},{"name":"for-startups","label":"You are a startup","file":"for-startups.html","group":"Product","section":"Who it's for"},{"name":"early-access","label":"Early access, invite only","file":"early-access.html","group":"Product","section":"Who it's for"},{"name":"early-adopters","label":"Early adopters: a thank you","file":"early-adopters.html","group":"Product","section":"Who it's for"},{"name":"licence-to-operate","label":"Licence to Operate","file":"licence-to-operate.html","group":"Product","section":"The roadmap"},{"name":"insurance","label":"The Insurability Index","file":"insurance.html","group":"Product","section":"The roadmap"},{"name":"insure-a-program","label":"Can you insure a program?","file":"insure-a-program.html","group":"Product","section":"The roadmap"},{"name":"plug","label":"Who can pull the plug","file":"plug.html","group":"Product","section":"The roadmap"},{"name":"scenarios","label":"Risk scenarios","file":"scenarios.html","group":"Product","section":"The roadmap"},{"name":"ramm","label":"RAMM — acceptance maturity","file":"ramm.html","group":"Product","section":"The roadmap"},{"name":"business-cases","label":"Business cases, by risk","file":"business-cases.html","group":"Product","section":"The roadmap"},{"name":"how-it-works","label":"How it works","file":"how-it-works.html","group":"How it works","section":"See it work"},{"name":"agent-behaviour-policy","label":"The sixteen examples","file":"agent-behaviour-policy.html","group":"How it works","section":"See it work"},{"name":"grant-gap","label":"The grant is not the mandate","file":"grant-gap.html","group":"How it works","section":"See it work"},{"name":"try-it","label":"Try it","file":"try-it.html","group":"How it works","section":"See it work"},{"name":"demos","label":"Live demos","file":"demos.html","group":"How it works","section":"See it work"},{"name":"lab","label":"The Lab","file":"lab.html","group":"How it works","section":"See it work"},{"name":"articles","label":"Articles","file":"articles.html","group":"How it works","section":"Read"},{"name":"newsroom","label":"From the newsroom","file":"newsroom.html","group":"How it works","section":"Read"},{"name":"stories","label":"Stories: a cast, and storyboards","file":"stories/index.html","group":"How it works","section":"Read"},{"name":"library","label":"Library","file":"library.html","group":"How it works","section":"Read"},{"name":"questions","label":"Questions","file":"questions.html","group":"How it works","section":"Read"},{"name":"secure-harness","label":"SHarness: enforcement, held by the kernel","file":"secure-harness.html","group":"Open source","section":"The open project"},{"name":"github","label":"The code, on GitHub ↗","file":"https://github.com/Risk-Mandate/riskmandate.ai","group":"Open source","section":"The open project"},{"name":"open-security-summit","label":"An open home: the Open Security Summit (proposed)","file":"open-security-summit.html","group":"Open source","section":"The open project"},{"name":"team","label":"The team: our own agents' policies","file":"team/index.html","group":"Open source","section":"The open project"},{"name":"owasp-graph","label":"OWASP projects, as a graph","file":"owasp-graph.html","group":"Open source","section":"The open project"},{"name":"brand","label":"Brand","file":"brand.html","group":"Open source","section":"The open project"},{"name":"about","label":"About: the company and the founders","file":"about.html","group":"Open source","section":"Company and community"},{"name":"partners","label":"Partners","file":"partners.html","group":"Open source","section":"Company and community"},{"name":"uk-support","label":"UK support, in the open","file":"uk-support.html","group":"Open source","section":"Company and community"},{"name":"contact","label":"Contact","file":"contact.html","group":"Open source","section":"Company and community"},{"name":"feedback","label":"Give feedback","file":"feedback.html","group":"Open source","section":"Company and community"},{"name":"privacy","label":"Privacy","file":"privacy.html","group":"Open source","section":"Company and community"},{"name":"agent-contact","label":"Agents: the contact file","file":"agents/index.html","group":"Open source","section":"Company and community"}];RM.data.sections=[];
+
+'use strict';
+// components/dom.js — tiny DOM helpers shared by components. `el` builds an
+// element with attributes and children; text children always go in via
+// textContent. `renderMarkdownInto` turns core/markdown tokens into real DOM
+// nodes (never an HTML string), so fetched release notes cannot inject markup.
+
+RM.components.dom = (function () {
+  // A link in a markdown note may only go somewhere harmless: same-document,
+  // same-origin relative, https, or mailto. Anything else — javascript:, data:,
+  // a protocol-relative host — renders as the text it was, and goes nowhere.
+  var SAFE = /^(?:https:\/\/|mailto:|#|[^:/?#]*(?:[/?#]|$))/i;
+
+  /**
+   * @param {string} tag
+   * @param {Object<string,string>} [attrs]
+   * @param {Array<Node|string>} [children]
+   * @returns {HTMLElement}
+   */
+  function el(tag, attrs, children) {
+    var node = document.createElement(tag);
+    if (attrs) Object.keys(attrs).forEach(function (k) {
+      if (attrs[k] != null) node.setAttribute(k, attrs[k]);
+    });
+    (children || []).forEach(function (c) {
+      node.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
+    });
+    return node;
+  }
+
+  /**
+   * Render inline runs into a parent element. Emphasis runs carry child runs
+   * rather than a string, so a link or a code span inside **bold** renders as
+   * itself instead of as its own markdown source — hence the recursion.
+   */
+  function appendRuns(parent, runs) {
+    runs.forEach(function (run) {
+      if (run.t === 'strong' || run.t === 'em') {
+        var node = el(run.t);
+        if (run.runs) appendRuns(node, run.runs);
+        else          node.appendChild(document.createTextNode(run.v));
+        parent.appendChild(node);
+      }
+      else if (run.t === 'code') parent.appendChild(el('code', null, [run.v]));
+      else if (run.t === 'link') parent.appendChild(SAFE.test(run.href)
+        ? el('a', { href: run.href }, [run.v])
+        : document.createTextNode(run.v));
+      else parent.appendChild(document.createTextNode(run.v));
+    });
+  }
+
+  /**
+   * Render markdown block tokens into a container as DOM nodes.
+   * @param {HTMLElement} container
+   * @param {Array} blocks  output of RM.core.markdown.parse
+   */
+  function renderMarkdownInto(container, blocks) {
+    blocks.forEach(function (b) {
+      if (b.type === 'heading') {
+        var h = el('h' + (b.level + 1)); // ## release title -> h3, etc.
+        appendRuns(h, b.runs);
+        container.appendChild(h);
+      } else if (b.type === 'list') {
+        var ul = el('ul');
+        b.items.forEach(function (runs) {
+          var li = el('li');
+          appendRuns(li, runs);
+          ul.appendChild(li);
+        });
+        container.appendChild(ul);
+      } else {
+        var p = el('p');
+        appendRuns(p, b.runs);
+        container.appendChild(p);
+      }
+    });
+  }
+
+  return { el: el, appendRuns: appendRuns, renderMarkdownInto: renderMarkdownInto };
+})();
+
+
+'use strict';
+// components/nav.js — the behaviour on a page that is *not* a link.
+//   [data-to]   → smooth in-page scroll to an element id (no hash routing).
+//   [data-demo] → open a pre-filled demo enquiry email.
+//
+// v1.0.0 removed everything else that used to live here. Up to v0.14 the site
+// ran inside a host <iframe> and every navigation was a postMessage — rm-nav,
+// rm-back, rm-manifest, rm-read. A <button> is not a link, so nothing could be
+// deep-linked, bookmarked, opened in a new tab, or crawled. Now each page is
+// the document the server sent and each navigation is an <a href>, so the only
+// things left to wire are the two that genuinely are not navigation.
+//
+// The mobile drawer is still injected rather than templated: one file gives
+// every page a working menu below the header breakpoint, where .navlinks is
+// hidden by CSS.
+
+RM.components.nav = (function () {
+  // Every "Book a demo" control opens a mail client with a subject and a
+  // starting message. One place to change when booking becomes a real form.
+  var DEMO = {
+    to     : 'agent@riskmandate.ai',
+    subject: 'RiskMandate — get in touch',
+    body   : [
+      'Hi,',
+      '',
+      'I would like to see a plug profile for one of the agents we already run.',
+      '',
+      'A little about us:',
+      '  • Organisation:',
+      '  • Roughly how many agents we are running:',
+      '  • The agent we would want to look at first:',
+      '  • Anything already in place (register, IdP, detection tooling):',
+      '',
+      'Thanks,'
+    ].join('\n')
+  };
+
+  function demoHref() {
+    return 'mailto:' + DEMO.to +
+      '?subject=' + encodeURIComponent(DEMO.subject) +
+      '&body='    + encodeURIComponent(DEMO.body);
+  }
+
+  // Since the contact form exists, "Get in touch" opens it: what a person types there is encrypted
+  // to the site agent's key in their browser. The mailto stays as demoHref for pages that link it.
+  function openDemo() { var base = (window.RM && RM.data && RM.data.base) || ''; window.location.href = base + 'contact.html'; }
+
+  function scrollTo(doc, id) {
+    var t = doc.getElementById(id);
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Inject the hamburger toggle and wire the drawer open/close. Idempotent.
+  function wireMobileNav(doc) {
+    var top = doc.querySelector('.top');
+    if (!top) return;
+    var wrap  = top.querySelector('.wrap');
+    var links = top.querySelector('.navlinks');
+    if (!wrap || !links || top.querySelector('.navtoggle')) return;
+
+    var burger = doc.createElement('button');
+    burger.className = 'navtoggle';
+    burger.setAttribute('type', 'button');
+    burger.setAttribute('aria-label', 'Toggle navigation');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-controls', 'sitenav');
+    for (var i = 0; i < 3; i++) burger.appendChild(doc.createElement('span'));
+    links.id = links.id || 'sitenav';
+    var demo = wrap.querySelector('.demo');
+    if (demo) wrap.insertBefore(burger, demo); else wrap.appendChild(burger);
+
+    // The header's version chip has no room below the drawer breakpoint, so the drawer carries
+    // it instead: the first entry, cloned from the chip while the drawer is open, so that a
+    // phone can confirm which version it is looking at without scrolling.
+    var chip = wrap.querySelector('a.version'), row = null;
+    function set(open) {
+      top.classList.toggle('nav-open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (row) { row.parentNode.removeChild(row); row = null; }
+      if (open && chip) {
+        row = doc.createElement('a');
+        row.className = 'navversion';
+        row.href = chip.getAttribute('href');
+        row.title = chip.getAttribute('title') || '';
+        row.textContent = 'Version ' + chip.textContent + ' · what shipped';
+        links.insertBefore(row, links.firstChild);
+      }
+    }
+    burger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      set(!top.classList.contains('nav-open'));
+    });
+    // Following a real nav link closes the drawer; the group header does not.
+    links.addEventListener('click', function (e) {
+      var b = e.target.closest('button, a');
+      if (b && !b.classList.contains('navgroup-btn')) set(false);
+    });
+    doc.addEventListener('click', function (e) {
+      if (top.classList.contains('nav-open') && !top.contains(e.target)) set(false);
+    });
+    doc.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+    var view = doc.defaultView || window;
+    view.addEventListener('resize', function () { if (view.innerWidth > 1040) set(false); });
+  }
+
+  /** @param {Document} doc */
+  function wire(doc) {
+    doc.querySelectorAll('[data-to]').forEach(function (elm) {
+      elm.addEventListener('click', function () { scrollTo(doc, elm.getAttribute('data-to')); });
+    });
+    // the header's "Try it free" is a plain link to customers.riskmandate.ai; only [data-demo] controls open the contact form
+    doc.querySelectorAll('[data-demo]').forEach(function (elm) {
+      elm.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); openDemo(); });
+    });
+    wireMobileNav(doc);
+  }
+
+  return { wire: wire, scrollTo: scrollTo, demoHref: demoHref, openDemo: openDemo };
+})();
+
+
+'use strict';
+// components/menu.js — <rm-menu>. The one shared header menu, on every page, so
+// the nav is built by a single piece of code. Renders the homepage's section
+// links first, then the top-level pages, marking the current page active.
+//
+// A run of contiguous pages sharing a `group` string collapses into one entry:
+// a hover/click dropdown labelled by the group, with the members as children. A
+// single-member group renders flat — no dropdown for one item.
+//
+// v1.0.0: every entry is an <a href>. The old menu emitted <button> elements
+// that asked a host frame to swap an iframe's srcdoc, which meant the links did
+// not exist as far as a crawler, a bookmark or a middle-click was concerned.
+// The group header stays a <button> because it opens a panel rather than going
+// anywhere — that is the one control here that is genuinely not a link.
+
+(function () {
+  var dom = RM.components.dom;
+
+  RM.components.Menu = class extends HTMLElement {
+    connectedCallback() {
+      var self = this;
+      this._onDocClick = function (e) {
+        self.querySelectorAll('.navgroup.open').forEach(function (g) {
+          if (!g.contains(e.target)) g.classList.remove('open');
+        });
+      };
+      document.addEventListener('click', this._onDocClick);
+      this._render();
+    }
+    disconnectedCallback() {
+      document.removeEventListener('click', this._onDocClick);
+    }
+
+    // On the homepage a section link scrolls; on any other page it is a link
+    // back to the homepage at that anchor. Same markup either way.
+    // A page that lives in a folder (site/stories/) sets RM.data.base to "/" so that the one
+    // shared page list, whose files are named from the site root, still resolves from there.
+    // A folder's index page is linked as the folder: /stories/, not /stories/index.html.
+    _href(file) {
+      if (/^https:\/\//.test(file)) return file;   // the code on GitHub: an address, not a page here
+      var base = (RM.data && RM.data.base) || '';
+      return base + file.replace(/(^|\/)index\.html$/, '$1');
+    }
+
+    _section(s) {
+      var home = !(RM.data && RM.data.currentPage);
+      var a = dom.el('a', { class: 'seclink', href: home ? '#' + s.to : this._href('index.html') + '#' + s.to }, [s.label]);
+      if (home) a.addEventListener('click', function (e) {
+        e.preventDefault();
+        RM.components.nav.scrollTo(document, s.to);
+      });
+      return a;
+    }
+
+    _pagelink(p, extra) {
+      var active = p.name === (RM.data && RM.data.currentPage);
+      var attrs  = { class: 'pagelink' + (extra ? ' ' + extra : '') + (active ? ' active' : ''), href: this._href(p.file) };
+      if (active) attrs['aria-current'] = 'page';
+      if (/^https:\/\//.test(p.file)) { attrs.target = '_blank'; attrs.rel = 'noopener'; }
+      return dom.el('a', attrs, [p.label]);
+    }
+
+    _group(name, members) {
+      var self    = this;
+      var current = RM.data && RM.data.currentPage;
+      var active  = members.some(function (m) { return m.name === current; });
+      var car     = dom.el('span',   { class: 'navgroup-car', 'aria-hidden': 'true' }, ['▾']);
+      var btn     = dom.el('button', { class: 'navgroup-btn' + (active ? ' active' : ''), type: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false' }, [name, car]);
+      var panel   = dom.el('div',    { class: 'navmenu' + (members.some(function (m) { return m.section; }) ? ' navwide' : '') }, this._columns(members));
+      var wrap    = dom.el('span',   { class: 'navgroup' + (active ? ' active' : '') }, [btn, panel]);
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = wrap.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      return wrap;
+    }
+
+    // A dropdown whose pages name a `section` is drawn as columns, one per section, each under
+    // its heading: the 3 November review kept the header to three entries, so the rest of the site
+    // sits one level down instead of being dropped. Without sections it is the plain list it was.
+    _columns(members) {
+      var self = this;
+      if (!members.some(function (m) { return m.section; })) return members.map(function (m) { return self._pagelink(m, 'navchild'); });
+      var cols = [], last = null;
+      members.forEach(function (m) {
+        if (m.section !== last) { cols.push({ name: m.section, items: [] }); last = m.section; }
+        cols[cols.length - 1].items.push(self._pagelink(m, 'navchild'));
+      });
+      return [dom.el('div', { class: 'navcols' }, cols.map(function (c) {
+        return dom.el('div', { class: 'navcol' }, [dom.el('span', { class: 'navsec' }, [c.name])].concat(c.items));
+      }))];
+    }
+
+    // The columns' few rules live here, with the code that draws them, so that one module carries
+    // them to every page; each page's own CSS still styles the bar, the panel and the links.
+    _style() {
+      if (document.getElementById('rm-menu-css')) return;
+      var css = '.navmenu.navwide{min-width:0;padding:10px}' +
+        '.navcols{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(190px,250px);gap:4px 12px}' +
+        '.navcol{display:flex;flex-direction:column;gap:2px;min-width:0}' +
+        '.navcols .navchild{white-space:normal;line-height:1.35}' +
+        '.navsec{display:block;padding:8px 12px 4px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--green,#1A7F5A)}' +
+        '@media (min-width:901px){.navmenu.navwide{left:auto;right:0;transform:none}}' +
+        '@media (min-width:901px) and (max-width:1180px){.navcols{grid-auto-flow:row;grid-template-columns:repeat(2,minmax(190px,250px))}}' +
+        '@media (max-width:900px){.navcols{display:flex;flex-direction:column}.navsec{padding:12px 14px 4px}}';
+      var st = document.createElement('style'); st.id = 'rm-menu-css'; st.textContent = css; document.head.appendChild(st);
+    }
+
+    _render() {
+      this._style();
+      var sections = (RM.data && RM.data.sections) || [];
+      var pages    = (RM.data && RM.data.pages)    || [];
+      var self     = this;
+      this.textContent = '';
+      sections.forEach(function (s) { self.appendChild(self._section(s)); });
+      var i = 0;
+      while (i < pages.length) {
+        var p = pages[i];
+        if (!p.group) { self.appendChild(self._pagelink(p)); i++; continue; }
+        var g = p.group, members = [];
+        while (i < pages.length && pages[i].group === g) { members.push(pages[i]); i++; }
+        if (members.length === 1) self.appendChild(self._pagelink(members[0]));
+        else                      self.appendChild(self._group(g, members));
+      }
+    }
+  };
+
+  customElements.define('rm-menu', RM.components.Menu);
+})();
+
+
+'use strict';
+// boot.js — inner-page composition root (version builds and dev.html). Custom
+// elements self-register on load; here we wire document-level nav behaviour.
+// The page runs inside the host's stage frame, so the host (not this page) signals
+// the SG/App host that the app is ready.
+
+(function () {
+  function start() { RM.components.nav.wire(document); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
+})();
+
+
+})();
+</script>
+</body>
+</html>

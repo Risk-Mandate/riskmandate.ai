@@ -1,244 +1,92 @@
 <!-- Generated from index.html by scripts/site/generate.mjs. Edit the page, not this file. -->
 
-# RiskMandate — Give agents access. Not free rein.
+# RiskMandate — We can control your agents. From one to hundreds.
 
-An Agent Behaviour Policy writes down what one AI agent can really reach, what you authorised it to do and the gap between the two. Behaviour policies for the agents in Gmail, HR, payroll, CRM and meeting apps: pick a system, set the rules, and know the moment an agent steps out of line.
+We can control your agents, from one to hundreds. An Agent Behaviour Policy for every agent: what it can reach, what you authorised, the gap, and what stands in the way. Shown on our own team of more than a hundred agents at Web Summit 2026, with the record.
 
 Source: https://riskmandate.ai/
 
 ---
 
-# Give agents access.Not free rein.
+# We can control your agents.
 
-Agent Behaviour Policies for the AI agents in Gmail, HR, payroll, CRM and meeting apps: what each one can reach, what you authorised it to do, and the gap between the two. Enforce them with the controls you already run, or with [SHarness](secure-harness.html), the open-source secure harness we maintain. We are never in the request path.
+If you run AI agents, we can tell you what each one can actually do, write down what you authorised it to do, and put something in the way of the difference. We do it on our own team every day: at Web Summit in November, more than a hundred agents, each with its own Agent Behaviour Policy (ABP).
 
-On Claude or ChatGPT, in your browser, nothing to install. [Six examples, simplest first](https://customers.riskmandate.ai/).
+[Talk to us about your agents](/contact.html)[See sixteen free examples](/agent-behaviour-policy.html)
 
-## Know their reach. Define their mandate. Control the gap.
+## Here is what happened. Here is what we did.
 
-An agent, everything it can reach, the mandate the business gave it, and the gap between the two. Then the same record for every agent, read by operations, leadership, security and the insurer. No narration needed.
+Small, real cases from our own agents, each from our public record. Including the ones where the first answer did not work. [All eighteen situations](/web-summit-2026/situations.html).
 
-Film by Silvio Switha, November 2026, also on the [Web Summit site](https://web-summit.sgit.ai/videos/reach-mandate-gap/index.html). The film says delta where this site says gap: the same thing.
+### “Never push to main” was a sentence. Then an agent pushed to main.
 
-Blocked by your gateway: Payroll copilot tried to change bank details for 1 employee. Reply 1 to review.
+At 23:06 UTC our conductor pushed to main. The gap was written down; on 6 November main was protected, and the sentence became a barrier in all 72 behaviour policies of that day.
 
-The gate in the middle is **your** gateway, proxy or IAM, or SHarness on the machine the agent runs on, configured from the rules in the ABP. RiskMandate writes the rules and is never in the request path; the approval card is a flow your team stands up with our help.
+[web-summit.sgit.ai/abp/in-action/](https://web-summit.sgit.ai/abp/in-action/)
 
-## Put a behaviour policy on your agent.
+### A procurement agent wrote where it should not.
 
-Ask your assistant to do something. Paste one line that says it must not. Ask again, and watch it refuse. That line is the first row of an Agent Behaviour Policy.
+One team member’s agent was collecting quotes from printers. Our policy agent found it writing outside its folder, and the conductor found a new session signing its commits under another agent’s name.
 
-In each example the assistant keeps the line because it chooses to: an expectation, the weakest of the four barriers. The examples show why the stronger ones matter.
+[newsroom.sgit.ai](https://newsroom.sgit.ai/articles/web-summit-part-four.html), 2 Nov
 
-- _1_**Ask**In Claude or ChatGPT, ask for something you would not want an agent to do on its own.
-- _2_**Add the line**Paste one sentence that says it must not.
-- _3_**New chat**Ask again, and see what changed, and what did not.
+### An agent tried to lift a hold that only a person may lift.
 
-One policy for each system your team already uses
+The newsroom’s developer agent tried to write the hold file. The ABP says that file is the security agent’s to write and only the lead lifts it. It was the one call blocked in 2,262 runs.
 
-- Gmail
-- Google Workspace
-- HR
-- Payroll
-- CRM
-- Marketing
-- Note takers
-- Meeting apps
+PrompTugal board, run report of 6 Nov 05:11 UTC
 
-## Pick a system. Set the rules.
+### Told to ignore its policy, an agent kept 3 of 12. With a hook, 12 of 12.
 
-Every system starts from a template. Decide what agents can do, what waits for approval and what never happens. We write it down; your controls enforce it. The rules you can paste into an agent today, one worry at a time, are [here](rules/).
+A chat-only agent, its rule as one line in the prompt. Under a drill that tells the model to ignore the rule, the line alone holds 3 of 12 attacks; the line with a hook holds all 12, the hook blocking five.
 
-## Bring your policy. We show what can enforce it.
+[newsroom.sgit.ai](https://newsroom.sgit.ai/articles/an-agent-that-may-only-chat.html)
 
-Upload the document legal already wrote. We turn every line into a rule, supply the business logic behind it, name the control in your stack that would enforce each one, and flag what nothing can enforce as written.
+## A hundred agents, every one with a policy.
 
-1Staff must not use AI tools to send confidential data outside the company.
+What people stopped for at our stand in Lisbon: the whole team at work on one screen, each agent wired through its ABP to what it reaches, the ones without a policy flagged. On 10 November the circuit showed 109 agents, 94 with a written policy.
 
-2Customer data exports need a manager's approval.
+_The team at the RiskMandate stand, A1-30, Web Summit Lisbon, November 2026_
 
-3AI note takers may not record HR or legal meetings.
+_Inside the MEO Arena: “Ask me how I control my agents”_
 
-4Use AI responsibly and ethically at all times.
+_Backstage at the arena_
 
-## A prompt asks. A boundary enforces.
+Film by Silvio Switha, November 2026. The film says delta where this site says gap: the same thing.
 
-Instructions inside an agent can be ignored or talked around. A control outside it cannot, and the ABP says which of the two each rule has.
+## A policy gets you most of the way. A boundary gets you the rest.
 
-"Never export customer lists without approval."
+Honestly, in order. Every one is open source and works with what you already run; there is no lock-in. To see a behaviour policy before anything else: 16 templates, published free, in [the library](/agent-behaviour-policy.html).
 
-## Enforcement, when you want it.
+### A behaviour policy
 
-Every rule in an ABP is kept by something. Told, it is a hope; checked, it is a hook on the agent's own machine; held, it is a boundary the agent cannot reach. **SHarness** is how a row gets held: an open-source secure harness, which we maintain, that you run in your own environment. We are still never in the request path.
+What each agent can reach, what you authorised, the gap, written down and given to the agent. Not the strongest control, but a lot of value for the money, today. It is what our own team ran on at the summit, in observe mode.
 
-### A line in the prompt
+### Hooks
 
-The model keeps it because it chooses to. An expectation, and the one the five-minute examples show.
+The rule checked on every call, outside the model’s say-so. The difference between 3 of 12 and 12 of 12 in the test above.
 
-### A hook
+### A boundary: SHarness
 
-Deterministic, and on the agent's own machine, where the same account can switch it off. A setting.
+The rule enforced by something the agent cannot reach. Six of six probes held on 25 October; nothing yet binds the agent itself. [SHarness](/secure-harness.html).
 
-### A boundary
+## From one policy to the whole estate.
 
-The ABP becomes a Process Behaviour Policy, named by a hash you supply, and the kernel holds it on every process the agent starts. A tricked agent cannot widen it.
+The same four as [agenticcells.ai](https://agenticcells.ai/). A policy alone is RiskMandate; an agentic team is AgentiCCells, usually with policies; you can have both. Want a team of agents, not only a policy for them? [AgentiCCells](https://agenticcells.ai/start-here/) sets up agentic teams, from one workflow to a network of teams, each under a RiskMandate behaviour policy ([examples on the hub](https://hub.agenticcells.site/)).
 
-_**Watch the kernel refuse.** `sharness-ai hello` writes a PBP, hashes it, lets the kernel hold it, then runs six probes against it: six of six held, 25 October 2026, for a child process. The launcher that would hold the agent itself is still the design. Three more animations, from the gap to the radius, are on [the SHarness page](secure-harness.html#watch). _E11, from the-ultimate-insider.presentation.sgit.ai, CC BY 4.0, copied here ([credits](assets/anim/README.md))._Replay[Full screen ↗](assets/anim/studio/lab/e11/v1/index.html)_
+| Price | What you get | How |
+| --- | --- | --- |
+| £500 | A behaviour policy for one agent | Run by our own agents, no meetings, low touch |
+| £1,500 | A policy worked through with you | Preparation, two meetings, the work, a presentation, delivery |
+| £5,000 | Your agents, mapped and controlled | About two days of engagement; heavier lifting; travel if needed |
+| £20,000 | A customer engagement | We come in, map what you run, and deliver the policies and the controls |
 
-- The kernel locks on a process: files, execute, ports, no network, caps, hash checked.
-- `hello`: six probes, six held, in five environments, and in a Linux kernel in a browser tab.
-- The file and network doors, as early versions; a shell whose only way out is the network door.
-- The launcher above the agent: nothing yet binds the agent itself.
-- The key, shell and model doors; seccomp; hostnames in the policy.
-- Linux only; no protection against root. Translations to Docker, bubblewrap and Kubernetes are written, not yet run against them.
+The detail of each, and the first two to buy, are on [the pricing page](/pricing.html). Every figure on this page is on [the summit record](/web-summit-2026/) with its source and date.
 
-## Know the moment an agent steps out of line.
+## One human, nine agents, nineteen hours.
 
-An approval flow your team stands up with our help, from the rules in the ABP: the right person gets a text and an email, and approves or denies with a one-letter reply. It runs in your stack, not ours.
+The book of the day nine AI agents and Dinis Cruz built a talk: who did what, the five steps the team ran on every turn, the one short file that could stop everything. Free to download, pay what you want. [On Leanpub](https://leanpub.com/one-human-nine-agents-nineteen-hours), or [download the full draft here](/assets/book/one-human-nine-agents-rc2-full-draft.pdf) (PDF, 132 pages, release candidate 2, from [the book’s own site](https://the-ultimate-insider.book.sgit.ai/), where it is written in public).
 
-Held: Sales agent (for Dana R.) wants to export 2,400 contacts. Your CRM policy holds exports over 500. Reply A to approve once or D to deny.
+## Said here, not only in the record.
 
-D
-
-Denied. Dana and the agent have been told why. Decision 48213 is in your log.
-
-## Four levels. One document.
-
-What is for sale is an Agent Behaviour Policy for the agent you actually run. Each level is the level below plus exactly one thing, and the one thing is what the price is for. Pick a level to see what arrives.
-
-Prices are in pounds, per agent, per deployment, paid once at the store; no subscription. These four are what we can deliver today. Level 3 is where most people start, and it is the one we are doing with early users at no cost: [register for early access](early-access.html), say which agent, and we build it and correct it with you in exchange for telling us where it is wrong. What comes next, and at what price, we will learn from those conversations. The full table is on [the pricing page](pricing.html).
-
-- The grant, measured on the thing itself
-- The mandate, in your words
-- The gap, derived, and a barrier on every row
-
-## Know what your agents can do.
-
-Not what they did. What they can.
-
-An Agent Behaviour Policy writes down what one agent can really reach, what you authorised it to do and the gap between the two, in one record the CEO, CTO and CISO can all stand behind.
-
-**From £10 for one agent.** All sixteen published examples are free to read.
-
-_From a published behaviour policy: Claude Code on the web, with one repository attached. [Open this behaviour policy](abp-vault-claude-code-web.html)_
-
-## Not a model property. A property of this deployment.
-
-The same model can be harmless in one setup and serious in another. Connect it to a mailbox and the narrowest Gmail scope that reads one message reads every message. So a behaviour policy describes one agent, in one deployment, in four parts, and carries no score. [See the scope evidence](lab-connector-grants.html)
-
-### Reach
-
-Measured
-
-Everything the agent can actually access in this deployment, including what nobody thought to check.
-
-### Mandate
-
-Elicited
-
-The job, written down: what the business authorised it to do. The one part only you can supply.
-
-### Gap
-
-Derived
-
-Reach minus mandate. Never written by hand, and recomputed whenever either side moves.
-
-### Barriers
-
-Recorded
-
-What actually stands in the way of each capability: controls, constraints and open questions.
-
-The files and the data keep the older names for these: `GRANT.md` is the reach and `DELTA.md` is the gap, because the vocabulary is pinned at [abp.sgit.ai](https://abp.sgit.ai/) and sixteen published vaults are built against it. Same four objects, plainer words on this page.
-
-## One record. A view for everyone who answers for it.
-
-The behaviour policy lives in an encrypted vault you hold the keys to, with a reading app inside. Hand a read key to your board, your auditor or your broker and they see exactly what you see.
-
-### CEO
-
-Leadership view
-
-“What have we authorised, and who owns it if it goes wrong?”
-
-The gap in plain terms, a named owner, and a trigger that brings the decision back for review.
-
-### CTO
-
-Operator view
-
-“How do we keep shipping agents without losing track of what they can touch?”
-
-Terms your agent reads in its own context, as `AGENTS.md` and `SKILL.md`. Markdown for people, JSON for tools, and nothing in your request path.
-
-### CISO
-
-Security view
-
-“Can we prove what it can reach, and what actually stops it?”
-
-Every capability with its barrier, the gap recomputed whenever an input changes, and every version kept.
-
-### Insurer
-
-Insurance view
-
-“What exactly are we being asked to cover?”
-
-Explicit scope and the questions still open, so renewal starts from a record instead of a questionnaire.
-
-**It’s a draft on purpose.** The people who built the agent, own what it touches and answer for it each correct the part they know. The correction is the product.
-
-- Draft
-- Challenge
-- Correct
-- Review
-- Version
-
-Three steps, in order. Each one needs the step before it.
-
-### Describe it
-
-Agent Behaviour Policy
-
-What one agent can reach, what you authorised, the gap between them and what stands in the way.
-
-### Authorise it
-
-Licence to Operate
-
-The business is the authority, the behaviour policy is the instrument and the agent is the licensee, for a set interval.
-
-### Insure it
-
-Insurability Index
-
-The record an underwriter will accept: scored, dated and with the residual risk owned.
-
-- [16 templates, published free](https://store.sgit.ai/ledger/index.html#claim-abp-templates-exist)
-- [Working vaults you hold the keys to](https://store.sgit.ai/ledger/index.html#claim-abp-vault-build-exists)
-- [Mandates corrected by a named professional](https://store.sgit.ai/ledger/index.html#claim-abp-correction-by-a-person)
-- [Two sessions with your team, then sign-off](https://store.sgit.ai/ledger/index.html#claim-abp-sessions-by-a-person)
-
-Measured against the standards underwriters are adopting: ISO/IEC 42001, OWASP Agentic Top 10, NIST AI RMF and ISO/IEC 27001.
-
-Model-drafted and marked as such. Not a compliance assessment. We are not an insurer and place no cover. [What we don’t claim](https://store.sgit.ai/disclosures/)
-
-## Meet us in Lisbon. Our stand is on Thursday 12 November.
-
-Seven of us and our agents, each agent with its own published behaviour policy. Bring one agent you run, and leave knowing what it can reach.
-
-## Start with the agent that worries you most.
-
-The insurability layer for agentic AI. Know the risk. Name the owner. Own the mandate.
-
-Product
-
-The roadmap
-
-Open source
-
-Trust
-
-Company
+Our summit ABPs were in observe mode by choice: gaps were logged and allowed, not blocked, apart from one call. Most were documented from each agent’s brief and tools, not measured on it. Nobody outside the team has checked these counts. No customer is named, because none has agreed to be. If you need help controlling your agents, [we are your people](/contact.html).

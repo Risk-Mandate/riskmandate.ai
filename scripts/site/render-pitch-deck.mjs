@@ -56,8 +56,9 @@ const LEVELS = [
   { n: 4, name: 'ABP Reviewed', price: '£1,500',  when: '1 to 5 days from your reply',  who: 'two sessions, then a signature' },
 ];
 
-// the gap figure, lifted out of the home page so there is one drawing rather than two
-const diagram = read('index.html').match(/<svg class="diagram"[\s\S]*?<\/svg>/)[0]
+// the gap figure, lifted out of the home page so there is one drawing rather than two; since v1.41.0
+// the home page that carries it is in the archive
+const diagram = read('archive/home-2026-11-16.html').match(/<svg class="diagram"[\s\S]*?<\/svg>/)[0]
   .replace(/class="(fadeIn|pop)[^"]*"/g, '').replace(/style="animation-delay:[^"]*"/g, '');
 
 const stamp = { version, shapes, reach, mandate, gap, unbounded, prices_read: PRICES_READ };
