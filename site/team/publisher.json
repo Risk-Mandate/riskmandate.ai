@@ -401,6 +401,8 @@
     {
       "when": "before every merge",
       "what": "npm run check: 45 tests, every generator's --check, the credential test on site/ and the console",
+      "href": "https://github.com/Risk-Mandate/riskmandate.ai/tree/dev/tests/site",
+      "link": "the tests, on GitHub",
       "kind": "setting"
     },
     {

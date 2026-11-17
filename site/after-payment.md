@@ -34,7 +34,7 @@ Each payment link's success address is the page for its level. Two parameters, b
 - **`order`** is kept to letters, digits, dot, underscore and hyphen, at most 64 characters; anything else is dropped before it is shown. With no `order` the page says _on your payment receipt_.
 - **`shape`** is the slug this site uses for the template, the same one the store already uses at `store.sgit.ai/p/<slug>/`. The page also accepts `vault`, `slug`, `policy`, or `#shape=<slug>`. Lower-case; anything outside `a-z`, `0-9` and hyphen is dropped.
 - **With a known shape** the page shows that template's download at once. **With no shape, or one it does not know**, it lists all sixteen templates and the buyer picks the one on the receipt; picking rewrites the address so the link can be kept.
-- **The sixteen slugs** are the table below. New templates appear here when they are built; the page's list is stamped from the same catalogue, so it cannot lag.
+- **The sixteen slugs** are the table below, each linked to its zip as built on this site. New templates appear here when they are built; the page's list is stamped from the same catalogue, so it cannot lag.
 
 | Slug | Template | The download |
 | --- | --- | --- |
@@ -85,7 +85,7 @@ The store's product pages use this site's slugs, which is what makes `shape` wor
 
 - **The download is the vault's own zip.** The same file the vault build writes under `site/vaults/<slug>/dist/`, served from this site. There is no second copy to drift.
 - **The size and hash on the page are stamped, not typed.** `build-abp-pages.mjs` reads every zip and writes the manifest into the page; the CI check that fails the build on a stale library page fails it on a stale manifest too. The buyer's _check the hash here_ fetches the file and hashes it in their browser against that manifest.
-- **No key on any page, ever.** The read keys of the sixteen templates are public and printed on purpose. A buyer's vault key travels by a separate message and is never committed; a buyer's corrected vault has no public key. This is a rule of the site with a test behind it, not a preference.
+- **No key on any page, ever.** The read keys of [the sixteen templates](agent-behaviour-policy.html) are public and printed on purpose. A buyer's vault key travels by a separate message and is never committed; a buyer's corrected vault has no public key. This is a rule of the site with a test behind it, not a preference.
 - **No payment, no email, no form on these pages.** They are static files. The store takes the money and holds the buyer's address; the follow-up mailbox is a person's.
 - **The wording is a commitment with a record.** Twenty-four hours is what the pages say. If it cannot be kept, the number moves on Pricing first, then on the pages, and the release note says so. The first orders will turn the commitment into a record.
 - **Every change ships as a release.** [v1.19.1](versions.html) made the pages; [v1.25.1](versions.html) made the entry-level page the download and set the 24 hours. The brief that asked for all of it is [D9 in the register](briefs.html), byte for byte, with what it is still owed.

@@ -265,7 +265,7 @@ table.t code{font-family:var(--mono);font-size:11.5px;background:var(--bg2);padd
   <div class="wrap">
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
-      <a class="version" href="versions.html" title="What shipped in v1.41.15">v1.41.15</a>
+      <a class="version" href="versions.html" title="What shipped in v1.41.16">v1.41.16</a>
     <a class="demo" href="https://customers.riskmandate.ai/" data-try>Try it free</a>
   </div>
 </header>
@@ -291,7 +291,7 @@ table.t code{font-family:var(--mono);font-size:11.5px;background:var(--bg2);padd
       <div class="shead">
         <span class="tag">Why this exists</span>
         <h2>Two failures, <span class="g">one list.</span></h2>
-        <p>Neither of these is hypothetical. One of the documents below arrived twice, byte-identical, six hours apart — and three Lab entries had already been written from it. Without a digest to compare, the only thing standing between that and a wasted afternoon is somebody's memory of a filename.</p>
+        <p>Neither of these is hypothetical. One of the documents below <a href="#d1">arrived twice, byte-identical, six hours apart</a> (both arrivals and the one SHA-256 are in <a href="briefs-register.json">the register</a>) — and three Lab entries had already been written from it. Without a digest to compare, the only thing standing between that and a wasted afternoon is somebody's memory of a filename.</p>
       </div>
       <ul class="plist">
         <li><strong>Nothing gets worked twice.</strong> Every file is archived exactly as it arrived and its SHA-256 recorded. An identical file turning up again is recognisable <em>before</em> anybody starts reading it, and the register lists every time it turned up rather than only the first.</li>
@@ -323,7 +323,7 @@ table.t code{font-family:var(--mono);font-size:11.5px;background:var(--bg2);padd
 
       <div class="docs">
 
-        <div class="doc">
+        <div class="doc" id="d1">
           <div class="dh">
             <span class="did">D1</span>
             <h3>The Grant Is User Shaped And Not Data Shaped: Start With The Connectors, And The Template Vault Is The Product</h3>
@@ -752,7 +752,7 @@ table.t code{font-family:var(--mono);font-size:11.5px;background:var(--bg2);padd
               <span class="k">What it asked for and has not got</span>
               <ul>
                 <li><strong>Applying to anything.</strong> Every row says not started except Web Summit; which doors to try is the lead&rsquo;s decision</li>
-                <li><strong>The government-sponsored travel.</strong> The grant that paid for it was withdrawn in 2023; the page says what exists instead</li>
+                <li><strong>The government-sponsored travel.</strong> The grant that paid for it, the UK Tradeshow Programme, <a href="https://www.gov.uk/guidance/uk-tradeshow-programme">was withdrawn on 7 June 2023</a>; the page says what exists instead</li>
                 <li><strong>A matching page on sgit.ai.</strong> That site is not in this repository; its partnerships section can link here</li>
               </ul>
             </div>
@@ -906,7 +906,7 @@ table.t code{font-family:var(--mono);font-size:11.5px;background:var(--bg2);padd
               <span class="k">What it produced</span>
               <ul>
                 <li><a href="admin/briefs/workflow__abp-vaults-for-people-we-know/index.html">The brief</a>: the existing app vault is the UI, a private keys vault holds every write key and the lead&rsquo;s notes, one vault per person holds only public material; the workflow; what the feedback loop is meant to learn</li>
-                <li>The pack, kept in the repository at <code>packs/dist/</code> rather than on the site: instructions, templates, a scaffolder, a leak gate proved against six planted leaks, the site&rsquo;s own builder with every catalogue deployment, and one fictional example built and checked</li>
+                <li>The pack, kept in the repository at <code>packs/dist/</code> rather than on the site: instructions, templates, a scaffolder, a leak gate (<a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/packs/abp-for-people/tools/check-person.mjs">its code is public</a>), the site&rsquo;s own builder with every catalogue deployment, and one fictional example built and checked</li>
               </ul>
             </div>
             <div>

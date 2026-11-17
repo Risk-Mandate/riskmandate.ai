@@ -248,7 +248,7 @@ The company, the rep, the nine rows, the risks, the holders and the six weeks ar
 
 ### To run it on a real agent.
 
-Replace the rows with a published behaviour policy’s grant and mandate; the sixteen examples on this site already compute the gap and the barrier per row. Replace the roles with the company’s chart. Have each holder write their risks in their own words, with the rows that establish them and the facts that would end them. The engine does not change. That is the next step, and it is not built.
+Replace the rows with a published behaviour policy’s grant and mandate; [the sixteen examples on this site](agent-behaviour-policy.html) already compute the gap and the barrier per row. Replace the roles with the company’s chart. Have each holder write their risks in their own words, with the rows that establish them and the facts that would end them. The engine does not change. That is the next step, and it is not built.
 
 _**The ontology the walk follows.** _recorded_in_, _establishes_ and _held_by_ go up; their inverses go down. The visualiser is this graph, drawn for one agent and walked one way at a time._
 

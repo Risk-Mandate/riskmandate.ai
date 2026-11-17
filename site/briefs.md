@@ -14,7 +14,7 @@ This site is built from briefs written elsewhere. Two things go wrong with that 
 
 ## Two failures, one list.
 
-Neither of these is hypothetical. One of the documents below arrived twice, byte-identical, six hours apart — and three Lab entries had already been written from it. Without a digest to compare, the only thing standing between that and a wasted afternoon is somebody's memory of a filename.
+Neither of these is hypothetical. One of the documents below [arrived twice, byte-identical, six hours apart](#d1) (both arrivals and the one SHA-256 are in [the register](briefs-register.json)) — and three Lab entries had already been written from it. Without a digest to compare, the only thing standing between that and a wasted afternoon is somebody's memory of a filename.
 
 - **Nothing gets worked twice.** Every file is archived exactly as it arrived and its SHA-256 recorded. An identical file turning up again is recognisable _before_ anybody starts reading it, and the register lists every time it turned up rather than only the first.
 - **Nothing gets quietly dropped.** The agent producing these briefs can fetch [briefs-register.json](briefs-register.json), compare it against what it has sent, and name anything that is absent. That is a check somebody else can run against us, which is the only kind worth having.
@@ -197,7 +197,7 @@ Each one is linked in full, as received, with nothing edited. Where a brief and 
 - [The register as data](uk-support.json), rendered into the page by a script that refuses a row without a source, and a closure without the words that close it
 - The finding the memo did not expect: the Sovereign AI procurement scheme’s third challenge, set with the NCSC, describes an Agent Behaviour Policy
 - **Applying to anything.** Every row says not started except Web Summit; which doors to try is the lead’s decision
-- **The government-sponsored travel.** The grant that paid for it was withdrawn in 2023; the page says what exists instead
+- **The government-sponsored travel.** The grant that paid for it, the UK Tradeshow Programme, [was withdrawn on 7 June 2023](https://www.gov.uk/guidance/uk-tradeshow-programme); the page says what exists instead
 - **A matching page on sgit.ai.** That site is not in this repository; its partnerships section can link here
 
 ### Pilots do not stay in production: the business sees the gap between mandate and reach, at machine speed, and declines to sign for it
@@ -256,7 +256,7 @@ Each one is linked in full, as received, with nothing edited. Where a brief and 
 **Users, one conversation at a time.** After talking to somebody, the lead gives a new agent a zip, a website and a sentence; the agent researches the organisation’s public pages and builds an Agent Behaviour Policy vault for them, to send as a demo they can correct and try. Three vaults: one for the keys, one for the UI, one per person, with controls so nothing leaks from one person to another, and each person’s vault written so it could be public one day.
 
 - [The brief](admin/briefs/workflow__abp-vaults-for-people-we-know/index.html): the existing app vault is the UI, a private keys vault holds every write key and the lead’s notes, one vault per person holds only public material; the workflow; what the feedback loop is meant to learn
-- The pack, kept in the repository at `packs/dist/` rather than on the site: instructions, templates, a scaffolder, a leak gate proved against six planted leaks, the site’s own builder with every catalogue deployment, and one fictional example built and checked
+- The pack, kept in the repository at `packs/dist/` rather than on the site: instructions, templates, a scaffolder, a leak gate ([its code is public](https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/packs/abp-for-people/tools/check-person.mjs)), the site’s own builder with every catalogue deployment, and one fictional example built and checked
 - **The keys vault.** The first session creates it and gives its key to the lead, so the steps are exercised once with the lead watching
 - **Corrections from inside a vault.** Today a person replies to the lead; a form is a question for the app vault
 - **A real person’s vault.** The pack has been run end to end on a fictional organisation only

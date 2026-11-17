@@ -10,7 +10,7 @@ Source: https://riskmandate.ai/article-calendar-edits-cannot-be-undone.html
 
 # A deleted meeting comes back. An edited one does not.
 
-Google Calendar keeps a deleted event in a trash for 30 days. It documents no way for a user to get back an event that was edited. So an agent allowed to edit your calendar can do damage a delete cannot: fifty meetings moved, re-titled or stripped of their guests, each still looking like a real meeting, with nothing to restore them from. This is an integrity risk, and it changes which permission is the dangerous one.
+Google Calendar [keeps a deleted event in a trash for 30 days](https://support.google.com/calendar/answer/37113?hl=en). It documents no way for a user to get back an event that was edited. So an agent allowed to edit your calendar can do damage a delete cannot: fifty meetings moved, re-titled or stripped of their guests, each still looking like a real meeting, with nothing to restore them from. This is an integrity risk, and it changes which permission is the dangerous one.
 
 **Evidence:** Google’s own help, Workspace and developer pages, read 24 September 2026, quoted with their addresses. Nothing was tested on anybody’s account.
 
@@ -38,7 +38,7 @@ For a personal account, and for a Workspace account whose edition includes Vault
 
 ### Export, then import
 
-**For contrast, from the same company.** Docs, Sheets and Slides offer _Restore this version_. Gmail keeps deleted mail in a trash for 30 days. Calendar protects the delete, like Gmail, and does not protect the edit, unlike Docs.
+**For contrast, from the same company.** Docs, Sheets and Slides offer _Restore this version_. Gmail [keeps deleted mail in a trash for 30 days](https://support.google.com/mail/answer/7401?hl=en). Calendar protects the delete, like Gmail, and does not protect the edit, unlike Docs.
 
 ## A delete leaves a hole. An edit leaves a wrong answer.
 

@@ -45,7 +45,7 @@ ${GROUPS.map((g, gi) => `
         <p class="nw-date">${day(it.date)}</p>
         <h3><a href="${NEWS(it.slug)}" target="_blank" rel="noopener">${esc(it.title)}</a></h3>
         <p>${esc(it.text)}</p>
-        ${it.quote ? `<blockquote>“${esc(it.quote)}”</blockquote>` : ''}
+        ${it.quote ? `<blockquote>“${esc(it.quote)}”</blockquote>` : ''}${it.qnote ? `<p>${esc(it.qnote)}</p>` : ''}
         <p class="nw-go"><a href="${NEWS(it.slug)}" target="_blank" rel="noopener">Read it on the newsroom ↗</a>${it.link ? ` · <a href="${it.link[1]}">${esc(it.link[0])}</a>` : ''}</p>
       </article>`).join('')}
     </div>

@@ -43,6 +43,8 @@ const M     = loadModel(join(DIR, 'model'));
 }
 const esc   = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const txt   = (s) => esc(s).replace(/\*([^*]+)\*/g, '<em>$1</em>');
+// linked: txt, plus [words](https://…) as a link, so a note can carry its sources in the sentence that uses them.
+const linked = (s) => txt(s).replace(/\[([^\]]+)\]\((https:\/\/[^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 const niceDate = (d) => `${parseInt(d.slice(8, 10), 10)} ${MONTHS[parseInt(d.slice(5, 7), 10) - 1]} ${d.slice(0, 4)}`;
 const fail = (m) => { console.error(`business cases: ${m}`); process.exit(1); };
@@ -804,7 +806,7 @@ function indexPage() {
         <li><span><b>State the deployment.</b> Sixteen questions about one agent: where it runs, what data it can reach, whether it can change production, whether anybody can stop it, and whether what it changes can be undone. Every case says which answers it starts from.</span></li>
         <li><span><b>Write what the product does, in its own words.</b> From the vendor&rsquo;s documentation, quoted and dated. Never from testing their product: we do not test somebody else&rsquo;s system.</span></li>
         <li><span><b>Write the answers it changes.</b> Each change says what kind it is: stating what is true, an expectation the agent is asked to meet, a setting, or a boundary the agent&rsquo;s grant does not include. An expectation never retires a risk; it is listed as a reduction.</span></li>
-        <li><span><b>Compute both registers.</b> The model&rsquo;s ${Object.keys(M.facts).length} facts establish or retire its ${M.risks.length} risks by fixed rules, and corporate risks roll up from the ones that lead into them.</span></li>
+        <li><span><b>Compute both registers.</b> The model&rsquo;s <a href="business-case/model/facts.json">${Object.keys(M.facts).length} facts</a> establish or retire its <a href="business-case/model/risks.json">${M.risks.length} risks</a> by fixed rules (<a href="business-case/model/PROVENANCE.md">where the model came from</a>), and corporate risks roll up from the ones that lead into them.</span></li>
         <li><span><b>Read it by altitude.</b> Each risk belongs to named roles, and each role reports up to the board. The case is the difference at each level.</span></li>
       </ol>
       <p class="bc-note">The model is the RiskGraph Explorer&rsquo;s, from one of our <a href="demos.html">live demos</a>, copied into this site with its provenance. It is small on purpose: sixteen questions, readable in one sitting, so an argument about a case is an argument about an answer, not about a formula. Nothing on these pages is a score, and no case is a statement that a product works; it is a statement of what changes in the register if it does what its documentation says.</p>
@@ -837,7 +839,7 @@ function indexPage() {
       <div class="bc-t co" role="table"><div class="bc-tr" role="row"><span role="columnheader">Company</span><span role="columnheader">Open project</span><span role="columnheader">What it sells on top</span></div>
       ${compRows}
       </div>
-      ${companies.note ? `<p class="bc-note">${txt(companies.note)}</p>` : ''}
+      ${companies.note ? `<p class="bc-note">${linked(companies.note)}</p>` : ''}
     </div>
   </section>` : ''}
 
@@ -984,7 +986,7 @@ function owaspPage() {
       <div class="shead">
         <span class="tag">Family ${i + 1} of ${fam.length}</span>
         <h2>${esc(f.name)}</h2>
-        <p>${txt(f.what)}${f.level ? ` The project is ${esc(f.level)} on its live page.` : ''}</p>
+        <p>${linked(f.what)}${f.level ? ` The project is ${esc(f.level)} on its live page.` : ''}</p>
       </div>
       <div class="og-rows">${kids(f.id).map(row).join('\n      ')}</div>
     </div>

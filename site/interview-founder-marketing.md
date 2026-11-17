@@ -103,6 +103,8 @@ Then ask me whether I am happy for this summary to be shared with RiskMandate's 
 
 **Note, 17 November 2026:** the prompt named the £10 and £50 levels until they were retired on 17 November 2026; it now names the four ways in, £500 to £20,000. The “340 things and you authorised 12” in the prompt is an invented illustration, not a measured agent. See [pricing](/pricing.html).
 
+**Note, 17 November 2026:** the sixteen example behaviour policies the prompt says are published free are on the site, each with its read key printed. See [the sixteen examples](/agent-behaviour-policy.html).
+
 **It also works typed**, and in another assistant such as Claude or Gemini: paste the same text. Voice is only faster.
 
 ## Nothing leaves your hands until you send it.

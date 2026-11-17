@@ -16,7 +16,7 @@
    "parent": "owasp",
    "url": "https://genai.owasp.org/",
    "level": "Flagship",
-   "what": "The umbrella project for generative AI and agent security, renamed from the LLM Top 10 project on 26 March 2025, with its own initiatives and documents."
+   "what": "The umbrella project for generative AI and agent security, [renamed from the LLM Top 10 project on 26 March 2025](https://genai.owasp.org/2025/03/26/project-owasp-promotes-genai-security-project-to-flagship-status/), with its own initiatives and documents."
   },
   {
    "id": "g-ai",

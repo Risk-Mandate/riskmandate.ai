@@ -96,9 +96,9 @@ Everything above follows from that mismatch. It is worth stating plainly because
 
 A behaviour policy measures the grant once, and the grant it measures _is_ the union — that is what measuring means. The lever a deployer still has is the other object: the mandate is written per purpose, and the delta is recomputed against each one.
 
-| The mandate you write | Against the same six-capability grant |
+| The mandate you write | Against the same [six-capability grant](vaults/claude-gmail-connector/data/grant.json) |
 | --- | --- |
-| “Read my inbox and tell me what is in it” | one capability wanted, five in the grant and not asked for, four of them with nothing in the way |
+| “Read my inbox and tell me what is in it” | one capability wanted, five in the grant and not asked for, four of them with no boundary in the way: two held by a setting, two by nothing ([the vault for this shape](abp-vault-claude-gmail-connector.html), rows and barriers in [grant.json](vaults/claude-gmail-connector/data/grant.json)) |
 | “Draft replies for me to send myself” | drafting is wanted; sending is not — and sending is a setting, removable in one click, so the refusal is a sentence rather than a bound |
 | “Triage and file, never send” | labelling is wanted; the send tools are still present, still approved from a previous conversation, still in the grant |
 

@@ -50,7 +50,7 @@ Know the risk.
 
 Every acceptance carries a named owner and an expiry, so the decision comes back.
 
-ACCEPTED CONDITIONS · 4/4 HOLDING
+THE GRANT · WHAT IT CAN DO
 
 ## Take the assets.
 

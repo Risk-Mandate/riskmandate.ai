@@ -32,7 +32,7 @@ Stated by OWASP, including 14 frameworks outside it.
 
 ## The GenAI Security Project
 
-The umbrella project for generative AI and agent security, renamed from the LLM Top 10 project on 26 March 2025, with its own initiatives and documents. The project is Flagship on its live page.
+The umbrella project for generative AI and agent security, [renamed from the LLM Top 10 project on 26 March 2025](https://genai.owasp.org/2025/03/26/project-owasp-promotes-genai-security-project-to-flagship-status/), with its own initiatives and documents. The project is Flagship on its live page.
 
 ### [OWASP Top 10 for LLM Applications 2025](https://genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025/)
 

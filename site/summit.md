@@ -26,7 +26,7 @@ Tell us which agent and roughly where it runs. We hand you a printed draft: ever
 
 ### The permission game — five minutes, forty questions, no sign-up
 
-Guess what an agent can reach, then find out, then get scored on how well you knew. It runs on the screen facing the aisle all day and needs nobody to operate it. Play it now if you like; it is the fastest way to understand what we do.
+Forty questions in five minutes, as [the game’s own page](https://what-can-it-do.games.sgit.ai/) says: guess what an agent can reach, then find out, then get scored on how well you knew. It runs on the screen facing the aisle all day and needs nobody to operate it. Play it now if you like; it is the fastest way to understand what we do.
 
 ### Licence to Operate — an insurance policy for an agent, simulated
 
@@ -88,7 +88,7 @@ RiskMandate makes that explicit. It starts with an **Agent Behaviour Policy**: a
 
 The result is an Insurability Index: a computed score against a real conformance standard rather than a self-assessment. Built on zero-knowledge encrypted vaults — the register stays with the customer, and can be handed to an auditor with a single read key.
 
-**Name:** RiskMandate — one word, two capitals. Not “Risk Mandate”, not “RISKMANDATE”. **Site:** riskmandate.ai · **Category:** AI governance, risk management, cybersecurity **What is public today:** six live demos, each opening its own encrypted vault with a deliberately published read-only key; the Agent Behaviour Policy model and its data as JSON at stable addresses; and this site's full version record. **Built on:** SG/Vault — zero-knowledge, PKI-backed, no database.
+**Name:** RiskMandate — one word, two capitals. Not “Risk Mandate”, not “RISKMANDATE”. **Site:** riskmandate.ai · **Category:** AI governance, risk management, cybersecurity **What is public today:** [six live demos](demos.html), each opening its own encrypted vault with a deliberately published read-only key; the Agent Behaviour Policy model and its data as JSON at stable addresses; and [this site's full version record](versions.html). **Built on:** SG/Vault — zero-knowledge, PKI-backed, no database.
 
 | Accurate | Not accurate — please don't |
 | --- | --- |
