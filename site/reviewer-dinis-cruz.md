@@ -18,15 +18,15 @@ Nothing here was written from what somebody told us in conversation, and nothing
 
 ## What they have actually done.
 
-The method being reviewed is theirs. What an agent can reach, what it was authorised to do, the gap derived from the two and the barrier that stands in the way of each capability — the model, the sixteen published template vaults and the read keys that open them are all on this site, in the open.
+The method being reviewed is theirs. What an agent can reach, what it was authorised to do, the gap derived from the two and the barrier that stands in the way of each capability — the model, [the sixteen published template vaults](agent-behaviour-policy.html) and the read keys that open them are all on this site, in the open.
 
 The business risk layer for autonomous systems. Its field demo is published as a vault of 124 files and 98 commits inside one encrypted store.
 
-Encrypted vaults with git semantics — clone, commit, branch and merge files encrypted before they leave your machine — under Apache-2.0, and the network of sites of which riskmandate.ai is one. Thirty-one vaults are published with their read keys as the evidence.
+Encrypted vaults with git semantics — clone, commit, branch and merge files encrypted before they leave your machine — under Apache-2.0, and the network of sites of which riskmandate.ai is one. Fifty-four vaults are published with their read keys as the evidence.
 
-And organiser of the OWASP Summits, Lisbon 2011 and Woburn 2017 — the working-session format with no spectators and only participants, which the Open Security Summit series went on to build on. Current open-source work still ships under the owasp-sbot organisation.
+And organiser of the OWASP Summits, [Lisbon 2011](https://wiki.owasp.org/index.php/Category:Summit_2011) and Woburn 2017 — the working-session format with no spectators and only participants, which the Open Security Summit series went on to build on. Current open-source work still ships under the owasp-sbot organisation.
 
-The OWASP static-analysis engine of 2010 to 2012, and the first of a line of open-source tooling that continues in the osbot and mgraph families, memory_fs, Issues-FS and sgit-ai — all Apache-2.0 and all on PyPI.
+[The OWASP static-analysis engine](https://wiki.owasp.org/index.php/OWASP_O2_Platform) of 2010 to 2012, and the first of a line of open-source tooling that continues in the osbot and mgraph families, memory_fs, Issues-FS and sgit-ai — all Apache-2.0 and all on PyPI.
 
 A platform for the conversation between technical security teams and the board, built with knowledge-graph technology. Apache-2.0, with the community edition and the investment repository public.
 

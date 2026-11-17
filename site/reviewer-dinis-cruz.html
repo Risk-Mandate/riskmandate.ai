@@ -273,7 +273,7 @@ table.lv td a{color:var(--green)}
 .rv-row:last-child{border-bottom:1px solid var(--border)}
 .rv-row b{font-size:16px;color:var(--text)}
 .rv-row p{font-size:15px;line-height:1.7;color:var(--muted)}
-.rv-row .rv-from{display:block;font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:8px}
+.rv-row .rv-from{display:block;font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:8px}.rv-row .rv-from a{color:inherit}
 .rv-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:34px}
 .rv-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:26px 28px;display:flex;flex-direction:column;gap:12px}
 .rv-card.ph{border-style:dashed;background:transparent}
@@ -295,7 +295,7 @@ table.lv td a{color:var(--green)}
   <div class="wrap">
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
-      <a class="version" href="versions.html" title="What shipped in v1.41.5">v1.41.5</a>
+      <a class="version" href="versions.html" title="What shipped in v1.41.6">v1.41.6</a>
     <a class="demo" href="https://customers.riskmandate.ai/" data-try>Try it free</a>
   </div>
 </header>
@@ -326,6 +326,9 @@ table.lv td a{color:var(--green)}
         <div><a href="https://sgit.ai/about/" target="_blank" rel="noopener">https://sgit.ai/about/</a> &mdash; The author page on sgit.ai: the record, the writing, and the interests declared. It is the provenance for the first-person byline on that site.<span class="rv-read">read 22 September 2026</span></div>
         <div><a href="https://open-source.sgit.ai/about/" target="_blank" rel="noopener">https://open-source.sgit.ai/about/</a> &mdash; The fuller version of the same record, on the open-source site, published CC BY 4.0.<span class="rv-read">read 22 September 2026</span></div>
         <div><a href="https://store.sgit.ai/who/dinis-cruz/" target="_blank" rel="noopener">https://store.sgit.ai/who/dinis-cruz/</a> &mdash; The store's own page for the person who runs the paid levels, built to the same rule: read off published pages, with the dates.<span class="rv-read">read 22 September 2026</span></div>
+        <div><a href="https://sgit.ai/demos/vaults/risk-mandate/index.html" target="_blank" rel="noopener">https://sgit.ai/demos/vaults/risk-mandate/index.html</a> &mdash; The field demo's own page on sgit.ai: the vault, with its file and commit counts.<span class="rv-read">read 17 November 2026</span></div>
+        <div><a href="https://sgit.ai/demos/vaults/index.html" target="_blank" rel="noopener">https://sgit.ai/demos/vaults/index.html</a> &mdash; The published vaults on sgit.ai, each with its read key.<span class="rv-read">read 17 November 2026</span></div>
+        <div><a href="https://open-source.sgit.ai/owasp/index.html#summits" target="_blank" rel="noopener">https://open-source.sgit.ai/owasp/index.html#summits</a> &mdash; The OWASP record on the open-source site: the summits by year and place, and the O2 Platform.<span class="rv-read">read 17 November 2026</span></div>
       </div>
     </div>
   </section>
@@ -335,21 +338,21 @@ table.lv td a{color:var(--green)}
       <div class="shead">
         <span class="tag">The record</span>
         <h2>What they have <span class="g">actually done.</span></h2>
-        <p>The method being reviewed is theirs. What an agent can reach, what it was authorised to do, the gap derived from the two and the barrier that stands in the way of each capability — the model, the sixteen published template vaults and the read keys that open them are all on this site, in the open.</p>
+        <p>The method being reviewed is theirs. What an agent can reach, what it was authorised to do, the gap derived from the two and the barrier that stands in the way of each capability — the model, <a href="agent-behaviour-policy.html">the sixteen published template vaults</a> and the read keys that open them are all on this site, in the open.</p>
       </div>
       <div class="rv-rows">
     <div class="rv-row"><div><b>Founder, RiskMandate.ai</b></div><div><p>The business risk layer for autonomous systems. Its field demo is published as a vault of 124 files and 98 commits inside one encrypted store.</p>
-      <span class="rv-from">read off https://sgit.ai/about/ · 22 September 2026</span></div></div>
-    <div class="rv-row"><div><b>Founder, sgit.ai</b></div><div><p>Encrypted vaults with git semantics — clone, commit, branch and merge files encrypted before they leave your machine — under Apache-2.0, and the network of sites of which riskmandate.ai is one. Thirty-one vaults are published with their read keys as the evidence.</p>
-      <span class="rv-from">read off https://sgit.ai/about/ · 22 September 2026</span></div></div>
-    <div class="rv-row"><div><b>Former OWASP Board member</b></div><div><p>And organiser of the OWASP Summits, Lisbon 2011 and Woburn 2017 — the working-session format with no spectators and only participants, which the Open Security Summit series went on to build on. Current open-source work still ships under the owasp-sbot organisation.</p>
-      <span class="rv-from">read off https://sgit.ai/about/ · 22 September 2026</span></div></div>
-    <div class="rv-row"><div><b>Creator, the O2 Platform</b></div><div><p>The OWASP static-analysis engine of 2010 to 2012, and the first of a line of open-source tooling that continues in the osbot and mgraph families, memory_fs, Issues-FS and sgit-ai — all Apache-2.0 and all on PyPI.</p>
-      <span class="rv-from">read off https://sgit.ai/about/ · 22 September 2026</span></div></div>
+      <span class="rv-from">read off <a href="https://sgit.ai/demos/vaults/risk-mandate/index.html" target="_blank" rel="noopener">https://sgit.ai/demos/vaults/risk-mandate/index.html</a> · 17 November 2026</span></div></div>
+    <div class="rv-row"><div><b>Founder, sgit.ai</b></div><div><p>Encrypted vaults with git semantics — clone, commit, branch and merge files encrypted before they leave your machine — under Apache-2.0, and the network of sites of which riskmandate.ai is one. Fifty-four vaults are published with their read keys as the evidence.</p>
+      <span class="rv-from">read off <a href="https://sgit.ai/demos/vaults/index.html" target="_blank" rel="noopener">https://sgit.ai/demos/vaults/index.html</a> · 17 November 2026</span></div></div>
+    <div class="rv-row"><div><b>Former OWASP Board member</b></div><div><p>And organiser of the OWASP Summits, <a href="https://wiki.owasp.org/index.php/Category:Summit_2011" target="_blank" rel="noopener">Lisbon 2011</a> and Woburn 2017 — the working-session format with no spectators and only participants, which the Open Security Summit series went on to build on. Current open-source work still ships under the owasp-sbot organisation.</p>
+      <span class="rv-from">read off <a href="https://open-source.sgit.ai/owasp/index.html#summits" target="_blank" rel="noopener">https://open-source.sgit.ai/owasp/index.html#summits</a> · 17 November 2026</span></div></div>
+    <div class="rv-row"><div><b>Creator, the O2 Platform</b></div><div><p><a href="https://wiki.owasp.org/index.php/OWASP_O2_Platform" target="_blank" rel="noopener">The OWASP static-analysis engine</a> of 2010 to 2012, and the first of a line of open-source tooling that continues in the osbot and mgraph families, memory_fs, Issues-FS and sgit-ai — all Apache-2.0 and all on PyPI.</p>
+      <span class="rv-from">read off <a href="https://open-source.sgit.ai/owasp/index.html#summits" target="_blank" rel="noopener">https://open-source.sgit.ai/owasp/index.html#summits</a> · 17 November 2026</span></div></div>
     <div class="rv-row"><div><b>Founder, The Cyber Boardroom</b></div><div><p>A platform for the conversation between technical security teams and the board, built with knowledge-graph technology. Apache-2.0, with the community edition and the investment repository public.</p>
-      <span class="rv-from">read off https://sgit.ai/about/ · 22 September 2026</span></div></div>
+      <span class="rv-from">read off <a href="https://sgit.ai/about/" target="_blank" rel="noopener">https://sgit.ai/about/</a> · 22 September 2026</span></div></div>
     <div class="rv-row"><div><b>Founder, MyFeeds.ai</b></div><div><p>Role-aware cybersecurity briefings built on semantic knowledge graphs, with source attribution: CISO, engineer and board views of the same news. Open source and serverless, with the seed pitch and unit economics published in the open.</p>
-      <span class="rv-from">read off https://sgit.ai/about/ · 22 September 2026</span></div></div>
+      <span class="rv-from">read off <a href="https://sgit.ai/about/" target="_blank" rel="noopener">https://sgit.ai/about/</a> · 22 September 2026</span></div></div>
       </div>
     </div>
   </section>
@@ -363,9 +366,9 @@ table.lv td a{color:var(--green)}
       </div>
       <div class="rv-rows">
     <div class="rv-row"><div><b>English</b></div><div><p>The language every published site in the network is written in.</p>
-      <span class="rv-from">read off https://sgit.ai/about/ · 22 September 2026</span></div></div>
+      <span class="rv-from">read off <a href="https://sgit.ai/about/" target="_blank" rel="noopener">https://sgit.ai/about/</a> · 22 September 2026</span></div></div>
     <div class="rv-row"><div><b>Portuguese</b></div><div><p>Named editor of record of the Portuguese newsroom on newsroom.sgit.ai.</p>
-      <span class="rv-from">read off https://sgit.ai/about/ · 22 September 2026</span></div></div>
+      <span class="rv-from">read off <a href="https://sgit.ai/about/" target="_blank" rel="noopener">https://sgit.ai/about/</a> · 22 September 2026</span></div></div>
       </div>
     </div>
   </section>
@@ -378,9 +381,9 @@ table.lv td a{color:var(--green)}
       </div>
       <div class="rv-rows">
     <div class="rv-row"><div><b>docs.diniscruz.ai</b></div><div><p>The long-form research and essays, published CC BY 4.0.</p>
-      <span class="rv-from">read off https://sgit.ai/about/ · 22 September 2026</span></div></div>
+      <span class="rv-from">read off <a href="https://sgit.ai/about/" target="_blank" rel="noopener">https://sgit.ai/about/</a> · 22 September 2026</span></div></div>
     <div class="rv-row"><div><b>The articles on sgit.ai</b></div><div><p>Signed when written in the first person; the unsigned ones are written in the site's own voice by the team of agents and say so.</p>
-      <span class="rv-from">read off https://sgit.ai/about/ · 22 September 2026</span></div></div>
+      <span class="rv-from">read off <a href="https://sgit.ai/about/" target="_blank" rel="noopener">https://sgit.ai/about/</a> · 22 September 2026</span></div></div>
       </div>
     </div>
   </section>

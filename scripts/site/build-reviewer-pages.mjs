@@ -61,7 +61,7 @@ const CSS = `
 .rv-row:last-child{border-bottom:1px solid var(--border)}
 .rv-row b{font-size:16px;color:var(--text)}
 .rv-row p{font-size:15px;line-height:1.7;color:var(--muted)}
-.rv-row .rv-from{display:block;font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:8px}
+.rv-row .rv-from{display:block;font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:8px}.rv-row .rv-from a{color:inherit}
 .rv-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:34px}
 .rv-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:26px 28px;display:flex;flex-direction:column;gap:12px}
 .rv-card.ph{border-style:dashed;background:transparent}
@@ -100,8 +100,11 @@ const pill = (p) => p.kind === 'placeholder'
                          : '<span class="rv-pill off">not taking work</span>';
 
 const sourceOf = (p, id) => p.sources.find(s => s.id === id);
-const rows = (p, list) => list.map(r => `<div class="rv-row"><div><b>${esc(r.what)}</b></div><div><p>${esc(r.detail)}</p>
-      <span class="rv-from">read off ${esc(sourceOf(p, r.source).url)} · ${esc(niceDate(sourceOf(p, r.source).read))}</span></div></div>`).join('\n    ');
+// The evidence rule of 17 Nov: a figure links to its public evidence in the same paragraph. `links` is a list of
+// { text, url }; the first occurrence of each text, already escaped, is wrapped in a link to its url.
+const linked = (text, links = []) => links.reduce((h, l) => h.replace(esc(l.text), `<a href="${esc(l.url)}"${/^https?:/.test(l.url) ? ' target="_blank" rel="noopener"' : ''}>${esc(l.text)}</a>`), esc(text));
+const rows = (p, list) => list.map(r => `<div class="rv-row"><div><b>${esc(r.what)}</b></div><div><p>${linked(r.detail, r.links)}</p>
+      <span class="rv-from">read off ${p.kind === 'placeholder' ? esc(sourceOf(p, r.source).url) : `<a href="${esc(sourceOf(p, r.source).url)}" target="_blank" rel="noopener">${esc(sourceOf(p, r.source).url)}</a>`} · ${esc(niceDate(sourceOf(p, r.source).read))}</span></div></div>`).join('\n    ');
 
 // ------------------------------------------------------------------ one page per reviewer
 function reviewerPage(p) {
@@ -144,7 +147,7 @@ function reviewerPage(p) {
       <div class="shead">
         <span class="tag">The record</span>
         <h2>What they have <span class="g">actually done.</span></h2>
-        ${p.why_them ? `<p>${esc(p.why_them)}</p>` : ''}
+        ${p.why_them ? `<p>${linked(p.why_them, p.why_them_links)}</p>` : ''}
       </div>
       <div class="rv-rows">
     ${rows(p, p.record)}
