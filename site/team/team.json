@@ -191,7 +191,7 @@
     },
     {
       "name": "npm run check",
-      "does": "40 tests and every generator's check, before every merge and in CI before every deploy",
+      "does": "45 tests and every generator's check, before every merge and in CI before every deploy",
       "kind": "ours, in place"
     },
     {

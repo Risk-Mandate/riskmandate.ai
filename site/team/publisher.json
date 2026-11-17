@@ -400,7 +400,7 @@
   "checks": [
     {
       "when": "before every merge",
-      "what": "npm run check: 40 tests, every generator's --check, the credential test on site/ and the console",
+      "what": "npm run check: 45 tests, every generator's --check, the credential test on site/ and the console",
       "kind": "setting"
     },
     {
