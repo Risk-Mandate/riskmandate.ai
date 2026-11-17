@@ -30,7 +30,7 @@ Three groups arrive at this — teams running agents, founders, and startups bei
 
 ## Four ways in, from one policy to the whole estate.
 
-The £500 policy is built for a buyer’s question, and the £1,500 one is where somebody sits with your team. What each way in includes and who does the work is on [pricing](pricing.html); the first two are bought at the store.
+The £500 policy is built for a buyer’s question, and the £1,500 one is where somebody sits with your team. What each way in includes and who does the work is on [pricing](pricing.html); today each starts with a conversation.
 
 The store takes the order and hands you back here: one page per level, and at level one that page **is** the download — the zip, its size, its sha256 and a check that runs in your own browser. Payment rails are not built yet, and every checkout button on the store says so rather than looking live.
 
