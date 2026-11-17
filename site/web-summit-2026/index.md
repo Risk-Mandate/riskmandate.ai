@@ -29,7 +29,7 @@ The team’s own account, in the team’s own pages. The stand was on Thursday 1
 | The newsroom | PrompTugal.news, “powered by RiskMandate”: “73 articles”, “61 named agents in 43 roles”, “fifty requests to companies and sent none” | [newsroom.sgit.ai](https://newsroom.sgit.ai/articles/promptugal-news-the-newsroom-we-ran.html), 15 Nov; [promptugal.news/riskmandate/](https://promptugal.news/riskmandate/) |
 | The incident site | Storm Charles, Lisbon, 10 to 12 November: decisions, warnings and public signals, each sourced and timed. “Not a warning service: follow IPMA and ANEPC.” “2,618 pages”. | [storm-charles.promptugal.news](https://storm-charles.promptugal.news/); newsroom.sgit.ai, 14 Nov |
 | The film | _Know the Reach_, a song with subtitles, 3:39 on the stand site; the music video’s first part, 53.4 seconds, by Silvio Switha | [riskmandate-at-websummit.agenticcells.site](https://riskmandate-at-websummit.agenticcells.site/#film), 16 Nov; [newsroom.sgit.ai](https://newsroom.sgit.ai/articles/know-the-reach.html), 15 Nov |
-| The pause | “9 Nov … at 23:30, the Big Stop: every agent paused”; “12 Nov … the final hold at 18:12” | newsroom.sgit.ai, 14 Nov |
+| The pause | “9 Nov … at 23:30, the Big Stop: every agent paused”; “12 Nov … the final hold at 18:12” | [newsroom.sgit.ai](https://newsroom.sgit.ai/articles/ten-days-at-web-summit.html), 14 Nov |
 
 ## One for every agent, in three places.
 
@@ -94,9 +94,9 @@ Twelve storm tasks on four models, run by one agent: 48 loops, peak concurrency 
 
 | “At once”, counted four ways | Figure | Source |
 | --- | --- | --- |
-| Claude Code sessions working at the same time, at the peak (an upper bound from each session’s start and last activity) | 64 to 67 | newsroom.sgit.ai, 14 Nov, for 11 Nov |
-| Sessions created in one day, the storm swarm | 134 | newsroom.sgit.ai, 14 Nov |
-| Agents with overlapping run windows in the PrompTugal reports (an upper bound: a run can sit idle) | 25 | our count, 6 Nov 23:49 UTC |
+| Claude Code sessions working at the same time, at the peak (an upper bound from each session’s start and last activity) | 64 to 67 | [newsroom.sgit.ai](https://newsroom.sgit.ai/articles/ten-days-at-web-summit.html), 14 Nov, for 11 Nov |
+| Sessions created in one day, the storm swarm | 134 | [newsroom.sgit.ai](https://newsroom.sgit.ai/articles/ten-days-at-web-summit.html), 14 Nov |
+| Agents with overlapping run windows in the PrompTugal reports (an upper bound: a run can sit idle) | 25 | our count from [the run reports](https://github.com/PrompTugal/PrompTugal__News__Website/tree/dev/board/runs), 6 Nov 23:49 UTC |
 | “more than 120 agents at once” (abstract); “more than a hundred agents” (index) | >100 | [newsroom.sgit.ai](https://newsroom.sgit.ai/articles/where-assist-becomes-execute.html), 15 Nov |
 
 ## What exists, and where.
@@ -120,7 +120,7 @@ Nothing on the public record names a customer, pilot or partner of the ABP, and 
 
 ## Printed side by side, unresolved.
 
-Each is right about what it counts. A reader quoting one should quote what it counts.
+Each is right about what it counts. A reader quoting one should quote what it counts. Every figure below is linked to its evidence where it first appears, in sections 01 to 04; the newer ones here: [the PrompTugal agentic-system page](https://promptugal.news/agentic-system/) (“2260”, “2962”), [the team page](https://web-summit.sgit.ai/team/everything/) (164, 137), [the ABP index](https://web-summit.sgit.ai/abp/) (“93 pages”), [the stand site](https://riskmandate-at-websummit.agenticcells.site/#film) (3:39), [the newsroom](https://newsroom.sgit.ai/articles/know-the-reach.html) (53.4 seconds), [the newsroom piece](https://newsroom.sgit.ai/articles/promptugal-news-the-newsroom-we-ran.html) (“73 signed articles”).
 
 | Measure | Figures |
 | --- | --- |
