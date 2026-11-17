@@ -35,7 +35,7 @@ publisher (`publisher.md`) keeps its own job. A new session or a scheduled task 
 | 3 | The ladder on `pricing.html` (£500 / £1,500 / £5,000 / £20,000), once the lead confirms it directly | developer, ambassador | **done** v1.41.0: the ladder live, £10/£50 retired |
 | 4 | The archive: old pages kept at their addresses with a dated note, listed on `/archive/` | developer, sherpa | started v1.41.0: `/archive/` with the old home page; more pages to move |
 | 5 | Web Summit photos and stills: which are public, of whom, and a gallery in more than one design | researcher, designer | photos copied and on the homepage draft (round 2); stills next |
-| 6 | The film on the homepage and in the summit section | designer, developer | open |
+| 6 | The film on the homepage and in the summit section | designer, developer | **done** (home v1.41.0, summit record v1.41.17) |
 | 7 | Where a rule is kept: prompt, hook, boundary (from the newsroom map) | developer, researcher | open |
 | 8 | A sherpa walk and four synthetic personas over the branch build | sherpa, synthetic users | first run 17 Nov (`docs/marketing/synthetic-users-2026-11-17.md`); fixes 1–4 v1.41.8; every few turns |
 | 9 | The one-paragraph message and the cross-links with agenticcells.ai and the hub | ambassador | cross-link lines agreed with the AgentiCCells conductor 16 Nov (ours on the homepage draft; theirs: "Already running agents and need to control them? RiskMandate writes the behaviour policy, from one agent to hundreds."); the message itself open |
