@@ -43,8 +43,8 @@ publisher (`publisher.md`) keeps its own job. A new session or a scheduled task 
 | 8 | A sherpa walk and four synthetic personas over the branch build | sherpa, synthetic users | open; every few turns |
 | 9 | The one-paragraph message and the cross-links with agenticcells.ai and the hub | ambassador | cross-link lines agreed with the AgentiCCells conductor 16 Nov (ours on the homepage draft; theirs: "Already running agents and need to control them? RiskMandate writes the behaviour policy, from one agent to hundreds."); the message itself open |
 | 10 | The book: the PDF and the Leanpub link, where it sits on the site | developer, ambassador | **done on the draft** (round 2): PDF hosted, Leanpub linked |
-| 13 | Evidence audit, every page: each figure links to its public evidence or comes off (the lead's rule of 17 Nov); home page done v1.41.1 | researcher, developer | **next** |
-| 12 | `pricing.html` scrolls sideways on a phone (844px at 390): already so on v1.40.3; the levels table's wrapper does not hold it | developer | open |
+| 13 | Evidence audit, every page: each figure links to its public evidence or comes off (the lead's rule of 17 Nov); home page v1.41.1, the summit record v1.41.2; the rest audited 17 Nov (docs/marketing/evidence-audit-2026-11-17.json) | researcher, developer | **in progress** |
+| 12 | `pricing.html` scrolls sideways on a phone (844px at 390): already so on v1.40.3; the levels table's wrapper does not hold it | developer | **done** v1.41.2: the second table had no scroll container |
 | 11 | The universe view's white border stripes: find where the view lives and the cause | developer | open; it may live on another site |
 
 ## Done means
