@@ -50,13 +50,13 @@ of organisations that evaluated task-specific tools **reached production**; 60% 
 
 This source says the barrier is learning and workflow fit, “not infrastructure, regulation, or talent”. It also lists regulatory constraints among factors it did not address.
 
-MIT NANDA, _The GenAI Divide_, July 2025 · read from a mirror labelled v0.1; no MIT-hosted copy found
+MIT NANDA, _The GenAI Divide_, July 2025 · read from [a mirror labelled v0.1](https://mlq.ai/media/quarterly_decks/v0.1_State_of_AI_in_Business_2025_Report.pdf); no MIT-hosted copy found
 
 named **regulatory compliance as the top barrier** to developing and deploying generative AI, up ten points; “difficulty managing risks” rose to 32%.
 
 Deloitte’s reading: “respondents’ unease about which use cases will be acceptable, and to what extent their organizations will be held accountable for GenAI-related problems.”
 
-Deloitte, _State of Generative AI in the Enterprise_, Q4, January 2025 · report PDF
+Deloitte, _State of Generative AI in the Enterprise_, Q4, January 2025 · [report PDF](https://www.deloitte.com/content/dam/assets-zone3/us/en/docs/services/consulting/2024/us-state-of-gen-ai-q4.pdf)
 
 of US leaders at companies with revenue over $1bn **expected risk management to be the biggest challenge** to their generative AI strategy that year, ahead of data quality at 64%.
 
@@ -84,7 +84,7 @@ of organisations **slowed or paused AI deployment** in response to AI-related in
 
 vendor survey OneTrust sells AI governance.
 
-OneTrust, _2026 AI-Ready Governance Report_, 14 September 2026 · press release
+OneTrust, [_2026 AI-Ready Governance Report_](https://www.onetrust.com/resources/onetrust-2026-ai-ready-governance-report/) · [press release](https://www.onetrust.com/news/onetrust-unveils-platform-and-product-innovations-to-govern-ai-at-enterprise-scale/), 30 September 2026
 
 ## A pilot answers _can it_. Production asks _what else can it_.
 
@@ -98,7 +98,7 @@ The pilot is explorer work, and it feels like the real thing because it is the p
 
 ## It was not wrong. It was not expected.
 
-A story the author was told, with no public source, so it is told here as that and nothing more. A credit agent had been working well. At about two in the morning it approved a large line of credit — the figure remembered is around a hundred thousand dollars. By the morning it had been taken out of live service. Nobody claimed the decision was wrong. It was that nobody had expected the agent to make that decision, at that size, at that hour, with nobody awake.
+A story the author was told, with no public source, so it is told here as that and nothing more. A credit agent had been working well. At about two in the morning it approved a large line of credit. By the morning it had been taken out of live service. Nobody claimed the decision was wrong. It was that nobody had expected the agent to make that decision, at that size, at that hour, with nobody awake.
 
 ### The questions the business asked next
 
@@ -173,7 +173,7 @@ Simon Willison, [16 June 2025](https://simonwillison.net/2025/Jun/16/the-lethal-
 - **Gartner names inadequate risk controls** as a cause in both its abandonment forecasts.
 - **Deloitte’s reading is accountability:** unease about how far the organisation will be held accountable.
 - **Gartner’s 2026 forecast draws our distinction**, between an agent’s ability to act and the access it is granted, and ties decommissioning to it.
-- **Trust in fully autonomous agents fell** from 43% to 27% in Capgemini’s two surveys, a year apart, with different samples.
+- **Trust in fully autonomous agents fell** from 43% to 27% in Capgemini’s two surveys, a year apart, with different samples ([Capgemini, press release](https://www.capgemini.com/news/press-releases/trust-and-human-ai-collaboration-set-to-define-the-next-era-of-agentic-ai-unlocking-450-billion-opportunity-by-2028/)).
 
 ### What points elsewhere
 
@@ -181,7 +181,7 @@ Simon Willison, [16 June 2025](https://simonwillison.net/2025/Jun/16/the-lethal-
 - **RAND’s root causes** are problem definition, data, infrastructure and leadership, and its study excluded prompt-engineered projects.
 - **IDC’s inhibitors** are data quality, integration and budget; governance is not in its top five.
 - **Cost is a leading factor** in S&P’s and McKinsey’s 2026 surveys.
-- **Some risk barriers are falling:** S&P’s security figure fell seven points in a year.
+- **Some risk barriers are falling:** S&P’s security figure fell seven points in a year ([S&P Global](https://www.spglobal.com/market-intelligence/en/news-insights/research/ai-experiences-rapid-adoption-but-with-mixed-outcomes-highlights-from-vote-ai-machine-learning)).
 
 **What none of them tests.** No survey we found asks whether the gap between an agent’s reach and its mandate is what stopped sign-off, or who declined to sign. Barrier questions are multi-select perceptions, not causes traced to cancelled projects, and most of the publishers sell a remedy. Nobody independent measures how many deployments are withdrawn after launch. **The question that would settle it** is short: for each agent you withdrew or never launched, did somebody decline to own what it could do, and was that the reason? If you have an answer, even one, we would like to publish it.
 

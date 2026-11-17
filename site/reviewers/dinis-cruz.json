@@ -32,28 +32,58 @@
       "url": "https://store.sgit.ai/who/dinis-cruz/",
       "what": "The store's own page for the person who runs the paid levels, built to the same rule: read off published pages, with the dates.",
       "read": "2026-09-22"
+    },
+    {
+      "id": "sgit-vault",
+      "url": "https://sgit.ai/demos/vaults/risk-mandate/index.html",
+      "what": "The field demo's own page on sgit.ai: the vault, with its file and commit counts.",
+      "read": "2026-11-17"
+    },
+    {
+      "id": "sgit-vaults",
+      "url": "https://sgit.ai/demos/vaults/index.html",
+      "what": "The published vaults on sgit.ai, each with its read key.",
+      "read": "2026-11-17"
+    },
+    {
+      "id": "os-owasp",
+      "url": "https://open-source.sgit.ai/owasp/index.html#summits",
+      "what": "The OWASP record on the open-source site: the summits by year and place, and the O2 Platform.",
+      "read": "2026-11-17"
     }
   ],
   "record": [
     {
       "what": "Founder, RiskMandate.ai",
       "detail": "The business risk layer for autonomous systems. Its field demo is published as a vault of 124 files and 98 commits inside one encrypted store.",
-      "source": "sgit-about"
+      "source": "sgit-vault"
     },
     {
       "what": "Founder, sgit.ai",
-      "detail": "Encrypted vaults with git semantics — clone, commit, branch and merge files encrypted before they leave your machine — under Apache-2.0, and the network of sites of which riskmandate.ai is one. Thirty-one vaults are published with their read keys as the evidence.",
-      "source": "sgit-about"
+      "detail": "Encrypted vaults with git semantics — clone, commit, branch and merge files encrypted before they leave your machine — under Apache-2.0, and the network of sites of which riskmandate.ai is one. Fifty-four vaults are published with their read keys as the evidence.",
+      "source": "sgit-vaults"
     },
     {
       "what": "Former OWASP Board member",
       "detail": "And organiser of the OWASP Summits, Lisbon 2011 and Woburn 2017 — the working-session format with no spectators and only participants, which the Open Security Summit series went on to build on. Current open-source work still ships under the owasp-sbot organisation.",
-      "source": "sgit-about"
+      "source": "os-owasp",
+      "links": [
+        {
+          "text": "Lisbon 2011",
+          "url": "https://wiki.owasp.org/index.php/Category:Summit_2011"
+        }
+      ]
     },
     {
       "what": "Creator, the O2 Platform",
       "detail": "The OWASP static-analysis engine of 2010 to 2012, and the first of a line of open-source tooling that continues in the osbot and mgraph families, memory_fs, Issues-FS and sgit-ai — all Apache-2.0 and all on PyPI.",
-      "source": "sgit-about"
+      "source": "os-owasp",
+      "links": [
+        {
+          "text": "The OWASP static-analysis engine",
+          "url": "https://wiki.owasp.org/index.php/OWASP_O2_Platform"
+        }
+      ]
     },
     {
       "what": "Founder, The Cyber Boardroom",
@@ -96,5 +126,11 @@
   "reach": {
     "what": "LinkedIn is the fastest route, and corrections to any of these sites are tracked in the open.",
     "url": "https://sgit.ai/about/"
-  }
+  },
+  "why_them_links": [
+    {
+      "text": "the sixteen published template vaults",
+      "url": "agent-behaviour-policy.html"
+    }
+  ]
 }
