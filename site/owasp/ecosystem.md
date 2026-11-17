@@ -32,11 +32,11 @@ The grant is a list of what the agent can reach: close to a bill of materials. C
 
 ## The ABP describes and records. ACS is a wire through which a control can act.
 
-ACS joined the OWASP GenAI Security Project on 1 September 2026. Its README calls it a wire specification that lets a separate Guardian Agent inspect what an agent is about to do and permit, deny or modify it. Read on 8 October: version 0.1.3 (changelog dated 9 September 2026), Apache-2.0 for code and schemas, CC BY-SA 4.0 for prose. The brief of 8 October asked for an overlap matrix with ACS and the Agentic Top 10; this is the first reading of it, from public pages, for the maintainers to correct.
+ACS [joined the OWASP GenAI Security Project on 1 September 2026](https://genai.owasp.org/resource/agent-control-standard-acs/). Its [README](https://github.com/GenAI-Security-Project/agent-control-standard/blob/main/README.md) calls it a wire specification that lets a separate Guardian Agent inspect what an agent is about to do and permit, deny or modify it. Read on 8 October: version 0.1.3 (its [changelog](https://github.com/GenAI-Security-Project/agent-control-standard/blob/main/CHANGELOG.md), read again on 17 November, dates 0.1.3 5 October 2026 and 0.1.2 9 September; 0.1.4 followed on 16 October), Apache-2.0 for code and schemas, CC BY-SA 4.0 for prose. The brief of 8 October asked for an overlap matrix with ACS and the Agentic Top 10; this is the first reading of it, from public pages, for the maintainers to correct.
 
 |  | Agent Behaviour Policies (proposed) | Agent Control Standard | Top 10 for Agentic Applications |
 | --- | --- | --- | --- |
-| Purpose | Write down what one agent in one deployment can do, what it was authorised to do, the gap, and what stands in the way | A runtime protocol through which a separate guardian can allow, deny, modify, ask or defer an agent’s next action | A list of the ten risk categories for agentic applications, December 2025 |
+| Purpose | Write down what one agent in one deployment can do, what it was authorised to do, the gap, and what stands in the way | A runtime protocol through which a separate guardian can allow, deny, modify, ask or defer an agent’s next action | A list of the ten risk categories for agentic applications, [December 2025](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/) |
 | Artefacts | Grant, mandate, delta and barrier records; a 23-primitive grammar; template ABPs; a build that derives the delta | A handshake, a JSON-RPC envelope, a minimum hook set, five dispositions; trace, inspect (an Agent Bill of Materials), provenance, crypto and audit profiles; a reference implementation | A document, ASI01 to ASI10, CC BY-SA 4.0 |
 | Enforces | Nothing. It says what does | Yes: it is the channel a control acts through | No |
 | Assesses | Yes: which capabilities are outside the mandate, and which of those nothing bounds | Not its stated purpose; the Agent Bill of Materials lists what the agent has | It informs an assessment |
@@ -91,7 +91,7 @@ Level and licence as OWASP’s public project list and the project’s own pages
 
 ## Agent projects started at OWASP in 2025 and 2026, read before we apply.
 
-The application asks how the project meets a need no existing OWASP or open-source project meets. OWASP’s project list on 8 October named, among others: the Agent Observability Standard, the Agent Skills Security Standard, the Agentic Skills Top 10, Agent Memory Guard, the MCP Top 10, the MCP Taxonomy, the MCP Verification Standard, and the MCP Governance and Risk Project.
+The application asks how the project meets a need no existing OWASP or open-source project meets. [OWASP’s project list](https://owasp.org/projects/) on 8 October named, among others: the Agent Observability Standard, the Agent Skills Security Standard, the Agentic Skills Top 10, Agent Memory Guard, the MCP Top 10, the MCP Taxonomy, the MCP Verification Standard, and the MCP Governance and Risk Project.
 
 We have read their names and levels, not their contents. Before the application goes, each gets a line: what it covers, whether it records a deployment’s mandate or its delta, and what the ABP would cite from it. Our working answer to the form’s question, to be tested against that reading: **none of the projects we have read so far writes down, for one deployment, what the agent was authorised to do next to what it can do, and derives the gap.** If one does, the right move is to contribute to it, and this page will say so.
 

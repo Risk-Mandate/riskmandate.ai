@@ -180,7 +180,7 @@ The estate half of a destination list should be generated from an existing inven
 
 **Two agents with identical inventory rows can have completely different reach.** The clearest demonstration is one setting on one product. A coding agent on a developer's own machine, profiled twice — same product, same machine, same account — once with confirmation prompts on and once with them off:
 
-|  | Confirmations on | Confirmations off |
+|  | [Confirmations on](https://abp.sgit.ai/examples/claude-code-cli-confirmations-enabled/) | [Confirmations off](https://abp.sgit.ai/examples/claude-code-cli-confirmations-disabled/) |
 | --- | --- | --- |
 | grant | 16 | 16 |
 | mandate | 5 | 5 |

@@ -26,7 +26,7 @@ The proposed boundary, from the initiation brief and the inventory. Every asset 
 
 ### The OWASP project
 
-- The method and the vocabulary: four objects, 23 primitives, four barriers, six evidence tiers, three undo classes
+- The method and the vocabulary: four objects, 23 primitives, four barriers, six evidence tiers, three undo classes, [published at one address](https://abp.sgit.ai/data/index.json)
 - The schemas and the rules that validate them
 - The reference build and validator, and its tests
 - Generic template ABPs and synthetic examples
@@ -91,7 +91,7 @@ Most of the line between a sponsor and an OWASP project is drawn by OWASP’s ow
 
 | The policy says | What it means for RiskMandate |
 | --- | --- |
-| “Leadership is personal, and not associated with any organization, company, or employer”; two to five leaders, each an OWASP member | Dinis Cruz and Nimay Parekh would lead as people, not as RiskMandate. The project page lists them without the company’s name in the role. |
+| “Leadership is personal, and not associated with any organization, company, or employer”; [two to five leaders](https://owasp.org/policy/project), each an OWASP member | Dinis Cruz and Nimay Parekh would lead as people, not as RiskMandate. The project page lists them without the company’s name in the role. |
 | Projects “are not permitted to hold any bank accounts” or run an independent donation mechanism | RiskMandate pays nothing to the project directly. If it sponsors with money, it does so through the Foundation, at a published level, like any other supporter. |
 | Leaders “cannot sign contracts or enter into agreements with commercial organizations” | No agreement between the project and RiskMandate, ever, signed by the leaders. Anything of that kind is between RiskMandate and the Foundation. |
 | Source material “must remain within the foundation” | What is contributed stays with OWASP. RiskMandate keeps the right every licensee has, to use it, and keeps its own products. |
@@ -103,7 +103,7 @@ Most of the line between a sponsor and an OWASP project is drawn by OWASP’s ow
 OWASP’s rules make leadership personal; they do not make two co-founders of one company independent of it. The research we did on other projects names _leaders all from one employer_ as the pattern to avoid. So:
 
 - **Declared.** Both proposed leaders are co-founders of RiskMandate. The application, the project page and the repository’s governance file say so in one sentence each.
-- **A third leader from outside, before launch if we can.** At least one leader with no RiskMandate affiliation. The policy allows up to five. Whether we found one is a line on the tracker.
+- **A third leader from outside, before launch if we can.** At least one leader with no RiskMandate affiliation. [OWASP’s Project Policy](https://owasp.org/policy/project) allows up to five. Whether we found one is a line on the tracker.
 - **Decisions in public.** A change to the grammar, the schemas or the barrier kinds is an issue and a recorded decision with its reasoning, under a written governance model with a waiting period for objections, never a commit from the sponsor alone.
 - **What RiskMandate may and may not do**, written into the governance file: it may sponsor through the Foundation, contribute, and sell services built on the open method. It may not decide a release alone, put its brand in an ABP document or template, or add anything that scores.
 - **No sponsor vocabulary.** No primitive, field or example exists because a RiskMandate product needs it. A product need that is also a method need is argued on the method’s merits.
