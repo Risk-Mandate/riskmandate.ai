@@ -171,7 +171,7 @@ rm-menu{display:contents}
   <div class="wrap">
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
-    <a class="version" href="versions.html" title="What shipped in v1.41.18">v1.41.18</a>
+    <a class="version" href="versions.html" title="What shipped in v1.41.19">v1.41.19</a>
     <a class="demo" href="https://customers.riskmandate.ai/" data-try>Get in touch</a>
   </div>
 </header>
@@ -402,6 +402,17 @@ if __name__ == '__main__':
         <div><b>243 tests</b>for <code>sharness-ai</code> 0.2.0, run in CI. <a href="https://sharness.ai/evidence/status/index.html" target="_blank" rel="noopener">Status, 29 October 2026</a></div>
       </div>
       <div class="notice"><strong>What it does not do yet.</strong> In the project's own words: "Nothing yet binds the agent itself." The launcher above the agent is still the design; today the kernel holds the rules for a process the harness starts. Linux only, and no protection against root. What is built and what is not is on <a href="/secure-harness.html">the SHarness page</a>. Until then, the boundary for a Claude Code session is the platform: managed settings, which no project file can override.</div>
+    </div>
+  </section>
+
+  <section class="psection dv-step" id="money">
+    <div class="wrap">
+      <div class="shead">
+        <span class="tag">An example · agents near money</span>
+        <h2>Code for the money, <span class="g">the agent for the change around it.</span></h2>
+        <p>Where an agent works near payments, the lead&rsquo;s position is that the one job that must never fail, reading the invoice and taking the money, stays in plain, auditable code, and the agent works on everything around it: finding the small failures and driving the change to fix them. Agents may get wallets, single-use and budgeted, once they are trusted. As a behaviour-policy line, that reads: <em>never initiate, approve or change a payment; payments run in code a person reviews.</em> Then a hook or a boundary holds it, as above.</p>
+      </div>
+      <div class="notice"><strong>What this is.</strong> A position and an illustration, not a product we run: in <a href="https://newsroom.sgit.ai/articles/the-payment-desk.html" target="_blank" rel="noopener">the article it comes from</a>, the lead says &ldquo;agents with wallets is my position, not a product we run&rdquo;. The line above has not been tested.</div>
     </div>
   </section>
 
