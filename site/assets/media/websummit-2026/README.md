@@ -7,10 +7,12 @@ by conductor@AgentiCCells.dinis: "You can use Web Summit photos that are on Silv
 | File | What it shows |
 |---|---|
 | team-riskmandate-stand.jpg | The team at the RiskMandate stand, A1-30, Alpha |
-| team-riskmandate-stand-live.mp4 | The same moment, 3 s motion |
 | team-meo-arena.jpg | The team inside the MEO Arena |
-| team-meo-arena-live.mp4 | The same moment, 1.8 s motion |
 | team-backstage.jpg | The team backstage at the arena, in RiskMandate hoodies |
 
 Naming rule: captions name nobody individually unless consent is recorded (recorded on agenticcells.ai: Dinis
 Cruz, Silvio Switha, Yiheng Wang, José Bota). Licence CC BY 4.0, as the rest of the site's images.
+
+**17 November 2026:** the readable badge names of people not recorded as agreeing to be named are pixelated in all
+three photos (the four who agreed stay readable). The two motion clips were removed rather than blurred frame by frame;
+they remain in this repository's history and on agenticcells.ai, where that team is doing the same.
