@@ -491,6 +491,12 @@
       "section": "The open project"
     },
     {
+      "name": "developers",
+      "label": "For developers: control one agent today",
+      "file": "developers.html",
+      "unlisted": true
+    },
+    {
       "name": "github",
       "label": "The code, on GitHub ↗",
       "file": "https://github.com/Risk-Mandate/riskmandate.ai",

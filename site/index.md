@@ -64,7 +64,7 @@ What each agent can reach, what you authorised, the gap, written down and given 
 
 ### Hooks
 
-The rule checked on every call, outside the model’s say-so. The difference between 3 of 12 and 12 of 12 in [the test above](https://newsroom.sgit.ai/articles/an-agent-that-may-only-chat.html).
+The rule checked on every call, outside the model’s say-so. The difference between 3 of 12 and 12 of 12 in [the test above](https://newsroom.sgit.ai/articles/an-agent-that-may-only-chat.html). [How to add one](/developers.html).
 
 ### A boundary: SHarness
 

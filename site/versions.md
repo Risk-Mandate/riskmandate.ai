@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.41.9** · 2026-11-17 — For developers: control one agent today, a line, a hook, a boundary
+  Notes: https://riskmandate.ai/versions/1.41.9.md · Source: `git:v1.41.9`
 - **v1.41.8** · 2026-11-17 — The menu works on the summit and archive pages; the retired prices are gone from every product page
   Notes: https://riskmandate.ai/versions/1.41.8.md · Source: `git:v1.41.8`
 - **v1.41.7** · 2026-11-17 — Pricing and the OWASP proposal pages, linked to their evidence
