@@ -30,7 +30,7 @@ This is the model published at [abp.sgit.ai](https://abp.sgit.ai/model/), versio
 
 | Object | What it is | Verb | Who produces it |
 | --- | --- | --- | --- |
-| The grant | Everything the agent can do, one row per capability, in a grammar of 23 primitives written `verb.object.reach` | **Measured**, or **documented** from the vendor’s own pages, quoted and dated | The deployment shape, the account, the credential. Never typed from memory |
+| The grant | Everything the agent can do, one row per capability, in [a grammar of 23 primitives](https://abp.sgit.ai/data/index.json) written `verb.object.reach` | **Measured**, or **documented** from the vendor’s own pages, quoted and dated | The deployment shape, the account, the credential. Never typed from memory |
 | The mandate | What the agent is authorised and expected to do: wanted, told not to, unstated | **Elicited** | The deployer, in their words. The only file a person writes |
 | The delta | Excess (can, not asked), shortfall (asked, cannot), and the part of the excess nothing bounds | **Derived** | The build. Stored with the versions of both inputs, recomputed when either moves, never edited |
 | The barrier | What stands between the agent and each capability: none, an expectation, a setting, or a boundary | **Recorded**, per row | Whoever measured the row |
@@ -71,11 +71,11 @@ Issues, decisions and the semantic questions still open (is a grant a capability
 
 | Deliverable | Starts from | Licence |
 | --- | --- | --- |
-| The specification: objects, grammar, barriers, evidence, delta, lifecycle, limitations | the abp.sgit.ai model (v0.12.1) and its seven-part documentation pack, rewritten as a neutral document | CC BY 4.0 |
+| The specification: objects, grammar, barriers, evidence, delta, lifecycle, limitations | the [abp.sgit.ai model](https://abp.sgit.ai/model/) (v0.12.1) and its [seven-part documentation pack](https://abp.sgit.ai/docs/), rewritten as a neutral document | CC BY 4.0 |
 | JSON schemas: `abp/profile/v1` (the grant), `abp/mandate/v1`, `abp.delta/v1`, the vocabulary files | today these are `type` values in the vault data and pages under abp.sgit.ai/model/schema/; no standalone JSON Schema file exists yet, so this is new work | Apache-2.0 |
 | The reference build and validator | `scripts/site/abp/` and `build-abp-vault.mjs` in this repository, extracted from the site | Apache-2.0 |
-| Template ABPs for common shapes | the sixteen template vaults, as data, without the RiskMandate reading app | CC BY 4.0 for the documents, Apache-2.0 for the data files |
-| The measuring prompt | `MAP-A-GRANT.md`: the prompt that lets an agent holding a credential measure its own grant, and its seven rules of measurement | CC BY 4.0 |
+| Template ABPs for common shapes | [the sixteen template vaults](/agent-behaviour-policy.html), as data, without the RiskMandate reading app | CC BY 4.0 for the documents, Apache-2.0 for the data files |
+| The measuring prompt | [`MAP-A-GRANT.md`](/vaults/_template/MAP-A-GRANT.md): the prompt that lets an agent holding a credential measure its own grant, and its seven rules of measurement | CC BY 4.0 |
 | Mappings to OWASP projects and to standards by title | the [OWASP graph](/owasp-graph.html) and the control business cases on this site | CC BY 4.0 |
 
 The licences are proposals. The repository is Apache-2.0 at the root and the site’s pages say CC BY 4.0 in their footers; whether those statements cover every file that would move, including what agents generated and what third parties wrote, is checked asset by asset on [What moves](/owasp/contributions.html) before anything is transferred.
