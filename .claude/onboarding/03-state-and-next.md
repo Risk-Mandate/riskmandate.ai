@@ -5,6 +5,18 @@ the site's; check `site/versions/index.json` for the current version before trus
 
 ## State as at 2026-09-30, v1.35.3
 
+- **17 Nov 2026, end of day, v1.41.20.** Twenty releases since v1.41.0 from the hourly loop: every figure on the site
+  now links to its evidence (the lead's rule of 17 Nov; audit and fixes in `docs/marketing/evidence-audit-2026-11-17.json`,
+  Lab editions and the archive excepted as records); the store's payment links for £500 and £1,500 are not issued, so
+  every page says each way in starts with a conversation; `/developers.html` (a line, a hook, a boundary, the tested
+  hook files); `/web-summit-2026/situations.html` (eighteen cases); badge names of people who have not agreed are
+  blurred in the summit photos and the motion clips removed; the home page, pricing and try-it fit a phone.
+  **Waiting on the lead** (one list, kept in `.claude/briefs/T18-the-hourly-loop.md` items 16 and 21): the menu (no entry
+  for the summit record, situations, developers or the archive; Product leads with Licence to Operate, the Index, RAMM);
+  the header button "Try it free" versus "Talk to us"; the store (another team's) still selling £10/£50; the message
+  (three drafts in `docs/marketing/the-message-2026-11-17.md`); whether the template zips may be linked from
+  after-payment; the investor deck's two slides with unlinked market figures; the MIT NANDA mirror; the reviewer page's
+  OWASP roles; behaviour policies for the six new roles; the session key.
 - **v1.41.0 (17 Nov 2026): we can control your agents.** At the lead's word the home page is rebuilt on the Web Summit
   2026 record (counts linked to `/web-summit-2026/`, situations, the film, summit photos, the book); the old home page is
   `site/archive/home-2026-11-16.html` and `/archive/` is the archive (pages keep their addresses, a dated note each).
