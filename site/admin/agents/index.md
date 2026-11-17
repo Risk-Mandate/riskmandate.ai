@@ -5,7 +5,7 @@
 
 **6**onboarding documents*ten minutes, in order*
 
-**17**task briefs*sized for one agent each*
+**18**task briefs*sized for one agent each*
 
 **9**prompts*slash commands in Claude Code*
 

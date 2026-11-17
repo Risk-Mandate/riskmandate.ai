@@ -16,7 +16,7 @@
     },
     {
       "name": "pricing",
-      "label": "The four levels, and pricing",
+      "label": "Four ways in, and pricing",
       "file": "pricing.html",
       "group": "Product",
       "section": "Agent Behaviour Policy"
@@ -876,6 +876,37 @@
       "unlisted": true
     },
     {
+      "name": "web-summit-2026",
+      "label": "In action at Web Summit 2026",
+      "file": "web-summit-2026/index.html",
+      "unlisted": true
+    },
+    {
+      "name": "web-summit-2026-site-plan",
+      "label": "Web Summit 2026 · the site plan",
+      "file": "web-summit-2026/site-plan.html",
+      "unlisted": true
+    },
+    {
+      "name": "web-summit-2026-newsroom-map",
+      "label": "Web Summit 2026 · the newsroom map",
+      "file": "web-summit-2026/newsroom-map.html",
+      "unlisted": true
+    },
+    {
+      "name": "web-summit-2026-situations",
+      "label": "Situations: what our agents did",
+      "file": "web-summit-2026/situations.html",
+      "unlisted": true
+    },
+    {
+      "name": "web-summit-2026-home-proposal",
+      "label": "Home: proposed, in action at Web Summit 2026",
+      "file": "web-summit-2026/home-proposal.html",
+      "private": true,
+      "unlisted": true
+    },
+    {
       "name": "briefs",
       "label": "Brief register",
       "file": "briefs.html",
@@ -1145,6 +1176,18 @@
     {
       "name": "summit-booth",
       "file": "summit-booth.html",
+      "unlisted": true
+    },
+    {
+      "name": "archive",
+      "label": "The archive",
+      "file": "archive/index.html",
+      "unlisted": true
+    },
+    {
+      "name": "archive-home-2026-11-16",
+      "label": "Archive · the home page until 16 November 2026",
+      "file": "archive/home-2026-11-16.html",
       "unlisted": true
     }
   ]

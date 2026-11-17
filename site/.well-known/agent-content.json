@@ -7,7 +7,7 @@
     "oneLine": "The insurability layer for agentic AI.",
     "summary": "Carriers are filing to exclude AI from cover, and the way back is evidence an underwriter will accept. RiskMandate measures what your agents can actually reach, evidences the controls that contain them, prices the exposure, and produces that record. Underneath the insurance framing is a risk model: a grant is what a credential technically permits, a mandate is what the holder is authorised and expected to do, and the gap between them is exposure nobody ever accepted. A deployed agent already has access, so a real risk cannot be denied — only accepted, by a named owner, for an interval, with an expiry that brings the decision back. RiskMandate is read-only and never in the request path: it defines the mandate and measures the gap; it does not enforce it. It is built on SG/Vault — zero-knowledge, PKI, provenance, no database — so you hold the keys.",
     "throughLine": "Measure what the agents can reach, name who owns it, evidence that the controls hold, and let the acceptance expire so the decision comes back.",
-    "version": "1.40.3"
+    "version": "1.41.0"
   },
   "artifacts": {
     "index": "https://riskmandate.ai/llms.txt",
@@ -106,7 +106,7 @@
     },
     {
       "name": "pricing",
-      "label": "The four levels, and pricing",
+      "label": "Four ways in, and pricing",
       "url": "https://riskmandate.ai/pricing.html"
     },
     {
@@ -695,6 +695,26 @@
       "url": "https://riskmandate.ai/summit.html"
     },
     {
+      "name": "web-summit-2026",
+      "label": "In action at Web Summit 2026",
+      "url": "https://riskmandate.ai/web-summit-2026/"
+    },
+    {
+      "name": "web-summit-2026-site-plan",
+      "label": "Web Summit 2026 · the site plan",
+      "url": "https://riskmandate.ai/web-summit-2026/site-plan.html"
+    },
+    {
+      "name": "web-summit-2026-newsroom-map",
+      "label": "Web Summit 2026 · the newsroom map",
+      "url": "https://riskmandate.ai/web-summit-2026/newsroom-map.html"
+    },
+    {
+      "name": "web-summit-2026-situations",
+      "label": "Situations: what our agents did",
+      "url": "https://riskmandate.ai/web-summit-2026/situations.html"
+    },
+    {
       "name": "briefs",
       "label": "Brief register",
       "url": "https://riskmandate.ai/briefs.html"
@@ -893,6 +913,16 @@
       "name": "lab-vault-delivered",
       "label": "07 · The vault, delivered",
       "url": "https://riskmandate.ai/lab-vault-delivered.html"
+    },
+    {
+      "name": "archive",
+      "label": "The archive",
+      "url": "https://riskmandate.ai/archive/"
+    },
+    {
+      "name": "archive-home-2026-11-16",
+      "label": "Archive · the home page until 16 November 2026",
+      "url": "https://riskmandate.ai/archive/home-2026-11-16.html"
     }
   ],
   "library": {
@@ -985,5 +1015,5 @@
     ]
   },
   "licence": "CC BY 4.0 (library content)",
-  "generated": "v1.40.3"
+  "generated": "v1.41.0"
 }

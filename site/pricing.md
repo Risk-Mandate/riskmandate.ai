@@ -1,31 +1,31 @@
 <!-- Generated from pricing.html by scripts/site/generate.mjs. Edit the page, not this file. -->
 
-# RiskMandate — Pricing: four levels, £10 to £1,500
+# RiskMandate — Pricing: four ways to work with us, £500 to £20,000
 
-Four levels of one document, an Agent Behaviour Policy for the agent you run: the pack downloaded for £10, a working vault for £50, corrected for your situation for £500 with a prompt you run yourself, or two sessions and a professional's signature for £1,500. The examples are free.
+Four ways to work with us on your agents, the same four as agenticcells.ai: a behaviour policy run by our agents for £500, a policy worked through with you for £1,500, your agents mapped and controlled in about two days for £5,000, and a customer engagement for £20,000. The examples are free.
 
 Source: https://riskmandate.ai/pricing.html
 
 ---
 
-# Four levels. One document.
+# From one policy to the whole estate.
 
-What is for sale is an Agent Behaviour Policy for the agent you actually run: everything it can do, what you authorised, the gap, and what stands in the way of each thing. Every level is the same document. What changes is the form it arrives in and who does the correcting — from a pack downloaded for £10 to two sessions and a security professional's signature for £1,500. The examples are free, on this site, with their keys published. Read one before buying anything.
+We can control your agents, from one to hundreds. What we sell is the work of doing it: an Agent Behaviour Policy for each agent (everything it can do, what you authorised, the gap, and what stands in the way), then the hooks and boundaries that hold it when you want them. Four ways in, from £500 run by our own agents to a £20,000 engagement, the same four as [agenticcells.ai](https://agenticcells.ai/). The examples are free, on this site, with their keys published.
 
 ## Pick the application closest to yours, and the level you want it at.
 
-Fifteen applications are in [the library](agent-behaviour-policy.html): Claude Code on a machine and in CI, Claude Desktop, ChatGPT in the browser, a browser extension, GitHub Actions, a scheduled job, Gmail and Drive at read-only scope, the Microsoft 365 connector, Dropbox, n8n, and the rest. Something not on the list starts at the third level, because the first two deliver an existing template and for yours there is not one yet.
+The examples in [the library](agent-behaviour-policy.html) are free: Claude Code on a machine and in CI, Claude Desktop, ChatGPT in the browser, a browser extension, GitHub Actions, a scheduled job, Gmail and Drive at read-only scope, the Microsoft 365 connector, Dropbox, n8n, and the rest. Anything not on the list starts at the first level just the same: we have run behaviour policies on more than a hundred of our own agents, and [what happened is on the record](/web-summit-2026/situations.html).
 
 |  | Level | Price | What it is | Who does it |  |
 | --- | --- | --- | --- | --- | --- |
-| 1 | **The pack, downloaded**You want the material and you do not want to run anything. | £10 | Every file in the vault, sent to you: the behaviour policy, the grant, the mandate and the delta as markdown and JSON, the pinned vocabulary, the prompts, and the two files you hand the agent. Yours to use, keep and hand over. Not a vault: no history, no app, no read key to give anybody. | automatedexists and runs | [Buy ↗](https://store.sgit.ai/d/t1/) |
-| 2 | **A working vault**You want the thing itself rather than a copy of its contents. | £50 | The same material as a vault you hold the keys to: clone it, change it, version it, and hand anyone a read key. It recomputes the delta when the mandate or the grant moves, and keeps every version. The mandate in it is still the starting one; correcting it is yours to do. | automatedexists and runs | [Buy ↗](https://store.sgit.ai/d/t2/) |
-| 3 | **Corrected for your situation**Your deployment is not the template, and you would rather not do the correcting. | £500 | You run a prompt in your own environment and send us what it finds. We build the vault from that, correct the mandate against your industry, your use case and the details you gave, recompute the delta, and send it back yours — with a written note of what changed and why, so the correction is checkable rather than trusted. [How the prompt step works ↓](#prompt) | agents, a person reviewsspecified, never run | [Buy ↗](https://store.sgit.ai/d/t3/) |
-| 4 | **Two sessions, and a professional signs it**The answer has to survive somebody else asking about it. | £1,500 | Half an hour with your team to find out what is actually running, and half an hour to deliver it: reviewed and signed off by a security professional, with the licence carrying a name. The line between this level and the one below it is the line between a thing agents do and a thing a person signs. | a personspecified, never run | [Buy ↗](https://store.sgit.ai/d/t4/) |
+| 1 | **A behaviour policy for one agent**Run by our own agents. No meetings, low touch. | £500 | You run a prompt where the agent runs and send us what it finds. Our agents build the behaviour policy from that, correct the mandate against your industry, your use case and the details you gave, recompute the gap, and send it back yours, with a written note of what changed and why, so the correction is checkable rather than trusted. [How the prompt step works ↓](#prompt) | agents, a person reviewsspecified, never run | [Buy ↗](https://store.sgit.ai/d/t3/) |
+| 2 | **Worked through with you**The answer has to survive somebody else asking about it. | £1,500 | Preparation before, two meetings, the work, a presentation and the delivery: what is actually running found with your team, the policy reviewed and signed off by a security professional, the licence carrying a name. | a person, with our agentsspecified, never run | [Buy ↗](https://store.sgit.ai/d/t4/) |
+| 3 | **Your agents, mapped and controlled**More than one agent, and you want them held, not only described. | £5,000 | About two days of engagement, with travel if it is needed: your agents mapped, a behaviour policy each, and the controls that hold them where you want more than a policy (hooks, and [SHarness](secure-harness.html) as the boundary). Open source; it works with what you already run. | people, with our agentsoffered from 17 November 2026 | [Talk to us](contact.html) |
+| 4 | **A customer engagement**The whole estate, from one agent to hundreds. | £20,000 | We come in, spend time with you, map what you run, and deliver the policies and the controls: the way we ran more than a hundred agents of our own at Web Summit 2026, with every gap logged. | people, with our agentsoffered from 17 November 2026 | [Talk to us](contact.html) |
 
-**Each level is the level below plus exactly one thing, and the one thing is what the price is for.** The pack is the files. The vault is the files with keys and history. Corrected is the vault against your situation. The fourth is corrected with a person in the room. The price steps are ten, ten and three; the third step is smaller because what is added is an hour of a person rather than a new kind of object.
+**A policy gets you a lot of value for the money; a boundary gets you the rest.** Each way in adds people and controls to the one before. The £10 pack and the £50 vault were retired on 17 November 2026: they were offered from 15 September and did not sell, and that was the signal. Buyers who already have one keep it; [the archive](/archive/) keeps the pages.
 
-Prices are in pounds and each level is one price, so each has a standing payment link at [store.sgit.ai](https://store.sgit.ai/), where the paying happens on the payment provider's own pages. The store's own ledger says which levels have run for a paying buyer and which have not; the states above are copied from it on 15 September 2026, and two of the four have never been sold once. Every level says what does not arrive as well as what does.
+Prices are in pounds and each level is one price, so the first two have standing payment links at [store.sgit.ai](https://store.sgit.ai/), where the paying happens on the payment provider's own pages. The store's own ledger says which levels have run for a paying buyer and which have not; the states above are copied from it on 15 September 2026, and two of the four had never been sold once. The first two ways in have standing payment links; the third and fourth start with a conversation. Every level says what does not arrive as well as what does.
 
 ## You run a prompt. We turn what it finds into your policy.
 
@@ -57,12 +57,11 @@ The payment link's success address is a page per level that says what happens no
 
 | Level | Done when | Checked by | The page |
 | --- | --- | --- | --- |
-| 1 | The zip for the shape bought is downloadable from the page and its content hash matches the hash the shape publishes | Compare the hash on the page with the hash of what you downloaded; the page checks it in the browser | [Level 1 →](paid-t1.html) |
-| 2 | A vault exists, the licence file in it carries your name, the public key is off it, and you have opened it with your key | Your first clone: the licence file is in the tree | [Level 2 →](paid-t2.html) |
-| 3 | The corrected mandate and the recomputed delta are committed, and the note of what changed and why is committed beside them | The commit is in the history and the note names every changed row | [Level 3 →](paid-t3.html) |
-| 4 | Both sessions held, the record of what was asked and answered committed, and the sign-off file committed with the professional's name and the date | Three files in the tree, and the sessions dated in the record | [Level 4 →](paid-t4.html) |
+| 1 | The corrected mandate and the recomputed delta are committed, and the note of what changed and why is committed beside them | The commit is in the history and the note names every changed row | [Level 3 →](paid-t3.html) |
+| 2 | Both sessions held, the record of what was asked and answered committed, and the sign-off file committed with the professional's name and the date | Three files in the tree, and the sessions dated in the record | [Level 4 →](paid-t4.html) |
+| 3–4 | The deliverables named in the engagement letter are delivered and committed | The letter, agreed with you before any work starts, names each one | [Talk to us →](contact.html) |
 
-Level 1 is downloaded on the page, with the hash beside the link. Levels 2, 3 and 4 are a follow-up from a person within 24 hours of the payment landing: the key, the prompt step, the first session. If the record says we cannot keep that, the number moves here first. How the store's payment links reach those pages is written down for the store team on [the after-payment debrief](after-payment.html).
+Every way in is a follow-up from a person within 24 hours of the payment or the first message: the prompt step, the first meeting, the engagement letter. If the record says we cannot keep that, the number moves here first. How the store's payment links reach those pages is written down for the store team on [the after-payment debrief](after-payment.html).
 
 ## The library is the argument. The instance is yours.
 
@@ -76,4 +75,4 @@ The question you will be asked is what you _did_ authorise. That document is the
 
 ## Read one first. Then buy yours.
 
-Fifteen example policies, read live from their vaults with published keys, cost nothing and need no account. When you want the one that says what _you_ authorised, it is four levels at the store.
+Fifteen example policies, read live from their vaults with published keys, cost nothing and need no account. When you want the one that says what _you_ authorised, it is four ways in, the first two at the store.

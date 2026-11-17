@@ -24,6 +24,7 @@ before claiming one, then write your `.claude/work/<branch>.md` naming the brief
 | `T15-rule-pages.md` | rule pages: schema, generator, index, the first four rules | `site/rules/` (new), `scripts/site/build-rules.mjs` (new), `package.json`, CI, `site/pages.json`, `site/try-it.html` | a day and a half |
 | `T16-rule-before-and-after.md` | before and after for each rule, run on our own deployment, and a method page | `site/rules/*.json`, `site/rules/method.html` | a day |
 | `T17-the-next-twenty-rules.md` | the candidate list from unbounded irreversible rows, and twenty rules from it | `scripts/site/build-rules.mjs`, `site/rules/*.json` | half a day per five |
+| `T18-the-hourly-loop.md` | the team's hourly loop and its backlog, toward *we can control your agents* | `site/web-summit-2026/`, then pages the backlog names; `.claude/agents/rm-*.md` | standing |
 
 A brief is done when its *Done means* list is true, `npm run check` is green, the state file is
 updated, and the branch is merged or handed over with its work file saying what is left.
