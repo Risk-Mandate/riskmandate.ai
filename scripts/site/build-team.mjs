@@ -19,7 +19,7 @@
 // barrier, tier or undo class the vocabulary does not define; a mandate that wants and refuses the
 // same row; the ladder word; the acronym with a D; and anything shaped like a credential.
 
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
 import { dirname, join, resolve }                   from 'node:path';
 import { fileURLToPath }                            from 'node:url';
 
@@ -44,9 +44,20 @@ const UNDO     = ['no', 'with-effort', 'yes'];
 const UNDO_LABEL = { no: 'no undo', 'with-effort': 'undo with effort', yes: 'undo' };
 const ITIERS   = { public: 'Public', private: 'Private', secret: 'Secret', 'secret-bearing': 'Secret-bearing' };
 
+// ------------------------------------------------------------------ the test count, counted
+// The pages say how many tests `npm run check` runs. The number is counted here, not typed: every
+// test( call at the start of a line in tests/site/*.mjs. Any "<n> tests" in team.json or an agent
+// file is rewritten to the counted number on the page, so a new test cannot leave the page stale.
+const TESTS_DIR = join(ROOT, 'tests/site');
+const TEST_COUNT = readdirSync(TESTS_DIR).filter((f) => f.endsWith('.mjs'))
+  .reduce((n, f) => n + (readFileSync(join(TESTS_DIR, f), 'utf8').match(/^\s*test\(/gm) || []).length, 0);
+const counted = (v) => typeof v === 'string' ? v.replace(/\b\d+ tests\b/g, `${TEST_COUNT} tests`)
+  : Array.isArray(v) ? v.map(counted)
+  : v && typeof v === 'object' ? Object.fromEntries(Object.entries(v).map(([k, x]) => [k, counted(x)])) : v;
+
 // ------------------------------------------------------------------ read and check
-const team = JSON.parse(readFileSync(join(IN, 'team.json'), 'utf8'));
-const agents = team.agents.map((slug) => JSON.parse(readFileSync(join(IN, `${slug}.json`), 'utf8')));
+const team = counted(JSON.parse(readFileSync(join(IN, 'team.json'), 'utf8')));
+const agents = team.agents.map((slug) => counted(JSON.parse(readFileSync(join(IN, `${slug}.json`), 'utf8'))));
 const forbid = (text, where) => {
   if (/\brungs?\b/i.test(text)) fail(`${where}: says rung`);
   if (/\bADP\b/.test(text)) fail(`${where}: says ADP`);
@@ -209,7 +220,7 @@ function flowsFigure() {
   ${box(120, 160, 490, 112, GOLD, '#fff', 'The stories vault (encrypted)', ['the studio’s folders: artwork/ stories/ cast/ decisions/', 'mail/: one folder per party, a mailroom each, immutable messages', 'published/: the mirror of what is live · board/: derived'])}
   ${box(670, 160, 250, 112, GOLD, '#fff', 'The publisher (publisher.claude)', ['pulls the vault, reads everything', 'writes only its own folder, the mailrooms,', 'published/ and board/', 'checks against the rules; asks; publishes'])}
   ${box(120, 310, 250, 120, G, '#fff', 'The repository', ['site/ docs/ .claude/ · open source', 'the publisher’s branch, then dev', 'no branch rule at the host'])}
-  ${box(420, 310, 220, 120, G, '#fff', 'CI', ['40 tests, every --check', 'the credential test on site/', 'deploy needs the check green', '(a setting: the workflow is in the tree)'])}
+  ${box(420, 310, 220, 120, G, '#fff', 'CI', [`${TEST_COUNT} tests, every --check`, 'the credential test on site/', 'deploy needs the check green', '(a setting: the workflow is in the tree)'])}
   ${box(690, 310, 230, 120, G, '#fff', 'riskmandate.ai', ['served from site/ on dev', '/team/ · /stories/ · /admin/', 'the board: ids and titles, no bodies'])}
   ${arrow(220, 114, 220, 160, RED, 'read key, by hand')}
   ${arrow(320, 72, 380, 72, RED, 'token', false, 330, 62)}

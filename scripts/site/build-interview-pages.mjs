@@ -102,6 +102,11 @@ function cut(name, title, desc, body) {
   return head + '<body id="top">\n\n' + hdr + '\n\n' + body + '\n\n' + foot + '\n\n' + COPY_JS + '\n' + tail;
 }
 
+// An editor's note is dated and sits outside the prompt: the prompt is copied exactly as it was
+// written, and a later fact (a price retired, say) is said beside it, not edited into it.
+const NOTE_MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const niceDay = (d) => { if (!/^\d{4}-\d{2}-\d{2}$/.test(d || '')) fail(`editor note needs a YYYY-MM-DD date, got ${d}`); return `${parseInt(d.slice(8, 10), 10)} ${NOTE_MONTHS[parseInt(d.slice(5, 7), 10) - 1]} ${d.slice(0, 4)}`; };
+
 function page(p) {
   const name = `interview-${p.slug}`;
   const mail = `mailto:${p.send.email}?subject=${encodeURIComponent(p.send.subject)}`;
@@ -151,7 +156,7 @@ function page(p) {
         <pre class="iv-prompt">${esc(p.prompt)}</pre>
       </div>
       <textarea class="iv-src" id="iv-src" readonly tabindex="-1" aria-hidden="true">${esc(p.prompt)}</textarea>
-      <p class="iv-note"><b>It also works typed</b>, and in another assistant such as Claude or Gemini: paste the same text. Voice is only faster.</p>
+${(p.editor_notes || []).map((n) => `      <p class="iv-note"><b>Note, ${esc(niceDay(n.date))}:</b> ${esc(n.text)}${n.href ? ` See <a href="${esc(n.href)}">${esc(n.link || n.href)}</a>.` : ''}</p>\n`).join('')}      <p class="iv-note"><b>It also works typed</b>, and in another assistant such as Claude or Gemini: paste the same text. Voice is only faster.</p>
     </div>
   </section>
 

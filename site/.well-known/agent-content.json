@@ -7,7 +7,7 @@
     "oneLine": "The insurability layer for agentic AI.",
     "summary": "Carriers are filing to exclude AI from cover, and the way back is evidence an underwriter will accept. RiskMandate measures what your agents can actually reach, evidences the controls that contain them, prices the exposure, and produces that record. Underneath the insurance framing is a risk model: a grant is what a credential technically permits, a mandate is what the holder is authorised and expected to do, and the gap between them is exposure nobody ever accepted. A deployed agent already has access, so a real risk cannot be denied — only accepted, by a named owner, for an interval, with an expiry that brings the decision back. RiskMandate is read-only and never in the request path: it defines the mandate and measures the gap; it does not enforce it. It is built on SG/Vault — zero-knowledge, PKI, provenance, no database — so you hold the keys.",
     "throughLine": "Measure what the agents can reach, name who owns it, evidence that the controls hold, and let the acceptance expire so the decision comes back.",
-    "version": "1.41.2"
+    "version": "1.41.3"
   },
   "artifacts": {
     "index": "https://riskmandate.ai/llms.txt",
@@ -31,7 +31,7 @@
       "id": "grant-is-not-mandate",
       "title": "The grant is not the mandate",
       "blurb": "a grant is what a credential technically permits; a mandate is what the holder is authorised to do; the difference is excess authority nobody accepted.",
-      "body": "A grant is what the credential technically allows. A mandate is what the holder is allowed and expected to do. In practice the first is very much larger than the second, and the measurable difference — excess authority — is blast radius read from the other end: not what a compromise could reach, but what was handed over beyond what was needed. It is unaccepted by construction, because nobody wrote it down, so nobody could accept it; and unaccepted risk defaults to critical and escalates without anybody escalating it. A register row saying an agent has code-host access is not informative. One saying the grant covers forty-one repositories, the mandate covered one, with no acceptor, for six weeks, is a finding with a number in it. A mandate needs five fields — issuer, subject, scope, interval, revocation path — and a mandate with no clock is just a grant."
+      "body": "A grant is what the credential technically allows. A mandate is what the holder is allowed and expected to do. In practice the first is very much larger than the second, and the measurable difference — excess authority — is blast radius read from the other end: not what a compromise could reach, but what was handed over beyond what was needed. It is unaccepted by construction, because nobody wrote it down, so nobody could accept it; and unaccepted risk defaults to critical and escalates without anybody escalating it. A register row saying an agent has code-host access is not informative. One saying, in an invented example, the grant covers forty-one repositories, the mandate covered one, with no acceptor, for six weeks, is a finding with a number in it. A mandate needs five fields — issuer, subject, scope, interval, revocation path — and a mandate with no clock is just a grant."
     },
     {
       "id": "no-deny",
@@ -1015,5 +1015,5 @@
     ]
   },
   "licence": "CC BY 4.0 (library content)",
-  "generated": "v1.41.2"
+  "generated": "v1.41.3"
 }

@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.41.3** · 2026-11-17 — Stale figures, brought up to date: sixteen examples, 45 tests, the retired levels
+  Notes: https://riskmandate.ai/versions/1.41.3.md · Source: `git:v1.41.3`
 - **v1.41.2** · 2026-11-17 — The pricing page fits a phone; every source on the summit record is a link
   Notes: https://riskmandate.ai/versions/1.41.2.md · Source: `git:v1.41.2`
 - **v1.41.1** · 2026-11-17 — Every figure on the home page links to its evidence

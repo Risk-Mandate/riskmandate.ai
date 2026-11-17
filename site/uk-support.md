@@ -30,7 +30,7 @@ Each row carries our own status. When we apply, speak, get turned down or get in
 
 ## The product is on sale. What we need is users.
 
-Sixteen template Agent Behaviour Policies are published as encrypted vaults with their read keys, the thirteen prompts are free, and the first three levels can be bought from the store today; the fourth is waiting on its payment link. We exhibited at Startup Summit Lisbon in September 2026 and are going to Web Summit in November. What we do not yet have is a steady stream of people using it, and every lesson we have learnt so far came from somebody using it.
+Sixteen template Agent Behaviour Policies are published as encrypted vaults with their read keys, the thirteen prompts are free, and of the four ways in, the first two (£500 and £1,500) can be bought from the store today and the third and fourth (£5,000 and £20,000) start with a conversation; the £10 pack and the £50 vault were retired on 17 November 2026 ([pricing](/pricing.html)). We exhibited at Startup Summit Lisbon in September 2026 and at Web Summit Lisbon in November 2026 ([the record](/web-summit-2026/)). What we do not yet have is a steady stream of people using it, and every lesson we have learnt so far came from somebody using it.
 
 ## Three things we did not expect, and why search results are out of date.
 

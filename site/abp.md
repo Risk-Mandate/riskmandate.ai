@@ -29,7 +29,7 @@ A shrug. Nobody acts on an inventory, and the length of the list looks like a ma
 
 “Your agent can do 340 things and you authorised 12.”
 
-The mandate is the edge that gives the enumeration a shape. It is the cheapest object to capture and the one that makes the other three mean something.
+The mandate is the edge that gives the enumeration a shape. It is the cheapest object to capture and the one that makes the other three mean something. The numbers are invented, for illustration.
 
 ## Only one kind of thing is actually in the way.
 

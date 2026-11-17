@@ -33,28 +33,29 @@ Each payment link's success address is the page for its level. Two parameters, b
 
 - **`order`** is kept to letters, digits, dot, underscore and hyphen, at most 64 characters; anything else is dropped before it is shown. With no `order` the page says _on your payment receipt_.
 - **`shape`** is the slug this site uses for the template, the same one the store already uses at `store.sgit.ai/p/<slug>/`. The page also accepts `vault`, `slug`, `policy`, or `#shape=<slug>`. Lower-case; anything outside `a-z`, `0-9` and hyphen is dropped.
-- **With a known shape** the page shows that template's download at once. **With no shape, or one it does not know**, it lists all fifteen templates and the buyer picks the one on the receipt; picking rewrites the address so the link can be kept.
-- **The fifteen slugs** are the table below. New templates appear here when they are built; the page's list is stamped from the same catalogue, so it cannot lag.
+- **With a known shape** the page shows that template's download at once. **With no shape, or one it does not know**, it lists all sixteen templates and the buyer picks the one on the receipt; picking rewrites the address so the link can be kept.
+- **The sixteen slugs** are the table below. New templates appear here when they are built; the page's list is stamped from the same catalogue, so it cannot lag.
 
 | Slug | Template | The download |
 | --- | --- | --- |
-| claude-code-web | Claude Code on the web | zip, 89,524 bytes, and a PDF edition |
-| claude-code-cli | Claude Code on your machine | zip, 85,245 bytes |
-| claude-code-cli-confirmations-off | Claude Code, confirmations off | zip, 85,690 bytes |
-| claude-desktop | Claude Desktop | zip, 74,996 bytes |
-| claude-web-connectors | Claude in the browser, connectors on | zip, 68,046 bytes |
-| chatgpt-web | ChatGPT in the browser | zip, 63,306 bytes |
-| browser-extension | A browser extension | zip, 67,039 bytes |
-| github-actions | GitHub Actions | zip, 72,388 bytes, and a PDF edition |
-| scheduled-job | A scheduled job | zip, 70,732 bytes |
-| google-workspace-mcp | Google Workspace MCP servers | zip, 85,526 bytes |
-| gmail-readonly | Gmail, read-only scope | zip, 77,422 bytes |
-| google-drive-readonly | Google Drive, read-only scope | zip, 76,729 bytes |
-| claude-m365-connector | Microsoft 365 connector (Claude) | zip, 87,559 bytes |
-| dropbox-mcp | Dropbox MCP server | zip, 81,452 bytes |
-| n8n-owner-api-key | n8n, owner API key | zip, 92,438 bytes |
+| claude-code-web | Claude Code on the web | zip, 98,133 bytes, and a PDF edition |
+| claude-code-cli | Claude Code on your machine | zip, 92,676 bytes |
+| claude-code-cli-confirmations-off | Claude Code, confirmations off | zip, 93,159 bytes |
+| claude-desktop | Claude Desktop | zip, 82,420 bytes |
+| claude-web-connectors | Claude in the browser, connectors on | zip, 75,740 bytes |
+| chatgpt-web | ChatGPT in the browser | zip, 71,323 bytes |
+| browser-extension | A browser extension | zip, 74,889 bytes |
+| github-actions | GitHub Actions | zip, 80,341 bytes |
+| scheduled-job | A scheduled job | zip, 78,355 bytes |
+| google-workspace-mcp | Google Workspace MCP servers | zip, 94,249 bytes |
+| claude-gmail-connector | Gmail connector (Claude) | zip, 194,336 bytes |
+| gmail-readonly | Gmail, read-only scope | zip, 85,976 bytes |
+| google-drive-readonly | Google Drive, read-only scope | zip, 84,983 bytes |
+| claude-m365-connector | Microsoft 365 connector (Claude) | zip, 96,889 bytes |
+| dropbox-mcp | Dropbox MCP server | zip, 90,095 bytes, and a PDF edition |
+| n8n-owner-api-key | n8n, owner API key | zip, 100,858 bytes |
 
-Sizes as at v1.19.2; the page carries the current size and hash for each, and the vault build rewrites both when a template changes. The zip holds every file in the vault: the Agent Behaviour Policy, grant, mandate and delta as markdown and JSON, the pinned vocabulary, the scenarios, `AGENTS.md`, `SKILL.md`, `MAP-A-GRANT.md`, `vault.json`.
+Sizes as committed on 17 November 2026; the page carries the current size and hash for each, and the vault build rewrites both when a template changes. The zip holds every file in the vault: the Agent Behaviour Policy, grant, mandate and delta as markdown and JSON, the pinned vocabulary, the scenarios, `AGENTS.md`, `SKILL.md`, `MAP-A-GRANT.md`, `vault.json`.
 
 ## Five things, in the order they unblock a sale.
 
@@ -84,7 +85,7 @@ The store's product pages use this site's slugs, which is what makes `shape` wor
 
 - **The download is the vault's own zip.** The same file the vault build writes under `site/vaults/<slug>/dist/`, served from this site. There is no second copy to drift.
 - **The size and hash on the page are stamped, not typed.** `build-abp-pages.mjs` reads every zip and writes the manifest into the page; the CI check that fails the build on a stale library page fails it on a stale manifest too. The buyer's _check the hash here_ fetches the file and hashes it in their browser against that manifest.
-- **No key on any page, ever.** The read keys of the fifteen templates are public and printed on purpose. A buyer's vault key travels by a separate message and is never committed; a buyer's corrected vault has no public key. This is a rule of the site with a test behind it, not a preference.
+- **No key on any page, ever.** The read keys of the sixteen templates are public and printed on purpose. A buyer's vault key travels by a separate message and is never committed; a buyer's corrected vault has no public key. This is a rule of the site with a test behind it, not a preference.
 - **No payment, no email, no form on these pages.** They are static files. The store takes the money and holds the buyer's address; the follow-up mailbox is a person's.
 - **The wording is a commitment with a record.** Twenty-four hours is what the pages say. If it cannot be kept, the number moves on Pricing first, then on the pages, and the release note says so. The first orders will turn the commitment into a record.
 - **Every change ships as a release.** [v1.19.1](versions.html) made the pages; [v1.25.1](versions.html) made the entry-level page the download and set the 24 hours. The brief that asked for all of it is [D9 in the register](briefs.html), byte for byte, with what it is still owed.

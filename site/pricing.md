@@ -75,4 +75,4 @@ The question you will be asked is what you _did_ authorise. That document is the
 
 ## Read one first. Then buy yours.
 
-Fifteen example policies, read live from their vaults with published keys, cost nothing and need no account. When you want the one that says what _you_ authorised, it is four ways in, the first two at the store.
+Sixteen example policies, read live from their vaults with published keys, cost nothing and need no account. When you want the one that says what _you_ authorised, it is four ways in, the first two at the store.
