@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.41.19** · 2026-11-17 — For developers: agents near money, the lead's position as a behaviour-policy line
+  Notes: https://riskmandate.ai/versions/1.41.19.md · Source: `git:v1.41.19`
 - **v1.41.18** · 2026-11-17 — The home page links the AgentiCCells website cell
   Notes: https://riskmandate.ai/versions/1.41.18.md · Source: `git:v1.41.18`
 - **v1.41.17** · 2026-11-17 — The film on the summit record; the home page says how many agents had a policy

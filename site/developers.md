@@ -177,6 +177,10 @@ if __name__ == '__main__':
 
 A hook lives inside the session it guards. A boundary sits outside it. [SHarness](/secure-harness.html), our open-source harness, turns a behaviour policy into a process policy with a hash, and lets the Linux kernel hold it: which files a process may read, write and run, and whether it may reach the network.
 
+## Code for the money, the agent for the change around it.
+
+Where an agent works near payments, the lead’s position is that the one job that must never fail, reading the invoice and taking the money, stays in plain, auditable code, and the agent works on everything around it: finding the small failures and driving the change to fix them. Agents may get wallets, single-use and budgeted, once they are trusted. As a behaviour-policy line, that reads: _never initiate, approve or change a payment; payments run in code a person reviews._ Then a hook or a boundary holds it, as above.
+
 ## Want this for your agents?
 
 For one agent in your deployment, our agents write the behaviour policy for £500: what it can do, what it is for, the gap, and which of these three barriers stands in front of each row. Or talk to us about more. The example ABPs are free to read first.
