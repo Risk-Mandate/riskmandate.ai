@@ -170,6 +170,17 @@ rm-menu{display:contents}
 
 .ws-film{margin-top:28px;max-width:860px}.ws-film video{width:100%;height:auto;display:block;border-radius:var(--r);background:var(--ink);aspect-ratio:16/9}.ws-film p{margin-top:8px}
 .ws-photos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:28px}.ws-photos figure{margin:0}.ws-photos video,.ws-photos img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;display:block;border-radius:var(--r);background:var(--ink)}.ws-photos figcaption{font-size:13px;color:var(--muted);margin-top:8px}@media (max-width:640px){.ws-photos{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:640px){
+  .phero .ws-nums{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .phero .ws-num{padding:14px 12px}
+  .phero .ws-num b{font-size:24px}
+  .phero .ws-num span{font-size:13px;line-height:1.45}
+  #model .ws-cols .ws-card:nth-child(n+3){display:none}
+  .ws-photos{display:flex;grid-template-columns:none;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;-webkit-overflow-scrolling:touch;padding-bottom:6px}
+  .ws-photos figure{flex:0 0 78%;scroll-snap-align:start}
+  .ws-photos img{aspect-ratio:4/5}
+}
+.ws-more{margin-top:18px;font-weight:600}
 .ws-card h3 small{font-weight:400;color:var(--faint);font-size:13px}
 
 .ghlink{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:8px;color:var(--muted);border:1px solid transparent}.ghlink:hover{color:var(--text);border-color:var(--border)}
@@ -182,7 +193,7 @@ rm-menu{display:contents}
   <div class="wrap">
     <a class="brand" href="/index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
-    <a class="version" href="/versions.html" title="What shipped in v1.41.10">v1.41.10</a>
+    <a class="version" href="/versions.html" title="What shipped in v1.41.11">v1.41.11</a>
     <a class="demo" href="https://customers.riskmandate.ai/" data-try>Try it free</a>
   </div>
 </header>
@@ -209,7 +220,7 @@ rm-menu{display:contents}
     <div class="shead">
       <span class="tag">01 · Situations</span>
       <h2>Here is what happened. <span class="g">Here is what we did.</span></h2>
-      <p>Small, real cases from our own agents, each from our public record. Including the ones where the first answer did not work. <a href="/web-summit-2026/situations.html">All eighteen situations</a>.</p>
+      <p>Small, real cases from our own agents, each from our public record. Including the ones where the first answer did not work.</p>
     </div>
     <div class="ws-cols">
       <div class="ws-card"><span class="id">2 Nov · the rule that failed</span><h3>&ldquo;Never push to main&rdquo; was a sentence. Then an agent pushed to main.</h3><p>At 23:06 UTC our conductor pushed to main. The gap was written down; on 6 November main was protected, and the sentence became a barrier in all 72 behaviour policies of that day (<a href="https://web-summit.sgit.ai/reports/2026-11-06-0457/">report of 6 Nov</a>).</p><p class="ws-src"><a href="https://web-summit.sgit.ai/abp/in-action/">web-summit.sgit.ai/abp/in-action/</a></p></div>
@@ -217,7 +228,8 @@ rm-menu{display:contents}
       <div class="ws-card"><span class="id">6 Nov · it needed a permission</span><h3>An agent tried to lift a hold that only a person may lift.</h3><p>The newsroom&rsquo;s developer agent tried to write the hold file. The ABP says that file is the security agent&rsquo;s to write and only the lead lifts it. It was the one call blocked in 2,262 runs (<a href="https://github.com/PrompTugal/PrompTugal__News__Website/tree/dev/board/runs">the run reports</a>).</p><p class="ws-src"><a href="https://github.com/PrompTugal/PrompTugal__News__Website/blob/dev/board/runs/dev/2026-11-06T05-09-46Z.json">the run report</a>, 6 Nov 05:11 UTC</p></div>
       <div class="ws-card"><span class="id">a test · when the line is not enough</span><h3>Told to ignore its policy, an agent kept 3 of 12. With a hook, 12 of 12.</h3><p>A chat-only agent, its rule as one line in the prompt. Under a drill that tells the model to ignore the rule, the line alone holds 3 of 12 attacks; the line with a hook holds all 12, the hook blocking five.</p><p class="ws-src"><a href="https://newsroom.sgit.ai/articles/an-agent-that-may-only-chat.html">newsroom.sgit.ai</a></p></div>
     </div>
-  </div>
+    <p class="ws-more"><a href="/web-summit-2026/situations.html">All eighteen situations, each with its source &rarr;</a></p>
+    </div>
 </section>
 
 <section class="psection alt" id="film">
