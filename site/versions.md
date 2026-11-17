@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.41.5** · 2026-11-17 — Can you insure a program? Every figure linked to its evidence
+  Notes: https://riskmandate.ai/versions/1.41.5.md · Source: `git:v1.41.5`
 - **v1.41.4** · 2026-11-17 — The home page reads better: larger, lighter evidence lines and plainer words
   Notes: https://riskmandate.ai/versions/1.41.4.md · Source: `git:v1.41.4`
 - **v1.41.3** · 2026-11-17 — Stale figures, brought up to date: sixteen examples, 45 tests, the retired levels
