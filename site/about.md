@@ -58,7 +58,7 @@ The deck’s own line for the pair: _enterprise risk + insurance distribution + 
 
 ## Eighteen slides, as presented in October 2026.
 
-The deck says in eighteen slides what this site says in more than three hundred pages: agents are becoming economic actors and the liability stack is not ready; the people who can say yes are not bookable and their judgement is not portable; the answer is continuous evidence plus expert judgement in one record an insurer can read. It is published here as the file the founders present from, under the same CC BY 4.0 licence as every page on this site, so that anybody we talk to can read it before and after the conversation rather than from memory.
+The deck says in eighteen slides what this site says in the more than 170 pages its [sitemap](sitemap.xml) lists: agents are becoming economic actors and the liability stack is not ready; the people who can say yes are not bookable and their judgement is not portable; the answer is continuous evidence plus expert judgement in one record an insurer can read. It is published here as the file the founders present from, under the same CC BY 4.0 licence as every page on this site, so that anybody we talk to can read it before and after the conversation rather than from memory.
 
 _**01** Make every AI agent insurable._
 

@@ -357,7 +357,8 @@
    "owner": "OWASP staff, then the leads",
    "when": "",
    "status": "todo",
-   "notes": "After acceptance"
+   "notes": "After acceptance; the 30 days are OWASP's, from its guide How to create a project",
+   "url": "https://support.docs.owasp.org/wiki/spaces/OSD/pages/478445603/How+to+create+a+project"
   },
   {
    "id": "S18",

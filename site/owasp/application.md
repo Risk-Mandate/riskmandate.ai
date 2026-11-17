@@ -22,14 +22,14 @@ From OWASP’s support guide [How to create a project](https://support.docs.owas
 
 | Stage | What OWASP asks | Where we are |
 | --- | --- | --- |
-| Before | Two to five leaders, all OWASP members, each with a GitHub account | Two named, membership as the lead stated it, not yet checked; a third sought |
+| Before | [Two to five leaders](https://support.docs.owasp.org/wiki/spaces/OSD/pages/478445603/How+to+create+a+project), all OWASP members, each with a GitHub account | Two named, membership as the lead stated it, not yet checked; a third sought |
 | Before | Read and acknowledge the Project Policy | Read; summarised on [RiskMandate and the project](/owasp/riskmandate.html) |
 | Before | Choose a licence: an OSI licence for code, Creative Commons (or a standards body’s open licence) for documentation; the DCO for contributions | Apache-2.0 and CC BY 4.0 proposed; CC BY-SA 4.0 an open question |
 | Before | Classify: Code or Documentation; Breaker, Builder or Defender | Documentation; Builder |
 | Before | Check the name against OWASP’s projects and GitHub; say how the project meets a need no existing project meets | Name open; the overlap reading is on [The other OWASP projects](/owasp/ecosystem.html) |
 | Before | Draft the problem, innovation, purpose, deliverables and a first-year roadmap | Drafted below |
 | Submit | The New Project Request in OWASP’s service desk. OWASP replies within one business day; the Project Committee reviews and asks about scope, overlap and roadmap; a decision normally takes a few weeks | Not submitted |
-| After | OWASP gives admin access to a new repository in its GitHub organisation and an invitation to manage the project’s page on owasp.org. Leaders create the page within 30 days, list every leader with an owasp.org email, add the licence, enable the DCO check, publish a roadmap | — |
+| After | OWASP gives admin access to a new repository in its GitHub organisation and an invitation to manage the project’s page on owasp.org. Leaders [create the page within 30 days](https://support.docs.owasp.org/wiki/spaces/OSD/pages/478445603/How+to+create+a+project), list every leader with an owasp.org email, add the licence, enable the DCO check, publish a roadmap | — |
 
 **Two things OWASP’s own pages disagree on, published as they stand.** The Project Policy’s link to the request form and the guide’s link point at different service-desk forms; the guide is the newer page, so we would use its link and ask. And owasp.org moved to a new site in September 2026: project pages now live at `owasp.org/projects/<slug>` and are edited in an admin portal, while the draft Project Handbook still describes the older `www-project-<name>` repository. Which one a new project gets is not stated; it is a question in the email.
 
@@ -55,7 +55,7 @@ A specification (objects, grammar, barriers, evidence tiers, delta, lifecycle, l
 
 ## Standalone, inside GenAI, or standalone with a line to it.
 
-Both routes exist. A standalone project is approved by OWASP’s Project Committee under the Project Policy. An initiative inside the GenAI Security Project is proposed on its one- or two-page template, reviewed by its core team for up to four weeks and voted in by its core team and board over 72 hours. Several standalone agent projects were created at OWASP in 2025 and 2026.
+Both routes exist. A standalone project is approved by OWASP’s Project Committee under the Project Policy. An initiative inside the GenAI Security Project is proposed on its one- or two-page template, reviewed by its core team for up to four weeks and voted in by its core team and board over 72 hours, as its [project governance page](https://genai.owasp.org/project-governance/) sets out. Several standalone agent projects were created at OWASP in 2025 and 2026.
 
 | Home | What it gives | What it costs |
 | --- | --- | --- |

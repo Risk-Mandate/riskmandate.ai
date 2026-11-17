@@ -52,7 +52,7 @@ Every prohibition we render carries its barrier. One shown without it is a claim
 
 The clearest way to see what a behaviour policy does is to change one setting and watch the document change. A coding agent on a developer's own machine, profiled twice — once with confirmation prompts enabled, once with them disabled. Same product, same machine, same account.
 
-|  | Confirmations on | Confirmations off |
+|  | [Confirmations on](https://abp.sgit.ai/examples/claude-code-cli-confirmations-enabled/) | [Confirmations off](https://abp.sgit.ai/examples/claude-code-cli-confirmations-disabled/) |
 | --- | --- | --- |
 | Grant | 16 | 16 |
 | Mandate | 5 | 5 |
@@ -136,7 +136,7 @@ Unbounded excess is the only number on a behaviour policy that anybody can move.
 - **It is not a compliance assessment** and it never concludes that you are compliant. It names the provision, the gap and the remedy, and stops.
 - **Most prohibitions today sit in the second row** — a rule somebody wrote down, enforced by nobody. Moving one to the fourth row is a real change, and it is countable.
 
-If you sell a control and want the count for your product against the five published deployment shapes, [that is what the partner conversation is](partners.html).
+If you sell a control and want the count for your product against the [five published deployment shapes](https://abp.sgit.ai/examples/), [that is what the partner conversation is](partners.html).
 
 ## Start with a draft. Then correct it.
 

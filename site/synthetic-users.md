@@ -10,13 +10,13 @@ Source: https://riskmandate.ai/synthetic-users.html
 
 # Five people who do not exist, reading this site twice.
 
-Five invented readers were walked through riskmandate.ai one screenshot at a time, asked what they made of each screen, and interviewed at the end. Every one of them starts every run knowing nothing about RiskMandate, Agent Behaviour Policies, or what is for sale. The site has now been read twice — **v1.20.1 on 16 September and v1.25.1 on 17 September**, the same five readers both times: **60 screenshots, 60 steps, 37 questions the site did not answer, 29 places somebody got lost, and 32 findings.** The second run is the one worth reading, because it says which of the first run’s findings survived.
+Five invented readers were walked through riskmandate.ai one screenshot at a time, asked what they made of each screen, and interviewed at the end. Every one of them starts every run knowing nothing about RiskMandate, Agent Behaviour Policies, or what is for sale. The site has now been read twice — **v1.20.1 on 16 September and v1.25.1 on 17 September**, the same five readers both times, [every screen and answer in one vault](https://dev.vault.sgraph.ai/en-gb/#835a49efea7bd24b0205dd6dd74a08d22539fe5e3bac8dcca073d2e66a74e1fb:re5nrn3h): **60 screenshots, 60 steps, 37 questions the site did not answer, 29 places somebody got lost, and 32 findings.** The second run is the one worth reading, because it says which of the first run’s findings survived.
 
 ## The key is the whole credential.
 
 Nothing in the vault is a secret: no real person, no customer data, no credential. It is published read-only so the method can be checked rather than described.
 
-Derived one way from a vault key that is not published and never will be. The read key opens the vault and cannot change it. This vault, `re5nrn3h`, holds **both** readings — ten runs, two per reader — so the comparison is inside one vault rather than across two. The first study was published as its own vault and is still there, read-only, at `a41174009cf6f3019147040ef0c759b6c84c86ffa37eb54af06011c161a12332:o3q6zhtr`.
+Derived one way from a vault key that is not published and never will be. The read key opens the vault and cannot change it. This vault, [`re5nrn3h`](https://dev.vault.sgraph.ai/en-gb/#835a49efea7bd24b0205dd6dd74a08d22539fe5e3bac8dcca073d2e66a74e1fb:re5nrn3h), holds **both** readings — ten runs, two per reader — so the comparison is inside one vault rather than across two. The first study was published as its own vault and is still there, read-only, at `a41174009cf6f3019147040ef0c759b6c84c86ffa37eb54af06011c161a12332:o3q6zhtr`.
 
 ## Everybody in it is invented, and the vault says so before you can scroll past it.
 
@@ -67,7 +67,7 @@ The headline finding was a word, and it was measurable. Above the fold on a 1440
 | **Agent Behaviour Policy** | **0** |
 | **ABP** | **0** |
 
-The words _Agent Behaviour Policy_ first appeared at character **5,387 of 9,270** — 58% of the way down the page. **Two of the five read “Buy one, from £5” as buying an insurance policy for five pounds.** The insurance broker held that reading for four screens; the founder resolved it by accident, from the caption of the third button.
+The words _Agent Behaviour Policy_ first appeared at character **5,387 of 9,270** — 58% of the way down the page, as measured in [the vault](https://dev.vault.sgraph.ai/en-gb/#835a49efea7bd24b0205dd6dd74a08d22539fe5e3bac8dcca073d2e66a74e1fb:re5nrn3h). **Two of the five read “Buy one, from £5” as buying an insurance policy for five pounds.** The insurance broker held that reading for four screens; the founder resolved it by accident, from the caption of the third button.
 
 - **The hero card made it worse.** It was captioned _A REAL POLICY · TEMPLATE_, directly beside a headline about being insurable — the phrase most likely to be read as an insurance policy, on the one caption with room to say the product’s name instead.
 - **The page led with the step that does not exist.** The audience cards began at 2,823px on a desktop and 4,947px on a phone — the fourth and sixth screenful. Every reader who was one of the three named audiences scrolled past two full screens of insurance argument before the page addressed them.
@@ -80,7 +80,7 @@ And what worked, named unprompted by more than one reader: the connector-scope q
 
 Same five readers, same six-step loop, same window sizes, against the home page rebuilt from a business partner’s design. Measured on the page rather than asserted:
 
-| Measured on the home page | v1.20.1 | v1.25.1 |
+| Measured on the home page · [the vault](https://dev.vault.sgraph.ai/en-gb/#835a49efea7bd24b0205dd6dd74a08d22539fe5e3bac8dcca073d2e66a74e1fb:re5nrn3h) | v1.20.1 | v1.25.1 |
 | --- | --- | --- |
 | where _Agent Behaviour Policy_ first appears | character 5,387 of 9,270 | **character 67 of 6,081** |
 | _Agent Behaviour Policy_ above the fold | 0 | **1** |
@@ -91,7 +91,7 @@ Same five readers, same six-step loop, same window sizes, against the home page 
 | screens to the four levels, desktop | — | 4.8 |
 | screens to the four levels, on a phone | — | **8.9** |
 
-The insurance broker understood on the first screen what took her three pages before, and said why: _“policy here is a document, and they have put the qualifier in front of the noun everywhere I can see.”_ The phone reader, who stalled at v1.20.1 without ever learning what was for sale, reached a purchase decision at step six. **Four of the five would now spend money, against two of five.** None of that is a sale; two of the three who would buy said the entry level is cheap enough not to be a decision, which is a compliment to the pricing rather than to the page.
+The insurance broker understood on the first screen what took her three pages before, and said why: _“policy here is a document, and they have put the qualifier in front of the noun everywhere I can see.”_ The phone reader, who stalled at v1.20.1 without ever learning what was for sale, reached a purchase decision at step six. **Four of the five would now spend money, against two of five** ([the interviews, in the vault](https://dev.vault.sgraph.ai/en-gb/#835a49efea7bd24b0205dd6dd74a08d22539fe5e3bac8dcca073d2e66a74e1fb:re5nrn3h)). None of that is a sale; two of the three who would buy said the entry level is cheap enough not to be a decision, which is a compliment to the pricing rather than to the page.
 
 - **The word that was wrong is fixed; the vocabulary is now split.** The home page says _reach_, _mandate_, _gap_, _barriers_ and carries a note about the file names. The pages it links to use the older words in their own prose — [the behaviour-policy page](agent-behaviour-policy.html) says _the grant_ and _the delta_, and [for-corporate](for-corporate.html) says _the grant_. Three readers hit it within two minutes of the home page. The investor put it worst: _“I am forwarding this to people who will not chase a footnote.”_
 - **Every delivery window starts from a reply that has no clock on it.** Levels 3 and 4 say _1 to 3 days_ and _1 to 5 days_ from your reply. The reader who would have paid £1,500 the same day could not: _“one to five days from my reply still depends on when they reply to me.”_ The step with no time on it is ours.

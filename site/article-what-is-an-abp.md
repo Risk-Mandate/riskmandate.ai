@@ -54,7 +54,7 @@ The verbs are the discipline. A questionnaire produces claims; these four produc
 
 ## Twenty-three primitives, or nothing compares to anything.
 
-If every policy invents its own words, no two can be read side by side and no row can be counted. So a capability is written as `verb.object.reach`, drawn from a fixed, published list of twenty-three. A new mailbox, a new path or a new repository is an instance of an existing primitive, never a new one.
+If every policy invents its own words, no two can be read side by side and no row can be counted. So a capability is written as `verb.object.reach`, drawn from a fixed, [published list of twenty-three](https://abp.sgit.ai/data/capabilities.json). A new mailbox, a new path or a new repository is an instance of an existing primitive, never a new one.
 
 | A row | Reads as | Reach, in this deployment |
 | --- | --- | --- |
@@ -104,7 +104,7 @@ in the grant and not asked for — none of it refused, because nobody thought to
 excess with no boundary in the way. **The only number anybody can move**
 
 - **Four is the number that matters, and it is the only one a control changes.** Buying a tool, writing a rule or briefing the agent does not move it. Turning a setting into a boundary — unticking a scope, moving a switch above the account — does, and nothing else does.
-- **The record says what it does not know.** Six open questions, listed with how each would be settled. Five places where the two vendors' own pages contradict each other, published unresolved rather than picked between — because settling them would mean testing somebody else's system, which is out of bounds.
+- **The record says what it does not know.** [Six open questions](abp-vault-claude-gmail-connector.html), listed with how each would be settled. [Five places](abp-vault-claude-gmail-connector.html) where the two vendors' own pages contradict each other, published unresolved rather than picked between — because settling them would mean testing somebody else's system, which is out of bounds.
 - **And four things it cannot do, each naming what withholds it.** Permanent deletion of mail is blocked by Google's scope ceiling, which moves only if somebody consents to a wider credential on a screen they are shown. Attachment content is blocked by the client not shipping a tool for it — while the credential authorises the bytes. Both were once filed as “not reachable”; only one of them is the kind of thing you can rely on.
 
 ## A behaviour policy cannot be dangerous. A deployment can.
@@ -172,4 +172,4 @@ What arrives at each level, from the pack as a download to a named professional�
 
 ## The gap is already there. The document is the only new thing.
 
-Pick the agent you would least like to explain to an auditor, and write down four things about it: what it can do, what you asked it to do, the distance between them, and what actually stands in the way of each row. Sixteen worked examples are published with their keys, and one of them is probably close to yours.
+Pick the agent you would least like to explain to an auditor, and write down four things about it: what it can do, what you asked it to do, the distance between them, and what actually stands in the way of each row. [Sixteen worked examples](agent-behaviour-policy.html) are published with their keys, and one of them is probably close to yours.

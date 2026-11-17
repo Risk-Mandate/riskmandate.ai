@@ -32,7 +32,7 @@ Each step exists because the one before it produces a question the previous step
 
 “What can this agent actually do?”
 
-Thirteen prompts, pasted into the assistant you already run, against your own mailbox or repository. The agent enumerates its own tools and scopes, drafts the mandate in three lists for you to correct, and writes the gap down. Twenty minutes; nothing is collected.
+[Thirteen prompts](try-it.html), pasted into the assistant you already run, against your own mailbox or repository. The agent enumerates its own tools and scopes, drafts the mandate in three lists for you to correct, and writes the gap down. Twenty minutes; nothing is collected.
 
 A prompt is first because it is the fastest way to be surprised, and being surprised is the shift: the list of what the agent can reach is longer than the tile that sold it, and the people deploying or buying agents have usually never seen the list.
 
@@ -56,7 +56,7 @@ The record keeps a distinction that matters when a control moves: who holds each
 
 “Do you plug into our stack?”
 
-We read; we never enforce. Sixteen deployment shapes are described today, each from the vendor’s own published pages, quoted and dated, or measured on a deployment we are entitled to run. Reading a customer’s own control planes — the identity provider, cloud IAM, the proxy, CI — needs a connector, and connectors are built per engagement with agentic development against whatever is on the other side, then productised as they mature.
+We read; we never enforce. [Sixteen deployment shapes](agent-behaviour-policy.html) are described today, each from the vendor’s own published pages, quoted and dated, or measured on a deployment we are entitled to run. Reading a customer’s own control planes — the identity provider, cloud IAM, the proxy, CI — needs a connector, and connectors are built per engagement with agentic development against whatever is on the other side, then productised as they mature.
 
 Nothing we build sits between an agent and what it is doing. There is no enforcement point to slow an agent down or break it, which is why the security review of us is a short conversation.
 

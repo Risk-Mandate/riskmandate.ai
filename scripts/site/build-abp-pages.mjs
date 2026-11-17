@@ -137,9 +137,9 @@ function directory() {
   <section class="psection" id="library">
     <div class="wrap ab-wide">
       <div class="shead">
-        <span class="tag">${on.length} example policies · ${rows} capability rows · ${measured} measured on the thing itself · ${openQ} open questions</span>
+        <span class="tag"><a href="vaults/index.json">${on.length} example policies</a> · ${rows} capability rows · ${measured} measured on the thing itself · ${openQ} open questions</span>
         <h2>Pick a behaviour policy. <span class="g">Read it here. Open its vault.</span></h2>
-        <p>Every tile is one Agent Behaviour Policy, delivered as a vault: a measured or documented grant for that application, a starting mandate written to be corrected, six scenarios that change the mandate and never the grant, and the files you hand the agent. The counts are read from the vault as you look. Grid or list, same set; search matches names, vendors, scopes, tool names and the 23 capability ids, so <code>send.message.world</code> finds every policy that can send mail whatever the product calls it. Not here yet? <a href="agent-behaviour-policy-next.html">See what is next, vote, or suggest one</a>.</p>
+        <p>Every tile is one Agent Behaviour Policy, delivered as a vault: a measured or documented grant for that application, a starting mandate written to be corrected, six scenarios that change the mandate and never the grant, and the files you hand the agent. The counts are read from the vault as you look. Grid or list, same set; search matches names, vendors, scopes, tool names and the <a href="https://abp.sgit.ai/data/capabilities.json" target="_blank" rel="noopener">23 capability ids</a>, so <code>send.message.world</code> finds every policy that can send mail whatever the product calls it. Not here yet? <a href="agent-behaviour-policy-next.html">See what is next, vote, or suggest one</a>.</p>
       </div>
       <rm-abp-library class="ab-lib" data-view="grid">
         <div class="ab-tools">

@@ -14,7 +14,7 @@ An **Agent Behaviour Policy** describes one AI agent in one deployment: everythi
 
 ## Pick a behaviour policy. Read it here. Open its vault.
 
-Every tile is one Agent Behaviour Policy, delivered as a vault: a measured or documented grant for that application, a starting mandate written to be corrected, six scenarios that change the mandate and never the grant, and the files you hand the agent. The counts are read from the vault as you look. Grid or list, same set; search matches names, vendors, scopes, tool names and the 23 capability ids, so `send.message.world` finds every policy that can send mail whatever the product calls it. Not here yet? [See what is next, vote, or suggest one](agent-behaviour-policy-next.html).
+Every tile is one Agent Behaviour Policy, delivered as a vault: a measured or documented grant for that application, a starting mandate written to be corrected, six scenarios that change the mandate and never the grant, and the files you hand the agent. The counts are read from the vault as you look. Grid or list, same set; search matches names, vendors, scopes, tool names and the [23 capability ids](https://abp.sgit.ai/data/capabilities.json), so `send.message.world` finds every policy that can send mail whatever the product calls it. Not here yet? [See what is next, vote, or suggest one](agent-behaviour-policy-next.html).
 
 ### [Claude Code on the web](abp-vault-claude-code-web.html)
 
