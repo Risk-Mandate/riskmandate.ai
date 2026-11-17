@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.41.21** · 2026-11-17 — The console carries the state at the end of 17 November
+  Notes: https://riskmandate.ai/versions/1.41.21.md · Source: `git:v1.41.21`
 - **v1.41.20** · 2026-11-17 — One story on every page: every way in starts with a conversation, levels named by price
   Notes: https://riskmandate.ai/versions/1.41.20.md · Source: `git:v1.41.20`
 - **v1.41.19** · 2026-11-17 — For developers: agents near money, the lead's position as a behaviour-policy line
