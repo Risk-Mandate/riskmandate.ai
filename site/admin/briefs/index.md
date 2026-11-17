@@ -3,7 +3,7 @@
 > Every document under docs/ on riskmandate.ai, rendered as a page: direction briefs, reviews, workflows, architecture and research, newest first.
 > Source: https://riskmandate.ai/admin/briefs/ · noindex · written by scripts/site/build-admin.mjs
 
-**43**documents under docs/*one page each, rendered from the file*
+**44**documents under docs/*one page each, rendered from the file*
 
 **12**direction briefs*the product and the site*
 
@@ -18,6 +18,10 @@ These were written here, by the agent maintaining the site, in response to [the 
 **[Synthetic users on the live site, 17 November 2026](../../admin/briefs/marketing--synthetic-users-2026-11-17/)**
 
 The personas are invented. Nothing here is a score: it records where each persona stopped and what it could not find.17 November 2026
+
+**[The one-paragraph RiskMandate message, 17 November 2026](../../admin/briefs/marketing--the-message-2026-11-17/)**
+
+The rule on figures: each draft carries at most one, and if it does, the evidence link sits beside it. The only figures used are ones already on the home page, with the home page's own link. Word counts leave out the URL.17 November 2026
 
 **[Direction — we can control your agents: riskmandate.ai and agenticcells.ai, sold together](../../admin/briefs/direction__we-can-control-your-agents/)**
 
@@ -326,6 +330,10 @@ Move the interactive Risk Scenarios experience to the decoupled model:4 July 202
 **[Synthetic users on the live site, 17 November 2026](../../admin/briefs/marketing--synthetic-users-2026-11-17/)**
 
 The personas are invented. Nothing here is a score: it records where each persona stopped and what it could not find.17 November 2026
+
+**[The one-paragraph RiskMandate message, 17 November 2026](../../admin/briefs/marketing--the-message-2026-11-17/)**
+
+The rule on figures: each draft carries at most one, and if it does, the evidence link sits beside it. The only figures used are ones already on the home page, with the home page's own link. Word counts leave out the URL.17 November 2026
 
 **[The early-adopters thank you: two groups, one offer, thirty days, and the words that go out](../../admin/briefs/programme--early-adopters-thank-you/)**
 

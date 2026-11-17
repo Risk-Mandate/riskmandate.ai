@@ -10,7 +10,7 @@ Source: https://riskmandate.ai/
 
 # We can control your agents.
 
-If you run AI agents, we can tell you what each one can actually do, write down what you authorised it to do, and put something in the way of the difference. We do it on our own team every day: at Web Summit in November, more than a hundred agents ([the team’s own count](https://web-summit.sgit.ai/team/everything/)), each with its own Agent Behaviour Policy (ABP).
+If you run AI agents, we can tell you what each one can actually do, write down what you authorised it to do, and put something in the way of the difference. We do it on our own team every day: at Web Summit in November, more than a hundred agents ([the team’s own count](https://web-summit.sgit.ai/team/everything/)), most with an Agent Behaviour Policy (ABP) of its own: 94 of the 109 on the team’s circuit on 10 November ([the stand deck](https://web-summit.sgit.ai/meetings/2026-11-10-1600/show/)).
 
 [Talk to us about your agents](/contact.html)[See sixteen free examples](/agent-behaviour-policy.html)
 
@@ -44,7 +44,7 @@ A chat-only agent, its rule as one line in the prompt. Under a drill that tells 
 
 [All eighteen situations, each with its source &rarr;](/web-summit-2026/situations.html)
 
-## A hundred agents, every one with a policy.
+## A hundred agents, and the policies they ran under.
 
 What people stopped for at our stand in Lisbon: the whole team at work on one screen, each agent wired through its ABP to what it reaches, the ones without a policy flagged. On 10 November the circuit showed 109 agents, 94 with a written policy ([the stand deck](https://web-summit.sgit.ai/meetings/2026-11-10-1600/show/)).
 
@@ -91,4 +91,4 @@ The book of the day nine AI agents and Dinis Cruz built a talk: who did what, th
 
 ## Said here, not only in the record.
 
-Our summit ABPs were in observe mode by choice: gaps were logged and allowed, not blocked, apart from one call. Most were documented from each agent’s brief and tools, not measured on it. Nobody outside the team has checked these counts. No customer is named, because none has agreed to be. If you need help controlling your agents, [we are your people](/contact.html).
+Our summit ABPs were in observe mode by choice: gaps were logged and allowed, not blocked, apart from one call. Most were documented from each agent’s brief and tools, not measured on it. Nobody outside the team has checked these counts. No customer is named, because none has agreed to be. If you need help controlling your agents, [we are your person](/contact.html).

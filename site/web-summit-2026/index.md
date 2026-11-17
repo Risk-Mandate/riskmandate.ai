@@ -31,6 +31,8 @@ The team’s own account, in the team’s own pages. The stand was on Thursday 1
 | The film | _Know the Reach_, a song with subtitles, 3:39 on the stand site; the music video’s first part, 53.4 seconds, by Silvio Switha | [riskmandate-at-websummit.agenticcells.site](https://riskmandate-at-websummit.agenticcells.site/#film), 16 Nov; [newsroom.sgit.ai](https://newsroom.sgit.ai/articles/know-the-reach.html), 15 Nov |
 | The pause | “9 Nov … at 23:30, the Big Stop: every agent paused”; “12 Nov … the final hold at 18:12” | [newsroom.sgit.ai](https://newsroom.sgit.ai/articles/ten-days-at-web-summit.html), 14 Nov |
 
+The film, by Silvio Switha, November 2026, as shown at the stand; it says delta where this site says gap. The song and its video: [newsroom.sgit.ai](https://newsroom.sgit.ai/articles/know-the-reach.html).
+
 ## One for every agent, in three places.
 
 The lead’s estimate was a hundred to two hundred ABPs. Counted file by file on 16 November, the three sites publish 191 documents. That sum counts some agents twice: two of the team site’s pages cover groups that also have files on the PrompTugal board. We have not removed the overlap, so 191 is an upper bound on distinct agents with an ABP, not a count of them.
