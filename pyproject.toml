@@ -1,6 +1,6 @@
 [tool.poetry]
 name        = "riskmandate-ai"
-version     = "v1.41.20"
+version     = "v1.41.21"
 description = "RiskMandate.ai website"
 readme      = "README.md"
 license     = "Apache-2.0"
