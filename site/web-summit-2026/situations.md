@@ -26,7 +26,7 @@ Source: https://riskmandate.ai/web-summit-2026/situations.html
 
 **What we did.** The call was blocked: the one blocked call in 2,262 run reports.
 
-“board/HOLD.md is security@'s to write and only Dinis lifts it” · [source](https://github.com/PrompTugal/PrompTugal__News__Website)
+“board/HOLD.md is security@'s to write and only Dinis lifts it” · [source](https://github.com/PrompTugal/PrompTugal__News__Website/blob/dev/board/runs/dev/2026-11-06T05-09-46Z.json)
 
 ### The sandbox refused two installs; the tools were vendored instead
 

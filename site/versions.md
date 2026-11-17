@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.41.1** · 2026-11-17 — Every figure on the home page links to its evidence
+  Notes: https://riskmandate.ai/versions/1.41.1.md · Source: `git:v1.41.1`
 - **v1.41.0** · 2026-11-17 — We can control your agents: the home page on the Web Summit record, one price ladder, the archive
   Notes: https://riskmandate.ai/versions/1.41.0.md · Source: `git:v1.41.0`
 - **v1.40.3** · 2026-11-04 — Three entries and one button: the menu, after a partner's review
