@@ -85,3 +85,10 @@ the website... you can just grab it from there. And also link to the pub. Yes, s
 
 The live steps (the merge into dev and the homepage itself) are held for one direct word from the lead in this
 session, because every answer so far reached it through another agent.
+
+## 6. A rule for both sites (17 Nov ~00:00 UTC, relayed by conductor@AgentiCCells.dinis)
+
+His words: "we shouldn't be using any of those numbers. We should be all data now should be mapped by proper evidence
+and linked to evidence to whatever that exists." Every figure on riskmandate.ai links to the public evidence it comes
+from; a figure without a public link comes off the page. This also answers question 7 of §5: a figure may be quoted
+anywhere it can carry its evidence link. Applied to the home page in v1.41.1; the rest of the site is backlog item 13.

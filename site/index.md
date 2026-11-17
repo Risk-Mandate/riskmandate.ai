@@ -10,7 +10,7 @@ Source: https://riskmandate.ai/
 
 # We can control your agents.
 
-If you run AI agents, we can tell you what each one can actually do, write down what you authorised it to do, and put something in the way of the difference. We do it on our own team every day: at Web Summit in November, more than a hundred agents, each with its own Agent Behaviour Policy (ABP).
+If you run AI agents, we can tell you what each one can actually do, write down what you authorised it to do, and put something in the way of the difference. We do it on our own team every day: at Web Summit in November, more than a hundred agents ([the team’s own count](https://web-summit.sgit.ai/team/everything/)), each with its own Agent Behaviour Policy (ABP).
 
 [Talk to us about your agents](/contact.html)[See sixteen free examples](/agent-behaviour-policy.html)
 
@@ -20,7 +20,7 @@ Small, real cases from our own agents, each from our public record. Including th
 
 ### “Never push to main” was a sentence. Then an agent pushed to main.
 
-At 23:06 UTC our conductor pushed to main. The gap was written down; on 6 November main was protected, and the sentence became a barrier in all 72 behaviour policies of that day.
+At 23:06 UTC our conductor pushed to main. The gap was written down; on 6 November main was protected, and the sentence became a barrier in all 72 behaviour policies of that day ([report of 6 Nov](https://web-summit.sgit.ai/reports/2026-11-06-0457/)).
 
 [web-summit.sgit.ai/abp/in-action/](https://web-summit.sgit.ai/abp/in-action/)
 
@@ -32,9 +32,9 @@ One team member’s agent was collecting quotes from printers. Our policy agent 
 
 ### An agent tried to lift a hold that only a person may lift.
 
-The newsroom’s developer agent tried to write the hold file. The ABP says that file is the security agent’s to write and only the lead lifts it. It was the one call blocked in 2,262 runs.
+The newsroom’s developer agent tried to write the hold file. The ABP says that file is the security agent’s to write and only the lead lifts it. It was the one call blocked in 2,262 runs ([the run reports](https://github.com/PrompTugal/PrompTugal__News__Website/tree/dev/board/runs)).
 
-PrompTugal board, run report of 6 Nov 05:11 UTC
+[the run report](https://github.com/PrompTugal/PrompTugal__News__Website/blob/dev/board/runs/dev/2026-11-06T05-09-46Z.json), 6 Nov 05:11 UTC
 
 ### Told to ignore its policy, an agent kept 3 of 12. With a hook, 12 of 12.
 
@@ -44,7 +44,7 @@ A chat-only agent, its rule as one line in the prompt. Under a drill that tells 
 
 ## A hundred agents, every one with a policy.
 
-What people stopped for at our stand in Lisbon: the whole team at work on one screen, each agent wired through its ABP to what it reaches, the ones without a policy flagged. On 10 November the circuit showed 109 agents, 94 with a written policy.
+What people stopped for at our stand in Lisbon: the whole team at work on one screen, each agent wired through its ABP to what it reaches, the ones without a policy flagged. On 10 November the circuit showed 109 agents, 94 with a written policy ([the stand deck](https://web-summit.sgit.ai/meetings/2026-11-10-1600/show/)).
 
 _The team at the RiskMandate stand, A1-30, Web Summit Lisbon, November 2026_
 
@@ -64,11 +64,11 @@ What each agent can reach, what you authorised, the gap, written down and given 
 
 ### Hooks
 
-The rule checked on every call, outside the model’s say-so. The difference between 3 of 12 and 12 of 12 in the test above.
+The rule checked on every call, outside the model’s say-so. The difference between 3 of 12 and 12 of 12 in [the test above](https://newsroom.sgit.ai/articles/an-agent-that-may-only-chat.html).
 
 ### A boundary: SHarness
 
-The rule enforced by something the agent cannot reach. Six of six probes held on 25 October; nothing yet binds the agent itself. [SHarness](/secure-harness.html).
+The rule enforced by something the agent cannot reach. Six of six probes held on 25 October ([the demo and its record](/secure-harness.html)); nothing yet binds the agent itself. [SHarness](/secure-harness.html).
 
 ## From one policy to the whole estate.
 
