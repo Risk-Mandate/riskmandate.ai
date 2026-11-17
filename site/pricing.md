@@ -31,9 +31,9 @@ Prices are in pounds and each level is one price, so the first two have pages at
 
 Nobody interviews you at this level, and nobody needs access to anything. The agent that already holds the credential measures its own grant, drafts the mandate in your words, and you send us the two files it wrote. The prompt is public and travels in every vault as `MAP-A-GRANT.md`; the rules it follows are the ones the first measured policy on this site was produced under.
 
-### Buy the £500 policy for the application closest to yours
+### [Write to us](contact.html) about the application closest to yours
 
-Or _something not on the list_, which starts here because no template exists for it yet. You get an order reference.
+Or _something not on the list_, which starts here because no template exists for it yet. A person writes back with the prompt and a reference for your behaviour policy.
 
 ### Run the prompt where the agent runs
 
@@ -57,9 +57,9 @@ The payment link's success address is a page per level that says what happens no
 
 | Level | Done when | Checked by | The page |
 | --- | --- | --- | --- |
-| 1 | The corrected mandate and the recomputed delta are committed, and the note of what changed and why is committed beside them | The commit is in the history and the note names every changed row | [The £500 policy →](paid-t3.html) |
-| 2 | Both sessions held, the record of what was asked and answered committed, and the sign-off file committed with the professional's name and the date | Three files in the tree, and the sessions dated in the record | [The £1,500 way in →](paid-t4.html) |
-| 3–4 | The deliverables named in the engagement letter are delivered and committed | The letter, agreed with you before any work starts, names each one | [Talk to us →](contact.html) |
+| £500 | The corrected mandate and the recomputed delta are committed, and the note of what changed and why is committed beside them | The commit is in the history and the note names every changed row | [The £500 policy →](paid-t3.html) |
+| £1,500 | Both sessions held, the record of what was asked and answered committed, and the sign-off file committed with the professional's name and the date | Three files in the tree, and the sessions dated in the record | [The £1,500 way in →](paid-t4.html) |
+| £5,000 and £20,000 | The deliverables named in the engagement letter are delivered and committed | The letter, agreed with you before any work starts, names each one | [Talk to us →](contact.html) |
 
 Every way in is a follow-up from a person within 24 hours of the payment or the first message: the prompt step, the first meeting, the engagement letter. If the record says we cannot keep that, the number moves here first. How the store's payment links reach those pages is written down for the store team on [the after-payment debrief](after-payment.html).
 
@@ -73,6 +73,6 @@ Everything describing _a_ deployment is free, and the document describing _your_
 
 The question you will be asked is what you _did_ authorise. That document is the thing on the paid side of the line.
 
-## Read one first. Then buy yours.
+## Read one first. Then ask for yours.
 
-[Sixteen example policies](/agent-behaviour-policy.html), read live from their vaults with published keys, cost nothing and need no account. When you want the one that says what _you_ authorised, it is four ways in, the first two at the store.
+[Sixteen example policies](/agent-behaviour-policy.html), read live from their vaults with published keys, cost nothing and need no account. When you want the one that says what _you_ authorised, it is four ways in, and today every one starts with a conversation.

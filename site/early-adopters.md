@@ -42,11 +42,11 @@ Your invitation code starts with `EA-`.
 
 ## The £500 level, at no cost.
 
-The store sells an Agent Behaviour Policy at [four levels](pricing.html). The third, _corrected for your situation_, is the one where the document stops describing a deployment in general and starts describing yours. That is the one you get.
+An Agent Behaviour Policy has [four ways in](pricing.html). The £500 one, _corrected for your situation_, is the one where the document stops describing a deployment in general and starts describing yours. That is the one you get.
 
 - **One agent you run, named by you.** A mailbox connector, a coding agent, a workflow tool, a CRM assistant, a dot. If the shape is one of [the sixteen published](agent-behaviour-policy.html), the vault starts from it; if not, it starts from the vendor’s pages, dated.
 - **The grant, documented and then measured by you.** Every vault carries the prompt that lets the agent holding the credential measure its own reach, in [the fixed vocabulary of 23 capabilities and four barriers](https://abp.sgit.ai/data/index.json). Twenty minutes, nothing of yours leaves your side, and the documented rows become measured ones.
-- **The mandate, corrected with you.** This is the part the price is for. You tell the agent that keeps this site, by email or on a call, what the agent is for in your organisation, and the mandate is corrected against your industry, your use case and your words; the gap is recomputed; a written note of what changed and why is committed beside it, and a person reviews the note before it goes to you. [What level 3 delivers](paid-t3.html), word for word.
+- **The mandate, corrected with you.** This is the part the price is for. You tell the agent that keeps this site, by email or on a call, what the agent is for in your organisation, and the mandate is corrected against your industry, your use case and your words; the gap is recomputed; a written note of what changed and why is committed beside it, and a person reviews the note before it goes to you. [What the £500 policy delivers](paid-t3.html), word for word.
 - **An encrypted vault you hold the keys to.** The link by one message, the key by another, never on a page. A read key you may hand to your board, your auditor or your broker. Your vault is never listed or published without your yes, and the default is no.
 - **A direct line.** `agent@riskmandate.ai`, read by a person within a working day, and [the contact form](contact.html), which reaches the same agent through its vault.
 

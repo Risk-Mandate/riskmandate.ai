@@ -179,7 +179,7 @@ rm-menu{display:contents}
   <div class="wrap">
     <a class="brand" href="index.html"><span class="rm" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#161615"/><circle cx="32" cy="32" r="19" stroke="#1A7F5A" stroke-width="2.6" fill="none"/><circle cx="32" cy="32" r="13.5" stroke="rgba(247,246,242,.22)" stroke-width="1" fill="none"/><g stroke="#1A7F5A" stroke-width="2"><line x1="32" y1="9" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="55"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="55" y2="32"/></g><text x="32" y="37" text-anchor="middle" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="13" font-weight="700" fill="#F7F6F2" letter-spacing="-0.5">RM</text></svg></span> RiskMandate</a>
     <nav class="navlinks"><rm-menu></rm-menu></nav>
-      <a class="version" href="versions.html" title="What shipped in v1.41.19">v1.41.19</a>
+      <a class="version" href="versions.html" title="What shipped in v1.41.20">v1.41.20</a>
     <a class="demo" href="https://customers.riskmandate.ai/" data-try>Try it free</a>
   </div>
 </header>
@@ -245,18 +245,18 @@ rm-menu{display:contents}
         </div></div>
 
         <div class="hw-step"><div>
-          <div class="hw-head"><h3>Fit the policy to the controls you actually have</h3><span class="hw-pill part">Per engagement &middot; levels 3 and 4</span></div>
+          <div class="hw-head"><h3>Fit the policy to the controls you actually have</h3><span class="hw-pill part">Per engagement &middot; from &pound;500</span></div>
           <p class="q">&ldquo;What is actually in the way, here?&rdquo;</p>
           <p>What bounds an agent depends on what exists in your environment: the proxy in front of it, the egress rules, which kinds of account can be created, what corporate tooling prevents, and what nobody has switched on. So a template becomes yours when its mandate and its barriers are corrected against your deployment rather than against the vendor&rsquo;s defaults.</p>
           <p>The record keeps a distinction that matters when a control moves: who holds each barrier. A scope you consented to and can revoke is a different object from a product decision a vendor can change in a release with no notice. Both are recorded; the difference is in the facts.</p>
-          <span class="why">Corrected at level 3 by a person, and in the room at level 4: <a href="abp-reviewed.html">abp-reviewed.html</a>. Barrier holders are data in every vault.</span>
+          <span class="why">Corrected by our agents and reviewed by a person at &pound;500, worked through with you at &pound;1,500: <a href="abp-reviewed.html">abp-reviewed.html</a>. Barrier holders are data in every vault.</span>
         </div></div>
 
         <div class="hw-step"><div>
           <div class="hw-head"><h3>Integrate with whatever you have</h3><span class="hw-pill part">Shapes today &middot; connectors per engagement</span></div>
           <p class="q">&ldquo;Do you plug into our stack?&rdquo;</p>
-          <p>We read; we never enforce. <a href="agent-behaviour-policy.html">Sixteen deployment shapes</a> are described today, each from the vendor&rsquo;s own published pages, quoted and dated, or measured on a deployment we are entitled to run. Reading a customer&rsquo;s own control planes &mdash; the identity provider, cloud IAM, the proxy, CI &mdash; needs a connector, and connectors are built per engagement with agentic development against whatever is on the other side, then productised as they mature.</p>
-          <p>Nothing we build sits between an agent and what it is doing. There is no enforcement point to slow an agent down or break it, which is why the security review of us is a short conversation.</p>
+          <p>The behaviour policy reads; it never enforces. <a href="agent-behaviour-policy.html">Sixteen deployment shapes</a> are described today, each from the vendor&rsquo;s own published pages, quoted and dated, or measured on a deployment we are entitled to run. Reading a customer&rsquo;s own control planes &mdash; the identity provider, cloud IAM, the proxy, CI &mdash; needs a connector, and connectors are built per engagement with agentic development against whatever is on the other side, then productised as they mature.</p>
+          <p>The ABP never sits between an agent and what it is doing, and we are never in the request path, which is why the security review of us is a short conversation. Enforcement, when you want it, is yours and runs on your side: a hook in your own harness (<a href="/developers.html">how to add one</a>) or a boundary such as <a href="/secure-harness.html">SHarness</a>.</p>
           <span class="why">The catalogue: <a href="agent-behaviour-policy.html">agent-behaviour-policy.html</a>. No connector is a product yet, and none is claimed as one.</span>
         </div></div>
 
@@ -293,7 +293,7 @@ rm-menu{display:contents}
         <div class="hw-p"><span class="hw-pill part">Partly</span><b>The graph</b><span>Standards today; risks upward and internal policies sideways, in design.</span></div>
         <div class="hw-p"><span class="hw-pill next">In design</span><b>The views</b><span>Operator, security, leadership, insurer: one record, read four ways.</span></div>
       </div>
-      <p class="src">Read-only throughout, and never in the request path. The only thing that ever sits inside your agent is a file it reads &mdash; <code>AGENTS.md</code>, <code>SKILL.md</code> &mdash; and a file is an expectation, not a control. That distinction is the second step above, and it is the whole reason the third one exists.</p>
+      <p class="src">Read-only throughout, and never in the request path. The only thing of ours that ever sits inside your agent is a file it reads &mdash; <code>AGENTS.md</code>, <code>SKILL.md</code> &mdash; and a file is an expectation, not a control. That distinction is the second step above, and it is the whole reason the third one exists.</p>
     </div>
   </section>
 

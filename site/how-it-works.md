@@ -56,9 +56,9 @@ The record keeps a distinction that matters when a control moves: who holds each
 
 “Do you plug into our stack?”
 
-We read; we never enforce. [Sixteen deployment shapes](agent-behaviour-policy.html) are described today, each from the vendor’s own published pages, quoted and dated, or measured on a deployment we are entitled to run. Reading a customer’s own control planes — the identity provider, cloud IAM, the proxy, CI — needs a connector, and connectors are built per engagement with agentic development against whatever is on the other side, then productised as they mature.
+The behaviour policy reads; it never enforces. [Sixteen deployment shapes](agent-behaviour-policy.html) are described today, each from the vendor’s own published pages, quoted and dated, or measured on a deployment we are entitled to run. Reading a customer’s own control planes — the identity provider, cloud IAM, the proxy, CI — needs a connector, and connectors are built per engagement with agentic development against whatever is on the other side, then productised as they mature.
 
-Nothing we build sits between an agent and what it is doing. There is no enforcement point to slow an agent down or break it, which is why the security review of us is a short conversation.
+The ABP never sits between an agent and what it is doing, and we are never in the request path, which is why the security review of us is a short conversation. Enforcement, when you want it, is yours and runs on your side: a hook in your own harness ([how to add one](/developers.html)) or a boundary such as [SHarness](/secure-harness.html).
 
 ### Connect it to the graph
 
@@ -78,7 +78,7 @@ Where this goes: the same vault, or one of yours, holds the execution logs and t
 
 ## Five things, in one direction.
 
-Read-only throughout, and never in the request path. The only thing that ever sits inside your agent is a file it reads — `AGENTS.md`, `SKILL.md` — and a file is an expectation, not a control. That distinction is the second step above, and it is the whole reason the third one exists.
+Read-only throughout, and never in the request path. The only thing of ours that ever sits inside your agent is a file it reads — `AGENTS.md`, `SKILL.md` — and a file is an expectation, not a control. That distinction is the second step above, and it is the whole reason the third one exists.
 
 ## Be surprised first. Then decide what to do about it.
 
