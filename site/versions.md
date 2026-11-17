@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.41.8** · 2026-11-17 — The menu works on the summit and archive pages; the retired prices are gone from every product page
+  Notes: https://riskmandate.ai/versions/1.41.8.md · Source: `git:v1.41.8`
 - **v1.41.7** · 2026-11-17 — Pricing and the OWASP proposal pages, linked to their evidence
   Notes: https://riskmandate.ai/versions/1.41.7.md · Source: `git:v1.41.7`
 - **v1.41.6** · 2026-11-17 — Three more pages linked to their evidence: the pilots article, SHarness, the reviewer
