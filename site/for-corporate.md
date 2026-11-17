@@ -28,9 +28,9 @@ It is a draft on purpose. It goes to the people who built the agent, the people 
 
 This reaches a personal device, a personal account and a locally run server with no install and no administrator — and in exchange it only ever sees what somebody is willing to say. An inventory built on telemetry sees what is on the network whether anybody admits to it or not. If you already run a good one, we would rather read from it than replace it.
 
-## One thing, at four levels.
+## Four ways in, from one policy to the whole estate.
 
-Start at level one: the pack for the shape you run, as a zip you keep. Level two is the same material as a vault you hold the keys to. The whole ladder, what each level changes and who does the work is on [pricing](pricing.html); the catalogue and the checkout are on the store.
+Start with a behaviour policy for one agent, run by our own agents, or have it worked through with you. For more than one agent, or controls that hold them, the engagement is about two days, or a full one. What each way in includes and who does the work is on [pricing](pricing.html); the first two are bought at the store.
 
 The store takes the order and hands you back here: one page per level, and at level one that page **is** the download — the zip, its size, its sha256 and a check that runs in your own browser. Payment rails are not built yet, and every checkout button on the store says so rather than looking live.
 

@@ -302,6 +302,16 @@ test('the home page counts link to their record, and the shape count comes from 
     'a behaviour policy carries no score');
 });
 
+test('a page in a folder tells the menu where the root is', () => {
+  // v1.41.8: the Web Summit 2026 and archive pages shipped without RM.data.base, so the menu built every link
+  // from the folder ("web-summit-2026/pricing.html") and all forty went to a 404. A synthetic user found it.
+  for (const f of pages.filter((f) => f.includes('/'))) {
+    const s = read(f);
+    if (!s.includes('RM.data.currentPage=')) continue;
+    assert.match(s, /RM\.data\.base="\/";/, `${f} is in a folder and does not set RM.data.base, so its menu links break`);
+  }
+});
+
 test('every inline script parses — a page that throws on load is a broken page', () => {
   // A page here is one self-contained file, so a stray brace in one of them takes
   // the menu, the drawer and every component on that page down with it and nothing

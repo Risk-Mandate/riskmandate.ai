@@ -3,7 +3,7 @@
 > Every document under docs/ on riskmandate.ai, rendered as a page: direction briefs, reviews, workflows, architecture and research, newest first.
 > Source: https://riskmandate.ai/admin/briefs/ · noindex · written by scripts/site/build-admin.mjs
 
-**42**documents under docs/*one page each, rendered from the file*
+**43**documents under docs/*one page each, rendered from the file*
 
 **12**direction briefs*the product and the site*
 
@@ -14,6 +14,10 @@
 These were written here, by the agent maintaining the site, in response to [the memos and documents that arrived](../../admin/memos/). Each is read against a named source and dated. Add a file under `docs/` and rerun `build-admin.mjs`: it has a page here and a test fails until it does.
 
 ## Newest first
+
+**[Synthetic users on the live site, 17 November 2026](../../admin/briefs/marketing--synthetic-users-2026-11-17/)**
+
+The personas are invented. Nothing here is a score: it records where each persona stopped and what it could not find.17 November 2026
 
 **[Direction — we can control your agents: riskmandate.ai and agenticcells.ai, sold together](../../admin/briefs/direction__we-can-control-your-agents/)**
 
@@ -318,6 +322,10 @@ riskmandate.ai is written for a Head of Risk. Lisbon is founders and investors. 
 Move the interactive Risk Scenarios experience to the decoupled model:4 July 2026 · implementation
 
 ## Other documents · how the site works, and the marketing copy
+
+**[Synthetic users on the live site, 17 November 2026](../../admin/briefs/marketing--synthetic-users-2026-11-17/)**
+
+The personas are invented. Nothing here is a score: it records where each persona stopped and what it could not find.17 November 2026
 
 **[The early-adopters thank you: two groups, one offer, thirty days, and the words that go out](../../admin/briefs/programme--early-adopters-thank-you/)**
 
