@@ -198,16 +198,28 @@ Which is not an argument against inventories. It is an argument that the row you
 
 The bill-of-materials finding, the deployed-configuration gap and the discovery-market survey are in [Lab 04](lab-shape-collector.html), with sources read on 12 September 2026. The one-setting-two-documents example and the four barriers are on [the model page](abp.html), derived from published data at [abp.sgit.ai](https://abp.sgit.ai/). The rule that estate destinations should be generated from an inventory rather than typed is in [Lab 06](lab-network-reach.html).
 
+## Our data is regulated. What do you not do?
+
+### We work in health or finance. Can we use this where the data is regulated, and what do you not do?
+
+Not put to us directly. A healthcare team put seven questions of the same kind to sgit, whose encrypted vaults hold our template behaviour policies, before any real patient data went in; the answers were published on 17 November 2026.
+
+A behaviour policy needs none of the regulated data. It writes down, for one agent in one deployment, what it can reach, what you authorised, the gap, and what stands in the way. It is read-only on purpose and never in the agent's path. A draft is about a deployment shape rather than your estate: nothing is sent anywhere and we need no access to anything of yours.
+
+It is not a compliance assessment and not legal advice; your data protection impact assessment stays your own. For vaults, the article states its limits: no live date for the doctor console on the hosted service, so real data goes on your own server, in the region you choose; lose the key and the vault is lost; deletion stops future access, not copies already made.
+
+The full answers, with their own limits and sources: [Patient vaults, answered point by point](https://newsroom.sgit.ai/articles/patient-vaults-answered.html), newsroom.sgit.ai, 17 November 2026, CC BY 4.0, read 18 November 2026. What a behaviour policy is and is not: [the model page](abp.html) and [the reviewed level](abp-reviewed.html).
+
 ## Real questions, no names.
 
 An FAQ is a list of questions somebody wished they had been asked. This is the other thing: questions put to us by people outside this company, in public, reproduced as they were meant rather than as a prompt for a pitch.
 
 - **We never name the asker.** Every question here is paraphrased and dated, and the person who asked it is not identified. They asked in a conversation, not for a marketing page, and the answer is useful without the name attached.
-- **And every entry says whether it was actually asked.** Two of the four were not: the definitions, because everything else here leans on them, and the inventory comparison, because it is the first objection anybody with a working asset register will have and we would rather write the answer before we are in a room selling something. Both say so on their own line, because a page claiming to answer real questions has to be checkable on that claim.
+- **And every entry says whether it was actually asked.** Three of the five were not put to us: the definitions, because everything else here leans on them; the inventory comparison, because it is the first objection anybody with a working asset register will have and we would rather write the answer before we are in a room selling something; and the regulated-data question, which a healthcare team put to sgit rather than to us. Both say so on their own line, because a page claiming to answer real questions has to be checkable on that claim.
 - **If the answer is that we do not do the thing, that is the first line.** Not a caveat at the bottom, not a redirect to something adjacent that we do. Both answers currently on this page contain a _no_, and in both cases it is in a red panel near the top.
 - **Every answer points at where it can be checked.** The reasoning lives in [the Lab](lab.html), with sources and dates; this page gives the direct answer and the link. Where a claim is ours rather than a citation, it says so.
 - **An answer that outgrows a section gets its own page**, and this one keeps the summary and the link. Nothing is duplicated, and nothing is quietly rewritten — if an answer changes because we were wrong, the change is noted with its date.
 
-## Three of the four say what we do not do.
+## Four of the five say what we do not do.
 
 None of them had a comfortable answer available, and giving the comfortable one would have been found out in the next message. If you have a question of the same kind, it is worth more to us than a good review — and it will end up on this page, without your name on it.
