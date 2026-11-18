@@ -2,7 +2,7 @@
 
 # RiskMandate — The team: who does what, and what stands in the way
 
-One person and two agents make this site. An Agent Behaviour Policy for each agent in the catalogue's grammar, three tiers of information (public, private, secret), every surface with its tier, the workflow from private to public, and the controls, checks and tooling in place and not. Nothing is scored.
+One person and three agents make this site. An Agent Behaviour Policy for each agent in the catalogue's grammar, three tiers of information (public, private, secret), every surface with its tier, the workflow from private to public, and the controls, checks and tooling in place and not. Nothing is scored.
 
 Source: https://riskmandate.ai/team/
 
@@ -10,15 +10,15 @@ Source: https://riskmandate.ai/team/
 
 # Who does what, and what stands in the way.
 
-This site is made by one person and two agents. The agents are described the way the site describes any agent: an Agent Behaviour Policy each, in the same grammar as the catalogue, with the grant measured on the thing itself, the mandate in the lead’s words, the gap derived, and a barrier on every row. Around them, three tiers of information and the workflow that moves a story from private to public.
+This site is made by one person and three agents. The agents are described the way the site describes any agent: an Agent Behaviour Policy each, in the same grammar as the catalogue, with the grant measured on the thing itself or documented from the record, and each says which, the mandate in the lead’s words, the gap derived, and a barrier on every row. Around them, three tiers of information and the workflow that moves a story from private to public.
 
 **Nothing here is scored.** A count is a count; a barrier is what it is. Where the honest answer is a rule in prose, the page says so.
 
 **As at** 26 September 2026. If the deployment changes, this page changes; the vaults and the tests that hold it true are listed in section 06.
 
-**Update.** Since 16 November 2026 the site also runs a conductor session with six sub-agent roles (developer, designer, sherpa, synthetic users, ambassador, researcher) on an hourly loop; their behaviour policies are not written yet, and this page will carry them when they are. [The six roles, on GitHub](https://github.com/Risk-Mandate/riskmandate.ai/tree/dev/.claude/agents) · [The hourly loop](https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/.claude/briefs/T18-the-hourly-loop.md).
+**Update.** Since 16 November 2026 the site also runs a conductor session with six sub-agent roles (developer, designer, sherpa, synthetic users, ambassador, researcher) on an hourly loop. Its behaviour policy is written as of 18 November 2026, documented from the repository and the session's record, not measured; the six roles are covered inside it, because each is that session's grant with a narrower tools line, not a separate agent. [The six roles, on GitHub](https://github.com/Risk-Mandate/riskmandate.ai/tree/dev/.claude/agents) · [The hourly loop](https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/.claude/briefs/T18-the-hourly-loop.md).
 
-## One person, two agents.
+## One person, three agents.
 
 The lead is Dinis Cruz, co-founder. The company and both founders, Nimay Parekh and Dinis, are on [the about page](/about.html); this page is the workflow, and a person is not profiled on it.
 
@@ -29,6 +29,10 @@ The lead's mandate, represented: the one agent that reads the private vault and 
 ### RiskMandate Design Studio
 
 Writes storyboards, draws them with image models, proposes cast, and delivers into its own folders of the private vault.
+
+### RiskMandate Conductor
+
+The session that runs the site's team on an hourly loop since 16 November 2026, with six roles inside it; it pushes dev, and dev is the live site. Documented from the repository and the session's own record, not measured.
 
 ## Public, private, secret.
 
@@ -123,18 +127,19 @@ The checks each agent runs, and what it never does, are on its page. The tests t
 
 ## An agent is a role, a list of skills, and its behaviour policy.
 
-A new session of either agent starts from nothing and reads three things in order: its role, the skills it needs, and its ABP. Then it runs one check-in. The prompt for each is on its page, with a copy button; the publisher’s is also `.claude/agents/publisher.md` in the repository, the form a Claude Code session loads by name.
+A new session of any of them starts from nothing and reads three things in order: its role, the skills it needs, and its ABP. Then it runs one check-in. The prompt for each is on its page, with a copy button; the publisher’s is also `.claude/agents/publisher.md` in the repository, the form a Claude Code session loads by name.
 
 - **[RiskMandate Publisher](/team/publisher.html#session).** A clean Claude Code session on this repository, started with the prompt below; on a schedule, the same prompt from a routine, with the key and the token read from the environment.
 - **[RiskMandate Design Studio](/team/studio.html#session).** A ChatGPT conversation the lead opens, pointed at the vault: it reads the files above, delivers its mailroom, does the work, commits once and pushes. The lead's word of 26 September: the studio checks in to the vault itself, and the vault is the only channel between the agents.
+- **[RiskMandate Conductor](/team/conductor.html#session).** The running session is woken every hour; a clean session on this repository starts with the prompt below and runs one turn of the loop.
 
 ## What this page does not have yet.
 
-- **The policies as vaults.** Each agent’s policy is in the vault grammar and could be built with the catalogue’s generator and pushed with a public read key; today it is two JSON files and this page.
-- **A token scoped to one vault.** The one control that would bound three rows for both agents; asked of the sgit team, not answered.
+- **The policies as vaults.** Each agent’s policy is in the vault grammar and could be built with the catalogue’s generator and pushed with a public read key; today it is three JSON files and this page.
+- **A token scoped to one vault.** The one control that would bound three rows for the publisher and the studio at once; asked of the sgit team, not answered.
 - **The schedule.** The publisher’s check-in runs by hand until the key and the token are environment secrets and the lead has said what a scheduled run may decide alone.
 - **An infographic of this page**, asked of the studio by message.
 
 ## This is what an ABP looks like when it is written about ourselves.
 
-Sixteen template policies for the shapes people run are in the library; this page is the same grammar turned on the two agents that make the site. If yours would look different, that is the point of writing it down.
+Sixteen template policies for the shapes people run are in the library; this page is the same grammar turned on the three agents that make the site. If yours would look different, that is the point of writing it down.

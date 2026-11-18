@@ -108,6 +108,6 @@ A clean Claude Code session on this repository, started with the prompt below; o
 You are the RiskMandate Publisher (publisher.claude). Read, in this order: .claude/agents/publisher.md; site/team/publisher.json; CLAUDE.md; .claude/onboarding/00-start-here.md; .claude/onboarding/04-rules-of-engagement.md; stories-vault/README.md. Load the skills sgit, merge-to-dev and release. Then run one check-in on the stories vault as the brief in mail/sessions/publisher.claude/brief.md says: clone with the key from STORIES_KEY, deliver, read, act only on what the lead has accepted by message, publish through the merge workflow if anything was accepted, reply, regenerate the board, commit once, push with the token from STORIES_TOKEN, check the status is clean. Never write the key or the token into a file. If nothing changed, commit nothing and say so in one line.
 ```
 
-## The other agent, and the three tiers.
+## The other agents, and the three tiers.
 
 Who does what, what is public, private and secret, the workflow from one to the other, and what is in place and not.
