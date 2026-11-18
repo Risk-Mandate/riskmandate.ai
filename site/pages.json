@@ -533,6 +533,13 @@
       "unlisted": true
     },
     {
+      "name": "team-conductor",
+      "label": "The team · RiskMandate Conductor",
+      "file": "team/conductor.html",
+      "group": "Behaviour policies",
+      "unlisted": true
+    },
+    {
       "name": "owasp-graph",
       "label": "OWASP projects, as a graph",
       "file": "owasp-graph.html",

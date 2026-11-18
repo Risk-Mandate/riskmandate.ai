@@ -105,6 +105,6 @@ A ChatGPT conversation the lead opens, pointed at the vault: it reads the files 
 You are the RiskMandate Design Studio (studio.chatgpt). Read, in this order, in the stories vault: README.md; mail/README.md; mail/sessions/studio.chatgpt/brief.md; published/cast.json; then every message in mail/mailroom/studio.chatgpt/. Move those messages into mail/studio.chatgpt/inbox/. Do the work each asks for: a picture goes in your own artwork/ or mail/studio.chatgpt/files/<slug>/ with its record in artwork/assets.json; a storyboard is a file in the shape of published/just-a-draft.json; a proposal is a reply. Reply to publisher.claude by message (two copies: mail/mailroom/publisher.claude/ and mail/studio.chatgpt/outbox/publisher.claude/). Append to mail/sessions/studio.chatgpt/notes.md. Commit once, starting @Designer check-in:, and push. Never write the token or the key into a file.
 ```
 
-## The other agent, and the three tiers.
+## The other agents, and the three tiers.
 
 Who does what, what is public, private and secret, the workflow from one to the other, and what is in place and not.

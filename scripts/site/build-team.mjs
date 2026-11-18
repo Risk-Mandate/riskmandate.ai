@@ -58,6 +58,7 @@ const counted = (v) => typeof v === 'string' ? v.replace(/\b\d+ tests\b/g, `${TE
 // ------------------------------------------------------------------ read and check
 const team = counted(JSON.parse(readFileSync(join(IN, 'team.json'), 'utf8')));
 const agents = team.agents.map((slug) => counted(JSON.parse(readFileSync(join(IN, `${slug}.json`), 'utf8'))));
+const NUM = ['no', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'][team.agents.length] || String(team.agents.length);
 const forbid = (text, where) => {
   if (/\brungs?\b/i.test(text)) fail(`${where}: says rung`);
   if (/\bADP\b/.test(text)) fail(`${where}: says ADP`);
@@ -243,7 +244,7 @@ function indexPage() {
   <div class="wrap">
     <span class="eyebrow"><span class="d"></span> The team</span>
     <h1>Who does what, <span class="it">and what stands in the way.</span></h1>
-    <p class="sub" style="margin-bottom:20px">This site is made by one person and two agents. The agents are described the way the site describes any agent: an Agent Behaviour Policy each, in the same grammar as the catalogue, with the grant measured on the thing itself, the mandate in the lead&rsquo;s words, the gap derived, and a barrier on every row. Around them, three tiers of information and the workflow that moves a story from private to public.</p>
+    <p class="sub" style="margin-bottom:20px">This site is made by one person and ${NUM} agents. The agents are described the way the site describes any agent: an Agent Behaviour Policy each, in the same grammar as the catalogue, with the grant measured on the thing itself or documented from the record, and each says which, the mandate in the lead&rsquo;s words, the gap derived, and a barrier on every row. Around them, three tiers of information and the workflow that moves a story from private to public.</p>
     <p class="meta"><b>Nothing here is scored.</b> A count is a count; a barrier is what it is. Where the honest answer is a rule in prose, the page says so.</p>
     <p class="meta"><b>As at</b> ${niceDate(team.as_at)}. If the deployment changes, this page changes; the vaults and the tests that hold it true are listed in section 06.</p>
     ${team.since ? `<p class="meta"><b>Update.</b> ${esc(team.since.text)} ${team.since.links.map((l) => `<a href="${esc(l.href)}" target="_blank" rel="noopener">${esc(l.label)}</a>`).join(' · ')}.</p>` : ''}
@@ -256,7 +257,7 @@ function indexPage() {
   <div class="wrap">
     <div class="shead">
       <span class="tag">01 · Who</span>
-      <h2>One person, <span class="g">two agents.</span></h2>
+      <h2>One person, <span class="g">${NUM} agents.</span></h2>
     </div>
     <div class="tm-t who" role="table" aria-label="The people">
       <div class="tm-r" role="row"><span role="columnheader">Who</span><span role="columnheader">Does</span><span role="columnheader">Holds</span></div>
@@ -339,7 +340,7 @@ function indexPage() {
     <div class="shead">
       <span class="tag">07 · Start a clean session</span>
       <h2>An agent is a role, a list of skills, <span class="g">and its behaviour policy.</span></h2>
-      <p>A new session of either agent starts from nothing and reads three things in order: its role, the skills it needs, and its ABP. Then it runs one check-in. The prompt for each is on its page, with a copy button; the publisher&rsquo;s is also <code>.claude/agents/publisher.md</code> in the repository, the form a Claude Code session loads by name.</p>
+      <p>A new session of any of them starts from nothing and reads three things in order: its role, the skills it needs, and its ABP. Then it runs one check-in. The prompt for each is on its page, with a copy button; the publisher&rsquo;s is also <code>.claude/agents/publisher.md</code> in the repository, the form a Claude Code session loads by name.</p>
     </div>
     <ul class="tm-list">
       ${agents.map((a) => `<li><b><a href="${HERE}${esc(a.slug)}.html#session">${esc(a.name)}</a>.</b> ${esc(a.session.how)}</li>`).join('')}
@@ -354,8 +355,8 @@ function indexPage() {
       <h2>What this page does not have yet.</h2>
     </div>
     <ul class="tm-list">
-      <li><b>The policies as vaults.</b> Each agent&rsquo;s policy is in the vault grammar and could be built with the catalogue&rsquo;s generator and pushed with a public read key; today it is two JSON files and this page.</li>
-      <li><b>A token scoped to one vault.</b> The one control that would bound three rows for both agents; asked of the sgit team, not answered.</li>
+      <li><b>The policies as vaults.</b> Each agent&rsquo;s policy is in the vault grammar and could be built with the catalogue&rsquo;s generator and pushed with a public read key; today it is ${NUM} JSON files and this page.</li>
+      <li><b>A token scoped to one vault.</b> The one control that would bound three rows for the publisher and the studio at once; asked of the sgit team, not answered.</li>
       <li><b>The schedule.</b> The publisher&rsquo;s check-in runs by hand until the key and the token are environment secrets and the lead has said what a scheduled run may decide alone.</li>
       <li><b>An infographic of this page</b>, asked of the studio by message.</li>
     </ul>
@@ -368,12 +369,12 @@ function indexPage() {
   <div class="wrap">
     <span class="eyebrow"><span class="d"></span> The same idea, for your agents</span>
     <h2>This is what an ABP looks like <span class="it">when it is written about ourselves.</span></h2>
-    <p>Sixteen template policies for the shapes people run are in the library; this page is the same grammar turned on the two agents that make the site. If yours would look different, that is the point of writing it down.</p>
+    <p>Sixteen template policies for the shapes people run are in the library; this page is the same grammar turned on the ${NUM} agents that make the site. If yours would look different, that is the point of writing it down.</p>
     <div class="cta-row"><a class="btn btn-green" href="/agent-behaviour-policy.html">The sixteen examples</a><a class="btn btn-ghost" href="/stories/">The stories these agents make</a></div>
   </div>
 </section>`;
   return cut('team/index.html', 'team', 'RiskMandate — The team: who does what, and what stands in the way',
-    `One person and two agents make this site. An Agent Behaviour Policy for each agent in the catalogue's grammar, three tiers of information (public, private, secret), every surface with its tier, the workflow from private to public, and the controls, checks and tooling in place and not. Nothing is scored.`, body);
+    `One person and ${NUM} agents make this site. An Agent Behaviour Policy for each agent in the catalogue's grammar, three tiers of information (public, private, secret), every surface with its tier, the workflow from private to public, and the controls, checks and tooling in place and not. Nothing is scored.`, body);
 }
 
 // ------------------------------------------------------------------ an agent page
@@ -518,7 +519,7 @@ function agentPage(a) {
 <section class="pcta">
   <div class="wrap">
     <span class="eyebrow"><span class="d"></span> The team</span>
-    <h2>The other agent, <span class="it">and the three tiers.</span></h2>
+    <h2>The other agent${agents.length > 2 ? 's' : ''}, <span class="it">and the three tiers.</span></h2>
     <p>Who does what, what is public, private and secret, the workflow from one to the other, and what is in place and not.</p>
     <div class="cta-row"><a class="btn btn-green" href="${HERE}">The team</a>${agents.filter((o) => o.slug !== a.slug).map((o) => `<a class="btn btn-ghost" href="${HERE}${esc(o.slug)}.html">${esc(o.name)}</a>`).join('')}</div>
   </div>
