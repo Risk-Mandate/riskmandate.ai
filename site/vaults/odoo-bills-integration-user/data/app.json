@@ -1,0 +1,23 @@
+{
+  "type": "riskmandate/abp-app-context/v1",
+  "dist": {
+    "odoo-bills-integration-user.zip": {
+      "bytes": 115254,
+      "sha256": "32a751bb387fc04245e249228d33e0c9730487d8f3e67226f4150b9cbf337089"
+    }
+  },
+  "research_open": 4,
+  "blocked": 4,
+  "blocks_held": 0,
+  "barriers_held": 0,
+  "scenarios": 6,
+  "licence": {
+    "kind": "cc-by-4.0"
+  },
+  "copy": "template",
+  "app_vault": {
+    "vault_id": "vbhmlulo",
+    "entry": "index.html",
+    "version": "v5"
+  }
+}

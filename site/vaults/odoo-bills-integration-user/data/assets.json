@@ -1,0 +1,7 @@
+{
+  "type": "riskmandate/abp-assets/v1",
+  "_what_this_is": "What is in this deployment for the grant to act on. An asset is what turns a capability into a consequence: the mailbox holds secrets, or it does not. `present` is assumed | confirmed | absent; `configurable` marks an assumption the deployer can untick in the correction; `rights` names who else holds rights over the asset (the sender of a message, the employer that owns the mailbox). This site's extension of abp.sgit.ai v0.3.0, declared as such until the model site sanctions one.",
+  "authored": null,
+  "authored_by": null,
+  "assets": []
+}

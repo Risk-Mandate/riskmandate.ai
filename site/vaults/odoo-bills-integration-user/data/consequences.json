@@ -1,0 +1,7 @@
+{
+  "type": "riskmandate/abp-consequences/v1",
+  "_what_this_is": "What follows when a capability in the grant meets an asset in the deployment. Each is explicit, second person, in the deployment's own words. `requires` names the capabilities, assets and other consequences it needs; `kind` is read | act | exfiltrate | disrupt | impersonate | outlive; `route` is the door out for an exfiltration; `evidence` is a tier from the vocabulary with a source and a date; `links` name nodes in data/standards/ by id; `questions` are what is not known, kept in the file rather than in a footnote. The barrier on a consequence is derived by the build from its required capabilities and never typed here. No consequence carries a severity, a likelihood or a score. This site's extension of abp.sgit.ai v0.3.0, declared as such.",
+  "authored": null,
+  "authored_by": null,
+  "consequences": []
+}

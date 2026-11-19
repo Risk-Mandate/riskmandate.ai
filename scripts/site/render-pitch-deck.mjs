@@ -34,7 +34,8 @@ const json = (f) => JSON.parse(read(f));
 
 // ------------------------------------------------------------------ what the site says today
 const version   = json('versions/index.json').latest;
-const catalogue = json('vaults/index.json').vaults;
+// published means pushed (vid and key), as on the library page: a built, unpushed vault is not counted yet
+const catalogue = json('vaults/index.json').vaults.filter(v => v.vid && v.key);
 const shapes    = catalogue.length;
 const shapeNames = catalogue.map(v => v.app);
 // the standards a published vault already links to, by id and title only (site rule 7)

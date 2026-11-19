@@ -278,7 +278,10 @@ const vaults = catalogue.vaults.map(v => {
   const rows = g.grant ?? []; const measuredRows = rows.filter(r => /^(measured|observed)$/.test(r.evidence ?? '')).length;
   return { ...v, status: vj.status ?? '', measured: measuredRows ? `${measuredRows} of ${rows.length}` : null, as_at: vj.as_at ?? '', rows: rows.length,
            open: (g.research_needed ?? []).length, contradictions: (g.contradictions ?? []).length, scenarios: sc,
-           page: `abp-vault-${v.slug}.html`, host: `${HOST}/en-gb/#${v.key}:${v.vid}` };
+           // built and unpushed (no vid or key yet): no library page exists, so link the vault's folder and say so
+           pushed: !!(v.vid && v.key),
+           page: v.vid && v.key ? `abp-vault-${v.slug}.html` : `vaults/${v.slug}/README.md`,
+           host: v.vid && v.key ? `${HOST}/en-gb/#${v.key}:${v.vid}` : null };
 });
 const openQuestions = vaults.reduce((a, v) => a + v.open, 0);
 
@@ -650,7 +653,7 @@ ${KINDS.filter(([k]) => metas.some(m => m.kind === k)).map(([k, name, what]) => 
 </div>
 <p class="lead">Read off <a href="${relTo(path)}vaults/index.json">the catalogue</a> and each vault's <code>vault.json</code> and <code>data/grant.json</code>. <em>Measured</em> counts rows run on a system we are entitled to run; everything else is documented from the vendor's pages, dated and quoted. No row here is a score: the number of open questions is how much the grant still does not know about itself.</p>
 ${groups.map(g => `<h2>${esc(g)}</h2><div class="kvwrap"><table class="kv"><thead><tr><th>Vault</th><th>Shape</th><th>Rows</th><th>Measured</th><th>Open</th><th>As at</th><th>Id</th><th></th></tr></thead><tbody>
-${vaults.filter(v => (v.group ?? 'Other') === g).map(v => `<tr><td><a href="${relTo(path)}${v.page}">${esc(v.app)}</a><br><span class="meta">${esc(v.title)}</span></td><td><code>${esc(v.shape)}</code></td><td>${v.rows}</td><td>${v.measured ? st(4, v.measured) : st(3, 'documented')}</td><td>${v.open ? st(3, `${v.open} open`) : st(4, 'none')}${v.contradictions ? ` <span class="meta">${plural(v.contradictions, 'contradiction')}</span>` : ''}</td><td>${esc(v.as_at)}</td><td><code>${esc(v.vid)}</code></td><td><a href="${v.host}" target="_blank" rel="noopener">host ↗</a></td></tr>`).join('')}
+${vaults.filter(v => (v.group ?? 'Other') === g).map(v => `<tr><td><a href="${relTo(path)}${v.page}">${esc(v.app)}</a><br><span class="meta">${esc(v.title)}</span></td><td><code>${esc(v.shape)}</code></td><td>${v.rows}</td><td>${v.measured ? st(4, v.measured) : st(3, 'documented')}</td><td>${v.open ? st(3, `${v.open} open`) : st(4, 'none')}${v.contradictions ? ` <span class="meta">${plural(v.contradictions, 'contradiction')}</span>` : ''}</td><td>${esc(v.as_at)}</td><td>${v.pushed ? `<code>${esc(v.vid)}</code>` : '<span class="meta">not pushed</span>'}</td><td>${v.host ? `<a href="${v.host}" target="_blank" rel="noopener">host ↗</a>` : '<span class="meta">built, unpushed: the lead pushes</span>'}</td></tr>`).join('')}
 </tbody></table></div>`).join('')}
 <h2>Asked for, not built</h2>
 <div class="rows">${[...(catalogue.asked_for ?? []), ...(catalogue.functions ?? [])].map(a => row2(`<b>${esc(a.app)}</b><p>${esc(a.blurb ?? '')}</p>`, st(3, a.note ? a.note.split(' — ')[0] : 'asked for'))).join('')}</div>

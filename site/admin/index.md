@@ -7,7 +7,7 @@
 
 **0**waiting on somebody outside*the store's agent, the model site*
 
-**0**branches in flight*one work file each*
+**1**branches in flight*one work file each*
 
 **0**open tasks*of 4 in the queue · 4 done*
 
@@ -15,7 +15,7 @@
 
 **45**briefs written here*one page each*
 
-**16**vaults built and pushed*4 measured · 9 asked for*
+**17**vaults built and pushed*5 measured · 9 asked for*
 
 **179**releases*8 Lab editions*
 
@@ -67,13 +67,13 @@ a decision the lead owns, openD10
 
 a decision the lead owns, openD11
 
-## In flight — 0 branches
+## In flight — 1 branch
 
 One file per branch under `.claude/work/`, written before the work starts and deleted when it merges. Read every one before claiming a task.
 
-**Nothing in flight.**
+**[claude/odoo-bills-vault](../admin/work/branches/claude-odoo-bills-vault/)**
 
-No work file under .claude/work/.
+Add one behaviour-policy template vault, `odoo-bills-integration-user`: an agent holding the API key of a narrow integration user on a self-hosted Odoo 20 Community database, for turning supplier documents into draft vendor bills. The grant is measured, on an ephemeral Odoo 20.0-20261112 Community instance we stood up and ran ourselves on 16 November 2026 and then tore down; the session record is in the vault's `history/`. Documented rows and open questions quote Odoo's own pages, dated. Catalogue entry added without `vid`/`key`. No change to the renderer, the library page code or any other vault. since 19 November 2026
 
 ## How work gets here
 
@@ -91,7 +91,7 @@ Working pages off the public menu since v1.40.3: [the demo walkthrough](../walkt
 
 **[The vaults](../admin/vaults/)**
 
-16 behaviour-policy vaults, each with its id, its public read key, how many rows are measured and how many questions are open.28 open
+17 behaviour-policy vaults, each with its id, its public read key, how many rows are measured and how many questions are open.32 open
 
 **[The agents' front door](../admin/agents/)**
 

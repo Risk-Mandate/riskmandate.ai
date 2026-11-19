@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>claude/odoo-bills-vault · RiskMandate admin</title>
+<meta name="description" content="The measuring session was a cloud agent working for the lead (Dinis Cruz), on its own instance of Odoo Community (LGPL-3), never on anybody else's system. Odoo's AI agents and MCP server are Enterprise modules and were not run; everything said about them…">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://riskmandate.ai/admin/work/branches/claude-odoo-bills-vault/">
+<link rel="alternate" type="text/markdown" href="index.md" title="This page as markdown">
+<link rel="icon" href="../../../../assets/brand/riskmandate-favicon-32.png" sizes="32x32">
+<link rel="icon" href="../../../../assets/brand/riskmandate-mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../../../admin/console.css">
+<!-- Written by scripts/site/build-admin.mjs from the files it names. Do not edit: rerun the script. -->
+</head>
+<body class="console">
+<div class="c-strip"><div class="row"><b>riskmandate.ai</b><span class="c-sep">/</span><a href="../../../../admin/">admin</a><span class="c-sep">·</span><a href="../../../../">the site</a><span class="c-sep">·</span><a href="../../../../agent-behaviour-policy.html">the library</a><span class="c-sep">·</span><a href="index.md">this page as markdown</a><span class="c-noindex">noindex · not in the sitemap</span></div></div>
+<div class="c-disc"><div class="row">Written by the agents that maintain this site and read by a person before it merges. Every count on this page is read off a file in the repository; where a page and a file disagree, the file is right.</div></div>
+<div class="shell">
+<nav class="rail" aria-label="Console">
+    <a class="rail__brand" href="../../../../admin/"><b>Risk<i>Mandate</i></b><span>admin console · <span data-version>v…</span></span></a>
+    <div class="rail__group"><h3>Where it stands</h3><a class="nav" href="../../../../admin/">The console</a><a class="nav" href="../../../../admin/work/#lead">Needs the lead<span class="count r1">11</span></a><a class="nav" href="../../../../admin/agents/03-state-and-next/">State and next</a><a class="nav" href="../../../../admin/vaults/">The vaults<span class="count">17</span></a><a class="nav" href="../../../../synthetic-users.html">How the site reads <span class="out">↗</span></a></div>
+    <div class="rail__group"><h3>The work</h3><a class="nav" href="../../../../admin/work/">The board<span class="count">0</span></a><a class="nav" href="../../../../admin/work/#branches">In flight<span class="count">1</span></a><a class="nav" href="../../../../admin/memos/">The memo queue<span class="count">34</span></a><a class="nav" href="../../../../admin/briefs/">Briefs written here<span class="count">45</span></a></div>
+    <div class="rail__group"><h3>For agents</h3><a class="nav" href="../../../../admin/agents/">The front door</a><a class="nav" href="../../../../admin/agents/claude-md/">CLAUDE.md</a><a class="nav" href="../../../../admin/agents/04-rules-of-engagement/">Rules of engagement</a><a class="nav" href="../../../../admin/agents/05-workflows/">Workflows</a><a class="nav" href="../../../../admin/agents/01-map/">The map</a></div>
+    <div class="rail__group"><h3>The record</h3><a class="nav" href="../../../../admin/records/">The records</a><a class="nav" href="../../../../admin/tooling/">Tooling and the gate</a><a class="nav" href="../../../../versions.html">Versions <span class="out">↗</span></a><a class="nav" href="../../../../briefs.html">Brief register <span class="out">↗</span></a><a class="nav" href="../../../../agent-behaviour-policy.html">The library <span class="out">↗</span></a><a class="nav" href="https://github.com/Risk-Mandate/riskmandate.ai" target="_blank" rel="noopener">The repository <span class="out">↗</span></a></div>
+    <p class="rail__note"><b>Public, and not advertised.</b> Every page here is noindex, out of <code>sitemap.xml</code> and out of <code>llms.txt</code>. Anybody handed the address reads every word. <a href="../../../../">Back to the site</a>.</p>
+  </nav>
+<main class="main">
+<p class="crumb"><a href="../../../../admin/">admin</a> / <a href="../../../../admin/work/">work</a> / work/claude-odoo-bills-vault.md</p>
+<div class="page-head"><div><h1>claude/odoo-bills-vault</h1><p>A work file: one branch, in flight, dated 19 November 2026. The source is <a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/.claude/work/claude-odoo-bills-vault.md" target="_blank" rel="noopener"><code>.claude/work/claude-odoo-bills-vault.md</code></a>; this page is that file, rendered.</p></div></div>
+<article class="doc"><p><strong>Started:</strong> 2026-11-19 · <strong>Agent session:</strong> <a href="https://claude.ai/code/session_018yvwtR5QXpatuyNUw5q8jz" target="_blank" rel="noopener">https://claude.ai/code/session_018yvwtR5QXpatuyNUw5q8jz</a> · <strong>Task brief:</strong> ad hoc, the lead's instruction to publish the Odoo demo as a RiskMandate example</p>
+<h2 id="scope">Scope</h2>
+<p>Add one behaviour-policy template vault, <code>odoo-bills-integration-user</code>: an agent holding the API key of a narrow integration user on a self-hosted Odoo 20 Community database, for turning supplier documents into draft vendor bills. The grant is measured, on an ephemeral Odoo 20.0-20261112 Community instance we stood up and ran ourselves on 16 November 2026 and then tore down; the session record is in the vault's <code>history/</code>. Documented rows and open questions quote Odoo's own pages, dated. Catalogue entry added without <code>vid</code>/<code>key</code>. No change to the renderer, the library page code or any other vault.</p>
+<h2 id="files-and-surfaces-i-expect-to-touch">Files and surfaces I expect to touch</h2>
+<ul><li><code>site/vaults/odoo-bills-integration-user/</code> — inputs (<code>vault.json</code>, <code>data/grant.json</code>, <code>data/mandate.json</code>, <code>data/scenarios.json</code>, <code>history/grant-measured--2026-11-16.md</code>); everything else derived</li><li><code>site/vaults/index.json</code> — one new entry, no <code>vid</code>/<code>key</code></li><li><code>scripts/site/abp/logos.json</code> — one icon added (<code>odoo</code>)</li><li><code>agent-behaviour-policy.html</code> and its twin, regenerated</li><li><code>.claude/onboarding/03-state-and-next.md</code> — one line</li></ul>
+<h2 id="external-state">External state</h2>
+<ul><li>Vaults built and unpushed: <code>odoo-bills-integration-user</code> — the push is owed by the lead, then <code>vid</code> and <code>key</code> go into <code>site/vaults/index.json</code> and the pages are rebuilt</li><li>Lab editions I will cut: none</li><li>Release I will claim at merge: yes, a patch</li></ul>
+<h2 id="status">Status</h2>
+<ul><li>[x] vault inputs written</li><li>[x] built and <code>--check</code> green: grant 7 (7 measured), mandate 4, excess 3, unbounded 3, shortfall 0, aligned 4</li><li>[x] catalogue entry (no <code>vid</code>/<code>key</code>), pages, generate, <code>npm run check</code> green</li><li>[x] onboarding line</li><li>Open questions in the vault: <strong>4</strong> (<code>research_needed</code>); contradictions: 2</li></ul>
+<p><strong>The vault is built and unpushed.</strong> The push to sgit is owed by the lead: then <code>vid</code> and <code>key</code> go into its catalogue entry, <code>build-abp-pages.mjs</code>, <code>generate.mjs</code>, and the counts move from sixteen to seventeen (the home page test lists <code>seventeen</code> already).</p>
+<h2 id="notes-for-whoever-merges-after-me">Notes for whoever merges after me</h2>
+<p>Four scripts treated every catalogue entry as published, which contradicts the workflow's own rule that an entry without <code>vid</code> and <code>key</code> is built and unpushed. Each now counts pushed entries only, the way <code>build-abp-pages.mjs</code> already did: the home page count test (<code>tests/site/test_pages.mjs</code>), the rules page coverage (<code>build-rules.mjs</code>), the pitch deck's shape count (<code>render-pitch-deck.mjs</code>) and the admin console's vault table (<code>build-admin.mjs</code>, which now links an unpushed vault to its folder and says <em>not pushed</em>). No published number changed.</p>
+<p>The measuring session was a cloud agent working for the lead (Dinis Cruz), on its own instance of Odoo Community (LGPL-3), never on anybody else's system. Odoo's AI agents and MCP server are Enterprise modules and were not run; everything said about them is documented, quoted and dated, or an open question.</p></article>
+<div class="c-foot"><b>An operations surface</b> for the people and agents building this site, public because every page here is. It is not a selling page and nothing on it is for sale. <a href="../../../../">The site</a> · <a href="../../../../agent-behaviour-policy.html">the library</a> · <a href="../../../../versions.html">every release</a> · <a href="https://github.com/Risk-Mandate/riskmandate.ai/tree/dev/">the repository</a> · <a href="https://github.com/Risk-Mandate/riskmandate.ai/blob/dev/scripts/site/build-admin.mjs">the script that wrote this page</a>.</div>
+</main>
+</div>
+<script>
+(function(){var el=document.querySelector('[data-version]');if(!el)return;fetch('../../../../versions/index.json',{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){el.textContent='v'+j.latest}).catch(function(){el.textContent='';});})();
+</script>
+</body>
+</html>

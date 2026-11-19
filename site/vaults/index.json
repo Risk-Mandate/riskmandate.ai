@@ -266,6 +266,21 @@
       "logo": "n8n",
       "brand": "#EA4B71",
       "group": "Automation & CI"
+    },
+    {
+      "slug": "odoo-bills-integration-user",
+      "app": "Odoo 20 Community, bills integration user",
+      "title": "A self-hosted Odoo 20 Community database, bills integration user",
+      "title_lead": "A self-hosted Odoo 20 Community database,",
+      "title_tail": "bills integration user.",
+      "shape": "odoo/community-20/bills-integration-user",
+      "family": "service",
+      "glyph": "Odoo",
+      "kind": "measured",
+      "blurb": "Measured on an instance we ran: a user that can only draft vendor bills, cannot post them and cannot widen itself, and that still emails suppliers from a bill's chatter, schedules messages and reads every supplier bank account, through Odoo's default internal-user role.",
+      "logo": "odoo",
+      "brand": "#714B67",
+      "group": "Business systems"
     }
   ],
   "asked_for": [

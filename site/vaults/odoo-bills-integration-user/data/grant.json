@@ -1,0 +1,260 @@
+{
+  "type": "abp/profile/v1",
+  "id": "odoo/community-20/bills-integration-user",
+  "vendor": "Odoo (self-hosted Community)",
+  "product": "A self-hosted Odoo 20 Community database, reached with the API key of a narrow integration user",
+  "variant": "bills-integration-user",
+  "surface": "api",
+  "profile_version": "2026-11-16",
+  "description": "An agent holding the API key of an internal integration user on a self-hosted Odoo 20 Community database, for one job: turn incoming supplier documents into draft vendor bills. The user is not an administrator and is not in Accounting / Invoicing. It holds Odoo's default internal-user role and one group made for the job, whose access rows allow create, read and update on draft vendor bills and their lines, read on contacts, journals, accounts, taxes, currencies and payment terms, and delete on nothing. Measured on 16 November 2026 on an instance stood up for the exercise and torn down the same day: a static read of the user's access through Odoo's own checks (172 models with some access: read on 154, create on 56, update on 56, delete on 33), and 25 calls made with the key over Odoo's JSON-2 API, each recorded. The two rows on bills come from the job's group; supplier bank accounts, chatter email, scheduled messages, attachments and email templates come from the internal-user role every internal user holds. In the exercise the agent itself never held this key: it wrote proposed bills to a file, a person approved them, and a small broker applied them with the key. This vault describes the key, which is what an agent holding it can do.",
+  "reach_names": {
+    "project": "the draft vendor bills the key was given to create: account.move records of type in_invoice or in_refund, in state draft",
+    "host": "the Odoo database as this user sees it: contacts, supplier bank accounts, journals and every other model the internal-user role reads",
+    "tenant": "the Odoo database as an account the key acts in, and the company's mail sent through it",
+    "world": "suppliers and anyone else outside the company, reached by email from a record's chatter"
+  },
+  "blocked": [
+    {
+      "what": "posting (confirming) a draft vendor bill",
+      "blocked_by": "Odoo's own code: action_post checks for the Accounting / Invoicing group, which this user does not hold and cannot add to itself",
+      "why": "the user's access rows allow update on draft vendor bills, which is the operation posting performs; the refusal comes from a group check in the code, not from an access row. Measured: \"You don't have the access rights to post an invoice.\"",
+      "source": "measured 2026-11-16, history/grant-measured--2026-11-16.md, probe 5"
+    },
+    {
+      "what": "adding itself to another group (Accounting / Administrator was tried)",
+      "blocked_by": "field-level access on res.users.group_ids, administered by a person with the Access Rights role",
+      "why": "Measured: \"You do not have enough rights to access the field \"group_ids\" on User (res.users).\" Creating access rows (ir.access) and editing groups are outside this user's access too, so it cannot widen its own grant",
+      "source": "measured 2026-11-16, history/grant-measured--2026-11-16.md, probe 19; Odoo's own access check for ir.access and res.groups"
+    },
+    {
+      "what": "minting another API key for itself",
+      "blocked_by": "for the interactive wizard, an identity check (the user's password, and this user has none); for the programmatic route, the system parameter base.enable_programmatic_api_keys, off by default and held by an administrator",
+      "why": "creating res.users.apikeys records directly was refused; the key wizard answered with an identity check. In Odoo 20's source, res.users.apikeys.generate first calls _ensure_can_manage_keys_programmatically, which raises \"Programmatic API keys are not enabled\" unless the caller is a system administrator or that parameter is true",
+      "source": "measured 2026-11-16, history/grant-measured--2026-11-16.md, probes 20 and 21; https://github.com/odoo/odoo/blob/20.0/odoo/addons/base/models/res_users.py, read 2026-11-16"
+    },
+    {
+      "what": "Odoo's AI agents and its MCP server",
+      "blocked_by": "the edition: the ai and MCP modules are not in Odoo Community, so this database has neither",
+      "why": "no ai, mcp or documents addon is among the 701 addons in the odoo:20.0 Community image measured; Odoo's own documentation places the AI app on the Custom plan for Odoo Online. On an Enterprise database the same user's grant would grow by whatever AI and MCP tools are exposed to it; see research_needed",
+      "source": "measured 2026-11-16 (the image's addon list); https://www.odoo.com/documentation/20.0/applications/productivity/ai.html, read 2026-11-16"
+    }
+  ],
+  "tools": [
+    "the JSON-2 API (POST /json/2/<model>/<method>), bearer API key, scope rpc",
+    "the legacy XML-RPC API (/xmlrpc/2), the same key: still present in 20 and scheduled for removal",
+    "the Odoo web client, by the administrator who made the user"
+  ],
+  "grant": [
+    {
+      "capability": "authenticate-as.credential.tenant",
+      "barrier": "none",
+      "evidence": "measured",
+      "via": [
+        "the integration user's API key (scope rpc, expiring after one day)"
+      ],
+      "control": null,
+      "note": "every call ran as bills-agent-integration, an internal user in one company; context_get returned its own user id, never the administrator's. The key was generated by the administrator for one day and deleted from the measuring environment at teardown. Odoo states that JSON-2 calls \"are validated against the access rights, record rules and field accesses of the user\" (https://www.odoo.com/documentation/20.0/developer/reference/external_api.html, read 2026-11-19), which is what makes this user's access the grant.",
+      "undo": "no",
+      "is_bounded": false,
+      "material": "organisation"
+    },
+    {
+      "capability": "write.file.project",
+      "barrier": "none",
+      "evidence": "measured",
+      "via": [
+        "JSON-2: account.move create",
+        "JSON-2: account.move write",
+        "XML-RPC: the same calls with the same key"
+      ],
+      "control": null,
+      "note": "created draft vendor bills (two from supplier documents, totals matching the documents to the cent, and one probe bill, removed); edited a draft bill's reference after it had been approved, then restored it. Odoo would not create a bill with lines for a user who could only create: it refused with \"You are not allowed to modify 'Journal Item'\", so update cannot be withheld from a user that creates bills, and editing after approval comes with it. Refused: a customer invoice (out_invoice), any change to a posted bill, deleting a draft bill. Posting is in the blocked list.",
+      "undo": "with-effort",
+      "is_bounded": false,
+      "material": "mixed"
+    },
+    {
+      "capability": "read.file.project",
+      "barrier": "none",
+      "evidence": "measured",
+      "via": [
+        "JSON-2: account.move read and search_read"
+      ],
+      "control": null,
+      "note": "reads draft vendor bills and their lines, including the ones it created, which is how the totals were checked. Reading a posted bill was refused: the access row's domain limits the user to draft vendor bills, so the archive of posted bills is outside this grant.",
+      "undo": "yes",
+      "is_bounded": false,
+      "material": "mixed"
+    },
+    {
+      "capability": "read.file.host",
+      "barrier": "none",
+      "evidence": "measured",
+      "via": [
+        "JSON-2: search_read on any model the internal-user role reads"
+      ],
+      "control": null,
+      "note": "Odoo's own access check reports read on 154 models. Read in the session: 41 contacts, and 6 supplier bank accounts (res.partner.bank, read granted to every internal user by the internal-user role, not by the job's group). Refused: posted bills, bank transactions (account.bank.statement.line), system parameters (ir.config_parameter), other users' API keys (it sees only its own key's name, never the secret).",
+      "undo": "no",
+      "is_bounded": false,
+      "material": "mixed"
+    },
+    {
+      "capability": "write.file.host",
+      "barrier": "none",
+      "evidence": "measured",
+      "via": [
+        "JSON-2: ir.attachment create",
+        "JSON-2: mail.template create",
+        "JSON-2: res.partner write, its own contact only"
+      ],
+      "control": null,
+      "note": "created an attachment (removed afterwards) and attached each supplier document to its bill. Odoo's own access check reports create on email templates (limited to templates the user created or owns) and update on the user's own contact; editing any other contact, including a supplier, was refused. All three come from the internal-user role.",
+      "undo": "with-effort",
+      "is_bounded": false,
+      "material": "organisation"
+    },
+    {
+      "capability": "send.message.world",
+      "barrier": "none",
+      "evidence": "measured",
+      "via": [
+        "JSON-2: message_post on a draft bill, with partner_ids"
+      ],
+      "control": null,
+      "note": "the call returned a message id and Odoo queued an email titled \"Draft Bill (INV-WC-2291)\" to the supplier's address. The instance had no outgoing mail server, so the email stayed in the queue marked exception and was never delivered; on a database with mail configured nothing in this user's access would stop it. Creating outgoing mail directly (mail.mail) was refused: the door is the chatter, not the mail queue.",
+      "undo": "no",
+      "is_bounded": false,
+      "material": "third_party"
+    },
+    {
+      "capability": "create.schedule.tenant",
+      "barrier": "none",
+      "evidence": "measured",
+      "via": [
+        "JSON-2: mail.scheduled.message create"
+      ],
+      "control": null,
+      "note": "Odoo's own access check reports create on scheduled messages, on records the user can reach and limited to its own, from the internal-user role: a message that sends later, after the agent's session has ended. Read from the access check on the measured instance, not exercised. Creating a scheduled action (ir.cron) and a server action were both refused.",
+      "undo": "yes",
+      "is_bounded": false,
+      "material": "mixed"
+    }
+  ],
+  "widest_reach": "world",
+  "not_in_grammar": [
+    {
+      "what": "create, read and update business records in a system of record (vendor bills, contacts)",
+      "permission": "the user's access rows",
+      "why": "the grammar's record object exists only at the reaches history and browsing; records here are mapped onto file.project and file.host through reach_names, as the n8n vault did for workflows. A record primitive at tenant reach (create.record.tenant and its siblings) would name them; it has not been proposed to abp.sgit.ai yet, and this measurement is the probe such a proposal would carry."
+    },
+    {
+      "what": "read the list of users",
+      "permission": "the internal-user role (res.users: read and update, update limited to itself)",
+      "why": "no primitive reads a platform's user directory; recorded so the grant is not read as narrower than it is"
+    },
+    {
+      "what": "post a bill from a draft",
+      "permission": "not granted: in the blocked list",
+      "why": "posting is an update that Odoo gates in code by group, not by an access row; the grammar has no verb for a state change, so it is named here and in blocked"
+    }
+  ],
+  "contradictions": [
+    {
+      "advertised": "Odoo's pricing page defines the external API as software \"that initiates calls to the Odoo API (JSON-RPC or XML-RPC) to query, retrieve or update data stored in Odoo.\" (https://www.odoo.com/pricing, read 2026-11-19)",
+      "permitted": "Odoo's external API documentation documents the JSON-2 API and says \"The common and object services are scheduled for removal in Odoo 22 (fall 2028) and Online 21.1 (winter 2027).\" (https://www.odoo.com/documentation/20.0/developer/reference/external_api.html, read 2026-11-19)",
+      "state": "unresolved",
+      "sources": [
+        "https://www.odoo.com/pricing",
+        "https://www.odoo.com/documentation/20.0/developer/reference/external_api.html"
+      ]
+    },
+    {
+      "advertised": "Odoo's MCP server page: select \"Readonly Tool to mark that the tool does not write or modify existing data and can be automatically invoked without user approval.\" (https://www.odoo.com/documentation/20.0/applications/productivity/ai/mcp_server.html, read 2026-11-19)",
+      "permitted": "the same page: \"It only advises the client that the tool is safe to invoke without explicit user approval.\" One sentence reads as a permission, the next as advice to the client",
+      "state": "unresolved",
+      "sources": [
+        "https://www.odoo.com/documentation/20.0/applications/productivity/ai/mcp_server.html"
+      ]
+    }
+  ],
+  "research_needed": [
+    {
+      "capability": "send.message.world",
+      "question": "On a database with an outgoing mail server, is the chatter email from this user delivered to the supplier, and with which sender address?",
+      "how": "On an instance you are entitled to run, configure a mail server that delivers only to an address the deployer names for the purpose, post one message with partner_ids from this user, and record what arrives.",
+      "sources": []
+    },
+    {
+      "capability": null,
+      "question": "On an Enterprise database, which user does an AI agent run as when an automated or scheduled action summons it, and which group may edit an agent's tools? Odoo states that \"Agents triggered automatically perform their tasks directly, without requesting user approval before creating or updating records.\" and that \"Agents can be summoned by automated and scheduled actions.\"",
+      "how": "Odoo's own pages, quoted and dated, then a measurement on an Enterprise or Odoo.sh database the deployer is entitled to run.",
+      "sources": [
+        "https://www.odoo.com/documentation/20.0/applications/productivity/ai/server-actions.html",
+        "https://www.odoo.com/odoo-20-release-notes"
+      ]
+    },
+    {
+      "capability": null,
+      "question": "If this user is given an API key with scope MCP on an Enterprise database, which tools does Odoo's MCP server expose to it beyond the five default ones? Odoo states that the key is used \"to authenticate the user's identity and permissions in the Odoo database\" and that further tools are exposed by ticking \"Available in MCP\" on a server action.",
+      "how": "Odoo's MCP server and tools pages, quoted; then a listing of tools from an MCP client on an Enterprise database the deployer is entitled to run.",
+      "sources": [
+        "https://www.odoo.com/documentation/20.0/applications/productivity/ai/mcp_server.html"
+      ]
+    },
+    {
+      "capability": "read.file.host",
+      "question": "Can the same job be done by a user whose group does not imply Odoo's internal-user role, which would take supplier bank accounts, chatter email, scheduled messages and email templates out of the grant?",
+      "how": "On an instance you are entitled to run, make such a group, create one draft bill with lines through the key, and measure the grant again.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "label": "The measuring session, 16 November 2026: the session record is history/grant-measured--2026-11-16.md in this vault",
+      "url": "https://riskmandate.ai/abp-vault-odoo-bills-integration-user.html",
+      "read": "2026-11-16"
+    },
+    {
+      "label": "Odoo 20 external API documentation (JSON-2, access validation, removal schedule)",
+      "url": "https://www.odoo.com/documentation/20.0/developer/reference/external_api.html",
+      "read": "2026-11-19"
+    },
+    {
+      "label": "Odoo 20 AI server actions documentation (agents triggered automatically)",
+      "url": "https://www.odoo.com/documentation/20.0/applications/productivity/ai/server-actions.html",
+      "read": "2026-11-19"
+    },
+    {
+      "label": "Odoo 20 MCP server documentation",
+      "url": "https://www.odoo.com/documentation/20.0/applications/productivity/ai/mcp_server.html",
+      "read": "2026-11-19"
+    },
+    {
+      "label": "Odoo 20 release notes",
+      "url": "https://www.odoo.com/odoo-20-release-notes",
+      "read": "2026-11-19"
+    },
+    {
+      "label": "Odoo pricing page",
+      "url": "https://www.odoo.com/pricing",
+      "read": "2026-11-19"
+    },
+    {
+      "label": "Odoo 20 source, res_users.py (API key generation)",
+      "url": "https://github.com/odoo/odoo/blob/20.0/odoo/addons/base/models/res_users.py",
+      "read": "2026-11-16"
+    },
+    {
+      "label": "The official odoo:20.0 Docker image, tag 20.0-20261112",
+      "url": "https://hub.docker.com/_/odoo",
+      "read": "2026-11-16"
+    }
+  ],
+  "provenance": {
+    "note": "Measured, not read: the rows come from a dated session on an Odoo 20.0-20261112 Community instance stood up for the purpose in a cloud container and torn down the same day. Odoo Community is published under LGPL-3 and the instance was ours to run; nobody else's system was touched. The session record is history/grant-measured--2026-11-16.md. Documented sentences in notes, blocked, contradictions and research_needed quote Odoo's pages with the date read. Not published at abp.sgit.ai.",
+    "measured_on": "2026-11-16",
+    "licence": "CC BY 4.0",
+    "id": "odoo/community-20/bills-integration-user"
+  }
+}

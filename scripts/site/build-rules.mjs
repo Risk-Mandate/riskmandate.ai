@@ -44,6 +44,8 @@ const barriers = Object.fromEntries(JSON.parse(readFileSync(join(VOC, 'barriers.
 const undo = Object.fromEntries(JSON.parse(readFileSync(join(VOC, 'undo-classes.json'), 'utf8')).classes.map((u) => [u.id, u]));
 const catalogue = JSON.parse(readFileSync(join(SITE, 'vaults/index.json'), 'utf8')).vaults;
 const VAULT = Object.fromEntries(catalogue.map((v) => [v.slug, v]));
+// published means pushed (vid and key), as on the library page: a built, unpushed vault's rows are not counted here yet
+const published = catalogue.filter((v) => v.vid && v.key);
 const grantOf = (slug) => JSON.parse(readFileSync(join(SITE, `vaults/${slug}/data/grant.json`), 'utf8')).grant;
 const rowsOf = (slug, ids) => grantOf(slug).filter((r) => ids.includes(r.capability || r.id));
 const barrierOf = (r) => (typeof r.barrier === 'object' && r.barrier ? r.barrier.kind : r.barrier) || 'none';
@@ -88,7 +90,7 @@ if (CANDIDATES) {
   const covered = {};
   for (const r of rules) for (const id of [r.capability, ...(r.also || [])]) (covered[id] ||= []).push(r.id);
   const byCap = {};
-  for (const v of catalogue) for (const row of grantOf(v.slug)) {
+  for (const v of published) for (const row of grantOf(v.slug)) {
     const id = row.capability || row.id;
     if (!caps[id] || caps[id].undo !== 'no' || barrierOf(row) !== 'none') continue;
     (byCap[id] ||= []).push(v.slug);
@@ -203,7 +205,7 @@ const COPY_SCRIPT = `<script>
 function coverage() {
   const covered = new Set(rules.flatMap((r) => [r.capability, ...(r.also || [])]));
   const want = new Set();
-  for (const v of catalogue) for (const row of grantOf(v.slug)) { const id = row.capability || row.id; if (caps[id] && caps[id].undo === 'no' && barrierOf(row) === 'none') want.add(id); }
+  for (const v of published) for (const row of grantOf(v.slug)) { const id = row.capability || row.id; if (caps[id] && caps[id].undo === 'no' && barrierOf(row) === 'none') want.add(id); }
   return { want: want.size, missing: [...want].filter((id) => !covered.has(id)) };
 }
 function indexPage() {

@@ -1,0 +1,112 @@
+{
+  "type": "riskmandate/abp-scenarios/v1",
+  "_what_this_is": "Alternative mandates for the same grant. Each scenario is a deployer's sentence and the primitives it wants and refuses; everything else is unstated. The grant never changes; the delta is recomputed per scenario. Written on this site as starting points to be argued with.",
+  "authored": "2026-11-19",
+  "scenarios": [
+    {
+      "id": "draft-bills-from-documents",
+      "tier": "normal",
+      "label": "Draft bills from supplier documents",
+      "description": "Create a draft vendor bill for each supplier document, for a person to check and post.",
+      "want": [
+        "authenticate-as.credential.tenant",
+        "write.file.project",
+        "read.file.project",
+        "read.file.host"
+      ],
+      "do_not_want": [
+        "send.message.world",
+        "create.schedule.tenant",
+        "write.file.host",
+        "write.budget.tenant"
+      ]
+    },
+    {
+      "id": "answer-questions-about-bills",
+      "tier": "normal",
+      "label": "Answer questions about bills, change nothing",
+      "description": "Look up suppliers and draft bills when someone asks; create and change nothing.",
+      "want": [
+        "authenticate-as.credential.tenant",
+        "read.file.project",
+        "read.file.host"
+      ],
+      "do_not_want": [
+        "write.file.project",
+        "write.file.host",
+        "send.message.world",
+        "create.schedule.tenant"
+      ]
+    },
+    {
+      "id": "drafts-with-the-document-attached",
+      "tier": "normal",
+      "label": "Drafts with the supplier's document attached",
+      "description": "Create draft bills and attach each supplier's document to its bill, so the person checking has it in one place.",
+      "want": [
+        "authenticate-as.credential.tenant",
+        "write.file.project",
+        "read.file.project",
+        "read.file.host",
+        "write.file.host"
+      ],
+      "do_not_want": [
+        "send.message.world",
+        "create.schedule.tenant",
+        "write.budget.tenant"
+      ]
+    },
+    {
+      "id": "ask-suppliers-for-missing-details",
+      "tier": "advanced",
+      "label": "Ask suppliers for missing details",
+      "description": "Draft bills, and when a document is missing a reference or a tax number, write to the supplier from the bill.",
+      "want": [
+        "authenticate-as.credential.tenant",
+        "write.file.project",
+        "read.file.project",
+        "read.file.host",
+        "send.message.world"
+      ],
+      "do_not_want": [
+        "create.schedule.tenant",
+        "write.budget.tenant",
+        "grant.credential.self"
+      ]
+    },
+    {
+      "id": "remind-suppliers-later",
+      "tier": "advanced",
+      "label": "Remind suppliers later",
+      "description": "Schedule a reminder to a supplier on a draft that is still waiting for their details a week on.",
+      "want": [
+        "authenticate-as.credential.tenant",
+        "read.file.project",
+        "read.file.host",
+        "send.message.world",
+        "create.schedule.tenant"
+      ],
+      "do_not_want": [
+        "write.file.project",
+        "write.budget.tenant"
+      ]
+    },
+    {
+      "id": "pay-approved-bills",
+      "tier": "advanced",
+      "label": "Pay the bills a person approved",
+      "description": "Draft bills, and once a person has posted one, register its payment.",
+      "want": [
+        "authenticate-as.credential.tenant",
+        "write.file.project",
+        "read.file.project",
+        "read.file.host",
+        "write.budget.tenant"
+      ],
+      "do_not_want": [
+        "send.message.world",
+        "grant.credential.self"
+      ]
+    }
+  ]
+}

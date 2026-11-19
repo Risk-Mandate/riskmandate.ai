@@ -1,0 +1,12 @@
+{
+  "lk-9295af085d99": {
+    "type": "vault",
+    "label": "app",
+    "pin": {
+      "mode": "latest"
+    },
+    "vault_id": "vbhmlulo",
+    "read_key": "rlLwG2B5LxNEQFbf0LYk3DHCI5B67mVwCg4Gz4K4TK8=",
+    "ref_file_id": "ref-pid-muw-ee683774577e"
+  }
+}

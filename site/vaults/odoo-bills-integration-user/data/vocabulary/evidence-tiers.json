@@ -1,0 +1,52 @@
+{
+  "type": "abp/evidence-tiers/v1",
+  "_what_this_is": "How a capability row is known, weakest first. The published headline collapses these to measured against derived; this site keeps all seven and states which of them it counts as measured.",
+  "order": [
+    "derived",
+    "inferred",
+    "self-reported",
+    "documented",
+    "measured",
+    "observed"
+  ],
+  "counted_as_measured": [
+    "observed",
+    "measured"
+  ],
+  "tiers": [
+    {
+      "id": "derived",
+      "published_meaning": "from what the thing architecturally is; a claim until somebody runs the probes"
+    },
+    {
+      "id": "inferred",
+      "published_meaning": "from another row or another profile, by reasoning rather than by observation"
+    },
+    {
+      "id": "self-reported",
+      "published_meaning": "reported by the operator, the harness or the tool itself, without an independent probe"
+    },
+    {
+      "id": "documented",
+      "published_meaning": "the vendor, or a published tool, says so"
+    },
+    {
+      "id": "measured",
+      "published_meaning": "a probe run on an instance, dated, with an evidence file"
+    },
+    {
+      "id": "observed",
+      "published_meaning": "seen directly, on the thing itself, by the thing itself"
+    }
+  ],
+  "provenance": {
+    "source": "https://what-can-it-do.games.sgit.ai/data/",
+    "source_page": "https://what-can-it-do.games.sgit.ai/map/index.html",
+    "retrieved": "2026-09-11T13:00:37Z",
+    "pack_version": "v0.8.0",
+    "content_hash": "sha256:d6d4ba40f1fb1f93f660687e4787ac10c2e1835efeb3929a4c8ad62cee8897ef",
+    "verbatim_bytes": "upstream/",
+    "note": "The pack's evidence_tiers, unchanged.",
+    "licence": "CC BY 4.0"
+  }
+}

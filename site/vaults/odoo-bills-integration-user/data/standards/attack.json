@@ -1,0 +1,94 @@
+{
+  "type": "riskmandate/standards-mini-graph/v1",
+  "standard": "attack",
+  "title": "MITRE ATT&CK — Enterprise techniques",
+  "_what_this_is": "A mini graph of the techniques a behaviour policy's consequences may be named by: technique id, name, link. Titles and identifiers only, never the body text of a standard (site rule 7). A link from a consequence or a behaviour to a node here says the node is touched or named, never that anything complies with it (rule 6). Names are the public matrix's own; a link from a consequence to a technique is a judgement, and the consequence says who made it and why.",
+  "source": "https://attack.mitre.org/techniques/enterprise/",
+  "read": "2026-09-16",
+  "nodes": [
+    {
+      "id": "attack.T1114",
+      "technique": "T1114",
+      "title": "Email Collection",
+      "url": "https://attack.mitre.org/techniques/T1114/"
+    },
+    {
+      "id": "attack.T1114.002",
+      "technique": "T1114.002",
+      "title": "Email Collection: Remote Email Collection",
+      "url": "https://attack.mitre.org/techniques/T1114/002/"
+    },
+    {
+      "id": "attack.T1114.003",
+      "technique": "T1114.003",
+      "title": "Email Collection: Email Forwarding Rule",
+      "url": "https://attack.mitre.org/techniques/T1114/003/"
+    },
+    {
+      "id": "attack.T1534",
+      "technique": "T1534",
+      "title": "Internal Spearphishing",
+      "url": "https://attack.mitre.org/techniques/T1534/"
+    },
+    {
+      "id": "attack.T1566",
+      "technique": "T1566",
+      "title": "Phishing",
+      "url": "https://attack.mitre.org/techniques/T1566/"
+    },
+    {
+      "id": "attack.T1566.001",
+      "technique": "T1566.001",
+      "title": "Phishing: Spearphishing Attachment",
+      "url": "https://attack.mitre.org/techniques/T1566/001/"
+    },
+    {
+      "id": "attack.T1048",
+      "technique": "T1048",
+      "title": "Exfiltration Over Alternative Protocol",
+      "url": "https://attack.mitre.org/techniques/T1048/"
+    },
+    {
+      "id": "attack.T1567",
+      "technique": "T1567",
+      "title": "Exfiltration Over Web Service",
+      "url": "https://attack.mitre.org/techniques/T1567/"
+    },
+    {
+      "id": "attack.T1098",
+      "technique": "T1098",
+      "title": "Account Manipulation",
+      "url": "https://attack.mitre.org/techniques/T1098/"
+    },
+    {
+      "id": "attack.T1564.008",
+      "technique": "T1564.008",
+      "title": "Hide Artifacts: Email Hiding Rules",
+      "url": "https://attack.mitre.org/techniques/T1564/008/"
+    },
+    {
+      "id": "attack.T1589.002",
+      "technique": "T1589.002",
+      "title": "Gather Victim Identity Information: Email Addresses",
+      "url": "https://attack.mitre.org/techniques/T1589/002/"
+    },
+    {
+      "id": "attack.T1565.001",
+      "technique": "T1565.001",
+      "title": "Data Manipulation: Stored Data Manipulation",
+      "url": "https://attack.mitre.org/techniques/T1565/001/"
+    },
+    {
+      "id": "attack.T1552.008",
+      "technique": "T1552.008",
+      "title": "Unsecured Credentials: Chat Messages",
+      "url": "https://attack.mitre.org/techniques/T1552/008/"
+    },
+    {
+      "id": "attack.T1078",
+      "technique": "T1078",
+      "title": "Valid Accounts",
+      "url": "https://attack.mitre.org/techniques/T1078/"
+    }
+  ]
+}
