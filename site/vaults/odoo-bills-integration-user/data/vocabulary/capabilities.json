@@ -1,0 +1,273 @@
+{
+  "type": "abp/capabilities/v1",
+  "_what_this_is": "The capability grammar of the Agent Behaviour Policy: verb.object.reach, 23 primitives, each with the undo class of its effect. Promoted from the published capability map without renaming anything. A specific path, host or mailbox is an INSTANCE of a primitive, never a new one.",
+  "grammar": "verb.object.reach",
+  "verbs": [
+    "read",
+    "write",
+    "create",
+    "delete",
+    "execute",
+    "send",
+    "receive",
+    "authenticate-as",
+    "grant",
+    "revoke"
+  ],
+  "object_classes": [
+    "file",
+    "process",
+    "network-endpoint",
+    "credential",
+    "message",
+    "record",
+    "repository",
+    "budget",
+    "schedule"
+  ],
+  "reaches": {
+    "self": "the agent's own process, sandbox or turn",
+    "project": "the working tree or workspace it was pointed at",
+    "host": "the machine, container or account it runs as",
+    "tenant": "the organisation's accounts, repositories and services",
+    "world": "anything on the internet"
+  },
+  "families": {
+    "filesystem": "files and directories",
+    "process": "programs and their execution",
+    "network": "endpoints and hosts",
+    "identity": "credentials and who the agent can act as",
+    "communication": "messages to people",
+    "code": "repositories and what lands in them",
+    "money": "budgets and spend",
+    "schedule": "things that outlive the turn",
+    "browser": "what a browser extension or automation can see and do in your browser"
+  },
+  "rules": [
+    "A specific path, host or mailbox is an instance of a primitive, never a new one.",
+    "Reversibility sits on the primitive, not the instance, because it decides whether a gap is a nuisance or a loss — and this estate has settled that recoverability decides insurability.",
+    "A grant containing irreversible primitives is a different object from one that does not, however many rows each has.",
+    "The set is a starting set and will be wrong at the edges from the first week. A proposed primitive that is a specific thing is an instance; one that is a new verb, object class or reach needs a probe.",
+    "A label never says 'your' or 'as you': what host, tenant and world mean is the profile's to say (reach_names), because for an agent in a vendor's container 'host' is the container and 'tenant' is a scoped token, not your machine and not your accounts."
+  ],
+  "count": 23,
+  "capabilities": [
+    {
+      "id": "read.file.project",
+      "verb": "read",
+      "object": "file",
+      "reach": "project",
+      "family": "filesystem",
+      "undo": "yes",
+      "gloss": "Read the project it is working on"
+    },
+    {
+      "id": "write.file.project",
+      "verb": "write",
+      "object": "file",
+      "reach": "project",
+      "family": "filesystem",
+      "undo": "with-effort",
+      "gloss": "Change the project it is working on"
+    },
+    {
+      "id": "read.file.host",
+      "verb": "read",
+      "object": "file",
+      "reach": "host",
+      "family": "filesystem",
+      "undo": "no",
+      "gloss": "Read any file the account can reach"
+    },
+    {
+      "id": "write.file.host",
+      "verb": "write",
+      "object": "file",
+      "reach": "host",
+      "family": "filesystem",
+      "undo": "with-effort",
+      "gloss": "Change any file the account can reach"
+    },
+    {
+      "id": "delete.file.host",
+      "verb": "delete",
+      "object": "file",
+      "reach": "host",
+      "family": "filesystem",
+      "undo": "no",
+      "gloss": "Delete files anywhere the account can reach"
+    },
+    {
+      "id": "execute.process.host",
+      "verb": "execute",
+      "object": "process",
+      "reach": "host",
+      "family": "process",
+      "undo": "with-effort",
+      "gloss": "Run programs as the account"
+    },
+    {
+      "id": "execute.process.self",
+      "verb": "execute",
+      "object": "process",
+      "reach": "self",
+      "family": "process",
+      "undo": "yes",
+      "gloss": "Run programs inside its own sandbox only"
+    },
+    {
+      "id": "send.endpoint.allowed",
+      "verb": "send",
+      "object": "network-endpoint",
+      "reach": "tenant",
+      "family": "network",
+      "undo": "no",
+      "gloss": "Reach a permitted list of hosts"
+    },
+    {
+      "id": "send.endpoint.world",
+      "verb": "send",
+      "object": "network-endpoint",
+      "reach": "world",
+      "family": "network",
+      "undo": "no",
+      "gloss": "Reach any host on the internet"
+    },
+    {
+      "id": "read.credential.host",
+      "verb": "read",
+      "object": "credential",
+      "reach": "host",
+      "family": "identity",
+      "undo": "no",
+      "gloss": "Read credentials stored where it runs"
+    },
+    {
+      "id": "authenticate-as.credential.tenant",
+      "verb": "authenticate-as",
+      "object": "credential",
+      "reach": "tenant",
+      "family": "identity",
+      "undo": "no",
+      "gloss": "Act in accounts with the credentials it holds"
+    },
+    {
+      "id": "grant.credential.self",
+      "verb": "grant",
+      "object": "credential",
+      "reach": "self",
+      "family": "identity",
+      "undo": "yes",
+      "gloss": "Change its own permission settings"
+    },
+    {
+      "id": "send.message.world",
+      "verb": "send",
+      "object": "message",
+      "reach": "world",
+      "family": "communication",
+      "undo": "no",
+      "gloss": "Send a message to anyone"
+    },
+    {
+      "id": "read.message.tenant",
+      "verb": "read",
+      "object": "message",
+      "reach": "tenant",
+      "family": "communication",
+      "undo": "no",
+      "gloss": "Read mail or chat it is connected to"
+    },
+    {
+      "id": "write.repository.project",
+      "verb": "write",
+      "object": "repository",
+      "reach": "project",
+      "family": "code",
+      "undo": "with-effort",
+      "gloss": "Commit to the repository it was pointed at"
+    },
+    {
+      "id": "write.repository.tenant",
+      "verb": "write",
+      "object": "repository",
+      "reach": "tenant",
+      "family": "code",
+      "undo": "with-effort",
+      "gloss": "Push to a code host (any branch it can reach)"
+    },
+    {
+      "id": "authenticate-as.credential.signing",
+      "verb": "authenticate-as",
+      "object": "credential",
+      "reach": "tenant",
+      "family": "code",
+      "undo": "no",
+      "gloss": "Sign commits with the key it holds"
+    },
+    {
+      "id": "create.record.world",
+      "verb": "create",
+      "object": "record",
+      "reach": "world",
+      "family": "code",
+      "undo": "no",
+      "gloss": "Publish packages, images or pages under the name it holds"
+    },
+    {
+      "id": "write.budget.tenant",
+      "verb": "write",
+      "object": "budget",
+      "reach": "tenant",
+      "family": "money",
+      "undo": "no",
+      "gloss": "Spend money or tokens against an account it holds"
+    },
+    {
+      "id": "create.schedule.host",
+      "verb": "create",
+      "object": "schedule",
+      "reach": "host",
+      "family": "schedule",
+      "undo": "yes",
+      "gloss": "Create something that outlives the turn where it runs (a cron, a service)"
+    },
+    {
+      "id": "read.record.history",
+      "verb": "read",
+      "object": "record",
+      "reach": "host",
+      "family": "filesystem",
+      "undo": "no",
+      "gloss": "Read a retained record: shell history, past sessions"
+    },
+    {
+      "id": "create.schedule.tenant",
+      "verb": "create",
+      "object": "schedule",
+      "reach": "tenant",
+      "family": "schedule",
+      "undo": "yes",
+      "gloss": "Create something that outlives the session, on the platform (a routine, a scheduled trigger, a new session)"
+    },
+    {
+      "id": "read.record.browsing",
+      "verb": "read",
+      "object": "record",
+      "reach": "host",
+      "family": "browser",
+      "undo": "no",
+      "gloss": "Read every page you visit"
+    }
+  ],
+  "provenance": {
+    "source": "https://what-can-it-do.games.sgit.ai/data/",
+    "source_page": "https://what-can-it-do.games.sgit.ai/map/index.html",
+    "retrieved": "2026-09-11T13:00:37Z",
+    "pack_version": "v0.8.0",
+    "content_hash": "sha256:d6d4ba40f1fb1f93f660687e4787ac10c2e1835efeb3929a4c8ad62cee8897ef",
+    "verbatim_bytes": "upstream/",
+    "note": "Promoted from primitives.json. Field names changed (reversible -> undo, label -> gloss); no id, value or gloss changed.",
+    "licence": "CC BY 4.0"
+  }
+}

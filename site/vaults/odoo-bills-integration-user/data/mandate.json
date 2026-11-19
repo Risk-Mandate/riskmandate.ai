@@ -1,0 +1,55 @@
+{
+  "type": "abp/mandate/v1",
+  "id": "draft-vendor-bills-from-supplier-documents",
+  "label": "Turn supplier documents into draft vendor bills",
+  "surface": [
+    "api"
+  ],
+  "applies_to": [
+    "odoo/community-20/bills-integration-user"
+  ],
+  "status": "starting-point",
+  "authored": "2026-11-16",
+  "authored_by": "drafted by the measuring session from the deployer's brief, \"an agent that turns incoming supplier documents into draft vendor bills (never posted), with a narrowly scoped integration user (not admin)\"; not yet corrected by the deployer",
+  "description": "Read each supplier document, find the supplier among the ones already in Odoo, and create a draft vendor bill for it, for a person to check and post. Never post a bill, pay anything, email a supplier, create or change a supplier, or schedule anything. A document from a supplier Odoo does not know goes back to a person.",
+  "want": [
+    "authenticate-as.credential.tenant",
+    "write.file.project",
+    "read.file.project",
+    "read.file.host"
+  ],
+  "do_not_want": [
+    "send.message.world",
+    "create.schedule.tenant",
+    "write.file.host",
+    "write.budget.tenant",
+    "grant.credential.self",
+    "delete.file.host"
+  ],
+  "unstated": [
+    "authenticate-as.credential.signing",
+    "create.record.world",
+    "create.schedule.host",
+    "execute.process.host",
+    "execute.process.self",
+    "read.credential.host",
+    "read.message.tenant",
+    "read.record.browsing",
+    "read.record.history",
+    "send.endpoint.allowed",
+    "send.endpoint.world",
+    "write.repository.project",
+    "write.repository.tenant"
+  ],
+  "notes": {
+    "read.file.host": "wanted for suppliers, journals, accounts and taxes. The same primitive reaches supplier bank accounts, which the deployer did not ask for; one primitive cannot show the difference, so it is said here",
+    "write.file.project": "wanted for creating drafts. Editing a draft after a person approved it is the same primitive and Odoo will not separate it from creating; the exercise held it with a broker that applied only approved, hashed operations",
+    "send.message.world": "refused: suppliers hear from a person",
+    "write.file.host": "refused: attaching the supplier's document is the one write here that would be welcome, and it rides on the same row as email templates",
+    "write.budget.tenant": "refused: payments, and AI credits if this were an Odoo AI agent on Enterprise"
+  },
+  "provenance": {
+    "note": "A starting point in the deployer's words, sorted over the 23 primitives by the measuring session. It is a draft for the people who own the bills, the suppliers and the Odoo database to correct.",
+    "licence": "CC BY 4.0"
+  }
+}

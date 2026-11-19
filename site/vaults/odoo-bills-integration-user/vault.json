@@ -1,0 +1,17 @@
+{
+  "slug": "odoo-bills-integration-user",
+  "title": "A self-hosted Odoo 20 Community database, bills integration user",
+  "status": "template",
+  "what_status_means": "template: the draft for a deployment shape, before anybody has corrected the mandate. draft: a copy made for one organisation, mandate not yet corrected. corrected: the mandate has been elicited from the deployer and a named owner has signed the licence.",
+  "shape": "odoo/community-20/bills-integration-user",
+  "vocabulary_version": "v0.3.0",
+  "vocabulary_source": "https://abp.sgit.ai/data/index.json",
+  "as_at": "2026-11-19",
+  "organisation": null,
+  "agent": "An agent holding the API key of a narrow integration user on a self-hosted Odoo 20 Community database, there to turn supplier documents into draft vendor bills",
+  "owner": null,
+  "issued": null,
+  "valid_until": null,
+  "measured_rows": "7 of 7",
+  "shape_note": "Measured on an Odoo 20.0-20261112 Community instance stood up for the exercise in a cloud container on 2026-11-16, with demo data and nothing else on it, and torn down the same day. The integration user, its group and its access rows were made by the person running the exercise, as a deployer would. Published as the template for this shape rather than as that instance."
+}

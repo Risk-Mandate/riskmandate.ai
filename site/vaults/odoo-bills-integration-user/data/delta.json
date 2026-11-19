@@ -1,0 +1,41 @@
+{
+  "type": "abp/delta/v1",
+  "profile": "odoo/community-20/bills-integration-user",
+  "mandate": "draft-vendor-bills-from-supplier-documents",
+  "grant_version": "2026-11-16",
+  "mandate_version": "2026-11-16",
+  "vocabulary_version": "v0.3.0",
+  "computed_at": "2026-11-19T01:47:36Z",
+  "computed_by": "riskmandate.ai build-abp-vault.mjs (abp.delta/v1 semantics)",
+  "excess": [
+    "write.file.host",
+    "send.message.world",
+    "create.schedule.tenant"
+  ],
+  "excess_refused": [
+    "write.file.host",
+    "send.message.world",
+    "create.schedule.tenant"
+  ],
+  "excess_unstated": [],
+  "unbounded_excess": [
+    "write.file.host",
+    "send.message.world",
+    "create.schedule.tenant"
+  ],
+  "shortfall": [],
+  "aligned": [
+    "authenticate-as.credential.tenant",
+    "write.file.project",
+    "read.file.project",
+    "read.file.host"
+  ],
+  "derived_never_authored": "No field in this record is writable by a person. The way to change a delta is to change a grant or a mandate, and then recompute.",
+  "counts": {
+    "excess": 3,
+    "unbounded_excess": 3,
+    "shortfall": 0,
+    "aligned": 4
+  },
+  "id": "odoo__community-20__bills-integration-user__draft-vendor-bills-from-supplier-documents"
+}

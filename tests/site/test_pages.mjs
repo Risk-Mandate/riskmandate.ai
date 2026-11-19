@@ -279,7 +279,9 @@ test('the home page counts link to their record, and the shape count comes from 
   // the date are. (Until v1.40.3 the hero carried one template's reach, mandate and gap from its vault;
   // that page is in the archive.) The number of published shapes is still checked against the catalogue.
   const home = read('index.html');
-  const n    = JSON.parse(read('vaults/index.json')).vaults.length;
+  // Published means pushed: an entry without vid and key is built and unpushed, and the library leaves it out
+  // (build-abp-pages.mjs filters on vid && key), so the home page must not count it either.
+  const n    = JSON.parse(read('vaults/index.json')).vaults.filter((v) => v.vid && v.key).length;
 
   const hero = home.match(/<div class="ws-nums">[\s\S]*?<\/main>/)?.[0];
   assert.ok(hero, 'the home page has no hero counts block');

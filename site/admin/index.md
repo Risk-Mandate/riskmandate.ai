@@ -15,9 +15,9 @@
 
 **45**briefs written here*one page each*
 
-**16**vaults built and pushed*4 measured · 9 asked for*
+**17**vaults built and pushed*5 measured · 9 asked for*
 
-**179**releases*8 Lab editions*
+**180**releases*8 Lab editions*
 
 ## Needs the lead — 11
 
@@ -91,7 +91,7 @@ Working pages off the public menu since v1.40.3: [the demo walkthrough](../walkt
 
 **[The vaults](../admin/vaults/)**
 
-16 behaviour-policy vaults, each with its id, its public read key, how many rows are measured and how many questions are open.28 open
+17 behaviour-policy vaults, each with its id, its public read key, how many rows are measured and how many questions are open.32 open
 
 **[The agents' front door](../admin/agents/)**
 

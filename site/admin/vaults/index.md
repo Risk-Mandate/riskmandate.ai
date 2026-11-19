@@ -3,11 +3,11 @@
 > Every behaviour-policy vault on riskmandate.ai with its id, shape, measured rows and open questions, read off the catalogue and each vault's data.
 > Source: https://riskmandate.ai/admin/vaults/ · noindex · written by scripts/site/build-admin.mjs
 
-**16**vaults built and pushed*public read key, printed on purpose*
+**17**vaults built and pushed*public read key, printed on purpose*
 
-**4**measured on the thing itself*at least one row run by us*
+**5**measured on the thing itself*at least one row run by us*
 
-**28**open research questions*across every grant*
+**32**open research questions*across every grant*
 
 **9**asked for, not built*6 connectors · 3 functions*
 
@@ -68,6 +68,14 @@ An assistant on a personal Google Drive | `google/drive/readonly-connector` | 3 
 Claude's Microsoft 365 connector | `anthropic/microsoft-365-connector/default` | 5 | documented | 4 open 3 contradictions | 2026-09-15 | `dgx3nvu4` | [host ↗](https://dev.vault.sgraph.ai/en-gb/#43d439062419da78ef22e544257d775f5774b33830d92f7a3abe5c05c2873669:dgx3nvu4) |
 | [Dropbox MCP server](../../abp-vault-dropbox-mcp.html)
 The official Dropbox MCP server | `dropbox/mcp-server/default` | 5 | documented | 4 open 2 contradictions | 2026-09-15 | `9eqa7e4p` | [host ↗](https://dev.vault.sgraph.ai/en-gb/#f22db64f51e4268a4531bebe0c6d46f3e51dd1337193a7e8137efac9cdfc5990:9eqa7e4p) |
+
+## Business systems
+
+| Vault | Shape | Rows | Measured | Open | As at | Id |  |
+|---|---|---|---|---|---|---|---|
+
+| [Odoo 20 Community, bills integration user](../../vaults/odoo-bills-integration-user/README.md)
+A self-hosted Odoo 20 Community database, bills integration user | `odoo/community-20/bills-integration-user` | 7 | 7 of 7 | 4 open 2 contradictions | 2026-11-19 | not pushed | built, unpushed: the lead pushes |
 
 ## Asked for, not built
 

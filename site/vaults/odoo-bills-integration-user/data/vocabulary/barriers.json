@@ -1,0 +1,56 @@
+{
+  "type": "abp/barriers/v1",
+  "_what_this_is": "The four barriers, weakest first: what stands between the agent and a capability. Every prohibition rendered anywhere on this site carries one. A prohibition shown without its barrier is a claim the site cannot support.",
+  "enforcer_test": "A control bounds a grant only if it is enforced by something the grant does not include.",
+  "order": [
+    "none",
+    "expectation",
+    "setting",
+    "boundary"
+  ],
+  "barriers": [
+    {
+      "id": "none",
+      "published_meaning": "nothing in the way",
+      "glyph": "filled circle",
+      "is_control": false,
+      "why": "Nothing is in the way."
+    },
+    {
+      "id": "expectation",
+      "published_meaning": "a rule in prose, enforced by nobody",
+      "glyph": "double circle",
+      "is_control": false,
+      "why": "A rule in prose is inside the boundary the agent operates in. All four major model providers stated in their own 2026 words that an instruction at this layer can be bypassed."
+    },
+    {
+      "id": "setting",
+      "published_meaning": "a switch the agent's own account can flip",
+      "glyph": "half filled circle",
+      "is_control": false,
+      "why": "The grant includes the ability to remove the bound."
+    },
+    {
+      "id": "boundary",
+      "published_meaning": "enforced above the grant, out of the agent's reach",
+      "glyph": "empty circle",
+      "is_control": true,
+      "why": "Enforced by something the grant does not include. The only row that bounds anything."
+    }
+  ],
+  "absent": {
+    "id": "absent",
+    "glyph": "dot",
+    "published_meaning": "not in this grant"
+  },
+  "provenance": {
+    "source": "https://what-can-it-do.games.sgit.ai/data/",
+    "source_page": "https://what-can-it-do.games.sgit.ai/map/index.html",
+    "retrieved": "2026-09-11T13:00:37Z",
+    "pack_version": "v0.8.0",
+    "content_hash": "sha256:d6d4ba40f1fb1f93f660687e4787ac10c2e1835efeb3929a4c8ad62cee8897ef",
+    "verbatim_bytes": "upstream/",
+    "note": "The four ids and their published meanings are the pack's control_tiers, unchanged. is_control and why are this site's reading of them, stated as such, and are not in the pack.",
+    "licence": "CC BY 4.0"
+  }
+}

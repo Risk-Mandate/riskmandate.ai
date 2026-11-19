@@ -1,0 +1,34 @@
+{
+  "type": "abp/undo-classes/v1",
+  "_what_this_is": "The undo class of a capability's effect, as published by the product. It is the ordering on every rendering this site produces, because reversibility is a property of the ACTION rather than a severity. It is not a score, and it is the one column that is not fully context free: whether a deletion is reversible depends on backups the deployment owns.",
+  "order": [
+    "no",
+    "with-effort",
+    "yes"
+  ],
+  "ordering_note": "Irreversible first on every rendering. Stated as a property of the action, never as severity.",
+  "classes": [
+    {
+      "id": "yes",
+      "published_meaning": "undone by the same actor with no loss"
+    },
+    {
+      "id": "with-effort",
+      "published_meaning": "recoverable from a backup, a history or a revert, at a cost"
+    },
+    {
+      "id": "no",
+      "published_meaning": "cannot be undone"
+    }
+  ],
+  "provenance": {
+    "source": "https://what-can-it-do.games.sgit.ai/data/",
+    "source_page": "https://what-can-it-do.games.sgit.ai/map/index.html",
+    "retrieved": "2026-09-11T13:00:37Z",
+    "pack_version": "v0.8.0",
+    "content_hash": "sha256:d6d4ba40f1fb1f93f660687e4787ac10c2e1835efeb3929a4c8ad62cee8897ef",
+    "verbatim_bytes": "upstream/",
+    "note": "The pack's `reversible` vocabulary, unchanged, under the name this site uses for it.",
+    "licence": "CC BY 4.0"
+  }
+}

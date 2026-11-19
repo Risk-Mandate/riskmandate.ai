@@ -1,0 +1,52 @@
+{
+  "type": "riskmandate/standards-mini-graph/v1",
+  "standard": "eu-ai-act",
+  "title": "Regulation (EU) 2024/1689 — Artificial Intelligence Act",
+  "_what_this_is": "A mini graph of the articles a behaviour policy's consequences may touch: article number, title, link. Titles and identifiers only, never the body text of a standard (site rule 7). A link from a consequence or a behaviour to a node here says the node is touched or named, never that anything complies with it (rule 6). The regulation itself may be quoted on this site; the default is still the title.",
+  "source": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
+  "read": "2026-09-16",
+  "nodes": [
+    {
+      "id": "aia.art4",
+      "article": "4",
+      "title": "AI literacy",
+      "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    },
+    {
+      "id": "aia.art9",
+      "article": "9",
+      "title": "Risk management system",
+      "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    },
+    {
+      "id": "aia.art12",
+      "article": "12",
+      "title": "Record-keeping",
+      "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    },
+    {
+      "id": "aia.art13",
+      "article": "13",
+      "title": "Transparency and provision of information to deployers",
+      "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    },
+    {
+      "id": "aia.art14",
+      "article": "14",
+      "title": "Human oversight",
+      "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    },
+    {
+      "id": "aia.art26",
+      "article": "26",
+      "title": "Obligations of deployers of high-risk AI systems",
+      "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    },
+    {
+      "id": "aia.art50",
+      "article": "50",
+      "title": "Transparency obligations for providers and deployers of certain AI systems",
+      "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    }
+  ]
+}

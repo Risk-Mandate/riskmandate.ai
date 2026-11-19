@@ -49,6 +49,7 @@ the site's; check `site/versions/index.json` for the current version before trus
 | measured on the thing itself | `claude-code-web` (13/20 rows), `github-actions` (8/8), `n8n-owner-api-key` (7/8, from an early beta user's write-up), `claude-gmail-connector` (4/6, below) |
 | derived from the model site's five examples | `claude-code-cli`, `claude-code-cli-confirmations-off`, `claude-desktop`, `claude-web-connectors`, `chatgpt-web`, `browser-extension`, `scheduled-job` |
 | documented from vendor pages, 15 Sept, with open questions | `google-workspace-mcp` (4), `gmail-readonly` (3), `google-drive-readonly` (3), `claude-m365-connector` (4), `dropbox-mcp` (4) |
+| measured on an instance we ran, 16 Nov; **built and unpushed** | `odoo-bills-integration-user` (7/7 rows, 2 contradictions, 4 open questions; group *Business systems*; session record in its `history/`). In `site/vaults/index.json` without `vid`/`key`, so the library, the rules page, the deck and the home page count leave it out until the lead pushes it and fills both |
 | measured on the deployer's own account, 16 Sept | `claude-gmail-connector` (`oc433z3m`, 4 of 6 rows measured, 5 contradictions, 6 open questions; in *Mail & files connectors*). Its customer instance is pushed as a private vault `xjir6m0c` (status draft), key handed to the lead in the session; the anonymised inputs stay under `vaults-instances/` |
 
 - **Asked for, not built**, on their own page `agent-behaviour-policy-next.html` (v1.17.0) with a
