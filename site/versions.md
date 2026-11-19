@@ -9,6 +9,8 @@ they describe are not in this repository.
 
 Rendered at https://riskmandate.ai/versions.html · index at https://riskmandate.ai/versions/index.json
 
+- **v1.41.24** · 2026-11-19 — A measured template for Odoo 20 Community, built and waiting for its push
+  Notes: https://riskmandate.ai/versions/1.41.24.md · Source: `git:v1.41.24`
 - **v1.41.23** · 2026-11-18 — Questions: what a regulated buyer can use, and what we do not do
   Notes: https://riskmandate.ai/versions/1.41.23.md · Source: `git:v1.41.23`
 - **v1.41.22** · 2026-11-18 — The conductor's own behaviour policy: what the team that runs this site can do, and what stands in the way

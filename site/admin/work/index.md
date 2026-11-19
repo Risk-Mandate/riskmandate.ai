@@ -71,19 +71,11 @@ a decision the lead owns, listed in the state fileneeds the lead
 
 a decision the lead owns, listed in the state fileneeds the lead
 
-## In flight — 1 branch
+## In flight — 0 branches
 
 One file per branch under `.claude/work/`. [How a work file is written](../../admin/work/about-work-files/).
 
-### [claude/odoo-bills-vault](../../admin/work/branches/claude-odoo-bills-vault/)
-
-started 19 November 2026 · task brief: ad hoc, the lead's instruction to publish the Odoo demo as a RiskMandate example
-
-Add one behaviour-policy template vault, `odoo-bills-integration-user`: an agent holding the API key of a narrow integration user on a self-hosted Odoo 20 Community database, for turning supplier documents into draft vendor bills. The grant is measured, on an ephemeral Odoo 20.0-20261112 Community instance we stood up and ran ourselves on 16 November 2026 and then tore down; the session record is in the vault's `history/`. Documented rows and open questions quote Odoo's own pages, dated. Catalogue entry added without `vid`/`key`. No change to the renderer, the library page code or any other vault.
-
-**External state.** Vaults built and unpushed: `odoo-bills-integration-user` — the push is owed by the lead, then `vid` and `key` go into `site/vaults/index.json` and the pages are rebuilt · Lab editions I will cut: none · Release I will claim at merge: yes, a patch
-
-**Status.** [x] vault inputs written · [x] built and `--check` green: grant 7 (7 measured), mandate 4, excess 3, unbounded 3, shortfall 0, aligned 4 · [x] catalogue entry (no `vid`/`key`), pages, generate, `npm run check` green
+Nothing in flight.
 
 ## Task briefs — 18
 
